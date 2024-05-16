@@ -34,7 +34,7 @@ import (
 
 func main() {
 	flag.Usage = func() {
-		const usageFormat = "Usage: %s <operation> <schema-folder> <version> (<schema urls>) <docs-url>"
+		const usageFormat = "Usage: %s <operation> <schema-folder> <version> (<schema urls>) (<docs-url>)"
 		_, err := fmt.Fprintf(flag.CommandLine.Output(), usageFormat, os.Args[0])
 		contract.IgnoreError(err)
 		flag.PrintDefaults()
@@ -55,8 +55,20 @@ func main() {
 	semanticsDir := filepath.Join(".", "provider", "cmd", "pulumi-resource-aws-native")
 
 	switch operation {
+	case "docs":
+		if len(args) < 4 {
+			fmt.Println("Error: discovery operation requires additional docs url argument")
+			flag.Usage()
+			return
+		}
+
+		docsUrl := args[4]
+		if err := downloadCloudFormationDocs(docsUrl, filepath.Join(".", "aws-cloudformation-docs")); err != nil {
+			panic(fmt.Errorf("error download CloudFormation docs: %v", err))
+		}
+
 	case "discovery":
-		if len(args) < 5 {
+		if len(args) < 4 {
 			fmt.Println("Error: discovery operation requires additional schema urls argument")
 			flag.Usage()
 			return
@@ -68,11 +80,6 @@ func main() {
 		}
 		if err := downloadCloudFormationSchemas(jsonSchemaUrls, filepath.Join(".", schemaFolder)); err != nil {
 			panic(fmt.Errorf("error downloading CloudFormation schemas: %v", err))
-		}
-
-		docsUrl := args[4]
-		if err := downloadCloudFormationDocs(docsUrl, filepath.Join(".", "aws-cloudformation-docs")); err != nil {
-			panic(fmt.Errorf("error download CloudFormation docs: %v", err))
 		}
 
 	case "schema":
