@@ -82,13 +82,11 @@ generate_nodejs: .pulumi/bin/pulumi
 	echo "module fake_nodejs_module // Exclude this directory from Go tools\n\ngo 1.17" > 'sdk/nodejs/go.mod'
 	.pulumi/bin/pulumi package gen-sdk provider/cmd/pulumi-resource-aws-native/schema.json --language nodejs --version "$(VERSION_GENERIC)"
 
-build_nodejs:: NODE_VERSION := $(shell pulumictl convert-version --language javascript -v "$(VERSION_GENERIC)")
 build_nodejs::
 	cd ${PACKDIR}/nodejs/ && \
 		yarn install && \
 		yarn run build && \
-		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
-		sed -i.bak -e "s/\$${VERSION}/$(NODE_VERSION)/g" ./bin/package.json
+		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/
 
 generate_python: .pulumi/bin/pulumi
 	rm -rf sdk/python
@@ -96,15 +94,12 @@ generate_python: .pulumi/bin/pulumi
 	echo "module fake_python_module // Exclude this directory from Go tools\n\ngo 1.17" > 'sdk/python/go.mod'
 	.pulumi/bin/pulumi package gen-sdk provider/cmd/pulumi-resource-aws-native/schema.json --language python --version "$(VERSION_GENERIC)"
 
-build_python:: PYPI_VERSION := $(shell pulumictl convert-version --language python -v "$(VERSION_GENERIC)")
 build_python::
 	# Delete files not tracked in Git
 	cd sdk/python/ && git clean -fxd
 	cd sdk/python/ && \
         cp ../../README.md . && \
         rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
-        sed -i.bak -e 's/^  version = .*/  version = "$(PYPI_VERSION)"/g' ./bin/pyproject.toml && \
-        rm ./bin/pyproject.toml.bak && \
 	python3 -m venv venv && \
 	./venv/bin/python -m pip install build && \
         cd ./bin && \
@@ -116,11 +111,10 @@ generate_dotnet: .pulumi/bin/pulumi
 	echo "module fake_dotnet_module // Exclude this directory from Go tools\n\ngo 1.17" > 'sdk/dotnet/go.mod'
 	.pulumi/bin/pulumi package gen-sdk provider/cmd/pulumi-resource-aws-native/schema.json --language dotnet --version "$(VERSION_GENERIC)"
 
-build_dotnet:: DOTNET_VERSION := $(shell pulumictl convert-version --language dotnet -v "$(VERSION_GENERIC)")
 build_dotnet::
 	cd ${PACKDIR}/dotnet/ && \
-		echo "${PACK}\n${DOTNET_VERSION}" >version.txt && \
-		dotnet build /p:Version=${DOTNET_VERSION}
+		echo "${PACK}\n${VERSION_GENERIC}" > version.txt && \
+		dotnet build
 
 generate_java:: bin/pulumi-java-gen
 	rm -rf sdk/java
@@ -141,7 +135,7 @@ build_go::
 	cd sdk/ && go build github.com/pulumi/pulumi-aws-native/sdk/go/aws/...
 
 bin/pulumi-java-gen::
-	$(shell pulumictl download-binary -n pulumi-language-java -v $(JAVA_GEN_VERSION) -r pulumi/pulumi-java)
+	pulumictl download-binary -n pulumi-language-java -v $(JAVA_GEN_VERSION) -r pulumi/pulumi-java
 
 clean::
 	rm -rf sdk/nodejs && mkdir sdk/nodejs && echo "module fake_nodejs_module // Exclude this directory from Go tools\n\ngo 1.17" > 'sdk/nodejs/go.mod'
