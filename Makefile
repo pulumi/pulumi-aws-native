@@ -80,7 +80,7 @@ generate_nodejs: .pulumi/bin/pulumi
 	rm -rf sdk/nodejs
 	mkdir sdk/nodejs
 	echo "module fake_nodejs_module // Exclude this directory from Go tools\n\ngo 1.17" > 'sdk/nodejs/go.mod'
-	.pulumi/bin/pulumi package gen-sdk provider/cmd/pulumi-resource-aws-native/schema.json --language nodejs
+	.pulumi/bin/pulumi package gen-sdk provider/cmd/pulumi-resource-aws-native/schema.json --language nodejs --version "$(VERSION_GENERIC)"
 
 build_nodejs:: NODE_VERSION := $(shell pulumictl convert-version --language javascript -v "$(VERSION_GENERIC)")
 build_nodejs::
@@ -94,7 +94,7 @@ generate_python: .pulumi/bin/pulumi
 	rm -rf sdk/python
 	mkdir sdk/python
 	echo "module fake_python_module // Exclude this directory from Go tools\n\ngo 1.17" > 'sdk/python/go.mod'
-	.pulumi/bin/pulumi package gen-sdk provider/cmd/pulumi-resource-aws-native/schema.json --language python
+	.pulumi/bin/pulumi package gen-sdk provider/cmd/pulumi-resource-aws-native/schema.json --language python --version "$(VERSION_GENERIC)"
 
 build_python:: PYPI_VERSION := $(shell pulumictl convert-version --language python -v "$(VERSION_GENERIC)")
 build_python::
@@ -114,7 +114,7 @@ generate_dotnet: .pulumi/bin/pulumi
 	rm -rf sdk/dotnet
 	mkdir sdk/dotnet
 	echo "module fake_dotnet_module // Exclude this directory from Go tools\n\ngo 1.17" > 'sdk/dotnet/go.mod'
-	.pulumi/bin/pulumi package gen-sdk provider/cmd/pulumi-resource-aws-native/schema.json --language dotnet
+	.pulumi/bin/pulumi package gen-sdk provider/cmd/pulumi-resource-aws-native/schema.json --language dotnet --version "$(VERSION_GENERIC)"
 
 build_dotnet:: DOTNET_VERSION := $(shell pulumictl convert-version --language dotnet -v "$(VERSION_GENERIC)")
 build_dotnet::
@@ -135,7 +135,7 @@ build_java::
 
 generate_go: .pulumi/bin/pulumi
 	rm -rf sdk/go && mkdir sdk/go
-	.pulumi/bin/pulumi package gen-sdk provider/cmd/pulumi-resource-aws-native/schema.json --language go
+	.pulumi/bin/pulumi package gen-sdk provider/cmd/pulumi-resource-aws-native/schema.json --language go --version "$(VERSION_GENERIC)"
 
 build_go::
 	cd sdk/ && go build github.com/pulumi/pulumi-aws-native/sdk/go/aws/...
