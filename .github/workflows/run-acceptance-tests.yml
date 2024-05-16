@@ -67,7 +67,8 @@ jobs:
       with:
         lfs: true
         ref: ${{ env.PR_COMMIT_SHA }}
-    - name: Set Provider Version
+    - id: version
+      name: Set Provider Version
       uses: pulumi/provider-version-action@v1
       with:
         set-env: PROVIDER_VERSION
@@ -125,6 +126,13 @@ jobs:
       run: make provider
     - name: Check worktree clean
       uses: pulumi/git-status-check-action@v1
+      with:
+        allowed-changes: |-
+          sdk/**/pulumi-plugin.json
+          sdk/dotnet/Pulumi.*.csproj
+          sdk/go/*/internal/pulumiUtilities.go
+          sdk/nodejs/package.json
+          sdk/python/pyproject.toml
     - run: git status --porcelain
     - name: Tar provider binaries
       run: tar -zcf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
@@ -169,7 +177,8 @@ jobs:
       with:
         lfs: true
         ref: ${{ env.PR_COMMIT_SHA }}
-    - name: Set Provider Version
+    - id: version
+      name: Set Provider Version
       uses: pulumi/provider-version-action@v1
       with:
         set-env: PROVIDER_VERSION
@@ -228,6 +237,13 @@ jobs:
       run: make build_${{ matrix.language }}
     - name: Check worktree clean
       uses: pulumi/git-status-check-action@v1
+      with:
+        allowed-changes: |-
+          sdk/**/pulumi-plugin.json
+          sdk/dotnet/Pulumi.*.csproj
+          sdk/go/*/internal/pulumiUtilities.go
+          sdk/nodejs/package.json
+          sdk/python/pyproject.toml
     - run: git status --porcelain
     - name: Tar SDK folder
       run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }} .
@@ -269,7 +285,8 @@ jobs:
       with:
         lfs: true
         ref: ${{ env.PR_COMMIT_SHA }}
-    - name: Set Provider Version
+    - id: version
+      name: Set Provider Version
       uses: pulumi/provider-version-action@v1
       with:
         set-env: PROVIDER_VERSION
