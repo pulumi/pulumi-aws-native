@@ -388,13 +388,17 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Sche
 		"packages": javaPackages,
 	})
 	p.Language["go"] = rawMessage(map[string]interface{}{
-		"importBasePath": "github.com/pulumi/pulumi-aws-native/sdk/go/aws",
+		"respectSchemaVersion": true,
+		"importBasePath":       "github.com/pulumi/pulumi-aws-native/sdk/go/aws",
 		"packageImportAliases": map[string]string{
 			"github.com/pulumi/pulumi-aws-native/sdk/go/aws/aws-native": "aws",
 		},
 	})
-	p.Language["nodejs"] = rawMessage(map[string]interface{}{})
+	p.Language["nodejs"] = rawMessage(map[string]interface{}{
+		"respectSchemaVersion": true,
+	})
 	p.Language["python"] = rawMessage(map[string]interface{}{
+		"respectSchemaVersion": true,
 		"requires": map[string]string{
 			"pulumi": ">=3.0.0,<4.0.0",
 		},
@@ -493,6 +497,7 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Sche
 	}
 
 	p.Language["csharp"] = rawMessage(map[string]interface{}{
+		"respectSchemaVersion": true,
 		"packageReferences": map[string]string{
 			"Pulumi": "3.*",
 		},
