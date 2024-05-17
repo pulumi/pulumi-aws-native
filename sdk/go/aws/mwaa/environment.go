@@ -113,6 +113,7 @@ func NewEnvironment(ctx *pulumi.Context,
 		"endpointManagement",
 		"kmsKey",
 		"name",
+		"networkConfiguration.subnetIds[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

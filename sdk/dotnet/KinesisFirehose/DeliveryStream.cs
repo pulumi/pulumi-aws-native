@@ -165,10 +165,14 @@ namespace Pulumi.AwsNative.KinesisFirehose
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration",
+                    "amazonopensearchserviceDestinationConfiguration.vpcConfiguration",
                     "deliveryStreamName",
                     "deliveryStreamType",
+                    "elasticsearchDestinationConfiguration.vpcConfiguration",
                     "kinesisStreamSourceConfiguration",
                     "mskSourceConfiguration",
+                    "snowflakeDestinationConfiguration.snowflakeVpcConfiguration",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

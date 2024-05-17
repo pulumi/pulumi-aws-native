@@ -70,6 +70,7 @@ func NewComputeEnvironment(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"computeEnvironmentName",
+		"computeResources.spotIamFleetRole",
 		"eksConfiguration",
 		"tags.*",
 		"type",

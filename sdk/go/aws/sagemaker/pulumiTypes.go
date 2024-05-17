@@ -19621,9 +19621,8 @@ func (o ModelPackageBiasPtrOutput) Report() ModelPackageMetricsSourcePtrOutput {
 // Describes the Docker container for the model package.
 type ModelPackageContainerDefinition struct {
 	// The DNS host name for the Docker container.
-	ContainerHostname *string `pulumi:"containerHostname"`
-	// The environment variables to set in the Docker container. Each key and value in the `Environment` string to string map can have length of up to 1024. We support up to 16 entries in the map.
-	Environment *ModelPackageEnvironment `pulumi:"environment"`
+	ContainerHostname *string                  `pulumi:"containerHostname"`
+	Environment       *ModelPackageEnvironment `pulumi:"environment"`
 	// The machine learning framework of the model package container image.
 	Framework *string `pulumi:"framework"`
 	// The framework version of the Model Package Container Image.
@@ -19633,9 +19632,8 @@ type ModelPackageContainerDefinition struct {
 	// An MD5 hash of the training algorithm that identifies the Docker image used for training.
 	ImageDigest *string `pulumi:"imageDigest"`
 	// A structure with Model Input details.
-	ModelDataUrl *string `pulumi:"modelDataUrl"`
-	// A structure with Model Input details.
-	ModelInput *ModelPackageContainerDefinitionModelInputProperties `pulumi:"modelInput"`
+	ModelDataUrl *string                                              `pulumi:"modelDataUrl"`
+	ModelInput   *ModelPackageContainerDefinitionModelInputProperties `pulumi:"modelInput"`
 	// The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
 	NearestModelName *string `pulumi:"nearestModelName"`
 }
@@ -19654,9 +19652,8 @@ type ModelPackageContainerDefinitionInput interface {
 // Describes the Docker container for the model package.
 type ModelPackageContainerDefinitionArgs struct {
 	// The DNS host name for the Docker container.
-	ContainerHostname pulumi.StringPtrInput `pulumi:"containerHostname"`
-	// The environment variables to set in the Docker container. Each key and value in the `Environment` string to string map can have length of up to 1024. We support up to 16 entries in the map.
-	Environment ModelPackageEnvironmentPtrInput `pulumi:"environment"`
+	ContainerHostname pulumi.StringPtrInput           `pulumi:"containerHostname"`
+	Environment       ModelPackageEnvironmentPtrInput `pulumi:"environment"`
 	// The machine learning framework of the model package container image.
 	Framework pulumi.StringPtrInput `pulumi:"framework"`
 	// The framework version of the Model Package Container Image.
@@ -19666,9 +19663,8 @@ type ModelPackageContainerDefinitionArgs struct {
 	// An MD5 hash of the training algorithm that identifies the Docker image used for training.
 	ImageDigest pulumi.StringPtrInput `pulumi:"imageDigest"`
 	// A structure with Model Input details.
-	ModelDataUrl pulumi.StringPtrInput `pulumi:"modelDataUrl"`
-	// A structure with Model Input details.
-	ModelInput ModelPackageContainerDefinitionModelInputPropertiesPtrInput `pulumi:"modelInput"`
+	ModelDataUrl pulumi.StringPtrInput                                       `pulumi:"modelDataUrl"`
+	ModelInput   ModelPackageContainerDefinitionModelInputPropertiesPtrInput `pulumi:"modelInput"`
 	// The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
 	NearestModelName pulumi.StringPtrInput `pulumi:"nearestModelName"`
 }
@@ -19730,7 +19726,6 @@ func (o ModelPackageContainerDefinitionOutput) ContainerHostname() pulumi.String
 	return o.ApplyT(func(v ModelPackageContainerDefinition) *string { return v.ContainerHostname }).(pulumi.StringPtrOutput)
 }
 
-// The environment variables to set in the Docker container. Each key and value in the `Environment` string to string map can have length of up to 1024. We support up to 16 entries in the map.
 func (o ModelPackageContainerDefinitionOutput) Environment() ModelPackageEnvironmentPtrOutput {
 	return o.ApplyT(func(v ModelPackageContainerDefinition) *ModelPackageEnvironment { return v.Environment }).(ModelPackageEnvironmentPtrOutput)
 }
@@ -19760,7 +19755,6 @@ func (o ModelPackageContainerDefinitionOutput) ModelDataUrl() pulumi.StringPtrOu
 	return o.ApplyT(func(v ModelPackageContainerDefinition) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
 }
 
-// A structure with Model Input details.
 func (o ModelPackageContainerDefinitionOutput) ModelInput() ModelPackageContainerDefinitionModelInputPropertiesPtrOutput {
 	return o.ApplyT(func(v ModelPackageContainerDefinition) *ModelPackageContainerDefinitionModelInputProperties {
 		return v.ModelInput
@@ -19792,7 +19786,6 @@ func (o ModelPackageContainerDefinitionArrayOutput) Index(i pulumi.IntInput) Mod
 	}).(ModelPackageContainerDefinitionOutput)
 }
 
-// A structure with Model Input details.
 type ModelPackageContainerDefinitionModelInputProperties struct {
 	// The input configuration object for the model.
 	DataInputConfig string `pulumi:"dataInputConfig"`
@@ -19809,7 +19802,6 @@ type ModelPackageContainerDefinitionModelInputPropertiesInput interface {
 	ToModelPackageContainerDefinitionModelInputPropertiesOutputWithContext(context.Context) ModelPackageContainerDefinitionModelInputPropertiesOutput
 }
 
-// A structure with Model Input details.
 type ModelPackageContainerDefinitionModelInputPropertiesArgs struct {
 	// The input configuration object for the model.
 	DataInputConfig pulumi.StringInput `pulumi:"dataInputConfig"`
@@ -19868,7 +19860,6 @@ func (i *modelPackageContainerDefinitionModelInputPropertiesPtrType) ToModelPack
 	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageContainerDefinitionModelInputPropertiesPtrOutput)
 }
 
-// A structure with Model Input details.
 type ModelPackageContainerDefinitionModelInputPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ModelPackageContainerDefinitionModelInputPropertiesOutput) ElementType() reflect.Type {

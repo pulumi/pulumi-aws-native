@@ -13,15 +13,7 @@ namespace Pulumi.AwsNative.IoTTwinMaker.Outputs
     [OutputType]
     public sealed class EntityStatus
     {
-        /// <summary>
-        /// The error message.
-        /// </summary>
         public readonly Union<object, Outputs.EntityStatusErrorProperties>? Error;
-        /// <summary>
-        /// The current state of the entity, component, component type, or workspace.
-        /// 
-        /// Valid Values: `CREATING | UPDATING | DELETING | ACTIVE | ERROR`
-        /// </summary>
         public readonly Pulumi.AwsNative.IoTTwinMaker.EntityStatusState? State;
 
         [OutputConstructor]

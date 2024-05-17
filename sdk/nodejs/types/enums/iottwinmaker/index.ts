@@ -111,9 +111,4 @@ export const EntityStatusState = {
     Error: "ERROR",
 } as const;
 
-/**
- * The current state of the entity, component, component type, or workspace.
- *
- * Valid Values: `CREATING | UPDATING | DELETING | ACTIVE | ERROR`
- */
 export type EntityStatusState = (typeof EntityStatusState)[keyof typeof EntityStatusState];

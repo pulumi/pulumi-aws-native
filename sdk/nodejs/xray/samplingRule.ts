@@ -79,6 +79,8 @@ export class SamplingRule extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["samplingRule.version", "samplingRuleRecord.samplingRule.version"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SamplingRule.__pulumiType, name, resourceInputs, opts);
     }
 }

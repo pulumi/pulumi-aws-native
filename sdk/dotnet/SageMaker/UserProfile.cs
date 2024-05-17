@@ -87,6 +87,8 @@ namespace Pulumi.AwsNative.SageMaker
                     "singleSignOnUserValue",
                     "tags[*]",
                     "userProfileName",
+                    "userSettings.rStudioServerProAppSettings.accessStatus",
+                    "userSettings.rStudioServerProAppSettings.userGroup",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

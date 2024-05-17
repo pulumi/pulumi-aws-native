@@ -191,7 +191,7 @@ class UserProfile(pulumi.CustomResource):
             __props__.__dict__["user_profile_name"] = user_profile_name
             __props__.__dict__["user_settings"] = user_settings
             __props__.__dict__["user_profile_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainId", "singleSignOnUserIdentifier", "singleSignOnUserValue", "tags[*]", "userProfileName"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainId", "singleSignOnUserIdentifier", "singleSignOnUserValue", "tags[*]", "userProfileName", "userSettings.rStudioServerProAppSettings.accessStatus", "userSettings.rStudioServerProAppSettings.userGroup"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(UserProfile, __self__).__init__(
             'aws-native:sagemaker:UserProfile',

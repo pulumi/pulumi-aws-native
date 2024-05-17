@@ -87,10 +87,14 @@ func NewDeliveryStream(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"amazonOpenSearchServerlessDestinationConfiguration.vpcConfiguration",
+		"amazonopensearchserviceDestinationConfiguration.vpcConfiguration",
 		"deliveryStreamName",
 		"deliveryStreamType",
+		"elasticsearchDestinationConfiguration.vpcConfiguration",
 		"kinesisStreamSourceConfiguration",
 		"mskSourceConfiguration",
+		"snowflakeDestinationConfiguration.snowflakeVpcConfiguration",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

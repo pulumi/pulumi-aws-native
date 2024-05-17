@@ -62,7 +62,12 @@ func NewCluster(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'NumberOfBrokerNodes'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"brokerNodeGroupInfo.brokerAzDistribution",
+		"brokerNodeGroupInfo.clientSubnets[*]",
+		"brokerNodeGroupInfo.securityGroups[*]",
 		"clusterName",
+		"encryptionInfo.encryptionAtRest",
+		"encryptionInfo.encryptionInTransit.inCluster",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

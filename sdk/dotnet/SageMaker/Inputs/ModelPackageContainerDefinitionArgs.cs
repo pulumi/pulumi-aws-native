@@ -21,9 +21,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("containerHostname")]
         public Input<string>? ContainerHostname { get; set; }
 
-        /// <summary>
-        /// The environment variables to set in the Docker container. Each key and value in the `Environment` string to string map can have length of up to 1024. We support up to 16 entries in the map.
-        /// </summary>
         [Input("environment")]
         public Input<Inputs.ModelPackageEnvironmentArgs>? Environment { get; set; }
 
@@ -57,9 +54,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("modelDataUrl")]
         public Input<string>? ModelDataUrl { get; set; }
 
-        /// <summary>
-        /// A structure with Model Input details.
-        /// </summary>
         [Input("modelInput")]
         public Input<Inputs.ModelPackageContainerDefinitionModelInputPropertiesArgs>? ModelInput { get; set; }
 

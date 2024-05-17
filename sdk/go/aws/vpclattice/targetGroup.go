@@ -52,6 +52,12 @@ func NewTargetGroup(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"config.ipAddressType",
+		"config.lambdaEventStructureVersion",
+		"config.port",
+		"config.protocol",
+		"config.protocolVersion",
+		"config.vpcIdentifier",
 		"name",
 		"type",
 	})

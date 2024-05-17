@@ -196,7 +196,7 @@ export class VerifiedAccessEndpoint extends pulumi.CustomResource {
             resourceInputs["verifiedAccessInstanceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["applicationDomain", "attachmentType", "domainCertificateArn", "endpointDomainPrefix", "endpointType", "securityGroupIds[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["applicationDomain", "attachmentType", "domainCertificateArn", "endpointDomainPrefix", "endpointType", "loadBalancerOptions.loadBalancerArn", "networkInterfaceOptions.networkInterfaceId", "securityGroupIds[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VerifiedAccessEndpoint.__pulumiType, name, resourceInputs, opts);
     }

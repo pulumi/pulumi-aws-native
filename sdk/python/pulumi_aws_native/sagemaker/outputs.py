@@ -8511,12 +8511,10 @@ class ModelPackageContainerDefinition(dict):
         Describes the Docker container for the model package.
         :param str image: The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
         :param str container_hostname: The DNS host name for the Docker container.
-        :param 'ModelPackageEnvironment' environment: The environment variables to set in the Docker container. Each key and value in the `Environment` string to string map can have length of up to 1024. We support up to 16 entries in the map.
         :param str framework: The machine learning framework of the model package container image.
         :param str framework_version: The framework version of the Model Package Container Image.
         :param str image_digest: An MD5 hash of the training algorithm that identifies the Docker image used for training.
         :param str model_data_url: A structure with Model Input details.
-        :param 'ModelPackageContainerDefinitionModelInputProperties' model_input: A structure with Model Input details.
         :param str nearest_model_name: The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
         """
         pulumi.set(__self__, "image", image)
@@ -8556,9 +8554,6 @@ class ModelPackageContainerDefinition(dict):
     @property
     @pulumi.getter
     def environment(self) -> Optional['outputs.ModelPackageEnvironment']:
-        """
-        The environment variables to set in the Docker container. Each key and value in the `Environment` string to string map can have length of up to 1024. We support up to 16 entries in the map.
-        """
         return pulumi.get(self, "environment")
 
     @property
@@ -8596,9 +8591,6 @@ class ModelPackageContainerDefinition(dict):
     @property
     @pulumi.getter(name="modelInput")
     def model_input(self) -> Optional['outputs.ModelPackageContainerDefinitionModelInputProperties']:
-        """
-        A structure with Model Input details.
-        """
         return pulumi.get(self, "model_input")
 
     @property
@@ -8612,9 +8604,6 @@ class ModelPackageContainerDefinition(dict):
 
 @pulumi.output_type
 class ModelPackageContainerDefinitionModelInputProperties(dict):
-    """
-    A structure with Model Input details.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8635,7 +8624,6 @@ class ModelPackageContainerDefinitionModelInputProperties(dict):
     def __init__(__self__, *,
                  data_input_config: str):
         """
-        A structure with Model Input details.
         :param str data_input_config: The input configuration object for the model.
         """
         pulumi.set(__self__, "data_input_config", data_input_config)

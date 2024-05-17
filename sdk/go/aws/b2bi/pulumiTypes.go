@@ -313,10 +313,8 @@ func (o CapabilityEdiTypePropertiesPtrOutput) X12Details() CapabilityX12DetailsP
 }
 
 type CapabilityS3Location struct {
-	// Specifies the name of the Amazon S3 bucket.
 	BucketName *string `pulumi:"bucketName"`
-	// Specifies the Amazon S3 key for the file location.
-	Key *string `pulumi:"key"`
+	Key        *string `pulumi:"key"`
 }
 
 // CapabilityS3LocationInput is an input type that accepts CapabilityS3LocationArgs and CapabilityS3LocationOutput values.
@@ -331,10 +329,8 @@ type CapabilityS3LocationInput interface {
 }
 
 type CapabilityS3LocationArgs struct {
-	// Specifies the name of the Amazon S3 bucket.
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
-	// Specifies the Amazon S3 key for the file location.
-	Key pulumi.StringPtrInput `pulumi:"key"`
+	Key        pulumi.StringPtrInput `pulumi:"key"`
 }
 
 func (CapabilityS3LocationArgs) ElementType() reflect.Type {
@@ -388,12 +384,10 @@ func (o CapabilityS3LocationOutput) ToCapabilityS3LocationOutputWithContext(ctx 
 	return o
 }
 
-// Specifies the name of the Amazon S3 bucket.
 func (o CapabilityS3LocationOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapabilityS3Location) *string { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Amazon S3 key for the file location.
 func (o CapabilityS3LocationOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapabilityS3Location) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
@@ -422,7 +416,6 @@ func (o CapabilityS3LocationPtrOutput) Elem() CapabilityS3LocationOutput {
 	}).(CapabilityS3LocationOutput)
 }
 
-// Specifies the name of the Amazon S3 bucket.
 func (o CapabilityS3LocationPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapabilityS3Location) *string {
 		if v == nil {
@@ -432,7 +425,6 @@ func (o CapabilityS3LocationPtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Amazon S3 key for the file location.
 func (o CapabilityS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapabilityS3Location) *string {
 		if v == nil {

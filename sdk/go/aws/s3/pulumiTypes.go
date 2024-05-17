@@ -12630,9 +12630,7 @@ func (o StorageLensGroupSelectionCriteriaPtrOutput) Include() pulumi.StringArray
 }
 
 type StorageLensGroupTag struct {
-	// Name of the object key.
-	Key string `pulumi:"key"`
-	// Value of the tag.
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -12648,9 +12646,7 @@ type StorageLensGroupTagInput interface {
 }
 
 type StorageLensGroupTagArgs struct {
-	// Name of the object key.
-	Key pulumi.StringInput `pulumi:"key"`
-	// Value of the tag.
+	Key   pulumi.StringInput `pulumi:"key"`
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -12705,12 +12701,10 @@ func (o StorageLensGroupTagOutput) ToStorageLensGroupTagOutputWithContext(ctx co
 	return o
 }
 
-// Name of the object key.
 func (o StorageLensGroupTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensGroupTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Value of the tag.
 func (o StorageLensGroupTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensGroupTag) string { return v.Value }).(pulumi.StringOutput)
 }

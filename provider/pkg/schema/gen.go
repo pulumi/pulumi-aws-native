@@ -435,18 +435,19 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Sche
 			fullMod := moduleName(cfTypeName)
 			mod := strings.ToLower(fullMod)
 			ctx := &cfSchemaContext{
-				pkg:           &p,
-				metadata:      &metadata,
-				cfTypeName:    cfTypeName,
-				mod:           mod,
-				resourceName:  resourceName,
-				resourceToken: resourceToken,
-				resourceSpec:  jsonSchema,
-				visitedTypes:  codegen.NewStringSet(),
-				isSupported:   isSupported,
-				semantics:     semanticsDocument,
-				reports:       reports,
-				docs:          docsSchema,
+				pkg:              &p,
+				metadata:         &metadata,
+				cfTypeName:       cfTypeName,
+				mod:              mod,
+				resourceName:     resourceName,
+				resourceToken:    resourceToken,
+				resourceSpec:     jsonSchema,
+				visitedTypes:     codegen.NewStringSet(),
+				docsVisitedTypes: codegen.NewStringSet(),
+				isSupported:      isSupported,
+				semantics:        semanticsDocument,
+				reports:          reports,
+				docs:             docsSchema,
 			}
 			err := ctx.gatherResourceType()
 			if err != nil {
@@ -608,24 +609,24 @@ func GatherPackage(supportedResourceTypes []string, jsonSchemas []*jsschema.Sche
 
 // cfSchemaContext holds shared information for a single CF JSON schema.
 type cfSchemaContext struct {
-	pkg           *pschema.PackageSpec
-	metadata      *metadata.CloudAPIMetadata
-	cfTypeName    string
-	mod           string
-	resourceName  string
-	resourceToken string
-	resourceSpec  *jsschema.Schema
-	visitedTypes  codegen.StringSet
-	originalNames map[string]string
-	isSupported   bool
-	semantics     *metadata.SemanticsSpecDocument
-	reports       *Reports
-	docs          *Docs
+	pkg              *pschema.PackageSpec
+	metadata         *metadata.CloudAPIMetadata
+	cfTypeName       string
+	mod              string
+	resourceName     string
+	resourceToken    string
+	resourceSpec     *jsschema.Schema
+	visitedTypes     codegen.StringSet
+	docsVisitedTypes codegen.StringSet
+	isSupported      bool
+	semantics        *metadata.SemanticsSpecDocument
+	reports          *Reports
+	docs             *Docs
 }
 
 func (ctx *cfSchemaContext) markCreateOnlyProperties(createOnlyProperties codegen.StringSet, resource *pschema.ResourceSpec) error {
 	errs := []error{}
-	for propPath := range createOnlyProperties {
+	for _, propPath := range createOnlyProperties.SortedValues() {
 		// each path in createOnlyProperties is delimited with "/"
 		path := strings.Split(propPath, "/")
 		prop, ok := resource.Properties[path[0]]
@@ -819,7 +820,9 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 	irreversibleNames := map[string]string{}
 	inputProperties, requiredInputs := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
 	properties, required := map[string]pschema.PropertySpec{}, codegen.NewStringSet()
-	for prop, spec := range ctx.resourceSpec.Properties {
+	props := codegen.SortedKeys(ctx.resourceSpec.Properties)
+	for _, prop := range props {
+		spec := ctx.resourceSpec.Properties[prop]
 		sdkName := naming.ToSdkName(prop)
 		originalSdkName := sdkName
 		if sdkName == "id" {
@@ -831,7 +834,6 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 		// creating the propertySpec we change some of the names of properties which
 		// makes it impossible to lookup in the docs
 		ctx.augmentDocumentation(ctx.cfTypeName, prop, spec)
-		ctx.visitedTypes = codegen.NewStringSet()
 
 		propertySpec, err := ctx.propertySpec(prop, resourceTypeName, spec)
 		if err != nil {
@@ -990,10 +992,10 @@ func (ctx *cfSchemaContext) updateDesc(refName, propName string, spec *jsschema.
 func (ctx *cfSchemaContext) augmentDocumentation(referenceName, propName string, spec *jsschema.Schema) {
 	// some types are self-referencing so we need to only process them the first time
 	visitedType := fmt.Sprintf("%s.%s", referenceName, propName)
-	if ctx.visitedTypes.Has(visitedType) {
+	if ctx.docsVisitedTypes.Has(visitedType) {
 		return
 	}
-	ctx.visitedTypes.Add(visitedType)
+	ctx.docsVisitedTypes.Add(visitedType)
 
 	// references are handled as a special case because the TypeName of a property is derived
 	// from it's reference _not_ from its name, for example

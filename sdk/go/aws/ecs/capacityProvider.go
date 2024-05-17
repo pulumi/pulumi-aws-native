@@ -276,6 +276,7 @@ func NewCapacityProvider(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'AutoScalingGroupProvider'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"autoScalingGroupProvider.autoScalingGroupArn",
 		"name",
 	})
 	opts = append(opts, replaceOnChanges)

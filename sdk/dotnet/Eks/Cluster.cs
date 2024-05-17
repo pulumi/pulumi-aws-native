@@ -142,6 +142,7 @@ namespace Pulumi.AwsNative.Eks
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "accessConfig.bootstrapClusterCreatorAdminPermissions",
                     "encryptionConfig[*]",
                     "kubernetesNetworkConfig",
                     "name",

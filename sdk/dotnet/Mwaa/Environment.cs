@@ -240,6 +240,7 @@ namespace Pulumi.AwsNative.Mwaa
                     "endpointManagement",
                     "kmsKey",
                     "name",
+                    "networkConfiguration.subnetIds[*]",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

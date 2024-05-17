@@ -3588,11 +3588,7 @@ func (o EntityRelationshipPtrOutput) TargetComponentTypeId() pulumi.StringPtrOut
 }
 
 type EntityStatus struct {
-	// The error message.
-	Error interface{} `pulumi:"error"`
-	// The current state of the entity, component, component type, or workspace.
-	//
-	// Valid Values: `CREATING | UPDATING | DELETING | ACTIVE | ERROR`
+	Error interface{}        `pulumi:"error"`
 	State *EntityStatusState `pulumi:"state"`
 }
 
@@ -3608,11 +3604,7 @@ type EntityStatusInput interface {
 }
 
 type EntityStatusArgs struct {
-	// The error message.
-	Error pulumi.Input `pulumi:"error"`
-	// The current state of the entity, component, component type, or workspace.
-	//
-	// Valid Values: `CREATING | UPDATING | DELETING | ACTIVE | ERROR`
+	Error pulumi.Input              `pulumi:"error"`
 	State EntityStatusStatePtrInput `pulumi:"state"`
 }
 
@@ -3693,14 +3685,10 @@ func (o EntityStatusOutput) ToEntityStatusPtrOutputWithContext(ctx context.Conte
 	}).(EntityStatusPtrOutput)
 }
 
-// The error message.
 func (o EntityStatusOutput) Error() pulumi.AnyOutput {
 	return o.ApplyT(func(v EntityStatus) interface{} { return v.Error }).(pulumi.AnyOutput)
 }
 
-// The current state of the entity, component, component type, or workspace.
-//
-// Valid Values: `CREATING | UPDATING | DELETING | ACTIVE | ERROR`
 func (o EntityStatusOutput) State() EntityStatusStatePtrOutput {
 	return o.ApplyT(func(v EntityStatus) *EntityStatusState { return v.State }).(EntityStatusStatePtrOutput)
 }
@@ -3729,7 +3717,6 @@ func (o EntityStatusPtrOutput) Elem() EntityStatusOutput {
 	}).(EntityStatusOutput)
 }
 
-// The error message.
 func (o EntityStatusPtrOutput) Error() pulumi.AnyOutput {
 	return o.ApplyT(func(v *EntityStatus) interface{} {
 		if v == nil {
@@ -3739,9 +3726,6 @@ func (o EntityStatusPtrOutput) Error() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// The current state of the entity, component, component type, or workspace.
-//
-// Valid Values: `CREATING | UPDATING | DELETING | ACTIVE | ERROR`
 func (o EntityStatusPtrOutput) State() EntityStatusStatePtrOutput {
 	return o.ApplyT(func(v *EntityStatus) *EntityStatusState {
 		if v == nil {

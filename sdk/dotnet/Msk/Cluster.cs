@@ -121,7 +121,12 @@ namespace Pulumi.AwsNative.Msk
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "brokerNodeGroupInfo.brokerAzDistribution",
+                    "brokerNodeGroupInfo.clientSubnets[*]",
+                    "brokerNodeGroupInfo.securityGroups[*]",
                     "clusterName",
+                    "encryptionInfo.encryptionAtRest",
+                    "encryptionInfo.encryptionInTransit.inCluster",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

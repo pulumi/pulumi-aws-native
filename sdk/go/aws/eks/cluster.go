@@ -67,6 +67,7 @@ func NewCluster(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"accessConfig.bootstrapClusterCreatorAdminPermissions",
 		"encryptionConfig[*]",
 		"kubernetesNetworkConfig",
 		"name",

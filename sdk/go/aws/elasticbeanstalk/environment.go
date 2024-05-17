@@ -66,6 +66,8 @@ func NewEnvironment(ctx *pulumi.Context,
 		"cnamePrefix",
 		"environmentName",
 		"solutionStackName",
+		"tier.name",
+		"tier.type",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

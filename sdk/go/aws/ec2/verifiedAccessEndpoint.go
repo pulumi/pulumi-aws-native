@@ -92,6 +92,8 @@ func NewVerifiedAccessEndpoint(ctx *pulumi.Context,
 		"domainCertificateArn",
 		"endpointDomainPrefix",
 		"endpointType",
+		"loadBalancerOptions.loadBalancerArn",
+		"networkInterfaceOptions.networkInterfaceId",
 		"securityGroupIds[*]",
 	})
 	opts = append(opts, replaceOnChanges)

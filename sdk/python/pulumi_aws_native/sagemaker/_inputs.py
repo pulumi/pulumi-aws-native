@@ -7308,7 +7308,6 @@ class ModelPackageContainerDefinitionModelInputPropertiesArgs:
     def __init__(__self__, *,
                  data_input_config: pulumi.Input[str]):
         """
-        A structure with Model Input details.
         :param pulumi.Input[str] data_input_config: The input configuration object for the model.
         """
         pulumi.set(__self__, "data_input_config", data_input_config)
@@ -7342,12 +7341,10 @@ class ModelPackageContainerDefinitionArgs:
         Describes the Docker container for the model package.
         :param pulumi.Input[str] image: The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.
         :param pulumi.Input[str] container_hostname: The DNS host name for the Docker container.
-        :param pulumi.Input['ModelPackageEnvironmentArgs'] environment: The environment variables to set in the Docker container. Each key and value in the `Environment` string to string map can have length of up to 1024. We support up to 16 entries in the map.
         :param pulumi.Input[str] framework: The machine learning framework of the model package container image.
         :param pulumi.Input[str] framework_version: The framework version of the Model Package Container Image.
         :param pulumi.Input[str] image_digest: An MD5 hash of the training algorithm that identifies the Docker image used for training.
         :param pulumi.Input[str] model_data_url: A structure with Model Input details.
-        :param pulumi.Input['ModelPackageContainerDefinitionModelInputPropertiesArgs'] model_input: A structure with Model Input details.
         :param pulumi.Input[str] nearest_model_name: The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
         """
         pulumi.set(__self__, "image", image)
@@ -7395,9 +7392,6 @@ class ModelPackageContainerDefinitionArgs:
     @property
     @pulumi.getter
     def environment(self) -> Optional[pulumi.Input['ModelPackageEnvironmentArgs']]:
-        """
-        The environment variables to set in the Docker container. Each key and value in the `Environment` string to string map can have length of up to 1024. We support up to 16 entries in the map.
-        """
         return pulumi.get(self, "environment")
 
     @environment.setter
@@ -7455,9 +7449,6 @@ class ModelPackageContainerDefinitionArgs:
     @property
     @pulumi.getter(name="modelInput")
     def model_input(self) -> Optional[pulumi.Input['ModelPackageContainerDefinitionModelInputPropertiesArgs']]:
-        """
-        A structure with Model Input details.
-        """
         return pulumi.get(self, "model_input")
 
     @model_input.setter

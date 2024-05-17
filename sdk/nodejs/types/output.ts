@@ -308,67 +308,20 @@ export namespace acmpca {
      * Structure that contains X.500 distinguished name information for your CA.
      */
     export interface CertificateAuthoritySubject {
-        /**
-         * Fully qualified domain name (FQDN) associated with the certificate subject.
-         */
         commonName?: string;
-        /**
-         * Two-digit code that specifies the country in which the certificate subject located.
-         */
         country?: string;
-        /**
-         * Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
-         *
-         * > Custom attributes cannot be used in combination with standard attributes.
-         */
         customAttributes?: outputs.acmpca.CertificateAuthorityCustomAttribute[];
-        /**
-         * Disambiguating information for the certificate subject.
-         */
         distinguishedNameQualifier?: string;
-        /**
-         * Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
-         */
         generationQualifier?: string;
-        /**
-         * First name.
-         */
         givenName?: string;
-        /**
-         * Concatenation that typically contains the first letter of the GivenName, the first letter of the middle name if one exists, and the first letter of the SurName.
-         */
         initials?: string;
-        /**
-         * The locality (such as a city or town) in which the certificate subject is located.
-         */
         locality?: string;
-        /**
-         * Legal name of the organization with which the certificate subject is affiliated.
-         */
         organization?: string;
-        /**
-         * A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
-         */
         organizationalUnit?: string;
-        /**
-         * Typically a shortened version of a longer GivenName. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
-         */
         pseudonym?: string;
-        /**
-         * The certificate serial number.
-         */
         serialNumber?: string;
-        /**
-         * State in which the subject of the certificate is located.
-         */
         state?: string;
-        /**
-         * Family name.
-         */
         surname?: string;
-        /**
-         * A personal title such as Mr.
-         */
         title?: string;
     }
 
@@ -6641,13 +6594,7 @@ export namespace b2bi {
     }
 
     export interface CapabilityS3Location {
-        /**
-         * Specifies the name of the Amazon S3 bucket.
-         */
         bucketName?: string;
-        /**
-         * Specifies the Amazon S3 key for the file location.
-         */
         key?: string;
     }
 
@@ -33933,15 +33880,7 @@ export namespace iottwinmaker {
     }
 
     export interface EntityStatus {
-        /**
-         * The error message.
-         */
         error?: any | outputs.iottwinmaker.EntityStatusErrorProperties;
-        /**
-         * The current state of the entity, component, component type, or workspace.
-         *
-         * Valid Values: `CREATING | UPDATING | DELETING | ACTIVE | ERROR`
-         */
         state?: enums.iottwinmaker.EntityStatusState;
     }
 
@@ -77999,13 +77938,7 @@ export namespace s3 {
     }
 
     export interface StorageLensGroupTag {
-        /**
-         * Name of the object key.
-         */
         key: string;
-        /**
-         * Value of the tag.
-         */
         value: string;
     }
 
@@ -80476,9 +80409,6 @@ export namespace sagemaker {
          * The DNS host name for the Docker container.
          */
         containerHostname?: string;
-        /**
-         * The environment variables to set in the Docker container. Each key and value in the `Environment` string to string map can have length of up to 1024. We support up to 16 entries in the map.
-         */
         environment?: outputs.sagemaker.ModelPackageEnvironment;
         /**
          * The machine learning framework of the model package container image.
@@ -80500,9 +80430,6 @@ export namespace sagemaker {
          * A structure with Model Input details.
          */
         modelDataUrl?: string;
-        /**
-         * A structure with Model Input details.
-         */
         modelInput?: outputs.sagemaker.ModelPackageContainerDefinitionModelInputProperties;
         /**
          * The name of a pre-trained machine learning benchmarked by Amazon SageMaker Inference Recommender model that matches your model.
@@ -80510,9 +80437,6 @@ export namespace sagemaker {
         nearestModelName?: string;
     }
 
-    /**
-     * A structure with Model Input details.
-     */
     export interface ModelPackageContainerDefinitionModelInputProperties {
         /**
          * The input configuration object for the model.

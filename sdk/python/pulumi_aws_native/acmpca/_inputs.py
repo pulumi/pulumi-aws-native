@@ -786,23 +786,6 @@ class CertificateAuthoritySubjectArgs:
                  title: Optional[pulumi.Input[str]] = None):
         """
         Structure that contains X.500 distinguished name information for your CA.
-        :param pulumi.Input[str] common_name: Fully qualified domain name (FQDN) associated with the certificate subject.
-        :param pulumi.Input[str] country: Two-digit code that specifies the country in which the certificate subject located.
-        :param pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityCustomAttributeArgs']]] custom_attributes: Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
-               
-               > Custom attributes cannot be used in combination with standard attributes.
-        :param pulumi.Input[str] distinguished_name_qualifier: Disambiguating information for the certificate subject.
-        :param pulumi.Input[str] generation_qualifier: Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
-        :param pulumi.Input[str] given_name: First name.
-        :param pulumi.Input[str] initials: Concatenation that typically contains the first letter of the GivenName, the first letter of the middle name if one exists, and the first letter of the SurName.
-        :param pulumi.Input[str] locality: The locality (such as a city or town) in which the certificate subject is located.
-        :param pulumi.Input[str] organization: Legal name of the organization with which the certificate subject is affiliated.
-        :param pulumi.Input[str] organizational_unit: A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
-        :param pulumi.Input[str] pseudonym: Typically a shortened version of a longer GivenName. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
-        :param pulumi.Input[str] serial_number: The certificate serial number.
-        :param pulumi.Input[str] state: State in which the subject of the certificate is located.
-        :param pulumi.Input[str] surname: Family name.
-        :param pulumi.Input[str] title: A personal title such as Mr.
         """
         if common_name is not None:
             pulumi.set(__self__, "common_name", common_name)
@@ -838,9 +821,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter(name="commonName")
     def common_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Fully qualified domain name (FQDN) associated with the certificate subject.
-        """
         return pulumi.get(self, "common_name")
 
     @common_name.setter
@@ -850,9 +830,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def country(self) -> Optional[pulumi.Input[str]]:
-        """
-        Two-digit code that specifies the country in which the certificate subject located.
-        """
         return pulumi.get(self, "country")
 
     @country.setter
@@ -862,11 +839,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter(name="customAttributes")
     def custom_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateAuthorityCustomAttributeArgs']]]]:
-        """
-        Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
-
-        > Custom attributes cannot be used in combination with standard attributes.
-        """
         return pulumi.get(self, "custom_attributes")
 
     @custom_attributes.setter
@@ -876,9 +848,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter(name="distinguishedNameQualifier")
     def distinguished_name_qualifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        Disambiguating information for the certificate subject.
-        """
         return pulumi.get(self, "distinguished_name_qualifier")
 
     @distinguished_name_qualifier.setter
@@ -888,9 +857,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter(name="generationQualifier")
     def generation_qualifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
-        """
         return pulumi.get(self, "generation_qualifier")
 
     @generation_qualifier.setter
@@ -900,9 +866,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter(name="givenName")
     def given_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        First name.
-        """
         return pulumi.get(self, "given_name")
 
     @given_name.setter
@@ -912,9 +875,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def initials(self) -> Optional[pulumi.Input[str]]:
-        """
-        Concatenation that typically contains the first letter of the GivenName, the first letter of the middle name if one exists, and the first letter of the SurName.
-        """
         return pulumi.get(self, "initials")
 
     @initials.setter
@@ -924,9 +884,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def locality(self) -> Optional[pulumi.Input[str]]:
-        """
-        The locality (such as a city or town) in which the certificate subject is located.
-        """
         return pulumi.get(self, "locality")
 
     @locality.setter
@@ -936,9 +893,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def organization(self) -> Optional[pulumi.Input[str]]:
-        """
-        Legal name of the organization with which the certificate subject is affiliated.
-        """
         return pulumi.get(self, "organization")
 
     @organization.setter
@@ -948,9 +902,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter(name="organizationalUnit")
     def organizational_unit(self) -> Optional[pulumi.Input[str]]:
-        """
-        A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
-        """
         return pulumi.get(self, "organizational_unit")
 
     @organizational_unit.setter
@@ -960,9 +911,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def pseudonym(self) -> Optional[pulumi.Input[str]]:
-        """
-        Typically a shortened version of a longer GivenName. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
-        """
         return pulumi.get(self, "pseudonym")
 
     @pseudonym.setter
@@ -972,9 +920,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> Optional[pulumi.Input[str]]:
-        """
-        The certificate serial number.
-        """
         return pulumi.get(self, "serial_number")
 
     @serial_number.setter
@@ -984,9 +929,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
-        """
-        State in which the subject of the certificate is located.
-        """
         return pulumi.get(self, "state")
 
     @state.setter
@@ -996,9 +938,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def surname(self) -> Optional[pulumi.Input[str]]:
-        """
-        Family name.
-        """
         return pulumi.get(self, "surname")
 
     @surname.setter
@@ -1008,9 +947,6 @@ class CertificateAuthoritySubjectArgs:
     @property
     @pulumi.getter
     def title(self) -> Optional[pulumi.Input[str]]:
-        """
-        A personal title such as Mr.
-        """
         return pulumi.get(self, "title")
 
     @title.setter

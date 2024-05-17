@@ -4328,19 +4328,12 @@ class StorageLensGroupTagArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] key: Name of the object key.
-        :param pulumi.Input[str] value: Value of the tag.
-        """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
-        """
-        Name of the object key.
-        """
         return pulumi.get(self, "key")
 
     @key.setter
@@ -4350,9 +4343,6 @@ class StorageLensGroupTagArgs:
     @property
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
-        """
-        Value of the tag.
-        """
         return pulumi.get(self, "value")
 
     @value.setter

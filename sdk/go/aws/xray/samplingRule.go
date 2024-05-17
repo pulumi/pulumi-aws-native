@@ -34,6 +34,11 @@ func NewSamplingRule(ctx *pulumi.Context,
 		args = &SamplingRuleArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"samplingRule.version",
+		"samplingRuleRecord.samplingRule.version",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SamplingRule
 	err := ctx.RegisterResource("aws-native:xray:SamplingRule", name, args, &resource, opts...)

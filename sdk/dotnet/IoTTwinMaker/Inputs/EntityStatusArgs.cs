@@ -12,17 +12,9 @@ namespace Pulumi.AwsNative.IoTTwinMaker.Inputs
 
     public sealed class EntityStatusArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The error message.
-        /// </summary>
         [Input("error")]
         public InputUnion<object, Inputs.EntityStatusErrorPropertiesArgs>? Error { get; set; }
 
-        /// <summary>
-        /// The current state of the entity, component, component type, or workspace.
-        /// 
-        /// Valid Values: `CREATING | UPDATING | DELETING | ACTIVE | ERROR`
-        /// </summary>
         [Input("state")]
         public Input<Pulumi.AwsNative.IoTTwinMaker.EntityStatusState>? State { get; set; }
 

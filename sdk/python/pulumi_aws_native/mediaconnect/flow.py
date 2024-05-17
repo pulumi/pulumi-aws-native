@@ -211,7 +211,7 @@ class Flow(pulumi.CustomResource):
             __props__.__dict__["egress_ip"] = None
             __props__.__dict__["flow_arn"] = None
             __props__.__dict__["flow_availability_zone"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZone", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZone", "name", "source.name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Flow, __self__).__init__(
             'aws-native:mediaconnect:Flow',

@@ -15,101 +15,53 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
     /// </summary>
     public sealed class CertificateAuthoritySubjectArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Fully qualified domain name (FQDN) associated with the certificate subject.
-        /// </summary>
         [Input("commonName")]
         public Input<string>? CommonName { get; set; }
 
-        /// <summary>
-        /// Two-digit code that specifies the country in which the certificate subject located.
-        /// </summary>
         [Input("country")]
         public Input<string>? Country { get; set; }
 
         [Input("customAttributes")]
         private InputList<Inputs.CertificateAuthorityCustomAttributeArgs>? _customAttributes;
-
-        /// <summary>
-        /// Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
-        /// 
-        /// &gt; Custom attributes cannot be used in combination with standard attributes.
-        /// </summary>
         public InputList<Inputs.CertificateAuthorityCustomAttributeArgs> CustomAttributes
         {
             get => _customAttributes ?? (_customAttributes = new InputList<Inputs.CertificateAuthorityCustomAttributeArgs>());
             set => _customAttributes = value;
         }
 
-        /// <summary>
-        /// Disambiguating information for the certificate subject.
-        /// </summary>
         [Input("distinguishedNameQualifier")]
         public Input<string>? DistinguishedNameQualifier { get; set; }
 
-        /// <summary>
-        /// Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
-        /// </summary>
         [Input("generationQualifier")]
         public Input<string>? GenerationQualifier { get; set; }
 
-        /// <summary>
-        /// First name.
-        /// </summary>
         [Input("givenName")]
         public Input<string>? GivenName { get; set; }
 
-        /// <summary>
-        /// Concatenation that typically contains the first letter of the GivenName, the first letter of the middle name if one exists, and the first letter of the SurName.
-        /// </summary>
         [Input("initials")]
         public Input<string>? Initials { get; set; }
 
-        /// <summary>
-        /// The locality (such as a city or town) in which the certificate subject is located.
-        /// </summary>
         [Input("locality")]
         public Input<string>? Locality { get; set; }
 
-        /// <summary>
-        /// Legal name of the organization with which the certificate subject is affiliated.
-        /// </summary>
         [Input("organization")]
         public Input<string>? Organization { get; set; }
 
-        /// <summary>
-        /// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
-        /// </summary>
         [Input("organizationalUnit")]
         public Input<string>? OrganizationalUnit { get; set; }
 
-        /// <summary>
-        /// Typically a shortened version of a longer GivenName. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
-        /// </summary>
         [Input("pseudonym")]
         public Input<string>? Pseudonym { get; set; }
 
-        /// <summary>
-        /// The certificate serial number.
-        /// </summary>
         [Input("serialNumber")]
         public Input<string>? SerialNumber { get; set; }
 
-        /// <summary>
-        /// State in which the subject of the certificate is located.
-        /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
 
-        /// <summary>
-        /// Family name.
-        /// </summary>
         [Input("surname")]
         public Input<string>? Surname { get; set; }
 
-        /// <summary>
-        /// A personal title such as Mr.
-        /// </summary>
         [Input("title")]
         public Input<string>? Title { get; set; }
 

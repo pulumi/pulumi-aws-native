@@ -5,7 +5,7 @@
   keywords = ["pulumi", "aws", "aws-native", "category/cloud", "kind/native"]
   readme = "README.md"
   requires-python = ">=3.8"
-  version = "0.106.0a1715863143+48cc36f"
+  version = "1.0.0a0+dev"
   [project.license]
     text = "Apache-2.0"
   [project.urls]

@@ -943,23 +943,6 @@ class CertificateAuthoritySubject(dict):
                  title: Optional[str] = None):
         """
         Structure that contains X.500 distinguished name information for your CA.
-        :param str common_name: Fully qualified domain name (FQDN) associated with the certificate subject.
-        :param str country: Two-digit code that specifies the country in which the certificate subject located.
-        :param Sequence['CertificateAuthorityCustomAttribute'] custom_attributes: Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
-               
-               > Custom attributes cannot be used in combination with standard attributes.
-        :param str distinguished_name_qualifier: Disambiguating information for the certificate subject.
-        :param str generation_qualifier: Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
-        :param str given_name: First name.
-        :param str initials: Concatenation that typically contains the first letter of the GivenName, the first letter of the middle name if one exists, and the first letter of the SurName.
-        :param str locality: The locality (such as a city or town) in which the certificate subject is located.
-        :param str organization: Legal name of the organization with which the certificate subject is affiliated.
-        :param str organizational_unit: A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
-        :param str pseudonym: Typically a shortened version of a longer GivenName. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
-        :param str serial_number: The certificate serial number.
-        :param str state: State in which the subject of the certificate is located.
-        :param str surname: Family name.
-        :param str title: A personal title such as Mr.
         """
         if common_name is not None:
             pulumi.set(__self__, "common_name", common_name)
@@ -995,123 +978,76 @@ class CertificateAuthoritySubject(dict):
     @property
     @pulumi.getter(name="commonName")
     def common_name(self) -> Optional[str]:
-        """
-        Fully qualified domain name (FQDN) associated with the certificate subject.
-        """
         return pulumi.get(self, "common_name")
 
     @property
     @pulumi.getter
     def country(self) -> Optional[str]:
-        """
-        Two-digit code that specifies the country in which the certificate subject located.
-        """
         return pulumi.get(self, "country")
 
     @property
     @pulumi.getter(name="customAttributes")
     def custom_attributes(self) -> Optional[Sequence['outputs.CertificateAuthorityCustomAttribute']]:
-        """
-        Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
-
-        > Custom attributes cannot be used in combination with standard attributes.
-        """
         return pulumi.get(self, "custom_attributes")
 
     @property
     @pulumi.getter(name="distinguishedNameQualifier")
     def distinguished_name_qualifier(self) -> Optional[str]:
-        """
-        Disambiguating information for the certificate subject.
-        """
         return pulumi.get(self, "distinguished_name_qualifier")
 
     @property
     @pulumi.getter(name="generationQualifier")
     def generation_qualifier(self) -> Optional[str]:
-        """
-        Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
-        """
         return pulumi.get(self, "generation_qualifier")
 
     @property
     @pulumi.getter(name="givenName")
     def given_name(self) -> Optional[str]:
-        """
-        First name.
-        """
         return pulumi.get(self, "given_name")
 
     @property
     @pulumi.getter
     def initials(self) -> Optional[str]:
-        """
-        Concatenation that typically contains the first letter of the GivenName, the first letter of the middle name if one exists, and the first letter of the SurName.
-        """
         return pulumi.get(self, "initials")
 
     @property
     @pulumi.getter
     def locality(self) -> Optional[str]:
-        """
-        The locality (such as a city or town) in which the certificate subject is located.
-        """
         return pulumi.get(self, "locality")
 
     @property
     @pulumi.getter
     def organization(self) -> Optional[str]:
-        """
-        Legal name of the organization with which the certificate subject is affiliated.
-        """
         return pulumi.get(self, "organization")
 
     @property
     @pulumi.getter(name="organizationalUnit")
     def organizational_unit(self) -> Optional[str]:
-        """
-        A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
-        """
         return pulumi.get(self, "organizational_unit")
 
     @property
     @pulumi.getter
     def pseudonym(self) -> Optional[str]:
-        """
-        Typically a shortened version of a longer GivenName. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
-        """
         return pulumi.get(self, "pseudonym")
 
     @property
     @pulumi.getter(name="serialNumber")
     def serial_number(self) -> Optional[str]:
-        """
-        The certificate serial number.
-        """
         return pulumi.get(self, "serial_number")
 
     @property
     @pulumi.getter
     def state(self) -> Optional[str]:
-        """
-        State in which the subject of the certificate is located.
-        """
         return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
     def surname(self) -> Optional[str]:
-        """
-        Family name.
-        """
         return pulumi.get(self, "surname")
 
     @property
     @pulumi.getter
     def title(self) -> Optional[str]:
-        """
-        A personal title such as Mr.
-        """
         return pulumi.get(self, "title")
 
 

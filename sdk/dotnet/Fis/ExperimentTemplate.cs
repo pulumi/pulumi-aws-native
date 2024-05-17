@@ -199,6 +199,7 @@ namespace Pulumi.AwsNative.Fis
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "experimentOptions.accountTargeting",
                     "tags.*",
                 },
             };

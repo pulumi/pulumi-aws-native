@@ -13,13 +13,7 @@ namespace Pulumi.AwsNative.B2bi.Outputs
     [OutputType]
     public sealed class CapabilityS3Location
     {
-        /// <summary>
-        /// Specifies the name of the Amazon S3 bucket.
-        /// </summary>
         public readonly string? BucketName;
-        /// <summary>
-        /// Specifies the Amazon S3 key for the file location.
-        /// </summary>
         public readonly string? Key;
 
         [OutputConstructor]

@@ -249,7 +249,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["weeklyMaintenanceWindowStart"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["endpointManagement", "kmsKey", "name"] };
+        const replaceOnChanges = { replaceOnChanges: ["endpointManagement", "kmsKey", "name", "networkConfiguration.subnetIds[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Environment.__pulumiType, name, resourceInputs, opts);
     }

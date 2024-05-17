@@ -619,7 +619,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["database_vpc_endpoint_service"] = None
             __props__.__dict__["webserver_url"] = None
             __props__.__dict__["webserver_vpc_endpoint_service"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["endpointManagement", "kmsKey", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["endpointManagement", "kmsKey", "name", "networkConfiguration.subnetIds[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Environment, __self__).__init__(
             'aws-native:mwaa:Environment',

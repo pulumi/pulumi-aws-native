@@ -128,6 +128,8 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
                     "cnamePrefix",
                     "environmentName",
                     "solutionStackName",
+                    "tier.name",
+                    "tier.type",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

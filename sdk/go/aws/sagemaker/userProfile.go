@@ -49,6 +49,8 @@ func NewUserProfile(ctx *pulumi.Context,
 		"singleSignOnUserValue",
 		"tags[*]",
 		"userProfileName",
+		"userSettings.rStudioServerProAppSettings.accessStatus",
+		"userSettings.rStudioServerProAppSettings.userGroup",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

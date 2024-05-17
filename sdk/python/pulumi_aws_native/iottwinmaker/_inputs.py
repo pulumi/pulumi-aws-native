@@ -1476,12 +1476,6 @@ class EntityStatusArgs:
     def __init__(__self__, *,
                  error: Optional[pulumi.Input[Union[Any, 'EntityStatusErrorPropertiesArgs']]] = None,
                  state: Optional[pulumi.Input['EntityStatusState']] = None):
-        """
-        :param pulumi.Input[Union[Any, 'EntityStatusErrorPropertiesArgs']] error: The error message.
-        :param pulumi.Input['EntityStatusState'] state: The current state of the entity, component, component type, or workspace.
-               
-               Valid Values: `CREATING | UPDATING | DELETING | ACTIVE | ERROR`
-        """
         if error is not None:
             pulumi.set(__self__, "error", error)
         if state is not None:
@@ -1490,9 +1484,6 @@ class EntityStatusArgs:
     @property
     @pulumi.getter
     def error(self) -> Optional[pulumi.Input[Union[Any, 'EntityStatusErrorPropertiesArgs']]]:
-        """
-        The error message.
-        """
         return pulumi.get(self, "error")
 
     @error.setter
@@ -1502,11 +1493,6 @@ class EntityStatusArgs:
     @property
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input['EntityStatusState']]:
-        """
-        The current state of the entity, component, component type, or workspace.
-
-        Valid Values: `CREATING | UPDATING | DELETING | ACTIVE | ERROR`
-        """
         return pulumi.get(self, "state")
 
     @state.setter

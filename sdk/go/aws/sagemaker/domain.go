@@ -77,6 +77,7 @@ func NewDomain(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"authMode",
 		"domainName",
+		"domainSettings.rStudioServerProDomainSettings.defaultResourceSpec",
 		"kmsKeyId",
 		"tags[*]",
 		"vpcId",

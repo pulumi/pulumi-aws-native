@@ -125,6 +125,7 @@ namespace Pulumi.AwsNative.Batch
                 ReplaceOnChanges =
                 {
                     "computeEnvironmentName",
+                    "computeResources.spotIamFleetRole",
                     "eksConfiguration",
                     "tags.*",
                     "type",

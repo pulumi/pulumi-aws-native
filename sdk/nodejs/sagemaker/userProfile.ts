@@ -97,7 +97,7 @@ export class UserProfile extends pulumi.CustomResource {
             resourceInputs["userSettings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["domainId", "singleSignOnUserIdentifier", "singleSignOnUserValue", "tags[*]", "userProfileName"] };
+        const replaceOnChanges = { replaceOnChanges: ["domainId", "singleSignOnUserIdentifier", "singleSignOnUserValue", "tags[*]", "userProfileName", "userSettings.rStudioServerProAppSettings.accessStatus", "userSettings.rStudioServerProAppSettings.userGroup"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(UserProfile.__pulumiType, name, resourceInputs, opts);
     }

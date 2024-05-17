@@ -2056,38 +2056,21 @@ func (o CertificateAuthorityRevocationConfigurationPtrOutput) OcspConfiguration(
 
 // Structure that contains X.500 distinguished name information for your CA.
 type CertificateAuthoritySubject struct {
-	// Fully qualified domain name (FQDN) associated with the certificate subject.
-	CommonName *string `pulumi:"commonName"`
-	// Two-digit code that specifies the country in which the certificate subject located.
-	Country *string `pulumi:"country"`
-	// Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
-	//
-	// > Custom attributes cannot be used in combination with standard attributes.
-	CustomAttributes []CertificateAuthorityCustomAttribute `pulumi:"customAttributes"`
-	// Disambiguating information for the certificate subject.
-	DistinguishedNameQualifier *string `pulumi:"distinguishedNameQualifier"`
-	// Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
-	GenerationQualifier *string `pulumi:"generationQualifier"`
-	// First name.
-	GivenName *string `pulumi:"givenName"`
-	// Concatenation that typically contains the first letter of the GivenName, the first letter of the middle name if one exists, and the first letter of the SurName.
-	Initials *string `pulumi:"initials"`
-	// The locality (such as a city or town) in which the certificate subject is located.
-	Locality *string `pulumi:"locality"`
-	// Legal name of the organization with which the certificate subject is affiliated.
-	Organization *string `pulumi:"organization"`
-	// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
-	OrganizationalUnit *string `pulumi:"organizationalUnit"`
-	// Typically a shortened version of a longer GivenName. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
-	Pseudonym *string `pulumi:"pseudonym"`
-	// The certificate serial number.
-	SerialNumber *string `pulumi:"serialNumber"`
-	// State in which the subject of the certificate is located.
-	State *string `pulumi:"state"`
-	// Family name.
-	Surname *string `pulumi:"surname"`
-	// A personal title such as Mr.
-	Title *string `pulumi:"title"`
+	CommonName                 *string                               `pulumi:"commonName"`
+	Country                    *string                               `pulumi:"country"`
+	CustomAttributes           []CertificateAuthorityCustomAttribute `pulumi:"customAttributes"`
+	DistinguishedNameQualifier *string                               `pulumi:"distinguishedNameQualifier"`
+	GenerationQualifier        *string                               `pulumi:"generationQualifier"`
+	GivenName                  *string                               `pulumi:"givenName"`
+	Initials                   *string                               `pulumi:"initials"`
+	Locality                   *string                               `pulumi:"locality"`
+	Organization               *string                               `pulumi:"organization"`
+	OrganizationalUnit         *string                               `pulumi:"organizationalUnit"`
+	Pseudonym                  *string                               `pulumi:"pseudonym"`
+	SerialNumber               *string                               `pulumi:"serialNumber"`
+	State                      *string                               `pulumi:"state"`
+	Surname                    *string                               `pulumi:"surname"`
+	Title                      *string                               `pulumi:"title"`
 }
 
 // CertificateAuthoritySubjectInput is an input type that accepts CertificateAuthoritySubjectArgs and CertificateAuthoritySubjectOutput values.
@@ -2103,38 +2086,21 @@ type CertificateAuthoritySubjectInput interface {
 
 // Structure that contains X.500 distinguished name information for your CA.
 type CertificateAuthoritySubjectArgs struct {
-	// Fully qualified domain name (FQDN) associated with the certificate subject.
-	CommonName pulumi.StringPtrInput `pulumi:"commonName"`
-	// Two-digit code that specifies the country in which the certificate subject located.
-	Country pulumi.StringPtrInput `pulumi:"country"`
-	// Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
-	//
-	// > Custom attributes cannot be used in combination with standard attributes.
-	CustomAttributes CertificateAuthorityCustomAttributeArrayInput `pulumi:"customAttributes"`
-	// Disambiguating information for the certificate subject.
-	DistinguishedNameQualifier pulumi.StringPtrInput `pulumi:"distinguishedNameQualifier"`
-	// Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
-	GenerationQualifier pulumi.StringPtrInput `pulumi:"generationQualifier"`
-	// First name.
-	GivenName pulumi.StringPtrInput `pulumi:"givenName"`
-	// Concatenation that typically contains the first letter of the GivenName, the first letter of the middle name if one exists, and the first letter of the SurName.
-	Initials pulumi.StringPtrInput `pulumi:"initials"`
-	// The locality (such as a city or town) in which the certificate subject is located.
-	Locality pulumi.StringPtrInput `pulumi:"locality"`
-	// Legal name of the organization with which the certificate subject is affiliated.
-	Organization pulumi.StringPtrInput `pulumi:"organization"`
-	// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
-	OrganizationalUnit pulumi.StringPtrInput `pulumi:"organizationalUnit"`
-	// Typically a shortened version of a longer GivenName. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
-	Pseudonym pulumi.StringPtrInput `pulumi:"pseudonym"`
-	// The certificate serial number.
-	SerialNumber pulumi.StringPtrInput `pulumi:"serialNumber"`
-	// State in which the subject of the certificate is located.
-	State pulumi.StringPtrInput `pulumi:"state"`
-	// Family name.
-	Surname pulumi.StringPtrInput `pulumi:"surname"`
-	// A personal title such as Mr.
-	Title pulumi.StringPtrInput `pulumi:"title"`
+	CommonName                 pulumi.StringPtrInput                         `pulumi:"commonName"`
+	Country                    pulumi.StringPtrInput                         `pulumi:"country"`
+	CustomAttributes           CertificateAuthorityCustomAttributeArrayInput `pulumi:"customAttributes"`
+	DistinguishedNameQualifier pulumi.StringPtrInput                         `pulumi:"distinguishedNameQualifier"`
+	GenerationQualifier        pulumi.StringPtrInput                         `pulumi:"generationQualifier"`
+	GivenName                  pulumi.StringPtrInput                         `pulumi:"givenName"`
+	Initials                   pulumi.StringPtrInput                         `pulumi:"initials"`
+	Locality                   pulumi.StringPtrInput                         `pulumi:"locality"`
+	Organization               pulumi.StringPtrInput                         `pulumi:"organization"`
+	OrganizationalUnit         pulumi.StringPtrInput                         `pulumi:"organizationalUnit"`
+	Pseudonym                  pulumi.StringPtrInput                         `pulumi:"pseudonym"`
+	SerialNumber               pulumi.StringPtrInput                         `pulumi:"serialNumber"`
+	State                      pulumi.StringPtrInput                         `pulumi:"state"`
+	Surname                    pulumi.StringPtrInput                         `pulumi:"surname"`
+	Title                      pulumi.StringPtrInput                         `pulumi:"title"`
 }
 
 func (CertificateAuthoritySubjectArgs) ElementType() reflect.Type {
@@ -2215,79 +2181,62 @@ func (o CertificateAuthoritySubjectOutput) ToCertificateAuthoritySubjectPtrOutpu
 	}).(CertificateAuthoritySubjectPtrOutput)
 }
 
-// Fully qualified domain name (FQDN) associated with the certificate subject.
 func (o CertificateAuthoritySubjectOutput) CommonName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthoritySubject) *string { return v.CommonName }).(pulumi.StringPtrOutput)
 }
 
-// Two-digit code that specifies the country in which the certificate subject located.
 func (o CertificateAuthoritySubjectOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthoritySubject) *string { return v.Country }).(pulumi.StringPtrOutput)
 }
 
-// Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
-//
-// > Custom attributes cannot be used in combination with standard attributes.
 func (o CertificateAuthoritySubjectOutput) CustomAttributes() CertificateAuthorityCustomAttributeArrayOutput {
 	return o.ApplyT(func(v CertificateAuthoritySubject) []CertificateAuthorityCustomAttribute { return v.CustomAttributes }).(CertificateAuthorityCustomAttributeArrayOutput)
 }
 
-// Disambiguating information for the certificate subject.
 func (o CertificateAuthoritySubjectOutput) DistinguishedNameQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthoritySubject) *string { return v.DistinguishedNameQualifier }).(pulumi.StringPtrOutput)
 }
 
-// Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
 func (o CertificateAuthoritySubjectOutput) GenerationQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthoritySubject) *string { return v.GenerationQualifier }).(pulumi.StringPtrOutput)
 }
 
-// First name.
 func (o CertificateAuthoritySubjectOutput) GivenName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthoritySubject) *string { return v.GivenName }).(pulumi.StringPtrOutput)
 }
 
-// Concatenation that typically contains the first letter of the GivenName, the first letter of the middle name if one exists, and the first letter of the SurName.
 func (o CertificateAuthoritySubjectOutput) Initials() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthoritySubject) *string { return v.Initials }).(pulumi.StringPtrOutput)
 }
 
-// The locality (such as a city or town) in which the certificate subject is located.
 func (o CertificateAuthoritySubjectOutput) Locality() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthoritySubject) *string { return v.Locality }).(pulumi.StringPtrOutput)
 }
 
-// Legal name of the organization with which the certificate subject is affiliated.
 func (o CertificateAuthoritySubjectOutput) Organization() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthoritySubject) *string { return v.Organization }).(pulumi.StringPtrOutput)
 }
 
-// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
 func (o CertificateAuthoritySubjectOutput) OrganizationalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthoritySubject) *string { return v.OrganizationalUnit }).(pulumi.StringPtrOutput)
 }
 
-// Typically a shortened version of a longer GivenName. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
 func (o CertificateAuthoritySubjectOutput) Pseudonym() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthoritySubject) *string { return v.Pseudonym }).(pulumi.StringPtrOutput)
 }
 
-// The certificate serial number.
 func (o CertificateAuthoritySubjectOutput) SerialNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthoritySubject) *string { return v.SerialNumber }).(pulumi.StringPtrOutput)
 }
 
-// State in which the subject of the certificate is located.
 func (o CertificateAuthoritySubjectOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthoritySubject) *string { return v.State }).(pulumi.StringPtrOutput)
 }
 
-// Family name.
 func (o CertificateAuthoritySubjectOutput) Surname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthoritySubject) *string { return v.Surname }).(pulumi.StringPtrOutput)
 }
 
-// A personal title such as Mr.
 func (o CertificateAuthoritySubjectOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateAuthoritySubject) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
@@ -2316,7 +2265,6 @@ func (o CertificateAuthoritySubjectPtrOutput) Elem() CertificateAuthoritySubject
 	}).(CertificateAuthoritySubjectOutput)
 }
 
-// Fully qualified domain name (FQDN) associated with the certificate subject.
 func (o CertificateAuthoritySubjectPtrOutput) CommonName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthoritySubject) *string {
 		if v == nil {
@@ -2326,7 +2274,6 @@ func (o CertificateAuthoritySubjectPtrOutput) CommonName() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Two-digit code that specifies the country in which the certificate subject located.
 func (o CertificateAuthoritySubjectPtrOutput) Country() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthoritySubject) *string {
 		if v == nil {
@@ -2336,9 +2283,6 @@ func (o CertificateAuthoritySubjectPtrOutput) Country() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains a sequence of one or more X.500 relative distinguished names (RDNs), each of which consists of an object identifier (OID) and a value. For more information, see NIST’s definition of [Object Identifier (OID)](https://docs.aws.amazon.com/https://csrc.nist.gov/glossary/term/Object_Identifier) .
-//
-// > Custom attributes cannot be used in combination with standard attributes.
 func (o CertificateAuthoritySubjectPtrOutput) CustomAttributes() CertificateAuthorityCustomAttributeArrayOutput {
 	return o.ApplyT(func(v *CertificateAuthoritySubject) []CertificateAuthorityCustomAttribute {
 		if v == nil {
@@ -2348,7 +2292,6 @@ func (o CertificateAuthoritySubjectPtrOutput) CustomAttributes() CertificateAuth
 	}).(CertificateAuthorityCustomAttributeArrayOutput)
 }
 
-// Disambiguating information for the certificate subject.
 func (o CertificateAuthoritySubjectPtrOutput) DistinguishedNameQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthoritySubject) *string {
 		if v == nil {
@@ -2358,7 +2301,6 @@ func (o CertificateAuthoritySubjectPtrOutput) DistinguishedNameQualifier() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Typically a qualifier appended to the name of an individual. Examples include Jr. for junior, Sr. for senior, and III for third.
 func (o CertificateAuthoritySubjectPtrOutput) GenerationQualifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthoritySubject) *string {
 		if v == nil {
@@ -2368,7 +2310,6 @@ func (o CertificateAuthoritySubjectPtrOutput) GenerationQualifier() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// First name.
 func (o CertificateAuthoritySubjectPtrOutput) GivenName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthoritySubject) *string {
 		if v == nil {
@@ -2378,7 +2319,6 @@ func (o CertificateAuthoritySubjectPtrOutput) GivenName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Concatenation that typically contains the first letter of the GivenName, the first letter of the middle name if one exists, and the first letter of the SurName.
 func (o CertificateAuthoritySubjectPtrOutput) Initials() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthoritySubject) *string {
 		if v == nil {
@@ -2388,7 +2328,6 @@ func (o CertificateAuthoritySubjectPtrOutput) Initials() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The locality (such as a city or town) in which the certificate subject is located.
 func (o CertificateAuthoritySubjectPtrOutput) Locality() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthoritySubject) *string {
 		if v == nil {
@@ -2398,7 +2337,6 @@ func (o CertificateAuthoritySubjectPtrOutput) Locality() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Legal name of the organization with which the certificate subject is affiliated.
 func (o CertificateAuthoritySubjectPtrOutput) Organization() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthoritySubject) *string {
 		if v == nil {
@@ -2408,7 +2346,6 @@ func (o CertificateAuthoritySubjectPtrOutput) Organization() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// A subdivision or unit of the organization (such as sales or finance) with which the certificate subject is affiliated.
 func (o CertificateAuthoritySubjectPtrOutput) OrganizationalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthoritySubject) *string {
 		if v == nil {
@@ -2418,7 +2355,6 @@ func (o CertificateAuthoritySubjectPtrOutput) OrganizationalUnit() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Typically a shortened version of a longer GivenName. For example, Jonathan is often shortened to John. Elizabeth is often shortened to Beth, Liz, or Eliza.
 func (o CertificateAuthoritySubjectPtrOutput) Pseudonym() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthoritySubject) *string {
 		if v == nil {
@@ -2428,7 +2364,6 @@ func (o CertificateAuthoritySubjectPtrOutput) Pseudonym() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The certificate serial number.
 func (o CertificateAuthoritySubjectPtrOutput) SerialNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthoritySubject) *string {
 		if v == nil {
@@ -2438,7 +2373,6 @@ func (o CertificateAuthoritySubjectPtrOutput) SerialNumber() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// State in which the subject of the certificate is located.
 func (o CertificateAuthoritySubjectPtrOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthoritySubject) *string {
 		if v == nil {
@@ -2448,7 +2382,6 @@ func (o CertificateAuthoritySubjectPtrOutput) State() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Family name.
 func (o CertificateAuthoritySubjectPtrOutput) Surname() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthoritySubject) *string {
 		if v == nil {
@@ -2458,7 +2391,6 @@ func (o CertificateAuthoritySubjectPtrOutput) Surname() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A personal title such as Mr.
 func (o CertificateAuthoritySubjectPtrOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthoritySubject) *string {
 		if v == nil {

@@ -150,6 +150,7 @@ namespace Pulumi.AwsNative.SageMaker
                 {
                     "authMode",
                     "domainName",
+                    "domainSettings.rStudioServerProDomainSettings.defaultResourceSpec",
                     "kmsKeyId",
                     "tags[*]",
                     "vpcId",
