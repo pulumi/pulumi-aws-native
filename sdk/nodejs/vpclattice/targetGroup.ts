@@ -70,7 +70,7 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<enums.vpclattice.TargetGroupStatus>;
     /**
-     * The tags for the target group.
+     * Specifies a tag for a target group.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -142,7 +142,7 @@ export interface TargetGroupArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The tags for the target group.
+     * Specifies a tag for a target group.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

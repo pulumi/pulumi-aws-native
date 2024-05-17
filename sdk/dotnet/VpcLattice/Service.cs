@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Output<Pulumi.AwsNative.VpcLattice.ServiceStatus> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The tags for the service.
+        /// Specifies a tag for a service.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -175,7 +175,7 @@ namespace Pulumi.AwsNative.VpcLattice
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// The tags for the service.
+        /// Specifies a tag for a service.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

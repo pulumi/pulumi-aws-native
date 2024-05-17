@@ -38,10 +38,10 @@ update_submodules:: init_submodules
 	done
 
 docs::
-	$(WORKING_DIR)/bin/$(CODEGEN) docs $(CFN_SCHEMA_DIR) ${VERSION_GENERIC} https://github.com/cdklabs/awscdk-service-spec/raw/main/sources/CloudFormationDocumentation/CloudFormationDocumentation.json
+	$(WORKING_DIR)/bin/$(CODEGEN) -schema-folder $(CFN_SCHEMA_DIR) -version ${VERSION_GENERIC} -docs-url https://github.com/cdklabs/awscdk-service-spec/raw/main/sources/CloudFormationDocumentation/CloudFormationDocumentation.json docs
 
 discovery:: update_submodules codegen docs
-	$(WORKING_DIR)/bin/$(CODEGEN) discovery $(CFN_SCHEMA_DIR) ${VERSION_GENERIC} https://schema.cloudformation.us-east-1.amazonaws.com/CloudformationSchema.zip,https://schema.cloudformation.us-west-2.amazonaws.com/CloudformationSchema.zip
+	$(WORKING_DIR)/bin/$(CODEGEN) -schema-folder $(CFN_SCHEMA_DIR) -version ${VERSION_GENERIC} -schema-urls https://schema.cloudformation.us-east-1.amazonaws.com/CloudformationSchema.zip,https://schema.cloudformation.us-west-2.amazonaws.com/CloudformationSchema.zip discovery
 
 ensure:: init_submodules
 	@echo "GO111MODULE=on go mod tidy"
@@ -53,7 +53,7 @@ local_generate:: generate_schema generate_nodejs generate_python generate_dotnet
 
 generate_schema:: docs
 	echo "Generating Pulumi schema..."
-	$(WORKING_DIR)/bin/$(CODEGEN) schema $(CFN_SCHEMA_DIR) ${VERSION_GENERIC}
+	$(WORKING_DIR)/bin/$(CODEGEN) --schema-folder $(CFN_SCHEMA_DIR) --version ${VERSION_GENERIC} schema
 	echo "Finished generating schema."
 
 codegen::

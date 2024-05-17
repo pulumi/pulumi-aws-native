@@ -25,7 +25,7 @@ class ServiceNetworkVpcAssociationArgs:
         The set of arguments for constructing a ServiceNetworkVpcAssociation resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
         :param pulumi.Input[str] service_network_identifier: The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN when the resources specified in the operation are in different accounts.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the association.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Specifies a tag for a VPC association.
         :param pulumi.Input[str] vpc_identifier: The ID of the VPC.
         """
         if security_group_ids is not None:
@@ -65,7 +65,7 @@ class ServiceNetworkVpcAssociationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The tags for the association.
+        Specifies a tag for a VPC association.
         """
         return pulumi.get(self, "tags")
 
@@ -103,7 +103,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
         :param pulumi.Input[str] service_network_identifier: The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN when the resources specified in the operation are in different accounts.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the association.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies a tag for a VPC association.
         :param pulumi.Input[str] vpc_identifier: The ID of the VPC.
         """
         ...
@@ -269,7 +269,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The tags for the association.
+        Specifies a tag for a VPC association.
         """
         return pulumi.get(self, "tags")
 

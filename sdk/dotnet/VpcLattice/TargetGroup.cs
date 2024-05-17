@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Output<Pulumi.AwsNative.VpcLattice.TargetGroupStatus> Status { get; private set; } = null!;
 
         /// <summary>
-        /// The tags for the target group.
+        /// Specifies a tag for a target group.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.AwsNative.VpcLattice
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// The tags for the target group.
+        /// Specifies a tag for a target group.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

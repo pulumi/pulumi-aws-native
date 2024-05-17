@@ -102,7 +102,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public readonly Pulumi.AwsNative.VpcLattice.ServiceNetworkServiceAssociationStatus? Status;
         /// <summary>
-        /// The tags for the association.
+        /// Specifies a tag for a service association.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

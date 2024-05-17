@@ -833,7 +833,7 @@ class ComponentPredicateArgs:
                  operator: Optional[pulumi.Input[str]] = None,
                  or_: Optional[pulumi.Input[Sequence[pulumi.Input['ComponentPredicateArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ComponentPredicateArgs']]] and_: The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+        :param pulumi.Input[Sequence[pulumi.Input['ComponentPredicateArgs']]] and_: A list of predicates to combine logically.
         :param pulumi.Input[str] field: The field to query.
         :param pulumi.Input[str] operand: The value to use when performing the evaluation.
         :param pulumi.Input[str] operand_type: The type of value to use when performing the evaluation.
@@ -857,7 +857,7 @@ class ComponentPredicateArgs:
     @pulumi.getter(name="and")
     def and_(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentPredicateArgs']]]]:
         """
-        The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+        A list of predicates to combine logically.
         """
         return pulumi.get(self, "and_")
 

@@ -62,7 +62,7 @@ export interface GetServiceResult {
      */
     readonly status?: enums.vpclattice.ServiceStatus;
     /**
-     * The tags for the service.
+     * Specifies a tag for a service.
      */
     readonly tags?: outputs.Tag[];
 }

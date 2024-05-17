@@ -14,7 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AccessLogSubscriptionTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -398,7 +400,9 @@ func (o ListenerForwardPtrOutput) TargetGroups() ListenerWeightedTargetGroupArra
 }
 
 type ListenerTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -1595,7 +1599,9 @@ func (o RulePathMatchTypePtrOutput) Prefix() pulumi.StringPtrOutput {
 }
 
 type RuleTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -2018,22 +2024,30 @@ func (o ServiceNetworkServiceAssociationDnsEntryPtrOutput) HostedZoneId() pulumi
 }
 
 type ServiceNetworkServiceAssociationTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
 type ServiceNetworkTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
 type ServiceNetworkVpcAssociationTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
 type ServiceTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -2738,7 +2752,9 @@ func (o TargetGroupMatcherPtrOutput) HttpCode() pulumi.StringPtrOutput {
 }
 
 type TargetGroupTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 

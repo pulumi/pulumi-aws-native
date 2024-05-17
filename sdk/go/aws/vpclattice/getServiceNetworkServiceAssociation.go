@@ -51,7 +51,7 @@ type LookupServiceNetworkServiceAssociationResult struct {
 	ServiceNetworkName *string `pulumi:"serviceNetworkName"`
 	// The status of the association between the service network and the service.
 	Status *ServiceNetworkServiceAssociationStatus `pulumi:"status"`
-	// The tags for the association.
+	// Specifies a tag for a service association.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -150,7 +150,7 @@ func (o LookupServiceNetworkServiceAssociationResultOutput) Status() ServiceNetw
 	}).(ServiceNetworkServiceAssociationStatusPtrOutput)
 }
 
-// The tags for the association.
+// Specifies a tag for a service association.
 func (o LookupServiceNetworkServiceAssociationResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupServiceNetworkServiceAssociationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

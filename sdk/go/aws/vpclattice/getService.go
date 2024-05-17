@@ -48,7 +48,7 @@ type LookupServiceResult struct {
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
 	// The status of the service.
 	Status *ServiceStatus `pulumi:"status"`
-	// The tags for the service.
+	// Specifies a tag for a service.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -131,7 +131,7 @@ func (o LookupServiceResultOutput) Status() ServiceStatusPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceStatus { return v.Status }).(ServiceStatusPtrOutput)
 }
 
-// The tags for the service.
+// Specifies a tag for a service.
 func (o LookupServiceResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupServiceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

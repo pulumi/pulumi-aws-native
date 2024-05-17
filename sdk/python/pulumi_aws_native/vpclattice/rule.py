@@ -36,7 +36,7 @@ class RuleArgs:
                
                If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
         :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Name (ARN) of the service.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Specifies a tag for a listener rule.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match", match)
@@ -128,7 +128,7 @@ class RuleArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The tags for the rule.
+        Specifies a tag for a listener rule.
         """
         return pulumi.get(self, "tags")
 
@@ -163,7 +163,7 @@ class Rule(pulumi.CustomResource):
                If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
         :param pulumi.Input[int] priority: The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
         :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Name (ARN) of the service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies a tag for a listener rule.
         """
         ...
     @overload
@@ -325,7 +325,7 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The tags for the rule.
+        Specifies a tag for a listener rule.
         """
         return pulumi.get(self, "tags")
 

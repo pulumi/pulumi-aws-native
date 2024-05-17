@@ -41,7 +41,7 @@ type Service struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The status of the service.
 	Status ServiceStatusOutput `pulumi:"status"`
-	// The tags for the service.
+	// Specifies a tag for a service.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -105,7 +105,7 @@ type serviceArgs struct {
 	//
 	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
 	Name *string `pulumi:"name"`
-	// The tags for the service.
+	// Specifies a tag for a service.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -126,7 +126,7 @@ type ServiceArgs struct {
 	//
 	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
 	Name pulumi.StringPtrInput
-	// The tags for the service.
+	// Specifies a tag for a service.
 	Tags aws.TagArrayInput
 }
 
@@ -222,7 +222,7 @@ func (o ServiceOutput) Status() ServiceStatusOutput {
 	return o.ApplyT(func(v *Service) ServiceStatusOutput { return v.Status }).(ServiceStatusOutput)
 }
 
-// The tags for the service.
+// Specifies a tag for a service.
 func (o ServiceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Service) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

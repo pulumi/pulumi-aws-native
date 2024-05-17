@@ -804,7 +804,7 @@ class ComponentPredicate(dict):
                  operator: Optional[str] = None,
                  or_: Optional[Sequence['outputs.ComponentPredicate']] = None):
         """
-        :param Sequence['ComponentPredicate'] and_: The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+        :param Sequence['ComponentPredicate'] and_: A list of predicates to combine logically.
         :param str field: The field to query.
         :param str operand: The value to use when performing the evaluation.
         :param str operand_type: The type of value to use when performing the evaluation.
@@ -828,7 +828,7 @@ class ComponentPredicate(dict):
     @pulumi.getter(name="and")
     def and_(self) -> Optional[Sequence['outputs.ComponentPredicate']]:
         """
-        The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+        A list of predicates to combine logically.
         """
         return pulumi.get(self, "and_")
 

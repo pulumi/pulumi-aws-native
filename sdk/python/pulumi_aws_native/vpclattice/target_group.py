@@ -33,7 +33,7 @@ class TargetGroupArgs:
         :param pulumi.Input[str] name: The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
                
                If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the target group.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Specifies a tag for a target group.
         :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetArgs']]] targets: Describes a target.
         """
         pulumi.set(__self__, "type", type)
@@ -90,7 +90,7 @@ class TargetGroupArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The tags for the target group.
+        Specifies a tag for a target group.
         """
         return pulumi.get(self, "tags")
 
@@ -133,7 +133,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
                
                If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the target group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies a tag for a target group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetArgs']]]] targets: Describes a target.
         :param pulumi.Input['TargetGroupType'] type: The type of target group.
         """
@@ -287,7 +287,7 @@ class TargetGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The tags for the target group.
+        Specifies a tag for a target group.
         """
         return pulumi.get(self, "tags")
 

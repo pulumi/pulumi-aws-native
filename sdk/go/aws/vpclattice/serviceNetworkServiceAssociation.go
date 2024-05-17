@@ -42,7 +42,7 @@ type ServiceNetworkServiceAssociation struct {
 	ServiceNetworkName pulumi.StringOutput `pulumi:"serviceNetworkName"`
 	// The status of the association between the service network and the service.
 	Status ServiceNetworkServiceAssociationStatusOutput `pulumi:"status"`
-	// The tags for the association.
+	// Specifies a tag for a service association.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -97,7 +97,7 @@ type serviceNetworkServiceAssociationArgs struct {
 	ServiceIdentifier *string `pulumi:"serviceIdentifier"`
 	// The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
 	ServiceNetworkIdentifier *string `pulumi:"serviceNetworkIdentifier"`
-	// The tags for the association.
+	// Specifies a tag for a service association.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -109,7 +109,7 @@ type ServiceNetworkServiceAssociationArgs struct {
 	ServiceIdentifier pulumi.StringPtrInput
 	// The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
 	ServiceNetworkIdentifier pulumi.StringPtrInput
-	// The tags for the association.
+	// Specifies a tag for a service association.
 	Tags aws.TagArrayInput
 }
 
@@ -219,7 +219,7 @@ func (o ServiceNetworkServiceAssociationOutput) Status() ServiceNetworkServiceAs
 	}).(ServiceNetworkServiceAssociationStatusOutput)
 }
 
-// The tags for the association.
+// Specifies a tag for a service association.
 func (o ServiceNetworkServiceAssociationOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

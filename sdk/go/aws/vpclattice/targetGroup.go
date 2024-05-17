@@ -35,7 +35,7 @@ type TargetGroup struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The operation's status. You can retry the operation if the status is `CREATE_FAILED` . However, if you retry it while the status is `CREATE_IN_PROGRESS` , there is no change in the status.
 	Status TargetGroupStatusOutput `pulumi:"status"`
-	// The tags for the target group.
+	// Specifies a tag for a target group.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Describes a target.
 	Targets TargetGroupTargetArrayOutput `pulumi:"targets"`
@@ -99,7 +99,7 @@ type targetGroupArgs struct {
 	//
 	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
 	Name *string `pulumi:"name"`
-	// The tags for the target group.
+	// Specifies a tag for a target group.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Describes a target.
 	Targets []TargetGroupTarget `pulumi:"targets"`
@@ -117,7 +117,7 @@ type TargetGroupArgs struct {
 	//
 	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
 	Name pulumi.StringPtrInput
-	// The tags for the target group.
+	// Specifies a tag for a target group.
 	Tags aws.TagArrayInput
 	// Describes a target.
 	Targets TargetGroupTargetArrayInput
@@ -201,7 +201,7 @@ func (o TargetGroupOutput) Status() TargetGroupStatusOutput {
 	return o.ApplyT(func(v *TargetGroup) TargetGroupStatusOutput { return v.Status }).(TargetGroupStatusOutput)
 }
 
-// The tags for the target group.
+// Specifies a tag for a target group.
 func (o TargetGroupOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *TargetGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

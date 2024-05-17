@@ -101,7 +101,7 @@ class GetTargetGroupResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        The tags for the target group.
+        Specifies a tag for a target group.
         """
         return pulumi.get(self, "tags")
 

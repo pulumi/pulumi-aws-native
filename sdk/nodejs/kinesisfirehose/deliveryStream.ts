@@ -151,7 +151,7 @@ export class DeliveryStream extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["deliveryStreamName", "deliveryStreamType", "kinesisStreamSourceConfiguration", "mskSourceConfiguration"] };
+        const replaceOnChanges = { replaceOnChanges: ["amazonopensearchserviceDestinationConfiguration.vpcConfiguration", "deliveryStreamName", "deliveryStreamType", "kinesisStreamSourceConfiguration", "mskSourceConfiguration"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DeliveryStream.__pulumiType, name, resourceInputs, opts);
     }

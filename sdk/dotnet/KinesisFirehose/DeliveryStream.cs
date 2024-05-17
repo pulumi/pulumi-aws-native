@@ -139,6 +139,7 @@ namespace Pulumi.AwsNative.KinesisFirehose
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "amazonopensearchserviceDestinationConfiguration.vpcConfiguration",
                     "deliveryStreamName",
                     "deliveryStreamType",
                     "kinesisStreamSourceConfiguration",

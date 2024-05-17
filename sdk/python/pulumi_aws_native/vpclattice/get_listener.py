@@ -84,7 +84,7 @@ class GetListenerResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        The tags for the listener.
+        Specifies a tag for a listener.
         """
         return pulumi.get(self, "tags")
 

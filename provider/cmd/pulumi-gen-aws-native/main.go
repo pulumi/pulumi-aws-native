@@ -32,48 +32,68 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
+type schemaUrls []string
+
+func (s *schemaUrls) String() string {
+	return fmt.Sprint(*s)
+}
+
+func (s *schemaUrls) Set(value string) error {
+	if len(*s) > 0 {
+		return errors.New("--schema-urls flag already set")
+	}
+
+	urls := strings.Split(value, ",")
+	for _, u := range urls {
+		*s = append(*s, u)
+	}
+	return nil
+}
+
 func main() {
 	flag.Usage = func() {
-		const usageFormat = "Usage: %s <operation> <schema-folder> <version> (<schema urls>) (<docs-url>)"
+		const usageFormat = "Usage: %s [OPTIONS] <operation>"
 		_, err := fmt.Fprintf(flag.CommandLine.Output(), usageFormat, os.Args[0])
 		contract.IgnoreError(err)
 		flag.PrintDefaults()
 	}
 
-	var version string
+	var version, operation, schemaFolder, docsUrl string
+	var jsonSchemaUrls schemaUrls
 	flag.StringVar(&version, "version", "", "the provider version to record in the generated code")
+	flag.StringVar(&schemaFolder, "schema-folder", "", "The folder containing the CloudFormation schema files")
+	flag.StringVar(&docsUrl, "docs-url", "", "The URL to download the CloudFormation docs")
+	flag.Var(&jsonSchemaUrls, "schema-urls", "A comma delimited list of CloudFormation schema urls")
 
 	flag.Parse()
-	args := flag.Args()
-	if len(args) < 3 {
+	operation = flag.Arg(0)
+	fmt.Printf("%s: version: %s, schema-folder: %s, docs-url: %s, schema-urls: %s\n", operation, version, schemaFolder, docsUrl, jsonSchemaUrls)
+	if version == "" && operation == "" && (jsonSchemaUrls == nil && docsUrl == "") {
 		flag.Usage()
 		return
 	}
 
-	operation, schemaFolder, version := args[0], args[1], args[2]
 	genDir := filepath.Join(".", "provider", "cmd", "pulumi-gen-aws-native")
 	semanticsDir := filepath.Join(".", "provider", "cmd", "pulumi-resource-aws-native")
 
 	switch operation {
 	case "docs":
-		if len(args) < 4 {
-			fmt.Println("Error: discovery operation requires additional docs url argument")
+		if docsUrl == "" {
+			fmt.Println("Error: docs operation requires additional --docs-url argument")
 			flag.Usage()
 			return
 		}
 
-		docsUrl := args[4]
 		if err := downloadCloudFormationDocs(docsUrl, filepath.Join(".", "aws-cloudformation-docs")); err != nil {
 			panic(fmt.Errorf("error download CloudFormation docs: %v", err))
 		}
 
 	case "discovery":
-		if len(args) < 4 {
-			fmt.Println("Error: discovery operation requires additional schema urls argument")
+		if jsonSchemaUrls == nil {
+			fmt.Println("Error: discovery operation requires additional --schema-urls argument")
 			flag.Usage()
 			return
 		}
-		jsonSchemaUrls := strings.Split(args[3], ",")
 
 		if err := writeSupportedResourceTypes(genDir); err != nil {
 			panic(fmt.Errorf("error writing supported resource types: %v", err))

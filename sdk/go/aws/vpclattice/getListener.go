@@ -39,7 +39,7 @@ type LookupListenerResult struct {
 	ServiceArn *string `pulumi:"serviceArn"`
 	// The ID of the service.
 	ServiceId *string `pulumi:"serviceId"`
-	// The tags for the listener.
+	// Specifies a tag for a listener.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -104,7 +104,7 @@ func (o LookupListenerResultOutput) ServiceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupListenerResult) *string { return v.ServiceId }).(pulumi.StringPtrOutput)
 }
 
-// The tags for the listener.
+// Specifies a tag for a listener.
 func (o LookupListenerResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupListenerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

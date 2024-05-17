@@ -72,7 +72,7 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly serviceIdentifier!: pulumi.Output<string | undefined>;
     /**
-     * The tags for the rule.
+     * Specifies a tag for a listener rule.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -154,7 +154,7 @@ export interface RuleArgs {
      */
     serviceIdentifier?: pulumi.Input<string>;
     /**
-     * The tags for the rule.
+     * Specifies a tag for a listener rule.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

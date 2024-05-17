@@ -83,7 +83,7 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<enums.vpclattice.ServiceStatus>;
     /**
-     * The tags for the service.
+     * Specifies a tag for a service.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -159,7 +159,7 @@ export interface ServiceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The tags for the service.
+     * Specifies a tag for a service.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

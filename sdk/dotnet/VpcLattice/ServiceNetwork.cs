@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The tags for the service network.
+        /// Specifies a tag for a service network.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.AwsNative.VpcLattice
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// The tags for the service network.
+        /// Specifies a tag for a service network.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

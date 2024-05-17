@@ -61,6 +61,7 @@ func NewDeliveryStream(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"amazonopensearchserviceDestinationConfiguration.vpcConfiguration",
 		"deliveryStreamName",
 		"deliveryStreamType",
 		"kinesisStreamSourceConfiguration",

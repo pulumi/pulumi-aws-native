@@ -1603,7 +1603,7 @@ func (o ComponentMutationActionSetStateParameterPtrOutput) Set() ComponentProper
 }
 
 type ComponentPredicate struct {
-	// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+	// A list of predicates to combine logically.
 	And []ComponentPredicate `pulumi:"and"`
 	// The field to query.
 	Field *string `pulumi:"field"`
@@ -1629,7 +1629,7 @@ type ComponentPredicateInput interface {
 }
 
 type ComponentPredicateArgs struct {
-	// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+	// A list of predicates to combine logically.
 	And ComponentPredicateArrayInput `pulumi:"and"`
 	// The field to query.
 	Field pulumi.StringPtrInput `pulumi:"field"`
@@ -1745,7 +1745,7 @@ func (o ComponentPredicateOutput) ToComponentPredicatePtrOutputWithContext(ctx c
 	}).(ComponentPredicatePtrOutput)
 }
 
-// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+// A list of predicates to combine logically.
 func (o ComponentPredicateOutput) And() ComponentPredicateArrayOutput {
 	return o.ApplyT(func(v ComponentPredicate) []ComponentPredicate { return v.And }).(ComponentPredicateArrayOutput)
 }
@@ -1799,7 +1799,7 @@ func (o ComponentPredicatePtrOutput) Elem() ComponentPredicateOutput {
 	}).(ComponentPredicateOutput)
 }
 
-// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+// A list of predicates to combine logically.
 func (o ComponentPredicatePtrOutput) And() ComponentPredicateArrayOutput {
 	return o.ApplyT(func(v *ComponentPredicate) []ComponentPredicate {
 		if v == nil {

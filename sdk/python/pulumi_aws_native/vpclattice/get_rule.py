@@ -85,7 +85,7 @@ class GetRuleResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        The tags for the rule.
+        Specifies a tag for a listener rule.
         """
         return pulumi.get(self, "tags")
 

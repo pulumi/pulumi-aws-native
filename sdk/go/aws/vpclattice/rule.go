@@ -35,7 +35,7 @@ type Rule struct {
 	Priority pulumi.IntOutput `pulumi:"priority"`
 	// The ID or Amazon Resource Name (ARN) of the service.
 	ServiceIdentifier pulumi.StringPtrOutput `pulumi:"serviceIdentifier"`
-	// The tags for the rule.
+	// Specifies a tag for a listener rule.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -108,7 +108,7 @@ type ruleArgs struct {
 	Priority int `pulumi:"priority"`
 	// The ID or Amazon Resource Name (ARN) of the service.
 	ServiceIdentifier *string `pulumi:"serviceIdentifier"`
-	// The tags for the rule.
+	// Specifies a tag for a listener rule.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -128,7 +128,7 @@ type RuleArgs struct {
 	Priority pulumi.IntInput
 	// The ID or Amazon Resource Name (ARN) of the service.
 	ServiceIdentifier pulumi.StringPtrInput
-	// The tags for the rule.
+	// Specifies a tag for a listener rule.
 	Tags aws.TagArrayInput
 }
 
@@ -211,7 +211,7 @@ func (o RuleOutput) ServiceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.ServiceIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The tags for the rule.
+// Specifies a tag for a listener rule.
 func (o RuleOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Rule) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

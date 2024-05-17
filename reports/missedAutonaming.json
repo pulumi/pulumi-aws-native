@@ -11913,7 +11913,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "The tags for the access log subscription."
+        "description": "Specifies a tag for an access log subscription."
       }
     }
   },
@@ -11963,7 +11963,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "The tags for the association."
+        "description": "Specifies a tag for a service association."
       }
     }
   },
@@ -11986,7 +11986,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "The tags for the association."
+        "description": "Specifies a tag for a VPC association."
       },
       "vpcIdentifier": {
         "type": "string",

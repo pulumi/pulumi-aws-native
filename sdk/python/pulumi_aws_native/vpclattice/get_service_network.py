@@ -87,7 +87,7 @@ class GetServiceNetworkResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        The tags for the service network.
+        Specifies a tag for a service network.
         """
         return pulumi.get(self, "tags")
 

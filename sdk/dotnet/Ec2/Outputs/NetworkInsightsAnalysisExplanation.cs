@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? LoadBalancerTargetGroup;
         /// <summary>
-        /// Describes a path component.
+        /// The target groups.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisAnalysisComponent> LoadBalancerTargetGroups;
         /// <summary>

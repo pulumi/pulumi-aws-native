@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     public sealed class ComponentPredicate
     {
         /// <summary>
-        /// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+        /// A list of predicates to combine logically.
         /// </summary>
         public readonly ImmutableArray<Outputs.ComponentPredicate> And;
         /// <summary>

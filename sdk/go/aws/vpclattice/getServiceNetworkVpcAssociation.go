@@ -45,7 +45,7 @@ type LookupServiceNetworkVpcAssociationResult struct {
 	ServiceNetworkName *string `pulumi:"serviceNetworkName"`
 	// The status of the association.
 	Status *ServiceNetworkVpcAssociationStatus `pulumi:"status"`
-	// The tags for the association.
+	// Specifies a tag for a VPC association.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the VPC.
 	VpcId *string `pulumi:"vpcId"`
@@ -127,7 +127,7 @@ func (o LookupServiceNetworkVpcAssociationResultOutput) Status() ServiceNetworkV
 	return o.ApplyT(func(v LookupServiceNetworkVpcAssociationResult) *ServiceNetworkVpcAssociationStatus { return v.Status }).(ServiceNetworkVpcAssociationStatusPtrOutput)
 }
 
-// The tags for the association.
+// Specifies a tag for a VPC association.
 func (o LookupServiceNetworkVpcAssociationResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupServiceNetworkVpcAssociationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

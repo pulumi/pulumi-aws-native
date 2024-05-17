@@ -47,7 +47,7 @@ export interface GetRuleResult {
      */
     readonly priority?: number;
     /**
-     * The tags for the rule.
+     * Specifies a tag for a listener rule.
      */
     readonly tags?: outputs.Tag[];
 }

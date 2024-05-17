@@ -53,7 +53,7 @@ export interface GetTargetGroupResult {
      */
     readonly status?: enums.vpclattice.TargetGroupStatus;
     /**
-     * The tags for the target group.
+     * Specifies a tag for a target group.
      */
     readonly tags?: outputs.Tag[];
     /**

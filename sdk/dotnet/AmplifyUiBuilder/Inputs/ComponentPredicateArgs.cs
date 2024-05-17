@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
         private InputList<Inputs.ComponentPredicateArgs>? _and;
 
         /// <summary>
-        /// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+        /// A list of predicates to combine logically.
         /// </summary>
         public InputList<Inputs.ComponentPredicateArgs> And
         {

@@ -90,7 +90,7 @@ export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<enums.vpclattice.ServiceNetworkServiceAssociationStatus>;
     /**
-     * The tags for the association.
+     * Specifies a tag for a service association.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -159,7 +159,7 @@ export interface ServiceNetworkServiceAssociationArgs {
      */
     serviceNetworkIdentifier?: pulumi.Input<string>;
     /**
-     * The tags for the association.
+     * Specifies a tag for a service association.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

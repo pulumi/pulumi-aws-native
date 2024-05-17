@@ -76,7 +76,7 @@ export class Listener extends pulumi.CustomResource {
      */
     public readonly serviceIdentifier!: pulumi.Output<string | undefined>;
     /**
-     * The tags for the listener.
+     * Specifies a tag for a listener.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -153,7 +153,7 @@ export interface ListenerArgs {
      */
     serviceIdentifier?: pulumi.Input<string>;
     /**
-     * The tags for the listener.
+     * Specifies a tag for a listener.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

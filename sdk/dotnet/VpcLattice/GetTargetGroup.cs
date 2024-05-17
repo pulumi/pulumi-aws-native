@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public readonly Pulumi.AwsNative.VpcLattice.TargetGroupStatus? Status;
         /// <summary>
-        /// The tags for the target group.
+        /// Specifies a tag for a target group.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>

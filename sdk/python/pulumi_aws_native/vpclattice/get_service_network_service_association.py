@@ -151,7 +151,7 @@ class GetServiceNetworkServiceAssociationResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        The tags for the association.
+        Specifies a tag for a service association.
         """
         return pulumi.get(self, "tags")
 

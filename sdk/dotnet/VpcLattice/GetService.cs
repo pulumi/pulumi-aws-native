@@ -93,7 +93,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public readonly Pulumi.AwsNative.VpcLattice.ServiceStatus? Status;
         /// <summary>
-        /// The tags for the service.
+        /// Specifies a tag for a service.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

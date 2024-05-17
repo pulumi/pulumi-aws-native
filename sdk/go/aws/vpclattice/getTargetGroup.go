@@ -43,7 +43,7 @@ type LookupTargetGroupResult struct {
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
 	// The operation's status. You can retry the operation if the status is `CREATE_FAILED` . However, if you retry it while the status is `CREATE_IN_PROGRESS` , there is no change in the status.
 	Status *TargetGroupStatus `pulumi:"status"`
-	// The tags for the target group.
+	// Specifies a tag for a target group.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Describes a target.
 	Targets []TargetGroupTarget `pulumi:"targets"`
@@ -117,7 +117,7 @@ func (o LookupTargetGroupResultOutput) Status() TargetGroupStatusPtrOutput {
 	return o.ApplyT(func(v LookupTargetGroupResult) *TargetGroupStatus { return v.Status }).(TargetGroupStatusPtrOutput)
 }
 
-// The tags for the target group.
+// Specifies a tag for a target group.
 func (o LookupTargetGroupResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTargetGroupResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

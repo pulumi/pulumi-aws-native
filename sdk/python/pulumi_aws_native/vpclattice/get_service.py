@@ -121,7 +121,7 @@ class GetServiceResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        The tags for the service.
+        Specifies a tag for a service.
         """
         return pulumi.get(self, "tags")
 

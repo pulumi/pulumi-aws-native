@@ -282,6 +282,7 @@ namespace Pulumi.AwsNative.Ecs
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "autoScalingGroupProvider.autoScalingGroupArn",
                     "name",
                 },
             };

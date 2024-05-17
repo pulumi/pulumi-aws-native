@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public readonly string? ServiceId;
         /// <summary>
-        /// The tags for the listener.
+        /// Specifies a tag for a listener.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

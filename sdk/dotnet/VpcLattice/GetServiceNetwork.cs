@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public readonly string? LastUpdatedAt;
         /// <summary>
-        /// The tags for the service network.
+        /// Specifies a tag for a service network.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

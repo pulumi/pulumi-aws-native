@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Output<string?> ResourceIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The tags for the access log subscription.
+        /// Specifies a tag for an access log subscription.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.AwsNative.VpcLattice
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// The tags for the access log subscription.
+        /// Specifies a tag for an access log subscription.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
