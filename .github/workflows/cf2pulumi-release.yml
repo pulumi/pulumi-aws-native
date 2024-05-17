@@ -46,8 +46,6 @@ jobs:
       uses: pulumi/provider-version-action@v1
       with:
         set-env: PROVIDER_VERSION
-    - name: Unshallow clone for tags
-      run: git fetch --prune --unshallow --tags
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.11.0
       with:
@@ -65,7 +63,7 @@ jobs:
         args: -p 1 -f .goreleaser.cf2pulumi.yml release --clean --timeout 60m0s
         version: latest
     - name: Chocolatey Package Deployment
-      run: |-
-        CURRENT_TAG=v$(pulumictl get version --language generic -o)
-        pulumictl create choco-deploy -a cf2pulumi ${CURRENT_TAG}
+      env:
+        CURRENT_TAG: ${{ env.PROVIDER_VERSION }}
+      run: pulumictl create choco-deploy -a cf2pulumi ${CURRENT_TAG}
     name: release
