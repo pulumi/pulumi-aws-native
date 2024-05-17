@@ -527,7 +527,7 @@ jobs:
         arguments: publishToSonatype closeAndReleaseSonatypeStagingRepository
         build-root-directory: ./sdk/java
         gradle-version: 7.4.1
-  pubish_go_sdk:
+  publish_go_sdk:
     runs-on: ubuntu-latest
     name: publish-go-sdk
     needs: publish_sdk
