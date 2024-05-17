@@ -141,8 +141,13 @@ func TestGatherPackage_docs_nestedProperty(t *testing.T) {
 	}
 	docs := Docs{
 		Types: map[string]DocsTypes{
+			"AWS::Pipes::Pipe.PipeSourceParameters": {
+				Properties: map[string]string{
+					"KinesisStreamParameters": "The parameters for using a Kinesis stream as a source.",
+				},
+			},
 			"AWS::Pipes::Pipe.PipeSourceKinesisStreamParameters": {
-				Description: "The parameters for using a Kinesis stream as a source.",
+				Description: "",
 				Properties: map[string]string{
 					"MaximumBatchingWindowInSeconds": "The maximum length of a time to wait for events.",
 				},
@@ -268,6 +273,11 @@ func TestGatherPackage_docs_nestedListProperty(t *testing.T) {
 	}
 	docs := Docs{
 		Types: map[string]DocsTypes{
+			"AWS::Pipes::Pipe.EcsContainerOverride": {
+				Properties: map[string]string{
+					"EnvironmentFiles": "A list of files containing the environment variables to pass to a container. You can specify up to ten environment files. The file must have a `.env` file extension. Each line in an environment file should contain an environment variable in `VARIABLE=VALUE` format. Lines beginning with `#` are treated as comments and are ignored. For more information about the environment variable file syntax, see [Declare default environment variables in file](https://docs.aws.amazon.com/https://docs.docker.com/compose/env-file/) .\n\nIf there are environment variables specified using the `environment` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Specifying environment variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html) in the *Amazon Elastic Container Service Developer Guide* .\n\nThis parameter is only supported for tasks hosted on Fargate using the following platform versions:\n\n- Linux platform version `1.4.0` or later.\n- Windows platform version `1.0.0` or later.",
+				},
+			},
 			"AWS::Pipes::Pipe.EcsEnvironmentFile": {
 				Description: "A list of files containing the environment variables to pass to a container. You can specify up to ten environment files. The file must have a `.env` file extension. Each line in an environment file should contain an environment variable in `VARIABLE=VALUE` format. Lines beginning with `#` are treated as comments and are ignored. For more information about the environment variable file syntax, see [Declare default environment variables in file](https://docs.aws.amazon.com/https://docs.docker.com/compose/env-file/) .\n\nIf there are environment variables specified using the `environment` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Specifying environment variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html) in the *Amazon Elastic Container Service Developer Guide* .\n\nThis parameter is only supported for tasks hosted on Fargate using the following platform versions:\n\n- Linux platform version `1.4.0` or later.\n- Windows platform version `1.0.0` or later.",
 				Properties: map[string]string{
