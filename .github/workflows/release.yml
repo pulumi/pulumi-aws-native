@@ -527,7 +527,7 @@ jobs:
         arguments: publishToSonatype closeAndReleaseSonatypeStagingRepository
         build-root-directory: ./sdk/java
         gradle-version: 7.4.1
-  pubish_go_sdk:
+  publish_go_sdk:
     runs-on: ubuntu-latest
     name: publish-go-sdk
     needs: publish_sdk
@@ -564,7 +564,7 @@ jobs:
           !*.tar.gz
   dispatch_docs_build:
     runs-on: ubuntu-latest
-    needs: tag_sdk
+    needs: publish_go_sdk
     steps:
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.11.0
