@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.KafkaConnect
     public partial class Connector : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Information about the capacity of the connector, whether it is auto scaled or provisioned.
+        /// The connector's compute capacity settings.
         /// </summary>
         [Output("capacity")]
         public Output<Outputs.ConnectorCapacity> Capacity { get; private set; } = null!;
@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.KafkaConnect
         public Output<Outputs.ConnectorKafkaCluster> KafkaCluster { get; private set; } = null!;
 
         /// <summary>
-        /// The client authentication information used in order to authenticate with the Apache Kafka cluster.
+        /// The type of client authentication used to connect to the Apache Kafka cluster. The value is NONE when no client authentication is used.
         /// </summary>
         [Output("kafkaClusterClientAuthentication")]
         public Output<Outputs.ConnectorKafkaClusterClientAuthentication> KafkaClusterClientAuthentication { get; private set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.KafkaConnect
         public Output<string> KafkaConnectVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Details about log delivery.
+        /// The settings for delivering connector logs to Amazon CloudWatch Logs.
         /// </summary>
         [Output("logDelivery")]
         public Output<Outputs.ConnectorLogDelivery?> LogDelivery { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.KafkaConnect
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration of the workers, which are the processes that run the connector logic.
+        /// The worker configurations that are in use with the connector.
         /// </summary>
         [Output("workerConfiguration")]
         public Output<Outputs.ConnectorWorkerConfiguration?> WorkerConfiguration { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.AwsNative.KafkaConnect
     public sealed class ConnectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Information about the capacity of the connector, whether it is auto scaled or provisioned.
+        /// The connector's compute capacity settings.
         /// </summary>
         [Input("capacity", required: true)]
         public Input<Inputs.ConnectorCapacityArgs> Capacity { get; set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.AwsNative.KafkaConnect
         public Input<Inputs.ConnectorKafkaClusterArgs> KafkaCluster { get; set; } = null!;
 
         /// <summary>
-        /// The client authentication information used in order to authenticate with the Apache Kafka cluster.
+        /// The type of client authentication used to connect to the Apache Kafka cluster. The value is NONE when no client authentication is used.
         /// </summary>
         [Input("kafkaClusterClientAuthentication", required: true)]
         public Input<Inputs.ConnectorKafkaClusterClientAuthenticationArgs> KafkaClusterClientAuthentication { get; set; } = null!;
@@ -213,7 +213,7 @@ namespace Pulumi.AwsNative.KafkaConnect
         public Input<string> KafkaConnectVersion { get; set; } = null!;
 
         /// <summary>
-        /// Details about log delivery.
+        /// The settings for delivering connector logs to Amazon CloudWatch Logs.
         /// </summary>
         [Input("logDelivery")]
         public Input<Inputs.ConnectorLogDeliveryArgs>? LogDelivery { get; set; }
@@ -249,7 +249,7 @@ namespace Pulumi.AwsNative.KafkaConnect
         }
 
         /// <summary>
-        /// The configuration of the workers, which are the processes that run the connector logic.
+        /// The worker configurations that are in use with the connector.
         /// </summary>
         [Input("workerConfiguration")]
         public Input<Inputs.ConnectorWorkerConfigurationArgs>? WorkerConfiguration { get; set; }

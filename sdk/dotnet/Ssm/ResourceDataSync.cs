@@ -292,7 +292,7 @@ namespace Pulumi.AwsNative.Ssm
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// Information about the target S3 bucket for the resource data sync.
+        /// Configuration information for the target S3 bucket.
         /// </summary>
         [Output("s3Destination")]
         public Output<Outputs.ResourceDataSyncS3Destination?> S3Destination { get; private set; } = null!;
@@ -310,7 +310,7 @@ namespace Pulumi.AwsNative.Ssm
         public Output<string> SyncName { get; private set; } = null!;
 
         /// <summary>
-        /// Information about the source of the data included in the resource data sync.
+        /// Information about the source where the data was synchronized.
         /// </summary>
         [Output("syncSource")]
         public Output<Outputs.ResourceDataSyncSyncSource?> SyncSource { get; private set; } = null!;
@@ -402,7 +402,7 @@ namespace Pulumi.AwsNative.Ssm
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// Information about the target S3 bucket for the resource data sync.
+        /// Configuration information for the target S3 bucket.
         /// </summary>
         [Input("s3Destination")]
         public Input<Inputs.ResourceDataSyncS3DestinationArgs>? S3Destination { get; set; }
@@ -420,7 +420,7 @@ namespace Pulumi.AwsNative.Ssm
         public Input<string>? SyncName { get; set; }
 
         /// <summary>
-        /// Information about the source of the data included in the resource data sync.
+        /// Information about the source where the data was synchronized.
         /// </summary>
         [Input("syncSource")]
         public Input<Inputs.ResourceDataSyncSyncSourceArgs>? SyncSource { get; set; }

@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         private InputList<Inputs.IntegrationTaskArgs>? _tasks;
 
         /// <summary>
-        /// The `Task` property type specifies the class for modeling different type of tasks. Task implementation varies based on the TaskType.
+        /// A list of tasks that Customer Profiles performs while transferring the data in the flow run.
         /// </summary>
         public InputList<Inputs.IntegrationTaskArgs> Tasks
         {
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         }
 
         /// <summary>
-        /// The trigger settings that determine how and when Amazon AppFlow runs the specified flow.
+        /// The trigger settings that determine how and when the flow runs.
         /// </summary>
         [Input("triggerConfig", required: true)]
         public Input<Inputs.IntegrationTriggerConfigArgs> TriggerConfig { get; set; } = null!;

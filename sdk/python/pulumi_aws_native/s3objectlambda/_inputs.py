@@ -54,7 +54,7 @@ class AccessPointObjectLambdaConfigurationArgs:
         """
         Configuration to be applied to this Object lambda Access Point. It specifies Supporting Access Point, Transformation Configurations. Customers can also set if they like to enable Cloudwatch metrics for accesses to this Object lambda Access Point. Default setting for Cloudwatch metrics is disable.
         :param pulumi.Input[str] supporting_access_point: Standard access point associated with the Object Lambda Access Point.
-        :param pulumi.Input[Sequence[pulumi.Input['AccessPointTransformationConfigurationArgs']]] transformation_configurations: A configuration used when creating an Object Lambda Access Point transformation.
+        :param pulumi.Input[Sequence[pulumi.Input['AccessPointTransformationConfigurationArgs']]] transformation_configurations: A container for transformation configurations for an Object Lambda Access Point.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_features: A container for allowed features. Valid inputs are `GetObject-Range` , `GetObject-PartNumber` , `HeadObject-Range` , and `HeadObject-PartNumber` .
         :param pulumi.Input[bool] cloud_watch_metrics_enabled: A container for whether the CloudWatch metrics configuration is enabled.
         """
@@ -81,7 +81,7 @@ class AccessPointObjectLambdaConfigurationArgs:
     @pulumi.getter(name="transformationConfigurations")
     def transformation_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['AccessPointTransformationConfigurationArgs']]]:
         """
-        A configuration used when creating an Object Lambda Access Point transformation.
+        A container for transformation configurations for an Object Lambda Access Point.
         """
         return pulumi.get(self, "transformation_configurations")
 

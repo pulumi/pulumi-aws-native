@@ -27,16 +27,16 @@ type LookupJobDefinitionArgs struct {
 }
 
 type LookupJobDefinitionResult struct {
-	// Container properties are used for Amazon ECS based job definitions. These properties to describe the container that's launched as part of a job.
+	// An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
 	ContainerProperties *JobDefinitionContainerProperties `pulumi:"containerProperties"`
-	// An object that contains the properties for the Amazon ECS resources of a job.
+	// An object that contains the properties for the Amazon ECS resources of a job.When `ecsProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `eksProperties` , or `nodeProperties` .
 	EcsProperties *JobDefinitionEcsProperties `pulumi:"ecsProperties"`
-	// An object that contains the properties for the Kubernetes resources of a job.
+	// An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
 	EksProperties *JobDefinitionEksProperties `pulumi:"eksProperties"`
 	Id            *string                     `pulumi:"id"`
-	// An object that represents the node properties of a multi-node parallel job.
+	// An object with properties that are specific to multi-node parallel jobs. When `nodeProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `eksProperties` .
 	//
-	// > Node properties can't be specified for Amazon EKS based job definitions.
+	// > If the job runs on Fargate resources, don't specify `nodeProperties` . Use `containerProperties` instead.
 	NodeProperties *JobDefinitionNodeProperties `pulumi:"nodeProperties"`
 	// Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
 	//
@@ -46,11 +46,11 @@ type LookupJobDefinitionResult struct {
 	PlatformCapabilities []string `pulumi:"platformCapabilities"`
 	// Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
 	PropagateTags *bool `pulumi:"propagateTags"`
-	// The retry strategy that's associated with a job. For more information, see [Automated job retries](https://docs.aws.amazon.com/batch/latest/userguide/job_retries.html) in the *AWS Batch User Guide* .
+	// The retry strategy to use for failed jobs that are submitted with this job definition.
 	RetryStrategy *JobDefinitionRetryStrategy `pulumi:"retryStrategy"`
 	// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
 	SchedulingPriority *int `pulumi:"schedulingPriority"`
-	// An object that represents a job timeout configuration.
+	// The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
 	Timeout *JobDefinitionTimeout `pulumi:"timeout"`
 	// The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
 	//
@@ -96,17 +96,17 @@ func (o LookupJobDefinitionResultOutput) ToLookupJobDefinitionResultOutputWithCo
 	return o
 }
 
-// Container properties are used for Amazon ECS based job definitions. These properties to describe the container that's launched as part of a job.
+// An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
 func (o LookupJobDefinitionResultOutput) ContainerProperties() JobDefinitionContainerPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) *JobDefinitionContainerProperties { return v.ContainerProperties }).(JobDefinitionContainerPropertiesPtrOutput)
 }
 
-// An object that contains the properties for the Amazon ECS resources of a job.
+// An object that contains the properties for the Amazon ECS resources of a job.When `ecsProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `eksProperties` , or `nodeProperties` .
 func (o LookupJobDefinitionResultOutput) EcsProperties() JobDefinitionEcsPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) *JobDefinitionEcsProperties { return v.EcsProperties }).(JobDefinitionEcsPropertiesPtrOutput)
 }
 
-// An object that contains the properties for the Kubernetes resources of a job.
+// An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
 func (o LookupJobDefinitionResultOutput) EksProperties() JobDefinitionEksPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) *JobDefinitionEksProperties { return v.EksProperties }).(JobDefinitionEksPropertiesPtrOutput)
 }
@@ -115,9 +115,9 @@ func (o LookupJobDefinitionResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// An object that represents the node properties of a multi-node parallel job.
+// An object with properties that are specific to multi-node parallel jobs. When `nodeProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `eksProperties` .
 //
-// > Node properties can't be specified for Amazon EKS based job definitions.
+// > If the job runs on Fargate resources, don't specify `nodeProperties` . Use `containerProperties` instead.
 func (o LookupJobDefinitionResultOutput) NodeProperties() JobDefinitionNodePropertiesPtrOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) *JobDefinitionNodeProperties { return v.NodeProperties }).(JobDefinitionNodePropertiesPtrOutput)
 }
@@ -139,7 +139,7 @@ func (o LookupJobDefinitionResultOutput) PropagateTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) *bool { return v.PropagateTags }).(pulumi.BoolPtrOutput)
 }
 
-// The retry strategy that's associated with a job. For more information, see [Automated job retries](https://docs.aws.amazon.com/batch/latest/userguide/job_retries.html) in the *AWS Batch User Guide* .
+// The retry strategy to use for failed jobs that are submitted with this job definition.
 func (o LookupJobDefinitionResultOutput) RetryStrategy() JobDefinitionRetryStrategyPtrOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) *JobDefinitionRetryStrategy { return v.RetryStrategy }).(JobDefinitionRetryStrategyPtrOutput)
 }
@@ -149,7 +149,7 @@ func (o LookupJobDefinitionResultOutput) SchedulingPriority() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v LookupJobDefinitionResult) *int { return v.SchedulingPriority }).(pulumi.IntPtrOutput)
 }
 
-// An object that represents a job timeout configuration.
+// The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
 func (o LookupJobDefinitionResultOutput) Timeout() JobDefinitionTimeoutPtrOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) *JobDefinitionTimeout { return v.Timeout }).(JobDefinitionTimeoutPtrOutput)
 }

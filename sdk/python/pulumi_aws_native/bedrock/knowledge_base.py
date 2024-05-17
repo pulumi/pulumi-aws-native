@@ -27,7 +27,7 @@ class KnowledgeBaseArgs:
         The set of arguments for constructing a KnowledgeBase resource.
         :param pulumi.Input['KnowledgeBaseConfigurationArgs'] knowledge_base_configuration: Contains details about the embeddings configuration of the knowledge base.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with AmazonBedrockExecutionRoleForKnowledgeBase_
-        :param pulumi.Input['KnowledgeBaseStorageConfigurationArgs'] storage_configuration: Contains the storage configuration of the knowledge base.
+        :param pulumi.Input['KnowledgeBaseStorageConfigurationArgs'] storage_configuration: Contains details about the storage configuration of the knowledge base.
         :param pulumi.Input[str] description: Description of the Resource.
         :param pulumi.Input[str] name: The name of the knowledge base.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
@@ -73,7 +73,7 @@ class KnowledgeBaseArgs:
     @pulumi.getter(name="storageConfiguration")
     def storage_configuration(self) -> pulumi.Input['KnowledgeBaseStorageConfigurationArgs']:
         """
-        Contains the storage configuration of the knowledge base.
+        Contains details about the storage configuration of the knowledge base.
         """
         return pulumi.get(self, "storage_configuration")
 
@@ -142,7 +142,7 @@ class KnowledgeBase(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['KnowledgeBaseConfigurationArgs']] knowledge_base_configuration: Contains details about the embeddings configuration of the knowledge base.
         :param pulumi.Input[str] name: The name of the knowledge base.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with AmazonBedrockExecutionRoleForKnowledgeBase_
-        :param pulumi.Input[pulumi.InputType['KnowledgeBaseStorageConfigurationArgs']] storage_configuration: Contains the storage configuration of the knowledge base.
+        :param pulumi.Input[pulumi.InputType['KnowledgeBaseStorageConfigurationArgs']] storage_configuration: Contains details about the storage configuration of the knowledge base.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
                
                - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
@@ -319,7 +319,7 @@ class KnowledgeBase(pulumi.CustomResource):
     @pulumi.getter(name="storageConfiguration")
     def storage_configuration(self) -> pulumi.Output['outputs.KnowledgeBaseStorageConfiguration']:
         """
-        Contains the storage configuration of the knowledge base.
+        Contains details about the storage configuration of the knowledge base.
         """
         return pulumi.get(self, "storage_configuration")
 

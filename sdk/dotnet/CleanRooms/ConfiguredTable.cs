@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.CleanRooms
         public Output<Pulumi.AwsNative.CleanRooms.ConfiguredTableAnalysisMethod> AnalysisMethod { get; private set; } = null!;
 
         /// <summary>
-        /// A specification about how data from the configured table can be used in a query.
+        /// The entire created analysis rule.
         /// </summary>
         [Output("analysisRules")]
         public Output<ImmutableArray<Outputs.ConfiguredTableAnalysisRule>> AnalysisRules { get; private set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.CleanRooms
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A pointer to the dataset that underlies this table. Currently, this can only be an AWS Glue table.
+        /// The AWS Glue table that this configured table represents.
         /// </summary>
         [Output("tableReference")]
         public Output<Outputs.ConfiguredTableTableReference> TableReference { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.AwsNative.CleanRooms
         private InputList<Inputs.ConfiguredTableAnalysisRuleArgs>? _analysisRules;
 
         /// <summary>
-        /// A specification about how data from the configured table can be used in a query.
+        /// The entire created analysis rule.
         /// </summary>
         public InputList<Inputs.ConfiguredTableAnalysisRuleArgs> AnalysisRules
         {
@@ -167,7 +167,7 @@ namespace Pulumi.AwsNative.CleanRooms
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A pointer to the dataset that underlies this table. Currently, this can only be an AWS Glue table.
+        /// The AWS Glue table that this configured table represents.
         /// </summary>
         [Input("tableReference", required: true)]
         public Input<Inputs.ConfiguredTableTableReferenceArgs> TableReference { get; set; } = null!;

@@ -47,7 +47,7 @@ export interface GetListenerResult {
      */
     readonly serviceId?: string;
     /**
-     * Specifies a tag for a listener.
+     * The tags for the listener.
      */
     readonly tags?: outputs.Tag[];
 }

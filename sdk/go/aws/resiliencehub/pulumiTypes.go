@@ -485,7 +485,7 @@ type AppResourceMapping struct {
 	LogicalStackName *string `pulumi:"logicalStackName"`
 	// Specifies the type of resource mapping.
 	MappingType string `pulumi:"mappingType"`
-	// Defines a physical resource identifier.
+	// Identifier of the physical resource.
 	PhysicalResourceId AppPhysicalResourceId `pulumi:"physicalResourceId"`
 	// Name of the resource that this resource is mapped to when the `mappingType` is `Resource` .
 	ResourceName *string `pulumi:"resourceName"`
@@ -514,7 +514,7 @@ type AppResourceMappingArgs struct {
 	LogicalStackName pulumi.StringPtrInput `pulumi:"logicalStackName"`
 	// Specifies the type of resource mapping.
 	MappingType pulumi.StringInput `pulumi:"mappingType"`
-	// Defines a physical resource identifier.
+	// Identifier of the physical resource.
 	PhysicalResourceId AppPhysicalResourceIdInput `pulumi:"physicalResourceId"`
 	// Name of the resource that this resource is mapped to when the `mappingType` is `Resource` .
 	ResourceName pulumi.StringPtrInput `pulumi:"resourceName"`
@@ -591,7 +591,7 @@ func (o AppResourceMappingOutput) MappingType() pulumi.StringOutput {
 	return o.ApplyT(func(v AppResourceMapping) string { return v.MappingType }).(pulumi.StringOutput)
 }
 
-// Defines a physical resource identifier.
+// Identifier of the physical resource.
 func (o AppResourceMappingOutput) PhysicalResourceId() AppPhysicalResourceIdOutput {
 	return o.ApplyT(func(v AppResourceMapping) AppPhysicalResourceId { return v.PhysicalResourceId }).(AppPhysicalResourceIdOutput)
 }
@@ -786,13 +786,13 @@ func (o ResiliencyPolicyFailurePolicyPtrOutput) RtoInSecs() pulumi.IntPtrOutput 
 }
 
 type ResiliencyPolicyPolicyMap struct {
-	// Defines a failure policy.
+	// Defines the RTO and RPO targets for Availability Zone disruption.
 	Az ResiliencyPolicyFailurePolicy `pulumi:"az"`
-	// Defines a failure policy.
+	// Defines the RTO and RPO targets for hardware disruption.
 	Hardware ResiliencyPolicyFailurePolicy `pulumi:"hardware"`
-	// Defines a failure policy.
+	// Defines the RTO and RPO targets for Regional disruption.
 	Region *ResiliencyPolicyFailurePolicy `pulumi:"region"`
-	// Defines a failure policy.
+	// Defines the RTO and RPO targets for software disruption.
 	Software ResiliencyPolicyFailurePolicy `pulumi:"software"`
 }
 
@@ -808,13 +808,13 @@ type ResiliencyPolicyPolicyMapInput interface {
 }
 
 type ResiliencyPolicyPolicyMapArgs struct {
-	// Defines a failure policy.
+	// Defines the RTO and RPO targets for Availability Zone disruption.
 	Az ResiliencyPolicyFailurePolicyInput `pulumi:"az"`
-	// Defines a failure policy.
+	// Defines the RTO and RPO targets for hardware disruption.
 	Hardware ResiliencyPolicyFailurePolicyInput `pulumi:"hardware"`
-	// Defines a failure policy.
+	// Defines the RTO and RPO targets for Regional disruption.
 	Region ResiliencyPolicyFailurePolicyPtrInput `pulumi:"region"`
-	// Defines a failure policy.
+	// Defines the RTO and RPO targets for software disruption.
 	Software ResiliencyPolicyFailurePolicyInput `pulumi:"software"`
 }
 
@@ -844,22 +844,22 @@ func (o ResiliencyPolicyPolicyMapOutput) ToResiliencyPolicyPolicyMapOutputWithCo
 	return o
 }
 
-// Defines a failure policy.
+// Defines the RTO and RPO targets for Availability Zone disruption.
 func (o ResiliencyPolicyPolicyMapOutput) Az() ResiliencyPolicyFailurePolicyOutput {
 	return o.ApplyT(func(v ResiliencyPolicyPolicyMap) ResiliencyPolicyFailurePolicy { return v.Az }).(ResiliencyPolicyFailurePolicyOutput)
 }
 
-// Defines a failure policy.
+// Defines the RTO and RPO targets for hardware disruption.
 func (o ResiliencyPolicyPolicyMapOutput) Hardware() ResiliencyPolicyFailurePolicyOutput {
 	return o.ApplyT(func(v ResiliencyPolicyPolicyMap) ResiliencyPolicyFailurePolicy { return v.Hardware }).(ResiliencyPolicyFailurePolicyOutput)
 }
 
-// Defines a failure policy.
+// Defines the RTO and RPO targets for Regional disruption.
 func (o ResiliencyPolicyPolicyMapOutput) Region() ResiliencyPolicyFailurePolicyPtrOutput {
 	return o.ApplyT(func(v ResiliencyPolicyPolicyMap) *ResiliencyPolicyFailurePolicy { return v.Region }).(ResiliencyPolicyFailurePolicyPtrOutput)
 }
 
-// Defines a failure policy.
+// Defines the RTO and RPO targets for software disruption.
 func (o ResiliencyPolicyPolicyMapOutput) Software() ResiliencyPolicyFailurePolicyOutput {
 	return o.ApplyT(func(v ResiliencyPolicyPolicyMap) ResiliencyPolicyFailurePolicy { return v.Software }).(ResiliencyPolicyFailurePolicyOutput)
 }
@@ -888,7 +888,7 @@ func (o ResiliencyPolicyPolicyMapPtrOutput) Elem() ResiliencyPolicyPolicyMapOutp
 	}).(ResiliencyPolicyPolicyMapOutput)
 }
 
-// Defines a failure policy.
+// Defines the RTO and RPO targets for Availability Zone disruption.
 func (o ResiliencyPolicyPolicyMapPtrOutput) Az() ResiliencyPolicyFailurePolicyPtrOutput {
 	return o.ApplyT(func(v *ResiliencyPolicyPolicyMap) *ResiliencyPolicyFailurePolicy {
 		if v == nil {
@@ -898,7 +898,7 @@ func (o ResiliencyPolicyPolicyMapPtrOutput) Az() ResiliencyPolicyFailurePolicyPt
 	}).(ResiliencyPolicyFailurePolicyPtrOutput)
 }
 
-// Defines a failure policy.
+// Defines the RTO and RPO targets for hardware disruption.
 func (o ResiliencyPolicyPolicyMapPtrOutput) Hardware() ResiliencyPolicyFailurePolicyPtrOutput {
 	return o.ApplyT(func(v *ResiliencyPolicyPolicyMap) *ResiliencyPolicyFailurePolicy {
 		if v == nil {
@@ -908,7 +908,7 @@ func (o ResiliencyPolicyPolicyMapPtrOutput) Hardware() ResiliencyPolicyFailurePo
 	}).(ResiliencyPolicyFailurePolicyPtrOutput)
 }
 
-// Defines a failure policy.
+// Defines the RTO and RPO targets for Regional disruption.
 func (o ResiliencyPolicyPolicyMapPtrOutput) Region() ResiliencyPolicyFailurePolicyPtrOutput {
 	return o.ApplyT(func(v *ResiliencyPolicyPolicyMap) *ResiliencyPolicyFailurePolicy {
 		if v == nil {
@@ -918,7 +918,7 @@ func (o ResiliencyPolicyPolicyMapPtrOutput) Region() ResiliencyPolicyFailurePoli
 	}).(ResiliencyPolicyFailurePolicyPtrOutput)
 }
 
-// Defines a failure policy.
+// Defines the RTO and RPO targets for software disruption.
 func (o ResiliencyPolicyPolicyMapPtrOutput) Software() ResiliencyPolicyFailurePolicyPtrOutput {
 	return o.ApplyT(func(v *ResiliencyPolicyPolicyMap) *ResiliencyPolicyFailurePolicy {
 		if v == nil {

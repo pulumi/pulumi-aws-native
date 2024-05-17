@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// </summary>
         public readonly string? StatusReason;
         /// <summary>
-        /// The tag.
+        /// The tags to add to the web portal. A tag is a key-value pair.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>

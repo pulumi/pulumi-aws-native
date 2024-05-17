@@ -14,15 +14,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardTopBottomFilter
     {
         /// <summary>
-        /// The configuration options to sort aggregated values.
+        /// The aggregation and sort configuration of the top bottom filter.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardAggregationSortConfiguration> AggregationSortConfigurations;
         /// <summary>
-        /// A column of a data set.
+        /// The column that the filter is applied to.
         /// </summary>
         public readonly Outputs.DashboardColumnIdentifier Column;
         /// <summary>
-        /// The default configuration for all dependent controls of the filter.
+        /// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
         /// </summary>
         public readonly Outputs.DashboardDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
         /// <summary>

@@ -44,7 +44,7 @@ type LookupPipeResult struct {
 	EnrichmentParameters *PipeEnrichmentParameters `pulumi:"enrichmentParameters"`
 	// When the pipe was last updated, in [ISO-8601 format](https://docs.aws.amazon.com/https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// Represents the configuration settings for the logs to which this pipe should report events.
+	// The logging configuration settings for the pipe.
 	LogConfiguration *PipeLogConfiguration `pulumi:"logConfiguration"`
 	// The ARN of the role that allows the pipe to send data to the target.
 	RoleArn *string `pulumi:"roleArn"`
@@ -132,7 +132,7 @@ func (o LookupPipeResultOutput) LastModifiedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPipeResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
-// Represents the configuration settings for the logs to which this pipe should report events.
+// The logging configuration settings for the pipe.
 func (o LookupPipeResultOutput) LogConfiguration() PipeLogConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupPipeResult) *PipeLogConfiguration { return v.LogConfiguration }).(PipeLogConfigurationPtrOutput)
 }

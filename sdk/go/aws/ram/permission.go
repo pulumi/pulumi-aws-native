@@ -34,9 +34,7 @@ type Permission struct {
 	PolicyTemplate pulumi.AnyOutput `pulumi:"policyTemplate"`
 	// The resource type this permission can be used with.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
-	// A structure containing a tag. A tag is metadata that you can attach to your resources to help organize and categorize them. You can also use them to help you secure your resources. For more information, see [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) .
-	//
-	// For more information about tags, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference Guide* .
+	// Specifies a list of one or more tag key and value pairs to attach to the permission.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Version of the permission.
 	Version pulumi.StringOutput `pulumi:"version"`
@@ -102,9 +100,7 @@ type permissionArgs struct {
 	PolicyTemplate interface{} `pulumi:"policyTemplate"`
 	// The resource type this permission can be used with.
 	ResourceType string `pulumi:"resourceType"`
-	// A structure containing a tag. A tag is metadata that you can attach to your resources to help organize and categorize them. You can also use them to help you secure your resources. For more information, see [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) .
-	//
-	// For more information about tags, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference Guide* .
+	// Specifies a list of one or more tag key and value pairs to attach to the permission.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -118,9 +114,7 @@ type PermissionArgs struct {
 	PolicyTemplate pulumi.Input
 	// The resource type this permission can be used with.
 	ResourceType pulumi.StringInput
-	// A structure containing a tag. A tag is metadata that you can attach to your resources to help organize and categorize them. You can also use them to help you secure your resources. For more information, see [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) .
-	//
-	// For more information about tags, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference Guide* .
+	// Specifies a list of one or more tag key and value pairs to attach to the permission.
 	Tags aws.TagArrayInput
 }
 
@@ -196,9 +190,7 @@ func (o PermissionOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
 }
 
-// A structure containing a tag. A tag is metadata that you can attach to your resources to help organize and categorize them. You can also use them to help you secure your resources. For more information, see [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) .
-//
-// For more information about tags, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference Guide* .
+// Specifies a list of one or more tag key and value pairs to attach to the permission.
 func (o PermissionOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Permission) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplatePieChartSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of categories that are displayed in a pie chart.
         /// </summary>
         [Input("categoryItemsLimit")]
         public Input<Inputs.TemplateItemsLimitConfigurationArgs>? CategoryItemsLimit { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of small multiples panels that are displayed.
         /// </summary>
         [Input("smallMultiplesLimitConfiguration")]
         public Input<Inputs.TemplateItemsLimitConfigurationArgs>? SmallMultiplesLimitConfiguration { get; set; }

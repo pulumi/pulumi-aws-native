@@ -37,7 +37,7 @@ type LookupTaskSetResult struct {
 	Id *string `pulumi:"id"`
 	// A floating-point percentage of the desired number of tasks to place and keep running in the task set.
 	Scale *TaskSetScale `pulumi:"scale"`
-	// The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+	// The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
 	//
 	// The following basic restrictions apply to tags:
 	//
@@ -101,7 +101,7 @@ func (o LookupTaskSetResultOutput) Scale() TaskSetScalePtrOutput {
 	return o.ApplyT(func(v LookupTaskSetResult) *TaskSetScale { return v.Scale }).(TaskSetScalePtrOutput)
 }
 
-// The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+// The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
 //
 // The following basic restrictions apply to tags:
 //

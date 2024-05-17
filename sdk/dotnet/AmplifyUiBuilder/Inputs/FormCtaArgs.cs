@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
     public sealed class FormCtaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
+        /// Displays a cancel button.
         /// </summary>
         [Input("cancel")]
         public Input<Inputs.FormButtonArgs>? Cancel { get; set; }
 
         /// <summary>
-        /// The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
+        /// Displays a clear button.
         /// </summary>
         [Input("clear")]
         public Input<Inputs.FormButtonArgs>? Clear { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
         public Input<Pulumi.AwsNative.AmplifyUiBuilder.FormButtonsPosition>? Position { get; set; }
 
         /// <summary>
-        /// The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
+        /// Displays a submit button.
         /// </summary>
         [Input("submit")]
         public Input<Inputs.FormButtonArgs>? Submit { get; set; }

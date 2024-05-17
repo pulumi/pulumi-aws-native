@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Output<string?> ServiceIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a tag for a listener.
+        /// The tags for the listener.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.AwsNative.VpcLattice
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// Specifies a tag for a listener.
+        /// The tags for the listener.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

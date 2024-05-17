@@ -15,9 +15,6 @@ namespace Pulumi.AwsNative.DataSync.Inputs
     /// </summary>
     public sealed class TaskManifestConfigSourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the S3 bucket where you're hosting the manifest that you want AWS DataSync to use. For more information and configuration examples, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
-        /// </summary>
         [Input("s3")]
         public Input<Inputs.TaskManifestConfigSourceS3Args>? S3 { get; set; }
 

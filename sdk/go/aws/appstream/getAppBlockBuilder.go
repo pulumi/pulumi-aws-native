@@ -28,7 +28,7 @@ type LookupAppBlockBuilderArgs struct {
 }
 
 type LookupAppBlockBuilderResult struct {
-	// Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+	// The access endpoints of the app block builder.
 	AccessEndpoints []AppBlockBuilderAccessEndpoint `pulumi:"accessEndpoints"`
 	// The ARN of the app block builder.
 	Arn *string `pulumi:"arn"`
@@ -48,7 +48,7 @@ type LookupAppBlockBuilderResult struct {
 	//
 	// *Allowed values* : `WINDOWS_SERVER_2019`
 	Platform *string `pulumi:"platform"`
-	// Describes VPC configuration information for fleets and image builders.
+	// The VPC configuration for the app block builder.
 	VpcConfig *AppBlockBuilderVpcConfig `pulumi:"vpcConfig"`
 }
 
@@ -88,7 +88,7 @@ func (o LookupAppBlockBuilderResultOutput) ToLookupAppBlockBuilderResultOutputWi
 	return o
 }
 
-// Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+// The access endpoints of the app block builder.
 func (o LookupAppBlockBuilderResultOutput) AccessEndpoints() AppBlockBuilderAccessEndpointArrayOutput {
 	return o.ApplyT(func(v LookupAppBlockBuilderResult) []AppBlockBuilderAccessEndpoint { return v.AccessEndpoints }).(AppBlockBuilderAccessEndpointArrayOutput)
 }
@@ -135,7 +135,7 @@ func (o LookupAppBlockBuilderResultOutput) Platform() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppBlockBuilderResult) *string { return v.Platform }).(pulumi.StringPtrOutput)
 }
 
-// Describes VPC configuration information for fleets and image builders.
+// The VPC configuration for the app block builder.
 func (o LookupAppBlockBuilderResultOutput) VpcConfig() AppBlockBuilderVpcConfigPtrOutput {
 	return o.ApplyT(func(v LookupAppBlockBuilderResult) *AppBlockBuilderVpcConfig { return v.VpcConfig }).(AppBlockBuilderVpcConfigPtrOutput)
 }

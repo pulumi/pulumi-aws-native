@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.IoT
     public sealed class GetMitigationActionResult
     {
         /// <summary>
-        /// Defines the type of action and the parameters for that action.
+        /// The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
         /// </summary>
         public readonly Outputs.MitigationActionActionParams? ActionParams;
         /// <summary>

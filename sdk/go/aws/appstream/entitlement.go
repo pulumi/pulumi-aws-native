@@ -18,7 +18,7 @@ type Entitlement struct {
 
 	// Specifies whether to entitle all apps or only selected apps.
 	AppVisibility pulumi.StringOutput `pulumi:"appVisibility"`
-	// An attribute that belongs to an entitlement. Application entitlements work by matching a supported SAML 2.0 attribute name to a value when a user identity federates to an AppStream 2.0 SAML application.
+	// The attributes of the entitlement.
 	Attributes EntitlementAttributeArrayOutput `pulumi:"attributes"`
 	// The time when the entitlement was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
@@ -88,7 +88,7 @@ func (EntitlementState) ElementType() reflect.Type {
 type entitlementArgs struct {
 	// Specifies whether to entitle all apps or only selected apps.
 	AppVisibility string `pulumi:"appVisibility"`
-	// An attribute that belongs to an entitlement. Application entitlements work by matching a supported SAML 2.0 attribute name to a value when a user identity federates to an AppStream 2.0 SAML application.
+	// The attributes of the entitlement.
 	Attributes []EntitlementAttribute `pulumi:"attributes"`
 	// The description of the entitlement.
 	Description *string `pulumi:"description"`
@@ -102,7 +102,7 @@ type entitlementArgs struct {
 type EntitlementArgs struct {
 	// Specifies whether to entitle all apps or only selected apps.
 	AppVisibility pulumi.StringInput
-	// An attribute that belongs to an entitlement. Application entitlements work by matching a supported SAML 2.0 attribute name to a value when a user identity federates to an AppStream 2.0 SAML application.
+	// The attributes of the entitlement.
 	Attributes EntitlementAttributeArrayInput
 	// The description of the entitlement.
 	Description pulumi.StringPtrInput
@@ -154,7 +154,7 @@ func (o EntitlementOutput) AppVisibility() pulumi.StringOutput {
 	return o.ApplyT(func(v *Entitlement) pulumi.StringOutput { return v.AppVisibility }).(pulumi.StringOutput)
 }
 
-// An attribute that belongs to an entitlement. Application entitlements work by matching a supported SAML 2.0 attribute name to a value when a user identity federates to an AppStream 2.0 SAML application.
+// The attributes of the entitlement.
 func (o EntitlementOutput) Attributes() EntitlementAttributeArrayOutput {
 	return o.ApplyT(func(v *Entitlement) EntitlementAttributeArrayOutput { return v.Attributes }).(EntitlementAttributeArrayOutput)
 }

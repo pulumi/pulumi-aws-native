@@ -25,17 +25,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The control of a filter that is used to interact with a dashboard or an analysis.
+        /// The list of filter controls that are on a sheet.
         /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon QuickSight User Guide* .
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisFilterControl> FilterControls;
         /// <summary>
-        /// A `Layout` defines the placement of elements within a sheet.
+        /// Layouts define how the components of a sheet are arranged.
         /// 
         /// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon QuickSight User Guide* .
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisLayout> Layouts;
         /// <summary>
@@ -43,13 +41,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The control of a parameter that users can interact with in a dashboard or an analysis.
+        /// The list of parameter controls that are on a sheet.
         /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// For more information, see [Using a Control with a Parameter in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html) in the *Amazon QuickSight User Guide* .
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisParameterControl> ParameterControls;
         /// <summary>
-        /// A grid layout to define the placement of sheet control.
+        /// The control layouts of the sheet.
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisSheetControlLayout> SheetControlLayouts;
         /// <summary>
@@ -57,7 +55,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string SheetId;
         /// <summary>
-        /// A text box.
+        /// The text boxes that are on a sheet.
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisSheetTextBox> TextBoxes;
         /// <summary>
@@ -65,9 +63,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string? Title;
         /// <summary>
-        /// A visual displayed on a sheet in an analysis, dashboard, or template.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// A list of the visuals that are on a sheet. Visual placement is determined by the layout of the sheet.
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisVisual> Visuals;
 

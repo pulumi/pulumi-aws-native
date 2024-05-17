@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Glue
     public partial class SchemaVersion : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A wrapper structure to contain schema identity fields. Either `SchemaArn` , or `SchemaName` and `RegistryName` has to be provided.
+        /// The schema that includes the schema version.
         /// </summary>
         [Output("schema")]
         public Output<Outputs.SchemaVersionSchema> Schema { get; private set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.Glue
     public sealed class SchemaVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A wrapper structure to contain schema identity fields. Either `SchemaArn` , or `SchemaName` and `RegistryName` has to be provided.
+        /// The schema that includes the schema version.
         /// </summary>
         [Input("schema", required: true)]
         public Input<Inputs.SchemaVersionSchemaArgs> Schema { get; set; } = null!;

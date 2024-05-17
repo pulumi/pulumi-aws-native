@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TopicFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A structure that represents a category filter.
+        /// The category filter that is associated with this filter.
         /// </summary>
         [Input("categoryFilter")]
         public Input<Inputs.TopicCategoryFilterArgs>? CategoryFilter { get; set; }
 
         /// <summary>
-        /// A filter used to restrict data based on a range of dates or times.
+        /// The date range filter.
         /// </summary>
         [Input("dateRangeFilter")]
         public Input<Inputs.TopicDateRangeFilterArgs>? DateRangeFilter { get; set; }
@@ -61,13 +61,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.TopicNamedFilterType>? FilterType { get; set; }
 
         /// <summary>
-        /// A filter that filters topics based on the value of a numeric field. The filter includes only topics whose numeric field value matches the specified value.
+        /// The numeric equality filter.
         /// </summary>
         [Input("numericEqualityFilter")]
         public Input<Inputs.TopicNumericEqualityFilterArgs>? NumericEqualityFilter { get; set; }
 
         /// <summary>
-        /// A filter that filters topics based on the value of a numeric field. The filter includes only topics whose numeric field value falls within the specified range.
+        /// The numeric range filter.
         /// </summary>
         [Input("numericRangeFilter")]
         public Input<Inputs.TopicNumericRangeFilterArgs>? NumericRangeFilter { get; set; }
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string> OperandFieldName { get; set; } = null!;
 
         /// <summary>
-        /// A structure that represents a relative date filter.
+        /// The relative date filter.
         /// </summary>
         [Input("relativeDateFilter")]
         public Input<Inputs.TopicRelativeDateFilterArgs>? RelativeDateFilter { get; set; }

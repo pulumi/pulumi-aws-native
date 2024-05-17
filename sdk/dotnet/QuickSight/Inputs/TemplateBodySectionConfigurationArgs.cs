@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string> SectionId { get; set; } = null!;
 
         /// <summary>
-        /// The options that style a section.
+        /// The style options of a body section.
         /// </summary>
         [Input("style")]
         public Input<Inputs.TemplateSectionStyleArgs>? Style { get; set; }

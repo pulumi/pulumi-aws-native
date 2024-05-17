@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisColorsConfiguration
     {
         /// <summary>
-        /// Determines the color that's applied to a particular data value in a column.
+        /// A list of up to 50 custom colors.
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisCustomColor> CustomColors;
 

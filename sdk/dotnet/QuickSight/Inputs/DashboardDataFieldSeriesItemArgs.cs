@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string>? FieldValue { get; set; }
 
         /// <summary>
-        /// The options that determine the presentation of a line series in the visual
+        /// The options that determine the presentation of line series associated to the field.
         /// </summary>
         [Input("settings")]
         public Input<Inputs.DashboardLineChartSeriesSettingsArgs>? Settings { get; set; }

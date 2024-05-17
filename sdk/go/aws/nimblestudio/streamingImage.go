@@ -19,8 +19,7 @@ type StreamingImage struct {
 	// <p>A human-readable description of the streaming image.</p>
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// <p>The ID of an EC2 machine image with which to create this streaming image.</p>
-	Ec2ImageId pulumi.StringOutput `pulumi:"ec2ImageId"`
-	// Specifies how a streaming image is encrypted.
+	Ec2ImageId              pulumi.StringOutput                         `pulumi:"ec2ImageId"`
 	EncryptionConfiguration StreamingImageEncryptionConfigurationOutput `pulumi:"encryptionConfiguration"`
 	// <p>The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.</p>
 	EulaIds pulumi.StringArrayOutput `pulumi:"eulaIds"`
@@ -169,7 +168,6 @@ func (o StreamingImageOutput) Ec2ImageId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamingImage) pulumi.StringOutput { return v.Ec2ImageId }).(pulumi.StringOutput)
 }
 
-// Specifies how a streaming image is encrypted.
 func (o StreamingImageOutput) EncryptionConfiguration() StreamingImageEncryptionConfigurationOutput {
 	return o.ApplyT(func(v *StreamingImage) StreamingImageEncryptionConfigurationOutput { return v.EncryptionConfiguration }).(StreamingImageEncryptionConfigurationOutput)
 }

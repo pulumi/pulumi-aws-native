@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.Mwaa
         public Output<string?> KmsKey { get; private set; } = null!;
 
         /// <summary>
-        /// The type of Apache Airflow logs to send to CloudWatch Logs.
+        /// The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
         /// </summary>
         [Output("loggingConfiguration")]
         public Output<Outputs.EnvironmentLoggingConfiguration?> LoggingConfiguration { get; private set; } = null!;
@@ -320,7 +320,7 @@ namespace Pulumi.AwsNative.Mwaa
         public Input<string>? KmsKey { get; set; }
 
         /// <summary>
-        /// The type of Apache Airflow logs to send to CloudWatch Logs.
+        /// The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
         /// </summary>
         [Input("loggingConfiguration")]
         public Input<Inputs.EnvironmentLoggingConfigurationArgs>? LoggingConfiguration { get; set; }

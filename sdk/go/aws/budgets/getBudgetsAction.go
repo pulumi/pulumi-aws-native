@@ -37,20 +37,15 @@ type LookupBudgetsActionResult struct {
 	ActionThreshold *BudgetsActionActionThreshold `pulumi:"actionThreshold"`
 	// This specifies if the action needs manual or automatic approval.
 	ApprovalModel *BudgetsActionApprovalModel `pulumi:"approvalModel"`
-	// The definition is where you specify all of the type-specific parameters.
+	// Specifies all of the type-specific parameters.
 	Definition *BudgetsActionDefinition `pulumi:"definition"`
 	// The role passed for action execution and reversion. Roles and actions must be in the same account.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// The type of a notification.
 	NotificationType *BudgetsActionNotificationType `pulumi:"notificationType"`
-	// The tag structure that contains a tag key and value.
+	// An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
 	ResourceTags []aws.Tag `pulumi:"resourceTags"`
-	// The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
-	//
-	// For example, an email subscriber has the following parameters:
-	//
-	// - A `subscriptionType` of `EMAIL`
-	// - An `address` of `example@example.com`
+	// A list of subscribers.
 	Subscribers []BudgetsActionSubscriber `pulumi:"subscribers"`
 }
 
@@ -107,7 +102,7 @@ func (o LookupBudgetsActionResultOutput) ApprovalModel() BudgetsActionApprovalMo
 	return o.ApplyT(func(v LookupBudgetsActionResult) *BudgetsActionApprovalModel { return v.ApprovalModel }).(BudgetsActionApprovalModelPtrOutput)
 }
 
-// The definition is where you specify all of the type-specific parameters.
+// Specifies all of the type-specific parameters.
 func (o LookupBudgetsActionResultOutput) Definition() BudgetsActionDefinitionPtrOutput {
 	return o.ApplyT(func(v LookupBudgetsActionResult) *BudgetsActionDefinition { return v.Definition }).(BudgetsActionDefinitionPtrOutput)
 }
@@ -122,17 +117,12 @@ func (o LookupBudgetsActionResultOutput) NotificationType() BudgetsActionNotific
 	return o.ApplyT(func(v LookupBudgetsActionResult) *BudgetsActionNotificationType { return v.NotificationType }).(BudgetsActionNotificationTypePtrOutput)
 }
 
-// The tag structure that contains a tag key and value.
+// An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
 func (o LookupBudgetsActionResultOutput) ResourceTags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupBudgetsActionResult) []aws.Tag { return v.ResourceTags }).(aws.TagArrayOutput)
 }
 
-// The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
-//
-// For example, an email subscriber has the following parameters:
-//
-// - A `subscriptionType` of `EMAIL`
-// - An `address` of `example@example.com`
+// A list of subscribers.
 func (o LookupBudgetsActionResultOutput) Subscribers() BudgetsActionSubscriberArrayOutput {
 	return o.ApplyT(func(v LookupBudgetsActionResult) []BudgetsActionSubscriber { return v.Subscribers }).(BudgetsActionSubscriberArrayOutput)
 }

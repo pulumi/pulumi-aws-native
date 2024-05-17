@@ -54,7 +54,7 @@ export class Feature extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * A set of key-value pairs that specify users who should always be served a specific variation of a feature. Each key specifies a user using their user ID, account ID, or some other identifier. The value specifies the name of the variation that the user is to be served.
+     * Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
      */
     public readonly entityOverrides!: pulumi.Output<outputs.evidently.FeatureEntityOverride[] | undefined>;
     /**
@@ -74,7 +74,9 @@ export class Feature extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * This structure contains the name and variation value of one variation of a feature. It can contain only one of the following parameters: `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` .
+     * An array of structures that contain the configuration of the feature's different variations.
+     *
+     * Each `VariationObject` in the `Variations` array for a feature must have the same type of value ( `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` ).
      */
     public readonly variations!: pulumi.Output<outputs.evidently.FeatureVariationObject[]>;
 
@@ -139,7 +141,7 @@ export interface FeatureArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * A set of key-value pairs that specify users who should always be served a specific variation of a feature. Each key specifies a user using their user ID, account ID, or some other identifier. The value specifies the name of the variation that the user is to be served.
+     * Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
      */
     entityOverrides?: pulumi.Input<pulumi.Input<inputs.evidently.FeatureEntityOverrideArgs>[]>;
     /**
@@ -159,7 +161,9 @@ export interface FeatureArgs {
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
-     * This structure contains the name and variation value of one variation of a feature. It can contain only one of the following parameters: `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` .
+     * An array of structures that contain the configuration of the feature's different variations.
+     *
+     * Each `VariationObject` in the `Variations` array for a feature must have the same type of value ( `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` ).
      */
     variations: pulumi.Input<pulumi.Input<inputs.evidently.FeatureVariationObjectArgs>[]>;
 }

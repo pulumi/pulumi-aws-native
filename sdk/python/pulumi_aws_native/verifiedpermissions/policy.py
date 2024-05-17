@@ -21,9 +21,7 @@ class PolicyArgs:
                  policy_store_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a Policy resource.
-        :param pulumi.Input[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition1PropertiesArgs']] definition: A structure that defines a Cedar policy. It includes the policy type, a description, and a policy body. This is a top level data type used to create a policy.
-               
-               This data type is used as a request parameter for the [CreatePolicy](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html) operation. This structure must always have either an `Static` or a `TemplateLinked` element.
+        :param pulumi.Input[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition1PropertiesArgs']] definition: Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
         :param pulumi.Input[str] policy_store_id: Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
         """
         pulumi.set(__self__, "definition", definition)
@@ -33,9 +31,7 @@ class PolicyArgs:
     @pulumi.getter
     def definition(self) -> pulumi.Input[Union['PolicyDefinition0PropertiesArgs', 'PolicyDefinition1PropertiesArgs']]:
         """
-        A structure that defines a Cedar policy. It includes the policy type, a description, and a policy body. This is a top level data type used to create a policy.
-
-        This data type is used as a request parameter for the [CreatePolicy](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html) operation. This structure must always have either an `Static` or a `TemplateLinked` element.
+        Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
         """
         return pulumi.get(self, "definition")
 
@@ -123,9 +119,7 @@ class Policy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['PolicyDefinition0PropertiesArgs'], pulumi.InputType['PolicyDefinition1PropertiesArgs']]] definition: A structure that defines a Cedar policy. It includes the policy type, a description, and a policy body. This is a top level data type used to create a policy.
-               
-               This data type is used as a request parameter for the [CreatePolicy](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html) operation. This structure must always have either an `Static` or a `TemplateLinked` element.
+        :param pulumi.Input[Union[pulumi.InputType['PolicyDefinition0PropertiesArgs'], pulumi.InputType['PolicyDefinition1PropertiesArgs']]] definition: Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
         :param pulumi.Input[str] policy_store_id: Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
         """
         ...
@@ -259,9 +253,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter
     def definition(self) -> pulumi.Output[Any]:
         """
-        A structure that defines a Cedar policy. It includes the policy type, a description, and a policy body. This is a top level data type used to create a policy.
-
-        This data type is used as a request parameter for the [CreatePolicy](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html) operation. This structure must always have either an `Static` or a `TemplateLinked` element.
+        Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
         """
         return pulumi.get(self, "definition")
 

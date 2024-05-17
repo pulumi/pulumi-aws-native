@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
     public sealed class PackagingConfigurationHlsPackage
     {
         /// <summary>
-        /// Holds encryption information so that access to the content can be controlled by a DRM solution.
+        /// Parameters for encrypting content.
         /// </summary>
         public readonly Outputs.PackagingConfigurationHlsEncryption? Encryption;
         /// <summary>

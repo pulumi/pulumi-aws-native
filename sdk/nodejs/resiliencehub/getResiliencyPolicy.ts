@@ -31,7 +31,7 @@ export interface GetResiliencyPolicyResult {
      */
     readonly dataLocationConstraint?: enums.resiliencehub.ResiliencyPolicyDataLocationConstraint;
     /**
-     * The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds.
+     * The resiliency policy.
      */
     readonly policy?: outputs.resiliencehub.ResiliencyPolicyPolicyMap;
     /**

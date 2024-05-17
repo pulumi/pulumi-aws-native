@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.Batch.Inputs
     public sealed class JobDefinitionNodeRangePropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Container properties are used for Amazon ECS based job definitions. These properties to describe the container that's launched as part of a job.
+        /// The container details for the node range.
         /// </summary>
         [Input("container")]
         public Input<Inputs.JobDefinitionContainerPropertiesArgs>? Container { get; set; }
 
         /// <summary>
-        /// An object that contains the properties for the Amazon ECS resources of a job.
+        /// This is an object that represents the properties of the node range for a multi-node parallel job.
         /// </summary>
         [Input("ecsProperties")]
         public Input<Inputs.JobDefinitionEcsPropertiesArgs>? EcsProperties { get; set; }

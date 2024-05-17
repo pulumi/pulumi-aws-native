@@ -117,10 +117,6 @@ class CapacityProviderAutoScalingGroupProvider(dict):
         :param str auto_scaling_group_arn: The Amazon Resource Name (ARN) that identifies the Auto Scaling group, or the Auto Scaling group name.
         :param 'CapacityProviderAutoScalingGroupProviderManagedDraining' managed_draining: The managed draining option for the Auto Scaling group capacity provider. When you enable this, Amazon ECS manages and gracefully drains the EC2 container instances that are in the Auto Scaling group capacity provider.
         :param 'CapacityProviderManagedScaling' managed_scaling: The managed scaling settings for the Auto Scaling group capacity provider.
-               
-               When managed scaling is turned on, Amazon ECS manages the scale-in and scale-out actions of the Auto Scaling group. Amazon ECS manages a target tracking scaling policy using an Amazon ECS managed CloudWatch metric with the specified `targetCapacity` value as the target value for the metric. For more information, see [Using managed scaling](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/asg-capacity-providers.html#asg-capacity-providers-managed-scaling) in the *Amazon Elastic Container Service Developer Guide* .
-               
-               If managed scaling is off, the user must manage the scaling of the Auto Scaling group.
         :param 'CapacityProviderAutoScalingGroupProviderManagedTerminationProtection' managed_termination_protection: The managed termination protection setting to use for the Auto Scaling group capacity provider. This determines whether the Auto Scaling group has managed termination protection. The default is off.
                
                > When using managed termination protection, managed scaling must also be used otherwise managed termination protection doesn't work. 
@@ -158,10 +154,6 @@ class CapacityProviderAutoScalingGroupProvider(dict):
     def managed_scaling(self) -> Optional['outputs.CapacityProviderManagedScaling']:
         """
         The managed scaling settings for the Auto Scaling group capacity provider.
-
-        When managed scaling is turned on, Amazon ECS manages the scale-in and scale-out actions of the Auto Scaling group. Amazon ECS manages a target tracking scaling policy using an Amazon ECS managed CloudWatch metric with the specified `targetCapacity` value as the target value for the metric. For more information, see [Using managed scaling](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/asg-capacity-providers.html#asg-capacity-providers-managed-scaling) in the *Amazon Elastic Container Service Developer Guide* .
-
-        If managed scaling is off, the user must manage the scaling of the Auto Scaling group.
         """
         return pulumi.get(self, "managed_scaling")
 
@@ -5298,7 +5290,9 @@ class TaskSetNetworkConfiguration(dict):
                  aws_vpc_configuration: Optional['outputs.TaskSetAwsVpcConfiguration'] = None):
         """
         An object representing the network configuration for a task or service.
-        :param 'TaskSetAwsVpcConfiguration' aws_vpc_configuration: An object representing the networking details for a task or service. For example `awsvpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}`
+        :param 'TaskSetAwsVpcConfiguration' aws_vpc_configuration: The VPC subnets and security groups that are associated with a task.
+               
+               > All specified subnets and security groups must be from the same VPC.
         """
         if aws_vpc_configuration is not None:
             pulumi.set(__self__, "aws_vpc_configuration", aws_vpc_configuration)
@@ -5307,7 +5301,9 @@ class TaskSetNetworkConfiguration(dict):
     @pulumi.getter(name="awsVpcConfiguration")
     def aws_vpc_configuration(self) -> Optional['outputs.TaskSetAwsVpcConfiguration']:
         """
-        An object representing the networking details for a task or service. For example `awsvpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}`
+        The VPC subnets and security groups that are associated with a task.
+
+        > All specified subnets and security groups must be from the same VPC.
         """
         return pulumi.get(self, "aws_vpc_configuration")
 

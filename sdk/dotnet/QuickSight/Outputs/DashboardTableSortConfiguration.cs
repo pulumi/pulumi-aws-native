@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardTableSortConfiguration
     {
         /// <summary>
-        /// The pagination configuration for a table visual or boxplot.
+        /// The pagination configuration (page size, page number) for the table.
         /// </summary>
         public readonly Outputs.DashboardPaginationConfiguration? PaginationConfiguration;
         /// <summary>

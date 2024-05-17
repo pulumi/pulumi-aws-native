@@ -192,8 +192,8 @@ class DeploymentConfigTrafficRoutingConfigArgs:
                  time_based_linear: Optional[pulumi.Input['DeploymentConfigTimeBasedLinearArgs']] = None):
         """
         :param pulumi.Input[str] type: The type of traffic shifting ( `TimeBasedCanary` or `TimeBasedLinear` ) used by a deployment configuration.
-        :param pulumi.Input['DeploymentConfigTimeBasedCanaryArgs'] time_based_canary: A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
-        :param pulumi.Input['DeploymentConfigTimeBasedLinearArgs'] time_based_linear: A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+        :param pulumi.Input['DeploymentConfigTimeBasedCanaryArgs'] time_based_canary: A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+        :param pulumi.Input['DeploymentConfigTimeBasedLinearArgs'] time_based_linear: A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or Amazon ECS task sets are specified in the deployment's AppSpec file.
         """
         pulumi.set(__self__, "type", type)
         if time_based_canary is not None:
@@ -217,7 +217,7 @@ class DeploymentConfigTrafficRoutingConfigArgs:
     @pulumi.getter(name="timeBasedCanary")
     def time_based_canary(self) -> Optional[pulumi.Input['DeploymentConfigTimeBasedCanaryArgs']]:
         """
-        A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+        A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
         """
         return pulumi.get(self, "time_based_canary")
 
@@ -229,7 +229,7 @@ class DeploymentConfigTrafficRoutingConfigArgs:
     @pulumi.getter(name="timeBasedLinear")
     def time_based_linear(self) -> Optional[pulumi.Input['DeploymentConfigTimeBasedLinearArgs']]:
         """
-        A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+        A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or Amazon ECS task sets are specified in the deployment's AppSpec file.
         """
         return pulumi.get(self, "time_based_linear")
 
@@ -248,7 +248,11 @@ class DeploymentConfigZonalConfigArgs:
         :param pulumi.Input[int] first_zone_monitor_duration_in_seconds: The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the *first* Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. You might set this option if you want to allow extra bake time for the first Availability Zone. If you don't specify a value for `firstZoneMonitorDurationInSeconds` , then CodeDeploy uses the `monitorDurationInSeconds` value for the first Availability Zone.
                
                For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
-        :param pulumi.Input['DeploymentConfigMinimumHealthyHostsPerZoneArgs'] minimum_healthy_hosts_per_zone: Information about the minimum number of healthy instances per Availability Zone.
+        :param pulumi.Input['DeploymentConfigMinimumHealthyHostsPerZoneArgs'] minimum_healthy_hosts_per_zone: The number or percentage of instances that must remain available per Availability Zone during a deployment. This option works in conjunction with the `MinimumHealthyHosts` option. For more information, see [About the minimum number of healthy hosts per Availability Zone](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html#minimum-healthy-hosts-az) in the *CodeDeploy User Guide* .
+               
+               If you don't specify the `minimumHealthyHostsPerZone` option, then CodeDeploy uses a default value of `0` percent.
+               
+               For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
         :param pulumi.Input[int] monitor_duration_in_seconds: The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. Consider adding a monitor duration to give the deployment some time to prove itself (or 'bake') in one Availability Zone before it is released in the next zone. If you don't specify a `monitorDurationInSeconds` , CodeDeploy starts deploying to the next Availability Zone immediately.
                
                For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
@@ -278,7 +282,11 @@ class DeploymentConfigZonalConfigArgs:
     @pulumi.getter(name="minimumHealthyHostsPerZone")
     def minimum_healthy_hosts_per_zone(self) -> Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsPerZoneArgs']]:
         """
-        Information about the minimum number of healthy instances per Availability Zone.
+        The number or percentage of instances that must remain available per Availability Zone during a deployment. This option works in conjunction with the `MinimumHealthyHosts` option. For more information, see [About the minimum number of healthy hosts per Availability Zone](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html#minimum-healthy-hosts-az) in the *CodeDeploy User Guide* .
+
+        If you don't specify the `minimumHealthyHostsPerZone` option, then CodeDeploy uses a default value of `0` percent.
+
+        For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
         """
         return pulumi.get(self, "minimum_healthy_hosts_per_zone")
 

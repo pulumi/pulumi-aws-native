@@ -58,9 +58,7 @@ type DataSet struct {
 	Permissions DataSetResourcePermissionArrayOutput `pulumi:"permissions"`
 	// Declares the physical tables that are available in the underlying data sources.
 	PhysicalTableMap DataSetPhysicalTableMapOutput `pulumi:"physicalTableMap"`
-	// Information about a dataset that contains permissions for row-level security (RLS). The permissions dataset maps fields to users or groups. For more information, see [Using Row-Level Security (RLS) to Restrict Access to a Dataset](https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html) in the *Amazon QuickSight User Guide* .
-	//
-	// The option to deny permissions by setting `PermissionPolicy` to `DENY_ACCESS` is not supported for new RLS datasets.
+	// The row-level security configuration for the data that you want to create.
 	RowLevelPermissionDataSet DataSetRowLevelPermissionDataSetPtrOutput `pulumi:"rowLevelPermissionDataSet"`
 	// The element you can use to define tags for row-level security.
 	RowLevelPermissionTagConfiguration DataSetRowLevelPermissionTagConfigurationPtrOutput `pulumi:"rowLevelPermissionTagConfiguration"`
@@ -143,9 +141,7 @@ type dataSetArgs struct {
 	Permissions []DataSetResourcePermission `pulumi:"permissions"`
 	// Declares the physical tables that are available in the underlying data sources.
 	PhysicalTableMap map[string]DataSetPhysicalTable `pulumi:"physicalTableMap"`
-	// Information about a dataset that contains permissions for row-level security (RLS). The permissions dataset maps fields to users or groups. For more information, see [Using Row-Level Security (RLS) to Restrict Access to a Dataset](https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html) in the *Amazon QuickSight User Guide* .
-	//
-	// The option to deny permissions by setting `PermissionPolicy` to `DENY_ACCESS` is not supported for new RLS datasets.
+	// The row-level security configuration for the data that you want to create.
 	RowLevelPermissionDataSet *DataSetRowLevelPermissionDataSet `pulumi:"rowLevelPermissionDataSet"`
 	// The element you can use to define tags for row-level security.
 	RowLevelPermissionTagConfiguration *DataSetRowLevelPermissionTagConfiguration `pulumi:"rowLevelPermissionTagConfiguration"`
@@ -185,9 +181,7 @@ type DataSetArgs struct {
 	Permissions DataSetResourcePermissionArrayInput
 	// Declares the physical tables that are available in the underlying data sources.
 	PhysicalTableMap DataSetPhysicalTableMapInput
-	// Information about a dataset that contains permissions for row-level security (RLS). The permissions dataset maps fields to users or groups. For more information, see [Using Row-Level Security (RLS) to Restrict Access to a Dataset](https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html) in the *Amazon QuickSight User Guide* .
-	//
-	// The option to deny permissions by setting `PermissionPolicy` to `DENY_ACCESS` is not supported for new RLS datasets.
+	// The row-level security configuration for the data that you want to create.
 	RowLevelPermissionDataSet DataSetRowLevelPermissionDataSetPtrInput
 	// The element you can use to define tags for row-level security.
 	RowLevelPermissionTagConfiguration DataSetRowLevelPermissionTagConfigurationPtrInput
@@ -334,9 +328,7 @@ func (o DataSetOutput) PhysicalTableMap() DataSetPhysicalTableMapOutput {
 	return o.ApplyT(func(v *DataSet) DataSetPhysicalTableMapOutput { return v.PhysicalTableMap }).(DataSetPhysicalTableMapOutput)
 }
 
-// Information about a dataset that contains permissions for row-level security (RLS). The permissions dataset maps fields to users or groups. For more information, see [Using Row-Level Security (RLS) to Restrict Access to a Dataset](https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html) in the *Amazon QuickSight User Guide* .
-//
-// The option to deny permissions by setting `PermissionPolicy` to `DENY_ACCESS` is not supported for new RLS datasets.
+// The row-level security configuration for the data that you want to create.
 func (o DataSetOutput) RowLevelPermissionDataSet() DataSetRowLevelPermissionDataSetPtrOutput {
 	return o.ApplyT(func(v *DataSet) DataSetRowLevelPermissionDataSetPtrOutput { return v.RowLevelPermissionDataSet }).(DataSetRowLevelPermissionDataSetPtrOutput)
 }

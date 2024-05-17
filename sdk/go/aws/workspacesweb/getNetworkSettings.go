@@ -41,7 +41,7 @@ type LookupNetworkSettingsResult struct {
 	//
 	// *Pattern* : `^subnet-([0-9a-f]{8}|[0-9a-f]{17})$`
 	SubnetIds []string `pulumi:"subnetIds"`
-	// The tag.
+	// The tags to add to the network settings resource. A tag is a key-value pair.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The VPC that streaming instances will connect to.
 	//
@@ -109,7 +109,7 @@ func (o LookupNetworkSettingsResultOutput) SubnetIds() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v LookupNetworkSettingsResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// The tag.
+// The tags to add to the network settings resource. A tag is a key-value pair.
 func (o LookupNetworkSettingsResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupNetworkSettingsResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

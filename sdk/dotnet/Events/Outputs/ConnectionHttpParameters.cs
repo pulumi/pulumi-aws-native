@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Events.Outputs
     public sealed class ConnectionHttpParameters
     {
         /// <summary>
-        /// Additional query string parameter for the connection. You can include up to 100 additional query string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB.
+        /// Contains additional body string parameters for the connection.
         /// </summary>
         public readonly ImmutableArray<Outputs.ConnectionParameter> BodyParameters;
         /// <summary>

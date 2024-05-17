@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Wisdom
         public Output<string> AssistantId { get; private set; } = null!;
 
         /// <summary>
-        /// A union type that currently has a single argument, which is the knowledge base ID.
+        /// The identifier of the associated resource.
         /// </summary>
         [Output("association")]
         public Output<Outputs.AssistantAssociationAssociationData> Association { get; private set; } = null!;
@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.Wisdom
         public Output<Pulumi.AwsNative.Wisdom.AssistantAssociationAssociationType> AssociationType { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata to assign to the Wisdom assistant association. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+        /// The tags used to organize, track, or control access for this resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.AwsNative.Wisdom
         public Input<string> AssistantId { get; set; } = null!;
 
         /// <summary>
-        /// A union type that currently has a single argument, which is the knowledge base ID.
+        /// The identifier of the associated resource.
         /// </summary>
         [Input("association", required: true)]
         public Input<Inputs.AssistantAssociationAssociationDataArgs> Association { get; set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.AwsNative.Wisdom
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
 
         /// <summary>
-        /// Metadata to assign to the Wisdom assistant association. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+        /// The tags used to organize, track, or control access for this resource.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {

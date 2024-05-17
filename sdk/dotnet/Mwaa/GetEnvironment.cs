@@ -104,7 +104,7 @@ namespace Pulumi.AwsNative.Mwaa
         /// </summary>
         public readonly string? ExecutionRoleArn;
         /// <summary>
-        /// The type of Apache Airflow logs to send to CloudWatch Logs.
+        /// The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
         /// </summary>
         public readonly Outputs.EnvironmentLoggingConfiguration? LoggingConfiguration;
         /// <summary>

@@ -42,9 +42,7 @@ class GetKeyGroupResult:
     @pulumi.getter(name="keyGroupConfig")
     def key_group_config(self) -> Optional['outputs.KeyGroupConfig']:
         """
-        A key group configuration.
-
-        A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) .
+        The key group configuration.
         """
         return pulumi.get(self, "key_group_config")
 

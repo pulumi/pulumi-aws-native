@@ -46,7 +46,7 @@ class GetStorageProfileResult:
     @pulumi.getter(name="fileSystemLocations")
     def file_system_locations(self) -> Optional[Sequence['outputs.StorageProfileFileSystemLocation']]:
         """
-        The details of the file system location for the resource.
+        Operating system specific file system path to the storage location.
         """
         return pulumi.get(self, "file_system_locations")
 

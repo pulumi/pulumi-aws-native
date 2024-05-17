@@ -28,7 +28,7 @@ class GetResourceDataSyncResult:
     @pulumi.getter(name="syncSource")
     def sync_source(self) -> Optional['outputs.ResourceDataSyncSyncSource']:
         """
-        Information about the source of the data included in the resource data sync.
+        Information about the source where the data was synchronized.
         """
         return pulumi.get(self, "sync_source")
 

@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.CleanRoomsMl.Outputs
     public sealed class TrainingDatasetDatasetInputConfig
     {
         /// <summary>
-        /// Defines information about the Glue data source that contains the training data.
+        /// A DataSource object that specifies the Glue data source for the training data.
         /// </summary>
         public readonly Outputs.TrainingDatasetDataSource DataSource;
         /// <summary>
-        /// Metadata for a column.
+        /// The schema information for the training data.
         /// </summary>
         public readonly ImmutableArray<Outputs.TrainingDatasetColumnSchema> Schema;
 

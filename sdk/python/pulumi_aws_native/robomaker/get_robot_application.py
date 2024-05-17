@@ -65,7 +65,7 @@ class GetRobotApplicationResult:
     @pulumi.getter(name="robotSoftwareSuite")
     def robot_software_suite(self) -> Optional['outputs.RobotApplicationRobotSoftwareSuite']:
         """
-        Information about a robot software suite.
+        The robot software suite used by the robot application.
         """
         return pulumi.get(self, "robot_software_suite")
 

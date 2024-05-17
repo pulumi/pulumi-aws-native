@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
     public sealed class AccountAuditConfigurationAuditNotificationTargetConfigurations
     {
         /// <summary>
-        /// Information about the targets to which audit notifications are sent.
+        /// The `Sns` notification target.
         /// </summary>
         public readonly Outputs.AccountAuditConfigurationAuditNotificationTarget? Sns;
 

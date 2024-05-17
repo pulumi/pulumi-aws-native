@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         private InputList<Inputs.TopicRuleAssetPropertyValueArgs>? _propertyValues;
 
         /// <summary>
-        /// An asset property value entry containing the following information.
+        /// A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
         /// </summary>
         public InputList<Inputs.TopicRuleAssetPropertyValueArgs> PropertyValues
         {

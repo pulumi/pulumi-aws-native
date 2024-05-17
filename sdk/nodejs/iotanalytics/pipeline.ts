@@ -239,7 +239,11 @@ export class Pipeline extends pulumi.CustomResource {
 
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
-     * An activity that performs a transformation on a message.
+     * A list of "PipelineActivity" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
+     *
+     * The list can be 2-25 *PipelineActivity* objects and must contain both a `channel` and a `datastore` activity. Each entry in the list must contain only one activity, for example:
+     *
+     * `pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]`
      */
     public readonly pipelineActivities!: pulumi.Output<outputs.iotanalytics.PipelineActivity[]>;
     /**
@@ -247,7 +251,9 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public readonly pipelineName!: pulumi.Output<string | undefined>;
     /**
-     * A set of key-value pairs that are used to manage the resource.
+     * Metadata which can be used to manage the pipeline.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -287,7 +293,11 @@ export class Pipeline extends pulumi.CustomResource {
  */
 export interface PipelineArgs {
     /**
-     * An activity that performs a transformation on a message.
+     * A list of "PipelineActivity" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
+     *
+     * The list can be 2-25 *PipelineActivity* objects and must contain both a `channel` and a `datastore` activity. Each entry in the list must contain only one activity, for example:
+     *
+     * `pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]`
      */
     pipelineActivities: pulumi.Input<pulumi.Input<inputs.iotanalytics.PipelineActivityArgs>[]>;
     /**
@@ -295,7 +305,9 @@ export interface PipelineArgs {
      */
     pipelineName?: pulumi.Input<string>;
     /**
-     * A set of key-value pairs that are used to manage the resource.
+     * Metadata which can be used to manage the pipeline.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

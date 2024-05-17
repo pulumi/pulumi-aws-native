@@ -56,9 +56,7 @@ type CapacityReservation struct {
 	OutPostArn pulumi.StringPtrOutput `pulumi:"outPostArn"`
 	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
 	PlacementGroupArn pulumi.StringPtrOutput `pulumi:"placementGroupArn"`
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// The tags to apply to the Capacity Reservation during launch.
 	TagSpecifications CapacityReservationTagSpecificationArrayOutput `pulumi:"tagSpecifications"`
 	// Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
 	//
@@ -170,9 +168,7 @@ type capacityReservationArgs struct {
 	OutPostArn *string `pulumi:"outPostArn"`
 	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
 	PlacementGroupArn *string `pulumi:"placementGroupArn"`
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// The tags to apply to the Capacity Reservation during launch.
 	TagSpecifications []CapacityReservationTagSpecification `pulumi:"tagSpecifications"`
 	// Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
 	//
@@ -219,9 +215,7 @@ type CapacityReservationArgs struct {
 	OutPostArn pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
 	PlacementGroupArn pulumi.StringPtrInput
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// The tags to apply to the Capacity Reservation during launch.
 	TagSpecifications CapacityReservationTagSpecificationArrayInput
 	// Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
 	//
@@ -346,9 +340,7 @@ func (o CapacityReservationOutput) PlacementGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.PlacementGroupArn }).(pulumi.StringPtrOutput)
 }
 
-// An array of key-value pairs to apply to this resource.
-//
-// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+// The tags to apply to the Capacity Reservation during launch.
 func (o CapacityReservationOutput) TagSpecifications() CapacityReservationTagSpecificationArrayOutput {
 	return o.ApplyT(func(v *CapacityReservation) CapacityReservationTagSpecificationArrayOutput {
 		return v.TagSpecifications

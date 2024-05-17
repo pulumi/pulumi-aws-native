@@ -62,15 +62,15 @@ class ComponentActionParametersArgs:
                  type: Optional[pulumi.Input['ComponentPropertyArgs']] = None,
                  url: Optional[pulumi.Input['ComponentPropertyArgs']] = None):
         """
-        :param pulumi.Input['ComponentPropertyArgs'] anchor: The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        :param pulumi.Input['ComponentPropertyArgs'] anchor: The HTML anchor link to the location to open. Specify this value for a navigation action.
         :param pulumi.Input[Mapping[str, pulumi.Input['ComponentPropertyArgs']]] fields: A dictionary of key-value pairs mapping Amplify Studio properties to fields in a data model. Use when the action performs an operation on an Amplify DataStore model.
-        :param pulumi.Input['ComponentPropertyArgs'] global_: The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
-        :param pulumi.Input['ComponentPropertyArgs'] id: The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        :param pulumi.Input['ComponentPropertyArgs'] global_: Specifies whether the user should be signed out globally. Specify this value for an auth sign out action.
+        :param pulumi.Input['ComponentPropertyArgs'] id: The unique ID of the component that the `ActionParameters` apply to.
         :param pulumi.Input[str] model: The name of the data model. Use when the action performs an operation on an Amplify DataStore model.
-        :param pulumi.Input['ComponentMutationActionSetStateParameterArgs'] state: Represents the state configuration when an action modifies a property of another element within the same component.
-        :param pulumi.Input['ComponentPropertyArgs'] target: The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
-        :param pulumi.Input['ComponentPropertyArgs'] type: The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
-        :param pulumi.Input['ComponentPropertyArgs'] url: The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        :param pulumi.Input['ComponentMutationActionSetStateParameterArgs'] state: A key-value pair that specifies the state property name and its initial value.
+        :param pulumi.Input['ComponentPropertyArgs'] target: The element within the same component to modify when the action occurs.
+        :param pulumi.Input['ComponentPropertyArgs'] type: The type of navigation action. Valid values are `url` and `anchor` . This value is required for a navigation action.
+        :param pulumi.Input['ComponentPropertyArgs'] url: The URL to the location to open. Specify this value for a navigation action.
         """
         if anchor is not None:
             pulumi.set(__self__, "anchor", anchor)
@@ -95,7 +95,7 @@ class ComponentActionParametersArgs:
     @pulumi.getter
     def anchor(self) -> Optional[pulumi.Input['ComponentPropertyArgs']]:
         """
-        The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        The HTML anchor link to the location to open. Specify this value for a navigation action.
         """
         return pulumi.get(self, "anchor")
 
@@ -119,7 +119,7 @@ class ComponentActionParametersArgs:
     @pulumi.getter(name="global")
     def global_(self) -> Optional[pulumi.Input['ComponentPropertyArgs']]:
         """
-        The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        Specifies whether the user should be signed out globally. Specify this value for an auth sign out action.
         """
         return pulumi.get(self, "global_")
 
@@ -131,7 +131,7 @@ class ComponentActionParametersArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input['ComponentPropertyArgs']]:
         """
-        The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        The unique ID of the component that the `ActionParameters` apply to.
         """
         return pulumi.get(self, "id")
 
@@ -155,7 +155,7 @@ class ComponentActionParametersArgs:
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input['ComponentMutationActionSetStateParameterArgs']]:
         """
-        Represents the state configuration when an action modifies a property of another element within the same component.
+        A key-value pair that specifies the state property name and its initial value.
         """
         return pulumi.get(self, "state")
 
@@ -167,7 +167,7 @@ class ComponentActionParametersArgs:
     @pulumi.getter
     def target(self) -> Optional[pulumi.Input['ComponentPropertyArgs']]:
         """
-        The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        The element within the same component to modify when the action occurs.
         """
         return pulumi.get(self, "target")
 
@@ -179,7 +179,7 @@ class ComponentActionParametersArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input['ComponentPropertyArgs']]:
         """
-        The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        The type of navigation action. Valid values are `url` and `anchor` . This value is required for a navigation action.
         """
         return pulumi.get(self, "type")
 
@@ -191,7 +191,7 @@ class ComponentActionParametersArgs:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input['ComponentPropertyArgs']]:
         """
-        The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        The URL to the location to open. Specify this value for a navigation action.
         """
         return pulumi.get(self, "url")
 
@@ -217,7 +217,7 @@ class ComponentBindingPropertiesValuePropertiesArgs:
         :param pulumi.Input[str] field: The field to bind the data to.
         :param pulumi.Input[str] key: The storage key for an Amazon S3 bucket.
         :param pulumi.Input[str] model: An Amplify DataStore model.
-        :param pulumi.Input[Sequence[pulumi.Input['ComponentPredicateArgs']]] predicates: The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+        :param pulumi.Input[Sequence[pulumi.Input['ComponentPredicateArgs']]] predicates: A list of predicates for binding a component's properties to data.
         :param pulumi.Input[str] slot_name: The name of a component slot.
         :param pulumi.Input[str] user_attribute: An authenticated user attribute.
         """
@@ -302,7 +302,7 @@ class ComponentBindingPropertiesValuePropertiesArgs:
     @pulumi.getter
     def predicates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentPredicateArgs']]]]:
         """
-        The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+        A list of predicates for binding a component's properties to data.
         """
         return pulumi.get(self, "predicates")
 
@@ -342,7 +342,7 @@ class ComponentBindingPropertiesValueArgs:
                  default_value: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['ComponentBindingPropertiesValuePropertiesArgs'] binding_properties: The `ComponentBindingPropertiesValueProperties` property specifies the data binding configuration for a specific property using data stored in AWS . For AWS connected properties, you can bind a property to data stored in an Amazon S3 bucket, an Amplify DataStore model or an authenticated user attribute.
+        :param pulumi.Input['ComponentBindingPropertiesValuePropertiesArgs'] binding_properties: Describes the properties to customize with data at runtime.
         :param pulumi.Input[str] default_value: The default value of the property.
         :param pulumi.Input[str] type: The property type.
         """
@@ -357,7 +357,7 @@ class ComponentBindingPropertiesValueArgs:
     @pulumi.getter(name="bindingProperties")
     def binding_properties(self) -> Optional[pulumi.Input['ComponentBindingPropertiesValuePropertiesArgs']]:
         """
-        The `ComponentBindingPropertiesValueProperties` property specifies the data binding configuration for a specific property using data stored in AWS . For AWS connected properties, you can bind a property to data stored in an Amazon S3 bucket, an Amplify DataStore model or an authenticated user attribute.
+        Describes the properties to customize with data at runtime.
         """
         return pulumi.get(self, "binding_properties")
 
@@ -501,13 +501,13 @@ class ComponentConditionPropertyArgs:
                  property: Optional[pulumi.Input[str]] = None,
                  then: Optional[pulumi.Input['ComponentPropertyArgs']] = None):
         """
-        :param pulumi.Input['ComponentPropertyArgs'] else_: The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        :param pulumi.Input['ComponentPropertyArgs'] else_: The value to assign to the property if the condition is not met.
         :param pulumi.Input[str] field: The name of a field. Specify this when the property is a data model.
         :param pulumi.Input[str] operand: The value of the property to evaluate.
         :param pulumi.Input[str] operand_type: The type of the property to evaluate.
         :param pulumi.Input[str] operator: The operator to use to perform the evaluation, such as `eq` to represent equals.
         :param pulumi.Input[str] property: The name of the conditional property.
-        :param pulumi.Input['ComponentPropertyArgs'] then: The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        :param pulumi.Input['ComponentPropertyArgs'] then: The value to assign to the property if the condition is met.
         """
         if else_ is not None:
             pulumi.set(__self__, "else_", else_)
@@ -528,7 +528,7 @@ class ComponentConditionPropertyArgs:
     @pulumi.getter(name="else")
     def else_(self) -> Optional[pulumi.Input['ComponentPropertyArgs']]:
         """
-        The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        The value to assign to the property if the condition is not met.
         """
         return pulumi.get(self, "else_")
 
@@ -588,7 +588,7 @@ class ComponentConditionPropertyArgs:
     @pulumi.getter
     def then(self) -> Optional[pulumi.Input['ComponentPropertyArgs']]:
         """
-        The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        The value to assign to the property if the condition is met.
         """
         return pulumi.get(self, "then")
 
@@ -619,8 +619,8 @@ class ComponentDataConfigurationArgs:
         """
         :param pulumi.Input[str] model: The name of the data model to use to bind data to a component.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identifiers: A list of IDs to use to bind data to a component. Use this property to bind specifically chosen data, rather than data retrieved from a query.
-        :param pulumi.Input['ComponentPredicateArgs'] predicate: The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
-        :param pulumi.Input[Sequence[pulumi.Input['ComponentSortPropertyArgs']]] sort: The `SortProperty` property specifies how to sort the data that you bind to a component.
+        :param pulumi.Input['ComponentPredicateArgs'] predicate: Represents the conditional logic to use when binding data to a component. Use this property to retrieve only a subset of the data in a collection.
+        :param pulumi.Input[Sequence[pulumi.Input['ComponentSortPropertyArgs']]] sort: Describes how to sort the component's properties.
         """
         pulumi.set(__self__, "model", model)
         if identifiers is not None:
@@ -658,7 +658,7 @@ class ComponentDataConfigurationArgs:
     @pulumi.getter
     def predicate(self) -> Optional[pulumi.Input['ComponentPredicateArgs']]:
         """
-        The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+        Represents the conditional logic to use when binding data to a component. Use this property to retrieve only a subset of the data in a collection.
         """
         return pulumi.get(self, "predicate")
 
@@ -670,7 +670,7 @@ class ComponentDataConfigurationArgs:
     @pulumi.getter
     def sort(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentSortPropertyArgs']]]]:
         """
-        The `SortProperty` property specifies how to sort the data that you bind to a component.
+        Describes how to sort the component's properties.
         """
         return pulumi.get(self, "sort")
 
@@ -688,7 +688,7 @@ class ComponentEventArgs:
         """
         :param pulumi.Input[str] action: The action to perform when a specific event is raised.
         :param pulumi.Input[str] binding_event: Binds an event to an action on a component. When you specify a `bindingEvent` , the event is called when the action is performed.
-        :param pulumi.Input['ComponentActionParametersArgs'] parameters: Represents the event action configuration for an element of a `Component` or `ComponentChild` . Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components. `ActionParameters` defines the action that is performed when an event occurs on the component.
+        :param pulumi.Input['ComponentActionParametersArgs'] parameters: Describes information about the action.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -725,7 +725,7 @@ class ComponentEventArgs:
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input['ComponentActionParametersArgs']]:
         """
-        Represents the event action configuration for an element of a `Component` or `ComponentChild` . Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components. `ActionParameters` defines the action that is performed when an event occurs on the component.
+        Describes information about the action.
         """
         return pulumi.get(self, "parameters")
 
@@ -780,7 +780,7 @@ class ComponentMutationActionSetStateParameterArgs:
         """
         :param pulumi.Input[str] component_name: The name of the component that is being modified.
         :param pulumi.Input[str] property: The name of the component property to apply the state configuration to.
-        :param pulumi.Input['ComponentPropertyArgs'] set: The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        :param pulumi.Input['ComponentPropertyArgs'] set: The state configuration to assign to the property.
         """
         pulumi.set(__self__, "component_name", component_name)
         pulumi.set(__self__, "property", property)
@@ -802,7 +802,7 @@ class ComponentMutationActionSetStateParameterArgs:
     @pulumi.getter
     def set(self) -> pulumi.Input['ComponentPropertyArgs']:
         """
-        The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        The state configuration to assign to the property.
         """
         return pulumi.get(self, "set")
 
@@ -983,12 +983,12 @@ class ComponentPropertyArgs:
                  user_attribute: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['ComponentPropertyBindingPropertiesArgs'] binding_properties: The `ComponentPropertyBindingProperties` property specifies a component property to associate with a binding property. This enables exposed properties on the top level component to propagate data to the component's property values.
+        :param pulumi.Input['ComponentPropertyBindingPropertiesArgs'] binding_properties: The information to bind the component property to data at runtime.
         :param pulumi.Input[Mapping[str, pulumi.Input['ComponentFormBindingElementArgs']]] bindings: The information to bind the component property to form data.
-        :param pulumi.Input['ComponentPropertyBindingPropertiesArgs'] collection_binding_properties: The `ComponentPropertyBindingProperties` property specifies a component property to associate with a binding property. This enables exposed properties on the top level component to propagate data to the component's property values.
+        :param pulumi.Input['ComponentPropertyBindingPropertiesArgs'] collection_binding_properties: The information to bind the component property to data at runtime. Use this for collection components.
         :param pulumi.Input[str] component_name: The name of the component that is affected by an event.
-        :param pulumi.Input[Sequence[pulumi.Input['ComponentPropertyArgs']]] concat: The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
-        :param pulumi.Input['ComponentConditionPropertyArgs'] condition: The `ComponentConditionProperty` property specifies a conditional expression for setting a component property. Use `ComponentConditionProperty` to set a property to different values conditionally, based on the value of another property.
+        :param pulumi.Input[Sequence[pulumi.Input['ComponentPropertyArgs']]] concat: A list of component properties to concatenate to create the value to assign to this component property.
+        :param pulumi.Input['ComponentConditionPropertyArgs'] condition: The conditional expression to use to assign a value to the component property.
         :param pulumi.Input[bool] configured: Specifies whether the user configured the property in Amplify Studio after importing it.
         :param pulumi.Input[str] default_value: The default value to assign to the component property.
         :param pulumi.Input[str] event: An event that occurs in your app. Use this for workflow data binding.
@@ -1034,7 +1034,7 @@ class ComponentPropertyArgs:
     @pulumi.getter(name="bindingProperties")
     def binding_properties(self) -> Optional[pulumi.Input['ComponentPropertyBindingPropertiesArgs']]:
         """
-        The `ComponentPropertyBindingProperties` property specifies a component property to associate with a binding property. This enables exposed properties on the top level component to propagate data to the component's property values.
+        The information to bind the component property to data at runtime.
         """
         return pulumi.get(self, "binding_properties")
 
@@ -1058,7 +1058,7 @@ class ComponentPropertyArgs:
     @pulumi.getter(name="collectionBindingProperties")
     def collection_binding_properties(self) -> Optional[pulumi.Input['ComponentPropertyBindingPropertiesArgs']]:
         """
-        The `ComponentPropertyBindingProperties` property specifies a component property to associate with a binding property. This enables exposed properties on the top level component to propagate data to the component's property values.
+        The information to bind the component property to data at runtime. Use this for collection components.
         """
         return pulumi.get(self, "collection_binding_properties")
 
@@ -1082,7 +1082,7 @@ class ComponentPropertyArgs:
     @pulumi.getter
     def concat(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentPropertyArgs']]]]:
         """
-        The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        A list of component properties to concatenate to create the value to assign to this component property.
         """
         return pulumi.get(self, "concat")
 
@@ -1094,7 +1094,7 @@ class ComponentPropertyArgs:
     @pulumi.getter
     def condition(self) -> Optional[pulumi.Input['ComponentConditionPropertyArgs']]:
         """
-        The `ComponentConditionProperty` property specifies a conditional expression for setting a component property. Use `ComponentConditionProperty` to set a property to different values conditionally, based on the value of another property.
+        The conditional expression to use to assign a value to the component property.
         """
         return pulumi.get(self, "condition")
 
@@ -1296,7 +1296,7 @@ class FormButtonArgs:
         """
         :param pulumi.Input[str] children: Describes the button's properties.
         :param pulumi.Input[bool] excluded: Specifies whether the button is visible on the form.
-        :param pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']] position: The `FieldPosition` property specifies the field position.
+        :param pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']] position: The position of the button.
         """
         if children is not None:
             pulumi.set(__self__, "children", children)
@@ -1333,7 +1333,7 @@ class FormButtonArgs:
     @pulumi.getter
     def position(self) -> Optional[pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']]]:
         """
-        The `FieldPosition` property specifies the field position.
+        The position of the button.
         """
         return pulumi.get(self, "position")
 
@@ -1350,10 +1350,10 @@ class FormCtaArgs:
                  position: Optional[pulumi.Input['FormButtonsPosition']] = None,
                  submit: Optional[pulumi.Input['FormButtonArgs']] = None):
         """
-        :param pulumi.Input['FormButtonArgs'] cancel: The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
-        :param pulumi.Input['FormButtonArgs'] clear: The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
+        :param pulumi.Input['FormButtonArgs'] cancel: Displays a cancel button.
+        :param pulumi.Input['FormButtonArgs'] clear: Displays a clear button.
         :param pulumi.Input['FormButtonsPosition'] position: The position of the button.
-        :param pulumi.Input['FormButtonArgs'] submit: The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
+        :param pulumi.Input['FormButtonArgs'] submit: Displays a submit button.
         """
         if cancel is not None:
             pulumi.set(__self__, "cancel", cancel)
@@ -1368,7 +1368,7 @@ class FormCtaArgs:
     @pulumi.getter
     def cancel(self) -> Optional[pulumi.Input['FormButtonArgs']]:
         """
-        The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
+        Displays a cancel button.
         """
         return pulumi.get(self, "cancel")
 
@@ -1380,7 +1380,7 @@ class FormCtaArgs:
     @pulumi.getter
     def clear(self) -> Optional[pulumi.Input['FormButtonArgs']]:
         """
-        The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
+        Displays a clear button.
         """
         return pulumi.get(self, "clear")
 
@@ -1404,7 +1404,7 @@ class FormCtaArgs:
     @pulumi.getter
     def submit(self) -> Optional[pulumi.Input['FormButtonArgs']]:
         """
-        The `FormButton` property specifies the configuration for a button UI element that is a part of a form.
+        Displays a submit button.
         """
         return pulumi.get(self, "submit")
 
@@ -1460,10 +1460,10 @@ class FormFieldConfigArgs:
                  validations: Optional[pulumi.Input[Sequence[pulumi.Input['FormFieldValidationConfigurationArgs']]]] = None):
         """
         :param pulumi.Input[bool] excluded: Specifies whether to hide a field.
-        :param pulumi.Input['FormFieldInputConfigArgs'] input_type: The `FieldInputConfig` property specifies the configuration for the default input values to display for a field.
+        :param pulumi.Input['FormFieldInputConfigArgs'] input_type: Describes the configuration for the default input value to display for a field.
         :param pulumi.Input[str] label: The label for the field.
-        :param pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']] position: The `FieldPosition` property specifies the field position.
-        :param pulumi.Input[Sequence[pulumi.Input['FormFieldValidationConfigurationArgs']]] validations: The `FieldValidationConfiguration` property specifies the validation configuration for a field.
+        :param pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']] position: Specifies the field position.
+        :param pulumi.Input[Sequence[pulumi.Input['FormFieldValidationConfigurationArgs']]] validations: The validations to perform on the value in the field.
         """
         if excluded is not None:
             pulumi.set(__self__, "excluded", excluded)
@@ -1492,7 +1492,7 @@ class FormFieldConfigArgs:
     @pulumi.getter(name="inputType")
     def input_type(self) -> Optional[pulumi.Input['FormFieldInputConfigArgs']]:
         """
-        The `FieldInputConfig` property specifies the configuration for the default input values to display for a field.
+        Describes the configuration for the default input value to display for a field.
         """
         return pulumi.get(self, "input_type")
 
@@ -1516,7 +1516,7 @@ class FormFieldConfigArgs:
     @pulumi.getter
     def position(self) -> Optional[pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']]]:
         """
-        The `FieldPosition` property specifies the field position.
+        Specifies the field position.
         """
         return pulumi.get(self, "position")
 
@@ -1528,7 +1528,7 @@ class FormFieldConfigArgs:
     @pulumi.getter
     def validations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FormFieldValidationConfigurationArgs']]]]:
         """
-        The `FieldValidationConfiguration` property specifies the validation configuration for a field.
+        The validations to perform on the value in the field.
         """
         return pulumi.get(self, "validations")
 
@@ -1562,7 +1562,7 @@ class FormFieldInputConfigArgs:
         :param pulumi.Input[str] default_country_code: The default country code for a phone number.
         :param pulumi.Input[str] default_value: The default value for the field.
         :param pulumi.Input[str] descriptive_text: The text to display to describe the field.
-        :param pulumi.Input['FormFileUploaderFieldConfigArgs'] file_uploader_config: Describes the configuration for the file uploader field.
+        :param pulumi.Input['FormFileUploaderFieldConfigArgs'] file_uploader_config: The configuration for the file uploader field.
         :param pulumi.Input[bool] is_array: Specifies whether to render the field as an array. This property is ignored if the `dataSourceType` for the form is a Data Store.
         :param pulumi.Input[float] max_value: The maximum value to display for the field.
         :param pulumi.Input[float] min_value: The minimum value to display for the field.
@@ -1572,7 +1572,7 @@ class FormFieldInputConfigArgs:
         :param pulumi.Input[bool] required: Specifies a field that requires input.
         :param pulumi.Input[float] step: The stepping increment for a numeric value in a field.
         :param pulumi.Input[str] value: The value for the field.
-        :param pulumi.Input['FormValueMappingsArgs'] value_mappings: The `ValueMappings` property specifies the data binding configuration for a value map.
+        :param pulumi.Input['FormValueMappingsArgs'] value_mappings: The information to use to customize the input fields with data at runtime.
         """
         pulumi.set(__self__, "type", type)
         if default_checked is not None:
@@ -1670,7 +1670,7 @@ class FormFieldInputConfigArgs:
     @pulumi.getter(name="fileUploaderConfig")
     def file_uploader_config(self) -> Optional[pulumi.Input['FormFileUploaderFieldConfigArgs']]:
         """
-        Describes the configuration for the file uploader field.
+        The configuration for the file uploader field.
         """
         return pulumi.get(self, "file_uploader_config")
 
@@ -1790,7 +1790,7 @@ class FormFieldInputConfigArgs:
     @pulumi.getter(name="valueMappings")
     def value_mappings(self) -> Optional[pulumi.Input['FormValueMappingsArgs']]:
         """
-        The `ValueMappings` property specifies the data binding configuration for a value map.
+        The information to use to customize the input fields with data at runtime.
         """
         return pulumi.get(self, "value_mappings")
 
@@ -2051,7 +2051,7 @@ class FormInputBindingPropertiesValueArgs:
                  binding_properties: Optional[pulumi.Input['FormInputBindingPropertiesValuePropertiesArgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['FormInputBindingPropertiesValuePropertiesArgs'] binding_properties: Represents the data binding configuration for a specific property using data stored in AWS . For AWS connected properties, you can bind a property to data stored in an Amplify DataStore model.
+        :param pulumi.Input['FormInputBindingPropertiesValuePropertiesArgs'] binding_properties: Describes the properties to customize with data at runtime.
         :param pulumi.Input[str] type: The property type.
         """
         if binding_properties is not None:
@@ -2063,7 +2063,7 @@ class FormInputBindingPropertiesValueArgs:
     @pulumi.getter(name="bindingProperties")
     def binding_properties(self) -> Optional[pulumi.Input['FormInputBindingPropertiesValuePropertiesArgs']]:
         """
-        Represents the data binding configuration for a specific property using data stored in AWS . For AWS connected properties, you can bind a property to data stored in an Amplify DataStore model.
+        Describes the properties to customize with data at runtime.
         """
         return pulumi.get(self, "binding_properties")
 
@@ -2129,8 +2129,8 @@ class FormInputValuePropertyArgs:
                  concat: Optional[pulumi.Input[Sequence[pulumi.Input['FormInputValuePropertyArgs']]]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['FormInputValuePropertyBindingPropertiesArgs'] binding_properties: Associates a form property to a binding property. This enables exposed properties on the top level form to propagate data to the form's property values.
-        :param pulumi.Input[Sequence[pulumi.Input['FormInputValuePropertyArgs']]] concat: The `FormInputValueProperty` property specifies the configuration for an input field on a form. Use `FormInputValueProperty` to specify the values to render or bind by default.
+        :param pulumi.Input['FormInputValuePropertyBindingPropertiesArgs'] binding_properties: The information to bind fields to data at runtime.
+        :param pulumi.Input[Sequence[pulumi.Input['FormInputValuePropertyArgs']]] concat: A list of form properties to concatenate to create the value to assign to this field property.
         :param pulumi.Input[str] value: The value to assign to the input field.
         """
         if binding_properties is not None:
@@ -2144,7 +2144,7 @@ class FormInputValuePropertyArgs:
     @pulumi.getter(name="bindingProperties")
     def binding_properties(self) -> Optional[pulumi.Input['FormInputValuePropertyBindingPropertiesArgs']]:
         """
-        Associates a form property to a binding property. This enables exposed properties on the top level form to propagate data to the form's property values.
+        The information to bind fields to data at runtime.
         """
         return pulumi.get(self, "binding_properties")
 
@@ -2156,7 +2156,7 @@ class FormInputValuePropertyArgs:
     @pulumi.getter
     def concat(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FormInputValuePropertyArgs']]]]:
         """
-        The `FormInputValueProperty` property specifies the configuration for an input field on a form. Use `FormInputValueProperty` to specify the values to render or bind by default.
+        A list of form properties to concatenate to create the value to assign to this field property.
         """
         return pulumi.get(self, "concat")
 
@@ -2191,7 +2191,7 @@ class FormSectionalElementArgs:
         :param pulumi.Input[bool] excluded: Excludes a sectional element that was generated by default for a specified data model.
         :param pulumi.Input[float] level: Specifies the size of the font for a `Heading` sectional element. Valid values are `1 | 2 | 3 | 4 | 5 | 6` .
         :param pulumi.Input[str] orientation: Specifies the orientation for a `Divider` sectional element. Valid values are `horizontal` or `vertical` .
-        :param pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']] position: The `FieldPosition` property specifies the field position.
+        :param pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']] position: Specifies the position of the text in a field for a `Text` sectional element.
         :param pulumi.Input[str] text: The text for a `Text` sectional element.
         """
         pulumi.set(__self__, "type", type)
@@ -2258,7 +2258,7 @@ class FormSectionalElementArgs:
     @pulumi.getter
     def position(self) -> Optional[pulumi.Input[Union['FormFieldPosition0PropertiesArgs', 'FormFieldPosition1PropertiesArgs', 'FormFieldPosition2PropertiesArgs']]]:
         """
-        The `FieldPosition` property specifies the field position.
+        Specifies the position of the text in a field for a `Text` sectional element.
         """
         return pulumi.get(self, "position")
 
@@ -2318,9 +2318,9 @@ class FormStyleArgs:
                  outer_padding: Optional[pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']]] = None,
                  vertical_gap: Optional[pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']]] = None):
         """
-        :param pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']] horizontal_gap: The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
-        :param pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']] outer_padding: The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
-        :param pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']] vertical_gap: The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
+        :param pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']] horizontal_gap: The spacing for the horizontal gap.
+        :param pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']] outer_padding: The size of the outer padding for the form.
+        :param pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']] vertical_gap: The spacing for the vertical gap.
         """
         if horizontal_gap is not None:
             pulumi.set(__self__, "horizontal_gap", horizontal_gap)
@@ -2333,7 +2333,7 @@ class FormStyleArgs:
     @pulumi.getter(name="horizontalGap")
     def horizontal_gap(self) -> Optional[pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']]]:
         """
-        The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
+        The spacing for the horizontal gap.
         """
         return pulumi.get(self, "horizontal_gap")
 
@@ -2345,7 +2345,7 @@ class FormStyleArgs:
     @pulumi.getter(name="outerPadding")
     def outer_padding(self) -> Optional[pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']]]:
         """
-        The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
+        The size of the outer padding for the form.
         """
         return pulumi.get(self, "outer_padding")
 
@@ -2357,7 +2357,7 @@ class FormStyleArgs:
     @pulumi.getter(name="verticalGap")
     def vertical_gap(self) -> Optional[pulumi.Input[Union['FormStyleConfig0PropertiesArgs', 'FormStyleConfig1PropertiesArgs']]]:
         """
-        The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
+        The spacing for the vertical gap.
         """
         return pulumi.get(self, "vertical_gap")
 
@@ -2372,7 +2372,7 @@ class FormValueMappingsArgs:
                  values: pulumi.Input[Sequence[pulumi.Input['FormValueMappingArgs']]],
                  binding_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input['FormInputBindingPropertiesValueArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['FormValueMappingArgs']]] values: The `ValueMapping` property specifies the association between a complex object and a display value. Use `ValueMapping` to store how to represent complex objects when they are displayed.
+        :param pulumi.Input[Sequence[pulumi.Input['FormValueMappingArgs']]] values: The value and display value pairs.
         :param pulumi.Input[Mapping[str, pulumi.Input['FormInputBindingPropertiesValueArgs']]] binding_properties: The information to bind fields to data at runtime.
         """
         pulumi.set(__self__, "values", values)
@@ -2383,7 +2383,7 @@ class FormValueMappingsArgs:
     @pulumi.getter
     def values(self) -> pulumi.Input[Sequence[pulumi.Input['FormValueMappingArgs']]]:
         """
-        The `ValueMapping` property specifies the association between a complex object and a display value. Use `ValueMapping` to store how to represent complex objects when they are displayed.
+        The value and display value pairs.
         """
         return pulumi.get(self, "values")
 
@@ -2410,8 +2410,8 @@ class FormValueMappingArgs:
                  value: pulumi.Input['FormInputValuePropertyArgs'],
                  display_value: Optional[pulumi.Input['FormInputValuePropertyArgs']] = None):
         """
-        :param pulumi.Input['FormInputValuePropertyArgs'] value: The `FormInputValueProperty` property specifies the configuration for an input field on a form. Use `FormInputValueProperty` to specify the values to render or bind by default.
-        :param pulumi.Input['FormInputValuePropertyArgs'] display_value: The `FormInputValueProperty` property specifies the configuration for an input field on a form. Use `FormInputValueProperty` to specify the values to render or bind by default.
+        :param pulumi.Input['FormInputValuePropertyArgs'] value: The complex object.
+        :param pulumi.Input['FormInputValuePropertyArgs'] display_value: The value to display for the complex object.
         """
         pulumi.set(__self__, "value", value)
         if display_value is not None:
@@ -2421,7 +2421,7 @@ class FormValueMappingArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input['FormInputValuePropertyArgs']:
         """
-        The `FormInputValueProperty` property specifies the configuration for an input field on a form. Use `FormInputValueProperty` to specify the values to render or bind by default.
+        The complex object.
         """
         return pulumi.get(self, "value")
 
@@ -2433,7 +2433,7 @@ class FormValueMappingArgs:
     @pulumi.getter(name="displayValue")
     def display_value(self) -> Optional[pulumi.Input['FormInputValuePropertyArgs']]:
         """
-        The `FormInputValueProperty` property specifies the configuration for an input field on a form. Use `FormInputValueProperty` to specify the values to render or bind by default.
+        The value to display for the complex object.
         """
         return pulumi.get(self, "display_value")
 
@@ -2449,7 +2449,7 @@ class ThemeValuesArgs:
                  value: Optional[pulumi.Input['ThemeValueArgs']] = None):
         """
         :param pulumi.Input[str] key: The name of the property.
-        :param pulumi.Input['ThemeValueArgs'] value: The `ThemeValue` property specifies the configuration of a theme's properties.
+        :param pulumi.Input['ThemeValueArgs'] value: The value of the property.
         """
         if key is not None:
             pulumi.set(__self__, "key", key)
@@ -2472,7 +2472,7 @@ class ThemeValuesArgs:
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input['ThemeValueArgs']]:
         """
-        The `ThemeValue` property specifies the configuration of a theme's properties.
+        The value of the property.
         """
         return pulumi.get(self, "value")
 

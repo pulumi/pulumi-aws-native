@@ -78,7 +78,7 @@ class DataLakeLifecycleConfigurationArgs:
                  transitions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeTransitionsArgs']]]] = None):
         """
         Provides lifecycle details of Amazon Security Lake object.
-        :param pulumi.Input['DataLakeExpirationArgs'] expiration: Provides data expiration details of the Amazon Security Lake object. You can specify your preferred Amazon S3 storage class and the time period for S3 objects to stay in that storage class before they expire. For more information about Amazon S3 Lifecycle configurations, see [Managing your storage lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html) in the *Amazon Simple Storage Service User Guide* .
+        :param pulumi.Input['DataLakeExpirationArgs'] expiration: Provides data expiration details of the Amazon Security Lake object.
         :param pulumi.Input[Sequence[pulumi.Input['DataLakeTransitionsArgs']]] transitions: Provides data storage transition details of Amazon Security Lake object.
         """
         if expiration is not None:
@@ -90,7 +90,7 @@ class DataLakeLifecycleConfigurationArgs:
     @pulumi.getter
     def expiration(self) -> Optional[pulumi.Input['DataLakeExpirationArgs']]:
         """
-        Provides data expiration details of the Amazon Security Lake object. You can specify your preferred Amazon S3 storage class and the time period for S3 objects to stay in that storage class before they expire. For more information about Amazon S3 Lifecycle configurations, see [Managing your storage lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html) in the *Amazon Simple Storage Service User Guide* .
+        Provides data expiration details of the Amazon Security Lake object.
         """
         return pulumi.get(self, "expiration")
 

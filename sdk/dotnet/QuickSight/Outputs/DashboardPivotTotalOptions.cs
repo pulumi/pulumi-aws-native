@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string? CustomLabel;
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The cell styling options for the total of header cells.
         /// </summary>
         public readonly Outputs.DashboardTableCellStyle? MetricHeaderCellStyle;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardTableTotalsScrollStatus? ScrollStatus;
         /// <summary>
-        /// The total aggregation settings map of a field id.
+        /// The total aggregation options for each value field.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardTotalAggregationOption> TotalAggregationOptions;
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The cell styling options for the total cells.
         /// </summary>
         public readonly Outputs.DashboardTableCellStyle? TotalCellStyle;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? TotalsVisibility;
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The cell styling options for the totals of value cells.
         /// </summary>
         public readonly Outputs.DashboardTableCellStyle? ValueCellStyle;
 

@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.ControlTower
         /// </summary>
         public readonly Pulumi.AwsNative.ControlTower.LandingZoneStatus? Status;
         /// <summary>
-        /// Tags applied to the landing zone.
+        /// Tags to be applied to the landing zone.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>

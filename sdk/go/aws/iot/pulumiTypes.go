@@ -15,7 +15,7 @@ var _ = internal.GetEnvOrDefault
 
 // The criteria that determine when and how a job abort takes place.
 type AbortConfigProperties struct {
-	// The criteria that determine when and how a job abort takes place.
+	// The list of criteria that determine when and how to abort the job.
 	CriteriaList []JobTemplateAbortCriteria `pulumi:"criteriaList"`
 }
 
@@ -32,7 +32,7 @@ type AbortConfigPropertiesInput interface {
 
 // The criteria that determine when and how a job abort takes place.
 type AbortConfigPropertiesArgs struct {
-	// The criteria that determine when and how a job abort takes place.
+	// The list of criteria that determine when and how to abort the job.
 	CriteriaList JobTemplateAbortCriteriaArrayInput `pulumi:"criteriaList"`
 }
 
@@ -114,7 +114,7 @@ func (o AbortConfigPropertiesOutput) ToAbortConfigPropertiesPtrOutputWithContext
 	}).(AbortConfigPropertiesPtrOutput)
 }
 
-// The criteria that determine when and how a job abort takes place.
+// The list of criteria that determine when and how to abort the job.
 func (o AbortConfigPropertiesOutput) CriteriaList() JobTemplateAbortCriteriaArrayOutput {
 	return o.ApplyT(func(v AbortConfigProperties) []JobTemplateAbortCriteria { return v.CriteriaList }).(JobTemplateAbortCriteriaArrayOutput)
 }
@@ -143,7 +143,7 @@ func (o AbortConfigPropertiesPtrOutput) Elem() AbortConfigPropertiesOutput {
 	}).(AbortConfigPropertiesOutput)
 }
 
-// The criteria that determine when and how a job abort takes place.
+// The list of criteria that determine when and how to abort the job.
 func (o AbortConfigPropertiesPtrOutput) CriteriaList() JobTemplateAbortCriteriaArrayOutput {
 	return o.ApplyT(func(v *AbortConfigProperties) []JobTemplateAbortCriteria {
 		if v == nil {
@@ -295,37 +295,37 @@ func (o AccountAuditConfigurationAuditCheckConfigurationPtrOutput) Enabled() pul
 
 // Specifies which audit checks are enabled and disabled for this account.
 type AccountAuditConfigurationAuditCheckConfigurations struct {
-	// Which audit checks are enabled and disabled for this account.
+	// Checks the permissiveness of an authenticated Amazon Cognito identity pool role. For this check, AWS IoT Device Defender audits all Amazon Cognito identity pools that have been used to connect to the AWS IoT message broker during the 31 days before the audit is performed.
 	AuthenticatedCognitoRoleOverlyPermissiveCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"authenticatedCognitoRoleOverlyPermissiveCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if a CA certificate is expiring. This check applies to CA certificates expiring within 30 days or that have expired.
 	CaCertificateExpiringCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"caCertificateExpiringCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks the quality of the CA certificate key. The quality checks if the key is in a valid format, not expired, and if the key meets a minimum required size. This check applies to CA certificates that are `ACTIVE` or `PENDING_TRANSFER` .
 	CaCertificateKeyQualityCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"caCertificateKeyQualityCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if multiple devices connect using the same client ID.
 	ConflictingClientIdsCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"conflictingClientIdsCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
 	DeviceCertificateExpiringCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateExpiringCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
 	DeviceCertificateKeyQualityCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateKeyQualityCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if multiple concurrent connections use the same X.509 certificate to authenticate with AWS IoT .
 	DeviceCertificateSharedCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"deviceCertificateSharedCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if device certificates are still active despite being revoked by an intermediate CA.
 	IntermediateCaRevokedForActiveDeviceCertificatesCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"intermediateCaRevokedForActiveDeviceCertificatesCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if an AWS IoT policy is potentially misconfigured. Misconfigured policies, including overly permissive policies, can cause security incidents like allowing devices access to unintended resources. This check is a warning for you to make sure that only intended actions are allowed before updating the policy.
 	IoTPolicyPotentialMisConfigurationCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"ioTPolicyPotentialMisConfigurationCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks the permissiveness of a policy attached to an authenticated Amazon Cognito identity pool role.
 	IotPolicyOverlyPermissiveCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotPolicyOverlyPermissiveCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if a role alias has access to services that haven't been used for the AWS IoT device in the last year.
 	IotRoleAliasAllowsAccessToUnusedServicesCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotRoleAliasAllowsAccessToUnusedServicesCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if the temporary credentials provided by AWS IoT role aliases are overly permissive.
 	IotRoleAliasOverlyPermissiveCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"iotRoleAliasOverlyPermissiveCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if AWS IoT logs are disabled.
 	LoggingDisabledCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"loggingDisabledCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if a revoked CA certificate is still active.
 	RevokedCaCertificateStillActiveCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"revokedCaCertificateStillActiveCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if a revoked device certificate is still active.
 	RevokedDeviceCertificateStillActiveCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"revokedDeviceCertificateStillActiveCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if policy attached to an unauthenticated Amazon Cognito identity pool role is too permissive.
 	UnauthenticatedCognitoRoleOverlyPermissiveCheck *AccountAuditConfigurationAuditCheckConfiguration `pulumi:"unauthenticatedCognitoRoleOverlyPermissiveCheck"`
 }
 
@@ -342,37 +342,37 @@ type AccountAuditConfigurationAuditCheckConfigurationsInput interface {
 
 // Specifies which audit checks are enabled and disabled for this account.
 type AccountAuditConfigurationAuditCheckConfigurationsArgs struct {
-	// Which audit checks are enabled and disabled for this account.
+	// Checks the permissiveness of an authenticated Amazon Cognito identity pool role. For this check, AWS IoT Device Defender audits all Amazon Cognito identity pools that have been used to connect to the AWS IoT message broker during the 31 days before the audit is performed.
 	AuthenticatedCognitoRoleOverlyPermissiveCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"authenticatedCognitoRoleOverlyPermissiveCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if a CA certificate is expiring. This check applies to CA certificates expiring within 30 days or that have expired.
 	CaCertificateExpiringCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"caCertificateExpiringCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks the quality of the CA certificate key. The quality checks if the key is in a valid format, not expired, and if the key meets a minimum required size. This check applies to CA certificates that are `ACTIVE` or `PENDING_TRANSFER` .
 	CaCertificateKeyQualityCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"caCertificateKeyQualityCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if multiple devices connect using the same client ID.
 	ConflictingClientIdsCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"conflictingClientIdsCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
 	DeviceCertificateExpiringCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateExpiringCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
 	DeviceCertificateKeyQualityCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateKeyQualityCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if multiple concurrent connections use the same X.509 certificate to authenticate with AWS IoT .
 	DeviceCertificateSharedCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"deviceCertificateSharedCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if device certificates are still active despite being revoked by an intermediate CA.
 	IntermediateCaRevokedForActiveDeviceCertificatesCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"intermediateCaRevokedForActiveDeviceCertificatesCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if an AWS IoT policy is potentially misconfigured. Misconfigured policies, including overly permissive policies, can cause security incidents like allowing devices access to unintended resources. This check is a warning for you to make sure that only intended actions are allowed before updating the policy.
 	IoTPolicyPotentialMisConfigurationCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"ioTPolicyPotentialMisConfigurationCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks the permissiveness of a policy attached to an authenticated Amazon Cognito identity pool role.
 	IotPolicyOverlyPermissiveCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotPolicyOverlyPermissiveCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if a role alias has access to services that haven't been used for the AWS IoT device in the last year.
 	IotRoleAliasAllowsAccessToUnusedServicesCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotRoleAliasAllowsAccessToUnusedServicesCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if the temporary credentials provided by AWS IoT role aliases are overly permissive.
 	IotRoleAliasOverlyPermissiveCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"iotRoleAliasOverlyPermissiveCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if AWS IoT logs are disabled.
 	LoggingDisabledCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"loggingDisabledCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if a revoked CA certificate is still active.
 	RevokedCaCertificateStillActiveCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"revokedCaCertificateStillActiveCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if a revoked device certificate is still active.
 	RevokedDeviceCertificateStillActiveCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"revokedDeviceCertificateStillActiveCheck"`
-	// Which audit checks are enabled and disabled for this account.
+	// Checks if policy attached to an unauthenticated Amazon Cognito identity pool role is too permissive.
 	UnauthenticatedCognitoRoleOverlyPermissiveCheck AccountAuditConfigurationAuditCheckConfigurationPtrInput `pulumi:"unauthenticatedCognitoRoleOverlyPermissiveCheck"`
 }
 
@@ -403,112 +403,112 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) ToAccountAuditC
 	return o
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks the permissiveness of an authenticated Amazon Cognito identity pool role. For this check, AWS IoT Device Defender audits all Amazon Cognito identity pools that have been used to connect to the AWS IoT message broker during the 31 days before the audit is performed.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) AuthenticatedCognitoRoleOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.AuthenticatedCognitoRoleOverlyPermissiveCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if a CA certificate is expiring. This check applies to CA certificates expiring within 30 days or that have expired.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) CaCertificateExpiringCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.CaCertificateExpiringCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks the quality of the CA certificate key. The quality checks if the key is in a valid format, not expired, and if the key meets a minimum required size. This check applies to CA certificates that are `ACTIVE` or `PENDING_TRANSFER` .
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) CaCertificateKeyQualityCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.CaCertificateKeyQualityCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if multiple devices connect using the same client ID.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) ConflictingClientIdsCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.ConflictingClientIdsCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) DeviceCertificateExpiringCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.DeviceCertificateExpiringCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) DeviceCertificateKeyQualityCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.DeviceCertificateKeyQualityCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if multiple concurrent connections use the same X.509 certificate to authenticate with AWS IoT .
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) DeviceCertificateSharedCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.DeviceCertificateSharedCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if device certificates are still active despite being revoked by an intermediate CA.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) IntermediateCaRevokedForActiveDeviceCertificatesCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.IntermediateCaRevokedForActiveDeviceCertificatesCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if an AWS IoT policy is potentially misconfigured. Misconfigured policies, including overly permissive policies, can cause security incidents like allowing devices access to unintended resources. This check is a warning for you to make sure that only intended actions are allowed before updating the policy.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) IoTPolicyPotentialMisConfigurationCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.IoTPolicyPotentialMisConfigurationCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks the permissiveness of a policy attached to an authenticated Amazon Cognito identity pool role.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) IotPolicyOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.IotPolicyOverlyPermissiveCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if a role alias has access to services that haven't been used for the AWS IoT device in the last year.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) IotRoleAliasAllowsAccessToUnusedServicesCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.IotRoleAliasAllowsAccessToUnusedServicesCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if the temporary credentials provided by AWS IoT role aliases are overly permissive.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) IotRoleAliasOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.IotRoleAliasOverlyPermissiveCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if AWS IoT logs are disabled.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) LoggingDisabledCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.LoggingDisabledCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if a revoked CA certificate is still active.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) RevokedCaCertificateStillActiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.RevokedCaCertificateStillActiveCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if a revoked device certificate is still active.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) RevokedDeviceCertificateStillActiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.RevokedDeviceCertificateStillActiveCheck
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if policy attached to an unauthenticated Amazon Cognito identity pool role is too permissive.
 func (o AccountAuditConfigurationAuditCheckConfigurationsOutput) UnauthenticatedCognitoRoleOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		return v.UnauthenticatedCognitoRoleOverlyPermissiveCheck
@@ -539,7 +539,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) Elem() Accou
 	}).(AccountAuditConfigurationAuditCheckConfigurationsOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks the permissiveness of an authenticated Amazon Cognito identity pool role. For this check, AWS IoT Device Defender audits all Amazon Cognito identity pools that have been used to connect to the AWS IoT message broker during the 31 days before the audit is performed.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) AuthenticatedCognitoRoleOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -549,7 +549,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) Authenticate
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if a CA certificate is expiring. This check applies to CA certificates expiring within 30 days or that have expired.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) CaCertificateExpiringCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -559,7 +559,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) CaCertificat
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks the quality of the CA certificate key. The quality checks if the key is in a valid format, not expired, and if the key meets a minimum required size. This check applies to CA certificates that are `ACTIVE` or `PENDING_TRANSFER` .
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) CaCertificateKeyQualityCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -569,7 +569,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) CaCertificat
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if multiple devices connect using the same client ID.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) ConflictingClientIdsCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -579,7 +579,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) ConflictingC
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertificateExpiringCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -589,7 +589,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertif
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertificateKeyQualityCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -599,7 +599,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertif
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if multiple concurrent connections use the same X.509 certificate to authenticate with AWS IoT .
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertificateSharedCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -609,7 +609,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) DeviceCertif
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if device certificates are still active despite being revoked by an intermediate CA.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IntermediateCaRevokedForActiveDeviceCertificatesCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -619,7 +619,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) Intermediate
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if an AWS IoT policy is potentially misconfigured. Misconfigured policies, including overly permissive policies, can cause security incidents like allowing devices access to unintended resources. This check is a warning for you to make sure that only intended actions are allowed before updating the policy.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IoTPolicyPotentialMisConfigurationCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -629,7 +629,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IoTPolicyPot
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks the permissiveness of a policy attached to an authenticated Amazon Cognito identity pool role.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotPolicyOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -639,7 +639,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotPolicyOve
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if a role alias has access to services that haven't been used for the AWS IoT device in the last year.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotRoleAliasAllowsAccessToUnusedServicesCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -649,7 +649,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotRoleAlias
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if the temporary credentials provided by AWS IoT role aliases are overly permissive.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotRoleAliasOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -659,7 +659,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) IotRoleAlias
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if AWS IoT logs are disabled.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) LoggingDisabledCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -669,7 +669,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) LoggingDisab
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if a revoked CA certificate is still active.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) RevokedCaCertificateStillActiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -679,7 +679,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) RevokedCaCer
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if a revoked device certificate is still active.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) RevokedDeviceCertificateStillActiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -689,7 +689,7 @@ func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) RevokedDevic
 	}).(AccountAuditConfigurationAuditCheckConfigurationPtrOutput)
 }
 
-// Which audit checks are enabled and disabled for this account.
+// Checks if policy attached to an unauthenticated Amazon Cognito identity pool role is too permissive.
 func (o AccountAuditConfigurationAuditCheckConfigurationsPtrOutput) UnauthenticatedCognitoRoleOverlyPermissiveCheck() AccountAuditConfigurationAuditCheckConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditCheckConfigurations) *AccountAuditConfigurationAuditCheckConfiguration {
 		if v == nil {
@@ -876,7 +876,7 @@ func (o AccountAuditConfigurationAuditNotificationTargetPtrOutput) TargetArn() p
 
 // Information about the targets to which audit notifications are sent.
 type AccountAuditConfigurationAuditNotificationTargetConfigurations struct {
-	// Information about the targets to which audit notifications are sent.
+	// The `Sns` notification target.
 	Sns *AccountAuditConfigurationAuditNotificationTarget `pulumi:"sns"`
 }
 
@@ -893,7 +893,7 @@ type AccountAuditConfigurationAuditNotificationTargetConfigurationsInput interfa
 
 // Information about the targets to which audit notifications are sent.
 type AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs struct {
-	// Information about the targets to which audit notifications are sent.
+	// The `Sns` notification target.
 	Sns AccountAuditConfigurationAuditNotificationTargetPtrInput `pulumi:"sns"`
 }
 
@@ -975,7 +975,7 @@ func (o AccountAuditConfigurationAuditNotificationTargetConfigurationsOutput) To
 	}).(AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput)
 }
 
-// Information about the targets to which audit notifications are sent.
+// The `Sns` notification target.
 func (o AccountAuditConfigurationAuditNotificationTargetConfigurationsOutput) Sns() AccountAuditConfigurationAuditNotificationTargetPtrOutput {
 	return o.ApplyT(func(v AccountAuditConfigurationAuditNotificationTargetConfigurations) *AccountAuditConfigurationAuditNotificationTarget {
 		return v.Sns
@@ -1006,7 +1006,7 @@ func (o AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput)
 	}).(AccountAuditConfigurationAuditNotificationTargetConfigurationsOutput)
 }
 
-// Information about the targets to which audit notifications are sent.
+// The `Sns` notification target.
 func (o AccountAuditConfigurationAuditNotificationTargetConfigurationsPtrOutput) Sns() AccountAuditConfigurationAuditNotificationTargetPtrOutput {
 	return o.ApplyT(func(v *AccountAuditConfigurationAuditNotificationTargetConfigurations) *AccountAuditConfigurationAuditNotificationTarget {
 		if v == nil {
@@ -2044,7 +2044,7 @@ type FleetMetricTag struct {
 
 // Allows you to create the criteria to retry a job.
 type JobExecutionsRetryConfigProperties struct {
-	// The criteria that determines how many retries are allowed for each failure type for a job.
+	// The list of criteria that determines how many retries are allowed for each failure type for a job.
 	RetryCriteriaList []JobTemplateRetryCriteria `pulumi:"retryCriteriaList"`
 }
 
@@ -2061,7 +2061,7 @@ type JobExecutionsRetryConfigPropertiesInput interface {
 
 // Allows you to create the criteria to retry a job.
 type JobExecutionsRetryConfigPropertiesArgs struct {
-	// The criteria that determines how many retries are allowed for each failure type for a job.
+	// The list of criteria that determines how many retries are allowed for each failure type for a job.
 	RetryCriteriaList JobTemplateRetryCriteriaArrayInput `pulumi:"retryCriteriaList"`
 }
 
@@ -2143,7 +2143,7 @@ func (o JobExecutionsRetryConfigPropertiesOutput) ToJobExecutionsRetryConfigProp
 	}).(JobExecutionsRetryConfigPropertiesPtrOutput)
 }
 
-// The criteria that determines how many retries are allowed for each failure type for a job.
+// The list of criteria that determines how many retries are allowed for each failure type for a job.
 func (o JobExecutionsRetryConfigPropertiesOutput) RetryCriteriaList() JobTemplateRetryCriteriaArrayOutput {
 	return o.ApplyT(func(v JobExecutionsRetryConfigProperties) []JobTemplateRetryCriteria { return v.RetryCriteriaList }).(JobTemplateRetryCriteriaArrayOutput)
 }
@@ -2172,7 +2172,7 @@ func (o JobExecutionsRetryConfigPropertiesPtrOutput) Elem() JobExecutionsRetryCo
 	}).(JobExecutionsRetryConfigPropertiesOutput)
 }
 
-// The criteria that determines how many retries are allowed for each failure type for a job.
+// The list of criteria that determines how many retries are allowed for each failure type for a job.
 func (o JobExecutionsRetryConfigPropertiesPtrOutput) RetryCriteriaList() JobTemplateRetryCriteriaArrayOutput {
 	return o.ApplyT(func(v *JobExecutionsRetryConfigProperties) []JobTemplateRetryCriteria {
 		if v == nil {
@@ -3193,17 +3193,17 @@ func (o MetricsExportConfigPropertiesPtrOutput) RoleArn() pulumi.StringPtrOutput
 
 // The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
 type MitigationActionActionParams struct {
-	// Parameters used when defining a mitigation action that move a set of things to a thing group.
+	// Specifies the group to which you want to add the devices.
 	AddThingsToThingGroupParams *MitigationActionAddThingsToThingGroupParams `pulumi:"addThingsToThingGroupParams"`
-	// Parameters used when defining a mitigation action that enable AWS IoT Core logging.
+	// Specifies the logging level and the role with permissions for logging. You cannot specify a logging level of `DISABLED` .
 	EnableIoTLoggingParams *MitigationActionEnableIoTLoggingParams `pulumi:"enableIoTLoggingParams"`
-	// Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
+	// Specifies the topic to which the finding should be published.
 	PublishFindingToSnsParams *MitigationActionPublishFindingToSnsParams `pulumi:"publishFindingToSnsParams"`
-	// Parameters to define a mitigation action that adds a blank policy to restrict permissions.
+	// Replaces the policy version with a default or blank policy. You specify the template name. Only a value of `BLANK_POLICY` is currently supported.
 	ReplaceDefaultPolicyVersionParams *MitigationActionReplaceDefaultPolicyVersionParams `pulumi:"replaceDefaultPolicyVersionParams"`
-	// Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
+	// Specifies the new state for the CA certificate. Only a value of `DEACTIVATE` is currently supported.
 	UpdateCaCertificateParams *MitigationActionUpdateCaCertificateParams `pulumi:"updateCaCertificateParams"`
-	// Parameters to define a mitigation action that changes the state of the device certificate to inactive.
+	// Specifies the new state for a device certificate. Only a value of `DEACTIVATE` is currently supported.
 	UpdateDeviceCertificateParams *MitigationActionUpdateDeviceCertificateParams `pulumi:"updateDeviceCertificateParams"`
 }
 
@@ -3220,17 +3220,17 @@ type MitigationActionActionParamsInput interface {
 
 // The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
 type MitigationActionActionParamsArgs struct {
-	// Parameters used when defining a mitigation action that move a set of things to a thing group.
+	// Specifies the group to which you want to add the devices.
 	AddThingsToThingGroupParams MitigationActionAddThingsToThingGroupParamsPtrInput `pulumi:"addThingsToThingGroupParams"`
-	// Parameters used when defining a mitigation action that enable AWS IoT Core logging.
+	// Specifies the logging level and the role with permissions for logging. You cannot specify a logging level of `DISABLED` .
 	EnableIoTLoggingParams MitigationActionEnableIoTLoggingParamsPtrInput `pulumi:"enableIoTLoggingParams"`
-	// Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
+	// Specifies the topic to which the finding should be published.
 	PublishFindingToSnsParams MitigationActionPublishFindingToSnsParamsPtrInput `pulumi:"publishFindingToSnsParams"`
-	// Parameters to define a mitigation action that adds a blank policy to restrict permissions.
+	// Replaces the policy version with a default or blank policy. You specify the template name. Only a value of `BLANK_POLICY` is currently supported.
 	ReplaceDefaultPolicyVersionParams MitigationActionReplaceDefaultPolicyVersionParamsPtrInput `pulumi:"replaceDefaultPolicyVersionParams"`
-	// Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
+	// Specifies the new state for the CA certificate. Only a value of `DEACTIVATE` is currently supported.
 	UpdateCaCertificateParams MitigationActionUpdateCaCertificateParamsPtrInput `pulumi:"updateCaCertificateParams"`
-	// Parameters to define a mitigation action that changes the state of the device certificate to inactive.
+	// Specifies the new state for a device certificate. Only a value of `DEACTIVATE` is currently supported.
 	UpdateDeviceCertificateParams MitigationActionUpdateDeviceCertificateParamsPtrInput `pulumi:"updateDeviceCertificateParams"`
 }
 
@@ -3261,42 +3261,42 @@ func (o MitigationActionActionParamsOutput) ToMitigationActionActionParamsOutput
 	return o
 }
 
-// Parameters used when defining a mitigation action that move a set of things to a thing group.
+// Specifies the group to which you want to add the devices.
 func (o MitigationActionActionParamsOutput) AddThingsToThingGroupParams() MitigationActionAddThingsToThingGroupParamsPtrOutput {
 	return o.ApplyT(func(v MitigationActionActionParams) *MitigationActionAddThingsToThingGroupParams {
 		return v.AddThingsToThingGroupParams
 	}).(MitigationActionAddThingsToThingGroupParamsPtrOutput)
 }
 
-// Parameters used when defining a mitigation action that enable AWS IoT Core logging.
+// Specifies the logging level and the role with permissions for logging. You cannot specify a logging level of `DISABLED` .
 func (o MitigationActionActionParamsOutput) EnableIoTLoggingParams() MitigationActionEnableIoTLoggingParamsPtrOutput {
 	return o.ApplyT(func(v MitigationActionActionParams) *MitigationActionEnableIoTLoggingParams {
 		return v.EnableIoTLoggingParams
 	}).(MitigationActionEnableIoTLoggingParamsPtrOutput)
 }
 
-// Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
+// Specifies the topic to which the finding should be published.
 func (o MitigationActionActionParamsOutput) PublishFindingToSnsParams() MitigationActionPublishFindingToSnsParamsPtrOutput {
 	return o.ApplyT(func(v MitigationActionActionParams) *MitigationActionPublishFindingToSnsParams {
 		return v.PublishFindingToSnsParams
 	}).(MitigationActionPublishFindingToSnsParamsPtrOutput)
 }
 
-// Parameters to define a mitigation action that adds a blank policy to restrict permissions.
+// Replaces the policy version with a default or blank policy. You specify the template name. Only a value of `BLANK_POLICY` is currently supported.
 func (o MitigationActionActionParamsOutput) ReplaceDefaultPolicyVersionParams() MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput {
 	return o.ApplyT(func(v MitigationActionActionParams) *MitigationActionReplaceDefaultPolicyVersionParams {
 		return v.ReplaceDefaultPolicyVersionParams
 	}).(MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput)
 }
 
-// Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
+// Specifies the new state for the CA certificate. Only a value of `DEACTIVATE` is currently supported.
 func (o MitigationActionActionParamsOutput) UpdateCaCertificateParams() MitigationActionUpdateCaCertificateParamsPtrOutput {
 	return o.ApplyT(func(v MitigationActionActionParams) *MitigationActionUpdateCaCertificateParams {
 		return v.UpdateCaCertificateParams
 	}).(MitigationActionUpdateCaCertificateParamsPtrOutput)
 }
 
-// Parameters to define a mitigation action that changes the state of the device certificate to inactive.
+// Specifies the new state for a device certificate. Only a value of `DEACTIVATE` is currently supported.
 func (o MitigationActionActionParamsOutput) UpdateDeviceCertificateParams() MitigationActionUpdateDeviceCertificateParamsPtrOutput {
 	return o.ApplyT(func(v MitigationActionActionParams) *MitigationActionUpdateDeviceCertificateParams {
 		return v.UpdateDeviceCertificateParams
@@ -3327,7 +3327,7 @@ func (o MitigationActionActionParamsPtrOutput) Elem() MitigationActionActionPara
 	}).(MitigationActionActionParamsOutput)
 }
 
-// Parameters used when defining a mitigation action that move a set of things to a thing group.
+// Specifies the group to which you want to add the devices.
 func (o MitigationActionActionParamsPtrOutput) AddThingsToThingGroupParams() MitigationActionAddThingsToThingGroupParamsPtrOutput {
 	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionAddThingsToThingGroupParams {
 		if v == nil {
@@ -3337,7 +3337,7 @@ func (o MitigationActionActionParamsPtrOutput) AddThingsToThingGroupParams() Mit
 	}).(MitigationActionAddThingsToThingGroupParamsPtrOutput)
 }
 
-// Parameters used when defining a mitigation action that enable AWS IoT Core logging.
+// Specifies the logging level and the role with permissions for logging. You cannot specify a logging level of `DISABLED` .
 func (o MitigationActionActionParamsPtrOutput) EnableIoTLoggingParams() MitigationActionEnableIoTLoggingParamsPtrOutput {
 	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionEnableIoTLoggingParams {
 		if v == nil {
@@ -3347,7 +3347,7 @@ func (o MitigationActionActionParamsPtrOutput) EnableIoTLoggingParams() Mitigati
 	}).(MitigationActionEnableIoTLoggingParamsPtrOutput)
 }
 
-// Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
+// Specifies the topic to which the finding should be published.
 func (o MitigationActionActionParamsPtrOutput) PublishFindingToSnsParams() MitigationActionPublishFindingToSnsParamsPtrOutput {
 	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionPublishFindingToSnsParams {
 		if v == nil {
@@ -3357,7 +3357,7 @@ func (o MitigationActionActionParamsPtrOutput) PublishFindingToSnsParams() Mitig
 	}).(MitigationActionPublishFindingToSnsParamsPtrOutput)
 }
 
-// Parameters to define a mitigation action that adds a blank policy to restrict permissions.
+// Replaces the policy version with a default or blank policy. You specify the template name. Only a value of `BLANK_POLICY` is currently supported.
 func (o MitigationActionActionParamsPtrOutput) ReplaceDefaultPolicyVersionParams() MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput {
 	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionReplaceDefaultPolicyVersionParams {
 		if v == nil {
@@ -3367,7 +3367,7 @@ func (o MitigationActionActionParamsPtrOutput) ReplaceDefaultPolicyVersionParams
 	}).(MitigationActionReplaceDefaultPolicyVersionParamsPtrOutput)
 }
 
-// Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
+// Specifies the new state for the CA certificate. Only a value of `DEACTIVATE` is currently supported.
 func (o MitigationActionActionParamsPtrOutput) UpdateCaCertificateParams() MitigationActionUpdateCaCertificateParamsPtrOutput {
 	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionUpdateCaCertificateParams {
 		if v == nil {
@@ -3377,7 +3377,7 @@ func (o MitigationActionActionParamsPtrOutput) UpdateCaCertificateParams() Mitig
 	}).(MitigationActionUpdateCaCertificateParamsPtrOutput)
 }
 
-// Parameters to define a mitigation action that changes the state of the device certificate to inactive.
+// Specifies the new state for a device certificate. Only a value of `DEACTIVATE` is currently supported.
 func (o MitigationActionActionParamsPtrOutput) UpdateDeviceCertificateParams() MitigationActionUpdateDeviceCertificateParamsPtrOutput {
 	return o.ApplyT(func(v *MitigationActionActionParams) *MitigationActionUpdateDeviceCertificateParams {
 		if v == nil {
@@ -4745,7 +4745,9 @@ func (o SecurityProfileAlertTargetMapOutput) MapIndex(k pulumi.StringInput) Secu
 
 // A security profile behavior.
 type SecurityProfileBehavior struct {
-	// The criteria by which the behavior is determined to be normal.
+	// The criteria that determine if a device is behaving normally in regard to the `metric` .
+	//
+	// > In the AWS IoT console, you can choose to be sent an alert through Amazon SNS when AWS IoT Device Defender detects that a device is behaving anomalously.
 	Criteria *SecurityProfileBehaviorCriteria `pulumi:"criteria"`
 	// Value indicates exporting metrics related to the behavior when it is true.
 	ExportMetric *bool `pulumi:"exportMetric"`
@@ -4772,7 +4774,9 @@ type SecurityProfileBehaviorInput interface {
 
 // A security profile behavior.
 type SecurityProfileBehaviorArgs struct {
-	// The criteria by which the behavior is determined to be normal.
+	// The criteria that determine if a device is behaving normally in regard to the `metric` .
+	//
+	// > In the AWS IoT console, you can choose to be sent an alert through Amazon SNS when AWS IoT Device Defender detects that a device is behaving anomalously.
 	Criteria SecurityProfileBehaviorCriteriaPtrInput `pulumi:"criteria"`
 	// Value indicates exporting metrics related to the behavior when it is true.
 	ExportMetric pulumi.BoolPtrInput `pulumi:"exportMetric"`
@@ -4838,7 +4842,9 @@ func (o SecurityProfileBehaviorOutput) ToSecurityProfileBehaviorOutputWithContex
 	return o
 }
 
-// The criteria by which the behavior is determined to be normal.
+// The criteria that determine if a device is behaving normally in regard to the `metric` .
+//
+// > In the AWS IoT console, you can choose to be sent an alert through Amazon SNS when AWS IoT Device Defender detects that a device is behaving anomalously.
 func (o SecurityProfileBehaviorOutput) Criteria() SecurityProfileBehaviorCriteriaPtrOutput {
 	return o.ApplyT(func(v SecurityProfileBehavior) *SecurityProfileBehaviorCriteria { return v.Criteria }).(SecurityProfileBehaviorCriteriaPtrOutput)
 }
@@ -4898,9 +4904,9 @@ type SecurityProfileBehaviorCriteria struct {
 	ConsecutiveDatapointsToClear *int `pulumi:"consecutiveDatapointsToClear"`
 	// Use this to specify the time duration over which the behavior is evaluated.
 	DurationSeconds *int `pulumi:"durationSeconds"`
-	// The `MachineLearningDetectionConfig` property type controls confidence of the machine learning model.
+	// The confidence level of the detection model.
 	MlDetectionConfig *SecurityProfileMachineLearningDetectionConfig `pulumi:"mlDetectionConfig"`
-	// A statistical ranking (percentile) that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
+	// A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
 	StatisticalThreshold *SecurityProfileStatisticalThreshold `pulumi:"statisticalThreshold"`
 	// The value to be compared with the `metric` .
 	Value *SecurityProfileMetricValue `pulumi:"value"`
@@ -4927,9 +4933,9 @@ type SecurityProfileBehaviorCriteriaArgs struct {
 	ConsecutiveDatapointsToClear pulumi.IntPtrInput `pulumi:"consecutiveDatapointsToClear"`
 	// Use this to specify the time duration over which the behavior is evaluated.
 	DurationSeconds pulumi.IntPtrInput `pulumi:"durationSeconds"`
-	// The `MachineLearningDetectionConfig` property type controls confidence of the machine learning model.
+	// The confidence level of the detection model.
 	MlDetectionConfig SecurityProfileMachineLearningDetectionConfigPtrInput `pulumi:"mlDetectionConfig"`
-	// A statistical ranking (percentile) that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
+	// A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
 	StatisticalThreshold SecurityProfileStatisticalThresholdPtrInput `pulumi:"statisticalThreshold"`
 	// The value to be compared with the `metric` .
 	Value SecurityProfileMetricValuePtrInput `pulumi:"value"`
@@ -5035,14 +5041,14 @@ func (o SecurityProfileBehaviorCriteriaOutput) DurationSeconds() pulumi.IntPtrOu
 	return o.ApplyT(func(v SecurityProfileBehaviorCriteria) *int { return v.DurationSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The `MachineLearningDetectionConfig` property type controls confidence of the machine learning model.
+// The confidence level of the detection model.
 func (o SecurityProfileBehaviorCriteriaOutput) MlDetectionConfig() SecurityProfileMachineLearningDetectionConfigPtrOutput {
 	return o.ApplyT(func(v SecurityProfileBehaviorCriteria) *SecurityProfileMachineLearningDetectionConfig {
 		return v.MlDetectionConfig
 	}).(SecurityProfileMachineLearningDetectionConfigPtrOutput)
 }
 
-// A statistical ranking (percentile) that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
+// A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
 func (o SecurityProfileBehaviorCriteriaOutput) StatisticalThreshold() SecurityProfileStatisticalThresholdPtrOutput {
 	return o.ApplyT(func(v SecurityProfileBehaviorCriteria) *SecurityProfileStatisticalThreshold {
 		return v.StatisticalThreshold
@@ -5118,7 +5124,7 @@ func (o SecurityProfileBehaviorCriteriaPtrOutput) DurationSeconds() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// The `MachineLearningDetectionConfig` property type controls confidence of the machine learning model.
+// The confidence level of the detection model.
 func (o SecurityProfileBehaviorCriteriaPtrOutput) MlDetectionConfig() SecurityProfileMachineLearningDetectionConfigPtrOutput {
 	return o.ApplyT(func(v *SecurityProfileBehaviorCriteria) *SecurityProfileMachineLearningDetectionConfig {
 		if v == nil {
@@ -5128,7 +5134,7 @@ func (o SecurityProfileBehaviorCriteriaPtrOutput) MlDetectionConfig() SecurityPr
 	}).(SecurityProfileMachineLearningDetectionConfigPtrOutput)
 }
 
-// A statistical ranking (percentile) that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
+// A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
 func (o SecurityProfileBehaviorCriteriaPtrOutput) StatisticalThreshold() SecurityProfileStatisticalThresholdPtrOutput {
 	return o.ApplyT(func(v *SecurityProfileBehaviorCriteria) *SecurityProfileStatisticalThreshold {
 		if v == nil {
@@ -6260,7 +6266,7 @@ func (o ThingGroupAttributePayloadPtrOutput) Attributes() pulumi.StringMapOutput
 
 // Thing group properties.
 type ThingGroupPropertiesProperties struct {
-	// The attribute payload.
+	// The thing group attributes in JSON format.
 	AttributePayload *ThingGroupAttributePayload `pulumi:"attributePayload"`
 	// The thing group description.
 	ThingGroupDescription *string `pulumi:"thingGroupDescription"`
@@ -6279,7 +6285,7 @@ type ThingGroupPropertiesPropertiesInput interface {
 
 // Thing group properties.
 type ThingGroupPropertiesPropertiesArgs struct {
-	// The attribute payload.
+	// The thing group attributes in JSON format.
 	AttributePayload ThingGroupAttributePayloadPtrInput `pulumi:"attributePayload"`
 	// The thing group description.
 	ThingGroupDescription pulumi.StringPtrInput `pulumi:"thingGroupDescription"`
@@ -6363,7 +6369,7 @@ func (o ThingGroupPropertiesPropertiesOutput) ToThingGroupPropertiesPropertiesPt
 	}).(ThingGroupPropertiesPropertiesPtrOutput)
 }
 
-// The attribute payload.
+// The thing group attributes in JSON format.
 func (o ThingGroupPropertiesPropertiesOutput) AttributePayload() ThingGroupAttributePayloadPtrOutput {
 	return o.ApplyT(func(v ThingGroupPropertiesProperties) *ThingGroupAttributePayload { return v.AttributePayload }).(ThingGroupAttributePayloadPtrOutput)
 }
@@ -6397,7 +6403,7 @@ func (o ThingGroupPropertiesPropertiesPtrOutput) Elem() ThingGroupPropertiesProp
 	}).(ThingGroupPropertiesPropertiesOutput)
 }
 
-// The attribute payload.
+// The thing group attributes in JSON format.
 func (o ThingGroupPropertiesPropertiesPtrOutput) AttributePayload() ThingGroupAttributePayloadPtrOutput {
 	return o.ApplyT(func(v *ThingGroupPropertiesProperties) *ThingGroupAttributePayload {
 		if v == nil {
@@ -6733,37 +6739,21 @@ func (o TimeoutConfigPropertiesPtrOutput) InProgressTimeoutInMinutes() pulumi.In
 }
 
 type TopicRuleAction struct {
-	// Describes an action that updates a CloudWatch alarm.
+	// Change the state of a CloudWatch alarm.
 	CloudwatchAlarm *TopicRuleCloudwatchAlarmAction `pulumi:"cloudwatchAlarm"`
-	// Describes an action that updates a CloudWatch log.
+	// Sends data to CloudWatch.
 	CloudwatchLogs *TopicRuleCloudwatchLogsAction `pulumi:"cloudwatchLogs"`
-	// Describes an action that captures a CloudWatch metric.
+	// Capture a CloudWatch metric.
 	CloudwatchMetric *TopicRuleCloudwatchMetricAction `pulumi:"cloudwatchMetric"`
-	// Describes an action to write to a DynamoDB table.
-	//
-	// This DynamoDB action writes each attribute in the message payload into it's own column in the DynamoDB table.
+	// Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
 	DynamoDBv2 *TopicRuleDynamoDBv2Action `pulumi:"dynamoDBv2"`
-	// Describes an action to write to a DynamoDB table.
-	//
-	// The `tableName` , `hashKeyField` , and `rangeKeyField` values must match the values used when you created the table.
-	//
-	// The `hashKeyValue` and `rangeKeyvalue` fields use a substitution template syntax. These templates provide data at runtime. The syntax is as follows: ${ *sql-expression* }.
-	//
-	// You can specify any valid expression in a WHERE or SELECT clause, including JSON properties, comparisons, calculations, and functions. For example, the following field uses the third level of the topic:
-	//
-	// `"hashKeyValue": "${topic(3)}"`
-	//
-	// The following field uses the timestamp:
-	//
-	// `"rangeKeyValue": "${timestamp()}"`
-	//
-	// For more information, see [DynamoDBv2 Action](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rule-actions.html) in the *AWS IoT Developer Guide* .
+	// Write to a DynamoDB table.
 	DynamoDb *TopicRuleDynamoDbAction `pulumi:"dynamoDb"`
-	// Describes an action that writes data to an Amazon OpenSearch Service domain.
+	// Write data to an Amazon OpenSearch Service domain.
 	//
 	// > The `Elasticsearch` action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the `OpenSearch` rule action instead. For more information, see [OpenSearchAction](https://docs.aws.amazon.com//iot/latest/apireference/API_OpenSearchAction.html) .
 	Elasticsearch *TopicRuleElasticsearchAction `pulumi:"elasticsearch"`
-	// Describes an action that writes data to an Amazon Kinesis Firehose stream.
+	// Write to an Amazon Kinesis Firehose stream.
 	Firehose *TopicRuleFirehoseAction `pulumi:"firehose"`
 	// Send data to an HTTPS endpoint.
 	Http *TopicRuleHttpAction `pulumi:"http"`
@@ -6771,29 +6761,29 @@ type TopicRuleAction struct {
 	IotAnalytics *TopicRuleIotAnalyticsAction `pulumi:"iotAnalytics"`
 	// Sends an input to an AWS IoT Events detector.
 	IotEvents *TopicRuleIotEventsAction `pulumi:"iotEvents"`
-	// Describes an action to send data from an MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
+	// Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
 	IotSiteWise *TopicRuleIotSiteWiseAction `pulumi:"iotSiteWise"`
 	// Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.
 	Kafka *TopicRuleKafkaAction `pulumi:"kafka"`
-	// Describes an action to write data to an Amazon Kinesis stream.
+	// Write data to an Amazon Kinesis stream.
 	Kinesis *TopicRuleKinesisAction `pulumi:"kinesis"`
-	// Describes an action to invoke a Lambda function.
+	// Invoke a Lambda function.
 	Lambda *TopicRuleLambdaAction `pulumi:"lambda"`
-	// Describes an action to send device location updates from an MQTT message to an Amazon Location tracker resource.
+	// Sends device location data to [Amazon Location Service](https://docs.aws.amazon.com//location/latest/developerguide/welcome.html) .
 	Location *TopicRuleLocationAction `pulumi:"location"`
-	// Describes an action that writes data to an Amazon OpenSearch Service domain.
+	// Write data to an Amazon OpenSearch Service domain.
 	OpenSearch *TopicRuleOpenSearchAction `pulumi:"openSearch"`
-	// Describes an action to republish to another topic.
+	// Publish to another MQTT topic.
 	Republish *TopicRuleRepublishAction `pulumi:"republish"`
-	// Describes an action to write data to an Amazon S3 bucket.
+	// Write to an Amazon S3 bucket.
 	S3 *TopicRuleS3Action `pulumi:"s3"`
-	// Describes an action to publish to an Amazon SNS topic.
+	// Publish to an Amazon SNS topic.
 	Sns *TopicRuleSnsAction `pulumi:"sns"`
-	// Describes an action to publish data to an Amazon SQS queue.
+	// Publish to an Amazon SQS queue.
 	Sqs *TopicRuleSqsAction `pulumi:"sqs"`
 	// Starts execution of a Step Functions state machine.
 	StepFunctions *TopicRuleStepFunctionsAction `pulumi:"stepFunctions"`
-	// Describes an action that writes records into an Amazon Timestream table.
+	// Writes attributes from an MQTT message.
 	Timestream *TopicRuleTimestreamAction `pulumi:"timestream"`
 }
 
@@ -6809,37 +6799,21 @@ type TopicRuleActionInput interface {
 }
 
 type TopicRuleActionArgs struct {
-	// Describes an action that updates a CloudWatch alarm.
+	// Change the state of a CloudWatch alarm.
 	CloudwatchAlarm TopicRuleCloudwatchAlarmActionPtrInput `pulumi:"cloudwatchAlarm"`
-	// Describes an action that updates a CloudWatch log.
+	// Sends data to CloudWatch.
 	CloudwatchLogs TopicRuleCloudwatchLogsActionPtrInput `pulumi:"cloudwatchLogs"`
-	// Describes an action that captures a CloudWatch metric.
+	// Capture a CloudWatch metric.
 	CloudwatchMetric TopicRuleCloudwatchMetricActionPtrInput `pulumi:"cloudwatchMetric"`
-	// Describes an action to write to a DynamoDB table.
-	//
-	// This DynamoDB action writes each attribute in the message payload into it's own column in the DynamoDB table.
+	// Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
 	DynamoDBv2 TopicRuleDynamoDBv2ActionPtrInput `pulumi:"dynamoDBv2"`
-	// Describes an action to write to a DynamoDB table.
-	//
-	// The `tableName` , `hashKeyField` , and `rangeKeyField` values must match the values used when you created the table.
-	//
-	// The `hashKeyValue` and `rangeKeyvalue` fields use a substitution template syntax. These templates provide data at runtime. The syntax is as follows: ${ *sql-expression* }.
-	//
-	// You can specify any valid expression in a WHERE or SELECT clause, including JSON properties, comparisons, calculations, and functions. For example, the following field uses the third level of the topic:
-	//
-	// `"hashKeyValue": "${topic(3)}"`
-	//
-	// The following field uses the timestamp:
-	//
-	// `"rangeKeyValue": "${timestamp()}"`
-	//
-	// For more information, see [DynamoDBv2 Action](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rule-actions.html) in the *AWS IoT Developer Guide* .
+	// Write to a DynamoDB table.
 	DynamoDb TopicRuleDynamoDbActionPtrInput `pulumi:"dynamoDb"`
-	// Describes an action that writes data to an Amazon OpenSearch Service domain.
+	// Write data to an Amazon OpenSearch Service domain.
 	//
 	// > The `Elasticsearch` action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the `OpenSearch` rule action instead. For more information, see [OpenSearchAction](https://docs.aws.amazon.com//iot/latest/apireference/API_OpenSearchAction.html) .
 	Elasticsearch TopicRuleElasticsearchActionPtrInput `pulumi:"elasticsearch"`
-	// Describes an action that writes data to an Amazon Kinesis Firehose stream.
+	// Write to an Amazon Kinesis Firehose stream.
 	Firehose TopicRuleFirehoseActionPtrInput `pulumi:"firehose"`
 	// Send data to an HTTPS endpoint.
 	Http TopicRuleHttpActionPtrInput `pulumi:"http"`
@@ -6847,29 +6821,29 @@ type TopicRuleActionArgs struct {
 	IotAnalytics TopicRuleIotAnalyticsActionPtrInput `pulumi:"iotAnalytics"`
 	// Sends an input to an AWS IoT Events detector.
 	IotEvents TopicRuleIotEventsActionPtrInput `pulumi:"iotEvents"`
-	// Describes an action to send data from an MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
+	// Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
 	IotSiteWise TopicRuleIotSiteWiseActionPtrInput `pulumi:"iotSiteWise"`
 	// Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.
 	Kafka TopicRuleKafkaActionPtrInput `pulumi:"kafka"`
-	// Describes an action to write data to an Amazon Kinesis stream.
+	// Write data to an Amazon Kinesis stream.
 	Kinesis TopicRuleKinesisActionPtrInput `pulumi:"kinesis"`
-	// Describes an action to invoke a Lambda function.
+	// Invoke a Lambda function.
 	Lambda TopicRuleLambdaActionPtrInput `pulumi:"lambda"`
-	// Describes an action to send device location updates from an MQTT message to an Amazon Location tracker resource.
+	// Sends device location data to [Amazon Location Service](https://docs.aws.amazon.com//location/latest/developerguide/welcome.html) .
 	Location TopicRuleLocationActionPtrInput `pulumi:"location"`
-	// Describes an action that writes data to an Amazon OpenSearch Service domain.
+	// Write data to an Amazon OpenSearch Service domain.
 	OpenSearch TopicRuleOpenSearchActionPtrInput `pulumi:"openSearch"`
-	// Describes an action to republish to another topic.
+	// Publish to another MQTT topic.
 	Republish TopicRuleRepublishActionPtrInput `pulumi:"republish"`
-	// Describes an action to write data to an Amazon S3 bucket.
+	// Write to an Amazon S3 bucket.
 	S3 TopicRuleS3ActionPtrInput `pulumi:"s3"`
-	// Describes an action to publish to an Amazon SNS topic.
+	// Publish to an Amazon SNS topic.
 	Sns TopicRuleSnsActionPtrInput `pulumi:"sns"`
-	// Describes an action to publish data to an Amazon SQS queue.
+	// Publish to an Amazon SQS queue.
 	Sqs TopicRuleSqsActionPtrInput `pulumi:"sqs"`
 	// Starts execution of a Step Functions state machine.
 	StepFunctions TopicRuleStepFunctionsActionPtrInput `pulumi:"stepFunctions"`
-	// Describes an action that writes records into an Amazon Timestream table.
+	// Writes attributes from an MQTT message.
 	Timestream TopicRuleTimestreamActionPtrInput `pulumi:"timestream"`
 }
 
@@ -6975,55 +6949,39 @@ func (o TopicRuleActionOutput) ToTopicRuleActionPtrOutputWithContext(ctx context
 	}).(TopicRuleActionPtrOutput)
 }
 
-// Describes an action that updates a CloudWatch alarm.
+// Change the state of a CloudWatch alarm.
 func (o TopicRuleActionOutput) CloudwatchAlarm() TopicRuleCloudwatchAlarmActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleCloudwatchAlarmAction { return v.CloudwatchAlarm }).(TopicRuleCloudwatchAlarmActionPtrOutput)
 }
 
-// Describes an action that updates a CloudWatch log.
+// Sends data to CloudWatch.
 func (o TopicRuleActionOutput) CloudwatchLogs() TopicRuleCloudwatchLogsActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleCloudwatchLogsAction { return v.CloudwatchLogs }).(TopicRuleCloudwatchLogsActionPtrOutput)
 }
 
-// Describes an action that captures a CloudWatch metric.
+// Capture a CloudWatch metric.
 func (o TopicRuleActionOutput) CloudwatchMetric() TopicRuleCloudwatchMetricActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleCloudwatchMetricAction { return v.CloudwatchMetric }).(TopicRuleCloudwatchMetricActionPtrOutput)
 }
 
-// Describes an action to write to a DynamoDB table.
-//
-// This DynamoDB action writes each attribute in the message payload into it's own column in the DynamoDB table.
+// Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
 func (o TopicRuleActionOutput) DynamoDBv2() TopicRuleDynamoDBv2ActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleDynamoDBv2Action { return v.DynamoDBv2 }).(TopicRuleDynamoDBv2ActionPtrOutput)
 }
 
-// Describes an action to write to a DynamoDB table.
-//
-// The `tableName` , `hashKeyField` , and `rangeKeyField` values must match the values used when you created the table.
-//
-// The `hashKeyValue` and `rangeKeyvalue` fields use a substitution template syntax. These templates provide data at runtime. The syntax is as follows: ${ *sql-expression* }.
-//
-// You can specify any valid expression in a WHERE or SELECT clause, including JSON properties, comparisons, calculations, and functions. For example, the following field uses the third level of the topic:
-//
-// `"hashKeyValue": "${topic(3)}"`
-//
-// The following field uses the timestamp:
-//
-// `"rangeKeyValue": "${timestamp()}"`
-//
-// For more information, see [DynamoDBv2 Action](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rule-actions.html) in the *AWS IoT Developer Guide* .
+// Write to a DynamoDB table.
 func (o TopicRuleActionOutput) DynamoDb() TopicRuleDynamoDbActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleDynamoDbAction { return v.DynamoDb }).(TopicRuleDynamoDbActionPtrOutput)
 }
 
-// Describes an action that writes data to an Amazon OpenSearch Service domain.
+// Write data to an Amazon OpenSearch Service domain.
 //
 // > The `Elasticsearch` action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the `OpenSearch` rule action instead. For more information, see [OpenSearchAction](https://docs.aws.amazon.com//iot/latest/apireference/API_OpenSearchAction.html) .
 func (o TopicRuleActionOutput) Elasticsearch() TopicRuleElasticsearchActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleElasticsearchAction { return v.Elasticsearch }).(TopicRuleElasticsearchActionPtrOutput)
 }
 
-// Describes an action that writes data to an Amazon Kinesis Firehose stream.
+// Write to an Amazon Kinesis Firehose stream.
 func (o TopicRuleActionOutput) Firehose() TopicRuleFirehoseActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleFirehoseAction { return v.Firehose }).(TopicRuleFirehoseActionPtrOutput)
 }
@@ -7043,7 +7001,7 @@ func (o TopicRuleActionOutput) IotEvents() TopicRuleIotEventsActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleIotEventsAction { return v.IotEvents }).(TopicRuleIotEventsActionPtrOutput)
 }
 
-// Describes an action to send data from an MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
+// Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
 func (o TopicRuleActionOutput) IotSiteWise() TopicRuleIotSiteWiseActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleIotSiteWiseAction { return v.IotSiteWise }).(TopicRuleIotSiteWiseActionPtrOutput)
 }
@@ -7053,42 +7011,42 @@ func (o TopicRuleActionOutput) Kafka() TopicRuleKafkaActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleKafkaAction { return v.Kafka }).(TopicRuleKafkaActionPtrOutput)
 }
 
-// Describes an action to write data to an Amazon Kinesis stream.
+// Write data to an Amazon Kinesis stream.
 func (o TopicRuleActionOutput) Kinesis() TopicRuleKinesisActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleKinesisAction { return v.Kinesis }).(TopicRuleKinesisActionPtrOutput)
 }
 
-// Describes an action to invoke a Lambda function.
+// Invoke a Lambda function.
 func (o TopicRuleActionOutput) Lambda() TopicRuleLambdaActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleLambdaAction { return v.Lambda }).(TopicRuleLambdaActionPtrOutput)
 }
 
-// Describes an action to send device location updates from an MQTT message to an Amazon Location tracker resource.
+// Sends device location data to [Amazon Location Service](https://docs.aws.amazon.com//location/latest/developerguide/welcome.html) .
 func (o TopicRuleActionOutput) Location() TopicRuleLocationActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleLocationAction { return v.Location }).(TopicRuleLocationActionPtrOutput)
 }
 
-// Describes an action that writes data to an Amazon OpenSearch Service domain.
+// Write data to an Amazon OpenSearch Service domain.
 func (o TopicRuleActionOutput) OpenSearch() TopicRuleOpenSearchActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleOpenSearchAction { return v.OpenSearch }).(TopicRuleOpenSearchActionPtrOutput)
 }
 
-// Describes an action to republish to another topic.
+// Publish to another MQTT topic.
 func (o TopicRuleActionOutput) Republish() TopicRuleRepublishActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleRepublishAction { return v.Republish }).(TopicRuleRepublishActionPtrOutput)
 }
 
-// Describes an action to write data to an Amazon S3 bucket.
+// Write to an Amazon S3 bucket.
 func (o TopicRuleActionOutput) S3() TopicRuleS3ActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleS3Action { return v.S3 }).(TopicRuleS3ActionPtrOutput)
 }
 
-// Describes an action to publish to an Amazon SNS topic.
+// Publish to an Amazon SNS topic.
 func (o TopicRuleActionOutput) Sns() TopicRuleSnsActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleSnsAction { return v.Sns }).(TopicRuleSnsActionPtrOutput)
 }
 
-// Describes an action to publish data to an Amazon SQS queue.
+// Publish to an Amazon SQS queue.
 func (o TopicRuleActionOutput) Sqs() TopicRuleSqsActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleSqsAction { return v.Sqs }).(TopicRuleSqsActionPtrOutput)
 }
@@ -7098,7 +7056,7 @@ func (o TopicRuleActionOutput) StepFunctions() TopicRuleStepFunctionsActionPtrOu
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleStepFunctionsAction { return v.StepFunctions }).(TopicRuleStepFunctionsActionPtrOutput)
 }
 
-// Describes an action that writes records into an Amazon Timestream table.
+// Writes attributes from an MQTT message.
 func (o TopicRuleActionOutput) Timestream() TopicRuleTimestreamActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleTimestreamAction { return v.Timestream }).(TopicRuleTimestreamActionPtrOutput)
 }
@@ -7127,7 +7085,7 @@ func (o TopicRuleActionPtrOutput) Elem() TopicRuleActionOutput {
 	}).(TopicRuleActionOutput)
 }
 
-// Describes an action that updates a CloudWatch alarm.
+// Change the state of a CloudWatch alarm.
 func (o TopicRuleActionPtrOutput) CloudwatchAlarm() TopicRuleCloudwatchAlarmActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleCloudwatchAlarmAction {
 		if v == nil {
@@ -7137,7 +7095,7 @@ func (o TopicRuleActionPtrOutput) CloudwatchAlarm() TopicRuleCloudwatchAlarmActi
 	}).(TopicRuleCloudwatchAlarmActionPtrOutput)
 }
 
-// Describes an action that updates a CloudWatch log.
+// Sends data to CloudWatch.
 func (o TopicRuleActionPtrOutput) CloudwatchLogs() TopicRuleCloudwatchLogsActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleCloudwatchLogsAction {
 		if v == nil {
@@ -7147,7 +7105,7 @@ func (o TopicRuleActionPtrOutput) CloudwatchLogs() TopicRuleCloudwatchLogsAction
 	}).(TopicRuleCloudwatchLogsActionPtrOutput)
 }
 
-// Describes an action that captures a CloudWatch metric.
+// Capture a CloudWatch metric.
 func (o TopicRuleActionPtrOutput) CloudwatchMetric() TopicRuleCloudwatchMetricActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleCloudwatchMetricAction {
 		if v == nil {
@@ -7157,9 +7115,7 @@ func (o TopicRuleActionPtrOutput) CloudwatchMetric() TopicRuleCloudwatchMetricAc
 	}).(TopicRuleCloudwatchMetricActionPtrOutput)
 }
 
-// Describes an action to write to a DynamoDB table.
-//
-// This DynamoDB action writes each attribute in the message payload into it's own column in the DynamoDB table.
+// Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
 func (o TopicRuleActionPtrOutput) DynamoDBv2() TopicRuleDynamoDBv2ActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleDynamoDBv2Action {
 		if v == nil {
@@ -7169,21 +7125,7 @@ func (o TopicRuleActionPtrOutput) DynamoDBv2() TopicRuleDynamoDBv2ActionPtrOutpu
 	}).(TopicRuleDynamoDBv2ActionPtrOutput)
 }
 
-// Describes an action to write to a DynamoDB table.
-//
-// The `tableName` , `hashKeyField` , and `rangeKeyField` values must match the values used when you created the table.
-//
-// The `hashKeyValue` and `rangeKeyvalue` fields use a substitution template syntax. These templates provide data at runtime. The syntax is as follows: ${ *sql-expression* }.
-//
-// You can specify any valid expression in a WHERE or SELECT clause, including JSON properties, comparisons, calculations, and functions. For example, the following field uses the third level of the topic:
-//
-// `"hashKeyValue": "${topic(3)}"`
-//
-// The following field uses the timestamp:
-//
-// `"rangeKeyValue": "${timestamp()}"`
-//
-// For more information, see [DynamoDBv2 Action](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rule-actions.html) in the *AWS IoT Developer Guide* .
+// Write to a DynamoDB table.
 func (o TopicRuleActionPtrOutput) DynamoDb() TopicRuleDynamoDbActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleDynamoDbAction {
 		if v == nil {
@@ -7193,7 +7135,7 @@ func (o TopicRuleActionPtrOutput) DynamoDb() TopicRuleDynamoDbActionPtrOutput {
 	}).(TopicRuleDynamoDbActionPtrOutput)
 }
 
-// Describes an action that writes data to an Amazon OpenSearch Service domain.
+// Write data to an Amazon OpenSearch Service domain.
 //
 // > The `Elasticsearch` action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the `OpenSearch` rule action instead. For more information, see [OpenSearchAction](https://docs.aws.amazon.com//iot/latest/apireference/API_OpenSearchAction.html) .
 func (o TopicRuleActionPtrOutput) Elasticsearch() TopicRuleElasticsearchActionPtrOutput {
@@ -7205,7 +7147,7 @@ func (o TopicRuleActionPtrOutput) Elasticsearch() TopicRuleElasticsearchActionPt
 	}).(TopicRuleElasticsearchActionPtrOutput)
 }
 
-// Describes an action that writes data to an Amazon Kinesis Firehose stream.
+// Write to an Amazon Kinesis Firehose stream.
 func (o TopicRuleActionPtrOutput) Firehose() TopicRuleFirehoseActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleFirehoseAction {
 		if v == nil {
@@ -7245,7 +7187,7 @@ func (o TopicRuleActionPtrOutput) IotEvents() TopicRuleIotEventsActionPtrOutput 
 	}).(TopicRuleIotEventsActionPtrOutput)
 }
 
-// Describes an action to send data from an MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
+// Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
 func (o TopicRuleActionPtrOutput) IotSiteWise() TopicRuleIotSiteWiseActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleIotSiteWiseAction {
 		if v == nil {
@@ -7265,7 +7207,7 @@ func (o TopicRuleActionPtrOutput) Kafka() TopicRuleKafkaActionPtrOutput {
 	}).(TopicRuleKafkaActionPtrOutput)
 }
 
-// Describes an action to write data to an Amazon Kinesis stream.
+// Write data to an Amazon Kinesis stream.
 func (o TopicRuleActionPtrOutput) Kinesis() TopicRuleKinesisActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleKinesisAction {
 		if v == nil {
@@ -7275,7 +7217,7 @@ func (o TopicRuleActionPtrOutput) Kinesis() TopicRuleKinesisActionPtrOutput {
 	}).(TopicRuleKinesisActionPtrOutput)
 }
 
-// Describes an action to invoke a Lambda function.
+// Invoke a Lambda function.
 func (o TopicRuleActionPtrOutput) Lambda() TopicRuleLambdaActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleLambdaAction {
 		if v == nil {
@@ -7285,7 +7227,7 @@ func (o TopicRuleActionPtrOutput) Lambda() TopicRuleLambdaActionPtrOutput {
 	}).(TopicRuleLambdaActionPtrOutput)
 }
 
-// Describes an action to send device location updates from an MQTT message to an Amazon Location tracker resource.
+// Sends device location data to [Amazon Location Service](https://docs.aws.amazon.com//location/latest/developerguide/welcome.html) .
 func (o TopicRuleActionPtrOutput) Location() TopicRuleLocationActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleLocationAction {
 		if v == nil {
@@ -7295,7 +7237,7 @@ func (o TopicRuleActionPtrOutput) Location() TopicRuleLocationActionPtrOutput {
 	}).(TopicRuleLocationActionPtrOutput)
 }
 
-// Describes an action that writes data to an Amazon OpenSearch Service domain.
+// Write data to an Amazon OpenSearch Service domain.
 func (o TopicRuleActionPtrOutput) OpenSearch() TopicRuleOpenSearchActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleOpenSearchAction {
 		if v == nil {
@@ -7305,7 +7247,7 @@ func (o TopicRuleActionPtrOutput) OpenSearch() TopicRuleOpenSearchActionPtrOutpu
 	}).(TopicRuleOpenSearchActionPtrOutput)
 }
 
-// Describes an action to republish to another topic.
+// Publish to another MQTT topic.
 func (o TopicRuleActionPtrOutput) Republish() TopicRuleRepublishActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleRepublishAction {
 		if v == nil {
@@ -7315,7 +7257,7 @@ func (o TopicRuleActionPtrOutput) Republish() TopicRuleRepublishActionPtrOutput 
 	}).(TopicRuleRepublishActionPtrOutput)
 }
 
-// Describes an action to write data to an Amazon S3 bucket.
+// Write to an Amazon S3 bucket.
 func (o TopicRuleActionPtrOutput) S3() TopicRuleS3ActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleS3Action {
 		if v == nil {
@@ -7325,7 +7267,7 @@ func (o TopicRuleActionPtrOutput) S3() TopicRuleS3ActionPtrOutput {
 	}).(TopicRuleS3ActionPtrOutput)
 }
 
-// Describes an action to publish to an Amazon SNS topic.
+// Publish to an Amazon SNS topic.
 func (o TopicRuleActionPtrOutput) Sns() TopicRuleSnsActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleSnsAction {
 		if v == nil {
@@ -7335,7 +7277,7 @@ func (o TopicRuleActionPtrOutput) Sns() TopicRuleSnsActionPtrOutput {
 	}).(TopicRuleSnsActionPtrOutput)
 }
 
-// Describes an action to publish data to an Amazon SQS queue.
+// Publish to an Amazon SQS queue.
 func (o TopicRuleActionPtrOutput) Sqs() TopicRuleSqsActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleSqsAction {
 		if v == nil {
@@ -7355,7 +7297,7 @@ func (o TopicRuleActionPtrOutput) StepFunctions() TopicRuleStepFunctionsActionPt
 	}).(TopicRuleStepFunctionsActionPtrOutput)
 }
 
-// Describes an action that writes records into an Amazon Timestream table.
+// Writes attributes from an MQTT message.
 func (o TopicRuleActionPtrOutput) Timestream() TopicRuleTimestreamActionPtrOutput {
 	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleTimestreamAction {
 		if v == nil {
@@ -7449,9 +7391,9 @@ func (o TopicRuleAssetPropertyTimestampOutput) TimeInSeconds() pulumi.StringOutp
 type TopicRuleAssetPropertyValue struct {
 	// Optional. A string that describes the quality of the value. Accepts substitution templates. Must be `GOOD` , `BAD` , or `UNCERTAIN` .
 	Quality *string `pulumi:"quality"`
-	// An asset property timestamp entry containing the following information.
+	// The asset property value timestamp.
 	Timestamp TopicRuleAssetPropertyTimestamp `pulumi:"timestamp"`
-	// Contains an asset property value (of a single type).
+	// The value of the asset property.
 	Value TopicRuleAssetPropertyVariant `pulumi:"value"`
 }
 
@@ -7469,9 +7411,9 @@ type TopicRuleAssetPropertyValueInput interface {
 type TopicRuleAssetPropertyValueArgs struct {
 	// Optional. A string that describes the quality of the value. Accepts substitution templates. Must be `GOOD` , `BAD` , or `UNCERTAIN` .
 	Quality pulumi.StringPtrInput `pulumi:"quality"`
-	// An asset property timestamp entry containing the following information.
+	// The asset property value timestamp.
 	Timestamp TopicRuleAssetPropertyTimestampInput `pulumi:"timestamp"`
-	// Contains an asset property value (of a single type).
+	// The value of the asset property.
 	Value TopicRuleAssetPropertyVariantInput `pulumi:"value"`
 }
 
@@ -7531,12 +7473,12 @@ func (o TopicRuleAssetPropertyValueOutput) Quality() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleAssetPropertyValue) *string { return v.Quality }).(pulumi.StringPtrOutput)
 }
 
-// An asset property timestamp entry containing the following information.
+// The asset property value timestamp.
 func (o TopicRuleAssetPropertyValueOutput) Timestamp() TopicRuleAssetPropertyTimestampOutput {
 	return o.ApplyT(func(v TopicRuleAssetPropertyValue) TopicRuleAssetPropertyTimestamp { return v.Timestamp }).(TopicRuleAssetPropertyTimestampOutput)
 }
 
-// Contains an asset property value (of a single type).
+// The value of the asset property.
 func (o TopicRuleAssetPropertyValueOutput) Value() TopicRuleAssetPropertyVariantOutput {
 	return o.ApplyT(func(v TopicRuleAssetPropertyValue) TopicRuleAssetPropertyVariant { return v.Value }).(TopicRuleAssetPropertyVariantOutput)
 }
@@ -8573,7 +8515,11 @@ func (o TopicRuleDestinationVpcDestinationPropertiesPtrOutput) VpcId() pulumi.St
 }
 
 type TopicRuleDynamoDBv2Action struct {
-	// The input for the DynamoActionVS action that specifies the DynamoDB table to which the message data will be written.
+	// Specifies the DynamoDB table to which the message data will be written. For example:
+	//
+	// `{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }`
+	//
+	// Each attribute in the message payload will be written to a separate column in the DynamoDB database.
 	PutItem *TopicRulePutItemInput `pulumi:"putItem"`
 	// The ARN of the IAM role that grants access to the DynamoDB table.
 	RoleArn *string `pulumi:"roleArn"`
@@ -8591,7 +8537,11 @@ type TopicRuleDynamoDBv2ActionInput interface {
 }
 
 type TopicRuleDynamoDBv2ActionArgs struct {
-	// The input for the DynamoActionVS action that specifies the DynamoDB table to which the message data will be written.
+	// Specifies the DynamoDB table to which the message data will be written. For example:
+	//
+	// `{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }`
+	//
+	// Each attribute in the message payload will be written to a separate column in the DynamoDB database.
 	PutItem TopicRulePutItemInputPtrInput `pulumi:"putItem"`
 	// The ARN of the IAM role that grants access to the DynamoDB table.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
@@ -8674,7 +8624,11 @@ func (o TopicRuleDynamoDBv2ActionOutput) ToTopicRuleDynamoDBv2ActionPtrOutputWit
 	}).(TopicRuleDynamoDBv2ActionPtrOutput)
 }
 
-// The input for the DynamoActionVS action that specifies the DynamoDB table to which the message data will be written.
+// Specifies the DynamoDB table to which the message data will be written. For example:
+//
+// `{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }`
+//
+// Each attribute in the message payload will be written to a separate column in the DynamoDB database.
 func (o TopicRuleDynamoDBv2ActionOutput) PutItem() TopicRulePutItemInputPtrOutput {
 	return o.ApplyT(func(v TopicRuleDynamoDBv2Action) *TopicRulePutItemInput { return v.PutItem }).(TopicRulePutItemInputPtrOutput)
 }
@@ -8708,7 +8662,11 @@ func (o TopicRuleDynamoDBv2ActionPtrOutput) Elem() TopicRuleDynamoDBv2ActionOutp
 	}).(TopicRuleDynamoDBv2ActionOutput)
 }
 
-// The input for the DynamoActionVS action that specifies the DynamoDB table to which the message data will be written.
+// Specifies the DynamoDB table to which the message data will be written. For example:
+//
+// `{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }`
+//
+// Each attribute in the message payload will be written to a separate column in the DynamoDB database.
 func (o TopicRuleDynamoDBv2ActionPtrOutput) PutItem() TopicRulePutItemInputPtrOutput {
 	return o.ApplyT(func(v *TopicRuleDynamoDBv2Action) *TopicRulePutItemInput {
 		if v == nil {
@@ -9433,11 +9391,11 @@ func (o TopicRuleFirehoseActionPtrOutput) Separator() pulumi.StringPtrOutput {
 }
 
 type TopicRuleHttpAction struct {
-	// The authorization method used to send messages.
+	// The authentication method to use when sending data to an HTTPS endpoint.
 	Auth *TopicRuleHttpAuthorization `pulumi:"auth"`
 	// The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
 	ConfirmationUrl *string `pulumi:"confirmationUrl"`
-	// The HTTP action header.
+	// The HTTP headers to send with the message data.
 	Headers []TopicRuleHttpActionHeader `pulumi:"headers"`
 	// The endpoint URL. If substitution templates are used in the URL, you must also specify a `confirmationUrl` . If this is a new destination, a new `TopicRuleDestination` is created if possible.
 	Url string `pulumi:"url"`
@@ -9455,11 +9413,11 @@ type TopicRuleHttpActionInput interface {
 }
 
 type TopicRuleHttpActionArgs struct {
-	// The authorization method used to send messages.
+	// The authentication method to use when sending data to an HTTPS endpoint.
 	Auth TopicRuleHttpAuthorizationPtrInput `pulumi:"auth"`
 	// The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
 	ConfirmationUrl pulumi.StringPtrInput `pulumi:"confirmationUrl"`
-	// The HTTP action header.
+	// The HTTP headers to send with the message data.
 	Headers TopicRuleHttpActionHeaderArrayInput `pulumi:"headers"`
 	// The endpoint URL. If substitution templates are used in the URL, you must also specify a `confirmationUrl` . If this is a new destination, a new `TopicRuleDestination` is created if possible.
 	Url pulumi.StringInput `pulumi:"url"`
@@ -9542,7 +9500,7 @@ func (o TopicRuleHttpActionOutput) ToTopicRuleHttpActionPtrOutputWithContext(ctx
 	}).(TopicRuleHttpActionPtrOutput)
 }
 
-// The authorization method used to send messages.
+// The authentication method to use when sending data to an HTTPS endpoint.
 func (o TopicRuleHttpActionOutput) Auth() TopicRuleHttpAuthorizationPtrOutput {
 	return o.ApplyT(func(v TopicRuleHttpAction) *TopicRuleHttpAuthorization { return v.Auth }).(TopicRuleHttpAuthorizationPtrOutput)
 }
@@ -9552,7 +9510,7 @@ func (o TopicRuleHttpActionOutput) ConfirmationUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRuleHttpAction) *string { return v.ConfirmationUrl }).(pulumi.StringPtrOutput)
 }
 
-// The HTTP action header.
+// The HTTP headers to send with the message data.
 func (o TopicRuleHttpActionOutput) Headers() TopicRuleHttpActionHeaderArrayOutput {
 	return o.ApplyT(func(v TopicRuleHttpAction) []TopicRuleHttpActionHeader { return v.Headers }).(TopicRuleHttpActionHeaderArrayOutput)
 }
@@ -9586,7 +9544,7 @@ func (o TopicRuleHttpActionPtrOutput) Elem() TopicRuleHttpActionOutput {
 	}).(TopicRuleHttpActionOutput)
 }
 
-// The authorization method used to send messages.
+// The authentication method to use when sending data to an HTTPS endpoint.
 func (o TopicRuleHttpActionPtrOutput) Auth() TopicRuleHttpAuthorizationPtrOutput {
 	return o.ApplyT(func(v *TopicRuleHttpAction) *TopicRuleHttpAuthorization {
 		if v == nil {
@@ -9606,7 +9564,7 @@ func (o TopicRuleHttpActionPtrOutput) ConfirmationUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The HTTP action header.
+// The HTTP headers to send with the message data.
 func (o TopicRuleHttpActionPtrOutput) Headers() TopicRuleHttpActionHeaderArrayOutput {
 	return o.ApplyT(func(v *TopicRuleHttpAction) []TopicRuleHttpActionHeader {
 		if v == nil {
@@ -9733,7 +9691,7 @@ func (o TopicRuleHttpActionHeaderArrayOutput) Index(i pulumi.IntInput) TopicRule
 }
 
 type TopicRuleHttpAuthorization struct {
-	// For more information, see [Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
+	// Use Sig V4 authorization. For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
 	Sigv4 *TopicRuleSigV4Authorization `pulumi:"sigv4"`
 }
 
@@ -9749,7 +9707,7 @@ type TopicRuleHttpAuthorizationInput interface {
 }
 
 type TopicRuleHttpAuthorizationArgs struct {
-	// For more information, see [Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
+	// Use Sig V4 authorization. For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
 	Sigv4 TopicRuleSigV4AuthorizationPtrInput `pulumi:"sigv4"`
 }
 
@@ -9830,7 +9788,7 @@ func (o TopicRuleHttpAuthorizationOutput) ToTopicRuleHttpAuthorizationPtrOutputW
 	}).(TopicRuleHttpAuthorizationPtrOutput)
 }
 
-// For more information, see [Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
+// Use Sig V4 authorization. For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
 func (o TopicRuleHttpAuthorizationOutput) Sigv4() TopicRuleSigV4AuthorizationPtrOutput {
 	return o.ApplyT(func(v TopicRuleHttpAuthorization) *TopicRuleSigV4Authorization { return v.Sigv4 }).(TopicRuleSigV4AuthorizationPtrOutput)
 }
@@ -9859,7 +9817,7 @@ func (o TopicRuleHttpAuthorizationPtrOutput) Elem() TopicRuleHttpAuthorizationOu
 	}).(TopicRuleHttpAuthorizationOutput)
 }
 
-// For more information, see [Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
+// Use Sig V4 authorization. For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
 func (o TopicRuleHttpAuthorizationPtrOutput) Sigv4() TopicRuleSigV4AuthorizationPtrOutput {
 	return o.ApplyT(func(v *TopicRuleHttpAuthorization) *TopicRuleSigV4Authorization {
 		if v == nil {
@@ -10279,7 +10237,7 @@ func (o TopicRuleIotEventsActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 type TopicRuleIotSiteWiseAction struct {
-	// An asset property value entry containing the following information.
+	// A list of asset property value entries.
 	PutAssetPropertyValueEntries []TopicRulePutAssetPropertyValueEntry `pulumi:"putAssetPropertyValueEntries"`
 	// The ARN of the role that grants AWS IoT permission to send an asset property value to AWS IoT SiteWise. ( `"Action": "iotsitewise:BatchPutAssetPropertyValue"` ). The trust policy can restrict access to specific asset hierarchy paths.
 	RoleArn string `pulumi:"roleArn"`
@@ -10297,7 +10255,7 @@ type TopicRuleIotSiteWiseActionInput interface {
 }
 
 type TopicRuleIotSiteWiseActionArgs struct {
-	// An asset property value entry containing the following information.
+	// A list of asset property value entries.
 	PutAssetPropertyValueEntries TopicRulePutAssetPropertyValueEntryArrayInput `pulumi:"putAssetPropertyValueEntries"`
 	// The ARN of the role that grants AWS IoT permission to send an asset property value to AWS IoT SiteWise. ( `"Action": "iotsitewise:BatchPutAssetPropertyValue"` ). The trust policy can restrict access to specific asset hierarchy paths.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
@@ -10380,7 +10338,7 @@ func (o TopicRuleIotSiteWiseActionOutput) ToTopicRuleIotSiteWiseActionPtrOutputW
 	}).(TopicRuleIotSiteWiseActionPtrOutput)
 }
 
-// An asset property value entry containing the following information.
+// A list of asset property value entries.
 func (o TopicRuleIotSiteWiseActionOutput) PutAssetPropertyValueEntries() TopicRulePutAssetPropertyValueEntryArrayOutput {
 	return o.ApplyT(func(v TopicRuleIotSiteWiseAction) []TopicRulePutAssetPropertyValueEntry {
 		return v.PutAssetPropertyValueEntries
@@ -10416,7 +10374,7 @@ func (o TopicRuleIotSiteWiseActionPtrOutput) Elem() TopicRuleIotSiteWiseActionOu
 	}).(TopicRuleIotSiteWiseActionOutput)
 }
 
-// An asset property value entry containing the following information.
+// A list of asset property value entries.
 func (o TopicRuleIotSiteWiseActionPtrOutput) PutAssetPropertyValueEntries() TopicRulePutAssetPropertyValueEntryArrayOutput {
 	return o.ApplyT(func(v *TopicRuleIotSiteWiseAction) []TopicRulePutAssetPropertyValueEntry {
 		if v == nil {
@@ -10441,7 +10399,7 @@ type TopicRuleKafkaAction struct {
 	ClientProperties map[string]string `pulumi:"clientProperties"`
 	// The ARN of Kafka action's VPC `TopicRuleDestination` .
 	DestinationArn string `pulumi:"destinationArn"`
-	// Specifies a Kafka header using key-value pairs when you create a Rule’s Kafka Action. You can use these headers to route data from IoT clients to downstream Kafka clusters without modifying your message payload.
+	// The list of Kafka headers that you specify.
 	Headers []TopicRuleKafkaActionHeader `pulumi:"headers"`
 	// The Kafka message key.
 	Key *string `pulumi:"key"`
@@ -10467,7 +10425,7 @@ type TopicRuleKafkaActionArgs struct {
 	ClientProperties pulumi.StringMapInput `pulumi:"clientProperties"`
 	// The ARN of Kafka action's VPC `TopicRuleDestination` .
 	DestinationArn pulumi.StringInput `pulumi:"destinationArn"`
-	// Specifies a Kafka header using key-value pairs when you create a Rule’s Kafka Action. You can use these headers to route data from IoT clients to downstream Kafka clusters without modifying your message payload.
+	// The list of Kafka headers that you specify.
 	Headers TopicRuleKafkaActionHeaderArrayInput `pulumi:"headers"`
 	// The Kafka message key.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -10564,7 +10522,7 @@ func (o TopicRuleKafkaActionOutput) DestinationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleKafkaAction) string { return v.DestinationArn }).(pulumi.StringOutput)
 }
 
-// Specifies a Kafka header using key-value pairs when you create a Rule’s Kafka Action. You can use these headers to route data from IoT clients to downstream Kafka clusters without modifying your message payload.
+// The list of Kafka headers that you specify.
 func (o TopicRuleKafkaActionOutput) Headers() TopicRuleKafkaActionHeaderArrayOutput {
 	return o.ApplyT(func(v TopicRuleKafkaAction) []TopicRuleKafkaActionHeader { return v.Headers }).(TopicRuleKafkaActionHeaderArrayOutput)
 }
@@ -10628,7 +10586,7 @@ func (o TopicRuleKafkaActionPtrOutput) DestinationArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a Kafka header using key-value pairs when you create a Rule’s Kafka Action. You can use these headers to route data from IoT clients to downstream Kafka clusters without modifying your message payload.
+// The list of Kafka headers that you specify.
 func (o TopicRuleKafkaActionPtrOutput) Headers() TopicRuleKafkaActionHeaderArrayOutput {
 	return o.ApplyT(func(v *TopicRuleKafkaAction) []TopicRuleKafkaActionHeader {
 		if v == nil {
@@ -11095,7 +11053,7 @@ type TopicRuleLocationAction struct {
 	Longitude string `pulumi:"longitude"`
 	// The IAM role that grants permission to write to the Amazon Location resource.
 	RoleArn string `pulumi:"roleArn"`
-	// Describes how to interpret an application-defined timestamp value from an MQTT message payload and the precision of that value.
+	// The time that the location data was sampled. The default value is the time the MQTT message was processed.
 	Timestamp *TopicRuleTimestamp `pulumi:"timestamp"`
 	// The name of the tracker resource in Amazon Location in which the location is updated.
 	TrackerName string `pulumi:"trackerName"`
@@ -11121,7 +11079,7 @@ type TopicRuleLocationActionArgs struct {
 	Longitude pulumi.StringInput `pulumi:"longitude"`
 	// The IAM role that grants permission to write to the Amazon Location resource.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// Describes how to interpret an application-defined timestamp value from an MQTT message payload and the precision of that value.
+	// The time that the location data was sampled. The default value is the time the MQTT message was processed.
 	Timestamp TopicRuleTimestampPtrInput `pulumi:"timestamp"`
 	// The name of the tracker resource in Amazon Location in which the location is updated.
 	TrackerName pulumi.StringInput `pulumi:"trackerName"`
@@ -11224,7 +11182,7 @@ func (o TopicRuleLocationActionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleLocationAction) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// Describes how to interpret an application-defined timestamp value from an MQTT message payload and the precision of that value.
+// The time that the location data was sampled. The default value is the time the MQTT message was processed.
 func (o TopicRuleLocationActionOutput) Timestamp() TopicRuleTimestampPtrOutput {
 	return o.ApplyT(func(v TopicRuleLocationAction) *TopicRuleTimestamp { return v.Timestamp }).(TopicRuleTimestampPtrOutput)
 }
@@ -11298,7 +11256,7 @@ func (o TopicRuleLocationActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes how to interpret an application-defined timestamp value from an MQTT message payload and the precision of that value.
+// The time that the location data was sampled. The default value is the time the MQTT message was processed.
 func (o TopicRuleLocationActionPtrOutput) Timestamp() TopicRuleTimestampPtrOutput {
 	return o.ApplyT(func(v *TopicRuleLocationAction) *TopicRuleTimestamp {
 		if v == nil {
@@ -11532,7 +11490,7 @@ func (o TopicRuleOpenSearchActionPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type TopicRulePayload struct {
-	// Describes the actions associated with a rule.
+	// The actions associated with the rule.
 	Actions []TopicRuleAction `pulumi:"actions"`
 	// The version of the SQL rules engine to use when evaluating the rule.
 	//
@@ -11540,7 +11498,7 @@ type TopicRulePayload struct {
 	AwsIotSqlVersion *string `pulumi:"awsIotSqlVersion"`
 	// The description of the rule.
 	Description *string `pulumi:"description"`
-	// Describes the actions associated with a rule.
+	// The action to take when an error occurs.
 	ErrorAction *TopicRuleAction `pulumi:"errorAction"`
 	// Specifies whether the rule is disabled.
 	RuleDisabled *bool `pulumi:"ruleDisabled"`
@@ -11560,7 +11518,7 @@ type TopicRulePayloadInput interface {
 }
 
 type TopicRulePayloadArgs struct {
-	// Describes the actions associated with a rule.
+	// The actions associated with the rule.
 	Actions TopicRuleActionArrayInput `pulumi:"actions"`
 	// The version of the SQL rules engine to use when evaluating the rule.
 	//
@@ -11568,7 +11526,7 @@ type TopicRulePayloadArgs struct {
 	AwsIotSqlVersion pulumi.StringPtrInput `pulumi:"awsIotSqlVersion"`
 	// The description of the rule.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Describes the actions associated with a rule.
+	// The action to take when an error occurs.
 	ErrorAction TopicRuleActionPtrInput `pulumi:"errorAction"`
 	// Specifies whether the rule is disabled.
 	RuleDisabled pulumi.BoolPtrInput `pulumi:"ruleDisabled"`
@@ -11602,7 +11560,7 @@ func (o TopicRulePayloadOutput) ToTopicRulePayloadOutputWithContext(ctx context.
 	return o
 }
 
-// Describes the actions associated with a rule.
+// The actions associated with the rule.
 func (o TopicRulePayloadOutput) Actions() TopicRuleActionArrayOutput {
 	return o.ApplyT(func(v TopicRulePayload) []TopicRuleAction { return v.Actions }).(TopicRuleActionArrayOutput)
 }
@@ -11619,7 +11577,7 @@ func (o TopicRulePayloadOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TopicRulePayload) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Describes the actions associated with a rule.
+// The action to take when an error occurs.
 func (o TopicRulePayloadOutput) ErrorAction() TopicRuleActionPtrOutput {
 	return o.ApplyT(func(v TopicRulePayload) *TopicRuleAction { return v.ErrorAction }).(TopicRuleActionPtrOutput)
 }
@@ -11658,7 +11616,7 @@ func (o TopicRulePayloadPtrOutput) Elem() TopicRulePayloadOutput {
 	}).(TopicRulePayloadOutput)
 }
 
-// Describes the actions associated with a rule.
+// The actions associated with the rule.
 func (o TopicRulePayloadPtrOutput) Actions() TopicRuleActionArrayOutput {
 	return o.ApplyT(func(v *TopicRulePayload) []TopicRuleAction {
 		if v == nil {
@@ -11690,7 +11648,7 @@ func (o TopicRulePayloadPtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes the actions associated with a rule.
+// The action to take when an error occurs.
 func (o TopicRulePayloadPtrOutput) ErrorAction() TopicRuleActionPtrOutput {
 	return o.ApplyT(func(v *TopicRulePayload) *TopicRuleAction {
 		if v == nil {
@@ -11729,7 +11687,7 @@ type TopicRulePutAssetPropertyValueEntry struct {
 	PropertyAlias *string `pulumi:"propertyAlias"`
 	// The ID of the asset's property. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
 	PropertyId *string `pulumi:"propertyId"`
-	// An asset property value entry containing the following information.
+	// A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
 	PropertyValues []TopicRuleAssetPropertyValue `pulumi:"propertyValues"`
 }
 
@@ -11753,7 +11711,7 @@ type TopicRulePutAssetPropertyValueEntryArgs struct {
 	PropertyAlias pulumi.StringPtrInput `pulumi:"propertyAlias"`
 	// The ID of the asset's property. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
 	PropertyId pulumi.StringPtrInput `pulumi:"propertyId"`
-	// An asset property value entry containing the following information.
+	// A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
 	PropertyValues TopicRuleAssetPropertyValueArrayInput `pulumi:"propertyValues"`
 }
 
@@ -11828,7 +11786,7 @@ func (o TopicRulePutAssetPropertyValueEntryOutput) PropertyId() pulumi.StringPtr
 	return o.ApplyT(func(v TopicRulePutAssetPropertyValueEntry) *string { return v.PropertyId }).(pulumi.StringPtrOutput)
 }
 
-// An asset property value entry containing the following information.
+// A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
 func (o TopicRulePutAssetPropertyValueEntryOutput) PropertyValues() TopicRuleAssetPropertyValueArrayOutput {
 	return o.ApplyT(func(v TopicRulePutAssetPropertyValueEntry) []TopicRuleAssetPropertyValue { return v.PropertyValues }).(TopicRuleAssetPropertyValueArrayOutput)
 }
@@ -11991,7 +11949,7 @@ func (o TopicRulePutItemInputPtrOutput) TableName() pulumi.StringPtrOutput {
 }
 
 type TopicRuleRepublishAction struct {
-	// Specifies MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
+	// MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
 	Headers *TopicRuleRepublishActionHeaders `pulumi:"headers"`
 	// The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
 	Qos *int `pulumi:"qos"`
@@ -12013,7 +11971,7 @@ type TopicRuleRepublishActionInput interface {
 }
 
 type TopicRuleRepublishActionArgs struct {
-	// Specifies MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
+	// MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
 	Headers TopicRuleRepublishActionHeadersPtrInput `pulumi:"headers"`
 	// The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
 	Qos pulumi.IntPtrInput `pulumi:"qos"`
@@ -12100,7 +12058,7 @@ func (o TopicRuleRepublishActionOutput) ToTopicRuleRepublishActionPtrOutputWithC
 	}).(TopicRuleRepublishActionPtrOutput)
 }
 
-// Specifies MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
+// MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
 func (o TopicRuleRepublishActionOutput) Headers() TopicRuleRepublishActionHeadersPtrOutput {
 	return o.ApplyT(func(v TopicRuleRepublishAction) *TopicRuleRepublishActionHeaders { return v.Headers }).(TopicRuleRepublishActionHeadersPtrOutput)
 }
@@ -12144,7 +12102,7 @@ func (o TopicRuleRepublishActionPtrOutput) Elem() TopicRuleRepublishActionOutput
 	}).(TopicRuleRepublishActionOutput)
 }
 
-// Specifies MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
+// MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
 func (o TopicRuleRepublishActionPtrOutput) Headers() TopicRuleRepublishActionHeadersPtrOutput {
 	return o.ApplyT(func(v *TopicRuleRepublishAction) *TopicRuleRepublishActionHeaders {
 		if v == nil {

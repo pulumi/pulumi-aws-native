@@ -225,7 +225,7 @@ class GetAgentResult:
     @pulumi.getter(name="promptOverrideConfiguration")
     def prompt_override_configuration(self) -> Optional['outputs.AgentPromptOverrideConfiguration']:
         """
-        Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+        Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
         """
         return pulumi.get(self, "prompt_override_configuration")
 

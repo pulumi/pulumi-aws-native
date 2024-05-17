@@ -86,16 +86,13 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Permission for the resource.
+        /// A list of resource permissions to be set on the template.
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateResourcePermission> Permissions;
         /// <summary>
         /// Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
-        /// <summary>
-        /// A version of a template.
-        /// </summary>
         public readonly Outputs.TemplateVersion? Version;
 
         [OutputConstructor]

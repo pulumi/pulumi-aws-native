@@ -21,7 +21,7 @@ type RefreshSchedule struct {
 	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
 	// The ID of the dataset that you are creating a refresh schedule for.
 	DataSetId pulumi.StringPtrOutput `pulumi:"dataSetId"`
-	// A summary of a configured refresh schedule for a dataset.
+	// The refresh schedule of a dataset.
 	Schedule RefreshScheduleMapPtrOutput `pulumi:"schedule"`
 }
 
@@ -75,7 +75,7 @@ type refreshScheduleArgs struct {
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The ID of the dataset that you are creating a refresh schedule for.
 	DataSetId *string `pulumi:"dataSetId"`
-	// A summary of a configured refresh schedule for a dataset.
+	// The refresh schedule of a dataset.
 	Schedule *RefreshScheduleMap `pulumi:"schedule"`
 }
 
@@ -85,7 +85,7 @@ type RefreshScheduleArgs struct {
 	AwsAccountId pulumi.StringPtrInput
 	// The ID of the dataset that you are creating a refresh schedule for.
 	DataSetId pulumi.StringPtrInput
-	// A summary of a configured refresh schedule for a dataset.
+	// The refresh schedule of a dataset.
 	Schedule RefreshScheduleMapPtrInput
 }
 
@@ -141,7 +141,7 @@ func (o RefreshScheduleOutput) DataSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RefreshSchedule) pulumi.StringPtrOutput { return v.DataSetId }).(pulumi.StringPtrOutput)
 }
 
-// A summary of a configured refresh schedule for a dataset.
+// The refresh schedule of a dataset.
 func (o RefreshScheduleOutput) Schedule() RefreshScheduleMapPtrOutput {
 	return o.ApplyT(func(v *RefreshSchedule) RefreshScheduleMapPtrOutput { return v.Schedule }).(RefreshScheduleMapPtrOutput)
 }

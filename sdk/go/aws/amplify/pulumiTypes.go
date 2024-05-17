@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 type AppAutoBranchCreationConfig struct {
 	// Automated branch creation glob patterns for the Amplify app.
 	AutoBranchCreationPatterns []string `pulumi:"autoBranchCreationPatterns"`
-	// Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
+	// Sets password protection for your auto created branch.
 	BasicAuthConfig *AppBasicAuthConfig `pulumi:"basicAuthConfig"`
 	// The build specification (build spec) for the autocreated branch.
 	BuildSpec *string `pulumi:"buildSpec"`
@@ -34,7 +34,7 @@ type AppAutoBranchCreationConfig struct {
 	//
 	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
 	EnablePullRequestPreview *bool `pulumi:"enablePullRequestPreview"`
-	// Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+	// The environment variables for the autocreated branch.
 	EnvironmentVariables []AppEnvironmentVariable `pulumi:"environmentVariables"`
 	// The framework for the autocreated branch.
 	Framework *string `pulumi:"framework"`
@@ -64,7 +64,7 @@ type AppAutoBranchCreationConfigInput interface {
 type AppAutoBranchCreationConfigArgs struct {
 	// Automated branch creation glob patterns for the Amplify app.
 	AutoBranchCreationPatterns pulumi.StringArrayInput `pulumi:"autoBranchCreationPatterns"`
-	// Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
+	// Sets password protection for your auto created branch.
 	BasicAuthConfig AppBasicAuthConfigPtrInput `pulumi:"basicAuthConfig"`
 	// The build specification (build spec) for the autocreated branch.
 	BuildSpec pulumi.StringPtrInput `pulumi:"buildSpec"`
@@ -82,7 +82,7 @@ type AppAutoBranchCreationConfigArgs struct {
 	//
 	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
 	EnablePullRequestPreview pulumi.BoolPtrInput `pulumi:"enablePullRequestPreview"`
-	// Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+	// The environment variables for the autocreated branch.
 	EnvironmentVariables AppEnvironmentVariableArrayInput `pulumi:"environmentVariables"`
 	// The framework for the autocreated branch.
 	Framework pulumi.StringPtrInput `pulumi:"framework"`
@@ -180,7 +180,7 @@ func (o AppAutoBranchCreationConfigOutput) AutoBranchCreationPatterns() pulumi.S
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) []string { return v.AutoBranchCreationPatterns }).(pulumi.StringArrayOutput)
 }
 
-// Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
+// Sets password protection for your auto created branch.
 func (o AppAutoBranchCreationConfigOutput) BasicAuthConfig() AppBasicAuthConfigPtrOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *AppBasicAuthConfig { return v.BasicAuthConfig }).(AppBasicAuthConfigPtrOutput)
 }
@@ -216,7 +216,7 @@ func (o AppAutoBranchCreationConfigOutput) EnablePullRequestPreview() pulumi.Boo
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) *bool { return v.EnablePullRequestPreview }).(pulumi.BoolPtrOutput)
 }
 
-// Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+// The environment variables for the autocreated branch.
 func (o AppAutoBranchCreationConfigOutput) EnvironmentVariables() AppEnvironmentVariableArrayOutput {
 	return o.ApplyT(func(v AppAutoBranchCreationConfig) []AppEnvironmentVariable { return v.EnvironmentVariables }).(AppEnvironmentVariableArrayOutput)
 }
@@ -276,7 +276,7 @@ func (o AppAutoBranchCreationConfigPtrOutput) AutoBranchCreationPatterns() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
+// Sets password protection for your auto created branch.
 func (o AppAutoBranchCreationConfigPtrOutput) BasicAuthConfig() AppBasicAuthConfigPtrOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) *AppBasicAuthConfig {
 		if v == nil {
@@ -342,7 +342,7 @@ func (o AppAutoBranchCreationConfigPtrOutput) EnablePullRequestPreview() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+// The environment variables for the autocreated branch.
 func (o AppAutoBranchCreationConfigPtrOutput) EnvironmentVariables() AppEnvironmentVariableArrayOutput {
 	return o.ApplyT(func(v *AppAutoBranchCreationConfig) []AppEnvironmentVariable {
 		if v == nil {

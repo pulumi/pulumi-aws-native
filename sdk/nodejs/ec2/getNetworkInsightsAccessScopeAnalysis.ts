@@ -59,7 +59,7 @@ export interface GetNetworkInsightsAccessScopeAnalysisResult {
      */
     readonly statusMessage?: string;
     /**
-     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     * The tags.
      */
     readonly tags?: outputs.Tag[];
 }

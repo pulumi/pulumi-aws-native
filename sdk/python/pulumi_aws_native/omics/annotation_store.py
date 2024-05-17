@@ -29,9 +29,9 @@ class AnnotationStoreArgs:
         :param pulumi.Input['AnnotationStoreStoreFormat'] store_format: The annotation file format of the store.
         :param pulumi.Input[str] description: A description for the store.
         :param pulumi.Input[str] name: The name of the Annotation Store.
-        :param pulumi.Input['AnnotationStoreReferenceItemArgs'] reference: A genome reference.
-        :param pulumi.Input['AnnotationStoreSseConfigArgs'] sse_config: Server-side encryption (SSE) settings for a store.
-        :param pulumi.Input['AnnotationStoreStoreOptionsPropertiesArgs'] store_options: The store's file parsing options.
+        :param pulumi.Input['AnnotationStoreReferenceItemArgs'] reference: The genome reference for the store's annotations.
+        :param pulumi.Input['AnnotationStoreSseConfigArgs'] sse_config: The store's server-side encryption (SSE) settings.
+        :param pulumi.Input['AnnotationStoreStoreOptionsPropertiesArgs'] store_options: File parsing options for the annotation store.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the store.
         """
         pulumi.set(__self__, "store_format", store_format)
@@ -88,7 +88,7 @@ class AnnotationStoreArgs:
     @pulumi.getter
     def reference(self) -> Optional[pulumi.Input['AnnotationStoreReferenceItemArgs']]:
         """
-        A genome reference.
+        The genome reference for the store's annotations.
         """
         return pulumi.get(self, "reference")
 
@@ -100,7 +100,7 @@ class AnnotationStoreArgs:
     @pulumi.getter(name="sseConfig")
     def sse_config(self) -> Optional[pulumi.Input['AnnotationStoreSseConfigArgs']]:
         """
-        Server-side encryption (SSE) settings for a store.
+        The store's server-side encryption (SSE) settings.
         """
         return pulumi.get(self, "sse_config")
 
@@ -112,7 +112,7 @@ class AnnotationStoreArgs:
     @pulumi.getter(name="storeOptions")
     def store_options(self) -> Optional[pulumi.Input['AnnotationStoreStoreOptionsPropertiesArgs']]:
         """
-        The store's file parsing options.
+        File parsing options for the annotation store.
         """
         return pulumi.get(self, "store_options")
 
@@ -153,10 +153,10 @@ class AnnotationStore(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the store.
         :param pulumi.Input[str] name: The name of the Annotation Store.
-        :param pulumi.Input[pulumi.InputType['AnnotationStoreReferenceItemArgs']] reference: A genome reference.
-        :param pulumi.Input[pulumi.InputType['AnnotationStoreSseConfigArgs']] sse_config: Server-side encryption (SSE) settings for a store.
+        :param pulumi.Input[pulumi.InputType['AnnotationStoreReferenceItemArgs']] reference: The genome reference for the store's annotations.
+        :param pulumi.Input[pulumi.InputType['AnnotationStoreSseConfigArgs']] sse_config: The store's server-side encryption (SSE) settings.
         :param pulumi.Input['AnnotationStoreStoreFormat'] store_format: The annotation file format of the store.
-        :param pulumi.Input[pulumi.InputType['AnnotationStoreStoreOptionsPropertiesArgs']] store_options: The store's file parsing options.
+        :param pulumi.Input[pulumi.InputType['AnnotationStoreStoreOptionsPropertiesArgs']] store_options: File parsing options for the annotation store.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the store.
         """
         ...
@@ -291,7 +291,7 @@ class AnnotationStore(pulumi.CustomResource):
     @pulumi.getter
     def reference(self) -> pulumi.Output[Optional['outputs.AnnotationStoreReferenceItem']]:
         """
-        A genome reference.
+        The genome reference for the store's annotations.
         """
         return pulumi.get(self, "reference")
 
@@ -299,7 +299,7 @@ class AnnotationStore(pulumi.CustomResource):
     @pulumi.getter(name="sseConfig")
     def sse_config(self) -> pulumi.Output[Optional['outputs.AnnotationStoreSseConfig']]:
         """
-        Server-side encryption (SSE) settings for a store.
+        The store's server-side encryption (SSE) settings.
         """
         return pulumi.get(self, "sse_config")
 
@@ -339,7 +339,7 @@ class AnnotationStore(pulumi.CustomResource):
     @pulumi.getter(name="storeOptions")
     def store_options(self) -> pulumi.Output[Optional['outputs.AnnotationStoreStoreOptionsProperties']]:
         """
-        The store's file parsing options.
+        File parsing options for the annotation store.
         """
         return pulumi.get(self, "store_options")
 

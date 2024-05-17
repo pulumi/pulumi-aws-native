@@ -35,7 +35,7 @@ class CollaborationArgs:
                
                *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
         :param pulumi.Input[str] description: A description of the collaboration provided by the collaboration owner.
-        :param pulumi.Input[Sequence[pulumi.Input['CollaborationMemberSpecificationArgs']]] members: Basic metadata used to construct a new member.
+        :param pulumi.Input[Sequence[pulumi.Input['CollaborationMemberSpecificationArgs']]] members: A list of initial members, not including the creator. This list is immutable.
         :param pulumi.Input['CollaborationQueryLogStatus'] query_log_status: An indicator as to whether query logging has been enabled or disabled for the collaboration.
         :param pulumi.Input['CollaborationPaymentConfigurationArgs'] creator_payment_configuration: An object representing the collaboration member's payment responsibilities set by the collaboration creator.
         :param pulumi.Input['CollaborationDataEncryptionMetadataArgs'] data_encryption_metadata: The settings for client-side encryption for cryptographic computing.
@@ -98,7 +98,7 @@ class CollaborationArgs:
     @pulumi.getter
     def members(self) -> pulumi.Input[Sequence[pulumi.Input['CollaborationMemberSpecificationArgs']]]:
         """
-        Basic metadata used to construct a new member.
+        A list of initial members, not including the creator. This list is immutable.
         """
         return pulumi.get(self, "members")
 
@@ -194,7 +194,7 @@ class Collaboration(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CollaborationPaymentConfigurationArgs']] creator_payment_configuration: An object representing the collaboration member's payment responsibilities set by the collaboration creator.
         :param pulumi.Input[pulumi.InputType['CollaborationDataEncryptionMetadataArgs']] data_encryption_metadata: The settings for client-side encryption for cryptographic computing.
         :param pulumi.Input[str] description: A description of the collaboration provided by the collaboration owner.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CollaborationMemberSpecificationArgs']]]] members: Basic metadata used to construct a new member.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CollaborationMemberSpecificationArgs']]]] members: A list of initial members, not including the creator. This list is immutable.
         :param pulumi.Input[str] name: A human-readable identifier provided by the collaboration owner. Display names are not unique.
         :param pulumi.Input['CollaborationQueryLogStatus'] query_log_status: An indicator as to whether query logging has been enabled or disabled for the collaboration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
@@ -365,7 +365,7 @@ class Collaboration(pulumi.CustomResource):
     @pulumi.getter
     def members(self) -> pulumi.Output[Sequence['outputs.CollaborationMemberSpecification']]:
         """
-        Basic metadata used to construct a new member.
+        A list of initial members, not including the creator. This list is immutable.
         """
         return pulumi.get(self, "members")
 

@@ -20,9 +20,7 @@ type RestoreTestingSelection struct {
 	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
 	// You can include specific ARNs, such as `ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]` or you can include a wildcard: `ProtectedResourceArns: ["*"]` , but not both.
 	ProtectedResourceArns pulumi.StringArrayOutput `pulumi:"protectedResourceArns"`
-	// The conditions that you define for resources in your restore testing plan using tags.
-	//
-	// For example, `"StringEquals": { "Key": "aws:ResourceTag/CreatedByCryo", "Value": "true" },` . Condition operators are case sensitive.
+	// In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
 	ProtectedResourceConditions RestoreTestingSelectionProtectedResourceConditionsPtrOutput `pulumi:"protectedResourceConditions"`
 	// The type of AWS resource included in a resource testing selection; for example, an Amazon EBS volume or an Amazon RDS database.
 	ProtectedResourceType pulumi.StringOutput `pulumi:"protectedResourceType"`
@@ -99,9 +97,7 @@ type restoreTestingSelectionArgs struct {
 	IamRoleArn string `pulumi:"iamRoleArn"`
 	// You can include specific ARNs, such as `ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]` or you can include a wildcard: `ProtectedResourceArns: ["*"]` , but not both.
 	ProtectedResourceArns []string `pulumi:"protectedResourceArns"`
-	// The conditions that you define for resources in your restore testing plan using tags.
-	//
-	// For example, `"StringEquals": { "Key": "aws:ResourceTag/CreatedByCryo", "Value": "true" },` . Condition operators are case sensitive.
+	// In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
 	ProtectedResourceConditions *RestoreTestingSelectionProtectedResourceConditions `pulumi:"protectedResourceConditions"`
 	// The type of AWS resource included in a resource testing selection; for example, an Amazon EBS volume or an Amazon RDS database.
 	ProtectedResourceType string `pulumi:"protectedResourceType"`
@@ -125,9 +121,7 @@ type RestoreTestingSelectionArgs struct {
 	IamRoleArn pulumi.StringInput
 	// You can include specific ARNs, such as `ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]` or you can include a wildcard: `ProtectedResourceArns: ["*"]` , but not both.
 	ProtectedResourceArns pulumi.StringArrayInput
-	// The conditions that you define for resources in your restore testing plan using tags.
-	//
-	// For example, `"StringEquals": { "Key": "aws:ResourceTag/CreatedByCryo", "Value": "true" },` . Condition operators are case sensitive.
+	// In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
 	ProtectedResourceConditions RestoreTestingSelectionProtectedResourceConditionsPtrInput
 	// The type of AWS resource included in a resource testing selection; for example, an Amazon EBS volume or an Amazon RDS database.
 	ProtectedResourceType pulumi.StringInput
@@ -192,9 +186,7 @@ func (o RestoreTestingSelectionOutput) ProtectedResourceArns() pulumi.StringArra
 	return o.ApplyT(func(v *RestoreTestingSelection) pulumi.StringArrayOutput { return v.ProtectedResourceArns }).(pulumi.StringArrayOutput)
 }
 
-// The conditions that you define for resources in your restore testing plan using tags.
-//
-// For example, `"StringEquals": { "Key": "aws:ResourceTag/CreatedByCryo", "Value": "true" },` . Condition operators are case sensitive.
+// In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
 func (o RestoreTestingSelectionOutput) ProtectedResourceConditions() RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
 	return o.ApplyT(func(v *RestoreTestingSelection) RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
 		return v.ProtectedResourceConditions

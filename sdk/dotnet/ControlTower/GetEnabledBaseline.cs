@@ -66,11 +66,11 @@ namespace Pulumi.AwsNative.ControlTower
         /// </summary>
         public readonly string? EnabledBaselineIdentifier;
         /// <summary>
-        /// A key-value parameter to an `EnabledBaseline` resource.
+        /// Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
         /// </summary>
         public readonly ImmutableArray<Outputs.EnabledBaselineParameter> Parameters;
         /// <summary>
-        /// A key-value parameter to an `EnabledBaseline` resource.
+        /// Tags associated with input to `EnableBaseline` .
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

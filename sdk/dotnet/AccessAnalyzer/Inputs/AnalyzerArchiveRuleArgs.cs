@@ -19,9 +19,7 @@ namespace Pulumi.AwsNative.AccessAnalyzer.Inputs
         private InputList<Inputs.AnalyzerFilterArgs>? _filter;
 
         /// <summary>
-        /// The criteria that defines the archive rule.
-        /// 
-        /// To learn about filter keys that you can use to create an archive rule, see [filter keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html) in the *User Guide* .
+        /// The criteria for the rule.
         /// </summary>
         public InputList<Inputs.AnalyzerFilterArgs> Filter
         {

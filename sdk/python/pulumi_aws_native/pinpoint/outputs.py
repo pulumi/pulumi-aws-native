@@ -105,10 +105,10 @@ class InAppTemplateButtonConfig(dict):
                  ios: Optional['outputs.InAppTemplateOverrideButtonConfiguration'] = None,
                  web: Optional['outputs.InAppTemplateOverrideButtonConfiguration'] = None):
         """
-        :param 'InAppTemplateOverrideButtonConfiguration' android: Specifies the configuration of a button with settings that are specific to a certain device type.
+        :param 'InAppTemplateOverrideButtonConfiguration' android: Optional button configuration to use for in-app messages sent to Android devices. This button configuration overrides the default button configuration.
         :param 'InAppTemplateDefaultButtonConfiguration' default_config: Specifies the default behavior of a button that appears in an in-app message. You can optionally add button configurations that specifically apply to iOS, Android, or web browser users.
-        :param 'InAppTemplateOverrideButtonConfiguration' ios: Specifies the configuration of a button with settings that are specific to a certain device type.
-        :param 'InAppTemplateOverrideButtonConfiguration' web: Specifies the configuration of a button with settings that are specific to a certain device type.
+        :param 'InAppTemplateOverrideButtonConfiguration' ios: Optional button configuration to use for in-app messages sent to iOS devices. This button configuration overrides the default button configuration.
+        :param 'InAppTemplateOverrideButtonConfiguration' web: Optional button configuration to use for in-app messages sent to web applications. This button configuration overrides the default button configuration.
         """
         if android is not None:
             pulumi.set(__self__, "android", android)
@@ -123,7 +123,7 @@ class InAppTemplateButtonConfig(dict):
     @pulumi.getter
     def android(self) -> Optional['outputs.InAppTemplateOverrideButtonConfiguration']:
         """
-        Specifies the configuration of a button with settings that are specific to a certain device type.
+        Optional button configuration to use for in-app messages sent to Android devices. This button configuration overrides the default button configuration.
         """
         return pulumi.get(self, "android")
 
@@ -139,7 +139,7 @@ class InAppTemplateButtonConfig(dict):
     @pulumi.getter
     def ios(self) -> Optional['outputs.InAppTemplateOverrideButtonConfiguration']:
         """
-        Specifies the configuration of a button with settings that are specific to a certain device type.
+        Optional button configuration to use for in-app messages sent to iOS devices. This button configuration overrides the default button configuration.
         """
         return pulumi.get(self, "ios")
 
@@ -147,7 +147,7 @@ class InAppTemplateButtonConfig(dict):
     @pulumi.getter
     def web(self) -> Optional['outputs.InAppTemplateOverrideButtonConfiguration']:
         """
-        Specifies the configuration of a button with settings that are specific to a certain device type.
+        Optional button configuration to use for in-app messages sent to web applications. This button configuration overrides the default button configuration.
         """
         return pulumi.get(self, "web")
 
@@ -360,11 +360,11 @@ class InAppTemplateInAppMessageContent(dict):
                  secondary_btn: Optional['outputs.InAppTemplateButtonConfig'] = None):
         """
         :param str background_color: The background color for an in-app message banner, expressed as a hex color code (such as #000000 for black).
-        :param 'InAppTemplateBodyConfig' body_config: Specifies the configuration of the main body text of the in-app message.
-        :param 'InAppTemplateHeaderConfig' header_config: Specifies the configuration and content of the header or title text of the in-app message.
+        :param 'InAppTemplateBodyConfig' body_config: An object that contains configuration information about the header or title text of the in-app message.
+        :param 'InAppTemplateHeaderConfig' header_config: An object that contains configuration information about the header or title text of the in-app message.
         :param str image_url: The URL of the image that appears on an in-app message banner.
-        :param 'InAppTemplateButtonConfig' primary_btn: Specifies the behavior of buttons that appear in an in-app message template.
-        :param 'InAppTemplateButtonConfig' secondary_btn: Specifies the behavior of buttons that appear in an in-app message template.
+        :param 'InAppTemplateButtonConfig' primary_btn: An object that contains configuration information about the primary button in an in-app message.
+        :param 'InAppTemplateButtonConfig' secondary_btn: An object that contains configuration information about the secondary button in an in-app message.
         """
         if background_color is not None:
             pulumi.set(__self__, "background_color", background_color)
@@ -391,7 +391,7 @@ class InAppTemplateInAppMessageContent(dict):
     @pulumi.getter(name="bodyConfig")
     def body_config(self) -> Optional['outputs.InAppTemplateBodyConfig']:
         """
-        Specifies the configuration of the main body text of the in-app message.
+        An object that contains configuration information about the header or title text of the in-app message.
         """
         return pulumi.get(self, "body_config")
 
@@ -399,7 +399,7 @@ class InAppTemplateInAppMessageContent(dict):
     @pulumi.getter(name="headerConfig")
     def header_config(self) -> Optional['outputs.InAppTemplateHeaderConfig']:
         """
-        Specifies the configuration and content of the header or title text of the in-app message.
+        An object that contains configuration information about the header or title text of the in-app message.
         """
         return pulumi.get(self, "header_config")
 
@@ -415,7 +415,7 @@ class InAppTemplateInAppMessageContent(dict):
     @pulumi.getter(name="primaryBtn")
     def primary_btn(self) -> Optional['outputs.InAppTemplateButtonConfig']:
         """
-        Specifies the behavior of buttons that appear in an in-app message template.
+        An object that contains configuration information about the primary button in an in-app message.
         """
         return pulumi.get(self, "primary_btn")
 
@@ -423,7 +423,7 @@ class InAppTemplateInAppMessageContent(dict):
     @pulumi.getter(name="secondaryBtn")
     def secondary_btn(self) -> Optional['outputs.InAppTemplateButtonConfig']:
         """
-        Specifies the behavior of buttons that appear in an in-app message template.
+        An object that contains configuration information about the secondary button in an in-app message.
         """
         return pulumi.get(self, "secondary_btn")
 

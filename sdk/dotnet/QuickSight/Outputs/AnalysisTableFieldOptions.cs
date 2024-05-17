@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.AnalysisTablePinnedFieldOptions? PinnedFieldOptions;
         /// <summary>
-        /// The options for a table field.
+        /// The field options to be configured to a table.
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisTableFieldOption> SelectedFieldOptions;
 

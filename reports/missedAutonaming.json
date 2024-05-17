@@ -64,7 +64,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "Tags are labels that you can use to identify and organize your private CAs. Each tag consists of a key and an optional value. You can associate up to 50 tags with a private CA. To add one or more tags to a private CA, call the [TagCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_TagCertificateAuthority.html) action. To remove a tag, call the [UntagCertificateAuthority](https://docs.aws.amazon.com/privateca/latest/APIReference/API_UntagCertificateAuthority.html) action."
+        "description": "Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) ."
       },
       "type": {
         "type": "string",
@@ -249,7 +249,7 @@
       },
       "endpointConfiguration": {
         "$ref": "#/types/aws-native:apigateway:DomainNameEndpointConfiguration",
-        "description": "The `EndpointConfiguration` property type specifies the endpoint types of an Amazon API Gateway domain name.\n\n`EndpointConfiguration` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource."
+        "description": "The endpoint configuration of this DomainName showing the endpoint types of the domain name."
       },
       "mutualTlsAuthentication": {
         "$ref": "#/types/aws-native:apigateway:DomainNameMutualTlsAuthentication",
@@ -272,7 +272,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "An array of key-value pairs to apply to this resource.\n\nFor more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) ."
+        "description": "The collection of tags. Each tag element is associated with a given resource."
       }
     }
   },
@@ -847,7 +847,7 @@
       },
       "serviceAccountCredentials": {
         "$ref": "#/types/aws-native:appstream:DirectoryConfigServiceAccountCredentials",
-        "description": "The credentials for the service account used by the streaming instance to connect to the directory."
+        "description": "The credentials for the service account used by the streaming instance to connect to the directory. Do not use this parameter directly. Use `ServiceAccountCredentials` as an input parameter with `noEcho` as shown in the [Parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html) . For best practices information, see [Do Not Embed Credentials in Your Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html#creds) ."
       }
     }
   },
@@ -989,15 +989,15 @@
       },
       "destination": {
         "$ref": "#/types/aws-native:aps:ScraperDestination",
-        "description": "Where to send the metrics from a scraper."
+        "description": "The Amazon Managed Service for Prometheus workspace the scraper sends metrics to."
       },
       "scrapeConfiguration": {
         "$ref": "#/types/aws-native:aps:ScraperScrapeConfiguration",
-        "description": "A scrape configuration for a scraper, base 64 encoded. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration) in the *Amazon Managed Service for Prometheus User Guide* ."
+        "description": "The configuration in use by the scraper."
       },
       "source": {
         "$ref": "#/types/aws-native:aps:ScraperSource",
-        "description": "The source of collected metrics for a scraper."
+        "description": "The Amazon EKS cluster from which the scraper collects metrics."
       },
       "tags": {
         "type": "array",
@@ -1041,7 +1041,7 @@
     "properties": {
       "practiceRunConfiguration": {
         "$ref": "#/types/aws-native:arczonalshift:ZonalAutoshiftConfigurationPracticeRunConfiguration",
-        "description": "A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice run, as well as any blocked dates or blocked windows for the practice run.\n\nWhen a resource has a practice run configuation, Route 53 ARC starts weekly zonal shifts for the resource, to shift traffic away from an Availability Zone. Weekly practice runs help you to make sure that your application can continue to operate normally with the loss of one Availability Zone.\n\nYou can update or delete a practice run configuration. When you delete a practice run configuration, zonal autoshift is disabled for the resource. A practice run configuration is required when zonal autoshift is enabled."
+        "description": "A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice run, as well as any blocked dates or blocked windows for the practice run. When a resource has a practice run configuration, Route 53 ARC shifts traffic for the resource weekly for practice runs.\n\nPractice runs are required for zonal autoshift. The zonal shifts that Route 53 ARC starts for practice runs help you to ensure that shifting away traffic from an Availability Zone during an autoshift is safe for your application.\n\nYou can update or delete a practice run configuration. Before you delete a practice run configuration, you must disable zonal autoshift for the resource. A practice run configuration is required when zonal autoshift is enabled."
       },
       "resourceIdentifier": {
         "type": "string",
@@ -1151,7 +1151,7 @@
       },
       "instanceReusePolicy": {
         "$ref": "#/types/aws-native:autoscaling:WarmPoolInstanceReusePolicy",
-        "description": "A structure that specifies an instance reuse policy for the `InstanceReusePolicy` property of the [AWS::AutoScaling::WarmPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html) resource.\n\nFor more information, see [Warm pools for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html) in the *Amazon EC2 Auto Scaling User Guide* ."
+        "description": "Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in."
       },
       "maxGroupPreparedCapacity": {
         "type": "integer",
@@ -1172,7 +1172,7 @@
     "properties": {
       "backupPlan": {
         "$ref": "#/types/aws-native:backup:BackupPlanResourceType",
-        "description": "Specifies an object containing properties used to create a backup plan.",
+        "description": "Uniquely identifies the backup plan to be associated with the selection of resources.",
         "language": {
           "csharp": {
             "name": "BackupPlanValue"
@@ -1197,7 +1197,7 @@
       },
       "backupSelection": {
         "$ref": "#/types/aws-native:backup:BackupSelectionResourceType",
-        "description": "Specifies an object containing properties used to assign a set of resources to a backup plan.",
+        "description": "Specifies the body of a request to assign a set of resources to a backup plan.\n\nIt includes an array of resources, an optional array of patterns to exclude resources, an optional role to provide access to the AWS service the resource belongs to, and an optional array of tags used to identify a set of resources.",
         "language": {
           "csharp": {
             "name": "BackupSelectionValue"
@@ -1240,7 +1240,7 @@
       },
       "definition": {
         "$ref": "#/types/aws-native:budgets:BudgetsActionDefinition",
-        "description": "The definition is where you specify all of the type-specific parameters."
+        "description": "Specifies all of the type-specific parameters."
       },
       "executionRoleArn": {
         "type": "string",
@@ -1255,14 +1255,14 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "The tag structure that contains a tag key and value."
+        "description": "An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource."
       },
       "subscribers": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:budgets:BudgetsActionSubscriber"
         },
-        "description": "The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.\n\nFor example, an email subscriber has the following parameters:\n\n- A `subscriptionType` of `EMAIL`\n- An `address` of `example@example.com`"
+        "description": "A list of subscribers."
       }
     }
   },
@@ -1284,11 +1284,11 @@
       },
       "defaultResultConfiguration": {
         "$ref": "#/types/aws-native:cleanrooms:MembershipProtectedQueryResultConfiguration",
-        "description": "Contains configurations for protected query results."
+        "description": "The default protected query result configuration as specified by the member who can receive results."
       },
       "paymentConfiguration": {
         "$ref": "#/types/aws-native:cleanrooms:MembershipPaymentConfiguration",
-        "description": "An object representing the payment responsibilities accepted by the collaboration member."
+        "description": "The payment responsibilities accepted by the collaboration member."
       },
       "queryLogStatus": {
         "$ref": "#/types/aws-native:cleanrooms:MembershipQueryLogStatus",
@@ -1546,7 +1546,7 @@
     "properties": {
       "cachePolicyConfig": {
         "$ref": "#/types/aws-native:cloudfront:CachePolicyConfig",
-        "description": "A cache policy configuration.\n\nThis configuration determines the following:\n\n- The values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.\n- The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.\n\nThe headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find a valid object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use `OriginRequestPolicy` ."
+        "description": "The cache policy configuration."
       }
     }
   },
@@ -1555,7 +1555,7 @@
     "properties": {
       "cloudFrontOriginAccessIdentityConfig": {
         "$ref": "#/types/aws-native:cloudfront:CloudFrontOriginAccessIdentityConfig",
-        "description": "Origin access identity configuration. Send a `GET` request to the `/ *CloudFront API version* /CloudFront/identity ID/config` resource."
+        "description": "The current configuration information for the identity."
       }
     }
   },
@@ -1589,7 +1589,7 @@
     "properties": {
       "keyGroupConfig": {
         "$ref": "#/types/aws-native:cloudfront:KeyGroupConfig",
-        "description": "A key group configuration.\n\nA key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) ."
+        "description": "The key group configuration."
       }
     }
   },
@@ -1602,7 +1602,7 @@
       },
       "monitoringSubscription": {
         "$ref": "#/types/aws-native:cloudfront:MonitoringSubscription",
-        "description": "A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.",
+        "description": "A subscription configuration for additional CloudWatch metrics.",
         "language": {
           "csharp": {
             "name": "MonitoringSubscriptionValue"
@@ -1616,7 +1616,7 @@
     "properties": {
       "originAccessControlConfig": {
         "$ref": "#/types/aws-native:cloudfront:OriginAccessControlConfig",
-        "description": "Creates a new origin access control in CloudFront. After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.\n\nThis makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.\n\nFor more information about using a CloudFront origin access control, see [Restricting access to an AWS origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide* ."
+        "description": "The origin access control."
       }
     }
   },
@@ -1625,7 +1625,7 @@
     "properties": {
       "originRequestPolicyConfig": {
         "$ref": "#/types/aws-native:cloudfront:OriginRequestPolicyConfig",
-        "description": "An origin request policy configuration.\n\nThis configuration determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:\n\n- The request body and the URL path (without the domain name) from the viewer request.\n- The headers that CloudFront automatically includes in every origin request, including `Host` , `User-Agent` , and `X-Amz-Cf-Id` .\n- All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.\n\nCloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use `CachePolicy` ."
+        "description": "The origin request policy configuration."
       }
     }
   },
@@ -1643,7 +1643,7 @@
     "properties": {
       "responseHeadersPolicyConfig": {
         "$ref": "#/types/aws-native:cloudfront:ResponseHeadersPolicyConfig",
-        "description": "A response headers policy configuration.\n\nA response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers."
+        "description": "A response headers policy configuration."
       }
     }
   },
@@ -1874,7 +1874,7 @@
     "properties": {
       "customDomainConfig": {
         "$ref": "#/types/aws-native:cognito:UserPoolDomainCustomDomainConfigType",
-        "description": "The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application."
+        "description": "The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM."
       },
       "domain": {
         "type": "string",
@@ -1891,7 +1891,7 @@
     "properties": {
       "accountTakeoverRiskConfiguration": {
         "$ref": "#/types/aws-native:cognito:UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType",
-        "description": "Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover."
+        "description": "The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover."
       },
       "clientId": {
         "type": "string",
@@ -1899,11 +1899,11 @@
       },
       "compromisedCredentialsRiskConfiguration": {
         "$ref": "#/types/aws-native:cognito:UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType",
-        "description": "The compromised credentials risk configuration type."
+        "description": "The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` ."
       },
       "riskExceptionConfiguration": {
         "$ref": "#/types/aws-native:cognito:UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType",
-        "description": "The type of the configuration to override the risk decision."
+        "description": "The configuration to override the risk decision."
       },
       "userPoolId": {
         "type": "string",
@@ -2053,15 +2053,15 @@
       },
       "kinesisFirehoseConfig": {
         "$ref": "#/types/aws-native:connect:InstanceStorageConfigKinesisFirehoseConfig",
-        "description": "Configuration information of a Kinesis Data Firehose delivery stream."
+        "description": "The configuration of the Kinesis Firehose delivery stream."
       },
       "kinesisStreamConfig": {
         "$ref": "#/types/aws-native:connect:InstanceStorageConfigKinesisStreamConfig",
-        "description": "Configuration information of a Kinesis data stream."
+        "description": "The configuration of the Kinesis data stream."
       },
       "kinesisVideoStreamConfig": {
         "$ref": "#/types/aws-native:connect:InstanceStorageConfigKinesisVideoStreamConfig",
-        "description": "Configuration information of a Kinesis video stream."
+        "description": "The configuration of the Kinesis video stream."
       },
       "resourceType": {
         "$ref": "#/types/aws-native:connect:InstanceStorageConfigInstanceStorageResourceType",
@@ -2069,7 +2069,7 @@
       },
       "s3Config": {
         "$ref": "#/types/aws-native:connect:InstanceStorageConfigS3Config",
-        "description": "Information about the Amazon Simple Storage Service (Amazon S3) storage type."
+        "description": "The S3 bucket configuration."
       },
       "storageType": {
         "$ref": "#/types/aws-native:connect:InstanceStorageConfigStorageType",
@@ -2176,14 +2176,14 @@
         "items": {
           "$ref": "#/types/aws-native:controltower:EnabledBaselineParameter"
         },
-        "description": "A key-value parameter to an `EnabledBaseline` resource."
+        "description": "Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline."
       },
       "tags": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "A key-value parameter to an `EnabledBaseline` resource."
+        "description": "Tags associated with input to `EnableBaseline` ."
       },
       "targetIdentifier": {
         "type": "string",
@@ -2230,7 +2230,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "Tags applied to the landing zone."
+        "description": "Tags to be applied to the landing zone."
       },
       "version": {
         "type": "string",
@@ -2287,7 +2287,7 @@
       },
       "flowDefinition": {
         "$ref": "#/types/aws-native:customerprofiles:IntegrationFlowDefinition",
-        "description": "The configurations that control how Customer Profiles retrieves data from the source, Amazon AppFlow. Customer Profiles uses this information to create an AppFlow flow on behalf of customers."
+        "description": "The configuration that controls how Customer Profiles retrieves data from the source."
       },
       "objectTypeName": {
         "type": "string",
@@ -2337,7 +2337,7 @@
       },
       "azureBlobSasConfiguration": {
         "$ref": "#/types/aws-native:datasync:LocationAzureBlobAzureBlobSasConfiguration",
-        "description": "The shared access signature (SAS) configuration that allows AWS DataSync to access your Microsoft Azure Blob Storage.\n\nFor more information, see [SAS tokens](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-sas-tokens) for accessing your Azure Blob Storage."
+        "description": "Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage."
       },
       "azureBlobType": {
         "$ref": "#/types/aws-native:datasync:LocationAzureBlobAzureBlobType",
@@ -2365,7 +2365,7 @@
       },
       "ec2Config": {
         "$ref": "#/types/aws-native:datasync:LocationEfsEc2Config",
-        "description": "The subnet and security groups that AWS DataSync uses to access your Amazon EFS file system."
+        "description": "Specifies the subnet and security groups DataSync uses to access your Amazon EFS file system."
       },
       "efsFilesystemArn": {
         "type": "string",
@@ -2424,7 +2424,7 @@
     "properties": {
       "protocol": {
         "$ref": "#/types/aws-native:datasync:LocationFSxOntapProtocol",
-        "description": "Specifies the data transfer protocol that AWS DataSync uses to access your Amazon FSx file system."
+        "description": "Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system."
       },
       "securityGroupArns": {
         "type": "array",
@@ -2459,7 +2459,7 @@
       },
       "protocol": {
         "$ref": "#/types/aws-native:datasync:LocationFSxOpenZfsProtocol",
-        "description": "Represents the protocol that AWS DataSync uses to access your Amazon FSx for OpenZFS file system."
+        "description": "The type of protocol that AWS DataSync uses to access your file system."
       },
       "securityGroupArns": {
         "type": "array",
@@ -2563,7 +2563,7 @@
       },
       "qopConfiguration": {
         "$ref": "#/types/aws-native:datasync:LocationHdfsQopConfiguration",
-        "description": "The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer privacy settings configured on the Hadoop Distributed File System (HDFS) cluster."
+        "description": "The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `QopConfiguration` isn't specified, `RpcProtection` and `DataTransferProtection` default to `PRIVACY` . If you set `RpcProtection` or `DataTransferProtection` , the other parameter assumes the same value."
       },
       "replicationFactor": {
         "type": "integer",
@@ -2595,7 +2595,7 @@
       },
       "onPremConfig": {
         "$ref": "#/types/aws-native:datasync:LocationNfsOnPremConfig",
-        "description": "The AWS DataSync agents that are connecting to a Network File System (NFS) location."
+        "description": "Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.\n\nYou can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) ."
       },
       "serverHostname": {
         "type": "string",
@@ -2674,7 +2674,7 @@
       },
       "s3Config": {
         "$ref": "#/types/aws-native:datasync:LocationS3s3Config",
-        "description": "Specifies the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.\n\nFor more information, see [Accessing S3 buckets](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access) ."
+        "description": "The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.\n\nFor detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* ."
       },
       "s3StorageClass": {
         "$ref": "#/types/aws-native:datasync:LocationS3S3StorageClass",
@@ -2767,7 +2767,7 @@
         "items": {
           "$ref": "#/types/aws-native:datazone:EnvironmentBlueprintConfigurationRegionalParameter"
         },
-        "description": "The regional parameters in the environment blueprint."
+        "description": "The regional parameters of the environment blueprint."
       }
     }
   },
@@ -2800,7 +2800,7 @@
             "$ref": "#/types/aws-native:deadline:FleetConfiguration1Properties"
           }
         ],
-        "description": "Fleet configuration details."
+        "description": "The configuration details for the fleet."
       },
       "description": {
         "type": "string",
@@ -2981,7 +2981,7 @@
         "items": {
           "$ref": "#/types/aws-native:deadline:StorageProfileFileSystemLocation"
         },
-        "description": "The details of the file system location for the resource."
+        "description": "Operating system specific file system path to the storage location."
       },
       "osFamily": {
         "$ref": "#/types/aws-native:deadline:StorageProfileOperatingSystemFamily",
@@ -3048,7 +3048,7 @@
     "properties": {
       "config": {
         "$ref": "#/types/aws-native:devopsguru:NotificationChannelConfig",
-        "description": "Information about notification channels you have configured with DevOps Guru. The one supported notification channel is Amazon Simple Notification Service (Amazon SNS)."
+        "description": "A `NotificationChannelConfig` object that contains information about configured notification channels."
       }
     }
   },
@@ -3165,7 +3165,7 @@
         "items": {
           "$ref": "#/types/aws-native:ec2:CapacityReservationTagSpecification"
         },
-        "description": "An array of key-value pairs to apply to this resource.\n\nFor more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) ."
+        "description": "The tags to apply to the Capacity Reservation during launch."
       },
       "tenancy": {
         "type": "string",
@@ -3193,7 +3193,7 @@
         "items": {
           "$ref": "#/types/aws-native:ec2:CapacityReservationFleetInstanceTypeSpecification"
         },
-        "description": "Specifies information about an instance type to use in a Capacity Reservation Fleet.\n\n`InstanceTypeSpecification` is a property of the [AWS::EC2::CapacityReservationFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html) resource."
+        "description": "Information about the instance types for which to reserve the capacity."
       },
       "noRemoveEndDate": {
         "type": "boolean",
@@ -3208,7 +3208,7 @@
         "items": {
           "$ref": "#/types/aws-native:ec2:CapacityReservationFleetTagSpecification"
         },
-        "description": "The tags to apply to a resource when the resource is being created. When you specify a tag, you must specify the resource type to tag, otherwise the request will fail.\n\n\u003e The `Valid Values` lists all the resource types that can be tagged. However, the action you're using might not support tagging all of these resource types. If you try to tag a resource type that is unsupported for the action you're using, you'll get an error."
+        "description": "The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet."
       },
       "tenancy": {
         "$ref": "#/types/aws-native:ec2:CapacityReservationFleetTenancy",
@@ -3329,11 +3329,11 @@
         "items": {
           "$ref": "#/types/aws-native:ec2:Ec2FleetFleetLaunchTemplateConfigRequest"
         },
-        "description": "Specifies a launch template and overrides for an EC2 Fleet.\n\n`FleetLaunchTemplateConfigRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource."
+        "description": "The configuration for the EC2 Fleet."
       },
       "onDemandOptions": {
         "$ref": "#/types/aws-native:ec2:Ec2FleetOnDemandOptionsRequest",
-        "description": "Specifies the allocation strategy of On-Demand Instances in an EC2 Fleet.\n\n`OnDemandOptionsRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource."
+        "description": "Describes the configuration of On-Demand Instances in an EC2 Fleet."
       },
       "replaceUnhealthyInstances": {
         "type": "boolean",
@@ -3341,18 +3341,18 @@
       },
       "spotOptions": {
         "$ref": "#/types/aws-native:ec2:Ec2FleetSpotOptionsRequest",
-        "description": "Specifies the configuration of Spot Instances for an EC2 Fleet.\n\n`SpotOptionsRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource."
+        "description": "Describes the configuration of Spot Instances in an EC2 Fleet."
       },
       "tagSpecifications": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:ec2:Ec2FleetTagSpecification"
         },
-        "description": "Specifies the tags to apply to a resource when the resource is being created for an EC2 Fleet.\n\n`TagSpecification` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource."
+        "description": "The key-value pair for tagging the EC2 Fleet request on creation. For more information, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .\n\nIf the fleet type is `instant` , specify a resource type of `fleet` to tag the fleet or `instance` to tag the instances at launch.\n\nIf the fleet type is `maintain` or `request` , specify a resource type of `fleet` to tag the fleet. You cannot specify a resource type of `instance` . To tag instances at launch, specify the tags in a [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) ."
       },
       "targetCapacitySpecification": {
         "$ref": "#/types/aws-native:ec2:Ec2FleetTargetCapacitySpecificationRequest",
-        "description": "Specifies the number of units to request for an EC2 Fleet. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of `0` and add capacity later.\n\n`TargetCapacitySpecificationRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource."
+        "description": "The number of units to request."
       },
       "terminateInstancesWithExpiration": {
         "type": "boolean",
@@ -4187,21 +4187,21 @@
         "items": {
           "$ref": "#/types/aws-native:ec2:NetworkInsightsAccessScopeAccessScopePathRequest"
         },
-        "description": "Describes a path."
+        "description": "The paths to exclude."
       },
       "matchPaths": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:ec2:NetworkInsightsAccessScopeAccessScopePathRequest"
         },
-        "description": "Describes a path."
+        "description": "The paths to match."
       },
       "tags": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) ."
+        "description": "The tags."
       }
     }
   },
@@ -4217,7 +4217,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) ."
+        "description": "The tags."
       }
     }
   },
@@ -4247,7 +4247,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) ."
+        "description": "The tags to apply."
       }
     }
   },
@@ -4268,11 +4268,11 @@
       },
       "filterAtDestination": {
         "$ref": "#/types/aws-native:ec2:NetworkInsightsPathPathFilter",
-        "description": "Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths."
+        "description": "Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify the parameter for the destination IP address."
       },
       "filterAtSource": {
         "$ref": "#/types/aws-native:ec2:NetworkInsightsPathPathFilter",
-        "description": "Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths."
+        "description": "Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify the parameters for the source IP address or the destination port."
       },
       "protocol": {
         "$ref": "#/types/aws-native:ec2:NetworkInsightsPathProtocol",
@@ -4291,7 +4291,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) ."
+        "description": "The tags to add to the path."
       }
     }
   },
@@ -4300,7 +4300,7 @@
     "properties": {
       "connectionTrackingSpecification": {
         "$ref": "#/types/aws-native:ec2:NetworkInterfaceConnectionTrackingSpecification",
-        "description": "Configurable options for connection tracking on a network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon Elastic Compute Cloud User Guide* ."
+        "description": "A connection tracking specification for the network interface."
       },
       "description": {
         "type": "string",
@@ -4399,7 +4399,7 @@
       },
       "enaSrdSpecification": {
         "$ref": "#/types/aws-native:ec2:NetworkInterfaceAttachmentEnaSrdSpecification",
-        "description": "ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances. With ENA Express, you can communicate between two EC2 instances in the same subnet within the same account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.\n\nTo improve the reliability of network packet delivery, ENA Express reorders network packets on the receiving end by default. However, some UDP-based applications are designed to handle network packets that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express is enabled, you can specify whether UDP network traffic uses it."
+        "description": "Configures ENA Express for the network interface that this action attaches to the instance."
       },
       "instanceId": {
         "type": "string",
@@ -4645,7 +4645,7 @@
     "properties": {
       "spotFleetRequestConfigData": {
         "$ref": "#/types/aws-native:ec2:SpotFleetRequestConfigData",
-        "description": "Specifies the configuration of a Spot Fleet request. For more information, see [Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html) in the *Amazon EC2 User Guide* .\n\nYou must specify either `LaunchSpecifications` or `LaunchTemplateConfigs` ."
+        "description": "Describes the configuration of a Spot Fleet request."
       }
     }
   },
@@ -4823,7 +4823,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) ."
+        "description": "The tags for the transit gateway."
       },
       "transitGatewayCidrBlocks": {
         "type": "array",
@@ -4857,7 +4857,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) ."
+        "description": "The tags for the attachment."
       },
       "transitGatewayId": {
         "type": "string",
@@ -5084,7 +5084,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) ."
+        "description": "The tags for the VPC attachment."
       },
       "transitGatewayId": {
         "type": "string",
@@ -5242,7 +5242,7 @@
       },
       "deviceOptions": {
         "$ref": "#/types/aws-native:ec2:VerifiedAccessTrustProviderDeviceOptions",
-        "description": "Describes the options for an AWS Verified Access device-identity based trust provider."
+        "description": "The options for device-identity trust provider."
       },
       "deviceTrustProviderType": {
         "type": "string",
@@ -5250,7 +5250,7 @@
       },
       "oidcOptions": {
         "$ref": "#/types/aws-native:ec2:VerifiedAccessTrustProviderOidcOptions",
-        "description": "Describes the options for an OpenID Connect-compatible user-identity trust provider."
+        "description": "The options for an OpenID Connect-compatible user-identity trust provider."
       },
       "policyReferenceName": {
         "type": "string",
@@ -5585,7 +5585,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) ."
+        "description": "Any tags assigned to the resource."
       },
       "vpcId": {
         "type": "string",
@@ -5923,11 +5923,11 @@
         "items": {
           "$ref": "#/types/aws-native:ecs:TaskSetLoadBalancer"
         },
-        "description": "The load balancer configuration to use with a service or task set.\n\nWhen you add, update, or remove a load balancer configuration, Amazon ECS starts a new deployment with the updated Elastic Load Balancing configuration. This causes tasks to register to and deregister from load balancers.\n\nWe recommend that you verify this on a test environment before you update the Elastic Load Balancing configuration.\n\nA service-linked role is required for services that use multiple target groups. For more information, see [Using service-linked roles](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html) in the *Amazon Elastic Container Service Developer Guide* ."
+        "description": "A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer."
       },
       "networkConfiguration": {
         "$ref": "#/types/aws-native:ecs:TaskSetNetworkConfiguration",
-        "description": "The network configuration for a task or service."
+        "description": "The network configuration for the task set."
       },
       "platformVersion": {
         "type": "string",
@@ -5953,7 +5953,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.\n\nThe following basic restrictions apply to tags:\n\n- Maximum number of tags per resource - 50\n- For each resource, each tag key must be unique, and each tag key can have only one value.\n- Maximum key length - 128 Unicode characters in UTF-8\n- Maximum value length - 256 Unicode characters in UTF-8\n- If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.\n- Tag keys and values are case-sensitive.\n- Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit."
+        "description": "The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.\n\nThe following basic restrictions apply to tags:\n\n- Maximum number of tags per resource - 50\n- For each resource, each tag key must be unique, and each tag key can have only one value.\n- Maximum key length - 128 Unicode characters in UTF-8\n- Maximum value length - 256 Unicode characters in UTF-8\n- If your tagging schema is used across multiple services and resources, remember that other services may have restrictions on allowed characters. Generally allowed characters are: letters, numbers, and spaces representable in UTF-8, and the following characters: + - = . _ : / @.\n- Tag keys and values are case-sensitive.\n- Do not use `aws:` , `AWS:` , or any upper or lowercase combination of such as a prefix for either keys or values as it is reserved for AWS use. You cannot edit or delete tag keys or values with this prefix. Tags with this prefix do not count against your tags per resource limit."
       },
       "taskDefinition": {
         "type": "string",
@@ -6243,7 +6243,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "A tag that can be added to an ElastiCache cluster or replication group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your ElastiCache resources, with the exception of global replication group. When you add or remove tags on replication groups, those actions will be replicated to all nodes in the replication group. A tag with a null Value is permitted."
+        "description": "A tag that can be added to an ElastiCache subnet group. Tags are composed of a Key/Value pair. You can use tags to categorize and track all your subnet groups. A tag with a null Value is permitted."
       }
     }
   },
@@ -6556,11 +6556,11 @@
       },
       "experimentOptions": {
         "$ref": "#/types/aws-native:fis:ExperimentTemplateExperimentOptions",
-        "description": "Describes the experiment options for an experiment template."
+        "description": "The experiment options for an experiment template."
       },
       "logConfiguration": {
         "$ref": "#/types/aws-native:fis:ExperimentTemplateLogConfiguration",
-        "description": "Specifies the configuration for experiment logging.\n\nFor more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* ."
+        "description": "The configuration for experiment logging."
       },
       "roleArn": {
         "type": "string",
@@ -6658,7 +6658,7 @@
         "items": {
           "$ref": "#/types/aws-native:frauddetector:DetectorRule"
         },
-        "description": "A rule."
+        "description": "The rules to include in the detector version."
       },
       "tags": {
         "type": "array",
@@ -6744,7 +6744,7 @@
         "items": {
           "$ref": "#/types/aws-native:globalaccelerator:EndpointGroupPortOverride"
         },
-        "description": "Override specific listener ports used to route traffic to endpoints that are part of an endpoint group. For example, you can create a port override in which the listener receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080 and 1443, respectively, on the endpoints.\n\nFor more information, see [Port overrides](https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html) in the *AWS Global Accelerator Developer Guide* ."
+        "description": "Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on."
       },
       "thresholdCount": {
         "type": "integer",
@@ -6772,7 +6772,7 @@
         "items": {
           "$ref": "#/types/aws-native:globalaccelerator:ListenerPortRange"
         },
-        "description": "A complex type for a range of ports for a listener."
+        "description": "The list of port ranges for the connections from clients to the accelerator."
       },
       "protocol": {
         "$ref": "#/types/aws-native:globalaccelerator:ListenerProtocol",
@@ -6785,7 +6785,7 @@
     "properties": {
       "schema": {
         "$ref": "#/types/aws-native:glue:SchemaVersionSchema",
-        "description": "A wrapper structure to contain schema identity fields. Either `SchemaArn` , or `SchemaName` and `RegistryName` has to be provided."
+        "description": "The schema that includes the schema version."
       },
       "schemaDefinition": {
         "type": "string",
@@ -6819,7 +6819,7 @@
       },
       "lambdaFunction": {
         "$ref": "#/types/aws-native:greengrassv2:ComponentVersionLambdaFunctionRecipeSource",
-        "description": "Contains information about an AWS Lambda function to import to create a component."
+        "description": "The parameters to create a component from a Lambda function.\n\nYou must specify either `InlineRecipe` or `LambdaFunction` ."
       },
       "tags": {
         "type": "object",
@@ -6846,7 +6846,7 @@
         "items": {
           "$ref": "#/types/aws-native:groundstation:DataflowEndpointGroupEndpointDetails"
         },
-        "description": "The security details and endpoint information."
+        "description": "List of Endpoint Details, containing address and port for each endpoint."
       },
       "tags": {
         "type": "array",
@@ -6862,7 +6862,7 @@
     "properties": {
       "dataSources": {
         "$ref": "#/types/aws-native:guardduty:DetectorCfnDataSourceConfigurations",
-        "description": "Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created."
+        "description": "Describes which data sources will be enabled for the detector."
       },
       "enable": {
         "type": "boolean",
@@ -6873,7 +6873,7 @@
         "items": {
           "$ref": "#/types/aws-native:guardduty:DetectorCfnFeatureConfiguration"
         },
-        "description": "Information about the configuration of a feature in your account."
+        "description": "A list of features that will be configured for the detector."
       },
       "findingPublishingFrequency": {
         "type": "string",
@@ -6884,7 +6884,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "Describes a tag."
+        "description": "Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.\n\nCurrently, support is available only for creating and deleting a tag. No support exists for updating the tags.\n\nFor more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) ."
       }
     }
   },
@@ -6949,7 +6949,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* ."
+        "description": "A list of tags that are attached to the specified IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* ."
       },
       "thumbprintList": {
         "type": "array",
@@ -7074,7 +7074,7 @@
         "items": {
           "$ref": "#/types/aws-native:inspector:ResourceGroupTag"
         },
-        "description": "A key and value pair. This data type is used as a request parameter in the `SetTagsForResource` action and a response element in the `ListTagsForResource` action."
+        "description": "The tags (key and value pairs) that will be associated with the resource group.\n\nFor more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) ."
       }
     }
   },
@@ -7087,7 +7087,7 @@
       },
       "schedule": {
         "$ref": "#/types/aws-native:inspectorv2:CisScanConfigurationSchedule",
-        "description": "The schedule the CIS scan configuration runs on. Each CIS scan configuration has exactly one type of schedule."
+        "description": "The CIS scan configuration's schedule."
       },
       "securityLevel": {
         "$ref": "#/types/aws-native:inspectorv2:CisScanConfigurationCisSecurityLevel",
@@ -7102,7 +7102,7 @@
       },
       "targets": {
         "$ref": "#/types/aws-native:inspectorv2:CisScanConfigurationCisTargets",
-        "description": "The CIS targets."
+        "description": "The CIS scan configuration's targets."
       }
     }
   },
@@ -7115,11 +7115,11 @@
       },
       "auditCheckConfigurations": {
         "$ref": "#/types/aws-native:iot:AccountAuditConfigurationAuditCheckConfigurations",
-        "description": "The types of audit checks that can be performed."
+        "description": "Specifies which audit checks are enabled and disabled for this account.\n\nSome data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted. To disable a check, set the value of the `Enabled:` key to `false` .\n\nIf an enabled check is removed from the template, it will also be disabled.\n\nYou can't disable a check if it's used by any scheduled audit. You must delete the check from the scheduled audit or delete the scheduled audit itself to disable the check.\n\nFor more information on avialbe auidt checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)"
       },
       "auditNotificationTargetConfigurations": {
         "$ref": "#/types/aws-native:iot:AccountAuditConfigurationAuditNotificationTargetConfigurations",
-        "description": "The configuration of the audit notification target."
+        "description": "Information about the targets to which audit notifications are sent."
       },
       "roleArn": {
         "type": "string",
@@ -7144,7 +7144,7 @@
       },
       "registrationConfig": {
         "$ref": "#/types/aws-native:iot:CaCertificateRegistrationConfig",
-        "description": "The registration configuration."
+        "description": "Information about the registration configuration."
       },
       "removeAutoRegistration": {
         "type": "boolean",
@@ -7239,7 +7239,7 @@
         "items": {
           "$ref": "#/types/aws-native:iot:JobTemplateMaintenanceWindow"
         },
-        "description": "An optional configuration within the `SchedulingConfig` to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job."
+        "description": "An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job."
       },
       "presignedUrlConfig": {
         "$ref": "#/types/aws-native:iot:PresignedUrlConfigProperties",
@@ -7317,7 +7317,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "A set of key/value pairs that are used to manage the resource."
+        "description": "An array of key-value pairs to apply to this resource.\n\nFor more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) ."
       }
     }
   },
@@ -7721,7 +7721,7 @@
     "properties": {
       "destinationConfig": {
         "$ref": "#/types/aws-native:lambda:EventInvokeConfigDestinationConfig",
-        "description": "A configuration object that specifies the destination of an event after Lambda processes it."
+        "description": "A destination for events after they have been sent to a function for processing.\n\n**Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.\n- *Queue* - The ARN of a standard SQS queue.\n- *Topic* - The ARN of a standard SNS topic.\n- *Event Bus* - The ARN of an Amazon EventBridge event bus."
       },
       "functionName": {
         "type": "string",
@@ -7952,7 +7952,7 @@
       },
       "cors": {
         "$ref": "#/types/aws-native:lambda:UrlCors",
-        "description": "The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL. Use CORS to grant access to your function URL from any origin. You can also use CORS to control access for specific HTTP headers and methods in requests to your function URL."
+        "description": "The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL."
       },
       "invokeMode": {
         "$ref": "#/types/aws-native:lambda:UrlInvokeMode",
@@ -8266,7 +8266,7 @@
     "properties": {
       "authorization": {
         "$ref": "#/types/aws-native:mediapackage:OriginEndpointAuthorization",
-        "description": "Parameters for enabling CDN authorization on the endpoint."
+        "description": "Parameters for CDN authorization."
       },
       "awsId": {
         "type": "string",
@@ -9167,8 +9167,7 @@
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
-        },
-        "description": "A structure that contains information about a tag."
+        }
       }
     }
   },
@@ -9192,7 +9191,7 @@
       },
       "vpcInformation": {
         "$ref": "#/types/aws-native:pcaconnectorad:ConnectorVpcInformation",
-        "description": "Information about your VPC and security groups used with the connector."
+        "description": "Information of the VPC and security group(s) used with the connector."
       }
     }
   },
@@ -9230,7 +9229,7 @@
     "properties": {
       "accessRights": {
         "$ref": "#/types/aws-native:pcaconnectorad:TemplateGroupAccessControlEntryAccessRights",
-        "description": "Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a template."
+        "description": "Permissions to allow or deny an Active Directory group to enroll or autoenroll certificates issued against a template."
       },
       "groupDisplayName": {
         "type": "string",
@@ -9314,7 +9313,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @."
+        "description": "A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @."
       }
     }
   },
@@ -9358,11 +9357,11 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @."
+        "description": "A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @."
       },
       "vpcConfiguration": {
         "$ref": "#/types/aws-native:qbusiness:DataSourceVpcConfiguration",
-        "description": "Provides configuration information needed to connect to an Amazon VPC (Virtual Private Cloud)."
+        "description": "Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source. For more information, see [Using Amazon VPC with Amazon Q Business connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connector-vpc.html) ."
       }
     }
   },
@@ -9375,7 +9374,7 @@
       },
       "capacityConfiguration": {
         "$ref": "#/types/aws-native:qbusiness:IndexCapacityConfiguration",
-        "description": "Provides information about index capacity configuration."
+        "description": "The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs."
       },
       "description": {
         "type": "string",
@@ -9397,7 +9396,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @."
+        "description": "A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @."
       },
       "type": {
         "$ref": "#/types/aws-native:qbusiness:IndexType",
@@ -9447,7 +9446,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @."
+        "description": "A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @."
       },
       "type": {
         "$ref": "#/types/aws-native:qbusiness:PluginType",
@@ -9486,7 +9485,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @."
+        "description": "A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @."
       },
       "type": {
         "$ref": "#/types/aws-native:qbusiness:RetrieverType",
@@ -9518,7 +9517,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @."
+        "description": "A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @."
       },
       "title": {
         "type": "string",
@@ -9543,7 +9542,7 @@
       },
       "schedule": {
         "$ref": "#/types/aws-native:quicksight:RefreshScheduleMap",
-        "description": "A summary of a configured refresh schedule for a dataset."
+        "description": "The refresh schedule of a dataset."
       }
     }
   },
@@ -9781,7 +9780,7 @@
       },
       "readEndpoint": {
         "$ref": "#/types/aws-native:rds:DbClusterReadEndpoint",
-        "description": "The `ReadEndpoint` return value specifies the reader endpoint for the DB cluster.\n\nThe reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.\n\nIf a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.\n\nFor more information about Aurora endpoints, see [Amazon Aurora connection management](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html) in the *Amazon Aurora User Guide* ."
+        "description": "This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:\n\n- `CreateDBInstance`\n- `DescribeDBInstances`\n- `DeleteDBInstance`\n\nFor the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` ."
       },
       "replicationSourceIdentifier": {
         "type": "string",
@@ -10180,7 +10179,7 @@
     "properties": {
       "connectionPoolConfigurationInfo": {
         "$ref": "#/types/aws-native:rds:DbProxyTargetGroupConnectionPoolConfigurationInfoFormat",
-        "description": "Specifies the settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` ."
+        "description": "Settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` ."
       },
       "dbClusterIdentifiers": {
         "type": "array",
@@ -10327,7 +10326,7 @@
       },
       "endpoint": {
         "$ref": "#/types/aws-native:redshift:ClusterEndpoint",
-        "description": "Describes a connection endpoint."
+        "description": "The connection endpoint."
       },
       "enhancedVpcRouting": {
         "type": "boolean",
@@ -10544,7 +10543,7 @@
       },
       "defaultRoute": {
         "$ref": "#/types/aws-native:refactorspaces:RouteDefaultRouteInput",
-        "description": "The configuration for the default route type."
+        "description": "Configuration for the default route type."
       },
       "environmentIdentifier": {
         "type": "string",
@@ -10730,7 +10729,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:CreateOnlyTag"
         },
-        "description": "A container of a key value name pair."
+        "description": "The AWS resource tags that you are adding to the access grant. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources."
       }
     }
   },
@@ -10746,7 +10745,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:CreateOnlyTag"
         },
-        "description": "A container of a key value name pair."
+        "description": "The AWS resource tags that you are adding to the S3 Access Grants instance. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources."
       }
     }
   },
@@ -10766,7 +10765,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:CreateOnlyTag"
         },
-        "description": "A container of a key value name pair."
+        "description": "The AWS resource tags that you are adding to the S3 Access Grants location. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources."
       }
     }
   },
@@ -10801,7 +10800,7 @@
     "properties": {
       "storageLensConfiguration": {
         "$ref": "#/types/aws-native:s3:StorageLensConfiguration",
-        "description": "This is the property of the Amazon S3 Storage Lens configuration."
+        "description": "This resource contains the details Amazon S3 Storage Lens configuration."
       },
       "tags": {
         "type": "array",
@@ -11011,11 +11010,11 @@
     "properties": {
       "encryptionConfiguration": {
         "$ref": "#/types/aws-native:securitylake:DataLakeEncryptionConfiguration",
-        "description": "Provides encryption details of the Amazon Security Lake object. The AWS shared responsibility model applies to data protection in Amazon Security Lake . As described in this model, AWS is responsible for protecting the global infrastructure that runs all of the AWS Cloud. You are responsible for maintaining control over your content that is hosted on this infrastructure. For more details, see [Data protection](https://docs.aws.amazon.com//security-lake/latest/userguide/data-protection.html) in the Amazon Security Lake User Guide."
+        "description": "Provides encryption details of the Amazon Security Lake object."
       },
       "lifecycleConfiguration": {
         "$ref": "#/types/aws-native:securitylake:DataLakeLifecycleConfiguration",
-        "description": "Provides lifecycle details of Amazon Security Lake object. To manage your data so that it is stored cost effectively, you can configure retention settings for the data. You can specify your preferred Amazon S3 storage class and the time period for Amazon S3 objects to stay in that storage class before they transition to a different storage class or expire. For more information about Amazon S3 Lifecycle configurations, see [Managing your storage lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html) in the *Amazon Simple Storage Service User Guide* .\n\nIn Security Lake , you specify retention settings at the Region level. For example, you might choose to transition all S3 objects in a specific AWS Region to the `S3 Standard-IA` storage class 30 days after they're written to the data lake. The default Amazon S3 storage class is S3 Standard.\n\n\u003e Security Lake doesn't support Amazon S3 Object Lock. When the data lake buckets are created, S3 Object Lock is disabled by default. Enabling S3 Object Lock with default retention mode interrupts the delivery of normalized log data to the data lake."
+        "description": "You can customize Security Lake to store data in your preferred AWS Regions for your preferred amount of time. Lifecycle management can help you comply with different compliance requirements. For more details, see [Lifecycle management](https://docs.aws.amazon.com//security-lake/latest/userguide/lifecycle-management.html) in the Amazon Security Lake User Guide."
       },
       "metaStoreManagerRoleArn": {
         "type": "string",
@@ -11023,14 +11022,14 @@
       },
       "replicationConfiguration": {
         "$ref": "#/types/aws-native:securitylake:DataLakeReplicationConfiguration",
-        "description": "Provides replication configuration details for objects stored in the Amazon Security Lake data lake."
+        "description": "Provides replication details of Amazon Security Lake object."
       },
       "tags": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "A *tag* is a label that you can define and associate with AWS resources, including certain types of Amazon Security Lake resources. Tags can help you identify, categorize, and manage resources in different ways, such as by owner, environment, or other criteria. You can associate tags with the following types of Security Lake resources: subscribers, and the data lake configuration for your AWS account in individual AWS Regions .\n\nA resource can have up to 50 tags. Each tag consists of a required *tag key* and an associated *tag value* . A *tag key* is a general label that acts as a category for a more specific tag value. Each tag key must be unique and it can have only one tag value. A *tag value* acts as a descriptor for a tag key. Tag keys and values are case sensitive. They can contain letters, numbers, spaces, or the following symbols: _ . : / = + @ -\n\nFor more information, see [Tagging Amazon Security Lake resources](https://docs.aws.amazon.com//security-lake/latest/userguide/tagging-resources.html) in the *Amazon Security Lake User Guide* ."
+        "description": "An array of objects, one for each tag to associate with the data lake configuration. For each tag, you must specify both a tag key and a tag value. A tag value cannot be null, but it can be an empty string."
       }
     }
   },
@@ -11081,18 +11080,18 @@
         "items": {
           "$ref": "#/types/aws-native:servicecatalog:CloudFormationProvisionedProductProvisioningParameter"
         },
-        "description": "Information about a parameter used to provision a product."
+        "description": "Parameters specified by the administrator that are required for provisioning the product."
       },
       "provisioningPreferences": {
         "$ref": "#/types/aws-native:servicecatalog:CloudFormationProvisionedProductProvisioningPreferences",
-        "description": "The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product type\n\nOne or more AWS accounts that will have access to the provisioned product.\n\nApplicable only to a `CFN_STACKSET` provisioned product type.\n\nThe AWS accounts specified should be within the list of accounts in the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.\n\nIf no values are specified, the default value is all accounts from the `STACKSET` constraint."
+        "description": "StackSet preferences that are required for provisioning the product or updating a provisioned product."
       },
       "tags": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product."
+        "description": "One or more tags.\n\n\u003e Requires the provisioned product to have an [ResourceUpdateConstraint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html) resource with `TagUpdatesOnProvisionedProduct` set to `ALLOWED` to allow tag updates. If `RESOURCE_UPDATE` constraint is not present, tags updates are ignored."
       }
     }
   },
@@ -11165,11 +11164,11 @@
       },
       "dkimAttributes": {
         "$ref": "#/types/aws-native:ses:EmailIdentityDkimAttributes",
-        "description": "Used to enable or disable DKIM authentication for an email identity."
+        "description": "An object that contains information about the DKIM attributes for the identity."
       },
       "dkimSigningAttributes": {
         "$ref": "#/types/aws-native:ses:EmailIdentityDkimSigningAttributes",
-        "description": "Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:\n\n- Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).\n- Update the key length that should be used for Easy DKIM.\n- Change from using no DKIM authentication to using Easy DKIM.\n- Change from using no DKIM authentication to using BYODKIM.\n- Change from using Easy DKIM to using BYODKIM.\n- Change from using BYODKIM to using Easy DKIM."
+        "description": "If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) ."
       },
       "emailIdentity": {
         "type": "string",
@@ -11182,7 +11181,7 @@
       },
       "feedbackAttributes": {
         "$ref": "#/types/aws-native:ses:EmailIdentityFeedbackAttributes",
-        "description": "Used to enable or disable feedback forwarding for an identity. This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event."
+        "description": "Used to enable or disable feedback forwarding for an identity."
       },
       "mailFromAttributes": {
         "$ref": "#/types/aws-native:ses:EmailIdentityMailFromAttributes",
@@ -11209,11 +11208,11 @@
     "properties": {
       "dashboardAttributes": {
         "$ref": "#/types/aws-native:ses:VdmAttributesDashboardAttributes",
-        "description": "Settings for your VDM configuration as applicable to the Dashboard."
+        "description": "Specifies additional settings for your VDM configuration as applicable to the Dashboard."
       },
       "guardianAttributes": {
         "$ref": "#/types/aws-native:ses:VdmAttributesGuardianAttributes",
-        "description": "Settings for your VDM configuration as applicable to the Guardian."
+        "description": "Specifies additional settings for your VDM configuration as applicable to the Guardian."
       }
     }
   },
@@ -11622,7 +11621,7 @@
         "items": {
           "$ref": "#/types/aws-native:systemsmanagersap:ApplicationCredential"
         },
-        "description": "The credentials of your SAP application."
+        "description": "The credentials of the SAP application."
       },
       "instances": {
         "type": "array",
@@ -11831,7 +11830,7 @@
     "properties": {
       "configuration": {
         "$ref": "#/types/aws-native:verifiedpermissions:IdentitySourceConfiguration",
-        "description": "A structure that contains configuration information used when creating or updating a new identity source.\n\n\u003e At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.\n\u003e \n\u003e You must specify a `userPoolArn` , and optionally, a `ClientId` ."
+        "description": "Contains configuration information about an identity source."
       },
       "policyStoreId": {
         "type": "string",
@@ -11855,7 +11854,7 @@
             "$ref": "#/types/aws-native:verifiedpermissions:PolicyDefinition1Properties"
           }
         ],
-        "description": "A structure that defines a Cedar policy. It includes the policy type, a description, and a policy body. This is a top level data type used to create a policy.\n\nThis data type is used as a request parameter for the [CreatePolicy](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html) operation. This structure must always have either an `Static` or a `TemplateLinked` element."
+        "description": "Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element."
       },
       "policyStoreId": {
         "type": "string",
@@ -11872,11 +11871,11 @@
       },
       "schema": {
         "$ref": "#/types/aws-native:verifiedpermissions:PolicyStoreSchemaDefinition",
-        "description": "Contains a list of principal types, resource types, and actions that can be specified in policies stored in the same policy store. If the validation mode for the policy store is set to `STRICT` , then policies that can't be validated by this schema are rejected by Verified Permissions and can't be stored in the policy store."
+        "description": "Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time."
       },
       "validationSettings": {
         "$ref": "#/types/aws-native:verifiedpermissions:PolicyStoreValidationSettings",
-        "description": "A structure that contains Cedar policy validation settings for the policy store. The validation mode determines which validation failures that Cedar considers serious enough to block acceptance of a new or edited static policy or policy template."
+        "description": "Specifies the validation setting for this policy store.\n\nCurrently, the only valid and required value is `Mode` .\n\n\u003e We recommend that you turn on `STRICT` mode only after you define a schema. If a schema doesn't exist, then `STRICT` mode causes any policy to fail validation, and Verified Permissions rejects the policy. You can turn off validation by using the [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) . Then, when you have a schema defined, use [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) again to turn validation back on."
       }
     }
   },
@@ -11913,7 +11912,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "Specifies a tag for an access log subscription."
+        "description": "The tags for the access log subscription."
       }
     }
   },
@@ -11948,7 +11947,7 @@
     "properties": {
       "dnsEntry": {
         "$ref": "#/types/aws-native:vpclattice:ServiceNetworkServiceAssociationDnsEntry",
-        "description": "The DNS information."
+        "description": "The DNS information of the service."
       },
       "serviceIdentifier": {
         "type": "string",
@@ -11963,7 +11962,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "Specifies a tag for a service association."
+        "description": "The tags for the association."
       }
     }
   },
@@ -11986,7 +11985,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "Specifies a tag for a VPC association."
+        "description": "The tags for the association."
       },
       "vpcIdentifier": {
         "type": "string",
@@ -12043,7 +12042,7 @@
       },
       "association": {
         "$ref": "#/types/aws-native:wisdom:AssistantAssociationAssociationData",
-        "description": "A union type that currently has a single argument, which is the knowledge base ID."
+        "description": "The identifier of the associated resource."
       },
       "associationType": {
         "$ref": "#/types/aws-native:wisdom:AssistantAssociationAssociationType",
@@ -12054,7 +12053,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:CreateOnlyTag"
         },
-        "description": "Metadata to assign to the Wisdom assistant association. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define."
+        "description": "The tags used to organize, track, or control access for this resource."
       }
     }
   },
@@ -12070,7 +12069,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:CreateOnlyTag"
         },
-        "description": "Describes a tag."
+        "description": "The tags to associate with the connection alias."
       }
     }
   },
@@ -12097,7 +12096,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "The tag."
+        "description": "The tags to add to the browser settings resource. A tag is a key-value pair."
       }
     }
   },
@@ -12135,7 +12134,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "The tag."
+        "description": "The tags to add to the browser settings resource. A tag is a key-value pair."
       }
     }
   },
@@ -12161,7 +12160,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "The tag."
+        "description": "The tags to add to the network settings resource. A tag is a key-value pair."
       },
       "vpcId": {
         "type": "string",
@@ -12216,7 +12215,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "The tag."
+        "description": "The tags to add to the web portal. A tag is a key-value pair."
       },
       "trustStoreArn": {
         "type": "string",
@@ -12247,7 +12246,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "The tag."
+        "description": "The tags to add to the trust store. A tag is a key-value pair."
       }
     }
   },
@@ -12263,7 +12262,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "The tag."
+        "description": "The tags to add to the user access logging settings resource. A tag is a key-value pair."
       }
     }
   },
@@ -12314,7 +12313,7 @@
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "The tag."
+        "description": "The tags to add to the user settings resource. A tag is a key-value pair."
       },
       "uploadAllowed": {
         "$ref": "#/types/aws-native:workspacesweb:UserSettingsEnabledType",

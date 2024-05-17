@@ -25,7 +25,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string>? LabelColor { get; set; }
 
         /// <summary>
-        /// Configures the display properties of the given text.
+        /// The font configuration for the data labels.
+        /// 
+        /// Only the `FontSize` attribute of the font configuration is used for data labels.
         /// </summary>
         [Input("labelFontConfiguration")]
         public Input<Inputs.TemplateFontConfigurationArgs>? LabelFontConfiguration { get; set; }

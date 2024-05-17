@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Batch
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The fair share policy for a scheduling policy.
+        /// The fair share policy of the scheduling policy.
         /// </summary>
         [Output("fairsharePolicy")]
         public Output<Outputs.SchedulingPolicyFairsharePolicy?> FairsharePolicy { get; private set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.Batch
     public sealed class SchedulingPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The fair share policy for a scheduling policy.
+        /// The fair share policy of the scheduling policy.
         /// </summary>
         [Input("fairsharePolicy")]
         public Input<Inputs.SchedulingPolicyFairsharePolicyArgs>? FairsharePolicy { get; set; }

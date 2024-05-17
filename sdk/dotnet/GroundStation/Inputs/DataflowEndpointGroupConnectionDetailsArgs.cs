@@ -21,9 +21,6 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         [Input("mtu")]
         public Input<int>? Mtu { get; set; }
 
-        /// <summary>
-        /// The address of the endpoint, such as `192.168.1.1` .
-        /// </summary>
         [Input("socketAddress")]
         public Input<Inputs.DataflowEndpointGroupSocketAddressArgs>? SocketAddress { get; set; }
 

@@ -451,7 +451,7 @@ func (o ContactTargetInfoPtrOutput) IsEssential() pulumi.BoolPtrOutput {
 
 // The contacts or contact methods that the escalation plan or engagement plan is engaging.
 type ContactTargets struct {
-	// Information about the contact channel that Incident Manager uses to engage the contact.
+	// Information about the contact channel that Incident Manager engages.
 	ChannelTargetInfo *ContactChannelTargetInfo `pulumi:"channelTargetInfo"`
 	// The contact that Incident Manager is engaging during an incident.
 	ContactTargetInfo *ContactTargetInfo `pulumi:"contactTargetInfo"`
@@ -470,7 +470,7 @@ type ContactTargetsInput interface {
 
 // The contacts or contact methods that the escalation plan or engagement plan is engaging.
 type ContactTargetsArgs struct {
-	// Information about the contact channel that Incident Manager uses to engage the contact.
+	// Information about the contact channel that Incident Manager engages.
 	ChannelTargetInfo ContactChannelTargetInfoPtrInput `pulumi:"channelTargetInfo"`
 	// The contact that Incident Manager is engaging during an incident.
 	ContactTargetInfo ContactTargetInfoPtrInput `pulumi:"contactTargetInfo"`
@@ -528,7 +528,7 @@ func (o ContactTargetsOutput) ToContactTargetsOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Information about the contact channel that Incident Manager uses to engage the contact.
+// Information about the contact channel that Incident Manager engages.
 func (o ContactTargetsOutput) ChannelTargetInfo() ContactChannelTargetInfoPtrOutput {
 	return o.ApplyT(func(v ContactTargets) *ContactChannelTargetInfo { return v.ChannelTargetInfo }).(ContactChannelTargetInfoPtrOutput)
 }
@@ -987,9 +987,9 @@ func (o PlanStageArrayOutput) Index(i pulumi.IntInput) PlanStageOutput {
 
 // The contacts or contact methods that the escalation plan or engagement plan is engaging.
 type PlanTargets struct {
-	// Information about the contact channel that Incident Manager uses to engage the contact.
+	// Information about the contact channel that Incident Manager engages.
 	ChannelTargetInfo *PlanChannelTargetInfo `pulumi:"channelTargetInfo"`
-	// The contact that Incident Manager is engaging during an incident.
+	// Information about the contact that Incident Manager engages.
 	ContactTargetInfo *PlanContactTargetInfo `pulumi:"contactTargetInfo"`
 }
 
@@ -1006,9 +1006,9 @@ type PlanTargetsInput interface {
 
 // The contacts or contact methods that the escalation plan or engagement plan is engaging.
 type PlanTargetsArgs struct {
-	// Information about the contact channel that Incident Manager uses to engage the contact.
+	// Information about the contact channel that Incident Manager engages.
 	ChannelTargetInfo PlanChannelTargetInfoPtrInput `pulumi:"channelTargetInfo"`
-	// The contact that Incident Manager is engaging during an incident.
+	// Information about the contact that Incident Manager engages.
 	ContactTargetInfo PlanContactTargetInfoPtrInput `pulumi:"contactTargetInfo"`
 }
 
@@ -1064,12 +1064,12 @@ func (o PlanTargetsOutput) ToPlanTargetsOutputWithContext(ctx context.Context) P
 	return o
 }
 
-// Information about the contact channel that Incident Manager uses to engage the contact.
+// Information about the contact channel that Incident Manager engages.
 func (o PlanTargetsOutput) ChannelTargetInfo() PlanChannelTargetInfoPtrOutput {
 	return o.ApplyT(func(v PlanTargets) *PlanChannelTargetInfo { return v.ChannelTargetInfo }).(PlanChannelTargetInfoPtrOutput)
 }
 
-// The contact that Incident Manager is engaging during an incident.
+// Information about the contact that Incident Manager engages.
 func (o PlanTargetsOutput) ContactTargetInfo() PlanContactTargetInfoPtrOutput {
 	return o.ApplyT(func(v PlanTargets) *PlanContactTargetInfo { return v.ContactTargetInfo }).(PlanContactTargetInfoPtrOutput)
 }

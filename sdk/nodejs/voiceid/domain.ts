@@ -50,11 +50,11 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The configuration containing information about the customer managed key used for encrypting customer data.
+     * The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
      */
     public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.voiceid.DomainServerSideEncryptionConfiguration>;
     /**
-     * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+     * The tags used to organize, track, or control access for this resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -102,11 +102,11 @@ export interface DomainArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The configuration containing information about the customer managed key used for encrypting customer data.
+     * The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
      */
     serverSideEncryptionConfiguration: pulumi.Input<inputs.voiceid.DomainServerSideEncryptionConfigurationArgs>;
     /**
-     * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+     * The tags used to organize, track, or control access for this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

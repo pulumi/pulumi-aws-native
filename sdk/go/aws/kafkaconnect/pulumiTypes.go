@@ -17,7 +17,7 @@ var _ = internal.GetEnvOrDefault
 type ConnectorApacheKafkaCluster struct {
 	// The bootstrap servers string of the Apache Kafka cluster.
 	BootstrapServers string `pulumi:"bootstrapServers"`
-	// Information about the VPC in which the connector resides.
+	// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
 	Vpc ConnectorVpc `pulumi:"vpc"`
 }
 
@@ -36,7 +36,7 @@ type ConnectorApacheKafkaClusterInput interface {
 type ConnectorApacheKafkaClusterArgs struct {
 	// The bootstrap servers string of the Apache Kafka cluster.
 	BootstrapServers pulumi.StringInput `pulumi:"bootstrapServers"`
-	// Information about the VPC in which the connector resides.
+	// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
 	Vpc ConnectorVpcInput `pulumi:"vpc"`
 }
 
@@ -72,7 +72,7 @@ func (o ConnectorApacheKafkaClusterOutput) BootstrapServers() pulumi.StringOutpu
 	return o.ApplyT(func(v ConnectorApacheKafkaCluster) string { return v.BootstrapServers }).(pulumi.StringOutput)
 }
 
-// Information about the VPC in which the connector resides.
+// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
 func (o ConnectorApacheKafkaClusterOutput) Vpc() ConnectorVpcOutput {
 	return o.ApplyT(func(v ConnectorApacheKafkaCluster) ConnectorVpc { return v.Vpc }).(ConnectorVpcOutput)
 }
@@ -85,9 +85,9 @@ type ConnectorAutoScaling struct {
 	McuCount int `pulumi:"mcuCount"`
 	// The minimum number of workers for a connector.
 	MinWorkerCount int `pulumi:"minWorkerCount"`
-	// The scale-in policy for the connector.
+	// The sacle-in policy for the connector.
 	ScaleInPolicy ConnectorScaleInPolicy `pulumi:"scaleInPolicy"`
-	// The scale-out policy for the connector.
+	// The sacle-out policy for the connector.
 	ScaleOutPolicy ConnectorScaleOutPolicy `pulumi:"scaleOutPolicy"`
 }
 
@@ -110,9 +110,9 @@ type ConnectorAutoScalingArgs struct {
 	McuCount pulumi.IntInput `pulumi:"mcuCount"`
 	// The minimum number of workers for a connector.
 	MinWorkerCount pulumi.IntInput `pulumi:"minWorkerCount"`
-	// The scale-in policy for the connector.
+	// The sacle-in policy for the connector.
 	ScaleInPolicy ConnectorScaleInPolicyInput `pulumi:"scaleInPolicy"`
-	// The scale-out policy for the connector.
+	// The sacle-out policy for the connector.
 	ScaleOutPolicy ConnectorScaleOutPolicyInput `pulumi:"scaleOutPolicy"`
 }
 
@@ -209,12 +209,12 @@ func (o ConnectorAutoScalingOutput) MinWorkerCount() pulumi.IntOutput {
 	return o.ApplyT(func(v ConnectorAutoScaling) int { return v.MinWorkerCount }).(pulumi.IntOutput)
 }
 
-// The scale-in policy for the connector.
+// The sacle-in policy for the connector.
 func (o ConnectorAutoScalingOutput) ScaleInPolicy() ConnectorScaleInPolicyOutput {
 	return o.ApplyT(func(v ConnectorAutoScaling) ConnectorScaleInPolicy { return v.ScaleInPolicy }).(ConnectorScaleInPolicyOutput)
 }
 
-// The scale-out policy for the connector.
+// The sacle-out policy for the connector.
 func (o ConnectorAutoScalingOutput) ScaleOutPolicy() ConnectorScaleOutPolicyOutput {
 	return o.ApplyT(func(v ConnectorAutoScaling) ConnectorScaleOutPolicy { return v.ScaleOutPolicy }).(ConnectorScaleOutPolicyOutput)
 }
@@ -273,7 +273,7 @@ func (o ConnectorAutoScalingPtrOutput) MinWorkerCount() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The scale-in policy for the connector.
+// The sacle-in policy for the connector.
 func (o ConnectorAutoScalingPtrOutput) ScaleInPolicy() ConnectorScaleInPolicyPtrOutput {
 	return o.ApplyT(func(v *ConnectorAutoScaling) *ConnectorScaleInPolicy {
 		if v == nil {
@@ -283,7 +283,7 @@ func (o ConnectorAutoScalingPtrOutput) ScaleInPolicy() ConnectorScaleInPolicyPtr
 	}).(ConnectorScaleInPolicyPtrOutput)
 }
 
-// The scale-out policy for the connector.
+// The sacle-out policy for the connector.
 func (o ConnectorAutoScalingPtrOutput) ScaleOutPolicy() ConnectorScaleOutPolicyPtrOutput {
 	return o.ApplyT(func(v *ConnectorAutoScaling) *ConnectorScaleOutPolicy {
 		if v == nil {
@@ -295,9 +295,9 @@ func (o ConnectorAutoScalingPtrOutput) ScaleOutPolicy() ConnectorScaleOutPolicyP
 
 // Information about the capacity allocated to the connector.
 type ConnectorCapacity struct {
-	// Specifies how the connector scales.
+	// Information about the auto scaling parameters for the connector.
 	AutoScaling *ConnectorAutoScaling `pulumi:"autoScaling"`
-	// Details about a connector's provisioned capacity.
+	// Details about a fixed capacity allocated to a connector.
 	ProvisionedCapacity *ConnectorProvisionedCapacity `pulumi:"provisionedCapacity"`
 }
 
@@ -314,9 +314,9 @@ type ConnectorCapacityInput interface {
 
 // Information about the capacity allocated to the connector.
 type ConnectorCapacityArgs struct {
-	// Specifies how the connector scales.
+	// Information about the auto scaling parameters for the connector.
 	AutoScaling ConnectorAutoScalingPtrInput `pulumi:"autoScaling"`
-	// Details about a connector's provisioned capacity.
+	// Details about a fixed capacity allocated to a connector.
 	ProvisionedCapacity ConnectorProvisionedCapacityPtrInput `pulumi:"provisionedCapacity"`
 }
 
@@ -347,12 +347,12 @@ func (o ConnectorCapacityOutput) ToConnectorCapacityOutputWithContext(ctx contex
 	return o
 }
 
-// Specifies how the connector scales.
+// Information about the auto scaling parameters for the connector.
 func (o ConnectorCapacityOutput) AutoScaling() ConnectorAutoScalingPtrOutput {
 	return o.ApplyT(func(v ConnectorCapacity) *ConnectorAutoScaling { return v.AutoScaling }).(ConnectorAutoScalingPtrOutput)
 }
 
-// Details about a connector's provisioned capacity.
+// Details about a fixed capacity allocated to a connector.
 func (o ConnectorCapacityOutput) ProvisionedCapacity() ConnectorProvisionedCapacityPtrOutput {
 	return o.ApplyT(func(v ConnectorCapacity) *ConnectorProvisionedCapacity { return v.ProvisionedCapacity }).(ConnectorProvisionedCapacityPtrOutput)
 }
@@ -381,7 +381,7 @@ func (o ConnectorCapacityPtrOutput) Elem() ConnectorCapacityOutput {
 	}).(ConnectorCapacityOutput)
 }
 
-// Specifies how the connector scales.
+// Information about the auto scaling parameters for the connector.
 func (o ConnectorCapacityPtrOutput) AutoScaling() ConnectorAutoScalingPtrOutput {
 	return o.ApplyT(func(v *ConnectorCapacity) *ConnectorAutoScaling {
 		if v == nil {
@@ -391,7 +391,7 @@ func (o ConnectorCapacityPtrOutput) AutoScaling() ConnectorAutoScalingPtrOutput 
 	}).(ConnectorAutoScalingPtrOutput)
 }
 
-// Details about a connector's provisioned capacity.
+// Details about a fixed capacity allocated to a connector.
 func (o ConnectorCapacityPtrOutput) ProvisionedCapacity() ConnectorProvisionedCapacityPtrOutput {
 	return o.ApplyT(func(v *ConnectorCapacity) *ConnectorProvisionedCapacity {
 		if v == nil {
@@ -785,7 +785,7 @@ func (o ConnectorFirehoseLogDeliveryPtrOutput) Enabled() pulumi.BoolPtrOutput {
 
 // Details of how to connect to the Kafka cluster.
 type ConnectorKafkaCluster struct {
-	// The details of the Apache Kafka cluster to which the connector is connected.
+	// The Apache Kafka cluster to which the connector is connected.
 	ApacheKafkaCluster ConnectorApacheKafkaCluster `pulumi:"apacheKafkaCluster"`
 }
 
@@ -802,7 +802,7 @@ type ConnectorKafkaClusterInput interface {
 
 // Details of how to connect to the Kafka cluster.
 type ConnectorKafkaClusterArgs struct {
-	// The details of the Apache Kafka cluster to which the connector is connected.
+	// The Apache Kafka cluster to which the connector is connected.
 	ApacheKafkaCluster ConnectorApacheKafkaClusterInput `pulumi:"apacheKafkaCluster"`
 }
 
@@ -833,7 +833,7 @@ func (o ConnectorKafkaClusterOutput) ToConnectorKafkaClusterOutputWithContext(ct
 	return o
 }
 
-// The details of the Apache Kafka cluster to which the connector is connected.
+// The Apache Kafka cluster to which the connector is connected.
 func (o ConnectorKafkaClusterOutput) ApacheKafkaCluster() ConnectorApacheKafkaClusterOutput {
 	return o.ApplyT(func(v ConnectorKafkaCluster) ConnectorApacheKafkaCluster { return v.ApacheKafkaCluster }).(ConnectorApacheKafkaClusterOutput)
 }
@@ -954,7 +954,7 @@ func (o ConnectorKafkaClusterEncryptionInTransitOutput) EncryptionType() Connect
 
 // Details of what logs are delivered and where they are delivered.
 type ConnectorLogDelivery struct {
-	// Workers can send worker logs to different destination types. This configuration specifies the details of these destinations.
+	// The workers can send worker logs to different destination types. This configuration specifies the details of these destinations.
 	WorkerLogDelivery ConnectorWorkerLogDelivery `pulumi:"workerLogDelivery"`
 }
 
@@ -971,7 +971,7 @@ type ConnectorLogDeliveryInput interface {
 
 // Details of what logs are delivered and where they are delivered.
 type ConnectorLogDeliveryArgs struct {
-	// Workers can send worker logs to different destination types. This configuration specifies the details of these destinations.
+	// The workers can send worker logs to different destination types. This configuration specifies the details of these destinations.
 	WorkerLogDelivery ConnectorWorkerLogDeliveryInput `pulumi:"workerLogDelivery"`
 }
 
@@ -1053,7 +1053,7 @@ func (o ConnectorLogDeliveryOutput) ToConnectorLogDeliveryPtrOutputWithContext(c
 	}).(ConnectorLogDeliveryPtrOutput)
 }
 
-// Workers can send worker logs to different destination types. This configuration specifies the details of these destinations.
+// The workers can send worker logs to different destination types. This configuration specifies the details of these destinations.
 func (o ConnectorLogDeliveryOutput) WorkerLogDelivery() ConnectorWorkerLogDeliveryOutput {
 	return o.ApplyT(func(v ConnectorLogDelivery) ConnectorWorkerLogDelivery { return v.WorkerLogDelivery }).(ConnectorWorkerLogDeliveryOutput)
 }
@@ -1082,7 +1082,7 @@ func (o ConnectorLogDeliveryPtrOutput) Elem() ConnectorLogDeliveryOutput {
 	}).(ConnectorLogDeliveryOutput)
 }
 
-// Workers can send worker logs to different destination types. This configuration specifies the details of these destinations.
+// The workers can send worker logs to different destination types. This configuration specifies the details of these destinations.
 func (o ConnectorLogDeliveryPtrOutput) WorkerLogDelivery() ConnectorWorkerLogDeliveryPtrOutput {
 	return o.ApplyT(func(v *ConnectorLogDelivery) *ConnectorWorkerLogDelivery {
 		if v == nil {
@@ -1094,7 +1094,7 @@ func (o ConnectorLogDeliveryPtrOutput) WorkerLogDelivery() ConnectorWorkerLogDel
 
 // Details about a Kafka Connect plugin which will be used with the connector.
 type ConnectorPlugin struct {
-	// A plugin is an AWS resource that contains the code that defines a connector's logic.
+	// Details about a custom plugin.
 	CustomPlugin ConnectorCustomPlugin `pulumi:"customPlugin"`
 }
 
@@ -1111,7 +1111,7 @@ type ConnectorPluginInput interface {
 
 // Details about a Kafka Connect plugin which will be used with the connector.
 type ConnectorPluginArgs struct {
-	// A plugin is an AWS resource that contains the code that defines a connector's logic.
+	// Details about a custom plugin.
 	CustomPlugin ConnectorCustomPluginInput `pulumi:"customPlugin"`
 }
 
@@ -1167,7 +1167,7 @@ func (o ConnectorPluginOutput) ToConnectorPluginOutputWithContext(ctx context.Co
 	return o
 }
 
-// A plugin is an AWS resource that contains the code that defines a connector's logic.
+// Details about a custom plugin.
 func (o ConnectorPluginOutput) CustomPlugin() ConnectorCustomPluginOutput {
 	return o.ApplyT(func(v ConnectorPlugin) ConnectorCustomPlugin { return v.CustomPlugin }).(ConnectorCustomPluginOutput)
 }
@@ -2039,9 +2039,9 @@ func (o ConnectorWorkerConfigurationPtrOutput) WorkerConfigurationArn() pulumi.S
 
 // Specifies where worker logs are delivered.
 type ConnectorWorkerLogDelivery struct {
-	// The settings for delivering connector logs to Amazon CloudWatch Logs.
+	// Details about delivering logs to Amazon CloudWatch Logs.
 	CloudWatchLogs *ConnectorCloudWatchLogsLogDelivery `pulumi:"cloudWatchLogs"`
-	// The settings for delivering logs to Amazon Kinesis Data Firehose.
+	// Details about delivering logs to Amazon Kinesis Data Firehose.
 	Firehose *ConnectorFirehoseLogDelivery `pulumi:"firehose"`
 	// Details about delivering logs to Amazon S3.
 	S3 *ConnectorS3LogDelivery `pulumi:"s3"`
@@ -2060,9 +2060,9 @@ type ConnectorWorkerLogDeliveryInput interface {
 
 // Specifies where worker logs are delivered.
 type ConnectorWorkerLogDeliveryArgs struct {
-	// The settings for delivering connector logs to Amazon CloudWatch Logs.
+	// Details about delivering logs to Amazon CloudWatch Logs.
 	CloudWatchLogs ConnectorCloudWatchLogsLogDeliveryPtrInput `pulumi:"cloudWatchLogs"`
-	// The settings for delivering logs to Amazon Kinesis Data Firehose.
+	// Details about delivering logs to Amazon Kinesis Data Firehose.
 	Firehose ConnectorFirehoseLogDeliveryPtrInput `pulumi:"firehose"`
 	// Details about delivering logs to Amazon S3.
 	S3 ConnectorS3LogDeliveryPtrInput `pulumi:"s3"`
@@ -2146,12 +2146,12 @@ func (o ConnectorWorkerLogDeliveryOutput) ToConnectorWorkerLogDeliveryPtrOutputW
 	}).(ConnectorWorkerLogDeliveryPtrOutput)
 }
 
-// The settings for delivering connector logs to Amazon CloudWatch Logs.
+// Details about delivering logs to Amazon CloudWatch Logs.
 func (o ConnectorWorkerLogDeliveryOutput) CloudWatchLogs() ConnectorCloudWatchLogsLogDeliveryPtrOutput {
 	return o.ApplyT(func(v ConnectorWorkerLogDelivery) *ConnectorCloudWatchLogsLogDelivery { return v.CloudWatchLogs }).(ConnectorCloudWatchLogsLogDeliveryPtrOutput)
 }
 
-// The settings for delivering logs to Amazon Kinesis Data Firehose.
+// Details about delivering logs to Amazon Kinesis Data Firehose.
 func (o ConnectorWorkerLogDeliveryOutput) Firehose() ConnectorFirehoseLogDeliveryPtrOutput {
 	return o.ApplyT(func(v ConnectorWorkerLogDelivery) *ConnectorFirehoseLogDelivery { return v.Firehose }).(ConnectorFirehoseLogDeliveryPtrOutput)
 }
@@ -2185,7 +2185,7 @@ func (o ConnectorWorkerLogDeliveryPtrOutput) Elem() ConnectorWorkerLogDeliveryOu
 	}).(ConnectorWorkerLogDeliveryOutput)
 }
 
-// The settings for delivering connector logs to Amazon CloudWatch Logs.
+// Details about delivering logs to Amazon CloudWatch Logs.
 func (o ConnectorWorkerLogDeliveryPtrOutput) CloudWatchLogs() ConnectorCloudWatchLogsLogDeliveryPtrOutput {
 	return o.ApplyT(func(v *ConnectorWorkerLogDelivery) *ConnectorCloudWatchLogsLogDelivery {
 		if v == nil {
@@ -2195,7 +2195,7 @@ func (o ConnectorWorkerLogDeliveryPtrOutput) CloudWatchLogs() ConnectorCloudWatc
 	}).(ConnectorCloudWatchLogsLogDeliveryPtrOutput)
 }
 
-// The settings for delivering logs to Amazon Kinesis Data Firehose.
+// Details about delivering logs to Amazon Kinesis Data Firehose.
 func (o ConnectorWorkerLogDeliveryPtrOutput) Firehose() ConnectorFirehoseLogDeliveryPtrOutput {
 	return o.ApplyT(func(v *ConnectorWorkerLogDelivery) *ConnectorFirehoseLogDelivery {
 		if v == nil {
@@ -2294,7 +2294,7 @@ func (o CustomPluginFileDescriptionPtrOutput) FileSize() pulumi.IntPtrOutput {
 
 // Information about the location of a custom plugin.
 type CustomPluginLocation struct {
-	// The location of an object in Amazon S3.
+	// The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.
 	S3Location CustomPluginS3Location `pulumi:"s3Location"`
 }
 
@@ -2311,7 +2311,7 @@ type CustomPluginLocationInput interface {
 
 // Information about the location of a custom plugin.
 type CustomPluginLocationArgs struct {
-	// The location of an object in Amazon S3.
+	// The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.
 	S3Location CustomPluginS3LocationInput `pulumi:"s3Location"`
 }
 
@@ -2342,7 +2342,7 @@ func (o CustomPluginLocationOutput) ToCustomPluginLocationOutputWithContext(ctx 
 	return o
 }
 
-// The location of an object in Amazon S3.
+// The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.
 func (o CustomPluginLocationOutput) S3Location() CustomPluginS3LocationOutput {
 	return o.ApplyT(func(v CustomPluginLocation) CustomPluginS3Location { return v.S3Location }).(CustomPluginS3LocationOutput)
 }

@@ -27,11 +27,11 @@ type Theme struct {
 	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
 	// The name of the theme.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+	// Describes the properties that can be overriden to customize a theme.
 	Overrides ThemeValuesArrayOutput `pulumi:"overrides"`
 	// One or more key-value pairs to use when tagging the theme.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+	// A list of key-value pairs that defines the properties of the theme.
 	Values ThemeValuesArrayOutput `pulumi:"values"`
 }
 
@@ -86,11 +86,11 @@ type themeArgs struct {
 	EnvironmentName *string `pulumi:"environmentName"`
 	// The name of the theme.
 	Name *string `pulumi:"name"`
-	// The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+	// Describes the properties that can be overriden to customize a theme.
 	Overrides []ThemeValues `pulumi:"overrides"`
 	// One or more key-value pairs to use when tagging the theme.
 	Tags map[string]string `pulumi:"tags"`
-	// The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+	// A list of key-value pairs that defines the properties of the theme.
 	Values []ThemeValues `pulumi:"values"`
 }
 
@@ -102,11 +102,11 @@ type ThemeArgs struct {
 	EnvironmentName pulumi.StringPtrInput
 	// The name of the theme.
 	Name pulumi.StringPtrInput
-	// The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+	// Describes the properties that can be overriden to customize a theme.
 	Overrides ThemeValuesArrayInput
 	// One or more key-value pairs to use when tagging the theme.
 	Tags pulumi.StringMapInput
-	// The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+	// A list of key-value pairs that defines the properties of the theme.
 	Values ThemeValuesArrayInput
 }
 
@@ -177,7 +177,7 @@ func (o ThemeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+// Describes the properties that can be overriden to customize a theme.
 func (o ThemeOutput) Overrides() ThemeValuesArrayOutput {
 	return o.ApplyT(func(v *Theme) ThemeValuesArrayOutput { return v.Overrides }).(ThemeValuesArrayOutput)
 }
@@ -187,7 +187,7 @@ func (o ThemeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+// A list of key-value pairs that defines the properties of the theme.
 func (o ThemeOutput) Values() ThemeValuesArrayOutput {
 	return o.ApplyT(func(v *Theme) ThemeValuesArrayOutput { return v.Values }).(ThemeValuesArrayOutput)
 }

@@ -52,22 +52,22 @@ namespace Pulumi.AwsNative.Batch
     public sealed class GetJobDefinitionResult
     {
         /// <summary>
-        /// Container properties are used for Amazon ECS based job definitions. These properties to describe the container that's launched as part of a job.
+        /// An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
         /// </summary>
         public readonly Outputs.JobDefinitionContainerProperties? ContainerProperties;
         /// <summary>
-        /// An object that contains the properties for the Amazon ECS resources of a job.
+        /// An object that contains the properties for the Amazon ECS resources of a job.When `ecsProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `eksProperties` , or `nodeProperties` .
         /// </summary>
         public readonly Outputs.JobDefinitionEcsProperties? EcsProperties;
         /// <summary>
-        /// An object that contains the properties for the Kubernetes resources of a job.
+        /// An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
         /// </summary>
         public readonly Outputs.JobDefinitionEksProperties? EksProperties;
         public readonly string? Id;
         /// <summary>
-        /// An object that represents the node properties of a multi-node parallel job.
+        /// An object with properties that are specific to multi-node parallel jobs. When `nodeProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `eksProperties` .
         /// 
-        /// &gt; Node properties can't be specified for Amazon EKS based job definitions.
+        /// &gt; If the job runs on Fargate resources, don't specify `nodeProperties` . Use `containerProperties` instead.
         /// </summary>
         public readonly Outputs.JobDefinitionNodeProperties? NodeProperties;
         /// <summary>
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.Batch
         /// </summary>
         public readonly bool? PropagateTags;
         /// <summary>
-        /// The retry strategy that's associated with a job. For more information, see [Automated job retries](https://docs.aws.amazon.com/batch/latest/userguide/job_retries.html) in the *AWS Batch User Guide* .
+        /// The retry strategy to use for failed jobs that are submitted with this job definition.
         /// </summary>
         public readonly Outputs.JobDefinitionRetryStrategy? RetryStrategy;
         /// <summary>
@@ -93,7 +93,7 @@ namespace Pulumi.AwsNative.Batch
         /// </summary>
         public readonly int? SchedulingPriority;
         /// <summary>
-        /// An object that represents a job timeout configuration.
+        /// The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
         /// </summary>
         public readonly Outputs.JobDefinitionTimeout? Timeout;
         /// <summary>

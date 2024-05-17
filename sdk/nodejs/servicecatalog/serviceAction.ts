@@ -50,7 +50,7 @@ export class ServiceAction extends pulumi.CustomResource {
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
-     * The list of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}] or [{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]` .
+     * A map that defines the self-service action.
      */
     public readonly definition!: pulumi.Output<outputs.servicecatalog.ServiceActionDefinitionParameter[]>;
     /**
@@ -115,7 +115,7 @@ export interface ServiceActionArgs {
      */
     acceptLanguage?: pulumi.Input<enums.servicecatalog.ServiceActionAcceptLanguage>;
     /**
-     * The list of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}] or [{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]` .
+     * A map that defines the self-service action.
      */
     definition: pulumi.Input<pulumi.Input<inputs.servicecatalog.ServiceActionDefinitionParameterArgs>[]>;
     /**

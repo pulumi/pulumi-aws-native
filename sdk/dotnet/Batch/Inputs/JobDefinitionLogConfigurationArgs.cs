@@ -44,12 +44,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
         private InputList<Inputs.JobDefinitionSecretArgs>? _secretOptions;
 
         /// <summary>
-        /// An object that represents the secret to expose to your container. Secrets can be exposed to a container in the following ways:
-        /// 
-        /// - To inject sensitive data into your containers as environment variables, use the `secrets` container definition parameter.
-        /// - To reference sensitive information in the log configuration of a container, use the `secretOptions` container definition parameter.
-        /// 
-        /// For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html) in the *AWS Batch User Guide* .
+        /// The secrets to pass to the log configuration. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html) in the *AWS Batch User Guide* .
         /// </summary>
         public InputList<Inputs.JobDefinitionSecretArgs> SecretOptions
         {

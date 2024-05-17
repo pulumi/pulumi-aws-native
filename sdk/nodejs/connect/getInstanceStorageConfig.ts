@@ -41,19 +41,19 @@ export interface GetInstanceStorageConfigResult {
      */
     readonly associationId?: string;
     /**
-     * Configuration information of a Kinesis Data Firehose delivery stream.
+     * The configuration of the Kinesis Firehose delivery stream.
      */
     readonly kinesisFirehoseConfig?: outputs.connect.InstanceStorageConfigKinesisFirehoseConfig;
     /**
-     * Configuration information of a Kinesis data stream.
+     * The configuration of the Kinesis data stream.
      */
     readonly kinesisStreamConfig?: outputs.connect.InstanceStorageConfigKinesisStreamConfig;
     /**
-     * Configuration information of a Kinesis video stream.
+     * The configuration of the Kinesis video stream.
      */
     readonly kinesisVideoStreamConfig?: outputs.connect.InstanceStorageConfigKinesisVideoStreamConfig;
     /**
-     * Information about the Amazon Simple Storage Service (Amazon S3) storage type.
+     * The S3 bucket configuration.
      */
     readonly s3Config?: outputs.connect.InstanceStorageConfigS3Config;
     /**

@@ -19,7 +19,9 @@ class ResourceGroupArgs:
                  resource_group_tags: pulumi.Input[Sequence[pulumi.Input['ResourceGroupTagArgs']]]):
         """
         The set of arguments for constructing a ResourceGroup resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupTagArgs']]] resource_group_tags: A key and value pair. This data type is used as a request parameter in the `SetTagsForResource` action and a response element in the `ListTagsForResource` action.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceGroupTagArgs']]] resource_group_tags: The tags (key and value pairs) that will be associated with the resource group.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         pulumi.set(__self__, "resource_group_tags", resource_group_tags)
 
@@ -27,7 +29,9 @@ class ResourceGroupArgs:
     @pulumi.getter(name="resourceGroupTags")
     def resource_group_tags(self) -> pulumi.Input[Sequence[pulumi.Input['ResourceGroupTagArgs']]]:
         """
-        A key and value pair. This data type is used as a request parameter in the `SetTagsForResource` action and a response element in the `ListTagsForResource` action.
+        The tags (key and value pairs) that will be associated with the resource group.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         return pulumi.get(self, "resource_group_tags")
 
@@ -48,7 +52,9 @@ class ResourceGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupTagArgs']]]] resource_group_tags: A key and value pair. This data type is used as a request parameter in the `SetTagsForResource` action and a response element in the `ListTagsForResource` action.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceGroupTagArgs']]]] resource_group_tags: The tags (key and value pairs) that will be associated with the resource group.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         ...
     @overload
@@ -128,7 +134,9 @@ class ResourceGroup(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupTags")
     def resource_group_tags(self) -> pulumi.Output[Sequence['outputs.ResourceGroupTag']]:
         """
-        A key and value pair. This data type is used as a request parameter in the `SetTagsForResource` action and a response element in the `ListTagsForResource` action.
+        The tags (key and value pairs) that will be associated with the resource group.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         return pulumi.get(self, "resource_group_tags")
 

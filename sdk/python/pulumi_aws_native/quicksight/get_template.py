@@ -80,7 +80,7 @@ class GetTemplateResult:
     @pulumi.getter
     def permissions(self) -> Optional[Sequence['outputs.TemplateResourcePermission']]:
         """
-        Permission for the resource.
+        A list of resource permissions to be set on the template.
         """
         return pulumi.get(self, "permissions")
 
@@ -95,9 +95,6 @@ class GetTemplateResult:
     @property
     @pulumi.getter
     def version(self) -> Optional['outputs.TemplateVersion']:
-        """
-        A version of a template.
-        """
         return pulumi.get(self, "version")
 
 

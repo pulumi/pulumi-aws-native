@@ -19,25 +19,25 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.TemplateDataPathLabelTypeArgs>? DataPathLabelType { get; set; }
 
         /// <summary>
-        /// The field label type.
+        /// Determines the label configuration for the entire field.
         /// </summary>
         [Input("fieldLabelType")]
         public Input<Inputs.TemplateFieldLabelTypeArgs>? FieldLabelType { get; set; }
 
         /// <summary>
-        /// The maximum label of a data path label.
+        /// Determines the label configuration for the maximum value in a visual.
         /// </summary>
         [Input("maximumLabelType")]
         public Input<Inputs.TemplateMaximumLabelTypeArgs>? MaximumLabelType { get; set; }
 
         /// <summary>
-        /// The minimum label of a data path label.
+        /// Determines the label configuration for the minimum value in a visual.
         /// </summary>
         [Input("minimumLabelType")]
         public Input<Inputs.TemplateMinimumLabelTypeArgs>? MinimumLabelType { get; set; }
 
         /// <summary>
-        /// The range ends label type of a data path label.
+        /// Determines the label configuration for range end value in a visual.
         /// </summary>
         [Input("rangeEndsLabelType")]
         public Input<Inputs.TemplateRangeEndsLabelTypeArgs>? RangeEndsLabelType { get; set; }

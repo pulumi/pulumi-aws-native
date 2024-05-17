@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardDefaultFilterControlConfiguration
     {
         /// <summary>
-        /// The option that corresponds to the control type of the filter.
+        /// The control option for the `DefaultFilterControlConfiguration` .
         /// </summary>
         public readonly Outputs.DashboardDefaultFilterControlOptions ControlOptions;
         /// <summary>

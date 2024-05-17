@@ -33,7 +33,7 @@ type LookupAssessmentResult struct {
 	Arn *string `pulumi:"arn"`
 	// The unique identifier for the assessment.
 	AssessmentId *string `pulumi:"assessmentId"`
-	// The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+	// The destination that evidence reports are stored in for the assessment.
 	AssessmentReportsDestination *AssessmentReportsDestination `pulumi:"assessmentReportsDestination"`
 	// Specifies when the assessment was created.
 	CreationTime *float64 `pulumi:"creationTime"`
@@ -41,7 +41,7 @@ type LookupAssessmentResult struct {
 	Delegations []AssessmentDelegation `pulumi:"delegations"`
 	// The list of roles for the specified assessment.
 	Roles []AssessmentRole `pulumi:"roles"`
-	// The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+	// The wrapper of AWS accounts and services that are in scope for the assessment.
 	Scope *AssessmentScope `pulumi:"scope"`
 	// The overall status of the assessment.
 	//
@@ -99,7 +99,7 @@ func (o LookupAssessmentResultOutput) AssessmentId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAssessmentResult) *string { return v.AssessmentId }).(pulumi.StringPtrOutput)
 }
 
-// The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+// The destination that evidence reports are stored in for the assessment.
 func (o LookupAssessmentResultOutput) AssessmentReportsDestination() AssessmentReportsDestinationPtrOutput {
 	return o.ApplyT(func(v LookupAssessmentResult) *AssessmentReportsDestination { return v.AssessmentReportsDestination }).(AssessmentReportsDestinationPtrOutput)
 }
@@ -119,7 +119,7 @@ func (o LookupAssessmentResultOutput) Roles() AssessmentRoleArrayOutput {
 	return o.ApplyT(func(v LookupAssessmentResult) []AssessmentRole { return v.Roles }).(AssessmentRoleArrayOutput)
 }
 
-// The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+// The wrapper of AWS accounts and services that are in scope for the assessment.
 func (o LookupAssessmentResultOutput) Scope() AssessmentScopePtrOutput {
 	return o.ApplyT(func(v LookupAssessmentResult) *AssessmentScope { return v.Scope }).(AssessmentScopePtrOutput)
 }

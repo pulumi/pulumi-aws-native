@@ -47,7 +47,7 @@ type LookupApplicationResult struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// The status of the Amazon Q Business application. The application is ready to use when the status is `ACTIVE` .
 	Status *ApplicationStatus `pulumi:"status"`
-	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	// A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The Unix timestamp when the Amazon Q Business application was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
@@ -136,7 +136,7 @@ func (o LookupApplicationResultOutput) Status() ApplicationStatusPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationStatus { return v.Status }).(ApplicationStatusPtrOutput)
 }
 
-// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+// A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 func (o LookupApplicationResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupApplicationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateAxisTickLabelOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The share label options for the labels.
+        /// Determines whether or not the axis ticks are visible.
         /// </summary>
         [Input("labelOptions")]
         public Input<Inputs.TemplateLabelOptionsArgs>? LabelOptions { get; set; }

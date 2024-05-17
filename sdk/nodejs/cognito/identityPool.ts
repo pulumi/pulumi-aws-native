@@ -53,11 +53,11 @@ export class IdentityPool extends pulumi.CustomResource {
      */
     public readonly cognitoEvents!: pulumi.Output<any | undefined>;
     /**
-     * `CognitoIdentityProvider` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that represents an Amazon Cognito user pool and its client ID.
+     * The Amazon Cognito user pools and their client IDs.
      */
     public readonly cognitoIdentityProviders!: pulumi.Output<outputs.cognito.IdentityPoolCognitoIdentityProvider[] | undefined>;
     /**
-     * `CognitoStreams` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines configuration options for Amazon Cognito streams.
+     * Configuration options for configuring Amazon Cognito streams.
      */
     public readonly cognitoStreams!: pulumi.Output<outputs.cognito.IdentityPoolCognitoStreams | undefined>;
     /**
@@ -87,7 +87,7 @@ export class IdentityPool extends pulumi.CustomResource {
      */
     public readonly openIdConnectProviderArns!: pulumi.Output<string[] | undefined>;
     /**
-     * `PushSync` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines the configuration options to be applied to an Amazon Cognito identity pool.
+     * The configuration options to be applied to the identity pool.
      */
     public readonly pushSync!: pulumi.Output<outputs.cognito.IdentityPoolPushSync | undefined>;
     /**
@@ -167,11 +167,11 @@ export interface IdentityPoolArgs {
      */
     cognitoEvents?: any;
     /**
-     * `CognitoIdentityProvider` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that represents an Amazon Cognito user pool and its client ID.
+     * The Amazon Cognito user pools and their client IDs.
      */
     cognitoIdentityProviders?: pulumi.Input<pulumi.Input<inputs.cognito.IdentityPoolCognitoIdentityProviderArgs>[]>;
     /**
-     * `CognitoStreams` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines configuration options for Amazon Cognito streams.
+     * Configuration options for configuring Amazon Cognito streams.
      */
     cognitoStreams?: pulumi.Input<inputs.cognito.IdentityPoolCognitoStreamsArgs>;
     /**
@@ -197,7 +197,7 @@ export interface IdentityPoolArgs {
      */
     openIdConnectProviderArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * `PushSync` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines the configuration options to be applied to an Amazon Cognito identity pool.
+     * The configuration options to be applied to the identity pool.
      */
     pushSync?: pulumi.Input<inputs.cognito.IdentityPoolPushSyncArgs>;
     /**

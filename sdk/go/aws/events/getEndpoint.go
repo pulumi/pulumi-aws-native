@@ -40,7 +40,7 @@ type LookupEndpointResult struct {
 	//
 	// *Exactly* : `2`
 	EventBuses []EndpointEventBus `pulumi:"eventBuses"`
-	// Endpoints can replicate all events to the secondary Region.
+	// Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
 	ReplicationConfig *EndpointReplicationConfig `pulumi:"replicationConfig"`
 	// The ARN of the role used by event replication for the endpoint.
 	RoleArn *string `pulumi:"roleArn"`
@@ -115,7 +115,7 @@ func (o LookupEndpointResultOutput) EventBuses() EndpointEventBusArrayOutput {
 	return o.ApplyT(func(v LookupEndpointResult) []EndpointEventBus { return v.EventBuses }).(EndpointEventBusArrayOutput)
 }
 
-// Endpoints can replicate all events to the secondary Region.
+// Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
 func (o LookupEndpointResultOutput) ReplicationConfig() EndpointReplicationConfigPtrOutput {
 	return o.ApplyT(func(v LookupEndpointResult) *EndpointReplicationConfig { return v.ReplicationConfig }).(EndpointReplicationConfigPtrOutput)
 }

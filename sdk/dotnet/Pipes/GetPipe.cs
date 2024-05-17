@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.Pipes
         /// </summary>
         public readonly string? LastModifiedTime;
         /// <summary>
-        /// Represents the configuration settings for the logs to which this pipe should report events.
+        /// The logging configuration settings for the pipe.
         /// </summary>
         public readonly Outputs.PipeLogConfiguration? LogConfiguration;
         /// <summary>

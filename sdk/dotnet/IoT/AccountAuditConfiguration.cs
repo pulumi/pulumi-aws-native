@@ -22,13 +22,21 @@ namespace Pulumi.AwsNative.IoT
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The types of audit checks that can be performed.
+        /// Specifies which audit checks are enabled and disabled for this account.
+        /// 
+        /// Some data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted. To disable a check, set the value of the `Enabled:` key to `false` .
+        /// 
+        /// If an enabled check is removed from the template, it will also be disabled.
+        /// 
+        /// You can't disable a check if it's used by any scheduled audit. You must delete the check from the scheduled audit or delete the scheduled audit itself to disable the check.
+        /// 
+        /// For more information on avialbe auidt checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
         /// </summary>
         [Output("auditCheckConfigurations")]
         public Output<Outputs.AccountAuditConfigurationAuditCheckConfigurations> AuditCheckConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration of the audit notification target.
+        /// Information about the targets to which audit notifications are sent.
         /// </summary>
         [Output("auditNotificationTargetConfigurations")]
         public Output<Outputs.AccountAuditConfigurationAuditNotificationTargetConfigurations?> AuditNotificationTargetConfigurations { get; private set; } = null!;
@@ -95,13 +103,21 @@ namespace Pulumi.AwsNative.IoT
         public Input<string> AccountId { get; set; } = null!;
 
         /// <summary>
-        /// The types of audit checks that can be performed.
+        /// Specifies which audit checks are enabled and disabled for this account.
+        /// 
+        /// Some data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted. To disable a check, set the value of the `Enabled:` key to `false` .
+        /// 
+        /// If an enabled check is removed from the template, it will also be disabled.
+        /// 
+        /// You can't disable a check if it's used by any scheduled audit. You must delete the check from the scheduled audit or delete the scheduled audit itself to disable the check.
+        /// 
+        /// For more information on avialbe auidt checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
         /// </summary>
         [Input("auditCheckConfigurations", required: true)]
         public Input<Inputs.AccountAuditConfigurationAuditCheckConfigurationsArgs> AuditCheckConfigurations { get; set; } = null!;
 
         /// <summary>
-        /// The configuration of the audit notification target.
+        /// Information about the targets to which audit notifications are sent.
         /// </summary>
         [Input("auditNotificationTargetConfigurations")]
         public Input<Inputs.AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs>? AuditNotificationTargetConfigurations { get; set; }

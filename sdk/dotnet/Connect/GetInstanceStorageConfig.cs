@@ -86,19 +86,19 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public readonly string? AssociationId;
         /// <summary>
-        /// Configuration information of a Kinesis Data Firehose delivery stream.
+        /// The configuration of the Kinesis Firehose delivery stream.
         /// </summary>
         public readonly Outputs.InstanceStorageConfigKinesisFirehoseConfig? KinesisFirehoseConfig;
         /// <summary>
-        /// Configuration information of a Kinesis data stream.
+        /// The configuration of the Kinesis data stream.
         /// </summary>
         public readonly Outputs.InstanceStorageConfigKinesisStreamConfig? KinesisStreamConfig;
         /// <summary>
-        /// Configuration information of a Kinesis video stream.
+        /// The configuration of the Kinesis video stream.
         /// </summary>
         public readonly Outputs.InstanceStorageConfigKinesisVideoStreamConfig? KinesisVideoStreamConfig;
         /// <summary>
-        /// Information about the Amazon Simple Storage Service (Amazon S3) storage type.
+        /// The S3 bucket configuration.
         /// </summary>
         public readonly Outputs.InstanceStorageConfigS3Config? S3Config;
         /// <summary>

@@ -27,7 +27,7 @@ export interface GetBackupPlanArgs {
 
 export interface GetBackupPlanResult {
     /**
-     * Specifies an object containing properties used to create a backup plan.
+     * Uniquely identifies the backup plan to be associated with the selection of resources.
      */
     readonly backupPlan?: outputs.backup.BackupPlanResourceType;
     /**

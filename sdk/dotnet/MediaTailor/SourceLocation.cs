@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.MediaTailor
     public partial class SourceLocation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Access configuration parameters.
+        /// The access configuration for the source location.
         /// </summary>
         [Output("accessConfiguration")]
         public Output<Outputs.SourceLocationAccessConfiguration?> AccessConfiguration { get; private set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.MediaTailor
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.
+        /// The default segment delivery configuration.
         /// </summary>
         [Output("defaultSegmentDeliveryConfiguration")]
         public Output<Outputs.SourceLocationDefaultSegmentDeliveryConfiguration?> DefaultSegmentDeliveryConfiguration { get; private set; } = null!;
@@ -107,13 +107,13 @@ namespace Pulumi.AwsNative.MediaTailor
     public sealed class SourceLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Access configuration parameters.
+        /// The access configuration for the source location.
         /// </summary>
         [Input("accessConfiguration")]
         public Input<Inputs.SourceLocationAccessConfigurationArgs>? AccessConfiguration { get; set; }
 
         /// <summary>
-        /// The optional configuration for a server that serves segments. Use this if you want the segment delivery server to be different from the source location server. For example, you can configure your source location server to be an origination server, such as MediaPackage, and the segment delivery server to be a content delivery network (CDN), such as CloudFront. If you don't specify a segment delivery server, then the source location server is used.
+        /// The default segment delivery configuration.
         /// </summary>
         [Input("defaultSegmentDeliveryConfiguration")]
         public Input<Inputs.SourceLocationDefaultSegmentDeliveryConfigurationArgs>? DefaultSegmentDeliveryConfiguration { get; set; }

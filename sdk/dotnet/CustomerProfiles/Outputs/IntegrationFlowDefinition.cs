@@ -30,11 +30,11 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
         /// </summary>
         public readonly Outputs.IntegrationSourceFlowConfig SourceFlowConfig;
         /// <summary>
-        /// The `Task` property type specifies the class for modeling different type of tasks. Task implementation varies based on the TaskType.
+        /// A list of tasks that Customer Profiles performs while transferring the data in the flow run.
         /// </summary>
         public readonly ImmutableArray<Outputs.IntegrationTask> Tasks;
         /// <summary>
-        /// The trigger settings that determine how and when Amazon AppFlow runs the specified flow.
+        /// The trigger settings that determine how and when the flow runs.
         /// </summary>
         public readonly Outputs.IntegrationTriggerConfig TriggerConfig;
 

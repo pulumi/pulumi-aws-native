@@ -64,7 +64,7 @@ export class LandingZone extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<enums.controltower.LandingZoneStatus>;
     /**
-     * Tags applied to the landing zone.
+     * Tags to be applied to the landing zone.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -123,7 +123,7 @@ export interface LandingZoneArgs {
      */
     manifest: any;
     /**
-     * Tags applied to the landing zone.
+     * Tags to be applied to the landing zone.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

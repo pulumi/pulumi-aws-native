@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// </summary>
         public readonly int Concurrency;
         /// <summary>
-        /// Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.
+        /// Defines the cross-channel routing behavior for each channel that is enabled for this Routing Profile. For example, this allows you to offer an agent a different contact from another channel when they are currently working with a contact from a Voice channel.
         /// </summary>
         public readonly Outputs.RoutingProfileCrossChannelBehavior? CrossChannelBehavior;
 

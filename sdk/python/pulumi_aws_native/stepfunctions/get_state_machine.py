@@ -69,8 +69,6 @@ class GetStateMachineResult:
         """
         Defines what execution history events are logged and where they are logged.
 
-        Step Functions provides the log levels — `OFF` , `ALL` , `ERROR` , and `FATAL` . No event types log when set to `OFF` and all event types do when set to `ALL` .
-
         > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         """
         return pulumi.get(self, "logging_configuration")
@@ -115,7 +113,9 @@ class GetStateMachineResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        The `TagsEntry` property specifies *tags* to identify a state machine.
+        The list of tags to add to a resource.
+
+        Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
         """
         return pulumi.get(self, "tags")
 
@@ -123,7 +123,7 @@ class GetStateMachineResult:
     @pulumi.getter(name="tracingConfiguration")
     def tracing_configuration(self) -> Optional['outputs.StateMachineTracingConfiguration']:
         """
-        Selects whether or not the state machine's AWS X-Ray tracing is enabled. To configure your state machine to send trace data to X-Ray, set `Enabled` to `true` .
+        Selects whether or not the state machine's AWS X-Ray tracing is enabled.
         """
         return pulumi.get(self, "tracing_configuration")
 

@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         public readonly string? ProvisioningRoleArn;
         /// <summary>
-        /// The regional parameters in the environment blueprint.
+        /// The regional parameters of the environment blueprint.
         /// </summary>
         public readonly ImmutableArray<Outputs.EnvironmentBlueprintConfigurationRegionalParameter> RegionalParameters;
         /// <summary>

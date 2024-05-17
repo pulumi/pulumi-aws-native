@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.ResilienceHub
         /// </summary>
         public readonly Pulumi.AwsNative.ResilienceHub.ResiliencyPolicyDataLocationConstraint? DataLocationConstraint;
         /// <summary>
-        /// The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds.
+        /// The resiliency policy.
         /// </summary>
         public readonly Outputs.ResiliencyPolicyPolicyMap? Policy;
         /// <summary>

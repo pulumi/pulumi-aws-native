@@ -79,7 +79,7 @@ class GetComponentResult:
     @pulumi.getter
     def children(self) -> Optional[Sequence['outputs.ComponentChild']]:
         """
-        The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
+        A list of the component's `ComponentChild` instances.
         """
         return pulumi.get(self, "children")
 
@@ -183,7 +183,7 @@ class GetComponentResult:
     @pulumi.getter
     def variants(self) -> Optional[Sequence['outputs.ComponentVariant']]:
         """
-        The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
+        A list of the component's variants. A variant is a unique style configuration of a main component.
         """
         return pulumi.get(self, "variants")
 

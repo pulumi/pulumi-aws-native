@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         }
 
         /// <summary>
-        /// Holds encryption information so that access to the content can be controlled by a DRM solution.
+        /// Parameters for encrypting content.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.PackagingConfigurationDashEncryptionArgs>? Encryption { get; set; }

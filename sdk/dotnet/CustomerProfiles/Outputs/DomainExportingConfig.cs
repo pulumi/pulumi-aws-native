@@ -16,9 +16,6 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class DomainExportingConfig
     {
-        /// <summary>
-        /// The S3 location where Identity Resolution Jobs write result files.
-        /// </summary>
         public readonly Outputs.DomainS3ExportingConfig? S3Exporting;
 
         [OutputConstructor]

@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Sso
     public sealed class GetPermissionSetResult
     {
         /// <summary>
-        /// Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
+        /// Specifies the names and paths of the customer managed policies that you have attached to your permission set.
         /// </summary>
         public readonly ImmutableArray<Outputs.PermissionSetCustomerManagedPolicyReference> CustomerManagedPolicyReferences;
         /// <summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.Sso
         /// </summary>
         public readonly string? SessionDuration;
         /// <summary>
-        /// A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+        /// The tags to attach to the new `PermissionSet` .
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

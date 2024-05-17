@@ -28,7 +28,7 @@ type LookupCloudFrontOriginAccessIdentityArgs struct {
 }
 
 type LookupCloudFrontOriginAccessIdentityResult struct {
-	// Origin access identity configuration. Send a `GET` request to the `/ *CloudFront API version* /CloudFront/identity ID/config` resource.
+	// The current configuration information for the identity.
 	CloudFrontOriginAccessIdentityConfig *CloudFrontOriginAccessIdentityConfig `pulumi:"cloudFrontOriginAccessIdentityConfig"`
 	// The ID for the origin access identity, for example, `E74FTE3AJFJ256A` .
 	Id *string `pulumi:"id"`
@@ -72,7 +72,7 @@ func (o LookupCloudFrontOriginAccessIdentityResultOutput) ToLookupCloudFrontOrig
 	return o
 }
 
-// Origin access identity configuration. Send a `GET` request to the `/ *CloudFront API version* /CloudFront/identity ID/config` resource.
+// The current configuration information for the identity.
 func (o LookupCloudFrontOriginAccessIdentityResultOutput) CloudFrontOriginAccessIdentityConfig() CloudFrontOriginAccessIdentityConfigPtrOutput {
 	return o.ApplyT(func(v LookupCloudFrontOriginAccessIdentityResult) *CloudFrontOriginAccessIdentityConfig {
 		return v.CloudFrontOriginAccessIdentityConfig

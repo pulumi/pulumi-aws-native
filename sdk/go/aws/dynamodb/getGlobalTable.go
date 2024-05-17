@@ -32,7 +32,7 @@ type LookupGlobalTableArgs struct {
 type LookupGlobalTableResult struct {
 	// The Amazon Resource Name (ARN) of the DynamoDB table, such as `arn:aws:dynamodb:us-east-2:123456789012:table/myDynamoDBTable` . The ARN returned is that of the replica in the region the stack is deployed to.
 	Arn *string `pulumi:"arn"`
-	// Represents an attribute for describing the schema for the table and indexes.
+	// A list of attributes that describe the key schema for the global table and indexes.
 	AttributeDefinitions []GlobalTableAttributeDefinition `pulumi:"attributeDefinitions"`
 	// Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
 	//
@@ -41,23 +41,29 @@ type LookupGlobalTableResult struct {
 	//
 	// All replicas in your global table will have the same billing mode. If you use `PROVISIONED` billing mode, you must provide an auto scaling configuration via the `WriteProvisionedThroughputSettings` property. The default value of this property is `PROVISIONED` .
 	BillingMode *string `pulumi:"billingMode"`
-	// Allows you to specify a global secondary index for the global table. The index will be defined on all replicas.
+	// Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
+	//
+	// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
 	GlobalSecondaryIndexes []GlobalTableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
-	// Defines settings specific to a single replica of a global table.
+	// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
+	//
+	// > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
+	// >
+	// > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica.
+	//
+	// You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
 	Replicas []GlobalTableReplicaSpecification `pulumi:"replicas"`
-	// Represents the settings used to enable server-side encryption.
+	// Specifies the settings to enable server-side encryption. These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
 	SseSpecification *GlobalTableSseSpecification `pulumi:"sseSpecification"`
 	// The ARN of the DynamoDB stream, such as `arn:aws:dynamodb:us-east-1:123456789012:table/testddbstack-myDynamoDBTable-012A1SL7SMP5Q/stream/2015-11-30T20:10:00.000` . The `StreamArn` returned is that of the replica in the region the stack is deployed to.
 	//
 	// > You must specify the `StreamSpecification` property to use this attribute.
 	StreamArn *string `pulumi:"streamArn"`
-	// Represents the DynamoDB Streams configuration for a table in DynamoDB.
-	//
-	// You can only modify this value if your `AWS::DynamoDB::GlobalTable` contains only one entry in `Replicas` . You must specify a value for this property if your `AWS::DynamoDB::GlobalTable` contains more than one replica.
+	// Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
 	StreamSpecification *GlobalTableStreamSpecification `pulumi:"streamSpecification"`
 	// Unique identifier for the table, such as `a123b456-01ab-23cd-123a-111222aaabbb` . The `TableId` returned is that of the replica in the region the stack is deployed to.
 	TableId *string `pulumi:"tableId"`
-	// Represents the settings used to enable or disable Time to Live (TTL) for the specified table. All replicas will have the same time to live configuration.
+	// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
 	TimeToLiveSpecification *GlobalTableTimeToLiveSpecification `pulumi:"timeToLiveSpecification"`
 	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 	WriteOnDemandThroughputSettings *GlobalTableWriteOnDemandThroughputSettings `pulumi:"writeOnDemandThroughputSettings"`
@@ -108,7 +114,7 @@ func (o LookupGlobalTableResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// Represents an attribute for describing the schema for the table and indexes.
+// A list of attributes that describe the key schema for the global table and indexes.
 func (o LookupGlobalTableResultOutput) AttributeDefinitions() GlobalTableAttributeDefinitionArrayOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) []GlobalTableAttributeDefinition { return v.AttributeDefinitions }).(GlobalTableAttributeDefinitionArrayOutput)
 }
@@ -123,17 +129,25 @@ func (o LookupGlobalTableResultOutput) BillingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *string { return v.BillingMode }).(pulumi.StringPtrOutput)
 }
 
-// Allows you to specify a global secondary index for the global table. The index will be defined on all replicas.
+// Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
+//
+// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
 func (o LookupGlobalTableResultOutput) GlobalSecondaryIndexes() GlobalTableGlobalSecondaryIndexArrayOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) []GlobalTableGlobalSecondaryIndex { return v.GlobalSecondaryIndexes }).(GlobalTableGlobalSecondaryIndexArrayOutput)
 }
 
-// Defines settings specific to a single replica of a global table.
+// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
+//
+// > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
+// >
+// > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica.
+//
+// You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
 func (o LookupGlobalTableResultOutput) Replicas() GlobalTableReplicaSpecificationArrayOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) []GlobalTableReplicaSpecification { return v.Replicas }).(GlobalTableReplicaSpecificationArrayOutput)
 }
 
-// Represents the settings used to enable server-side encryption.
+// Specifies the settings to enable server-side encryption. These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
 func (o LookupGlobalTableResultOutput) SseSpecification() GlobalTableSseSpecificationPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableSseSpecification { return v.SseSpecification }).(GlobalTableSseSpecificationPtrOutput)
 }
@@ -145,9 +159,7 @@ func (o LookupGlobalTableResultOutput) StreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *string { return v.StreamArn }).(pulumi.StringPtrOutput)
 }
 
-// Represents the DynamoDB Streams configuration for a table in DynamoDB.
-//
-// You can only modify this value if your `AWS::DynamoDB::GlobalTable` contains only one entry in `Replicas` . You must specify a value for this property if your `AWS::DynamoDB::GlobalTable` contains more than one replica.
+// Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
 func (o LookupGlobalTableResultOutput) StreamSpecification() GlobalTableStreamSpecificationPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableStreamSpecification { return v.StreamSpecification }).(GlobalTableStreamSpecificationPtrOutput)
 }
@@ -157,7 +169,7 @@ func (o LookupGlobalTableResultOutput) TableId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *string { return v.TableId }).(pulumi.StringPtrOutput)
 }
 
-// Represents the settings used to enable or disable Time to Live (TTL) for the specified table. All replicas will have the same time to live configuration.
+// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
 func (o LookupGlobalTableResultOutput) TimeToLiveSpecification() GlobalTableTimeToLiveSpecificationPtrOutput {
 	return o.ApplyT(func(v LookupGlobalTableResult) *GlobalTableTimeToLiveSpecification { return v.TimeToLiveSpecification }).(GlobalTableTimeToLiveSpecificationPtrOutput)
 }

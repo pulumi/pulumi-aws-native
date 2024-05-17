@@ -26,11 +26,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly double? PeriodSize;
         /// <summary>
-        /// The dimension type field.
+        /// The time field that is used in a computation.
         /// </summary>
         public readonly Outputs.AnalysisDimensionField? Time;
         /// <summary>
-        /// The measure (metric) type field.
+        /// The value field that is used in a computation.
         /// </summary>
         public readonly Outputs.AnalysisMeasureField? Value;
 

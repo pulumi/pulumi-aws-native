@@ -9777,25 +9777,17 @@ func (o PolicyStatusPropertiesPtrOutput) IsPublic() MultiRegionAccessPointPolicy
 
 // Account-level metrics configurations.
 type StorageLensAccountLevel struct {
-	// This resource enables Amazon S3 Storage Lens activity metrics. Activity metrics show details about how your storage is requested, such as requests (for example, All requests, Get requests, Put requests), bytes uploaded or downloaded, and errors.
-	//
-	// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+	// This property contains the details of account-level activity metrics for S3 Storage Lens.
 	ActivityMetrics *StorageLensActivityMetrics `pulumi:"activityMetrics"`
-	// This resource enables Amazon S3 Storage Lens advanced cost optimization metrics. Advanced cost optimization metrics provide insights that you can use to manage and optimize your storage costs, for example, lifecycle rule counts for transitions, expirations, and incomplete multipart uploads.
-	//
-	// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+	// This property contains the details of account-level advanced cost optimization metrics for S3 Storage Lens.
 	AdvancedCostOptimizationMetrics *StorageLensAdvancedCostOptimizationMetrics `pulumi:"advancedCostOptimizationMetrics"`
-	// This resource enables Amazon S3 Storage Lens advanced data protection metrics. Advanced data protection metrics provide insights that you can use to perform audits and protect your data, for example replication rule counts within and across Regions.
-	//
-	// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+	// This property contains the details of account-level advanced data protection metrics for S3 Storage Lens.
 	AdvancedDataProtectionMetrics *StorageLensAdvancedDataProtectionMetrics `pulumi:"advancedDataProtectionMetrics"`
-	// A property for the bucket-level storage metrics for Amazon S3 Storage Lens.
+	// This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens.
 	BucketLevel StorageLensBucketLevel `pulumi:"bucketLevel"`
-	// This resource enables Amazon S3 Storage Lens detailed status code metrics. Detailed status code metrics generate metrics for HTTP status codes, such as `200 OK` , `403 Forbidden` , `503 Service Unavailable` and others.
-	//
-	// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+	// This property contains the details of account-level detailed status code metrics for S3 Storage Lens.
 	DetailedStatusCodesMetrics *StorageLensDetailedStatusCodesMetrics `pulumi:"detailedStatusCodesMetrics"`
-	// This resource determines the scope of Storage Lens group data that is displayed in the Storage Lens dashboard.
+	// This property determines the scope of Storage Lens group data that is displayed in the Storage Lens dashboard.
 	StorageLensGroupLevel *StorageLensGroupLevel `pulumi:"storageLensGroupLevel"`
 }
 
@@ -9812,25 +9804,17 @@ type StorageLensAccountLevelInput interface {
 
 // Account-level metrics configurations.
 type StorageLensAccountLevelArgs struct {
-	// This resource enables Amazon S3 Storage Lens activity metrics. Activity metrics show details about how your storage is requested, such as requests (for example, All requests, Get requests, Put requests), bytes uploaded or downloaded, and errors.
-	//
-	// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+	// This property contains the details of account-level activity metrics for S3 Storage Lens.
 	ActivityMetrics StorageLensActivityMetricsPtrInput `pulumi:"activityMetrics"`
-	// This resource enables Amazon S3 Storage Lens advanced cost optimization metrics. Advanced cost optimization metrics provide insights that you can use to manage and optimize your storage costs, for example, lifecycle rule counts for transitions, expirations, and incomplete multipart uploads.
-	//
-	// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+	// This property contains the details of account-level advanced cost optimization metrics for S3 Storage Lens.
 	AdvancedCostOptimizationMetrics StorageLensAdvancedCostOptimizationMetricsPtrInput `pulumi:"advancedCostOptimizationMetrics"`
-	// This resource enables Amazon S3 Storage Lens advanced data protection metrics. Advanced data protection metrics provide insights that you can use to perform audits and protect your data, for example replication rule counts within and across Regions.
-	//
-	// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+	// This property contains the details of account-level advanced data protection metrics for S3 Storage Lens.
 	AdvancedDataProtectionMetrics StorageLensAdvancedDataProtectionMetricsPtrInput `pulumi:"advancedDataProtectionMetrics"`
-	// A property for the bucket-level storage metrics for Amazon S3 Storage Lens.
+	// This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens.
 	BucketLevel StorageLensBucketLevelInput `pulumi:"bucketLevel"`
-	// This resource enables Amazon S3 Storage Lens detailed status code metrics. Detailed status code metrics generate metrics for HTTP status codes, such as `200 OK` , `403 Forbidden` , `503 Service Unavailable` and others.
-	//
-	// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+	// This property contains the details of account-level detailed status code metrics for S3 Storage Lens.
 	DetailedStatusCodesMetrics StorageLensDetailedStatusCodesMetricsPtrInput `pulumi:"detailedStatusCodesMetrics"`
-	// This resource determines the scope of Storage Lens group data that is displayed in the Storage Lens dashboard.
+	// This property determines the scope of Storage Lens group data that is displayed in the Storage Lens dashboard.
 	StorageLensGroupLevel StorageLensGroupLevelPtrInput `pulumi:"storageLensGroupLevel"`
 }
 
@@ -9861,46 +9845,38 @@ func (o StorageLensAccountLevelOutput) ToStorageLensAccountLevelOutputWithContex
 	return o
 }
 
-// This resource enables Amazon S3 Storage Lens activity metrics. Activity metrics show details about how your storage is requested, such as requests (for example, All requests, Get requests, Put requests), bytes uploaded or downloaded, and errors.
-//
-// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+// This property contains the details of account-level activity metrics for S3 Storage Lens.
 func (o StorageLensAccountLevelOutput) ActivityMetrics() StorageLensActivityMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensAccountLevel) *StorageLensActivityMetrics { return v.ActivityMetrics }).(StorageLensActivityMetricsPtrOutput)
 }
 
-// This resource enables Amazon S3 Storage Lens advanced cost optimization metrics. Advanced cost optimization metrics provide insights that you can use to manage and optimize your storage costs, for example, lifecycle rule counts for transitions, expirations, and incomplete multipart uploads.
-//
-// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+// This property contains the details of account-level advanced cost optimization metrics for S3 Storage Lens.
 func (o StorageLensAccountLevelOutput) AdvancedCostOptimizationMetrics() StorageLensAdvancedCostOptimizationMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensAccountLevel) *StorageLensAdvancedCostOptimizationMetrics {
 		return v.AdvancedCostOptimizationMetrics
 	}).(StorageLensAdvancedCostOptimizationMetricsPtrOutput)
 }
 
-// This resource enables Amazon S3 Storage Lens advanced data protection metrics. Advanced data protection metrics provide insights that you can use to perform audits and protect your data, for example replication rule counts within and across Regions.
-//
-// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+// This property contains the details of account-level advanced data protection metrics for S3 Storage Lens.
 func (o StorageLensAccountLevelOutput) AdvancedDataProtectionMetrics() StorageLensAdvancedDataProtectionMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensAccountLevel) *StorageLensAdvancedDataProtectionMetrics {
 		return v.AdvancedDataProtectionMetrics
 	}).(StorageLensAdvancedDataProtectionMetricsPtrOutput)
 }
 
-// A property for the bucket-level storage metrics for Amazon S3 Storage Lens.
+// This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens.
 func (o StorageLensAccountLevelOutput) BucketLevel() StorageLensBucketLevelOutput {
 	return o.ApplyT(func(v StorageLensAccountLevel) StorageLensBucketLevel { return v.BucketLevel }).(StorageLensBucketLevelOutput)
 }
 
-// This resource enables Amazon S3 Storage Lens detailed status code metrics. Detailed status code metrics generate metrics for HTTP status codes, such as `200 OK` , `403 Forbidden` , `503 Service Unavailable` and others.
-//
-// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+// This property contains the details of account-level detailed status code metrics for S3 Storage Lens.
 func (o StorageLensAccountLevelOutput) DetailedStatusCodesMetrics() StorageLensDetailedStatusCodesMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensAccountLevel) *StorageLensDetailedStatusCodesMetrics {
 		return v.DetailedStatusCodesMetrics
 	}).(StorageLensDetailedStatusCodesMetricsPtrOutput)
 }
 
-// This resource determines the scope of Storage Lens group data that is displayed in the Storage Lens dashboard.
+// This property determines the scope of Storage Lens group data that is displayed in the Storage Lens dashboard.
 func (o StorageLensAccountLevelOutput) StorageLensGroupLevel() StorageLensGroupLevelPtrOutput {
 	return o.ApplyT(func(v StorageLensAccountLevel) *StorageLensGroupLevel { return v.StorageLensGroupLevel }).(StorageLensGroupLevelPtrOutput)
 }
@@ -10467,23 +10443,15 @@ func (o StorageLensAwsOrgPtrOutput) Arn() pulumi.StringPtrOutput {
 
 // Bucket-level metrics configurations.
 type StorageLensBucketLevel struct {
-	// This resource enables Amazon S3 Storage Lens activity metrics. Activity metrics show details about how your storage is requested, such as requests (for example, All requests, Get requests, Put requests), bytes uploaded or downloaded, and errors.
-	//
-	// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+	// A property for bucket-level activity metrics for S3 Storage Lens.
 	ActivityMetrics *StorageLensActivityMetrics `pulumi:"activityMetrics"`
-	// This resource enables Amazon S3 Storage Lens advanced cost optimization metrics. Advanced cost optimization metrics provide insights that you can use to manage and optimize your storage costs, for example, lifecycle rule counts for transitions, expirations, and incomplete multipart uploads.
-	//
-	// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+	// A property for bucket-level advanced cost optimization metrics for S3 Storage Lens.
 	AdvancedCostOptimizationMetrics *StorageLensAdvancedCostOptimizationMetrics `pulumi:"advancedCostOptimizationMetrics"`
-	// This resource enables Amazon S3 Storage Lens advanced data protection metrics. Advanced data protection metrics provide insights that you can use to perform audits and protect your data, for example replication rule counts within and across Regions.
-	//
-	// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+	// A property for bucket-level advanced data protection metrics for S3 Storage Lens.
 	AdvancedDataProtectionMetrics *StorageLensAdvancedDataProtectionMetrics `pulumi:"advancedDataProtectionMetrics"`
-	// This resource enables Amazon S3 Storage Lens detailed status code metrics. Detailed status code metrics generate metrics for HTTP status codes, such as `200 OK` , `403 Forbidden` , `503 Service Unavailable` and others.
-	//
-	// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+	// A property for bucket-level detailed status code metrics for S3 Storage Lens.
 	DetailedStatusCodesMetrics *StorageLensDetailedStatusCodesMetrics `pulumi:"detailedStatusCodesMetrics"`
-	// This resource contains the details of the prefix-level of the Amazon S3 Storage Lens.
+	// A property for bucket-level prefix-level storage metrics for S3 Storage Lens.
 	PrefixLevel *StorageLensPrefixLevel `pulumi:"prefixLevel"`
 }
 
@@ -10500,23 +10468,15 @@ type StorageLensBucketLevelInput interface {
 
 // Bucket-level metrics configurations.
 type StorageLensBucketLevelArgs struct {
-	// This resource enables Amazon S3 Storage Lens activity metrics. Activity metrics show details about how your storage is requested, such as requests (for example, All requests, Get requests, Put requests), bytes uploaded or downloaded, and errors.
-	//
-	// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+	// A property for bucket-level activity metrics for S3 Storage Lens.
 	ActivityMetrics StorageLensActivityMetricsPtrInput `pulumi:"activityMetrics"`
-	// This resource enables Amazon S3 Storage Lens advanced cost optimization metrics. Advanced cost optimization metrics provide insights that you can use to manage and optimize your storage costs, for example, lifecycle rule counts for transitions, expirations, and incomplete multipart uploads.
-	//
-	// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+	// A property for bucket-level advanced cost optimization metrics for S3 Storage Lens.
 	AdvancedCostOptimizationMetrics StorageLensAdvancedCostOptimizationMetricsPtrInput `pulumi:"advancedCostOptimizationMetrics"`
-	// This resource enables Amazon S3 Storage Lens advanced data protection metrics. Advanced data protection metrics provide insights that you can use to perform audits and protect your data, for example replication rule counts within and across Regions.
-	//
-	// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+	// A property for bucket-level advanced data protection metrics for S3 Storage Lens.
 	AdvancedDataProtectionMetrics StorageLensAdvancedDataProtectionMetricsPtrInput `pulumi:"advancedDataProtectionMetrics"`
-	// This resource enables Amazon S3 Storage Lens detailed status code metrics. Detailed status code metrics generate metrics for HTTP status codes, such as `200 OK` , `403 Forbidden` , `503 Service Unavailable` and others.
-	//
-	// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+	// A property for bucket-level detailed status code metrics for S3 Storage Lens.
 	DetailedStatusCodesMetrics StorageLensDetailedStatusCodesMetricsPtrInput `pulumi:"detailedStatusCodesMetrics"`
-	// This resource contains the details of the prefix-level of the Amazon S3 Storage Lens.
+	// A property for bucket-level prefix-level storage metrics for S3 Storage Lens.
 	PrefixLevel StorageLensPrefixLevelPtrInput `pulumi:"prefixLevel"`
 }
 
@@ -10547,41 +10507,33 @@ func (o StorageLensBucketLevelOutput) ToStorageLensBucketLevelOutputWithContext(
 	return o
 }
 
-// This resource enables Amazon S3 Storage Lens activity metrics. Activity metrics show details about how your storage is requested, such as requests (for example, All requests, Get requests, Put requests), bytes uploaded or downloaded, and errors.
-//
-// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+// A property for bucket-level activity metrics for S3 Storage Lens.
 func (o StorageLensBucketLevelOutput) ActivityMetrics() StorageLensActivityMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensBucketLevel) *StorageLensActivityMetrics { return v.ActivityMetrics }).(StorageLensActivityMetricsPtrOutput)
 }
 
-// This resource enables Amazon S3 Storage Lens advanced cost optimization metrics. Advanced cost optimization metrics provide insights that you can use to manage and optimize your storage costs, for example, lifecycle rule counts for transitions, expirations, and incomplete multipart uploads.
-//
-// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+// A property for bucket-level advanced cost optimization metrics for S3 Storage Lens.
 func (o StorageLensBucketLevelOutput) AdvancedCostOptimizationMetrics() StorageLensAdvancedCostOptimizationMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensBucketLevel) *StorageLensAdvancedCostOptimizationMetrics {
 		return v.AdvancedCostOptimizationMetrics
 	}).(StorageLensAdvancedCostOptimizationMetricsPtrOutput)
 }
 
-// This resource enables Amazon S3 Storage Lens advanced data protection metrics. Advanced data protection metrics provide insights that you can use to perform audits and protect your data, for example replication rule counts within and across Regions.
-//
-// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+// A property for bucket-level advanced data protection metrics for S3 Storage Lens.
 func (o StorageLensBucketLevelOutput) AdvancedDataProtectionMetrics() StorageLensAdvancedDataProtectionMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensBucketLevel) *StorageLensAdvancedDataProtectionMetrics {
 		return v.AdvancedDataProtectionMetrics
 	}).(StorageLensAdvancedDataProtectionMetricsPtrOutput)
 }
 
-// This resource enables Amazon S3 Storage Lens detailed status code metrics. Detailed status code metrics generate metrics for HTTP status codes, such as `200 OK` , `403 Forbidden` , `503 Service Unavailable` and others.
-//
-// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+// A property for bucket-level detailed status code metrics for S3 Storage Lens.
 func (o StorageLensBucketLevelOutput) DetailedStatusCodesMetrics() StorageLensDetailedStatusCodesMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensBucketLevel) *StorageLensDetailedStatusCodesMetrics {
 		return v.DetailedStatusCodesMetrics
 	}).(StorageLensDetailedStatusCodesMetricsPtrOutput)
 }
 
-// This resource contains the details of the prefix-level of the Amazon S3 Storage Lens.
+// A property for bucket-level prefix-level storage metrics for S3 Storage Lens.
 func (o StorageLensBucketLevelOutput) PrefixLevel() StorageLensPrefixLevelPtrOutput {
 	return o.ApplyT(func(v StorageLensBucketLevel) *StorageLensPrefixLevel { return v.PrefixLevel }).(StorageLensPrefixLevelPtrOutput)
 }
@@ -10887,17 +10839,17 @@ func (o StorageLensCloudWatchMetricsPtrOutput) IsEnabled() pulumi.BoolPtrOutput 
 
 // Specifies the details of Amazon S3 Storage Lens configuration.
 type StorageLensConfiguration struct {
-	// This resource contains the details of the account-level metrics for Amazon S3 Storage Lens.
+	// This property contains the details of the account-level metrics for Amazon S3 Storage Lens configuration.
 	AccountLevel StorageLensAccountLevel `pulumi:"accountLevel"`
-	// This resource contains the details of the AWS Organization for Amazon S3 Storage Lens.
+	// This property contains the details of the AWS Organization for the S3 Storage Lens configuration.
 	AwsOrg *StorageLensAwsOrg `pulumi:"awsOrg"`
-	// This resource contains the details of the Amazon S3 Storage Lens metrics export.
+	// This property contains the details of this S3 Storage Lens configuration's metrics export.
 	DataExport *StorageLensDataExport `pulumi:"dataExport"`
-	// This resource contains the details of the buckets and Regions for the Amazon S3 Storage Lens configuration.
+	// This property contains the details of the bucket and or Regions excluded for Amazon S3 Storage Lens configuration.
 	Exclude *StorageLensBucketsAndRegions `pulumi:"exclude"`
 	// This property contains the details of the ID of the S3 Storage Lens configuration.
 	Id string `pulumi:"id"`
-	// This resource contains the details of the buckets and Regions for the Amazon S3 Storage Lens configuration.
+	// This property contains the details of the bucket and or Regions included for Amazon S3 Storage Lens configuration.
 	Include *StorageLensBucketsAndRegions `pulumi:"include"`
 	// Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
 	IsEnabled bool `pulumi:"isEnabled"`
@@ -10918,17 +10870,17 @@ type StorageLensConfigurationInput interface {
 
 // Specifies the details of Amazon S3 Storage Lens configuration.
 type StorageLensConfigurationArgs struct {
-	// This resource contains the details of the account-level metrics for Amazon S3 Storage Lens.
+	// This property contains the details of the account-level metrics for Amazon S3 Storage Lens configuration.
 	AccountLevel StorageLensAccountLevelInput `pulumi:"accountLevel"`
-	// This resource contains the details of the AWS Organization for Amazon S3 Storage Lens.
+	// This property contains the details of the AWS Organization for the S3 Storage Lens configuration.
 	AwsOrg StorageLensAwsOrgPtrInput `pulumi:"awsOrg"`
-	// This resource contains the details of the Amazon S3 Storage Lens metrics export.
+	// This property contains the details of this S3 Storage Lens configuration's metrics export.
 	DataExport StorageLensDataExportPtrInput `pulumi:"dataExport"`
-	// This resource contains the details of the buckets and Regions for the Amazon S3 Storage Lens configuration.
+	// This property contains the details of the bucket and or Regions excluded for Amazon S3 Storage Lens configuration.
 	Exclude StorageLensBucketsAndRegionsPtrInput `pulumi:"exclude"`
 	// This property contains the details of the ID of the S3 Storage Lens configuration.
 	Id pulumi.StringInput `pulumi:"id"`
-	// This resource contains the details of the buckets and Regions for the Amazon S3 Storage Lens configuration.
+	// This property contains the details of the bucket and or Regions included for Amazon S3 Storage Lens configuration.
 	Include StorageLensBucketsAndRegionsPtrInput `pulumi:"include"`
 	// Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
 	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
@@ -10963,22 +10915,22 @@ func (o StorageLensConfigurationOutput) ToStorageLensConfigurationOutputWithCont
 	return o
 }
 
-// This resource contains the details of the account-level metrics for Amazon S3 Storage Lens.
+// This property contains the details of the account-level metrics for Amazon S3 Storage Lens configuration.
 func (o StorageLensConfigurationOutput) AccountLevel() StorageLensAccountLevelOutput {
 	return o.ApplyT(func(v StorageLensConfiguration) StorageLensAccountLevel { return v.AccountLevel }).(StorageLensAccountLevelOutput)
 }
 
-// This resource contains the details of the AWS Organization for Amazon S3 Storage Lens.
+// This property contains the details of the AWS Organization for the S3 Storage Lens configuration.
 func (o StorageLensConfigurationOutput) AwsOrg() StorageLensAwsOrgPtrOutput {
 	return o.ApplyT(func(v StorageLensConfiguration) *StorageLensAwsOrg { return v.AwsOrg }).(StorageLensAwsOrgPtrOutput)
 }
 
-// This resource contains the details of the Amazon S3 Storage Lens metrics export.
+// This property contains the details of this S3 Storage Lens configuration's metrics export.
 func (o StorageLensConfigurationOutput) DataExport() StorageLensDataExportPtrOutput {
 	return o.ApplyT(func(v StorageLensConfiguration) *StorageLensDataExport { return v.DataExport }).(StorageLensDataExportPtrOutput)
 }
 
-// This resource contains the details of the buckets and Regions for the Amazon S3 Storage Lens configuration.
+// This property contains the details of the bucket and or Regions excluded for Amazon S3 Storage Lens configuration.
 func (o StorageLensConfigurationOutput) Exclude() StorageLensBucketsAndRegionsPtrOutput {
 	return o.ApplyT(func(v StorageLensConfiguration) *StorageLensBucketsAndRegions { return v.Exclude }).(StorageLensBucketsAndRegionsPtrOutput)
 }
@@ -10988,7 +10940,7 @@ func (o StorageLensConfigurationOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensConfiguration) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// This resource contains the details of the buckets and Regions for the Amazon S3 Storage Lens configuration.
+// This property contains the details of the bucket and or Regions included for Amazon S3 Storage Lens configuration.
 func (o StorageLensConfigurationOutput) Include() StorageLensBucketsAndRegionsPtrOutput {
 	return o.ApplyT(func(v StorageLensConfiguration) *StorageLensBucketsAndRegions { return v.Include }).(StorageLensBucketsAndRegionsPtrOutput)
 }
@@ -11005,11 +10957,9 @@ func (o StorageLensConfigurationOutput) StorageLensArn() pulumi.StringPtrOutput 
 
 // Specifies how Amazon S3 Storage Lens metrics should be exported.
 type StorageLensDataExport struct {
-	// This resource enables the Amazon CloudWatch publishing option for Amazon S3 Storage Lens metrics.
-	//
-	// For more information, see [Monitor S3 Storage Lens metrics in CloudWatch](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_view_metrics_cloudwatch.html) in the *Amazon S3 User Guide* .
+	// This property enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
 	CloudWatchMetrics *StorageLensCloudWatchMetrics `pulumi:"cloudWatchMetrics"`
-	// This resource contains the details of the bucket where the Amazon S3 Storage Lens metrics export will be placed.
+	// This property contains the details of the bucket where the S3 Storage Lens metrics export will be placed.
 	S3BucketDestination *StorageLensS3BucketDestination `pulumi:"s3BucketDestination"`
 }
 
@@ -11026,11 +10976,9 @@ type StorageLensDataExportInput interface {
 
 // Specifies how Amazon S3 Storage Lens metrics should be exported.
 type StorageLensDataExportArgs struct {
-	// This resource enables the Amazon CloudWatch publishing option for Amazon S3 Storage Lens metrics.
-	//
-	// For more information, see [Monitor S3 Storage Lens metrics in CloudWatch](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_view_metrics_cloudwatch.html) in the *Amazon S3 User Guide* .
+	// This property enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
 	CloudWatchMetrics StorageLensCloudWatchMetricsPtrInput `pulumi:"cloudWatchMetrics"`
-	// This resource contains the details of the bucket where the Amazon S3 Storage Lens metrics export will be placed.
+	// This property contains the details of the bucket where the S3 Storage Lens metrics export will be placed.
 	S3BucketDestination StorageLensS3BucketDestinationPtrInput `pulumi:"s3BucketDestination"`
 }
 
@@ -11112,14 +11060,12 @@ func (o StorageLensDataExportOutput) ToStorageLensDataExportPtrOutputWithContext
 	}).(StorageLensDataExportPtrOutput)
 }
 
-// This resource enables the Amazon CloudWatch publishing option for Amazon S3 Storage Lens metrics.
-//
-// For more information, see [Monitor S3 Storage Lens metrics in CloudWatch](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_view_metrics_cloudwatch.html) in the *Amazon S3 User Guide* .
+// This property enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
 func (o StorageLensDataExportOutput) CloudWatchMetrics() StorageLensCloudWatchMetricsPtrOutput {
 	return o.ApplyT(func(v StorageLensDataExport) *StorageLensCloudWatchMetrics { return v.CloudWatchMetrics }).(StorageLensCloudWatchMetricsPtrOutput)
 }
 
-// This resource contains the details of the bucket where the Amazon S3 Storage Lens metrics export will be placed.
+// This property contains the details of the bucket where the S3 Storage Lens metrics export will be placed.
 func (o StorageLensDataExportOutput) S3BucketDestination() StorageLensS3BucketDestinationPtrOutput {
 	return o.ApplyT(func(v StorageLensDataExport) *StorageLensS3BucketDestination { return v.S3BucketDestination }).(StorageLensS3BucketDestinationPtrOutput)
 }
@@ -11148,9 +11094,7 @@ func (o StorageLensDataExportPtrOutput) Elem() StorageLensDataExportOutput {
 	}).(StorageLensDataExportOutput)
 }
 
-// This resource enables the Amazon CloudWatch publishing option for Amazon S3 Storage Lens metrics.
-//
-// For more information, see [Monitor S3 Storage Lens metrics in CloudWatch](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_view_metrics_cloudwatch.html) in the *Amazon S3 User Guide* .
+// This property enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
 func (o StorageLensDataExportPtrOutput) CloudWatchMetrics() StorageLensCloudWatchMetricsPtrOutput {
 	return o.ApplyT(func(v *StorageLensDataExport) *StorageLensCloudWatchMetrics {
 		if v == nil {
@@ -11160,7 +11104,7 @@ func (o StorageLensDataExportPtrOutput) CloudWatchMetrics() StorageLensCloudWatc
 	}).(StorageLensCloudWatchMetricsPtrOutput)
 }
 
-// This resource contains the details of the bucket where the Amazon S3 Storage Lens metrics export will be placed.
+// This property contains the details of the bucket where the S3 Storage Lens metrics export will be placed.
 func (o StorageLensDataExportPtrOutput) S3BucketDestination() StorageLensS3BucketDestinationPtrOutput {
 	return o.ApplyT(func(v *StorageLensDataExport) *StorageLensS3BucketDestination {
 		if v == nil {
@@ -11439,9 +11383,9 @@ type StorageLensGroupAnd struct {
 	MatchAnySuffix []string `pulumi:"matchAnySuffix"`
 	// This property contains the list of object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
 	MatchAnyTag []StorageLensGroupTag `pulumi:"matchAnyTag"`
-	// This resource contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+	// This property contains `DaysGreaterThan` and `DaysLessThan` properties to define the object age range (minimum and maximum number of days).
 	MatchObjectAge *StorageLensGroupMatchObjectAge `pulumi:"matchObjectAge"`
-	// This resource filters objects that match the specified object size range.
+	// This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
 	MatchObjectSize *StorageLensGroupMatchObjectSize `pulumi:"matchObjectSize"`
 }
 
@@ -11464,9 +11408,9 @@ type StorageLensGroupAndArgs struct {
 	MatchAnySuffix pulumi.StringArrayInput `pulumi:"matchAnySuffix"`
 	// This property contains the list of object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
 	MatchAnyTag StorageLensGroupTagArrayInput `pulumi:"matchAnyTag"`
-	// This resource contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+	// This property contains `DaysGreaterThan` and `DaysLessThan` properties to define the object age range (minimum and maximum number of days).
 	MatchObjectAge StorageLensGroupMatchObjectAgePtrInput `pulumi:"matchObjectAge"`
-	// This resource filters objects that match the specified object size range.
+	// This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
 	MatchObjectSize StorageLensGroupMatchObjectSizePtrInput `pulumi:"matchObjectSize"`
 }
 
@@ -11563,12 +11507,12 @@ func (o StorageLensGroupAndOutput) MatchAnyTag() StorageLensGroupTagArrayOutput 
 	return o.ApplyT(func(v StorageLensGroupAnd) []StorageLensGroupTag { return v.MatchAnyTag }).(StorageLensGroupTagArrayOutput)
 }
 
-// This resource contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+// This property contains `DaysGreaterThan` and `DaysLessThan` properties to define the object age range (minimum and maximum number of days).
 func (o StorageLensGroupAndOutput) MatchObjectAge() StorageLensGroupMatchObjectAgePtrOutput {
 	return o.ApplyT(func(v StorageLensGroupAnd) *StorageLensGroupMatchObjectAge { return v.MatchObjectAge }).(StorageLensGroupMatchObjectAgePtrOutput)
 }
 
-// This resource filters objects that match the specified object size range.
+// This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
 func (o StorageLensGroupAndOutput) MatchObjectSize() StorageLensGroupMatchObjectSizePtrOutput {
 	return o.ApplyT(func(v StorageLensGroupAnd) *StorageLensGroupMatchObjectSize { return v.MatchObjectSize }).(StorageLensGroupMatchObjectSizePtrOutput)
 }
@@ -11627,7 +11571,7 @@ func (o StorageLensGroupAndPtrOutput) MatchAnyTag() StorageLensGroupTagArrayOutp
 	}).(StorageLensGroupTagArrayOutput)
 }
 
-// This resource contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+// This property contains `DaysGreaterThan` and `DaysLessThan` properties to define the object age range (minimum and maximum number of days).
 func (o StorageLensGroupAndPtrOutput) MatchObjectAge() StorageLensGroupMatchObjectAgePtrOutput {
 	return o.ApplyT(func(v *StorageLensGroupAnd) *StorageLensGroupMatchObjectAge {
 		if v == nil {
@@ -11637,7 +11581,7 @@ func (o StorageLensGroupAndPtrOutput) MatchObjectAge() StorageLensGroupMatchObje
 	}).(StorageLensGroupMatchObjectAgePtrOutput)
 }
 
-// This resource filters objects that match the specified object size range.
+// This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
 func (o StorageLensGroupAndPtrOutput) MatchObjectSize() StorageLensGroupMatchObjectSizePtrOutput {
 	return o.ApplyT(func(v *StorageLensGroupAnd) *StorageLensGroupMatchObjectSize {
 		if v == nil {
@@ -11649,7 +11593,7 @@ func (o StorageLensGroupAndPtrOutput) MatchObjectSize() StorageLensGroupMatchObj
 
 // Sets the Storage Lens Group filter.
 type StorageLensGroupFilter struct {
-	// This resource is a logical operator that allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects must match all of the listed filter conditions that are joined by the `And` logical operator. Only one of each filter condition is allowed.
+	// This property contains the `And` logical operator, which allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects must match all of the listed filter conditions that are joined by the `And` logical operator. Only one of each filter condition is allowed.
 	And *StorageLensGroupAnd `pulumi:"and"`
 	// This property contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
 	MatchAnyPrefix []string `pulumi:"matchAnyPrefix"`
@@ -11657,11 +11601,11 @@ type StorageLensGroupFilter struct {
 	MatchAnySuffix []string `pulumi:"matchAnySuffix"`
 	// This property contains the list of S3 object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
 	MatchAnyTag []StorageLensGroupTag `pulumi:"matchAnyTag"`
-	// This resource contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+	// This property contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
 	MatchObjectAge *StorageLensGroupMatchObjectAge `pulumi:"matchObjectAge"`
-	// This resource filters objects that match the specified object size range.
+	// This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
 	MatchObjectSize *StorageLensGroupMatchObjectSize `pulumi:"matchObjectSize"`
-	// This resource contains the `Or` logical operator, which allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects can match any of the listed filter conditions that are joined by the `Or` logical operator. Only one of each filter condition is allowed.
+	// This property contains the `Or` logical operator, which allows multiple filter conditions to be joined. Objects can match any of the listed filter conditions, which are joined by the `Or` logical operator. Only one of each filter condition is allowed.
 	Or *StorageLensGroupOr `pulumi:"or"`
 }
 
@@ -11678,7 +11622,7 @@ type StorageLensGroupFilterInput interface {
 
 // Sets the Storage Lens Group filter.
 type StorageLensGroupFilterArgs struct {
-	// This resource is a logical operator that allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects must match all of the listed filter conditions that are joined by the `And` logical operator. Only one of each filter condition is allowed.
+	// This property contains the `And` logical operator, which allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects must match all of the listed filter conditions that are joined by the `And` logical operator. Only one of each filter condition is allowed.
 	And StorageLensGroupAndPtrInput `pulumi:"and"`
 	// This property contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
 	MatchAnyPrefix pulumi.StringArrayInput `pulumi:"matchAnyPrefix"`
@@ -11686,11 +11630,11 @@ type StorageLensGroupFilterArgs struct {
 	MatchAnySuffix pulumi.StringArrayInput `pulumi:"matchAnySuffix"`
 	// This property contains the list of S3 object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
 	MatchAnyTag StorageLensGroupTagArrayInput `pulumi:"matchAnyTag"`
-	// This resource contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+	// This property contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
 	MatchObjectAge StorageLensGroupMatchObjectAgePtrInput `pulumi:"matchObjectAge"`
-	// This resource filters objects that match the specified object size range.
+	// This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
 	MatchObjectSize StorageLensGroupMatchObjectSizePtrInput `pulumi:"matchObjectSize"`
-	// This resource contains the `Or` logical operator, which allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects can match any of the listed filter conditions that are joined by the `Or` logical operator. Only one of each filter condition is allowed.
+	// This property contains the `Or` logical operator, which allows multiple filter conditions to be joined. Objects can match any of the listed filter conditions, which are joined by the `Or` logical operator. Only one of each filter condition is allowed.
 	Or StorageLensGroupOrPtrInput `pulumi:"or"`
 }
 
@@ -11721,7 +11665,7 @@ func (o StorageLensGroupFilterOutput) ToStorageLensGroupFilterOutputWithContext(
 	return o
 }
 
-// This resource is a logical operator that allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects must match all of the listed filter conditions that are joined by the `And` logical operator. Only one of each filter condition is allowed.
+// This property contains the `And` logical operator, which allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects must match all of the listed filter conditions that are joined by the `And` logical operator. Only one of each filter condition is allowed.
 func (o StorageLensGroupFilterOutput) And() StorageLensGroupAndPtrOutput {
 	return o.ApplyT(func(v StorageLensGroupFilter) *StorageLensGroupAnd { return v.And }).(StorageLensGroupAndPtrOutput)
 }
@@ -11741,17 +11685,17 @@ func (o StorageLensGroupFilterOutput) MatchAnyTag() StorageLensGroupTagArrayOutp
 	return o.ApplyT(func(v StorageLensGroupFilter) []StorageLensGroupTag { return v.MatchAnyTag }).(StorageLensGroupTagArrayOutput)
 }
 
-// This resource contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+// This property contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
 func (o StorageLensGroupFilterOutput) MatchObjectAge() StorageLensGroupMatchObjectAgePtrOutput {
 	return o.ApplyT(func(v StorageLensGroupFilter) *StorageLensGroupMatchObjectAge { return v.MatchObjectAge }).(StorageLensGroupMatchObjectAgePtrOutput)
 }
 
-// This resource filters objects that match the specified object size range.
+// This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
 func (o StorageLensGroupFilterOutput) MatchObjectSize() StorageLensGroupMatchObjectSizePtrOutput {
 	return o.ApplyT(func(v StorageLensGroupFilter) *StorageLensGroupMatchObjectSize { return v.MatchObjectSize }).(StorageLensGroupMatchObjectSizePtrOutput)
 }
 
-// This resource contains the `Or` logical operator, which allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects can match any of the listed filter conditions that are joined by the `Or` logical operator. Only one of each filter condition is allowed.
+// This property contains the `Or` logical operator, which allows multiple filter conditions to be joined. Objects can match any of the listed filter conditions, which are joined by the `Or` logical operator. Only one of each filter condition is allowed.
 func (o StorageLensGroupFilterOutput) Or() StorageLensGroupOrPtrOutput {
 	return o.ApplyT(func(v StorageLensGroupFilter) *StorageLensGroupOr { return v.Or }).(StorageLensGroupOrPtrOutput)
 }
@@ -11780,7 +11724,7 @@ func (o StorageLensGroupFilterPtrOutput) Elem() StorageLensGroupFilterOutput {
 	}).(StorageLensGroupFilterOutput)
 }
 
-// This resource is a logical operator that allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects must match all of the listed filter conditions that are joined by the `And` logical operator. Only one of each filter condition is allowed.
+// This property contains the `And` logical operator, which allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects must match all of the listed filter conditions that are joined by the `And` logical operator. Only one of each filter condition is allowed.
 func (o StorageLensGroupFilterPtrOutput) And() StorageLensGroupAndPtrOutput {
 	return o.ApplyT(func(v *StorageLensGroupFilter) *StorageLensGroupAnd {
 		if v == nil {
@@ -11820,7 +11764,7 @@ func (o StorageLensGroupFilterPtrOutput) MatchAnyTag() StorageLensGroupTagArrayO
 	}).(StorageLensGroupTagArrayOutput)
 }
 
-// This resource contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+// This property contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
 func (o StorageLensGroupFilterPtrOutput) MatchObjectAge() StorageLensGroupMatchObjectAgePtrOutput {
 	return o.ApplyT(func(v *StorageLensGroupFilter) *StorageLensGroupMatchObjectAge {
 		if v == nil {
@@ -11830,7 +11774,7 @@ func (o StorageLensGroupFilterPtrOutput) MatchObjectAge() StorageLensGroupMatchO
 	}).(StorageLensGroupMatchObjectAgePtrOutput)
 }
 
-// This resource filters objects that match the specified object size range.
+// This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
 func (o StorageLensGroupFilterPtrOutput) MatchObjectSize() StorageLensGroupMatchObjectSizePtrOutput {
 	return o.ApplyT(func(v *StorageLensGroupFilter) *StorageLensGroupMatchObjectSize {
 		if v == nil {
@@ -11840,7 +11784,7 @@ func (o StorageLensGroupFilterPtrOutput) MatchObjectSize() StorageLensGroupMatch
 	}).(StorageLensGroupMatchObjectSizePtrOutput)
 }
 
-// This resource contains the `Or` logical operator, which allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects can match any of the listed filter conditions that are joined by the `Or` logical operator. Only one of each filter condition is allowed.
+// This property contains the `Or` logical operator, which allows multiple filter conditions to be joined. Objects can match any of the listed filter conditions, which are joined by the `Or` logical operator. Only one of each filter condition is allowed.
 func (o StorageLensGroupFilterPtrOutput) Or() StorageLensGroupOrPtrOutput {
 	return o.ApplyT(func(v *StorageLensGroupFilter) *StorageLensGroupOr {
 		if v == nil {
@@ -11852,7 +11796,7 @@ func (o StorageLensGroupFilterPtrOutput) Or() StorageLensGroupOrPtrOutput {
 
 // Specifies the details of Amazon S3 Storage Lens Group configuration.
 type StorageLensGroupLevel struct {
-	// This resource indicates which Storage Lens group ARNs to include or exclude in the Storage Lens group aggregation. You can only attach Storage Lens groups to your dashboard if they're included in your Storage Lens group aggregation. If this value is left null, then all Storage Lens groups are selected.
+	// This property indicates which Storage Lens group ARNs to include or exclude in the Storage Lens group aggregation. If this value is left null, then all Storage Lens groups are selected.
 	StorageLensGroupSelectionCriteria *StorageLensGroupSelectionCriteria `pulumi:"storageLensGroupSelectionCriteria"`
 }
 
@@ -11869,7 +11813,7 @@ type StorageLensGroupLevelInput interface {
 
 // Specifies the details of Amazon S3 Storage Lens Group configuration.
 type StorageLensGroupLevelArgs struct {
-	// This resource indicates which Storage Lens group ARNs to include or exclude in the Storage Lens group aggregation. You can only attach Storage Lens groups to your dashboard if they're included in your Storage Lens group aggregation. If this value is left null, then all Storage Lens groups are selected.
+	// This property indicates which Storage Lens group ARNs to include or exclude in the Storage Lens group aggregation. If this value is left null, then all Storage Lens groups are selected.
 	StorageLensGroupSelectionCriteria StorageLensGroupSelectionCriteriaPtrInput `pulumi:"storageLensGroupSelectionCriteria"`
 }
 
@@ -11951,7 +11895,7 @@ func (o StorageLensGroupLevelOutput) ToStorageLensGroupLevelPtrOutputWithContext
 	}).(StorageLensGroupLevelPtrOutput)
 }
 
-// This resource indicates which Storage Lens group ARNs to include or exclude in the Storage Lens group aggregation. You can only attach Storage Lens groups to your dashboard if they're included in your Storage Lens group aggregation. If this value is left null, then all Storage Lens groups are selected.
+// This property indicates which Storage Lens group ARNs to include or exclude in the Storage Lens group aggregation. If this value is left null, then all Storage Lens groups are selected.
 func (o StorageLensGroupLevelOutput) StorageLensGroupSelectionCriteria() StorageLensGroupSelectionCriteriaPtrOutput {
 	return o.ApplyT(func(v StorageLensGroupLevel) *StorageLensGroupSelectionCriteria {
 		return v.StorageLensGroupSelectionCriteria
@@ -11982,7 +11926,7 @@ func (o StorageLensGroupLevelPtrOutput) Elem() StorageLensGroupLevelOutput {
 	}).(StorageLensGroupLevelOutput)
 }
 
-// This resource indicates which Storage Lens group ARNs to include or exclude in the Storage Lens group aggregation. You can only attach Storage Lens groups to your dashboard if they're included in your Storage Lens group aggregation. If this value is left null, then all Storage Lens groups are selected.
+// This property indicates which Storage Lens group ARNs to include or exclude in the Storage Lens group aggregation. If this value is left null, then all Storage Lens groups are selected.
 func (o StorageLensGroupLevelPtrOutput) StorageLensGroupSelectionCriteria() StorageLensGroupSelectionCriteriaPtrOutput {
 	return o.ApplyT(func(v *StorageLensGroupLevel) *StorageLensGroupSelectionCriteria {
 		if v == nil {
@@ -12318,9 +12262,9 @@ type StorageLensGroupOr struct {
 	MatchAnySuffix []string `pulumi:"matchAnySuffix"`
 	// This property contains the list of S3 object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
 	MatchAnyTag []StorageLensGroupTag `pulumi:"matchAnyTag"`
-	// This resource contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+	// This property filters objects that match the specified object age range.
 	MatchObjectAge *StorageLensGroupMatchObjectAge `pulumi:"matchObjectAge"`
-	// This resource filters objects that match the specified object size range.
+	// This property contains the `BytesGreaterThan` and `BytesLessThan` values to define the object size range (minimum and maximum number of Bytes).
 	MatchObjectSize *StorageLensGroupMatchObjectSize `pulumi:"matchObjectSize"`
 }
 
@@ -12343,9 +12287,9 @@ type StorageLensGroupOrArgs struct {
 	MatchAnySuffix pulumi.StringArrayInput `pulumi:"matchAnySuffix"`
 	// This property contains the list of S3 object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
 	MatchAnyTag StorageLensGroupTagArrayInput `pulumi:"matchAnyTag"`
-	// This resource contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+	// This property filters objects that match the specified object age range.
 	MatchObjectAge StorageLensGroupMatchObjectAgePtrInput `pulumi:"matchObjectAge"`
-	// This resource filters objects that match the specified object size range.
+	// This property contains the `BytesGreaterThan` and `BytesLessThan` values to define the object size range (minimum and maximum number of Bytes).
 	MatchObjectSize StorageLensGroupMatchObjectSizePtrInput `pulumi:"matchObjectSize"`
 }
 
@@ -12442,12 +12386,12 @@ func (o StorageLensGroupOrOutput) MatchAnyTag() StorageLensGroupTagArrayOutput {
 	return o.ApplyT(func(v StorageLensGroupOr) []StorageLensGroupTag { return v.MatchAnyTag }).(StorageLensGroupTagArrayOutput)
 }
 
-// This resource contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+// This property filters objects that match the specified object age range.
 func (o StorageLensGroupOrOutput) MatchObjectAge() StorageLensGroupMatchObjectAgePtrOutput {
 	return o.ApplyT(func(v StorageLensGroupOr) *StorageLensGroupMatchObjectAge { return v.MatchObjectAge }).(StorageLensGroupMatchObjectAgePtrOutput)
 }
 
-// This resource filters objects that match the specified object size range.
+// This property contains the `BytesGreaterThan` and `BytesLessThan` values to define the object size range (minimum and maximum number of Bytes).
 func (o StorageLensGroupOrOutput) MatchObjectSize() StorageLensGroupMatchObjectSizePtrOutput {
 	return o.ApplyT(func(v StorageLensGroupOr) *StorageLensGroupMatchObjectSize { return v.MatchObjectSize }).(StorageLensGroupMatchObjectSizePtrOutput)
 }
@@ -12506,7 +12450,7 @@ func (o StorageLensGroupOrPtrOutput) MatchAnyTag() StorageLensGroupTagArrayOutpu
 	}).(StorageLensGroupTagArrayOutput)
 }
 
-// This resource contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+// This property filters objects that match the specified object age range.
 func (o StorageLensGroupOrPtrOutput) MatchObjectAge() StorageLensGroupMatchObjectAgePtrOutput {
 	return o.ApplyT(func(v *StorageLensGroupOr) *StorageLensGroupMatchObjectAge {
 		if v == nil {
@@ -12516,7 +12460,7 @@ func (o StorageLensGroupOrPtrOutput) MatchObjectAge() StorageLensGroupMatchObjec
 	}).(StorageLensGroupMatchObjectAgePtrOutput)
 }
 
-// This resource filters objects that match the specified object size range.
+// This property contains the `BytesGreaterThan` and `BytesLessThan` values to define the object size range (minimum and maximum number of Bytes).
 func (o StorageLensGroupOrPtrOutput) MatchObjectSize() StorageLensGroupMatchObjectSizePtrOutput {
 	return o.ApplyT(func(v *StorageLensGroupOr) *StorageLensGroupMatchObjectSize {
 		if v == nil {
@@ -12793,7 +12737,7 @@ func (o StorageLensGroupTagArrayOutput) Index(i pulumi.IntInput) StorageLensGrou
 
 // Prefix-level metrics configurations.
 type StorageLensPrefixLevel struct {
-	// This resource contains the details of the prefix-level storage metrics for Amazon S3 Storage Lens.
+	// A property for the prefix-level storage metrics for Amazon S3 Storage Lens.
 	StorageMetrics StorageLensPrefixLevelStorageMetrics `pulumi:"storageMetrics"`
 }
 
@@ -12810,7 +12754,7 @@ type StorageLensPrefixLevelInput interface {
 
 // Prefix-level metrics configurations.
 type StorageLensPrefixLevelArgs struct {
-	// This resource contains the details of the prefix-level storage metrics for Amazon S3 Storage Lens.
+	// A property for the prefix-level storage metrics for Amazon S3 Storage Lens.
 	StorageMetrics StorageLensPrefixLevelStorageMetricsInput `pulumi:"storageMetrics"`
 }
 
@@ -12892,7 +12836,7 @@ func (o StorageLensPrefixLevelOutput) ToStorageLensPrefixLevelPtrOutputWithConte
 	}).(StorageLensPrefixLevelPtrOutput)
 }
 
-// This resource contains the details of the prefix-level storage metrics for Amazon S3 Storage Lens.
+// A property for the prefix-level storage metrics for Amazon S3 Storage Lens.
 func (o StorageLensPrefixLevelOutput) StorageMetrics() StorageLensPrefixLevelStorageMetricsOutput {
 	return o.ApplyT(func(v StorageLensPrefixLevel) StorageLensPrefixLevelStorageMetrics { return v.StorageMetrics }).(StorageLensPrefixLevelStorageMetricsOutput)
 }
@@ -12921,7 +12865,7 @@ func (o StorageLensPrefixLevelPtrOutput) Elem() StorageLensPrefixLevelOutput {
 	}).(StorageLensPrefixLevelOutput)
 }
 
-// This resource contains the details of the prefix-level storage metrics for Amazon S3 Storage Lens.
+// A property for the prefix-level storage metrics for Amazon S3 Storage Lens.
 func (o StorageLensPrefixLevelPtrOutput) StorageMetrics() StorageLensPrefixLevelStorageMetricsPtrOutput {
 	return o.ApplyT(func(v *StorageLensPrefixLevel) *StorageLensPrefixLevelStorageMetrics {
 		if v == nil {
@@ -12934,7 +12878,7 @@ func (o StorageLensPrefixLevelPtrOutput) StorageMetrics() StorageLensPrefixLevel
 type StorageLensPrefixLevelStorageMetrics struct {
 	// Specifies whether prefix-level storage metrics are enabled or disabled.
 	IsEnabled *bool `pulumi:"isEnabled"`
-	// This resource contains the details of the Amazon S3 Storage Lens selection criteria.
+	// This property identifies whether the details of the prefix-level storage metrics for S3 Storage Lens are enabled.
 	SelectionCriteria *StorageLensSelectionCriteria `pulumi:"selectionCriteria"`
 }
 
@@ -12952,7 +12896,7 @@ type StorageLensPrefixLevelStorageMetricsInput interface {
 type StorageLensPrefixLevelStorageMetricsArgs struct {
 	// Specifies whether prefix-level storage metrics are enabled or disabled.
 	IsEnabled pulumi.BoolPtrInput `pulumi:"isEnabled"`
-	// This resource contains the details of the Amazon S3 Storage Lens selection criteria.
+	// This property identifies whether the details of the prefix-level storage metrics for S3 Storage Lens are enabled.
 	SelectionCriteria StorageLensSelectionCriteriaPtrInput `pulumi:"selectionCriteria"`
 }
 
@@ -13038,7 +12982,7 @@ func (o StorageLensPrefixLevelStorageMetricsOutput) IsEnabled() pulumi.BoolPtrOu
 	return o.ApplyT(func(v StorageLensPrefixLevelStorageMetrics) *bool { return v.IsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// This resource contains the details of the Amazon S3 Storage Lens selection criteria.
+// This property identifies whether the details of the prefix-level storage metrics for S3 Storage Lens are enabled.
 func (o StorageLensPrefixLevelStorageMetricsOutput) SelectionCriteria() StorageLensSelectionCriteriaPtrOutput {
 	return o.ApplyT(func(v StorageLensPrefixLevelStorageMetrics) *StorageLensSelectionCriteria { return v.SelectionCriteria }).(StorageLensSelectionCriteriaPtrOutput)
 }
@@ -13077,7 +13021,7 @@ func (o StorageLensPrefixLevelStorageMetricsPtrOutput) IsEnabled() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
-// This resource contains the details of the Amazon S3 Storage Lens selection criteria.
+// This property identifies whether the details of the prefix-level storage metrics for S3 Storage Lens are enabled.
 func (o StorageLensPrefixLevelStorageMetricsPtrOutput) SelectionCriteria() StorageLensSelectionCriteriaPtrOutput {
 	return o.ApplyT(func(v *StorageLensPrefixLevelStorageMetrics) *StorageLensSelectionCriteria {
 		if v == nil {
@@ -13093,7 +13037,7 @@ type StorageLensS3BucketDestination struct {
 	AccountId string `pulumi:"accountId"`
 	// The ARN of the bucket to which Amazon S3 Storage Lens exports will be placed.
 	Arn string `pulumi:"arn"`
-	// This resource contains the type of server-side encryption used to encrypt an Amazon S3 Storage Lens metrics export. For valid values, see the [StorageLensDataExportEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_StorageLensDataExportEncryption.html) in the *Amazon S3 API Reference* .
+	// This property contains the details of the encryption of the bucket destination of the Amazon S3 Storage Lens metrics export.
 	Encryption *StorageLensEncryption `pulumi:"encryption"`
 	// Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
 	Format StorageLensS3BucketDestinationFormat `pulumi:"format"`
@@ -13120,7 +13064,7 @@ type StorageLensS3BucketDestinationArgs struct {
 	AccountId pulumi.StringInput `pulumi:"accountId"`
 	// The ARN of the bucket to which Amazon S3 Storage Lens exports will be placed.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// This resource contains the type of server-side encryption used to encrypt an Amazon S3 Storage Lens metrics export. For valid values, see the [StorageLensDataExportEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_StorageLensDataExportEncryption.html) in the *Amazon S3 API Reference* .
+	// This property contains the details of the encryption of the bucket destination of the Amazon S3 Storage Lens metrics export.
 	Encryption StorageLensEncryptionPtrInput `pulumi:"encryption"`
 	// Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
 	Format StorageLensS3BucketDestinationFormatInput `pulumi:"format"`
@@ -13218,7 +13162,7 @@ func (o StorageLensS3BucketDestinationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensS3BucketDestination) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// This resource contains the type of server-side encryption used to encrypt an Amazon S3 Storage Lens metrics export. For valid values, see the [StorageLensDataExportEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_StorageLensDataExportEncryption.html) in the *Amazon S3 API Reference* .
+// This property contains the details of the encryption of the bucket destination of the Amazon S3 Storage Lens metrics export.
 func (o StorageLensS3BucketDestinationOutput) Encryption() StorageLensEncryptionPtrOutput {
 	return o.ApplyT(func(v StorageLensS3BucketDestination) *StorageLensEncryption { return v.Encryption }).(StorageLensEncryptionPtrOutput)
 }
@@ -13284,7 +13228,7 @@ func (o StorageLensS3BucketDestinationPtrOutput) Arn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This resource contains the type of server-side encryption used to encrypt an Amazon S3 Storage Lens metrics export. For valid values, see the [StorageLensDataExportEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_StorageLensDataExportEncryption.html) in the *Amazon S3 API Reference* .
+// This property contains the details of the encryption of the bucket destination of the Amazon S3 Storage Lens metrics export.
 func (o StorageLensS3BucketDestinationPtrOutput) Encryption() StorageLensEncryptionPtrOutput {
 	return o.ApplyT(func(v *StorageLensS3BucketDestination) *StorageLensEncryption {
 		if v == nil {

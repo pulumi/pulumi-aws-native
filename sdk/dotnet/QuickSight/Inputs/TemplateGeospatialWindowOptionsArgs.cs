@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateGeospatialWindowOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The bound options (north, south, west, east) of the geospatial window options.
+        /// The bounds options (north, south, west, east) of the geospatial window options.
         /// </summary>
         [Input("bounds")]
         public Input<Inputs.TemplateGeospatialCoordinateBoundsArgs>? Bounds { get; set; }

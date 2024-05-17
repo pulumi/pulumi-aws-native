@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardReferenceLineLabelConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The configuration for a custom label on a `ReferenceLine` .
+        /// The custom label configuration of the label in a reference line.
         /// </summary>
         [Input("customLabelConfiguration")]
         public Input<Inputs.DashboardReferenceLineCustomLabelConfigurationArgs>? CustomLabelConfiguration { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string>? FontColor { get; set; }
 
         /// <summary>
-        /// Configures the display properties of the given text.
+        /// The font configuration of the label in a reference line.
         /// </summary>
         [Input("fontConfiguration")]
         public Input<Inputs.DashboardFontConfigurationArgs>? FontConfiguration { get; set; }

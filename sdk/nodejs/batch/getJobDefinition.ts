@@ -24,22 +24,22 @@ export interface GetJobDefinitionArgs {
 
 export interface GetJobDefinitionResult {
     /**
-     * Container properties are used for Amazon ECS based job definitions. These properties to describe the container that's launched as part of a job.
+     * An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
      */
     readonly containerProperties?: outputs.batch.JobDefinitionContainerProperties;
     /**
-     * An object that contains the properties for the Amazon ECS resources of a job.
+     * An object that contains the properties for the Amazon ECS resources of a job.When `ecsProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `eksProperties` , or `nodeProperties` .
      */
     readonly ecsProperties?: outputs.batch.JobDefinitionEcsProperties;
     /**
-     * An object that contains the properties for the Kubernetes resources of a job.
+     * An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
      */
     readonly eksProperties?: outputs.batch.JobDefinitionEksProperties;
     readonly id?: string;
     /**
-     * An object that represents the node properties of a multi-node parallel job.
+     * An object with properties that are specific to multi-node parallel jobs. When `nodeProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `eksProperties` .
      *
-     * > Node properties can't be specified for Amazon EKS based job definitions.
+     * > If the job runs on Fargate resources, don't specify `nodeProperties` . Use `containerProperties` instead.
      */
     readonly nodeProperties?: outputs.batch.JobDefinitionNodeProperties;
     /**
@@ -57,7 +57,7 @@ export interface GetJobDefinitionResult {
      */
     readonly propagateTags?: boolean;
     /**
-     * The retry strategy that's associated with a job. For more information, see [Automated job retries](https://docs.aws.amazon.com/batch/latest/userguide/job_retries.html) in the *AWS Batch User Guide* .
+     * The retry strategy to use for failed jobs that are submitted with this job definition.
      */
     readonly retryStrategy?: outputs.batch.JobDefinitionRetryStrategy;
     /**
@@ -65,7 +65,7 @@ export interface GetJobDefinitionResult {
      */
     readonly schedulingPriority?: number;
     /**
-     * An object that represents a job timeout configuration.
+     * The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
      */
     readonly timeout?: outputs.batch.JobDefinitionTimeout;
     /**

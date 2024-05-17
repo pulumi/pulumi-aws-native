@@ -102,7 +102,7 @@ class GetMonitoringScheduleResult:
     @pulumi.getter(name="monitoringScheduleConfig")
     def monitoring_schedule_config(self) -> Optional['outputs.MonitoringScheduleConfig']:
         """
-        Configures the monitoring schedule and defines the monitoring job.
+        The configuration object that specifies the monitoring schedule and defines the monitoring job.
         """
         return pulumi.get(self, "monitoring_schedule_config")
 

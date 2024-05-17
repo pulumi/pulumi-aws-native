@@ -22,16 +22,19 @@ type Template struct {
 	// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// <p>Time when this was created.</p>
-	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
-	// The detailed definition of a template.
-	Definition TemplateVersionDefinitionPtrOutput `pulumi:"definition"`
+	CreatedTime pulumi.StringOutput                `pulumi:"createdTime"`
+	Definition  TemplateVersionDefinitionPtrOutput `pulumi:"definition"`
 	// <p>Time when this was last updated.</p>
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// A display name for the template.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Permission for the resource.
+	// A list of resource permissions to be set on the template.
 	Permissions TemplateResourcePermissionArrayOutput `pulumi:"permissions"`
-	// The source entity of the template.
+	// The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+	//
+	// Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
+	//
+	// Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
 	SourceEntity TemplateSourceEntityPtrOutput `pulumi:"sourceEntity"`
 	// Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -39,8 +42,7 @@ type Template struct {
 	TemplateId pulumi.StringOutput `pulumi:"templateId"`
 	// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
 	ValidationStrategy TemplateValidationStrategyPtrOutput `pulumi:"validationStrategy"`
-	// A version of a template.
-	Version TemplateVersionOutput `pulumi:"version"`
+	Version            TemplateVersionOutput               `pulumi:"version"`
 	// A description of the current template version being created. This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
 	VersionDescription pulumi.StringPtrOutput `pulumi:"versionDescription"`
 }
@@ -97,14 +99,17 @@ func (TemplateState) ElementType() reflect.Type {
 
 type templateArgs struct {
 	// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
-	AwsAccountId string `pulumi:"awsAccountId"`
-	// The detailed definition of a template.
-	Definition *TemplateVersionDefinition `pulumi:"definition"`
+	AwsAccountId string                     `pulumi:"awsAccountId"`
+	Definition   *TemplateVersionDefinition `pulumi:"definition"`
 	// A display name for the template.
 	Name *string `pulumi:"name"`
-	// Permission for the resource.
+	// A list of resource permissions to be set on the template.
 	Permissions []TemplateResourcePermission `pulumi:"permissions"`
-	// The source entity of the template.
+	// The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+	//
+	// Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
+	//
+	// Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
 	SourceEntity *TemplateSourceEntity `pulumi:"sourceEntity"`
 	// Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -120,13 +125,16 @@ type templateArgs struct {
 type TemplateArgs struct {
 	// The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
 	AwsAccountId pulumi.StringInput
-	// The detailed definition of a template.
-	Definition TemplateVersionDefinitionPtrInput
+	Definition   TemplateVersionDefinitionPtrInput
 	// A display name for the template.
 	Name pulumi.StringPtrInput
-	// Permission for the resource.
+	// A list of resource permissions to be set on the template.
 	Permissions TemplateResourcePermissionArrayInput
-	// The source entity of the template.
+	// The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+	//
+	// Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
+	//
+	// Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
 	SourceEntity TemplateSourceEntityPtrInput
 	// Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
 	Tags aws.TagArrayInput
@@ -190,7 +198,6 @@ func (o TemplateOutput) CreatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.CreatedTime }).(pulumi.StringOutput)
 }
 
-// The detailed definition of a template.
 func (o TemplateOutput) Definition() TemplateVersionDefinitionPtrOutput {
 	return o.ApplyT(func(v *Template) TemplateVersionDefinitionPtrOutput { return v.Definition }).(TemplateVersionDefinitionPtrOutput)
 }
@@ -205,12 +212,16 @@ func (o TemplateOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Permission for the resource.
+// A list of resource permissions to be set on the template.
 func (o TemplateOutput) Permissions() TemplateResourcePermissionArrayOutput {
 	return o.ApplyT(func(v *Template) TemplateResourcePermissionArrayOutput { return v.Permissions }).(TemplateResourcePermissionArrayOutput)
 }
 
-// The source entity of the template.
+// The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+//
+// Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
+//
+// Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
 func (o TemplateOutput) SourceEntity() TemplateSourceEntityPtrOutput {
 	return o.ApplyT(func(v *Template) TemplateSourceEntityPtrOutput { return v.SourceEntity }).(TemplateSourceEntityPtrOutput)
 }
@@ -230,7 +241,6 @@ func (o TemplateOutput) ValidationStrategy() TemplateValidationStrategyPtrOutput
 	return o.ApplyT(func(v *Template) TemplateValidationStrategyPtrOutput { return v.ValidationStrategy }).(TemplateValidationStrategyPtrOutput)
 }
 
-// A version of a template.
 func (o TemplateOutput) Version() TemplateVersionOutput {
 	return o.ApplyT(func(v *Template) TemplateVersionOutput { return v.Version }).(TemplateVersionOutput)
 }

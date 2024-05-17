@@ -40,7 +40,9 @@ namespace Pulumi.AwsNative.Lightsail
         public Output<string> BundleId { get; private set; } = null!;
 
         /// <summary>
-        /// `Hardware` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+        /// The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+        /// 
+        /// &gt; The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
         /// </summary>
         [Output("hardware")]
         public Output<Outputs.InstanceHardware?> Hardware { get; private set; } = null!;
@@ -70,13 +72,15 @@ namespace Pulumi.AwsNative.Lightsail
         public Output<string?> KeyPairName { get; private set; } = null!;
 
         /// <summary>
-        /// `Location` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the location for an instance.
+        /// The location for the instance, such as the AWS Region and Availability Zone.
+        /// 
+        /// &gt; The `Location` property is read-only and should not be specified in a create instance or update instance request.
         /// </summary>
         [Output("location")]
         public Output<Outputs.InstanceLocation?> Location { get; private set; } = null!;
 
         /// <summary>
-        /// `Networking` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the public ports and the monthly amount of data transfer allocated for the instance.
+        /// The public ports and the monthly amount of data transfer allocated for the instance.
         /// </summary>
         [Output("networking")]
         public Output<Outputs.InstanceNetworking?> Networking { get; private set; } = null!;
@@ -106,7 +110,9 @@ namespace Pulumi.AwsNative.Lightsail
         public Output<string> SshKeyName { get; private set; } = null!;
 
         /// <summary>
-        /// `State` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the status code and the state (for example, `running` ) of an instance.
+        /// The status code and the state (for example, `running` ) of the instance.
+        /// 
+        /// &gt; The `State` property is read-only and should not be specified in a create instance or update instance request.
         /// </summary>
         [Output("state")]
         public Output<Outputs.InstanceState?> State { get; private set; } = null!;
@@ -218,7 +224,9 @@ namespace Pulumi.AwsNative.Lightsail
         public Input<string> BundleId { get; set; } = null!;
 
         /// <summary>
-        /// `Hardware` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+        /// The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+        /// 
+        /// &gt; The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
         /// </summary>
         [Input("hardware")]
         public Input<Inputs.InstanceHardwareArgs>? Hardware { get; set; }
@@ -236,19 +244,23 @@ namespace Pulumi.AwsNative.Lightsail
         public Input<string>? KeyPairName { get; set; }
 
         /// <summary>
-        /// `Location` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the location for an instance.
+        /// The location for the instance, such as the AWS Region and Availability Zone.
+        /// 
+        /// &gt; The `Location` property is read-only and should not be specified in a create instance or update instance request.
         /// </summary>
         [Input("location")]
         public Input<Inputs.InstanceLocationArgs>? Location { get; set; }
 
         /// <summary>
-        /// `Networking` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the public ports and the monthly amount of data transfer allocated for the instance.
+        /// The public ports and the monthly amount of data transfer allocated for the instance.
         /// </summary>
         [Input("networking")]
         public Input<Inputs.InstanceNetworkingArgs>? Networking { get; set; }
 
         /// <summary>
-        /// `State` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the status code and the state (for example, `running` ) of an instance.
+        /// The status code and the state (for example, `running` ) of the instance.
+        /// 
+        /// &gt; The `State` property is read-only and should not be specified in a create instance or update instance request.
         /// </summary>
         [Input("state")]
         public Input<Inputs.InstanceStateArgs>? State { get; set; }

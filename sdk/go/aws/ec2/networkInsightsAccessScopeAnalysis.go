@@ -35,7 +35,7 @@ type NetworkInsightsAccessScopeAnalysis struct {
 	Status NetworkInsightsAccessScopeAnalysisStatusOutput `pulumi:"status"`
 	// The status message.
 	StatusMessage pulumi.StringOutput `pulumi:"statusMessage"`
-	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	// The tags.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -88,7 +88,7 @@ func (NetworkInsightsAccessScopeAnalysisState) ElementType() reflect.Type {
 type networkInsightsAccessScopeAnalysisArgs struct {
 	// The ID of the Network Access Scope.
 	NetworkInsightsAccessScopeId string `pulumi:"networkInsightsAccessScopeId"`
-	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	// The tags.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -96,7 +96,7 @@ type networkInsightsAccessScopeAnalysisArgs struct {
 type NetworkInsightsAccessScopeAnalysisArgs struct {
 	// The ID of the Network Access Scope.
 	NetworkInsightsAccessScopeId pulumi.StringInput
-	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	// The tags.
 	Tags aws.TagArrayInput
 }
 
@@ -190,7 +190,7 @@ func (o NetworkInsightsAccessScopeAnalysisOutput) StatusMessage() pulumi.StringO
 	return o.ApplyT(func(v *NetworkInsightsAccessScopeAnalysis) pulumi.StringOutput { return v.StatusMessage }).(pulumi.StringOutput)
 }
 
-// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+// The tags.
 func (o NetworkInsightsAccessScopeAnalysisOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *NetworkInsightsAccessScopeAnalysis) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

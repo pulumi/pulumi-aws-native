@@ -28,13 +28,13 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// The `FormCTA` property specifies the call to action button configuration for the form.
+        /// The `FormCTA` object that stores the call to action configuration for the form.
         /// </summary>
         [Output("cta")]
         public Output<Outputs.FormCta?> Cta { get; private set; } = null!;
 
         /// <summary>
-        /// The `FormDataTypeConfig` property specifies the data type configuration for the data source associated with a form.
+        /// The type of data source to use to create the form.
         /// </summary>
         [Output("dataType")]
         public Output<Outputs.FormDataTypeConfig?> DataType { get; private set; } = null!;
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         public Output<ImmutableDictionary<string, Outputs.FormSectionalElement>?> SectionalElements { get; private set; } = null!;
 
         /// <summary>
-        /// The `FormStyle` property specifies the configuration for the form's style.
+        /// The configuration for the form's style.
         /// </summary>
         [Output("style")]
         public Output<Outputs.FormStyle?> Style { get; private set; } = null!;
@@ -150,13 +150,13 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         public Input<string>? AppId { get; set; }
 
         /// <summary>
-        /// The `FormCTA` property specifies the call to action button configuration for the form.
+        /// The `FormCTA` object that stores the call to action configuration for the form.
         /// </summary>
         [Input("cta")]
         public Input<Inputs.FormCtaArgs>? Cta { get; set; }
 
         /// <summary>
-        /// The `FormDataTypeConfig` property specifies the data type configuration for the data source associated with a form.
+        /// The type of data source to use to create the form.
         /// </summary>
         [Input("dataType")]
         public Input<Inputs.FormDataTypeConfigArgs>? DataType { get; set; }
@@ -216,7 +216,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         }
 
         /// <summary>
-        /// The `FormStyle` property specifies the configuration for the form's style.
+        /// The configuration for the form's style.
         /// </summary>
         [Input("style")]
         public Input<Inputs.FormStyleArgs>? Style { get; set; }

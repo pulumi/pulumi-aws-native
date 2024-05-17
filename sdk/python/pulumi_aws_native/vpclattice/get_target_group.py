@@ -59,9 +59,7 @@ class GetTargetGroupResult:
     @pulumi.getter
     def config(self) -> Optional['outputs.TargetGroupConfig']:
         """
-        Describes the configuration of a target group.
-
-        For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in the *Amazon VPC Lattice User Guide* .
+        The target group configuration.
         """
         return pulumi.get(self, "config")
 
@@ -101,7 +99,7 @@ class GetTargetGroupResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        Specifies a tag for a target group.
+        The tags for the target group.
         """
         return pulumi.get(self, "tags")
 

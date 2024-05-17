@@ -42,7 +42,7 @@ export class MonitoringSubscription extends pulumi.CustomResource {
      */
     public readonly distributionId!: pulumi.Output<string>;
     /**
-     * A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+     * A subscription configuration for additional CloudWatch metrics.
      */
     public readonly monitoringSubscription!: pulumi.Output<outputs.cloudfront.MonitoringSubscription>;
 
@@ -85,7 +85,7 @@ export interface MonitoringSubscriptionArgs {
      */
     distributionId: pulumi.Input<string>;
     /**
-     * A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+     * A subscription configuration for additional CloudWatch metrics.
      */
     monitoringSubscription: pulumi.Input<inputs.cloudfront.MonitoringSubscriptionArgs>;
 }

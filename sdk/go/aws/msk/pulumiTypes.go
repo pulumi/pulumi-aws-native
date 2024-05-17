@@ -16,9 +16,9 @@ var _ = internal.GetEnvOrDefault
 type ClusterBrokerLogs struct {
 	// Details of the CloudWatch Logs destination for broker logs.
 	CloudWatchLogs *ClusterCloudWatchLogs `pulumi:"cloudWatchLogs"`
-	// Firehose details for BrokerLogs.
+	// Details of the Kinesis Data Firehose delivery stream that is the destination for broker logs.
 	Firehose *ClusterFirehose `pulumi:"firehose"`
-	// The details of the Amazon S3 destination for broker logs.
+	// Details of the Amazon S3 destination for broker logs.
 	S3 *ClusterS3 `pulumi:"s3"`
 }
 
@@ -36,9 +36,9 @@ type ClusterBrokerLogsInput interface {
 type ClusterBrokerLogsArgs struct {
 	// Details of the CloudWatch Logs destination for broker logs.
 	CloudWatchLogs ClusterCloudWatchLogsPtrInput `pulumi:"cloudWatchLogs"`
-	// Firehose details for BrokerLogs.
+	// Details of the Kinesis Data Firehose delivery stream that is the destination for broker logs.
 	Firehose ClusterFirehosePtrInput `pulumi:"firehose"`
-	// The details of the Amazon S3 destination for broker logs.
+	// Details of the Amazon S3 destination for broker logs.
 	S3 ClusterS3PtrInput `pulumi:"s3"`
 }
 
@@ -124,12 +124,12 @@ func (o ClusterBrokerLogsOutput) CloudWatchLogs() ClusterCloudWatchLogsPtrOutput
 	return o.ApplyT(func(v ClusterBrokerLogs) *ClusterCloudWatchLogs { return v.CloudWatchLogs }).(ClusterCloudWatchLogsPtrOutput)
 }
 
-// Firehose details for BrokerLogs.
+// Details of the Kinesis Data Firehose delivery stream that is the destination for broker logs.
 func (o ClusterBrokerLogsOutput) Firehose() ClusterFirehosePtrOutput {
 	return o.ApplyT(func(v ClusterBrokerLogs) *ClusterFirehose { return v.Firehose }).(ClusterFirehosePtrOutput)
 }
 
-// The details of the Amazon S3 destination for broker logs.
+// Details of the Amazon S3 destination for broker logs.
 func (o ClusterBrokerLogsOutput) S3() ClusterS3PtrOutput {
 	return o.ApplyT(func(v ClusterBrokerLogs) *ClusterS3 { return v.S3 }).(ClusterS3PtrOutput)
 }
@@ -168,7 +168,7 @@ func (o ClusterBrokerLogsPtrOutput) CloudWatchLogs() ClusterCloudWatchLogsPtrOut
 	}).(ClusterCloudWatchLogsPtrOutput)
 }
 
-// Firehose details for BrokerLogs.
+// Details of the Kinesis Data Firehose delivery stream that is the destination for broker logs.
 func (o ClusterBrokerLogsPtrOutput) Firehose() ClusterFirehosePtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerLogs) *ClusterFirehose {
 		if v == nil {
@@ -178,7 +178,7 @@ func (o ClusterBrokerLogsPtrOutput) Firehose() ClusterFirehosePtrOutput {
 	}).(ClusterFirehosePtrOutput)
 }
 
-// The details of the Amazon S3 destination for broker logs.
+// Details of the Amazon S3 destination for broker logs.
 func (o ClusterBrokerLogsPtrOutput) S3() ClusterS3PtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerLogs) *ClusterS3 {
 		if v == nil {
@@ -197,7 +197,7 @@ type ClusterBrokerNodeGroupInfo struct {
 	//
 	// Client subnets can't occupy the Availability Zone with ID `use1-az3` .
 	ClientSubnets []string `pulumi:"clientSubnets"`
-	// Broker access controls.
+	// Information about the cluster's connectivity setting.
 	ConnectivityInfo *ClusterConnectivityInfo `pulumi:"connectivityInfo"`
 	// The type of Amazon EC2 instances to use for brokers. The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.8xlarge, kafka.m5.12xlarge, kafka.m5.16xlarge, kafka.m5.24xlarge, and kafka.t3.small.
 	InstanceType string `pulumi:"instanceType"`
@@ -227,7 +227,7 @@ type ClusterBrokerNodeGroupInfoArgs struct {
 	//
 	// Client subnets can't occupy the Availability Zone with ID `use1-az3` .
 	ClientSubnets pulumi.StringArrayInput `pulumi:"clientSubnets"`
-	// Broker access controls.
+	// Information about the cluster's connectivity setting.
 	ConnectivityInfo ClusterConnectivityInfoPtrInput `pulumi:"connectivityInfo"`
 	// The type of Amazon EC2 instances to use for brokers. The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.8xlarge, kafka.m5.12xlarge, kafka.m5.16xlarge, kafka.m5.24xlarge, and kafka.t3.small.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
@@ -277,7 +277,7 @@ func (o ClusterBrokerNodeGroupInfoOutput) ClientSubnets() pulumi.StringArrayOutp
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) []string { return v.ClientSubnets }).(pulumi.StringArrayOutput)
 }
 
-// Broker access controls.
+// Information about the cluster's connectivity setting.
 func (o ClusterBrokerNodeGroupInfoOutput) ConnectivityInfo() ClusterConnectivityInfoPtrOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) *ClusterConnectivityInfo { return v.ConnectivityInfo }).(ClusterConnectivityInfoPtrOutput)
 }
@@ -345,7 +345,7 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) ClientSubnets() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
-// Broker access controls.
+// Information about the cluster's connectivity setting.
 func (o ClusterBrokerNodeGroupInfoPtrOutput) ConnectivityInfo() ClusterConnectivityInfoPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *ClusterConnectivityInfo {
 		if v == nil {
@@ -388,9 +388,9 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) StorageInfo() ClusterStorageInfoPtr
 type ClusterClientAuthentication struct {
 	// Details for client authentication using SASL. To turn on SASL, you must also turn on `EncryptionInTransit` by setting `inCluster` to true. You must set `clientBroker` to either `TLS` or `TLS_PLAINTEXT` . If you choose `TLS_PLAINTEXT` , then you must also set `unauthenticated` to true.
 	Sasl *ClusterSasl `pulumi:"sasl"`
-	// Details for client authentication using TLS.
+	// Details for ClientAuthentication using TLS. To turn on TLS access control, you must also turn on `EncryptionInTransit` by setting `inCluster` to true and `clientBroker` to `TLS` .
 	Tls *ClusterTls `pulumi:"tls"`
-	// Details for allowing no client authentication.
+	// Details for ClientAuthentication using no authentication.
 	Unauthenticated *ClusterUnauthenticated `pulumi:"unauthenticated"`
 }
 
@@ -408,9 +408,9 @@ type ClusterClientAuthenticationInput interface {
 type ClusterClientAuthenticationArgs struct {
 	// Details for client authentication using SASL. To turn on SASL, you must also turn on `EncryptionInTransit` by setting `inCluster` to true. You must set `clientBroker` to either `TLS` or `TLS_PLAINTEXT` . If you choose `TLS_PLAINTEXT` , then you must also set `unauthenticated` to true.
 	Sasl ClusterSaslPtrInput `pulumi:"sasl"`
-	// Details for client authentication using TLS.
+	// Details for ClientAuthentication using TLS. To turn on TLS access control, you must also turn on `EncryptionInTransit` by setting `inCluster` to true and `clientBroker` to `TLS` .
 	Tls ClusterTlsPtrInput `pulumi:"tls"`
-	// Details for allowing no client authentication.
+	// Details for ClientAuthentication using no authentication.
 	Unauthenticated ClusterUnauthenticatedPtrInput `pulumi:"unauthenticated"`
 }
 
@@ -496,12 +496,12 @@ func (o ClusterClientAuthenticationOutput) Sasl() ClusterSaslPtrOutput {
 	return o.ApplyT(func(v ClusterClientAuthentication) *ClusterSasl { return v.Sasl }).(ClusterSaslPtrOutput)
 }
 
-// Details for client authentication using TLS.
+// Details for ClientAuthentication using TLS. To turn on TLS access control, you must also turn on `EncryptionInTransit` by setting `inCluster` to true and `clientBroker` to `TLS` .
 func (o ClusterClientAuthenticationOutput) Tls() ClusterTlsPtrOutput {
 	return o.ApplyT(func(v ClusterClientAuthentication) *ClusterTls { return v.Tls }).(ClusterTlsPtrOutput)
 }
 
-// Details for allowing no client authentication.
+// Details for ClientAuthentication using no authentication.
 func (o ClusterClientAuthenticationOutput) Unauthenticated() ClusterUnauthenticatedPtrOutput {
 	return o.ApplyT(func(v ClusterClientAuthentication) *ClusterUnauthenticated { return v.Unauthenticated }).(ClusterUnauthenticatedPtrOutput)
 }
@@ -540,7 +540,7 @@ func (o ClusterClientAuthenticationPtrOutput) Sasl() ClusterSaslPtrOutput {
 	}).(ClusterSaslPtrOutput)
 }
 
-// Details for client authentication using TLS.
+// Details for ClientAuthentication using TLS. To turn on TLS access control, you must also turn on `EncryptionInTransit` by setting `inCluster` to true and `clientBroker` to `TLS` .
 func (o ClusterClientAuthenticationPtrOutput) Tls() ClusterTlsPtrOutput {
 	return o.ApplyT(func(v *ClusterClientAuthentication) *ClusterTls {
 		if v == nil {
@@ -550,7 +550,7 @@ func (o ClusterClientAuthenticationPtrOutput) Tls() ClusterTlsPtrOutput {
 	}).(ClusterTlsPtrOutput)
 }
 
-// Details for allowing no client authentication.
+// Details for ClientAuthentication using no authentication.
 func (o ClusterClientAuthenticationPtrOutput) Unauthenticated() ClusterUnauthenticatedPtrOutput {
 	return o.ApplyT(func(v *ClusterClientAuthentication) *ClusterUnauthenticated {
 		if v == nil {
@@ -873,9 +873,9 @@ func (o ClusterConfigurationInfoPtrOutput) Revision() pulumi.IntPtrOutput {
 }
 
 type ClusterConnectivityInfo struct {
-	// Broker access controls
+	// Access control settings for the cluster's brokers.
 	PublicAccess *ClusterPublicAccess `pulumi:"publicAccess"`
-	// VPC connection control settings for brokers.
+	// VPC connection control settings for brokers
 	VpcConnectivity *ClusterVpcConnectivity `pulumi:"vpcConnectivity"`
 }
 
@@ -891,9 +891,9 @@ type ClusterConnectivityInfoInput interface {
 }
 
 type ClusterConnectivityInfoArgs struct {
-	// Broker access controls
+	// Access control settings for the cluster's brokers.
 	PublicAccess ClusterPublicAccessPtrInput `pulumi:"publicAccess"`
-	// VPC connection control settings for brokers.
+	// VPC connection control settings for brokers
 	VpcConnectivity ClusterVpcConnectivityPtrInput `pulumi:"vpcConnectivity"`
 }
 
@@ -974,12 +974,12 @@ func (o ClusterConnectivityInfoOutput) ToClusterConnectivityInfoPtrOutputWithCon
 	}).(ClusterConnectivityInfoPtrOutput)
 }
 
-// Broker access controls
+// Access control settings for the cluster's brokers.
 func (o ClusterConnectivityInfoOutput) PublicAccess() ClusterPublicAccessPtrOutput {
 	return o.ApplyT(func(v ClusterConnectivityInfo) *ClusterPublicAccess { return v.PublicAccess }).(ClusterPublicAccessPtrOutput)
 }
 
-// VPC connection control settings for brokers.
+// VPC connection control settings for brokers
 func (o ClusterConnectivityInfoOutput) VpcConnectivity() ClusterVpcConnectivityPtrOutput {
 	return o.ApplyT(func(v ClusterConnectivityInfo) *ClusterVpcConnectivity { return v.VpcConnectivity }).(ClusterVpcConnectivityPtrOutput)
 }
@@ -1008,7 +1008,7 @@ func (o ClusterConnectivityInfoPtrOutput) Elem() ClusterConnectivityInfoOutput {
 	}).(ClusterConnectivityInfoOutput)
 }
 
-// Broker access controls
+// Access control settings for the cluster's brokers.
 func (o ClusterConnectivityInfoPtrOutput) PublicAccess() ClusterPublicAccessPtrOutput {
 	return o.ApplyT(func(v *ClusterConnectivityInfo) *ClusterPublicAccess {
 		if v == nil {
@@ -1018,7 +1018,7 @@ func (o ClusterConnectivityInfoPtrOutput) PublicAccess() ClusterPublicAccessPtrO
 	}).(ClusterPublicAccessPtrOutput)
 }
 
-// VPC connection control settings for brokers.
+// VPC connection control settings for brokers
 func (o ClusterConnectivityInfoPtrOutput) VpcConnectivity() ClusterVpcConnectivityPtrOutput {
 	return o.ApplyT(func(v *ClusterConnectivityInfo) *ClusterVpcConnectivity {
 		if v == nil {
@@ -1029,7 +1029,7 @@ func (o ClusterConnectivityInfoPtrOutput) VpcConnectivity() ClusterVpcConnectivi
 }
 
 type ClusterEbsStorageInfo struct {
-	// Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.
+	// EBS volume provisioned throughput information.
 	ProvisionedThroughput *ClusterProvisionedThroughput `pulumi:"provisionedThroughput"`
 	// The size in GiB of the EBS volume for the data drive on each broker node.
 	VolumeSize *int `pulumi:"volumeSize"`
@@ -1047,7 +1047,7 @@ type ClusterEbsStorageInfoInput interface {
 }
 
 type ClusterEbsStorageInfoArgs struct {
-	// Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.
+	// EBS volume provisioned throughput information.
 	ProvisionedThroughput ClusterProvisionedThroughputPtrInput `pulumi:"provisionedThroughput"`
 	// The size in GiB of the EBS volume for the data drive on each broker node.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
@@ -1130,7 +1130,7 @@ func (o ClusterEbsStorageInfoOutput) ToClusterEbsStorageInfoPtrOutputWithContext
 	}).(ClusterEbsStorageInfoPtrOutput)
 }
 
-// Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.
+// EBS volume provisioned throughput information.
 func (o ClusterEbsStorageInfoOutput) ProvisionedThroughput() ClusterProvisionedThroughputPtrOutput {
 	return o.ApplyT(func(v ClusterEbsStorageInfo) *ClusterProvisionedThroughput { return v.ProvisionedThroughput }).(ClusterProvisionedThroughputPtrOutput)
 }
@@ -1164,7 +1164,7 @@ func (o ClusterEbsStorageInfoPtrOutput) Elem() ClusterEbsStorageInfoOutput {
 	}).(ClusterEbsStorageInfoOutput)
 }
 
-// Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.
+// EBS volume provisioned throughput information.
 func (o ClusterEbsStorageInfoPtrOutput) ProvisionedThroughput() ClusterProvisionedThroughputPtrOutput {
 	return o.ApplyT(func(v *ClusterEbsStorageInfo) *ClusterProvisionedThroughput {
 		if v == nil {
@@ -1518,9 +1518,9 @@ func (o ClusterEncryptionInTransitPtrOutput) InCluster() pulumi.BoolPtrOutput {
 }
 
 type ClusterEncryptionInfo struct {
-	// The data-volume encryption details. You can't update encryption at rest settings for existing clusters.
+	// The data-volume encryption details.
 	EncryptionAtRest *ClusterEncryptionAtRest `pulumi:"encryptionAtRest"`
-	// The settings for encrypting data in transit.
+	// The details for encryption in transit.
 	EncryptionInTransit *ClusterEncryptionInTransit `pulumi:"encryptionInTransit"`
 }
 
@@ -1536,9 +1536,9 @@ type ClusterEncryptionInfoInput interface {
 }
 
 type ClusterEncryptionInfoArgs struct {
-	// The data-volume encryption details. You can't update encryption at rest settings for existing clusters.
+	// The data-volume encryption details.
 	EncryptionAtRest ClusterEncryptionAtRestPtrInput `pulumi:"encryptionAtRest"`
-	// The settings for encrypting data in transit.
+	// The details for encryption in transit.
 	EncryptionInTransit ClusterEncryptionInTransitPtrInput `pulumi:"encryptionInTransit"`
 }
 
@@ -1619,12 +1619,12 @@ func (o ClusterEncryptionInfoOutput) ToClusterEncryptionInfoPtrOutputWithContext
 	}).(ClusterEncryptionInfoPtrOutput)
 }
 
-// The data-volume encryption details. You can't update encryption at rest settings for existing clusters.
+// The data-volume encryption details.
 func (o ClusterEncryptionInfoOutput) EncryptionAtRest() ClusterEncryptionAtRestPtrOutput {
 	return o.ApplyT(func(v ClusterEncryptionInfo) *ClusterEncryptionAtRest { return v.EncryptionAtRest }).(ClusterEncryptionAtRestPtrOutput)
 }
 
-// The settings for encrypting data in transit.
+// The details for encryption in transit.
 func (o ClusterEncryptionInfoOutput) EncryptionInTransit() ClusterEncryptionInTransitPtrOutput {
 	return o.ApplyT(func(v ClusterEncryptionInfo) *ClusterEncryptionInTransit { return v.EncryptionInTransit }).(ClusterEncryptionInTransitPtrOutput)
 }
@@ -1653,7 +1653,7 @@ func (o ClusterEncryptionInfoPtrOutput) Elem() ClusterEncryptionInfoOutput {
 	}).(ClusterEncryptionInfoOutput)
 }
 
-// The data-volume encryption details. You can't update encryption at rest settings for existing clusters.
+// The data-volume encryption details.
 func (o ClusterEncryptionInfoPtrOutput) EncryptionAtRest() ClusterEncryptionAtRestPtrOutput {
 	return o.ApplyT(func(v *ClusterEncryptionInfo) *ClusterEncryptionAtRest {
 		if v == nil {
@@ -1663,7 +1663,7 @@ func (o ClusterEncryptionInfoPtrOutput) EncryptionAtRest() ClusterEncryptionAtRe
 	}).(ClusterEncryptionAtRestPtrOutput)
 }
 
-// The settings for encrypting data in transit.
+// The details for encryption in transit.
 func (o ClusterEncryptionInfoPtrOutput) EncryptionInTransit() ClusterEncryptionInTransitPtrOutput {
 	return o.ApplyT(func(v *ClusterEncryptionInfo) *ClusterEncryptionInTransit {
 		if v == nil {
@@ -2104,7 +2104,7 @@ func (o ClusterJmxExporterPtrOutput) EnabledInBroker() pulumi.BoolPtrOutput {
 }
 
 type ClusterLoggingInfo struct {
-	// The broker logs configuration for this MSK cluster.
+	// You can configure your MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
 	BrokerLogs ClusterBrokerLogs `pulumi:"brokerLogs"`
 }
 
@@ -2120,7 +2120,7 @@ type ClusterLoggingInfoInput interface {
 }
 
 type ClusterLoggingInfoArgs struct {
-	// The broker logs configuration for this MSK cluster.
+	// You can configure your MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
 	BrokerLogs ClusterBrokerLogsInput `pulumi:"brokerLogs"`
 }
 
@@ -2201,7 +2201,7 @@ func (o ClusterLoggingInfoOutput) ToClusterLoggingInfoPtrOutputWithContext(ctx c
 	}).(ClusterLoggingInfoPtrOutput)
 }
 
-// The broker logs configuration for this MSK cluster.
+// You can configure your MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
 func (o ClusterLoggingInfoOutput) BrokerLogs() ClusterBrokerLogsOutput {
 	return o.ApplyT(func(v ClusterLoggingInfo) ClusterBrokerLogs { return v.BrokerLogs }).(ClusterBrokerLogsOutput)
 }
@@ -2230,7 +2230,7 @@ func (o ClusterLoggingInfoPtrOutput) Elem() ClusterLoggingInfoOutput {
 	}).(ClusterLoggingInfoOutput)
 }
 
-// The broker logs configuration for this MSK cluster.
+// You can configure your MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
 func (o ClusterLoggingInfoPtrOutput) BrokerLogs() ClusterBrokerLogsPtrOutput {
 	return o.ApplyT(func(v *ClusterLoggingInfo) *ClusterBrokerLogs {
 		if v == nil {
@@ -2378,7 +2378,7 @@ func (o ClusterNodeExporterPtrOutput) EnabledInBroker() pulumi.BoolPtrOutput {
 }
 
 type ClusterOpenMonitoring struct {
-	// Prometheus settings for open monitoring.
+	// Prometheus exporter settings.
 	Prometheus ClusterPrometheus `pulumi:"prometheus"`
 }
 
@@ -2394,7 +2394,7 @@ type ClusterOpenMonitoringInput interface {
 }
 
 type ClusterOpenMonitoringArgs struct {
-	// Prometheus settings for open monitoring.
+	// Prometheus exporter settings.
 	Prometheus ClusterPrometheusInput `pulumi:"prometheus"`
 }
 
@@ -2475,7 +2475,7 @@ func (o ClusterOpenMonitoringOutput) ToClusterOpenMonitoringPtrOutputWithContext
 	}).(ClusterOpenMonitoringPtrOutput)
 }
 
-// Prometheus settings for open monitoring.
+// Prometheus exporter settings.
 func (o ClusterOpenMonitoringOutput) Prometheus() ClusterPrometheusOutput {
 	return o.ApplyT(func(v ClusterOpenMonitoring) ClusterPrometheus { return v.Prometheus }).(ClusterPrometheusOutput)
 }
@@ -2504,7 +2504,7 @@ func (o ClusterOpenMonitoringPtrOutput) Elem() ClusterOpenMonitoringOutput {
 	}).(ClusterOpenMonitoringOutput)
 }
 
-// Prometheus settings for open monitoring.
+// Prometheus exporter settings.
 func (o ClusterOpenMonitoringPtrOutput) Prometheus() ClusterPrometheusPtrOutput {
 	return o.ApplyT(func(v *ClusterOpenMonitoring) *ClusterPrometheus {
 		if v == nil {
@@ -3139,7 +3139,7 @@ func (o ClusterS3PtrOutput) Prefix() pulumi.StringPtrOutput {
 }
 
 type ClusterSasl struct {
-	// Details for SASL/IAM client authentication.
+	// Details for ClientAuthentication using IAM.
 	Iam *ClusterIam `pulumi:"iam"`
 	// Details for SASL/SCRAM client authentication.
 	Scram *ClusterScram `pulumi:"scram"`
@@ -3157,7 +3157,7 @@ type ClusterSaslInput interface {
 }
 
 type ClusterSaslArgs struct {
-	// Details for SASL/IAM client authentication.
+	// Details for ClientAuthentication using IAM.
 	Iam ClusterIamPtrInput `pulumi:"iam"`
 	// Details for SASL/SCRAM client authentication.
 	Scram ClusterScramPtrInput `pulumi:"scram"`
@@ -3240,7 +3240,7 @@ func (o ClusterSaslOutput) ToClusterSaslPtrOutputWithContext(ctx context.Context
 	}).(ClusterSaslPtrOutput)
 }
 
-// Details for SASL/IAM client authentication.
+// Details for ClientAuthentication using IAM.
 func (o ClusterSaslOutput) Iam() ClusterIamPtrOutput {
 	return o.ApplyT(func(v ClusterSasl) *ClusterIam { return v.Iam }).(ClusterIamPtrOutput)
 }
@@ -3274,7 +3274,7 @@ func (o ClusterSaslPtrOutput) Elem() ClusterSaslOutput {
 	}).(ClusterSaslOutput)
 }
 
-// Details for SASL/IAM client authentication.
+// Details for ClientAuthentication using IAM.
 func (o ClusterSaslPtrOutput) Iam() ClusterIamPtrOutput {
 	return o.ApplyT(func(v *ClusterSasl) *ClusterIam {
 		if v == nil {
@@ -3432,7 +3432,7 @@ func (o ClusterScramPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type ClusterStorageInfo struct {
-	// Contains information about the EBS storage volumes attached to the broker nodes.
+	// EBS volume information.
 	EbsStorageInfo *ClusterEbsStorageInfo `pulumi:"ebsStorageInfo"`
 }
 
@@ -3448,7 +3448,7 @@ type ClusterStorageInfoInput interface {
 }
 
 type ClusterStorageInfoArgs struct {
-	// Contains information about the EBS storage volumes attached to the broker nodes.
+	// EBS volume information.
 	EbsStorageInfo ClusterEbsStorageInfoPtrInput `pulumi:"ebsStorageInfo"`
 }
 
@@ -3529,7 +3529,7 @@ func (o ClusterStorageInfoOutput) ToClusterStorageInfoPtrOutputWithContext(ctx c
 	}).(ClusterStorageInfoPtrOutput)
 }
 
-// Contains information about the EBS storage volumes attached to the broker nodes.
+// EBS volume information.
 func (o ClusterStorageInfoOutput) EbsStorageInfo() ClusterEbsStorageInfoPtrOutput {
 	return o.ApplyT(func(v ClusterStorageInfo) *ClusterEbsStorageInfo { return v.EbsStorageInfo }).(ClusterEbsStorageInfoPtrOutput)
 }
@@ -3558,7 +3558,7 @@ func (o ClusterStorageInfoPtrOutput) Elem() ClusterStorageInfoOutput {
 	}).(ClusterStorageInfoOutput)
 }
 
-// Contains information about the EBS storage volumes attached to the broker nodes.
+// EBS volume information.
 func (o ClusterStorageInfoPtrOutput) EbsStorageInfo() ClusterEbsStorageInfoPtrOutput {
 	return o.ApplyT(func(v *ClusterStorageInfo) *ClusterEbsStorageInfo {
 		if v == nil {
@@ -3862,7 +3862,7 @@ func (o ClusterUnauthenticatedPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type ClusterVpcConnectivity struct {
-	// Includes all client authentication information for VpcConnectivity.
+	// VPC connection control settings for brokers.
 	ClientAuthentication *ClusterVpcConnectivityClientAuthentication `pulumi:"clientAuthentication"`
 }
 
@@ -3878,7 +3878,7 @@ type ClusterVpcConnectivityInput interface {
 }
 
 type ClusterVpcConnectivityArgs struct {
-	// Includes all client authentication information for VpcConnectivity.
+	// VPC connection control settings for brokers.
 	ClientAuthentication ClusterVpcConnectivityClientAuthenticationPtrInput `pulumi:"clientAuthentication"`
 }
 
@@ -3959,7 +3959,7 @@ func (o ClusterVpcConnectivityOutput) ToClusterVpcConnectivityPtrOutputWithConte
 	}).(ClusterVpcConnectivityPtrOutput)
 }
 
-// Includes all client authentication information for VpcConnectivity.
+// VPC connection control settings for brokers.
 func (o ClusterVpcConnectivityOutput) ClientAuthentication() ClusterVpcConnectivityClientAuthenticationPtrOutput {
 	return o.ApplyT(func(v ClusterVpcConnectivity) *ClusterVpcConnectivityClientAuthentication {
 		return v.ClientAuthentication
@@ -3990,7 +3990,7 @@ func (o ClusterVpcConnectivityPtrOutput) Elem() ClusterVpcConnectivityOutput {
 	}).(ClusterVpcConnectivityOutput)
 }
 
-// Includes all client authentication information for VpcConnectivity.
+// VPC connection control settings for brokers.
 func (o ClusterVpcConnectivityPtrOutput) ClientAuthentication() ClusterVpcConnectivityClientAuthenticationPtrOutput {
 	return o.ApplyT(func(v *ClusterVpcConnectivity) *ClusterVpcConnectivityClientAuthentication {
 		if v == nil {
@@ -4001,9 +4001,9 @@ func (o ClusterVpcConnectivityPtrOutput) ClientAuthentication() ClusterVpcConnec
 }
 
 type ClusterVpcConnectivityClientAuthentication struct {
-	// Details for client authentication using SASL for VpcConnectivity.
+	// Details for VpcConnectivity ClientAuthentication using SASL.
 	Sasl *ClusterVpcConnectivitySasl `pulumi:"sasl"`
-	// Details for client authentication using TLS for vpcConnectivity.
+	// Details for VpcConnectivity ClientAuthentication using TLS.
 	Tls *ClusterVpcConnectivityTls `pulumi:"tls"`
 }
 
@@ -4019,9 +4019,9 @@ type ClusterVpcConnectivityClientAuthenticationInput interface {
 }
 
 type ClusterVpcConnectivityClientAuthenticationArgs struct {
-	// Details for client authentication using SASL for VpcConnectivity.
+	// Details for VpcConnectivity ClientAuthentication using SASL.
 	Sasl ClusterVpcConnectivitySaslPtrInput `pulumi:"sasl"`
-	// Details for client authentication using TLS for vpcConnectivity.
+	// Details for VpcConnectivity ClientAuthentication using TLS.
 	Tls ClusterVpcConnectivityTlsPtrInput `pulumi:"tls"`
 }
 
@@ -4102,12 +4102,12 @@ func (o ClusterVpcConnectivityClientAuthenticationOutput) ToClusterVpcConnectivi
 	}).(ClusterVpcConnectivityClientAuthenticationPtrOutput)
 }
 
-// Details for client authentication using SASL for VpcConnectivity.
+// Details for VpcConnectivity ClientAuthentication using SASL.
 func (o ClusterVpcConnectivityClientAuthenticationOutput) Sasl() ClusterVpcConnectivitySaslPtrOutput {
 	return o.ApplyT(func(v ClusterVpcConnectivityClientAuthentication) *ClusterVpcConnectivitySasl { return v.Sasl }).(ClusterVpcConnectivitySaslPtrOutput)
 }
 
-// Details for client authentication using TLS for vpcConnectivity.
+// Details for VpcConnectivity ClientAuthentication using TLS.
 func (o ClusterVpcConnectivityClientAuthenticationOutput) Tls() ClusterVpcConnectivityTlsPtrOutput {
 	return o.ApplyT(func(v ClusterVpcConnectivityClientAuthentication) *ClusterVpcConnectivityTls { return v.Tls }).(ClusterVpcConnectivityTlsPtrOutput)
 }
@@ -4136,7 +4136,7 @@ func (o ClusterVpcConnectivityClientAuthenticationPtrOutput) Elem() ClusterVpcCo
 	}).(ClusterVpcConnectivityClientAuthenticationOutput)
 }
 
-// Details for client authentication using SASL for VpcConnectivity.
+// Details for VpcConnectivity ClientAuthentication using SASL.
 func (o ClusterVpcConnectivityClientAuthenticationPtrOutput) Sasl() ClusterVpcConnectivitySaslPtrOutput {
 	return o.ApplyT(func(v *ClusterVpcConnectivityClientAuthentication) *ClusterVpcConnectivitySasl {
 		if v == nil {
@@ -4146,7 +4146,7 @@ func (o ClusterVpcConnectivityClientAuthenticationPtrOutput) Sasl() ClusterVpcCo
 	}).(ClusterVpcConnectivitySaslPtrOutput)
 }
 
-// Details for client authentication using TLS for vpcConnectivity.
+// Details for VpcConnectivity ClientAuthentication using TLS.
 func (o ClusterVpcConnectivityClientAuthenticationPtrOutput) Tls() ClusterVpcConnectivityTlsPtrOutput {
 	return o.ApplyT(func(v *ClusterVpcConnectivityClientAuthentication) *ClusterVpcConnectivityTls {
 		if v == nil {
@@ -4294,9 +4294,9 @@ func (o ClusterVpcConnectivityIamPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type ClusterVpcConnectivitySasl struct {
-	// Details for SASL/IAM client authentication for VpcConnectivity.
+	// Details for ClientAuthentication using IAM for VpcConnectivity.
 	Iam *ClusterVpcConnectivityIam `pulumi:"iam"`
-	// Details for SASL/SCRAM client authentication for vpcConnectivity.
+	// Details for SASL/SCRAM client authentication for VpcConnectivity.
 	Scram *ClusterVpcConnectivityScram `pulumi:"scram"`
 }
 
@@ -4312,9 +4312,9 @@ type ClusterVpcConnectivitySaslInput interface {
 }
 
 type ClusterVpcConnectivitySaslArgs struct {
-	// Details for SASL/IAM client authentication for VpcConnectivity.
+	// Details for ClientAuthentication using IAM for VpcConnectivity.
 	Iam ClusterVpcConnectivityIamPtrInput `pulumi:"iam"`
-	// Details for SASL/SCRAM client authentication for vpcConnectivity.
+	// Details for SASL/SCRAM client authentication for VpcConnectivity.
 	Scram ClusterVpcConnectivityScramPtrInput `pulumi:"scram"`
 }
 
@@ -4395,12 +4395,12 @@ func (o ClusterVpcConnectivitySaslOutput) ToClusterVpcConnectivitySaslPtrOutputW
 	}).(ClusterVpcConnectivitySaslPtrOutput)
 }
 
-// Details for SASL/IAM client authentication for VpcConnectivity.
+// Details for ClientAuthentication using IAM for VpcConnectivity.
 func (o ClusterVpcConnectivitySaslOutput) Iam() ClusterVpcConnectivityIamPtrOutput {
 	return o.ApplyT(func(v ClusterVpcConnectivitySasl) *ClusterVpcConnectivityIam { return v.Iam }).(ClusterVpcConnectivityIamPtrOutput)
 }
 
-// Details for SASL/SCRAM client authentication for vpcConnectivity.
+// Details for SASL/SCRAM client authentication for VpcConnectivity.
 func (o ClusterVpcConnectivitySaslOutput) Scram() ClusterVpcConnectivityScramPtrOutput {
 	return o.ApplyT(func(v ClusterVpcConnectivitySasl) *ClusterVpcConnectivityScram { return v.Scram }).(ClusterVpcConnectivityScramPtrOutput)
 }
@@ -4429,7 +4429,7 @@ func (o ClusterVpcConnectivitySaslPtrOutput) Elem() ClusterVpcConnectivitySaslOu
 	}).(ClusterVpcConnectivitySaslOutput)
 }
 
-// Details for SASL/IAM client authentication for VpcConnectivity.
+// Details for ClientAuthentication using IAM for VpcConnectivity.
 func (o ClusterVpcConnectivitySaslPtrOutput) Iam() ClusterVpcConnectivityIamPtrOutput {
 	return o.ApplyT(func(v *ClusterVpcConnectivitySasl) *ClusterVpcConnectivityIam {
 		if v == nil {
@@ -4439,7 +4439,7 @@ func (o ClusterVpcConnectivitySaslPtrOutput) Iam() ClusterVpcConnectivityIamPtrO
 	}).(ClusterVpcConnectivityIamPtrOutput)
 }
 
-// Details for SASL/SCRAM client authentication for vpcConnectivity.
+// Details for SASL/SCRAM client authentication for VpcConnectivity.
 func (o ClusterVpcConnectivitySaslPtrOutput) Scram() ClusterVpcConnectivityScramPtrOutput {
 	return o.ApplyT(func(v *ClusterVpcConnectivitySasl) *ClusterVpcConnectivityScram {
 		if v == nil {
@@ -5681,7 +5681,7 @@ func (o ServerlessClusterIamOutput) Enabled() pulumi.BoolOutput {
 }
 
 type ServerlessClusterSasl struct {
-	// Details for SASL/IAM client authentication.
+	// Details for ClientAuthentication using IAM.
 	Iam ServerlessClusterIam `pulumi:"iam"`
 }
 
@@ -5697,7 +5697,7 @@ type ServerlessClusterSaslInput interface {
 }
 
 type ServerlessClusterSaslArgs struct {
-	// Details for SASL/IAM client authentication.
+	// Details for ClientAuthentication using IAM.
 	Iam ServerlessClusterIamInput `pulumi:"iam"`
 }
 
@@ -5727,7 +5727,7 @@ func (o ServerlessClusterSaslOutput) ToServerlessClusterSaslOutputWithContext(ct
 	return o
 }
 
-// Details for SASL/IAM client authentication.
+// Details for ClientAuthentication using IAM.
 func (o ServerlessClusterSaslOutput) Iam() ServerlessClusterIamOutput {
 	return o.ApplyT(func(v ServerlessClusterSasl) ServerlessClusterIam { return v.Iam }).(ServerlessClusterIamOutput)
 }

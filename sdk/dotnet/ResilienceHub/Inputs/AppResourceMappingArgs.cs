@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.ResilienceHub.Inputs
         public Input<string> MappingType { get; set; } = null!;
 
         /// <summary>
-        /// Defines a physical resource identifier.
+        /// Identifier of the physical resource.
         /// </summary>
         [Input("physicalResourceId", required: true)]
         public Input<Inputs.AppPhysicalResourceIdArgs> PhysicalResourceId { get; set; } = null!;

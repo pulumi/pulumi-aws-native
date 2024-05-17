@@ -70,7 +70,7 @@ class GetAssessmentResult:
     @pulumi.getter(name="assessmentReportsDestination")
     def assessment_reports_destination(self) -> Optional['outputs.AssessmentReportsDestination']:
         """
-        The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+        The destination that evidence reports are stored in for the assessment.
         """
         return pulumi.get(self, "assessment_reports_destination")
 
@@ -102,7 +102,7 @@ class GetAssessmentResult:
     @pulumi.getter
     def scope(self) -> Optional['outputs.AssessmentScope']:
         """
-        The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+        The wrapper of AWS accounts and services that are in scope for the assessment.
         """
         return pulumi.get(self, "scope")
 

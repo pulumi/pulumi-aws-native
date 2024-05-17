@@ -695,7 +695,7 @@ class DiskAddOnArgs:
         """
         A addon associate with a resource.
         :param pulumi.Input[str] add_on_type: The add-on type
-        :param pulumi.Input['DiskAutoSnapshotAddOnArgs'] auto_snapshot_add_on_request: `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html) property. It describes the automatic snapshot add-on for a disk.
+        :param pulumi.Input['DiskAutoSnapshotAddOnArgs'] auto_snapshot_add_on_request: The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
         :param pulumi.Input['DiskAddOnStatus'] status: Status of the Addon
         """
         pulumi.set(__self__, "add_on_type", add_on_type)
@@ -720,7 +720,7 @@ class DiskAddOnArgs:
     @pulumi.getter(name="autoSnapshotAddOnRequest")
     def auto_snapshot_add_on_request(self) -> Optional[pulumi.Input['DiskAutoSnapshotAddOnArgs']]:
         """
-        `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html) property. It describes the automatic snapshot add-on for a disk.
+        The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
         """
         return pulumi.get(self, "auto_snapshot_add_on_request")
 
@@ -814,7 +814,7 @@ class InstanceAddOnArgs:
         """
         A addon associate with a resource.
         :param pulumi.Input[str] add_on_type: The add-on type
-        :param pulumi.Input['InstanceAutoSnapshotAddOnArgs'] auto_snapshot_add_on_request: `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html) property. It describes the automatic snapshot add-on for an instance.
+        :param pulumi.Input['InstanceAutoSnapshotAddOnArgs'] auto_snapshot_add_on_request: The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
         :param pulumi.Input['InstanceAddOnStatus'] status: Status of the Addon
         """
         pulumi.set(__self__, "add_on_type", add_on_type)
@@ -839,7 +839,7 @@ class InstanceAddOnArgs:
     @pulumi.getter(name="autoSnapshotAddOnRequest")
     def auto_snapshot_add_on_request(self) -> Optional[pulumi.Input['InstanceAutoSnapshotAddOnArgs']]:
         """
-        `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html) property. It describes the automatic snapshot add-on for an instance.
+        The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
         """
         return pulumi.get(self, "auto_snapshot_add_on_request")
 
@@ -1130,7 +1130,7 @@ class InstanceNetworkingArgs:
         """
         Networking of the Instance.
         :param pulumi.Input[Sequence[pulumi.Input['InstancePortArgs']]] ports: Ports to the Instance.
-        :param pulumi.Input['InstanceMonthlyTransferArgs'] monthly_transfer: `MonthlyTransfer` is a property of the [Networking](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html) property. It describes the amount of allocated monthly data transfer (in GB) for an instance.
+        :param pulumi.Input['InstanceMonthlyTransferArgs'] monthly_transfer: The monthly amount of data transfer, in GB, allocated for the instance
         """
         pulumi.set(__self__, "ports", ports)
         if monthly_transfer is not None:
@@ -1152,7 +1152,7 @@ class InstanceNetworkingArgs:
     @pulumi.getter(name="monthlyTransfer")
     def monthly_transfer(self) -> Optional[pulumi.Input['InstanceMonthlyTransferArgs']]:
         """
-        `MonthlyTransfer` is a property of the [Networking](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html) property. It describes the amount of allocated monthly data transfer (in GB) for an instance.
+        The monthly amount of data transfer, in GB, allocated for the instance
         """
         return pulumi.get(self, "monthly_transfer")
 

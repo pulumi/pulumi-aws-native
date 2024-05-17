@@ -27,9 +27,9 @@ type NetworkInsightsPath struct {
 	DestinationIp pulumi.StringPtrOutput `pulumi:"destinationIp"`
 	// The destination port.
 	DestinationPort pulumi.IntPtrOutput `pulumi:"destinationPort"`
-	// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+	// Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify the parameter for the destination IP address.
 	FilterAtDestination NetworkInsightsPathPathFilterPtrOutput `pulumi:"filterAtDestination"`
-	// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+	// Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify the parameters for the source IP address or the destination port.
 	FilterAtSource NetworkInsightsPathPathFilterPtrOutput `pulumi:"filterAtSource"`
 	// The Amazon Resource Name (ARN) of the path.
 	NetworkInsightsPathArn pulumi.StringOutput `pulumi:"networkInsightsPathArn"`
@@ -43,7 +43,7 @@ type NetworkInsightsPath struct {
 	SourceArn pulumi.StringOutput `pulumi:"sourceArn"`
 	// The IP address of the source.
 	SourceIp pulumi.StringPtrOutput `pulumi:"sourceIp"`
-	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	// The tags to add to the path.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -110,9 +110,9 @@ type networkInsightsPathArgs struct {
 	DestinationIp *string `pulumi:"destinationIp"`
 	// The destination port.
 	DestinationPort *int `pulumi:"destinationPort"`
-	// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+	// Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify the parameter for the destination IP address.
 	FilterAtDestination *NetworkInsightsPathPathFilter `pulumi:"filterAtDestination"`
-	// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+	// Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify the parameters for the source IP address or the destination port.
 	FilterAtSource *NetworkInsightsPathPathFilter `pulumi:"filterAtSource"`
 	// The protocol.
 	Protocol NetworkInsightsPathProtocol `pulumi:"protocol"`
@@ -120,7 +120,7 @@ type networkInsightsPathArgs struct {
 	Source string `pulumi:"source"`
 	// The IP address of the source.
 	SourceIp *string `pulumi:"sourceIp"`
-	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	// The tags to add to the path.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -132,9 +132,9 @@ type NetworkInsightsPathArgs struct {
 	DestinationIp pulumi.StringPtrInput
 	// The destination port.
 	DestinationPort pulumi.IntPtrInput
-	// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+	// Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify the parameter for the destination IP address.
 	FilterAtDestination NetworkInsightsPathPathFilterPtrInput
-	// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+	// Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify the parameters for the source IP address or the destination port.
 	FilterAtSource NetworkInsightsPathPathFilterPtrInput
 	// The protocol.
 	Protocol NetworkInsightsPathProtocolInput
@@ -142,7 +142,7 @@ type NetworkInsightsPathArgs struct {
 	Source pulumi.StringInput
 	// The IP address of the source.
 	SourceIp pulumi.StringPtrInput
-	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	// The tags to add to the path.
 	Tags aws.TagArrayInput
 }
 
@@ -208,12 +208,12 @@ func (o NetworkInsightsPathOutput) DestinationPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.IntPtrOutput { return v.DestinationPort }).(pulumi.IntPtrOutput)
 }
 
-// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+// Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify the parameter for the destination IP address.
 func (o NetworkInsightsPathOutput) FilterAtDestination() NetworkInsightsPathPathFilterPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) NetworkInsightsPathPathFilterPtrOutput { return v.FilterAtDestination }).(NetworkInsightsPathPathFilterPtrOutput)
 }
 
-// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+// Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify the parameters for the source IP address or the destination port.
 func (o NetworkInsightsPathOutput) FilterAtSource() NetworkInsightsPathPathFilterPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) NetworkInsightsPathPathFilterPtrOutput { return v.FilterAtSource }).(NetworkInsightsPathPathFilterPtrOutput)
 }
@@ -248,7 +248,7 @@ func (o NetworkInsightsPathOutput) SourceIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringPtrOutput { return v.SourceIp }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+// The tags to add to the path.
 func (o NetworkInsightsPathOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

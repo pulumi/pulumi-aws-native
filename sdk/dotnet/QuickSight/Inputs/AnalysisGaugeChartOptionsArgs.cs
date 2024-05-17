@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.AnalysisArcAxisConfigurationArgs>? ArcAxis { get; set; }
 
         /// <summary>
-        /// The comparison display configuration of a KPI or gauge chart.
+        /// The comparison configuration of a `GaugeChartVisual` .
         /// </summary>
         [Input("comparison")]
         public Input<Inputs.AnalysisComparisonConfigurationArgs>? Comparison { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.AnalysisPrimaryValueDisplayType>? PrimaryValueDisplayType { get; set; }
 
         /// <summary>
-        /// Configures the display properties of the given text.
+        /// The options that determine the primary value font configuration.
         /// </summary>
         [Input("primaryValueFontConfiguration")]
         public Input<Inputs.AnalysisFontConfigurationArgs>? PrimaryValueFontConfiguration { get; set; }

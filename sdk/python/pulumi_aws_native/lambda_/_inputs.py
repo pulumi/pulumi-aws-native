@@ -74,7 +74,7 @@ class AliasRoutingConfigurationArgs:
     def __init__(__self__, *,
                  additional_version_weights: pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]] additional_version_weights: The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+        :param pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]] additional_version_weights: The second version, and the percentage of traffic that's routed to it.
         """
         pulumi.set(__self__, "additional_version_weights", additional_version_weights)
 
@@ -82,7 +82,7 @@ class AliasRoutingConfigurationArgs:
     @pulumi.getter(name="additionalVersionWeights")
     def additional_version_weights(self) -> pulumi.Input[Sequence[pulumi.Input['AliasVersionWeightArgs']]]:
         """
-        The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+        The second version, and the percentage of traffic that's routed to it.
         """
         return pulumi.get(self, "additional_version_weights")
 
@@ -181,8 +181,8 @@ class EventInvokeConfigDestinationConfigArgs:
                  on_success: Optional[pulumi.Input['EventInvokeConfigOnSuccessArgs']] = None):
         """
         A destination for events after they have been sent to a function for processing.
-        :param pulumi.Input['EventInvokeConfigOnFailureArgs'] on_failure: A destination for events that failed processing.
-        :param pulumi.Input['EventInvokeConfigOnSuccessArgs'] on_success: A destination for events that were processed successfully.
+        :param pulumi.Input['EventInvokeConfigOnFailureArgs'] on_failure: The destination configuration for failed invocations.
+        :param pulumi.Input['EventInvokeConfigOnSuccessArgs'] on_success: The destination configuration for successful invocations.
         """
         if on_failure is not None:
             pulumi.set(__self__, "on_failure", on_failure)
@@ -193,7 +193,7 @@ class EventInvokeConfigDestinationConfigArgs:
     @pulumi.getter(name="onFailure")
     def on_failure(self) -> Optional[pulumi.Input['EventInvokeConfigOnFailureArgs']]:
         """
-        A destination for events that failed processing.
+        The destination configuration for failed invocations.
         """
         return pulumi.get(self, "on_failure")
 
@@ -205,7 +205,7 @@ class EventInvokeConfigDestinationConfigArgs:
     @pulumi.getter(name="onSuccess")
     def on_success(self) -> Optional[pulumi.Input['EventInvokeConfigOnSuccessArgs']]:
         """
-        A destination for events that were processed successfully.
+        The destination configuration for successful invocations.
         """
         return pulumi.get(self, "on_success")
 

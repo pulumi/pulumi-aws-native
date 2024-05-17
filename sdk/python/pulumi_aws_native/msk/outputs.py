@@ -82,8 +82,8 @@ class ClusterBrokerLogs(dict):
                  s3: Optional['outputs.ClusterS3'] = None):
         """
         :param 'ClusterCloudWatchLogs' cloud_watch_logs: Details of the CloudWatch Logs destination for broker logs.
-        :param 'ClusterFirehose' firehose: Firehose details for BrokerLogs.
-        :param 'ClusterS3' s3: The details of the Amazon S3 destination for broker logs.
+        :param 'ClusterFirehose' firehose: Details of the Kinesis Data Firehose delivery stream that is the destination for broker logs.
+        :param 'ClusterS3' s3: Details of the Amazon S3 destination for broker logs.
         """
         if cloud_watch_logs is not None:
             pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
@@ -104,7 +104,7 @@ class ClusterBrokerLogs(dict):
     @pulumi.getter
     def firehose(self) -> Optional['outputs.ClusterFirehose']:
         """
-        Firehose details for BrokerLogs.
+        Details of the Kinesis Data Firehose delivery stream that is the destination for broker logs.
         """
         return pulumi.get(self, "firehose")
 
@@ -112,7 +112,7 @@ class ClusterBrokerLogs(dict):
     @pulumi.getter
     def s3(self) -> Optional['outputs.ClusterS3']:
         """
-        The details of the Amazon S3 destination for broker logs.
+        Details of the Amazon S3 destination for broker logs.
         """
         return pulumi.get(self, "s3")
 
@@ -161,7 +161,7 @@ class ClusterBrokerNodeGroupInfo(dict):
                Client subnets can't occupy the Availability Zone with ID `use1-az3` .
         :param str instance_type: The type of Amazon EC2 instances to use for brokers. The following instance types are allowed: kafka.m5.large, kafka.m5.xlarge, kafka.m5.2xlarge, kafka.m5.4xlarge, kafka.m5.8xlarge, kafka.m5.12xlarge, kafka.m5.16xlarge, kafka.m5.24xlarge, and kafka.t3.small.
         :param str broker_az_distribution: This parameter is currently not in use.
-        :param 'ClusterConnectivityInfo' connectivity_info: Broker access controls.
+        :param 'ClusterConnectivityInfo' connectivity_info: Information about the cluster's connectivity setting.
         :param Sequence[str] security_groups: The security groups to associate with the elastic network interfaces in order to specify who can connect to and communicate with the Amazon MSK cluster. If you don't specify a security group, Amazon MSK uses the default security group associated with the VPC. If you specify security groups that were shared with you, you must ensure that you have permissions to them. Specifically, you need the `ec2:DescribeSecurityGroups` permission.
         :param 'ClusterStorageInfo' storage_info: Contains information about storage volumes attached to Amazon MSK broker nodes.
         """
@@ -208,7 +208,7 @@ class ClusterBrokerNodeGroupInfo(dict):
     @pulumi.getter(name="connectivityInfo")
     def connectivity_info(self) -> Optional['outputs.ClusterConnectivityInfo']:
         """
-        Broker access controls.
+        Information about the cluster's connectivity setting.
         """
         return pulumi.get(self, "connectivity_info")
 
@@ -237,8 +237,8 @@ class ClusterClientAuthentication(dict):
                  unauthenticated: Optional['outputs.ClusterUnauthenticated'] = None):
         """
         :param 'ClusterSasl' sasl: Details for client authentication using SASL. To turn on SASL, you must also turn on `EncryptionInTransit` by setting `inCluster` to true. You must set `clientBroker` to either `TLS` or `TLS_PLAINTEXT` . If you choose `TLS_PLAINTEXT` , then you must also set `unauthenticated` to true.
-        :param 'ClusterTls' tls: Details for client authentication using TLS.
-        :param 'ClusterUnauthenticated' unauthenticated: Details for allowing no client authentication.
+        :param 'ClusterTls' tls: Details for ClientAuthentication using TLS. To turn on TLS access control, you must also turn on `EncryptionInTransit` by setting `inCluster` to true and `clientBroker` to `TLS` .
+        :param 'ClusterUnauthenticated' unauthenticated: Details for ClientAuthentication using no authentication.
         """
         if sasl is not None:
             pulumi.set(__self__, "sasl", sasl)
@@ -259,7 +259,7 @@ class ClusterClientAuthentication(dict):
     @pulumi.getter
     def tls(self) -> Optional['outputs.ClusterTls']:
         """
-        Details for client authentication using TLS.
+        Details for ClientAuthentication using TLS. To turn on TLS access control, you must also turn on `EncryptionInTransit` by setting `inCluster` to true and `clientBroker` to `TLS` .
         """
         return pulumi.get(self, "tls")
 
@@ -267,7 +267,7 @@ class ClusterClientAuthentication(dict):
     @pulumi.getter
     def unauthenticated(self) -> Optional['outputs.ClusterUnauthenticated']:
         """
-        Details for allowing no client authentication.
+        Details for ClientAuthentication using no authentication.
         """
         return pulumi.get(self, "unauthenticated")
 
@@ -373,8 +373,8 @@ class ClusterConnectivityInfo(dict):
                  public_access: Optional['outputs.ClusterPublicAccess'] = None,
                  vpc_connectivity: Optional['outputs.ClusterVpcConnectivity'] = None):
         """
-        :param 'ClusterPublicAccess' public_access: Broker access controls
-        :param 'ClusterVpcConnectivity' vpc_connectivity: VPC connection control settings for brokers.
+        :param 'ClusterPublicAccess' public_access: Access control settings for the cluster's brokers.
+        :param 'ClusterVpcConnectivity' vpc_connectivity: VPC connection control settings for brokers
         """
         if public_access is not None:
             pulumi.set(__self__, "public_access", public_access)
@@ -385,7 +385,7 @@ class ClusterConnectivityInfo(dict):
     @pulumi.getter(name="publicAccess")
     def public_access(self) -> Optional['outputs.ClusterPublicAccess']:
         """
-        Broker access controls
+        Access control settings for the cluster's brokers.
         """
         return pulumi.get(self, "public_access")
 
@@ -393,7 +393,7 @@ class ClusterConnectivityInfo(dict):
     @pulumi.getter(name="vpcConnectivity")
     def vpc_connectivity(self) -> Optional['outputs.ClusterVpcConnectivity']:
         """
-        VPC connection control settings for brokers.
+        VPC connection control settings for brokers
         """
         return pulumi.get(self, "vpc_connectivity")
 
@@ -423,7 +423,7 @@ class ClusterEbsStorageInfo(dict):
                  provisioned_throughput: Optional['outputs.ClusterProvisionedThroughput'] = None,
                  volume_size: Optional[int] = None):
         """
-        :param 'ClusterProvisionedThroughput' provisioned_throughput: Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.
+        :param 'ClusterProvisionedThroughput' provisioned_throughput: EBS volume provisioned throughput information.
         :param int volume_size: The size in GiB of the EBS volume for the data drive on each broker node.
         """
         if provisioned_throughput is not None:
@@ -435,7 +435,7 @@ class ClusterEbsStorageInfo(dict):
     @pulumi.getter(name="provisionedThroughput")
     def provisioned_throughput(self) -> Optional['outputs.ClusterProvisionedThroughput']:
         """
-        Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.
+        EBS volume provisioned throughput information.
         """
         return pulumi.get(self, "provisioned_throughput")
 
@@ -578,8 +578,8 @@ class ClusterEncryptionInfo(dict):
                  encryption_at_rest: Optional['outputs.ClusterEncryptionAtRest'] = None,
                  encryption_in_transit: Optional['outputs.ClusterEncryptionInTransit'] = None):
         """
-        :param 'ClusterEncryptionAtRest' encryption_at_rest: The data-volume encryption details. You can't update encryption at rest settings for existing clusters.
-        :param 'ClusterEncryptionInTransit' encryption_in_transit: The settings for encrypting data in transit.
+        :param 'ClusterEncryptionAtRest' encryption_at_rest: The data-volume encryption details.
+        :param 'ClusterEncryptionInTransit' encryption_in_transit: The details for encryption in transit.
         """
         if encryption_at_rest is not None:
             pulumi.set(__self__, "encryption_at_rest", encryption_at_rest)
@@ -590,7 +590,7 @@ class ClusterEncryptionInfo(dict):
     @pulumi.getter(name="encryptionAtRest")
     def encryption_at_rest(self) -> Optional['outputs.ClusterEncryptionAtRest']:
         """
-        The data-volume encryption details. You can't update encryption at rest settings for existing clusters.
+        The data-volume encryption details.
         """
         return pulumi.get(self, "encryption_at_rest")
 
@@ -598,7 +598,7 @@ class ClusterEncryptionInfo(dict):
     @pulumi.getter(name="encryptionInTransit")
     def encryption_in_transit(self) -> Optional['outputs.ClusterEncryptionInTransit']:
         """
-        The settings for encrypting data in transit.
+        The details for encryption in transit.
         """
         return pulumi.get(self, "encryption_in_transit")
 
@@ -725,7 +725,7 @@ class ClusterLoggingInfo(dict):
     def __init__(__self__, *,
                  broker_logs: 'outputs.ClusterBrokerLogs'):
         """
-        :param 'ClusterBrokerLogs' broker_logs: The broker logs configuration for this MSK cluster.
+        :param 'ClusterBrokerLogs' broker_logs: You can configure your MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
         """
         pulumi.set(__self__, "broker_logs", broker_logs)
 
@@ -733,7 +733,7 @@ class ClusterLoggingInfo(dict):
     @pulumi.getter(name="brokerLogs")
     def broker_logs(self) -> 'outputs.ClusterBrokerLogs':
         """
-        The broker logs configuration for this MSK cluster.
+        You can configure your MSK cluster to send broker logs to different destination types. This configuration specifies the details of these destinations.
         """
         return pulumi.get(self, "broker_logs")
 
@@ -778,7 +778,7 @@ class ClusterOpenMonitoring(dict):
     def __init__(__self__, *,
                  prometheus: 'outputs.ClusterPrometheus'):
         """
-        :param 'ClusterPrometheus' prometheus: Prometheus settings for open monitoring.
+        :param 'ClusterPrometheus' prometheus: Prometheus exporter settings.
         """
         pulumi.set(__self__, "prometheus", prometheus)
 
@@ -786,7 +786,7 @@ class ClusterOpenMonitoring(dict):
     @pulumi.getter
     def prometheus(self) -> 'outputs.ClusterPrometheus':
         """
-        Prometheus settings for open monitoring.
+        Prometheus exporter settings.
         """
         return pulumi.get(self, "prometheus")
 
@@ -956,7 +956,7 @@ class ClusterSasl(dict):
                  iam: Optional['outputs.ClusterIam'] = None,
                  scram: Optional['outputs.ClusterScram'] = None):
         """
-        :param 'ClusterIam' iam: Details for SASL/IAM client authentication.
+        :param 'ClusterIam' iam: Details for ClientAuthentication using IAM.
         :param 'ClusterScram' scram: Details for SASL/SCRAM client authentication.
         """
         if iam is not None:
@@ -968,7 +968,7 @@ class ClusterSasl(dict):
     @pulumi.getter
     def iam(self) -> Optional['outputs.ClusterIam']:
         """
-        Details for SASL/IAM client authentication.
+        Details for ClientAuthentication using IAM.
         """
         return pulumi.get(self, "iam")
 
@@ -1021,7 +1021,7 @@ class ClusterStorageInfo(dict):
     def __init__(__self__, *,
                  ebs_storage_info: Optional['outputs.ClusterEbsStorageInfo'] = None):
         """
-        :param 'ClusterEbsStorageInfo' ebs_storage_info: Contains information about the EBS storage volumes attached to the broker nodes.
+        :param 'ClusterEbsStorageInfo' ebs_storage_info: EBS volume information.
         """
         if ebs_storage_info is not None:
             pulumi.set(__self__, "ebs_storage_info", ebs_storage_info)
@@ -1030,7 +1030,7 @@ class ClusterStorageInfo(dict):
     @pulumi.getter(name="ebsStorageInfo")
     def ebs_storage_info(self) -> Optional['outputs.ClusterEbsStorageInfo']:
         """
-        Contains information about the EBS storage volumes attached to the broker nodes.
+        EBS volume information.
         """
         return pulumi.get(self, "ebs_storage_info")
 
@@ -1123,7 +1123,7 @@ class ClusterVpcConnectivity(dict):
     def __init__(__self__, *,
                  client_authentication: Optional['outputs.ClusterVpcConnectivityClientAuthentication'] = None):
         """
-        :param 'ClusterVpcConnectivityClientAuthentication' client_authentication: Includes all client authentication information for VpcConnectivity.
+        :param 'ClusterVpcConnectivityClientAuthentication' client_authentication: VPC connection control settings for brokers.
         """
         if client_authentication is not None:
             pulumi.set(__self__, "client_authentication", client_authentication)
@@ -1132,7 +1132,7 @@ class ClusterVpcConnectivity(dict):
     @pulumi.getter(name="clientAuthentication")
     def client_authentication(self) -> Optional['outputs.ClusterVpcConnectivityClientAuthentication']:
         """
-        Includes all client authentication information for VpcConnectivity.
+        VPC connection control settings for brokers.
         """
         return pulumi.get(self, "client_authentication")
 
@@ -1143,8 +1143,8 @@ class ClusterVpcConnectivityClientAuthentication(dict):
                  sasl: Optional['outputs.ClusterVpcConnectivitySasl'] = None,
                  tls: Optional['outputs.ClusterVpcConnectivityTls'] = None):
         """
-        :param 'ClusterVpcConnectivitySasl' sasl: Details for client authentication using SASL for VpcConnectivity.
-        :param 'ClusterVpcConnectivityTls' tls: Details for client authentication using TLS for vpcConnectivity.
+        :param 'ClusterVpcConnectivitySasl' sasl: Details for VpcConnectivity ClientAuthentication using SASL.
+        :param 'ClusterVpcConnectivityTls' tls: Details for VpcConnectivity ClientAuthentication using TLS.
         """
         if sasl is not None:
             pulumi.set(__self__, "sasl", sasl)
@@ -1155,7 +1155,7 @@ class ClusterVpcConnectivityClientAuthentication(dict):
     @pulumi.getter
     def sasl(self) -> Optional['outputs.ClusterVpcConnectivitySasl']:
         """
-        Details for client authentication using SASL for VpcConnectivity.
+        Details for VpcConnectivity ClientAuthentication using SASL.
         """
         return pulumi.get(self, "sasl")
 
@@ -1163,7 +1163,7 @@ class ClusterVpcConnectivityClientAuthentication(dict):
     @pulumi.getter
     def tls(self) -> Optional['outputs.ClusterVpcConnectivityTls']:
         """
-        Details for client authentication using TLS for vpcConnectivity.
+        Details for VpcConnectivity ClientAuthentication using TLS.
         """
         return pulumi.get(self, "tls")
 
@@ -1192,8 +1192,8 @@ class ClusterVpcConnectivitySasl(dict):
                  iam: Optional['outputs.ClusterVpcConnectivityIam'] = None,
                  scram: Optional['outputs.ClusterVpcConnectivityScram'] = None):
         """
-        :param 'ClusterVpcConnectivityIam' iam: Details for SASL/IAM client authentication for VpcConnectivity.
-        :param 'ClusterVpcConnectivityScram' scram: Details for SASL/SCRAM client authentication for vpcConnectivity.
+        :param 'ClusterVpcConnectivityIam' iam: Details for ClientAuthentication using IAM for VpcConnectivity.
+        :param 'ClusterVpcConnectivityScram' scram: Details for SASL/SCRAM client authentication for VpcConnectivity.
         """
         if iam is not None:
             pulumi.set(__self__, "iam", iam)
@@ -1204,7 +1204,7 @@ class ClusterVpcConnectivitySasl(dict):
     @pulumi.getter
     def iam(self) -> Optional['outputs.ClusterVpcConnectivityIam']:
         """
-        Details for SASL/IAM client authentication for VpcConnectivity.
+        Details for ClientAuthentication using IAM for VpcConnectivity.
         """
         return pulumi.get(self, "iam")
 
@@ -1212,7 +1212,7 @@ class ClusterVpcConnectivitySasl(dict):
     @pulumi.getter
     def scram(self) -> Optional['outputs.ClusterVpcConnectivityScram']:
         """
-        Details for SASL/SCRAM client authentication for vpcConnectivity.
+        Details for SASL/SCRAM client authentication for VpcConnectivity.
         """
         return pulumi.get(self, "scram")
 
@@ -1780,7 +1780,7 @@ class ServerlessClusterSasl(dict):
     def __init__(__self__, *,
                  iam: 'outputs.ServerlessClusterIam'):
         """
-        :param 'ServerlessClusterIam' iam: Details for SASL/IAM client authentication.
+        :param 'ServerlessClusterIam' iam: Details for ClientAuthentication using IAM.
         """
         pulumi.set(__self__, "iam", iam)
 
@@ -1788,7 +1788,7 @@ class ServerlessClusterSasl(dict):
     @pulumi.getter
     def iam(self) -> 'outputs.ServerlessClusterIam':
         """
-        Details for SASL/IAM client authentication.
+        Details for ClientAuthentication using IAM.
         """
         return pulumi.get(self, "iam")
 

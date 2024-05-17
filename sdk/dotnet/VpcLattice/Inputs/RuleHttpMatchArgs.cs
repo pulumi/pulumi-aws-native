@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.VpcLattice.Inputs
         private InputList<Inputs.RuleHeaderMatchArgs>? _headerMatches;
 
         /// <summary>
-        /// Describes the constraints for a header match. Matches incoming requests with rule based on request header value before applying rule action.
+        /// The header matches. Matches incoming requests with rule based on request header value before applying rule action.
         /// </summary>
         public InputList<Inputs.RuleHeaderMatchArgs> HeaderMatches
         {
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.VpcLattice.Inputs
         public Input<Pulumi.AwsNative.VpcLattice.RuleHttpMatchMethod>? Method { get; set; }
 
         /// <summary>
-        /// Describes the conditions that can be applied when matching a path for incoming requests.
+        /// The path match.
         /// </summary>
         [Input("pathMatch")]
         public Input<Inputs.RulePathMatchArgs>? PathMatch { get; set; }

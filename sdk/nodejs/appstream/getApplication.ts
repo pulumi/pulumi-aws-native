@@ -47,7 +47,7 @@ export interface GetApplicationResult {
      */
     readonly displayName?: string;
     /**
-     * The S3 location of the application icon.
+     * The icon S3 location of the application.
      */
     readonly iconS3Location?: outputs.appstream.ApplicationS3Location;
     /**

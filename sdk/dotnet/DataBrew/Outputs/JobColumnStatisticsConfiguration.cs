@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     public sealed class JobColumnStatisticsConfiguration
     {
         /// <summary>
-        /// Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression.
+        /// List of column selectors. Selectors can be used to select columns from the dataset. When selectors are undefined, configuration will be applied to all supported columns.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobColumnSelector> Selectors;
         /// <summary>
-        /// Configuration of evaluations for a profile job. This configuration can be used to select evaluations and override the parameters of selected evaluations.
+        /// Configuration for evaluations. Statistics can be used to select evaluations and override parameters of evaluations.
         /// </summary>
         public readonly Outputs.JobStatisticsConfiguration Statistics;
 

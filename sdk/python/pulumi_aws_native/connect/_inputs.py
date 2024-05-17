@@ -1229,7 +1229,7 @@ class InstanceStorageConfigS3ConfigArgs:
         """
         :param pulumi.Input[str] bucket_name: The S3 bucket name.
         :param pulumi.Input[str] bucket_prefix: The S3 bucket prefix.
-        :param pulumi.Input['InstanceStorageConfigEncryptionConfigArgs'] encryption_config: The encryption configuration.
+        :param pulumi.Input['InstanceStorageConfigEncryptionConfigArgs'] encryption_config: The Amazon S3 encryption configuration.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "bucket_prefix", bucket_prefix)
@@ -1264,7 +1264,7 @@ class InstanceStorageConfigS3ConfigArgs:
     @pulumi.getter(name="encryptionConfig")
     def encryption_config(self) -> Optional[pulumi.Input['InstanceStorageConfigEncryptionConfigArgs']]:
         """
-        The encryption configuration.
+        The Amazon S3 encryption configuration.
         """
         return pulumi.get(self, "encryption_config")
 
@@ -1343,9 +1343,9 @@ class QuickConnectConfigArgs:
         """
         Configuration settings for the quick connect.
         :param pulumi.Input['QuickConnectType'] quick_connect_type: The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
-        :param pulumi.Input['QuickConnectPhoneNumberQuickConnectConfigArgs'] phone_config: Contains information about a phone number for a quick connect.
-        :param pulumi.Input['QuickConnectQueueQuickConnectConfigArgs'] queue_config: Contains information about a queue for a quick connect. The flow must be of type Transfer to Queue.
-        :param pulumi.Input['QuickConnectUserQuickConnectConfigArgs'] user_config: Contains information about the quick connect configuration settings for a user. The contact flow must be of type Transfer to Agent.
+        :param pulumi.Input['QuickConnectPhoneNumberQuickConnectConfigArgs'] phone_config: The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
+        :param pulumi.Input['QuickConnectQueueQuickConnectConfigArgs'] queue_config: The queue configuration. This is required only if QuickConnectType is QUEUE.
+        :param pulumi.Input['QuickConnectUserQuickConnectConfigArgs'] user_config: The user configuration. This is required only if QuickConnectType is USER.
         """
         pulumi.set(__self__, "quick_connect_type", quick_connect_type)
         if phone_config is not None:
@@ -1371,7 +1371,7 @@ class QuickConnectConfigArgs:
     @pulumi.getter(name="phoneConfig")
     def phone_config(self) -> Optional[pulumi.Input['QuickConnectPhoneNumberQuickConnectConfigArgs']]:
         """
-        Contains information about a phone number for a quick connect.
+        The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
         """
         return pulumi.get(self, "phone_config")
 
@@ -1383,7 +1383,7 @@ class QuickConnectConfigArgs:
     @pulumi.getter(name="queueConfig")
     def queue_config(self) -> Optional[pulumi.Input['QuickConnectQueueQuickConnectConfigArgs']]:
         """
-        Contains information about a queue for a quick connect. The flow must be of type Transfer to Queue.
+        The queue configuration. This is required only if QuickConnectType is QUEUE.
         """
         return pulumi.get(self, "queue_config")
 
@@ -1395,7 +1395,7 @@ class QuickConnectConfigArgs:
     @pulumi.getter(name="userConfig")
     def user_config(self) -> Optional[pulumi.Input['QuickConnectUserQuickConnectConfigArgs']]:
         """
-        Contains information about the quick connect configuration settings for a user. The contact flow must be of type Transfer to Agent.
+        The user configuration. This is required only if QuickConnectType is USER.
         """
         return pulumi.get(self, "user_config")
 
@@ -1542,7 +1542,7 @@ class RoutingProfileMediaConcurrencyArgs:
                Valid Range for `CHAT` : Minimum value of 1. Maximum value of 10.
                
                Valid Range for `TASK` : Minimum value of 1. Maximum value of 10.
-        :param pulumi.Input['RoutingProfileCrossChannelBehaviorArgs'] cross_channel_behavior: Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.
+        :param pulumi.Input['RoutingProfileCrossChannelBehaviorArgs'] cross_channel_behavior: Defines the cross-channel routing behavior for each channel that is enabled for this Routing Profile. For example, this allows you to offer an agent a different contact from another channel when they are currently working with a contact from a Voice channel.
         """
         pulumi.set(__self__, "channel", channel)
         pulumi.set(__self__, "concurrency", concurrency)
@@ -1583,7 +1583,7 @@ class RoutingProfileMediaConcurrencyArgs:
     @pulumi.getter(name="crossChannelBehavior")
     def cross_channel_behavior(self) -> Optional[pulumi.Input['RoutingProfileCrossChannelBehaviorArgs']]:
         """
-        Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.
+        Defines the cross-channel routing behavior for each channel that is enabled for this Routing Profile. For example, this allows you to offer an agent a different contact from another channel when they are currently working with a contact from a Voice channel.
         """
         return pulumi.get(self, "cross_channel_behavior")
 
@@ -1602,7 +1602,7 @@ class RoutingProfileQueueConfigArgs:
         Contains information about the queue and channel for which priority and delay can be set.
         :param pulumi.Input[int] delay: The delay, in seconds, a contact should be in the queue before they are routed to an available agent. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) in the *Amazon Connect Administrator Guide* .
         :param pulumi.Input[int] priority: The order in which contacts are to be handled for the queue. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) .
-        :param pulumi.Input['RoutingProfileQueueReferenceArgs'] queue_reference: Contains the channel and queue identifier for a routing profile.
+        :param pulumi.Input['RoutingProfileQueueReferenceArgs'] queue_reference: Contains information about a queue resource.
         """
         pulumi.set(__self__, "delay", delay)
         pulumi.set(__self__, "priority", priority)
@@ -1636,7 +1636,7 @@ class RoutingProfileQueueConfigArgs:
     @pulumi.getter(name="queueReference")
     def queue_reference(self) -> pulumi.Input['RoutingProfileQueueReferenceArgs']:
         """
-        Contains the channel and queue identifier for a routing profile.
+        Contains information about a queue resource.
         """
         return pulumi.get(self, "queue_reference")
 
@@ -2318,7 +2318,7 @@ class TaskTemplateDefaultFieldValueArgs:
         """
         the default value for the task template's field
         :param pulumi.Input[str] default_value: Default value for the field.
-        :param pulumi.Input['TaskTemplateFieldIdentifierArgs'] id: The identifier of the task template field.
+        :param pulumi.Input['TaskTemplateFieldIdentifierArgs'] id: Identifier of a field.
         """
         pulumi.set(__self__, "default_value", default_value)
         pulumi.set(__self__, "id", id)
@@ -2339,7 +2339,7 @@ class TaskTemplateDefaultFieldValueArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input['TaskTemplateFieldIdentifierArgs']:
         """
-        The identifier of the task template field.
+        Identifier of a field.
         """
         return pulumi.get(self, "id")
 
@@ -2380,7 +2380,7 @@ class TaskTemplateFieldArgs:
                  single_select_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         A task template field object.
-        :param pulumi.Input['TaskTemplateFieldIdentifierArgs'] id: The identifier of the task template field.
+        :param pulumi.Input['TaskTemplateFieldIdentifierArgs'] id: The unique identifier for the field.
         :param pulumi.Input['TaskTemplateFieldType'] type: Indicates the type of field. Following are the valid field types: `NAME` `DESCRIPTION` | `SCHEDULED_TIME` | `QUICK_CONNECT` | `URL` | `NUMBER` | `TEXT` | `TEXT_AREA` | `DATE_TIME` | `BOOLEAN` | `SINGLE_SELECT` | `EMAIL`
         :param pulumi.Input[str] description: The description of the task template's field
         :param pulumi.Input[Sequence[pulumi.Input[str]]] single_select_options: list of field options to be used with single select
@@ -2396,7 +2396,7 @@ class TaskTemplateFieldArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input['TaskTemplateFieldIdentifierArgs']:
         """
-        The identifier of the task template field.
+        The unique identifier for the field.
         """
         return pulumi.get(self, "id")
 

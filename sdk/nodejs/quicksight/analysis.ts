@@ -57,9 +57,6 @@ export class Analysis extends pulumi.CustomResource {
      * <p>The ARNs of the datasets of the analysis.</p>
      */
     public /*out*/ readonly dataSetArns!: pulumi.Output<string[]>;
-    /**
-     * The definition of an analysis.
-     */
     public readonly definition!: pulumi.Output<outputs.quicksight.AnalysisDefinition | undefined>;
     /**
      * <p>Errors associated with the analysis.</p>
@@ -74,11 +71,13 @@ export class Analysis extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A list of Amazon QuickSight parameters and the list's override values.
+     * The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values.
      */
     public readonly parameters!: pulumi.Output<outputs.quicksight.AnalysisParameters | undefined>;
     /**
-     * Permission for the resource.
+     * A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+     *
+     * To specify no permissions, omit `Permissions` .
      */
     public readonly permissions!: pulumi.Output<outputs.quicksight.AnalysisResourcePermission[] | undefined>;
     /**
@@ -86,7 +85,9 @@ export class Analysis extends pulumi.CustomResource {
      */
     public readonly sheets!: pulumi.Output<outputs.quicksight.AnalysisSheet[] | undefined>;
     /**
-     * The source entity of an analysis.
+     * A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.
+     *
+     * Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
      */
     public readonly sourceEntity!: pulumi.Output<outputs.quicksight.AnalysisSourceEntity | undefined>;
     /**
@@ -178,9 +179,6 @@ export interface AnalysisArgs {
      * The ID of the AWS account where you are creating an analysis.
      */
     awsAccountId: pulumi.Input<string>;
-    /**
-     * The definition of an analysis.
-     */
     definition?: pulumi.Input<inputs.quicksight.AnalysisDefinitionArgs>;
     /**
      * <p>Errors associated with the analysis.</p>
@@ -191,11 +189,13 @@ export interface AnalysisArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A list of Amazon QuickSight parameters and the list's override values.
+     * The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values.
      */
     parameters?: pulumi.Input<inputs.quicksight.AnalysisParametersArgs>;
     /**
-     * Permission for the resource.
+     * A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+     *
+     * To specify no permissions, omit `Permissions` .
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisResourcePermissionArgs>[]>;
     /**
@@ -203,7 +203,9 @@ export interface AnalysisArgs {
      */
     sheets?: pulumi.Input<pulumi.Input<inputs.quicksight.AnalysisSheetArgs>[]>;
     /**
-     * The source entity of an analysis.
+     * A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.
+     *
+     * Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
      */
     sourceEntity?: pulumi.Input<inputs.quicksight.AnalysisSourceEntityArgs>;
     /**

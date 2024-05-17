@@ -48,7 +48,7 @@ export interface GetThemeResult {
      */
     readonly name?: string;
     /**
-     * Permission for the resource.
+     * A valid grouping of resource permissions to apply to the new theme.
      */
     readonly permissions?: outputs.quicksight.ThemeResourcePermission[];
     /**
@@ -59,9 +59,6 @@ export interface GetThemeResult {
      * Theme type.
      */
     readonly type?: enums.quicksight.ThemeType;
-    /**
-     * A version of a theme.
-     */
     readonly version?: outputs.quicksight.ThemeVersion;
 }
 /**

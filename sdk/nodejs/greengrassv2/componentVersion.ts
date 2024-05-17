@@ -56,7 +56,9 @@ export class ComponentVersion extends pulumi.CustomResource {
      */
     public readonly inlineRecipe!: pulumi.Output<string | undefined>;
     /**
-     * Contains information about an AWS Lambda function to import to create a component.
+     * The parameters to create a component from a Lambda function.
+     *
+     * You must specify either `InlineRecipe` or `LambdaFunction` .
      */
     public readonly lambdaFunction!: pulumi.Output<outputs.greengrassv2.ComponentVersionLambdaFunctionRecipeSource | undefined>;
     /**
@@ -114,7 +116,9 @@ export interface ComponentVersionArgs {
      */
     inlineRecipe?: pulumi.Input<string>;
     /**
-     * Contains information about an AWS Lambda function to import to create a component.
+     * The parameters to create a component from a Lambda function.
+     *
+     * You must specify either `InlineRecipe` or `LambdaFunction` .
      */
     lambdaFunction?: pulumi.Input<inputs.greengrassv2.ComponentVersionLambdaFunctionRecipeSourceArgs>;
     /**

@@ -18,9 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardNullValueFormatConfiguration? NullValueFormatConfiguration;
         /// <summary>
-        /// The options that determine the numeric format configuration.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The formatting configuration for numeric strings.
         /// </summary>
         public readonly Outputs.DashboardNumericFormatConfiguration? NumericFormatConfiguration;
 

@@ -3477,7 +3477,7 @@ type InstanceStorageConfigS3Config struct {
 	BucketName string `pulumi:"bucketName"`
 	// The S3 bucket prefix.
 	BucketPrefix string `pulumi:"bucketPrefix"`
-	// The encryption configuration.
+	// The Amazon S3 encryption configuration.
 	EncryptionConfig *InstanceStorageConfigEncryptionConfig `pulumi:"encryptionConfig"`
 }
 
@@ -3497,7 +3497,7 @@ type InstanceStorageConfigS3ConfigArgs struct {
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 	// The S3 bucket prefix.
 	BucketPrefix pulumi.StringInput `pulumi:"bucketPrefix"`
-	// The encryption configuration.
+	// The Amazon S3 encryption configuration.
 	EncryptionConfig InstanceStorageConfigEncryptionConfigPtrInput `pulumi:"encryptionConfig"`
 }
 
@@ -3588,7 +3588,7 @@ func (o InstanceStorageConfigS3ConfigOutput) BucketPrefix() pulumi.StringOutput 
 	return o.ApplyT(func(v InstanceStorageConfigS3Config) string { return v.BucketPrefix }).(pulumi.StringOutput)
 }
 
-// The encryption configuration.
+// The Amazon S3 encryption configuration.
 func (o InstanceStorageConfigS3ConfigOutput) EncryptionConfig() InstanceStorageConfigEncryptionConfigPtrOutput {
 	return o.ApplyT(func(v InstanceStorageConfigS3Config) *InstanceStorageConfigEncryptionConfig {
 		return v.EncryptionConfig
@@ -3639,7 +3639,7 @@ func (o InstanceStorageConfigS3ConfigPtrOutput) BucketPrefix() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The encryption configuration.
+// The Amazon S3 encryption configuration.
 func (o InstanceStorageConfigS3ConfigPtrOutput) EncryptionConfig() InstanceStorageConfigEncryptionConfigPtrOutput {
 	return o.ApplyT(func(v *InstanceStorageConfigS3Config) *InstanceStorageConfigEncryptionConfig {
 		if v == nil {
@@ -3869,13 +3869,13 @@ type QueueTag struct {
 
 // Configuration settings for the quick connect.
 type QuickConnectConfig struct {
-	// Contains information about a phone number for a quick connect.
+	// The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
 	PhoneConfig *QuickConnectPhoneNumberQuickConnectConfig `pulumi:"phoneConfig"`
-	// Contains information about a queue for a quick connect. The flow must be of type Transfer to Queue.
+	// The queue configuration. This is required only if QuickConnectType is QUEUE.
 	QueueConfig *QuickConnectQueueQuickConnectConfig `pulumi:"queueConfig"`
 	// The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
 	QuickConnectType QuickConnectType `pulumi:"quickConnectType"`
-	// Contains information about the quick connect configuration settings for a user. The contact flow must be of type Transfer to Agent.
+	// The user configuration. This is required only if QuickConnectType is USER.
 	UserConfig *QuickConnectUserQuickConnectConfig `pulumi:"userConfig"`
 }
 
@@ -3892,13 +3892,13 @@ type QuickConnectConfigInput interface {
 
 // Configuration settings for the quick connect.
 type QuickConnectConfigArgs struct {
-	// Contains information about a phone number for a quick connect.
+	// The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
 	PhoneConfig QuickConnectPhoneNumberQuickConnectConfigPtrInput `pulumi:"phoneConfig"`
-	// Contains information about a queue for a quick connect. The flow must be of type Transfer to Queue.
+	// The queue configuration. This is required only if QuickConnectType is QUEUE.
 	QueueConfig QuickConnectQueueQuickConnectConfigPtrInput `pulumi:"queueConfig"`
 	// The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).
 	QuickConnectType QuickConnectTypeInput `pulumi:"quickConnectType"`
-	// Contains information about the quick connect configuration settings for a user. The contact flow must be of type Transfer to Agent.
+	// The user configuration. This is required only if QuickConnectType is USER.
 	UserConfig QuickConnectUserQuickConnectConfigPtrInput `pulumi:"userConfig"`
 }
 
@@ -3929,12 +3929,12 @@ func (o QuickConnectConfigOutput) ToQuickConnectConfigOutputWithContext(ctx cont
 	return o
 }
 
-// Contains information about a phone number for a quick connect.
+// The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
 func (o QuickConnectConfigOutput) PhoneConfig() QuickConnectPhoneNumberQuickConnectConfigPtrOutput {
 	return o.ApplyT(func(v QuickConnectConfig) *QuickConnectPhoneNumberQuickConnectConfig { return v.PhoneConfig }).(QuickConnectPhoneNumberQuickConnectConfigPtrOutput)
 }
 
-// Contains information about a queue for a quick connect. The flow must be of type Transfer to Queue.
+// The queue configuration. This is required only if QuickConnectType is QUEUE.
 func (o QuickConnectConfigOutput) QueueConfig() QuickConnectQueueQuickConnectConfigPtrOutput {
 	return o.ApplyT(func(v QuickConnectConfig) *QuickConnectQueueQuickConnectConfig { return v.QueueConfig }).(QuickConnectQueueQuickConnectConfigPtrOutput)
 }
@@ -3944,7 +3944,7 @@ func (o QuickConnectConfigOutput) QuickConnectType() QuickConnectTypeOutput {
 	return o.ApplyT(func(v QuickConnectConfig) QuickConnectType { return v.QuickConnectType }).(QuickConnectTypeOutput)
 }
 
-// Contains information about the quick connect configuration settings for a user. The contact flow must be of type Transfer to Agent.
+// The user configuration. This is required only if QuickConnectType is USER.
 func (o QuickConnectConfigOutput) UserConfig() QuickConnectUserQuickConnectConfigPtrOutput {
 	return o.ApplyT(func(v QuickConnectConfig) *QuickConnectUserQuickConnectConfig { return v.UserConfig }).(QuickConnectUserQuickConnectConfigPtrOutput)
 }
@@ -3973,7 +3973,7 @@ func (o QuickConnectConfigPtrOutput) Elem() QuickConnectConfigOutput {
 	}).(QuickConnectConfigOutput)
 }
 
-// Contains information about a phone number for a quick connect.
+// The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
 func (o QuickConnectConfigPtrOutput) PhoneConfig() QuickConnectPhoneNumberQuickConnectConfigPtrOutput {
 	return o.ApplyT(func(v *QuickConnectConfig) *QuickConnectPhoneNumberQuickConnectConfig {
 		if v == nil {
@@ -3983,7 +3983,7 @@ func (o QuickConnectConfigPtrOutput) PhoneConfig() QuickConnectPhoneNumberQuickC
 	}).(QuickConnectPhoneNumberQuickConnectConfigPtrOutput)
 }
 
-// Contains information about a queue for a quick connect. The flow must be of type Transfer to Queue.
+// The queue configuration. This is required only if QuickConnectType is QUEUE.
 func (o QuickConnectConfigPtrOutput) QueueConfig() QuickConnectQueueQuickConnectConfigPtrOutput {
 	return o.ApplyT(func(v *QuickConnectConfig) *QuickConnectQueueQuickConnectConfig {
 		if v == nil {
@@ -4003,7 +4003,7 @@ func (o QuickConnectConfigPtrOutput) QuickConnectType() QuickConnectTypePtrOutpu
 	}).(QuickConnectTypePtrOutput)
 }
 
-// Contains information about the quick connect configuration settings for a user. The contact flow must be of type Transfer to Agent.
+// The user configuration. This is required only if QuickConnectType is USER.
 func (o QuickConnectConfigPtrOutput) UserConfig() QuickConnectUserQuickConnectConfigPtrOutput {
 	return o.ApplyT(func(v *QuickConnectConfig) *QuickConnectUserQuickConnectConfig {
 		if v == nil {
@@ -4631,7 +4631,7 @@ type RoutingProfileMediaConcurrency struct {
 	//
 	// Valid Range for `TASK` : Minimum value of 1. Maximum value of 10.
 	Concurrency int `pulumi:"concurrency"`
-	// Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.
+	// Defines the cross-channel routing behavior for each channel that is enabled for this Routing Profile. For example, this allows you to offer an agent a different contact from another channel when they are currently working with a contact from a Voice channel.
 	CrossChannelBehavior *RoutingProfileCrossChannelBehavior `pulumi:"crossChannelBehavior"`
 }
 
@@ -4658,7 +4658,7 @@ type RoutingProfileMediaConcurrencyArgs struct {
 	//
 	// Valid Range for `TASK` : Minimum value of 1. Maximum value of 10.
 	Concurrency pulumi.IntInput `pulumi:"concurrency"`
-	// Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.
+	// Defines the cross-channel routing behavior for each channel that is enabled for this Routing Profile. For example, this allows you to offer an agent a different contact from another channel when they are currently working with a contact from a Voice channel.
 	CrossChannelBehavior RoutingProfileCrossChannelBehaviorPtrInput `pulumi:"crossChannelBehavior"`
 }
 
@@ -4730,7 +4730,7 @@ func (o RoutingProfileMediaConcurrencyOutput) Concurrency() pulumi.IntOutput {
 	return o.ApplyT(func(v RoutingProfileMediaConcurrency) int { return v.Concurrency }).(pulumi.IntOutput)
 }
 
-// Defines the cross-channel routing behavior that allows an agent working on a contact in one channel to be offered a contact from a different channel.
+// Defines the cross-channel routing behavior for each channel that is enabled for this Routing Profile. For example, this allows you to offer an agent a different contact from another channel when they are currently working with a contact from a Voice channel.
 func (o RoutingProfileMediaConcurrencyOutput) CrossChannelBehavior() RoutingProfileCrossChannelBehaviorPtrOutput {
 	return o.ApplyT(func(v RoutingProfileMediaConcurrency) *RoutingProfileCrossChannelBehavior {
 		return v.CrossChannelBehavior
@@ -4763,7 +4763,7 @@ type RoutingProfileQueueConfig struct {
 	Delay int `pulumi:"delay"`
 	// The order in which contacts are to be handled for the queue. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) .
 	Priority int `pulumi:"priority"`
-	// Contains the channel and queue identifier for a routing profile.
+	// Contains information about a queue resource.
 	QueueReference RoutingProfileQueueReference `pulumi:"queueReference"`
 }
 
@@ -4784,7 +4784,7 @@ type RoutingProfileQueueConfigArgs struct {
 	Delay pulumi.IntInput `pulumi:"delay"`
 	// The order in which contacts are to be handled for the queue. For more information, see [Queues: priority and delay](https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html) .
 	Priority pulumi.IntInput `pulumi:"priority"`
-	// Contains the channel and queue identifier for a routing profile.
+	// Contains information about a queue resource.
 	QueueReference RoutingProfileQueueReferenceInput `pulumi:"queueReference"`
 }
 
@@ -4850,7 +4850,7 @@ func (o RoutingProfileQueueConfigOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v RoutingProfileQueueConfig) int { return v.Priority }).(pulumi.IntOutput)
 }
 
-// Contains the channel and queue identifier for a routing profile.
+// Contains information about a queue resource.
 func (o RoutingProfileQueueConfigOutput) QueueReference() RoutingProfileQueueReferenceOutput {
 	return o.ApplyT(func(v RoutingProfileQueueConfig) RoutingProfileQueueReference { return v.QueueReference }).(RoutingProfileQueueReferenceOutput)
 }
@@ -6520,7 +6520,7 @@ func (o SecurityProfileTagArrayOutput) Index(i pulumi.IntInput) SecurityProfileT
 type TaskTemplateDefaultFieldValue struct {
 	// Default value for the field.
 	DefaultValue string `pulumi:"defaultValue"`
-	// The identifier of the task template field.
+	// Identifier of a field.
 	Id TaskTemplateFieldIdentifier `pulumi:"id"`
 }
 
@@ -6539,7 +6539,7 @@ type TaskTemplateDefaultFieldValueInput interface {
 type TaskTemplateDefaultFieldValueArgs struct {
 	// Default value for the field.
 	DefaultValue pulumi.StringInput `pulumi:"defaultValue"`
-	// The identifier of the task template field.
+	// Identifier of a field.
 	Id TaskTemplateFieldIdentifierInput `pulumi:"id"`
 }
 
@@ -6600,7 +6600,7 @@ func (o TaskTemplateDefaultFieldValueOutput) DefaultValue() pulumi.StringOutput 
 	return o.ApplyT(func(v TaskTemplateDefaultFieldValue) string { return v.DefaultValue }).(pulumi.StringOutput)
 }
 
-// The identifier of the task template field.
+// Identifier of a field.
 func (o TaskTemplateDefaultFieldValueOutput) Id() TaskTemplateFieldIdentifierOutput {
 	return o.ApplyT(func(v TaskTemplateDefaultFieldValue) TaskTemplateFieldIdentifier { return v.Id }).(TaskTemplateFieldIdentifierOutput)
 }
@@ -6629,7 +6629,7 @@ func (o TaskTemplateDefaultFieldValueArrayOutput) Index(i pulumi.IntInput) TaskT
 type TaskTemplateField struct {
 	// The description of the task template's field
 	Description *string `pulumi:"description"`
-	// The identifier of the task template field.
+	// The unique identifier for the field.
 	Id TaskTemplateFieldIdentifier `pulumi:"id"`
 	// list of field options to be used with single select
 	SingleSelectOptions []string `pulumi:"singleSelectOptions"`
@@ -6652,7 +6652,7 @@ type TaskTemplateFieldInput interface {
 type TaskTemplateFieldArgs struct {
 	// The description of the task template's field
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The identifier of the task template field.
+	// The unique identifier for the field.
 	Id TaskTemplateFieldIdentifierInput `pulumi:"id"`
 	// list of field options to be used with single select
 	SingleSelectOptions pulumi.StringArrayInput `pulumi:"singleSelectOptions"`
@@ -6717,7 +6717,7 @@ func (o TaskTemplateFieldOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskTemplateField) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the task template field.
+// The unique identifier for the field.
 func (o TaskTemplateFieldOutput) Id() TaskTemplateFieldIdentifierOutput {
 	return o.ApplyT(func(v TaskTemplateField) TaskTemplateFieldIdentifier { return v.Id }).(TaskTemplateFieldIdentifierOutput)
 }

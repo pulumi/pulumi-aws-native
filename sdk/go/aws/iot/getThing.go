@@ -32,7 +32,7 @@ type LookupThingArgs struct {
 type LookupThingResult struct {
 	// The Amazon Resource Name (ARN) of the AWS IoT thing, such as `arn:aws:iot:us-east-2:123456789012:thing/MyThing` .
 	Arn *string `pulumi:"arn"`
-	// The AttributePayload property specifies up to three attributes for an AWS IoT as key-value pairs. AttributePayload is a property of the [AWS::IoT::Thing](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html) resource.
+	// A string that contains up to three key value pairs. Maximum length of 800. Duplicates not allowed.
 	AttributePayload *ThingAttributePayload `pulumi:"attributePayload"`
 	// The Id of this thing.
 	Id *string `pulumi:"id"`
@@ -81,7 +81,7 @@ func (o LookupThingResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThingResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// The AttributePayload property specifies up to three attributes for an AWS IoT as key-value pairs. AttributePayload is a property of the [AWS::IoT::Thing](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html) resource.
+// A string that contains up to three key value pairs. Maximum length of 800. Duplicates not allowed.
 func (o LookupThingResultOutput) AttributePayload() ThingAttributePayloadPtrOutput {
 	return o.ApplyT(func(v LookupThingResult) *ThingAttributePayload { return v.AttributePayload }).(ThingAttributePayloadPtrOutput)
 }

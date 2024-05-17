@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
     public sealed class BotLocale
     {
         /// <summary>
-        /// Specifies a custom vocabulary. A custom vocabulary is a list of words that you expect to be used during a conversation with your bot.
+        /// Specifies a custom vocabulary to use with a specific locale.
         /// </summary>
         public readonly Outputs.BotCustomVocabulary? CustomVocabulary;
         /// <summary>

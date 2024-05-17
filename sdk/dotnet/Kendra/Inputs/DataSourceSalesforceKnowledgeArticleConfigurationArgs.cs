@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         }
 
         /// <summary>
-        /// Provides the configuration information for standard Salesforce knowledge articles.
+        /// Configuration information for standard Salesforce knowledge articles.
         /// </summary>
         [Input("standardKnowledgeArticleTypeConfiguration")]
         public Input<Inputs.DataSourceSalesforceStandardKnowledgeArticleTypeConfigurationArgs>? StandardKnowledgeArticleTypeConfiguration { get; set; }

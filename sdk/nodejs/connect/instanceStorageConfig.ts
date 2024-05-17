@@ -46,15 +46,15 @@ export class InstanceStorageConfig extends pulumi.CustomResource {
      */
     public readonly instanceArn!: pulumi.Output<string>;
     /**
-     * Configuration information of a Kinesis Data Firehose delivery stream.
+     * The configuration of the Kinesis Firehose delivery stream.
      */
     public readonly kinesisFirehoseConfig!: pulumi.Output<outputs.connect.InstanceStorageConfigKinesisFirehoseConfig | undefined>;
     /**
-     * Configuration information of a Kinesis data stream.
+     * The configuration of the Kinesis data stream.
      */
     public readonly kinesisStreamConfig!: pulumi.Output<outputs.connect.InstanceStorageConfigKinesisStreamConfig | undefined>;
     /**
-     * Configuration information of a Kinesis video stream.
+     * The configuration of the Kinesis video stream.
      */
     public readonly kinesisVideoStreamConfig!: pulumi.Output<outputs.connect.InstanceStorageConfigKinesisVideoStreamConfig | undefined>;
     /**
@@ -62,7 +62,7 @@ export class InstanceStorageConfig extends pulumi.CustomResource {
      */
     public readonly resourceType!: pulumi.Output<enums.connect.InstanceStorageConfigInstanceStorageResourceType>;
     /**
-     * Information about the Amazon Simple Storage Service (Amazon S3) storage type.
+     * The S3 bucket configuration.
      */
     public readonly s3Config!: pulumi.Output<outputs.connect.InstanceStorageConfigS3Config | undefined>;
     /**
@@ -124,15 +124,15 @@ export interface InstanceStorageConfigArgs {
      */
     instanceArn: pulumi.Input<string>;
     /**
-     * Configuration information of a Kinesis Data Firehose delivery stream.
+     * The configuration of the Kinesis Firehose delivery stream.
      */
     kinesisFirehoseConfig?: pulumi.Input<inputs.connect.InstanceStorageConfigKinesisFirehoseConfigArgs>;
     /**
-     * Configuration information of a Kinesis data stream.
+     * The configuration of the Kinesis data stream.
      */
     kinesisStreamConfig?: pulumi.Input<inputs.connect.InstanceStorageConfigKinesisStreamConfigArgs>;
     /**
-     * Configuration information of a Kinesis video stream.
+     * The configuration of the Kinesis video stream.
      */
     kinesisVideoStreamConfig?: pulumi.Input<inputs.connect.InstanceStorageConfigKinesisVideoStreamConfigArgs>;
     /**
@@ -140,7 +140,7 @@ export interface InstanceStorageConfigArgs {
      */
     resourceType: pulumi.Input<enums.connect.InstanceStorageConfigInstanceStorageResourceType>;
     /**
-     * Information about the Amazon Simple Storage Service (Amazon S3) storage type.
+     * The S3 bucket configuration.
      */
     s3Config?: pulumi.Input<inputs.connect.InstanceStorageConfigS3ConfigArgs>;
     /**

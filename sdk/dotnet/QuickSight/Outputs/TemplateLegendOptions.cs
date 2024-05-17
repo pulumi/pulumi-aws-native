@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateLegendPosition? Position;
         /// <summary>
-        /// The share label options for the labels.
+        /// The custom title for the legend.
         /// </summary>
         public readonly Outputs.TemplateLabelOptions? Title;
         /// <summary>

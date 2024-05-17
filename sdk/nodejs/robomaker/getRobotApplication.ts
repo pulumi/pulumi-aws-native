@@ -39,7 +39,7 @@ export interface GetRobotApplicationResult {
      */
     readonly environment?: string;
     /**
-     * Information about a robot software suite.
+     * The robot software suite used by the robot application.
      */
     readonly robotSoftwareSuite?: outputs.robomaker.RobotApplicationRobotSoftwareSuite;
     /**

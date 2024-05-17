@@ -21,9 +21,7 @@ type TargetGroup struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the target group.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
-	// Describes the configuration of a target group.
-	//
-	// For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in the *Amazon VPC Lattice User Guide* .
+	// The target group configuration.
 	Config TargetGroupConfigPtrOutput `pulumi:"config"`
 	// The date and time that the target group was created, specified in ISO-8601 format.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
@@ -35,7 +33,7 @@ type TargetGroup struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The operation's status. You can retry the operation if the status is `CREATE_FAILED` . However, if you retry it while the status is `CREATE_IN_PROGRESS` , there is no change in the status.
 	Status TargetGroupStatusOutput `pulumi:"status"`
-	// Specifies a tag for a target group.
+	// The tags for the target group.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Describes a target.
 	Targets TargetGroupTargetArrayOutput `pulumi:"targets"`
@@ -91,15 +89,13 @@ func (TargetGroupState) ElementType() reflect.Type {
 }
 
 type targetGroupArgs struct {
-	// Describes the configuration of a target group.
-	//
-	// For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in the *Amazon VPC Lattice User Guide* .
+	// The target group configuration.
 	Config *TargetGroupConfig `pulumi:"config"`
 	// The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	//
 	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
 	Name *string `pulumi:"name"`
-	// Specifies a tag for a target group.
+	// The tags for the target group.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Describes a target.
 	Targets []TargetGroupTarget `pulumi:"targets"`
@@ -109,15 +105,13 @@ type targetGroupArgs struct {
 
 // The set of arguments for constructing a TargetGroup resource.
 type TargetGroupArgs struct {
-	// Describes the configuration of a target group.
-	//
-	// For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in the *Amazon VPC Lattice User Guide* .
+	// The target group configuration.
 	Config TargetGroupConfigPtrInput
 	// The name of the target group. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	//
 	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
 	Name pulumi.StringPtrInput
-	// Specifies a tag for a target group.
+	// The tags for the target group.
 	Tags aws.TagArrayInput
 	// Describes a target.
 	Targets TargetGroupTargetArrayInput
@@ -172,9 +166,7 @@ func (o TargetGroupOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TargetGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
-// Describes the configuration of a target group.
-//
-// For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in the *Amazon VPC Lattice User Guide* .
+// The target group configuration.
 func (o TargetGroupOutput) Config() TargetGroupConfigPtrOutput {
 	return o.ApplyT(func(v *TargetGroup) TargetGroupConfigPtrOutput { return v.Config }).(TargetGroupConfigPtrOutput)
 }
@@ -201,7 +193,7 @@ func (o TargetGroupOutput) Status() TargetGroupStatusOutput {
 	return o.ApplyT(func(v *TargetGroup) TargetGroupStatusOutput { return v.Status }).(TargetGroupStatusOutput)
 }
 
-// Specifies a tag for a target group.
+// The tags for the target group.
 func (o TargetGroupOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *TargetGroup) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

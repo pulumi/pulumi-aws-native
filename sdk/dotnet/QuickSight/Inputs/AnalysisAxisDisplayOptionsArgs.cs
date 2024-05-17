@@ -26,8 +26,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         /// <summary>
         /// The data options for an axis.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
         /// </summary>
         [Input("dataOptions")]
         public Input<Inputs.AnalysisAxisDataOptionsArgs>? DataOptions { get; set; }
@@ -39,7 +37,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? GridLineVisibility { get; set; }
 
         /// <summary>
-        /// The visual display options for a data zoom scroll bar.
+        /// The scroll bar options for an axis.
         /// </summary>
         [Input("scrollbarOptions")]
         public Input<Inputs.AnalysisScrollBarOptionsArgs>? ScrollbarOptions { get; set; }

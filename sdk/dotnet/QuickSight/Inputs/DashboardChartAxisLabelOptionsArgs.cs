@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.DashboardAxisLabelOptionsArgs>? _axisLabelOptions;
 
         /// <summary>
-        /// The label options for a chart axis. You must specify the field that the label is targeted to.
+        /// The label options for a chart axis.
         /// </summary>
         public InputList<Inputs.DashboardAxisLabelOptionsArgs> AxisLabelOptions
         {

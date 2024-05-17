@@ -54,7 +54,7 @@ export class AssistantAssociation extends pulumi.CustomResource {
      */
     public readonly assistantId!: pulumi.Output<string>;
     /**
-     * A union type that currently has a single argument, which is the knowledge base ID.
+     * The identifier of the associated resource.
      */
     public readonly association!: pulumi.Output<outputs.wisdom.AssistantAssociationAssociationData>;
     /**
@@ -62,7 +62,7 @@ export class AssistantAssociation extends pulumi.CustomResource {
      */
     public readonly associationType!: pulumi.Output<enums.wisdom.AssistantAssociationAssociationType>;
     /**
-     * Metadata to assign to the Wisdom assistant association. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+     * The tags used to organize, track, or control access for this resource.
      */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
@@ -118,7 +118,7 @@ export interface AssistantAssociationArgs {
      */
     assistantId: pulumi.Input<string>;
     /**
-     * A union type that currently has a single argument, which is the knowledge base ID.
+     * The identifier of the associated resource.
      */
     association: pulumi.Input<inputs.wisdom.AssistantAssociationAssociationDataArgs>;
     /**
@@ -126,7 +126,7 @@ export interface AssistantAssociationArgs {
      */
     associationType: pulumi.Input<enums.wisdom.AssistantAssociationAssociationType>;
     /**
-     * Metadata to assign to the Wisdom assistant association. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+     * The tags used to organize, track, or control access for this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

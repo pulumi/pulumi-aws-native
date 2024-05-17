@@ -43,14 +43,16 @@ class AppArgs:
                You must specify either `AccessToken` or `OauthToken` when you create a new app.
                
                Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
-        :param pulumi.Input['AppAutoBranchCreationConfigArgs'] auto_branch_creation_config: Use the AutoBranchCreationConfig property type to automatically create branches that match a certain pattern.
-        :param pulumi.Input['AppBasicAuthConfigArgs'] basic_auth_config: Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
+        :param pulumi.Input['AppAutoBranchCreationConfigArgs'] auto_branch_creation_config: Sets the configuration for your automatic branch creation.
+        :param pulumi.Input['AppBasicAuthConfigArgs'] basic_auth_config: The credentials for basic authorization for an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
         :param pulumi.Input[str] build_spec: The build specification (build spec) for an Amplify app.
         :param pulumi.Input[str] custom_headers: The custom HTTP headers for an Amplify app.
-        :param pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]] custom_rules: The CustomRule property type allows you to specify redirects, rewrites, and reverse proxies. Redirects enable a web app to reroute navigation from one URL to another.
+        :param pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]] custom_rules: The custom rewrite and redirect rules for an Amplify app.
         :param pulumi.Input[str] description: The description of the Amplify app.
         :param pulumi.Input[bool] enable_branch_auto_deletion: Automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository.
-        :param pulumi.Input[Sequence[pulumi.Input['AppEnvironmentVariableArgs']]] environment_variables: Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+        :param pulumi.Input[Sequence[pulumi.Input['AppEnvironmentVariableArgs']]] environment_variables: The environment variables for the Amplify app.
+               
+               For a list of the environment variables that are accessible to Amplify by default, see [Amplify Environment variables](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html) in the *Amplify Hosting User Guide* .
         :param pulumi.Input[str] iam_service_role: AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.
         :param pulumi.Input[str] name: The name of the Amplify app.
         :param pulumi.Input[str] oauth_token: The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key using SSH cloning. The OAuth token is not stored.
@@ -62,7 +64,7 @@ class AppArgs:
                Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
         :param pulumi.Input['AppPlatform'] platform: The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
         :param pulumi.Input[str] repository: The Git repository for the Amplify app.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::App` resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tag for an Amplify app.
         """
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
@@ -117,7 +119,7 @@ class AppArgs:
     @pulumi.getter(name="autoBranchCreationConfig")
     def auto_branch_creation_config(self) -> Optional[pulumi.Input['AppAutoBranchCreationConfigArgs']]:
         """
-        Use the AutoBranchCreationConfig property type to automatically create branches that match a certain pattern.
+        Sets the configuration for your automatic branch creation.
         """
         return pulumi.get(self, "auto_branch_creation_config")
 
@@ -129,7 +131,7 @@ class AppArgs:
     @pulumi.getter(name="basicAuthConfig")
     def basic_auth_config(self) -> Optional[pulumi.Input['AppBasicAuthConfigArgs']]:
         """
-        Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
+        The credentials for basic authorization for an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
         """
         return pulumi.get(self, "basic_auth_config")
 
@@ -165,7 +167,7 @@ class AppArgs:
     @pulumi.getter(name="customRules")
     def custom_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppCustomRuleArgs']]]]:
         """
-        The CustomRule property type allows you to specify redirects, rewrites, and reverse proxies. Redirects enable a web app to reroute navigation from one URL to another.
+        The custom rewrite and redirect rules for an Amplify app.
         """
         return pulumi.get(self, "custom_rules")
 
@@ -201,7 +203,9 @@ class AppArgs:
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppEnvironmentVariableArgs']]]]:
         """
-        Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+        The environment variables for the Amplify app.
+
+        For a list of the environment variables that are accessible to Amplify by default, see [Amplify Environment variables](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html) in the *Amplify Hosting User Guide* .
         """
         return pulumi.get(self, "environment_variables")
 
@@ -279,7 +283,7 @@ class AppArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::App` resource.
+        The tag for an Amplify app.
         """
         return pulumi.get(self, "tags")
 
@@ -321,14 +325,16 @@ class App(pulumi.CustomResource):
                You must specify either `AccessToken` or `OauthToken` when you create a new app.
                
                Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
-        :param pulumi.Input[pulumi.InputType['AppAutoBranchCreationConfigArgs']] auto_branch_creation_config: Use the AutoBranchCreationConfig property type to automatically create branches that match a certain pattern.
-        :param pulumi.Input[pulumi.InputType['AppBasicAuthConfigArgs']] basic_auth_config: Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
+        :param pulumi.Input[pulumi.InputType['AppAutoBranchCreationConfigArgs']] auto_branch_creation_config: Sets the configuration for your automatic branch creation.
+        :param pulumi.Input[pulumi.InputType['AppBasicAuthConfigArgs']] basic_auth_config: The credentials for basic authorization for an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
         :param pulumi.Input[str] build_spec: The build specification (build spec) for an Amplify app.
         :param pulumi.Input[str] custom_headers: The custom HTTP headers for an Amplify app.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppCustomRuleArgs']]]] custom_rules: The CustomRule property type allows you to specify redirects, rewrites, and reverse proxies. Redirects enable a web app to reroute navigation from one URL to another.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppCustomRuleArgs']]]] custom_rules: The custom rewrite and redirect rules for an Amplify app.
         :param pulumi.Input[str] description: The description of the Amplify app.
         :param pulumi.Input[bool] enable_branch_auto_deletion: Automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppEnvironmentVariableArgs']]]] environment_variables: Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppEnvironmentVariableArgs']]]] environment_variables: The environment variables for the Amplify app.
+               
+               For a list of the environment variables that are accessible to Amplify by default, see [Amplify Environment variables](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html) in the *Amplify Hosting User Guide* .
         :param pulumi.Input[str] iam_service_role: AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.
         :param pulumi.Input[str] name: The name of the Amplify app.
         :param pulumi.Input[str] oauth_token: The OAuth token for a third-party source control system for an Amplify app. The OAuth token is used to create a webhook and a read-only deploy key using SSH cloning. The OAuth token is not stored.
@@ -340,7 +346,7 @@ class App(pulumi.CustomResource):
                Existing Amplify apps deployed from a GitHub repository using OAuth continue to work with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub App. For more information, see [Migrating an existing OAuth app to the Amplify GitHub App](https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth) in the *Amplify User Guide* .
         :param pulumi.Input['AppPlatform'] platform: The platform for the Amplify app. For a static app, set the platform type to `WEB` . For a dynamic server-side rendered (SSR) app, set the platform type to `WEB_COMPUTE` . For an app requiring Amplify Hosting's original SSR support only, set the platform type to `WEB_DYNAMIC` .
         :param pulumi.Input[str] repository: The Git repository for the Amplify app.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::App` resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tag for an Amplify app.
         """
         ...
     @overload
@@ -494,7 +500,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter(name="autoBranchCreationConfig")
     def auto_branch_creation_config(self) -> pulumi.Output[Optional['outputs.AppAutoBranchCreationConfig']]:
         """
-        Use the AutoBranchCreationConfig property type to automatically create branches that match a certain pattern.
+        Sets the configuration for your automatic branch creation.
         """
         return pulumi.get(self, "auto_branch_creation_config")
 
@@ -502,7 +508,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter(name="basicAuthConfig")
     def basic_auth_config(self) -> pulumi.Output[Optional['outputs.AppBasicAuthConfig']]:
         """
-        Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
+        The credentials for basic authorization for an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
         """
         return pulumi.get(self, "basic_auth_config")
 
@@ -526,7 +532,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter(name="customRules")
     def custom_rules(self) -> pulumi.Output[Optional[Sequence['outputs.AppCustomRule']]]:
         """
-        The CustomRule property type allows you to specify redirects, rewrites, and reverse proxies. Redirects enable a web app to reroute navigation from one URL to another.
+        The custom rewrite and redirect rules for an Amplify app.
         """
         return pulumi.get(self, "custom_rules")
 
@@ -558,7 +564,9 @@ class App(pulumi.CustomResource):
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> pulumi.Output[Optional[Sequence['outputs.AppEnvironmentVariable']]]:
         """
-        Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+        The environment variables for the Amplify app.
+
+        For a list of the environment variables that are accessible to Amplify by default, see [Amplify Environment variables](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html) in the *Amplify Hosting User Guide* .
         """
         return pulumi.get(self, "environment_variables")
 
@@ -612,7 +620,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::App` resource.
+        The tag for an Amplify app.
         """
         return pulumi.get(self, "tags")
 

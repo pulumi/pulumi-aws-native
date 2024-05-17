@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<Inputs.ModelQualityJobDefinitionEndpointInputArgs>? EndpointInput { get; set; }
 
         /// <summary>
-        /// The ground truth labels for the dataset used for the monitoring job.
+        /// The ground truth label provided for the model.
         /// </summary>
         [Input("groundTruthS3Input", required: true)]
         public Input<Inputs.ModelQualityJobDefinitionMonitoringGroundTruthS3InputArgs> GroundTruthS3Input { get; set; } = null!;

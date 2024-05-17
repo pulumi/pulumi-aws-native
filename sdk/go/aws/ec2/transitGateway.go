@@ -36,7 +36,7 @@ type TransitGateway struct {
 	MulticastSupport pulumi.StringPtrOutput `pulumi:"multicastSupport"`
 	// The ID of the default propagation route table.
 	PropagationDefaultRouteTableId pulumi.StringPtrOutput `pulumi:"propagationDefaultRouteTableId"`
-	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	// The tags for the transit gateway.
 	Tags              aws.TagArrayOutput  `pulumi:"tags"`
 	TransitGatewayArn pulumi.StringOutput `pulumi:"transitGatewayArn"`
 	// The transit gateway CIDR blocks.
@@ -108,7 +108,7 @@ type transitGatewayArgs struct {
 	MulticastSupport *string `pulumi:"multicastSupport"`
 	// The ID of the default propagation route table.
 	PropagationDefaultRouteTableId *string `pulumi:"propagationDefaultRouteTableId"`
-	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	// The tags for the transit gateway.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The transit gateway CIDR blocks.
 	TransitGatewayCidrBlocks []string `pulumi:"transitGatewayCidrBlocks"`
@@ -136,7 +136,7 @@ type TransitGatewayArgs struct {
 	MulticastSupport pulumi.StringPtrInput
 	// The ID of the default propagation route table.
 	PropagationDefaultRouteTableId pulumi.StringPtrInput
-	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	// The tags for the transit gateway.
 	Tags aws.TagArrayInput
 	// The transit gateway CIDR blocks.
 	TransitGatewayCidrBlocks pulumi.StringArrayInput
@@ -231,7 +231,7 @@ func (o TransitGatewayOutput) PropagationDefaultRouteTableId() pulumi.StringPtrO
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.PropagationDefaultRouteTableId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+// The tags for the transit gateway.
 func (o TransitGatewayOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *TransitGateway) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

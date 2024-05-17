@@ -45,7 +45,7 @@ type LookupApiKeyResult struct {
 	ExpireTime *string `pulumi:"expireTime"`
 	// The Amazon Resource Name (ARN) for the API key resource. Used when you need to specify a resource across all AWS .
 	KeyArn *string `pulumi:"keyArn"`
-	// API Restrictions on the allowed actions, resources, and referers for an API key resource.
+	// The API key restrictions for the API key resource.
 	Restrictions *ApiKeyRestrictions `pulumi:"restrictions"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -120,7 +120,7 @@ func (o LookupApiKeyResultOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApiKeyResult) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
 
-// API Restrictions on the allowed actions, resources, and referers for an API key resource.
+// The API key restrictions for the API key resource.
 func (o LookupApiKeyResultOutput) Restrictions() ApiKeyRestrictionsPtrOutput {
 	return o.ApplyT(func(v LookupApiKeyResult) *ApiKeyRestrictions { return v.Restrictions }).(ApiKeyRestrictionsPtrOutput)
 }

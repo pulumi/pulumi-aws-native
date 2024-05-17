@@ -86,7 +86,7 @@ export class Detector extends pulumi.CustomResource {
      */
     public readonly ruleExecutionMode!: pulumi.Output<enums.frauddetector.DetectorRuleExecutionMode | undefined>;
     /**
-     * A rule.
+     * The rules to include in the detector version.
      */
     public readonly rules!: pulumi.Output<outputs.frauddetector.DetectorRule[]>;
     /**
@@ -184,7 +184,7 @@ export interface DetectorArgs {
      */
     ruleExecutionMode?: pulumi.Input<enums.frauddetector.DetectorRuleExecutionMode>;
     /**
-     * A rule.
+     * The rules to include in the detector version.
      */
     rules: pulumi.Input<pulumi.Input<inputs.frauddetector.DetectorRuleArgs>[]>;
     /**

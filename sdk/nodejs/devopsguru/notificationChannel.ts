@@ -104,7 +104,7 @@ export class NotificationChannel extends pulumi.CustomResource {
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
-     * Information about notification channels you have configured with DevOps Guru. The one supported notification channel is Amazon Simple Notification Service (Amazon SNS).
+     * A `NotificationChannelConfig` object that contains information about configured notification channels.
      */
     public readonly config!: pulumi.Output<outputs.devopsguru.NotificationChannelConfig>;
 
@@ -140,7 +140,7 @@ export class NotificationChannel extends pulumi.CustomResource {
  */
 export interface NotificationChannelArgs {
     /**
-     * Information about notification channels you have configured with DevOps Guru. The one supported notification channel is Amazon Simple Notification Service (Amazon SNS).
+     * A `NotificationChannelConfig` object that contains information about configured notification channels.
      */
     config: pulumi.Input<inputs.devopsguru.NotificationChannelConfigArgs>;
 }

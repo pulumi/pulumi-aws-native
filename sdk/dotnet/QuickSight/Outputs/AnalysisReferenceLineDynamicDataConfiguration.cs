@@ -14,17 +14,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisReferenceLineDynamicDataConfiguration
     {
         /// <summary>
-        /// Aggregation for numerical values.
+        /// The calculation that is used in the dynamic data.
         /// </summary>
         public readonly Outputs.AnalysisNumericalAggregationFunction Calculation;
         /// <summary>
-        /// A column of a data set.
+        /// The column that the dynamic data targets.
         /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier Column;
         /// <summary>
-        /// An aggregation function aggregates values from a dimension or measure.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The aggregation function that is used in the dynamic data.
         /// </summary>
         public readonly Outputs.AnalysisAggregationFunction? MeasureAggregationFunction;
 

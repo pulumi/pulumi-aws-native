@@ -29,12 +29,11 @@ type Domain struct {
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// The time of this integration got last updated at
 	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
-	// The process of matching duplicate profiles. If `Matching = true` , Amazon Connect Customer Profiles starts a weekly batch process called *Identity Resolution Job* . If you do not specify a date and time for the *Identity Resolution Job* to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the *Identity Resolution Job* completes, use the `GetMatches` API to return and review the results. Or, if you have configured `ExportingConfig` in the `MatchingRequest` , you can download the results from S3.
+	// The process of matching duplicate profiles.
 	Matching DomainMatchingPtrOutput `pulumi:"matching"`
-	// The process of matching duplicate profiles using Rule-Based matching. If `RuleBasedMatching = true` , Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the `RuleBasedMatchingRequest` . You can use the `ListRuleBasedMatches` and `GetSimilarProfiles` API to return and review the results. Also, if you have configured `ExportingConfig` in the `RuleBasedMatchingRequest` , you can download the results from S3.
+	// The process of matching duplicate profiles using Rule-Based matching.
 	RuleBasedMatching DomainRuleBasedMatchingPtrOutput `pulumi:"ruleBasedMatching"`
-	// Usage-specific statistics about the domain.
-	Stats DomainStatsOutput `pulumi:"stats"`
+	Stats             DomainStatsOutput                `pulumi:"stats"`
 	// The tags (keys and values) associated with the domain
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -94,9 +93,9 @@ type domainArgs struct {
 	DefaultExpirationDays int `pulumi:"defaultExpirationDays"`
 	// The unique name of the domain.
 	DomainName *string `pulumi:"domainName"`
-	// The process of matching duplicate profiles. If `Matching = true` , Amazon Connect Customer Profiles starts a weekly batch process called *Identity Resolution Job* . If you do not specify a date and time for the *Identity Resolution Job* to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the *Identity Resolution Job* completes, use the `GetMatches` API to return and review the results. Or, if you have configured `ExportingConfig` in the `MatchingRequest` , you can download the results from S3.
+	// The process of matching duplicate profiles.
 	Matching *DomainMatching `pulumi:"matching"`
-	// The process of matching duplicate profiles using Rule-Based matching. If `RuleBasedMatching = true` , Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the `RuleBasedMatchingRequest` . You can use the `ListRuleBasedMatches` and `GetSimilarProfiles` API to return and review the results. Also, if you have configured `ExportingConfig` in the `RuleBasedMatchingRequest` , you can download the results from S3.
+	// The process of matching duplicate profiles using Rule-Based matching.
 	RuleBasedMatching *DomainRuleBasedMatching `pulumi:"ruleBasedMatching"`
 	// The tags (keys and values) associated with the domain
 	Tags []aws.Tag `pulumi:"tags"`
@@ -112,9 +111,9 @@ type DomainArgs struct {
 	DefaultExpirationDays pulumi.IntInput
 	// The unique name of the domain.
 	DomainName pulumi.StringPtrInput
-	// The process of matching duplicate profiles. If `Matching = true` , Amazon Connect Customer Profiles starts a weekly batch process called *Identity Resolution Job* . If you do not specify a date and time for the *Identity Resolution Job* to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the *Identity Resolution Job* completes, use the `GetMatches` API to return and review the results. Or, if you have configured `ExportingConfig` in the `MatchingRequest` , you can download the results from S3.
+	// The process of matching duplicate profiles.
 	Matching DomainMatchingPtrInput
-	// The process of matching duplicate profiles using Rule-Based matching. If `RuleBasedMatching = true` , Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the `RuleBasedMatchingRequest` . You can use the `ListRuleBasedMatches` and `GetSimilarProfiles` API to return and review the results. Also, if you have configured `ExportingConfig` in the `RuleBasedMatchingRequest` , you can download the results from S3.
+	// The process of matching duplicate profiles using Rule-Based matching.
 	RuleBasedMatching DomainRuleBasedMatchingPtrInput
 	// The tags (keys and values) associated with the domain
 	Tags aws.TagArrayInput
@@ -187,17 +186,16 @@ func (o DomainOutput) LastUpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.LastUpdatedAt }).(pulumi.StringOutput)
 }
 
-// The process of matching duplicate profiles. If `Matching = true` , Amazon Connect Customer Profiles starts a weekly batch process called *Identity Resolution Job* . If you do not specify a date and time for the *Identity Resolution Job* to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the *Identity Resolution Job* completes, use the `GetMatches` API to return and review the results. Or, if you have configured `ExportingConfig` in the `MatchingRequest` , you can download the results from S3.
+// The process of matching duplicate profiles.
 func (o DomainOutput) Matching() DomainMatchingPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainMatchingPtrOutput { return v.Matching }).(DomainMatchingPtrOutput)
 }
 
-// The process of matching duplicate profiles using Rule-Based matching. If `RuleBasedMatching = true` , Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the `RuleBasedMatchingRequest` . You can use the `ListRuleBasedMatches` and `GetSimilarProfiles` API to return and review the results. Also, if you have configured `ExportingConfig` in the `RuleBasedMatchingRequest` , you can download the results from S3.
+// The process of matching duplicate profiles using Rule-Based matching.
 func (o DomainOutput) RuleBasedMatching() DomainRuleBasedMatchingPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainRuleBasedMatchingPtrOutput { return v.RuleBasedMatching }).(DomainRuleBasedMatchingPtrOutput)
 }
 
-// Usage-specific statistics about the domain.
 func (o DomainOutput) Stats() DomainStatsOutput {
 	return o.ApplyT(func(v *Domain) DomainStatsOutput { return v.Stats }).(DomainStatsOutput)
 }

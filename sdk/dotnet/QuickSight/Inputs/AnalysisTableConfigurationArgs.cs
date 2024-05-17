@@ -13,15 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class AnalysisTableConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The field options of a table visual.
+        /// The field options for a table visual.
         /// </summary>
         [Input("fieldOptions")]
         public Input<Inputs.AnalysisTableFieldOptionsArgs>? FieldOptions { get; set; }
 
         /// <summary>
-        /// The field wells for a table visual.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The field wells of the visual.
         /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.AnalysisTableFieldWellsArgs>? FieldWells { get; set; }
@@ -42,7 +40,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.AnalysisTableInlineVisualizationArgs>? _tableInlineVisualizations;
 
         /// <summary>
-        /// The inline visualization of a specific type to display within a chart.
+        /// A collection of inline visualizations to display within a chart.
         /// </summary>
         public InputList<Inputs.AnalysisTableInlineVisualizationArgs> TableInlineVisualizations
         {

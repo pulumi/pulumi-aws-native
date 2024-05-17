@@ -14,29 +14,27 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisHeatMapConfiguration
     {
         /// <summary>
-        /// Determines the color scale that is applied to the visual.
+        /// The color options (gradient color, point of divergence) in a heat map.
         /// </summary>
         public readonly Outputs.AnalysisColorScale? ColorScale;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options of the column that is displayed in a heat map.
         /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? ColumnLabelOptions;
         /// <summary>
-        /// The options that determine the presentation of the data labels.
+        /// The options that determine if visual data labels are displayed.
         /// </summary>
         public readonly Outputs.AnalysisDataLabelOptions? DataLabels;
         /// <summary>
-        /// The field well configuration of a heat map.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The field wells of the visual.
         /// </summary>
         public readonly Outputs.AnalysisHeatMapFieldWells? FieldWells;
         /// <summary>
-        /// The options for the legend setup of a visual.
+        /// The legend display setup of the visual.
         /// </summary>
         public readonly Outputs.AnalysisLegendOptions? Legend;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options of the row that is displayed in a `heat map` .
         /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? RowLabelOptions;
         /// <summary>
@@ -44,7 +42,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.AnalysisHeatMapSortConfiguration? SortConfiguration;
         /// <summary>
-        /// The display options for the visual tooltip.
+        /// The tooltip display setup of the visual.
         /// </summary>
         public readonly Outputs.AnalysisTooltipOptions? Tooltip;
 

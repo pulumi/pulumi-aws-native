@@ -55,13 +55,7 @@ export interface GetInferenceComponentResult {
      * The time when the inference component was last updated.
      */
     readonly lastModifiedTime?: string;
-    /**
-     * Runtime settings for a model that is deployed with an inference component.
-     */
     readonly runtimeConfig?: outputs.sagemaker.InferenceComponentRuntimeConfig;
-    /**
-     * Details about the resources to deploy with this inference component, including the model, container, and compute resources.
-     */
     readonly specification?: outputs.sagemaker.InferenceComponentSpecification;
     readonly tags?: outputs.Tag[];
     /**

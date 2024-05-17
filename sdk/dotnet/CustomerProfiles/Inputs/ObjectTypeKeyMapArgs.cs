@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         private InputList<Inputs.ObjectTypeKeyArgs>? _objectTypeKeyList;
 
         /// <summary>
-        /// An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
+        /// A list of ObjectTypeKey.
         /// </summary>
         public InputList<Inputs.ObjectTypeKeyArgs> ObjectTypeKeyList
         {

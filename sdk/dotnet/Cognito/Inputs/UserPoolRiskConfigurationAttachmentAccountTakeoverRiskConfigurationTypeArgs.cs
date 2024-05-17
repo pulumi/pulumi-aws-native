@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.Cognito.Inputs
     public sealed class UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Account takeover actions type.
+        /// Account takeover risk configuration actions.
         /// </summary>
         [Input("actions", required: true)]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgs> Actions { get; set; } = null!;
 
         /// <summary>
-        /// The notify configuration type.
+        /// The notify configuration used to construct email notifications.
         /// </summary>
         [Input("notifyConfiguration")]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgs>? NotifyConfiguration { get; set; }

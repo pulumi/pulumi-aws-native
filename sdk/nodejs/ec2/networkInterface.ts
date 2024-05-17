@@ -42,7 +42,7 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
-     * Configurable options for connection tracking on a network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon Elastic Compute Cloud User Guide* .
+     * A connection tracking specification for the network interface.
      */
     public readonly connectionTrackingSpecification!: pulumi.Output<outputs.ec2.NetworkInterfaceConnectionTrackingSpecification | undefined>;
     /**
@@ -198,7 +198,7 @@ export class NetworkInterface extends pulumi.CustomResource {
  */
 export interface NetworkInterfaceArgs {
     /**
-     * Configurable options for connection tracking on a network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon Elastic Compute Cloud User Guide* .
+     * A connection tracking specification for the network interface.
      */
     connectionTrackingSpecification?: pulumi.Input<inputs.ec2.NetworkInterfaceConnectionTrackingSpecificationArgs>;
     /**

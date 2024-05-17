@@ -48,11 +48,17 @@ export class TopicRule extends pulumi.CustomResource {
      */
     public readonly ruleName!: pulumi.Output<string | undefined>;
     /**
-     * A set of key/value pairs that are used to manage the resource.
+     * Metadata which can be used to manage the topic rule.
+     *
+     * > For URI Request parameters use format: ...key1=value1&key2=value2...
+     * > 
+     * > For the CLI command-line parameter use format: --tags "key1=value1&key2=value2..."
+     * > 
+     * > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * Describes a rule.
+     * The rule payload.
      */
     public readonly topicRulePayload!: pulumi.Output<outputs.iot.TopicRulePayload>;
 
@@ -98,11 +104,17 @@ export interface TopicRuleArgs {
      */
     ruleName?: pulumi.Input<string>;
     /**
-     * A set of key/value pairs that are used to manage the resource.
+     * Metadata which can be used to manage the topic rule.
+     *
+     * > For URI Request parameters use format: ...key1=value1&key2=value2...
+     * > 
+     * > For the CLI command-line parameter use format: --tags "key1=value1&key2=value2..."
+     * > 
+     * > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
-     * Describes a rule.
+     * The rule payload.
      */
     topicRulePayload: pulumi.Input<inputs.iot.TopicRulePayloadArgs>;
 }

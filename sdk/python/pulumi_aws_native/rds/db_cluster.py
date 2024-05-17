@@ -118,13 +118,13 @@ class DbClusterArgs:
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see Adjusting the Preferred DB Cluster Maintenance Window in the Amazon Aurora User Guide.
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see Adjusting the Preferred DB Cluster Maintenance Window in the Amazon Aurora User Guide.
         :param pulumi.Input[bool] publicly_accessible: A value that indicates whether the DB cluster is publicly accessible.
-        :param pulumi.Input['DbClusterReadEndpointArgs'] read_endpoint: The `ReadEndpoint` return value specifies the reader endpoint for the DB cluster.
+        :param pulumi.Input['DbClusterReadEndpointArgs'] read_endpoint: This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
                
-               The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.
+               - `CreateDBInstance`
+               - `DescribeDBInstances`
+               - `DeleteDBInstance`
                
-               If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
-               
-               For more information about Aurora endpoints, see [Amazon Aurora connection management](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html) in the *Amazon Aurora User Guide* .
+               For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
         :param pulumi.Input[str] replication_source_identifier: The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.
         :param pulumi.Input[str] restore_to_time: The date and time to restore the DB cluster to. Value must be a time in Universal Coordinated Time (UTC) format. An example: 2015-03-07T23:45:00Z
         :param pulumi.Input[str] restore_type: The type of restore to be performed. You can specify one of the following values:
@@ -753,13 +753,13 @@ class DbClusterArgs:
     @pulumi.getter(name="readEndpoint")
     def read_endpoint(self) -> Optional[pulumi.Input['DbClusterReadEndpointArgs']]:
         """
-        The `ReadEndpoint` return value specifies the reader endpoint for the DB cluster.
+        This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
 
-        The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.
+        - `CreateDBInstance`
+        - `DescribeDBInstances`
+        - `DeleteDBInstance`
 
-        If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
-
-        For more information about Aurora endpoints, see [Amazon Aurora connection management](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html) in the *Amazon Aurora User Guide* .
+        For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
         """
         return pulumi.get(self, "read_endpoint")
 
@@ -1038,13 +1038,13 @@ class DbCluster(pulumi.CustomResource):
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region. To see the time blocks available, see Adjusting the Preferred DB Cluster Maintenance Window in the Amazon Aurora User Guide.
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC). The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see Adjusting the Preferred DB Cluster Maintenance Window in the Amazon Aurora User Guide.
         :param pulumi.Input[bool] publicly_accessible: A value that indicates whether the DB cluster is publicly accessible.
-        :param pulumi.Input[pulumi.InputType['DbClusterReadEndpointArgs']] read_endpoint: The `ReadEndpoint` return value specifies the reader endpoint for the DB cluster.
+        :param pulumi.Input[pulumi.InputType['DbClusterReadEndpointArgs']] read_endpoint: This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
                
-               The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.
+               - `CreateDBInstance`
+               - `DescribeDBInstances`
+               - `DeleteDBInstance`
                
-               If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
-               
-               For more information about Aurora endpoints, see [Amazon Aurora connection management](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html) in the *Amazon Aurora User Guide* .
+               For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
         :param pulumi.Input[str] replication_source_identifier: The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster is created as a Read Replica.
         :param pulumi.Input[str] restore_to_time: The date and time to restore the DB cluster to. Value must be a time in Universal Coordinated Time (UTC) format. An example: 2015-03-07T23:45:00Z
         :param pulumi.Input[str] restore_type: The type of restore to be performed. You can specify one of the following values:
@@ -1483,9 +1483,6 @@ class DbCluster(pulumi.CustomResource):
     @property
     @pulumi.getter
     def endpoint(self) -> pulumi.Output['outputs.DbClusterEndpoint']:
-        """
-        The `Endpoint` return value specifies the connection endpoint for the primary instance of the DB cluster.
-        """
         return pulumi.get(self, "endpoint")
 
     @property
@@ -1654,13 +1651,13 @@ class DbCluster(pulumi.CustomResource):
     @pulumi.getter(name="readEndpoint")
     def read_endpoint(self) -> pulumi.Output[Optional['outputs.DbClusterReadEndpoint']]:
         """
-        The `ReadEndpoint` return value specifies the reader endpoint for the DB cluster.
+        This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
 
-        The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.
+        - `CreateDBInstance`
+        - `DescribeDBInstances`
+        - `DeleteDBInstance`
 
-        If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
-
-        For more information about Aurora endpoints, see [Amazon Aurora connection management](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html) in the *Amazon Aurora User Guide* .
+        For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
         """
         return pulumi.get(self, "read_endpoint")
 

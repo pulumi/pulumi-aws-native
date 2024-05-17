@@ -43,11 +43,11 @@ export class MatchingWorkflow extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+     * A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
      */
     public readonly inputSourceConfig!: pulumi.Output<outputs.entityresolution.MatchingWorkflowInputSource[]>;
     /**
-     * A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+     * A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
      */
     public readonly outputSourceConfig!: pulumi.Output<outputs.entityresolution.MatchingWorkflowOutputSource[]>;
     /**
@@ -130,11 +130,11 @@ export interface MatchingWorkflowArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+     * A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
      */
     inputSourceConfig: pulumi.Input<pulumi.Input<inputs.entityresolution.MatchingWorkflowInputSourceArgs>[]>;
     /**
-     * A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+     * A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
      */
     outputSourceConfig: pulumi.Input<pulumi.Input<inputs.entityresolution.MatchingWorkflowOutputSourceArgs>[]>;
     /**

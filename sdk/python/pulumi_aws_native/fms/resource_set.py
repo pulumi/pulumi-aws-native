@@ -26,7 +26,6 @@ class ResourceSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_type_list: Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
         :param pulumi.Input[str] description: A description of the resource set.
         :param pulumi.Input[str] name: The descriptive name of the resource set. You can't change the name of a resource set after you create it.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
         """
         pulumi.set(__self__, "resource_type_list", resource_type_list)
         if description is not None:
@@ -86,9 +85,6 @@ class ResourceSetArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -115,7 +111,6 @@ class ResourceSet(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the resource set.
         :param pulumi.Input[str] name: The descriptive name of the resource set. You can't change the name of a resource set after you create it.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_type_list: Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
         """
         ...
     @overload
@@ -233,8 +228,5 @@ class ResourceSet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
-        """
         return pulumi.get(self, "tags")
 

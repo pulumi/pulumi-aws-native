@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// </summary>
         public readonly ImmutableArray<string> OneDriveUserList;
         /// <summary>
-        /// Information required to find a specific file in an Amazon S3 bucket.
+        /// The S3 bucket location of a file containing a list of users whose documents should be indexed.
         /// </summary>
         public readonly Outputs.DataSourceS3Path? OneDriveUserS3Path;
 

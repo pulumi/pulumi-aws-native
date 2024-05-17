@@ -27,7 +27,7 @@ export interface GetStorageLensGroupArgs {
 
 export interface GetStorageLensGroupResult {
     /**
-     * This resource sets the criteria for the Storage Lens group data that is displayed. For multiple filter conditions, the `AND` or `OR` logical operator is used.
+     * This property contains the criteria for the Storage Lens group data that is displayed
      */
     readonly filter?: outputs.s3.StorageLensGroupFilter;
     /**

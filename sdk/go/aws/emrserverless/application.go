@@ -27,13 +27,13 @@ type Application struct {
 	AutoStartConfiguration ApplicationAutoStartConfigurationPtrOutput `pulumi:"autoStartConfiguration"`
 	// Configuration for Auto Stop of Application.
 	AutoStopConfiguration ApplicationAutoStopConfigurationPtrOutput `pulumi:"autoStopConfiguration"`
-	// The image configuration.
+	// The image configuration applied to all worker types.
 	ImageConfiguration ApplicationImageConfigurationInputPtrOutput `pulumi:"imageConfiguration"`
 	// Initial capacity initialized when an Application is started.
 	InitialCapacity ApplicationInitialCapacityConfigKeyValuePairArrayOutput `pulumi:"initialCapacity"`
 	// Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
 	MaximumCapacity ApplicationMaximumAllowedResourcesPtrOutput `pulumi:"maximumCapacity"`
-	// The configuration setting for monitoring.
+	// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
 	MonitoringConfiguration ApplicationMonitoringConfigurationPtrOutput `pulumi:"monitoringConfiguration"`
 	// User friendly Application name.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
@@ -108,13 +108,13 @@ type applicationArgs struct {
 	AutoStartConfiguration *ApplicationAutoStartConfiguration `pulumi:"autoStartConfiguration"`
 	// Configuration for Auto Stop of Application.
 	AutoStopConfiguration *ApplicationAutoStopConfiguration `pulumi:"autoStopConfiguration"`
-	// The image configuration.
+	// The image configuration applied to all worker types.
 	ImageConfiguration *ApplicationImageConfigurationInput `pulumi:"imageConfiguration"`
 	// Initial capacity initialized when an Application is started.
 	InitialCapacity []ApplicationInitialCapacityConfigKeyValuePair `pulumi:"initialCapacity"`
 	// Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
 	MaximumCapacity *ApplicationMaximumAllowedResources `pulumi:"maximumCapacity"`
-	// The configuration setting for monitoring.
+	// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
 	MonitoringConfiguration *ApplicationMonitoringConfiguration `pulumi:"monitoringConfiguration"`
 	// User friendly Application name.
 	Name *string `pulumi:"name"`
@@ -140,13 +140,13 @@ type ApplicationArgs struct {
 	AutoStartConfiguration ApplicationAutoStartConfigurationPtrInput
 	// Configuration for Auto Stop of Application.
 	AutoStopConfiguration ApplicationAutoStopConfigurationPtrInput
-	// The image configuration.
+	// The image configuration applied to all worker types.
 	ImageConfiguration ApplicationImageConfigurationInputPtrInput
 	// Initial capacity initialized when an Application is started.
 	InitialCapacity ApplicationInitialCapacityConfigKeyValuePairArrayInput
 	// Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
 	MaximumCapacity ApplicationMaximumAllowedResourcesPtrInput
-	// The configuration setting for monitoring.
+	// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
 	MonitoringConfiguration ApplicationMonitoringConfigurationPtrInput
 	// User friendly Application name.
 	Name pulumi.StringPtrInput
@@ -226,7 +226,7 @@ func (o ApplicationOutput) AutoStopConfiguration() ApplicationAutoStopConfigurat
 	return o.ApplyT(func(v *Application) ApplicationAutoStopConfigurationPtrOutput { return v.AutoStopConfiguration }).(ApplicationAutoStopConfigurationPtrOutput)
 }
 
-// The image configuration.
+// The image configuration applied to all worker types.
 func (o ApplicationOutput) ImageConfiguration() ApplicationImageConfigurationInputPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationImageConfigurationInputPtrOutput { return v.ImageConfiguration }).(ApplicationImageConfigurationInputPtrOutput)
 }
@@ -241,7 +241,7 @@ func (o ApplicationOutput) MaximumCapacity() ApplicationMaximumAllowedResourcesP
 	return o.ApplyT(func(v *Application) ApplicationMaximumAllowedResourcesPtrOutput { return v.MaximumCapacity }).(ApplicationMaximumAllowedResourcesPtrOutput)
 }
 
-// The configuration setting for monitoring.
+// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
 func (o ApplicationOutput) MonitoringConfiguration() ApplicationMonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationMonitoringConfigurationPtrOutput { return v.MonitoringConfiguration }).(ApplicationMonitoringConfigurationPtrOutput)
 }

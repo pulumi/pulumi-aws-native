@@ -40,11 +40,11 @@ type LookupThemeResult struct {
 	ModifiedAt *string `pulumi:"modifiedAt"`
 	// The name of the theme.
 	Name *string `pulumi:"name"`
-	// The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+	// Describes the properties that can be overriden to customize a theme.
 	Overrides []ThemeValues `pulumi:"overrides"`
 	// One or more key-value pairs to use when tagging the theme.
 	Tags map[string]string `pulumi:"tags"`
-	// The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+	// A list of key-value pairs that defines the properties of the theme.
 	Values []ThemeValues `pulumi:"values"`
 }
 
@@ -108,7 +108,7 @@ func (o LookupThemeResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+// Describes the properties that can be overriden to customize a theme.
 func (o LookupThemeResultOutput) Overrides() ThemeValuesArrayOutput {
 	return o.ApplyT(func(v LookupThemeResult) []ThemeValues { return v.Overrides }).(ThemeValuesArrayOutput)
 }
@@ -118,7 +118,7 @@ func (o LookupThemeResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupThemeResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+// A list of key-value pairs that defines the properties of the theme.
 func (o LookupThemeResultOutput) Values() ThemeValuesArrayOutput {
 	return o.ApplyT(func(v LookupThemeResult) []ThemeValues { return v.Values }).(ThemeValuesArrayOutput)
 }

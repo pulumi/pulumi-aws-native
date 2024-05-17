@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// </summary>
         public readonly string? ManifestName;
         /// <summary>
-        /// Limitations for outputs from the endpoint, based on the video bitrate.
+        /// Video bitrate limitations for outputs from this packaging configuration.
         /// </summary>
         public readonly Outputs.PackagingConfigurationStreamSelection? StreamSelection;
 

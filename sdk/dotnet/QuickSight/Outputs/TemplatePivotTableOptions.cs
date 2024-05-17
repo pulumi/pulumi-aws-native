@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplatePivotTableOptions
     {
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The table cell style of cells.
         /// </summary>
         public readonly Outputs.TemplateTableCellStyle? CellStyle;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? CollapsedRowDimensionsVisibility;
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The table cell style of the column header.
         /// </summary>
         public readonly Outputs.TemplateTableCellStyle? ColumnHeaderStyle;
         /// <summary>
@@ -38,19 +38,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplatePivotTableMetricPlacement? MetricPlacement;
         /// <summary>
-        /// Determines the row alternate color options.
+        /// The row alternate color options (widget status, row alternate colors).
         /// </summary>
         public readonly Outputs.TemplateRowAlternateColorOptions? RowAlternateColorOptions;
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The table cell style of row field names.
         /// </summary>
         public readonly Outputs.TemplateTableCellStyle? RowFieldNamesStyle;
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The table cell style of the row headers.
         /// </summary>
         public readonly Outputs.TemplateTableCellStyle? RowHeaderStyle;
         /// <summary>
-        /// The options for the label thta is located above the row headers. This option is only applicable when `RowsLayout` is set to `HIERARCHY` .
+        /// The options for the label that is located above the row headers. This option is only applicable when `RowsLayout` is set to `HIERARCHY` .
         /// </summary>
         public readonly Outputs.TemplatePivotTableRowsLabelOptions? RowsLabelOptions;
         /// <summary>

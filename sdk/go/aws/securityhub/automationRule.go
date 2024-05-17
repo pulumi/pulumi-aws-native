@@ -703,7 +703,7 @@ import (
 type AutomationRule struct {
 	pulumi.CustomResourceState
 
-	// One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+	// One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
 	Actions AutomationRulesActionArrayOutput `pulumi:"actions"`
 	// A timestamp that indicates when the rule was created.
 	//
@@ -773,7 +773,7 @@ func (AutomationRuleState) ElementType() reflect.Type {
 }
 
 type automationRuleArgs struct {
-	// One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+	// One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
 	Actions []AutomationRulesAction `pulumi:"actions"`
 	// A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
 	Criteria *AutomationRulesFindingFilters `pulumi:"criteria"`
@@ -793,7 +793,7 @@ type automationRuleArgs struct {
 
 // The set of arguments for constructing a AutomationRule resource.
 type AutomationRuleArgs struct {
-	// One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+	// One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
 	Actions AutomationRulesActionArrayInput
 	// A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
 	Criteria AutomationRulesFindingFiltersPtrInput
@@ -848,7 +848,7 @@ func (o AutomationRuleOutput) ToAutomationRuleOutputWithContext(ctx context.Cont
 	return o
 }
 
-// One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+// One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
 func (o AutomationRuleOutput) Actions() AutomationRulesActionArrayOutput {
 	return o.ApplyT(func(v *AutomationRule) AutomationRulesActionArrayOutput { return v.Actions }).(AutomationRulesActionArrayOutput)
 }

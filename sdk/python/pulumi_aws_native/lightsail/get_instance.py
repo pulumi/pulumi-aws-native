@@ -80,7 +80,9 @@ class GetInstanceResult:
     @pulumi.getter
     def hardware(self) -> Optional['outputs.InstanceHardware']:
         """
-        `Hardware` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+        The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+
+        > The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
         """
         return pulumi.get(self, "hardware")
 
@@ -112,7 +114,9 @@ class GetInstanceResult:
     @pulumi.getter
     def location(self) -> Optional['outputs.InstanceLocation']:
         """
-        `Location` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the location for an instance.
+        The location for the instance, such as the AWS Region and Availability Zone.
+
+        > The `Location` property is read-only and should not be specified in a create instance or update instance request.
         """
         return pulumi.get(self, "location")
 
@@ -120,7 +124,7 @@ class GetInstanceResult:
     @pulumi.getter
     def networking(self) -> Optional['outputs.InstanceNetworking']:
         """
-        `Networking` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the public ports and the monthly amount of data transfer allocated for the instance.
+        The public ports and the monthly amount of data transfer allocated for the instance.
         """
         return pulumi.get(self, "networking")
 
@@ -160,7 +164,9 @@ class GetInstanceResult:
     @pulumi.getter
     def state(self) -> Optional['outputs.InstanceState']:
         """
-        `State` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the status code and the state (for example, `running` ) of an instance.
+        The status code and the state (for example, `running` ) of the instance.
+
+        > The `State` property is read-only and should not be specified in a create instance or update instance request.
         """
         return pulumi.get(self, "state")
 

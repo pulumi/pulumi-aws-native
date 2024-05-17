@@ -21,14 +21,11 @@ namespace Pulumi.AwsNative.Deadline
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        /// <summary>
-        /// The amounts and attributes of fleets.
-        /// </summary>
         [Output("capabilities")]
         public Output<Outputs.FleetCapabilities> Capabilities { get; private set; } = null!;
 
         /// <summary>
-        /// Fleet configuration details.
+        /// The configuration details for the fleet.
         /// </summary>
         [Output("configuration")]
         public Output<Union<Outputs.FleetConfiguration0Properties, Outputs.FleetConfiguration1Properties>> Configuration { get; private set; } = null!;
@@ -137,7 +134,7 @@ namespace Pulumi.AwsNative.Deadline
     public sealed class FleetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Fleet configuration details.
+        /// The configuration details for the fleet.
         /// </summary>
         [Input("configuration", required: true)]
         public InputUnion<Inputs.FleetConfiguration0PropertiesArgs, Inputs.FleetConfiguration1PropertiesArgs> Configuration { get; set; } = null!;

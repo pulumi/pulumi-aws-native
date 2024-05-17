@@ -3809,20 +3809,12 @@ class StorageLensAccountLevel(dict):
                  storage_lens_group_level: Optional['outputs.StorageLensGroupLevel'] = None):
         """
         Account-level metrics configurations.
-        :param 'StorageLensBucketLevel' bucket_level: A property for the bucket-level storage metrics for Amazon S3 Storage Lens.
-        :param 'StorageLensActivityMetrics' activity_metrics: This resource enables Amazon S3 Storage Lens activity metrics. Activity metrics show details about how your storage is requested, such as requests (for example, All requests, Get requests, Put requests), bytes uploaded or downloaded, and errors.
-               
-               For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
-        :param 'StorageLensAdvancedCostOptimizationMetrics' advanced_cost_optimization_metrics: This resource enables Amazon S3 Storage Lens advanced cost optimization metrics. Advanced cost optimization metrics provide insights that you can use to manage and optimize your storage costs, for example, lifecycle rule counts for transitions, expirations, and incomplete multipart uploads.
-               
-               For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
-        :param 'StorageLensAdvancedDataProtectionMetrics' advanced_data_protection_metrics: This resource enables Amazon S3 Storage Lens advanced data protection metrics. Advanced data protection metrics provide insights that you can use to perform audits and protect your data, for example replication rule counts within and across Regions.
-               
-               For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
-        :param 'StorageLensDetailedStatusCodesMetrics' detailed_status_codes_metrics: This resource enables Amazon S3 Storage Lens detailed status code metrics. Detailed status code metrics generate metrics for HTTP status codes, such as `200 OK` , `403 Forbidden` , `503 Service Unavailable` and others.
-               
-               For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
-        :param 'StorageLensGroupLevel' storage_lens_group_level: This resource determines the scope of Storage Lens group data that is displayed in the Storage Lens dashboard.
+        :param 'StorageLensBucketLevel' bucket_level: This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens.
+        :param 'StorageLensActivityMetrics' activity_metrics: This property contains the details of account-level activity metrics for S3 Storage Lens.
+        :param 'StorageLensAdvancedCostOptimizationMetrics' advanced_cost_optimization_metrics: This property contains the details of account-level advanced cost optimization metrics for S3 Storage Lens.
+        :param 'StorageLensAdvancedDataProtectionMetrics' advanced_data_protection_metrics: This property contains the details of account-level advanced data protection metrics for S3 Storage Lens.
+        :param 'StorageLensDetailedStatusCodesMetrics' detailed_status_codes_metrics: This property contains the details of account-level detailed status code metrics for S3 Storage Lens.
+        :param 'StorageLensGroupLevel' storage_lens_group_level: This property determines the scope of Storage Lens group data that is displayed in the Storage Lens dashboard.
         """
         pulumi.set(__self__, "bucket_level", bucket_level)
         if activity_metrics is not None:
@@ -3840,7 +3832,7 @@ class StorageLensAccountLevel(dict):
     @pulumi.getter(name="bucketLevel")
     def bucket_level(self) -> 'outputs.StorageLensBucketLevel':
         """
-        A property for the bucket-level storage metrics for Amazon S3 Storage Lens.
+        This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens.
         """
         return pulumi.get(self, "bucket_level")
 
@@ -3848,9 +3840,7 @@ class StorageLensAccountLevel(dict):
     @pulumi.getter(name="activityMetrics")
     def activity_metrics(self) -> Optional['outputs.StorageLensActivityMetrics']:
         """
-        This resource enables Amazon S3 Storage Lens activity metrics. Activity metrics show details about how your storage is requested, such as requests (for example, All requests, Get requests, Put requests), bytes uploaded or downloaded, and errors.
-
-        For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+        This property contains the details of account-level activity metrics for S3 Storage Lens.
         """
         return pulumi.get(self, "activity_metrics")
 
@@ -3858,9 +3848,7 @@ class StorageLensAccountLevel(dict):
     @pulumi.getter(name="advancedCostOptimizationMetrics")
     def advanced_cost_optimization_metrics(self) -> Optional['outputs.StorageLensAdvancedCostOptimizationMetrics']:
         """
-        This resource enables Amazon S3 Storage Lens advanced cost optimization metrics. Advanced cost optimization metrics provide insights that you can use to manage and optimize your storage costs, for example, lifecycle rule counts for transitions, expirations, and incomplete multipart uploads.
-
-        For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+        This property contains the details of account-level advanced cost optimization metrics for S3 Storage Lens.
         """
         return pulumi.get(self, "advanced_cost_optimization_metrics")
 
@@ -3868,9 +3856,7 @@ class StorageLensAccountLevel(dict):
     @pulumi.getter(name="advancedDataProtectionMetrics")
     def advanced_data_protection_metrics(self) -> Optional['outputs.StorageLensAdvancedDataProtectionMetrics']:
         """
-        This resource enables Amazon S3 Storage Lens advanced data protection metrics. Advanced data protection metrics provide insights that you can use to perform audits and protect your data, for example replication rule counts within and across Regions.
-
-        For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+        This property contains the details of account-level advanced data protection metrics for S3 Storage Lens.
         """
         return pulumi.get(self, "advanced_data_protection_metrics")
 
@@ -3878,9 +3864,7 @@ class StorageLensAccountLevel(dict):
     @pulumi.getter(name="detailedStatusCodesMetrics")
     def detailed_status_codes_metrics(self) -> Optional['outputs.StorageLensDetailedStatusCodesMetrics']:
         """
-        This resource enables Amazon S3 Storage Lens detailed status code metrics. Detailed status code metrics generate metrics for HTTP status codes, such as `200 OK` , `403 Forbidden` , `503 Service Unavailable` and others.
-
-        For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+        This property contains the details of account-level detailed status code metrics for S3 Storage Lens.
         """
         return pulumi.get(self, "detailed_status_codes_metrics")
 
@@ -3888,7 +3872,7 @@ class StorageLensAccountLevel(dict):
     @pulumi.getter(name="storageLensGroupLevel")
     def storage_lens_group_level(self) -> Optional['outputs.StorageLensGroupLevel']:
         """
-        This resource determines the scope of Storage Lens group data that is displayed in the Storage Lens dashboard.
+        This property determines the scope of Storage Lens group data that is displayed in the Storage Lens dashboard.
         """
         return pulumi.get(self, "storage_lens_group_level")
 
@@ -4073,19 +4057,11 @@ class StorageLensBucketLevel(dict):
                  prefix_level: Optional['outputs.StorageLensPrefixLevel'] = None):
         """
         Bucket-level metrics configurations.
-        :param 'StorageLensActivityMetrics' activity_metrics: This resource enables Amazon S3 Storage Lens activity metrics. Activity metrics show details about how your storage is requested, such as requests (for example, All requests, Get requests, Put requests), bytes uploaded or downloaded, and errors.
-               
-               For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
-        :param 'StorageLensAdvancedCostOptimizationMetrics' advanced_cost_optimization_metrics: This resource enables Amazon S3 Storage Lens advanced cost optimization metrics. Advanced cost optimization metrics provide insights that you can use to manage and optimize your storage costs, for example, lifecycle rule counts for transitions, expirations, and incomplete multipart uploads.
-               
-               For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
-        :param 'StorageLensAdvancedDataProtectionMetrics' advanced_data_protection_metrics: This resource enables Amazon S3 Storage Lens advanced data protection metrics. Advanced data protection metrics provide insights that you can use to perform audits and protect your data, for example replication rule counts within and across Regions.
-               
-               For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
-        :param 'StorageLensDetailedStatusCodesMetrics' detailed_status_codes_metrics: This resource enables Amazon S3 Storage Lens detailed status code metrics. Detailed status code metrics generate metrics for HTTP status codes, such as `200 OK` , `403 Forbidden` , `503 Service Unavailable` and others.
-               
-               For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
-        :param 'StorageLensPrefixLevel' prefix_level: This resource contains the details of the prefix-level of the Amazon S3 Storage Lens.
+        :param 'StorageLensActivityMetrics' activity_metrics: A property for bucket-level activity metrics for S3 Storage Lens.
+        :param 'StorageLensAdvancedCostOptimizationMetrics' advanced_cost_optimization_metrics: A property for bucket-level advanced cost optimization metrics for S3 Storage Lens.
+        :param 'StorageLensAdvancedDataProtectionMetrics' advanced_data_protection_metrics: A property for bucket-level advanced data protection metrics for S3 Storage Lens.
+        :param 'StorageLensDetailedStatusCodesMetrics' detailed_status_codes_metrics: A property for bucket-level detailed status code metrics for S3 Storage Lens.
+        :param 'StorageLensPrefixLevel' prefix_level: A property for bucket-level prefix-level storage metrics for S3 Storage Lens.
         """
         if activity_metrics is not None:
             pulumi.set(__self__, "activity_metrics", activity_metrics)
@@ -4102,9 +4078,7 @@ class StorageLensBucketLevel(dict):
     @pulumi.getter(name="activityMetrics")
     def activity_metrics(self) -> Optional['outputs.StorageLensActivityMetrics']:
         """
-        This resource enables Amazon S3 Storage Lens activity metrics. Activity metrics show details about how your storage is requested, such as requests (for example, All requests, Get requests, Put requests), bytes uploaded or downloaded, and errors.
-
-        For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+        A property for bucket-level activity metrics for S3 Storage Lens.
         """
         return pulumi.get(self, "activity_metrics")
 
@@ -4112,9 +4086,7 @@ class StorageLensBucketLevel(dict):
     @pulumi.getter(name="advancedCostOptimizationMetrics")
     def advanced_cost_optimization_metrics(self) -> Optional['outputs.StorageLensAdvancedCostOptimizationMetrics']:
         """
-        This resource enables Amazon S3 Storage Lens advanced cost optimization metrics. Advanced cost optimization metrics provide insights that you can use to manage and optimize your storage costs, for example, lifecycle rule counts for transitions, expirations, and incomplete multipart uploads.
-
-        For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+        A property for bucket-level advanced cost optimization metrics for S3 Storage Lens.
         """
         return pulumi.get(self, "advanced_cost_optimization_metrics")
 
@@ -4122,9 +4094,7 @@ class StorageLensBucketLevel(dict):
     @pulumi.getter(name="advancedDataProtectionMetrics")
     def advanced_data_protection_metrics(self) -> Optional['outputs.StorageLensAdvancedDataProtectionMetrics']:
         """
-        This resource enables Amazon S3 Storage Lens advanced data protection metrics. Advanced data protection metrics provide insights that you can use to perform audits and protect your data, for example replication rule counts within and across Regions.
-
-        For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+        A property for bucket-level advanced data protection metrics for S3 Storage Lens.
         """
         return pulumi.get(self, "advanced_data_protection_metrics")
 
@@ -4132,9 +4102,7 @@ class StorageLensBucketLevel(dict):
     @pulumi.getter(name="detailedStatusCodesMetrics")
     def detailed_status_codes_metrics(self) -> Optional['outputs.StorageLensDetailedStatusCodesMetrics']:
         """
-        This resource enables Amazon S3 Storage Lens detailed status code metrics. Detailed status code metrics generate metrics for HTTP status codes, such as `200 OK` , `403 Forbidden` , `503 Service Unavailable` and others.
-
-        For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+        A property for bucket-level detailed status code metrics for S3 Storage Lens.
         """
         return pulumi.get(self, "detailed_status_codes_metrics")
 
@@ -4142,7 +4110,7 @@ class StorageLensBucketLevel(dict):
     @pulumi.getter(name="prefixLevel")
     def prefix_level(self) -> Optional['outputs.StorageLensPrefixLevel']:
         """
-        This resource contains the details of the prefix-level of the Amazon S3 Storage Lens.
+        A property for bucket-level prefix-level storage metrics for S3 Storage Lens.
         """
         return pulumi.get(self, "prefix_level")
 
@@ -4262,13 +4230,13 @@ class StorageLensConfiguration(dict):
                  storage_lens_arn: Optional[str] = None):
         """
         Specifies the details of Amazon S3 Storage Lens configuration.
-        :param 'StorageLensAccountLevel' account_level: This resource contains the details of the account-level metrics for Amazon S3 Storage Lens.
+        :param 'StorageLensAccountLevel' account_level: This property contains the details of the account-level metrics for Amazon S3 Storage Lens configuration.
         :param str id: This property contains the details of the ID of the S3 Storage Lens configuration.
         :param bool is_enabled: Specifies whether the Amazon S3 Storage Lens configuration is enabled or disabled.
-        :param 'StorageLensAwsOrg' aws_org: This resource contains the details of the AWS Organization for Amazon S3 Storage Lens.
-        :param 'StorageLensDataExport' data_export: This resource contains the details of the Amazon S3 Storage Lens metrics export.
-        :param 'StorageLensBucketsAndRegions' exclude: This resource contains the details of the buckets and Regions for the Amazon S3 Storage Lens configuration.
-        :param 'StorageLensBucketsAndRegions' include: This resource contains the details of the buckets and Regions for the Amazon S3 Storage Lens configuration.
+        :param 'StorageLensAwsOrg' aws_org: This property contains the details of the AWS Organization for the S3 Storage Lens configuration.
+        :param 'StorageLensDataExport' data_export: This property contains the details of this S3 Storage Lens configuration's metrics export.
+        :param 'StorageLensBucketsAndRegions' exclude: This property contains the details of the bucket and or Regions excluded for Amazon S3 Storage Lens configuration.
+        :param 'StorageLensBucketsAndRegions' include: This property contains the details of the bucket and or Regions included for Amazon S3 Storage Lens configuration.
         :param str storage_lens_arn: The ARN for the Amazon S3 Storage Lens configuration.
         """
         pulumi.set(__self__, "account_level", account_level)
@@ -4289,7 +4257,7 @@ class StorageLensConfiguration(dict):
     @pulumi.getter(name="accountLevel")
     def account_level(self) -> 'outputs.StorageLensAccountLevel':
         """
-        This resource contains the details of the account-level metrics for Amazon S3 Storage Lens.
+        This property contains the details of the account-level metrics for Amazon S3 Storage Lens configuration.
         """
         return pulumi.get(self, "account_level")
 
@@ -4313,7 +4281,7 @@ class StorageLensConfiguration(dict):
     @pulumi.getter(name="awsOrg")
     def aws_org(self) -> Optional['outputs.StorageLensAwsOrg']:
         """
-        This resource contains the details of the AWS Organization for Amazon S3 Storage Lens.
+        This property contains the details of the AWS Organization for the S3 Storage Lens configuration.
         """
         return pulumi.get(self, "aws_org")
 
@@ -4321,7 +4289,7 @@ class StorageLensConfiguration(dict):
     @pulumi.getter(name="dataExport")
     def data_export(self) -> Optional['outputs.StorageLensDataExport']:
         """
-        This resource contains the details of the Amazon S3 Storage Lens metrics export.
+        This property contains the details of this S3 Storage Lens configuration's metrics export.
         """
         return pulumi.get(self, "data_export")
 
@@ -4329,7 +4297,7 @@ class StorageLensConfiguration(dict):
     @pulumi.getter
     def exclude(self) -> Optional['outputs.StorageLensBucketsAndRegions']:
         """
-        This resource contains the details of the buckets and Regions for the Amazon S3 Storage Lens configuration.
+        This property contains the details of the bucket and or Regions excluded for Amazon S3 Storage Lens configuration.
         """
         return pulumi.get(self, "exclude")
 
@@ -4337,7 +4305,7 @@ class StorageLensConfiguration(dict):
     @pulumi.getter
     def include(self) -> Optional['outputs.StorageLensBucketsAndRegions']:
         """
-        This resource contains the details of the buckets and Regions for the Amazon S3 Storage Lens configuration.
+        This property contains the details of the bucket and or Regions included for Amazon S3 Storage Lens configuration.
         """
         return pulumi.get(self, "include")
 
@@ -4379,10 +4347,8 @@ class StorageLensDataExport(dict):
                  s3_bucket_destination: Optional['outputs.StorageLensS3BucketDestination'] = None):
         """
         Specifies how Amazon S3 Storage Lens metrics should be exported.
-        :param 'StorageLensCloudWatchMetrics' cloud_watch_metrics: This resource enables the Amazon CloudWatch publishing option for Amazon S3 Storage Lens metrics.
-               
-               For more information, see [Monitor S3 Storage Lens metrics in CloudWatch](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_view_metrics_cloudwatch.html) in the *Amazon S3 User Guide* .
-        :param 'StorageLensS3BucketDestination' s3_bucket_destination: This resource contains the details of the bucket where the Amazon S3 Storage Lens metrics export will be placed.
+        :param 'StorageLensCloudWatchMetrics' cloud_watch_metrics: This property enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
+        :param 'StorageLensS3BucketDestination' s3_bucket_destination: This property contains the details of the bucket where the S3 Storage Lens metrics export will be placed.
         """
         if cloud_watch_metrics is not None:
             pulumi.set(__self__, "cloud_watch_metrics", cloud_watch_metrics)
@@ -4393,9 +4359,7 @@ class StorageLensDataExport(dict):
     @pulumi.getter(name="cloudWatchMetrics")
     def cloud_watch_metrics(self) -> Optional['outputs.StorageLensCloudWatchMetrics']:
         """
-        This resource enables the Amazon CloudWatch publishing option for Amazon S3 Storage Lens metrics.
-
-        For more information, see [Monitor S3 Storage Lens metrics in CloudWatch](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_view_metrics_cloudwatch.html) in the *Amazon S3 User Guide* .
+        This property enables the Amazon CloudWatch publishing option for S3 Storage Lens metrics.
         """
         return pulumi.get(self, "cloud_watch_metrics")
 
@@ -4403,7 +4367,7 @@ class StorageLensDataExport(dict):
     @pulumi.getter(name="s3BucketDestination")
     def s3_bucket_destination(self) -> Optional['outputs.StorageLensS3BucketDestination']:
         """
-        This resource contains the details of the bucket where the Amazon S3 Storage Lens metrics export will be placed.
+        This property contains the details of the bucket where the S3 Storage Lens metrics export will be placed.
         """
         return pulumi.get(self, "s3_bucket_destination")
 
@@ -4501,8 +4465,8 @@ class StorageLensGroupAnd(dict):
         :param Sequence[str] match_any_prefix: This property contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
         :param Sequence[str] match_any_suffix: This property contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes are allowed.
         :param Sequence['StorageLensGroupTag'] match_any_tag: This property contains the list of object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
-        :param 'StorageLensGroupMatchObjectAge' match_object_age: This resource contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
-        :param 'StorageLensGroupMatchObjectSize' match_object_size: This resource filters objects that match the specified object size range.
+        :param 'StorageLensGroupMatchObjectAge' match_object_age: This property contains `DaysGreaterThan` and `DaysLessThan` properties to define the object age range (minimum and maximum number of days).
+        :param 'StorageLensGroupMatchObjectSize' match_object_size: This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
         """
         if match_any_prefix is not None:
             pulumi.set(__self__, "match_any_prefix", match_any_prefix)
@@ -4543,7 +4507,7 @@ class StorageLensGroupAnd(dict):
     @pulumi.getter(name="matchObjectAge")
     def match_object_age(self) -> Optional['outputs.StorageLensGroupMatchObjectAge']:
         """
-        This resource contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+        This property contains `DaysGreaterThan` and `DaysLessThan` properties to define the object age range (minimum and maximum number of days).
         """
         return pulumi.get(self, "match_object_age")
 
@@ -4551,7 +4515,7 @@ class StorageLensGroupAnd(dict):
     @pulumi.getter(name="matchObjectSize")
     def match_object_size(self) -> Optional['outputs.StorageLensGroupMatchObjectSize']:
         """
-        This resource filters objects that match the specified object size range.
+        This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
         """
         return pulumi.get(self, "match_object_size")
 
@@ -4600,13 +4564,13 @@ class StorageLensGroupFilter(dict):
                  or_: Optional['outputs.StorageLensGroupOr'] = None):
         """
         Sets the Storage Lens Group filter.
-        :param 'StorageLensGroupAnd' and_: This resource is a logical operator that allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects must match all of the listed filter conditions that are joined by the `And` logical operator. Only one of each filter condition is allowed.
+        :param 'StorageLensGroupAnd' and_: This property contains the `And` logical operator, which allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects must match all of the listed filter conditions that are joined by the `And` logical operator. Only one of each filter condition is allowed.
         :param Sequence[str] match_any_prefix: This property contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
         :param Sequence[str] match_any_suffix: This property contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes are allowed.
         :param Sequence['StorageLensGroupTag'] match_any_tag: This property contains the list of S3 object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
-        :param 'StorageLensGroupMatchObjectAge' match_object_age: This resource contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
-        :param 'StorageLensGroupMatchObjectSize' match_object_size: This resource filters objects that match the specified object size range.
-        :param 'StorageLensGroupOr' or_: This resource contains the `Or` logical operator, which allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects can match any of the listed filter conditions that are joined by the `Or` logical operator. Only one of each filter condition is allowed.
+        :param 'StorageLensGroupMatchObjectAge' match_object_age: This property contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+        :param 'StorageLensGroupMatchObjectSize' match_object_size: This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
+        :param 'StorageLensGroupOr' or_: This property contains the `Or` logical operator, which allows multiple filter conditions to be joined. Objects can match any of the listed filter conditions, which are joined by the `Or` logical operator. Only one of each filter condition is allowed.
         """
         if and_ is not None:
             pulumi.set(__self__, "and_", and_)
@@ -4627,7 +4591,7 @@ class StorageLensGroupFilter(dict):
     @pulumi.getter(name="and")
     def and_(self) -> Optional['outputs.StorageLensGroupAnd']:
         """
-        This resource is a logical operator that allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects must match all of the listed filter conditions that are joined by the `And` logical operator. Only one of each filter condition is allowed.
+        This property contains the `And` logical operator, which allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects must match all of the listed filter conditions that are joined by the `And` logical operator. Only one of each filter condition is allowed.
         """
         return pulumi.get(self, "and_")
 
@@ -4659,7 +4623,7 @@ class StorageLensGroupFilter(dict):
     @pulumi.getter(name="matchObjectAge")
     def match_object_age(self) -> Optional['outputs.StorageLensGroupMatchObjectAge']:
         """
-        This resource contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+        This property contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
         """
         return pulumi.get(self, "match_object_age")
 
@@ -4667,7 +4631,7 @@ class StorageLensGroupFilter(dict):
     @pulumi.getter(name="matchObjectSize")
     def match_object_size(self) -> Optional['outputs.StorageLensGroupMatchObjectSize']:
         """
-        This resource filters objects that match the specified object size range.
+        This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
         """
         return pulumi.get(self, "match_object_size")
 
@@ -4675,7 +4639,7 @@ class StorageLensGroupFilter(dict):
     @pulumi.getter(name="or")
     def or_(self) -> Optional['outputs.StorageLensGroupOr']:
         """
-        This resource contains the `Or` logical operator, which allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects can match any of the listed filter conditions that are joined by the `Or` logical operator. Only one of each filter condition is allowed.
+        This property contains the `Or` logical operator, which allows multiple filter conditions to be joined. Objects can match any of the listed filter conditions, which are joined by the `Or` logical operator. Only one of each filter condition is allowed.
         """
         return pulumi.get(self, "or_")
 
@@ -4706,7 +4670,7 @@ class StorageLensGroupLevel(dict):
                  storage_lens_group_selection_criteria: Optional['outputs.StorageLensGroupSelectionCriteria'] = None):
         """
         Specifies the details of Amazon S3 Storage Lens Group configuration.
-        :param 'StorageLensGroupSelectionCriteria' storage_lens_group_selection_criteria: This resource indicates which Storage Lens group ARNs to include or exclude in the Storage Lens group aggregation. You can only attach Storage Lens groups to your dashboard if they're included in your Storage Lens group aggregation. If this value is left null, then all Storage Lens groups are selected.
+        :param 'StorageLensGroupSelectionCriteria' storage_lens_group_selection_criteria: This property indicates which Storage Lens group ARNs to include or exclude in the Storage Lens group aggregation. If this value is left null, then all Storage Lens groups are selected.
         """
         if storage_lens_group_selection_criteria is not None:
             pulumi.set(__self__, "storage_lens_group_selection_criteria", storage_lens_group_selection_criteria)
@@ -4715,7 +4679,7 @@ class StorageLensGroupLevel(dict):
     @pulumi.getter(name="storageLensGroupSelectionCriteria")
     def storage_lens_group_selection_criteria(self) -> Optional['outputs.StorageLensGroupSelectionCriteria']:
         """
-        This resource indicates which Storage Lens group ARNs to include or exclude in the Storage Lens group aggregation. You can only attach Storage Lens groups to your dashboard if they're included in your Storage Lens group aggregation. If this value is left null, then all Storage Lens groups are selected.
+        This property indicates which Storage Lens group ARNs to include or exclude in the Storage Lens group aggregation. If this value is left null, then all Storage Lens groups are selected.
         """
         return pulumi.get(self, "storage_lens_group_selection_criteria")
 
@@ -4869,8 +4833,8 @@ class StorageLensGroupOr(dict):
         :param Sequence[str] match_any_prefix: This property contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes are allowed.
         :param Sequence[str] match_any_suffix: This property contains the list of suffixes. At least one suffix must be specified. Up to 10 suffixes are allowed.
         :param Sequence['StorageLensGroupTag'] match_any_tag: This property contains the list of S3 object tags. At least one object tag must be specified. Up to 10 object tags are allowed.
-        :param 'StorageLensGroupMatchObjectAge' match_object_age: This resource contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
-        :param 'StorageLensGroupMatchObjectSize' match_object_size: This resource filters objects that match the specified object size range.
+        :param 'StorageLensGroupMatchObjectAge' match_object_age: This property filters objects that match the specified object age range.
+        :param 'StorageLensGroupMatchObjectSize' match_object_size: This property contains the `BytesGreaterThan` and `BytesLessThan` values to define the object size range (minimum and maximum number of Bytes).
         """
         if match_any_prefix is not None:
             pulumi.set(__self__, "match_any_prefix", match_any_prefix)
@@ -4911,7 +4875,7 @@ class StorageLensGroupOr(dict):
     @pulumi.getter(name="matchObjectAge")
     def match_object_age(self) -> Optional['outputs.StorageLensGroupMatchObjectAge']:
         """
-        This resource contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+        This property filters objects that match the specified object age range.
         """
         return pulumi.get(self, "match_object_age")
 
@@ -4919,7 +4883,7 @@ class StorageLensGroupOr(dict):
     @pulumi.getter(name="matchObjectSize")
     def match_object_size(self) -> Optional['outputs.StorageLensGroupMatchObjectSize']:
         """
-        This resource filters objects that match the specified object size range.
+        This property contains the `BytesGreaterThan` and `BytesLessThan` values to define the object size range (minimum and maximum number of Bytes).
         """
         return pulumi.get(self, "match_object_size")
 
@@ -5014,7 +4978,7 @@ class StorageLensPrefixLevel(dict):
                  storage_metrics: 'outputs.StorageLensPrefixLevelStorageMetrics'):
         """
         Prefix-level metrics configurations.
-        :param 'StorageLensPrefixLevelStorageMetrics' storage_metrics: This resource contains the details of the prefix-level storage metrics for Amazon S3 Storage Lens.
+        :param 'StorageLensPrefixLevelStorageMetrics' storage_metrics: A property for the prefix-level storage metrics for Amazon S3 Storage Lens.
         """
         pulumi.set(__self__, "storage_metrics", storage_metrics)
 
@@ -5022,7 +4986,7 @@ class StorageLensPrefixLevel(dict):
     @pulumi.getter(name="storageMetrics")
     def storage_metrics(self) -> 'outputs.StorageLensPrefixLevelStorageMetrics':
         """
-        This resource contains the details of the prefix-level storage metrics for Amazon S3 Storage Lens.
+        A property for the prefix-level storage metrics for Amazon S3 Storage Lens.
         """
         return pulumi.get(self, "storage_metrics")
 
@@ -5053,7 +5017,7 @@ class StorageLensPrefixLevelStorageMetrics(dict):
                  selection_criteria: Optional['outputs.StorageLensSelectionCriteria'] = None):
         """
         :param bool is_enabled: Specifies whether prefix-level storage metrics are enabled or disabled.
-        :param 'StorageLensSelectionCriteria' selection_criteria: This resource contains the details of the Amazon S3 Storage Lens selection criteria.
+        :param 'StorageLensSelectionCriteria' selection_criteria: This property identifies whether the details of the prefix-level storage metrics for S3 Storage Lens are enabled.
         """
         if is_enabled is not None:
             pulumi.set(__self__, "is_enabled", is_enabled)
@@ -5072,7 +5036,7 @@ class StorageLensPrefixLevelStorageMetrics(dict):
     @pulumi.getter(name="selectionCriteria")
     def selection_criteria(self) -> Optional['outputs.StorageLensSelectionCriteria']:
         """
-        This resource contains the details of the Amazon S3 Storage Lens selection criteria.
+        This property identifies whether the details of the prefix-level storage metrics for S3 Storage Lens are enabled.
         """
         return pulumi.get(self, "selection_criteria")
 
@@ -5114,7 +5078,7 @@ class StorageLensS3BucketDestination(dict):
         :param str arn: The ARN of the bucket to which Amazon S3 Storage Lens exports will be placed.
         :param 'StorageLensS3BucketDestinationFormat' format: Specifies the file format to use when exporting Amazon S3 Storage Lens metrics export.
         :param 'StorageLensS3BucketDestinationOutputSchemaVersion' output_schema_version: The version of the output schema to use when exporting Amazon S3 Storage Lens metrics.
-        :param 'StorageLensEncryption' encryption: This resource contains the type of server-side encryption used to encrypt an Amazon S3 Storage Lens metrics export. For valid values, see the [StorageLensDataExportEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_StorageLensDataExportEncryption.html) in the *Amazon S3 API Reference* .
+        :param 'StorageLensEncryption' encryption: This property contains the details of the encryption of the bucket destination of the Amazon S3 Storage Lens metrics export.
         :param str prefix: The prefix to use for Amazon S3 Storage Lens export.
         """
         pulumi.set(__self__, "account_id", account_id)
@@ -5162,7 +5126,7 @@ class StorageLensS3BucketDestination(dict):
     @pulumi.getter
     def encryption(self) -> Optional['outputs.StorageLensEncryption']:
         """
-        This resource contains the type of server-side encryption used to encrypt an Amazon S3 Storage Lens metrics export. For valid values, see the [StorageLensDataExportEncryption](https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_StorageLensDataExportEncryption.html) in the *Amazon S3 API Reference* .
+        This property contains the details of the encryption of the bucket destination of the Amazon S3 Storage Lens metrics export.
         """
         return pulumi.get(self, "encryption")
 

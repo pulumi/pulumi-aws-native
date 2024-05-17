@@ -652,8 +652,8 @@ class QueueJobRunAsUserArgs:
                  windows: Optional[pulumi.Input['QueueWindowsUserArgs']] = None):
         """
         :param pulumi.Input['QueueRunAs'] run_as: Specifies whether the job should run using the queue's system user or if the job should run using the worker agent system user.
-        :param pulumi.Input['QueuePosixUserArgs'] posix: The POSIX user.
-        :param pulumi.Input['QueueWindowsUserArgs'] windows: The Windows user details.
+        :param pulumi.Input['QueuePosixUserArgs'] posix: The user and group that the jobs in the queue run as.
+        :param pulumi.Input['QueueWindowsUserArgs'] windows: Identifies a Microsoft Windows user.
         """
         pulumi.set(__self__, "run_as", run_as)
         if posix is not None:
@@ -677,7 +677,7 @@ class QueueJobRunAsUserArgs:
     @pulumi.getter
     def posix(self) -> Optional[pulumi.Input['QueuePosixUserArgs']]:
         """
-        The POSIX user.
+        The user and group that the jobs in the queue run as.
         """
         return pulumi.get(self, "posix")
 
@@ -689,7 +689,7 @@ class QueueJobRunAsUserArgs:
     @pulumi.getter
     def windows(self) -> Optional[pulumi.Input['QueueWindowsUserArgs']]:
         """
-        The Windows user details.
+        Identifies a Microsoft Windows user.
         """
         return pulumi.get(self, "windows")
 

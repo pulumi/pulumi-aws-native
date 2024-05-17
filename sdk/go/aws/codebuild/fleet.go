@@ -54,9 +54,9 @@ type Fleet struct {
 	EnvironmentType FleetEnvironmentTypePtrOutput `pulumi:"environmentType"`
 	// The name of the compute fleet.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// A tag, consisting of a key and a value.
+	// A list of tag key and value pairs associated with this compute fleet.
 	//
-	// This tag is available for use by AWS services that support tags in AWS CodeBuild .
+	// These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -136,9 +136,9 @@ type fleetArgs struct {
 	EnvironmentType *FleetEnvironmentType `pulumi:"environmentType"`
 	// The name of the compute fleet.
 	Name *string `pulumi:"name"`
-	// A tag, consisting of a key and a value.
+	// A list of tag key and value pairs associated with this compute fleet.
 	//
-	// This tag is available for use by AWS services that support tags in AWS CodeBuild .
+	// These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -180,9 +180,9 @@ type FleetArgs struct {
 	EnvironmentType FleetEnvironmentTypePtrInput
 	// The name of the compute fleet.
 	Name pulumi.StringPtrInput
-	// A tag, consisting of a key and a value.
+	// A list of tag key and value pairs associated with this compute fleet.
 	//
-	// This tag is available for use by AWS services that support tags in AWS CodeBuild .
+	// These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
 	Tags aws.TagArrayInput
 }
 
@@ -276,9 +276,9 @@ func (o FleetOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// A tag, consisting of a key and a value.
+// A list of tag key and value pairs associated with this compute fleet.
 //
-// This tag is available for use by AWS services that support tags in AWS CodeBuild .
+// These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
 func (o FleetOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Fleet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

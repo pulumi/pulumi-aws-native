@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisDateDimensionField
     {
         /// <summary>
-        /// A column of a data set.
+        /// The column that is used in the `DateDimensionField` .
         /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier Column;
         /// <summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string FieldId;
         /// <summary>
-        /// Formatting configuration for `DateTime` fields.
+        /// The format configuration of the field.
         /// </summary>
         public readonly Outputs.AnalysisDateTimeFormatConfiguration? FormatConfiguration;
         /// <summary>

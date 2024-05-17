@@ -13,12 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisFreeFormLayoutConfiguration
     {
-        /// <summary>
-        /// Configuration options for the canvas of a free-form layout.
-        /// </summary>
         public readonly Outputs.AnalysisFreeFormLayoutCanvasSizeOptions? CanvasSizeOptions;
         /// <summary>
-        /// An element within a free-form layout.
+        /// The elements that are included in a free-form layout.
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisFreeFormLayoutElement> Elements;
 

@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Describes a rule match.
+        /// The rule match.
         /// </summary>
         public readonly Outputs.RuleMatch? Match;
         /// <summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public readonly int? Priority;
         /// <summary>
-        /// Specifies a tag for a listener rule.
+        /// The tags for the rule.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

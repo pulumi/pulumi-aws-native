@@ -107,9 +107,6 @@ class GetAnalysisTemplateResult:
     @property
     @pulumi.getter
     def schema(self) -> Optional['outputs.AnalysisTemplateAnalysisSchema']:
-        """
-        A relation within an analysis.
-        """
         return pulumi.get(self, "schema")
 
     @property

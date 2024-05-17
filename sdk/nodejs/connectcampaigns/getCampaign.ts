@@ -31,7 +31,7 @@ export interface GetCampaignResult {
      */
     readonly arn?: string;
     /**
-     * Contains dialer configuration for an outbound campaign.
+     * Contains information about the dialer configuration.
      */
     readonly dialerConfig?: outputs.connectcampaigns.CampaignDialerConfig;
     /**
@@ -39,7 +39,7 @@ export interface GetCampaignResult {
      */
     readonly name?: string;
     /**
-     * Contains outbound call configuration for an outbound campaign.
+     * Contains information about the outbound call configuration.
      */
     readonly outboundCallConfig?: outputs.connectcampaigns.CampaignOutboundCallConfig;
     /**

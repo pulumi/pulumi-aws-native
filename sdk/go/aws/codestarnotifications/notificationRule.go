@@ -36,7 +36,7 @@ type NotificationRule struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic or AWS Chatbot client.
 	TargetAddress pulumi.StringPtrOutput `pulumi:"targetAddress"`
-	// Information about the AWS Chatbot topics or AWS Chatbot clients associated with a notification rule.
+	// A list of Amazon Resource Names (ARNs) of Amazon SNS topics and AWS Chatbot clients to associate with the notification rule.
 	Targets NotificationRuleTargetArrayOutput `pulumi:"targets"`
 }
 
@@ -114,7 +114,7 @@ type notificationRuleArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic or AWS Chatbot client.
 	TargetAddress *string `pulumi:"targetAddress"`
-	// Information about the AWS Chatbot topics or AWS Chatbot clients associated with a notification rule.
+	// A list of Amazon Resource Names (ARNs) of Amazon SNS topics and AWS Chatbot clients to associate with the notification rule.
 	Targets []NotificationRuleTarget `pulumi:"targets"`
 }
 
@@ -138,7 +138,7 @@ type NotificationRuleArgs struct {
 	Tags pulumi.StringMapInput
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic or AWS Chatbot client.
 	TargetAddress pulumi.StringPtrInput
-	// Information about the AWS Chatbot topics or AWS Chatbot clients associated with a notification rule.
+	// A list of Amazon Resource Names (ARNs) of Amazon SNS topics and AWS Chatbot clients to associate with the notification rule.
 	Targets NotificationRuleTargetArrayInput
 }
 
@@ -229,7 +229,7 @@ func (o NotificationRuleOutput) TargetAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationRule) pulumi.StringPtrOutput { return v.TargetAddress }).(pulumi.StringPtrOutput)
 }
 
-// Information about the AWS Chatbot topics or AWS Chatbot clients associated with a notification rule.
+// A list of Amazon Resource Names (ARNs) of Amazon SNS topics and AWS Chatbot clients to associate with the notification rule.
 func (o NotificationRuleOutput) Targets() NotificationRuleTargetArrayOutput {
 	return o.ApplyT(func(v *NotificationRule) NotificationRuleTargetArrayOutput { return v.Targets }).(NotificationRuleTargetArrayOutput)
 }

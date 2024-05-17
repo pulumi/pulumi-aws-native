@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisSectionBasedLayoutConfiguration
     {
         /// <summary>
-        /// The configuration of a body section.
+        /// A list of body section configurations.
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisBodySectionConfiguration> BodySections;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.AnalysisSectionBasedLayoutCanvasSizeOptions CanvasSizeOptions;
         /// <summary>
-        /// The configuration of a header or footer section.
+        /// A list of footer section configurations.
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisHeaderFooterSectionConfiguration> FooterSections;
         /// <summary>

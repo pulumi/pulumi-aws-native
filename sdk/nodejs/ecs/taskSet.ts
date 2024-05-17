@@ -54,17 +54,11 @@ export class TaskSet extends pulumi.CustomResource {
      */
     public readonly launchType!: pulumi.Output<enums.ecs.TaskSetLaunchType | undefined>;
     /**
-     * The load balancer configuration to use with a service or task set.
-     *
-     * When you add, update, or remove a load balancer configuration, Amazon ECS starts a new deployment with the updated Elastic Load Balancing configuration. This causes tasks to register to and deregister from load balancers.
-     *
-     * We recommend that you verify this on a test environment before you update the Elastic Load Balancing configuration.
-     *
-     * A service-linked role is required for services that use multiple target groups. For more information, see [Using service-linked roles](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
+     * A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
      */
     public readonly loadBalancers!: pulumi.Output<outputs.ecs.TaskSetLoadBalancer[] | undefined>;
     /**
-     * The network configuration for a task or service.
+     * The network configuration for the task set.
      */
     public readonly networkConfiguration!: pulumi.Output<outputs.ecs.TaskSetNetworkConfiguration | undefined>;
     /**
@@ -84,7 +78,7 @@ export class TaskSet extends pulumi.CustomResource {
      */
     public readonly serviceRegistries!: pulumi.Output<outputs.ecs.TaskSetServiceRegistry[] | undefined>;
     /**
-     * The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+     * The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
      *
      * The following basic restrictions apply to tags:
      *
@@ -172,17 +166,11 @@ export interface TaskSetArgs {
      */
     launchType?: pulumi.Input<enums.ecs.TaskSetLaunchType>;
     /**
-     * The load balancer configuration to use with a service or task set.
-     *
-     * When you add, update, or remove a load balancer configuration, Amazon ECS starts a new deployment with the updated Elastic Load Balancing configuration. This causes tasks to register to and deregister from load balancers.
-     *
-     * We recommend that you verify this on a test environment before you update the Elastic Load Balancing configuration.
-     *
-     * A service-linked role is required for services that use multiple target groups. For more information, see [Using service-linked roles](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
+     * A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
      */
     loadBalancers?: pulumi.Input<pulumi.Input<inputs.ecs.TaskSetLoadBalancerArgs>[]>;
     /**
-     * The network configuration for a task or service.
+     * The network configuration for the task set.
      */
     networkConfiguration?: pulumi.Input<inputs.ecs.TaskSetNetworkConfigurationArgs>;
     /**
@@ -202,7 +190,7 @@ export interface TaskSetArgs {
      */
     serviceRegistries?: pulumi.Input<pulumi.Input<inputs.ecs.TaskSetServiceRegistryArgs>[]>;
     /**
-     * The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+     * The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
      *
      * The following basic restrictions apply to tags:
      *

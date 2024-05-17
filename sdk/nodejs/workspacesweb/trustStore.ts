@@ -46,7 +46,7 @@ export class TrustStore extends pulumi.CustomResource {
      */
     public readonly certificateList!: pulumi.Output<string[]>;
     /**
-     * The tag.
+     * The tags to add to the trust store. A tag is a key-value pair.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -92,7 +92,7 @@ export interface TrustStoreArgs {
      */
     certificateList: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The tag.
+     * The tags to add to the trust store. A tag is a key-value pair.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -28,7 +28,7 @@ type LookupDbProxyTargetGroupArgs struct {
 }
 
 type LookupDbProxyTargetGroupResult struct {
-	// Specifies the settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+	// Settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
 	ConnectionPoolConfigurationInfo *DbProxyTargetGroupConnectionPoolConfigurationInfoFormat `pulumi:"connectionPoolConfigurationInfo"`
 	// One or more DB cluster identifiers.
 	DbClusterIdentifiers []string `pulumi:"dbClusterIdentifiers"`
@@ -74,7 +74,7 @@ func (o LookupDbProxyTargetGroupResultOutput) ToLookupDbProxyTargetGroupResultOu
 	return o
 }
 
-// Specifies the settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+// Settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
 func (o LookupDbProxyTargetGroupResultOutput) ConnectionPoolConfigurationInfo() DbProxyTargetGroupConnectionPoolConfigurationInfoFormatPtrOutput {
 	return o.ApplyT(func(v LookupDbProxyTargetGroupResult) *DbProxyTargetGroupConnectionPoolConfigurationInfoFormat {
 		return v.ConnectionPoolConfigurationInfo

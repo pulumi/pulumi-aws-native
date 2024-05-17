@@ -72,7 +72,7 @@ class GetDataSourceResult:
     @pulumi.getter(name="dataSourceConfiguration")
     def data_source_configuration(self) -> Optional['outputs.DataSourceConfiguration']:
         """
-        Contains details about how a data source is stored.
+        Contains details about how the data source is stored.
         """
         return pulumi.get(self, "data_source_configuration")
 
@@ -123,7 +123,7 @@ class GetDataSourceResult:
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> Optional['outputs.DataSourceServerSideEncryptionConfiguration']:
         """
-        Contains the configuration for server-side encryption.
+        Contains details about the configuration of the server-side encryption.
         """
         return pulumi.get(self, "server_side_encryption_configuration")
 

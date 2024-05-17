@@ -42,7 +42,7 @@ type LookupServiceNetworkResult struct {
 	Id *string `pulumi:"id"`
 	// The date and time of the last update, specified in ISO-8601 format.
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
-	// Specifies a tag for a service network.
+	// The tags for the service network.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -110,7 +110,7 @@ func (o LookupServiceNetworkResultOutput) LastUpdatedAt() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupServiceNetworkResult) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a tag for a service network.
+// The tags for the service network.
 func (o LookupServiceNetworkResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupServiceNetworkResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

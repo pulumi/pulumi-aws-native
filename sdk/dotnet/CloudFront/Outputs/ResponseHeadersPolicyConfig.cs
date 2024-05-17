@@ -20,13 +20,11 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly string? Comment;
         /// <summary>
-        /// A configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS). CloudFront adds these headers to HTTP responses that it sends for CORS requests that match a cache behavior associated with this response headers policy.
-        /// 
-        /// For more information about CORS, see [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) in the MDN Web Docs.
+        /// A configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS).
         /// </summary>
         public readonly Outputs.ResponseHeadersPolicyCorsConfig? CorsConfig;
         /// <summary>
-        /// A list of HTTP response header names and their values. CloudFront includes these headers in HTTP responses that it sends for requests that match a cache behavior that's associated with this response headers policy.
+        /// A configuration for a set of custom HTTP response headers.
         /// </summary>
         public readonly Outputs.ResponseHeadersPolicyCustomHeadersConfig? CustomHeadersConfig;
         /// <summary>
@@ -36,11 +34,11 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A list of HTTP header names that CloudFront removes from HTTP responses to requests that match the cache behavior that this response headers policy is attached to.
+        /// A configuration for a set of HTTP headers to remove from the HTTP response.
         /// </summary>
         public readonly Outputs.ResponseHeadersPolicyRemoveHeadersConfig? RemoveHeadersConfig;
         /// <summary>
-        /// A configuration for a set of security-related HTTP response headers. CloudFront adds these headers to HTTP responses that it sends for requests that match a cache behavior associated with this response headers policy.
+        /// A configuration for a set of security-related HTTP response headers.
         /// </summary>
         public readonly Outputs.ResponseHeadersPolicySecurityHeadersConfig? SecurityHeadersConfig;
         /// <summary>

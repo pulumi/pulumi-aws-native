@@ -13,19 +13,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class AnalysisTimeRangeFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A column of a data set.
+        /// The column that the filter is applied to.
         /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.AnalysisColumnIdentifierArgs> Column { get; set; } = null!;
 
         /// <summary>
-        /// The default configuration for all dependent controls of the filter.
+        /// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
         /// </summary>
         [Input("defaultFilterControlConfiguration")]
         public Input<Inputs.AnalysisDefaultFilterControlConfigurationArgs>? DefaultFilterControlConfiguration { get; set; }
 
         /// <summary>
-        /// The exclude period of `TimeRangeFilter` or `RelativeDatesFilter` .
+        /// The exclude period of the time range filter.
         /// </summary>
         [Input("excludePeriodConfiguration")]
         public Input<Inputs.AnalysisExcludePeriodConfigurationArgs>? ExcludePeriodConfiguration { get; set; }
@@ -59,17 +59,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.AnalysisFilterNullOption> NullOption { get; set; } = null!;
 
         /// <summary>
-        /// The value of a time range filter.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The maximum value for the filter value range.
         /// </summary>
         [Input("rangeMaximumValue")]
         public Input<Inputs.AnalysisTimeRangeFilterValueArgs>? RangeMaximumValue { get; set; }
 
         /// <summary>
-        /// The value of a time range filter.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The minimum value for the filter value range.
         /// </summary>
         [Input("rangeMinimumValue")]
         public Input<Inputs.AnalysisTimeRangeFilterValueArgs>? RangeMinimumValue { get; set; }

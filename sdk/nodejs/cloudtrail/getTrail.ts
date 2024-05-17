@@ -97,7 +97,7 @@ export interface GetTrailResult {
      */
     readonly snsTopicName?: string;
     /**
-     * A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+     * A custom set of tags (key-value pairs) for this trail.
      */
     readonly tags?: outputs.Tag[];
 }

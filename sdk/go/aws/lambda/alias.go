@@ -31,9 +31,9 @@ type Alias struct {
 	FunctionVersion pulumi.StringOutput `pulumi:"functionVersion"`
 	// The name of the alias.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A provisioned concurrency configuration for a function's alias.
+	// Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
 	ProvisionedConcurrencyConfig AliasProvisionedConcurrencyConfigurationPtrOutput `pulumi:"provisionedConcurrencyConfig"`
-	// The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+	// The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
 	RoutingConfig AliasRoutingConfigurationPtrOutput `pulumi:"routingConfig"`
 }
 
@@ -102,9 +102,9 @@ type aliasArgs struct {
 	FunctionVersion string `pulumi:"functionVersion"`
 	// The name of the alias.
 	Name *string `pulumi:"name"`
-	// A provisioned concurrency configuration for a function's alias.
+	// Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
 	ProvisionedConcurrencyConfig *AliasProvisionedConcurrencyConfiguration `pulumi:"provisionedConcurrencyConfig"`
-	// The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+	// The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
 	RoutingConfig *AliasRoutingConfiguration `pulumi:"routingConfig"`
 }
 
@@ -124,9 +124,9 @@ type AliasArgs struct {
 	FunctionVersion pulumi.StringInput
 	// The name of the alias.
 	Name pulumi.StringPtrInput
-	// A provisioned concurrency configuration for a function's alias.
+	// Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
 	ProvisionedConcurrencyConfig AliasProvisionedConcurrencyConfigurationPtrInput
-	// The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+	// The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
 	RoutingConfig AliasRoutingConfigurationPtrInput
 }
 
@@ -197,14 +197,14 @@ func (o AliasOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A provisioned concurrency configuration for a function's alias.
+// Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
 func (o AliasOutput) ProvisionedConcurrencyConfig() AliasProvisionedConcurrencyConfigurationPtrOutput {
 	return o.ApplyT(func(v *Alias) AliasProvisionedConcurrencyConfigurationPtrOutput {
 		return v.ProvisionedConcurrencyConfig
 	}).(AliasProvisionedConcurrencyConfigurationPtrOutput)
 }
 
-// The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+// The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
 func (o AliasOutput) RoutingConfig() AliasRoutingConfigurationPtrOutput {
 	return o.ApplyT(func(v *Alias) AliasRoutingConfigurationPtrOutput { return v.RoutingConfig }).(AliasRoutingConfigurationPtrOutput)
 }

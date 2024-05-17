@@ -25,13 +25,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string FilterGroupId;
         /// <summary>
-        /// With a `Filter` , you can remove portions of data from a particular visual or view.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The list of filters that are present in a `FilterGroup` .
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateFilter> Filters;
         /// <summary>
-        /// The scope configuration for a `FilterGroup` .
+        /// The configuration that specifies what scope to apply to a `FilterGroup` .
         /// 
         /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
         /// </summary>

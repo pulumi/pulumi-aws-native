@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     public sealed class OriginEndpointMssEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Key provider settings for DRM.
+        /// Parameters for the SPEKE key provider.
         /// </summary>
         [Input("spekeKeyProvider", required: true)]
         public Input<Inputs.OriginEndpointSpekeKeyProviderArgs> SpekeKeyProvider { get; set; } = null!;

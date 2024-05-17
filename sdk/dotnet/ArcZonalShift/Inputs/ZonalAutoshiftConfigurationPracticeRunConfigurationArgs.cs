@@ -44,11 +44,7 @@ namespace Pulumi.AwsNative.ArcZonalShift.Inputs
         private InputList<Inputs.ZonalAutoshiftConfigurationControlConditionArgs>? _blockingAlarms;
 
         /// <summary>
-        /// A control condition is an alarm that you specify for a practice run. When you configure practice runs with zonal autoshift for a resource, you specify Amazon CloudWatch alarms, which you create in CloudWatch to use with the practice run. The alarms that you specify are an *outcome alarm* , to monitor application health during practice runs and, optionally, a *blocking alarm* , to block practice runs from starting or to interrupt a practice run in progress.
-        /// 
-        /// Control condition alarms do not apply for autoshifts.
-        /// 
-        /// For more information, see [Considerations when you configure zonal autoshift](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html) in the Route 53 ARC Developer Guide.
+        /// An optional alarm that you can specify that blocks practice runs when the alarm is in an `ALARM` state. When a blocking alarm goes into an `ALARM` state, it prevents practice runs from being started, and ends practice runs that are in progress.
         /// </summary>
         public InputList<Inputs.ZonalAutoshiftConfigurationControlConditionArgs> BlockingAlarms
         {

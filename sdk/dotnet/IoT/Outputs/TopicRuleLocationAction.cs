@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
-        /// Describes how to interpret an application-defined timestamp value from an MQTT message payload and the precision of that value.
+        /// The time that the location data was sampled. The default value is the time the MQTT message was processed.
         /// </summary>
         public readonly Outputs.TopicRuleTimestamp? Timestamp;
         /// <summary>

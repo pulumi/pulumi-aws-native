@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     public sealed class PipeFilterCriteria
     {
         /// <summary>
-        /// Filter events using an event pattern. For more information, see [Events and Event Patterns](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html) in the *Amazon EventBridge User Guide* .
+        /// The event patterns.
         /// </summary>
         public readonly ImmutableArray<Outputs.PipeFilter> Filters;
 

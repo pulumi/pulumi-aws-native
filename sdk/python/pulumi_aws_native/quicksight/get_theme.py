@@ -83,7 +83,7 @@ class GetThemeResult:
     @pulumi.getter
     def permissions(self) -> Optional[Sequence['outputs.ThemeResourcePermission']]:
         """
-        Permission for the resource.
+        A valid grouping of resource permissions to apply to the new theme.
         """
         return pulumi.get(self, "permissions")
 
@@ -106,9 +106,6 @@ class GetThemeResult:
     @property
     @pulumi.getter
     def version(self) -> Optional['outputs.ThemeVersion']:
-        """
-        A version of a theme.
-        """
         return pulumi.get(self, "version")
 
 

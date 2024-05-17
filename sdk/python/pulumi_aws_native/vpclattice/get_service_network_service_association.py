@@ -79,7 +79,7 @@ class GetServiceNetworkServiceAssociationResult:
     @pulumi.getter(name="dnsEntry")
     def dns_entry(self) -> Optional['outputs.ServiceNetworkServiceAssociationDnsEntry']:
         """
-        The DNS information.
+        The DNS information of the service.
         """
         return pulumi.get(self, "dns_entry")
 
@@ -151,7 +151,7 @@ class GetServiceNetworkServiceAssociationResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        Specifies a tag for a service association.
+        The tags for the association.
         """
         return pulumi.get(self, "tags")
 

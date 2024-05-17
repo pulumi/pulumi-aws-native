@@ -34,7 +34,7 @@ class GetUserPoolRiskConfigurationAttachmentResult:
     @pulumi.getter(name="accountTakeoverRiskConfiguration")
     def account_takeover_risk_configuration(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType']:
         """
-        Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.
+        The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
         """
         return pulumi.get(self, "account_takeover_risk_configuration")
 
@@ -42,7 +42,7 @@ class GetUserPoolRiskConfigurationAttachmentResult:
     @pulumi.getter(name="compromisedCredentialsRiskConfiguration")
     def compromised_credentials_risk_configuration(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType']:
         """
-        The compromised credentials risk configuration type.
+        The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
         """
         return pulumi.get(self, "compromised_credentials_risk_configuration")
 
@@ -50,7 +50,7 @@ class GetUserPoolRiskConfigurationAttachmentResult:
     @pulumi.getter(name="riskExceptionConfiguration")
     def risk_exception_configuration(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType']:
         """
-        The type of the configuration to override the risk decision.
+        The configuration to override the risk decision.
         """
         return pulumi.get(self, "risk_exception_configuration")
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     public sealed class WebAclCaptchaConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Used for CAPTCHA and challenge token settings. Determines how long a `CAPTCHA` or challenge timestamp remains valid after AWS WAF updates it for a successful `CAPTCHA` or challenge response.
+        /// Determines how long a `CAPTCHA` timestamp in the token remains valid after the client successfully solves a `CAPTCHA` puzzle.
         /// </summary>
         [Input("immunityTimeProperty")]
         public Input<Inputs.WebAclImmunityTimePropertyArgs>? ImmunityTimeProperty { get; set; }

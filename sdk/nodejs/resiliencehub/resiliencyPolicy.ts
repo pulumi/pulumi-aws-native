@@ -42,7 +42,7 @@ export class ResiliencyPolicy extends pulumi.CustomResource {
      */
     public readonly dataLocationConstraint!: pulumi.Output<enums.resiliencehub.ResiliencyPolicyDataLocationConstraint | undefined>;
     /**
-     * The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds.
+     * The resiliency policy.
      */
     public readonly policy!: pulumi.Output<outputs.resiliencehub.ResiliencyPolicyPolicyMap>;
     /**
@@ -113,7 +113,7 @@ export interface ResiliencyPolicyArgs {
      */
     dataLocationConstraint?: pulumi.Input<enums.resiliencehub.ResiliencyPolicyDataLocationConstraint>;
     /**
-     * The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds.
+     * The resiliency policy.
      */
     policy: pulumi.Input<inputs.resiliencehub.ResiliencyPolicyPolicyMapArgs>;
     /**

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateDataPathValue
     {
         /// <summary>
-        /// The type of the data path value.
+        /// The type configuration of the field.
         /// </summary>
         public readonly Outputs.TemplateDataPathType? DataPathType;
         /// <summary>

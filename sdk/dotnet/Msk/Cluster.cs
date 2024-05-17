@@ -19,13 +19,13 @@ namespace Pulumi.AwsNative.Msk
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the setup to be used for the broker nodes in the cluster.
+        /// Information about the broker nodes in the cluster.
         /// </summary>
         [Output("brokerNodeGroupInfo")]
         public Output<Outputs.ClusterBrokerNodeGroupInfo> BrokerNodeGroupInfo { get; private set; } = null!;
 
         /// <summary>
-        /// Includes all client authentication information.
+        /// VPC connection control settings for brokers.
         /// </summary>
         [Output("clientAuthentication")]
         public Output<Outputs.ClusterClientAuthentication?> ClientAuthentication { get; private set; } = null!;
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Msk
         public Output<string> ClusterName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the configuration to use for the brokers.
+        /// Represents the configuration that you want MSK to use for the cluster.
         /// </summary>
         [Output("configurationInfo")]
         public Output<Outputs.ClusterConfigurationInfo?> ConfigurationInfo { get; private set; } = null!;
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Msk
         public Output<string?> CurrentVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Includes encryption-related information, such as the Amazon KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.
+        /// Includes all encryption-related information.
         /// </summary>
         [Output("encryptionInfo")]
         public Output<Outputs.ClusterEncryptionInfo?> EncryptionInfo { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.Msk
         public Output<string> KafkaVersion { get; private set; } = null!;
 
         /// <summary>
-        /// You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
+        /// Logging Info details.
         /// </summary>
         [Output("loggingInfo")]
         public Output<Outputs.ClusterLoggingInfo?> LoggingInfo { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Msk
         public Output<int> NumberOfBrokerNodes { get; private set; } = null!;
 
         /// <summary>
-        /// JMX and Node monitoring for the MSK cluster.
+        /// The settings for open monitoring.
         /// </summary>
         [Output("openMonitoring")]
         public Output<Outputs.ClusterOpenMonitoring?> OpenMonitoring { get; private set; } = null!;
@@ -146,13 +146,13 @@ namespace Pulumi.AwsNative.Msk
     public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes the setup to be used for the broker nodes in the cluster.
+        /// Information about the broker nodes in the cluster.
         /// </summary>
         [Input("brokerNodeGroupInfo", required: true)]
         public Input<Inputs.ClusterBrokerNodeGroupInfoArgs> BrokerNodeGroupInfo { get; set; } = null!;
 
         /// <summary>
-        /// Includes all client authentication information.
+        /// VPC connection control settings for brokers.
         /// </summary>
         [Input("clientAuthentication")]
         public Input<Inputs.ClusterClientAuthenticationArgs>? ClientAuthentication { get; set; }
@@ -164,7 +164,7 @@ namespace Pulumi.AwsNative.Msk
         public Input<string>? ClusterName { get; set; }
 
         /// <summary>
-        /// Specifies the configuration to use for the brokers.
+        /// Represents the configuration that you want MSK to use for the cluster.
         /// </summary>
         [Input("configurationInfo")]
         public Input<Inputs.ClusterConfigurationInfoArgs>? ConfigurationInfo { get; set; }
@@ -176,7 +176,7 @@ namespace Pulumi.AwsNative.Msk
         public Input<string>? CurrentVersion { get; set; }
 
         /// <summary>
-        /// Includes encryption-related information, such as the Amazon KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.
+        /// Includes all encryption-related information.
         /// </summary>
         [Input("encryptionInfo")]
         public Input<Inputs.ClusterEncryptionInfoArgs>? EncryptionInfo { get; set; }
@@ -194,7 +194,7 @@ namespace Pulumi.AwsNative.Msk
         public Input<string> KafkaVersion { get; set; } = null!;
 
         /// <summary>
-        /// You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
+        /// Logging Info details.
         /// </summary>
         [Input("loggingInfo")]
         public Input<Inputs.ClusterLoggingInfoArgs>? LoggingInfo { get; set; }
@@ -206,7 +206,7 @@ namespace Pulumi.AwsNative.Msk
         public Input<int> NumberOfBrokerNodes { get; set; } = null!;
 
         /// <summary>
-        /// JMX and Node monitoring for the MSK cluster.
+        /// The settings for open monitoring.
         /// </summary>
         [Input("openMonitoring")]
         public Input<Inputs.ClusterOpenMonitoringArgs>? OpenMonitoring { get; set; }

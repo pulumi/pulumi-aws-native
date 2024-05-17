@@ -13,57 +13,55 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardScatterPlotConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The options that determine the presentation of the data labels.
+        /// The options that determine if visual data labels are displayed.
         /// </summary>
         [Input("dataLabels")]
         public Input<Inputs.DashboardDataLabelOptionsArgs>? DataLabels { get; set; }
 
         /// <summary>
-        /// The field well configuration of a scatter plot.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The field wells of the visual.
         /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.DashboardScatterPlotFieldWellsArgs>? FieldWells { get; set; }
 
         /// <summary>
-        /// The options for the legend setup of a visual.
+        /// The legend display setup of the visual.
         /// </summary>
         [Input("legend")]
         public Input<Inputs.DashboardLegendOptionsArgs>? Legend { get; set; }
 
         /// <summary>
-        /// The display options for the visual tooltip.
+        /// The legend display setup of the visual.
         /// </summary>
         [Input("tooltip")]
         public Input<Inputs.DashboardTooltipOptionsArgs>? Tooltip { get; set; }
 
         /// <summary>
-        /// The visual display options for the visual palette.
+        /// The palette (chart color) display setup of the visual.
         /// </summary>
         [Input("visualPalette")]
         public Input<Inputs.DashboardVisualPaletteArgs>? VisualPalette { get; set; }
 
         /// <summary>
-        /// The display options for the axis label.
+        /// The label display options (grid line, range, scale, and axis step) of the scatter plot's x-axis.
         /// </summary>
         [Input("xAxisDisplayOptions")]
         public Input<Inputs.DashboardAxisDisplayOptionsArgs>? XAxisDisplayOptions { get; set; }
 
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility, and sort icon visibility) of the scatter plot's x-axis.
         /// </summary>
         [Input("xAxisLabelOptions")]
         public Input<Inputs.DashboardChartAxisLabelOptionsArgs>? XAxisLabelOptions { get; set; }
 
         /// <summary>
-        /// The display options for the axis label.
+        /// The label display options (grid line, range, scale, and axis step) of the scatter plot's y-axis.
         /// </summary>
         [Input("yAxisDisplayOptions")]
         public Input<Inputs.DashboardAxisDisplayOptionsArgs>? YAxisDisplayOptions { get; set; }
 
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility, and sort icon visibility) of the scatter plot's y-axis.
         /// </summary>
         [Input("yAxisLabelOptions")]
         public Input<Inputs.DashboardChartAxisLabelOptionsArgs>? YAxisLabelOptions { get; set; }

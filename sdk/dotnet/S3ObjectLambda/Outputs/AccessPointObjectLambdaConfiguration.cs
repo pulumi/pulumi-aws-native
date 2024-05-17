@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda.Outputs
         /// </summary>
         public readonly string SupportingAccessPoint;
         /// <summary>
-        /// A configuration used when creating an Object Lambda Access Point transformation.
+        /// A container for transformation configurations for an Object Lambda Access Point.
         /// </summary>
         public readonly ImmutableArray<Outputs.AccessPointTransformationConfiguration> TransformationConfigurations;
 

@@ -27,9 +27,6 @@ namespace Pulumi.AwsNative.NimbleStudio
         [Output("ec2ImageId")]
         public Output<string> Ec2ImageId { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies how a streaming image is encrypted.
-        /// </summary>
         [Output("encryptionConfiguration")]
         public Output<Outputs.StreamingImageEncryptionConfiguration> EncryptionConfiguration { get; private set; } = null!;
 

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// The `ThemeValue` property specifies the configuration of a theme's properties.
+        /// The value of the property.
         /// </summary>
         [Input("value")]
         public Input<Inputs.ThemeValueArgs>? Value { get; set; }

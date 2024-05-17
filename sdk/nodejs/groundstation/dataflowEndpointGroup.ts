@@ -79,7 +79,7 @@ export class DataflowEndpointGroup extends pulumi.CustomResource {
      */
     public readonly contactPrePassDurationSeconds!: pulumi.Output<number | undefined>;
     /**
-     * The security details and endpoint information.
+     * List of Endpoint Details, containing address and port for each endpoint.
      */
     public readonly endpointDetails!: pulumi.Output<outputs.groundstation.DataflowEndpointGroupEndpointDetails[]>;
     /**
@@ -133,7 +133,7 @@ export interface DataflowEndpointGroupArgs {
      */
     contactPrePassDurationSeconds?: pulumi.Input<number>;
     /**
-     * The security details and endpoint information.
+     * List of Endpoint Details, containing address and port for each endpoint.
      */
     endpointDetails: pulumi.Input<pulumi.Input<inputs.groundstation.DataflowEndpointGroupEndpointDetailsArgs>[]>;
     /**

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.AnalysisFreeFormLayoutElementBackgroundStyleArgs>? BackgroundStyle { get; set; }
 
         /// <summary>
-        /// The background style configuration of a free-form layout element.
+        /// The border style configuration of a free-form layout element.
         /// </summary>
         [Input("borderStyle")]
         public Input<Inputs.AnalysisFreeFormLayoutElementBorderStyleArgs>? BorderStyle { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string> Height { get; set; } = null!;
 
         /// <summary>
-        /// The configuration of loading animation in free-form layout.
+        /// The loading animation configuration of a free-form layout element.
         /// </summary>
         [Input("loadingAnimation")]
         public Input<Inputs.AnalysisLoadingAnimationArgs>? LoadingAnimation { get; set; }
@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.AnalysisSheetElementRenderingRuleArgs>? _renderingRules;
 
         /// <summary>
-        /// The rendering rules of a sheet that uses a free-form layout.
+        /// The rendering rules that determine when an element should be displayed within a free-form layout.
         /// </summary>
         public InputList<Inputs.AnalysisSheetElementRenderingRuleArgs> RenderingRules
         {
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The background style configuration of a free-form layout element.
+        /// The border style configuration of a free-form layout element. This border style is used when the element is selected.
         /// </summary>
         [Input("selectedBorderStyle")]
         public Input<Inputs.AnalysisFreeFormLayoutElementBorderStyleArgs>? SelectedBorderStyle { get; set; }

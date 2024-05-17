@@ -63,7 +63,9 @@ export interface GetAcceleratorResult {
      */
     readonly name?: string;
     /**
-     * A complex type that contains a `Tag` key and `Tag` value.
+     * Create tags for an accelerator.
+     *
+     * For more information, see [Tagging](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
      */
     readonly tags?: outputs.Tag[];
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     public sealed class FirewallPolicyStatefulRuleGroupReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The setting that allows the policy owner to change the behavior of the rule group within a policy.
+        /// The action that allows the policy owner to override the behavior of the rule group within a policy.
         /// </summary>
         [Input("override")]
         public Input<Inputs.FirewallPolicyStatefulRuleGroupOverrideArgs>? Override { get; set; }

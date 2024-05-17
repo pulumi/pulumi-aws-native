@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateComboChartFieldWellsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The aggregated field wells of a combo chart.
+        /// The aggregated field wells of a combo chart. Combo charts only have aggregated field wells. Columns in a combo chart are aggregated by category.
         /// </summary>
         [Input("comboChartAggregatedFieldWells")]
         public Input<Inputs.TemplateComboChartAggregatedFieldWellsArgs>? ComboChartAggregatedFieldWells { get; set; }

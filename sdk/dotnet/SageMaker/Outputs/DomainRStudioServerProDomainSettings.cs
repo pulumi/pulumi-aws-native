@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     public sealed class DomainRStudioServerProDomainSettings
     {
         /// <summary>
-        /// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+        /// A collection that defines the default `InstanceType` , `SageMakerImageArn` , and `SageMakerImageVersionArn` for the Domain.
         /// </summary>
         public readonly Outputs.DomainResourceSpec? DefaultResourceSpec;
         /// <summary>

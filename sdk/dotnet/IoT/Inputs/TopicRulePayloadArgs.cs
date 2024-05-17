@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         private InputList<Inputs.TopicRuleActionArgs>? _actions;
 
         /// <summary>
-        /// Describes the actions associated with a rule.
+        /// The actions associated with the rule.
         /// </summary>
         public InputList<Inputs.TopicRuleActionArgs> Actions
         {
@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Describes the actions associated with a rule.
+        /// The action to take when an error occurs.
         /// </summary>
         [Input("errorAction")]
         public Input<Inputs.TopicRuleActionArgs>? ErrorAction { get; set; }

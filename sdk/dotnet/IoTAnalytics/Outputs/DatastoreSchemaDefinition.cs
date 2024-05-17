@@ -14,7 +14,9 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     public sealed class DatastoreSchemaDefinition
     {
         /// <summary>
-        /// Contains information about a column that stores your data.
+        /// Specifies one or more columns that store your data.
+        /// 
+        /// Each schema can have up to 100 columns. Each column can have up to 100 nested types.
         /// </summary>
         public readonly ImmutableArray<Outputs.DatastoreColumn> Columns;
 

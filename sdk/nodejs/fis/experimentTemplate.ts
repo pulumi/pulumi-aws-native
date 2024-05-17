@@ -118,13 +118,11 @@ export class ExperimentTemplate extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * Describes the experiment options for an experiment template.
+     * The experiment options for an experiment template.
      */
     public readonly experimentOptions!: pulumi.Output<outputs.fis.ExperimentTemplateExperimentOptions | undefined>;
     /**
-     * Specifies the configuration for experiment logging.
-     *
-     * For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+     * The configuration for experiment logging.
      */
     public readonly logConfiguration!: pulumi.Output<outputs.fis.ExperimentTemplateLogConfiguration | undefined>;
     /**
@@ -210,13 +208,11 @@ export interface ExperimentTemplateArgs {
      */
     description: pulumi.Input<string>;
     /**
-     * Describes the experiment options for an experiment template.
+     * The experiment options for an experiment template.
      */
     experimentOptions?: pulumi.Input<inputs.fis.ExperimentTemplateExperimentOptionsArgs>;
     /**
-     * Specifies the configuration for experiment logging.
-     *
-     * For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+     * The configuration for experiment logging.
      */
     logConfiguration?: pulumi.Input<inputs.fis.ExperimentTemplateLogConfigurationArgs>;
     /**

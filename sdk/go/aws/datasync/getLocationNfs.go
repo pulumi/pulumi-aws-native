@@ -35,7 +35,9 @@ type LookupLocationNfsResult struct {
 	LocationUri *string `pulumi:"locationUri"`
 	// Specifies the options that DataSync can use to mount your NFS file server.
 	MountOptions *LocationNfsMountOptions `pulumi:"mountOptions"`
-	// The AWS DataSync agents that are connecting to a Network File System (NFS) location.
+	// Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+	//
+	// You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
 	OnPremConfig *LocationNfsOnPremConfig `pulumi:"onPremConfig"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -92,7 +94,9 @@ func (o LookupLocationNfsResultOutput) MountOptions() LocationNfsMountOptionsPtr
 	return o.ApplyT(func(v LookupLocationNfsResult) *LocationNfsMountOptions { return v.MountOptions }).(LocationNfsMountOptionsPtrOutput)
 }
 
-// The AWS DataSync agents that are connecting to a Network File System (NFS) location.
+// Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+//
+// You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
 func (o LookupLocationNfsResultOutput) OnPremConfig() LocationNfsOnPremConfigPtrOutput {
 	return o.ApplyT(func(v LookupLocationNfsResult) *LocationNfsOnPremConfig { return v.OnPremConfig }).(LocationNfsOnPremConfigPtrOutput)
 }

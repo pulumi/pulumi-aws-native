@@ -39,9 +39,7 @@ namespace Pulumi.AwsNative.Ssm.Outputs
         /// </summary>
         public readonly bool? EnableNonSecurity;
         /// <summary>
-        /// The `PatchFilterGroup` property type specifies a set of patch filters for an AWS Systems Manager patch baseline, typically used for approval rules for a Systems Manager patch baseline.
-        /// 
-        /// `PatchFilterGroup` is the property type for the `GlobalFilters` property of the [AWS::SSM::PatchBaseline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html) resource and the `PatchFilterGroup` property of the [Rule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html) property type.
+        /// The patch filter group that defines the criteria for the rule.
         /// </summary>
         public readonly Outputs.PatchBaselinePatchFilterGroup? PatchFilterGroup;
 

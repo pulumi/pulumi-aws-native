@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.Pipes.Inputs
     public sealed class PipeLogConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Represents the Amazon CloudWatch Logs logging configuration settings for the pipe.
+        /// The logging configuration settings for the pipe.
         /// </summary>
         [Input("cloudwatchLogsLogDestination")]
         public Input<Inputs.PipeCloudwatchLogsLogDestinationArgs>? CloudwatchLogsLogDestination { get; set; }
 
         /// <summary>
-        /// Represents the Amazon Data Firehose logging configuration settings for the pipe.
+        /// The Amazon Data Firehose logging configuration settings for the pipe.
         /// </summary>
         [Input("firehoseLogDestination")]
         public Input<Inputs.PipeFirehoseLogDestinationArgs>? FirehoseLogDestination { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         public Input<Pulumi.AwsNative.Pipes.PipeLogLevel>? Level { get; set; }
 
         /// <summary>
-        /// Represents the Amazon S3 logging configuration settings for the pipe.
+        /// The Amazon S3 logging configuration settings for the pipe.
         /// </summary>
         [Input("s3LogDestination")]
         public Input<Inputs.PipeS3LogDestinationArgs>? S3LogDestination { get; set; }

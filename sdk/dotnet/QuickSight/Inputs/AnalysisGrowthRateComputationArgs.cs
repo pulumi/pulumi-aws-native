@@ -31,13 +31,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<double>? PeriodSize { get; set; }
 
         /// <summary>
-        /// The dimension type field.
+        /// The time field that is used in a computation.
         /// </summary>
         [Input("time")]
         public Input<Inputs.AnalysisDimensionFieldArgs>? Time { get; set; }
 
         /// <summary>
-        /// The measure (metric) type field.
+        /// The value field that is used in a computation.
         /// </summary>
         [Input("value")]
         public Input<Inputs.AnalysisMeasureFieldArgs>? Value { get; set; }

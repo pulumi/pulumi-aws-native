@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Timestream
         public Output<string?> ClientToken { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration required for error reporting.
+        /// Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
         /// </summary>
         [Output("errorReportConfiguration")]
         public Output<Outputs.ScheduledQueryErrorReportConfiguration> ErrorReportConfiguration { get; private set; } = null!;
@@ -45,7 +45,7 @@ namespace Pulumi.AwsNative.Timestream
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated or when it is deleted.
+        /// Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
         /// </summary>
         [Output("notificationConfiguration")]
         public Output<Outputs.ScheduledQueryNotificationConfiguration> NotificationConfiguration { get; private set; } = null!;
@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.Timestream
         public Output<string> QueryString { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration of the schedule of the query.
+        /// Schedule configuration.
         /// </summary>
         [Output("scheduleConfiguration")]
         public Output<Outputs.ScheduledQueryScheduleConfiguration> ScheduleConfiguration { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.AwsNative.Timestream
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration used for writing the output of a query.
+        /// Scheduled query target store configuration.
         /// </summary>
         [Output("targetConfiguration")]
         public Output<Outputs.ScheduledQueryTargetConfiguration?> TargetConfiguration { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.AwsNative.Timestream
         public Input<string>? ClientToken { get; set; }
 
         /// <summary>
-        /// Configuration required for error reporting.
+        /// Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
         /// </summary>
         [Input("errorReportConfiguration", required: true)]
         public Input<Inputs.ScheduledQueryErrorReportConfigurationArgs> ErrorReportConfiguration { get; set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.AwsNative.Timestream
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// Notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated or when it is deleted.
+        /// Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
         /// </summary>
         [Input("notificationConfiguration", required: true)]
         public Input<Inputs.ScheduledQueryNotificationConfigurationArgs> NotificationConfiguration { get; set; } = null!;
@@ -231,7 +231,7 @@ namespace Pulumi.AwsNative.Timestream
         public Input<string> QueryString { get; set; } = null!;
 
         /// <summary>
-        /// Configuration of the schedule of the query.
+        /// Schedule configuration.
         /// </summary>
         [Input("scheduleConfiguration", required: true)]
         public Input<Inputs.ScheduledQueryScheduleConfigurationArgs> ScheduleConfiguration { get; set; } = null!;
@@ -261,7 +261,7 @@ namespace Pulumi.AwsNative.Timestream
         }
 
         /// <summary>
-        /// Configuration used for writing the output of a query.
+        /// Scheduled query target store configuration.
         /// </summary>
         [Input("targetConfiguration")]
         public Input<Inputs.ScheduledQueryTargetConfigurationArgs>? TargetConfiguration { get; set; }

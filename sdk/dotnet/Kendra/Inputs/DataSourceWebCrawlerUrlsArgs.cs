@@ -13,17 +13,19 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     public sealed class DataSourceWebCrawlerUrlsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Provides the configuration information of the seed or starting point URLs to crawl.
+        /// Configuration of the seed or starting point URLs of the websites you want to crawl.
         /// 
-        /// *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://docs.aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use the Amazon Kendra web crawler to index your own webpages, or webpages that you have authorization to index.*
+        /// You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the web pages link to.
+        /// 
+        /// You can list up to 100 seed URLs.
         /// </summary>
         [Input("seedUrlConfiguration")]
         public Input<Inputs.DataSourceWebCrawlerSeedUrlConfigurationArgs>? SeedUrlConfiguration { get; set; }
 
         /// <summary>
-        /// Provides the configuration information of the sitemap URLs to crawl.
+        /// Configuration of the sitemap URLs of the websites you want to crawl.
         /// 
-        /// *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://docs.aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use the Amazon Kendra web crawler to index your own webpages, or webpages that you have authorization to index.*
+        /// Only URLs belonging to the same website host names are crawled. You can list up to three sitemap URLs.
         /// </summary>
         [Input("siteMapsConfiguration")]
         public Input<Inputs.DataSourceWebCrawlerSiteMapsConfigurationArgs>? SiteMapsConfiguration { get; set; }

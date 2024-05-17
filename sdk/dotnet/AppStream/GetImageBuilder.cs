@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.AppStream
     public sealed class GetImageBuilderResult
     {
         /// <summary>
-        /// Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+        /// The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
         /// </summary>
         public readonly ImmutableArray<Outputs.ImageBuilderAccessEndpoint> AccessEndpoints;
         /// <summary>
@@ -142,11 +142,11 @@ namespace Pulumi.AwsNative.AppStream
         /// </summary>
         public readonly string? StreamingUrl;
         /// <summary>
-        /// The tag of the image builder.
+        /// An array of key-value pairs.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
-        /// The VPC configuration for the image builder.
+        /// The VPC configuration for the image builder. You can specify only one subnet.
         /// </summary>
         public readonly Outputs.ImageBuilderVpcConfig? VpcConfig;
 

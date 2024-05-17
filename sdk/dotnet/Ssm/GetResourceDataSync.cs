@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.Ssm
     public sealed class GetResourceDataSyncResult
     {
         /// <summary>
-        /// Information about the source of the data included in the resource data sync.
+        /// Information about the source where the data was synchronized.
         /// </summary>
         public readonly Outputs.ResourceDataSyncSyncSource? SyncSource;
 

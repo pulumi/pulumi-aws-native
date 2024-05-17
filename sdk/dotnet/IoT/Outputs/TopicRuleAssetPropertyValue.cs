@@ -18,11 +18,11 @@ namespace Pulumi.AwsNative.IoT.Outputs
         /// </summary>
         public readonly string? Quality;
         /// <summary>
-        /// An asset property timestamp entry containing the following information.
+        /// The asset property value timestamp.
         /// </summary>
         public readonly Outputs.TopicRuleAssetPropertyTimestamp Timestamp;
         /// <summary>
-        /// Contains an asset property value (of a single type).
+        /// The value of the asset property.
         /// </summary>
         public readonly Outputs.TopicRuleAssetPropertyVariant Value;
 

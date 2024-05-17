@@ -42,7 +42,9 @@ export class ResourceGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A key and value pair. This data type is used as a request parameter in the `SetTagsForResource` action and a response element in the `ListTagsForResource` action.
+     * The tags (key and value pairs) that will be associated with the resource group.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     public readonly resourceGroupTags!: pulumi.Output<outputs.inspector.ResourceGroupTag[]>;
 
@@ -78,7 +80,9 @@ export class ResourceGroup extends pulumi.CustomResource {
  */
 export interface ResourceGroupArgs {
     /**
-     * A key and value pair. This data type is used as a request parameter in the `SetTagsForResource` action and a response element in the `ListTagsForResource` action.
+     * The tags (key and value pairs) that will be associated with the resource group.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     resourceGroupTags: pulumi.Input<pulumi.Input<inputs.inspector.ResourceGroupTagArgs>[]>;
 }

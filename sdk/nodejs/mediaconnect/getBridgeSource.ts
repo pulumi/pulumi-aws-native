@@ -32,11 +32,11 @@ export interface GetBridgeSourceArgs {
 
 export interface GetBridgeSourceResult {
     /**
-     * The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+     * Add a flow source to an existing bridge.
      */
     readonly flowSource?: outputs.mediaconnect.BridgeSourceBridgeFlowSource;
     /**
-     * The source of the bridge. A network source originates at your premises.
+     * Add a network source to an existing bridge.
      */
     readonly networkSource?: outputs.mediaconnect.BridgeSourceBridgeNetworkSource;
 }

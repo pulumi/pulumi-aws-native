@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ComponentBindingPropertiesValue>? BindingProperties;
         /// <summary>
-        /// The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
+        /// A list of the component's `ComponentChild` instances.
         /// </summary>
         public readonly ImmutableArray<Outputs.ComponentChild> Children;
         /// <summary>
@@ -138,7 +138,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
+        /// A list of the component's variants. A variant is a unique style configuration of a main component.
         /// </summary>
         public readonly ImmutableArray<Outputs.ComponentVariant> Variants;
 

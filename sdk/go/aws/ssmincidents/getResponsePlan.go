@@ -39,7 +39,7 @@ type LookupResponsePlanResult struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The list of engagements to use.
 	Engagements []string `pulumi:"engagements"`
-	// The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
+	// Details used to create an incident when using this response plan.
 	IncidentTemplate *ResponsePlanIncidentTemplate `pulumi:"incidentTemplate"`
 	// The list of integrations.
 	Integrations []ResponsePlanIntegration `pulumi:"integrations"`
@@ -108,7 +108,7 @@ func (o LookupResponsePlanResultOutput) Engagements() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupResponsePlanResult) []string { return v.Engagements }).(pulumi.StringArrayOutput)
 }
 
-// The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
+// Details used to create an incident when using this response plan.
 func (o LookupResponsePlanResultOutput) IncidentTemplate() ResponsePlanIncidentTemplatePtrOutput {
 	return o.ApplyT(func(v LookupResponsePlanResult) *ResponsePlanIncidentTemplate { return v.IncidentTemplate }).(ResponsePlanIncidentTemplatePtrOutput)
 }

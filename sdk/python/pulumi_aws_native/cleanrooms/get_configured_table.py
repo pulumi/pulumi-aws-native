@@ -45,7 +45,7 @@ class GetConfiguredTableResult:
     @pulumi.getter(name="analysisRules")
     def analysis_rules(self) -> Optional[Sequence['outputs.ConfiguredTableAnalysisRule']]:
         """
-        A specification about how data from the configured table can be used in a query.
+        The entire created analysis rule.
         """
         return pulumi.get(self, "analysis_rules")
 

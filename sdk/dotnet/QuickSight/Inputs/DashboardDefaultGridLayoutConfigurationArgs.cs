@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardDefaultGridLayoutConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration options for the canvas of a grid layout.
+        /// Determines the screen canvas size options for a grid layout.
         /// </summary>
         [Input("canvasSizeOptions", required: true)]
         public Input<Inputs.DashboardGridLayoutCanvasSizeOptionsArgs> CanvasSizeOptions { get; set; } = null!;

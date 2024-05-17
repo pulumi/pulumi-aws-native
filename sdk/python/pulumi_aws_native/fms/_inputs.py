@@ -70,7 +70,7 @@ class PolicyNetworkAclCommonPolicyArgs:
                  network_acl_entry_set: pulumi.Input['PolicyNetworkAclEntrySetArgs']):
         """
         Network ACL common policy.
-        :param pulumi.Input['PolicyNetworkAclEntrySetArgs'] network_acl_entry_set: The configuration of the first and last rules for the network ACL policy, and the remediation settings for each.
+        :param pulumi.Input['PolicyNetworkAclEntrySetArgs'] network_acl_entry_set: The definition of the first and last rules for the network ACL policy.
         """
         pulumi.set(__self__, "network_acl_entry_set", network_acl_entry_set)
 
@@ -78,7 +78,7 @@ class PolicyNetworkAclCommonPolicyArgs:
     @pulumi.getter(name="networkAclEntrySet")
     def network_acl_entry_set(self) -> pulumi.Input['PolicyNetworkAclEntrySetArgs']:
         """
-        The configuration of the first and last rules for the network ACL policy, and the remediation settings for each.
+        The definition of the first and last rules for the network ACL policy.
         """
         return pulumi.get(self, "network_acl_entry_set")
 
@@ -405,11 +405,9 @@ class PolicyOptionArgs:
                  third_party_firewall_policy: Optional[pulumi.Input['PolicyThirdPartyFirewallPolicyArgs']] = None):
         """
         Firewall policy option.
-        :param pulumi.Input['PolicyNetworkAclCommonPolicyArgs'] network_acl_common_policy: Defines a Firewall Manager network ACL policy. This is used in the `PolicyOption` of a `SecurityServicePolicyData` for a `Policy` , when the `SecurityServicePolicyData` type is set to `NETWORK_ACL_COMMON` .
-               
-               For information about network ACLs, see [Control traffic to subnets using network ACLs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html) in the *Amazon Virtual Private Cloud User Guide* .
-        :param pulumi.Input['PolicyNetworkFirewallPolicyArgs'] network_firewall_policy: Configures the firewall policy deployment model of AWS Network Firewall . For information about Network Firewall deployment models, see [AWS Network Firewall example architectures with routing](https://docs.aws.amazon.com/network-firewall/latest/developerguide/architectures.html) in the *Network Firewall Developer Guide* .
-        :param pulumi.Input['PolicyThirdPartyFirewallPolicyArgs'] third_party_firewall_policy: Configures the deployment model for the third-party firewall.
+        :param pulumi.Input['PolicyNetworkAclCommonPolicyArgs'] network_acl_common_policy: Defines a Firewall Manager network ACL policy.
+        :param pulumi.Input['PolicyNetworkFirewallPolicyArgs'] network_firewall_policy: Defines the deployment model to use for the firewall policy.
+        :param pulumi.Input['PolicyThirdPartyFirewallPolicyArgs'] third_party_firewall_policy: Defines the policy options for a third-party firewall policy.
         """
         if network_acl_common_policy is not None:
             pulumi.set(__self__, "network_acl_common_policy", network_acl_common_policy)
@@ -422,9 +420,7 @@ class PolicyOptionArgs:
     @pulumi.getter(name="networkAclCommonPolicy")
     def network_acl_common_policy(self) -> Optional[pulumi.Input['PolicyNetworkAclCommonPolicyArgs']]:
         """
-        Defines a Firewall Manager network ACL policy. This is used in the `PolicyOption` of a `SecurityServicePolicyData` for a `Policy` , when the `SecurityServicePolicyData` type is set to `NETWORK_ACL_COMMON` .
-
-        For information about network ACLs, see [Control traffic to subnets using network ACLs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html) in the *Amazon Virtual Private Cloud User Guide* .
+        Defines a Firewall Manager network ACL policy.
         """
         return pulumi.get(self, "network_acl_common_policy")
 
@@ -436,7 +432,7 @@ class PolicyOptionArgs:
     @pulumi.getter(name="networkFirewallPolicy")
     def network_firewall_policy(self) -> Optional[pulumi.Input['PolicyNetworkFirewallPolicyArgs']]:
         """
-        Configures the firewall policy deployment model of AWS Network Firewall . For information about Network Firewall deployment models, see [AWS Network Firewall example architectures with routing](https://docs.aws.amazon.com/network-firewall/latest/developerguide/architectures.html) in the *Network Firewall Developer Guide* .
+        Defines the deployment model to use for the firewall policy.
         """
         return pulumi.get(self, "network_firewall_policy")
 
@@ -448,7 +444,7 @@ class PolicyOptionArgs:
     @pulumi.getter(name="thirdPartyFirewallPolicy")
     def third_party_firewall_policy(self) -> Optional[pulumi.Input['PolicyThirdPartyFirewallPolicyArgs']]:
         """
-        Configures the deployment model for the third-party firewall.
+        Defines the policy options for a third-party firewall policy.
         """
         return pulumi.get(self, "third_party_firewall_policy")
 

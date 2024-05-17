@@ -1209,7 +1209,7 @@ func (o StackSetParameterArrayOutput) Index(i pulumi.IntInput) StackSetParameter
 
 // Stack instances in some specific accounts and Regions.
 type StackSetStackInstances struct {
-	// The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
+	// The AWS `OrganizationalUnitIds` or `Accounts` for which to create stack instances in the specified Regions.
 	DeploymentTargets StackSetDeploymentTargets `pulumi:"deploymentTargets"`
 	// A list of stack set parameters whose values you want to override in the selected stack instances.
 	ParameterOverrides []StackSetParameter `pulumi:"parameterOverrides"`
@@ -1230,7 +1230,7 @@ type StackSetStackInstancesInput interface {
 
 // Stack instances in some specific accounts and Regions.
 type StackSetStackInstancesArgs struct {
-	// The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
+	// The AWS `OrganizationalUnitIds` or `Accounts` for which to create stack instances in the specified Regions.
 	DeploymentTargets StackSetDeploymentTargetsInput `pulumi:"deploymentTargets"`
 	// A list of stack set parameters whose values you want to override in the selected stack instances.
 	ParameterOverrides StackSetParameterArrayInput `pulumi:"parameterOverrides"`
@@ -1290,7 +1290,7 @@ func (o StackSetStackInstancesOutput) ToStackSetStackInstancesOutputWithContext(
 	return o
 }
 
-// The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
+// The AWS `OrganizationalUnitIds` or `Accounts` for which to create stack instances in the specified Regions.
 func (o StackSetStackInstancesOutput) DeploymentTargets() StackSetDeploymentTargetsOutput {
 	return o.ApplyT(func(v StackSetStackInstances) StackSetDeploymentTargets { return v.DeploymentTargets }).(StackSetDeploymentTargetsOutput)
 }

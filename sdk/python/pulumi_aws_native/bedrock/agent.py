@@ -43,7 +43,7 @@ class AgentArgs:
         :param pulumi.Input[float] idle_session_ttl_in_seconds: Max Session Time.
         :param pulumi.Input[str] instruction: Instruction for the agent.
         :param pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseArgs']]] knowledge_bases: List of Agent Knowledge Bases
-        :param pulumi.Input['AgentPromptOverrideConfigurationArgs'] prompt_override_configuration: Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+        :param pulumi.Input['AgentPromptOverrideConfigurationArgs'] prompt_override_configuration: Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
         :param pulumi.Input[bool] skip_resource_in_use_check_on_delete: Specifies whether to allow deleting agent while it is in use.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
                
@@ -207,7 +207,7 @@ class AgentArgs:
     @pulumi.getter(name="promptOverrideConfiguration")
     def prompt_override_configuration(self) -> Optional[pulumi.Input['AgentPromptOverrideConfigurationArgs']]:
         """
-        Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+        Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
         """
         return pulumi.get(self, "prompt_override_configuration")
 
@@ -293,7 +293,7 @@ class Agent(pulumi.CustomResource):
         :param pulumi.Input[float] idle_session_ttl_in_seconds: Max Session Time.
         :param pulumi.Input[str] instruction: Instruction for the agent.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AgentKnowledgeBaseArgs']]]] knowledge_bases: List of Agent Knowledge Bases
-        :param pulumi.Input[pulumi.InputType['AgentPromptOverrideConfigurationArgs']] prompt_override_configuration: Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+        :param pulumi.Input[pulumi.InputType['AgentPromptOverrideConfigurationArgs']] prompt_override_configuration: Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
         :param pulumi.Input[bool] skip_resource_in_use_check_on_delete: Specifies whether to allow deleting agent while it is in use.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
                
@@ -569,7 +569,7 @@ class Agent(pulumi.CustomResource):
     @pulumi.getter(name="promptOverrideConfiguration")
     def prompt_override_configuration(self) -> pulumi.Output[Optional['outputs.AgentPromptOverrideConfiguration']]:
         """
-        Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+        Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
         """
         return pulumi.get(self, "prompt_override_configuration")
 

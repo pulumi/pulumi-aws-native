@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string? ResourceType;
         /// <summary>
-        /// Describes a tag.
+        /// The tags to apply to the resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.CapacityReservationTag> Tags;
 

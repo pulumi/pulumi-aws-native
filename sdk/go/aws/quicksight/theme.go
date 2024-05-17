@@ -23,7 +23,7 @@ type Theme struct {
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
 	BaseThemeId pulumi.StringOutput `pulumi:"baseThemeId"`
-	// The theme configuration. This configuration contains all of the display properties for a theme.
+	// The theme configuration, which contains the theme display properties.
 	Configuration ThemeConfigurationOutput `pulumi:"configuration"`
 	// <p>The date and time that the theme was created.</p>
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
@@ -31,15 +31,14 @@ type Theme struct {
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// A display name for the theme.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Permission for the resource.
+	// A valid grouping of resource permissions to apply to the new theme.
 	Permissions ThemeResourcePermissionArrayOutput `pulumi:"permissions"`
 	// A map of the key-value pairs for the resource tag or tags that you want to add to the resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// An ID for the theme that you want to create. The theme ID is unique per AWS Region in each AWS account.
 	ThemeId pulumi.StringOutput `pulumi:"themeId"`
 	// Theme type.
-	Type ThemeTypeOutput `pulumi:"type"`
-	// A version of a theme.
+	Type    ThemeTypeOutput    `pulumi:"type"`
 	Version ThemeVersionOutput `pulumi:"version"`
 	// A description of the first version of the theme that you're creating. Every time `UpdateTheme` is called, a new version is created. Each version of the theme has a description of the version in the `VersionDescription` field.
 	VersionDescription pulumi.StringPtrOutput `pulumi:"versionDescription"`
@@ -106,11 +105,11 @@ type themeArgs struct {
 	AwsAccountId string `pulumi:"awsAccountId"`
 	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
 	BaseThemeId string `pulumi:"baseThemeId"`
-	// The theme configuration. This configuration contains all of the display properties for a theme.
+	// The theme configuration, which contains the theme display properties.
 	Configuration ThemeConfiguration `pulumi:"configuration"`
 	// A display name for the theme.
 	Name *string `pulumi:"name"`
-	// Permission for the resource.
+	// A valid grouping of resource permissions to apply to the new theme.
 	Permissions []ThemeResourcePermission `pulumi:"permissions"`
 	// A map of the key-value pairs for the resource tag or tags that you want to add to the resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -126,11 +125,11 @@ type ThemeArgs struct {
 	AwsAccountId pulumi.StringInput
 	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use `ListThemes` or choose *Themes* from within an analysis.
 	BaseThemeId pulumi.StringInput
-	// The theme configuration. This configuration contains all of the display properties for a theme.
+	// The theme configuration, which contains the theme display properties.
 	Configuration ThemeConfigurationInput
 	// A display name for the theme.
 	Name pulumi.StringPtrInput
-	// Permission for the resource.
+	// A valid grouping of resource permissions to apply to the new theme.
 	Permissions ThemeResourcePermissionArrayInput
 	// A map of the key-value pairs for the resource tag or tags that you want to add to the resource.
 	Tags aws.TagArrayInput
@@ -192,7 +191,7 @@ func (o ThemeOutput) BaseThemeId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.BaseThemeId }).(pulumi.StringOutput)
 }
 
-// The theme configuration. This configuration contains all of the display properties for a theme.
+// The theme configuration, which contains the theme display properties.
 func (o ThemeOutput) Configuration() ThemeConfigurationOutput {
 	return o.ApplyT(func(v *Theme) ThemeConfigurationOutput { return v.Configuration }).(ThemeConfigurationOutput)
 }
@@ -212,7 +211,7 @@ func (o ThemeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Permission for the resource.
+// A valid grouping of resource permissions to apply to the new theme.
 func (o ThemeOutput) Permissions() ThemeResourcePermissionArrayOutput {
 	return o.ApplyT(func(v *Theme) ThemeResourcePermissionArrayOutput { return v.Permissions }).(ThemeResourcePermissionArrayOutput)
 }
@@ -232,7 +231,6 @@ func (o ThemeOutput) Type() ThemeTypeOutput {
 	return o.ApplyT(func(v *Theme) ThemeTypeOutput { return v.Type }).(ThemeTypeOutput)
 }
 
-// A version of a theme.
 func (o ThemeOutput) Version() ThemeVersionOutput {
 	return o.ApplyT(func(v *Theme) ThemeVersionOutput { return v.Version }).(ThemeVersionOutput)
 }

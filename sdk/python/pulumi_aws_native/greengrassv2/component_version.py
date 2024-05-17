@@ -25,7 +25,9 @@ class ComponentVersionArgs:
         :param pulumi.Input[str] inline_recipe: The recipe to use to create the component. The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.
                
                You must specify either `InlineRecipe` or `LambdaFunction` .
-        :param pulumi.Input['ComponentVersionLambdaFunctionRecipeSourceArgs'] lambda_function: Contains information about an AWS Lambda function to import to create a component.
+        :param pulumi.Input['ComponentVersionLambdaFunctionRecipeSourceArgs'] lambda_function: The parameters to create a component from a Lambda function.
+               
+               You must specify either `InlineRecipe` or `LambdaFunction` .
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
                
                This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
@@ -60,7 +62,9 @@ class ComponentVersionArgs:
     @pulumi.getter(name="lambdaFunction")
     def lambda_function(self) -> Optional[pulumi.Input['ComponentVersionLambdaFunctionRecipeSourceArgs']]:
         """
-        Contains information about an AWS Lambda function to import to create a component.
+        The parameters to create a component from a Lambda function.
+
+        You must specify either `InlineRecipe` or `LambdaFunction` .
         """
         return pulumi.get(self, "lambda_function")
 
@@ -105,7 +109,9 @@ class ComponentVersion(pulumi.CustomResource):
         :param pulumi.Input[str] inline_recipe: The recipe to use to create the component. The recipe defines the component's metadata, parameters, dependencies, lifecycle, artifacts, and platform compatibility.
                
                You must specify either `InlineRecipe` or `LambdaFunction` .
-        :param pulumi.Input[pulumi.InputType['ComponentVersionLambdaFunctionRecipeSourceArgs']] lambda_function: Contains information about an AWS Lambda function to import to create a component.
+        :param pulumi.Input[pulumi.InputType['ComponentVersionLambdaFunctionRecipeSourceArgs']] lambda_function: The parameters to create a component from a Lambda function.
+               
+               You must specify either `InlineRecipe` or `LambdaFunction` .
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
                
                This `Json` property type is processed as a map of key-value pairs. It uses the following format, which is different from most `Tags` implementations in AWS CloudFormation templates.
@@ -227,7 +233,9 @@ class ComponentVersion(pulumi.CustomResource):
     @pulumi.getter(name="lambdaFunction")
     def lambda_function(self) -> pulumi.Output[Optional['outputs.ComponentVersionLambdaFunctionRecipeSource']]:
         """
-        Contains information about an AWS Lambda function to import to create a component.
+        The parameters to create a component from a Lambda function.
+
+        You must specify either `InlineRecipe` or `LambdaFunction` .
         """
         return pulumi.get(self, "lambda_function")
 

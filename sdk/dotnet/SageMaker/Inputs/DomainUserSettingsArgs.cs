@@ -17,8 +17,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     {
         /// <summary>
         /// The Code Editor application settings.
-        /// 
-        /// For more information about Code Editor, see [Get started with Code Editor in Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/code-editor.html) .
         /// </summary>
         [Input("codeEditorAppSettings")]
         public Input<Inputs.DomainCodeEditorAppSettingsArgs>? CodeEditorAppSettings { get; set; }
@@ -27,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         private InputList<Inputs.DomainCustomFileSystemConfigArgs>? _customFileSystemConfigs;
 
         /// <summary>
-        /// The settings for assigning a custom file system to a user profile or space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.
+        /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
         /// </summary>
         public InputList<Inputs.DomainCustomFileSystemConfigArgs> CustomFileSystemConfigs
         {
@@ -72,7 +70,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<Inputs.DomainKernelGatewayAppSettingsArgs>? KernelGatewayAppSettings { get; set; }
 
         /// <summary>
-        /// A collection of settings that apply to an `RSessionGateway` app.
+        /// A collection of settings that configure the `RSessionGateway` app.
         /// </summary>
         [Input("rSessionAppSettings")]
         public Input<Inputs.DomainRSessionAppSettingsArgs>? RSessionAppSettings { get; set; }
@@ -102,7 +100,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<Inputs.DomainSharingSettingsArgs>? SharingSettings { get; set; }
 
         /// <summary>
-        /// The default storage settings for a space.
+        /// The storage settings for a space.
         /// </summary>
         [Input("spaceStorageSettings")]
         public Input<Inputs.DomainDefaultSpaceStorageSettingsArgs>? SpaceStorageSettings { get; set; }

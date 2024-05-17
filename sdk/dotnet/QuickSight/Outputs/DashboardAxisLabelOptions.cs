@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardAxisLabelOptions
     {
         /// <summary>
-        /// The reference that specifies where the axis label is applied to.
+        /// The options that indicate which field the label belongs to.
         /// </summary>
         public readonly Outputs.DashboardAxisLabelReferenceOptions? ApplyTo;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string? CustomLabel;
         /// <summary>
-        /// Configures the display properties of the given text.
+        /// The font configuration of the axis label.
         /// </summary>
         public readonly Outputs.DashboardFontConfiguration? FontConfiguration;
 

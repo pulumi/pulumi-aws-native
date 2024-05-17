@@ -35,7 +35,7 @@ export interface GetProvisioningTemplateResult {
      */
     readonly enabled?: boolean;
     /**
-     * Structure that contains payloadVersion and targetArn. Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
+     * Creates a pre-provisioning hook template.
      */
     readonly preProvisioningHook?: outputs.iot.ProvisioningTemplateProvisioningHook;
     /**
@@ -43,7 +43,7 @@ export interface GetProvisioningTemplateResult {
      */
     readonly provisioningRoleArn?: string;
     /**
-     * A set of key/value pairs that are used to manage the resource.
+     * Metadata that can be used to manage the fleet provisioning template.
      */
     readonly tags?: outputs.Tag[];
     /**

@@ -13,9 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardVisualSubtitleLabelOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The text format for a subtitle.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The long text format of the subtitle label, such as plain text or rich text.
         /// </summary>
         [Input("formatText")]
         public Input<Inputs.DashboardLongFormatTextArgs>? FormatText { get; set; }

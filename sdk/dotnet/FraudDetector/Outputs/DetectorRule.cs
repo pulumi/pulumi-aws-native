@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.FraudDetector.Outputs
         /// </summary>
         public readonly string? LastUpdatedTime;
         /// <summary>
-        /// The outcome.
+        /// The rule outcome.
         /// </summary>
         public readonly ImmutableArray<Outputs.DetectorOutcome> Outcomes;
         /// <summary>

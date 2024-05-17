@@ -30,11 +30,7 @@ type LookupIdentitySourceArgs struct {
 }
 
 type LookupIdentitySourceResult struct {
-	// A structure that contains configuration information used when creating or updating a new identity source.
-	//
-	// > At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
-	// >
-	// > You must specify a `userPoolArn` , and optionally, a `ClientId` .
+	// Contains configuration information about an identity source.
 	Configuration *IdentitySourceConfiguration `pulumi:"configuration"`
 	Details       *IdentitySourceDetails       `pulumi:"details"`
 	// The unique ID of the new or updated identity store.
@@ -81,11 +77,7 @@ func (o LookupIdentitySourceResultOutput) ToLookupIdentitySourceResultOutputWith
 	return o
 }
 
-// A structure that contains configuration information used when creating or updating a new identity source.
-//
-// > At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
-// >
-// > You must specify a `userPoolArn` , and optionally, a `ClientId` .
+// Contains configuration information about an identity source.
 func (o LookupIdentitySourceResultOutput) Configuration() IdentitySourceConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupIdentitySourceResult) *IdentitySourceConfiguration { return v.Configuration }).(IdentitySourceConfigurationPtrOutput)
 }

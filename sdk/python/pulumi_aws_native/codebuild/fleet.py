@@ -56,9 +56,9 @@ class FleetArgs:
                
                For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
         :param pulumi.Input[str] name: The name of the compute fleet.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A tag, consisting of a key and a value.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tag key and value pairs associated with this compute fleet.
                
-               This tag is available for use by AWS services that support tags in AWS CodeBuild .
+               These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
         """
         if base_capacity is not None:
             pulumi.set(__self__, "base_capacity", base_capacity)
@@ -151,9 +151,9 @@ class FleetArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A tag, consisting of a key and a value.
+        A list of tag key and value pairs associated with this compute fleet.
 
-        This tag is available for use by AWS services that support tags in AWS CodeBuild .
+        These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
         """
         return pulumi.get(self, "tags")
 
@@ -210,9 +210,9 @@ class Fleet(pulumi.CustomResource):
                
                For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
         :param pulumi.Input[str] name: The name of the compute fleet.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A tag, consisting of a key and a value.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of tag key and value pairs associated with this compute fleet.
                
-               This tag is available for use by AWS services that support tags in AWS CodeBuild .
+               These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
         """
         ...
     @overload
@@ -360,9 +360,9 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A tag, consisting of a key and a value.
+        A list of tag key and value pairs associated with this compute fleet.
 
-        This tag is available for use by AWS services that support tags in AWS CodeBuild .
+        These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
         """
         return pulumi.get(self, "tags")
 

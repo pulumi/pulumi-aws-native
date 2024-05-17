@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateAxisLabelReferenceOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A column of a data set.
+        /// The column that the axis label is targeted to.
         /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.TemplateColumnIdentifierArgs> Column { get; set; } = null!;

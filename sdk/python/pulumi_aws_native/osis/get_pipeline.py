@@ -80,7 +80,7 @@ class GetPipelineResult:
     @pulumi.getter(name="logPublishingOptions")
     def log_publishing_options(self) -> Optional['outputs.PipelineLogPublishingOptions']:
         """
-        Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
+        Key-value pairs that represent log publishing settings.
         """
         return pulumi.get(self, "log_publishing_options")
 

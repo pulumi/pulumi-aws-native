@@ -72,9 +72,7 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? FleetId;
         /// <summary>
-        /// Specifies the number of units to request for an EC2 Fleet. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of `0` and add capacity later.
-        /// 
-        /// `TargetCapacitySpecificationRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+        /// The number of units to request.
         /// </summary>
         public readonly Outputs.Ec2FleetTargetCapacitySpecificationRequest? TargetCapacitySpecification;
 

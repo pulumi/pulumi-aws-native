@@ -17,11 +17,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateSourceEntity
     {
         /// <summary>
-        /// The source analysis of the template.
+        /// The source analysis, if it is based on an analysis.
         /// </summary>
         public readonly Outputs.TemplateSourceAnalysis? SourceAnalysis;
         /// <summary>
-        /// The source template of the template.
+        /// The source template, if it is based on an template.
         /// </summary>
         public readonly Outputs.TemplateSourceTemplate? SourceTemplate;
 

@@ -23,7 +23,7 @@ class AccessLogSubscriptionArgs:
         The set of arguments for constructing a AccessLogSubscription resource.
         :param pulumi.Input[str] destination_arn: The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
         :param pulumi.Input[str] resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Specifies a tag for an access log subscription.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the access log subscription.
         """
         pulumi.set(__self__, "destination_arn", destination_arn)
         if resource_identifier is not None:
@@ -59,7 +59,7 @@ class AccessLogSubscriptionArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        Specifies a tag for an access log subscription.
+        The tags for the access log subscription.
         """
         return pulumi.get(self, "tags")
 
@@ -84,7 +84,7 @@ class AccessLogSubscription(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination_arn: The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
         :param pulumi.Input[str] resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies a tag for an access log subscription.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the access log subscription.
         """
         ...
     @overload
@@ -216,7 +216,7 @@ class AccessLogSubscription(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        Specifies a tag for an access log subscription.
+        The tags for the access log subscription.
         """
         return pulumi.get(self, "tags")
 

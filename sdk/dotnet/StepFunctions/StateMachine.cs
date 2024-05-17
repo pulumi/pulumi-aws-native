@@ -164,7 +164,7 @@ namespace Pulumi.AwsNative.StepFunctions
         public Output<Outputs.StateMachineDefinition?> Definition { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the S3 bucket location where a state machine definition is stored. The state machine definition must be a JSON or YAML file.
+        /// The name of the S3 bucket where the state machine definition is stored. The state machine definition must be a JSON or YAML file.
         /// </summary>
         [Output("definitionS3Location")]
         public Output<Outputs.StateMachineS3Location?> DefinitionS3Location { get; private set; } = null!;
@@ -185,8 +185,6 @@ namespace Pulumi.AwsNative.StepFunctions
 
         /// <summary>
         /// Defines what execution history events are logged and where they are logged.
-        /// 
-        /// Step Functions provides the log levels — `OFF` , `ALL` , `ERROR` , and `FATAL` . No event types log when set to `OFF` and all event types do when set to `ALL` .
         /// 
         /// &gt; By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         /// </summary>
@@ -246,13 +244,15 @@ namespace Pulumi.AwsNative.StepFunctions
         public Output<Pulumi.AwsNative.StepFunctions.StateMachineType?> StateMachineType { get; private set; } = null!;
 
         /// <summary>
-        /// The `TagsEntry` property specifies *tags* to identify a state machine.
+        /// The list of tags to add to a resource.
+        /// 
+        /// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Selects whether or not the state machine's AWS X-Ray tracing is enabled. To configure your state machine to send trace data to X-Ray, set `Enabled` to `true` .
+        /// Selects whether or not the state machine's AWS X-Ray tracing is enabled.
         /// </summary>
         [Output("tracingConfiguration")]
         public Output<Outputs.StateMachineTracingConfiguration?> TracingConfiguration { get; private set; } = null!;
@@ -314,7 +314,7 @@ namespace Pulumi.AwsNative.StepFunctions
         public Input<Inputs.StateMachineDefinitionArgs>? Definition { get; set; }
 
         /// <summary>
-        /// Defines the S3 bucket location where a state machine definition is stored. The state machine definition must be a JSON or YAML file.
+        /// The name of the S3 bucket where the state machine definition is stored. The state machine definition must be a JSON or YAML file.
         /// </summary>
         [Input("definitionS3Location")]
         public Input<Inputs.StateMachineS3LocationArgs>? DefinitionS3Location { get; set; }
@@ -341,8 +341,6 @@ namespace Pulumi.AwsNative.StepFunctions
 
         /// <summary>
         /// Defines what execution history events are logged and where they are logged.
-        /// 
-        /// Step Functions provides the log levels — `OFF` , `ALL` , `ERROR` , and `FATAL` . No event types log when set to `OFF` and all event types do when set to `ALL` .
         /// 
         /// &gt; By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         /// </summary>
@@ -381,7 +379,9 @@ namespace Pulumi.AwsNative.StepFunctions
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// The `TagsEntry` property specifies *tags* to identify a state machine.
+        /// The list of tags to add to a resource.
+        /// 
+        /// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
@@ -390,7 +390,7 @@ namespace Pulumi.AwsNative.StepFunctions
         }
 
         /// <summary>
-        /// Selects whether or not the state machine's AWS X-Ray tracing is enabled. To configure your state machine to send trace data to X-Ray, set `Enabled` to `true` .
+        /// Selects whether or not the state machine's AWS X-Ray tracing is enabled.
         /// </summary>
         [Input("tracingConfiguration")]
         public Input<Inputs.StateMachineTracingConfigurationArgs>? TracingConfiguration { get; set; }

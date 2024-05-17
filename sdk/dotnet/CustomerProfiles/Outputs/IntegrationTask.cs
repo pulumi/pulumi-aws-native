@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
         /// </summary>
         public readonly ImmutableArray<string> SourceFields;
         /// <summary>
-        /// A map used to store task-related information. The execution service looks for particular information based on the `TaskType` .
+        /// A map used to store task-related information. The service looks for particular information based on the TaskType.
         /// </summary>
         public readonly ImmutableArray<Outputs.IntegrationTaskPropertiesMap> TaskProperties;
         /// <summary>

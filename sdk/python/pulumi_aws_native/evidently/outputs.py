@@ -162,7 +162,7 @@ class ExperimentOnlineAbConfigObject(dict):
                  treatment_weights: Optional[Sequence['outputs.ExperimentTreatmentToWeight']] = None):
         """
         :param str control_treatment_name: The name of the variation that is to be the default variation that the other variations are compared to.
-        :param Sequence['ExperimentTreatmentToWeight'] treatment_weights: This structure defines how much experiment traffic to allocate to one treatment used in the experiment.
+        :param Sequence['ExperimentTreatmentToWeight'] treatment_weights: A set of key-value pairs. The keys are treatment names, and the values are the portion of experiment traffic to be assigned to that treatment. Specify the traffic portion in thousandths of a percent, so 20,000 for a variation would allocate 20% of the experiment traffic to that variation.
         """
         if control_treatment_name is not None:
             pulumi.set(__self__, "control_treatment_name", control_treatment_name)
@@ -181,7 +181,7 @@ class ExperimentOnlineAbConfigObject(dict):
     @pulumi.getter(name="treatmentWeights")
     def treatment_weights(self) -> Optional[Sequence['outputs.ExperimentTreatmentToWeight']]:
         """
-        This structure defines how much experiment traffic to allocate to one treatment used in the experiment.
+        A set of key-value pairs. The keys are treatment names, and the values are the portion of experiment traffic to be assigned to that treatment. Specify the traffic portion in thousandths of a percent, so 20,000 for a variation would allocate 20% of the experiment traffic to that variation.
         """
         return pulumi.get(self, "treatment_weights")
 
@@ -869,13 +869,11 @@ class LaunchStepConfig(dict):
                  start_time: str,
                  segment_overrides: Optional[Sequence['outputs.LaunchSegmentOverride']] = None):
         """
-        :param Sequence['LaunchGroupToWeight'] group_weights: A structure containing the percentage of launch traffic to allocate to one launch group.
+        :param Sequence['LaunchGroupToWeight'] group_weights: An array of structures that define how much launch traffic to allocate to each launch group during this step of the launch.
         :param str start_time: The date and time to start this step of the launch. Use UTC format, `yyyy-MM-ddTHH:mm:ssZ` . For example, `2025-11-25T23:59:59Z`
-        :param Sequence['LaunchSegmentOverride'] segment_overrides: Use this structure to specify different traffic splits for one or more audience *segments* . A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.
+        :param Sequence['LaunchSegmentOverride'] segment_overrides: An array of structures that you can use to specify different traffic splits for one or more audience *segments* . A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.
                
                For more information, see [Use segments to focus your audience](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html) .
-               
-               This sructure is an array of up to six segment override objects. Each of these objects specifies a segment that you have already created, and defines the traffic split for that segment.
         """
         pulumi.set(__self__, "group_weights", group_weights)
         pulumi.set(__self__, "start_time", start_time)
@@ -886,7 +884,7 @@ class LaunchStepConfig(dict):
     @pulumi.getter(name="groupWeights")
     def group_weights(self) -> Sequence['outputs.LaunchGroupToWeight']:
         """
-        A structure containing the percentage of launch traffic to allocate to one launch group.
+        An array of structures that define how much launch traffic to allocate to each launch group during this step of the launch.
         """
         return pulumi.get(self, "group_weights")
 
@@ -902,11 +900,9 @@ class LaunchStepConfig(dict):
     @pulumi.getter(name="segmentOverrides")
     def segment_overrides(self) -> Optional[Sequence['outputs.LaunchSegmentOverride']]:
         """
-        Use this structure to specify different traffic splits for one or more audience *segments* . A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.
+        An array of structures that you can use to specify different traffic splits for one or more audience *segments* . A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.
 
         For more information, see [Use segments to focus your audience](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html) .
-
-        This sructure is an array of up to six segment override objects. Each of these objects specifies a segment that you have already created, and defines the traffic split for that segment.
         """
         return pulumi.get(self, "segment_overrides")
 

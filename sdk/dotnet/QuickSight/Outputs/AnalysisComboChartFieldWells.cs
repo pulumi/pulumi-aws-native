@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisComboChartFieldWells
     {
         /// <summary>
-        /// The aggregated field wells of a combo chart.
+        /// The aggregated field wells of a combo chart. Combo charts only have aggregated field wells. Columns in a combo chart are aggregated by category.
         /// </summary>
         public readonly Outputs.AnalysisComboChartAggregatedFieldWells? ComboChartAggregatedFieldWells;
 

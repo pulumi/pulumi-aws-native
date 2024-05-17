@@ -82,7 +82,7 @@ type LookupStackResult struct {
 	LastUpdateTime *string `pulumi:"lastUpdateTime"`
 	// The Amazon Simple Notification Service (Amazon SNS) topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
 	NotificationArns []string `pulumi:"notificationArns"`
-	// The Output data type.
+	// A list of output structures.
 	Outputs []StackOutputType `pulumi:"outputs"`
 	// The set value pairs that represent the parameters passed to CloudFormation when this nested stack is created. Each parameter has a name corresponding to a parameter defined in the embedded template and a value representing the value that you want to set for the parameter.
 	//
@@ -114,7 +114,7 @@ type LookupStackResult struct {
 	StackStatus *StackStatus `pulumi:"stackStatus"`
 	// Success/failure message associated with the stack status.
 	StackStatusReason *string `pulumi:"stackStatusReason"`
-	// The Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation stack.
+	// Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to [Template anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) in the AWS CloudFormation User Guide.
 	//
@@ -241,7 +241,7 @@ func (o LookupStackResultOutput) NotificationArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupStackResult) []string { return v.NotificationArns }).(pulumi.StringArrayOutput)
 }
 
-// The Output data type.
+// A list of output structures.
 func (o LookupStackResultOutput) Outputs() StackOutputTypeArrayOutput {
 	return o.ApplyT(func(v LookupStackResult) []StackOutputType { return v.Outputs }).(StackOutputTypeArrayOutput)
 }
@@ -300,7 +300,7 @@ func (o LookupStackResultOutput) StackStatusReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStackResult) *string { return v.StackStatusReason }).(pulumi.StringPtrOutput)
 }
 
-// The Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation stack.
+// Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
 func (o LookupStackResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupStackResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateTableFieldCustomTextContent
     {
         /// <summary>
-        /// Configures the display properties of the given text.
+        /// The font configuration of the custom text content for the table URL link content.
         /// </summary>
         public readonly Outputs.TemplateFontConfiguration FontConfiguration;
         /// <summary>

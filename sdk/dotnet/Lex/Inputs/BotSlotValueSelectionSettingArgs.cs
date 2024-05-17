@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.Lex.Inputs
     public sealed class BotSlotValueSelectionSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Provides settings that enable advanced recognition settings for slot values.
+        /// Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
         /// </summary>
         [Input("advancedRecognitionSetting")]
         public Input<Inputs.BotAdvancedRecognitionSettingArgs>? AdvancedRecognitionSetting { get; set; }
 
         /// <summary>
-        /// Provides a regular expression used to validate the value of a slot.
+        /// A regular expression used to validate the value of a slot.
         /// </summary>
         [Input("regexFilter")]
         public Input<Inputs.BotSlotValueRegexFilterArgs>? RegexFilter { get; set; }

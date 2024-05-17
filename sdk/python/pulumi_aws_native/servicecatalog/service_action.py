@@ -24,7 +24,7 @@ class ServiceActionArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServiceAction resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceActionDefinitionParameterArgs']]] definition: The list of parameters in JSON format. For example: `[{\\"Name\\":\\"InstanceId\\",\\"Type\\":\\"TARGET\\"}] or [{\\"Name\\":\\"InstanceId\\",\\"Type\\":\\"TEXT_VALUE\\"}]` .
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceActionDefinitionParameterArgs']]] definition: A map that defines the self-service action.
         :param pulumi.Input['ServiceActionDefinitionType'] definition_type: The self-service action definition type. For example, `SSM_AUTOMATION` .
         :param pulumi.Input['ServiceActionAcceptLanguage'] accept_language: The language code.
                
@@ -47,7 +47,7 @@ class ServiceActionArgs:
     @pulumi.getter
     def definition(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceActionDefinitionParameterArgs']]]:
         """
-        The list of parameters in JSON format. For example: `[{\\"Name\\":\\"InstanceId\\",\\"Type\\":\\"TARGET\\"}] or [{\\"Name\\":\\"InstanceId\\",\\"Type\\":\\"TEXT_VALUE\\"}]` .
+        A map that defines the self-service action.
         """
         return pulumi.get(self, "definition")
 
@@ -129,7 +129,7 @@ class ServiceAction(pulumi.CustomResource):
                - `en` - English (default)
                - `jp` - Japanese
                - `zh` - Chinese
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceActionDefinitionParameterArgs']]]] definition: The list of parameters in JSON format. For example: `[{\\"Name\\":\\"InstanceId\\",\\"Type\\":\\"TARGET\\"}] or [{\\"Name\\":\\"InstanceId\\",\\"Type\\":\\"TEXT_VALUE\\"}]` .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceActionDefinitionParameterArgs']]]] definition: A map that defines the self-service action.
         :param pulumi.Input['ServiceActionDefinitionType'] definition_type: The self-service action definition type. For example, `SSM_AUTOMATION` .
         :param pulumi.Input[str] description: The self-service action description.
         :param pulumi.Input[str] name: The self-service action name.
@@ -236,7 +236,7 @@ class ServiceAction(pulumi.CustomResource):
     @pulumi.getter
     def definition(self) -> pulumi.Output[Sequence['outputs.ServiceActionDefinitionParameter']]:
         """
-        The list of parameters in JSON format. For example: `[{\\"Name\\":\\"InstanceId\\",\\"Type\\":\\"TARGET\\"}] or [{\\"Name\\":\\"InstanceId\\",\\"Type\\":\\"TEXT_VALUE\\"}]` .
+        A map that defines the self-service action.
         """
         return pulumi.get(self, "definition")
 

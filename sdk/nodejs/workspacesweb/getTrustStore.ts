@@ -35,7 +35,7 @@ export interface GetTrustStoreResult {
      */
     readonly certificateList?: string[];
     /**
-     * The tag.
+     * The tags to add to the trust store. A tag is a key-value pair.
      */
     readonly tags?: outputs.Tag[];
     /**

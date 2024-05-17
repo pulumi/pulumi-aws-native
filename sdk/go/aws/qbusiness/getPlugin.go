@@ -49,7 +49,7 @@ type LookupPluginResult struct {
 	ServerUrl *string `pulumi:"serverUrl"`
 	// The current status of the plugin.
 	State *PluginStateEnum `pulumi:"state"`
-	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	// A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The timestamp for when the plugin was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
@@ -138,7 +138,7 @@ func (o LookupPluginResultOutput) State() PluginStateEnumPtrOutput {
 	return o.ApplyT(func(v LookupPluginResult) *PluginStateEnum { return v.State }).(PluginStateEnumPtrOutput)
 }
 
-// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+// A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 func (o LookupPluginResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupPluginResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

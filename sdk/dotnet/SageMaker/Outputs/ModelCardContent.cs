@@ -29,16 +29,16 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ModelCardEvaluationDetail> EvaluationDetails;
         /// <summary>
-        /// The intended uses of a model.
+        /// The intended usage of the model.
         /// </summary>
         public readonly Outputs.ModelCardIntendedUses? IntendedUses;
         /// <summary>
-        /// An overview about the model.
+        /// An overview about the model
         /// </summary>
         public readonly Outputs.ModelCardModelOverview? ModelOverview;
         public readonly Outputs.ModelCardModelPackageDetails? ModelPackageDetails;
         /// <summary>
-        /// The training details of the model
+        /// An overview about model training.
         /// </summary>
         public readonly Outputs.ModelCardTrainingDetails? TrainingDetails;
 

@@ -56,7 +56,7 @@ export interface GetEnvironmentBlueprintConfigurationResult {
      */
     readonly provisioningRoleArn?: string;
     /**
-     * The regional parameters in the environment blueprint.
+     * The regional parameters of the environment blueprint.
      */
     readonly regionalParameters?: outputs.datazone.EnvironmentBlueprintConfigurationRegionalParameter[];
     /**

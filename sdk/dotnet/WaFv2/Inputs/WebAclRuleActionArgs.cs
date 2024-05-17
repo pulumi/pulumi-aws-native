@@ -16,17 +16,13 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     public sealed class WebAclRuleActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies that AWS WAF should allow the request and optionally defines additional custom handling for the request.
-        /// 
-        /// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+        /// Instructs AWS WAF to allow the web request.
         /// </summary>
         [Input("allow")]
         public Input<Inputs.WebAclAllowActionArgs>? Allow { get; set; }
 
         /// <summary>
-        /// Specifies that AWS WAF should block the request and optionally defines additional custom handling for the response to the web request.
-        /// 
-        /// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+        /// Instructs AWS WAF to block the web request.
         /// </summary>
         [Input("block")]
         public Input<Inputs.WebAclBlockActionArgs>? Block { get; set; }
@@ -51,34 +47,13 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         public Input<Inputs.WebAclCaptchaActionArgs>? Captcha { get; set; }
 
         /// <summary>
-        /// Specifies that AWS WAF should run a `Challenge` check against the request to verify that the request is coming from a legitimate client session:
-        /// 
-        /// - If the request includes a valid, unexpired challenge token, AWS WAF applies any custom request handling and labels that you've configured and then allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
-        /// - If the request doesn't include a valid, unexpired challenge token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
-        /// 
-        /// AWS WAF then generates a challenge response that it sends back to the client, which includes the following:
-        /// 
-        /// - The header `x-amzn-waf-action` with a value of `challenge` .
-        /// - The HTTP status code `202 Request Accepted` .
-        /// - If the request contains an `Accept` header with a value of `text/html` , the response includes a JavaScript page interstitial with a challenge script.
-        /// 
-        /// Challenges run silent browser interrogations in the background, and don't generally affect the end user experience.
-        /// 
-        /// A challenge enforces token acquisition using an interstitial JavaScript challenge that inspects the client session for legitimate behavior. The challenge blocks bots or at least increases the cost of operating sophisticated bots.
-        /// 
-        /// After the client session successfully responds to the challenge, it receives a new token from AWS WAF , which the challenge script uses to resubmit the original request.
-        /// 
-        /// You can configure the expiration time in the `ChallengeConfig` `ImmunityTimeProperty` setting at the rule and web ACL level. The rule setting overrides the web ACL setting.
-        /// 
-        /// This action option is available for rules. It isn't available for web ACL default actions.
+        /// Instructs AWS WAF to run a `Challenge` check against the web request.
         /// </summary>
         [Input("challenge")]
         public Input<Inputs.WebAclChallengeActionArgs>? Challenge { get; set; }
 
         /// <summary>
-        /// Specifies that AWS WAF should count the request. Optionally defines additional custom handling for the request.
-        /// 
-        /// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+        /// Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
         /// </summary>
         [Input("count")]
         public Input<Inputs.WebAclCountActionArgs>? Count { get; set; }

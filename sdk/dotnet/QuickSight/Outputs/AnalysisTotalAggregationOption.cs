@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string FieldId;
         /// <summary>
-        /// An aggregation function that aggregates the total values of a measure.
+        /// The total aggregation function that you want to set for a specified field id.
         /// </summary>
         public readonly Outputs.AnalysisTotalAggregationFunction TotalAggregationFunction;
 

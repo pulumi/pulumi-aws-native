@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class ThemeSheetStyleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Display options related to tiles on a sheet.
+        /// The display options for tiles.
         /// </summary>
         [Input("tile")]
         public Input<Inputs.ThemeTileStyleArgs>? Tile { get; set; }
 
         /// <summary>
-        /// The display options for the layout of tiles on a sheet.
+        /// The layout options for tiles.
         /// </summary>
         [Input("tileLayout")]
         public Input<Inputs.ThemeTileLayoutStyleArgs>? TileLayout { get; set; }

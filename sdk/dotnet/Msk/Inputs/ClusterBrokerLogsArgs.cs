@@ -19,13 +19,13 @@ namespace Pulumi.AwsNative.Msk.Inputs
         public Input<Inputs.ClusterCloudWatchLogsArgs>? CloudWatchLogs { get; set; }
 
         /// <summary>
-        /// Firehose details for BrokerLogs.
+        /// Details of the Kinesis Data Firehose delivery stream that is the destination for broker logs.
         /// </summary>
         [Input("firehose")]
         public Input<Inputs.ClusterFirehoseArgs>? Firehose { get; set; }
 
         /// <summary>
-        /// The details of the Amazon S3 destination for broker logs.
+        /// Details of the Amazon S3 destination for broker logs.
         /// </summary>
         [Input("s3")]
         public Input<Inputs.ClusterS3Args>? S3 { get; set; }

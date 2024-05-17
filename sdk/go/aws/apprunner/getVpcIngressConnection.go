@@ -30,7 +30,7 @@ type LookupVpcIngressConnectionArgs struct {
 type LookupVpcIngressConnectionResult struct {
 	// The Domain name associated with the VPC Ingress Connection.
 	DomainName *string `pulumi:"domainName"`
-	// Specifications for the customer’s VPC and related PrivateLink VPC endpoint that are used to associate with the VPC Ingress Connection resource.
+	// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource.
 	IngressVpcConfiguration *VpcIngressConnectionIngressVpcConfiguration `pulumi:"ingressVpcConfiguration"`
 	// The current status of the VpcIngressConnection.
 	Status *VpcIngressConnectionStatus `pulumi:"status"`
@@ -79,7 +79,7 @@ func (o LookupVpcIngressConnectionResultOutput) DomainName() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupVpcIngressConnectionResult) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
-// Specifications for the customer’s VPC and related PrivateLink VPC endpoint that are used to associate with the VPC Ingress Connection resource.
+// Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource.
 func (o LookupVpcIngressConnectionResultOutput) IngressVpcConfiguration() VpcIngressConnectionIngressVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupVpcIngressConnectionResult) *VpcIngressConnectionIngressVpcConfiguration {
 		return v.IngressVpcConfiguration

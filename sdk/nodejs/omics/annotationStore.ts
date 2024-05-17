@@ -54,11 +54,11 @@ export class AnnotationStore extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A genome reference.
+     * The genome reference for the store's annotations.
      */
     public readonly reference!: pulumi.Output<outputs.omics.AnnotationStoreReferenceItem | undefined>;
     /**
-     * Server-side encryption (SSE) settings for a store.
+     * The store's server-side encryption (SSE) settings.
      */
     public readonly sseConfig!: pulumi.Output<outputs.omics.AnnotationStoreSseConfig | undefined>;
     /**
@@ -78,7 +78,7 @@ export class AnnotationStore extends pulumi.CustomResource {
      */
     public readonly storeFormat!: pulumi.Output<enums.omics.AnnotationStoreStoreFormat>;
     /**
-     * The store's file parsing options.
+     * File parsing options for the annotation store.
      */
     public readonly storeOptions!: pulumi.Output<outputs.omics.AnnotationStoreStoreOptionsProperties | undefined>;
     /**
@@ -158,11 +158,11 @@ export interface AnnotationStoreArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A genome reference.
+     * The genome reference for the store's annotations.
      */
     reference?: pulumi.Input<inputs.omics.AnnotationStoreReferenceItemArgs>;
     /**
-     * Server-side encryption (SSE) settings for a store.
+     * The store's server-side encryption (SSE) settings.
      */
     sseConfig?: pulumi.Input<inputs.omics.AnnotationStoreSseConfigArgs>;
     /**
@@ -170,7 +170,7 @@ export interface AnnotationStoreArgs {
      */
     storeFormat: pulumi.Input<enums.omics.AnnotationStoreStoreFormat>;
     /**
-     * The store's file parsing options.
+     * File parsing options for the annotation store.
      */
     storeOptions?: pulumi.Input<inputs.omics.AnnotationStoreStoreOptionsPropertiesArgs>;
     /**

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardCascadingControlSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A column of a data set.
+        /// The column identifier that determines which column to look up for the source sheet control.
         /// </summary>
         [Input("columnToMatch")]
         public Input<Inputs.DashboardColumnIdentifierArgs>? ColumnToMatch { get; set; }

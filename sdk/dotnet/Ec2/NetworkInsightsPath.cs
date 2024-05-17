@@ -46,13 +46,13 @@ namespace Pulumi.AwsNative.Ec2
         public Output<int?> DestinationPort { get; private set; } = null!;
 
         /// <summary>
-        /// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+        /// Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify the parameter for the destination IP address.
         /// </summary>
         [Output("filterAtDestination")]
         public Output<Outputs.NetworkInsightsPathPathFilter?> FilterAtDestination { get; private set; } = null!;
 
         /// <summary>
-        /// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+        /// Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify the parameters for the source IP address or the destination port.
         /// </summary>
         [Output("filterAtSource")]
         public Output<Outputs.NetworkInsightsPathPathFilter?> FilterAtSource { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> SourceIp { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// The tags to add to the path.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -174,13 +174,13 @@ namespace Pulumi.AwsNative.Ec2
         public Input<int>? DestinationPort { get; set; }
 
         /// <summary>
-        /// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+        /// Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify the parameter for the destination IP address.
         /// </summary>
         [Input("filterAtDestination")]
         public Input<Inputs.NetworkInsightsPathPathFilterArgs>? FilterAtDestination { get; set; }
 
         /// <summary>
-        /// Describes a set of filters for a path analysis. Use path filters to scope the analysis when there can be multiple resulting paths.
+        /// Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify the parameters for the source IP address or the destination port.
         /// </summary>
         [Input("filterAtSource")]
         public Input<Inputs.NetworkInsightsPathPathFilterArgs>? FilterAtSource { get; set; }
@@ -207,7 +207,7 @@ namespace Pulumi.AwsNative.Ec2
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// The tags to add to the path.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

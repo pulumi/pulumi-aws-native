@@ -112,9 +112,9 @@ class GetFleetResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        A tag, consisting of a key and a value.
+        A list of tag key and value pairs associated with this compute fleet.
 
-        This tag is available for use by AWS services that support tags in AWS CodeBuild .
+        These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
         """
         return pulumi.get(self, "tags")
 

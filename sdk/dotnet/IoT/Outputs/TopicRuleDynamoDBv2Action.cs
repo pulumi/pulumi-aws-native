@@ -14,7 +14,11 @@ namespace Pulumi.AwsNative.IoT.Outputs
     public sealed class TopicRuleDynamoDBv2Action
     {
         /// <summary>
-        /// The input for the DynamoActionVS action that specifies the DynamoDB table to which the message data will be written.
+        /// Specifies the DynamoDB table to which the message data will be written. For example:
+        /// 
+        /// `{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }`
+        /// 
+        /// Each attribute in the message payload will be written to a separate column in the DynamoDB database.
         /// </summary>
         public readonly Outputs.TopicRulePutItemInput? PutItem;
         /// <summary>

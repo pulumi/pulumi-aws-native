@@ -45,7 +45,7 @@ type LookupNetworkInsightsAccessScopeAnalysisResult struct {
 	Status *NetworkInsightsAccessScopeAnalysisStatus `pulumi:"status"`
 	// The status message.
 	StatusMessage *string `pulumi:"statusMessage"`
-	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	// The tags.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -133,7 +133,7 @@ func (o LookupNetworkInsightsAccessScopeAnalysisResultOutput) StatusMessage() pu
 	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeAnalysisResult) *string { return v.StatusMessage }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+// The tags.
 func (o LookupNetworkInsightsAccessScopeAnalysisResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeAnalysisResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

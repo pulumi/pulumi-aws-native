@@ -50,7 +50,7 @@ export class Application extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The credentials of your SAP application.
+     * The credentials of the SAP application.
      */
     public readonly credentials!: pulumi.Output<outputs.systemsmanagersap.ApplicationCredential[] | undefined>;
     /**
@@ -125,7 +125,7 @@ export interface ApplicationArgs {
      */
     applicationType: pulumi.Input<enums.systemsmanagersap.ApplicationType>;
     /**
-     * The credentials of your SAP application.
+     * The credentials of the SAP application.
      */
     credentials?: pulumi.Input<pulumi.Input<inputs.systemsmanagersap.ApplicationCredentialArgs>[]>;
     /**

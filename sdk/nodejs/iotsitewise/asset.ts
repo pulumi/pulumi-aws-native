@@ -50,7 +50,7 @@ export class Asset extends pulumi.CustomResource {
      */
     public readonly assetExternalId!: pulumi.Output<string | undefined>;
     /**
-     * Describes an asset hierarchy that contains a hierarchy's name and ID.
+     * A list of asset hierarchies that each contain a `hierarchyId` . A hierarchy specifies allowed parent/child asset relationships.
      */
     public readonly assetHierarchies!: pulumi.Output<outputs.iotsitewise.AssetHierarchy[] | undefined>;
     /**
@@ -66,7 +66,9 @@ export class Asset extends pulumi.CustomResource {
      */
     public readonly assetName!: pulumi.Output<string>;
     /**
-     * Contains asset property information.
+     * The list of asset properties for the asset.
+     *
+     * This object doesn't include properties that you define in composite models. You can find composite model properties in the `assetCompositeModels` object.
      */
     public readonly assetProperties!: pulumi.Output<outputs.iotsitewise.AssetProperty[] | undefined>;
     /**
@@ -126,7 +128,7 @@ export interface AssetArgs {
      */
     assetExternalId?: pulumi.Input<string>;
     /**
-     * Describes an asset hierarchy that contains a hierarchy's name and ID.
+     * A list of asset hierarchies that each contain a `hierarchyId` . A hierarchy specifies allowed parent/child asset relationships.
      */
     assetHierarchies?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetHierarchyArgs>[]>;
     /**
@@ -138,7 +140,9 @@ export interface AssetArgs {
      */
     assetName?: pulumi.Input<string>;
     /**
-     * Contains asset property information.
+     * The list of asset properties for the asset.
+     *
+     * This object doesn't include properties that you define in composite models. You can find composite model properties in the `assetCompositeModels` object.
      */
     assetProperties?: pulumi.Input<pulumi.Input<inputs.iotsitewise.AssetPropertyArgs>[]>;
     /**

@@ -35,7 +35,7 @@ type LookupVerifiedAccessTrustProviderResult struct {
 	Description *string `pulumi:"description"`
 	// The last updated time.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// Describes the options for an OpenID Connect-compatible user-identity trust provider.
+	// The options for an OpenID Connect-compatible user-identity trust provider.
 	OidcOptions *VerifiedAccessTrustProviderOidcOptions `pulumi:"oidcOptions"`
 	// The configuration options for customer provided KMS encryption.
 	SseSpecification *SseSpecificationProperties `pulumi:"sseSpecification"`
@@ -96,7 +96,7 @@ func (o LookupVerifiedAccessTrustProviderResultOutput) LastUpdatedTime() pulumi.
 	return o.ApplyT(func(v LookupVerifiedAccessTrustProviderResult) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
-// Describes the options for an OpenID Connect-compatible user-identity trust provider.
+// The options for an OpenID Connect-compatible user-identity trust provider.
 func (o LookupVerifiedAccessTrustProviderResultOutput) OidcOptions() VerifiedAccessTrustProviderOidcOptionsPtrOutput {
 	return o.ApplyT(func(v LookupVerifiedAccessTrustProviderResult) *VerifiedAccessTrustProviderOidcOptions {
 		return v.OidcOptions

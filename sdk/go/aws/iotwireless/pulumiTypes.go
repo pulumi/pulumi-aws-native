@@ -1574,13 +1574,13 @@ func (o TaskDefinitionLoRaWanGatewayVersionPtrOutput) Station() pulumi.StringPtr
 }
 
 type TaskDefinitionLoRaWanUpdateGatewayTaskCreate struct {
-	// LoRaWANGatewayVersion object.
+	// The version of the gateways that should receive the update.
 	CurrentVersion *TaskDefinitionLoRaWanGatewayVersion `pulumi:"currentVersion"`
 	// The CRC of the signature private key to check.
 	SigKeyCrc *int `pulumi:"sigKeyCrc"`
 	// The signature used to verify the update firmware.
 	UpdateSignature *string `pulumi:"updateSignature"`
-	// LoRaWANGatewayVersion object.
+	// The firmware version to update the gateway to.
 	UpdateVersion *TaskDefinitionLoRaWanGatewayVersion `pulumi:"updateVersion"`
 }
 
@@ -1596,13 +1596,13 @@ type TaskDefinitionLoRaWanUpdateGatewayTaskCreateInput interface {
 }
 
 type TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs struct {
-	// LoRaWANGatewayVersion object.
+	// The version of the gateways that should receive the update.
 	CurrentVersion TaskDefinitionLoRaWanGatewayVersionPtrInput `pulumi:"currentVersion"`
 	// The CRC of the signature private key to check.
 	SigKeyCrc pulumi.IntPtrInput `pulumi:"sigKeyCrc"`
 	// The signature used to verify the update firmware.
 	UpdateSignature pulumi.StringPtrInput `pulumi:"updateSignature"`
-	// LoRaWANGatewayVersion object.
+	// The firmware version to update the gateway to.
 	UpdateVersion TaskDefinitionLoRaWanGatewayVersionPtrInput `pulumi:"updateVersion"`
 }
 
@@ -1683,7 +1683,7 @@ func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput) ToTaskDefinitionLoRa
 	}).(TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput)
 }
 
-// LoRaWANGatewayVersion object.
+// The version of the gateways that should receive the update.
 func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput) CurrentVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLoRaWanUpdateGatewayTaskCreate) *TaskDefinitionLoRaWanGatewayVersion {
 		return v.CurrentVersion
@@ -1700,7 +1700,7 @@ func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput) UpdateSignature() pu
 	return o.ApplyT(func(v TaskDefinitionLoRaWanUpdateGatewayTaskCreate) *string { return v.UpdateSignature }).(pulumi.StringPtrOutput)
 }
 
-// LoRaWANGatewayVersion object.
+// The firmware version to update the gateway to.
 func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput) UpdateVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLoRaWanUpdateGatewayTaskCreate) *TaskDefinitionLoRaWanGatewayVersion {
 		return v.UpdateVersion
@@ -1731,7 +1731,7 @@ func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput) Elem() TaskDefini
 	}).(TaskDefinitionLoRaWanUpdateGatewayTaskCreateOutput)
 }
 
-// LoRaWANGatewayVersion object.
+// The version of the gateways that should receive the update.
 func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput) CurrentVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLoRaWanUpdateGatewayTaskCreate) *TaskDefinitionLoRaWanGatewayVersion {
 		if v == nil {
@@ -1761,7 +1761,7 @@ func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput) UpdateSignature()
 	}).(pulumi.StringPtrOutput)
 }
 
-// LoRaWANGatewayVersion object.
+// The firmware version to update the gateway to.
 func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput) UpdateVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLoRaWanUpdateGatewayTaskCreate) *TaskDefinitionLoRaWanGatewayVersion {
 		if v == nil {
@@ -1772,9 +1772,9 @@ func (o TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput) UpdateVersion() T
 }
 
 type TaskDefinitionLoRaWanUpdateGatewayTaskEntry struct {
-	// LoRaWANGatewayVersion object.
+	// The version of the gateways that should receive the update.
 	CurrentVersion *TaskDefinitionLoRaWanGatewayVersion `pulumi:"currentVersion"`
-	// LoRaWANGatewayVersion object.
+	// The firmware version to update the gateway to.
 	UpdateVersion *TaskDefinitionLoRaWanGatewayVersion `pulumi:"updateVersion"`
 }
 
@@ -1790,9 +1790,9 @@ type TaskDefinitionLoRaWanUpdateGatewayTaskEntryInput interface {
 }
 
 type TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs struct {
-	// LoRaWANGatewayVersion object.
+	// The version of the gateways that should receive the update.
 	CurrentVersion TaskDefinitionLoRaWanGatewayVersionPtrInput `pulumi:"currentVersion"`
-	// LoRaWANGatewayVersion object.
+	// The firmware version to update the gateway to.
 	UpdateVersion TaskDefinitionLoRaWanGatewayVersionPtrInput `pulumi:"updateVersion"`
 }
 
@@ -1873,14 +1873,14 @@ func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput) ToTaskDefinitionLoRaW
 	}).(TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput)
 }
 
-// LoRaWANGatewayVersion object.
+// The version of the gateways that should receive the update.
 func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput) CurrentVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLoRaWanUpdateGatewayTaskEntry) *TaskDefinitionLoRaWanGatewayVersion {
 		return v.CurrentVersion
 	}).(TaskDefinitionLoRaWanGatewayVersionPtrOutput)
 }
 
-// LoRaWANGatewayVersion object.
+// The firmware version to update the gateway to.
 func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput) UpdateVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionLoRaWanUpdateGatewayTaskEntry) *TaskDefinitionLoRaWanGatewayVersion {
 		return v.UpdateVersion
@@ -1911,7 +1911,7 @@ func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput) Elem() TaskDefinit
 	}).(TaskDefinitionLoRaWanUpdateGatewayTaskEntryOutput)
 }
 
-// LoRaWANGatewayVersion object.
+// The version of the gateways that should receive the update.
 func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput) CurrentVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLoRaWanUpdateGatewayTaskEntry) *TaskDefinitionLoRaWanGatewayVersion {
 		if v == nil {
@@ -1921,7 +1921,7 @@ func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput) CurrentVersion() T
 	}).(TaskDefinitionLoRaWanGatewayVersionPtrOutput)
 }
 
-// LoRaWANGatewayVersion object.
+// The firmware version to update the gateway to.
 func (o TaskDefinitionLoRaWanUpdateGatewayTaskEntryPtrOutput) UpdateVersion() TaskDefinitionLoRaWanGatewayVersionPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionLoRaWanUpdateGatewayTaskEntry) *TaskDefinitionLoRaWanGatewayVersion {
 		if v == nil {
@@ -1939,7 +1939,7 @@ type TaskDefinitionTag struct {
 }
 
 type TaskDefinitionUpdateWirelessGatewayTaskCreate struct {
-	// The signature used to verify the update firmware.
+	// The properties that relate to the LoRaWAN wireless gateway.
 	LoRaWan *TaskDefinitionLoRaWanUpdateGatewayTaskCreate `pulumi:"loRaWan"`
 	// The IAM role used to read data from the S3 bucket.
 	UpdateDataRole *string `pulumi:"updateDataRole"`
@@ -1959,7 +1959,7 @@ type TaskDefinitionUpdateWirelessGatewayTaskCreateInput interface {
 }
 
 type TaskDefinitionUpdateWirelessGatewayTaskCreateArgs struct {
-	// The signature used to verify the update firmware.
+	// The properties that relate to the LoRaWAN wireless gateway.
 	LoRaWan TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrInput `pulumi:"loRaWan"`
 	// The IAM role used to read data from the S3 bucket.
 	UpdateDataRole pulumi.StringPtrInput `pulumi:"updateDataRole"`
@@ -2044,7 +2044,7 @@ func (o TaskDefinitionUpdateWirelessGatewayTaskCreateOutput) ToTaskDefinitionUpd
 	}).(TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput)
 }
 
-// The signature used to verify the update firmware.
+// The properties that relate to the LoRaWAN wireless gateway.
 func (o TaskDefinitionUpdateWirelessGatewayTaskCreateOutput) LoRaWan() TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput {
 	return o.ApplyT(func(v TaskDefinitionUpdateWirelessGatewayTaskCreate) *TaskDefinitionLoRaWanUpdateGatewayTaskCreate {
 		return v.LoRaWan
@@ -2085,7 +2085,7 @@ func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) Elem() TaskDefin
 	}).(TaskDefinitionUpdateWirelessGatewayTaskCreateOutput)
 }
 
-// The signature used to verify the update firmware.
+// The properties that relate to the LoRaWAN wireless gateway.
 func (o TaskDefinitionUpdateWirelessGatewayTaskCreatePtrOutput) LoRaWan() TaskDefinitionLoRaWanUpdateGatewayTaskCreatePtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionUpdateWirelessGatewayTaskCreate) *TaskDefinitionLoRaWanUpdateGatewayTaskCreate {
 		if v == nil {
@@ -2589,7 +2589,7 @@ func (o WirelessDeviceAbpV11PtrOutput) SessionKeys() WirelessDeviceSessionKeysAb
 }
 
 type WirelessDeviceLoRaWanDevice struct {
-	// ABP device object for LoRaWAN specification v1.0.x
+	// ABP device object for LoRaWAN specification v1.0.x.
 	AbpV10x *WirelessDeviceAbpV10x `pulumi:"abpV10x"`
 	// ABP device object for create APIs for v1.1.
 	AbpV11 *WirelessDeviceAbpV11 `pulumi:"abpV11"`
@@ -2617,7 +2617,7 @@ type WirelessDeviceLoRaWanDeviceInput interface {
 }
 
 type WirelessDeviceLoRaWanDeviceArgs struct {
-	// ABP device object for LoRaWAN specification v1.0.x
+	// ABP device object for LoRaWAN specification v1.0.x.
 	AbpV10x WirelessDeviceAbpV10xPtrInput `pulumi:"abpV10x"`
 	// ABP device object for create APIs for v1.1.
 	AbpV11 WirelessDeviceAbpV11PtrInput `pulumi:"abpV11"`
@@ -2710,7 +2710,7 @@ func (o WirelessDeviceLoRaWanDeviceOutput) ToWirelessDeviceLoRaWanDevicePtrOutpu
 	}).(WirelessDeviceLoRaWanDevicePtrOutput)
 }
 
-// ABP device object for LoRaWAN specification v1.0.x
+// ABP device object for LoRaWAN specification v1.0.x.
 func (o WirelessDeviceLoRaWanDeviceOutput) AbpV10x() WirelessDeviceAbpV10xPtrOutput {
 	return o.ApplyT(func(v WirelessDeviceLoRaWanDevice) *WirelessDeviceAbpV10x { return v.AbpV10x }).(WirelessDeviceAbpV10xPtrOutput)
 }
@@ -2769,7 +2769,7 @@ func (o WirelessDeviceLoRaWanDevicePtrOutput) Elem() WirelessDeviceLoRaWanDevice
 	}).(WirelessDeviceLoRaWanDeviceOutput)
 }
 
-// ABP device object for LoRaWAN specification v1.0.x
+// ABP device object for LoRaWAN specification v1.0.x.
 func (o WirelessDeviceLoRaWanDevicePtrOutput) AbpV10x() WirelessDeviceAbpV10xPtrOutput {
 	return o.ApplyT(func(v *WirelessDeviceLoRaWanDevice) *WirelessDeviceAbpV10x {
 		if v == nil {

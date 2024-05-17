@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.AppFlow.FlowFileType? FileType;
         /// <summary>
-        /// Specifies elements that Amazon AppFlow includes in the file and folder names in the flow destination.
+        /// Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date.
         /// </summary>
         public readonly Outputs.FlowPrefixConfig? PrefixConfig;
         /// <summary>

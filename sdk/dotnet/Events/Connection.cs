@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Events
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Contains the authorization parameters to use for the connection.
+        /// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
         /// </summary>
         [Output("authParameters")]
         public Output<Outputs.ConnectionAuthParameters> AuthParameters { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.AwsNative.Events
     public sealed class ConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains the authorization parameters to use for the connection.
+        /// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
         /// </summary>
         [Input("authParameters", required: true)]
         public Input<Inputs.ConnectionAuthParametersArgs> AuthParameters { get; set; } = null!;

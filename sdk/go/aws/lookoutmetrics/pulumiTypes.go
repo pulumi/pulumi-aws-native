@@ -14,9 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AlertAction struct {
-	// Contains information about a Lambda configuration.
+	// A configuration for an AWS Lambda channel.
 	LambdaConfiguration *AlertLambdaConfiguration `pulumi:"lambdaConfiguration"`
-	// Contains information about the SNS topic to which you want to send your alerts and the IAM role that has access to that topic.
+	// A configuration for an Amazon SNS channel.
 	SnsConfiguration *AlertSnsConfiguration `pulumi:"snsConfiguration"`
 }
 
@@ -32,9 +32,9 @@ type AlertActionInput interface {
 }
 
 type AlertActionArgs struct {
-	// Contains information about a Lambda configuration.
+	// A configuration for an AWS Lambda channel.
 	LambdaConfiguration AlertLambdaConfigurationPtrInput `pulumi:"lambdaConfiguration"`
-	// Contains information about the SNS topic to which you want to send your alerts and the IAM role that has access to that topic.
+	// A configuration for an Amazon SNS channel.
 	SnsConfiguration AlertSnsConfigurationPtrInput `pulumi:"snsConfiguration"`
 }
 
@@ -64,12 +64,12 @@ func (o AlertActionOutput) ToAlertActionOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// Contains information about a Lambda configuration.
+// A configuration for an AWS Lambda channel.
 func (o AlertActionOutput) LambdaConfiguration() AlertLambdaConfigurationPtrOutput {
 	return o.ApplyT(func(v AlertAction) *AlertLambdaConfiguration { return v.LambdaConfiguration }).(AlertLambdaConfigurationPtrOutput)
 }
 
-// Contains information about the SNS topic to which you want to send your alerts and the IAM role that has access to that topic.
+// A configuration for an Amazon SNS channel.
 func (o AlertActionOutput) SnsConfiguration() AlertSnsConfigurationPtrOutput {
 	return o.ApplyT(func(v AlertAction) *AlertSnsConfiguration { return v.SnsConfiguration }).(AlertSnsConfigurationPtrOutput)
 }
@@ -1453,7 +1453,7 @@ type AnomalyDetectorMetricSet struct {
 	MetricSource AnomalyDetectorMetricSource `pulumi:"metricSource"`
 	// Offset, in seconds, between the frequency interval and the time at which the metrics are available.
 	Offset *int `pulumi:"offset"`
-	// Contains information about the column used to track time in a source data file.
+	// Contains information about the column used for tracking time in your source data.
 	TimestampColumn *AnomalyDetectorTimestampColumn `pulumi:"timestampColumn"`
 	// The time zone in which your source data was recorded.
 	Timezone *string `pulumi:"timezone"`
@@ -1485,7 +1485,7 @@ type AnomalyDetectorMetricSetArgs struct {
 	MetricSource AnomalyDetectorMetricSourceInput `pulumi:"metricSource"`
 	// Offset, in seconds, between the frequency interval and the time at which the metrics are available.
 	Offset pulumi.IntPtrInput `pulumi:"offset"`
-	// Contains information about the column used to track time in a source data file.
+	// Contains information about the column used for tracking time in your source data.
 	TimestampColumn AnomalyDetectorTimestampColumnPtrInput `pulumi:"timestampColumn"`
 	// The time zone in which your source data was recorded.
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
@@ -1579,7 +1579,7 @@ func (o AnomalyDetectorMetricSetOutput) Offset() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSet) *int { return v.Offset }).(pulumi.IntPtrOutput)
 }
 
-// Contains information about the column used to track time in a source data file.
+// Contains information about the column used for tracking time in your source data.
 func (o AnomalyDetectorMetricSetOutput) TimestampColumn() AnomalyDetectorTimestampColumnPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSet) *AnomalyDetectorTimestampColumn { return v.TimestampColumn }).(AnomalyDetectorTimestampColumnPtrOutput)
 }
@@ -1610,13 +1610,13 @@ func (o AnomalyDetectorMetricSetArrayOutput) Index(i pulumi.IntInput) AnomalyDet
 }
 
 type AnomalyDetectorMetricSource struct {
-	// Details about an Amazon AppFlow flow datasource.
+	// Details about an AppFlow datasource.
 	AppFlowConfig *AnomalyDetectorAppFlowConfig `pulumi:"appFlowConfig"`
-	// Details about an Amazon CloudWatch datasource.
+	// Details about an Amazon CloudWatch monitoring datasource.
 	CloudwatchConfig *AnomalyDetectorCloudwatchConfig `pulumi:"cloudwatchConfig"`
-	// Contains information about the Amazon Relational Database Service (RDS) configuration.
+	// Details about an Amazon Relational Database Service (RDS) datasource.
 	RdsSourceConfig *AnomalyDetectorRdsSourceConfig `pulumi:"rdsSourceConfig"`
-	// Provides information about the Amazon Redshift database configuration.
+	// Details about an Amazon Redshift database datasource.
 	RedshiftSourceConfig *AnomalyDetectorRedshiftSourceConfig `pulumi:"redshiftSourceConfig"`
 	// Contains information about the configuration of the S3 bucket that contains source files.
 	S3SourceConfig *AnomalyDetectorS3SourceConfig `pulumi:"s3SourceConfig"`
@@ -1634,13 +1634,13 @@ type AnomalyDetectorMetricSourceInput interface {
 }
 
 type AnomalyDetectorMetricSourceArgs struct {
-	// Details about an Amazon AppFlow flow datasource.
+	// Details about an AppFlow datasource.
 	AppFlowConfig AnomalyDetectorAppFlowConfigPtrInput `pulumi:"appFlowConfig"`
-	// Details about an Amazon CloudWatch datasource.
+	// Details about an Amazon CloudWatch monitoring datasource.
 	CloudwatchConfig AnomalyDetectorCloudwatchConfigPtrInput `pulumi:"cloudwatchConfig"`
-	// Contains information about the Amazon Relational Database Service (RDS) configuration.
+	// Details about an Amazon Relational Database Service (RDS) datasource.
 	RdsSourceConfig AnomalyDetectorRdsSourceConfigPtrInput `pulumi:"rdsSourceConfig"`
-	// Provides information about the Amazon Redshift database configuration.
+	// Details about an Amazon Redshift database datasource.
 	RedshiftSourceConfig AnomalyDetectorRedshiftSourceConfigPtrInput `pulumi:"redshiftSourceConfig"`
 	// Contains information about the configuration of the S3 bucket that contains source files.
 	S3SourceConfig AnomalyDetectorS3SourceConfigPtrInput `pulumi:"s3SourceConfig"`
@@ -1672,22 +1672,22 @@ func (o AnomalyDetectorMetricSourceOutput) ToAnomalyDetectorMetricSourceOutputWi
 	return o
 }
 
-// Details about an Amazon AppFlow flow datasource.
+// Details about an AppFlow datasource.
 func (o AnomalyDetectorMetricSourceOutput) AppFlowConfig() AnomalyDetectorAppFlowConfigPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSource) *AnomalyDetectorAppFlowConfig { return v.AppFlowConfig }).(AnomalyDetectorAppFlowConfigPtrOutput)
 }
 
-// Details about an Amazon CloudWatch datasource.
+// Details about an Amazon CloudWatch monitoring datasource.
 func (o AnomalyDetectorMetricSourceOutput) CloudwatchConfig() AnomalyDetectorCloudwatchConfigPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSource) *AnomalyDetectorCloudwatchConfig { return v.CloudwatchConfig }).(AnomalyDetectorCloudwatchConfigPtrOutput)
 }
 
-// Contains information about the Amazon Relational Database Service (RDS) configuration.
+// Details about an Amazon Relational Database Service (RDS) datasource.
 func (o AnomalyDetectorMetricSourceOutput) RdsSourceConfig() AnomalyDetectorRdsSourceConfigPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSource) *AnomalyDetectorRdsSourceConfig { return v.RdsSourceConfig }).(AnomalyDetectorRdsSourceConfigPtrOutput)
 }
 
-// Provides information about the Amazon Redshift database configuration.
+// Details about an Amazon Redshift database datasource.
 func (o AnomalyDetectorMetricSourceOutput) RedshiftSourceConfig() AnomalyDetectorRedshiftSourceConfigPtrOutput {
 	return o.ApplyT(func(v AnomalyDetectorMetricSource) *AnomalyDetectorRedshiftSourceConfig {
 		return v.RedshiftSourceConfig
@@ -1714,7 +1714,7 @@ type AnomalyDetectorRdsSourceConfig struct {
 	SecretManagerArn string `pulumi:"secretManagerArn"`
 	// The name of the table in the database.
 	TableName string `pulumi:"tableName"`
-	// Contains configuration information about the Amazon Virtual Private Cloud (VPC).
+	// An object containing information about the Amazon Virtual Private Cloud (VPC) configuration.
 	VpcConfiguration AnomalyDetectorVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
@@ -1744,7 +1744,7 @@ type AnomalyDetectorRdsSourceConfigArgs struct {
 	SecretManagerArn pulumi.StringInput `pulumi:"secretManagerArn"`
 	// The name of the table in the database.
 	TableName pulumi.StringInput `pulumi:"tableName"`
-	// Contains configuration information about the Amazon Virtual Private Cloud (VPC).
+	// An object containing information about the Amazon Virtual Private Cloud (VPC) configuration.
 	VpcConfiguration AnomalyDetectorVpcConfigurationInput `pulumi:"vpcConfiguration"`
 }
 
@@ -1860,7 +1860,7 @@ func (o AnomalyDetectorRdsSourceConfigOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v AnomalyDetectorRdsSourceConfig) string { return v.TableName }).(pulumi.StringOutput)
 }
 
-// Contains configuration information about the Amazon Virtual Private Cloud (VPC).
+// An object containing information about the Amazon Virtual Private Cloud (VPC) configuration.
 func (o AnomalyDetectorRdsSourceConfigOutput) VpcConfiguration() AnomalyDetectorVpcConfigurationOutput {
 	return o.ApplyT(func(v AnomalyDetectorRdsSourceConfig) AnomalyDetectorVpcConfiguration { return v.VpcConfiguration }).(AnomalyDetectorVpcConfigurationOutput)
 }
@@ -1959,7 +1959,7 @@ func (o AnomalyDetectorRdsSourceConfigPtrOutput) TableName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains configuration information about the Amazon Virtual Private Cloud (VPC).
+// An object containing information about the Amazon Virtual Private Cloud (VPC) configuration.
 func (o AnomalyDetectorRdsSourceConfigPtrOutput) VpcConfiguration() AnomalyDetectorVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRdsSourceConfig) *AnomalyDetectorVpcConfiguration {
 		if v == nil {
@@ -1984,7 +1984,7 @@ type AnomalyDetectorRedshiftSourceConfig struct {
 	SecretManagerArn string `pulumi:"secretManagerArn"`
 	// The table name of the Redshift database.
 	TableName string `pulumi:"tableName"`
-	// Contains configuration information about the Amazon Virtual Private Cloud (VPC).
+	// Contains information about the Amazon Virtual Private Cloud (VPC) configuration.
 	VpcConfiguration AnomalyDetectorVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
@@ -2014,7 +2014,7 @@ type AnomalyDetectorRedshiftSourceConfigArgs struct {
 	SecretManagerArn pulumi.StringInput `pulumi:"secretManagerArn"`
 	// The table name of the Redshift database.
 	TableName pulumi.StringInput `pulumi:"tableName"`
-	// Contains configuration information about the Amazon Virtual Private Cloud (VPC).
+	// Contains information about the Amazon Virtual Private Cloud (VPC) configuration.
 	VpcConfiguration AnomalyDetectorVpcConfigurationInput `pulumi:"vpcConfiguration"`
 }
 
@@ -2130,7 +2130,7 @@ func (o AnomalyDetectorRedshiftSourceConfigOutput) TableName() pulumi.StringOutp
 	return o.ApplyT(func(v AnomalyDetectorRedshiftSourceConfig) string { return v.TableName }).(pulumi.StringOutput)
 }
 
-// Contains configuration information about the Amazon Virtual Private Cloud (VPC).
+// Contains information about the Amazon Virtual Private Cloud (VPC) configuration.
 func (o AnomalyDetectorRedshiftSourceConfigOutput) VpcConfiguration() AnomalyDetectorVpcConfigurationOutput {
 	return o.ApplyT(func(v AnomalyDetectorRedshiftSourceConfig) AnomalyDetectorVpcConfiguration { return v.VpcConfiguration }).(AnomalyDetectorVpcConfigurationOutput)
 }
@@ -2229,7 +2229,7 @@ func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) TableName() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains configuration information about the Amazon Virtual Private Cloud (VPC).
+// Contains information about the Amazon Virtual Private Cloud (VPC) configuration.
 func (o AnomalyDetectorRedshiftSourceConfigPtrOutput) VpcConfiguration() AnomalyDetectorVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *AnomalyDetectorRedshiftSourceConfig) *AnomalyDetectorVpcConfiguration {
 		if v == nil {

@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TopicFilter
     {
         /// <summary>
-        /// A structure that represents a category filter.
+        /// The category filter that is associated with this filter.
         /// </summary>
         public readonly Outputs.TopicCategoryFilter? CategoryFilter;
         /// <summary>
-        /// A filter used to restrict data based on a range of dates or times.
+        /// The date range filter.
         /// </summary>
         public readonly Outputs.TopicDateRangeFilter? DateRangeFilter;
         /// <summary>
@@ -42,11 +42,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TopicNamedFilterType? FilterType;
         /// <summary>
-        /// A filter that filters topics based on the value of a numeric field. The filter includes only topics whose numeric field value matches the specified value.
+        /// The numeric equality filter.
         /// </summary>
         public readonly Outputs.TopicNumericEqualityFilter? NumericEqualityFilter;
         /// <summary>
-        /// A filter that filters topics based on the value of a numeric field. The filter includes only topics whose numeric field value falls within the specified range.
+        /// The numeric range filter.
         /// </summary>
         public readonly Outputs.TopicNumericRangeFilter? NumericRangeFilter;
         /// <summary>
@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string OperandFieldName;
         /// <summary>
-        /// A structure that represents a relative date filter.
+        /// The relative date filter.
         /// </summary>
         public readonly Outputs.TopicRelativeDateFilter? RelativeDateFilter;
 

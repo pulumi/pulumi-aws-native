@@ -59,7 +59,7 @@ export interface GetPipeResult {
      */
     readonly lastModifiedTime?: string;
     /**
-     * Represents the configuration settings for the logs to which this pipe should report events.
+     * The logging configuration settings for the pipe.
      */
     readonly logConfiguration?: outputs.pipes.PipeLogConfiguration;
     /**

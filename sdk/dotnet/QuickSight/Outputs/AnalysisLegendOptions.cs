@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisLegendPosition? Position;
         /// <summary>
-        /// The share label options for the labels.
+        /// The custom title for the legend.
         /// </summary>
         public readonly Outputs.AnalysisLabelOptions? Title;
         /// <summary>

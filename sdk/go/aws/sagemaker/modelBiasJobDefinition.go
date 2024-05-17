@@ -26,25 +26,19 @@ type ModelBiasJobDefinition struct {
 	JobDefinitionName pulumi.StringPtrOutput `pulumi:"jobDefinitionName"`
 	// Identifies the resources to deploy for a monitoring job.
 	JobResources ModelBiasJobDefinitionMonitoringResourcesOutput `pulumi:"jobResources"`
-	// Docker container image configuration object for the model bias job.
+	// Configures the model bias job to run a specified Docker container image.
 	ModelBiasAppSpecification ModelBiasJobDefinitionModelBiasAppSpecificationOutput `pulumi:"modelBiasAppSpecification"`
-	// The configuration for a baseline model bias job.
+	// The baseline configuration for a model bias job.
 	ModelBiasBaselineConfig ModelBiasJobDefinitionModelBiasBaselineConfigPtrOutput `pulumi:"modelBiasBaselineConfig"`
 	// Inputs for the model bias job.
 	ModelBiasJobInput ModelBiasJobDefinitionModelBiasJobInputOutput `pulumi:"modelBiasJobInput"`
 	// The output configuration for monitoring jobs.
 	ModelBiasJobOutputConfig ModelBiasJobDefinitionMonitoringOutputConfigOutput `pulumi:"modelBiasJobOutputConfig"`
-	// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+	// Networking options for a model bias job.
 	NetworkConfig ModelBiasJobDefinitionNetworkConfigPtrOutput `pulumi:"networkConfig"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
-	//
-	// To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-	//
-	// The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
-	//
-	// > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+	// A time limit for how long the monitoring job is allowed to run before stopping.
 	StoppingCondition ModelBiasJobDefinitionStoppingConditionPtrOutput `pulumi:"stoppingCondition"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
@@ -124,25 +118,19 @@ type modelBiasJobDefinitionArgs struct {
 	JobDefinitionName *string `pulumi:"jobDefinitionName"`
 	// Identifies the resources to deploy for a monitoring job.
 	JobResources ModelBiasJobDefinitionMonitoringResources `pulumi:"jobResources"`
-	// Docker container image configuration object for the model bias job.
+	// Configures the model bias job to run a specified Docker container image.
 	ModelBiasAppSpecification ModelBiasJobDefinitionModelBiasAppSpecification `pulumi:"modelBiasAppSpecification"`
-	// The configuration for a baseline model bias job.
+	// The baseline configuration for a model bias job.
 	ModelBiasBaselineConfig *ModelBiasJobDefinitionModelBiasBaselineConfig `pulumi:"modelBiasBaselineConfig"`
 	// Inputs for the model bias job.
 	ModelBiasJobInput ModelBiasJobDefinitionModelBiasJobInput `pulumi:"modelBiasJobInput"`
 	// The output configuration for monitoring jobs.
 	ModelBiasJobOutputConfig ModelBiasJobDefinitionMonitoringOutputConfig `pulumi:"modelBiasJobOutputConfig"`
-	// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+	// Networking options for a model bias job.
 	NetworkConfig *ModelBiasJobDefinitionNetworkConfig `pulumi:"networkConfig"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
 	RoleArn string `pulumi:"roleArn"`
-	// Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
-	//
-	// To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-	//
-	// The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
-	//
-	// > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+	// A time limit for how long the monitoring job is allowed to run before stopping.
 	StoppingCondition *ModelBiasJobDefinitionStoppingCondition `pulumi:"stoppingCondition"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
@@ -155,25 +143,19 @@ type ModelBiasJobDefinitionArgs struct {
 	JobDefinitionName pulumi.StringPtrInput
 	// Identifies the resources to deploy for a monitoring job.
 	JobResources ModelBiasJobDefinitionMonitoringResourcesInput
-	// Docker container image configuration object for the model bias job.
+	// Configures the model bias job to run a specified Docker container image.
 	ModelBiasAppSpecification ModelBiasJobDefinitionModelBiasAppSpecificationInput
-	// The configuration for a baseline model bias job.
+	// The baseline configuration for a model bias job.
 	ModelBiasBaselineConfig ModelBiasJobDefinitionModelBiasBaselineConfigPtrInput
 	// Inputs for the model bias job.
 	ModelBiasJobInput ModelBiasJobDefinitionModelBiasJobInputInput
 	// The output configuration for monitoring jobs.
 	ModelBiasJobOutputConfig ModelBiasJobDefinitionMonitoringOutputConfigInput
-	// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+	// Networking options for a model bias job.
 	NetworkConfig ModelBiasJobDefinitionNetworkConfigPtrInput
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringInput
-	// Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
-	//
-	// To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-	//
-	// The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
-	//
-	// > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+	// A time limit for how long the monitoring job is allowed to run before stopping.
 	StoppingCondition ModelBiasJobDefinitionStoppingConditionPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.CreateOnlyTagArrayInput
@@ -240,14 +222,14 @@ func (o ModelBiasJobDefinitionOutput) JobResources() ModelBiasJobDefinitionMonit
 	return o.ApplyT(func(v *ModelBiasJobDefinition) ModelBiasJobDefinitionMonitoringResourcesOutput { return v.JobResources }).(ModelBiasJobDefinitionMonitoringResourcesOutput)
 }
 
-// Docker container image configuration object for the model bias job.
+// Configures the model bias job to run a specified Docker container image.
 func (o ModelBiasJobDefinitionOutput) ModelBiasAppSpecification() ModelBiasJobDefinitionModelBiasAppSpecificationOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinition) ModelBiasJobDefinitionModelBiasAppSpecificationOutput {
 		return v.ModelBiasAppSpecification
 	}).(ModelBiasJobDefinitionModelBiasAppSpecificationOutput)
 }
 
-// The configuration for a baseline model bias job.
+// The baseline configuration for a model bias job.
 func (o ModelBiasJobDefinitionOutput) ModelBiasBaselineConfig() ModelBiasJobDefinitionModelBiasBaselineConfigPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinition) ModelBiasJobDefinitionModelBiasBaselineConfigPtrOutput {
 		return v.ModelBiasBaselineConfig
@@ -268,7 +250,7 @@ func (o ModelBiasJobDefinitionOutput) ModelBiasJobOutputConfig() ModelBiasJobDef
 	}).(ModelBiasJobDefinitionMonitoringOutputConfigOutput)
 }
 
-// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+// Networking options for a model bias job.
 func (o ModelBiasJobDefinitionOutput) NetworkConfig() ModelBiasJobDefinitionNetworkConfigPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinition) ModelBiasJobDefinitionNetworkConfigPtrOutput { return v.NetworkConfig }).(ModelBiasJobDefinitionNetworkConfigPtrOutput)
 }
@@ -278,13 +260,7 @@ func (o ModelBiasJobDefinitionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinition) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
-//
-// To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-//
-// The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
-//
-// > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+// A time limit for how long the monitoring job is allowed to run before stopping.
 func (o ModelBiasJobDefinitionOutput) StoppingCondition() ModelBiasJobDefinitionStoppingConditionPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinition) ModelBiasJobDefinitionStoppingConditionPtrOutput {
 		return v.StoppingCondition

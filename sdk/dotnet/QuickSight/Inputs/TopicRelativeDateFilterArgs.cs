@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TopicRelativeDateFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A structure that represents a singular filter constant, used in filters to specify a single value to match against.
+        /// The constant used in a relative date filter.
         /// </summary>
         [Input("constant")]
         public Input<Inputs.TopicSingularFilterConstantArgs>? Constant { get; set; }

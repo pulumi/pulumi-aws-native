@@ -27,7 +27,7 @@ export interface GetDbProxyTargetGroupArgs {
 
 export interface GetDbProxyTargetGroupResult {
     /**
-     * Specifies the settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+     * Settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
      */
     readonly connectionPoolConfigurationInfo?: outputs.rds.DbProxyTargetGroupConnectionPoolConfigurationInfoFormat;
     /**

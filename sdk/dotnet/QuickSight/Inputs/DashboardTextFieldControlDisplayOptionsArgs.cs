@@ -13,19 +13,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardTextFieldControlDisplayOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A control to display info icons for filters and parameters.
+        /// The configuration of info icon label options.
         /// </summary>
         [Input("infoIconLabelOptions")]
         public Input<Inputs.DashboardSheetControlInfoIconLabelOptionsArgs>? InfoIconLabelOptions { get; set; }
 
         /// <summary>
-        /// The configuration of the placeholder options in a text control.
+        /// The configuration of the placeholder options in a text field control.
         /// </summary>
         [Input("placeholderOptions")]
         public Input<Inputs.DashboardTextControlPlaceholderOptionsArgs>? PlaceholderOptions { get; set; }
 
         /// <summary>
-        /// The share label options for the labels.
+        /// The options to configure the title visibility, name, and font size.
         /// </summary>
         [Input("titleOptions")]
         public Input<Inputs.DashboardLabelOptionsArgs>? TitleOptions { get; set; }

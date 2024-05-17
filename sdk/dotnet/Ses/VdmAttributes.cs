@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.Ses
     public partial class VdmAttributes : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Settings for your VDM configuration as applicable to the Dashboard.
+        /// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         /// </summary>
         [Output("dashboardAttributes")]
         public Output<Outputs.VdmAttributesDashboardAttributes?> DashboardAttributes { get; private set; } = null!;
 
         /// <summary>
-        /// Settings for your VDM configuration as applicable to the Guardian.
+        /// Specifies additional settings for your VDM configuration as applicable to the Guardian.
         /// </summary>
         [Output("guardianAttributes")]
         public Output<Outputs.VdmAttributesGuardianAttributes?> GuardianAttributes { get; private set; } = null!;
@@ -79,13 +79,13 @@ namespace Pulumi.AwsNative.Ses
     public sealed class VdmAttributesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Settings for your VDM configuration as applicable to the Dashboard.
+        /// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         /// </summary>
         [Input("dashboardAttributes")]
         public Input<Inputs.VdmAttributesDashboardAttributesArgs>? DashboardAttributes { get; set; }
 
         /// <summary>
-        /// Settings for your VDM configuration as applicable to the Guardian.
+        /// Specifies additional settings for your VDM configuration as applicable to the Guardian.
         /// </summary>
         [Input("guardianAttributes")]
         public Input<Inputs.VdmAttributesGuardianAttributesArgs>? GuardianAttributes { get; set; }

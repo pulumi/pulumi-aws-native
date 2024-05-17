@@ -50,7 +50,7 @@ export class Filter extends pulumi.CustomResource {
      */
     public readonly detectorId!: pulumi.Output<string | undefined>;
     /**
-     * Represents a map of finding properties that match specified conditions and values when querying findings.
+     * Represents the criteria to be used in the filter for querying findings.
      */
     public readonly findingCriteria!: pulumi.Output<outputs.guardduty.FilterFindingCriteria>;
     /**
@@ -124,7 +124,7 @@ export interface FilterArgs {
      */
     detectorId?: pulumi.Input<string>;
     /**
-     * Represents a map of finding properties that match specified conditions and values when querying findings.
+     * Represents the criteria to be used in the filter for querying findings.
      */
     findingCriteria: pulumi.Input<inputs.guardduty.FilterFindingCriteriaArgs>;
     /**

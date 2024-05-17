@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Deadline.Outputs
     public sealed class QueueJobRunAsUser
     {
         /// <summary>
-        /// The POSIX user.
+        /// The user and group that the jobs in the queue run as.
         /// </summary>
         public readonly Outputs.QueuePosixUser? Posix;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Deadline.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.Deadline.QueueRunAs RunAs;
         /// <summary>
-        /// The Windows user details.
+        /// Identifies a Microsoft Windows user.
         /// </summary>
         public readonly Outputs.QueueWindowsUser? Windows;
 

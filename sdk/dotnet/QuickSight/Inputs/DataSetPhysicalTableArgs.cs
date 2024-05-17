@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.DataSetRelationalTableArgs>? RelationalTable { get; set; }
 
         /// <summary>
-        /// A physical table type for an S3 data source.
+        /// A physical table type for as S3 data source.
         /// </summary>
         [Input("s3Source")]
         public Input<Inputs.DataSetS3SourceArgs>? S3Source { get; set; }

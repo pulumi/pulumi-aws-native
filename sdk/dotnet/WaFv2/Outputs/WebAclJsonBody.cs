@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.WaFv2.WebAclBodyParsingFallbackBehavior? InvalidFallbackBehavior;
         /// <summary>
-        /// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. This is used with the `FieldToMatch` option `JsonBody` .
+        /// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
         /// </summary>
         public readonly Outputs.WebAclJsonMatchPattern MatchPattern;
         /// <summary>

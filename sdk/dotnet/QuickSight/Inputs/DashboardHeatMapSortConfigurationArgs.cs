@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardHeatMapSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of columns that are displayed in a heat map.
         /// </summary>
         [Input("heatMapColumnItemsLimitConfiguration")]
         public Input<Inputs.DashboardItemsLimitConfigurationArgs>? HeatMapColumnItemsLimitConfiguration { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of rows that are displayed in a heat map.
         /// </summary>
         [Input("heatMapRowItemsLimitConfiguration")]
         public Input<Inputs.DashboardItemsLimitConfigurationArgs>? HeatMapRowItemsLimitConfiguration { get; set; }

@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         public Input<Pulumi.AwsNative.WaFv2.RuleGroupBodyParsingFallbackBehavior>? InvalidFallbackBehavior { get; set; }
 
         /// <summary>
-        /// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. This is used with the `FieldToMatch` option `JsonBody` .
+        /// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
         /// </summary>
         [Input("matchPattern", required: true)]
         public Input<Inputs.RuleGroupJsonMatchPatternArgs> MatchPattern { get; set; } = null!;

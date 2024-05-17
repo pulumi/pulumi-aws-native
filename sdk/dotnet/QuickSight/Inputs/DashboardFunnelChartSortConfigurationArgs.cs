@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardFunnelChartSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of categories displayed.
         /// </summary>
         [Input("categoryItemsLimit")]
         public Input<Inputs.DashboardItemsLimitConfigurationArgs>? CategoryItemsLimit { get; set; }

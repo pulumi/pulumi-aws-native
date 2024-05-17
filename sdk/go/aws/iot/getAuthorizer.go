@@ -39,7 +39,13 @@ type LookupAuthorizerResult struct {
 	//
 	// Valid values: `ACTIVE` | `INACTIVE`
 	Status *AuthorizerStatus `pulumi:"status"`
-	// A set of key/value pairs that are used to manage the resource.
+	// Metadata which can be used to manage the custom authorizer.
+	//
+	// > For URI Request parameters use format: ...key1=value1&key2=value2...
+	// >
+	// > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+	// >
+	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
 	Tags []aws.Tag `pulumi:"tags"`
 	// The key used to extract the token from the HTTP headers.
 	TokenKeyName *string `pulumi:"tokenKeyName"`
@@ -105,7 +111,13 @@ func (o LookupAuthorizerResultOutput) Status() AuthorizerStatusPtrOutput {
 	return o.ApplyT(func(v LookupAuthorizerResult) *AuthorizerStatus { return v.Status }).(AuthorizerStatusPtrOutput)
 }
 
-// A set of key/value pairs that are used to manage the resource.
+// Metadata which can be used to manage the custom authorizer.
+//
+// > For URI Request parameters use format: ...key1=value1&key2=value2...
+// >
+// > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+// >
+// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
 func (o LookupAuthorizerResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupAuthorizerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

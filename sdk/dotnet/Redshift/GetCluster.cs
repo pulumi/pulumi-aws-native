@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.Redshift
         /// </summary>
         public readonly bool? Encrypted;
         /// <summary>
-        /// Describes a connection endpoint.
+        /// The connection endpoint.
         /// </summary>
         public readonly Outputs.ClusterEndpoint? Endpoint;
         /// <summary>

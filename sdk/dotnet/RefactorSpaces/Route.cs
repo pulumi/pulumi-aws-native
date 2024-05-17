@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration for the default route type.
+        /// Configuration for the default route type.
         /// </summary>
         [Output("defaultRoute")]
         public Output<Outputs.RouteDefaultRouteInput?> DefaultRoute { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public Input<string> ApplicationIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// The configuration for the default route type.
+        /// Configuration for the default route type.
         /// </summary>
         [Input("defaultRoute")]
         public Input<Inputs.RouteDefaultRouteInputArgs>? DefaultRoute { get; set; }

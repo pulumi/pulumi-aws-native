@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public Input<Inputs.ContinuousDeploymentPolicySingleHeaderConfigArgs>? SingleHeaderConfig { get; set; }
 
         /// <summary>
-        /// This configuration determines the percentage of HTTP requests that are sent to the staging distribution.
+        /// Contains the percentage of traffic to send to the staging distribution.
         /// </summary>
         [Input("singleWeightConfig")]
         public Input<Inputs.ContinuousDeploymentPolicySingleWeightConfigArgs>? SingleWeightConfig { get; set; }

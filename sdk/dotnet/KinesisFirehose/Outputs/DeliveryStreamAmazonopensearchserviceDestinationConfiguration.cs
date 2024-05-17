@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     public sealed class DeliveryStreamAmazonopensearchserviceDestinationConfiguration
     {
         /// <summary>
-        /// Describes the buffering to perform before delivering data to the Amazon OpenSearch Service destination.
+        /// The buffering options. If no value is specified, the default values for AmazonopensearchserviceBufferingHints are used.
         /// </summary>
         public readonly Outputs.DeliveryStreamAmazonopensearchserviceBufferingHints? BufferingHints;
         /// <summary>
-        /// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        /// Describes the Amazon CloudWatch logging options for your delivery stream.
         /// </summary>
         public readonly Outputs.DeliveryStreamCloudWatchLoggingOptions? CloudWatchLoggingOptions;
         /// <summary>
@@ -42,11 +42,11 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod? IndexRotationPeriod;
         /// <summary>
-        /// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+        /// Describes a data processing configuration.
         /// </summary>
         public readonly Outputs.DeliveryStreamProcessingConfiguration? ProcessingConfiguration;
         /// <summary>
-        /// Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon OpenSearch Service.
+        /// The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon OpenSearch Service. The default value is 300 (5 minutes).
         /// </summary>
         public readonly Outputs.DeliveryStreamAmazonopensearchserviceRetryOptions? RetryOptions;
         /// <summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.KinesisFirehose.DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode? S3BackupMode;
         /// <summary>
-        /// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        /// Describes the configuration of a destination in Amazon S3.
         /// </summary>
         public readonly Outputs.DeliveryStreamS3DestinationConfiguration S3Configuration;
         /// <summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// </summary>
         public readonly string? TypeName;
         /// <summary>
-        /// The details of the VPC of the Amazon ES destination.
+        /// The details of the VPC of the Amazon OpenSearch Service destination.
         /// </summary>
         public readonly Outputs.DeliveryStreamVpcConfiguration? VpcConfiguration;
 

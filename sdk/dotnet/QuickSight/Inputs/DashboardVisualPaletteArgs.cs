@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.DashboardDataPathColorArgs>? _colorMap;
 
         /// <summary>
-        /// The color map that determines the color options for a particular element.
+        /// The color map options for the visual palette.
         /// </summary>
         public InputList<Inputs.DashboardDataPathColorArgs> ColorMap
         {

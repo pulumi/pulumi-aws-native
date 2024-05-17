@@ -101,7 +101,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public Output<ImmutableArray<string>> NotificationArns { get; private set; } = null!;
 
         /// <summary>
-        /// The Output data type.
+        /// A list of output structures.
         /// </summary>
         [Output("outputs")]
         public Output<ImmutableArray<Outputs.StackOutput>> Outputs { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public Output<string?> StackStatusReason { get; private set; } = null!;
 
         /// <summary>
-        /// The Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation stack.
+        /// Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -400,7 +400,7 @@ namespace Pulumi.AwsNative.CloudFormation
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// The Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation stack.
+        /// Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

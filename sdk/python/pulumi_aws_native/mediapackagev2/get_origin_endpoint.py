@@ -113,7 +113,7 @@ class GetOriginEndpointResult:
     @pulumi.getter
     def segment(self) -> Optional['outputs.OriginEndpointSegment']:
         """
-        The segment configuration, including the segment name, duration, and other configuration values.
+        The segment associated with the origin endpoint.
         """
         return pulumi.get(self, "segment")
 

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public Input<Pulumi.AwsNative.AppFlow.FlowFileType>? FileType { get; set; }
 
         /// <summary>
-        /// Specifies elements that Amazon AppFlow includes in the file and folder names in the flow destination.
+        /// Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date.
         /// </summary>
         [Input("prefixConfig")]
         public Input<Inputs.FlowPrefixConfigArgs>? PrefixConfig { get; set; }

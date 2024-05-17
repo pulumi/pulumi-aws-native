@@ -22,10 +22,9 @@ type CustomPlugin struct {
 	// The Amazon Resource Name (ARN) of the custom plugin to use.
 	CustomPluginArn pulumi.StringOutput `pulumi:"customPluginArn"`
 	// A summary description of the custom plugin.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Details about a custom plugin file.
+	Description     pulumi.StringPtrOutput            `pulumi:"description"`
 	FileDescription CustomPluginFileDescriptionOutput `pulumi:"fileDescription"`
-	// Information about the location of a custom plugin.
+	// Information about the location of the custom plugin.
 	Location CustomPluginLocationOutput `pulumi:"location"`
 	// The name of the custom plugin.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -92,7 +91,7 @@ type customPluginArgs struct {
 	ContentType CustomPluginContentType `pulumi:"contentType"`
 	// A summary description of the custom plugin.
 	Description *string `pulumi:"description"`
-	// Information about the location of a custom plugin.
+	// Information about the location of the custom plugin.
 	Location CustomPluginLocation `pulumi:"location"`
 	// The name of the custom plugin.
 	Name *string `pulumi:"name"`
@@ -106,7 +105,7 @@ type CustomPluginArgs struct {
 	ContentType CustomPluginContentTypeInput
 	// A summary description of the custom plugin.
 	Description pulumi.StringPtrInput
-	// Information about the location of a custom plugin.
+	// Information about the location of the custom plugin.
 	Location CustomPluginLocationInput
 	// The name of the custom plugin.
 	Name pulumi.StringPtrInput
@@ -166,12 +165,11 @@ func (o CustomPluginOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomPlugin) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Details about a custom plugin file.
 func (o CustomPluginOutput) FileDescription() CustomPluginFileDescriptionOutput {
 	return o.ApplyT(func(v *CustomPlugin) CustomPluginFileDescriptionOutput { return v.FileDescription }).(CustomPluginFileDescriptionOutput)
 }
 
-// Information about the location of a custom plugin.
+// Information about the location of the custom plugin.
 func (o CustomPluginOutput) Location() CustomPluginLocationOutput {
 	return o.ApplyT(func(v *CustomPlugin) CustomPluginLocationOutput { return v.Location }).(CustomPluginLocationOutput)
 }

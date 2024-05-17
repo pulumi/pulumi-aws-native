@@ -42,11 +42,11 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
      */
     public readonly additionalAccounts!: pulumi.Output<string[] | undefined>;
     /**
-     * Describes an potential intermediate component of a feasible path.
+     * Potential intermediate components.
      */
     public /*out*/ readonly alternatePathHints!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisAlternatePathHint[]>;
     /**
-     * Describes an explanation code for an unreachable path. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
+     * The explanations. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
      */
     public /*out*/ readonly explanations!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisExplanation[]>;
     /**
@@ -54,7 +54,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
      */
     public readonly filterInArns!: pulumi.Output<string[] | undefined>;
     /**
-     * Describes a path component.
+     * The components in the path from source to destination.
      */
     public /*out*/ readonly forwardPathComponents!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisPathComponent[]>;
     /**
@@ -74,7 +74,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
      */
     public /*out*/ readonly networkPathFound!: pulumi.Output<boolean>;
     /**
-     * Describes a path component.
+     * The components in the path from destination to source.
      */
     public /*out*/ readonly returnPathComponents!: pulumi.Output<outputs.ec2.NetworkInsightsAnalysisPathComponent[]>;
     /**
@@ -94,7 +94,7 @@ export class NetworkInsightsAnalysis extends pulumi.CustomResource {
      */
     public /*out*/ readonly suggestedAccounts!: pulumi.Output<string[]>;
     /**
-     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     * The tags to apply.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -168,7 +168,7 @@ export interface NetworkInsightsAnalysisArgs {
      */
     networkInsightsPathId: pulumi.Input<string>;
     /**
-     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     * The tags to apply.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

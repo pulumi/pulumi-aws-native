@@ -46,7 +46,7 @@ export class ConfiguredTable extends pulumi.CustomResource {
      */
     public readonly analysisMethod!: pulumi.Output<enums.cleanrooms.ConfiguredTableAnalysisMethod>;
     /**
-     * A specification about how data from the configured table can be used in a query.
+     * The entire created analysis rule.
      */
     public readonly analysisRules!: pulumi.Output<outputs.cleanrooms.ConfiguredTableAnalysisRule[] | undefined>;
     /**
@@ -70,7 +70,7 @@ export class ConfiguredTable extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A pointer to the dataset that underlies this table. Currently, this can only be an AWS Glue table.
+     * The AWS Glue table that this configured table represents.
      */
     public readonly tableReference!: pulumi.Output<outputs.cleanrooms.ConfiguredTableTableReference>;
     /**
@@ -138,7 +138,7 @@ export interface ConfiguredTableArgs {
      */
     analysisMethod: pulumi.Input<enums.cleanrooms.ConfiguredTableAnalysisMethod>;
     /**
-     * A specification about how data from the configured table can be used in a query.
+     * The entire created analysis rule.
      */
     analysisRules?: pulumi.Input<pulumi.Input<inputs.cleanrooms.ConfiguredTableAnalysisRuleArgs>[]>;
     /**
@@ -150,7 +150,7 @@ export interface ConfiguredTableArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A pointer to the dataset that underlies this table. Currently, this can only be an AWS Glue table.
+     * The AWS Glue table that this configured table represents.
      */
     tableReference: pulumi.Input<inputs.cleanrooms.ConfiguredTableTableReferenceArgs>;
     /**

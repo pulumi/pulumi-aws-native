@@ -46,7 +46,7 @@ export class VerifiedAccessTrustProvider extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Describes the options for an AWS Verified Access device-identity based trust provider.
+     * The options for device-identity trust provider.
      */
     public readonly deviceOptions!: pulumi.Output<outputs.ec2.VerifiedAccessTrustProviderDeviceOptions | undefined>;
     /**
@@ -58,7 +58,7 @@ export class VerifiedAccessTrustProvider extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
-     * Describes the options for an OpenID Connect-compatible user-identity trust provider.
+     * The options for an OpenID Connect-compatible user-identity trust provider.
      */
     public readonly oidcOptions!: pulumi.Output<outputs.ec2.VerifiedAccessTrustProviderOidcOptions | undefined>;
     /**
@@ -145,7 +145,7 @@ export interface VerifiedAccessTrustProviderArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Describes the options for an AWS Verified Access device-identity based trust provider.
+     * The options for device-identity trust provider.
      */
     deviceOptions?: pulumi.Input<inputs.ec2.VerifiedAccessTrustProviderDeviceOptionsArgs>;
     /**
@@ -153,7 +153,7 @@ export interface VerifiedAccessTrustProviderArgs {
      */
     deviceTrustProviderType?: pulumi.Input<string>;
     /**
-     * Describes the options for an OpenID Connect-compatible user-identity trust provider.
+     * The options for an OpenID Connect-compatible user-identity trust provider.
      */
     oidcOptions?: pulumi.Input<inputs.ec2.VerifiedAccessTrustProviderOidcOptionsArgs>;
     /**

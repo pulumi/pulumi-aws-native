@@ -33,10 +33,12 @@ class DataSourceArgs:
         The set of arguments for constructing a DataSource resource.
         :param pulumi.Input[str] index_id: The identifier of the index you want to use with the data source connector.
         :param pulumi.Input['DataSourceType'] type: The type of the data source.
-        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationArgs'] custom_document_enrichment_configuration: Provides the configuration information for altering document metadata and content during the document ingestion process.
+        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationArgs'] custom_document_enrichment_configuration: Configuration information for altering document metadata and content during the document ingestion process.
+        :param pulumi.Input['DataSourceConfigurationArgs'] data_source_configuration: Configuration information for an Amazon Kendra data source. The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration.
                
-               For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
-        :param pulumi.Input['DataSourceConfigurationArgs'] data_source_configuration: Provides the configuration information for an Amazon Kendra data source.
+               You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM` .
+               
+               The `Configuration` parameter is required for all other data sources.
         :param pulumi.Input[str] description: A description for the data source connector.
         :param pulumi.Input[str] language_code: The code for a language. This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
         :param pulumi.Input[str] name: The name of the data source.
@@ -95,9 +97,7 @@ class DataSourceArgs:
     @pulumi.getter(name="customDocumentEnrichmentConfiguration")
     def custom_document_enrichment_configuration(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationArgs']]:
         """
-        Provides the configuration information for altering document metadata and content during the document ingestion process.
-
-        For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
+        Configuration information for altering document metadata and content during the document ingestion process.
         """
         return pulumi.get(self, "custom_document_enrichment_configuration")
 
@@ -109,7 +109,11 @@ class DataSourceArgs:
     @pulumi.getter(name="dataSourceConfiguration")
     def data_source_configuration(self) -> Optional[pulumi.Input['DataSourceConfigurationArgs']]:
         """
-        Provides the configuration information for an Amazon Kendra data source.
+        Configuration information for an Amazon Kendra data source. The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration.
+
+        You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM` .
+
+        The `Configuration` parameter is required for all other data sources.
         """
         return pulumi.get(self, "data_source_configuration")
 
@@ -215,10 +219,12 @@ class DataSource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DataSourceCustomDocumentEnrichmentConfigurationArgs']] custom_document_enrichment_configuration: Provides the configuration information for altering document metadata and content during the document ingestion process.
+        :param pulumi.Input[pulumi.InputType['DataSourceCustomDocumentEnrichmentConfigurationArgs']] custom_document_enrichment_configuration: Configuration information for altering document metadata and content during the document ingestion process.
+        :param pulumi.Input[pulumi.InputType['DataSourceConfigurationArgs']] data_source_configuration: Configuration information for an Amazon Kendra data source. The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration.
                
-               For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
-        :param pulumi.Input[pulumi.InputType['DataSourceConfigurationArgs']] data_source_configuration: Provides the configuration information for an Amazon Kendra data source.
+               You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM` .
+               
+               The `Configuration` parameter is required for all other data sources.
         :param pulumi.Input[str] description: A description for the data source connector.
         :param pulumi.Input[str] index_id: The identifier of the index you want to use with the data source connector.
         :param pulumi.Input[str] language_code: The code for a language. This shows a supported language for all documents in the data source. English is supported by default. For more information on supported languages, including their codes, see [Adding documents in languages other than English](https://docs.aws.amazon.com/kendra/latest/dg/in-adding-languages.html) .
@@ -353,9 +359,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="customDocumentEnrichmentConfiguration")
     def custom_document_enrichment_configuration(self) -> pulumi.Output[Optional['outputs.DataSourceCustomDocumentEnrichmentConfiguration']]:
         """
-        Provides the configuration information for altering document metadata and content during the document ingestion process.
-
-        For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
+        Configuration information for altering document metadata and content during the document ingestion process.
         """
         return pulumi.get(self, "custom_document_enrichment_configuration")
 
@@ -363,7 +367,11 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="dataSourceConfiguration")
     def data_source_configuration(self) -> pulumi.Output[Optional['outputs.DataSourceConfiguration']]:
         """
-        Provides the configuration information for an Amazon Kendra data source.
+        Configuration information for an Amazon Kendra data source. The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration.
+
+        You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM` .
+
+        The `Configuration` parameter is required for all other data sources.
         """
         return pulumi.get(self, "data_source_configuration")
 

@@ -139,15 +139,13 @@ namespace Pulumi.AwsNative.Fis
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the experiment options for an experiment template.
+        /// The experiment options for an experiment template.
         /// </summary>
         [Output("experimentOptions")]
         public Output<Outputs.ExperimentTemplateExperimentOptions?> ExperimentOptions { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the configuration for experiment logging.
-        /// 
-        /// For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+        /// The configuration for experiment logging.
         /// </summary>
         [Output("logConfiguration")]
         public Output<Outputs.ExperimentTemplateLogConfiguration?> LogConfiguration { get; private set; } = null!;
@@ -244,15 +242,13 @@ namespace Pulumi.AwsNative.Fis
         public Input<string> Description { get; set; } = null!;
 
         /// <summary>
-        /// Describes the experiment options for an experiment template.
+        /// The experiment options for an experiment template.
         /// </summary>
         [Input("experimentOptions")]
         public Input<Inputs.ExperimentTemplateExperimentOptionsArgs>? ExperimentOptions { get; set; }
 
         /// <summary>
-        /// Specifies the configuration for experiment logging.
-        /// 
-        /// For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+        /// The configuration for experiment logging.
         /// </summary>
         [Input("logConfiguration")]
         public Input<Inputs.ExperimentTemplateLogConfigurationArgs>? LogConfiguration { get; set; }

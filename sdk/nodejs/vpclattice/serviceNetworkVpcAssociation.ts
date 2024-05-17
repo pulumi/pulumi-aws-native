@@ -74,7 +74,7 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<enums.vpclattice.ServiceNetworkVpcAssociationStatus>;
     /**
-     * Specifies a tag for a VPC association.
+     * The tags for the association.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -143,7 +143,7 @@ export interface ServiceNetworkVpcAssociationArgs {
      */
     serviceNetworkIdentifier?: pulumi.Input<string>;
     /**
-     * Specifies a tag for a VPC association.
+     * The tags for the association.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

@@ -34,11 +34,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.AnalysisPeriodOverPeriodComputation? PeriodOverPeriod;
         /// <summary>
-        /// The period to date computation configuration.
+        /// The period to `DataSetIdentifier` computation configuration.
         /// </summary>
         public readonly Outputs.AnalysisPeriodToDateComputation? PeriodToDate;
         /// <summary>
-        /// The top movers and bottom movers computation setup.
+        /// The top movers and bottom movers computation configuration.
         /// </summary>
         public readonly Outputs.AnalysisTopBottomMoversComputation? TopBottomMovers;
         /// <summary>

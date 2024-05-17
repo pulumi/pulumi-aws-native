@@ -539,7 +539,6 @@ class DomainExportingConfig(dict):
                  s3_exporting: Optional['outputs.DomainS3ExportingConfig'] = None):
         """
         Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
-        :param 'DomainS3ExportingConfig' s3_exporting: The S3 location where Identity Resolution Jobs write result files.
         """
         if s3_exporting is not None:
             pulumi.set(__self__, "s3_exporting", s3_exporting)
@@ -547,9 +546,6 @@ class DomainExportingConfig(dict):
     @property
     @pulumi.getter(name="s3Exporting")
     def s3_exporting(self) -> Optional['outputs.DomainS3ExportingConfig']:
-        """
-        The S3 location where Identity Resolution Jobs write result files.
-        """
         return pulumi.get(self, "s3_exporting")
 
 
@@ -638,7 +634,7 @@ class DomainMatching(dict):
         The process of matching duplicate profiles. If Matching = true, Amazon Connect Customer Profiles starts a weekly batch process called Identity Resolution Job. If you do not specify a date and time for Identity Resolution Job to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the Identity Resolution Job completes, use the GetMatches API to return and review the results. Or, if you have configured ExportingConfig in the MatchingRequest, you can download the results from S3.
         :param bool enabled: The flag that enables the matching process of duplicate profiles.
         :param 'DomainAutoMerging' auto_merging: Configuration information about the auto-merging process.
-        :param 'DomainExportingConfig' exporting_config: Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
+        :param 'DomainExportingConfig' exporting_config: The S3 location where Identity Resolution Jobs write result files.
         :param 'DomainJobSchedule' job_schedule: The day and time when do you want to start the Identity Resolution Job every week.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -669,7 +665,7 @@ class DomainMatching(dict):
     @pulumi.getter(name="exportingConfig")
     def exporting_config(self) -> Optional['outputs.DomainExportingConfig']:
         """
-        Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
+        The S3 location where Identity Resolution Jobs write result files.
         """
         return pulumi.get(self, "exporting_config")
 
@@ -748,9 +744,9 @@ class DomainRuleBasedMatching(dict):
         """
         The process of matching duplicate profiles using the Rule-Based matching. If RuleBasedMatching = true, Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the RuleBasedMatchingRequest. You can use the ListRuleBasedMatches and GetSimilarProfiles API to return and review the results. Also, if you have configured ExportingConfig in the RuleBasedMatchingRequest, you can download the results from S3.
         :param bool enabled: The flag that enables the rule-based matching process of duplicate profiles.
-        :param 'DomainAttributeTypesSelector' attribute_types_selector: Configures information about the `AttributeTypesSelector` which rule-based identity resolution uses to match profiles.
+        :param 'DomainAttributeTypesSelector' attribute_types_selector: Configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles.
         :param 'DomainConflictResolution' conflict_resolution: Determines how the auto-merging process should resolve conflicts between different profiles. For example, if Profile A and Profile B have the same `FirstName` and `LastName` , `ConflictResolution` specifies which `EmailAddress` should be used.
-        :param 'DomainExportingConfig' exporting_config: Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
+        :param 'DomainExportingConfig' exporting_config: The S3 location where Identity Resolution Jobs write result files.
         :param Sequence['DomainMatchingRule'] matching_rules: Configures how the rule-based matching process should match profiles. You can have up to 15 MatchingRule in the MatchingRules.
         :param int max_allowed_rule_level_for_matching: Indicates the maximum allowed rule level for matching.
         :param int max_allowed_rule_level_for_merging: Indicates the maximum allowed rule level for merging.
@@ -784,7 +780,7 @@ class DomainRuleBasedMatching(dict):
     @pulumi.getter(name="attributeTypesSelector")
     def attribute_types_selector(self) -> Optional['outputs.DomainAttributeTypesSelector']:
         """
-        Configures information about the `AttributeTypesSelector` which rule-based identity resolution uses to match profiles.
+        Configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles.
         """
         return pulumi.get(self, "attribute_types_selector")
 
@@ -800,7 +796,7 @@ class DomainRuleBasedMatching(dict):
     @pulumi.getter(name="exportingConfig")
     def exporting_config(self) -> Optional['outputs.DomainExportingConfig']:
         """
-        Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
+        The S3 location where Identity Resolution Jobs write result files.
         """
         return pulumi.get(self, "exporting_config")
 
@@ -1092,8 +1088,8 @@ class IntegrationFlowDefinition(dict):
         :param str flow_name: The specified name of the flow. Use underscores (_) or hyphens (-) only. Spaces are not allowed.
         :param str kms_arn: The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key you provide for encryption.
         :param 'IntegrationSourceFlowConfig' source_flow_config: The configuration that controls how Customer Profiles retrieves data from the source.
-        :param Sequence['IntegrationTask'] tasks: The `Task` property type specifies the class for modeling different type of tasks. Task implementation varies based on the TaskType.
-        :param 'IntegrationTriggerConfig' trigger_config: The trigger settings that determine how and when Amazon AppFlow runs the specified flow.
+        :param Sequence['IntegrationTask'] tasks: A list of tasks that Customer Profiles performs while transferring the data in the flow run.
+        :param 'IntegrationTriggerConfig' trigger_config: The trigger settings that determine how and when the flow runs.
         :param str description: A description of the flow you want to create.
         """
         pulumi.set(__self__, "flow_name", flow_name)
@@ -1132,7 +1128,7 @@ class IntegrationFlowDefinition(dict):
     @pulumi.getter
     def tasks(self) -> Sequence['outputs.IntegrationTask']:
         """
-        The `Task` property type specifies the class for modeling different type of tasks. Task implementation varies based on the TaskType.
+        A list of tasks that Customer Profiles performs while transferring the data in the flow run.
         """
         return pulumi.get(self, "tasks")
 
@@ -1140,7 +1136,7 @@ class IntegrationFlowDefinition(dict):
     @pulumi.getter(name="triggerConfig")
     def trigger_config(self) -> 'outputs.IntegrationTriggerConfig':
         """
-        The trigger settings that determine how and when Amazon AppFlow runs the specified flow.
+        The trigger settings that determine how and when the flow runs.
         """
         return pulumi.get(self, "trigger_config")
 
@@ -1597,9 +1593,9 @@ class IntegrationSourceFlowConfig(dict):
                  incremental_pull_config: Optional['outputs.IntegrationIncrementalPullConfig'] = None):
         """
         :param 'IntegrationConnectorType' connector_type: The type of connector, such as Salesforce, Marketo, and so on.
-        :param 'IntegrationSourceConnectorProperties' source_connector_properties: Specifies the information that is required to query a particular Amazon AppFlow connector. Customer Profiles supports Salesforce, Zendesk, Marketo, ServiceNow and Amazon S3.
+        :param 'IntegrationSourceConnectorProperties' source_connector_properties: Specifies the information that is required to query a particular source connector.
         :param str connector_profile_name: The name of the Amazon AppFlow connector profile. This name must be unique for each connector profile in the AWS account .
-        :param 'IntegrationIncrementalPullConfig' incremental_pull_config: Specifies the configuration used when importing incremental records from the source.
+        :param 'IntegrationIncrementalPullConfig' incremental_pull_config: Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull.
         """
         pulumi.set(__self__, "connector_type", connector_type)
         pulumi.set(__self__, "source_connector_properties", source_connector_properties)
@@ -1620,7 +1616,7 @@ class IntegrationSourceFlowConfig(dict):
     @pulumi.getter(name="sourceConnectorProperties")
     def source_connector_properties(self) -> 'outputs.IntegrationSourceConnectorProperties':
         """
-        Specifies the information that is required to query a particular Amazon AppFlow connector. Customer Profiles supports Salesforce, Zendesk, Marketo, ServiceNow and Amazon S3.
+        Specifies the information that is required to query a particular source connector.
         """
         return pulumi.get(self, "source_connector_properties")
 
@@ -1636,7 +1632,7 @@ class IntegrationSourceFlowConfig(dict):
     @pulumi.getter(name="incrementalPullConfig")
     def incremental_pull_config(self) -> Optional['outputs.IntegrationIncrementalPullConfig']:
         """
-        Specifies the configuration used when importing incremental records from the source.
+        Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull.
         """
         return pulumi.get(self, "incremental_pull_config")
 
@@ -1679,7 +1675,7 @@ class IntegrationTask(dict):
         :param 'IntegrationTaskType' task_type: Specifies the particular task implementation that Amazon AppFlow performs.
         :param 'IntegrationConnectorOperator' connector_operator: The operation to be performed on the provided source fields.
         :param str destination_field: A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
-        :param Sequence['IntegrationTaskPropertiesMap'] task_properties: A map used to store task-related information. The execution service looks for particular information based on the `TaskType` .
+        :param Sequence['IntegrationTaskPropertiesMap'] task_properties: A map used to store task-related information. The service looks for particular information based on the TaskType.
         """
         pulumi.set(__self__, "source_fields", source_fields)
         pulumi.set(__self__, "task_type", task_type)
@@ -1726,7 +1722,7 @@ class IntegrationTask(dict):
     @pulumi.getter(name="taskProperties")
     def task_properties(self) -> Optional[Sequence['outputs.IntegrationTaskPropertiesMap']]:
         """
-        A map used to store task-related information. The execution service looks for particular information based on the `TaskType` .
+        A map used to store task-related information. The service looks for particular information based on the TaskType.
         """
         return pulumi.get(self, "task_properties")
 
@@ -1803,7 +1799,7 @@ class IntegrationTriggerConfig(dict):
                  trigger_properties: Optional['outputs.IntegrationTriggerProperties'] = None):
         """
         :param 'IntegrationTriggerType' trigger_type: Specifies the type of flow trigger. It can be OnDemand, Scheduled, or Event.
-        :param 'IntegrationTriggerProperties' trigger_properties: Specifies the configuration details that control the trigger for a flow. Currently, these settings only apply to the Scheduled trigger type.
+        :param 'IntegrationTriggerProperties' trigger_properties: Specifies the configuration details of a schedule-triggered flow that you define. Currently, these settings only apply to the Scheduled trigger type.
         """
         pulumi.set(__self__, "trigger_type", trigger_type)
         if trigger_properties is not None:
@@ -1821,7 +1817,7 @@ class IntegrationTriggerConfig(dict):
     @pulumi.getter(name="triggerProperties")
     def trigger_properties(self) -> Optional['outputs.IntegrationTriggerProperties']:
         """
-        Specifies the configuration details that control the trigger for a flow. Currently, these settings only apply to the Scheduled trigger type.
+        Specifies the configuration details of a schedule-triggered flow that you define. Currently, these settings only apply to the Scheduled trigger type.
         """
         return pulumi.get(self, "trigger_properties")
 
@@ -1831,7 +1827,7 @@ class IntegrationTriggerProperties(dict):
     def __init__(__self__, *,
                  scheduled: Optional['outputs.IntegrationScheduledTriggerProperties'] = None):
         """
-        :param 'IntegrationScheduledTriggerProperties' scheduled: Specifies the configuration details of a scheduled-trigger flow that you define. Currently, these settings only apply to the scheduled-trigger type.
+        :param 'IntegrationScheduledTriggerProperties' scheduled: Specifies the configuration details of a schedule-triggered flow that you define.
         """
         if scheduled is not None:
             pulumi.set(__self__, "scheduled", scheduled)
@@ -1840,7 +1836,7 @@ class IntegrationTriggerProperties(dict):
     @pulumi.getter
     def scheduled(self) -> Optional['outputs.IntegrationScheduledTriggerProperties']:
         """
-        Specifies the configuration details of a scheduled-trigger flow that you define. Currently, these settings only apply to the scheduled-trigger type.
+        Specifies the configuration details of a schedule-triggered flow that you define.
         """
         return pulumi.get(self, "scheduled")
 
@@ -2053,7 +2049,7 @@ class ObjectTypeKeyMap(dict):
                  object_type_key_list: Optional[Sequence['outputs.ObjectTypeKey']] = None):
         """
         :param str name: Name of the key.
-        :param Sequence['ObjectTypeKey'] object_type_key_list: An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
+        :param Sequence['ObjectTypeKey'] object_type_key_list: A list of ObjectTypeKey.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -2072,7 +2068,7 @@ class ObjectTypeKeyMap(dict):
     @pulumi.getter(name="objectTypeKeyList")
     def object_type_key_list(self) -> Optional[Sequence['outputs.ObjectTypeKey']]:
         """
-        An object that defines the Key element of a ProfileObject. A Key is a special element that can be used to search for a customer profile.
+        A list of ObjectTypeKey.
         """
         return pulumi.get(self, "object_type_key_list")
 

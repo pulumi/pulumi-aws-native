@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TopicNamedFilterAggType? Aggregation;
         /// <summary>
-        /// A structure that represents a singular filter constant, used in filters to specify a single value to match against.
+        /// The constant used in a numeric equality filter.
         /// </summary>
         public readonly Outputs.TopicSingularFilterConstant? Constant;
 

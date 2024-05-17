@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardArcAxisConfiguration? ArcAxis;
         /// <summary>
-        /// The comparison display configuration of a KPI or gauge chart.
+        /// The comparison configuration of a `GaugeChartVisual` .
         /// </summary>
         public readonly Outputs.DashboardComparisonConfiguration? Comparison;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardPrimaryValueDisplayType? PrimaryValueDisplayType;
         /// <summary>
-        /// Configures the display properties of the given text.
+        /// The options that determine the primary value font configuration.
         /// </summary>
         public readonly Outputs.DashboardFontConfiguration? PrimaryValueFontConfiguration;
 

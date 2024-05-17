@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string> FieldId { get; set; } = null!;
 
         /// <summary>
-        /// The shape conditional formatting of a filled map visual.
+        /// The conditional formatting that determines the background color of a filled map's shape.
         /// </summary>
         [Input("format")]
         public Input<Inputs.DashboardShapeConditionalFormatArgs>? Format { get; set; }

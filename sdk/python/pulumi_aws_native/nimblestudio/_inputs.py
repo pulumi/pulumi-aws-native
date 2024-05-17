@@ -86,7 +86,7 @@ class LaunchProfileStreamConfigurationSessionStorageArgs:
         <p>The configuration for a streaming session’s upload storage.</p>
         :param pulumi.Input[Sequence[pulumi.Input['LaunchProfileStreamingSessionStorageMode']]] mode: <p>Allows artists to upload files to their workstations. The only valid option is
                                <code>UPLOAD</code>.</p>
-        :param pulumi.Input['LaunchProfileStreamingSessionStorageRootArgs'] root: The upload storage root location (folder) on streaming workstations where files are uploaded.
+        :param pulumi.Input['LaunchProfileStreamingSessionStorageRootArgs'] root: The configuration for the upload storage root of the streaming session.
         """
         pulumi.set(__self__, "mode", mode)
         if root is not None:
@@ -109,7 +109,7 @@ class LaunchProfileStreamConfigurationSessionStorageArgs:
     @pulumi.getter
     def root(self) -> Optional[pulumi.Input['LaunchProfileStreamingSessionStorageRootArgs']]:
         """
-        The upload storage root location (folder) on streaming workstations where files are uploaded.
+        The configuration for the upload storage root of the streaming session.
         """
         return pulumi.get(self, "root")
 
@@ -164,9 +164,9 @@ class LaunchProfileStreamConfigurationArgs:
                            If the time that a session stays in the <code>READY</code> state exceeds the
                                <code>maxSessionLengthInMinutes</code> value, the session will automatically be
                            stopped (instead of terminated).</p>
-        :param pulumi.Input['LaunchProfileStreamConfigurationSessionBackupArgs'] session_backup: Configures how streaming sessions are backed up when launched from this launch profile.
+        :param pulumi.Input['LaunchProfileStreamConfigurationSessionBackupArgs'] session_backup: Information about the streaming session backup.
         :param pulumi.Input['LaunchProfileSessionPersistenceMode'] session_persistence_mode: Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
-        :param pulumi.Input['LaunchProfileStreamConfigurationSessionStorageArgs'] session_storage: The configuration for a streaming session’s upload storage.
+        :param pulumi.Input['LaunchProfileStreamConfigurationSessionStorageArgs'] session_storage: The upload storage for a streaming session.
         :param pulumi.Input['LaunchProfileVolumeConfigurationArgs'] volume_configuration: Custom volume configuration for the root volumes that are attached to streaming sessions.
                
                This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` .
@@ -290,7 +290,7 @@ class LaunchProfileStreamConfigurationArgs:
     @pulumi.getter(name="sessionBackup")
     def session_backup(self) -> Optional[pulumi.Input['LaunchProfileStreamConfigurationSessionBackupArgs']]:
         """
-        Configures how streaming sessions are backed up when launched from this launch profile.
+        Information about the streaming session backup.
         """
         return pulumi.get(self, "session_backup")
 
@@ -314,7 +314,7 @@ class LaunchProfileStreamConfigurationArgs:
     @pulumi.getter(name="sessionStorage")
     def session_storage(self) -> Optional[pulumi.Input['LaunchProfileStreamConfigurationSessionStorageArgs']]:
         """
-        The configuration for a streaming session’s upload storage.
+        The upload storage for a streaming session.
         """
         return pulumi.get(self, "session_storage")
 

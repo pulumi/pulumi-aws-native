@@ -230,7 +230,7 @@ namespace Pulumi.AwsNative.Ecs
     public partial class CapacityProvider : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The details of the Auto Scaling group for the capacity provider.
+        /// The Auto Scaling group settings for the capacity provider.
         /// </summary>
         [Output("autoScalingGroupProvider")]
         public Output<Outputs.CapacityProviderAutoScalingGroupProvider> AutoScalingGroupProvider { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.AwsNative.Ecs
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+        /// The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
         /// 
         /// The following basic restrictions apply to tags:
         /// 
@@ -282,7 +282,6 @@ namespace Pulumi.AwsNative.Ecs
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "autoScalingGroupProvider.autoScalingGroupArn",
                     "name",
                 },
             };
@@ -308,7 +307,7 @@ namespace Pulumi.AwsNative.Ecs
     public sealed class CapacityProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The details of the Auto Scaling group for the capacity provider.
+        /// The Auto Scaling group settings for the capacity provider.
         /// </summary>
         [Input("autoScalingGroupProvider", required: true)]
         public Input<Inputs.CapacityProviderAutoScalingGroupProviderArgs> AutoScalingGroupProvider { get; set; } = null!;
@@ -323,7 +322,7 @@ namespace Pulumi.AwsNative.Ecs
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+        /// The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
         /// 
         /// The following basic restrictions apply to tags:
         /// 

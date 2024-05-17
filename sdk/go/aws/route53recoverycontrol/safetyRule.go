@@ -26,7 +26,7 @@ type SafetyRule struct {
 	GatingRule SafetyRuleGatingRulePtrOutput `pulumi:"gatingRule"`
 	// The name of the assertion rule. The name must be unique within a control panel. You can use any non-white space character in the name except the following: & > < ' (single quote) " (double quote) ; (semicolon)
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The rule configuration for an assertion rule. That is, the criteria that you set for specific assertion controls (routing controls) that specify how many controls must be enabled after a transaction completes.
+	// The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction. For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
 	RuleConfig SafetyRuleRuleConfigPtrOutput `pulumi:"ruleConfig"`
 	// The Amazon Resource Name (ARN) of the safety rule.
 	SafetyRuleArn pulumi.StringOutput `pulumi:"safetyRuleArn"`
@@ -92,7 +92,7 @@ type safetyRuleArgs struct {
 	GatingRule *SafetyRuleGatingRule `pulumi:"gatingRule"`
 	// The name of the assertion rule. The name must be unique within a control panel. You can use any non-white space character in the name except the following: & > < ' (single quote) " (double quote) ; (semicolon)
 	Name *string `pulumi:"name"`
-	// The rule configuration for an assertion rule. That is, the criteria that you set for specific assertion controls (routing controls) that specify how many controls must be enabled after a transaction completes.
+	// The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction. For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
 	RuleConfig *SafetyRuleRuleConfig `pulumi:"ruleConfig"`
 	// A collection of tags associated with a resource
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
@@ -110,7 +110,7 @@ type SafetyRuleArgs struct {
 	GatingRule SafetyRuleGatingRulePtrInput
 	// The name of the assertion rule. The name must be unique within a control panel. You can use any non-white space character in the name except the following: & > < ' (single quote) " (double quote) ; (semicolon)
 	Name pulumi.StringPtrInput
-	// The rule configuration for an assertion rule. That is, the criteria that you set for specific assertion controls (routing controls) that specify how many controls must be enabled after a transaction completes.
+	// The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction. For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
 	RuleConfig SafetyRuleRuleConfigPtrInput
 	// A collection of tags associated with a resource
 	Tags aws.CreateOnlyTagArrayInput
@@ -175,7 +175,7 @@ func (o SafetyRuleOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SafetyRule) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The rule configuration for an assertion rule. That is, the criteria that you set for specific assertion controls (routing controls) that specify how many controls must be enabled after a transaction completes.
+// The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction. For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
 func (o SafetyRuleOutput) RuleConfig() SafetyRuleRuleConfigPtrOutput {
 	return o.ApplyT(func(v *SafetyRule) SafetyRuleRuleConfigPtrOutput { return v.RuleConfig }).(SafetyRuleRuleConfigPtrOutput)
 }

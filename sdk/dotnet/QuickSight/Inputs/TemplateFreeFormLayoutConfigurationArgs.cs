@@ -12,9 +12,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateFreeFormLayoutConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configuration options for the canvas of a free-form layout.
-        /// </summary>
         [Input("canvasSizeOptions")]
         public Input<Inputs.TemplateFreeFormLayoutCanvasSizeOptionsArgs>? CanvasSizeOptions { get; set; }
 
@@ -22,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.TemplateFreeFormLayoutElementArgs>? _elements;
 
         /// <summary>
-        /// An element within a free-form layout.
+        /// The elements that are included in a free-form layout.
         /// </summary>
         public InputList<Inputs.TemplateFreeFormLayoutElementArgs> Elements
         {

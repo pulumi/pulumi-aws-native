@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? Visibility { get; set; }
 
         /// <summary>
-        /// The range options for the data zoom scroll bar.
+        /// The visibility range for the data zoom scroll bar.
         /// </summary>
         [Input("visibleRange")]
         public Input<Inputs.AnalysisVisibleRangeOptionsArgs>? VisibleRange { get; set; }

@@ -23,9 +23,7 @@ type DocumentClassifier struct {
 	DataAccessRoleArn pulumi.StringOutput `pulumi:"dataAccessRoleArn"`
 	// The name of the document classifier.
 	DocumentClassifierName pulumi.StringOutput `pulumi:"documentClassifierName"`
-	// The input properties for training a document classifier.
-	//
-	// For more information on how the input file is formatted, see [Preparing training data](https://docs.aws.amazon.com/comprehend/latest/dg/prep-classifier-data.html) in the Comprehend Developer Guide.
+	// Specifies the format and location of the input data for the job.
 	InputDataConfig DocumentClassifierInputDataConfigOutput `pulumi:"inputDataConfig"`
 	// The language of the input documents. You can specify any of the languages supported by Amazon Comprehend. All documents must be in the same language.
 	LanguageCode DocumentClassifierLanguageCodeOutput `pulumi:"languageCode"`
@@ -46,9 +44,9 @@ type DocumentClassifier struct {
 	//
 	// `'{"attribute": "value", "attribute": ["value"]}'`
 	ModelPolicy pulumi.StringPtrOutput `pulumi:"modelPolicy"`
-	// Provide the location for output data from a custom classifier job. This field is mandatory if you are training a native document model.
+	// Provides output results configuration parameters for custom classifier jobs.
 	OutputDataConfig DocumentClassifierOutputDataConfigPtrOutput `pulumi:"outputDataConfig"`
-	// A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+	// Tags to associate with the document classifier. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The version name given to the newly created classifier. Version names can have a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The version name must be unique among all models with the same classifier name in the AWS account / AWS Region .
 	VersionName pulumi.StringPtrOutput `pulumi:"versionName"`
@@ -57,7 +55,7 @@ type DocumentClassifier struct {
 	// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
 	// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
 	VolumeKmsKeyId pulumi.StringPtrOutput `pulumi:"volumeKmsKeyId"`
-	// Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
+	// Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
 	VpcConfig DocumentClassifierVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
 
@@ -127,9 +125,7 @@ type documentClassifierArgs struct {
 	DataAccessRoleArn string `pulumi:"dataAccessRoleArn"`
 	// The name of the document classifier.
 	DocumentClassifierName *string `pulumi:"documentClassifierName"`
-	// The input properties for training a document classifier.
-	//
-	// For more information on how the input file is formatted, see [Preparing training data](https://docs.aws.amazon.com/comprehend/latest/dg/prep-classifier-data.html) in the Comprehend Developer Guide.
+	// Specifies the format and location of the input data for the job.
 	InputDataConfig DocumentClassifierInputDataConfig `pulumi:"inputDataConfig"`
 	// The language of the input documents. You can specify any of the languages supported by Amazon Comprehend. All documents must be in the same language.
 	LanguageCode DocumentClassifierLanguageCode `pulumi:"languageCode"`
@@ -150,9 +146,9 @@ type documentClassifierArgs struct {
 	//
 	// `'{"attribute": "value", "attribute": ["value"]}'`
 	ModelPolicy *string `pulumi:"modelPolicy"`
-	// Provide the location for output data from a custom classifier job. This field is mandatory if you are training a native document model.
+	// Provides output results configuration parameters for custom classifier jobs.
 	OutputDataConfig *DocumentClassifierOutputDataConfig `pulumi:"outputDataConfig"`
-	// A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+	// Tags to associate with the document classifier. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The version name given to the newly created classifier. Version names can have a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The version name must be unique among all models with the same classifier name in the AWS account / AWS Region .
 	VersionName *string `pulumi:"versionName"`
@@ -161,7 +157,7 @@ type documentClassifierArgs struct {
 	// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
 	// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
 	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
-	// Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
+	// Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
 	VpcConfig *DocumentClassifierVpcConfig `pulumi:"vpcConfig"`
 }
 
@@ -171,9 +167,7 @@ type DocumentClassifierArgs struct {
 	DataAccessRoleArn pulumi.StringInput
 	// The name of the document classifier.
 	DocumentClassifierName pulumi.StringPtrInput
-	// The input properties for training a document classifier.
-	//
-	// For more information on how the input file is formatted, see [Preparing training data](https://docs.aws.amazon.com/comprehend/latest/dg/prep-classifier-data.html) in the Comprehend Developer Guide.
+	// Specifies the format and location of the input data for the job.
 	InputDataConfig DocumentClassifierInputDataConfigInput
 	// The language of the input documents. You can specify any of the languages supported by Amazon Comprehend. All documents must be in the same language.
 	LanguageCode DocumentClassifierLanguageCodeInput
@@ -194,9 +188,9 @@ type DocumentClassifierArgs struct {
 	//
 	// `'{"attribute": "value", "attribute": ["value"]}'`
 	ModelPolicy pulumi.StringPtrInput
-	// Provide the location for output data from a custom classifier job. This field is mandatory if you are training a native document model.
+	// Provides output results configuration parameters for custom classifier jobs.
 	OutputDataConfig DocumentClassifierOutputDataConfigPtrInput
-	// A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+	// Tags to associate with the document classifier. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
 	Tags aws.TagArrayInput
 	// The version name given to the newly created classifier. Version names can have a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The version name must be unique among all models with the same classifier name in the AWS account / AWS Region .
 	VersionName pulumi.StringPtrInput
@@ -205,7 +199,7 @@ type DocumentClassifierArgs struct {
 	// - KMS Key ID: `"1234abcd-12ab-34cd-56ef-1234567890ab"`
 	// - Amazon Resource Name (ARN) of a KMS Key: `"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"`
 	VolumeKmsKeyId pulumi.StringPtrInput
-	// Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
+	// Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
 	VpcConfig DocumentClassifierVpcConfigPtrInput
 }
 
@@ -261,9 +255,7 @@ func (o DocumentClassifierOutput) DocumentClassifierName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringOutput { return v.DocumentClassifierName }).(pulumi.StringOutput)
 }
 
-// The input properties for training a document classifier.
-//
-// For more information on how the input file is formatted, see [Preparing training data](https://docs.aws.amazon.com/comprehend/latest/dg/prep-classifier-data.html) in the Comprehend Developer Guide.
+// Specifies the format and location of the input data for the job.
 func (o DocumentClassifierOutput) InputDataConfig() DocumentClassifierInputDataConfigOutput {
 	return o.ApplyT(func(v *DocumentClassifier) DocumentClassifierInputDataConfigOutput { return v.InputDataConfig }).(DocumentClassifierInputDataConfigOutput)
 }
@@ -299,12 +291,12 @@ func (o DocumentClassifierOutput) ModelPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringPtrOutput { return v.ModelPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Provide the location for output data from a custom classifier job. This field is mandatory if you are training a native document model.
+// Provides output results configuration parameters for custom classifier jobs.
 func (o DocumentClassifierOutput) OutputDataConfig() DocumentClassifierOutputDataConfigPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifier) DocumentClassifierOutputDataConfigPtrOutput { return v.OutputDataConfig }).(DocumentClassifierOutputDataConfigPtrOutput)
 }
 
-// A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+// Tags to associate with the document classifier. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
 func (o DocumentClassifierOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DocumentClassifier) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
@@ -322,7 +314,7 @@ func (o DocumentClassifierOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifier) pulumi.StringPtrOutput { return v.VolumeKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
+// Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
 func (o DocumentClassifierOutput) VpcConfig() DocumentClassifierVpcConfigPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifier) DocumentClassifierVpcConfigPtrOutput { return v.VpcConfig }).(DocumentClassifierVpcConfigPtrOutput)
 }

@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string? FieldName;
         /// <summary>
-        /// A structure that represents a metric.
+        /// The definition of a metric.
         /// </summary>
         public readonly Outputs.TopicNamedEntityDefinitionMetric? Metric;
         /// <summary>

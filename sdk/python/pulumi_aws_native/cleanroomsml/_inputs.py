@@ -60,7 +60,7 @@ class TrainingDatasetDataSourceArgs:
     def __init__(__self__, *,
                  glue_data_source: pulumi.Input['TrainingDatasetGlueDataSourceArgs']):
         """
-        :param pulumi.Input['TrainingDatasetGlueDataSourceArgs'] glue_data_source: Defines the Glue data source that contains the training data.
+        :param pulumi.Input['TrainingDatasetGlueDataSourceArgs'] glue_data_source: A GlueDataSource object that defines the catalog ID, database name, and table name for the training data.
         """
         pulumi.set(__self__, "glue_data_source", glue_data_source)
 
@@ -68,7 +68,7 @@ class TrainingDatasetDataSourceArgs:
     @pulumi.getter(name="glueDataSource")
     def glue_data_source(self) -> pulumi.Input['TrainingDatasetGlueDataSourceArgs']:
         """
-        Defines the Glue data source that contains the training data.
+        A GlueDataSource object that defines the catalog ID, database name, and table name for the training data.
         """
         return pulumi.get(self, "glue_data_source")
 
@@ -83,8 +83,8 @@ class TrainingDatasetDatasetInputConfigArgs:
                  data_source: pulumi.Input['TrainingDatasetDataSourceArgs'],
                  schema: pulumi.Input[Sequence[pulumi.Input['TrainingDatasetColumnSchemaArgs']]]):
         """
-        :param pulumi.Input['TrainingDatasetDataSourceArgs'] data_source: Defines information about the Glue data source that contains the training data.
-        :param pulumi.Input[Sequence[pulumi.Input['TrainingDatasetColumnSchemaArgs']]] schema: Metadata for a column.
+        :param pulumi.Input['TrainingDatasetDataSourceArgs'] data_source: A DataSource object that specifies the Glue data source for the training data.
+        :param pulumi.Input[Sequence[pulumi.Input['TrainingDatasetColumnSchemaArgs']]] schema: The schema information for the training data.
         """
         pulumi.set(__self__, "data_source", data_source)
         pulumi.set(__self__, "schema", schema)
@@ -93,7 +93,7 @@ class TrainingDatasetDatasetInputConfigArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input['TrainingDatasetDataSourceArgs']:
         """
-        Defines information about the Glue data source that contains the training data.
+        A DataSource object that specifies the Glue data source for the training data.
         """
         return pulumi.get(self, "data_source")
 
@@ -105,7 +105,7 @@ class TrainingDatasetDatasetInputConfigArgs:
     @pulumi.getter
     def schema(self) -> pulumi.Input[Sequence[pulumi.Input['TrainingDatasetColumnSchemaArgs']]]:
         """
-        Metadata for a column.
+        The schema information for the training data.
         """
         return pulumi.get(self, "schema")
 
@@ -120,7 +120,7 @@ class TrainingDatasetDatasetArgs:
                  input_config: pulumi.Input['TrainingDatasetDatasetInputConfigArgs'],
                  type: pulumi.Input['TrainingDatasetDatasetType']):
         """
-        :param pulumi.Input['TrainingDatasetDatasetInputConfigArgs'] input_config: Defines the Glue data source and schema mapping information.
+        :param pulumi.Input['TrainingDatasetDatasetInputConfigArgs'] input_config: A DatasetInputConfig object that defines the data source and schema mapping.
         :param pulumi.Input['TrainingDatasetDatasetType'] type: What type of information is found in the dataset.
         """
         pulumi.set(__self__, "input_config", input_config)
@@ -130,7 +130,7 @@ class TrainingDatasetDatasetArgs:
     @pulumi.getter(name="inputConfig")
     def input_config(self) -> pulumi.Input['TrainingDatasetDatasetInputConfigArgs']:
         """
-        Defines the Glue data source and schema mapping information.
+        A DatasetInputConfig object that defines the data source and schema mapping.
         """
         return pulumi.get(self, "input_config")
 

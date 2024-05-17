@@ -17,15 +17,22 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     public sealed class WebAclRule
     {
         /// <summary>
-        /// The action that AWS WAF should take on a web request when it matches a rule's statement. Settings at the web ACL level can override the rule action setting.
+        /// The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the web ACL level can override the rule action setting.
+        /// 
+        /// This is used only for rules whose statements don't reference a rule group. Rule statements that reference a rule group are `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement` .
+        /// 
+        /// You must set either this `Action` setting or the rule's `OverrideAction` , but not both:
+        /// 
+        /// - If the rule statement doesn't reference a rule group, you must set this rule action setting and you must not set the rule's override action setting.
+        /// - If the rule statement references a rule group, you must not set this action setting, because the actions are already set on the rules inside the rule group. You must set the rule's override action setting to indicate specifically whether to override the actions that are set on the rules in the rule group.
         /// </summary>
         public readonly Outputs.WebAclRuleAction? Action;
         /// <summary>
-        /// Specifies how AWS WAF should handle `CAPTCHA` evaluations for rules that don't have their own `CaptchaConfig` settings. If you don't specify this, AWS WAF uses its default settings for `CaptchaConfig` .
+        /// Specifies how AWS WAF should handle `CAPTCHA` evaluations. If you don't specify this, AWS WAF uses the `CAPTCHA` configuration that's defined for the web ACL.
         /// </summary>
         public readonly Outputs.WebAclCaptchaConfig? CaptchaConfig;
         /// <summary>
-        /// Specifies how AWS WAF should handle `Challenge` evaluations. This is available at the web ACL level and in each rule.
+        /// Specifies how AWS WAF should handle `Challenge` evaluations. If you don't specify this, AWS WAF uses the challenge configuration that's defined for the web ACL.
         /// </summary>
         public readonly Outputs.WebAclChallengeConfig? ChallengeConfig;
         /// <summary>
@@ -35,11 +42,14 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The action to use in the place of the action that results from the rule group evaluation. Set the override action to none to leave the result of the rule group alone. Set it to count to override the result to count only.
+        /// The override action to apply to the rules in a rule group, instead of the individual rule action settings. This is used only for rules whose statements reference a rule group. Rule statements that reference a rule group are `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement` .
         /// 
-        /// You can only use this for rule statements that reference a rule group, like `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement` .
+        /// Set the override action to none to leave the rule group rule actions in effect. Set it to count to only count matches, regardless of the rule action settings.
         /// 
-        /// &gt; This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count matches, do not use this and instead use the rule action override option, with `Count` action, in your rule group reference statement settings.
+        /// You must set either this `OverrideAction` setting or the `Action` setting, but not both:
+        /// 
+        /// - If the rule statement references a rule group, you must set this override action setting and you must not set the rule's action setting.
+        /// - If the rule statement doesn't reference a rule group, you must set the rule action setting and you must not set the rule's override action setting.
         /// </summary>
         public readonly Outputs.WebAclOverrideAction? OverrideAction;
         /// <summary>
@@ -51,11 +61,13 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclLabel> RuleLabels;
         /// <summary>
-        /// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+        /// The AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `SizeConstraintStatement` .
         /// </summary>
         public readonly Outputs.WebAclStatement Statement;
         /// <summary>
         /// Defines and enables Amazon CloudWatch metrics and web request sample collection.
+        /// 
+        /// If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name as well. AWS WAF doesn't automatically update the metric name.
         /// </summary>
         public readonly Outputs.WebAclVisibilityConfig VisibilityConfig;
 

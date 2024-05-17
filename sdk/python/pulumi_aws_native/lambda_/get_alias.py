@@ -61,7 +61,7 @@ class GetAliasResult:
     @pulumi.getter(name="provisionedConcurrencyConfig")
     def provisioned_concurrency_config(self) -> Optional['outputs.AliasProvisionedConcurrencyConfiguration']:
         """
-        A provisioned concurrency configuration for a function's alias.
+        Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
         """
         return pulumi.get(self, "provisioned_concurrency_config")
 
@@ -69,7 +69,7 @@ class GetAliasResult:
     @pulumi.getter(name="routingConfig")
     def routing_config(self) -> Optional['outputs.AliasRoutingConfiguration']:
         """
-        The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+        The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
         """
         return pulumi.get(self, "routing_config")
 

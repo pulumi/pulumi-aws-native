@@ -13,25 +13,25 @@ namespace Pulumi.AwsNative.ResilienceHub.Inputs
     public sealed class ResiliencyPolicyPolicyMapArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines a failure policy.
+        /// Defines the RTO and RPO targets for Availability Zone disruption.
         /// </summary>
         [Input("az", required: true)]
         public Input<Inputs.ResiliencyPolicyFailurePolicyArgs> Az { get; set; } = null!;
 
         /// <summary>
-        /// Defines a failure policy.
+        /// Defines the RTO and RPO targets for hardware disruption.
         /// </summary>
         [Input("hardware", required: true)]
         public Input<Inputs.ResiliencyPolicyFailurePolicyArgs> Hardware { get; set; } = null!;
 
         /// <summary>
-        /// Defines a failure policy.
+        /// Defines the RTO and RPO targets for Regional disruption.
         /// </summary>
         [Input("region")]
         public Input<Inputs.ResiliencyPolicyFailurePolicyArgs>? Region { get; set; }
 
         /// <summary>
-        /// Defines a failure policy.
+        /// Defines the RTO and RPO targets for software disruption.
         /// </summary>
         [Input("software", required: true)]
         public Input<Inputs.ResiliencyPolicyFailurePolicyArgs> Software { get; set; } = null!;

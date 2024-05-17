@@ -32,7 +32,7 @@ type BotAlias struct {
 	BotId pulumi.StringOutput `pulumi:"botId"`
 	// The version of the bot that the bot alias references.
 	BotVersion pulumi.StringPtrOutput `pulumi:"botVersion"`
-	// Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+	// Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
 	ConversationLogSettings BotAliasConversationLogSettingsPtrOutput `pulumi:"conversationLogSettings"`
 	// The description of the bot alias.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -97,7 +97,7 @@ type botAliasArgs struct {
 	BotId string `pulumi:"botId"`
 	// The version of the bot that the bot alias references.
 	BotVersion *string `pulumi:"botVersion"`
-	// Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+	// Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
 	ConversationLogSettings *BotAliasConversationLogSettings `pulumi:"conversationLogSettings"`
 	// The description of the bot alias.
 	Description *string `pulumi:"description"`
@@ -117,7 +117,7 @@ type BotAliasArgs struct {
 	BotId pulumi.StringInput
 	// The version of the bot that the bot alias references.
 	BotVersion pulumi.StringPtrInput
-	// Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+	// Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
 	ConversationLogSettings BotAliasConversationLogSettingsPtrInput
 	// The description of the bot alias.
 	Description pulumi.StringPtrInput
@@ -202,7 +202,7 @@ func (o BotAliasOutput) BotVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BotAlias) pulumi.StringPtrOutput { return v.BotVersion }).(pulumi.StringPtrOutput)
 }
 
-// Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+// Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
 func (o BotAliasOutput) ConversationLogSettings() BotAliasConversationLogSettingsPtrOutput {
 	return o.ApplyT(func(v *BotAlias) BotAliasConversationLogSettingsPtrOutput { return v.ConversationLogSettings }).(BotAliasConversationLogSettingsPtrOutput)
 }

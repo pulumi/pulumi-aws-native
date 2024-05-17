@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Timestream.Outputs
     public sealed class ScheduledQueryNotificationConfiguration
     {
         /// <summary>
-        /// Details on SNS that are required to send the notification.
+        /// Details on SNS configuration.
         /// </summary>
         public readonly Outputs.ScheduledQuerySnsConfiguration SnsConfiguration;
 

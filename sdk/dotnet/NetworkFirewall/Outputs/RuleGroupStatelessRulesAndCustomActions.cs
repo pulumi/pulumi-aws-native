@@ -14,18 +14,11 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     public sealed class RuleGroupStatelessRulesAndCustomActions
     {
         /// <summary>
-        /// An optional, non-standard action to use for stateless packet handling. You can define this in addition to the standard action that you must specify.
-        /// 
-        /// You define and name the custom actions that you want to be able to use, and then you reference them by name in your actions settings.
-        /// 
-        /// You can use custom actions in the following places:
-        /// 
-        /// - In an `RuleGroup.StatelessRulesAndCustomActions` . The custom actions are available for use by name inside the `StatelessRulesAndCustomActions` where you define them. You can use them for your stateless rule actions to specify what to do with a packet that matches the rule's match attributes.
-        /// - In an `FirewallPolicy` specification, in `StatelessCustomActions` . The custom actions are available for use inside the policy where you define them. You can use them for the policy's default stateless actions settings to specify what to do with packets that don't match any of the policy's stateless rules.
+        /// Defines an array of individual custom action definitions that are available for use by the stateless rules in this `StatelessRulesAndCustomActions` specification. You name each custom action that you define, and then you can use it by name in your stateless rule `RuleGroup.RuleDefinition` `Actions` specification.
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupCustomAction> CustomActions;
         /// <summary>
-        /// A single stateless rule. This is used in `RuleGroup.StatelessRulesAndCustomActions` .
+        /// Defines the set of stateless rules for use in a stateless rule group.
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupStatelessRule> StatelessRules;
 

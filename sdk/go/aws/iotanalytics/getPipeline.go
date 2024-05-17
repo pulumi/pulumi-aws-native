@@ -30,9 +30,15 @@ type LookupPipelineArgs struct {
 
 type LookupPipelineResult struct {
 	Id *string `pulumi:"id"`
-	// An activity that performs a transformation on a message.
+	// A list of "PipelineActivity" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
+	//
+	// The list can be 2-25 *PipelineActivity* objects and must contain both a `channel` and a `datastore` activity. Each entry in the list must contain only one activity, for example:
+	//
+	// `pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]`
 	PipelineActivities []PipelineActivity `pulumi:"pipelineActivities"`
-	// A set of key-value pairs that are used to manage the resource.
+	// Metadata which can be used to manage the pipeline.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -76,12 +82,18 @@ func (o LookupPipelineResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPipelineResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// An activity that performs a transformation on a message.
+// A list of "PipelineActivity" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
+//
+// The list can be 2-25 *PipelineActivity* objects and must contain both a `channel` and a `datastore` activity. Each entry in the list must contain only one activity, for example:
+//
+// `pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]`
 func (o LookupPipelineResultOutput) PipelineActivities() PipelineActivityArrayOutput {
 	return o.ApplyT(func(v LookupPipelineResult) []PipelineActivity { return v.PipelineActivities }).(PipelineActivityArrayOutput)
 }
 
-// A set of key-value pairs that are used to manage the resource.
+// Metadata which can be used to manage the pipeline.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o LookupPipelineResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupPipelineResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

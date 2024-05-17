@@ -49,7 +49,7 @@ type Trail struct {
 	SnsTopicArn pulumi.StringOutput `pulumi:"snsTopicArn"`
 	// Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
 	SnsTopicName pulumi.StringPtrOutput `pulumi:"snsTopicName"`
-	// A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+	// A custom set of tags (key-value pairs) for this trail.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Specifies the name of the trail. The name must meet the following requirements:
 	//
@@ -139,7 +139,7 @@ type trailArgs struct {
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
 	// Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
 	SnsTopicName *string `pulumi:"snsTopicName"`
-	// A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+	// A custom set of tags (key-value pairs) for this trail.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Specifies the name of the trail. The name must meet the following requirements:
 	//
@@ -181,7 +181,7 @@ type TrailArgs struct {
 	S3KeyPrefix pulumi.StringPtrInput
 	// Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
 	SnsTopicName pulumi.StringPtrInput
-	// A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+	// A custom set of tags (key-value pairs) for this trail.
 	Tags aws.TagArrayInput
 	// Specifies the name of the trail. The name must meet the following requirements:
 	//
@@ -310,7 +310,7 @@ func (o TrailOutput) SnsTopicName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Trail) pulumi.StringPtrOutput { return v.SnsTopicName }).(pulumi.StringPtrOutput)
 }
 
-// A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+// A custom set of tags (key-value pairs) for this trail.
 func (o TrailOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Trail) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

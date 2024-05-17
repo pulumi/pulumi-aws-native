@@ -54,7 +54,7 @@ export class AccessGrantsLocation extends pulumi.CustomResource {
      */
     public readonly locationScope!: pulumi.Output<string | undefined>;
     /**
-     * A container of a key value name pair.
+     * The AWS resource tags that you are adding to the S3 Access Grants location. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
      */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
@@ -101,7 +101,7 @@ export interface AccessGrantsLocationArgs {
      */
     locationScope?: pulumi.Input<string>;
     /**
-     * A container of a key value name pair.
+     * The AWS resource tags that you are adding to the S3 Access Grants location. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

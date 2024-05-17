@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.TopicNamedEntityDefinitionArgs>? _definition;
 
         /// <summary>
-        /// A structure that represents a named entity.
+        /// The definition of a named entity.
         /// </summary>
         public InputList<Inputs.TopicNamedEntityDefinitionArgs> Definition
         {
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// A structure that represents a semantic entity type.
+        /// The type of named entity that a topic represents.
         /// </summary>
         [Input("semanticEntityType")]
         public Input<Inputs.TopicSemanticEntityTypeArgs>? SemanticEntityType { get; set; }

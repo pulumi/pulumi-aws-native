@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Backup
     public partial class BackupPlan : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies an object containing properties used to create a backup plan.
+        /// Uniquely identifies the backup plan to be associated with the selection of resources.
         /// </summary>
         [Output("backupPlan")]
         public Output<Outputs.BackupPlanResourceType> BackupPlanValue { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.Backup
     public sealed class BackupPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies an object containing properties used to create a backup plan.
+        /// Uniquely identifies the backup plan to be associated with the selection of resources.
         /// </summary>
         [Input("backupPlan", required: true)]
         public Input<Inputs.BackupPlanResourceTypeArgs> BackupPlanValue { get; set; } = null!;

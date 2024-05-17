@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.EmrContainers.Inputs
         public Input<string> Id { get; set; } = null!;
 
         /// <summary>
-        /// The information about the container used for a job run or a managed endpoint.
+        /// The information about the container cluster.
         /// </summary>
         [Input("info", required: true)]
         public Input<Inputs.VirtualClusterContainerInfoArgs> Info { get; set; } = null!;

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateSankeyDiagramChartConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The options that determine the presentation of the data labels.
+        /// The data label configuration of a sankey diagram.
         /// </summary>
         [Input("dataLabels")]
         public Input<Inputs.TemplateDataLabelOptionsArgs>? DataLabels { get; set; }

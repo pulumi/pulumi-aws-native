@@ -47,7 +47,7 @@ export interface GetNetworkInsightsPathResult {
      */
     readonly sourceArn?: string;
     /**
-     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     * The tags to add to the path.
      */
     readonly tags?: outputs.Tag[];
 }

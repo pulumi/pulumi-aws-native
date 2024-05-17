@@ -120,7 +120,7 @@ export class Portal extends pulumi.CustomResource {
      */
     public /*out*/ readonly statusReason!: pulumi.Output<string>;
     /**
-     * The tag.
+     * The tags to add to the web portal. A tag is a key-value pair.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -253,7 +253,7 @@ export interface PortalArgs {
      */
     networkSettingsArn?: pulumi.Input<string>;
     /**
-     * The tag.
+     * The tags to add to the web portal. A tag is a key-value pair.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

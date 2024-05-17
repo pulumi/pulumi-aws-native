@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly Outputs.DataQualityJobDefinitionConstraintsResource? ConstraintsResource;
         /// <summary>
-        /// The statistics resource for a monitoring job.
+        /// Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
         /// </summary>
         public readonly Outputs.DataQualityJobDefinitionStatisticsResource? StatisticsResource;
 

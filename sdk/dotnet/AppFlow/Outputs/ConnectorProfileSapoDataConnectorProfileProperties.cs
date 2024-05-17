@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// </summary>
         public readonly string? LogonLanguage;
         /// <summary>
-        /// The OAuth properties required for OAuth type authentication.
+        /// The SAPOData OAuth properties required for OAuth type authentication.
         /// </summary>
         public readonly Outputs.ConnectorProfileOAuthProperties? OAuthProperties;
         /// <summary>

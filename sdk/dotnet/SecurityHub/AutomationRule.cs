@@ -886,7 +886,7 @@ namespace Pulumi.AwsNative.SecurityHub
     public partial class AutomationRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+        /// One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
         /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<Outputs.AutomationRulesAction>> Actions { get; private set; } = null!;
@@ -1010,7 +1010,7 @@ namespace Pulumi.AwsNative.SecurityHub
         private InputList<Inputs.AutomationRulesActionArgs>? _actions;
 
         /// <summary>
-        /// One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+        /// One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
         /// </summary>
         public InputList<Inputs.AutomationRulesActionArgs> Actions
         {

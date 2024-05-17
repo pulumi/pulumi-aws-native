@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.SsmIncidents.Outputs
     public sealed class ResponsePlanAction
     {
         /// <summary>
-        /// The `SsmAutomation` property type specifies details about the Systems Manager Automation runbook that will be used as the runbook during an incident.
+        /// Details about the Systems Manager automation document that will be used as a runbook during an incident.
         /// </summary>
         public readonly Outputs.ResponsePlanSsmAutomation? SsmAutomation;
 

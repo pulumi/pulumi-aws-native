@@ -102,7 +102,9 @@ class GetDashboardResult:
     @pulumi.getter
     def permissions(self) -> Optional[Sequence['outputs.DashboardResourcePermission']]:
         """
-        Permission for the resource.
+        A structure that contains the permissions of the dashboard. You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
+
+        To specify no permissions, omit the permissions list.
         """
         return pulumi.get(self, "permissions")
 
@@ -117,9 +119,6 @@ class GetDashboardResult:
     @property
     @pulumi.getter
     def version(self) -> Optional['outputs.DashboardVersion']:
-        """
-        Dashboard version.
-        """
         return pulumi.get(self, "version")
 
 

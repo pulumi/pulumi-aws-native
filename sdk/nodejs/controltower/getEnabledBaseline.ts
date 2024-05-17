@@ -35,11 +35,11 @@ export interface GetEnabledBaselineResult {
      */
     readonly enabledBaselineIdentifier?: string;
     /**
-     * A key-value parameter to an `EnabledBaseline` resource.
+     * Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
      */
     readonly parameters?: outputs.controltower.EnabledBaselineParameter[];
     /**
-     * A key-value parameter to an `EnabledBaseline` resource.
+     * Tags associated with input to `EnableBaseline` .
      */
     readonly tags?: outputs.Tag[];
 }

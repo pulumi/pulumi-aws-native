@@ -54,7 +54,7 @@ export class Connector extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Information about your VPC and security groups used with the connector.
+     * Information of the VPC and security group(s) used with the connector.
      */
     public readonly vpcInformation!: pulumi.Output<outputs.pcaconnectorad.ConnectorVpcInformation>;
 
@@ -114,7 +114,7 @@ export interface ConnectorArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Information about your VPC and security groups used with the connector.
+     * Information of the VPC and security group(s) used with the connector.
      */
     vpcInformation: pulumi.Input<inputs.pcaconnectorad.ConnectorVpcInformationArgs>;
 }

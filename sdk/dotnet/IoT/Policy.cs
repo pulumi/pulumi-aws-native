@@ -41,9 +41,6 @@ namespace Pulumi.AwsNative.IoT
         [Output("policyName")]
         public Output<string?> PolicyName { get; private set; } = null!;
 
-        /// <summary>
-        /// A set of key/value pairs that are used to manage the resource.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -112,10 +109,6 @@ namespace Pulumi.AwsNative.IoT
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// A set of key/value pairs that are used to manage the resource.
-        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

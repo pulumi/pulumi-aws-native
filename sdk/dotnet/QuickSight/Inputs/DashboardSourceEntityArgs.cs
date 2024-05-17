@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardSourceEntityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Dashboard source template.
+        /// Source template.
         /// </summary>
         [Input("sourceTemplate")]
         public Input<Inputs.DashboardSourceTemplateArgs>? SourceTemplate { get; set; }

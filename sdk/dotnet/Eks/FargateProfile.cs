@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Eks
         public Output<string> PodExecutionRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// An object representing an AWS Fargate profile selector.
+        /// The selectors to match for a `Pod` to use this Fargate profile. Each selector must have an associated Kubernetes `namespace` . Optionally, you can also specify `labels` for a `namespace` . You may specify up to five selectors in a Fargate profile.
         /// </summary>
         [Output("selectors")]
         public Output<ImmutableArray<Outputs.FargateProfileSelector>> Selectors { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.AwsNative.Eks
         private InputList<Inputs.FargateProfileSelectorArgs>? _selectors;
 
         /// <summary>
-        /// An object representing an AWS Fargate profile selector.
+        /// The selectors to match for a `Pod` to use this Fargate profile. Each selector must have an associated Kubernetes `namespace` . Optionally, you can also specify `labels` for a `namespace` . You may specify up to five selectors in a Fargate profile.
         /// </summary>
         public InputList<Inputs.FargateProfileSelectorArgs> Selectors
         {

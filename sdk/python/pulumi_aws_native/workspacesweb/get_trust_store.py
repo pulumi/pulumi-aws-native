@@ -53,7 +53,7 @@ class GetTrustStoreResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        The tag.
+        The tags to add to the trust store. A tag is a key-value pair.
         """
         return pulumi.get(self, "tags")
 

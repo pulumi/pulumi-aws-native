@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
     public sealed class MatchingWorkflowResolutionTechniques
     {
         /// <summary>
-        /// An object containing the `providerServiceARN` , `intermediateSourceConfiguration` , and `providerConfiguration` .
+        /// The properties of the provider service.
         /// </summary>
         public readonly Outputs.MatchingWorkflowProviderProperties? ProviderProperties;
         /// <summary>

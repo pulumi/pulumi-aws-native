@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         public Input<string> TableName { get; set; } = null!;
 
         /// <summary>
-        /// Contains configuration information about the Amazon Virtual Private Cloud (VPC).
+        /// Contains information about the Amazon Virtual Private Cloud (VPC) configuration.
         /// </summary>
         [Input("vpcConfiguration", required: true)]
         public Input<Inputs.AnomalyDetectorVpcConfigurationArgs> VpcConfiguration { get; set; } = null!;

@@ -58,7 +58,7 @@ export class NetworkSettings extends pulumi.CustomResource {
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
-     * The tag.
+     * The tags to add to the network settings resource. A tag is a key-value pair.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -124,7 +124,7 @@ export interface NetworkSettingsArgs {
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The tag.
+     * The tags to add to the network settings resource. A tag is a key-value pair.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

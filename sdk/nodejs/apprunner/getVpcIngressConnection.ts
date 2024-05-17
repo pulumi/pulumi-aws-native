@@ -31,7 +31,7 @@ export interface GetVpcIngressConnectionResult {
      */
     readonly domainName?: string;
     /**
-     * Specifications for the customer’s VPC and related PrivateLink VPC endpoint that are used to associate with the VPC Ingress Connection resource.
+     * Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource.
      */
     readonly ingressVpcConfiguration?: outputs.apprunner.VpcIngressConnectionIngressVpcConfiguration;
     /**

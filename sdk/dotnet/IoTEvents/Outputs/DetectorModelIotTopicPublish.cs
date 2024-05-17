@@ -21,9 +21,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// </summary>
         public readonly string MqttTopic;
         /// <summary>
-        /// Information needed to configure the payload.
-        /// 
-        /// By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+        /// You can configure the action payload when you publish a message to an AWS IoT Core topic.
         /// </summary>
         public readonly Outputs.DetectorModelPayload? Payload;
 

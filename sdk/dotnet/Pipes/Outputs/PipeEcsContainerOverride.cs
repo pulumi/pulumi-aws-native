@@ -26,14 +26,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PipeEcsEnvironmentVariable> Environment;
         /// <summary>
-        /// A list of files containing the environment variables to pass to a container. You can specify up to ten environment files. The file must have a `.env` file extension. Each line in an environment file should contain an environment variable in `VARIABLE=VALUE` format. Lines beginning with `#` are treated as comments and are ignored. For more information about the environment variable file syntax, see [Declare default environment variables in file](https://docs.aws.amazon.com/https://docs.docker.com/compose/env-file/) .
-        /// 
-        /// If there are environment variables specified using the `environment` parameter in a container definition, they take precedence over the variables contained within an environment file. If multiple environment files are specified that contain the same variable, they're processed from the top down. We recommend that you use unique variable names. For more information, see [Specifying environment variables](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/taskdef-envfiles.html) in the *Amazon Elastic Container Service Developer Guide* .
-        /// 
-        /// This parameter is only supported for tasks hosted on Fargate using the following platform versions:
-        /// 
-        /// - Linux platform version `1.4.0` or later.
-        /// - Windows platform version `1.0.0` or later.
+        /// A list of files containing the environment variables to pass to a container, instead of the value from the container definition.
         /// </summary>
         public readonly ImmutableArray<Outputs.PipeEcsEnvironmentFile> EnvironmentFiles;
         /// <summary>
@@ -49,7 +42,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The type and amount of a resource to assign to a container. The supported resource types are GPUs and Elastic Inference accelerators. For more information, see [Working with GPUs on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html) or [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide*
+        /// The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU.
         /// </summary>
         public readonly ImmutableArray<Outputs.PipeEcsResourceRequirement> ResourceRequirements;
 

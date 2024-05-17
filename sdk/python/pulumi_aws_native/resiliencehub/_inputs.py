@@ -267,7 +267,7 @@ class AppResourceMappingArgs:
         """
         Resource mapping is used to map logical resources from template to physical resource
         :param pulumi.Input[str] mapping_type: Specifies the type of resource mapping.
-        :param pulumi.Input['AppPhysicalResourceIdArgs'] physical_resource_id: Defines a physical resource identifier.
+        :param pulumi.Input['AppPhysicalResourceIdArgs'] physical_resource_id: Identifier of the physical resource.
         :param pulumi.Input[str] eks_source_name: Name of the Amazon Elastic Kubernetes Service cluster and namespace that this resource is mapped to when the `mappingType` is `EKS` .
                
                > This parameter accepts values in "eks-cluster/namespace" format.
@@ -302,7 +302,7 @@ class AppResourceMappingArgs:
     @pulumi.getter(name="physicalResourceId")
     def physical_resource_id(self) -> pulumi.Input['AppPhysicalResourceIdArgs']:
         """
-        Defines a physical resource identifier.
+        Identifier of the physical resource.
         """
         return pulumi.get(self, "physical_resource_id")
 
@@ -407,10 +407,10 @@ class ResiliencyPolicyPolicyMapArgs:
                  software: pulumi.Input['ResiliencyPolicyFailurePolicyArgs'],
                  region: Optional[pulumi.Input['ResiliencyPolicyFailurePolicyArgs']] = None):
         """
-        :param pulumi.Input['ResiliencyPolicyFailurePolicyArgs'] az: Defines a failure policy.
-        :param pulumi.Input['ResiliencyPolicyFailurePolicyArgs'] hardware: Defines a failure policy.
-        :param pulumi.Input['ResiliencyPolicyFailurePolicyArgs'] software: Defines a failure policy.
-        :param pulumi.Input['ResiliencyPolicyFailurePolicyArgs'] region: Defines a failure policy.
+        :param pulumi.Input['ResiliencyPolicyFailurePolicyArgs'] az: Defines the RTO and RPO targets for Availability Zone disruption.
+        :param pulumi.Input['ResiliencyPolicyFailurePolicyArgs'] hardware: Defines the RTO and RPO targets for hardware disruption.
+        :param pulumi.Input['ResiliencyPolicyFailurePolicyArgs'] software: Defines the RTO and RPO targets for software disruption.
+        :param pulumi.Input['ResiliencyPolicyFailurePolicyArgs'] region: Defines the RTO and RPO targets for Regional disruption.
         """
         pulumi.set(__self__, "az", az)
         pulumi.set(__self__, "hardware", hardware)
@@ -422,7 +422,7 @@ class ResiliencyPolicyPolicyMapArgs:
     @pulumi.getter
     def az(self) -> pulumi.Input['ResiliencyPolicyFailurePolicyArgs']:
         """
-        Defines a failure policy.
+        Defines the RTO and RPO targets for Availability Zone disruption.
         """
         return pulumi.get(self, "az")
 
@@ -434,7 +434,7 @@ class ResiliencyPolicyPolicyMapArgs:
     @pulumi.getter
     def hardware(self) -> pulumi.Input['ResiliencyPolicyFailurePolicyArgs']:
         """
-        Defines a failure policy.
+        Defines the RTO and RPO targets for hardware disruption.
         """
         return pulumi.get(self, "hardware")
 
@@ -446,7 +446,7 @@ class ResiliencyPolicyPolicyMapArgs:
     @pulumi.getter
     def software(self) -> pulumi.Input['ResiliencyPolicyFailurePolicyArgs']:
         """
-        Defines a failure policy.
+        Defines the RTO and RPO targets for software disruption.
         """
         return pulumi.get(self, "software")
 
@@ -458,7 +458,7 @@ class ResiliencyPolicyPolicyMapArgs:
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input['ResiliencyPolicyFailurePolicyArgs']]:
         """
-        Defines a failure policy.
+        Defines the RTO and RPO targets for Regional disruption.
         """
         return pulumi.get(self, "region")
 

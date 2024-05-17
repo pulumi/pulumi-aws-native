@@ -34,9 +34,7 @@ namespace Pulumi.AwsNative.Comprehend
         public Output<string> DocumentClassifierName { get; private set; } = null!;
 
         /// <summary>
-        /// The input properties for training a document classifier.
-        /// 
-        /// For more information on how the input file is formatted, see [Preparing training data](https://docs.aws.amazon.com/comprehend/latest/dg/prep-classifier-data.html) in the Comprehend Developer Guide.
+        /// Specifies the format and location of the input data for the job.
         /// </summary>
         [Output("inputDataConfig")]
         public Output<Outputs.DocumentClassifierInputDataConfig> InputDataConfig { get; private set; } = null!;
@@ -77,13 +75,13 @@ namespace Pulumi.AwsNative.Comprehend
         public Output<string?> ModelPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Provide the location for output data from a custom classifier job. This field is mandatory if you are training a native document model.
+        /// Provides output results configuration parameters for custom classifier jobs.
         /// </summary>
         [Output("outputDataConfig")]
         public Output<Outputs.DocumentClassifierOutputDataConfig?> OutputDataConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+        /// Tags to associate with the document classifier. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -104,7 +102,7 @@ namespace Pulumi.AwsNative.Comprehend
         public Output<string?> VolumeKmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
+        /// Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
         /// </summary>
         [Output("vpcConfig")]
         public Output<Outputs.DocumentClassifierVpcConfig?> VpcConfig { get; private set; } = null!;
@@ -180,9 +178,7 @@ namespace Pulumi.AwsNative.Comprehend
         public Input<string>? DocumentClassifierName { get; set; }
 
         /// <summary>
-        /// The input properties for training a document classifier.
-        /// 
-        /// For more information on how the input file is formatted, see [Preparing training data](https://docs.aws.amazon.com/comprehend/latest/dg/prep-classifier-data.html) in the Comprehend Developer Guide.
+        /// Specifies the format and location of the input data for the job.
         /// </summary>
         [Input("inputDataConfig", required: true)]
         public Input<Inputs.DocumentClassifierInputDataConfigArgs> InputDataConfig { get; set; } = null!;
@@ -223,7 +219,7 @@ namespace Pulumi.AwsNative.Comprehend
         public Input<string>? ModelPolicy { get; set; }
 
         /// <summary>
-        /// Provide the location for output data from a custom classifier job. This field is mandatory if you are training a native document model.
+        /// Provides output results configuration parameters for custom classifier jobs.
         /// </summary>
         [Input("outputDataConfig")]
         public Input<Inputs.DocumentClassifierOutputDataConfigArgs>? OutputDataConfig { get; set; }
@@ -232,7 +228,7 @@ namespace Pulumi.AwsNative.Comprehend
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+        /// Tags to associate with the document classifier. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
@@ -256,7 +252,7 @@ namespace Pulumi.AwsNative.Comprehend
         public Input<string>? VolumeKmsKeyId { get; set; }
 
         /// <summary>
-        /// Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
+        /// Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.DocumentClassifierVpcConfigArgs>? VpcConfig { get; set; }

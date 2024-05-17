@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class AnalysisRadarChartSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The category items limit for a radar chart.
         /// </summary>
         [Input("categoryItemsLimit")]
         public Input<Inputs.AnalysisItemsLimitConfigurationArgs>? CategoryItemsLimit { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The color items limit of a radar chart.
         /// </summary>
         [Input("colorItemsLimit")]
         public Input<Inputs.AnalysisItemsLimitConfigurationArgs>? ColorItemsLimit { get; set; }

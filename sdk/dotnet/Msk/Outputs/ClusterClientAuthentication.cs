@@ -18,11 +18,11 @@ namespace Pulumi.AwsNative.Msk.Outputs
         /// </summary>
         public readonly Outputs.ClusterSasl? Sasl;
         /// <summary>
-        /// Details for client authentication using TLS.
+        /// Details for ClientAuthentication using TLS. To turn on TLS access control, you must also turn on `EncryptionInTransit` by setting `inCluster` to true and `clientBroker` to `TLS` .
         /// </summary>
         public readonly Outputs.ClusterTls? Tls;
         /// <summary>
-        /// Details for allowing no client authentication.
+        /// Details for ClientAuthentication using no authentication.
         /// </summary>
         public readonly Outputs.ClusterUnauthenticated? Unauthenticated;
 

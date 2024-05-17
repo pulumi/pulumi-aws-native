@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.AppStream
     public sealed class GetAppBlockBuilderResult
     {
         /// <summary>
-        /// Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+        /// The access endpoints of the app block builder.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppBlockBuilderAccessEndpoint> AccessEndpoints;
         /// <summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AwsNative.AppStream
         /// </summary>
         public readonly string? Platform;
         /// <summary>
-        /// Describes VPC configuration information for fleets and image builders.
+        /// The VPC configuration for the app block builder.
         /// </summary>
         public readonly Outputs.AppBlockBuilderVpcConfig? VpcConfig;
 

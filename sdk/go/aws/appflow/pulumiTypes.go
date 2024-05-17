@@ -623,9 +623,9 @@ func (o ConnectorProfileBasicAuthCredentialsPtrOutput) Username() pulumi.StringP
 
 // Connector specific configurations needed to create connector profile
 type ConnectorProfileConfig struct {
-	// The connector-specific credentials required by a connector.
+	// The connector-specific credentials required by each connector.
 	ConnectorProfileCredentials *ConnectorProfileCredentials `pulumi:"connectorProfileCredentials"`
-	// The connector-specific profile properties required by each connector.
+	// The connector-specific properties of the profile configuration.
 	ConnectorProfileProperties *ConnectorProfileProperties `pulumi:"connectorProfileProperties"`
 }
 
@@ -642,9 +642,9 @@ type ConnectorProfileConfigInput interface {
 
 // Connector specific configurations needed to create connector profile
 type ConnectorProfileConfigArgs struct {
-	// The connector-specific credentials required by a connector.
+	// The connector-specific credentials required by each connector.
 	ConnectorProfileCredentials ConnectorProfileCredentialsPtrInput `pulumi:"connectorProfileCredentials"`
-	// The connector-specific profile properties required by each connector.
+	// The connector-specific properties of the profile configuration.
 	ConnectorProfileProperties ConnectorProfilePropertiesPtrInput `pulumi:"connectorProfileProperties"`
 }
 
@@ -726,12 +726,12 @@ func (o ConnectorProfileConfigOutput) ToConnectorProfileConfigPtrOutputWithConte
 	}).(ConnectorProfileConfigPtrOutput)
 }
 
-// The connector-specific credentials required by a connector.
+// The connector-specific credentials required by each connector.
 func (o ConnectorProfileConfigOutput) ConnectorProfileCredentials() ConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConfig) *ConnectorProfileCredentials { return v.ConnectorProfileCredentials }).(ConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile properties required by each connector.
+// The connector-specific properties of the profile configuration.
 func (o ConnectorProfileConfigOutput) ConnectorProfileProperties() ConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConfig) *ConnectorProfileProperties { return v.ConnectorProfileProperties }).(ConnectorProfilePropertiesPtrOutput)
 }
@@ -760,7 +760,7 @@ func (o ConnectorProfileConfigPtrOutput) Elem() ConnectorProfileConfigOutput {
 	}).(ConnectorProfileConfigOutput)
 }
 
-// The connector-specific credentials required by a connector.
+// The connector-specific credentials required by each connector.
 func (o ConnectorProfileConfigPtrOutput) ConnectorProfileCredentials() ConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConfig) *ConnectorProfileCredentials {
 		if v == nil {
@@ -770,7 +770,7 @@ func (o ConnectorProfileConfigPtrOutput) ConnectorProfileCredentials() Connector
 	}).(ConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile properties required by each connector.
+// The connector-specific properties of the profile configuration.
 func (o ConnectorProfileConfigPtrOutput) ConnectorProfileProperties() ConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileConfig) *ConnectorProfileProperties {
 		if v == nil {
@@ -946,37 +946,37 @@ type ConnectorProfileCredentials struct {
 	Amplitude *ConnectorProfileAmplitudeConnectorProfileCredentials `pulumi:"amplitude"`
 	// The connector-specific profile credentials that are required when using the custom connector.
 	CustomConnector *ConnectorProfileCustomConnectorProfileCredentials `pulumi:"customConnector"`
-	// The connector-specific credentials required by Datadog.
+	// The connector-specific credentials required when using Datadog.
 	Datadog *ConnectorProfileDatadogConnectorProfileCredentials `pulumi:"datadog"`
-	// The connector-specific profile credentials required by Dynatrace.
+	// The connector-specific credentials required when using Dynatrace.
 	Dynatrace *ConnectorProfileDynatraceConnectorProfileCredentials `pulumi:"dynatrace"`
-	// The connector-specific profile credentials required by Google Analytics.
+	// The connector-specific credentials required when using Google Analytics.
 	GoogleAnalytics *ConnectorProfileGoogleAnalyticsConnectorProfileCredentials `pulumi:"googleAnalytics"`
-	// The connector-specific profile credentials required by Infor Nexus.
+	// The connector-specific credentials required when using Infor Nexus.
 	InforNexus *ConnectorProfileInforNexusConnectorProfileCredentials `pulumi:"inforNexus"`
-	// The connector-specific profile credentials required by Marketo.
+	// The connector-specific credentials required when using Marketo.
 	Marketo *ConnectorProfileMarketoConnectorProfileCredentials `pulumi:"marketo"`
-	// The connector-specific profile credentials required when using Salesforce Pardot.
+	// The connector-specific credentials required when using Salesforce Pardot.
 	Pardot *ConnectorProfilePardotConnectorProfileCredentials `pulumi:"pardot"`
-	// The connector-specific profile credentials required when using Amazon Redshift.
+	// The connector-specific credentials required when using Amazon Redshift.
 	Redshift *ConnectorProfileRedshiftConnectorProfileCredentials `pulumi:"redshift"`
-	// The connector-specific profile credentials required when using Salesforce.
+	// The connector-specific credentials required when using Salesforce.
 	Salesforce *ConnectorProfileSalesforceConnectorProfileCredentials `pulumi:"salesforce"`
 	// The connector-specific profile credentials required when using SAPOData.
 	SapoData *ConnectorProfileSapoDataConnectorProfileCredentials `pulumi:"sapoData"`
-	// The connector-specific profile credentials required when using ServiceNow.
+	// The connector-specific credentials required when using ServiceNow.
 	ServiceNow *ConnectorProfileServiceNowConnectorProfileCredentials `pulumi:"serviceNow"`
-	// The connector-specific profile credentials required when using Singular.
+	// The connector-specific credentials required when using Singular.
 	Singular *ConnectorProfileSingularConnectorProfileCredentials `pulumi:"singular"`
-	// The connector-specific profile credentials required when using Slack.
+	// The connector-specific credentials required when using Slack.
 	Slack *ConnectorProfileSlackConnectorProfileCredentials `pulumi:"slack"`
-	// The connector-specific profile credentials required when using Snowflake.
+	// The connector-specific credentials required when using Snowflake.
 	Snowflake *ConnectorProfileSnowflakeConnectorProfileCredentials `pulumi:"snowflake"`
-	// The connector-specific profile credentials required when using Trend Micro.
+	// The connector-specific credentials required when using Trend Micro.
 	Trendmicro *ConnectorProfileTrendmicroConnectorProfileCredentials `pulumi:"trendmicro"`
-	// The connector-specific profile credentials required when using Veeva.
+	// The connector-specific credentials required when using Veeva.
 	Veeva *ConnectorProfileVeevaConnectorProfileCredentials `pulumi:"veeva"`
-	// The connector-specific profile credentials required when using Zendesk.
+	// The connector-specific credentials required when using Zendesk.
 	Zendesk *ConnectorProfileZendeskConnectorProfileCredentials `pulumi:"zendesk"`
 }
 
@@ -997,37 +997,37 @@ type ConnectorProfileCredentialsArgs struct {
 	Amplitude ConnectorProfileAmplitudeConnectorProfileCredentialsPtrInput `pulumi:"amplitude"`
 	// The connector-specific profile credentials that are required when using the custom connector.
 	CustomConnector ConnectorProfileCustomConnectorProfileCredentialsPtrInput `pulumi:"customConnector"`
-	// The connector-specific credentials required by Datadog.
+	// The connector-specific credentials required when using Datadog.
 	Datadog ConnectorProfileDatadogConnectorProfileCredentialsPtrInput `pulumi:"datadog"`
-	// The connector-specific profile credentials required by Dynatrace.
+	// The connector-specific credentials required when using Dynatrace.
 	Dynatrace ConnectorProfileDynatraceConnectorProfileCredentialsPtrInput `pulumi:"dynatrace"`
-	// The connector-specific profile credentials required by Google Analytics.
+	// The connector-specific credentials required when using Google Analytics.
 	GoogleAnalytics ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrInput `pulumi:"googleAnalytics"`
-	// The connector-specific profile credentials required by Infor Nexus.
+	// The connector-specific credentials required when using Infor Nexus.
 	InforNexus ConnectorProfileInforNexusConnectorProfileCredentialsPtrInput `pulumi:"inforNexus"`
-	// The connector-specific profile credentials required by Marketo.
+	// The connector-specific credentials required when using Marketo.
 	Marketo ConnectorProfileMarketoConnectorProfileCredentialsPtrInput `pulumi:"marketo"`
-	// The connector-specific profile credentials required when using Salesforce Pardot.
+	// The connector-specific credentials required when using Salesforce Pardot.
 	Pardot ConnectorProfilePardotConnectorProfileCredentialsPtrInput `pulumi:"pardot"`
-	// The connector-specific profile credentials required when using Amazon Redshift.
+	// The connector-specific credentials required when using Amazon Redshift.
 	Redshift ConnectorProfileRedshiftConnectorProfileCredentialsPtrInput `pulumi:"redshift"`
-	// The connector-specific profile credentials required when using Salesforce.
+	// The connector-specific credentials required when using Salesforce.
 	Salesforce ConnectorProfileSalesforceConnectorProfileCredentialsPtrInput `pulumi:"salesforce"`
 	// The connector-specific profile credentials required when using SAPOData.
 	SapoData ConnectorProfileSapoDataConnectorProfileCredentialsPtrInput `pulumi:"sapoData"`
-	// The connector-specific profile credentials required when using ServiceNow.
+	// The connector-specific credentials required when using ServiceNow.
 	ServiceNow ConnectorProfileServiceNowConnectorProfileCredentialsPtrInput `pulumi:"serviceNow"`
-	// The connector-specific profile credentials required when using Singular.
+	// The connector-specific credentials required when using Singular.
 	Singular ConnectorProfileSingularConnectorProfileCredentialsPtrInput `pulumi:"singular"`
-	// The connector-specific profile credentials required when using Slack.
+	// The connector-specific credentials required when using Slack.
 	Slack ConnectorProfileSlackConnectorProfileCredentialsPtrInput `pulumi:"slack"`
-	// The connector-specific profile credentials required when using Snowflake.
+	// The connector-specific credentials required when using Snowflake.
 	Snowflake ConnectorProfileSnowflakeConnectorProfileCredentialsPtrInput `pulumi:"snowflake"`
-	// The connector-specific profile credentials required when using Trend Micro.
+	// The connector-specific credentials required when using Trend Micro.
 	Trendmicro ConnectorProfileTrendmicroConnectorProfileCredentialsPtrInput `pulumi:"trendmicro"`
-	// The connector-specific profile credentials required when using Veeva.
+	// The connector-specific credentials required when using Veeva.
 	Veeva ConnectorProfileVeevaConnectorProfileCredentialsPtrInput `pulumi:"veeva"`
-	// The connector-specific profile credentials required when using Zendesk.
+	// The connector-specific credentials required when using Zendesk.
 	Zendesk ConnectorProfileZendeskConnectorProfileCredentialsPtrInput `pulumi:"zendesk"`
 }
 
@@ -1123,56 +1123,56 @@ func (o ConnectorProfileCredentialsOutput) CustomConnector() ConnectorProfileCus
 	}).(ConnectorProfileCustomConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific credentials required by Datadog.
+// The connector-specific credentials required when using Datadog.
 func (o ConnectorProfileCredentialsOutput) Datadog() ConnectorProfileDatadogConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileDatadogConnectorProfileCredentials {
 		return v.Datadog
 	}).(ConnectorProfileDatadogConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required by Dynatrace.
+// The connector-specific credentials required when using Dynatrace.
 func (o ConnectorProfileCredentialsOutput) Dynatrace() ConnectorProfileDynatraceConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileDynatraceConnectorProfileCredentials {
 		return v.Dynatrace
 	}).(ConnectorProfileDynatraceConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required by Google Analytics.
+// The connector-specific credentials required when using Google Analytics.
 func (o ConnectorProfileCredentialsOutput) GoogleAnalytics() ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileGoogleAnalyticsConnectorProfileCredentials {
 		return v.GoogleAnalytics
 	}).(ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required by Infor Nexus.
+// The connector-specific credentials required when using Infor Nexus.
 func (o ConnectorProfileCredentialsOutput) InforNexus() ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileInforNexusConnectorProfileCredentials {
 		return v.InforNexus
 	}).(ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required by Marketo.
+// The connector-specific credentials required when using Marketo.
 func (o ConnectorProfileCredentialsOutput) Marketo() ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileMarketoConnectorProfileCredentials {
 		return v.Marketo
 	}).(ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required when using Salesforce Pardot.
+// The connector-specific credentials required when using Salesforce Pardot.
 func (o ConnectorProfileCredentialsOutput) Pardot() ConnectorProfilePardotConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfilePardotConnectorProfileCredentials {
 		return v.Pardot
 	}).(ConnectorProfilePardotConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required when using Amazon Redshift.
+// The connector-specific credentials required when using Amazon Redshift.
 func (o ConnectorProfileCredentialsOutput) Redshift() ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileRedshiftConnectorProfileCredentials {
 		return v.Redshift
 	}).(ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required when using Salesforce.
+// The connector-specific credentials required when using Salesforce.
 func (o ConnectorProfileCredentialsOutput) Salesforce() ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileSalesforceConnectorProfileCredentials {
 		return v.Salesforce
@@ -1186,45 +1186,45 @@ func (o ConnectorProfileCredentialsOutput) SapoData() ConnectorProfileSapoDataCo
 	}).(ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required when using ServiceNow.
+// The connector-specific credentials required when using ServiceNow.
 func (o ConnectorProfileCredentialsOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileServiceNowConnectorProfileCredentials {
 		return v.ServiceNow
 	}).(ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required when using Singular.
+// The connector-specific credentials required when using Singular.
 func (o ConnectorProfileCredentialsOutput) Singular() ConnectorProfileSingularConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileSingularConnectorProfileCredentials {
 		return v.Singular
 	}).(ConnectorProfileSingularConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required when using Slack.
+// The connector-specific credentials required when using Slack.
 func (o ConnectorProfileCredentialsOutput) Slack() ConnectorProfileSlackConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileSlackConnectorProfileCredentials { return v.Slack }).(ConnectorProfileSlackConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required when using Snowflake.
+// The connector-specific credentials required when using Snowflake.
 func (o ConnectorProfileCredentialsOutput) Snowflake() ConnectorProfileSnowflakeConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileSnowflakeConnectorProfileCredentials {
 		return v.Snowflake
 	}).(ConnectorProfileSnowflakeConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required when using Trend Micro.
+// The connector-specific credentials required when using Trend Micro.
 func (o ConnectorProfileCredentialsOutput) Trendmicro() ConnectorProfileTrendmicroConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileTrendmicroConnectorProfileCredentials {
 		return v.Trendmicro
 	}).(ConnectorProfileTrendmicroConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required when using Veeva.
+// The connector-specific credentials required when using Veeva.
 func (o ConnectorProfileCredentialsOutput) Veeva() ConnectorProfileVeevaConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileVeevaConnectorProfileCredentials { return v.Veeva }).(ConnectorProfileVeevaConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required when using Zendesk.
+// The connector-specific credentials required when using Zendesk.
 func (o ConnectorProfileCredentialsOutput) Zendesk() ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileCredentials) *ConnectorProfileZendeskConnectorProfileCredentials {
 		return v.Zendesk
@@ -1275,7 +1275,7 @@ func (o ConnectorProfileCredentialsPtrOutput) CustomConnector() ConnectorProfile
 	}).(ConnectorProfileCustomConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific credentials required by Datadog.
+// The connector-specific credentials required when using Datadog.
 func (o ConnectorProfileCredentialsPtrOutput) Datadog() ConnectorProfileDatadogConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileDatadogConnectorProfileCredentials {
 		if v == nil {
@@ -1285,7 +1285,7 @@ func (o ConnectorProfileCredentialsPtrOutput) Datadog() ConnectorProfileDatadogC
 	}).(ConnectorProfileDatadogConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required by Dynatrace.
+// The connector-specific credentials required when using Dynatrace.
 func (o ConnectorProfileCredentialsPtrOutput) Dynatrace() ConnectorProfileDynatraceConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileDynatraceConnectorProfileCredentials {
 		if v == nil {
@@ -1295,7 +1295,7 @@ func (o ConnectorProfileCredentialsPtrOutput) Dynatrace() ConnectorProfileDynatr
 	}).(ConnectorProfileDynatraceConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required by Google Analytics.
+// The connector-specific credentials required when using Google Analytics.
 func (o ConnectorProfileCredentialsPtrOutput) GoogleAnalytics() ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileGoogleAnalyticsConnectorProfileCredentials {
 		if v == nil {
@@ -1305,7 +1305,7 @@ func (o ConnectorProfileCredentialsPtrOutput) GoogleAnalytics() ConnectorProfile
 	}).(ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required by Infor Nexus.
+// The connector-specific credentials required when using Infor Nexus.
 func (o ConnectorProfileCredentialsPtrOutput) InforNexus() ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileInforNexusConnectorProfileCredentials {
 		if v == nil {
@@ -1315,7 +1315,7 @@ func (o ConnectorProfileCredentialsPtrOutput) InforNexus() ConnectorProfileInfor
 	}).(ConnectorProfileInforNexusConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required by Marketo.
+// The connector-specific credentials required when using Marketo.
 func (o ConnectorProfileCredentialsPtrOutput) Marketo() ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileMarketoConnectorProfileCredentials {
 		if v == nil {
@@ -1325,7 +1325,7 @@ func (o ConnectorProfileCredentialsPtrOutput) Marketo() ConnectorProfileMarketoC
 	}).(ConnectorProfileMarketoConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required when using Salesforce Pardot.
+// The connector-specific credentials required when using Salesforce Pardot.
 func (o ConnectorProfileCredentialsPtrOutput) Pardot() ConnectorProfilePardotConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfilePardotConnectorProfileCredentials {
 		if v == nil {
@@ -1335,7 +1335,7 @@ func (o ConnectorProfileCredentialsPtrOutput) Pardot() ConnectorProfilePardotCon
 	}).(ConnectorProfilePardotConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required when using Amazon Redshift.
+// The connector-specific credentials required when using Amazon Redshift.
 func (o ConnectorProfileCredentialsPtrOutput) Redshift() ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileRedshiftConnectorProfileCredentials {
 		if v == nil {
@@ -1345,7 +1345,7 @@ func (o ConnectorProfileCredentialsPtrOutput) Redshift() ConnectorProfileRedshif
 	}).(ConnectorProfileRedshiftConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required when using Salesforce.
+// The connector-specific credentials required when using Salesforce.
 func (o ConnectorProfileCredentialsPtrOutput) Salesforce() ConnectorProfileSalesforceConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileSalesforceConnectorProfileCredentials {
 		if v == nil {
@@ -1365,7 +1365,7 @@ func (o ConnectorProfileCredentialsPtrOutput) SapoData() ConnectorProfileSapoDat
 	}).(ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required when using ServiceNow.
+// The connector-specific credentials required when using ServiceNow.
 func (o ConnectorProfileCredentialsPtrOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileServiceNowConnectorProfileCredentials {
 		if v == nil {
@@ -1375,7 +1375,7 @@ func (o ConnectorProfileCredentialsPtrOutput) ServiceNow() ConnectorProfileServi
 	}).(ConnectorProfileServiceNowConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required when using Singular.
+// The connector-specific credentials required when using Singular.
 func (o ConnectorProfileCredentialsPtrOutput) Singular() ConnectorProfileSingularConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileSingularConnectorProfileCredentials {
 		if v == nil {
@@ -1385,7 +1385,7 @@ func (o ConnectorProfileCredentialsPtrOutput) Singular() ConnectorProfileSingula
 	}).(ConnectorProfileSingularConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required when using Slack.
+// The connector-specific credentials required when using Slack.
 func (o ConnectorProfileCredentialsPtrOutput) Slack() ConnectorProfileSlackConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileSlackConnectorProfileCredentials {
 		if v == nil {
@@ -1395,7 +1395,7 @@ func (o ConnectorProfileCredentialsPtrOutput) Slack() ConnectorProfileSlackConne
 	}).(ConnectorProfileSlackConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required when using Snowflake.
+// The connector-specific credentials required when using Snowflake.
 func (o ConnectorProfileCredentialsPtrOutput) Snowflake() ConnectorProfileSnowflakeConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileSnowflakeConnectorProfileCredentials {
 		if v == nil {
@@ -1405,7 +1405,7 @@ func (o ConnectorProfileCredentialsPtrOutput) Snowflake() ConnectorProfileSnowfl
 	}).(ConnectorProfileSnowflakeConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required when using Trend Micro.
+// The connector-specific credentials required when using Trend Micro.
 func (o ConnectorProfileCredentialsPtrOutput) Trendmicro() ConnectorProfileTrendmicroConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileTrendmicroConnectorProfileCredentials {
 		if v == nil {
@@ -1415,7 +1415,7 @@ func (o ConnectorProfileCredentialsPtrOutput) Trendmicro() ConnectorProfileTrend
 	}).(ConnectorProfileTrendmicroConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required when using Veeva.
+// The connector-specific credentials required when using Veeva.
 func (o ConnectorProfileCredentialsPtrOutput) Veeva() ConnectorProfileVeevaConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileVeevaConnectorProfileCredentials {
 		if v == nil {
@@ -1425,7 +1425,7 @@ func (o ConnectorProfileCredentialsPtrOutput) Veeva() ConnectorProfileVeevaConne
 	}).(ConnectorProfileVeevaConnectorProfileCredentialsPtrOutput)
 }
 
-// The connector-specific profile credentials required when using Zendesk.
+// The connector-specific credentials required when using Zendesk.
 func (o ConnectorProfileCredentialsPtrOutput) Zendesk() ConnectorProfileZendeskConnectorProfileCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileCredentials) *ConnectorProfileZendeskConnectorProfileCredentials {
 		if v == nil {
@@ -1592,15 +1592,15 @@ func (o ConnectorProfileCustomAuthCredentialsPtrOutput) CustomAuthenticationType
 }
 
 type ConnectorProfileCustomConnectorProfileCredentials struct {
-	// The API key credentials required for API key authentication.
+	// The API keys required for the authentication of the user.
 	ApiKey *ConnectorProfileApiKeyCredentials `pulumi:"apiKey"`
 	// The authentication type that the custom connector uses for authenticating while creating a connector profile.
 	AuthenticationType ConnectorProfileAuthenticationType `pulumi:"authenticationType"`
-	// The basic auth credentials required for basic authentication.
+	// The basic credentials that are required for the authentication of the user.
 	Basic *ConnectorProfileBasicAuthCredentials `pulumi:"basic"`
-	// The custom credentials required for custom authentication.
+	// If the connector uses the custom authentication mechanism, this holds the required credentials.
 	Custom *ConnectorProfileCustomAuthCredentials `pulumi:"custom"`
-	// The OAuth 2.0 credentials required for OAuth 2.0 authentication.
+	// The OAuth 2.0 credentials required for the authentication of the user.
 	Oauth2 *ConnectorProfileOAuth2Credentials `pulumi:"oauth2"`
 }
 
@@ -1616,15 +1616,15 @@ type ConnectorProfileCustomConnectorProfileCredentialsInput interface {
 }
 
 type ConnectorProfileCustomConnectorProfileCredentialsArgs struct {
-	// The API key credentials required for API key authentication.
+	// The API keys required for the authentication of the user.
 	ApiKey ConnectorProfileApiKeyCredentialsPtrInput `pulumi:"apiKey"`
 	// The authentication type that the custom connector uses for authenticating while creating a connector profile.
 	AuthenticationType ConnectorProfileAuthenticationTypeInput `pulumi:"authenticationType"`
-	// The basic auth credentials required for basic authentication.
+	// The basic credentials that are required for the authentication of the user.
 	Basic ConnectorProfileBasicAuthCredentialsPtrInput `pulumi:"basic"`
-	// The custom credentials required for custom authentication.
+	// If the connector uses the custom authentication mechanism, this holds the required credentials.
 	Custom ConnectorProfileCustomAuthCredentialsPtrInput `pulumi:"custom"`
-	// The OAuth 2.0 credentials required for OAuth 2.0 authentication.
+	// The OAuth 2.0 credentials required for the authentication of the user.
 	Oauth2 ConnectorProfileOAuth2CredentialsPtrInput `pulumi:"oauth2"`
 }
 
@@ -1705,7 +1705,7 @@ func (o ConnectorProfileCustomConnectorProfileCredentialsOutput) ToConnectorProf
 	}).(ConnectorProfileCustomConnectorProfileCredentialsPtrOutput)
 }
 
-// The API key credentials required for API key authentication.
+// The API keys required for the authentication of the user.
 func (o ConnectorProfileCustomConnectorProfileCredentialsOutput) ApiKey() ConnectorProfileApiKeyCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileCustomConnectorProfileCredentials) *ConnectorProfileApiKeyCredentials {
 		return v.ApiKey
@@ -1719,21 +1719,21 @@ func (o ConnectorProfileCustomConnectorProfileCredentialsOutput) AuthenticationT
 	}).(ConnectorProfileAuthenticationTypeOutput)
 }
 
-// The basic auth credentials required for basic authentication.
+// The basic credentials that are required for the authentication of the user.
 func (o ConnectorProfileCustomConnectorProfileCredentialsOutput) Basic() ConnectorProfileBasicAuthCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileCustomConnectorProfileCredentials) *ConnectorProfileBasicAuthCredentials {
 		return v.Basic
 	}).(ConnectorProfileBasicAuthCredentialsPtrOutput)
 }
 
-// The custom credentials required for custom authentication.
+// If the connector uses the custom authentication mechanism, this holds the required credentials.
 func (o ConnectorProfileCustomConnectorProfileCredentialsOutput) Custom() ConnectorProfileCustomAuthCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileCustomConnectorProfileCredentials) *ConnectorProfileCustomAuthCredentials {
 		return v.Custom
 	}).(ConnectorProfileCustomAuthCredentialsPtrOutput)
 }
 
-// The OAuth 2.0 credentials required for OAuth 2.0 authentication.
+// The OAuth 2.0 credentials required for the authentication of the user.
 func (o ConnectorProfileCustomConnectorProfileCredentialsOutput) Oauth2() ConnectorProfileOAuth2CredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileCustomConnectorProfileCredentials) *ConnectorProfileOAuth2Credentials {
 		return v.Oauth2
@@ -1764,7 +1764,7 @@ func (o ConnectorProfileCustomConnectorProfileCredentialsPtrOutput) Elem() Conne
 	}).(ConnectorProfileCustomConnectorProfileCredentialsOutput)
 }
 
-// The API key credentials required for API key authentication.
+// The API keys required for the authentication of the user.
 func (o ConnectorProfileCustomConnectorProfileCredentialsPtrOutput) ApiKey() ConnectorProfileApiKeyCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileCustomConnectorProfileCredentials) *ConnectorProfileApiKeyCredentials {
 		if v == nil {
@@ -1784,7 +1784,7 @@ func (o ConnectorProfileCustomConnectorProfileCredentialsPtrOutput) Authenticati
 	}).(ConnectorProfileAuthenticationTypePtrOutput)
 }
 
-// The basic auth credentials required for basic authentication.
+// The basic credentials that are required for the authentication of the user.
 func (o ConnectorProfileCustomConnectorProfileCredentialsPtrOutput) Basic() ConnectorProfileBasicAuthCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileCustomConnectorProfileCredentials) *ConnectorProfileBasicAuthCredentials {
 		if v == nil {
@@ -1794,7 +1794,7 @@ func (o ConnectorProfileCustomConnectorProfileCredentialsPtrOutput) Basic() Conn
 	}).(ConnectorProfileBasicAuthCredentialsPtrOutput)
 }
 
-// The custom credentials required for custom authentication.
+// If the connector uses the custom authentication mechanism, this holds the required credentials.
 func (o ConnectorProfileCustomConnectorProfileCredentialsPtrOutput) Custom() ConnectorProfileCustomAuthCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileCustomConnectorProfileCredentials) *ConnectorProfileCustomAuthCredentials {
 		if v == nil {
@@ -1804,7 +1804,7 @@ func (o ConnectorProfileCustomConnectorProfileCredentialsPtrOutput) Custom() Con
 	}).(ConnectorProfileCustomAuthCredentialsPtrOutput)
 }
 
-// The OAuth 2.0 credentials required for OAuth 2.0 authentication.
+// The OAuth 2.0 credentials required for the authentication of the user.
 func (o ConnectorProfileCustomConnectorProfileCredentialsPtrOutput) Oauth2() ConnectorProfileOAuth2CredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileCustomConnectorProfileCredentials) *ConnectorProfileOAuth2Credentials {
 		if v == nil {
@@ -3424,8 +3424,7 @@ type ConnectorProfileOAuth2Credentials struct {
 	// The identifier for the desired client.
 	ClientId *string `pulumi:"clientId"`
 	// The client secret used by the OAuth client to authenticate to the authorization server.
-	ClientSecret *string `pulumi:"clientSecret"`
-	// Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
+	ClientSecret *string                                `pulumi:"clientSecret"`
 	OAuthRequest *ConnectorProfileConnectorOAuthRequest `pulumi:"oAuthRequest"`
 	// The refresh token used to refresh an expired access token.
 	RefreshToken *string `pulumi:"refreshToken"`
@@ -3448,8 +3447,7 @@ type ConnectorProfileOAuth2CredentialsArgs struct {
 	// The identifier for the desired client.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
 	// The client secret used by the OAuth client to authenticate to the authorization server.
-	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
-	// Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
+	ClientSecret pulumi.StringPtrInput                         `pulumi:"clientSecret"`
 	OAuthRequest ConnectorProfileConnectorOAuthRequestPtrInput `pulumi:"oAuthRequest"`
 	// The refresh token used to refresh an expired access token.
 	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
@@ -3547,7 +3545,6 @@ func (o ConnectorProfileOAuth2CredentialsOutput) ClientSecret() pulumi.StringPtr
 	return o.ApplyT(func(v ConnectorProfileOAuth2Credentials) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
 
-// Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
 func (o ConnectorProfileOAuth2CredentialsOutput) OAuthRequest() ConnectorProfileConnectorOAuthRequestPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileOAuth2Credentials) *ConnectorProfileConnectorOAuthRequest {
 		return v.OAuthRequest
@@ -3613,7 +3610,6 @@ func (o ConnectorProfileOAuth2CredentialsPtrOutput) ClientSecret() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
 func (o ConnectorProfileOAuth2CredentialsPtrOutput) OAuthRequest() ConnectorProfileConnectorOAuthRequestPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileOAuth2Credentials) *ConnectorProfileConnectorOAuthRequest {
 		if v == nil {
@@ -4356,33 +4352,33 @@ func (o ConnectorProfilePardotConnectorProfilePropertiesPtrOutput) IsSandboxEnvi
 
 // Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
 type ConnectorProfileProperties struct {
-	// The profile properties required by the custom connector.
+	// The properties required by the custom connector.
 	CustomConnector *ConnectorProfileCustomConnectorProfileProperties `pulumi:"customConnector"`
-	// The connector-specific profile properties required by Datadog.
+	// The connector-specific properties required by Datadog.
 	Datadog *ConnectorProfileDatadogConnectorProfileProperties `pulumi:"datadog"`
-	// The connector-specific profile properties required by Dynatrace.
+	// The connector-specific properties required by Dynatrace.
 	Dynatrace *ConnectorProfileDynatraceConnectorProfileProperties `pulumi:"dynatrace"`
-	// The connector-specific profile properties required by Infor Nexus.
+	// The connector-specific properties required by Infor Nexus.
 	InforNexus *ConnectorProfileInforNexusConnectorProfileProperties `pulumi:"inforNexus"`
-	// The connector-specific profile properties required when using Marketo.
+	// The connector-specific properties required by Marketo.
 	Marketo *ConnectorProfileMarketoConnectorProfileProperties `pulumi:"marketo"`
-	// The connector-specific profile properties required when using Salesforce Pardot.
+	// The connector-specific properties required by Salesforce Pardot.
 	Pardot *ConnectorProfilePardotConnectorProfileProperties `pulumi:"pardot"`
-	// The connector-specific profile properties when using Amazon Redshift.
+	// The connector-specific properties required by Amazon Redshift.
 	Redshift *ConnectorProfileRedshiftConnectorProfileProperties `pulumi:"redshift"`
-	// The connector-specific profile properties required when using Salesforce.
+	// The connector-specific properties required by Salesforce.
 	Salesforce *ConnectorProfileSalesforceConnectorProfileProperties `pulumi:"salesforce"`
 	// The connector-specific profile properties required when using SAPOData.
 	SapoData *ConnectorProfileSapoDataConnectorProfileProperties `pulumi:"sapoData"`
-	// The connector-specific profile properties required when using ServiceNow.
+	// The connector-specific properties required by serviceNow.
 	ServiceNow *ConnectorProfileServiceNowConnectorProfileProperties `pulumi:"serviceNow"`
-	// The connector-specific profile properties required when using Slack.
+	// The connector-specific properties required by Slack.
 	Slack *ConnectorProfileSlackConnectorProfileProperties `pulumi:"slack"`
-	// The connector-specific profile properties required when using Snowflake.
+	// The connector-specific properties required by Snowflake.
 	Snowflake *ConnectorProfileSnowflakeConnectorProfileProperties `pulumi:"snowflake"`
-	// The connector-specific profile properties required when using Veeva.
+	// The connector-specific properties required by Veeva.
 	Veeva *ConnectorProfileVeevaConnectorProfileProperties `pulumi:"veeva"`
-	// The connector-specific profile properties required when using Zendesk.
+	// The connector-specific properties required by Zendesk.
 	Zendesk *ConnectorProfileZendeskConnectorProfileProperties `pulumi:"zendesk"`
 }
 
@@ -4399,33 +4395,33 @@ type ConnectorProfilePropertiesInput interface {
 
 // Connector specific properties needed to create connector profile - currently not needed for Amplitude, Trendmicro, Googleanalytics and Singular
 type ConnectorProfilePropertiesArgs struct {
-	// The profile properties required by the custom connector.
+	// The properties required by the custom connector.
 	CustomConnector ConnectorProfileCustomConnectorProfilePropertiesPtrInput `pulumi:"customConnector"`
-	// The connector-specific profile properties required by Datadog.
+	// The connector-specific properties required by Datadog.
 	Datadog ConnectorProfileDatadogConnectorProfilePropertiesPtrInput `pulumi:"datadog"`
-	// The connector-specific profile properties required by Dynatrace.
+	// The connector-specific properties required by Dynatrace.
 	Dynatrace ConnectorProfileDynatraceConnectorProfilePropertiesPtrInput `pulumi:"dynatrace"`
-	// The connector-specific profile properties required by Infor Nexus.
+	// The connector-specific properties required by Infor Nexus.
 	InforNexus ConnectorProfileInforNexusConnectorProfilePropertiesPtrInput `pulumi:"inforNexus"`
-	// The connector-specific profile properties required when using Marketo.
+	// The connector-specific properties required by Marketo.
 	Marketo ConnectorProfileMarketoConnectorProfilePropertiesPtrInput `pulumi:"marketo"`
-	// The connector-specific profile properties required when using Salesforce Pardot.
+	// The connector-specific properties required by Salesforce Pardot.
 	Pardot ConnectorProfilePardotConnectorProfilePropertiesPtrInput `pulumi:"pardot"`
-	// The connector-specific profile properties when using Amazon Redshift.
+	// The connector-specific properties required by Amazon Redshift.
 	Redshift ConnectorProfileRedshiftConnectorProfilePropertiesPtrInput `pulumi:"redshift"`
-	// The connector-specific profile properties required when using Salesforce.
+	// The connector-specific properties required by Salesforce.
 	Salesforce ConnectorProfileSalesforceConnectorProfilePropertiesPtrInput `pulumi:"salesforce"`
 	// The connector-specific profile properties required when using SAPOData.
 	SapoData ConnectorProfileSapoDataConnectorProfilePropertiesPtrInput `pulumi:"sapoData"`
-	// The connector-specific profile properties required when using ServiceNow.
+	// The connector-specific properties required by serviceNow.
 	ServiceNow ConnectorProfileServiceNowConnectorProfilePropertiesPtrInput `pulumi:"serviceNow"`
-	// The connector-specific profile properties required when using Slack.
+	// The connector-specific properties required by Slack.
 	Slack ConnectorProfileSlackConnectorProfilePropertiesPtrInput `pulumi:"slack"`
-	// The connector-specific profile properties required when using Snowflake.
+	// The connector-specific properties required by Snowflake.
 	Snowflake ConnectorProfileSnowflakeConnectorProfilePropertiesPtrInput `pulumi:"snowflake"`
-	// The connector-specific profile properties required when using Veeva.
+	// The connector-specific properties required by Veeva.
 	Veeva ConnectorProfileVeevaConnectorProfilePropertiesPtrInput `pulumi:"veeva"`
-	// The connector-specific profile properties required when using Zendesk.
+	// The connector-specific properties required by Zendesk.
 	Zendesk ConnectorProfileZendeskConnectorProfilePropertiesPtrInput `pulumi:"zendesk"`
 }
 
@@ -4507,54 +4503,54 @@ func (o ConnectorProfilePropertiesOutput) ToConnectorProfilePropertiesPtrOutputW
 	}).(ConnectorProfilePropertiesPtrOutput)
 }
 
-// The profile properties required by the custom connector.
+// The properties required by the custom connector.
 func (o ConnectorProfilePropertiesOutput) CustomConnector() ConnectorProfileCustomConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileCustomConnectorProfileProperties {
 		return v.CustomConnector
 	}).(ConnectorProfileCustomConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties required by Datadog.
+// The connector-specific properties required by Datadog.
 func (o ConnectorProfilePropertiesOutput) Datadog() ConnectorProfileDatadogConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileDatadogConnectorProfileProperties {
 		return v.Datadog
 	}).(ConnectorProfileDatadogConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties required by Dynatrace.
+// The connector-specific properties required by Dynatrace.
 func (o ConnectorProfilePropertiesOutput) Dynatrace() ConnectorProfileDynatraceConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileDynatraceConnectorProfileProperties {
 		return v.Dynatrace
 	}).(ConnectorProfileDynatraceConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties required by Infor Nexus.
+// The connector-specific properties required by Infor Nexus.
 func (o ConnectorProfilePropertiesOutput) InforNexus() ConnectorProfileInforNexusConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileInforNexusConnectorProfileProperties {
 		return v.InforNexus
 	}).(ConnectorProfileInforNexusConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties required when using Marketo.
+// The connector-specific properties required by Marketo.
 func (o ConnectorProfilePropertiesOutput) Marketo() ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileMarketoConnectorProfileProperties {
 		return v.Marketo
 	}).(ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties required when using Salesforce Pardot.
+// The connector-specific properties required by Salesforce Pardot.
 func (o ConnectorProfilePropertiesOutput) Pardot() ConnectorProfilePardotConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfilePardotConnectorProfileProperties { return v.Pardot }).(ConnectorProfilePardotConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties when using Amazon Redshift.
+// The connector-specific properties required by Amazon Redshift.
 func (o ConnectorProfilePropertiesOutput) Redshift() ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileRedshiftConnectorProfileProperties {
 		return v.Redshift
 	}).(ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties required when using Salesforce.
+// The connector-specific properties required by Salesforce.
 func (o ConnectorProfilePropertiesOutput) Salesforce() ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileSalesforceConnectorProfileProperties {
 		return v.Salesforce
@@ -4568,31 +4564,31 @@ func (o ConnectorProfilePropertiesOutput) SapoData() ConnectorProfileSapoDataCon
 	}).(ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties required when using ServiceNow.
+// The connector-specific properties required by serviceNow.
 func (o ConnectorProfilePropertiesOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileServiceNowConnectorProfileProperties {
 		return v.ServiceNow
 	}).(ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties required when using Slack.
+// The connector-specific properties required by Slack.
 func (o ConnectorProfilePropertiesOutput) Slack() ConnectorProfileSlackConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileSlackConnectorProfileProperties { return v.Slack }).(ConnectorProfileSlackConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties required when using Snowflake.
+// The connector-specific properties required by Snowflake.
 func (o ConnectorProfilePropertiesOutput) Snowflake() ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileSnowflakeConnectorProfileProperties {
 		return v.Snowflake
 	}).(ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties required when using Veeva.
+// The connector-specific properties required by Veeva.
 func (o ConnectorProfilePropertiesOutput) Veeva() ConnectorProfileVeevaConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileVeevaConnectorProfileProperties { return v.Veeva }).(ConnectorProfileVeevaConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties required when using Zendesk.
+// The connector-specific properties required by Zendesk.
 func (o ConnectorProfilePropertiesOutput) Zendesk() ConnectorProfileZendeskConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileProperties) *ConnectorProfileZendeskConnectorProfileProperties {
 		return v.Zendesk
@@ -4623,7 +4619,7 @@ func (o ConnectorProfilePropertiesPtrOutput) Elem() ConnectorProfilePropertiesOu
 	}).(ConnectorProfilePropertiesOutput)
 }
 
-// The profile properties required by the custom connector.
+// The properties required by the custom connector.
 func (o ConnectorProfilePropertiesPtrOutput) CustomConnector() ConnectorProfileCustomConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileCustomConnectorProfileProperties {
 		if v == nil {
@@ -4633,7 +4629,7 @@ func (o ConnectorProfilePropertiesPtrOutput) CustomConnector() ConnectorProfileC
 	}).(ConnectorProfileCustomConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties required by Datadog.
+// The connector-specific properties required by Datadog.
 func (o ConnectorProfilePropertiesPtrOutput) Datadog() ConnectorProfileDatadogConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileDatadogConnectorProfileProperties {
 		if v == nil {
@@ -4643,7 +4639,7 @@ func (o ConnectorProfilePropertiesPtrOutput) Datadog() ConnectorProfileDatadogCo
 	}).(ConnectorProfileDatadogConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties required by Dynatrace.
+// The connector-specific properties required by Dynatrace.
 func (o ConnectorProfilePropertiesPtrOutput) Dynatrace() ConnectorProfileDynatraceConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileDynatraceConnectorProfileProperties {
 		if v == nil {
@@ -4653,7 +4649,7 @@ func (o ConnectorProfilePropertiesPtrOutput) Dynatrace() ConnectorProfileDynatra
 	}).(ConnectorProfileDynatraceConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties required by Infor Nexus.
+// The connector-specific properties required by Infor Nexus.
 func (o ConnectorProfilePropertiesPtrOutput) InforNexus() ConnectorProfileInforNexusConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileInforNexusConnectorProfileProperties {
 		if v == nil {
@@ -4663,7 +4659,7 @@ func (o ConnectorProfilePropertiesPtrOutput) InforNexus() ConnectorProfileInforN
 	}).(ConnectorProfileInforNexusConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties required when using Marketo.
+// The connector-specific properties required by Marketo.
 func (o ConnectorProfilePropertiesPtrOutput) Marketo() ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileMarketoConnectorProfileProperties {
 		if v == nil {
@@ -4673,7 +4669,7 @@ func (o ConnectorProfilePropertiesPtrOutput) Marketo() ConnectorProfileMarketoCo
 	}).(ConnectorProfileMarketoConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties required when using Salesforce Pardot.
+// The connector-specific properties required by Salesforce Pardot.
 func (o ConnectorProfilePropertiesPtrOutput) Pardot() ConnectorProfilePardotConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfilePardotConnectorProfileProperties {
 		if v == nil {
@@ -4683,7 +4679,7 @@ func (o ConnectorProfilePropertiesPtrOutput) Pardot() ConnectorProfilePardotConn
 	}).(ConnectorProfilePardotConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties when using Amazon Redshift.
+// The connector-specific properties required by Amazon Redshift.
 func (o ConnectorProfilePropertiesPtrOutput) Redshift() ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileRedshiftConnectorProfileProperties {
 		if v == nil {
@@ -4693,7 +4689,7 @@ func (o ConnectorProfilePropertiesPtrOutput) Redshift() ConnectorProfileRedshift
 	}).(ConnectorProfileRedshiftConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties required when using Salesforce.
+// The connector-specific properties required by Salesforce.
 func (o ConnectorProfilePropertiesPtrOutput) Salesforce() ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileSalesforceConnectorProfileProperties {
 		if v == nil {
@@ -4713,7 +4709,7 @@ func (o ConnectorProfilePropertiesPtrOutput) SapoData() ConnectorProfileSapoData
 	}).(ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties required when using ServiceNow.
+// The connector-specific properties required by serviceNow.
 func (o ConnectorProfilePropertiesPtrOutput) ServiceNow() ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileServiceNowConnectorProfileProperties {
 		if v == nil {
@@ -4723,7 +4719,7 @@ func (o ConnectorProfilePropertiesPtrOutput) ServiceNow() ConnectorProfileServic
 	}).(ConnectorProfileServiceNowConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties required when using Slack.
+// The connector-specific properties required by Slack.
 func (o ConnectorProfilePropertiesPtrOutput) Slack() ConnectorProfileSlackConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileSlackConnectorProfileProperties {
 		if v == nil {
@@ -4733,7 +4729,7 @@ func (o ConnectorProfilePropertiesPtrOutput) Slack() ConnectorProfileSlackConnec
 	}).(ConnectorProfileSlackConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties required when using Snowflake.
+// The connector-specific properties required by Snowflake.
 func (o ConnectorProfilePropertiesPtrOutput) Snowflake() ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileSnowflakeConnectorProfileProperties {
 		if v == nil {
@@ -4743,7 +4739,7 @@ func (o ConnectorProfilePropertiesPtrOutput) Snowflake() ConnectorProfileSnowfla
 	}).(ConnectorProfileSnowflakeConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties required when using Veeva.
+// The connector-specific properties required by Veeva.
 func (o ConnectorProfilePropertiesPtrOutput) Veeva() ConnectorProfileVeevaConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileVeevaConnectorProfileProperties {
 		if v == nil {
@@ -4753,7 +4749,7 @@ func (o ConnectorProfilePropertiesPtrOutput) Veeva() ConnectorProfileVeevaConnec
 	}).(ConnectorProfileVeevaConnectorProfilePropertiesPtrOutput)
 }
 
-// The connector-specific profile properties required when using Zendesk.
+// The connector-specific properties required by Zendesk.
 func (o ConnectorProfilePropertiesPtrOutput) Zendesk() ConnectorProfileZendeskConnectorProfilePropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileProperties) *ConnectorProfileZendeskConnectorProfileProperties {
 		if v == nil {
@@ -5622,7 +5618,7 @@ func (o ConnectorProfileSalesforceConnectorProfilePropertiesPtrOutput) UsePrivat
 }
 
 type ConnectorProfileSapoDataConnectorProfileCredentials struct {
-	// The basic auth credentials required for basic authentication.
+	// The SAPOData basic authentication credentials.
 	BasicAuthCredentials *ConnectorProfileBasicAuthCredentials `pulumi:"basicAuthCredentials"`
 	// The SAPOData OAuth type authentication credentials.
 	OAuthCredentials *ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties `pulumi:"oAuthCredentials"`
@@ -5640,7 +5636,7 @@ type ConnectorProfileSapoDataConnectorProfileCredentialsInput interface {
 }
 
 type ConnectorProfileSapoDataConnectorProfileCredentialsArgs struct {
-	// The basic auth credentials required for basic authentication.
+	// The SAPOData basic authentication credentials.
 	BasicAuthCredentials ConnectorProfileBasicAuthCredentialsPtrInput `pulumi:"basicAuthCredentials"`
 	// The SAPOData OAuth type authentication credentials.
 	OAuthCredentials ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrInput `pulumi:"oAuthCredentials"`
@@ -5723,7 +5719,7 @@ func (o ConnectorProfileSapoDataConnectorProfileCredentialsOutput) ToConnectorPr
 	}).(ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput)
 }
 
-// The basic auth credentials required for basic authentication.
+// The SAPOData basic authentication credentials.
 func (o ConnectorProfileSapoDataConnectorProfileCredentialsOutput) BasicAuthCredentials() ConnectorProfileBasicAuthCredentialsPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileSapoDataConnectorProfileCredentials) *ConnectorProfileBasicAuthCredentials {
 		return v.BasicAuthCredentials
@@ -5761,7 +5757,7 @@ func (o ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput) Elem() Con
 	}).(ConnectorProfileSapoDataConnectorProfileCredentialsOutput)
 }
 
-// The basic auth credentials required for basic authentication.
+// The SAPOData basic authentication credentials.
 func (o ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput) BasicAuthCredentials() ConnectorProfileBasicAuthCredentialsPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSapoDataConnectorProfileCredentials) *ConnectorProfileBasicAuthCredentials {
 		if v == nil {
@@ -5783,10 +5779,9 @@ func (o ConnectorProfileSapoDataConnectorProfileCredentialsPtrOutput) OAuthCrede
 
 // The SAPOData OAuth type authentication credentials.
 type ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties struct {
-	AccessToken  *string `pulumi:"accessToken"`
-	ClientId     *string `pulumi:"clientId"`
-	ClientSecret *string `pulumi:"clientSecret"`
-	// Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
+	AccessToken           *string                                `pulumi:"accessToken"`
+	ClientId              *string                                `pulumi:"clientId"`
+	ClientSecret          *string                                `pulumi:"clientSecret"`
 	ConnectorOAuthRequest *ConnectorProfileConnectorOAuthRequest `pulumi:"connectorOAuthRequest"`
 	RefreshToken          *string                                `pulumi:"refreshToken"`
 }
@@ -5804,10 +5799,9 @@ type ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperti
 
 // The SAPOData OAuth type authentication credentials.
 type ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesArgs struct {
-	AccessToken  pulumi.StringPtrInput `pulumi:"accessToken"`
-	ClientId     pulumi.StringPtrInput `pulumi:"clientId"`
-	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
-	// Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
+	AccessToken           pulumi.StringPtrInput                         `pulumi:"accessToken"`
+	ClientId              pulumi.StringPtrInput                         `pulumi:"clientId"`
+	ClientSecret          pulumi.StringPtrInput                         `pulumi:"clientSecret"`
 	ConnectorOAuthRequest ConnectorProfileConnectorOAuthRequestPtrInput `pulumi:"connectorOAuthRequest"`
 	RefreshToken          pulumi.StringPtrInput                         `pulumi:"refreshToken"`
 }
@@ -5908,7 +5902,6 @@ func (o ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPrope
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
 func (o ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesOutput) ConnectorOAuthRequest() ConnectorProfileConnectorOAuthRequestPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties) *ConnectorProfileConnectorOAuthRequest {
 		return v.ConnectorOAuthRequest
@@ -5972,7 +5965,6 @@ func (o ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPrope
 	}).(pulumi.StringPtrOutput)
 }
 
-// Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
 func (o ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsPropertiesPtrOutput) ConnectorOAuthRequest() ConnectorProfileConnectorOAuthRequestPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSapoDataConnectorProfileCredentialsOAuthCredentialsProperties) *ConnectorProfileConnectorOAuthRequest {
 		if v == nil {
@@ -6002,7 +5994,7 @@ type ConnectorProfileSapoDataConnectorProfileProperties struct {
 	DisableSso *bool `pulumi:"disableSso"`
 	// The logon language of SAPOData instance.
 	LogonLanguage *string `pulumi:"logonLanguage"`
-	// The OAuth properties required for OAuth type authentication.
+	// The SAPOData OAuth properties required for OAuth type authentication.
 	OAuthProperties *ConnectorProfileOAuthProperties `pulumi:"oAuthProperties"`
 	// The port number of the SAPOData instance.
 	PortNumber *int `pulumi:"portNumber"`
@@ -6032,7 +6024,7 @@ type ConnectorProfileSapoDataConnectorProfilePropertiesArgs struct {
 	DisableSso pulumi.BoolPtrInput `pulumi:"disableSso"`
 	// The logon language of SAPOData instance.
 	LogonLanguage pulumi.StringPtrInput `pulumi:"logonLanguage"`
-	// The OAuth properties required for OAuth type authentication.
+	// The SAPOData OAuth properties required for OAuth type authentication.
 	OAuthProperties ConnectorProfileOAuthPropertiesPtrInput `pulumi:"oAuthProperties"`
 	// The port number of the SAPOData instance.
 	PortNumber pulumi.IntPtrInput `pulumi:"portNumber"`
@@ -6142,7 +6134,7 @@ func (o ConnectorProfileSapoDataConnectorProfilePropertiesOutput) LogonLanguage(
 	return o.ApplyT(func(v ConnectorProfileSapoDataConnectorProfileProperties) *string { return v.LogonLanguage }).(pulumi.StringPtrOutput)
 }
 
-// The OAuth properties required for OAuth type authentication.
+// The SAPOData OAuth properties required for OAuth type authentication.
 func (o ConnectorProfileSapoDataConnectorProfilePropertiesOutput) OAuthProperties() ConnectorProfileOAuthPropertiesPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileSapoDataConnectorProfileProperties) *ConnectorProfileOAuthProperties {
 		return v.OAuthProperties
@@ -6233,7 +6225,7 @@ func (o ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput) LogonLangua
 	}).(pulumi.StringPtrOutput)
 }
 
-// The OAuth properties required for OAuth type authentication.
+// The SAPOData OAuth properties required for OAuth type authentication.
 func (o ConnectorProfileSapoDataConnectorProfilePropertiesPtrOutput) OAuthProperties() ConnectorProfileOAuthPropertiesPtrOutput {
 	return o.ApplyT(func(v *ConnectorProfileSapoDataConnectorProfileProperties) *ConnectorProfileOAuthProperties {
 		if v == nil {
@@ -9052,7 +9044,7 @@ type FlowCustomConnectorDestinationProperties struct {
 	CustomProperties map[string]string `pulumi:"customProperties"`
 	// The entity specified in the custom connector as a destination in the flow.
 	EntityName string `pulumi:"entityName"`
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+	// The settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination.
 	ErrorHandlingConfig *FlowErrorHandlingConfig `pulumi:"errorHandlingConfig"`
 	// List of fields used as ID when performing a write operation.
 	IdFieldNames []string `pulumi:"idFieldNames"`
@@ -9076,7 +9068,7 @@ type FlowCustomConnectorDestinationPropertiesArgs struct {
 	CustomProperties pulumi.StringMapInput `pulumi:"customProperties"`
 	// The entity specified in the custom connector as a destination in the flow.
 	EntityName pulumi.StringInput `pulumi:"entityName"`
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+	// The settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination.
 	ErrorHandlingConfig FlowErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
 	// List of fields used as ID when performing a write operation.
 	IdFieldNames pulumi.StringArrayInput `pulumi:"idFieldNames"`
@@ -9171,7 +9163,7 @@ func (o FlowCustomConnectorDestinationPropertiesOutput) EntityName() pulumi.Stri
 	return o.ApplyT(func(v FlowCustomConnectorDestinationProperties) string { return v.EntityName }).(pulumi.StringOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+// The settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination.
 func (o FlowCustomConnectorDestinationPropertiesOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowCustomConnectorDestinationProperties) *FlowErrorHandlingConfig {
 		return v.ErrorHandlingConfig
@@ -9232,7 +9224,7 @@ func (o FlowCustomConnectorDestinationPropertiesPtrOutput) EntityName() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+// The settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination.
 func (o FlowCustomConnectorDestinationPropertiesPtrOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowCustomConnectorDestinationProperties) *FlowErrorHandlingConfig {
 		if v == nil {
@@ -9731,27 +9723,27 @@ func (o FlowDatadogSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 
 // Destination connector details
 type FlowDestinationConnectorProperties struct {
-	// The properties that are applied when the custom connector is being used as a destination.
+	// The properties that are required to query the custom Connector.
 	CustomConnector *FlowCustomConnectorDestinationProperties `pulumi:"customConnector"`
-	// The properties that are applied when Amazon EventBridge is being used as a destination.
+	// The properties required to query Amazon EventBridge.
 	EventBridge *FlowEventBridgeDestinationProperties `pulumi:"eventBridge"`
-	// The properties that are applied when Amazon Lookout for Metrics is used as a destination.
+	// The properties required to query Amazon Lookout for Metrics.
 	LookoutMetrics *FlowLookoutMetricsDestinationProperties `pulumi:"lookoutMetrics"`
-	// The properties that Amazon AppFlow applies when you use Marketo as a flow destination.
+	// The properties required to query Marketo.
 	Marketo *FlowMarketoDestinationProperties `pulumi:"marketo"`
-	// The properties that are applied when Amazon Redshift is being used as a destination.
+	// The properties required to query Amazon Redshift.
 	Redshift *FlowRedshiftDestinationProperties `pulumi:"redshift"`
-	// The properties that are applied when Amazon S3 is used as a destination.
+	// The properties required to query Amazon S3.
 	S3 *FlowS3DestinationProperties `pulumi:"s3"`
-	// The properties that are applied when Salesforce is being used as a destination.
+	// The properties required to query Salesforce.
 	Salesforce *FlowSalesforceDestinationProperties `pulumi:"salesforce"`
-	// The properties that are applied when using SAPOData as a flow destination
+	// The properties required to query SAPOData.
 	SapoData *FlowSapoDataDestinationProperties `pulumi:"sapoData"`
-	// The properties that are applied when Snowflake is being used as a destination.
+	// The properties required to query Snowflake.
 	Snowflake *FlowSnowflakeDestinationProperties `pulumi:"snowflake"`
-	// The properties that are applied when Upsolver is used as a destination.
+	// The properties required to query Upsolver.
 	Upsolver *FlowUpsolverDestinationProperties `pulumi:"upsolver"`
-	// The properties that are applied when Zendesk is used as a destination.
+	// The properties required to query Zendesk.
 	Zendesk *FlowZendeskDestinationProperties `pulumi:"zendesk"`
 }
 
@@ -9768,27 +9760,27 @@ type FlowDestinationConnectorPropertiesInput interface {
 
 // Destination connector details
 type FlowDestinationConnectorPropertiesArgs struct {
-	// The properties that are applied when the custom connector is being used as a destination.
+	// The properties that are required to query the custom Connector.
 	CustomConnector FlowCustomConnectorDestinationPropertiesPtrInput `pulumi:"customConnector"`
-	// The properties that are applied when Amazon EventBridge is being used as a destination.
+	// The properties required to query Amazon EventBridge.
 	EventBridge FlowEventBridgeDestinationPropertiesPtrInput `pulumi:"eventBridge"`
-	// The properties that are applied when Amazon Lookout for Metrics is used as a destination.
+	// The properties required to query Amazon Lookout for Metrics.
 	LookoutMetrics FlowLookoutMetricsDestinationPropertiesPtrInput `pulumi:"lookoutMetrics"`
-	// The properties that Amazon AppFlow applies when you use Marketo as a flow destination.
+	// The properties required to query Marketo.
 	Marketo FlowMarketoDestinationPropertiesPtrInput `pulumi:"marketo"`
-	// The properties that are applied when Amazon Redshift is being used as a destination.
+	// The properties required to query Amazon Redshift.
 	Redshift FlowRedshiftDestinationPropertiesPtrInput `pulumi:"redshift"`
-	// The properties that are applied when Amazon S3 is used as a destination.
+	// The properties required to query Amazon S3.
 	S3 FlowS3DestinationPropertiesPtrInput `pulumi:"s3"`
-	// The properties that are applied when Salesforce is being used as a destination.
+	// The properties required to query Salesforce.
 	Salesforce FlowSalesforceDestinationPropertiesPtrInput `pulumi:"salesforce"`
-	// The properties that are applied when using SAPOData as a flow destination
+	// The properties required to query SAPOData.
 	SapoData FlowSapoDataDestinationPropertiesPtrInput `pulumi:"sapoData"`
-	// The properties that are applied when Snowflake is being used as a destination.
+	// The properties required to query Snowflake.
 	Snowflake FlowSnowflakeDestinationPropertiesPtrInput `pulumi:"snowflake"`
-	// The properties that are applied when Upsolver is used as a destination.
+	// The properties required to query Upsolver.
 	Upsolver FlowUpsolverDestinationPropertiesPtrInput `pulumi:"upsolver"`
-	// The properties that are applied when Zendesk is used as a destination.
+	// The properties required to query Zendesk.
 	Zendesk FlowZendeskDestinationPropertiesPtrInput `pulumi:"zendesk"`
 }
 
@@ -9819,61 +9811,61 @@ func (o FlowDestinationConnectorPropertiesOutput) ToFlowDestinationConnectorProp
 	return o
 }
 
-// The properties that are applied when the custom connector is being used as a destination.
+// The properties that are required to query the custom Connector.
 func (o FlowDestinationConnectorPropertiesOutput) CustomConnector() FlowCustomConnectorDestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowCustomConnectorDestinationProperties {
 		return v.CustomConnector
 	}).(FlowCustomConnectorDestinationPropertiesPtrOutput)
 }
 
-// The properties that are applied when Amazon EventBridge is being used as a destination.
+// The properties required to query Amazon EventBridge.
 func (o FlowDestinationConnectorPropertiesOutput) EventBridge() FlowEventBridgeDestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowEventBridgeDestinationProperties { return v.EventBridge }).(FlowEventBridgeDestinationPropertiesPtrOutput)
 }
 
-// The properties that are applied when Amazon Lookout for Metrics is used as a destination.
+// The properties required to query Amazon Lookout for Metrics.
 func (o FlowDestinationConnectorPropertiesOutput) LookoutMetrics() FlowLookoutMetricsDestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowLookoutMetricsDestinationProperties {
 		return v.LookoutMetrics
 	}).(FlowLookoutMetricsDestinationPropertiesPtrOutput)
 }
 
-// The properties that Amazon AppFlow applies when you use Marketo as a flow destination.
+// The properties required to query Marketo.
 func (o FlowDestinationConnectorPropertiesOutput) Marketo() FlowMarketoDestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowMarketoDestinationProperties { return v.Marketo }).(FlowMarketoDestinationPropertiesPtrOutput)
 }
 
-// The properties that are applied when Amazon Redshift is being used as a destination.
+// The properties required to query Amazon Redshift.
 func (o FlowDestinationConnectorPropertiesOutput) Redshift() FlowRedshiftDestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowRedshiftDestinationProperties { return v.Redshift }).(FlowRedshiftDestinationPropertiesPtrOutput)
 }
 
-// The properties that are applied when Amazon S3 is used as a destination.
+// The properties required to query Amazon S3.
 func (o FlowDestinationConnectorPropertiesOutput) S3() FlowS3DestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowS3DestinationProperties { return v.S3 }).(FlowS3DestinationPropertiesPtrOutput)
 }
 
-// The properties that are applied when Salesforce is being used as a destination.
+// The properties required to query Salesforce.
 func (o FlowDestinationConnectorPropertiesOutput) Salesforce() FlowSalesforceDestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowSalesforceDestinationProperties { return v.Salesforce }).(FlowSalesforceDestinationPropertiesPtrOutput)
 }
 
-// The properties that are applied when using SAPOData as a flow destination
+// The properties required to query SAPOData.
 func (o FlowDestinationConnectorPropertiesOutput) SapoData() FlowSapoDataDestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowSapoDataDestinationProperties { return v.SapoData }).(FlowSapoDataDestinationPropertiesPtrOutput)
 }
 
-// The properties that are applied when Snowflake is being used as a destination.
+// The properties required to query Snowflake.
 func (o FlowDestinationConnectorPropertiesOutput) Snowflake() FlowSnowflakeDestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowSnowflakeDestinationProperties { return v.Snowflake }).(FlowSnowflakeDestinationPropertiesPtrOutput)
 }
 
-// The properties that are applied when Upsolver is used as a destination.
+// The properties required to query Upsolver.
 func (o FlowDestinationConnectorPropertiesOutput) Upsolver() FlowUpsolverDestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowUpsolverDestinationProperties { return v.Upsolver }).(FlowUpsolverDestinationPropertiesPtrOutput)
 }
 
-// The properties that are applied when Zendesk is used as a destination.
+// The properties required to query Zendesk.
 func (o FlowDestinationConnectorPropertiesOutput) Zendesk() FlowZendeskDestinationPropertiesPtrOutput {
 	return o.ApplyT(func(v FlowDestinationConnectorProperties) *FlowZendeskDestinationProperties { return v.Zendesk }).(FlowZendeskDestinationPropertiesPtrOutput)
 }
@@ -10320,7 +10312,7 @@ func (o FlowErrorHandlingConfigPtrOutput) FailOnFirstError() pulumi.BoolPtrOutpu
 }
 
 type FlowEventBridgeDestinationProperties struct {
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+	// The object specified in the Amplitude flow source.
 	ErrorHandlingConfig *FlowErrorHandlingConfig `pulumi:"errorHandlingConfig"`
 	// The object specified in the Amazon EventBridge flow destination.
 	Object string `pulumi:"object"`
@@ -10338,7 +10330,7 @@ type FlowEventBridgeDestinationPropertiesInput interface {
 }
 
 type FlowEventBridgeDestinationPropertiesArgs struct {
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+	// The object specified in the Amplitude flow source.
 	ErrorHandlingConfig FlowErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
 	// The object specified in the Amazon EventBridge flow destination.
 	Object pulumi.StringInput `pulumi:"object"`
@@ -10421,7 +10413,7 @@ func (o FlowEventBridgeDestinationPropertiesOutput) ToFlowEventBridgeDestination
 	}).(FlowEventBridgeDestinationPropertiesPtrOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+// The object specified in the Amplitude flow source.
 func (o FlowEventBridgeDestinationPropertiesOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowEventBridgeDestinationProperties) *FlowErrorHandlingConfig { return v.ErrorHandlingConfig }).(FlowErrorHandlingConfigPtrOutput)
 }
@@ -10455,7 +10447,7 @@ func (o FlowEventBridgeDestinationPropertiesPtrOutput) Elem() FlowEventBridgeDes
 	}).(FlowEventBridgeDestinationPropertiesOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+// The object specified in the Amplitude flow source.
 func (o FlowEventBridgeDestinationPropertiesPtrOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowEventBridgeDestinationProperties) *FlowErrorHandlingConfig {
 		if v == nil {
@@ -11980,7 +11972,7 @@ func (o FlowPrefixConfigPtrOutput) PrefixType() FlowPrefixTypePtrOutput {
 type FlowRedshiftDestinationProperties struct {
 	// The object key for the bucket in which Amazon AppFlow places the destination files.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+	// The settings that determine how Amazon AppFlow handles an error when placing data in the Amazon Redshift destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
 	ErrorHandlingConfig *FlowErrorHandlingConfig `pulumi:"errorHandlingConfig"`
 	// The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
 	IntermediateBucketName string `pulumi:"intermediateBucketName"`
@@ -12002,7 +11994,7 @@ type FlowRedshiftDestinationPropertiesInput interface {
 type FlowRedshiftDestinationPropertiesArgs struct {
 	// The object key for the bucket in which Amazon AppFlow places the destination files.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+	// The settings that determine how Amazon AppFlow handles an error when placing data in the Amazon Redshift destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
 	ErrorHandlingConfig FlowErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
 	// The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Redshift.
 	IntermediateBucketName pulumi.StringInput `pulumi:"intermediateBucketName"`
@@ -12092,7 +12084,7 @@ func (o FlowRedshiftDestinationPropertiesOutput) BucketPrefix() pulumi.StringPtr
 	return o.ApplyT(func(v FlowRedshiftDestinationProperties) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+// The settings that determine how Amazon AppFlow handles an error when placing data in the Amazon Redshift destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
 func (o FlowRedshiftDestinationPropertiesOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowRedshiftDestinationProperties) *FlowErrorHandlingConfig { return v.ErrorHandlingConfig }).(FlowErrorHandlingConfigPtrOutput)
 }
@@ -12141,7 +12133,7 @@ func (o FlowRedshiftDestinationPropertiesPtrOutput) BucketPrefix() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+// The settings that determine how Amazon AppFlow handles an error when placing data in the Amazon Redshift destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
 func (o FlowRedshiftDestinationPropertiesPtrOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowRedshiftDestinationProperties) *FlowErrorHandlingConfig {
 		if v == nil {
@@ -12488,7 +12480,7 @@ type FlowS3OutputFormatConfig struct {
 	AggregationConfig *FlowAggregationConfig `pulumi:"aggregationConfig"`
 	// Indicates the file type that Amazon AppFlow places in the Amazon S3 bucket.
 	FileType *FlowFileType `pulumi:"fileType"`
-	// Specifies elements that Amazon AppFlow includes in the file and folder names in the flow destination.
+	// Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date.
 	PrefixConfig *FlowPrefixConfig `pulumi:"prefixConfig"`
 	// If your file output format is Parquet, use this parameter to set whether Amazon AppFlow preserves the data types in your source data when it writes the output to Amazon S3.
 	//
@@ -12513,7 +12505,7 @@ type FlowS3OutputFormatConfigArgs struct {
 	AggregationConfig FlowAggregationConfigPtrInput `pulumi:"aggregationConfig"`
 	// Indicates the file type that Amazon AppFlow places in the Amazon S3 bucket.
 	FileType FlowFileTypePtrInput `pulumi:"fileType"`
-	// Specifies elements that Amazon AppFlow includes in the file and folder names in the flow destination.
+	// Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date.
 	PrefixConfig FlowPrefixConfigPtrInput `pulumi:"prefixConfig"`
 	// If your file output format is Parquet, use this parameter to set whether Amazon AppFlow preserves the data types in your source data when it writes the output to Amazon S3.
 	//
@@ -12609,7 +12601,7 @@ func (o FlowS3OutputFormatConfigOutput) FileType() FlowFileTypePtrOutput {
 	return o.ApplyT(func(v FlowS3OutputFormatConfig) *FlowFileType { return v.FileType }).(FlowFileTypePtrOutput)
 }
 
-// Specifies elements that Amazon AppFlow includes in the file and folder names in the flow destination.
+// Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date.
 func (o FlowS3OutputFormatConfigOutput) PrefixConfig() FlowPrefixConfigPtrOutput {
 	return o.ApplyT(func(v FlowS3OutputFormatConfig) *FlowPrefixConfig { return v.PrefixConfig }).(FlowPrefixConfigPtrOutput)
 }
@@ -12666,7 +12658,7 @@ func (o FlowS3OutputFormatConfigPtrOutput) FileType() FlowFileTypePtrOutput {
 	}).(FlowFileTypePtrOutput)
 }
 
-// Specifies elements that Amazon AppFlow includes in the file and folder names in the flow destination.
+// Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date.
 func (o FlowS3OutputFormatConfigPtrOutput) PrefixConfig() FlowPrefixConfigPtrOutput {
 	return o.ApplyT(func(v *FlowS3OutputFormatConfig) *FlowPrefixConfig {
 		if v == nil {
@@ -12865,9 +12857,19 @@ func (o FlowS3SourcePropertiesPtrOutput) S3InputFormatConfig() FlowS3InputFormat
 }
 
 type FlowSalesforceDestinationProperties struct {
-	// The API of the connector application that Amazon AppFlow uses to transfer your data.
+	// Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
+	//
+	// - **AUTOMATIC** - The default. Amazon AppFlow selects which API to use based on the number of records that your flow transfers to Salesforce. If your flow transfers fewer than 1,000 records, Amazon AppFlow uses Salesforce REST API. If your flow transfers 1,000 records or more, Amazon AppFlow uses Salesforce Bulk API 2.0.
+	//
+	// Each of these Salesforce APIs structures data differently. If Amazon AppFlow selects the API automatically, be aware that, for recurring flows, the data output might vary from one flow run to the next. For example, if a flow runs daily, it might use REST API on one day to transfer 900 records, and it might use Bulk API 2.0 on the next day to transfer 1,100 records. For each of these flow runs, the respective Salesforce API formats the data differently. Some of the differences include how dates are formatted and null values are represented. Also, Bulk API 2.0 doesn't transfer Salesforce compound fields.
+	//
+	// By choosing this option, you optimize flow performance for both small and large data transfers, but the tradeoff is inconsistent formatting in the output.
+	// - **BULKV2** - Amazon AppFlow uses only Salesforce Bulk API 2.0. This API runs asynchronous data transfers, and it's optimal for large sets of data. By choosing this option, you ensure that your flow writes consistent output, but you optimize performance only for large data transfers.
+	//
+	// Note that Bulk API 2.0 does not transfer Salesforce compound fields.
+	// - **REST_SYNC** - Amazon AppFlow uses only Salesforce REST API. By choosing this option, you ensure that your flow writes consistent output, but you decrease performance for large data transfers that are better suited for Bulk API 2.0. In some cases, if your flow attempts to transfer a vary large set of data, it might fail with a timed out error.
 	DataTransferApi *FlowDataTransferApi `pulumi:"dataTransferApi"`
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+	// The settings that determine how Amazon AppFlow handles an error when placing data in the Salesforce destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
 	ErrorHandlingConfig *FlowErrorHandlingConfig `pulumi:"errorHandlingConfig"`
 	// List of fields used as ID when performing a write operation.
 	IdFieldNames []string `pulumi:"idFieldNames"`
@@ -12889,9 +12891,19 @@ type FlowSalesforceDestinationPropertiesInput interface {
 }
 
 type FlowSalesforceDestinationPropertiesArgs struct {
-	// The API of the connector application that Amazon AppFlow uses to transfer your data.
+	// Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
+	//
+	// - **AUTOMATIC** - The default. Amazon AppFlow selects which API to use based on the number of records that your flow transfers to Salesforce. If your flow transfers fewer than 1,000 records, Amazon AppFlow uses Salesforce REST API. If your flow transfers 1,000 records or more, Amazon AppFlow uses Salesforce Bulk API 2.0.
+	//
+	// Each of these Salesforce APIs structures data differently. If Amazon AppFlow selects the API automatically, be aware that, for recurring flows, the data output might vary from one flow run to the next. For example, if a flow runs daily, it might use REST API on one day to transfer 900 records, and it might use Bulk API 2.0 on the next day to transfer 1,100 records. For each of these flow runs, the respective Salesforce API formats the data differently. Some of the differences include how dates are formatted and null values are represented. Also, Bulk API 2.0 doesn't transfer Salesforce compound fields.
+	//
+	// By choosing this option, you optimize flow performance for both small and large data transfers, but the tradeoff is inconsistent formatting in the output.
+	// - **BULKV2** - Amazon AppFlow uses only Salesforce Bulk API 2.0. This API runs asynchronous data transfers, and it's optimal for large sets of data. By choosing this option, you ensure that your flow writes consistent output, but you optimize performance only for large data transfers.
+	//
+	// Note that Bulk API 2.0 does not transfer Salesforce compound fields.
+	// - **REST_SYNC** - Amazon AppFlow uses only Salesforce REST API. By choosing this option, you ensure that your flow writes consistent output, but you decrease performance for large data transfers that are better suited for Bulk API 2.0. In some cases, if your flow attempts to transfer a vary large set of data, it might fail with a timed out error.
 	DataTransferApi FlowDataTransferApiPtrInput `pulumi:"dataTransferApi"`
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+	// The settings that determine how Amazon AppFlow handles an error when placing data in the Salesforce destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
 	ErrorHandlingConfig FlowErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
 	// List of fields used as ID when performing a write operation.
 	IdFieldNames pulumi.StringArrayInput `pulumi:"idFieldNames"`
@@ -12978,12 +12990,22 @@ func (o FlowSalesforceDestinationPropertiesOutput) ToFlowSalesforceDestinationPr
 	}).(FlowSalesforceDestinationPropertiesPtrOutput)
 }
 
-// The API of the connector application that Amazon AppFlow uses to transfer your data.
+// Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
+//
+// - **AUTOMATIC** - The default. Amazon AppFlow selects which API to use based on the number of records that your flow transfers to Salesforce. If your flow transfers fewer than 1,000 records, Amazon AppFlow uses Salesforce REST API. If your flow transfers 1,000 records or more, Amazon AppFlow uses Salesforce Bulk API 2.0.
+//
+// Each of these Salesforce APIs structures data differently. If Amazon AppFlow selects the API automatically, be aware that, for recurring flows, the data output might vary from one flow run to the next. For example, if a flow runs daily, it might use REST API on one day to transfer 900 records, and it might use Bulk API 2.0 on the next day to transfer 1,100 records. For each of these flow runs, the respective Salesforce API formats the data differently. Some of the differences include how dates are formatted and null values are represented. Also, Bulk API 2.0 doesn't transfer Salesforce compound fields.
+//
+// By choosing this option, you optimize flow performance for both small and large data transfers, but the tradeoff is inconsistent formatting in the output.
+// - **BULKV2** - Amazon AppFlow uses only Salesforce Bulk API 2.0. This API runs asynchronous data transfers, and it's optimal for large sets of data. By choosing this option, you ensure that your flow writes consistent output, but you optimize performance only for large data transfers.
+//
+// Note that Bulk API 2.0 does not transfer Salesforce compound fields.
+// - **REST_SYNC** - Amazon AppFlow uses only Salesforce REST API. By choosing this option, you ensure that your flow writes consistent output, but you decrease performance for large data transfers that are better suited for Bulk API 2.0. In some cases, if your flow attempts to transfer a vary large set of data, it might fail with a timed out error.
 func (o FlowSalesforceDestinationPropertiesOutput) DataTransferApi() FlowDataTransferApiPtrOutput {
 	return o.ApplyT(func(v FlowSalesforceDestinationProperties) *FlowDataTransferApi { return v.DataTransferApi }).(FlowDataTransferApiPtrOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+// The settings that determine how Amazon AppFlow handles an error when placing data in the Salesforce destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
 func (o FlowSalesforceDestinationPropertiesOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowSalesforceDestinationProperties) *FlowErrorHandlingConfig { return v.ErrorHandlingConfig }).(FlowErrorHandlingConfigPtrOutput)
 }
@@ -13027,7 +13049,17 @@ func (o FlowSalesforceDestinationPropertiesPtrOutput) Elem() FlowSalesforceDesti
 	}).(FlowSalesforceDestinationPropertiesOutput)
 }
 
-// The API of the connector application that Amazon AppFlow uses to transfer your data.
+// Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data to Salesforce.
+//
+// - **AUTOMATIC** - The default. Amazon AppFlow selects which API to use based on the number of records that your flow transfers to Salesforce. If your flow transfers fewer than 1,000 records, Amazon AppFlow uses Salesforce REST API. If your flow transfers 1,000 records or more, Amazon AppFlow uses Salesforce Bulk API 2.0.
+//
+// Each of these Salesforce APIs structures data differently. If Amazon AppFlow selects the API automatically, be aware that, for recurring flows, the data output might vary from one flow run to the next. For example, if a flow runs daily, it might use REST API on one day to transfer 900 records, and it might use Bulk API 2.0 on the next day to transfer 1,100 records. For each of these flow runs, the respective Salesforce API formats the data differently. Some of the differences include how dates are formatted and null values are represented. Also, Bulk API 2.0 doesn't transfer Salesforce compound fields.
+//
+// By choosing this option, you optimize flow performance for both small and large data transfers, but the tradeoff is inconsistent formatting in the output.
+// - **BULKV2** - Amazon AppFlow uses only Salesforce Bulk API 2.0. This API runs asynchronous data transfers, and it's optimal for large sets of data. By choosing this option, you ensure that your flow writes consistent output, but you optimize performance only for large data transfers.
+//
+// Note that Bulk API 2.0 does not transfer Salesforce compound fields.
+// - **REST_SYNC** - Amazon AppFlow uses only Salesforce REST API. By choosing this option, you ensure that your flow writes consistent output, but you decrease performance for large data transfers that are better suited for Bulk API 2.0. In some cases, if your flow attempts to transfer a vary large set of data, it might fail with a timed out error.
 func (o FlowSalesforceDestinationPropertiesPtrOutput) DataTransferApi() FlowDataTransferApiPtrOutput {
 	return o.ApplyT(func(v *FlowSalesforceDestinationProperties) *FlowDataTransferApi {
 		if v == nil {
@@ -13037,7 +13069,7 @@ func (o FlowSalesforceDestinationPropertiesPtrOutput) DataTransferApi() FlowData
 	}).(FlowDataTransferApiPtrOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+// The settings that determine how Amazon AppFlow handles an error when placing data in the Salesforce destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
 func (o FlowSalesforceDestinationPropertiesPtrOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowSalesforceDestinationProperties) *FlowErrorHandlingConfig {
 		if v == nil {
@@ -13078,7 +13110,17 @@ func (o FlowSalesforceDestinationPropertiesPtrOutput) WriteOperationType() FlowW
 }
 
 type FlowSalesforceSourceProperties struct {
-	// The API of the connector application that Amazon AppFlow uses to transfer your data.
+	// Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data from Salesforce.
+	//
+	// - **AUTOMATIC** - The default. Amazon AppFlow selects which API to use based on the number of records that your flow transfers from Salesforce. If your flow transfers fewer than 1,000,000 records, Amazon AppFlow uses Salesforce REST API. If your flow transfers 1,000,000 records or more, Amazon AppFlow uses Salesforce Bulk API 2.0.
+	//
+	// Each of these Salesforce APIs structures data differently. If Amazon AppFlow selects the API automatically, be aware that, for recurring flows, the data output might vary from one flow run to the next. For example, if a flow runs daily, it might use REST API on one day to transfer 900,000 records, and it might use Bulk API 2.0 on the next day to transfer 1,100,000 records. For each of these flow runs, the respective Salesforce API formats the data differently. Some of the differences include how dates are formatted and null values are represented. Also, Bulk API 2.0 doesn't transfer Salesforce compound fields.
+	//
+	// By choosing this option, you optimize flow performance for both small and large data transfers, but the tradeoff is inconsistent formatting in the output.
+	// - **BULKV2** - Amazon AppFlow uses only Salesforce Bulk API 2.0. This API runs asynchronous data transfers, and it's optimal for large sets of data. By choosing this option, you ensure that your flow writes consistent output, but you optimize performance only for large data transfers.
+	//
+	// Note that Bulk API 2.0 does not transfer Salesforce compound fields.
+	// - **REST_SYNC** - Amazon AppFlow uses only Salesforce REST API. By choosing this option, you ensure that your flow writes consistent output, but you decrease performance for large data transfers that are better suited for Bulk API 2.0. In some cases, if your flow attempts to transfer a vary large set of data, it might fail wituh a timed out error.
 	DataTransferApi *FlowDataTransferApi `pulumi:"dataTransferApi"`
 	// The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
 	EnableDynamicFieldUpdate *bool `pulumi:"enableDynamicFieldUpdate"`
@@ -13100,7 +13142,17 @@ type FlowSalesforceSourcePropertiesInput interface {
 }
 
 type FlowSalesforceSourcePropertiesArgs struct {
-	// The API of the connector application that Amazon AppFlow uses to transfer your data.
+	// Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data from Salesforce.
+	//
+	// - **AUTOMATIC** - The default. Amazon AppFlow selects which API to use based on the number of records that your flow transfers from Salesforce. If your flow transfers fewer than 1,000,000 records, Amazon AppFlow uses Salesforce REST API. If your flow transfers 1,000,000 records or more, Amazon AppFlow uses Salesforce Bulk API 2.0.
+	//
+	// Each of these Salesforce APIs structures data differently. If Amazon AppFlow selects the API automatically, be aware that, for recurring flows, the data output might vary from one flow run to the next. For example, if a flow runs daily, it might use REST API on one day to transfer 900,000 records, and it might use Bulk API 2.0 on the next day to transfer 1,100,000 records. For each of these flow runs, the respective Salesforce API formats the data differently. Some of the differences include how dates are formatted and null values are represented. Also, Bulk API 2.0 doesn't transfer Salesforce compound fields.
+	//
+	// By choosing this option, you optimize flow performance for both small and large data transfers, but the tradeoff is inconsistent formatting in the output.
+	// - **BULKV2** - Amazon AppFlow uses only Salesforce Bulk API 2.0. This API runs asynchronous data transfers, and it's optimal for large sets of data. By choosing this option, you ensure that your flow writes consistent output, but you optimize performance only for large data transfers.
+	//
+	// Note that Bulk API 2.0 does not transfer Salesforce compound fields.
+	// - **REST_SYNC** - Amazon AppFlow uses only Salesforce REST API. By choosing this option, you ensure that your flow writes consistent output, but you decrease performance for large data transfers that are better suited for Bulk API 2.0. In some cases, if your flow attempts to transfer a vary large set of data, it might fail wituh a timed out error.
 	DataTransferApi FlowDataTransferApiPtrInput `pulumi:"dataTransferApi"`
 	// The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
 	EnableDynamicFieldUpdate pulumi.BoolPtrInput `pulumi:"enableDynamicFieldUpdate"`
@@ -13187,7 +13239,17 @@ func (o FlowSalesforceSourcePropertiesOutput) ToFlowSalesforceSourcePropertiesPt
 	}).(FlowSalesforceSourcePropertiesPtrOutput)
 }
 
-// The API of the connector application that Amazon AppFlow uses to transfer your data.
+// Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data from Salesforce.
+//
+// - **AUTOMATIC** - The default. Amazon AppFlow selects which API to use based on the number of records that your flow transfers from Salesforce. If your flow transfers fewer than 1,000,000 records, Amazon AppFlow uses Salesforce REST API. If your flow transfers 1,000,000 records or more, Amazon AppFlow uses Salesforce Bulk API 2.0.
+//
+// Each of these Salesforce APIs structures data differently. If Amazon AppFlow selects the API automatically, be aware that, for recurring flows, the data output might vary from one flow run to the next. For example, if a flow runs daily, it might use REST API on one day to transfer 900,000 records, and it might use Bulk API 2.0 on the next day to transfer 1,100,000 records. For each of these flow runs, the respective Salesforce API formats the data differently. Some of the differences include how dates are formatted and null values are represented. Also, Bulk API 2.0 doesn't transfer Salesforce compound fields.
+//
+// By choosing this option, you optimize flow performance for both small and large data transfers, but the tradeoff is inconsistent formatting in the output.
+// - **BULKV2** - Amazon AppFlow uses only Salesforce Bulk API 2.0. This API runs asynchronous data transfers, and it's optimal for large sets of data. By choosing this option, you ensure that your flow writes consistent output, but you optimize performance only for large data transfers.
+//
+// Note that Bulk API 2.0 does not transfer Salesforce compound fields.
+// - **REST_SYNC** - Amazon AppFlow uses only Salesforce REST API. By choosing this option, you ensure that your flow writes consistent output, but you decrease performance for large data transfers that are better suited for Bulk API 2.0. In some cases, if your flow attempts to transfer a vary large set of data, it might fail wituh a timed out error.
 func (o FlowSalesforceSourcePropertiesOutput) DataTransferApi() FlowDataTransferApiPtrOutput {
 	return o.ApplyT(func(v FlowSalesforceSourceProperties) *FlowDataTransferApi { return v.DataTransferApi }).(FlowDataTransferApiPtrOutput)
 }
@@ -13231,7 +13293,17 @@ func (o FlowSalesforceSourcePropertiesPtrOutput) Elem() FlowSalesforceSourceProp
 	}).(FlowSalesforceSourcePropertiesOutput)
 }
 
-// The API of the connector application that Amazon AppFlow uses to transfer your data.
+// Specifies which Salesforce API is used by Amazon AppFlow when your flow transfers data from Salesforce.
+//
+// - **AUTOMATIC** - The default. Amazon AppFlow selects which API to use based on the number of records that your flow transfers from Salesforce. If your flow transfers fewer than 1,000,000 records, Amazon AppFlow uses Salesforce REST API. If your flow transfers 1,000,000 records or more, Amazon AppFlow uses Salesforce Bulk API 2.0.
+//
+// Each of these Salesforce APIs structures data differently. If Amazon AppFlow selects the API automatically, be aware that, for recurring flows, the data output might vary from one flow run to the next. For example, if a flow runs daily, it might use REST API on one day to transfer 900,000 records, and it might use Bulk API 2.0 on the next day to transfer 1,100,000 records. For each of these flow runs, the respective Salesforce API formats the data differently. Some of the differences include how dates are formatted and null values are represented. Also, Bulk API 2.0 doesn't transfer Salesforce compound fields.
+//
+// By choosing this option, you optimize flow performance for both small and large data transfers, but the tradeoff is inconsistent formatting in the output.
+// - **BULKV2** - Amazon AppFlow uses only Salesforce Bulk API 2.0. This API runs asynchronous data transfers, and it's optimal for large sets of data. By choosing this option, you ensure that your flow writes consistent output, but you optimize performance only for large data transfers.
+//
+// Note that Bulk API 2.0 does not transfer Salesforce compound fields.
+// - **REST_SYNC** - Amazon AppFlow uses only Salesforce REST API. By choosing this option, you ensure that your flow writes consistent output, but you decrease performance for large data transfers that are better suited for Bulk API 2.0. In some cases, if your flow attempts to transfer a vary large set of data, it might fail wituh a timed out error.
 func (o FlowSalesforceSourcePropertiesPtrOutput) DataTransferApi() FlowDataTransferApiPtrOutput {
 	return o.ApplyT(func(v *FlowSalesforceSourceProperties) *FlowDataTransferApi {
 		if v == nil {
@@ -13280,7 +13352,7 @@ type FlowSapoDataDestinationProperties struct {
 	ObjectPath string `pulumi:"objectPath"`
 	// Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data.
 	//
-	// For example, this setting would determine where to write the response from the destination connector upon a successful insert operation.
+	// For example, this setting would determine where to write the response from a destination connector upon a successful insert operation.
 	SuccessResponseHandlingConfig *FlowSuccessResponseHandlingConfig `pulumi:"successResponseHandlingConfig"`
 	// The possible write operations in the destination connector. When this value is not provided, this defaults to the `INSERT` operation.
 	WriteOperationType *FlowWriteOperationType `pulumi:"writeOperationType"`
@@ -13306,7 +13378,7 @@ type FlowSapoDataDestinationPropertiesArgs struct {
 	ObjectPath pulumi.StringInput `pulumi:"objectPath"`
 	// Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data.
 	//
-	// For example, this setting would determine where to write the response from the destination connector upon a successful insert operation.
+	// For example, this setting would determine where to write the response from a destination connector upon a successful insert operation.
 	SuccessResponseHandlingConfig FlowSuccessResponseHandlingConfigPtrInput `pulumi:"successResponseHandlingConfig"`
 	// The possible write operations in the destination connector. When this value is not provided, this defaults to the `INSERT` operation.
 	WriteOperationType FlowWriteOperationTypePtrInput `pulumi:"writeOperationType"`
@@ -13406,7 +13478,7 @@ func (o FlowSapoDataDestinationPropertiesOutput) ObjectPath() pulumi.StringOutpu
 
 // Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data.
 //
-// For example, this setting would determine where to write the response from the destination connector upon a successful insert operation.
+// For example, this setting would determine where to write the response from a destination connector upon a successful insert operation.
 func (o FlowSapoDataDestinationPropertiesOutput) SuccessResponseHandlingConfig() FlowSuccessResponseHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowSapoDataDestinationProperties) *FlowSuccessResponseHandlingConfig {
 		return v.SuccessResponseHandlingConfig
@@ -13474,7 +13546,7 @@ func (o FlowSapoDataDestinationPropertiesPtrOutput) ObjectPath() pulumi.StringPt
 
 // Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data.
 //
-// For example, this setting would determine where to write the response from the destination connector upon a successful insert operation.
+// For example, this setting would determine where to write the response from a destination connector upon a successful insert operation.
 func (o FlowSapoDataDestinationPropertiesPtrOutput) SuccessResponseHandlingConfig() FlowSuccessResponseHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowSapoDataDestinationProperties) *FlowSuccessResponseHandlingConfig {
 		if v == nil {
@@ -14630,7 +14702,7 @@ func (o FlowSlackSourcePropertiesPtrOutput) Object() pulumi.StringPtrOutput {
 type FlowSnowflakeDestinationProperties struct {
 	// The object key for the destination bucket in which Amazon AppFlow places the files.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+	// The settings that determine how Amazon AppFlow handles an error when placing data in the Snowflake destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
 	ErrorHandlingConfig *FlowErrorHandlingConfig `pulumi:"errorHandlingConfig"`
 	// The intermediate bucket that Amazon AppFlow uses when moving data into Snowflake.
 	IntermediateBucketName string `pulumi:"intermediateBucketName"`
@@ -14652,7 +14724,7 @@ type FlowSnowflakeDestinationPropertiesInput interface {
 type FlowSnowflakeDestinationPropertiesArgs struct {
 	// The object key for the destination bucket in which Amazon AppFlow places the files.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+	// The settings that determine how Amazon AppFlow handles an error when placing data in the Snowflake destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
 	ErrorHandlingConfig FlowErrorHandlingConfigPtrInput `pulumi:"errorHandlingConfig"`
 	// The intermediate bucket that Amazon AppFlow uses when moving data into Snowflake.
 	IntermediateBucketName pulumi.StringInput `pulumi:"intermediateBucketName"`
@@ -14742,7 +14814,7 @@ func (o FlowSnowflakeDestinationPropertiesOutput) BucketPrefix() pulumi.StringPt
 	return o.ApplyT(func(v FlowSnowflakeDestinationProperties) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+// The settings that determine how Amazon AppFlow handles an error when placing data in the Snowflake destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
 func (o FlowSnowflakeDestinationPropertiesOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v FlowSnowflakeDestinationProperties) *FlowErrorHandlingConfig { return v.ErrorHandlingConfig }).(FlowErrorHandlingConfigPtrOutput)
 }
@@ -14791,7 +14863,7 @@ func (o FlowSnowflakeDestinationPropertiesPtrOutput) BucketPrefix() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+// The settings that determine how Amazon AppFlow handles an error when placing data in the Snowflake destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
 func (o FlowSnowflakeDestinationPropertiesPtrOutput) ErrorHandlingConfig() FlowErrorHandlingConfigPtrOutput {
 	return o.ApplyT(func(v *FlowSnowflakeDestinationProperties) *FlowErrorHandlingConfig {
 		if v == nil {
@@ -14823,39 +14895,39 @@ func (o FlowSnowflakeDestinationPropertiesPtrOutput) Object() pulumi.StringPtrOu
 
 // Source connector details required to query a connector
 type FlowSourceConnectorProperties struct {
-	// The properties that are applied when Amplitude is being used as a source.
+	// Specifies the information that is required for querying Amplitude.
 	Amplitude *FlowAmplitudeSourceProperties `pulumi:"amplitude"`
 	// The properties that are applied when the custom connector is being used as a source.
 	CustomConnector *FlowCustomConnectorSourceProperties `pulumi:"customConnector"`
-	// The properties that are applied when Datadog is being used as a source.
+	// Specifies the information that is required for querying Datadog.
 	Datadog *FlowDatadogSourceProperties `pulumi:"datadog"`
-	// The properties that are applied when Dynatrace is being used as a source.
+	// Specifies the information that is required for querying Dynatrace.
 	Dynatrace *FlowDynatraceSourceProperties `pulumi:"dynatrace"`
-	// The properties that are applied when Google Analytics is being used as a source.
+	// Specifies the information that is required for querying Google Analytics.
 	GoogleAnalytics *FlowGoogleAnalyticsSourceProperties `pulumi:"googleAnalytics"`
-	// The properties that are applied when Infor Nexus is being used as a source.
+	// Specifies the information that is required for querying Infor Nexus.
 	InforNexus *FlowInforNexusSourceProperties `pulumi:"inforNexus"`
-	// The properties that are applied when Marketo is being used as a source.
+	// Specifies the information that is required for querying Marketo.
 	Marketo *FlowMarketoSourceProperties `pulumi:"marketo"`
-	// The properties that are applied when Salesforce Pardot is being used as a source.
+	// Specifies the information that is required for querying Salesforce Pardot.
 	Pardot *FlowPardotSourceProperties `pulumi:"pardot"`
-	// The properties that are applied when Amazon S3 is being used as the flow source.
+	// Specifies the information that is required for querying Amazon S3.
 	S3 *FlowS3SourceProperties `pulumi:"s3"`
-	// The properties that are applied when Salesforce is being used as a source.
+	// Specifies the information that is required for querying Salesforce.
 	Salesforce *FlowSalesforceSourceProperties `pulumi:"salesforce"`
 	// The properties that are applied when using SAPOData as a flow source.
 	SapoData *FlowSapoDataSourceProperties `pulumi:"sapoData"`
-	// The properties that are applied when ServiceNow is being used as a source.
+	// Specifies the information that is required for querying ServiceNow.
 	ServiceNow *FlowServiceNowSourceProperties `pulumi:"serviceNow"`
-	// The properties that are applied when Singular is being used as a source.
+	// Specifies the information that is required for querying Singular.
 	Singular *FlowSingularSourceProperties `pulumi:"singular"`
-	// The properties that are applied when Slack is being used as a source.
+	// Specifies the information that is required for querying Slack.
 	Slack *FlowSlackSourceProperties `pulumi:"slack"`
-	// The properties that are applied when using Trend Micro as a flow source.
+	// Specifies the information that is required for querying Trend Micro.
 	Trendmicro *FlowTrendmicroSourceProperties `pulumi:"trendmicro"`
-	// The properties that are applied when using Veeva as a flow source.
+	// Specifies the information that is required for querying Veeva.
 	Veeva *FlowVeevaSourceProperties `pulumi:"veeva"`
-	// The properties that are applied when using Zendesk as a flow source.
+	// Specifies the information that is required for querying Zendesk.
 	Zendesk *FlowZendeskSourceProperties `pulumi:"zendesk"`
 }
 
@@ -14872,39 +14944,39 @@ type FlowSourceConnectorPropertiesInput interface {
 
 // Source connector details required to query a connector
 type FlowSourceConnectorPropertiesArgs struct {
-	// The properties that are applied when Amplitude is being used as a source.
+	// Specifies the information that is required for querying Amplitude.
 	Amplitude FlowAmplitudeSourcePropertiesPtrInput `pulumi:"amplitude"`
 	// The properties that are applied when the custom connector is being used as a source.
 	CustomConnector FlowCustomConnectorSourcePropertiesPtrInput `pulumi:"customConnector"`
-	// The properties that are applied when Datadog is being used as a source.
+	// Specifies the information that is required for querying Datadog.
 	Datadog FlowDatadogSourcePropertiesPtrInput `pulumi:"datadog"`
-	// The properties that are applied when Dynatrace is being used as a source.
+	// Specifies the information that is required for querying Dynatrace.
 	Dynatrace FlowDynatraceSourcePropertiesPtrInput `pulumi:"dynatrace"`
-	// The properties that are applied when Google Analytics is being used as a source.
+	// Specifies the information that is required for querying Google Analytics.
 	GoogleAnalytics FlowGoogleAnalyticsSourcePropertiesPtrInput `pulumi:"googleAnalytics"`
-	// The properties that are applied when Infor Nexus is being used as a source.
+	// Specifies the information that is required for querying Infor Nexus.
 	InforNexus FlowInforNexusSourcePropertiesPtrInput `pulumi:"inforNexus"`
-	// The properties that are applied when Marketo is being used as a source.
+	// Specifies the information that is required for querying Marketo.
 	Marketo FlowMarketoSourcePropertiesPtrInput `pulumi:"marketo"`
-	// The properties that are applied when Salesforce Pardot is being used as a source.
+	// Specifies the information that is required for querying Salesforce Pardot.
 	Pardot FlowPardotSourcePropertiesPtrInput `pulumi:"pardot"`
-	// The properties that are applied when Amazon S3 is being used as the flow source.
+	// Specifies the information that is required for querying Amazon S3.
 	S3 FlowS3SourcePropertiesPtrInput `pulumi:"s3"`
-	// The properties that are applied when Salesforce is being used as a source.
+	// Specifies the information that is required for querying Salesforce.
 	Salesforce FlowSalesforceSourcePropertiesPtrInput `pulumi:"salesforce"`
 	// The properties that are applied when using SAPOData as a flow source.
 	SapoData FlowSapoDataSourcePropertiesPtrInput `pulumi:"sapoData"`
-	// The properties that are applied when ServiceNow is being used as a source.
+	// Specifies the information that is required for querying ServiceNow.
 	ServiceNow FlowServiceNowSourcePropertiesPtrInput `pulumi:"serviceNow"`
-	// The properties that are applied when Singular is being used as a source.
+	// Specifies the information that is required for querying Singular.
 	Singular FlowSingularSourcePropertiesPtrInput `pulumi:"singular"`
-	// The properties that are applied when Slack is being used as a source.
+	// Specifies the information that is required for querying Slack.
 	Slack FlowSlackSourcePropertiesPtrInput `pulumi:"slack"`
-	// The properties that are applied when using Trend Micro as a flow source.
+	// Specifies the information that is required for querying Trend Micro.
 	Trendmicro FlowTrendmicroSourcePropertiesPtrInput `pulumi:"trendmicro"`
-	// The properties that are applied when using Veeva as a flow source.
+	// Specifies the information that is required for querying Veeva.
 	Veeva FlowVeevaSourcePropertiesPtrInput `pulumi:"veeva"`
-	// The properties that are applied when using Zendesk as a flow source.
+	// Specifies the information that is required for querying Zendesk.
 	Zendesk FlowZendeskSourcePropertiesPtrInput `pulumi:"zendesk"`
 }
 
@@ -14935,7 +15007,7 @@ func (o FlowSourceConnectorPropertiesOutput) ToFlowSourceConnectorPropertiesOutp
 	return o
 }
 
-// The properties that are applied when Amplitude is being used as a source.
+// Specifies the information that is required for querying Amplitude.
 func (o FlowSourceConnectorPropertiesOutput) Amplitude() FlowAmplitudeSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowAmplitudeSourceProperties { return v.Amplitude }).(FlowAmplitudeSourcePropertiesPtrOutput)
 }
@@ -14945,42 +15017,42 @@ func (o FlowSourceConnectorPropertiesOutput) CustomConnector() FlowCustomConnect
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowCustomConnectorSourceProperties { return v.CustomConnector }).(FlowCustomConnectorSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when Datadog is being used as a source.
+// Specifies the information that is required for querying Datadog.
 func (o FlowSourceConnectorPropertiesOutput) Datadog() FlowDatadogSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowDatadogSourceProperties { return v.Datadog }).(FlowDatadogSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when Dynatrace is being used as a source.
+// Specifies the information that is required for querying Dynatrace.
 func (o FlowSourceConnectorPropertiesOutput) Dynatrace() FlowDynatraceSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowDynatraceSourceProperties { return v.Dynatrace }).(FlowDynatraceSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when Google Analytics is being used as a source.
+// Specifies the information that is required for querying Google Analytics.
 func (o FlowSourceConnectorPropertiesOutput) GoogleAnalytics() FlowGoogleAnalyticsSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowGoogleAnalyticsSourceProperties { return v.GoogleAnalytics }).(FlowGoogleAnalyticsSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when Infor Nexus is being used as a source.
+// Specifies the information that is required for querying Infor Nexus.
 func (o FlowSourceConnectorPropertiesOutput) InforNexus() FlowInforNexusSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowInforNexusSourceProperties { return v.InforNexus }).(FlowInforNexusSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when Marketo is being used as a source.
+// Specifies the information that is required for querying Marketo.
 func (o FlowSourceConnectorPropertiesOutput) Marketo() FlowMarketoSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowMarketoSourceProperties { return v.Marketo }).(FlowMarketoSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when Salesforce Pardot is being used as a source.
+// Specifies the information that is required for querying Salesforce Pardot.
 func (o FlowSourceConnectorPropertiesOutput) Pardot() FlowPardotSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowPardotSourceProperties { return v.Pardot }).(FlowPardotSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when Amazon S3 is being used as the flow source.
+// Specifies the information that is required for querying Amazon S3.
 func (o FlowSourceConnectorPropertiesOutput) S3() FlowS3SourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowS3SourceProperties { return v.S3 }).(FlowS3SourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when Salesforce is being used as a source.
+// Specifies the information that is required for querying Salesforce.
 func (o FlowSourceConnectorPropertiesOutput) Salesforce() FlowSalesforceSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowSalesforceSourceProperties { return v.Salesforce }).(FlowSalesforceSourcePropertiesPtrOutput)
 }
@@ -14990,32 +15062,32 @@ func (o FlowSourceConnectorPropertiesOutput) SapoData() FlowSapoDataSourceProper
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowSapoDataSourceProperties { return v.SapoData }).(FlowSapoDataSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when ServiceNow is being used as a source.
+// Specifies the information that is required for querying ServiceNow.
 func (o FlowSourceConnectorPropertiesOutput) ServiceNow() FlowServiceNowSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowServiceNowSourceProperties { return v.ServiceNow }).(FlowServiceNowSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when Singular is being used as a source.
+// Specifies the information that is required for querying Singular.
 func (o FlowSourceConnectorPropertiesOutput) Singular() FlowSingularSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowSingularSourceProperties { return v.Singular }).(FlowSingularSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when Slack is being used as a source.
+// Specifies the information that is required for querying Slack.
 func (o FlowSourceConnectorPropertiesOutput) Slack() FlowSlackSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowSlackSourceProperties { return v.Slack }).(FlowSlackSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when using Trend Micro as a flow source.
+// Specifies the information that is required for querying Trend Micro.
 func (o FlowSourceConnectorPropertiesOutput) Trendmicro() FlowTrendmicroSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowTrendmicroSourceProperties { return v.Trendmicro }).(FlowTrendmicroSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when using Veeva as a flow source.
+// Specifies the information that is required for querying Veeva.
 func (o FlowSourceConnectorPropertiesOutput) Veeva() FlowVeevaSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowVeevaSourceProperties { return v.Veeva }).(FlowVeevaSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when using Zendesk as a flow source.
+// Specifies the information that is required for querying Zendesk.
 func (o FlowSourceConnectorPropertiesOutput) Zendesk() FlowZendeskSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v FlowSourceConnectorProperties) *FlowZendeskSourceProperties { return v.Zendesk }).(FlowZendeskSourcePropertiesPtrOutput)
 }
@@ -15044,7 +15116,7 @@ func (o FlowSourceConnectorPropertiesPtrOutput) Elem() FlowSourceConnectorProper
 	}).(FlowSourceConnectorPropertiesOutput)
 }
 
-// The properties that are applied when Amplitude is being used as a source.
+// Specifies the information that is required for querying Amplitude.
 func (o FlowSourceConnectorPropertiesPtrOutput) Amplitude() FlowAmplitudeSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowAmplitudeSourceProperties {
 		if v == nil {
@@ -15064,7 +15136,7 @@ func (o FlowSourceConnectorPropertiesPtrOutput) CustomConnector() FlowCustomConn
 	}).(FlowCustomConnectorSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when Datadog is being used as a source.
+// Specifies the information that is required for querying Datadog.
 func (o FlowSourceConnectorPropertiesPtrOutput) Datadog() FlowDatadogSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowDatadogSourceProperties {
 		if v == nil {
@@ -15074,7 +15146,7 @@ func (o FlowSourceConnectorPropertiesPtrOutput) Datadog() FlowDatadogSourcePrope
 	}).(FlowDatadogSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when Dynatrace is being used as a source.
+// Specifies the information that is required for querying Dynatrace.
 func (o FlowSourceConnectorPropertiesPtrOutput) Dynatrace() FlowDynatraceSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowDynatraceSourceProperties {
 		if v == nil {
@@ -15084,7 +15156,7 @@ func (o FlowSourceConnectorPropertiesPtrOutput) Dynatrace() FlowDynatraceSourceP
 	}).(FlowDynatraceSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when Google Analytics is being used as a source.
+// Specifies the information that is required for querying Google Analytics.
 func (o FlowSourceConnectorPropertiesPtrOutput) GoogleAnalytics() FlowGoogleAnalyticsSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowGoogleAnalyticsSourceProperties {
 		if v == nil {
@@ -15094,7 +15166,7 @@ func (o FlowSourceConnectorPropertiesPtrOutput) GoogleAnalytics() FlowGoogleAnal
 	}).(FlowGoogleAnalyticsSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when Infor Nexus is being used as a source.
+// Specifies the information that is required for querying Infor Nexus.
 func (o FlowSourceConnectorPropertiesPtrOutput) InforNexus() FlowInforNexusSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowInforNexusSourceProperties {
 		if v == nil {
@@ -15104,7 +15176,7 @@ func (o FlowSourceConnectorPropertiesPtrOutput) InforNexus() FlowInforNexusSourc
 	}).(FlowInforNexusSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when Marketo is being used as a source.
+// Specifies the information that is required for querying Marketo.
 func (o FlowSourceConnectorPropertiesPtrOutput) Marketo() FlowMarketoSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowMarketoSourceProperties {
 		if v == nil {
@@ -15114,7 +15186,7 @@ func (o FlowSourceConnectorPropertiesPtrOutput) Marketo() FlowMarketoSourcePrope
 	}).(FlowMarketoSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when Salesforce Pardot is being used as a source.
+// Specifies the information that is required for querying Salesforce Pardot.
 func (o FlowSourceConnectorPropertiesPtrOutput) Pardot() FlowPardotSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowPardotSourceProperties {
 		if v == nil {
@@ -15124,7 +15196,7 @@ func (o FlowSourceConnectorPropertiesPtrOutput) Pardot() FlowPardotSourcePropert
 	}).(FlowPardotSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when Amazon S3 is being used as the flow source.
+// Specifies the information that is required for querying Amazon S3.
 func (o FlowSourceConnectorPropertiesPtrOutput) S3() FlowS3SourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowS3SourceProperties {
 		if v == nil {
@@ -15134,7 +15206,7 @@ func (o FlowSourceConnectorPropertiesPtrOutput) S3() FlowS3SourcePropertiesPtrOu
 	}).(FlowS3SourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when Salesforce is being used as a source.
+// Specifies the information that is required for querying Salesforce.
 func (o FlowSourceConnectorPropertiesPtrOutput) Salesforce() FlowSalesforceSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowSalesforceSourceProperties {
 		if v == nil {
@@ -15154,7 +15226,7 @@ func (o FlowSourceConnectorPropertiesPtrOutput) SapoData() FlowSapoDataSourcePro
 	}).(FlowSapoDataSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when ServiceNow is being used as a source.
+// Specifies the information that is required for querying ServiceNow.
 func (o FlowSourceConnectorPropertiesPtrOutput) ServiceNow() FlowServiceNowSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowServiceNowSourceProperties {
 		if v == nil {
@@ -15164,7 +15236,7 @@ func (o FlowSourceConnectorPropertiesPtrOutput) ServiceNow() FlowServiceNowSourc
 	}).(FlowServiceNowSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when Singular is being used as a source.
+// Specifies the information that is required for querying Singular.
 func (o FlowSourceConnectorPropertiesPtrOutput) Singular() FlowSingularSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowSingularSourceProperties {
 		if v == nil {
@@ -15174,7 +15246,7 @@ func (o FlowSourceConnectorPropertiesPtrOutput) Singular() FlowSingularSourcePro
 	}).(FlowSingularSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when Slack is being used as a source.
+// Specifies the information that is required for querying Slack.
 func (o FlowSourceConnectorPropertiesPtrOutput) Slack() FlowSlackSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowSlackSourceProperties {
 		if v == nil {
@@ -15184,7 +15256,7 @@ func (o FlowSourceConnectorPropertiesPtrOutput) Slack() FlowSlackSourcePropertie
 	}).(FlowSlackSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when using Trend Micro as a flow source.
+// Specifies the information that is required for querying Trend Micro.
 func (o FlowSourceConnectorPropertiesPtrOutput) Trendmicro() FlowTrendmicroSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowTrendmicroSourceProperties {
 		if v == nil {
@@ -15194,7 +15266,7 @@ func (o FlowSourceConnectorPropertiesPtrOutput) Trendmicro() FlowTrendmicroSourc
 	}).(FlowTrendmicroSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when using Veeva as a flow source.
+// Specifies the information that is required for querying Veeva.
 func (o FlowSourceConnectorPropertiesPtrOutput) Veeva() FlowVeevaSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowVeevaSourceProperties {
 		if v == nil {
@@ -15204,7 +15276,7 @@ func (o FlowSourceConnectorPropertiesPtrOutput) Veeva() FlowVeevaSourcePropertie
 	}).(FlowVeevaSourcePropertiesPtrOutput)
 }
 
-// The properties that are applied when using Zendesk as a flow source.
+// Specifies the information that is required for querying Zendesk.
 func (o FlowSourceConnectorPropertiesPtrOutput) Zendesk() FlowZendeskSourcePropertiesPtrOutput {
 	return o.ApplyT(func(v *FlowSourceConnectorProperties) *FlowZendeskSourceProperties {
 		if v == nil {
@@ -16035,7 +16107,7 @@ type FlowUpsolverDestinationProperties struct {
 	BucketName string `pulumi:"bucketName"`
 	// The object key for the destination Upsolver Amazon S3 bucket in which Amazon AppFlow places the files.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
-	// The configuration that determines how Amazon AppFlow formats the flow output data when Upsolver is used as the destination.
+	// The configuration that determines how data is formatted when Upsolver is used as the flow destination.
 	S3OutputFormatConfig FlowUpsolverS3OutputFormatConfig `pulumi:"s3OutputFormatConfig"`
 }
 
@@ -16055,7 +16127,7 @@ type FlowUpsolverDestinationPropertiesArgs struct {
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 	// The object key for the destination Upsolver Amazon S3 bucket in which Amazon AppFlow places the files.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
-	// The configuration that determines how Amazon AppFlow formats the flow output data when Upsolver is used as the destination.
+	// The configuration that determines how data is formatted when Upsolver is used as the flow destination.
 	S3OutputFormatConfig FlowUpsolverS3OutputFormatConfigInput `pulumi:"s3OutputFormatConfig"`
 }
 
@@ -16146,7 +16218,7 @@ func (o FlowUpsolverDestinationPropertiesOutput) BucketPrefix() pulumi.StringPtr
 	return o.ApplyT(func(v FlowUpsolverDestinationProperties) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The configuration that determines how Amazon AppFlow formats the flow output data when Upsolver is used as the destination.
+// The configuration that determines how data is formatted when Upsolver is used as the flow destination.
 func (o FlowUpsolverDestinationPropertiesOutput) S3OutputFormatConfig() FlowUpsolverS3OutputFormatConfigOutput {
 	return o.ApplyT(func(v FlowUpsolverDestinationProperties) FlowUpsolverS3OutputFormatConfig {
 		return v.S3OutputFormatConfig
@@ -16197,7 +16269,7 @@ func (o FlowUpsolverDestinationPropertiesPtrOutput) BucketPrefix() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration that determines how Amazon AppFlow formats the flow output data when Upsolver is used as the destination.
+// The configuration that determines how data is formatted when Upsolver is used as the flow destination.
 func (o FlowUpsolverDestinationPropertiesPtrOutput) S3OutputFormatConfig() FlowUpsolverS3OutputFormatConfigPtrOutput {
 	return o.ApplyT(func(v *FlowUpsolverDestinationProperties) *FlowUpsolverS3OutputFormatConfig {
 		if v == nil {

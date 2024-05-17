@@ -42,7 +42,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Parameters for enabling CDN authorization on the endpoint.
+     * Parameters for CDN authorization.
      */
     public readonly authorization!: pulumi.Output<outputs.mediapackage.OriginEndpointAuthorization | undefined>;
     /**
@@ -163,7 +163,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
  */
 export interface OriginEndpointArgs {
     /**
-     * Parameters for enabling CDN authorization on the endpoint.
+     * Parameters for CDN authorization.
      */
     authorization?: pulumi.Input<inputs.mediapackage.OriginEndpointAuthorizationArgs>;
     /**

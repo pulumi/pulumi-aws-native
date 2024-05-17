@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.AuditManager
         /// </summary>
         public readonly string? AssessmentId;
         /// <summary>
-        /// The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+        /// The destination that evidence reports are stored in for the assessment.
         /// </summary>
         public readonly Outputs.AssessmentReportsDestination? AssessmentReportsDestination;
         /// <summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.AuditManager
         /// </summary>
         public readonly ImmutableArray<Outputs.AssessmentRole> Roles;
         /// <summary>
-        /// The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+        /// The wrapper of AWS accounts and services that are in scope for the assessment.
         /// </summary>
         public readonly Outputs.AssessmentScope? Scope;
         /// <summary>

@@ -47,8 +47,6 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
     /**
      * A response headers policy configuration.
-     *
-     * A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
      */
     public readonly responseHeadersPolicyConfig!: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyConfig>;
 
@@ -85,8 +83,6 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
 export interface ResponseHeadersPolicyArgs {
     /**
      * A response headers policy configuration.
-     *
-     * A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
      */
     responseHeadersPolicyConfig: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyConfigArgs>;
 }

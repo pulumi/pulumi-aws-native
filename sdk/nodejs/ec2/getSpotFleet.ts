@@ -31,9 +31,7 @@ export interface GetSpotFleetResult {
      */
     readonly id?: string;
     /**
-     * Specifies the configuration of a Spot Fleet request. For more information, see [Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html) in the *Amazon EC2 User Guide* .
-     *
-     * You must specify either `LaunchSpecifications` or `LaunchTemplateConfigs` .
+     * Describes the configuration of a Spot Fleet request.
      */
     readonly spotFleetRequestConfigData?: outputs.ec2.SpotFleetRequestConfigData;
 }

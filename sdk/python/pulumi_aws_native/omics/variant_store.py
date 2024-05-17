@@ -24,10 +24,10 @@ class VariantStoreArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VariantStore resource.
-        :param pulumi.Input['VariantStoreReferenceItemArgs'] reference: The read set's genome reference ARN.
+        :param pulumi.Input['VariantStoreReferenceItemArgs'] reference: The genome reference for the store's variants.
         :param pulumi.Input[str] description: A description for the store.
         :param pulumi.Input[str] name: A name for the store.
-        :param pulumi.Input['VariantStoreSseConfigArgs'] sse_config: Server-side encryption (SSE) settings for a store.
+        :param pulumi.Input['VariantStoreSseConfigArgs'] sse_config: Server-side encryption (SSE) settings for the store.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the store.
         """
         pulumi.set(__self__, "reference", reference)
@@ -44,7 +44,7 @@ class VariantStoreArgs:
     @pulumi.getter
     def reference(self) -> pulumi.Input['VariantStoreReferenceItemArgs']:
         """
-        The read set's genome reference ARN.
+        The genome reference for the store's variants.
         """
         return pulumi.get(self, "reference")
 
@@ -80,7 +80,7 @@ class VariantStoreArgs:
     @pulumi.getter(name="sseConfig")
     def sse_config(self) -> Optional[pulumi.Input['VariantStoreSseConfigArgs']]:
         """
-        Server-side encryption (SSE) settings for a store.
+        Server-side encryption (SSE) settings for the store.
         """
         return pulumi.get(self, "sse_config")
 
@@ -119,8 +119,8 @@ class VariantStore(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the store.
         :param pulumi.Input[str] name: A name for the store.
-        :param pulumi.Input[pulumi.InputType['VariantStoreReferenceItemArgs']] reference: The read set's genome reference ARN.
-        :param pulumi.Input[pulumi.InputType['VariantStoreSseConfigArgs']] sse_config: Server-side encryption (SSE) settings for a store.
+        :param pulumi.Input[pulumi.InputType['VariantStoreReferenceItemArgs']] reference: The genome reference for the store's variants.
+        :param pulumi.Input[pulumi.InputType['VariantStoreSseConfigArgs']] sse_config: Server-side encryption (SSE) settings for the store.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the store.
         """
         ...
@@ -249,7 +249,7 @@ class VariantStore(pulumi.CustomResource):
     @pulumi.getter
     def reference(self) -> pulumi.Output['outputs.VariantStoreReferenceItem']:
         """
-        The read set's genome reference ARN.
+        The genome reference for the store's variants.
         """
         return pulumi.get(self, "reference")
 
@@ -257,7 +257,7 @@ class VariantStore(pulumi.CustomResource):
     @pulumi.getter(name="sseConfig")
     def sse_config(self) -> pulumi.Output[Optional['outputs.VariantStoreSseConfig']]:
         """
-        Server-side encryption (SSE) settings for a store.
+        Server-side encryption (SSE) settings for the store.
         """
         return pulumi.get(self, "sse_config")
 

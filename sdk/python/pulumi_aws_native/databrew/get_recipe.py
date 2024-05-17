@@ -39,7 +39,7 @@ class GetRecipeResult:
     @pulumi.getter
     def steps(self) -> Optional[Sequence['outputs.RecipeStep']]:
         """
-        Represents a single step from a DataBrew recipe to be performed.
+        A list of steps that are defined by the recipe.
         """
         return pulumi.get(self, "steps")
 

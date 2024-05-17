@@ -16,67 +16,67 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     public sealed class FlowDestinationConnectorPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The properties that are applied when the custom connector is being used as a destination.
+        /// The properties that are required to query the custom Connector.
         /// </summary>
         [Input("customConnector")]
         public Input<Inputs.FlowCustomConnectorDestinationPropertiesArgs>? CustomConnector { get; set; }
 
         /// <summary>
-        /// The properties that are applied when Amazon EventBridge is being used as a destination.
+        /// The properties required to query Amazon EventBridge.
         /// </summary>
         [Input("eventBridge")]
         public Input<Inputs.FlowEventBridgeDestinationPropertiesArgs>? EventBridge { get; set; }
 
         /// <summary>
-        /// The properties that are applied when Amazon Lookout for Metrics is used as a destination.
+        /// The properties required to query Amazon Lookout for Metrics.
         /// </summary>
         [Input("lookoutMetrics")]
         public Input<Inputs.FlowLookoutMetricsDestinationPropertiesArgs>? LookoutMetrics { get; set; }
 
         /// <summary>
-        /// The properties that Amazon AppFlow applies when you use Marketo as a flow destination.
+        /// The properties required to query Marketo.
         /// </summary>
         [Input("marketo")]
         public Input<Inputs.FlowMarketoDestinationPropertiesArgs>? Marketo { get; set; }
 
         /// <summary>
-        /// The properties that are applied when Amazon Redshift is being used as a destination.
+        /// The properties required to query Amazon Redshift.
         /// </summary>
         [Input("redshift")]
         public Input<Inputs.FlowRedshiftDestinationPropertiesArgs>? Redshift { get; set; }
 
         /// <summary>
-        /// The properties that are applied when Amazon S3 is used as a destination.
+        /// The properties required to query Amazon S3.
         /// </summary>
         [Input("s3")]
         public Input<Inputs.FlowS3DestinationPropertiesArgs>? S3 { get; set; }
 
         /// <summary>
-        /// The properties that are applied when Salesforce is being used as a destination.
+        /// The properties required to query Salesforce.
         /// </summary>
         [Input("salesforce")]
         public Input<Inputs.FlowSalesforceDestinationPropertiesArgs>? Salesforce { get; set; }
 
         /// <summary>
-        /// The properties that are applied when using SAPOData as a flow destination
+        /// The properties required to query SAPOData.
         /// </summary>
         [Input("sapoData")]
         public Input<Inputs.FlowSapoDataDestinationPropertiesArgs>? SapoData { get; set; }
 
         /// <summary>
-        /// The properties that are applied when Snowflake is being used as a destination.
+        /// The properties required to query Snowflake.
         /// </summary>
         [Input("snowflake")]
         public Input<Inputs.FlowSnowflakeDestinationPropertiesArgs>? Snowflake { get; set; }
 
         /// <summary>
-        /// The properties that are applied when Upsolver is used as a destination.
+        /// The properties required to query Upsolver.
         /// </summary>
         [Input("upsolver")]
         public Input<Inputs.FlowUpsolverDestinationPropertiesArgs>? Upsolver { get; set; }
 
         /// <summary>
-        /// The properties that are applied when Zendesk is used as a destination.
+        /// The properties required to query Zendesk.
         /// </summary>
         [Input("zendesk")]
         public Input<Inputs.FlowZendeskDestinationPropertiesArgs>? Zendesk { get; set; }

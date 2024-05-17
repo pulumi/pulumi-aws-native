@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
         public Input<string> Model { get; set; } = null!;
 
         /// <summary>
-        /// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+        /// Represents the conditional logic to use when binding data to a component. Use this property to retrieve only a subset of the data in a collection.
         /// </summary>
         [Input("predicate")]
         public Input<Inputs.ComponentPredicateArgs>? Predicate { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
         private InputList<Inputs.ComponentSortPropertyArgs>? _sort;
 
         /// <summary>
-        /// The `SortProperty` property specifies how to sort the data that you bind to a component.
+        /// Describes how to sort the component's properties.
         /// </summary>
         public InputList<Inputs.ComponentSortPropertyArgs> Sort
         {

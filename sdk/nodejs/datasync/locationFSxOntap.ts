@@ -50,7 +50,7 @@ export class LocationFSxOntap extends pulumi.CustomResource {
      */
     public /*out*/ readonly locationUri!: pulumi.Output<string>;
     /**
-     * Specifies the data transfer protocol that AWS DataSync uses to access your Amazon FSx file system.
+     * Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.
      */
     public readonly protocol!: pulumi.Output<outputs.datasync.LocationFSxOntapProtocol | undefined>;
     /**
@@ -117,7 +117,7 @@ export class LocationFSxOntap extends pulumi.CustomResource {
  */
 export interface LocationFSxOntapArgs {
     /**
-     * Specifies the data transfer protocol that AWS DataSync uses to access your Amazon FSx file system.
+     * Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.
      */
     protocol?: pulumi.Input<inputs.datasync.LocationFSxOntapProtocolArgs>;
     /**

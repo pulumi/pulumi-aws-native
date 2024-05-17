@@ -62,9 +62,6 @@ class GetPolicyResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        A set of key/value pairs that are used to manage the resource.
-        """
         return pulumi.get(self, "tags")
 
 

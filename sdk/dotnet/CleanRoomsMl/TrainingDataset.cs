@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.CleanRoomsMl
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Defines where the training dataset is located, what type of data it contains, and how to access the data.
+        /// An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.
         /// </summary>
         [Output("trainingData")]
         public Output<ImmutableArray<Outputs.TrainingDatasetDataset>> TrainingData { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.AwsNative.CleanRoomsMl
         private InputList<Inputs.TrainingDatasetDatasetArgs>? _trainingData;
 
         /// <summary>
-        /// Defines where the training dataset is located, what type of data it contains, and how to access the data.
+        /// An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.
         /// </summary>
         public InputList<Inputs.TrainingDatasetDatasetArgs> TrainingData
         {

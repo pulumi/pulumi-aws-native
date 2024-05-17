@@ -94,7 +94,9 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// A complex type that contains a `Tag` key and `Tag` value.
+        /// Create tags for an accelerator.
+        /// 
+        /// For more information, see [Tagging](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

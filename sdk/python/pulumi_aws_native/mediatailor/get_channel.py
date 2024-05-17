@@ -64,7 +64,7 @@ class GetChannelResult:
     @pulumi.getter(name="fillerSlate")
     def filler_slate(self) -> Optional['outputs.ChannelSlateSource']:
         """
-        Slate VOD source configuration.
+        The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
         """
         return pulumi.get(self, "filler_slate")
 
@@ -72,7 +72,7 @@ class GetChannelResult:
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional['outputs.ChannelLogConfigurationForChannel']:
         """
-        The log configuration for the channel.
+        The log configuration.
         """
         return pulumi.get(self, "log_configuration")
 

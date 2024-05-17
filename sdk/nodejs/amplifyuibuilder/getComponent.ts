@@ -41,7 +41,7 @@ export interface GetComponentResult {
      */
     readonly bindingProperties?: {[key: string]: outputs.amplifyuibuilder.ComponentBindingPropertiesValue};
     /**
-     * The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
+     * A list of the component's `ComponentChild` instances.
      */
     readonly children?: outputs.amplifyuibuilder.ComponentChild[];
     /**
@@ -93,7 +93,7 @@ export interface GetComponentResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
+     * A list of the component's variants. A variant is a unique style configuration of a main component.
      */
     readonly variants?: outputs.amplifyuibuilder.ComponentVariant[];
 }

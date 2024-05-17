@@ -33,11 +33,11 @@ type LookupTrustAnchorResult struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The name of the trust anchor.
 	Name *string `pulumi:"name"`
-	// Customizable notification settings that will be applied to notification events. IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge , and AWS Health Dashboard .
+	// A list of notification settings to be associated to the trust anchor.
 	NotificationSettings []TrustAnchorNotificationSetting `pulumi:"notificationSettings"`
-	// Object representing the TrustAnchor type and its related certificate data.
+	// The trust anchor type and its related certificate data.
 	Source *TrustAnchorSource `pulumi:"source"`
-	// A label that consists of a key and value you define.
+	// The tags to attach to the trust anchor.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN of the trust anchor.
 	TrustAnchorArn *string `pulumi:"trustAnchorArn"`
@@ -91,17 +91,17 @@ func (o LookupTrustAnchorResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrustAnchorResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Customizable notification settings that will be applied to notification events. IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge , and AWS Health Dashboard .
+// A list of notification settings to be associated to the trust anchor.
 func (o LookupTrustAnchorResultOutput) NotificationSettings() TrustAnchorNotificationSettingArrayOutput {
 	return o.ApplyT(func(v LookupTrustAnchorResult) []TrustAnchorNotificationSetting { return v.NotificationSettings }).(TrustAnchorNotificationSettingArrayOutput)
 }
 
-// Object representing the TrustAnchor type and its related certificate data.
+// The trust anchor type and its related certificate data.
 func (o LookupTrustAnchorResultOutput) Source() TrustAnchorSourcePtrOutput {
 	return o.ApplyT(func(v LookupTrustAnchorResult) *TrustAnchorSource { return v.Source }).(TrustAnchorSourcePtrOutput)
 }
 
-// A label that consists of a key and value you define.
+// The tags to attach to the trust anchor.
 func (o LookupTrustAnchorResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTrustAnchorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

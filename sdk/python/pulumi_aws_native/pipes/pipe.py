@@ -38,7 +38,7 @@ class PipeArgs:
         :param pulumi.Input['PipeRequestedPipeState'] desired_state: The state the pipe should be in.
         :param pulumi.Input[str] enrichment: The ARN of the enrichment resource.
         :param pulumi.Input['PipeEnrichmentParametersArgs'] enrichment_parameters: The parameters required to set up enrichment on your pipe.
-        :param pulumi.Input['PipeLogConfigurationArgs'] log_configuration: Represents the configuration settings for the logs to which this pipe should report events.
+        :param pulumi.Input['PipeLogConfigurationArgs'] log_configuration: The logging configuration settings for the pipe.
         :param pulumi.Input[str] name: The name of the pipe.
         :param pulumi.Input['PipeSourceParametersArgs'] source_parameters: The parameters required to set up a source for your pipe.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The list of key-value pairs to associate with the pipe.
@@ -156,7 +156,7 @@ class PipeArgs:
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional[pulumi.Input['PipeLogConfigurationArgs']]:
         """
-        Represents the configuration settings for the logs to which this pipe should report events.
+        The logging configuration settings for the pipe.
         """
         return pulumi.get(self, "log_configuration")
 
@@ -272,7 +272,7 @@ class Pipe(pulumi.CustomResource):
         :param pulumi.Input['PipeRequestedPipeState'] desired_state: The state the pipe should be in.
         :param pulumi.Input[str] enrichment: The ARN of the enrichment resource.
         :param pulumi.Input[pulumi.InputType['PipeEnrichmentParametersArgs']] enrichment_parameters: The parameters required to set up enrichment on your pipe.
-        :param pulumi.Input[pulumi.InputType['PipeLogConfigurationArgs']] log_configuration: Represents the configuration settings for the logs to which this pipe should report events.
+        :param pulumi.Input[pulumi.InputType['PipeLogConfigurationArgs']] log_configuration: The logging configuration settings for the pipe.
         :param pulumi.Input[str] name: The name of the pipe.
         :param pulumi.Input[str] role_arn: The ARN of the role that allows the pipe to send data to the target.
         :param pulumi.Input[str] source: The ARN of the source resource.
@@ -492,7 +492,7 @@ class Pipe(pulumi.CustomResource):
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> pulumi.Output[Optional['outputs.PipeLogConfiguration']]:
         """
-        Represents the configuration settings for the logs to which this pipe should report events.
+        The logging configuration settings for the pipe.
         """
         return pulumi.get(self, "log_configuration")
 

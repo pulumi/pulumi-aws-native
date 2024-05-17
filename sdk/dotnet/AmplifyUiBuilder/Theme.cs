@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+        /// Describes the properties that can be overriden to customize a theme.
         /// </summary>
         [Output("overrides")]
         public Output<ImmutableArray<Outputs.ThemeValues>> Overrides { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+        /// A list of key-value pairs that defines the properties of the theme.
         /// </summary>
         [Output("values")]
         public Output<ImmutableArray<Outputs.ThemeValues>> Values { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         private InputList<Inputs.ThemeValuesArgs>? _overrides;
 
         /// <summary>
-        /// The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+        /// Describes the properties that can be overriden to customize a theme.
         /// </summary>
         public InputList<Inputs.ThemeValuesArgs> Overrides
         {
@@ -165,7 +165,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         private InputList<Inputs.ThemeValuesArgs>? _values;
 
         /// <summary>
-        /// The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+        /// A list of key-value pairs that defines the properties of the theme.
         /// </summary>
         public InputList<Inputs.ThemeValuesArgs> Values
         {

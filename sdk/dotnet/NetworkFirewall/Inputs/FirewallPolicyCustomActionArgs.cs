@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
     public sealed class FirewallPolicyCustomActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A custom action to use in stateless rule actions settings.
+        /// The custom action associated with the action name.
         /// </summary>
         [Input("actionDefinition", required: true)]
         public Input<Inputs.FirewallPolicyActionDefinitionArgs> ActionDefinition { get; set; } = null!;

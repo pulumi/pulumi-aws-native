@@ -23,9 +23,9 @@ type Channel struct {
 	Audiences pulumi.StringArrayOutput `pulumi:"audiences"`
 	// The name of the channel.
 	ChannelName pulumi.StringOutput `pulumi:"channelName"`
-	// Slate VOD source configuration.
+	// The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
 	FillerSlate ChannelSlateSourcePtrOutput `pulumi:"fillerSlate"`
-	// The log configuration for the channel.
+	// The log configuration.
 	LogConfiguration ChannelLogConfigurationForChannelPtrOutput `pulumi:"logConfiguration"`
 	// <p>The channel's output properties.</p>
 	Outputs ChannelRequestOutputItemArrayOutput `pulumi:"outputs"`
@@ -98,9 +98,9 @@ type channelArgs struct {
 	Audiences []string `pulumi:"audiences"`
 	// The name of the channel.
 	ChannelName *string `pulumi:"channelName"`
-	// Slate VOD source configuration.
+	// The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
 	FillerSlate *ChannelSlateSource `pulumi:"fillerSlate"`
-	// The log configuration for the channel.
+	// The log configuration.
 	LogConfiguration *ChannelLogConfigurationForChannel `pulumi:"logConfiguration"`
 	// <p>The channel's output properties.</p>
 	Outputs []ChannelRequestOutputItem `pulumi:"outputs"`
@@ -124,9 +124,9 @@ type ChannelArgs struct {
 	Audiences pulumi.StringArrayInput
 	// The name of the channel.
 	ChannelName pulumi.StringPtrInput
-	// Slate VOD source configuration.
+	// The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
 	FillerSlate ChannelSlateSourcePtrInput
-	// The log configuration for the channel.
+	// The log configuration.
 	LogConfiguration ChannelLogConfigurationForChannelPtrInput
 	// <p>The channel's output properties.</p>
 	Outputs ChannelRequestOutputItemArrayInput
@@ -196,12 +196,12 @@ func (o ChannelOutput) ChannelName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.ChannelName }).(pulumi.StringOutput)
 }
 
-// Slate VOD source configuration.
+// The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
 func (o ChannelOutput) FillerSlate() ChannelSlateSourcePtrOutput {
 	return o.ApplyT(func(v *Channel) ChannelSlateSourcePtrOutput { return v.FillerSlate }).(ChannelSlateSourcePtrOutput)
 }
 
-// The log configuration for the channel.
+// The log configuration.
 func (o ChannelOutput) LogConfiguration() ChannelLogConfigurationForChannelPtrOutput {
 	return o.ApplyT(func(v *Channel) ChannelLogConfigurationForChannelPtrOutput { return v.LogConfiguration }).(ChannelLogConfigurationForChannelPtrOutput)
 }

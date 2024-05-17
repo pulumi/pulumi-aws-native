@@ -31,7 +31,7 @@ class DetectorArgs:
         The set of arguments for constructing a Detector resource.
         :param pulumi.Input[str] detector_id: The ID of the detector
         :param pulumi.Input['DetectorEventTypeArgs'] event_type: The event type to associate this detector with.
-        :param pulumi.Input[Sequence[pulumi.Input['DetectorRuleArgs']]] rules: A rule.
+        :param pulumi.Input[Sequence[pulumi.Input['DetectorRuleArgs']]] rules: The rules to include in the detector version.
         :param pulumi.Input[Sequence[pulumi.Input['DetectorModelArgs']]] associated_models: The models to associate with this detector.
         :param pulumi.Input[str] description: The description of the detector.
         :param pulumi.Input['DetectorVersionStatus'] detector_version_status: The desired detector version status for the detector
@@ -88,7 +88,7 @@ class DetectorArgs:
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['DetectorRuleArgs']]]:
         """
-        A rule.
+        The rules to include in the detector version.
         """
         return pulumi.get(self, "rules")
 
@@ -198,7 +198,7 @@ class Detector(pulumi.CustomResource):
                If you specify `FIRST_MATCHED` , Amazon Fraud Detector evaluates rules sequentially, first to last, stopping at the first matched rule. Amazon Fraud dectector then provides the outcomes for that single rule.
                
                If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorRuleArgs']]]] rules: A rule.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorRuleArgs']]]] rules: The rules to include in the detector version.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags associated with this detector.
         """
         ...
@@ -390,7 +390,7 @@ class Detector(pulumi.CustomResource):
     @pulumi.getter
     def rules(self) -> pulumi.Output[Sequence['outputs.DetectorRule']]:
         """
-        A rule.
+        The rules to include in the detector version.
         """
         return pulumi.get(self, "rules")
 

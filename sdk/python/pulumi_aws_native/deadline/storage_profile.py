@@ -26,7 +26,7 @@ class StorageProfileArgs:
         :param pulumi.Input[str] display_name: The display name of the storage profile summary to update.
         :param pulumi.Input['StorageProfileOperatingSystemFamily'] os_family: The operating system (OS) family.
         :param pulumi.Input[str] farm_id: The unique identifier of the farm that contains the storage profile.
-        :param pulumi.Input[Sequence[pulumi.Input['StorageProfileFileSystemLocationArgs']]] file_system_locations: The details of the file system location for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['StorageProfileFileSystemLocationArgs']]] file_system_locations: Operating system specific file system path to the storage location.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "os_family", os_family)
@@ -75,7 +75,7 @@ class StorageProfileArgs:
     @pulumi.getter(name="fileSystemLocations")
     def file_system_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StorageProfileFileSystemLocationArgs']]]]:
         """
-        The details of the file system location for the resource.
+        Operating system specific file system path to the storage location.
         """
         return pulumi.get(self, "file_system_locations")
 
@@ -101,7 +101,7 @@ class StorageProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: The display name of the storage profile summary to update.
         :param pulumi.Input[str] farm_id: The unique identifier of the farm that contains the storage profile.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageProfileFileSystemLocationArgs']]]] file_system_locations: The details of the file system location for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StorageProfileFileSystemLocationArgs']]]] file_system_locations: Operating system specific file system path to the storage location.
         :param pulumi.Input['StorageProfileOperatingSystemFamily'] os_family: The operating system (OS) family.
         """
         ...
@@ -201,7 +201,7 @@ class StorageProfile(pulumi.CustomResource):
     @pulumi.getter(name="fileSystemLocations")
     def file_system_locations(self) -> pulumi.Output[Optional[Sequence['outputs.StorageProfileFileSystemLocation']]]:
         """
-        The details of the file system location for the resource.
+        Operating system specific file system path to the storage location.
         """
         return pulumi.get(self, "file_system_locations")
 

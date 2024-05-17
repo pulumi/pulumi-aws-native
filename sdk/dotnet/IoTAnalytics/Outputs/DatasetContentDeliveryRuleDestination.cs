@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
         /// </summary>
         public readonly Outputs.DatasetIotEventsDestinationConfiguration? IotEventsDestinationConfiguration;
         /// <summary>
-        /// Configuration information for delivery of dataset contents to Amazon Simple Storage Service (Amazon S3).
+        /// Configuration information for delivery of dataset contents to Amazon S3.
         /// </summary>
         public readonly Outputs.DatasetS3DestinationConfiguration? S3DestinationConfiguration;
 

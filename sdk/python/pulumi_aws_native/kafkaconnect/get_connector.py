@@ -35,7 +35,7 @@ class GetConnectorResult:
     @pulumi.getter
     def capacity(self) -> Optional['outputs.ConnectorCapacity']:
         """
-        Information about the capacity of the connector, whether it is auto scaled or provisioned.
+        The connector's compute capacity settings.
         """
         return pulumi.get(self, "capacity")
 

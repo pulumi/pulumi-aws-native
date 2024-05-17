@@ -129,9 +129,6 @@ export class DbCluster extends pulumi.CustomResource {
      * A value that indicates whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts. By default, mapping is disabled.
      */
     public readonly enableIamDatabaseAuthentication!: pulumi.Output<boolean | undefined>;
-    /**
-     * The `Endpoint` return value specifies the connection endpoint for the primary instance of the DB cluster.
-     */
     public /*out*/ readonly endpoint!: pulumi.Output<outputs.rds.DbClusterEndpoint>;
     /**
      * The name of the database engine to be used for this DB cluster. Valid Values: aurora (for MySQL 5.6-compatible Aurora), aurora-mysql (for MySQL 5.7-compatible Aurora), and aurora-postgresql
@@ -216,13 +213,13 @@ export class DbCluster extends pulumi.CustomResource {
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
     /**
-     * The `ReadEndpoint` return value specifies the reader endpoint for the DB cluster.
+     * This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
      *
-     * The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.
+     * - `CreateDBInstance`
+     * - `DescribeDBInstances`
+     * - `DeleteDBInstance`
      *
-     * If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
-     *
-     * For more information about Aurora endpoints, see [Amazon Aurora connection management](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html) in the *Amazon Aurora User Guide* .
+     * For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
      */
     public readonly readEndpoint!: pulumi.Output<outputs.rds.DbClusterReadEndpoint | undefined>;
     /**
@@ -596,13 +593,13 @@ export interface DbClusterArgs {
      */
     publiclyAccessible?: pulumi.Input<boolean>;
     /**
-     * The `ReadEndpoint` return value specifies the reader endpoint for the DB cluster.
+     * This data type represents the information you need to connect to an Amazon RDS DB instance. This data type is used as a response element in the following actions:
      *
-     * The reader endpoint for a DB cluster load-balances connections across the Aurora Replicas that are available in a DB cluster. As clients request new connections to the reader endpoint, Aurora distributes the connection requests among the Aurora Replicas in the DB cluster. This functionality can help balance your read workload across multiple Aurora Replicas in your DB cluster.
+     * - `CreateDBInstance`
+     * - `DescribeDBInstances`
+     * - `DeleteDBInstance`
      *
-     * If a failover occurs, and the Aurora Replica that you are connected to is promoted to be the primary instance, your connection is dropped. To continue sending your read workload to other Aurora Replicas in the cluster, you can then reconnect to the reader endpoint.
-     *
-     * For more information about Aurora endpoints, see [Amazon Aurora connection management](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html) in the *Amazon Aurora User Guide* .
+     * For the data structure that represents Amazon Aurora DB cluster endpoints, see `DBClusterEndpoint` .
      */
     readEndpoint?: pulumi.Input<inputs.rds.DbClusterReadEndpointArgs>;
     /**

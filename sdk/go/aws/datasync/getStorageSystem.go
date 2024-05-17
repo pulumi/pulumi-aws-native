@@ -39,7 +39,7 @@ type LookupStorageSystemResult struct {
 	Name *string `pulumi:"name"`
 	// The ARN of a secret stored by AWS Secrets Manager.
 	SecretsManagerArn *string `pulumi:"secretsManagerArn"`
-	// The network settings that DataSync Discovery uses to connect with your on-premises storage system's management interface.
+	// Specifies the server name and network port required to connect with the management interface of your on-premises storage system.
 	ServerConfiguration *StorageSystemServerConfiguration `pulumi:"serverConfiguration"`
 	// The ARN of the on-premises storage system added to DataSync Discovery.
 	StorageSystemArn *string `pulumi:"storageSystemArn"`
@@ -110,7 +110,7 @@ func (o LookupStorageSystemResultOutput) SecretsManagerArn() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupStorageSystemResult) *string { return v.SecretsManagerArn }).(pulumi.StringPtrOutput)
 }
 
-// The network settings that DataSync Discovery uses to connect with your on-premises storage system's management interface.
+// Specifies the server name and network port required to connect with the management interface of your on-premises storage system.
 func (o LookupStorageSystemResultOutput) ServerConfiguration() StorageSystemServerConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupStorageSystemResult) *StorageSystemServerConfiguration { return v.ServerConfiguration }).(StorageSystemServerConfigurationPtrOutput)
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TopicDateRangeFilter
     {
         /// <summary>
-        /// A constant value that is used in a range filter to specify the endpoints of the range.
+        /// The constant used in a date range filter.
         /// </summary>
         public readonly Outputs.TopicRangeFilterConstant? Constant;
         /// <summary>

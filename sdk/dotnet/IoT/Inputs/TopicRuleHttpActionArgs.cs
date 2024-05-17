@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     public sealed class TopicRuleHttpActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The authorization method used to send messages.
+        /// The authentication method to use when sending data to an HTTPS endpoint.
         /// </summary>
         [Input("auth")]
         public Input<Inputs.TopicRuleHttpAuthorizationArgs>? Auth { get; set; }
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         private InputList<Inputs.TopicRuleHttpActionHeaderArgs>? _headers;
 
         /// <summary>
-        /// The HTTP action header.
+        /// The HTTP headers to send with the message data.
         /// </summary>
         public InputList<Inputs.TopicRuleHttpActionHeaderArgs> Headers
         {

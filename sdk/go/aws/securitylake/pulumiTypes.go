@@ -295,7 +295,7 @@ func (o DataLakeExpirationPtrOutput) Days() pulumi.IntPtrOutput {
 
 // Provides lifecycle details of Amazon Security Lake object.
 type DataLakeLifecycleConfiguration struct {
-	// Provides data expiration details of the Amazon Security Lake object. You can specify your preferred Amazon S3 storage class and the time period for S3 objects to stay in that storage class before they expire. For more information about Amazon S3 Lifecycle configurations, see [Managing your storage lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html) in the *Amazon Simple Storage Service User Guide* .
+	// Provides data expiration details of the Amazon Security Lake object.
 	Expiration *DataLakeExpiration `pulumi:"expiration"`
 	// Provides data storage transition details of Amazon Security Lake object.
 	Transitions []DataLakeTransitions `pulumi:"transitions"`
@@ -314,7 +314,7 @@ type DataLakeLifecycleConfigurationInput interface {
 
 // Provides lifecycle details of Amazon Security Lake object.
 type DataLakeLifecycleConfigurationArgs struct {
-	// Provides data expiration details of the Amazon Security Lake object. You can specify your preferred Amazon S3 storage class and the time period for S3 objects to stay in that storage class before they expire. For more information about Amazon S3 Lifecycle configurations, see [Managing your storage lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html) in the *Amazon Simple Storage Service User Guide* .
+	// Provides data expiration details of the Amazon Security Lake object.
 	Expiration DataLakeExpirationPtrInput `pulumi:"expiration"`
 	// Provides data storage transition details of Amazon Security Lake object.
 	Transitions DataLakeTransitionsArrayInput `pulumi:"transitions"`
@@ -398,7 +398,7 @@ func (o DataLakeLifecycleConfigurationOutput) ToDataLakeLifecycleConfigurationPt
 	}).(DataLakeLifecycleConfigurationPtrOutput)
 }
 
-// Provides data expiration details of the Amazon Security Lake object. You can specify your preferred Amazon S3 storage class and the time period for S3 objects to stay in that storage class before they expire. For more information about Amazon S3 Lifecycle configurations, see [Managing your storage lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html) in the *Amazon Simple Storage Service User Guide* .
+// Provides data expiration details of the Amazon Security Lake object.
 func (o DataLakeLifecycleConfigurationOutput) Expiration() DataLakeExpirationPtrOutput {
 	return o.ApplyT(func(v DataLakeLifecycleConfiguration) *DataLakeExpiration { return v.Expiration }).(DataLakeExpirationPtrOutput)
 }
@@ -432,7 +432,7 @@ func (o DataLakeLifecycleConfigurationPtrOutput) Elem() DataLakeLifecycleConfigu
 	}).(DataLakeLifecycleConfigurationOutput)
 }
 
-// Provides data expiration details of the Amazon Security Lake object. You can specify your preferred Amazon S3 storage class and the time period for S3 objects to stay in that storage class before they expire. For more information about Amazon S3 Lifecycle configurations, see [Managing your storage lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html) in the *Amazon Simple Storage Service User Guide* .
+// Provides data expiration details of the Amazon Security Lake object.
 func (o DataLakeLifecycleConfigurationPtrOutput) Expiration() DataLakeExpirationPtrOutput {
 	return o.ApplyT(func(v *DataLakeLifecycleConfiguration) *DataLakeExpiration {
 		if v == nil {

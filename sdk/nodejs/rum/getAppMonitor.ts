@@ -27,11 +27,13 @@ export interface GetAppMonitorArgs {
 
 export interface GetAppMonitorResult {
     /**
-     * This structure contains much of the configuration data for the app monitor.
+     * A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
+     *
+     * If you omit this argument, the sample rate used for CloudWatch RUM is set to 10% of the user sessions.
      */
     readonly appMonitorConfiguration?: outputs.rum.AppMonitorConfiguration;
     /**
-     * This structure specifies whether this app monitor allows the web client to define and send custom events.
+     * Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED` .
      */
     readonly customEvents?: outputs.rum.AppMonitorCustomEvents;
     /**

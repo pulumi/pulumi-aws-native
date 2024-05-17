@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Outputs
         /// </summary>
         public readonly string? KmsKeyId;
         /// <summary>
-        /// Describes the configuration for a launch permission. The launch permission modification request is sent to the [Amazon EC2 ModifyImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html) API on behalf of the user for each Region they have selected to distribute the AMI. To make an AMI public, set the launch permission authorized accounts to `all` . See the examples for making an AMI public at [Amazon EC2 ModifyImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html) .
+        /// Launch permissions can be used to configure which AWS account s can use the AMI to launch instances.
         /// </summary>
         public readonly Outputs.DistributionConfigurationLaunchPermissionConfiguration? LaunchPermissionConfiguration;
         /// <summary>

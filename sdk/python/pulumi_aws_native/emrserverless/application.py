@@ -40,10 +40,10 @@ class ApplicationArgs:
         :param pulumi.Input['ApplicationArchitecture'] architecture: The CPU architecture of an application.
         :param pulumi.Input['ApplicationAutoStartConfigurationArgs'] auto_start_configuration: Configuration for Auto Start of Application.
         :param pulumi.Input['ApplicationAutoStopConfigurationArgs'] auto_stop_configuration: Configuration for Auto Stop of Application.
-        :param pulumi.Input['ApplicationImageConfigurationInputArgs'] image_configuration: The image configuration.
+        :param pulumi.Input['ApplicationImageConfigurationInputArgs'] image_configuration: The image configuration applied to all worker types.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationInitialCapacityConfigKeyValuePairArgs']]] initial_capacity: Initial capacity initialized when an Application is started.
         :param pulumi.Input['ApplicationMaximumAllowedResourcesArgs'] maximum_capacity: Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
-        :param pulumi.Input['ApplicationMonitoringConfigurationArgs'] monitoring_configuration: The configuration setting for monitoring.
+        :param pulumi.Input['ApplicationMonitoringConfigurationArgs'] monitoring_configuration: A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
         :param pulumi.Input[str] name: User friendly Application name.
         :param pulumi.Input['ApplicationNetworkConfigurationArgs'] network_configuration: Network Configuration for customer VPC connectivity.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationConfigurationObjectArgs']]] runtime_configuration: The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
@@ -141,7 +141,7 @@ class ApplicationArgs:
     @pulumi.getter(name="imageConfiguration")
     def image_configuration(self) -> Optional[pulumi.Input['ApplicationImageConfigurationInputArgs']]:
         """
-        The image configuration.
+        The image configuration applied to all worker types.
         """
         return pulumi.get(self, "image_configuration")
 
@@ -177,7 +177,7 @@ class ApplicationArgs:
     @pulumi.getter(name="monitoringConfiguration")
     def monitoring_configuration(self) -> Optional[pulumi.Input['ApplicationMonitoringConfigurationArgs']]:
         """
-        The configuration setting for monitoring.
+        A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
         """
         return pulumi.get(self, "monitoring_configuration")
 
@@ -274,10 +274,10 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input['ApplicationArchitecture'] architecture: The CPU architecture of an application.
         :param pulumi.Input[pulumi.InputType['ApplicationAutoStartConfigurationArgs']] auto_start_configuration: Configuration for Auto Start of Application.
         :param pulumi.Input[pulumi.InputType['ApplicationAutoStopConfigurationArgs']] auto_stop_configuration: Configuration for Auto Stop of Application.
-        :param pulumi.Input[pulumi.InputType['ApplicationImageConfigurationInputArgs']] image_configuration: The image configuration.
+        :param pulumi.Input[pulumi.InputType['ApplicationImageConfigurationInputArgs']] image_configuration: The image configuration applied to all worker types.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationInitialCapacityConfigKeyValuePairArgs']]]] initial_capacity: Initial capacity initialized when an Application is started.
         :param pulumi.Input[pulumi.InputType['ApplicationMaximumAllowedResourcesArgs']] maximum_capacity: Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
-        :param pulumi.Input[pulumi.InputType['ApplicationMonitoringConfigurationArgs']] monitoring_configuration: The configuration setting for monitoring.
+        :param pulumi.Input[pulumi.InputType['ApplicationMonitoringConfigurationArgs']] monitoring_configuration: A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
         :param pulumi.Input[str] name: User friendly Application name.
         :param pulumi.Input[pulumi.InputType['ApplicationNetworkConfigurationArgs']] network_configuration: Network Configuration for customer VPC connectivity.
         :param pulumi.Input[str] release_label: EMR release label.
@@ -439,7 +439,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="imageConfiguration")
     def image_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationImageConfigurationInput']]:
         """
-        The image configuration.
+        The image configuration applied to all worker types.
         """
         return pulumi.get(self, "image_configuration")
 
@@ -463,7 +463,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="monitoringConfiguration")
     def monitoring_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationMonitoringConfiguration']]:
         """
-        The configuration setting for monitoring.
+        A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
         """
         return pulumi.get(self, "monitoring_configuration")
 

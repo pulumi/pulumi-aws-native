@@ -27,7 +27,12 @@ namespace Pulumi.AwsNative.Backup.Outputs
         /// </summary>
         public readonly string IamRoleArn;
         /// <summary>
-        /// Specifies an object that contains an array of triplets made up of a condition type (such as `STRINGEQUALS` ), a key, and a value. Conditions are used to filter resources in a selection that is assigned to a backup plan.
+        /// A list of conditions that you define to assign resources to your backup plans using tags. For example, `"StringEquals": { "ConditionKey": "aws:ResourceTag/CreatedByCryo", "ConditionValue": "true" },` . Condition operators are case sensitive.
+        /// 
+        /// `ListOfTags` differs from `Conditions` as follows:
+        /// 
+        /// - When you specify more than one condition, you assign all resources that match AT LEAST ONE condition (using OR logic).
+        /// - `ListOfTags` only supports `StringEquals` . `Conditions` supports `StringEquals` , `StringLike` , `StringNotEquals` , and `StringNotLike` .
         /// </summary>
         public readonly ImmutableArray<Outputs.BackupSelectionConditionResourceType> ListOfTags;
         /// <summary>

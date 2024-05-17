@@ -24,7 +24,7 @@ class ConfigArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Config resource.
-        :param pulumi.Input['ConfigDataArgs'] config_data: Config objects provide information to Ground Station about how to configure the antenna and how data flows during a contact.
+        :param pulumi.Input['ConfigDataArgs'] config_data: Object containing the parameters of a config. Only one subtype may be specified per config. See the subtype definitions for a description of each config subtype.
         :param pulumi.Input[str] name: The name of the config object.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags assigned to a resource.
         """
@@ -38,7 +38,7 @@ class ConfigArgs:
     @pulumi.getter(name="configData")
     def config_data(self) -> pulumi.Input['ConfigDataArgs']:
         """
-        Config objects provide information to Ground Station about how to configure the antenna and how data flows during a contact.
+        Object containing the parameters of a config. Only one subtype may be specified per config. See the subtype definitions for a description of each config subtype.
         """
         return pulumi.get(self, "config_data")
 
@@ -85,7 +85,7 @@ class Config(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ConfigDataArgs']] config_data: Config objects provide information to Ground Station about how to configure the antenna and how data flows during a contact.
+        :param pulumi.Input[pulumi.InputType['ConfigDataArgs']] config_data: Object containing the parameters of a config. Only one subtype may be specified per config. See the subtype definitions for a description of each config subtype.
         :param pulumi.Input[str] name: The name of the config object.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags assigned to a resource.
         """
@@ -183,7 +183,7 @@ class Config(pulumi.CustomResource):
     @pulumi.getter(name="configData")
     def config_data(self) -> pulumi.Output['outputs.ConfigData']:
         """
-        Config objects provide information to Ground Station about how to configure the antenna and how data flows during a contact.
+        Object containing the parameters of a config. Only one subtype may be specified per config. See the subtype definitions for a description of each config subtype.
         """
         return pulumi.get(self, "config_data")
 

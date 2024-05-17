@@ -87,7 +87,7 @@ export interface GetEventDataStoreResult {
      */
     readonly status?: string;
     /**
-     * A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+     * A list of tags.
      */
     readonly tags?: outputs.Tag[];
     /**

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
     public sealed class ComponentPropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The `ComponentPropertyBindingProperties` property specifies a component property to associate with a binding property. This enables exposed properties on the top level component to propagate data to the component's property values.
+        /// The information to bind the component property to data at runtime.
         /// </summary>
         [Input("bindingProperties")]
         public Input<Inputs.ComponentPropertyBindingPropertiesArgs>? BindingProperties { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
         }
 
         /// <summary>
-        /// The `ComponentPropertyBindingProperties` property specifies a component property to associate with a binding property. This enables exposed properties on the top level component to propagate data to the component's property values.
+        /// The information to bind the component property to data at runtime. Use this for collection components.
         /// </summary>
         [Input("collectionBindingProperties")]
         public Input<Inputs.ComponentPropertyBindingPropertiesArgs>? CollectionBindingProperties { get; set; }
@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
         private InputList<Inputs.ComponentPropertyArgs>? _concat;
 
         /// <summary>
-        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// A list of component properties to concatenate to create the value to assign to this component property.
         /// </summary>
         public InputList<Inputs.ComponentPropertyArgs> Concat
         {
@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
         }
 
         /// <summary>
-        /// The `ComponentConditionProperty` property specifies a conditional expression for setting a component property. Use `ComponentConditionProperty` to set a property to different values conditionally, based on the value of another property.
+        /// The conditional expression to use to assign a value to the component property.
         /// </summary>
         [Input("condition")]
         public Input<Inputs.ComponentConditionPropertyArgs>? Condition { get; set; }

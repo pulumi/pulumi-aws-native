@@ -42,7 +42,7 @@ export class MitigationAction extends pulumi.CustomResource {
      */
     public readonly actionName!: pulumi.Output<string | undefined>;
     /**
-     * Defines the type of action and the parameters for that action.
+     * The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
      */
     public readonly actionParams!: pulumi.Output<outputs.iot.MitigationActionActionParams>;
     /**
@@ -109,7 +109,7 @@ export interface MitigationActionArgs {
      */
     actionName?: pulumi.Input<string>;
     /**
-     * Defines the type of action and the parameters for that action.
+     * The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
      */
     actionParams: pulumi.Input<inputs.iot.MitigationActionActionParamsArgs>;
     /**

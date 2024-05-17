@@ -31,7 +31,7 @@ type Flywheel struct {
 	FlywheelName pulumi.StringOutput `pulumi:"flywheelName"`
 	// Model type of the flywheel's model.
 	ModelType FlywheelModelTypePtrOutput `pulumi:"modelType"`
-	// A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+	// Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Configuration about the model associated with a flywheel.
 	TaskConfig FlywheelTaskConfigPtrOutput `pulumi:"taskConfig"`
@@ -102,7 +102,7 @@ type flywheelArgs struct {
 	FlywheelName *string `pulumi:"flywheelName"`
 	// Model type of the flywheel's model.
 	ModelType *FlywheelModelType `pulumi:"modelType"`
-	// A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+	// Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Configuration about the model associated with a flywheel.
 	TaskConfig *FlywheelTaskConfig `pulumi:"taskConfig"`
@@ -122,7 +122,7 @@ type FlywheelArgs struct {
 	FlywheelName pulumi.StringPtrInput
 	// Model type of the flywheel's model.
 	ModelType FlywheelModelTypePtrInput
-	// A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+	// Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
 	Tags aws.TagArrayInput
 	// Configuration about the model associated with a flywheel.
 	TaskConfig FlywheelTaskConfigPtrInput
@@ -200,7 +200,7 @@ func (o FlywheelOutput) ModelType() FlywheelModelTypePtrOutput {
 	return o.ApplyT(func(v *Flywheel) FlywheelModelTypePtrOutput { return v.ModelType }).(FlywheelModelTypePtrOutput)
 }
 
-// A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+// Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
 func (o FlywheelOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Flywheel) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

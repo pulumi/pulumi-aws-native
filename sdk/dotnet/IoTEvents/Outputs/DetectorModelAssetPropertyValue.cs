@@ -21,37 +21,11 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// </summary>
         public readonly string? Quality;
         /// <summary>
-        /// A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *AWS IoT SiteWise API Reference* .
-        /// 
-        /// You must use expressions for all parameters in `AssetPropertyTimestamp` . The expressions accept literals, operators, functions, references, and substitution templates.
-        /// 
-        /// **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `timeInSeconds` parameter can be `'1586400675'` .
-        /// - For references, you must specify either variables or input values. For example, the value for the `offsetInNanos` parameter can be `$variable.time` .
-        /// - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-        /// 
-        /// In the following example, the value for the `timeInSeconds` parameter uses a substitution template.
-        /// 
-        /// `'${$input.TemperatureInput.sensorData.timestamp / 1000}'`
-        /// 
-        /// For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
+        /// The timestamp associated with the asset property value. The default is the current event time.
         /// </summary>
         public readonly Outputs.DetectorModelAssetPropertyTimestamp? Timestamp;
         /// <summary>
-        /// A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *AWS IoT SiteWise API Reference* .
-        /// 
-        /// You must use expressions for all parameters in `AssetPropertyVariant` . The expressions accept literals, operators, functions, references, and substitution templates.
-        /// 
-        /// **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `integerValue` parameter can be `'100'` .
-        /// - For references, you must specify either variables or parameters. For example, the value for the `booleanValue` parameter can be `$variable.offline` .
-        /// - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-        /// 
-        /// In the following example, the value for the `doubleValue` parameter uses a substitution template.
-        /// 
-        /// `'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'`
-        /// 
-        /// For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
-        /// 
-        /// You must specify one of the following value types, depending on the `dataType` of the specified asset property. For more information, see [AssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html) in the *AWS IoT SiteWise API Reference* .
+        /// The value to send to an asset property.
         /// </summary>
         public readonly Outputs.DetectorModelAssetPropertyVariant Value;
 

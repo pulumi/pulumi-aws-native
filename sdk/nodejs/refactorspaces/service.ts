@@ -58,7 +58,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly environmentIdentifier!: pulumi.Output<string>;
     /**
-     * The input for the AWS Lambda endpoint type.
+     * A summary of the configuration for the AWS Lambda endpoint type.
      */
     public readonly lambdaEndpoint!: pulumi.Output<outputs.refactorspaces.ServiceLambdaEndpointInput | undefined>;
     /**
@@ -74,7 +74,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * The configuration for the URL endpoint type.
+     * The summary of the configuration for the URL endpoint type.
      */
     public readonly urlEndpoint!: pulumi.Output<outputs.refactorspaces.ServiceUrlEndpointInput | undefined>;
     /**
@@ -154,7 +154,7 @@ export interface ServiceArgs {
      */
     environmentIdentifier: pulumi.Input<string>;
     /**
-     * The input for the AWS Lambda endpoint type.
+     * A summary of the configuration for the AWS Lambda endpoint type.
      */
     lambdaEndpoint?: pulumi.Input<inputs.refactorspaces.ServiceLambdaEndpointInputArgs>;
     /**
@@ -166,7 +166,7 @@ export interface ServiceArgs {
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
-     * The configuration for the URL endpoint type.
+     * The summary of the configuration for the URL endpoint type.
      */
     urlEndpoint?: pulumi.Input<inputs.refactorspaces.ServiceUrlEndpointInputArgs>;
     /**

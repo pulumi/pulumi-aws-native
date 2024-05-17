@@ -70,7 +70,9 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A complex type that contains a `Tag` key and `Tag` value.
+        /// Create tags for an accelerator.
+        /// 
+        /// For more information, see [Tagging](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -154,7 +156,9 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A complex type that contains a `Tag` key and `Tag` value.
+        /// Create tags for an accelerator.
+        /// 
+        /// For more information, see [Tagging](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

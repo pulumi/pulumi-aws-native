@@ -27,7 +27,7 @@ class BrowserSettingsArgs:
         :param pulumi.Input[str] customer_managed_key: The custom managed key of the browser settings.
                
                *Pattern* : `^arn:[\\w+=\\/,.@-]+:kms:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:key\\/[a-zA-Z0-9-]+$`
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tag.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the browser settings resource. A tag is a key-value pair.
         """
         if additional_encryption_context is not None:
             pulumi.set(__self__, "additional_encryption_context", additional_encryption_context)
@@ -80,7 +80,7 @@ class BrowserSettingsArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The tag.
+        The tags to add to the browser settings resource. A tag is a key-value pair.
         """
         return pulumi.get(self, "tags")
 
@@ -109,7 +109,7 @@ class BrowserSettings(pulumi.CustomResource):
         :param pulumi.Input[str] customer_managed_key: The custom managed key of the browser settings.
                
                *Pattern* : `^arn:[\\w+=\\/,.@-]+:kms:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:key\\/[a-zA-Z0-9-]+$`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tag.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to add to the browser settings resource. A tag is a key-value pair.
         """
         ...
     @overload
@@ -232,7 +232,7 @@ class BrowserSettings(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The tag.
+        The tags to add to the browser settings resource. A tag is a key-value pair.
         """
         return pulumi.get(self, "tags")
 

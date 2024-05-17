@@ -26,15 +26,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly double? MaxVisibleRows;
         /// <summary>
-        /// A collection of options that configure how each panel displays in a small multiples chart.
+        /// Configures the display options for each small multiples panel.
         /// </summary>
         public readonly Outputs.AnalysisPanelConfiguration? PanelConfiguration;
         /// <summary>
-        /// Configures the properties of a chart's axes that are used by small multiples panels.
+        /// The properties of a small multiples X axis.
         /// </summary>
         public readonly Outputs.AnalysisSmallMultiplesAxisProperties? XAxis;
         /// <summary>
-        /// Configures the properties of a chart's axes that are used by small multiples panels.
+        /// The properties of a small multiples Y axis.
         /// </summary>
         public readonly Outputs.AnalysisSmallMultiplesAxisProperties? YAxis;
 

@@ -35,7 +35,7 @@ type LookupTransitGatewayAttachmentResult struct {
 	Options *OptionsProperties `pulumi:"options"`
 	// The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	// The tags for the attachment.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -90,7 +90,7 @@ func (o LookupTransitGatewayAttachmentResultOutput) SubnetIds() pulumi.StringArr
 	return o.ApplyT(func(v LookupTransitGatewayAttachmentResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+// The tags for the attachment.
 func (o LookupTransitGatewayAttachmentResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTransitGatewayAttachmentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.VpcLattice.Inputs
         public Input<int>? HealthyThresholdCount { get; set; }
 
         /// <summary>
-        /// Describes the codes to use when checking for a successful response from a target for health checks.
+        /// The codes to use when checking for a successful response from a target.
         /// </summary>
         [Input("matcher")]
         public Input<Inputs.TargetGroupMatcherArgs>? Matcher { get; set; }

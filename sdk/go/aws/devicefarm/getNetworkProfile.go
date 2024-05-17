@@ -43,7 +43,9 @@ type LookupNetworkProfileResult struct {
 	DownlinkLossPercent *int `pulumi:"downlinkLossPercent"`
 	// The name of the network profile.
 	Name *string `pulumi:"name"`
-	// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
 	Tags []aws.Tag `pulumi:"tags"`
 	// The data throughput rate in bits per second, as an integer from 0 to 104857600.
 	UplinkBandwidthBits *int `pulumi:"uplinkBandwidthBits"`
@@ -126,7 +128,9 @@ func (o LookupNetworkProfileResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupNetworkProfileResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
 func (o LookupNetworkProfileResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupNetworkProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -563,7 +563,7 @@ func (o ConnectPeerBgpOptionsPtrOutput) PeerAsn() pulumi.Float64PtrOutput {
 }
 
 type ConnectPeerConfiguration struct {
-	// Describes a core network BGP configuration.
+	// The Connect peer BGP configurations.
 	BgpConfigurations []ConnectPeerBgpConfiguration `pulumi:"bgpConfigurations"`
 	// The IP address of a core network.
 	CoreNetworkAddress *string `pulumi:"coreNetworkAddress"`
@@ -589,7 +589,7 @@ func (o ConnectPeerConfigurationOutput) ToConnectPeerConfigurationOutputWithCont
 	return o
 }
 
-// Describes a core network BGP configuration.
+// The Connect peer BGP configurations.
 func (o ConnectPeerConfigurationOutput) BgpConfigurations() ConnectPeerBgpConfigurationArrayOutput {
 	return o.ApplyT(func(v ConnectPeerConfiguration) []ConnectPeerBgpConfiguration { return v.BgpConfigurations }).(ConnectPeerBgpConfigurationArrayOutput)
 }
@@ -638,7 +638,7 @@ func (o ConnectPeerConfigurationPtrOutput) Elem() ConnectPeerConfigurationOutput
 	}).(ConnectPeerConfigurationOutput)
 }
 
-// Describes a core network BGP configuration.
+// The Connect peer BGP configurations.
 func (o ConnectPeerConfigurationPtrOutput) BgpConfigurations() ConnectPeerBgpConfigurationArrayOutput {
 	return o.ApplyT(func(v *ConnectPeerConfiguration) []ConnectPeerBgpConfiguration {
 		if v == nil {

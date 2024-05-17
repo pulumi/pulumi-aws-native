@@ -82,9 +82,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// </summary>
         public readonly Pulumi.AwsNative.GlobalAccelerator.EndpointGroupHealthCheckProtocol? HealthCheckProtocol;
         /// <summary>
-        /// Override specific listener ports used to route traffic to endpoints that are part of an endpoint group. For example, you can create a port override in which the listener receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080 and 1443, respectively, on the endpoints.
-        /// 
-        /// For more information, see [Port overrides](https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html) in the *AWS Global Accelerator Developer Guide* .
+        /// Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
         /// </summary>
         public readonly ImmutableArray<Outputs.EndpointGroupPortOverride> PortOverrides;
         /// <summary>

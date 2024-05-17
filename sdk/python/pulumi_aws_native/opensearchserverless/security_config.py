@@ -25,7 +25,7 @@ class SecurityConfigArgs:
         The set of arguments for constructing a SecurityConfig resource.
         :param pulumi.Input[str] description: Security config description
         :param pulumi.Input[str] name: The friendly name of the security config
-        :param pulumi.Input['SecurityConfigSamlConfigOptionsArgs'] saml_options: Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
+        :param pulumi.Input['SecurityConfigSamlConfigOptionsArgs'] saml_options: SAML options for the security configuration in the form of a key-value map.
         :param pulumi.Input['SecurityConfigType'] type: The type of security configuration. Currently the only option is `saml` .
         """
         if description is not None:
@@ -65,7 +65,7 @@ class SecurityConfigArgs:
     @pulumi.getter(name="samlOptions")
     def saml_options(self) -> Optional[pulumi.Input['SecurityConfigSamlConfigOptionsArgs']]:
         """
-        Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
+        SAML options for the security configuration in the form of a key-value map.
         """
         return pulumi.get(self, "saml_options")
 
@@ -141,7 +141,7 @@ class SecurityConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Security config description
         :param pulumi.Input[str] name: The friendly name of the security config
-        :param pulumi.Input[pulumi.InputType['SecurityConfigSamlConfigOptionsArgs']] saml_options: Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
+        :param pulumi.Input[pulumi.InputType['SecurityConfigSamlConfigOptionsArgs']] saml_options: SAML options for the security configuration in the form of a key-value map.
         :param pulumi.Input['SecurityConfigType'] type: The type of security configuration. Currently the only option is `saml` .
         """
         ...
@@ -283,7 +283,7 @@ class SecurityConfig(pulumi.CustomResource):
     @pulumi.getter(name="samlOptions")
     def saml_options(self) -> pulumi.Output[Optional['outputs.SecurityConfigSamlConfigOptions']]:
         """
-        Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
+        SAML options for the security configuration in the form of a key-value map.
         """
         return pulumi.get(self, "saml_options")
 

@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.AppStream
         public Output<ImmutableArray<string>> OrganizationalUnitDistinguishedNames { get; private set; } = null!;
 
         /// <summary>
-        /// The credentials for the service account used by the streaming instance to connect to the directory.
+        /// The credentials for the service account used by the streaming instance to connect to the directory. Do not use this parameter directly. Use `ServiceAccountCredentials` as an input parameter with `noEcho` as shown in the [Parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html) . For best practices information, see [Do Not Embed Credentials in Your Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html#creds) .
         /// </summary>
         [Output("serviceAccountCredentials")]
         public Output<Outputs.DirectoryConfigServiceAccountCredentials> ServiceAccountCredentials { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.AwsNative.AppStream
         }
 
         /// <summary>
-        /// The credentials for the service account used by the streaming instance to connect to the directory.
+        /// The credentials for the service account used by the streaming instance to connect to the directory. Do not use this parameter directly. Use `ServiceAccountCredentials` as an input parameter with `noEcho` as shown in the [Parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html) . For best practices information, see [Do Not Embed Credentials in Your Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html#creds) .
         /// </summary>
         [Input("serviceAccountCredentials", required: true)]
         public Input<Inputs.DirectoryConfigServiceAccountCredentialsArgs> ServiceAccountCredentials { get; set; } = null!;

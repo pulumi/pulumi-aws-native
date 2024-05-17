@@ -32,11 +32,13 @@ type FhirDatastore struct {
 	DatastoreTypeVersion FhirDatastoreDatastoreTypeVersionOutput `pulumi:"datastoreTypeVersion"`
 	// The identity provider configuration that you gave when the data store was created.
 	IdentityProviderConfiguration FhirDatastoreIdentityProviderConfigurationPtrOutput `pulumi:"identityProviderConfiguration"`
-	// Optional parameter to preload data upon creation of the data store. Currently, the only supported preloaded data is synthetic data generated from Synthea.
+	// The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
 	PreloadDataConfig FhirDatastorePreloadDataConfigPtrOutput `pulumi:"preloadDataConfig"`
-	// The server-side encryption key configuration for a customer provided encryption key.
+	// The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
 	SseConfiguration FhirDatastoreSseConfigurationPtrOutput `pulumi:"sseConfiguration"`
-	// A tag is a label consisting of a user-defined key and value. The form for tags is {"Key", "Value"}
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -97,11 +99,13 @@ type fhirDatastoreArgs struct {
 	DatastoreTypeVersion FhirDatastoreDatastoreTypeVersion `pulumi:"datastoreTypeVersion"`
 	// The identity provider configuration that you gave when the data store was created.
 	IdentityProviderConfiguration *FhirDatastoreIdentityProviderConfiguration `pulumi:"identityProviderConfiguration"`
-	// Optional parameter to preload data upon creation of the data store. Currently, the only supported preloaded data is synthetic data generated from Synthea.
+	// The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
 	PreloadDataConfig *FhirDatastorePreloadDataConfig `pulumi:"preloadDataConfig"`
-	// The server-side encryption key configuration for a customer provided encryption key.
+	// The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
 	SseConfiguration *FhirDatastoreSseConfiguration `pulumi:"sseConfiguration"`
-	// A tag is a label consisting of a user-defined key and value. The form for tags is {"Key", "Value"}
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -113,11 +117,13 @@ type FhirDatastoreArgs struct {
 	DatastoreTypeVersion FhirDatastoreDatastoreTypeVersionInput
 	// The identity provider configuration that you gave when the data store was created.
 	IdentityProviderConfiguration FhirDatastoreIdentityProviderConfigurationPtrInput
-	// Optional parameter to preload data upon creation of the data store. Currently, the only supported preloaded data is synthetic data generated from Synthea.
+	// The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
 	PreloadDataConfig FhirDatastorePreloadDataConfigPtrInput
-	// The server-side encryption key configuration for a customer provided encryption key.
+	// The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
 	SseConfiguration FhirDatastoreSseConfigurationPtrInput
-	// A tag is a label consisting of a user-defined key and value. The form for tags is {"Key", "Value"}
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags aws.TagArrayInput
 }
 
@@ -199,17 +205,19 @@ func (o FhirDatastoreOutput) IdentityProviderConfiguration() FhirDatastoreIdenti
 	}).(FhirDatastoreIdentityProviderConfigurationPtrOutput)
 }
 
-// Optional parameter to preload data upon creation of the data store. Currently, the only supported preloaded data is synthetic data generated from Synthea.
+// The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
 func (o FhirDatastoreOutput) PreloadDataConfig() FhirDatastorePreloadDataConfigPtrOutput {
 	return o.ApplyT(func(v *FhirDatastore) FhirDatastorePreloadDataConfigPtrOutput { return v.PreloadDataConfig }).(FhirDatastorePreloadDataConfigPtrOutput)
 }
 
-// The server-side encryption key configuration for a customer provided encryption key.
+// The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
 func (o FhirDatastoreOutput) SseConfiguration() FhirDatastoreSseConfigurationPtrOutput {
 	return o.ApplyT(func(v *FhirDatastore) FhirDatastoreSseConfigurationPtrOutput { return v.SseConfiguration }).(FhirDatastoreSseConfigurationPtrOutput)
 }
 
-// A tag is a label consisting of a user-defined key and value. The form for tags is {"Key", "Value"}
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o FhirDatastoreOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *FhirDatastore) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

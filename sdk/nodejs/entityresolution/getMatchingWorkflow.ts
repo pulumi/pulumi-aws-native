@@ -32,11 +32,11 @@ export interface GetMatchingWorkflowResult {
      */
     readonly description?: string;
     /**
-     * An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+     * A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
      */
     readonly inputSourceConfig?: outputs.entityresolution.MatchingWorkflowInputSource[];
     /**
-     * A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+     * A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
      */
     readonly outputSourceConfig?: outputs.entityresolution.MatchingWorkflowOutputSource[];
     /**

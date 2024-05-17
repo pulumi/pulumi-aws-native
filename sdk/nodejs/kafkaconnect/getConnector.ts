@@ -27,7 +27,7 @@ export interface GetConnectorArgs {
 
 export interface GetConnectorResult {
     /**
-     * Information about the capacity of the connector, whether it is auto scaled or provisioned.
+     * The connector's compute capacity settings.
      */
     readonly capacity?: outputs.kafkaconnect.ConnectorCapacity;
     /**

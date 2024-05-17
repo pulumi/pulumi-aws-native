@@ -25,15 +25,9 @@ type TaskSet struct {
 	ExternalId pulumi.StringPtrOutput `pulumi:"externalId"`
 	// The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide.
 	LaunchType TaskSetLaunchTypePtrOutput `pulumi:"launchType"`
-	// The load balancer configuration to use with a service or task set.
-	//
-	// When you add, update, or remove a load balancer configuration, Amazon ECS starts a new deployment with the updated Elastic Load Balancing configuration. This causes tasks to register to and deregister from load balancers.
-	//
-	// We recommend that you verify this on a test environment before you update the Elastic Load Balancing configuration.
-	//
-	// A service-linked role is required for services that use multiple target groups. For more information, see [Using service-linked roles](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
+	// A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
 	LoadBalancers TaskSetLoadBalancerArrayOutput `pulumi:"loadBalancers"`
-	// The network configuration for a task or service.
+	// The network configuration for the task set.
 	NetworkConfiguration TaskSetNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
 	// The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
 	PlatformVersion pulumi.StringPtrOutput `pulumi:"platformVersion"`
@@ -43,7 +37,7 @@ type TaskSet struct {
 	Service pulumi.StringOutput `pulumi:"service"`
 	// The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
 	ServiceRegistries TaskSetServiceRegistryArrayOutput `pulumi:"serviceRegistries"`
-	// The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+	// The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
 	//
 	// The following basic restrictions apply to tags:
 	//
@@ -126,15 +120,9 @@ type taskSetArgs struct {
 	ExternalId *string `pulumi:"externalId"`
 	// The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide.
 	LaunchType *TaskSetLaunchType `pulumi:"launchType"`
-	// The load balancer configuration to use with a service or task set.
-	//
-	// When you add, update, or remove a load balancer configuration, Amazon ECS starts a new deployment with the updated Elastic Load Balancing configuration. This causes tasks to register to and deregister from load balancers.
-	//
-	// We recommend that you verify this on a test environment before you update the Elastic Load Balancing configuration.
-	//
-	// A service-linked role is required for services that use multiple target groups. For more information, see [Using service-linked roles](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
+	// A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
 	LoadBalancers []TaskSetLoadBalancer `pulumi:"loadBalancers"`
-	// The network configuration for a task or service.
+	// The network configuration for the task set.
 	NetworkConfiguration *TaskSetNetworkConfiguration `pulumi:"networkConfiguration"`
 	// The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
 	PlatformVersion *string `pulumi:"platformVersion"`
@@ -144,7 +132,7 @@ type taskSetArgs struct {
 	Service string `pulumi:"service"`
 	// The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
 	ServiceRegistries []TaskSetServiceRegistry `pulumi:"serviceRegistries"`
-	// The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+	// The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
 	//
 	// The following basic restrictions apply to tags:
 	//
@@ -168,15 +156,9 @@ type TaskSetArgs struct {
 	ExternalId pulumi.StringPtrInput
 	// The launch type that new tasks in the task set will use. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html in the Amazon Elastic Container Service Developer Guide.
 	LaunchType TaskSetLaunchTypePtrInput
-	// The load balancer configuration to use with a service or task set.
-	//
-	// When you add, update, or remove a load balancer configuration, Amazon ECS starts a new deployment with the updated Elastic Load Balancing configuration. This causes tasks to register to and deregister from load balancers.
-	//
-	// We recommend that you verify this on a test environment before you update the Elastic Load Balancing configuration.
-	//
-	// A service-linked role is required for services that use multiple target groups. For more information, see [Using service-linked roles](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
+	// A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
 	LoadBalancers TaskSetLoadBalancerArrayInput
-	// The network configuration for a task or service.
+	// The network configuration for the task set.
 	NetworkConfiguration TaskSetNetworkConfigurationPtrInput
 	// The platform version that the tasks in the task set should use. A platform version is specified only for tasks using the Fargate launch type. If one isn't specified, the LATEST platform version is used by default.
 	PlatformVersion pulumi.StringPtrInput
@@ -186,7 +168,7 @@ type TaskSetArgs struct {
 	Service pulumi.StringInput
 	// The details of the service discovery registries to assign to this task set. For more information, see https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-discovery.html.
 	ServiceRegistries TaskSetServiceRegistryArrayInput
-	// The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+	// The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
 	//
 	// The following basic restrictions apply to tags:
 	//
@@ -259,18 +241,12 @@ func (o TaskSetOutput) LaunchType() TaskSetLaunchTypePtrOutput {
 	return o.ApplyT(func(v *TaskSet) TaskSetLaunchTypePtrOutput { return v.LaunchType }).(TaskSetLaunchTypePtrOutput)
 }
 
-// The load balancer configuration to use with a service or task set.
-//
-// When you add, update, or remove a load balancer configuration, Amazon ECS starts a new deployment with the updated Elastic Load Balancing configuration. This causes tasks to register to and deregister from load balancers.
-//
-// We recommend that you verify this on a test environment before you update the Elastic Load Balancing configuration.
-//
-// A service-linked role is required for services that use multiple target groups. For more information, see [Using service-linked roles](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
+// A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
 func (o TaskSetOutput) LoadBalancers() TaskSetLoadBalancerArrayOutput {
 	return o.ApplyT(func(v *TaskSet) TaskSetLoadBalancerArrayOutput { return v.LoadBalancers }).(TaskSetLoadBalancerArrayOutput)
 }
 
-// The network configuration for a task or service.
+// The network configuration for the task set.
 func (o TaskSetOutput) NetworkConfiguration() TaskSetNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v *TaskSet) TaskSetNetworkConfigurationPtrOutput { return v.NetworkConfiguration }).(TaskSetNetworkConfigurationPtrOutput)
 }
@@ -295,7 +271,7 @@ func (o TaskSetOutput) ServiceRegistries() TaskSetServiceRegistryArrayOutput {
 	return o.ApplyT(func(v *TaskSet) TaskSetServiceRegistryArrayOutput { return v.ServiceRegistries }).(TaskSetServiceRegistryArrayOutput)
 }
 
-// The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+// The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
 //
 // The following basic restrictions apply to tags:
 //

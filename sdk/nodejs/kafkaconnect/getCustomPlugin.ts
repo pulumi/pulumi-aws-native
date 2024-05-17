@@ -30,9 +30,6 @@ export interface GetCustomPluginResult {
      * The Amazon Resource Name (ARN) of the custom plugin to use.
      */
     readonly customPluginArn?: string;
-    /**
-     * Details about a custom plugin file.
-     */
     readonly fileDescription?: outputs.kafkaconnect.CustomPluginFileDescription;
     /**
      * The revision of the custom plugin.

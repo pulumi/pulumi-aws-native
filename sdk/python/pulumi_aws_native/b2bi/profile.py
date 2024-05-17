@@ -28,7 +28,7 @@ class ProfileArgs:
         :param pulumi.Input[str] business_name: Returns the name for the business associated with this profile.
         :param pulumi.Input['ProfileLogging'] logging: Specifies whether or not logging is enabled for this profile.
         :param pulumi.Input[str] name: Returns the display name for profile.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
         """
         pulumi.set(__self__, "business_name", business_name)
         pulumi.set(__self__, "logging", logging)
@@ -98,7 +98,7 @@ class ProfileArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+        A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
         """
         return pulumi.get(self, "tags")
 
@@ -127,7 +127,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[str] business_name: Returns the name for the business associated with this profile.
         :param pulumi.Input['ProfileLogging'] logging: Specifies whether or not logging is enabled for this profile.
         :param pulumi.Input[str] name: Returns the display name for profile.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
         """
         ...
     @overload
@@ -297,7 +297,7 @@ class Profile(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+        A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
         """
         return pulumi.get(self, "tags")
 

@@ -35,11 +35,11 @@ type LookupRotationResult struct {
 	ContactIds []string `pulumi:"contactIds"`
 	// Name of the Rotation
 	Name *string `pulumi:"name"`
-	// Information about when an on-call rotation is in effect and how long the rotation period lasts.
+	// Information about the rule that specifies when shift team members rotate.
 	Recurrence *RotationRecurrenceSettings `pulumi:"recurrence"`
 	// Start time of the first shift of Oncall Schedule
 	StartTime *string `pulumi:"startTime"`
-	// A container of a key-value name pair.
+	// Optional metadata to assign to the rotation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see [Tagging Incident Manager resources](https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html) in the *Incident Manager User Guide* .
 	Tags []aws.Tag `pulumi:"tags"`
 	// TimeZone Identifier for the Oncall Schedule
 	TimeZoneId *string `pulumi:"timeZoneId"`
@@ -96,7 +96,7 @@ func (o LookupRotationResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRotationResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Information about when an on-call rotation is in effect and how long the rotation period lasts.
+// Information about the rule that specifies when shift team members rotate.
 func (o LookupRotationResultOutput) Recurrence() RotationRecurrenceSettingsPtrOutput {
 	return o.ApplyT(func(v LookupRotationResult) *RotationRecurrenceSettings { return v.Recurrence }).(RotationRecurrenceSettingsPtrOutput)
 }
@@ -106,7 +106,7 @@ func (o LookupRotationResultOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRotationResult) *string { return v.StartTime }).(pulumi.StringPtrOutput)
 }
 
-// A container of a key-value name pair.
+// Optional metadata to assign to the rotation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see [Tagging Incident Manager resources](https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html) in the *Incident Manager User Guide* .
 func (o LookupRotationResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupRotationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

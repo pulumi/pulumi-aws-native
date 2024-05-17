@@ -33,7 +33,7 @@ class GetCapacityProviderResult:
     @pulumi.getter(name="autoScalingGroupProvider")
     def auto_scaling_group_provider(self) -> Optional['outputs.CapacityProviderAutoScalingGroupProvider']:
         """
-        The details of the Auto Scaling group for the capacity provider.
+        The Auto Scaling group settings for the capacity provider.
         """
         return pulumi.get(self, "auto_scaling_group_provider")
 
@@ -41,7 +41,7 @@ class GetCapacityProviderResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+        The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
 
         The following basic restrictions apply to tags:
 

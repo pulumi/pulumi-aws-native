@@ -58,7 +58,7 @@ export class ReferenceStore extends pulumi.CustomResource {
      */
     public /*out*/ readonly referenceStoreId!: pulumi.Output<string>;
     /**
-     * Server-side encryption (SSE) settings for a store.
+     * Server-side encryption (SSE) settings for the store.
      */
     public readonly sseConfig!: pulumi.Output<outputs.omics.ReferenceStoreSseConfig | undefined>;
     /**
@@ -113,7 +113,7 @@ export interface ReferenceStoreArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Server-side encryption (SSE) settings for a store.
+     * Server-side encryption (SSE) settings for the store.
      */
     sseConfig?: pulumi.Input<inputs.omics.ReferenceStoreSseConfigArgs>;
     /**

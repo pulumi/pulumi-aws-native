@@ -16,9 +16,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     public sealed class ModelPackageDataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes the S3 data source.
-        /// 
-        /// Your input bucket must be in the same AWS region as your training job.
+        /// The S3 location of the data source that is associated with a channel.
         /// </summary>
         [Input("s3DataSource", required: true)]
         public Input<Inputs.ModelPackageS3DataSourceArgs> S3DataSource { get; set; } = null!;

@@ -34,7 +34,7 @@ class BotArgs:
         :param pulumi.Input[int] idle_session_ttl_in_seconds: IdleSessionTTLInSeconds of the resource
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
         :param pulumi.Input[bool] auto_build_bot_locales: Specifies whether to build the bot locales after bot creation completes.
-        :param pulumi.Input['BotS3LocationArgs'] bot_file_s3_location: Defines an Amazon S3 bucket location.
+        :param pulumi.Input['BotS3LocationArgs'] bot_file_s3_location: The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
         :param pulumi.Input[Sequence[pulumi.Input['BotLocaleArgs']]] bot_locales: List of bot locales
         :param pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]] bot_tags: A list of tags to add to the bot, which can only be added at bot creation.
         :param pulumi.Input[str] description: The description of the version.
@@ -114,7 +114,7 @@ class BotArgs:
     @pulumi.getter(name="botFileS3Location")
     def bot_file_s3_location(self) -> Optional[pulumi.Input['BotS3LocationArgs']]:
         """
-        Defines an Amazon S3 bucket location.
+        The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
         """
         return pulumi.get(self, "bot_file_s3_location")
 
@@ -218,7 +218,7 @@ class Bot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_build_bot_locales: Specifies whether to build the bot locales after bot creation completes.
-        :param pulumi.Input[pulumi.InputType['BotS3LocationArgs']] bot_file_s3_location: Defines an Amazon S3 bucket location.
+        :param pulumi.Input[pulumi.InputType['BotS3LocationArgs']] bot_file_s3_location: The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotLocaleArgs']]]] bot_locales: List of bot locales
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotTagArgs']]]] bot_tags: A list of tags to add to the bot, which can only be added at bot creation.
         :param pulumi.Input[pulumi.InputType['DataPrivacyPropertiesArgs']] data_privacy: Data privacy setting of the Bot.
@@ -357,7 +357,7 @@ class Bot(pulumi.CustomResource):
     @pulumi.getter(name="botFileS3Location")
     def bot_file_s3_location(self) -> pulumi.Output[Optional['outputs.BotS3Location']]:
         """
-        Defines an Amazon S3 bucket location.
+        The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
         """
         return pulumi.get(self, "bot_file_s3_location")
 

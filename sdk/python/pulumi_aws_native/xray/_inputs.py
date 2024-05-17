@@ -64,7 +64,6 @@ class SamplingRuleRecordArgs:
         """
         :param pulumi.Input[str] created_at: When the rule was created, in Unix time seconds.
         :param pulumi.Input[str] modified_at: When the rule was modified, in Unix time seconds.
-        :param pulumi.Input['SamplingRuleArgs'] sampling_rule: A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -100,9 +99,6 @@ class SamplingRuleRecordArgs:
     @property
     @pulumi.getter(name="samplingRule")
     def sampling_rule(self) -> Optional[pulumi.Input['SamplingRuleArgs']]:
-        """
-        A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
-        """
         return pulumi.get(self, "sampling_rule")
 
     @sampling_rule.setter

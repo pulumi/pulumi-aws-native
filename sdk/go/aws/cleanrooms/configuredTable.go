@@ -21,7 +21,7 @@ type ConfiguredTable struct {
 	AllowedColumns pulumi.StringArrayOutput `pulumi:"allowedColumns"`
 	// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
 	AnalysisMethod ConfiguredTableAnalysisMethodOutput `pulumi:"analysisMethod"`
-	// A specification about how data from the configured table can be used in a query.
+	// The entire created analysis rule.
 	AnalysisRules ConfiguredTableAnalysisRuleArrayOutput `pulumi:"analysisRules"`
 	// Returns the Amazon Resource Name (ARN) of the specified configured table.
 	//
@@ -35,7 +35,7 @@ type ConfiguredTable struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A name for the configured table.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A pointer to the dataset that underlies this table. Currently, this can only be an AWS Glue table.
+	// The AWS Glue table that this configured table represents.
 	TableReference ConfiguredTableTableReferenceOutput `pulumi:"tableReference"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -100,13 +100,13 @@ type configuredTableArgs struct {
 	AllowedColumns []string `pulumi:"allowedColumns"`
 	// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
 	AnalysisMethod ConfiguredTableAnalysisMethod `pulumi:"analysisMethod"`
-	// A specification about how data from the configured table can be used in a query.
+	// The entire created analysis rule.
 	AnalysisRules []ConfiguredTableAnalysisRule `pulumi:"analysisRules"`
 	// A description for the configured table.
 	Description *string `pulumi:"description"`
 	// A name for the configured table.
 	Name *string `pulumi:"name"`
-	// A pointer to the dataset that underlies this table. Currently, this can only be an AWS Glue table.
+	// The AWS Glue table that this configured table represents.
 	TableReference ConfiguredTableTableReference `pulumi:"tableReference"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -118,13 +118,13 @@ type ConfiguredTableArgs struct {
 	AllowedColumns pulumi.StringArrayInput
 	// The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
 	AnalysisMethod ConfiguredTableAnalysisMethodInput
-	// A specification about how data from the configured table can be used in a query.
+	// The entire created analysis rule.
 	AnalysisRules ConfiguredTableAnalysisRuleArrayInput
 	// A description for the configured table.
 	Description pulumi.StringPtrInput
 	// A name for the configured table.
 	Name pulumi.StringPtrInput
-	// A pointer to the dataset that underlies this table. Currently, this can only be an AWS Glue table.
+	// The AWS Glue table that this configured table represents.
 	TableReference ConfiguredTableTableReferenceInput
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
 	Tags aws.TagArrayInput
@@ -177,7 +177,7 @@ func (o ConfiguredTableOutput) AnalysisMethod() ConfiguredTableAnalysisMethodOut
 	return o.ApplyT(func(v *ConfiguredTable) ConfiguredTableAnalysisMethodOutput { return v.AnalysisMethod }).(ConfiguredTableAnalysisMethodOutput)
 }
 
-// A specification about how data from the configured table can be used in a query.
+// The entire created analysis rule.
 func (o ConfiguredTableOutput) AnalysisRules() ConfiguredTableAnalysisRuleArrayOutput {
 	return o.ApplyT(func(v *ConfiguredTable) ConfiguredTableAnalysisRuleArrayOutput { return v.AnalysisRules }).(ConfiguredTableAnalysisRuleArrayOutput)
 }
@@ -206,7 +206,7 @@ func (o ConfiguredTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfiguredTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A pointer to the dataset that underlies this table. Currently, this can only be an AWS Glue table.
+// The AWS Glue table that this configured table represents.
 func (o ConfiguredTableOutput) TableReference() ConfiguredTableTableReferenceOutput {
 	return o.ApplyT(func(v *ConfiguredTable) ConfiguredTableTableReferenceOutput { return v.TableReference }).(ConfiguredTableTableReferenceOutput)
 }

@@ -54,7 +54,7 @@ class GetListenerResult:
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> Optional[Sequence['outputs.ListenerPortRange']]:
         """
-        A complex type for a range of ports for a listener.
+        The list of port ranges for the connections from clients to the accelerator.
         """
         return pulumi.get(self, "port_ranges")
 

@@ -31,7 +31,7 @@ type LookupServerlessCacheArgs struct {
 type LookupServerlessCacheResult struct {
 	// The ARN of the Serverless Cache.
 	Arn *string `pulumi:"arn"`
-	// The usage limits for storage and ElastiCache Processing Units for the cache.
+	// The cache usage limit for the serverless cache.
 	CacheUsageLimits *ServerlessCacheCacheUsageLimits `pulumi:"cacheUsageLimits"`
 	// The creation time of the Serverless Cache.
 	CreateTime *string `pulumi:"createTime"`
@@ -98,7 +98,7 @@ func (o LookupServerlessCacheResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// The usage limits for storage and ElastiCache Processing Units for the cache.
+// The cache usage limit for the serverless cache.
 func (o LookupServerlessCacheResultOutput) CacheUsageLimits() ServerlessCacheCacheUsageLimitsPtrOutput {
 	return o.ApplyT(func(v LookupServerlessCacheResult) *ServerlessCacheCacheUsageLimits { return v.CacheUsageLimits }).(ServerlessCacheCacheUsageLimitsPtrOutput)
 }

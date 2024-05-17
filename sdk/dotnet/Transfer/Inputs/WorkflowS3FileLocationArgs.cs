@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Transfer.Inputs
     public sealed class WorkflowS3FileLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the details for the Amazon S3 location for an input file to a workflow.
+        /// Specifies the details for the file location for the file that's being used in the workflow. Only applicable if you are using Amazon S3 storage.
         /// </summary>
         [Input("s3FileLocation")]
         public Input<Inputs.WorkflowS3InputFileLocationArgs>? S3FileLocation { get; set; }

@@ -53,7 +53,7 @@ export interface GetApiKeyResult {
      */
     readonly keyArn?: string;
     /**
-     * API Restrictions on the allowed actions, resources, and referers for an API key resource.
+     * The API key restrictions for the API key resource.
      */
     readonly restrictions?: outputs.location.ApiKeyRestrictions;
     /**

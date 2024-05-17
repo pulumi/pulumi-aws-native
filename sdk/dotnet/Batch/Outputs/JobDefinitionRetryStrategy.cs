@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// </summary>
         public readonly int? Attempts;
         /// <summary>
-        /// Specifies an array of up to 5 conditions to be met, and an action to take ( `RETRY` or `EXIT` ) if all conditions are met. If none of the `EvaluateOnExit` conditions in a `RetryStrategy` match, then the job is retried.
+        /// Array of up to 5 objects that specify the conditions where jobs are retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. If none of the listed conditions match, then the job is retried.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionEvaluateOnExit> EvaluateOnExit;
 

@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public Input<string>? SlotName { get; set; }
 
         /// <summary>
-        /// The slot values that Amazon Lex uses when it sets slot values in a dialog step.
+        /// The SlotValueOverride object to which the slot name will be mapped.
         /// </summary>
         [Input("slotValueOverride")]
         public Input<Inputs.BotSlotValueOverrideArgs>? SlotValueOverride { get; set; }

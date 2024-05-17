@@ -31,13 +31,13 @@ type Membership struct {
 	CollaborationCreatorAccountId pulumi.StringOutput `pulumi:"collaborationCreatorAccountId"`
 	// The unique ID for the associated collaboration.
 	CollaborationIdentifier pulumi.StringOutput `pulumi:"collaborationIdentifier"`
-	// Contains configurations for protected query results.
+	// The default protected query result configuration as specified by the member who can receive results.
 	DefaultResultConfiguration MembershipProtectedQueryResultConfigurationPtrOutput `pulumi:"defaultResultConfiguration"`
 	// Returns the unique identifier of the specified membership.
 	//
 	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`
 	MembershipIdentifier pulumi.StringOutput `pulumi:"membershipIdentifier"`
-	// An object representing the payment responsibilities accepted by the collaboration member.
+	// The payment responsibilities accepted by the collaboration member.
 	PaymentConfiguration MembershipPaymentConfigurationPtrOutput `pulumi:"paymentConfiguration"`
 	// An indicator as to whether query logging has been enabled or disabled for the membership.
 	QueryLogStatus MembershipQueryLogStatusOutput `pulumi:"queryLogStatus"`
@@ -97,9 +97,9 @@ func (MembershipState) ElementType() reflect.Type {
 type membershipArgs struct {
 	// The unique ID for the associated collaboration.
 	CollaborationIdentifier string `pulumi:"collaborationIdentifier"`
-	// Contains configurations for protected query results.
+	// The default protected query result configuration as specified by the member who can receive results.
 	DefaultResultConfiguration *MembershipProtectedQueryResultConfiguration `pulumi:"defaultResultConfiguration"`
-	// An object representing the payment responsibilities accepted by the collaboration member.
+	// The payment responsibilities accepted by the collaboration member.
 	PaymentConfiguration *MembershipPaymentConfiguration `pulumi:"paymentConfiguration"`
 	// An indicator as to whether query logging has been enabled or disabled for the membership.
 	QueryLogStatus MembershipQueryLogStatus `pulumi:"queryLogStatus"`
@@ -111,9 +111,9 @@ type membershipArgs struct {
 type MembershipArgs struct {
 	// The unique ID for the associated collaboration.
 	CollaborationIdentifier pulumi.StringInput
-	// Contains configurations for protected query results.
+	// The default protected query result configuration as specified by the member who can receive results.
 	DefaultResultConfiguration MembershipProtectedQueryResultConfigurationPtrInput
-	// An object representing the payment responsibilities accepted by the collaboration member.
+	// The payment responsibilities accepted by the collaboration member.
 	PaymentConfiguration MembershipPaymentConfigurationPtrInput
 	// An indicator as to whether query logging has been enabled or disabled for the membership.
 	QueryLogStatus MembershipQueryLogStatusInput
@@ -184,7 +184,7 @@ func (o MembershipOutput) CollaborationIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.CollaborationIdentifier }).(pulumi.StringOutput)
 }
 
-// Contains configurations for protected query results.
+// The default protected query result configuration as specified by the member who can receive results.
 func (o MembershipOutput) DefaultResultConfiguration() MembershipProtectedQueryResultConfigurationPtrOutput {
 	return o.ApplyT(func(v *Membership) MembershipProtectedQueryResultConfigurationPtrOutput {
 		return v.DefaultResultConfiguration
@@ -198,7 +198,7 @@ func (o MembershipOutput) MembershipIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Membership) pulumi.StringOutput { return v.MembershipIdentifier }).(pulumi.StringOutput)
 }
 
-// An object representing the payment responsibilities accepted by the collaboration member.
+// The payment responsibilities accepted by the collaboration member.
 func (o MembershipOutput) PaymentConfiguration() MembershipPaymentConfigurationPtrOutput {
 	return o.ApplyT(func(v *Membership) MembershipPaymentConfigurationPtrOutput { return v.PaymentConfiguration }).(MembershipPaymentConfigurationPtrOutput)
 }

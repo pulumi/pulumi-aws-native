@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateIntegerParameterDeclaration
     {
         /// <summary>
-        /// The default values of the `IntegerParameterDeclaration` .
+        /// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
         /// </summary>
         public readonly Outputs.TemplateIntegerDefaultValues? DefaultValues;
         public readonly ImmutableArray<Outputs.TemplateMappedDataSetParameter> MappedDataSetParameters;
@@ -28,8 +28,6 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Pulumi.AwsNative.QuickSight.TemplateParameterValueType ParameterValueType;
         /// <summary>
         /// A parameter declaration for the `Integer` data type.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
         /// </summary>
         public readonly Outputs.TemplateIntegerValueWhenUnsetConfiguration? ValueWhenUnset;
 

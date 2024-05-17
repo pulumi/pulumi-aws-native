@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.Fis
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Describes the experiment options for an experiment template.
+        /// The experiment options for an experiment template.
         /// </summary>
         public readonly Outputs.ExperimentTemplateExperimentOptions? ExperimentOptions;
         /// <summary>
@@ -74,9 +74,7 @@ namespace Pulumi.AwsNative.Fis
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Specifies the configuration for experiment logging.
-        /// 
-        /// For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+        /// The configuration for experiment logging.
         /// </summary>
         public readonly Outputs.ExperimentTemplateLogConfiguration? LogConfiguration;
         /// <summary>

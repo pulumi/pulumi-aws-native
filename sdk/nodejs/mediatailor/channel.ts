@@ -50,11 +50,11 @@ export class Channel extends pulumi.CustomResource {
      */
     public readonly channelName!: pulumi.Output<string>;
     /**
-     * Slate VOD source configuration.
+     * The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
      */
     public readonly fillerSlate!: pulumi.Output<outputs.mediatailor.ChannelSlateSource | undefined>;
     /**
-     * The log configuration for the channel.
+     * The log configuration.
      */
     public readonly logConfiguration!: pulumi.Output<outputs.mediatailor.ChannelLogConfigurationForChannel | undefined>;
     /**
@@ -141,11 +141,11 @@ export interface ChannelArgs {
      */
     channelName?: pulumi.Input<string>;
     /**
-     * Slate VOD source configuration.
+     * The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
      */
     fillerSlate?: pulumi.Input<inputs.mediatailor.ChannelSlateSourceArgs>;
     /**
-     * The log configuration for the channel.
+     * The log configuration.
      */
     logConfiguration?: pulumi.Input<inputs.mediatailor.ChannelLogConfigurationForChannelArgs>;
     /**

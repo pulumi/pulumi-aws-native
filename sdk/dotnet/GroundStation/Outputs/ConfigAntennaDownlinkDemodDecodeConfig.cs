@@ -14,15 +14,15 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     public sealed class ConfigAntennaDownlinkDemodDecodeConfig
     {
         /// <summary>
-        /// Defines decoding settings.
+        /// Defines how the RF signal will be decoded.
         /// </summary>
         public readonly Outputs.ConfigDecodeConfig? DecodeConfig;
         /// <summary>
-        /// Defines demodulation settings.
+        /// Defines how the RF signal will be demodulated.
         /// </summary>
         public readonly Outputs.ConfigDemodulationConfig? DemodulationConfig;
         /// <summary>
-        /// Defines a spectrum.
+        /// Defines the spectrum configuration.
         /// </summary>
         public readonly Outputs.ConfigSpectrumConfig? SpectrumConfig;
 

@@ -33,11 +33,11 @@ export interface GetAliasResult {
     readonly functionVersion?: string;
     readonly id?: string;
     /**
-     * A provisioned concurrency configuration for a function's alias.
+     * Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
      */
     readonly provisionedConcurrencyConfig?: outputs.lambda.AliasProvisionedConcurrencyConfiguration;
     /**
-     * The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+     * The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
      */
     readonly routingConfig?: outputs.lambda.AliasRoutingConfiguration;
 }

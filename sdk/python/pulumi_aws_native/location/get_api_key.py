@@ -90,7 +90,7 @@ class GetApiKeyResult:
     @pulumi.getter
     def restrictions(self) -> Optional['outputs.ApiKeyRestrictions']:
         """
-        API Restrictions on the allowed actions, resources, and referers for an API key resource.
+        The API key restrictions for the API key resource.
         """
         return pulumi.get(self, "restrictions")
 

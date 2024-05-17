@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.PcaConnectorAd
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Information about your VPC and security groups used with the connector.
+        /// Information of the VPC and security group(s) used with the connector.
         /// </summary>
         [Output("vpcInformation")]
         public Output<Outputs.ConnectorVpcInformation> VpcInformation { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.AwsNative.PcaConnectorAd
         }
 
         /// <summary>
-        /// Information about your VPC and security groups used with the connector.
+        /// Information of the VPC and security group(s) used with the connector.
         /// </summary>
         [Input("vpcInformation", required: true)]
         public Input<Inputs.ConnectorVpcInformationArgs> VpcInformation { get; set; } = null!;

@@ -18,11 +18,11 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
         /// </summary>
         public readonly string? BackgroundColor;
         /// <summary>
-        /// Specifies the configuration of the main body text of the in-app message.
+        /// An object that contains configuration information about the header or title text of the in-app message.
         /// </summary>
         public readonly Outputs.InAppTemplateBodyConfig? BodyConfig;
         /// <summary>
-        /// Specifies the configuration and content of the header or title text of the in-app message.
+        /// An object that contains configuration information about the header or title text of the in-app message.
         /// </summary>
         public readonly Outputs.InAppTemplateHeaderConfig? HeaderConfig;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
         /// </summary>
         public readonly string? ImageUrl;
         /// <summary>
-        /// Specifies the behavior of buttons that appear in an in-app message template.
+        /// An object that contains configuration information about the primary button in an in-app message.
         /// </summary>
         public readonly Outputs.InAppTemplateButtonConfig? PrimaryBtn;
         /// <summary>
-        /// Specifies the behavior of buttons that appear in an in-app message template.
+        /// An object that contains configuration information about the secondary button in an in-app message.
         /// </summary>
         public readonly Outputs.InAppTemplateButtonConfig? SecondaryBtn;
 

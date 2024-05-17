@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         private InputList<Inputs.JobColumnStatisticsConfigurationArgs>? _columnStatisticsConfigurations;
 
         /// <summary>
-        /// Configuration for column evaluations for a profile job. ColumnStatisticsConfiguration can be used to select evaluations and override parameters of evaluations for particular columns.
+        /// List of configurations for column evaluations. ColumnStatisticsConfigurations are used to select evaluations and override parameters of evaluations for particular columns. When ColumnStatisticsConfigurations is undefined, the profile job will profile all supported columns and run all supported evaluations.
         /// </summary>
         public InputList<Inputs.JobColumnStatisticsConfigurationArgs> ColumnStatisticsConfigurations
         {
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         }
 
         /// <summary>
-        /// Configuration of evaluations for a profile job. This configuration can be used to select evaluations and override the parameters of selected evaluations.
+        /// Configuration for inter-column evaluations. Configuration can be used to select evaluations and override parameters of evaluations. When configuration is undefined, the profile job will run all supported inter-column evaluations.
         /// </summary>
         [Input("datasetStatisticsConfiguration")]
         public Input<Inputs.JobStatisticsConfigurationArgs>? DatasetStatisticsConfiguration { get; set; }

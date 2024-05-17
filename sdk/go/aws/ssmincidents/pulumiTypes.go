@@ -264,7 +264,7 @@ type ReplicationSetTag struct {
 
 // The automation configuration to launch.
 type ResponsePlanAction struct {
-	// The `SsmAutomation` property type specifies details about the Systems Manager Automation runbook that will be used as the runbook during an incident.
+	// Details about the Systems Manager automation document that will be used as a runbook during an incident.
 	SsmAutomation *ResponsePlanSsmAutomation `pulumi:"ssmAutomation"`
 }
 
@@ -281,7 +281,7 @@ type ResponsePlanActionInput interface {
 
 // The automation configuration to launch.
 type ResponsePlanActionArgs struct {
-	// The `SsmAutomation` property type specifies details about the Systems Manager Automation runbook that will be used as the runbook during an incident.
+	// Details about the Systems Manager automation document that will be used as a runbook during an incident.
 	SsmAutomation ResponsePlanSsmAutomationPtrInput `pulumi:"ssmAutomation"`
 }
 
@@ -337,7 +337,7 @@ func (o ResponsePlanActionOutput) ToResponsePlanActionOutputWithContext(ctx cont
 	return o
 }
 
-// The `SsmAutomation` property type specifies details about the Systems Manager Automation runbook that will be used as the runbook during an incident.
+// Details about the Systems Manager automation document that will be used as a runbook during an incident.
 func (o ResponsePlanActionOutput) SsmAutomation() ResponsePlanSsmAutomationPtrOutput {
 	return o.ApplyT(func(v ResponsePlanAction) *ResponsePlanSsmAutomation { return v.SsmAutomation }).(ResponsePlanSsmAutomationPtrOutput)
 }
@@ -853,7 +853,7 @@ func (o ResponsePlanIncidentTemplatePtrOutput) Title() pulumi.StringPtrOutput {
 }
 
 type ResponsePlanIntegration struct {
-	// Details about the PagerDuty configuration for a response plan.
+	// Information about the PagerDuty service where the response plan creates an incident.
 	PagerDutyConfiguration *ResponsePlanPagerDutyConfiguration `pulumi:"pagerDutyConfiguration"`
 }
 
@@ -869,7 +869,7 @@ type ResponsePlanIntegrationInput interface {
 }
 
 type ResponsePlanIntegrationArgs struct {
-	// Details about the PagerDuty configuration for a response plan.
+	// Information about the PagerDuty service where the response plan creates an incident.
 	PagerDutyConfiguration ResponsePlanPagerDutyConfigurationPtrInput `pulumi:"pagerDutyConfiguration"`
 }
 
@@ -924,7 +924,7 @@ func (o ResponsePlanIntegrationOutput) ToResponsePlanIntegrationOutputWithContex
 	return o
 }
 
-// Details about the PagerDuty configuration for a response plan.
+// Information about the PagerDuty service where the response plan creates an incident.
 func (o ResponsePlanIntegrationOutput) PagerDutyConfiguration() ResponsePlanPagerDutyConfigurationPtrOutput {
 	return o.ApplyT(func(v ResponsePlanIntegration) *ResponsePlanPagerDutyConfiguration { return v.PagerDutyConfiguration }).(ResponsePlanPagerDutyConfigurationPtrOutput)
 }
@@ -1053,7 +1053,7 @@ func (o ResponsePlanNotificationTargetItemArrayOutput) Index(i pulumi.IntInput) 
 type ResponsePlanPagerDutyConfiguration struct {
 	// The name of the pagerDuty configuration.
 	Name string `pulumi:"name"`
-	// Details about the PagerDuty service where the response plan creates an incident.
+	// Details about the PagerDuty service associated with the configuration.
 	PagerDutyIncidentConfiguration ResponsePlanPagerDutyIncidentConfiguration `pulumi:"pagerDutyIncidentConfiguration"`
 	// The AWS secrets manager secretId storing the pagerDuty token.
 	SecretId string `pulumi:"secretId"`
@@ -1074,7 +1074,7 @@ type ResponsePlanPagerDutyConfigurationInput interface {
 type ResponsePlanPagerDutyConfigurationArgs struct {
 	// The name of the pagerDuty configuration.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Details about the PagerDuty service where the response plan creates an incident.
+	// Details about the PagerDuty service associated with the configuration.
 	PagerDutyIncidentConfiguration ResponsePlanPagerDutyIncidentConfigurationInput `pulumi:"pagerDutyIncidentConfiguration"`
 	// The AWS secrets manager secretId storing the pagerDuty token.
 	SecretId pulumi.StringInput `pulumi:"secretId"`
@@ -1163,7 +1163,7 @@ func (o ResponsePlanPagerDutyConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsePlanPagerDutyConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Details about the PagerDuty service where the response plan creates an incident.
+// Details about the PagerDuty service associated with the configuration.
 func (o ResponsePlanPagerDutyConfigurationOutput) PagerDutyIncidentConfiguration() ResponsePlanPagerDutyIncidentConfigurationOutput {
 	return o.ApplyT(func(v ResponsePlanPagerDutyConfiguration) ResponsePlanPagerDutyIncidentConfiguration {
 		return v.PagerDutyIncidentConfiguration
@@ -1209,7 +1209,7 @@ func (o ResponsePlanPagerDutyConfigurationPtrOutput) Name() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Details about the PagerDuty service where the response plan creates an incident.
+// Details about the PagerDuty service associated with the configuration.
 func (o ResponsePlanPagerDutyConfigurationPtrOutput) PagerDutyIncidentConfiguration() ResponsePlanPagerDutyIncidentConfigurationPtrOutput {
 	return o.ApplyT(func(v *ResponsePlanPagerDutyConfiguration) *ResponsePlanPagerDutyIncidentConfiguration {
 		if v == nil {

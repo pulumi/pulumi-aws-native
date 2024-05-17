@@ -410,8 +410,7 @@ type Function struct {
 	// Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
 	RuntimeManagementConfig FunctionRuntimeManagementConfigPtrOutput `pulumi:"runtimeManagementConfig"`
 	// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
-	SnapStart FunctionSnapStartPtrOutput `pulumi:"snapStart"`
-	// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
+	SnapStart         FunctionSnapStartPtrOutput      `pulumi:"snapStart"`
 	SnapStartResponse FunctionSnapStartResponseOutput `pulumi:"snapStartResponse"`
 	// A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -738,7 +737,6 @@ func (o FunctionOutput) SnapStart() FunctionSnapStartPtrOutput {
 	return o.ApplyT(func(v *Function) FunctionSnapStartPtrOutput { return v.SnapStart }).(FunctionSnapStartPtrOutput)
 }
 
-// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
 func (o FunctionOutput) SnapStartResponse() FunctionSnapStartResponseOutput {
 	return o.ApplyT(func(v *Function) FunctionSnapStartResponseOutput { return v.SnapStartResponse }).(FunctionSnapStartResponseOutput)
 }

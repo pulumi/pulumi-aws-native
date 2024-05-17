@@ -47,9 +47,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// This object determines the values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.
-        /// 
-        /// The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find an object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use `OriginRequestPolicy` .
+        /// The HTTP headers, cookies, and URL query strings to include in the cache key. The values included in the cache key are also included in requests that CloudFront sends to the origin.
         /// </summary>
         [Input("parametersInCacheKeyAndForwardedToOrigin", required: true)]
         public Input<Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs> ParametersInCacheKeyAndForwardedToOrigin { get; set; } = null!;

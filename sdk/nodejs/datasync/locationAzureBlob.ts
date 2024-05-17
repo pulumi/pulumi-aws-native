@@ -54,9 +54,7 @@ export class LocationAzureBlob extends pulumi.CustomResource {
      */
     public readonly azureBlobContainerUrl!: pulumi.Output<string | undefined>;
     /**
-     * The shared access signature (SAS) configuration that allows AWS DataSync to access your Microsoft Azure Blob Storage.
-     *
-     * For more information, see [SAS tokens](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-sas-tokens) for accessing your Azure Blob Storage.
+     * Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
      */
     public readonly azureBlobSasConfiguration!: pulumi.Output<outputs.datasync.LocationAzureBlobAzureBlobSasConfiguration | undefined>;
     /**
@@ -147,9 +145,7 @@ export interface LocationAzureBlobArgs {
      */
     azureBlobContainerUrl?: pulumi.Input<string>;
     /**
-     * The shared access signature (SAS) configuration that allows AWS DataSync to access your Microsoft Azure Blob Storage.
-     *
-     * For more information, see [SAS tokens](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-sas-tokens) for accessing your Azure Blob Storage.
+     * Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
      */
     azureBlobSasConfiguration?: pulumi.Input<inputs.datasync.LocationAzureBlobAzureBlobSasConfigurationArgs>;
     /**

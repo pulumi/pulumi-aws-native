@@ -47,7 +47,7 @@ export interface GetRoomResult {
      */
     readonly maximumMessageRatePerSecond?: number;
     /**
-     * The MessageReviewHandler property type specifies configuration information for optional message review.
+     * Configuration information for optional review of messages.
      */
     readonly messageReviewHandler?: outputs.ivschat.RoomMessageReviewHandler;
     /**

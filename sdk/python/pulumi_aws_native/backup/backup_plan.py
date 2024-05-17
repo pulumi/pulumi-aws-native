@@ -20,7 +20,7 @@ class BackupPlanArgs:
                  backup_plan_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a BackupPlan resource.
-        :param pulumi.Input['BackupPlanResourceTypeArgs'] backup_plan: Specifies an object containing properties used to create a backup plan.
+        :param pulumi.Input['BackupPlanResourceTypeArgs'] backup_plan: Uniquely identifies the backup plan to be associated with the selection of resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backup_plan_tags: The tags to assign to the backup plan.
         """
         pulumi.set(__self__, "backup_plan", backup_plan)
@@ -31,7 +31,7 @@ class BackupPlanArgs:
     @pulumi.getter(name="backupPlan")
     def backup_plan(self) -> pulumi.Input['BackupPlanResourceTypeArgs']:
         """
-        Specifies an object containing properties used to create a backup plan.
+        Uniquely identifies the backup plan to be associated with the selection of resources.
         """
         return pulumi.get(self, "backup_plan")
 
@@ -65,7 +65,7 @@ class BackupPlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['BackupPlanResourceTypeArgs']] backup_plan: Specifies an object containing properties used to create a backup plan.
+        :param pulumi.Input[pulumi.InputType['BackupPlanResourceTypeArgs']] backup_plan: Uniquely identifies the backup plan to be associated with the selection of resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backup_plan_tags: The tags to assign to the backup plan.
         """
         ...
@@ -143,7 +143,7 @@ class BackupPlan(pulumi.CustomResource):
     @pulumi.getter(name="backupPlan")
     def backup_plan(self) -> pulumi.Output['outputs.BackupPlanResourceType']:
         """
-        Specifies an object containing properties used to create a backup plan.
+        Uniquely identifies the backup plan to be associated with the selection of resources.
         """
         return pulumi.get(self, "backup_plan")
 

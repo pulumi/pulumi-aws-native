@@ -80,7 +80,7 @@ export class JobTemplate extends pulumi.CustomResource {
      */
     public readonly jobTemplateId!: pulumi.Output<string>;
     /**
-     * An optional configuration within the `SchedulingConfig` to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+     * An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
      */
     public readonly maintenanceWindows!: pulumi.Output<outputs.iot.JobTemplateMaintenanceWindow[] | undefined>;
     /**
@@ -193,7 +193,7 @@ export interface JobTemplateArgs {
      */
     jobTemplateId: pulumi.Input<string>;
     /**
-     * An optional configuration within the `SchedulingConfig` to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+     * An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
      */
     maintenanceWindows?: pulumi.Input<pulumi.Input<inputs.iot.JobTemplateMaintenanceWindowArgs>[]>;
     /**

@@ -14,19 +14,19 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     public sealed class RuleGroup
     {
         /// <summary>
-        /// Configures the `ReferenceSets` for a stateful rule group. For more information, see the [Using IP set references in Suricata compatible rule groups](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html) in the *Network Firewall User Guide* .
+        /// The reference sets for the stateful rule group.
         /// </summary>
         public readonly Outputs.RuleGroupReferenceSets? ReferenceSets;
         /// <summary>
-        /// Settings that are available for use in the rules in the `RuleGroup` where this is defined.
+        /// Settings that are available for use in the rules in the rule group. You can only use these for stateful rule groups.
         /// </summary>
         public readonly Outputs.RuleGroupRuleVariables? RuleVariables;
         /// <summary>
-        /// The stateless or stateful rules definitions for use in a single rule group. Each rule group requires a single `RulesSource` . You can use an instance of this for either stateless rules or stateful rules.
+        /// The stateful rules or stateless rules for the rule group.
         /// </summary>
         public readonly Outputs.RuleGroupRulesSource RulesSource;
         /// <summary>
-        /// Additional options governing how Network Firewall handles the rule group. You can only use these for stateful rule groups.
+        /// Additional options governing how Network Firewall handles stateful rules. The policies where you use your stateful rule group must have stateful rule options settings that are compatible with these settings. Some limitations apply; for more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-limitations-caveats.html) in the *AWS Network Firewall Developer Guide* .
         /// </summary>
         public readonly Outputs.RuleGroupStatefulRuleOptions? StatefulRuleOptions;
 

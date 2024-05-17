@@ -23,7 +23,7 @@ type Asset struct {
 	AssetDescription pulumi.StringPtrOutput `pulumi:"assetDescription"`
 	// The External ID of the asset
 	AssetExternalId pulumi.StringPtrOutput `pulumi:"assetExternalId"`
-	// Describes an asset hierarchy that contains a hierarchy's name and ID.
+	// A list of asset hierarchies that each contain a `hierarchyId` . A hierarchy specifies allowed parent/child asset relationships.
 	AssetHierarchies AssetHierarchyArrayOutput `pulumi:"assetHierarchies"`
 	// The ID of the asset
 	AssetId pulumi.StringOutput `pulumi:"assetId"`
@@ -31,7 +31,9 @@ type Asset struct {
 	AssetModelId pulumi.StringOutput `pulumi:"assetModelId"`
 	// A unique, friendly name for the asset.
 	AssetName pulumi.StringOutput `pulumi:"assetName"`
-	// Contains asset property information.
+	// The list of asset properties for the asset.
+	//
+	// This object doesn't include properties that you define in composite models. You can find composite model properties in the `assetCompositeModels` object.
 	AssetProperties AssetPropertyArrayOutput `pulumi:"assetProperties"`
 	// A list of key-value pairs that contain metadata for the asset.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -84,13 +86,15 @@ type assetArgs struct {
 	AssetDescription *string `pulumi:"assetDescription"`
 	// The External ID of the asset
 	AssetExternalId *string `pulumi:"assetExternalId"`
-	// Describes an asset hierarchy that contains a hierarchy's name and ID.
+	// A list of asset hierarchies that each contain a `hierarchyId` . A hierarchy specifies allowed parent/child asset relationships.
 	AssetHierarchies []AssetHierarchy `pulumi:"assetHierarchies"`
 	// The ID of the asset model from which to create the asset.
 	AssetModelId string `pulumi:"assetModelId"`
 	// A unique, friendly name for the asset.
 	AssetName *string `pulumi:"assetName"`
-	// Contains asset property information.
+	// The list of asset properties for the asset.
+	//
+	// This object doesn't include properties that you define in composite models. You can find composite model properties in the `assetCompositeModels` object.
 	AssetProperties []AssetProperty `pulumi:"assetProperties"`
 	// A list of key-value pairs that contain metadata for the asset.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -102,13 +106,15 @@ type AssetArgs struct {
 	AssetDescription pulumi.StringPtrInput
 	// The External ID of the asset
 	AssetExternalId pulumi.StringPtrInput
-	// Describes an asset hierarchy that contains a hierarchy's name and ID.
+	// A list of asset hierarchies that each contain a `hierarchyId` . A hierarchy specifies allowed parent/child asset relationships.
 	AssetHierarchies AssetHierarchyArrayInput
 	// The ID of the asset model from which to create the asset.
 	AssetModelId pulumi.StringInput
 	// A unique, friendly name for the asset.
 	AssetName pulumi.StringPtrInput
-	// Contains asset property information.
+	// The list of asset properties for the asset.
+	//
+	// This object doesn't include properties that you define in composite models. You can find composite model properties in the `assetCompositeModels` object.
 	AssetProperties AssetPropertyArrayInput
 	// A list of key-value pairs that contain metadata for the asset.
 	Tags aws.TagArrayInput
@@ -166,7 +172,7 @@ func (o AssetOutput) AssetExternalId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Asset) pulumi.StringPtrOutput { return v.AssetExternalId }).(pulumi.StringPtrOutput)
 }
 
-// Describes an asset hierarchy that contains a hierarchy's name and ID.
+// A list of asset hierarchies that each contain a `hierarchyId` . A hierarchy specifies allowed parent/child asset relationships.
 func (o AssetOutput) AssetHierarchies() AssetHierarchyArrayOutput {
 	return o.ApplyT(func(v *Asset) AssetHierarchyArrayOutput { return v.AssetHierarchies }).(AssetHierarchyArrayOutput)
 }
@@ -186,7 +192,9 @@ func (o AssetOutput) AssetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Asset) pulumi.StringOutput { return v.AssetName }).(pulumi.StringOutput)
 }
 
-// Contains asset property information.
+// The list of asset properties for the asset.
+//
+// This object doesn't include properties that you define in composite models. You can find composite model properties in the `assetCompositeModels` object.
 func (o AssetOutput) AssetProperties() AssetPropertyArrayOutput {
 	return o.ApplyT(func(v *Asset) AssetPropertyArrayOutput { return v.AssetProperties }).(AssetPropertyArrayOutput)
 }

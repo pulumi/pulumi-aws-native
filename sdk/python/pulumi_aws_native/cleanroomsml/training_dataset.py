@@ -29,7 +29,7 @@ class TrainingDatasetArgs:
         :param pulumi.Input[str] role_arn: The ARN of the IAM role that Clean Rooms ML can assume to read the data referred to in the `dataSource` field of each dataset.
                
                Passing a role across accounts is not allowed. If you pass a role that isn't in your account, you get an `AccessDeniedException` error.
-        :param pulumi.Input[Sequence[pulumi.Input['TrainingDatasetDatasetArgs']]] training_data: Defines where the training dataset is located, what type of data it contains, and how to access the data.
+        :param pulumi.Input[Sequence[pulumi.Input['TrainingDatasetDatasetArgs']]] training_data: An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.
         :param pulumi.Input[str] description: The description of the training dataset.
         :param pulumi.Input[str] name: The name of the training dataset.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms-ml training dataset.
@@ -61,7 +61,7 @@ class TrainingDatasetArgs:
     @pulumi.getter(name="trainingData")
     def training_data(self) -> pulumi.Input[Sequence[pulumi.Input['TrainingDatasetDatasetArgs']]]:
         """
-        Defines where the training dataset is located, what type of data it contains, and how to access the data.
+        An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.
         """
         return pulumi.get(self, "training_data")
 
@@ -128,7 +128,7 @@ class TrainingDataset(pulumi.CustomResource):
                
                Passing a role across accounts is not allowed. If you pass a role that isn't in your account, you get an `AccessDeniedException` error.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms-ml training dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrainingDatasetDatasetArgs']]]] training_data: Defines where the training dataset is located, what type of data it contains, and how to access the data.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrainingDatasetDatasetArgs']]]] training_data: An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.
         """
         ...
     @overload
@@ -258,7 +258,7 @@ class TrainingDataset(pulumi.CustomResource):
     @pulumi.getter(name="trainingData")
     def training_data(self) -> pulumi.Output[Sequence['outputs.TrainingDatasetDataset']]:
         """
-        Defines where the training dataset is located, what type of data it contains, and how to access the data.
+        An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.
         """
         return pulumi.get(self, "training_data")
 

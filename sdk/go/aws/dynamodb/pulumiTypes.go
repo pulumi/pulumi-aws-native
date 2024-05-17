@@ -483,17 +483,20 @@ func (o GlobalTableContributorInsightsSpecificationPtrOutput) Enabled() pulumi.B
 type GlobalTableGlobalSecondaryIndex struct {
 	// The name of the global secondary index. The name must be unique among all other indexes on this table.
 	IndexName string `pulumi:"indexName"`
-	// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+	// The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
 	//
-	// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+	// - `HASH` - partition key
+	// - `RANGE` - sort key
 	//
-	// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+	// > The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+	// >
+	// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 	KeySchema []GlobalTableKeySchema `pulumi:"keySchema"`
-	// Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+	// Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 	Projection GlobalTableProjection `pulumi:"projection"`
 	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 	WriteOnDemandThroughputSettings *GlobalTableWriteOnDemandThroughputSettings `pulumi:"writeOnDemandThroughputSettings"`
-	// Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
+	// Defines write capacity settings for the global secondary index. You must specify a value for this property if the table's `BillingMode` is `PROVISIONED` . All replicas will have the same write capacity settings for this global secondary index.
 	WriteProvisionedThroughputSettings *GlobalTableWriteProvisionedThroughputSettings `pulumi:"writeProvisionedThroughputSettings"`
 }
 
@@ -511,17 +514,20 @@ type GlobalTableGlobalSecondaryIndexInput interface {
 type GlobalTableGlobalSecondaryIndexArgs struct {
 	// The name of the global secondary index. The name must be unique among all other indexes on this table.
 	IndexName pulumi.StringInput `pulumi:"indexName"`
-	// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+	// The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
 	//
-	// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+	// - `HASH` - partition key
+	// - `RANGE` - sort key
 	//
-	// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+	// > The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+	// >
+	// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 	KeySchema GlobalTableKeySchemaArrayInput `pulumi:"keySchema"`
-	// Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+	// Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 	Projection GlobalTableProjectionInput `pulumi:"projection"`
 	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 	WriteOnDemandThroughputSettings GlobalTableWriteOnDemandThroughputSettingsPtrInput `pulumi:"writeOnDemandThroughputSettings"`
-	// Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
+	// Defines write capacity settings for the global secondary index. You must specify a value for this property if the table's `BillingMode` is `PROVISIONED` . All replicas will have the same write capacity settings for this global secondary index.
 	WriteProvisionedThroughputSettings GlobalTableWriteProvisionedThroughputSettingsPtrInput `pulumi:"writeProvisionedThroughputSettings"`
 }
 
@@ -581,16 +587,19 @@ func (o GlobalTableGlobalSecondaryIndexOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableGlobalSecondaryIndex) string { return v.IndexName }).(pulumi.StringOutput)
 }
 
-// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+// The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
 //
-// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+// - `HASH` - partition key
+// - `RANGE` - sort key
 //
-// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+// > The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+// >
+// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 func (o GlobalTableGlobalSecondaryIndexOutput) KeySchema() GlobalTableKeySchemaArrayOutput {
 	return o.ApplyT(func(v GlobalTableGlobalSecondaryIndex) []GlobalTableKeySchema { return v.KeySchema }).(GlobalTableKeySchemaArrayOutput)
 }
 
-// Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+// Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 func (o GlobalTableGlobalSecondaryIndexOutput) Projection() GlobalTableProjectionOutput {
 	return o.ApplyT(func(v GlobalTableGlobalSecondaryIndex) GlobalTableProjection { return v.Projection }).(GlobalTableProjectionOutput)
 }
@@ -602,7 +611,7 @@ func (o GlobalTableGlobalSecondaryIndexOutput) WriteOnDemandThroughputSettings()
 	}).(GlobalTableWriteOnDemandThroughputSettingsPtrOutput)
 }
 
-// Specifies an auto scaling policy for write capacity. This policy will be applied to all replicas. This setting must be specified if `BillingMode` is set to `PROVISIONED` .
+// Defines write capacity settings for the global secondary index. You must specify a value for this property if the table's `BillingMode` is `PROVISIONED` . All replicas will have the same write capacity settings for this global secondary index.
 func (o GlobalTableGlobalSecondaryIndexOutput) WriteProvisionedThroughputSettings() GlobalTableWriteProvisionedThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableGlobalSecondaryIndex) *GlobalTableWriteProvisionedThroughputSettings {
 		return v.WriteProvisionedThroughputSettings
@@ -917,13 +926,16 @@ func (o GlobalTableKinesisStreamSpecificationPtrOutput) StreamArn() pulumi.Strin
 type GlobalTableLocalSecondaryIndex struct {
 	// The name of the local secondary index. The name must be unique among all other indexes on this table.
 	IndexName string `pulumi:"indexName"`
-	// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+	// The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
 	//
-	// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+	// - `HASH` - partition key
+	// - `RANGE` - sort key
 	//
-	// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+	// > The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+	// >
+	// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 	KeySchema []GlobalTableKeySchema `pulumi:"keySchema"`
-	// Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+	// Represents attributes that are copied (projected) from the table into the local secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 	Projection GlobalTableProjection `pulumi:"projection"`
 }
 
@@ -941,13 +953,16 @@ type GlobalTableLocalSecondaryIndexInput interface {
 type GlobalTableLocalSecondaryIndexArgs struct {
 	// The name of the local secondary index. The name must be unique among all other indexes on this table.
 	IndexName pulumi.StringInput `pulumi:"indexName"`
-	// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+	// The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
 	//
-	// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+	// - `HASH` - partition key
+	// - `RANGE` - sort key
 	//
-	// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+	// > The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+	// >
+	// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 	KeySchema GlobalTableKeySchemaArrayInput `pulumi:"keySchema"`
-	// Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+	// Represents attributes that are copied (projected) from the table into the local secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 	Projection GlobalTableProjectionInput `pulumi:"projection"`
 }
 
@@ -1007,16 +1022,19 @@ func (o GlobalTableLocalSecondaryIndexOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableLocalSecondaryIndex) string { return v.IndexName }).(pulumi.StringOutput)
 }
 
-// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+// The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
 //
-// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+// - `HASH` - partition key
+// - `RANGE` - sort key
 //
-// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+// > The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+// >
+// > The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
 func (o GlobalTableLocalSecondaryIndexOutput) KeySchema() GlobalTableKeySchemaArrayOutput {
 	return o.ApplyT(func(v GlobalTableLocalSecondaryIndex) []GlobalTableKeySchema { return v.KeySchema }).(GlobalTableKeySchemaArrayOutput)
 }
 
-// Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+// Represents attributes that are copied (projected) from the table into the local secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 func (o GlobalTableLocalSecondaryIndexOutput) Projection() GlobalTableProjectionOutput {
 	return o.ApplyT(func(v GlobalTableLocalSecondaryIndex) GlobalTableProjection { return v.Projection }).(GlobalTableProjectionOutput)
 }
@@ -1401,7 +1419,7 @@ func (o GlobalTableReadOnDemandThroughputSettingsPtrOutput) MaxReadRequestUnits(
 }
 
 type GlobalTableReadProvisionedThroughputSettings struct {
-	// Configures a scalable target and an autoscaling policy for a table or global secondary index's read or write capacity.
+	// Specifies auto scaling settings for the replica table or global secondary index.
 	ReadCapacityAutoScalingSettings *GlobalTableCapacityAutoScalingSettings `pulumi:"readCapacityAutoScalingSettings"`
 	// Specifies a fixed read capacity for the replica table or global secondary index.
 	ReadCapacityUnits *int `pulumi:"readCapacityUnits"`
@@ -1419,7 +1437,7 @@ type GlobalTableReadProvisionedThroughputSettingsInput interface {
 }
 
 type GlobalTableReadProvisionedThroughputSettingsArgs struct {
-	// Configures a scalable target and an autoscaling policy for a table or global secondary index's read or write capacity.
+	// Specifies auto scaling settings for the replica table or global secondary index.
 	ReadCapacityAutoScalingSettings GlobalTableCapacityAutoScalingSettingsPtrInput `pulumi:"readCapacityAutoScalingSettings"`
 	// Specifies a fixed read capacity for the replica table or global secondary index.
 	ReadCapacityUnits pulumi.IntPtrInput `pulumi:"readCapacityUnits"`
@@ -1502,7 +1520,7 @@ func (o GlobalTableReadProvisionedThroughputSettingsOutput) ToGlobalTableReadPro
 	}).(GlobalTableReadProvisionedThroughputSettingsPtrOutput)
 }
 
-// Configures a scalable target and an autoscaling policy for a table or global secondary index's read or write capacity.
+// Specifies auto scaling settings for the replica table or global secondary index.
 func (o GlobalTableReadProvisionedThroughputSettingsOutput) ReadCapacityAutoScalingSettings() GlobalTableCapacityAutoScalingSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableReadProvisionedThroughputSettings) *GlobalTableCapacityAutoScalingSettings {
 		return v.ReadCapacityAutoScalingSettings
@@ -1538,7 +1556,7 @@ func (o GlobalTableReadProvisionedThroughputSettingsPtrOutput) Elem() GlobalTabl
 	}).(GlobalTableReadProvisionedThroughputSettingsOutput)
 }
 
-// Configures a scalable target and an autoscaling policy for a table or global secondary index's read or write capacity.
+// Specifies auto scaling settings for the replica table or global secondary index.
 func (o GlobalTableReadProvisionedThroughputSettingsPtrOutput) ReadCapacityAutoScalingSettings() GlobalTableCapacityAutoScalingSettingsPtrOutput {
 	return o.ApplyT(func(v *GlobalTableReadProvisionedThroughputSettings) *GlobalTableCapacityAutoScalingSettings {
 		if v == nil {
@@ -1559,13 +1577,13 @@ func (o GlobalTableReadProvisionedThroughputSettingsPtrOutput) ReadCapacityUnits
 }
 
 type GlobalTableReplicaGlobalSecondaryIndexSpecification struct {
-	// Configures contributor insights settings for a replica or one of its indexes.
+	// Updates the status for contributor insights for a specific table or index. CloudWatch Contributor Insights for DynamoDB graphs display the partition key and (if applicable) sort key of frequently accessed items and frequently throttled items in plaintext. If you require the use of AWS Key Management Service (KMS) to encrypt this table’s partition key and sort key data with an AWS managed key or customer managed key, you should not enable CloudWatch Contributor Insights for DynamoDB for this table.
 	ContributorInsightsSpecification *GlobalTableContributorInsightsSpecification `pulumi:"contributorInsightsSpecification"`
 	// The name of the global secondary index. The name must be unique among all other indexes on this table.
 	IndexName string `pulumi:"indexName"`
-	// Sets the read request settings for a replica table or a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+	// Sets the read request settings for a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 	ReadOnDemandThroughputSettings *GlobalTableReadOnDemandThroughputSettings `pulumi:"readOnDemandThroughputSettings"`
-	// Allows you to specify the read capacity settings for a replica table or a replica global secondary index when the `BillingMode` is set to `PROVISIONED` . You must specify a value for either `ReadCapacityUnits` or `ReadCapacityAutoScalingSettings` , but not both. You can switch between fixed capacity and auto scaling.
+	// Allows you to specify the read capacity settings for a replica global secondary index when the `BillingMode` is set to `PROVISIONED` .
 	ReadProvisionedThroughputSettings *GlobalTableReadProvisionedThroughputSettings `pulumi:"readProvisionedThroughputSettings"`
 }
 
@@ -1581,13 +1599,13 @@ type GlobalTableReplicaGlobalSecondaryIndexSpecificationInput interface {
 }
 
 type GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs struct {
-	// Configures contributor insights settings for a replica or one of its indexes.
+	// Updates the status for contributor insights for a specific table or index. CloudWatch Contributor Insights for DynamoDB graphs display the partition key and (if applicable) sort key of frequently accessed items and frequently throttled items in plaintext. If you require the use of AWS Key Management Service (KMS) to encrypt this table’s partition key and sort key data with an AWS managed key or customer managed key, you should not enable CloudWatch Contributor Insights for DynamoDB for this table.
 	ContributorInsightsSpecification GlobalTableContributorInsightsSpecificationPtrInput `pulumi:"contributorInsightsSpecification"`
 	// The name of the global secondary index. The name must be unique among all other indexes on this table.
 	IndexName pulumi.StringInput `pulumi:"indexName"`
-	// Sets the read request settings for a replica table or a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+	// Sets the read request settings for a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 	ReadOnDemandThroughputSettings GlobalTableReadOnDemandThroughputSettingsPtrInput `pulumi:"readOnDemandThroughputSettings"`
-	// Allows you to specify the read capacity settings for a replica table or a replica global secondary index when the `BillingMode` is set to `PROVISIONED` . You must specify a value for either `ReadCapacityUnits` or `ReadCapacityAutoScalingSettings` , but not both. You can switch between fixed capacity and auto scaling.
+	// Allows you to specify the read capacity settings for a replica global secondary index when the `BillingMode` is set to `PROVISIONED` .
 	ReadProvisionedThroughputSettings GlobalTableReadProvisionedThroughputSettingsPtrInput `pulumi:"readProvisionedThroughputSettings"`
 }
 
@@ -1642,7 +1660,7 @@ func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) ToGlobalTable
 	return o
 }
 
-// Configures contributor insights settings for a replica or one of its indexes.
+// Updates the status for contributor insights for a specific table or index. CloudWatch Contributor Insights for DynamoDB graphs display the partition key and (if applicable) sort key of frequently accessed items and frequently throttled items in plaintext. If you require the use of AWS Key Management Service (KMS) to encrypt this table’s partition key and sort key data with an AWS managed key or customer managed key, you should not enable CloudWatch Contributor Insights for DynamoDB for this table.
 func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) ContributorInsightsSpecification() GlobalTableContributorInsightsSpecificationPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaGlobalSecondaryIndexSpecification) *GlobalTableContributorInsightsSpecification {
 		return v.ContributorInsightsSpecification
@@ -1654,14 +1672,14 @@ func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) IndexName() p
 	return o.ApplyT(func(v GlobalTableReplicaGlobalSecondaryIndexSpecification) string { return v.IndexName }).(pulumi.StringOutput)
 }
 
-// Sets the read request settings for a replica table or a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+// Sets the read request settings for a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) ReadOnDemandThroughputSettings() GlobalTableReadOnDemandThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaGlobalSecondaryIndexSpecification) *GlobalTableReadOnDemandThroughputSettings {
 		return v.ReadOnDemandThroughputSettings
 	}).(GlobalTableReadOnDemandThroughputSettingsPtrOutput)
 }
 
-// Allows you to specify the read capacity settings for a replica table or a replica global secondary index when the `BillingMode` is set to `PROVISIONED` . You must specify a value for either `ReadCapacityUnits` or `ReadCapacityAutoScalingSettings` , but not both. You can switch between fixed capacity and auto scaling.
+// Allows you to specify the read capacity settings for a replica global secondary index when the `BillingMode` is set to `PROVISIONED` .
 func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationOutput) ReadProvisionedThroughputSettings() GlobalTableReadProvisionedThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaGlobalSecondaryIndexSpecification) *GlobalTableReadProvisionedThroughputSettings {
 		return v.ReadProvisionedThroughputSettings
@@ -1689,51 +1707,35 @@ func (o GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput) Index(i 
 }
 
 type GlobalTableReplicaSpecification struct {
-	// Configures contributor insights settings for a replica or one of its indexes.
+	// The settings used to enable or disable CloudWatch Contributor Insights for the specified replica. When not specified, defaults to contributor insights disabled for the replica.
 	ContributorInsightsSpecification *GlobalTableContributorInsightsSpecification `pulumi:"contributorInsightsSpecification"`
 	// Determines if a replica is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDB Developer Guide* .
 	DeletionProtectionEnabled *bool `pulumi:"deletionProtectionEnabled"`
-	// Represents the properties of a global secondary index that can be set on a per-replica basis.
+	// Defines additional settings for the global secondary indexes of this replica.
 	GlobalSecondaryIndexes []GlobalTableReplicaGlobalSecondaryIndexSpecification `pulumi:"globalSecondaryIndexes"`
-	// The Kinesis Data Streams configuration for the specified global table replica.
+	// Defines the Kinesis Data Streams configuration for the specified replica.
 	KinesisStreamSpecification *GlobalTableKinesisStreamSpecification `pulumi:"kinesisStreamSpecification"`
-	// Represents the settings used to enable point in time recovery.
+	// The settings used to enable point in time recovery. When not specified, defaults to point in time recovery disabled for the replica.
 	PointInTimeRecoverySpecification *GlobalTablePointInTimeRecoverySpecification `pulumi:"pointInTimeRecoverySpecification"`
-	// Sets the read request settings for a replica table or a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+	// Sets read request settings for the replica table.
 	ReadOnDemandThroughputSettings *GlobalTableReadOnDemandThroughputSettings `pulumi:"readOnDemandThroughputSettings"`
-	// Allows you to specify the read capacity settings for a replica table or a replica global secondary index when the `BillingMode` is set to `PROVISIONED` . You must specify a value for either `ReadCapacityUnits` or `ReadCapacityAutoScalingSettings` , but not both. You can switch between fixed capacity and auto scaling.
+	// Defines read capacity settings for the replica table.
 	ReadProvisionedThroughputSettings *GlobalTableReadProvisionedThroughputSettings `pulumi:"readProvisionedThroughputSettings"`
 	// The region in which this replica exists.
 	Region string `pulumi:"region"`
 	// Represents the DynamoDB Streams configuration for a global table replica.
 	ReplicaStreamSpecification *GlobalTableReplicaStreamSpecification `pulumi:"replicaStreamSpecification"`
-	// Creates or updates a resource-based policy document that contains the permissions for DynamoDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+	// A resource-based policy document that contains permissions to add to the specified replica of a DynamoDB global table. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
 	//
 	// In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
-	//
-	// While defining resource-based policies in your CloudFormation templates, the following considerations apply:
-	//
-	// - The maximum size supported for a resource-based policy document in JSON format is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.
-	// - Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#) . If you update a policy outside of the CloudFormation stack template, you'll need to update the CloudFormation stack with the changes.
-	// - Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CloudFormation template, the change won't be overwritten if there are no changes to the policy within the template.
-	//
-	// For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DynamoDB won’t be synced with the policy in the template.
-	//
-	// Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DynamoDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DynamoDB will be updated to match the one defined in the template.
-	// - Within a resource-based policy, if the action for a DynamoDB service-linked role (SLR) to replicate data for a global table is denied, adding or deleting a replica will fail with an error.
-	// - The [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource doesn't support creating a replica in the same stack update in Regions other than the Region where you deploy the stack update.
-	//
-	// For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html) .
 	ResourcePolicy *GlobalTableResourcePolicy `pulumi:"resourcePolicy"`
-	// Allows you to specify a KMS key identifier to be used for server-side encryption. The key can be specified via ARN, key ID, or alias. The key must be created in the same region as the replica.
+	// Allows you to specify a customer-managed key for the replica. When using customer-managed keys for server-side encryption, this property must have a value in all replicas.
 	SseSpecification *GlobalTableReplicaSseSpecification `pulumi:"sseSpecification"`
 	// The table class of the specified table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS` .
 	TableClass *string `pulumi:"tableClass"`
-	// Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table.
+	// An array of key-value pairs to apply to this replica.
 	//
-	// AWS -assigned tag names and values are automatically assigned the `aws:` prefix, which the user cannot assign. AWS -assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix `user:` in the Cost Allocation Report. You cannot backdate the application of a tag.
-	//
-	// For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide* .
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags []GlobalTableTag `pulumi:"tags"`
 }
 
@@ -1749,51 +1751,35 @@ type GlobalTableReplicaSpecificationInput interface {
 }
 
 type GlobalTableReplicaSpecificationArgs struct {
-	// Configures contributor insights settings for a replica or one of its indexes.
+	// The settings used to enable or disable CloudWatch Contributor Insights for the specified replica. When not specified, defaults to contributor insights disabled for the replica.
 	ContributorInsightsSpecification GlobalTableContributorInsightsSpecificationPtrInput `pulumi:"contributorInsightsSpecification"`
 	// Determines if a replica is protected from deletion. When enabled, the table cannot be deleted by any user or process. This setting is disabled by default. For more information, see [Using deletion protection](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.Basics.html#WorkingWithTables.Basics.DeletionProtection) in the *Amazon DynamoDB Developer Guide* .
 	DeletionProtectionEnabled pulumi.BoolPtrInput `pulumi:"deletionProtectionEnabled"`
-	// Represents the properties of a global secondary index that can be set on a per-replica basis.
+	// Defines additional settings for the global secondary indexes of this replica.
 	GlobalSecondaryIndexes GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayInput `pulumi:"globalSecondaryIndexes"`
-	// The Kinesis Data Streams configuration for the specified global table replica.
+	// Defines the Kinesis Data Streams configuration for the specified replica.
 	KinesisStreamSpecification GlobalTableKinesisStreamSpecificationPtrInput `pulumi:"kinesisStreamSpecification"`
-	// Represents the settings used to enable point in time recovery.
+	// The settings used to enable point in time recovery. When not specified, defaults to point in time recovery disabled for the replica.
 	PointInTimeRecoverySpecification GlobalTablePointInTimeRecoverySpecificationPtrInput `pulumi:"pointInTimeRecoverySpecification"`
-	// Sets the read request settings for a replica table or a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+	// Sets read request settings for the replica table.
 	ReadOnDemandThroughputSettings GlobalTableReadOnDemandThroughputSettingsPtrInput `pulumi:"readOnDemandThroughputSettings"`
-	// Allows you to specify the read capacity settings for a replica table or a replica global secondary index when the `BillingMode` is set to `PROVISIONED` . You must specify a value for either `ReadCapacityUnits` or `ReadCapacityAutoScalingSettings` , but not both. You can switch between fixed capacity and auto scaling.
+	// Defines read capacity settings for the replica table.
 	ReadProvisionedThroughputSettings GlobalTableReadProvisionedThroughputSettingsPtrInput `pulumi:"readProvisionedThroughputSettings"`
 	// The region in which this replica exists.
 	Region pulumi.StringInput `pulumi:"region"`
 	// Represents the DynamoDB Streams configuration for a global table replica.
 	ReplicaStreamSpecification GlobalTableReplicaStreamSpecificationPtrInput `pulumi:"replicaStreamSpecification"`
-	// Creates or updates a resource-based policy document that contains the permissions for DynamoDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+	// A resource-based policy document that contains permissions to add to the specified replica of a DynamoDB global table. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
 	//
 	// In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
-	//
-	// While defining resource-based policies in your CloudFormation templates, the following considerations apply:
-	//
-	// - The maximum size supported for a resource-based policy document in JSON format is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.
-	// - Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#) . If you update a policy outside of the CloudFormation stack template, you'll need to update the CloudFormation stack with the changes.
-	// - Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CloudFormation template, the change won't be overwritten if there are no changes to the policy within the template.
-	//
-	// For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DynamoDB won’t be synced with the policy in the template.
-	//
-	// Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DynamoDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DynamoDB will be updated to match the one defined in the template.
-	// - Within a resource-based policy, if the action for a DynamoDB service-linked role (SLR) to replicate data for a global table is denied, adding or deleting a replica will fail with an error.
-	// - The [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource doesn't support creating a replica in the same stack update in Regions other than the Region where you deploy the stack update.
-	//
-	// For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html) .
 	ResourcePolicy GlobalTableResourcePolicyPtrInput `pulumi:"resourcePolicy"`
-	// Allows you to specify a KMS key identifier to be used for server-side encryption. The key can be specified via ARN, key ID, or alias. The key must be created in the same region as the replica.
+	// Allows you to specify a customer-managed key for the replica. When using customer-managed keys for server-side encryption, this property must have a value in all replicas.
 	SseSpecification GlobalTableReplicaSseSpecificationPtrInput `pulumi:"sseSpecification"`
 	// The table class of the specified table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS` .
 	TableClass pulumi.StringPtrInput `pulumi:"tableClass"`
-	// Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table.
+	// An array of key-value pairs to apply to this replica.
 	//
-	// AWS -assigned tag names and values are automatically assigned the `aws:` prefix, which the user cannot assign. AWS -assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix `user:` in the Cost Allocation Report. You cannot backdate the application of a tag.
-	//
-	// For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide* .
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags GlobalTableTagArrayInput `pulumi:"tags"`
 }
 
@@ -1848,7 +1834,7 @@ func (o GlobalTableReplicaSpecificationOutput) ToGlobalTableReplicaSpecification
 	return o
 }
 
-// Configures contributor insights settings for a replica or one of its indexes.
+// The settings used to enable or disable CloudWatch Contributor Insights for the specified replica. When not specified, defaults to contributor insights disabled for the replica.
 func (o GlobalTableReplicaSpecificationOutput) ContributorInsightsSpecification() GlobalTableContributorInsightsSpecificationPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableContributorInsightsSpecification {
 		return v.ContributorInsightsSpecification
@@ -1860,35 +1846,35 @@ func (o GlobalTableReplicaSpecificationOutput) DeletionProtectionEnabled() pulum
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *bool { return v.DeletionProtectionEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Represents the properties of a global secondary index that can be set on a per-replica basis.
+// Defines additional settings for the global secondary indexes of this replica.
 func (o GlobalTableReplicaSpecificationOutput) GlobalSecondaryIndexes() GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) []GlobalTableReplicaGlobalSecondaryIndexSpecification {
 		return v.GlobalSecondaryIndexes
 	}).(GlobalTableReplicaGlobalSecondaryIndexSpecificationArrayOutput)
 }
 
-// The Kinesis Data Streams configuration for the specified global table replica.
+// Defines the Kinesis Data Streams configuration for the specified replica.
 func (o GlobalTableReplicaSpecificationOutput) KinesisStreamSpecification() GlobalTableKinesisStreamSpecificationPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableKinesisStreamSpecification {
 		return v.KinesisStreamSpecification
 	}).(GlobalTableKinesisStreamSpecificationPtrOutput)
 }
 
-// Represents the settings used to enable point in time recovery.
+// The settings used to enable point in time recovery. When not specified, defaults to point in time recovery disabled for the replica.
 func (o GlobalTableReplicaSpecificationOutput) PointInTimeRecoverySpecification() GlobalTablePointInTimeRecoverySpecificationPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTablePointInTimeRecoverySpecification {
 		return v.PointInTimeRecoverySpecification
 	}).(GlobalTablePointInTimeRecoverySpecificationPtrOutput)
 }
 
-// Sets the read request settings for a replica table or a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+// Sets read request settings for the replica table.
 func (o GlobalTableReplicaSpecificationOutput) ReadOnDemandThroughputSettings() GlobalTableReadOnDemandThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableReadOnDemandThroughputSettings {
 		return v.ReadOnDemandThroughputSettings
 	}).(GlobalTableReadOnDemandThroughputSettingsPtrOutput)
 }
 
-// Allows you to specify the read capacity settings for a replica table or a replica global secondary index when the `BillingMode` is set to `PROVISIONED` . You must specify a value for either `ReadCapacityUnits` or `ReadCapacityAutoScalingSettings` , but not both. You can switch between fixed capacity and auto scaling.
+// Defines read capacity settings for the replica table.
 func (o GlobalTableReplicaSpecificationOutput) ReadProvisionedThroughputSettings() GlobalTableReadProvisionedThroughputSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableReadProvisionedThroughputSettings {
 		return v.ReadProvisionedThroughputSettings
@@ -1907,28 +1893,14 @@ func (o GlobalTableReplicaSpecificationOutput) ReplicaStreamSpecification() Glob
 	}).(GlobalTableReplicaStreamSpecificationPtrOutput)
 }
 
-// Creates or updates a resource-based policy document that contains the permissions for DynamoDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+// A resource-based policy document that contains permissions to add to the specified replica of a DynamoDB global table. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
 //
 // In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
-//
-// While defining resource-based policies in your CloudFormation templates, the following considerations apply:
-//
-// - The maximum size supported for a resource-based policy document in JSON format is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.
-// - Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#) . If you update a policy outside of the CloudFormation stack template, you'll need to update the CloudFormation stack with the changes.
-// - Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CloudFormation template, the change won't be overwritten if there are no changes to the policy within the template.
-//
-// For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DynamoDB won’t be synced with the policy in the template.
-//
-// Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DynamoDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DynamoDB will be updated to match the one defined in the template.
-// - Within a resource-based policy, if the action for a DynamoDB service-linked role (SLR) to replicate data for a global table is denied, adding or deleting a replica will fail with an error.
-// - The [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource doesn't support creating a replica in the same stack update in Regions other than the Region where you deploy the stack update.
-//
-// For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html) .
 func (o GlobalTableReplicaSpecificationOutput) ResourcePolicy() GlobalTableResourcePolicyPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableResourcePolicy { return v.ResourcePolicy }).(GlobalTableResourcePolicyPtrOutput)
 }
 
-// Allows you to specify a KMS key identifier to be used for server-side encryption. The key can be specified via ARN, key ID, or alias. The key must be created in the same region as the replica.
+// Allows you to specify a customer-managed key for the replica. When using customer-managed keys for server-side encryption, this property must have a value in all replicas.
 func (o GlobalTableReplicaSpecificationOutput) SseSpecification() GlobalTableReplicaSseSpecificationPtrOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *GlobalTableReplicaSseSpecification { return v.SseSpecification }).(GlobalTableReplicaSseSpecificationPtrOutput)
 }
@@ -1938,11 +1910,9 @@ func (o GlobalTableReplicaSpecificationOutput) TableClass() pulumi.StringPtrOutp
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) *string { return v.TableClass }).(pulumi.StringPtrOutput)
 }
 
-// Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table.
+// An array of key-value pairs to apply to this replica.
 //
-// AWS -assigned tag names and values are automatically assigned the `aws:` prefix, which the user cannot assign. AWS -assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix `user:` in the Cost Allocation Report. You cannot backdate the application of a tag.
-//
-// For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide* .
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o GlobalTableReplicaSpecificationOutput) Tags() GlobalTableTagArrayOutput {
 	return o.ApplyT(func(v GlobalTableReplicaSpecification) []GlobalTableTag { return v.Tags }).(GlobalTableTagArrayOutput)
 }
@@ -2105,23 +2075,11 @@ func (o GlobalTableReplicaSseSpecificationPtrOutput) KmsMasterKeyId() pulumi.Str
 }
 
 type GlobalTableReplicaStreamSpecification struct {
-	// Creates or updates a resource-based policy document that contains the permissions for DynamoDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+	// A resource-based policy document that contains the permissions for the specified stream of a DynamoDB global table replica. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
 	//
 	// In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
 	//
-	// While defining resource-based policies in your CloudFormation templates, the following considerations apply:
-	//
-	// - The maximum size supported for a resource-based policy document in JSON format is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.
-	// - Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#) . If you update a policy outside of the CloudFormation stack template, you'll need to update the CloudFormation stack with the changes.
-	// - Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CloudFormation template, the change won't be overwritten if there are no changes to the policy within the template.
-	//
-	// For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DynamoDB won’t be synced with the policy in the template.
-	//
-	// Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DynamoDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DynamoDB will be updated to match the one defined in the template.
-	// - Within a resource-based policy, if the action for a DynamoDB service-linked role (SLR) to replicate data for a global table is denied, adding or deleting a replica will fail with an error.
-	// - The [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource doesn't support creating a replica in the same stack update in Regions other than the Region where you deploy the stack update.
-	//
-	// For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html) .
+	// You can update the `ResourcePolicy` property if you've specified more than one table using the [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource.
 	ResourcePolicy GlobalTableResourcePolicy `pulumi:"resourcePolicy"`
 }
 
@@ -2137,23 +2095,11 @@ type GlobalTableReplicaStreamSpecificationInput interface {
 }
 
 type GlobalTableReplicaStreamSpecificationArgs struct {
-	// Creates or updates a resource-based policy document that contains the permissions for DynamoDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+	// A resource-based policy document that contains the permissions for the specified stream of a DynamoDB global table replica. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
 	//
 	// In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
 	//
-	// While defining resource-based policies in your CloudFormation templates, the following considerations apply:
-	//
-	// - The maximum size supported for a resource-based policy document in JSON format is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.
-	// - Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#) . If you update a policy outside of the CloudFormation stack template, you'll need to update the CloudFormation stack with the changes.
-	// - Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CloudFormation template, the change won't be overwritten if there are no changes to the policy within the template.
-	//
-	// For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DynamoDB won’t be synced with the policy in the template.
-	//
-	// Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DynamoDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DynamoDB will be updated to match the one defined in the template.
-	// - Within a resource-based policy, if the action for a DynamoDB service-linked role (SLR) to replicate data for a global table is denied, adding or deleting a replica will fail with an error.
-	// - The [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource doesn't support creating a replica in the same stack update in Regions other than the Region where you deploy the stack update.
-	//
-	// For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html) .
+	// You can update the `ResourcePolicy` property if you've specified more than one table using the [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource.
 	ResourcePolicy GlobalTableResourcePolicyInput `pulumi:"resourcePolicy"`
 }
 
@@ -2234,23 +2180,11 @@ func (o GlobalTableReplicaStreamSpecificationOutput) ToGlobalTableReplicaStreamS
 	}).(GlobalTableReplicaStreamSpecificationPtrOutput)
 }
 
-// Creates or updates a resource-based policy document that contains the permissions for DynamoDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+// A resource-based policy document that contains the permissions for the specified stream of a DynamoDB global table replica. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
 //
 // In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
 //
-// While defining resource-based policies in your CloudFormation templates, the following considerations apply:
-//
-// - The maximum size supported for a resource-based policy document in JSON format is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.
-// - Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#) . If you update a policy outside of the CloudFormation stack template, you'll need to update the CloudFormation stack with the changes.
-// - Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CloudFormation template, the change won't be overwritten if there are no changes to the policy within the template.
-//
-// For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DynamoDB won’t be synced with the policy in the template.
-//
-// Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DynamoDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DynamoDB will be updated to match the one defined in the template.
-// - Within a resource-based policy, if the action for a DynamoDB service-linked role (SLR) to replicate data for a global table is denied, adding or deleting a replica will fail with an error.
-// - The [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource doesn't support creating a replica in the same stack update in Regions other than the Region where you deploy the stack update.
-//
-// For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html) .
+// You can update the `ResourcePolicy` property if you've specified more than one table using the [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource.
 func (o GlobalTableReplicaStreamSpecificationOutput) ResourcePolicy() GlobalTableResourcePolicyOutput {
 	return o.ApplyT(func(v GlobalTableReplicaStreamSpecification) GlobalTableResourcePolicy { return v.ResourcePolicy }).(GlobalTableResourcePolicyOutput)
 }
@@ -2279,23 +2213,11 @@ func (o GlobalTableReplicaStreamSpecificationPtrOutput) Elem() GlobalTableReplic
 	}).(GlobalTableReplicaStreamSpecificationOutput)
 }
 
-// Creates or updates a resource-based policy document that contains the permissions for DynamoDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+// A resource-based policy document that contains the permissions for the specified stream of a DynamoDB global table replica. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
 //
 // In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
 //
-// While defining resource-based policies in your CloudFormation templates, the following considerations apply:
-//
-// - The maximum size supported for a resource-based policy document in JSON format is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.
-// - Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#) . If you update a policy outside of the CloudFormation stack template, you'll need to update the CloudFormation stack with the changes.
-// - Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CloudFormation template, the change won't be overwritten if there are no changes to the policy within the template.
-//
-// For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DynamoDB won’t be synced with the policy in the template.
-//
-// Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DynamoDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DynamoDB will be updated to match the one defined in the template.
-// - Within a resource-based policy, if the action for a DynamoDB service-linked role (SLR) to replicate data for a global table is denied, adding or deleting a replica will fail with an error.
-// - The [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource doesn't support creating a replica in the same stack update in Regions other than the Region where you deploy the stack update.
-//
-// For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html) .
+// You can update the `ResourcePolicy` property if you've specified more than one table using the [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource.
 func (o GlobalTableReplicaStreamSpecificationPtrOutput) ResourcePolicy() GlobalTableResourcePolicyPtrOutput {
 	return o.ApplyT(func(v *GlobalTableReplicaStreamSpecification) *GlobalTableResourcePolicy {
 		if v == nil {
@@ -3365,7 +3287,7 @@ func (o GlobalTableWriteOnDemandThroughputSettingsPtrOutput) MaxWriteRequestUnit
 }
 
 type GlobalTableWriteProvisionedThroughputSettings struct {
-	// Configures a scalable target and an autoscaling policy for a table or global secondary index's read or write capacity.
+	// Specifies auto scaling settings for the replica table or global secondary index.
 	WriteCapacityAutoScalingSettings *GlobalTableCapacityAutoScalingSettings `pulumi:"writeCapacityAutoScalingSettings"`
 }
 
@@ -3381,7 +3303,7 @@ type GlobalTableWriteProvisionedThroughputSettingsInput interface {
 }
 
 type GlobalTableWriteProvisionedThroughputSettingsArgs struct {
-	// Configures a scalable target and an autoscaling policy for a table or global secondary index's read or write capacity.
+	// Specifies auto scaling settings for the replica table or global secondary index.
 	WriteCapacityAutoScalingSettings GlobalTableCapacityAutoScalingSettingsPtrInput `pulumi:"writeCapacityAutoScalingSettings"`
 }
 
@@ -3462,7 +3384,7 @@ func (o GlobalTableWriteProvisionedThroughputSettingsOutput) ToGlobalTableWriteP
 	}).(GlobalTableWriteProvisionedThroughputSettingsPtrOutput)
 }
 
-// Configures a scalable target and an autoscaling policy for a table or global secondary index's read or write capacity.
+// Specifies auto scaling settings for the replica table or global secondary index.
 func (o GlobalTableWriteProvisionedThroughputSettingsOutput) WriteCapacityAutoScalingSettings() GlobalTableCapacityAutoScalingSettingsPtrOutput {
 	return o.ApplyT(func(v GlobalTableWriteProvisionedThroughputSettings) *GlobalTableCapacityAutoScalingSettings {
 		return v.WriteCapacityAutoScalingSettings
@@ -3493,7 +3415,7 @@ func (o GlobalTableWriteProvisionedThroughputSettingsPtrOutput) Elem() GlobalTab
 	}).(GlobalTableWriteProvisionedThroughputSettingsOutput)
 }
 
-// Configures a scalable target and an autoscaling policy for a table or global secondary index's read or write capacity.
+// Specifies auto scaling settings for the replica table or global secondary index.
 func (o GlobalTableWriteProvisionedThroughputSettingsPtrOutput) WriteCapacityAutoScalingSettings() GlobalTableCapacityAutoScalingSettingsPtrOutput {
 	return o.ApplyT(func(v *GlobalTableWriteProvisionedThroughputSettings) *GlobalTableCapacityAutoScalingSettings {
 		if v == nil {

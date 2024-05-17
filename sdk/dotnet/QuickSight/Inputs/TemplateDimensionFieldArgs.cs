@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateDimensionFieldArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The dimension type field with categorical type columns..
+        /// The dimension type field with categorical type columns.
         /// </summary>
         [Input("categoricalDimensionField")]
         public Input<Inputs.TemplateCategoricalDimensionFieldArgs>? CategoricalDimensionField { get; set; }

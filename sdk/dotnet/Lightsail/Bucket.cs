@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Lightsail
         public Output<bool> AbleToUpdateBundle { get; private set; } = null!;
 
         /// <summary>
-        /// `AccessRules` is a property of the [AWS::Lightsail::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html) resource. It describes access rules for a bucket.
+        /// An object that describes the access rules for the bucket.
         /// </summary>
         [Output("accessRules")]
         public Output<Outputs.BucketAccessRules?> AccessRules { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.AwsNative.Lightsail
     public sealed class BucketArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// `AccessRules` is a property of the [AWS::Lightsail::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html) resource. It describes access rules for a bucket.
+        /// An object that describes the access rules for the bucket.
         /// </summary>
         [Input("accessRules")]
         public Input<Inputs.BucketAccessRulesArgs>? AccessRules { get; set; }

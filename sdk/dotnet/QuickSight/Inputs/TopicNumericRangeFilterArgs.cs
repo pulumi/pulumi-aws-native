@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.TopicNamedFilterAggType>? Aggregation { get; set; }
 
         /// <summary>
-        /// A constant value that is used in a range filter to specify the endpoints of the range.
+        /// The constant used in a numeric range filter.
         /// </summary>
         [Input("constant")]
         public Input<Inputs.TopicRangeFilterConstantArgs>? Constant { get; set; }

@@ -20,7 +20,9 @@ type BackupSelection struct {
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Uniquely identifies a backup plan.
 	BackupPlanId pulumi.StringOutput `pulumi:"backupPlanId"`
-	// Specifies an object containing properties used to assign a set of resources to a backup plan.
+	// Specifies the body of a request to assign a set of resources to a backup plan.
+	//
+	// It includes an array of resources, an optional array of patterns to exclude resources, an optional role to provide access to the AWS service the resource belongs to, and an optional array of tags used to identify a set of resources.
 	BackupSelection BackupSelectionResourceTypeOutput `pulumi:"backupSelection"`
 	// Uniquely identifies a request to assign a set of resources to a backup plan.
 	SelectionId pulumi.StringOutput `pulumi:"selectionId"`
@@ -79,7 +81,9 @@ func (BackupSelectionState) ElementType() reflect.Type {
 type backupSelectionArgs struct {
 	// Uniquely identifies a backup plan.
 	BackupPlanId string `pulumi:"backupPlanId"`
-	// Specifies an object containing properties used to assign a set of resources to a backup plan.
+	// Specifies the body of a request to assign a set of resources to a backup plan.
+	//
+	// It includes an array of resources, an optional array of patterns to exclude resources, an optional role to provide access to the AWS service the resource belongs to, and an optional array of tags used to identify a set of resources.
 	BackupSelection BackupSelectionResourceType `pulumi:"backupSelection"`
 }
 
@@ -87,7 +91,9 @@ type backupSelectionArgs struct {
 type BackupSelectionArgs struct {
 	// Uniquely identifies a backup plan.
 	BackupPlanId pulumi.StringInput
-	// Specifies an object containing properties used to assign a set of resources to a backup plan.
+	// Specifies the body of a request to assign a set of resources to a backup plan.
+	//
+	// It includes an array of resources, an optional array of patterns to exclude resources, an optional role to provide access to the AWS service the resource belongs to, and an optional array of tags used to identify a set of resources.
 	BackupSelection BackupSelectionResourceTypeInput
 }
 
@@ -138,7 +144,9 @@ func (o BackupSelectionOutput) BackupPlanId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackupSelection) pulumi.StringOutput { return v.BackupPlanId }).(pulumi.StringOutput)
 }
 
-// Specifies an object containing properties used to assign a set of resources to a backup plan.
+// Specifies the body of a request to assign a set of resources to a backup plan.
+//
+// It includes an array of resources, an optional array of patterns to exclude resources, an optional role to provide access to the AWS service the resource belongs to, and an optional array of tags used to identify a set of resources.
 func (o BackupSelectionOutput) BackupSelection() BackupSelectionResourceTypeOutput {
 	return o.ApplyT(func(v *BackupSelection) BackupSelectionResourceTypeOutput { return v.BackupSelection }).(BackupSelectionResourceTypeOutput)
 }

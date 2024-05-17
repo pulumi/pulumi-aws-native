@@ -34,8 +34,8 @@ class IdentityPoolArgs:
         :param Any cognito_events: The events to configure.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input['IdentityPoolCognitoIdentityProviderArgs']]] cognito_identity_providers: `CognitoIdentityProvider` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that represents an Amazon Cognito user pool and its client ID.
-        :param pulumi.Input['IdentityPoolCognitoStreamsArgs'] cognito_streams: `CognitoStreams` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines configuration options for Amazon Cognito streams.
+        :param pulumi.Input[Sequence[pulumi.Input['IdentityPoolCognitoIdentityProviderArgs']]] cognito_identity_providers: The Amazon Cognito user pools and their client IDs.
+        :param pulumi.Input['IdentityPoolCognitoStreamsArgs'] cognito_streams: Configuration options for configuring Amazon Cognito streams.
         :param pulumi.Input[str] developer_provider_name: The "domain" Amazon Cognito uses when referencing your users. This name acts as a placeholder that allows your backend and the Amazon Cognito service to communicate about the developer provider. For the `DeveloperProviderName` , you can use letters and periods (.), underscores (_), and dashes (-).
                
                *Minimum length* : 1
@@ -49,7 +49,7 @@ class IdentityPoolArgs:
                
                *Pattern* : `[\\w\\s+=,.@-]+`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] open_id_connect_provider_arns: The Amazon Resource Names (ARNs) of the OpenID connect providers.
-        :param pulumi.Input['IdentityPoolPushSyncArgs'] push_sync: `PushSync` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines the configuration options to be applied to an Amazon Cognito identity pool.
+        :param pulumi.Input['IdentityPoolPushSyncArgs'] push_sync: The configuration options to be applied to the identity pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] saml_provider_arns: The Amazon Resource Names (ARNs) of the Security Assertion Markup Language (SAML) providers.
         :param Any supported_login_providers: Key-value pairs that map provider names to provider app IDs.
                
@@ -119,7 +119,7 @@ class IdentityPoolArgs:
     @pulumi.getter(name="cognitoIdentityProviders")
     def cognito_identity_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolCognitoIdentityProviderArgs']]]]:
         """
-        `CognitoIdentityProvider` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that represents an Amazon Cognito user pool and its client ID.
+        The Amazon Cognito user pools and their client IDs.
         """
         return pulumi.get(self, "cognito_identity_providers")
 
@@ -131,7 +131,7 @@ class IdentityPoolArgs:
     @pulumi.getter(name="cognitoStreams")
     def cognito_streams(self) -> Optional[pulumi.Input['IdentityPoolCognitoStreamsArgs']]:
         """
-        `CognitoStreams` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines configuration options for Amazon Cognito streams.
+        Configuration options for configuring Amazon Cognito streams.
         """
         return pulumi.get(self, "cognito_streams")
 
@@ -189,7 +189,7 @@ class IdentityPoolArgs:
     @pulumi.getter(name="pushSync")
     def push_sync(self) -> Optional[pulumi.Input['IdentityPoolPushSyncArgs']]:
         """
-        `PushSync` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines the configuration options to be applied to an Amazon Cognito identity pool.
+        The configuration options to be applied to the identity pool.
         """
         return pulumi.get(self, "push_sync")
 
@@ -251,8 +251,8 @@ class IdentityPool(pulumi.CustomResource):
         :param Any cognito_events: The events to configure.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdentityPoolCognitoIdentityProviderArgs']]]] cognito_identity_providers: `CognitoIdentityProvider` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that represents an Amazon Cognito user pool and its client ID.
-        :param pulumi.Input[pulumi.InputType['IdentityPoolCognitoStreamsArgs']] cognito_streams: `CognitoStreams` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines configuration options for Amazon Cognito streams.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdentityPoolCognitoIdentityProviderArgs']]]] cognito_identity_providers: The Amazon Cognito user pools and their client IDs.
+        :param pulumi.Input[pulumi.InputType['IdentityPoolCognitoStreamsArgs']] cognito_streams: Configuration options for configuring Amazon Cognito streams.
         :param pulumi.Input[str] developer_provider_name: The "domain" Amazon Cognito uses when referencing your users. This name acts as a placeholder that allows your backend and the Amazon Cognito service to communicate about the developer provider. For the `DeveloperProviderName` , you can use letters and periods (.), underscores (_), and dashes (-).
                
                *Minimum length* : 1
@@ -266,7 +266,7 @@ class IdentityPool(pulumi.CustomResource):
                
                *Pattern* : `[\\w\\s+=,.@-]+`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] open_id_connect_provider_arns: The Amazon Resource Names (ARNs) of the OpenID connect providers.
-        :param pulumi.Input[pulumi.InputType['IdentityPoolPushSyncArgs']] push_sync: `PushSync` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines the configuration options to be applied to an Amazon Cognito identity pool.
+        :param pulumi.Input[pulumi.InputType['IdentityPoolPushSyncArgs']] push_sync: The configuration options to be applied to the identity pool.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] saml_provider_arns: The Amazon Resource Names (ARNs) of the Security Assertion Markup Language (SAML) providers.
         :param Any supported_login_providers: Key-value pairs that map provider names to provider app IDs.
                
@@ -403,7 +403,7 @@ class IdentityPool(pulumi.CustomResource):
     @pulumi.getter(name="cognitoIdentityProviders")
     def cognito_identity_providers(self) -> pulumi.Output[Optional[Sequence['outputs.IdentityPoolCognitoIdentityProvider']]]:
         """
-        `CognitoIdentityProvider` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that represents an Amazon Cognito user pool and its client ID.
+        The Amazon Cognito user pools and their client IDs.
         """
         return pulumi.get(self, "cognito_identity_providers")
 
@@ -411,7 +411,7 @@ class IdentityPool(pulumi.CustomResource):
     @pulumi.getter(name="cognitoStreams")
     def cognito_streams(self) -> pulumi.Output[Optional['outputs.IdentityPoolCognitoStreams']]:
         """
-        `CognitoStreams` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines configuration options for Amazon Cognito streams.
+        Configuration options for configuring Amazon Cognito streams.
         """
         return pulumi.get(self, "cognito_streams")
 
@@ -461,7 +461,7 @@ class IdentityPool(pulumi.CustomResource):
     @pulumi.getter(name="pushSync")
     def push_sync(self) -> pulumi.Output[Optional['outputs.IdentityPoolPushSync']]:
         """
-        `PushSync` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines the configuration options to be applied to an Amazon Cognito identity pool.
+        The configuration options to be applied to the identity pool.
         """
         return pulumi.get(self, "push_sync")
 

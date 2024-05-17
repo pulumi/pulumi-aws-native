@@ -53,18 +53,13 @@ export class Domain extends pulumi.CustomResource {
      * The required AWS Identity and Access Management (IAMlong) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
      */
     public readonly autoSubDomainIamRole!: pulumi.Output<string | undefined>;
-    /**
-     * Describes the SSL/TLS certificate for the domain association. This can be your own custom certificate or the default certificate that Amplify provisions for you.
-     *
-     * If you are updating your domain to use a different certificate, `Certificate` points to the new certificate that is being created instead of the current active certificate. Otherwise, `Certificate` points to the current active certificate.
-     */
     public /*out*/ readonly certificate!: pulumi.Output<outputs.amplify.DomainCertificate>;
     /**
      * DNS Record for certificate verification.
      */
     public /*out*/ readonly certificateRecord!: pulumi.Output<string>;
     /**
-     * The type of SSL/TLS certificate to use for your custom domain. If a certificate type isn't specified, Amplify uses the default `AMPLIFY_MANAGED` certificate.
+     * The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
      */
     public readonly certificateSettings!: pulumi.Output<outputs.amplify.DomainCertificateSettings | undefined>;
     /**
@@ -84,7 +79,7 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly statusReason!: pulumi.Output<string>;
     /**
-     * The SubDomainSetting property type enables you to connect a subdomain (for example, example.exampledomain.com) to a specific branch.
+     * The setting for the subdomain.
      */
     public readonly subDomainSettings!: pulumi.Output<outputs.amplify.DomainSubDomainSetting[]>;
     /**
@@ -169,7 +164,7 @@ export interface DomainArgs {
      */
     autoSubDomainIamRole?: pulumi.Input<string>;
     /**
-     * The type of SSL/TLS certificate to use for your custom domain. If a certificate type isn't specified, Amplify uses the default `AMPLIFY_MANAGED` certificate.
+     * The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
      */
     certificateSettings?: pulumi.Input<inputs.amplify.DomainCertificateSettingsArgs>;
     /**
@@ -181,7 +176,7 @@ export interface DomainArgs {
      */
     enableAutoSubDomain?: pulumi.Input<boolean>;
     /**
-     * The SubDomainSetting property type enables you to connect a subdomain (for example, example.exampledomain.com) to a specific branch.
+     * The setting for the subdomain.
      */
     subDomainSettings: pulumi.Input<pulumi.Input<inputs.amplify.DomainSubDomainSettingArgs>[]>;
 }

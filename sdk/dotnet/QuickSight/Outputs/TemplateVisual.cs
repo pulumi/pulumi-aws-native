@@ -16,15 +16,6 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// A bar chart.
         /// 
-        /// The `BarChartVisual` structure describes a visual that is a member of the bar chart family. The following charts can be described using this structure:
-        /// 
-        /// - Horizontal bar chart
-        /// - Vertical bar chart
-        /// - Horizontal stacked bar chart
-        /// - Vertical stacked bar chart
-        /// - Horizontal stacked 100% bar chart
-        /// - Vertical stacked 100% bar chart
-        /// 
         /// For more information, see [Using bar charts](https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html) in the *Amazon QuickSight User Guide* .
         /// </summary>
         public readonly Outputs.TemplateBarChartVisual? BarChartVisual;
@@ -37,8 +28,6 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// A combo chart.
         /// 
-        /// The `ComboChartVisual` includes stacked bar combo charts and clustered bar combo charts
-        /// 
         /// For more information, see [Using combo charts](https://docs.aws.amazon.com/quicksight/latest/user/combo-charts.html) in the *Amazon QuickSight User Guide* .
         /// </summary>
         public readonly Outputs.TemplateComboChartVisual? ComboChartVisual;
@@ -50,8 +39,6 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Outputs.TemplateCustomContentVisual? CustomContentVisual;
         /// <summary>
         /// An empty visual.
-        /// 
-        /// Empty visuals are used in layouts but have not been configured to show any data. A new visual created in the Amazon QuickSight console is considered an `EmptyVisual` until a visual type is selected.
         /// </summary>
         public readonly Outputs.TemplateEmptyVisual? EmptyVisual;
         /// <summary>
@@ -111,16 +98,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// A pie or donut chart.
         /// 
-        /// The `PieChartVisual` structure describes a visual that is a member of the pie chart family.
-        /// 
-        /// The following charts can be described by using this structure:
-        /// 
-        /// - Pie charts
-        /// - Donut charts
-        /// 
         /// For more information, see [Using pie charts](https://docs.aws.amazon.com/quicksight/latest/user/pie-chart.html) in the *Amazon QuickSight User Guide* .
-        /// 
-        /// For more information, see [Using donut charts](https://docs.aws.amazon.com/quicksight/latest/user/donut-chart.html) in the *Amazon QuickSight User Guide* .
         /// </summary>
         public readonly Outputs.TemplatePieChartVisual? PieChartVisual;
         /// <summary>
@@ -131,6 +109,8 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Outputs.TemplatePivotTableVisual? PivotTableVisual;
         /// <summary>
         /// A radar chart visual.
+        /// 
+        /// For more information, see [Using radar charts](https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html) in the *Amazon QuickSight User Guide* .
         /// </summary>
         public readonly Outputs.TemplateRadarChartVisual? RadarChartVisual;
         /// <summary>

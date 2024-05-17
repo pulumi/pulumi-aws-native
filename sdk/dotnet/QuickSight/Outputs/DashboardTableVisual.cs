@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardVisualCustomAction> Actions;
         /// <summary>
-        /// The configuration for a `TableVisual` .
+        /// The configuration settings of the visual.
         /// </summary>
         public readonly Outputs.DashboardTableConfiguration? ChartConfiguration;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardTableConditionalFormatting? ConditionalFormatting;
         /// <summary>
-        /// The subtitle label options for a visual.
+        /// The subtitle that is displayed on the visual.
         /// </summary>
         public readonly Outputs.DashboardVisualSubtitleLabelOptions? Subtitle;
         /// <summary>
-        /// The title label options for a visual.
+        /// The title that is displayed on the visual.
         /// </summary>
         public readonly Outputs.DashboardVisualTitleLabelOptions? Title;
         /// <summary>

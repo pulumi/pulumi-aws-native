@@ -45,7 +45,7 @@ type Detector struct {
 	//
 	// If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
 	RuleExecutionMode DetectorRuleExecutionModePtrOutput `pulumi:"ruleExecutionMode"`
-	// A rule.
+	// The rules to include in the detector version.
 	Rules DetectorRuleArrayOutput `pulumi:"rules"`
 	// Tags associated with this detector.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -124,7 +124,7 @@ type detectorArgs struct {
 	//
 	// If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
 	RuleExecutionMode *DetectorRuleExecutionMode `pulumi:"ruleExecutionMode"`
-	// A rule.
+	// The rules to include in the detector version.
 	Rules []DetectorRule `pulumi:"rules"`
 	// Tags associated with this detector.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -152,7 +152,7 @@ type DetectorArgs struct {
 	//
 	// If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
 	RuleExecutionMode DetectorRuleExecutionModePtrInput
-	// A rule.
+	// The rules to include in the detector version.
 	Rules DetectorRuleArrayInput
 	// Tags associated with this detector.
 	Tags aws.TagArrayInput
@@ -253,7 +253,7 @@ func (o DetectorOutput) RuleExecutionMode() DetectorRuleExecutionModePtrOutput {
 	return o.ApplyT(func(v *Detector) DetectorRuleExecutionModePtrOutput { return v.RuleExecutionMode }).(DetectorRuleExecutionModePtrOutput)
 }
 
-// A rule.
+// The rules to include in the detector version.
 func (o DetectorOutput) Rules() DetectorRuleArrayOutput {
 	return o.ApplyT(func(v *Detector) DetectorRuleArrayOutput { return v.Rules }).(DetectorRuleArrayOutput)
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
     public sealed class DomainClusterConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Container for the parameters required to enable cold storage for an OpenSearch Service domain. For more information, see [Cold storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cold-storage.html) .
+        /// Container for cold storage configuration options.
         /// </summary>
         [Input("coldStorageOptions")]
         public Input<Inputs.DomainColdStorageOptionsArgs>? ColdStorageOptions { get; set; }

@@ -54,7 +54,7 @@ export class FargateProfile extends pulumi.CustomResource {
      */
     public readonly podExecutionRoleArn!: pulumi.Output<string>;
     /**
-     * An object representing an AWS Fargate profile selector.
+     * The selectors to match for a `Pod` to use this Fargate profile. Each selector must have an associated Kubernetes `namespace` . Optionally, you can also specify `labels` for a `namespace` . You may specify up to five selectors in a Fargate profile.
      */
     public readonly selectors!: pulumi.Output<outputs.eks.FargateProfileSelector[]>;
     /**
@@ -126,7 +126,7 @@ export interface FargateProfileArgs {
      */
     podExecutionRoleArn: pulumi.Input<string>;
     /**
-     * An object representing an AWS Fargate profile selector.
+     * The selectors to match for a `Pod` to use this Fargate profile. Each selector must have an associated Kubernetes `namespace` . Optionally, you can also specify `labels` for a `namespace` . You may specify up to five selectors in a Fargate profile.
      */
     selectors: pulumi.Input<pulumi.Input<inputs.eks.FargateProfileSelectorArgs>[]>;
     /**

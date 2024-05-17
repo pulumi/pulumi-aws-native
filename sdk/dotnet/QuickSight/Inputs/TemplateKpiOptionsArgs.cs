@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateKpiOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The comparison display configuration of a KPI or gauge chart.
+        /// The comparison configuration of a KPI visual.
         /// </summary>
         [Input("comparison")]
         public Input<Inputs.TemplateComparisonConfigurationArgs>? Comparison { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.TemplatePrimaryValueDisplayType>? PrimaryValueDisplayType { get; set; }
 
         /// <summary>
-        /// Configures the display properties of the given text.
+        /// The options that determine the primary value font configuration.
         /// </summary>
         [Input("primaryValueFontConfiguration")]
         public Input<Inputs.TemplateFontConfigurationArgs>? PrimaryValueFontConfiguration { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.TemplateSecondaryValueOptionsArgs>? SecondaryValue { get; set; }
 
         /// <summary>
-        /// Configures the display properties of the given text.
+        /// The options that determine the secondary value font configuration.
         /// </summary>
         [Input("secondaryValueFontConfiguration")]
         public Input<Inputs.TemplateFontConfigurationArgs>? SecondaryValueFontConfiguration { get; set; }

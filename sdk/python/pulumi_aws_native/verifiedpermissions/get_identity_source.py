@@ -38,11 +38,7 @@ class GetIdentitySourceResult:
     @pulumi.getter
     def configuration(self) -> Optional['outputs.IdentitySourceConfiguration']:
         """
-        A structure that contains configuration information used when creating or updating a new identity source.
-
-        > At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
-        > 
-        > You must specify a `userPoolArn` , and optionally, a `ClientId` .
+        Contains configuration information about an identity source.
         """
         return pulumi.get(self, "configuration")
 

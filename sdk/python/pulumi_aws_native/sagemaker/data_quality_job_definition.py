@@ -32,21 +32,15 @@ class DataQualityJobDefinitionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a DataQualityJobDefinition resource.
-        :param pulumi.Input['DataQualityJobDefinitionDataQualityAppSpecificationArgs'] data_quality_app_specification: Information about the container that a data quality monitoring job runs.
-        :param pulumi.Input['DataQualityJobDefinitionDataQualityJobInputArgs'] data_quality_job_input: The input for the data quality monitoring job. Currently endpoints are supported for input.
+        :param pulumi.Input['DataQualityJobDefinitionDataQualityAppSpecificationArgs'] data_quality_app_specification: Specifies the container that runs the monitoring job.
+        :param pulumi.Input['DataQualityJobDefinitionDataQualityJobInputArgs'] data_quality_job_input: A list of inputs for the monitoring job. Currently endpoints are supported as monitoring inputs.
         :param pulumi.Input['DataQualityJobDefinitionMonitoringOutputConfigArgs'] data_quality_job_output_config: The output configuration for monitoring jobs.
         :param pulumi.Input['DataQualityJobDefinitionMonitoringResourcesArgs'] job_resources: Identifies the resources to deploy for a monitoring job.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-        :param pulumi.Input['DataQualityJobDefinitionDataQualityBaselineConfigArgs'] data_quality_baseline_config: Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
+        :param pulumi.Input['DataQualityJobDefinitionDataQualityBaselineConfigArgs'] data_quality_baseline_config: Configures the constraints and baselines for the monitoring job.
         :param pulumi.Input[str] job_definition_name: The name for the monitoring job definition.
-        :param pulumi.Input['DataQualityJobDefinitionNetworkConfigArgs'] network_config: Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
-        :param pulumi.Input['DataQualityJobDefinitionStoppingConditionArgs'] stopping_condition: Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
-               
-               To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-               
-               The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
-               
-               > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+        :param pulumi.Input['DataQualityJobDefinitionNetworkConfigArgs'] network_config: Specifies networking configuration for the monitoring job.
+        :param pulumi.Input['DataQualityJobDefinitionStoppingConditionArgs'] stopping_condition: A time limit for how long the monitoring job is allowed to run before stopping.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "data_quality_app_specification", data_quality_app_specification)
@@ -71,7 +65,7 @@ class DataQualityJobDefinitionArgs:
     @pulumi.getter(name="dataQualityAppSpecification")
     def data_quality_app_specification(self) -> pulumi.Input['DataQualityJobDefinitionDataQualityAppSpecificationArgs']:
         """
-        Information about the container that a data quality monitoring job runs.
+        Specifies the container that runs the monitoring job.
         """
         return pulumi.get(self, "data_quality_app_specification")
 
@@ -83,7 +77,7 @@ class DataQualityJobDefinitionArgs:
     @pulumi.getter(name="dataQualityJobInput")
     def data_quality_job_input(self) -> pulumi.Input['DataQualityJobDefinitionDataQualityJobInputArgs']:
         """
-        The input for the data quality monitoring job. Currently endpoints are supported for input.
+        A list of inputs for the monitoring job. Currently endpoints are supported as monitoring inputs.
         """
         return pulumi.get(self, "data_quality_job_input")
 
@@ -131,7 +125,7 @@ class DataQualityJobDefinitionArgs:
     @pulumi.getter(name="dataQualityBaselineConfig")
     def data_quality_baseline_config(self) -> Optional[pulumi.Input['DataQualityJobDefinitionDataQualityBaselineConfigArgs']]:
         """
-        Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
+        Configures the constraints and baselines for the monitoring job.
         """
         return pulumi.get(self, "data_quality_baseline_config")
 
@@ -164,7 +158,7 @@ class DataQualityJobDefinitionArgs:
     @pulumi.getter(name="networkConfig")
     def network_config(self) -> Optional[pulumi.Input['DataQualityJobDefinitionNetworkConfigArgs']]:
         """
-        Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        Specifies networking configuration for the monitoring job.
         """
         return pulumi.get(self, "network_config")
 
@@ -176,13 +170,7 @@ class DataQualityJobDefinitionArgs:
     @pulumi.getter(name="stoppingCondition")
     def stopping_condition(self) -> Optional[pulumi.Input['DataQualityJobDefinitionStoppingConditionArgs']]:
         """
-        Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
-
-        To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-
-        The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
-
-        > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+        A time limit for how long the monitoring job is allowed to run before stopping.
         """
         return pulumi.get(self, "stopping_condition")
 
@@ -225,21 +213,15 @@ class DataQualityJobDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DataQualityJobDefinitionDataQualityAppSpecificationArgs']] data_quality_app_specification: Information about the container that a data quality monitoring job runs.
-        :param pulumi.Input[pulumi.InputType['DataQualityJobDefinitionDataQualityBaselineConfigArgs']] data_quality_baseline_config: Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
-        :param pulumi.Input[pulumi.InputType['DataQualityJobDefinitionDataQualityJobInputArgs']] data_quality_job_input: The input for the data quality monitoring job. Currently endpoints are supported for input.
+        :param pulumi.Input[pulumi.InputType['DataQualityJobDefinitionDataQualityAppSpecificationArgs']] data_quality_app_specification: Specifies the container that runs the monitoring job.
+        :param pulumi.Input[pulumi.InputType['DataQualityJobDefinitionDataQualityBaselineConfigArgs']] data_quality_baseline_config: Configures the constraints and baselines for the monitoring job.
+        :param pulumi.Input[pulumi.InputType['DataQualityJobDefinitionDataQualityJobInputArgs']] data_quality_job_input: A list of inputs for the monitoring job. Currently endpoints are supported as monitoring inputs.
         :param pulumi.Input[pulumi.InputType['DataQualityJobDefinitionMonitoringOutputConfigArgs']] data_quality_job_output_config: The output configuration for monitoring jobs.
         :param pulumi.Input[str] job_definition_name: The name for the monitoring job definition.
         :param pulumi.Input[pulumi.InputType['DataQualityJobDefinitionMonitoringResourcesArgs']] job_resources: Identifies the resources to deploy for a monitoring job.
-        :param pulumi.Input[pulumi.InputType['DataQualityJobDefinitionNetworkConfigArgs']] network_config: Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        :param pulumi.Input[pulumi.InputType['DataQualityJobDefinitionNetworkConfigArgs']] network_config: Specifies networking configuration for the monitoring job.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-        :param pulumi.Input[pulumi.InputType['DataQualityJobDefinitionStoppingConditionArgs']] stopping_condition: Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
-               
-               To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-               
-               The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
-               
-               > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+        :param pulumi.Input[pulumi.InputType['DataQualityJobDefinitionStoppingConditionArgs']] stopping_condition: A time limit for how long the monitoring job is allowed to run before stopping.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -360,7 +342,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
     @pulumi.getter(name="dataQualityAppSpecification")
     def data_quality_app_specification(self) -> pulumi.Output['outputs.DataQualityJobDefinitionDataQualityAppSpecification']:
         """
-        Information about the container that a data quality monitoring job runs.
+        Specifies the container that runs the monitoring job.
         """
         return pulumi.get(self, "data_quality_app_specification")
 
@@ -368,7 +350,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
     @pulumi.getter(name="dataQualityBaselineConfig")
     def data_quality_baseline_config(self) -> pulumi.Output[Optional['outputs.DataQualityJobDefinitionDataQualityBaselineConfig']]:
         """
-        Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
+        Configures the constraints and baselines for the monitoring job.
         """
         return pulumi.get(self, "data_quality_baseline_config")
 
@@ -376,7 +358,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
     @pulumi.getter(name="dataQualityJobInput")
     def data_quality_job_input(self) -> pulumi.Output['outputs.DataQualityJobDefinitionDataQualityJobInput']:
         """
-        The input for the data quality monitoring job. Currently endpoints are supported for input.
+        A list of inputs for the monitoring job. Currently endpoints are supported as monitoring inputs.
         """
         return pulumi.get(self, "data_quality_job_input")
 
@@ -421,7 +403,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
     @pulumi.getter(name="networkConfig")
     def network_config(self) -> pulumi.Output[Optional['outputs.DataQualityJobDefinitionNetworkConfig']]:
         """
-        Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        Specifies networking configuration for the monitoring job.
         """
         return pulumi.get(self, "network_config")
 
@@ -437,13 +419,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
     @pulumi.getter(name="stoppingCondition")
     def stopping_condition(self) -> pulumi.Output[Optional['outputs.DataQualityJobDefinitionStoppingCondition']]:
         """
-        Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
-
-        To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-
-        The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
-
-        > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+        A time limit for how long the monitoring job is allowed to run before stopping.
         """
         return pulumi.get(self, "stopping_condition")
 

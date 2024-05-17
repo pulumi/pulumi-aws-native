@@ -14,16 +14,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardDestinationParameterValueConfiguration
     {
         /// <summary>
-        /// The configuration of custom values for the destination parameter in `DestinationParameterValueConfiguration` .
+        /// The configuration of custom values for destination parameter in `DestinationParameterValueConfiguration` .
         /// </summary>
         public readonly Outputs.DashboardCustomValuesConfiguration? CustomValuesConfiguration;
         /// <summary>
         /// The configuration that selects all options.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardSelectAllValueOptions? SelectAllValueOptions;
-        /// <summary>
-        /// A column of a data set.
-        /// </summary>
         public readonly Outputs.DashboardColumnIdentifier? SourceColumn;
         /// <summary>
         /// The source field ID of the destination parameter.

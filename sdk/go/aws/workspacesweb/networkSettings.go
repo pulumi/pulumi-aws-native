@@ -29,7 +29,7 @@ type NetworkSettings struct {
 	//
 	// *Pattern* : `^subnet-([0-9a-f]{8}|[0-9a-f]{17})$`
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// The tag.
+	// The tags to add to the network settings resource. A tag is a key-value pair.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The VPC that streaming instances will connect to.
 	//
@@ -94,7 +94,7 @@ type networkSettingsArgs struct {
 	//
 	// *Pattern* : `^subnet-([0-9a-f]{8}|[0-9a-f]{17})$`
 	SubnetIds []string `pulumi:"subnetIds"`
-	// The tag.
+	// The tags to add to the network settings resource. A tag is a key-value pair.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The VPC that streaming instances will connect to.
 	//
@@ -112,7 +112,7 @@ type NetworkSettingsArgs struct {
 	//
 	// *Pattern* : `^subnet-([0-9a-f]{8}|[0-9a-f]{17})$`
 	SubnetIds pulumi.StringArrayInput
-	// The tag.
+	// The tags to add to the network settings resource. A tag is a key-value pair.
 	Tags aws.TagArrayInput
 	// The VPC that streaming instances will connect to.
 	//
@@ -181,7 +181,7 @@ func (o NetworkSettingsOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkSettings) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// The tag.
+// The tags to add to the network settings resource. A tag is a key-value pair.
 func (o NetworkSettingsOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *NetworkSettings) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

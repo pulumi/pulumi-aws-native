@@ -17,11 +17,11 @@ namespace Pulumi.AwsNative.DevOpsGuru.Outputs
     public sealed class NotificationChannelConfig
     {
         /// <summary>
-        /// The filter configurations for the Amazon SNS notification topic you use with DevOps Guru. You can choose to specify which events or message types to receive notifications for. You can also choose to specify which severity levels to receive notifications for.
+        /// The filter configurations for the Amazon SNS notification topic you use with DevOps Guru. If you do not provide filter configurations, the default configurations are to receive notifications for all message types of `High` or `Medium` severity.
         /// </summary>
         public readonly Outputs.NotificationChannelNotificationFilterConfig? Filters;
         /// <summary>
-        /// Contains the Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+        /// Information about a notification channel configured in DevOps Guru to send notifications when insights are created.
         /// 
         /// If you use an Amazon SNS topic in another account, you must attach a policy to it that grants DevOps Guru permission to send it notifications. DevOps Guru adds the required policy on your behalf to send notifications using Amazon SNS in your account. DevOps Guru only supports standard SNS topics. For more information, see [Permissions for Amazon SNS topics](https://docs.aws.amazon.com/devops-guru/latest/userguide/sns-required-permissions.html) .
         /// 

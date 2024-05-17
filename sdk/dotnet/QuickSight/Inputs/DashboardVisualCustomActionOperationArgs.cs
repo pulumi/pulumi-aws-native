@@ -20,8 +20,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         /// <summary>
         /// The navigation operation that navigates between different sheets in the same analysis.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
         /// </summary>
         [Input("navigationOperation")]
         public Input<Inputs.DashboardCustomActionNavigationOperationArgs>? NavigationOperation { get; set; }

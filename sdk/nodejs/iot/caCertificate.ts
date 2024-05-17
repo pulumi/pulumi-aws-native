@@ -68,7 +68,7 @@ export class CaCertificate extends pulumi.CustomResource {
      */
     public readonly certificateMode!: pulumi.Output<enums.iot.CaCertificateCertificateMode | undefined>;
     /**
-     * The registration configuration.
+     * Information about the registration configuration.
      */
     public readonly registrationConfig!: pulumi.Output<outputs.iot.CaCertificateRegistrationConfig | undefined>;
     /**
@@ -157,7 +157,7 @@ export interface CaCertificateArgs {
      */
     certificateMode?: pulumi.Input<enums.iot.CaCertificateCertificateMode>;
     /**
-     * The registration configuration.
+     * Information about the registration configuration.
      */
     registrationConfig?: pulumi.Input<inputs.iot.CaCertificateRegistrationConfigArgs>;
     /**

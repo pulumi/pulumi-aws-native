@@ -1503,7 +1503,7 @@ func (o AutomationRuleWorkflowUpdatePtrOutput) Status() AutomationRuleWorkflowUp
 }
 
 type AutomationRulesAction struct {
-	// Identifies the finding fields that the automation rule action updates when a finding matches the defined criteria.
+	// Specifies that the automation rule action is an update to a finding field.
 	FindingFieldsUpdate AutomationRulesFindingFieldsUpdate `pulumi:"findingFieldsUpdate"`
 	// Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *AWS Security Hub User Guide* .
 	Type AutomationRulesActionType `pulumi:"type"`
@@ -1521,7 +1521,7 @@ type AutomationRulesActionInput interface {
 }
 
 type AutomationRulesActionArgs struct {
-	// Identifies the finding fields that the automation rule action updates when a finding matches the defined criteria.
+	// Specifies that the automation rule action is an update to a finding field.
 	FindingFieldsUpdate AutomationRulesFindingFieldsUpdateInput `pulumi:"findingFieldsUpdate"`
 	// Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *AWS Security Hub User Guide* .
 	Type AutomationRulesActionTypeInput `pulumi:"type"`
@@ -1578,7 +1578,7 @@ func (o AutomationRulesActionOutput) ToAutomationRulesActionOutputWithContext(ct
 	return o
 }
 
-// Identifies the finding fields that the automation rule action updates when a finding matches the defined criteria.
+// Specifies that the automation rule action is an update to a finding field.
 func (o AutomationRulesActionOutput) FindingFieldsUpdate() AutomationRulesFindingFieldsUpdateOutput {
 	return o.ApplyT(func(v AutomationRulesAction) AutomationRulesFindingFieldsUpdate { return v.FindingFieldsUpdate }).(AutomationRulesFindingFieldsUpdateOutput)
 }
@@ -1738,7 +1738,9 @@ func (o AutomationRulesFindingFieldsUpdateOutput) Workflow() AutomationRuleWorkf
 }
 
 type AutomationRulesFindingFilters struct {
-	// A string filter for filtering AWS Security Hub findings.
+	// The AWS account ID in which a finding was generated.
+	//
+	// Array Members: Minimum number of 1 item. Maximum number of 100 items.
 	AwsAccountId []AutomationRuleStringFilter `pulumi:"awsAccountId"`
 	// The name of the company for the product that generated the finding. For control-based findings, the company is AWS .
 	//
@@ -1756,9 +1758,21 @@ type AutomationRulesFindingFilters struct {
 	//
 	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ComplianceStatus []AutomationRuleStringFilter `pulumi:"complianceStatus"`
-	// A number filter for querying findings.
+	// The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *AWS Security Hub User Guide* .
+	//
+	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	Confidence []AutomationRuleNumberFilter `pulumi:"confidence"`
-	// A date filter for querying findings.
+	// A timestamp that indicates when this finding record was created.
+	//
+	// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+	//
+	// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
+	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
+	// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
+	// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
+	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
+	//
+	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	CreatedAt []AutomationRuleDateFilter `pulumi:"createdAt"`
 	// The level of importance that is assigned to the resources that are associated with a finding. `Criticality` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of `0` means that the underlying resources have no criticality, and a score of `100` is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *AWS Security Hub User Guide* .
 	//
@@ -1840,7 +1854,9 @@ type AutomationRulesFindingFilters struct {
 	//
 	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	RelatedFindingsProductArn []AutomationRuleStringFilter `pulumi:"relatedFindingsProductArn"`
-	// A map filter for filtering AWS Security Hub findings. Each map filter provides the field to check for, the value to check for, and the comparison operator.
+	// Custom fields and values about the resource that a finding pertains to.
+	//
+	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ResourceDetailsOther []AutomationRuleMapFilter `pulumi:"resourceDetailsOther"`
 	// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
 	//
@@ -1916,7 +1932,9 @@ type AutomationRulesFindingFiltersInput interface {
 }
 
 type AutomationRulesFindingFiltersArgs struct {
-	// A string filter for filtering AWS Security Hub findings.
+	// The AWS account ID in which a finding was generated.
+	//
+	// Array Members: Minimum number of 1 item. Maximum number of 100 items.
 	AwsAccountId AutomationRuleStringFilterArrayInput `pulumi:"awsAccountId"`
 	// The name of the company for the product that generated the finding. For control-based findings, the company is AWS .
 	//
@@ -1934,9 +1952,21 @@ type AutomationRulesFindingFiltersArgs struct {
 	//
 	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ComplianceStatus AutomationRuleStringFilterArrayInput `pulumi:"complianceStatus"`
-	// A number filter for querying findings.
+	// The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *AWS Security Hub User Guide* .
+	//
+	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	Confidence AutomationRuleNumberFilterArrayInput `pulumi:"confidence"`
-	// A date filter for querying findings.
+	// A timestamp that indicates when this finding record was created.
+	//
+	// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+	//
+	// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
+	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
+	// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
+	// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
+	// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
+	//
+	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	CreatedAt AutomationRuleDateFilterArrayInput `pulumi:"createdAt"`
 	// The level of importance that is assigned to the resources that are associated with a finding. `Criticality` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of `0` means that the underlying resources have no criticality, and a score of `100` is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *AWS Security Hub User Guide* .
 	//
@@ -2018,7 +2048,9 @@ type AutomationRulesFindingFiltersArgs struct {
 	//
 	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	RelatedFindingsProductArn AutomationRuleStringFilterArrayInput `pulumi:"relatedFindingsProductArn"`
-	// A map filter for filtering AWS Security Hub findings. Each map filter provides the field to check for, the value to check for, and the comparison operator.
+	// Custom fields and values about the resource that a finding pertains to.
+	//
+	// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	ResourceDetailsOther AutomationRuleMapFilterArrayInput `pulumi:"resourceDetailsOther"`
 	// The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
 	//
@@ -2159,7 +2191,9 @@ func (o AutomationRulesFindingFiltersOutput) ToAutomationRulesFindingFiltersPtrO
 	}).(AutomationRulesFindingFiltersPtrOutput)
 }
 
-// A string filter for filtering AWS Security Hub findings.
+// The AWS account ID in which a finding was generated.
+//
+// Array Members: Minimum number of 1 item. Maximum number of 100 items.
 func (o AutomationRulesFindingFiltersOutput) AwsAccountId() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.AwsAccountId }).(AutomationRuleStringFilterArrayOutput)
 }
@@ -2196,12 +2230,24 @@ func (o AutomationRulesFindingFiltersOutput) ComplianceStatus() AutomationRuleSt
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.ComplianceStatus }).(AutomationRuleStringFilterArrayOutput)
 }
 
-// A number filter for querying findings.
+// The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *AWS Security Hub User Guide* .
+//
+// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) Confidence() AutomationRuleNumberFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleNumberFilter { return v.Confidence }).(AutomationRuleNumberFilterArrayOutput)
 }
 
-// A date filter for querying findings.
+// A timestamp that indicates when this finding record was created.
+//
+// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//
+// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
+// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
+// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
+// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
+// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
+//
+// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) CreatedAt() AutomationRuleDateFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleDateFilter { return v.CreatedAt }).(AutomationRuleDateFilterArrayOutput)
 }
@@ -2328,7 +2374,9 @@ func (o AutomationRulesFindingFiltersOutput) RelatedFindingsProductArn() Automat
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.RelatedFindingsProductArn }).(AutomationRuleStringFilterArrayOutput)
 }
 
-// A map filter for filtering AWS Security Hub findings. Each map filter provides the field to check for, the value to check for, and the comparison operator.
+// Custom fields and values about the resource that a finding pertains to.
+//
+// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) ResourceDetailsOther() AutomationRuleMapFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleMapFilter { return v.ResourceDetailsOther }).(AutomationRuleMapFilterArrayOutput)
 }
@@ -2456,7 +2504,9 @@ func (o AutomationRulesFindingFiltersPtrOutput) Elem() AutomationRulesFindingFil
 	}).(AutomationRulesFindingFiltersOutput)
 }
 
-// A string filter for filtering AWS Security Hub findings.
+// The AWS account ID in which a finding was generated.
+//
+// Array Members: Minimum number of 1 item. Maximum number of 100 items.
 func (o AutomationRulesFindingFiltersPtrOutput) AwsAccountId() AutomationRuleStringFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleStringFilter {
 		if v == nil {
@@ -2514,7 +2564,9 @@ func (o AutomationRulesFindingFiltersPtrOutput) ComplianceStatus() AutomationRul
 	}).(AutomationRuleStringFilterArrayOutput)
 }
 
-// A number filter for querying findings.
+// The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *AWS Security Hub User Guide* .
+//
+// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) Confidence() AutomationRuleNumberFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleNumberFilter {
 		if v == nil {
@@ -2524,7 +2576,17 @@ func (o AutomationRulesFindingFiltersPtrOutput) Confidence() AutomationRuleNumbe
 	}).(AutomationRuleNumberFilterArrayOutput)
 }
 
-// A date filter for querying findings.
+// A timestamp that indicates when this finding record was created.
+//
+// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+//
+// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
+// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
+// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
+// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
+// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
+//
+// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) CreatedAt() AutomationRuleDateFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleDateFilter {
 		if v == nil {
@@ -2726,7 +2788,9 @@ func (o AutomationRulesFindingFiltersPtrOutput) RelatedFindingsProductArn() Auto
 	}).(AutomationRuleStringFilterArrayOutput)
 }
 
-// A map filter for filtering AWS Security Hub findings. Each map filter provides the field to check for, the value to check for, and the comparison operator.
+// Custom fields and values about the resource that a finding pertains to.
+//
+// Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) ResourceDetailsOther() AutomationRuleMapFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleMapFilter {
 		if v == nil {

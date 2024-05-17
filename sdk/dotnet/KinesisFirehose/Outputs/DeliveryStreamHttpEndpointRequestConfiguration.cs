@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     public sealed class DeliveryStreamHttpEndpointRequestConfiguration
     {
         /// <summary>
-        /// Describes the metadata that's delivered to the specified HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+        /// Describes the metadata sent to the HTTP endpoint destination.
         /// </summary>
         public readonly ImmutableArray<Outputs.DeliveryStreamHttpEndpointCommonAttribute> CommonAttributes;
         /// <summary>

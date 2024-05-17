@@ -46,7 +46,7 @@ export class Integration extends pulumi.CustomResource {
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
-     * The configurations that control how Customer Profiles retrieves data from the source, Amazon AppFlow. Customer Profiles uses this information to create an AppFlow flow on behalf of customers.
+     * The configuration that controls how Customer Profiles retrieves data from the source.
      */
     public readonly flowDefinition!: pulumi.Output<outputs.customerprofiles.IntegrationFlowDefinition | undefined>;
     /**
@@ -118,7 +118,7 @@ export interface IntegrationArgs {
      */
     domainName: pulumi.Input<string>;
     /**
-     * The configurations that control how Customer Profiles retrieves data from the source, Amazon AppFlow. Customer Profiles uses this information to create an AppFlow flow on behalf of customers.
+     * The configuration that controls how Customer Profiles retrieves data from the source.
      */
     flowDefinition?: pulumi.Input<inputs.customerprofiles.IntegrationFlowDefinitionArgs>;
     /**

@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.DashboardPivotTableFieldCollapseState>? State { get; set; }
 
         /// <summary>
-        /// The target of a pivot table field collapse state.
+        /// A tagged-union object that sets the collapse state.
         /// </summary>
         [Input("target", required: true)]
         public Input<Inputs.DashboardPivotTableFieldCollapseStateTargetArgs> Target { get; set; } = null!;

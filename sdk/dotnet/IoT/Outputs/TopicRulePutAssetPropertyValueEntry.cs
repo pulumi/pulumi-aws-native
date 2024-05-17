@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
         /// </summary>
         public readonly string? PropertyId;
         /// <summary>
-        /// An asset property value entry containing the following information.
+        /// A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
         /// </summary>
         public readonly ImmutableArray<Outputs.TopicRuleAssetPropertyValue> PropertyValues;
 

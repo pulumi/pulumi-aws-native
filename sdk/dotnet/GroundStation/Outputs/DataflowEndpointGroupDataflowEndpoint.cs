@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     public sealed class DataflowEndpointGroupDataflowEndpoint
     {
         /// <summary>
-        /// The address of the endpoint, such as `192.168.1.1` .
+        /// The address and port of an endpoint.
         /// </summary>
         public readonly Outputs.DataflowEndpointGroupSocketAddress? Address;
         public readonly int? Mtu;

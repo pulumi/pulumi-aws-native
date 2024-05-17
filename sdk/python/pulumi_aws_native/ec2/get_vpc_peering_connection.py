@@ -39,7 +39,7 @@ class GetVpcPeeringConnectionResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        Any tags assigned to the resource.
         """
         return pulumi.get(self, "tags")
 

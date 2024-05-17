@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.SecurityHub.Outputs
     public sealed class AutomationRulesAction
     {
         /// <summary>
-        /// Identifies the finding fields that the automation rule action updates when a finding matches the defined criteria.
+        /// Specifies that the automation rule action is an update to a finding field.
         /// </summary>
         public readonly Outputs.AutomationRulesFindingFieldsUpdate FindingFieldsUpdate;
         /// <summary>

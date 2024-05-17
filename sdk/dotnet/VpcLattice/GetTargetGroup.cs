@@ -62,9 +62,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// Describes the configuration of a target group.
-        /// 
-        /// For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in the *Amazon VPC Lattice User Guide* .
+        /// The target group configuration.
         /// </summary>
         public readonly Outputs.TargetGroupConfig? Config;
         /// <summary>
@@ -84,7 +82,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public readonly Pulumi.AwsNative.VpcLattice.TargetGroupStatus? Status;
         /// <summary>
-        /// Specifies a tag for a target group.
+        /// The tags for the target group.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>

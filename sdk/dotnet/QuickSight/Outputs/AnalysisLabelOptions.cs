@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string? CustomLabel;
         /// <summary>
-        /// Configures the display properties of the given text.
+        /// The font configuration of the label.
         /// </summary>
         public readonly Outputs.AnalysisFontConfiguration? FontConfiguration;
         /// <summary>

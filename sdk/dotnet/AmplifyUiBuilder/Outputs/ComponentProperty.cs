@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     public sealed class ComponentProperty
     {
         /// <summary>
-        /// The `ComponentPropertyBindingProperties` property specifies a component property to associate with a binding property. This enables exposed properties on the top level component to propagate data to the component's property values.
+        /// The information to bind the component property to data at runtime.
         /// </summary>
         public readonly Outputs.ComponentPropertyBindingProperties? BindingProperties;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ComponentFormBindingElement>? Bindings;
         /// <summary>
-        /// The `ComponentPropertyBindingProperties` property specifies a component property to associate with a binding property. This enables exposed properties on the top level component to propagate data to the component's property values.
+        /// The information to bind the component property to data at runtime. Use this for collection components.
         /// </summary>
         public readonly Outputs.ComponentPropertyBindingProperties? CollectionBindingProperties;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
         /// </summary>
         public readonly string? ComponentName;
         /// <summary>
-        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// A list of component properties to concatenate to create the value to assign to this component property.
         /// </summary>
         public readonly ImmutableArray<Outputs.ComponentProperty> Concat;
         /// <summary>
-        /// The `ComponentConditionProperty` property specifies a conditional expression for setting a component property. Use `ComponentConditionProperty` to set a property to different values conditionally, based on the value of another property.
+        /// The conditional expression to use to assign a value to the component property.
         /// </summary>
         public readonly Outputs.ComponentConditionProperty? Condition;
         /// <summary>

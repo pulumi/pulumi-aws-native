@@ -42,7 +42,9 @@ namespace Pulumi.AwsNative.GreengrassV2
         public Output<string?> InlineRecipe { get; private set; } = null!;
 
         /// <summary>
-        /// Contains information about an AWS Lambda function to import to create a component.
+        /// The parameters to create a component from a Lambda function.
+        /// 
+        /// You must specify either `InlineRecipe` or `LambdaFunction` .
         /// </summary>
         [Output("lambdaFunction")]
         public Output<Outputs.ComponentVersionLambdaFunctionRecipeSource?> LambdaFunction { get; private set; } = null!;
@@ -119,7 +121,9 @@ namespace Pulumi.AwsNative.GreengrassV2
         public Input<string>? InlineRecipe { get; set; }
 
         /// <summary>
-        /// Contains information about an AWS Lambda function to import to create a component.
+        /// The parameters to create a component from a Lambda function.
+        /// 
+        /// You must specify either `InlineRecipe` or `LambdaFunction` .
         /// </summary>
         [Input("lambdaFunction")]
         public Input<Inputs.ComponentVersionLambdaFunctionRecipeSourceArgs>? LambdaFunction { get; set; }

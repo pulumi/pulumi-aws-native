@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardTimeRangeDrillDownFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A column of a data set.
+        /// The column that the filter is applied to.
         /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.DashboardColumnIdentifierArgs> Column { get; set; } = null!;

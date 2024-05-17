@@ -174,7 +174,7 @@ func (o PolicyIeMapPtrOutput) Orgunit() pulumi.StringArrayOutput {
 
 // Network ACL common policy.
 type PolicyNetworkAclCommonPolicy struct {
-	// The configuration of the first and last rules for the network ACL policy, and the remediation settings for each.
+	// The definition of the first and last rules for the network ACL policy.
 	NetworkAclEntrySet PolicyNetworkAclEntrySet `pulumi:"networkAclEntrySet"`
 }
 
@@ -191,7 +191,7 @@ type PolicyNetworkAclCommonPolicyInput interface {
 
 // Network ACL common policy.
 type PolicyNetworkAclCommonPolicyArgs struct {
-	// The configuration of the first and last rules for the network ACL policy, and the remediation settings for each.
+	// The definition of the first and last rules for the network ACL policy.
 	NetworkAclEntrySet PolicyNetworkAclEntrySetInput `pulumi:"networkAclEntrySet"`
 }
 
@@ -273,7 +273,7 @@ func (o PolicyNetworkAclCommonPolicyOutput) ToPolicyNetworkAclCommonPolicyPtrOut
 	}).(PolicyNetworkAclCommonPolicyPtrOutput)
 }
 
-// The configuration of the first and last rules for the network ACL policy, and the remediation settings for each.
+// The definition of the first and last rules for the network ACL policy.
 func (o PolicyNetworkAclCommonPolicyOutput) NetworkAclEntrySet() PolicyNetworkAclEntrySetOutput {
 	return o.ApplyT(func(v PolicyNetworkAclCommonPolicy) PolicyNetworkAclEntrySet { return v.NetworkAclEntrySet }).(PolicyNetworkAclEntrySetOutput)
 }
@@ -302,7 +302,7 @@ func (o PolicyNetworkAclCommonPolicyPtrOutput) Elem() PolicyNetworkAclCommonPoli
 	}).(PolicyNetworkAclCommonPolicyOutput)
 }
 
-// The configuration of the first and last rules for the network ACL policy, and the remediation settings for each.
+// The definition of the first and last rules for the network ACL policy.
 func (o PolicyNetworkAclCommonPolicyPtrOutput) NetworkAclEntrySet() PolicyNetworkAclEntrySetPtrOutput {
 	return o.ApplyT(func(v *PolicyNetworkAclCommonPolicy) *PolicyNetworkAclEntrySet {
 		if v == nil {
@@ -1171,13 +1171,11 @@ func (o PolicyNetworkFirewallPolicyPtrOutput) FirewallDeploymentModel() PolicyFi
 
 // Firewall policy option.
 type PolicyOption struct {
-	// Defines a Firewall Manager network ACL policy. This is used in the `PolicyOption` of a `SecurityServicePolicyData` for a `Policy` , when the `SecurityServicePolicyData` type is set to `NETWORK_ACL_COMMON` .
-	//
-	// For information about network ACLs, see [Control traffic to subnets using network ACLs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html) in the *Amazon Virtual Private Cloud User Guide* .
+	// Defines a Firewall Manager network ACL policy.
 	NetworkAclCommonPolicy *PolicyNetworkAclCommonPolicy `pulumi:"networkAclCommonPolicy"`
-	// Configures the firewall policy deployment model of AWS Network Firewall . For information about Network Firewall deployment models, see [AWS Network Firewall example architectures with routing](https://docs.aws.amazon.com/network-firewall/latest/developerguide/architectures.html) in the *Network Firewall Developer Guide* .
+	// Defines the deployment model to use for the firewall policy.
 	NetworkFirewallPolicy *PolicyNetworkFirewallPolicy `pulumi:"networkFirewallPolicy"`
-	// Configures the deployment model for the third-party firewall.
+	// Defines the policy options for a third-party firewall policy.
 	ThirdPartyFirewallPolicy *PolicyThirdPartyFirewallPolicy `pulumi:"thirdPartyFirewallPolicy"`
 }
 
@@ -1194,13 +1192,11 @@ type PolicyOptionInput interface {
 
 // Firewall policy option.
 type PolicyOptionArgs struct {
-	// Defines a Firewall Manager network ACL policy. This is used in the `PolicyOption` of a `SecurityServicePolicyData` for a `Policy` , when the `SecurityServicePolicyData` type is set to `NETWORK_ACL_COMMON` .
-	//
-	// For information about network ACLs, see [Control traffic to subnets using network ACLs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html) in the *Amazon Virtual Private Cloud User Guide* .
+	// Defines a Firewall Manager network ACL policy.
 	NetworkAclCommonPolicy PolicyNetworkAclCommonPolicyPtrInput `pulumi:"networkAclCommonPolicy"`
-	// Configures the firewall policy deployment model of AWS Network Firewall . For information about Network Firewall deployment models, see [AWS Network Firewall example architectures with routing](https://docs.aws.amazon.com/network-firewall/latest/developerguide/architectures.html) in the *Network Firewall Developer Guide* .
+	// Defines the deployment model to use for the firewall policy.
 	NetworkFirewallPolicy PolicyNetworkFirewallPolicyPtrInput `pulumi:"networkFirewallPolicy"`
-	// Configures the deployment model for the third-party firewall.
+	// Defines the policy options for a third-party firewall policy.
 	ThirdPartyFirewallPolicy PolicyThirdPartyFirewallPolicyPtrInput `pulumi:"thirdPartyFirewallPolicy"`
 }
 
@@ -1282,19 +1278,17 @@ func (o PolicyOptionOutput) ToPolicyOptionPtrOutputWithContext(ctx context.Conte
 	}).(PolicyOptionPtrOutput)
 }
 
-// Defines a Firewall Manager network ACL policy. This is used in the `PolicyOption` of a `SecurityServicePolicyData` for a `Policy` , when the `SecurityServicePolicyData` type is set to `NETWORK_ACL_COMMON` .
-//
-// For information about network ACLs, see [Control traffic to subnets using network ACLs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html) in the *Amazon Virtual Private Cloud User Guide* .
+// Defines a Firewall Manager network ACL policy.
 func (o PolicyOptionOutput) NetworkAclCommonPolicy() PolicyNetworkAclCommonPolicyPtrOutput {
 	return o.ApplyT(func(v PolicyOption) *PolicyNetworkAclCommonPolicy { return v.NetworkAclCommonPolicy }).(PolicyNetworkAclCommonPolicyPtrOutput)
 }
 
-// Configures the firewall policy deployment model of AWS Network Firewall . For information about Network Firewall deployment models, see [AWS Network Firewall example architectures with routing](https://docs.aws.amazon.com/network-firewall/latest/developerguide/architectures.html) in the *Network Firewall Developer Guide* .
+// Defines the deployment model to use for the firewall policy.
 func (o PolicyOptionOutput) NetworkFirewallPolicy() PolicyNetworkFirewallPolicyPtrOutput {
 	return o.ApplyT(func(v PolicyOption) *PolicyNetworkFirewallPolicy { return v.NetworkFirewallPolicy }).(PolicyNetworkFirewallPolicyPtrOutput)
 }
 
-// Configures the deployment model for the third-party firewall.
+// Defines the policy options for a third-party firewall policy.
 func (o PolicyOptionOutput) ThirdPartyFirewallPolicy() PolicyThirdPartyFirewallPolicyPtrOutput {
 	return o.ApplyT(func(v PolicyOption) *PolicyThirdPartyFirewallPolicy { return v.ThirdPartyFirewallPolicy }).(PolicyThirdPartyFirewallPolicyPtrOutput)
 }
@@ -1323,9 +1317,7 @@ func (o PolicyOptionPtrOutput) Elem() PolicyOptionOutput {
 	}).(PolicyOptionOutput)
 }
 
-// Defines a Firewall Manager network ACL policy. This is used in the `PolicyOption` of a `SecurityServicePolicyData` for a `Policy` , when the `SecurityServicePolicyData` type is set to `NETWORK_ACL_COMMON` .
-//
-// For information about network ACLs, see [Control traffic to subnets using network ACLs](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-network-acls.html) in the *Amazon Virtual Private Cloud User Guide* .
+// Defines a Firewall Manager network ACL policy.
 func (o PolicyOptionPtrOutput) NetworkAclCommonPolicy() PolicyNetworkAclCommonPolicyPtrOutput {
 	return o.ApplyT(func(v *PolicyOption) *PolicyNetworkAclCommonPolicy {
 		if v == nil {
@@ -1335,7 +1327,7 @@ func (o PolicyOptionPtrOutput) NetworkAclCommonPolicy() PolicyNetworkAclCommonPo
 	}).(PolicyNetworkAclCommonPolicyPtrOutput)
 }
 
-// Configures the firewall policy deployment model of AWS Network Firewall . For information about Network Firewall deployment models, see [AWS Network Firewall example architectures with routing](https://docs.aws.amazon.com/network-firewall/latest/developerguide/architectures.html) in the *Network Firewall Developer Guide* .
+// Defines the deployment model to use for the firewall policy.
 func (o PolicyOptionPtrOutput) NetworkFirewallPolicy() PolicyNetworkFirewallPolicyPtrOutput {
 	return o.ApplyT(func(v *PolicyOption) *PolicyNetworkFirewallPolicy {
 		if v == nil {
@@ -1345,7 +1337,7 @@ func (o PolicyOptionPtrOutput) NetworkFirewallPolicy() PolicyNetworkFirewallPoli
 	}).(PolicyNetworkFirewallPolicyPtrOutput)
 }
 
-// Configures the deployment model for the third-party firewall.
+// Defines the policy options for a third-party firewall policy.
 func (o PolicyOptionPtrOutput) ThirdPartyFirewallPolicy() PolicyThirdPartyFirewallPolicyPtrOutput {
 	return o.ApplyT(func(v *PolicyOption) *PolicyThirdPartyFirewallPolicy {
 		if v == nil {

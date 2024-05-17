@@ -400,7 +400,7 @@ type AppBlockScriptDetails struct {
 	ExecutableParameters *string `pulumi:"executableParameters"`
 	// The run path for the script.
 	ExecutablePath string `pulumi:"executablePath"`
-	// The S3 location of the app block.
+	// The S3 object location of the script.
 	ScriptS3Location AppBlockS3Location `pulumi:"scriptS3Location"`
 	// The run timeout, in seconds, for the script.
 	TimeoutInSeconds int `pulumi:"timeoutInSeconds"`
@@ -422,7 +422,7 @@ type AppBlockScriptDetailsArgs struct {
 	ExecutableParameters pulumi.StringPtrInput `pulumi:"executableParameters"`
 	// The run path for the script.
 	ExecutablePath pulumi.StringInput `pulumi:"executablePath"`
-	// The S3 location of the app block.
+	// The S3 object location of the script.
 	ScriptS3Location AppBlockS3LocationInput `pulumi:"scriptS3Location"`
 	// The run timeout, in seconds, for the script.
 	TimeoutInSeconds pulumi.IntInput `pulumi:"timeoutInSeconds"`
@@ -515,7 +515,7 @@ func (o AppBlockScriptDetailsOutput) ExecutablePath() pulumi.StringOutput {
 	return o.ApplyT(func(v AppBlockScriptDetails) string { return v.ExecutablePath }).(pulumi.StringOutput)
 }
 
-// The S3 location of the app block.
+// The S3 object location of the script.
 func (o AppBlockScriptDetailsOutput) ScriptS3Location() AppBlockS3LocationOutput {
 	return o.ApplyT(func(v AppBlockScriptDetails) AppBlockS3Location { return v.ScriptS3Location }).(AppBlockS3LocationOutput)
 }
@@ -569,7 +569,7 @@ func (o AppBlockScriptDetailsPtrOutput) ExecutablePath() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The S3 location of the app block.
+// The S3 object location of the script.
 func (o AppBlockScriptDetailsPtrOutput) ScriptS3Location() AppBlockS3LocationPtrOutput {
 	return o.ApplyT(func(v *AppBlockScriptDetails) *AppBlockS3Location {
 		if v == nil {

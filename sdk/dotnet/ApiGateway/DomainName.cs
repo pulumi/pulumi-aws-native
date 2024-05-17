@@ -114,9 +114,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<string?> DomainNameValue { get; private set; } = null!;
 
         /// <summary>
-        /// The `EndpointConfiguration` property type specifies the endpoint types of an Amazon API Gateway domain name.
-        /// 
-        /// `EndpointConfiguration` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
+        /// The endpoint configuration of this DomainName showing the endpoint types of the domain name.
         /// </summary>
         [Output("endpointConfiguration")]
         public Output<Outputs.DomainNameEndpointConfiguration?> EndpointConfiguration { get; private set; } = null!;
@@ -158,9 +156,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<string?> SecurityPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// An array of key-value pairs to apply to this resource.
-        /// 
-        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -227,9 +223,7 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<string>? DomainNameValue { get; set; }
 
         /// <summary>
-        /// The `EndpointConfiguration` property type specifies the endpoint types of an Amazon API Gateway domain name.
-        /// 
-        /// `EndpointConfiguration` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
+        /// The endpoint configuration of this DomainName showing the endpoint types of the domain name.
         /// </summary>
         [Input("endpointConfiguration")]
         public Input<Inputs.DomainNameEndpointConfigurationArgs>? EndpointConfiguration { get; set; }
@@ -262,9 +256,7 @@ namespace Pulumi.AwsNative.ApiGateway
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// An array of key-value pairs to apply to this resource.
-        /// 
-        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// The collection of tags. Each tag element is associated with a given resource.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

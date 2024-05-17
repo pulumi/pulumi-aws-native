@@ -19,9 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.AnalysisPivotTableFieldOptionsArgs>? FieldOptions { get; set; }
 
         /// <summary>
-        /// The field wells for a pivot table visual.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The field wells of the visual.
         /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.AnalysisPivotTableFieldWellsArgs>? FieldWells { get; set; }

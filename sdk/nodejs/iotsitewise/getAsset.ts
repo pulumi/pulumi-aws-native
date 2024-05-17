@@ -39,7 +39,7 @@ export interface GetAssetResult {
      */
     readonly assetExternalId?: string;
     /**
-     * Describes an asset hierarchy that contains a hierarchy's name and ID.
+     * A list of asset hierarchies that each contain a `hierarchyId` . A hierarchy specifies allowed parent/child asset relationships.
      */
     readonly assetHierarchies?: outputs.iotsitewise.AssetHierarchy[];
     /**
@@ -55,7 +55,9 @@ export interface GetAssetResult {
      */
     readonly assetName?: string;
     /**
-     * Contains asset property information.
+     * The list of asset properties for the asset.
+     *
+     * This object doesn't include properties that you define in composite models. You can find composite model properties in the `assetCompositeModels` object.
      */
     readonly assetProperties?: outputs.iotsitewise.AssetProperty[];
     /**

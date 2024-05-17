@@ -457,9 +457,6 @@ namespace Pulumi.AwsNative.Lambda
         [Output("snapStart")]
         public Output<Outputs.FunctionSnapStart?> SnapStart { get; private set; } = null!;
 
-        /// <summary>
-        /// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
-        /// </summary>
         [Output("snapStartResponse")]
         public Output<Outputs.FunctionSnapStartResponse> SnapStartResponse { get; private set; } = null!;
 

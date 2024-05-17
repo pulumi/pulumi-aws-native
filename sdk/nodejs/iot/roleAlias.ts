@@ -54,7 +54,9 @@ export class RoleAlias extends pulumi.CustomResource {
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
-     * A set of key/value pairs that are used to manage the resource.
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -108,7 +110,9 @@ export interface RoleAliasArgs {
      */
     roleArn: pulumi.Input<string>;
     /**
-     * A set of key/value pairs that are used to manage the resource.
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

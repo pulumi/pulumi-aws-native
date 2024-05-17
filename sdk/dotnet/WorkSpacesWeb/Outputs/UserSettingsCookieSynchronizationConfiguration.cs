@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb.Outputs
     public sealed class UserSettingsCookieSynchronizationConfiguration
     {
         /// <summary>
-        /// Specifies a single cookie or set of cookies in an end user's browser.
+        /// The list of cookie specifications that are allowed to be synchronized to the remote browser.
         /// </summary>
         public readonly ImmutableArray<Outputs.UserSettingsCookieSpecification> Allowlist;
         /// <summary>

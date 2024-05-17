@@ -61,7 +61,7 @@ class ModelPackageArgs:
                - `APPROVED` - The model is approved
                - `REJECTED` - The model is rejected.
                - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
-        :param pulumi.Input['ModelPackageModelMetricsArgs'] model_metrics: Contains metrics captured from a model.
+        :param pulumi.Input['ModelPackageModelMetricsArgs'] model_metrics: Metrics for the model.
         :param pulumi.Input[str] model_package_description: The description of the model package.
         :param pulumi.Input[str] model_package_group_name: The model group to which the model belongs.
         :param pulumi.Input[str] model_package_name: The name of the model.
@@ -275,7 +275,7 @@ class ModelPackageArgs:
     @pulumi.getter(name="modelMetrics")
     def model_metrics(self) -> Optional[pulumi.Input['ModelPackageModelMetricsArgs']]:
         """
-        Contains metrics captured from a model.
+        Metrics for the model.
         """
         return pulumi.get(self, "model_metrics")
 
@@ -467,7 +467,7 @@ class ModelPackage(pulumi.CustomResource):
                - `APPROVED` - The model is approved
                - `REJECTED` - The model is rejected.
                - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
-        :param pulumi.Input[pulumi.InputType['ModelPackageModelMetricsArgs']] model_metrics: Contains metrics captured from a model.
+        :param pulumi.Input[pulumi.InputType['ModelPackageModelMetricsArgs']] model_metrics: Metrics for the model.
         :param pulumi.Input[str] model_package_description: The description of the model package.
         :param pulumi.Input[str] model_package_group_name: The model group to which the model belongs.
         :param pulumi.Input[str] model_package_name: The name of the model.
@@ -729,7 +729,7 @@ class ModelPackage(pulumi.CustomResource):
     @pulumi.getter(name="modelMetrics")
     def model_metrics(self) -> pulumi.Output[Optional['outputs.ModelPackageModelMetrics']]:
         """
-        Contains metrics captured from a model.
+        Metrics for the model.
         """
         return pulumi.get(self, "model_metrics")
 

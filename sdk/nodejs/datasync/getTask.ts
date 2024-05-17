@@ -35,15 +35,15 @@ export interface GetTaskResult {
      */
     readonly destinationNetworkInterfaceArns?: string[];
     /**
-     * Specifies which files, folders, and objects to include or exclude when transferring files from source to destination.
+     * Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
      */
     readonly excludes?: outputs.datasync.TaskFilterRule[];
     /**
-     * Specifies which files, folders, and objects to include or exclude when transferring files from source to destination.
+     * Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
      */
     readonly includes?: outputs.datasync.TaskFilterRule[];
     /**
-     * Configures a manifest, which is a list of files or objects that you want AWS DataSync to transfer. For more information and configuration examples, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
+     * The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
      */
     readonly manifestConfig?: outputs.datasync.TaskManifestConfig;
     /**
@@ -51,13 +51,11 @@ export interface GetTaskResult {
      */
     readonly name?: string;
     /**
-     * Represents the options that are available to control the behavior of a [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) operation. This behavior includes preserving metadata, such as user ID (UID), group ID (GID), and file permissions; overwriting files in the destination; data integrity verification; and so on.
-     *
-     * A task has a set of default options associated with it. If you don't specify an option in [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) , the default value is used. You can override the default options on each task execution by specifying an overriding `Options` value to [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) .
+     * Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
      */
     readonly options?: outputs.datasync.TaskOptions;
     /**
-     * Configures your AWS DataSync task to run on a [schedule](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) (at a minimum interval of 1 hour).
+     * Specifies a schedule for when you want your task to run. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
      */
     readonly schedule?: outputs.datasync.TaskSchedule;
     /**
@@ -77,9 +75,9 @@ export interface GetTaskResult {
      */
     readonly taskArn?: string;
     /**
-     * Specifies how you want to configure a task report, which provides detailed information about for your AWS DataSync transfer.
+     * Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
      *
-     * For more information, see [Task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
+     * When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
      */
     readonly taskReportConfig?: outputs.datasync.TaskReportConfig;
 }

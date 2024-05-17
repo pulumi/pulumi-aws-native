@@ -106,9 +106,9 @@ namespace Pulumi.AwsNative.CodeBuild
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// A tag, consisting of a key and a value.
+        /// A list of tag key and value pairs associated with this compute fleet.
         /// 
-        /// This tag is available for use by AWS services that support tags in AWS CodeBuild .
+        /// These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

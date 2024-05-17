@@ -38,7 +38,7 @@ type LookupApplicationResult struct {
 	Description *string `pulumi:"description"`
 	// The display name of the application. This name is visible to users in the application catalog.
 	DisplayName *string `pulumi:"displayName"`
-	// The S3 location of the application icon.
+	// The icon S3 location of the application.
 	IconS3Location *ApplicationS3Location `pulumi:"iconS3Location"`
 	// The launch parameters of the application.
 	LaunchParameters *string `pulumi:"launchParameters"`
@@ -109,7 +109,7 @@ func (o LookupApplicationResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The S3 location of the application icon.
+// The icon S3 location of the application.
 func (o LookupApplicationResultOutput) IconS3Location() ApplicationS3LocationPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationS3Location { return v.IconS3Location }).(ApplicationS3LocationPtrOutput)
 }

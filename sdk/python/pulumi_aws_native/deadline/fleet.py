@@ -26,7 +26,7 @@ class FleetArgs:
                  min_worker_count: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Fleet resource.
-        :param pulumi.Input[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration1PropertiesArgs']] configuration: Fleet configuration details.
+        :param pulumi.Input[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration1PropertiesArgs']] configuration: The configuration details for the fleet.
         :param pulumi.Input[str] display_name: The display name of the fleet summary to update.
         :param pulumi.Input[int] max_worker_count: The maximum number of workers specified in the fleet.
         :param pulumi.Input[str] role_arn: The IAM role that workers in the fleet use when processing jobs.
@@ -49,7 +49,7 @@ class FleetArgs:
     @pulumi.getter
     def configuration(self) -> pulumi.Input[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration1PropertiesArgs']]:
         """
-        Fleet configuration details.
+        The configuration details for the fleet.
         """
         return pulumi.get(self, "configuration")
 
@@ -148,7 +148,7 @@ class Fleet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[pulumi.InputType['FleetConfiguration0PropertiesArgs'], pulumi.InputType['FleetConfiguration1PropertiesArgs']]] configuration: Fleet configuration details.
+        :param pulumi.Input[Union[pulumi.InputType['FleetConfiguration0PropertiesArgs'], pulumi.InputType['FleetConfiguration1PropertiesArgs']]] configuration: The configuration details for the fleet.
         :param pulumi.Input[str] description: A description that helps identify what the fleet is used for.
         :param pulumi.Input[str] display_name: The display name of the fleet summary to update.
         :param pulumi.Input[str] farm_id: The farm ID.
@@ -265,16 +265,13 @@ class Fleet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def capabilities(self) -> pulumi.Output['outputs.FleetCapabilities']:
-        """
-        The amounts and attributes of fleets.
-        """
         return pulumi.get(self, "capabilities")
 
     @property
     @pulumi.getter
     def configuration(self) -> pulumi.Output[Any]:
         """
-        Fleet configuration details.
+        The configuration details for the fleet.
         """
         return pulumi.get(self, "configuration")
 

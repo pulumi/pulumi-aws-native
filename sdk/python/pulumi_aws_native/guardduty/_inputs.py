@@ -30,9 +30,9 @@ class DetectorCfnDataSourceConfigurationsArgs:
                  malware_protection: Optional[pulumi.Input['DetectorCfnMalwareProtectionConfigurationArgs']] = None,
                  s3_logs: Optional[pulumi.Input['DetectorCfns3LogsConfigurationArgs']] = None):
         """
-        :param pulumi.Input['DetectorCfnKubernetesConfigurationArgs'] kubernetes: Describes which Kubernetes protection data sources are enabled for the detector.
+        :param pulumi.Input['DetectorCfnKubernetesConfigurationArgs'] kubernetes: Describes which Kubernetes data sources are enabled for a detector.
         :param pulumi.Input['DetectorCfnMalwareProtectionConfigurationArgs'] malware_protection: Describes whether Malware Protection will be enabled as a data source.
-        :param pulumi.Input['DetectorCfns3LogsConfigurationArgs'] s3_logs: Describes whether S3 data event logs will be enabled as a data source when the detector is created.
+        :param pulumi.Input['DetectorCfns3LogsConfigurationArgs'] s3_logs: Describes whether S3 data event logs are enabled as a data source.
         """
         if kubernetes is not None:
             pulumi.set(__self__, "kubernetes", kubernetes)
@@ -45,7 +45,7 @@ class DetectorCfnDataSourceConfigurationsArgs:
     @pulumi.getter
     def kubernetes(self) -> Optional[pulumi.Input['DetectorCfnKubernetesConfigurationArgs']]:
         """
-        Describes which Kubernetes protection data sources are enabled for the detector.
+        Describes which Kubernetes data sources are enabled for a detector.
         """
         return pulumi.get(self, "kubernetes")
 
@@ -69,7 +69,7 @@ class DetectorCfnDataSourceConfigurationsArgs:
     @pulumi.getter(name="s3Logs")
     def s3_logs(self) -> Optional[pulumi.Input['DetectorCfns3LogsConfigurationArgs']]:
         """
-        Describes whether S3 data event logs will be enabled as a data source when the detector is created.
+        Describes whether S3 data event logs are enabled as a data source.
         """
         return pulumi.get(self, "s3_logs")
 
@@ -197,7 +197,7 @@ class DetectorCfnKubernetesConfigurationArgs:
     def __init__(__self__, *,
                  audit_logs: pulumi.Input['DetectorCfnKubernetesAuditLogsConfigurationArgs']):
         """
-        :param pulumi.Input['DetectorCfnKubernetesAuditLogsConfigurationArgs'] audit_logs: Describes which optional data sources are enabled for a detector.
+        :param pulumi.Input['DetectorCfnKubernetesAuditLogsConfigurationArgs'] audit_logs: Describes whether Kubernetes audit logs are enabled as a data source for the detector.
         """
         pulumi.set(__self__, "audit_logs", audit_logs)
 
@@ -205,7 +205,7 @@ class DetectorCfnKubernetesConfigurationArgs:
     @pulumi.getter(name="auditLogs")
     def audit_logs(self) -> pulumi.Input['DetectorCfnKubernetesAuditLogsConfigurationArgs']:
         """
-        Describes which optional data sources are enabled for a detector.
+        Describes whether Kubernetes audit logs are enabled as a data source for the detector.
         """
         return pulumi.get(self, "audit_logs")
 
@@ -219,7 +219,7 @@ class DetectorCfnMalwareProtectionConfigurationArgs:
     def __init__(__self__, *,
                  scan_ec2_instance_with_findings: Optional[pulumi.Input['DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs']] = None):
         """
-        :param pulumi.Input['DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs'] scan_ec2_instance_with_findings: Describes whether Malware Protection for EC2 instances with findings will be enabled as a data source.
+        :param pulumi.Input['DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs'] scan_ec2_instance_with_findings: Describes the configuration of Malware Protection for EC2 instances with findings.
         """
         if scan_ec2_instance_with_findings is not None:
             pulumi.set(__self__, "scan_ec2_instance_with_findings", scan_ec2_instance_with_findings)
@@ -228,7 +228,7 @@ class DetectorCfnMalwareProtectionConfigurationArgs:
     @pulumi.getter(name="scanEc2InstanceWithFindings")
     def scan_ec2_instance_with_findings(self) -> Optional[pulumi.Input['DetectorCfnScanEc2InstanceWithFindingsConfigurationArgs']]:
         """
-        Describes whether Malware Protection for EC2 instances with findings will be enabled as a data source.
+        Describes the configuration of Malware Protection for EC2 instances with findings.
         """
         return pulumi.get(self, "scan_ec2_instance_with_findings")
 

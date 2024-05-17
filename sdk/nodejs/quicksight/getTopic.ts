@@ -36,7 +36,7 @@ export interface GetTopicResult {
      */
     readonly arn?: string;
     /**
-     * A structure that represents a dataset.
+     * The data sets that the topic is associated with.
      */
     readonly dataSets?: outputs.quicksight.TopicDatasetMetadata[];
     /**

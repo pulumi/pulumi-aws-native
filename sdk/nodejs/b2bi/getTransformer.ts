@@ -31,7 +31,7 @@ export interface GetTransformerResult {
      */
     readonly createdAt?: string;
     /**
-     * Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+     * Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
      */
     readonly ediType?: outputs.b2bi.TransformerEdiTypeProperties;
     /**

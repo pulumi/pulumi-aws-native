@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
     public sealed class WirelessDeviceLoRaWanDeviceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ABP device object for LoRaWAN specification v1.0.x
+        /// ABP device object for LoRaWAN specification v1.0.x.
         /// </summary>
         [Input("abpV10x")]
         public Input<Inputs.WirelessDeviceAbpV10xArgs>? AbpV10x { get; set; }

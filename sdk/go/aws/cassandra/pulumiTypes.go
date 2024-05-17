@@ -397,29 +397,9 @@ func (o TableAutoScalingSettingPtrOutput) ScalingPolicy() TableScalingPolicyPtrO
 
 // Represents the read and write settings used for AutoScaling.
 type TableAutoScalingSpecification struct {
-	// The optional auto scaling settings for a table with provisioned throughput capacity.
-	//
-	// To turn on auto scaling for a table in `throughputMode:PROVISIONED` , you must specify the following parameters.
-	//
-	// Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
-	//
-	// - `minimumUnits` : The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-	// - `maximumUnits` : The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-	// - `scalingPolicy` : Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
-	//
-	// For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide* .
+	// The auto scaling settings for the table's read capacity.
 	ReadCapacityAutoScaling *TableAutoScalingSetting `pulumi:"readCapacityAutoScaling"`
-	// The optional auto scaling settings for a table with provisioned throughput capacity.
-	//
-	// To turn on auto scaling for a table in `throughputMode:PROVISIONED` , you must specify the following parameters.
-	//
-	// Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
-	//
-	// - `minimumUnits` : The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-	// - `maximumUnits` : The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-	// - `scalingPolicy` : Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
-	//
-	// For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide* .
+	// The auto scaling settings for the table's write capacity.
 	WriteCapacityAutoScaling *TableAutoScalingSetting `pulumi:"writeCapacityAutoScaling"`
 }
 
@@ -436,29 +416,9 @@ type TableAutoScalingSpecificationInput interface {
 
 // Represents the read and write settings used for AutoScaling.
 type TableAutoScalingSpecificationArgs struct {
-	// The optional auto scaling settings for a table with provisioned throughput capacity.
-	//
-	// To turn on auto scaling for a table in `throughputMode:PROVISIONED` , you must specify the following parameters.
-	//
-	// Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
-	//
-	// - `minimumUnits` : The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-	// - `maximumUnits` : The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-	// - `scalingPolicy` : Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
-	//
-	// For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide* .
+	// The auto scaling settings for the table's read capacity.
 	ReadCapacityAutoScaling TableAutoScalingSettingPtrInput `pulumi:"readCapacityAutoScaling"`
-	// The optional auto scaling settings for a table with provisioned throughput capacity.
-	//
-	// To turn on auto scaling for a table in `throughputMode:PROVISIONED` , you must specify the following parameters.
-	//
-	// Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
-	//
-	// - `minimumUnits` : The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-	// - `maximumUnits` : The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-	// - `scalingPolicy` : Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
-	//
-	// For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide* .
+	// The auto scaling settings for the table's write capacity.
 	WriteCapacityAutoScaling TableAutoScalingSettingPtrInput `pulumi:"writeCapacityAutoScaling"`
 }
 
@@ -540,32 +500,12 @@ func (o TableAutoScalingSpecificationOutput) ToTableAutoScalingSpecificationPtrO
 	}).(TableAutoScalingSpecificationPtrOutput)
 }
 
-// The optional auto scaling settings for a table with provisioned throughput capacity.
-//
-// To turn on auto scaling for a table in `throughputMode:PROVISIONED` , you must specify the following parameters.
-//
-// Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
-//
-// - `minimumUnits` : The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-// - `maximumUnits` : The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-// - `scalingPolicy` : Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
-//
-// For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide* .
+// The auto scaling settings for the table's read capacity.
 func (o TableAutoScalingSpecificationOutput) ReadCapacityAutoScaling() TableAutoScalingSettingPtrOutput {
 	return o.ApplyT(func(v TableAutoScalingSpecification) *TableAutoScalingSetting { return v.ReadCapacityAutoScaling }).(TableAutoScalingSettingPtrOutput)
 }
 
-// The optional auto scaling settings for a table with provisioned throughput capacity.
-//
-// To turn on auto scaling for a table in `throughputMode:PROVISIONED` , you must specify the following parameters.
-//
-// Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
-//
-// - `minimumUnits` : The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-// - `maximumUnits` : The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-// - `scalingPolicy` : Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
-//
-// For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide* .
+// The auto scaling settings for the table's write capacity.
 func (o TableAutoScalingSpecificationOutput) WriteCapacityAutoScaling() TableAutoScalingSettingPtrOutput {
 	return o.ApplyT(func(v TableAutoScalingSpecification) *TableAutoScalingSetting { return v.WriteCapacityAutoScaling }).(TableAutoScalingSettingPtrOutput)
 }
@@ -594,17 +534,7 @@ func (o TableAutoScalingSpecificationPtrOutput) Elem() TableAutoScalingSpecifica
 	}).(TableAutoScalingSpecificationOutput)
 }
 
-// The optional auto scaling settings for a table with provisioned throughput capacity.
-//
-// To turn on auto scaling for a table in `throughputMode:PROVISIONED` , you must specify the following parameters.
-//
-// Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
-//
-// - `minimumUnits` : The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-// - `maximumUnits` : The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-// - `scalingPolicy` : Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
-//
-// For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide* .
+// The auto scaling settings for the table's read capacity.
 func (o TableAutoScalingSpecificationPtrOutput) ReadCapacityAutoScaling() TableAutoScalingSettingPtrOutput {
 	return o.ApplyT(func(v *TableAutoScalingSpecification) *TableAutoScalingSetting {
 		if v == nil {
@@ -614,17 +544,7 @@ func (o TableAutoScalingSpecificationPtrOutput) ReadCapacityAutoScaling() TableA
 	}).(TableAutoScalingSettingPtrOutput)
 }
 
-// The optional auto scaling settings for a table with provisioned throughput capacity.
-//
-// To turn on auto scaling for a table in `throughputMode:PROVISIONED` , you must specify the following parameters.
-//
-// Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
-//
-// - `minimumUnits` : The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-// - `maximumUnits` : The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-// - `scalingPolicy` : Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
-//
-// For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide* .
+// The auto scaling settings for the table's write capacity.
 func (o TableAutoScalingSpecificationPtrOutput) WriteCapacityAutoScaling() TableAutoScalingSettingPtrOutput {
 	return o.ApplyT(func(v *TableAutoScalingSpecification) *TableAutoScalingSetting {
 		if v == nil {
@@ -644,7 +564,7 @@ type TableBillingMode struct {
 	//
 	// Valid values: `ON_DEMAND` | `PROVISIONED`
 	Mode TableMode `pulumi:"mode"`
-	// The provisioned throughput for the table, which consists of `ReadCapacityUnits` and `WriteCapacityUnits` .
+	// The provisioned read capacity and write capacity for the table. For more information, see [Provisioned throughput capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html#ReadWriteCapacityMode.Provisioned) in the *Amazon Keyspaces Developer Guide* .
 	ProvisionedThroughput *TableProvisionedThroughput `pulumi:"provisionedThroughput"`
 }
 
@@ -669,7 +589,7 @@ type TableBillingModeArgs struct {
 	//
 	// Valid values: `ON_DEMAND` | `PROVISIONED`
 	Mode TableModeInput `pulumi:"mode"`
-	// The provisioned throughput for the table, which consists of `ReadCapacityUnits` and `WriteCapacityUnits` .
+	// The provisioned read capacity and write capacity for the table. For more information, see [Provisioned throughput capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html#ReadWriteCapacityMode.Provisioned) in the *Amazon Keyspaces Developer Guide* .
 	ProvisionedThroughput TableProvisionedThroughputPtrInput `pulumi:"provisionedThroughput"`
 }
 
@@ -762,7 +682,7 @@ func (o TableBillingModeOutput) Mode() TableModeOutput {
 	return o.ApplyT(func(v TableBillingMode) TableMode { return v.Mode }).(TableModeOutput)
 }
 
-// The provisioned throughput for the table, which consists of `ReadCapacityUnits` and `WriteCapacityUnits` .
+// The provisioned read capacity and write capacity for the table. For more information, see [Provisioned throughput capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html#ReadWriteCapacityMode.Provisioned) in the *Amazon Keyspaces Developer Guide* .
 func (o TableBillingModeOutput) ProvisionedThroughput() TableProvisionedThroughputPtrOutput {
 	return o.ApplyT(func(v TableBillingMode) *TableProvisionedThroughput { return v.ProvisionedThroughput }).(TableProvisionedThroughputPtrOutput)
 }
@@ -808,7 +728,7 @@ func (o TableBillingModePtrOutput) Mode() TableModePtrOutput {
 	}).(TableModePtrOutput)
 }
 
-// The provisioned throughput for the table, which consists of `ReadCapacityUnits` and `WriteCapacityUnits` .
+// The provisioned read capacity and write capacity for the table. For more information, see [Provisioned throughput capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html#ReadWriteCapacityMode.Provisioned) in the *Amazon Keyspaces Developer Guide* .
 func (o TableBillingModePtrOutput) ProvisionedThroughput() TableProvisionedThroughputPtrOutput {
 	return o.ApplyT(func(v *TableBillingMode) *TableProvisionedThroughput {
 		if v == nil {
@@ -819,10 +739,7 @@ func (o TableBillingModePtrOutput) ProvisionedThroughput() TableProvisionedThrou
 }
 
 type TableClusteringKeyColumn struct {
-	// The name and data type of an individual column in a table. In addition to the data type, you can also use the following two keywords:
-	//
-	// - `STATIC` if the table has a clustering column. Static columns store values that are shared by all rows in the same partition.
-	// - `FROZEN` for collection data types. In frozen collections the values of the collection are serialized into a single immutable value, and Amazon Keyspaces treats them like a `BLOB` .
+	// The name and data type of this clustering key column.
 	Column TableColumn `pulumi:"column"`
 	// The order in which this column's data is stored:
 	//
@@ -843,10 +760,7 @@ type TableClusteringKeyColumnInput interface {
 }
 
 type TableClusteringKeyColumnArgs struct {
-	// The name and data type of an individual column in a table. In addition to the data type, you can also use the following two keywords:
-	//
-	// - `STATIC` if the table has a clustering column. Static columns store values that are shared by all rows in the same partition.
-	// - `FROZEN` for collection data types. In frozen collections the values of the collection are serialized into a single immutable value, and Amazon Keyspaces treats them like a `BLOB` .
+	// The name and data type of this clustering key column.
 	Column TableColumnInput `pulumi:"column"`
 	// The order in which this column's data is stored:
 	//
@@ -906,10 +820,7 @@ func (o TableClusteringKeyColumnOutput) ToTableClusteringKeyColumnOutputWithCont
 	return o
 }
 
-// The name and data type of an individual column in a table. In addition to the data type, you can also use the following two keywords:
-//
-// - `STATIC` if the table has a clustering column. Static columns store values that are shared by all rows in the same partition.
-// - `FROZEN` for collection data types. In frozen collections the values of the collection are serialized into a single immutable value, and Amazon Keyspaces treats them like a `BLOB` .
+// The name and data type of this clustering key column.
 func (o TableClusteringKeyColumnOutput) Column() TableColumnOutput {
 	return o.ApplyT(func(v TableClusteringKeyColumn) TableColumn { return v.Column }).(TableColumnOutput)
 }
@@ -1396,17 +1307,7 @@ func (o TableProvisionedThroughputPtrOutput) WriteCapacityUnits() pulumi.IntPtrO
 
 // Represents replica specifications.
 type TableReplicaSpecification struct {
-	// The optional auto scaling settings for a table with provisioned throughput capacity.
-	//
-	// To turn on auto scaling for a table in `throughputMode:PROVISIONED` , you must specify the following parameters.
-	//
-	// Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
-	//
-	// - `minimumUnits` : The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-	// - `maximumUnits` : The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-	// - `scalingPolicy` : Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
-	//
-	// For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide* .
+	// The read capacity auto scaling settings for the multi-Region table in the specified AWS Region.
 	ReadCapacityAutoScaling *TableAutoScalingSetting `pulumi:"readCapacityAutoScaling"`
 	// The provisioned read capacity units for the multi-Region table in the specified AWS Region.
 	ReadCapacityUnits *int `pulumi:"readCapacityUnits"`
@@ -1427,17 +1328,7 @@ type TableReplicaSpecificationInput interface {
 
 // Represents replica specifications.
 type TableReplicaSpecificationArgs struct {
-	// The optional auto scaling settings for a table with provisioned throughput capacity.
-	//
-	// To turn on auto scaling for a table in `throughputMode:PROVISIONED` , you must specify the following parameters.
-	//
-	// Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
-	//
-	// - `minimumUnits` : The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-	// - `maximumUnits` : The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-	// - `scalingPolicy` : Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
-	//
-	// For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide* .
+	// The read capacity auto scaling settings for the multi-Region table in the specified AWS Region.
 	ReadCapacityAutoScaling TableAutoScalingSettingPtrInput `pulumi:"readCapacityAutoScaling"`
 	// The provisioned read capacity units for the multi-Region table in the specified AWS Region.
 	ReadCapacityUnits pulumi.IntPtrInput `pulumi:"readCapacityUnits"`
@@ -1497,17 +1388,7 @@ func (o TableReplicaSpecificationOutput) ToTableReplicaSpecificationOutputWithCo
 	return o
 }
 
-// The optional auto scaling settings for a table with provisioned throughput capacity.
-//
-// To turn on auto scaling for a table in `throughputMode:PROVISIONED` , you must specify the following parameters.
-//
-// Configure the minimum and maximum capacity units. The auto scaling policy ensures that capacity never goes below the minimum or above the maximum range.
-//
-// - `minimumUnits` : The minimum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-// - `maximumUnits` : The maximum level of throughput the table should always be ready to support. The value must be between 1 and the max throughput per second quota for your account (40,000 by default).
-// - `scalingPolicy` : Amazon Keyspaces supports the `target tracking` scaling policy. The auto scaling target is a percentage of the provisioned capacity of the table.
-//
-// For more information, see [Managing throughput capacity automatically with Amazon Keyspaces auto scaling](https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html) in the *Amazon Keyspaces Developer Guide* .
+// The read capacity auto scaling settings for the multi-Region table in the specified AWS Region.
 func (o TableReplicaSpecificationOutput) ReadCapacityAutoScaling() TableAutoScalingSettingPtrOutput {
 	return o.ApplyT(func(v TableReplicaSpecification) *TableAutoScalingSetting { return v.ReadCapacityAutoScaling }).(TableAutoScalingSettingPtrOutput)
 }
@@ -1544,14 +1425,7 @@ func (o TableReplicaSpecificationArrayOutput) Index(i pulumi.IntInput) TableRepl
 
 // Represents scaling policy.
 type TableScalingPolicy struct {
-	// Amazon Keyspaces supports the `target tracking` auto scaling policy for a provisioned table. This policy scales a table based on the ratio of consumed to provisioned capacity. The auto scaling target is a percentage of the provisioned capacity of the table.
-	//
-	// - `targetTrackingScalingPolicyConfiguration` : To define the target tracking policy, you must define the target value.
-	//
-	// - `targetValue` : The target utilization rate of the table. Amazon Keyspaces auto scaling ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value. You define `targetValue` as a percentage. A `double` between 20 and 90. (Required)
-	// - `disableScaleIn` : A `boolean` that specifies if `scale-in` is disabled or enabled for the table. This parameter is disabled by default. To turn on `scale-in` , set the `boolean` value to `FALSE` . This means that capacity for a table can be automatically scaled down on your behalf. (Optional)
-	// - `scaleInCooldown` : A cooldown period in seconds between scaling activities that lets the table stabilize before another scale in activity starts. If no value is provided, the default is 0. (Optional)
-	// - `scaleOutCooldown` : A cooldown period in seconds between scaling activities that lets the table stabilize before another scale out activity starts. If no value is provided, the default is 0. (Optional)
+	// The auto scaling policy that scales a table based on the ratio of consumed to provisioned capacity.
 	TargetTrackingScalingPolicyConfiguration *TableTargetTrackingScalingPolicyConfiguration `pulumi:"targetTrackingScalingPolicyConfiguration"`
 }
 
@@ -1568,14 +1442,7 @@ type TableScalingPolicyInput interface {
 
 // Represents scaling policy.
 type TableScalingPolicyArgs struct {
-	// Amazon Keyspaces supports the `target tracking` auto scaling policy for a provisioned table. This policy scales a table based on the ratio of consumed to provisioned capacity. The auto scaling target is a percentage of the provisioned capacity of the table.
-	//
-	// - `targetTrackingScalingPolicyConfiguration` : To define the target tracking policy, you must define the target value.
-	//
-	// - `targetValue` : The target utilization rate of the table. Amazon Keyspaces auto scaling ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value. You define `targetValue` as a percentage. A `double` between 20 and 90. (Required)
-	// - `disableScaleIn` : A `boolean` that specifies if `scale-in` is disabled or enabled for the table. This parameter is disabled by default. To turn on `scale-in` , set the `boolean` value to `FALSE` . This means that capacity for a table can be automatically scaled down on your behalf. (Optional)
-	// - `scaleInCooldown` : A cooldown period in seconds between scaling activities that lets the table stabilize before another scale in activity starts. If no value is provided, the default is 0. (Optional)
-	// - `scaleOutCooldown` : A cooldown period in seconds between scaling activities that lets the table stabilize before another scale out activity starts. If no value is provided, the default is 0. (Optional)
+	// The auto scaling policy that scales a table based on the ratio of consumed to provisioned capacity.
 	TargetTrackingScalingPolicyConfiguration TableTargetTrackingScalingPolicyConfigurationPtrInput `pulumi:"targetTrackingScalingPolicyConfiguration"`
 }
 
@@ -1657,14 +1524,7 @@ func (o TableScalingPolicyOutput) ToTableScalingPolicyPtrOutputWithContext(ctx c
 	}).(TableScalingPolicyPtrOutput)
 }
 
-// Amazon Keyspaces supports the `target tracking` auto scaling policy for a provisioned table. This policy scales a table based on the ratio of consumed to provisioned capacity. The auto scaling target is a percentage of the provisioned capacity of the table.
-//
-// - `targetTrackingScalingPolicyConfiguration` : To define the target tracking policy, you must define the target value.
-//
-// - `targetValue` : The target utilization rate of the table. Amazon Keyspaces auto scaling ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value. You define `targetValue` as a percentage. A `double` between 20 and 90. (Required)
-// - `disableScaleIn` : A `boolean` that specifies if `scale-in` is disabled or enabled for the table. This parameter is disabled by default. To turn on `scale-in` , set the `boolean` value to `FALSE` . This means that capacity for a table can be automatically scaled down on your behalf. (Optional)
-// - `scaleInCooldown` : A cooldown period in seconds between scaling activities that lets the table stabilize before another scale in activity starts. If no value is provided, the default is 0. (Optional)
-// - `scaleOutCooldown` : A cooldown period in seconds between scaling activities that lets the table stabilize before another scale out activity starts. If no value is provided, the default is 0. (Optional)
+// The auto scaling policy that scales a table based on the ratio of consumed to provisioned capacity.
 func (o TableScalingPolicyOutput) TargetTrackingScalingPolicyConfiguration() TableTargetTrackingScalingPolicyConfigurationPtrOutput {
 	return o.ApplyT(func(v TableScalingPolicy) *TableTargetTrackingScalingPolicyConfiguration {
 		return v.TargetTrackingScalingPolicyConfiguration
@@ -1695,14 +1555,7 @@ func (o TableScalingPolicyPtrOutput) Elem() TableScalingPolicyOutput {
 	}).(TableScalingPolicyOutput)
 }
 
-// Amazon Keyspaces supports the `target tracking` auto scaling policy for a provisioned table. This policy scales a table based on the ratio of consumed to provisioned capacity. The auto scaling target is a percentage of the provisioned capacity of the table.
-//
-// - `targetTrackingScalingPolicyConfiguration` : To define the target tracking policy, you must define the target value.
-//
-// - `targetValue` : The target utilization rate of the table. Amazon Keyspaces auto scaling ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value. You define `targetValue` as a percentage. A `double` between 20 and 90. (Required)
-// - `disableScaleIn` : A `boolean` that specifies if `scale-in` is disabled or enabled for the table. This parameter is disabled by default. To turn on `scale-in` , set the `boolean` value to `FALSE` . This means that capacity for a table can be automatically scaled down on your behalf. (Optional)
-// - `scaleInCooldown` : A cooldown period in seconds between scaling activities that lets the table stabilize before another scale in activity starts. If no value is provided, the default is 0. (Optional)
-// - `scaleOutCooldown` : A cooldown period in seconds between scaling activities that lets the table stabilize before another scale out activity starts. If no value is provided, the default is 0. (Optional)
+// The auto scaling policy that scales a table based on the ratio of consumed to provisioned capacity.
 func (o TableScalingPolicyPtrOutput) TargetTrackingScalingPolicyConfiguration() TableTargetTrackingScalingPolicyConfigurationPtrOutput {
 	return o.ApplyT(func(v *TableScalingPolicy) *TableTargetTrackingScalingPolicyConfiguration {
 		if v == nil {

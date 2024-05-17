@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     public sealed class ModelPackageModelQualityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Details about the metrics source.
+        /// Model quality constraints.
         /// </summary>
         [Input("constraints")]
         public Input<Inputs.ModelPackageMetricsSourceArgs>? Constraints { get; set; }
 
         /// <summary>
-        /// Details about the metrics source.
+        /// Model quality statistics.
         /// </summary>
         [Input("statistics")]
         public Input<Inputs.ModelPackageMetricsSourceArgs>? Statistics { get; set; }

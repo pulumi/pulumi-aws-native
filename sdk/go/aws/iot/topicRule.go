@@ -23,9 +23,15 @@ type TopicRule struct {
 	//
 	// *Pattern* : `[a-zA-Z0-9:_-]+`
 	RuleName pulumi.StringPtrOutput `pulumi:"ruleName"`
-	// A set of key/value pairs that are used to manage the resource.
+	// Metadata which can be used to manage the topic rule.
+	//
+	// > For URI Request parameters use format: ...key1=value1&key2=value2...
+	// >
+	// > For the CLI command-line parameter use format: --tags "key1=value1&key2=value2..."
+	// >
+	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// Describes a rule.
+	// The rule payload.
 	TopicRulePayload TopicRulePayloadOutput `pulumi:"topicRulePayload"`
 }
 
@@ -80,9 +86,15 @@ type topicRuleArgs struct {
 	//
 	// *Pattern* : `[a-zA-Z0-9:_-]+`
 	RuleName *string `pulumi:"ruleName"`
-	// A set of key/value pairs that are used to manage the resource.
+	// Metadata which can be used to manage the topic rule.
+	//
+	// > For URI Request parameters use format: ...key1=value1&key2=value2...
+	// >
+	// > For the CLI command-line parameter use format: --tags "key1=value1&key2=value2..."
+	// >
+	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
 	Tags []aws.Tag `pulumi:"tags"`
-	// Describes a rule.
+	// The rule payload.
 	TopicRulePayload TopicRulePayload `pulumi:"topicRulePayload"`
 }
 
@@ -92,9 +104,15 @@ type TopicRuleArgs struct {
 	//
 	// *Pattern* : `[a-zA-Z0-9:_-]+`
 	RuleName pulumi.StringPtrInput
-	// A set of key/value pairs that are used to manage the resource.
+	// Metadata which can be used to manage the topic rule.
+	//
+	// > For URI Request parameters use format: ...key1=value1&key2=value2...
+	// >
+	// > For the CLI command-line parameter use format: --tags "key1=value1&key2=value2..."
+	// >
+	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
 	Tags aws.TagArrayInput
-	// Describes a rule.
+	// The rule payload.
 	TopicRulePayload TopicRulePayloadInput
 }
 
@@ -147,12 +165,18 @@ func (o TopicRuleOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRule) pulumi.StringPtrOutput { return v.RuleName }).(pulumi.StringPtrOutput)
 }
 
-// A set of key/value pairs that are used to manage the resource.
+// Metadata which can be used to manage the topic rule.
+//
+// > For URI Request parameters use format: ...key1=value1&key2=value2...
+// >
+// > For the CLI command-line parameter use format: --tags "key1=value1&key2=value2..."
+// >
+// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
 func (o TopicRuleOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *TopicRule) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// Describes a rule.
+// The rule payload.
 func (o TopicRuleOutput) TopicRulePayload() TopicRulePayloadOutput {
 	return o.ApplyT(func(v *TopicRule) TopicRulePayloadOutput { return v.TopicRulePayload }).(TopicRulePayloadOutput)
 }

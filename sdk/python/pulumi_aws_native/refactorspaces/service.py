@@ -34,10 +34,10 @@ class ServiceArgs:
         :param pulumi.Input['ServiceEndpointType'] endpoint_type: The endpoint type of the service.
         :param pulumi.Input[str] environment_identifier: The unique identifier of the environment.
         :param pulumi.Input[str] description: A description of the service.
-        :param pulumi.Input['ServiceLambdaEndpointInputArgs'] lambda_endpoint: The input for the AWS Lambda endpoint type.
+        :param pulumi.Input['ServiceLambdaEndpointInputArgs'] lambda_endpoint: A summary of the configuration for the AWS Lambda endpoint type.
         :param pulumi.Input[str] name: The name of the service.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-        :param pulumi.Input['ServiceUrlEndpointInputArgs'] url_endpoint: The configuration for the URL endpoint type.
+        :param pulumi.Input['ServiceUrlEndpointInputArgs'] url_endpoint: The summary of the configuration for the URL endpoint type.
         :param pulumi.Input[str] vpc_id: The ID of the virtual private cloud (VPC).
         """
         pulumi.set(__self__, "application_identifier", application_identifier)
@@ -108,7 +108,7 @@ class ServiceArgs:
     @pulumi.getter(name="lambdaEndpoint")
     def lambda_endpoint(self) -> Optional[pulumi.Input['ServiceLambdaEndpointInputArgs']]:
         """
-        The input for the AWS Lambda endpoint type.
+        A summary of the configuration for the AWS Lambda endpoint type.
         """
         return pulumi.get(self, "lambda_endpoint")
 
@@ -144,7 +144,7 @@ class ServiceArgs:
     @pulumi.getter(name="urlEndpoint")
     def url_endpoint(self) -> Optional[pulumi.Input['ServiceUrlEndpointInputArgs']]:
         """
-        The configuration for the URL endpoint type.
+        The summary of the configuration for the URL endpoint type.
         """
         return pulumi.get(self, "url_endpoint")
 
@@ -189,10 +189,10 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the service.
         :param pulumi.Input['ServiceEndpointType'] endpoint_type: The endpoint type of the service.
         :param pulumi.Input[str] environment_identifier: The unique identifier of the environment.
-        :param pulumi.Input[pulumi.InputType['ServiceLambdaEndpointInputArgs']] lambda_endpoint: The input for the AWS Lambda endpoint type.
+        :param pulumi.Input[pulumi.InputType['ServiceLambdaEndpointInputArgs']] lambda_endpoint: A summary of the configuration for the AWS Lambda endpoint type.
         :param pulumi.Input[str] name: The name of the service.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
-        :param pulumi.Input[pulumi.InputType['ServiceUrlEndpointInputArgs']] url_endpoint: The configuration for the URL endpoint type.
+        :param pulumi.Input[pulumi.InputType['ServiceUrlEndpointInputArgs']] url_endpoint: The summary of the configuration for the URL endpoint type.
         :param pulumi.Input[str] vpc_id: The ID of the virtual private cloud (VPC).
         """
         ...
@@ -335,7 +335,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="lambdaEndpoint")
     def lambda_endpoint(self) -> pulumi.Output[Optional['outputs.ServiceLambdaEndpointInput']]:
         """
-        The input for the AWS Lambda endpoint type.
+        A summary of the configuration for the AWS Lambda endpoint type.
         """
         return pulumi.get(self, "lambda_endpoint")
 
@@ -367,7 +367,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="urlEndpoint")
     def url_endpoint(self) -> pulumi.Output[Optional['outputs.ServiceUrlEndpointInput']]:
         """
-        The configuration for the URL endpoint type.
+        The summary of the configuration for the URL endpoint type.
         """
         return pulumi.get(self, "url_endpoint")
 

@@ -17,19 +17,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardPublishOptions
     {
         /// <summary>
-        /// An ad hoc (one-time) filtering option.
+        /// Ad hoc (one-time) filtering option.
         /// </summary>
         public readonly Outputs.DashboardAdHocFilteringOption? AdHocFilteringOption;
         /// <summary>
-        /// The drill down options for data points in a dashbaord.
+        /// The drill-down options of data points in a dashboard.
         /// </summary>
         public readonly Outputs.DashboardDataPointDrillUpDownOption? DataPointDrillUpDownOption;
         /// <summary>
-        /// The data point menu options of a dashboard.
+        /// The data point menu label options of a dashboard.
         /// </summary>
         public readonly Outputs.DashboardDataPointMenuLabelOption? DataPointMenuLabelOption;
         /// <summary>
-        /// The data point tooltip options.
+        /// The data point tool tip options of a dashboard.
         /// </summary>
         public readonly Outputs.DashboardDataPointTooltipOption? DataPointTooltipOption;
         /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardExportToCsvOption? ExportToCsvOption;
         /// <summary>
-        /// Determines whether or not hidden fields are visible on exported dashbaords.
+        /// Determines if hidden fields are exported with a dashboard.
         /// </summary>
         public readonly Outputs.DashboardExportWithHiddenFieldsOption? ExportWithHiddenFieldsOption;
         /// <summary>
@@ -49,15 +49,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardSheetLayoutElementMaximizationOption? SheetLayoutElementMaximizationOption;
         /// <summary>
-        /// The axis sort options for a visual.
+        /// The axis sort options of a dashboard.
         /// </summary>
         public readonly Outputs.DashboardVisualAxisSortOption? VisualAxisSortOption;
         /// <summary>
-        /// The menu options for a visual.
+        /// The menu options of a visual in a dashboard.
         /// </summary>
         public readonly Outputs.DashboardVisualMenuOption? VisualMenuOption;
         /// <summary>
-        /// The visual publish options of a visual in a dashboard
+        /// The visual publish options of a visual in a dashboard.
         /// </summary>
         public readonly Outputs.DashboardVisualPublishOptions? VisualPublishOptions;
 

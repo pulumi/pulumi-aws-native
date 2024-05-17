@@ -265,9 +265,7 @@ type Association struct {
 	MaxErrors pulumi.StringPtrOutput `pulumi:"maxErrors"`
 	// The name of the SSM document.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// `InstanceAssociationOutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
-	//
-	// For the minimal permissions required to enable Amazon S3 output for an association, see [Creating associations](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc.html) in the *Systems Manager User Guide* .
+	// An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
 	OutputLocation AssociationInstanceAssociationOutputLocationPtrOutput `pulumi:"outputLocation"`
 	// Parameter values that the SSM document uses at runtime.
 	Parameters pulumi.StringArrayMapOutput `pulumi:"parameters"`
@@ -353,9 +351,7 @@ type associationArgs struct {
 	MaxErrors *string `pulumi:"maxErrors"`
 	// The name of the SSM document.
 	Name *string `pulumi:"name"`
-	// `InstanceAssociationOutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
-	//
-	// For the minimal permissions required to enable Amazon S3 output for an association, see [Creating associations](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc.html) in the *Systems Manager User Guide* .
+	// An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
 	OutputLocation *AssociationInstanceAssociationOutputLocation `pulumi:"outputLocation"`
 	// Parameter values that the SSM document uses at runtime.
 	Parameters map[string][]string `pulumi:"parameters"`
@@ -403,9 +399,7 @@ type AssociationArgs struct {
 	MaxErrors pulumi.StringPtrInput
 	// The name of the SSM document.
 	Name pulumi.StringPtrInput
-	// `InstanceAssociationOutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
-	//
-	// For the minimal permissions required to enable Amazon S3 output for an association, see [Creating associations](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc.html) in the *Systems Manager User Guide* .
+	// An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
 	OutputLocation AssociationInstanceAssociationOutputLocationPtrInput
 	// Parameter values that the SSM document uses at runtime.
 	Parameters pulumi.StringArrayMapInput
@@ -523,9 +517,7 @@ func (o AssociationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Association) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// `InstanceAssociationOutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
-//
-// For the minimal permissions required to enable Amazon S3 output for an association, see [Creating associations](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc.html) in the *Systems Manager User Guide* .
+// An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
 func (o AssociationOutput) OutputLocation() AssociationInstanceAssociationOutputLocationPtrOutput {
 	return o.ApplyT(func(v *Association) AssociationInstanceAssociationOutputLocationPtrOutput { return v.OutputLocation }).(AssociationInstanceAssociationOutputLocationPtrOutput)
 }

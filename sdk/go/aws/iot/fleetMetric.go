@@ -18,7 +18,7 @@ type FleetMetric struct {
 
 	// The aggregation field to perform aggregation and metric emission
 	AggregationField pulumi.StringPtrOutput `pulumi:"aggregationField"`
-	// The type of aggregation queries.
+	// The type of the aggregation query.
 	AggregationType FleetMetricAggregationTypePtrOutput `pulumi:"aggregationType"`
 	// The creation date of a fleet metric
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
@@ -92,7 +92,7 @@ func (FleetMetricState) ElementType() reflect.Type {
 type fleetMetricArgs struct {
 	// The aggregation field to perform aggregation and metric emission
 	AggregationField *string `pulumi:"aggregationField"`
-	// The type of aggregation queries.
+	// The type of the aggregation query.
 	AggregationType *FleetMetricAggregationType `pulumi:"aggregationType"`
 	// The description of a fleet metric
 	Description *string `pulumi:"description"`
@@ -116,7 +116,7 @@ type fleetMetricArgs struct {
 type FleetMetricArgs struct {
 	// The aggregation field to perform aggregation and metric emission
 	AggregationField pulumi.StringPtrInput
-	// The type of aggregation queries.
+	// The type of the aggregation query.
 	AggregationType FleetMetricAggregationTypePtrInput
 	// The description of a fleet metric
 	Description pulumi.StringPtrInput
@@ -178,7 +178,7 @@ func (o FleetMetricOutput) AggregationField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FleetMetric) pulumi.StringPtrOutput { return v.AggregationField }).(pulumi.StringPtrOutput)
 }
 
-// The type of aggregation queries.
+// The type of the aggregation query.
 func (o FleetMetricOutput) AggregationType() FleetMetricAggregationTypePtrOutput {
 	return o.ApplyT(func(v *FleetMetric) FleetMetricAggregationTypePtrOutput { return v.AggregationType }).(FleetMetricAggregationTypePtrOutput)
 }

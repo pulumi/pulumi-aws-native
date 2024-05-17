@@ -42,7 +42,7 @@ export class Application extends pulumi.CustomResource {
      */
     public /*out*/ readonly apiGatewayId!: pulumi.Output<string>;
     /**
-     * A wrapper object holding the Amazon API Gateway endpoint input.
+     * The endpoint URL of the Amazon API Gateway proxy.
      */
     public readonly apiGatewayProxy!: pulumi.Output<outputs.refactorspaces.ApplicationApiGatewayProxyInput | undefined>;
     /**
@@ -156,7 +156,7 @@ export class Application extends pulumi.CustomResource {
  */
 export interface ApplicationArgs {
     /**
-     * A wrapper object holding the Amazon API Gateway endpoint input.
+     * The endpoint URL of the Amazon API Gateway proxy.
      */
     apiGatewayProxy?: pulumi.Input<inputs.refactorspaces.ApplicationApiGatewayProxyInputArgs>;
     /**

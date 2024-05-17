@@ -42,7 +42,7 @@ class GetUserPoolDomainResult:
     @pulumi.getter(name="customDomainConfig")
     def custom_domain_config(self) -> Optional['outputs.UserPoolDomainCustomDomainConfigType']:
         """
-        The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+        The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
         """
         return pulumi.get(self, "custom_domain_config")
 

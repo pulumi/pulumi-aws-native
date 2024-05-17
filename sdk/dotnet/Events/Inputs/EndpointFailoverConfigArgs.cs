@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.Events.Inputs
     public sealed class EndpointFailoverConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The primary Region of the endpoint.
+        /// The main Region of the endpoint.
         /// </summary>
         [Input("primary", required: true)]
         public Input<Inputs.EndpointPrimaryArgs> Primary { get; set; } = null!;
 
         /// <summary>
-        /// The secondary Region that processes events when failover is triggered or replication is enabled.
+        /// The Region that events are routed to when failover is triggered or event replication is enabled.
         /// </summary>
         [Input("secondary", required: true)]
         public Input<Inputs.EndpointSecondaryArgs> Secondary { get; set; } = null!;

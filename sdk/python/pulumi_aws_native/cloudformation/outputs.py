@@ -587,7 +587,7 @@ class StackSetStackInstances(dict):
                  parameter_overrides: Optional[Sequence['outputs.StackSetParameter']] = None):
         """
         Stack instances in some specific accounts and Regions.
-        :param 'StackSetDeploymentTargets' deployment_targets: The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
+        :param 'StackSetDeploymentTargets' deployment_targets: The AWS `OrganizationalUnitIds` or `Accounts` for which to create stack instances in the specified Regions.
         :param Sequence[str] regions: The names of one or more Regions where you want to create stack instances using the specified AWS account(s).
         :param Sequence['StackSetParameter'] parameter_overrides: A list of stack set parameters whose values you want to override in the selected stack instances.
         """
@@ -600,7 +600,7 @@ class StackSetStackInstances(dict):
     @pulumi.getter(name="deploymentTargets")
     def deployment_targets(self) -> 'outputs.StackSetDeploymentTargets':
         """
-        The AWS OrganizationalUnitIds or Accounts for which to create stack instances in the specified Regions.
+        The AWS `OrganizationalUnitIds` or `Accounts` for which to create stack instances in the specified Regions.
         """
         return pulumi.get(self, "deployment_targets")
 

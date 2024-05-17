@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardGaugeChartConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The options that determine the presentation of the data labels.
+        /// The data label configuration of a `GaugeChartVisual` .
         /// </summary>
         [Input("dataLabels")]
         public Input<Inputs.DashboardDataLabelOptionsArgs>? DataLabels { get; set; }
@@ -31,13 +31,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.DashboardGaugeChartOptionsArgs>? GaugeChartOptions { get; set; }
 
         /// <summary>
-        /// The display options for the visual tooltip.
+        /// The tooltip configuration of a `GaugeChartVisual` .
         /// </summary>
         [Input("tooltipOptions")]
         public Input<Inputs.DashboardTooltipOptionsArgs>? TooltipOptions { get; set; }
 
         /// <summary>
-        /// The visual display options for the visual palette.
+        /// The visual palette configuration of a `GaugeChartVisual` .
         /// </summary>
         [Input("visualPalette")]
         public Input<Inputs.DashboardVisualPaletteArgs>? VisualPalette { get; set; }

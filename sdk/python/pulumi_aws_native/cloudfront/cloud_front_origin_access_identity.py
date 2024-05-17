@@ -19,7 +19,7 @@ class CloudFrontOriginAccessIdentityArgs:
                  cloud_front_origin_access_identity_config: pulumi.Input['CloudFrontOriginAccessIdentityConfigArgs']):
         """
         The set of arguments for constructing a CloudFrontOriginAccessIdentity resource.
-        :param pulumi.Input['CloudFrontOriginAccessIdentityConfigArgs'] cloud_front_origin_access_identity_config: Origin access identity configuration. Send a `GET` request to the `/ *CloudFront API version* /CloudFront/identity ID/config` resource.
+        :param pulumi.Input['CloudFrontOriginAccessIdentityConfigArgs'] cloud_front_origin_access_identity_config: The current configuration information for the identity.
         """
         pulumi.set(__self__, "cloud_front_origin_access_identity_config", cloud_front_origin_access_identity_config)
 
@@ -27,7 +27,7 @@ class CloudFrontOriginAccessIdentityArgs:
     @pulumi.getter(name="cloudFrontOriginAccessIdentityConfig")
     def cloud_front_origin_access_identity_config(self) -> pulumi.Input['CloudFrontOriginAccessIdentityConfigArgs']:
         """
-        Origin access identity configuration. Send a `GET` request to the `/ *CloudFront API version* /CloudFront/identity ID/config` resource.
+        The current configuration information for the identity.
         """
         return pulumi.get(self, "cloud_front_origin_access_identity_config")
 
@@ -72,7 +72,7 @@ class CloudFrontOriginAccessIdentity(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CloudFrontOriginAccessIdentityConfigArgs']] cloud_front_origin_access_identity_config: Origin access identity configuration. Send a `GET` request to the `/ *CloudFront API version* /CloudFront/identity ID/config` resource.
+        :param pulumi.Input[pulumi.InputType['CloudFrontOriginAccessIdentityConfigArgs']] cloud_front_origin_access_identity_config: The current configuration information for the identity.
         """
         ...
     @overload
@@ -176,7 +176,7 @@ class CloudFrontOriginAccessIdentity(pulumi.CustomResource):
     @pulumi.getter(name="cloudFrontOriginAccessIdentityConfig")
     def cloud_front_origin_access_identity_config(self) -> pulumi.Output['outputs.CloudFrontOriginAccessIdentityConfig']:
         """
-        Origin access identity configuration. Send a `GET` request to the `/ *CloudFront API version* /CloudFront/identity ID/config` resource.
+        The current configuration information for the identity.
         """
         return pulumi.get(self, "cloud_front_origin_access_identity_config")
 

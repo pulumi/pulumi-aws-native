@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
         /// </summary>
         public readonly int? HealthyThresholdCount;
         /// <summary>
-        /// Describes the codes to use when checking for a successful response from a target for health checks.
+        /// The codes to use when checking for a successful response from a target.
         /// </summary>
         public readonly Outputs.TargetGroupMatcher? Matcher;
         /// <summary>

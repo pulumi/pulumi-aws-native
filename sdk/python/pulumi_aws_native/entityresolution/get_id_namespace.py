@@ -70,7 +70,7 @@ class GetIdNamespaceResult:
     @pulumi.getter(name="idMappingWorkflowProperties")
     def id_mapping_workflow_properties(self) -> Optional[Sequence['outputs.IdNamespaceIdMappingWorkflowProperties']]:
         """
-        An object containing `IdMappingType` and `ProviderProperties` .
+        Determines the properties of `IdMappingWorflow` where this `IdNamespace` can be used as a `Source` or a `Target` .
         """
         return pulumi.get(self, "id_mapping_workflow_properties")
 
@@ -86,7 +86,7 @@ class GetIdNamespaceResult:
     @pulumi.getter(name="inputSourceConfig")
     def input_source_config(self) -> Optional[Sequence['outputs.IdNamespaceInputSource']]:
         """
-        An object containing `InputSourceARN` and `SchemaName` .
+        A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
         """
         return pulumi.get(self, "input_source_config")
 

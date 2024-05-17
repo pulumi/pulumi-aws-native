@@ -31,9 +31,9 @@ type LookupBranchArgs struct {
 type LookupBranchResult struct {
 	// ARN for a branch, part of an Amplify App.
 	Arn *string `pulumi:"arn"`
-	// Describes the backend associated with an Amplify `Branch` .
+	// The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
 	//
-	// This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
+	// This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
 	Backend *BranchBackend `pulumi:"backend"`
 	// The build specification (build spec) for the branch.
 	BuildSpec *string `pulumi:"buildSpec"`
@@ -51,7 +51,7 @@ type LookupBranchResult struct {
 	//
 	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
 	EnablePullRequestPreview *bool `pulumi:"enablePullRequestPreview"`
-	// The EnvironmentVariable property type sets environment variables for a specific branch. Environment variables are key-value pairs that are available at build time.
+	// The environment variables for the branch.
 	EnvironmentVariables []BranchEnvironmentVariable `pulumi:"environmentVariables"`
 	// The framework for the branch.
 	Framework *string `pulumi:"framework"`
@@ -65,7 +65,7 @@ type LookupBranchResult struct {
 	PullRequestEnvironmentName *string `pulumi:"pullRequestEnvironmentName"`
 	// Describes the current stage for the branch.
 	Stage *BranchStage `pulumi:"stage"`
-	// The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::Branch` resource.
+	// The tag for the branch.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -110,9 +110,9 @@ func (o LookupBranchResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupBranchResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// Describes the backend associated with an Amplify `Branch` .
+// The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
 //
-// This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
+// This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
 func (o LookupBranchResultOutput) Backend() BranchBackendPtrOutput {
 	return o.ApplyT(func(v LookupBranchResult) *BranchBackend { return v.Backend }).(BranchBackendPtrOutput)
 }
@@ -148,7 +148,7 @@ func (o LookupBranchResultOutput) EnablePullRequestPreview() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v LookupBranchResult) *bool { return v.EnablePullRequestPreview }).(pulumi.BoolPtrOutput)
 }
 
-// The EnvironmentVariable property type sets environment variables for a specific branch. Environment variables are key-value pairs that are available at build time.
+// The environment variables for the branch.
 func (o LookupBranchResultOutput) EnvironmentVariables() BranchEnvironmentVariableArrayOutput {
 	return o.ApplyT(func(v LookupBranchResult) []BranchEnvironmentVariable { return v.EnvironmentVariables }).(BranchEnvironmentVariableArrayOutput)
 }
@@ -174,7 +174,7 @@ func (o LookupBranchResultOutput) Stage() BranchStagePtrOutput {
 	return o.ApplyT(func(v LookupBranchResult) *BranchStage { return v.Stage }).(BranchStagePtrOutput)
 }
 
-// The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::Branch` resource.
+// The tag for the branch.
 func (o LookupBranchResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupBranchResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

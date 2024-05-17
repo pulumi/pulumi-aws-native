@@ -31,7 +31,7 @@ type LookupIdentityPoolResult struct {
 	AllowClassicFlow *bool `pulumi:"allowClassicFlow"`
 	// Specifies whether the identity pool supports unauthenticated logins.
 	AllowUnauthenticatedIdentities *bool `pulumi:"allowUnauthenticatedIdentities"`
-	// `CognitoIdentityProvider` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that represents an Amazon Cognito user pool and its client ID.
+	// The Amazon Cognito user pools and their client IDs.
 	CognitoIdentityProviders []IdentityPoolCognitoIdentityProvider `pulumi:"cognitoIdentityProviders"`
 	// The "domain" Amazon Cognito uses when referencing your users. This name acts as a placeholder that allows your backend and the Amazon Cognito service to communicate about the developer provider. For the `DeveloperProviderName` , you can use letters and periods (.), underscores (_), and dashes (-).
 	//
@@ -105,7 +105,7 @@ func (o LookupIdentityPoolResultOutput) AllowUnauthenticatedIdentities() pulumi.
 	return o.ApplyT(func(v LookupIdentityPoolResult) *bool { return v.AllowUnauthenticatedIdentities }).(pulumi.BoolPtrOutput)
 }
 
-// `CognitoIdentityProvider` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that represents an Amazon Cognito user pool and its client ID.
+// The Amazon Cognito user pools and their client IDs.
 func (o LookupIdentityPoolResultOutput) CognitoIdentityProviders() IdentityPoolCognitoIdentityProviderArrayOutput {
 	return o.ApplyT(func(v LookupIdentityPoolResult) []IdentityPoolCognitoIdentityProvider {
 		return v.CognitoIdentityProviders

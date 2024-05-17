@@ -24,7 +24,7 @@ class ConnectorArgs:
         The set of arguments for constructing a Connector resource.
         :param pulumi.Input[str] certificate_authority_arn: The Amazon Resource Name (ARN) of the certificate authority being used.
         :param pulumi.Input[str] directory_id: The identifier of the Active Directory.
-        :param pulumi.Input['ConnectorVpcInformationArgs'] vpc_information: Information about your VPC and security groups used with the connector.
+        :param pulumi.Input['ConnectorVpcInformationArgs'] vpc_information: Information of the VPC and security group(s) used with the connector.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata assigned to a connector consisting of a key-value pair.
         """
         pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
@@ -61,7 +61,7 @@ class ConnectorArgs:
     @pulumi.getter(name="vpcInformation")
     def vpc_information(self) -> pulumi.Input['ConnectorVpcInformationArgs']:
         """
-        Information about your VPC and security groups used with the connector.
+        Information of the VPC and security group(s) used with the connector.
         """
         return pulumi.get(self, "vpc_information")
 
@@ -100,7 +100,7 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_authority_arn: The Amazon Resource Name (ARN) of the certificate authority being used.
         :param pulumi.Input[str] directory_id: The identifier of the Active Directory.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata assigned to a connector consisting of a key-value pair.
-        :param pulumi.Input[pulumi.InputType['ConnectorVpcInformationArgs']] vpc_information: Information about your VPC and security groups used with the connector.
+        :param pulumi.Input[pulumi.InputType['ConnectorVpcInformationArgs']] vpc_information: Information of the VPC and security group(s) used with the connector.
         """
         ...
     @overload
@@ -217,7 +217,7 @@ class Connector(pulumi.CustomResource):
     @pulumi.getter(name="vpcInformation")
     def vpc_information(self) -> pulumi.Output['outputs.ConnectorVpcInformation']:
         """
-        Information about your VPC and security groups used with the connector.
+        Information of the VPC and security group(s) used with the connector.
         """
         return pulumi.get(self, "vpc_information")
 

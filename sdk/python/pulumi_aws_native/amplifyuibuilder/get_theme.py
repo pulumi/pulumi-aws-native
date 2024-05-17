@@ -78,7 +78,7 @@ class GetThemeResult:
     @pulumi.getter
     def overrides(self) -> Optional[Sequence['outputs.ThemeValues']]:
         """
-        The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+        Describes the properties that can be overriden to customize a theme.
         """
         return pulumi.get(self, "overrides")
 
@@ -94,7 +94,7 @@ class GetThemeResult:
     @pulumi.getter
     def values(self) -> Optional[Sequence['outputs.ThemeValues']]:
         """
-        The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+        A list of key-value pairs that defines the properties of the theme.
         """
         return pulumi.get(self, "values")
 

@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Scheduler.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.Scheduler.ScheduleLaunchType? LaunchType;
         /// <summary>
-        /// Specifies the network configuration for an ECS task.
+        /// This structure specifies the network configuration for an ECS task.
         /// </summary>
         public readonly Outputs.ScheduleNetworkConfiguration? NetworkConfiguration;
         /// <summary>

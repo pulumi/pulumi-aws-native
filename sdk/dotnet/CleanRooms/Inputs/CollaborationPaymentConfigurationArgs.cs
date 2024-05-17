@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
     public sealed class CollaborationPaymentConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An object representing the collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
+        /// The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
         /// </summary>
         [Input("queryCompute", required: true)]
         public Input<Inputs.CollaborationQueryComputePaymentConfigArgs> QueryCompute { get; set; } = null!;

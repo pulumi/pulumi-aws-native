@@ -23,9 +23,7 @@ class AnalyzerArchiveRuleArgs:
                  rule_name: pulumi.Input[str]):
         """
         An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
-        :param pulumi.Input[Sequence[pulumi.Input['AnalyzerFilterArgs']]] filter: The criteria that defines the archive rule.
-               
-               To learn about filter keys that you can use to create an archive rule, see [filter keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html) in the *User Guide* .
+        :param pulumi.Input[Sequence[pulumi.Input['AnalyzerFilterArgs']]] filter: The criteria for the rule.
         :param pulumi.Input[str] rule_name: The archive rule name
         """
         pulumi.set(__self__, "filter", filter)
@@ -35,9 +33,7 @@ class AnalyzerArchiveRuleArgs:
     @pulumi.getter
     def filter(self) -> pulumi.Input[Sequence[pulumi.Input['AnalyzerFilterArgs']]]:
         """
-        The criteria that defines the archive rule.
-
-        To learn about filter keys that you can use to create an archive rule, see [filter keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html) in the *User Guide* .
+        The criteria for the rule.
         """
         return pulumi.get(self, "filter")
 
@@ -64,7 +60,7 @@ class AnalyzerConfigurationPropertiesArgs:
                  unused_access_configuration: Optional[pulumi.Input['AnalyzerUnusedAccessConfigurationArgs']] = None):
         """
         The configuration for the analyzer
-        :param pulumi.Input['AnalyzerUnusedAccessConfigurationArgs'] unused_access_configuration: Contains information about an unused access analyzer.
+        :param pulumi.Input['AnalyzerUnusedAccessConfigurationArgs'] unused_access_configuration: Specifies the configuration of an unused access analyzer for an AWS organization or account. External access analyzers do not support any configuration.
         """
         if unused_access_configuration is not None:
             pulumi.set(__self__, "unused_access_configuration", unused_access_configuration)
@@ -73,7 +69,7 @@ class AnalyzerConfigurationPropertiesArgs:
     @pulumi.getter(name="unusedAccessConfiguration")
     def unused_access_configuration(self) -> Optional[pulumi.Input['AnalyzerUnusedAccessConfigurationArgs']]:
         """
-        Contains information about an unused access analyzer.
+        Specifies the configuration of an unused access analyzer for an AWS organization or account. External access analyzers do not support any configuration.
         """
         return pulumi.get(self, "unused_access_configuration")
 

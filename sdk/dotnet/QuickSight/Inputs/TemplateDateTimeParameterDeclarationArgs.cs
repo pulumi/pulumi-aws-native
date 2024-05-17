@@ -13,17 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateDateTimeParameterDeclarationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The default values of the `DateTimeParameterDeclaration` .
+        /// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
         /// </summary>
         [Input("defaultValues")]
         public Input<Inputs.TemplateDateTimeDefaultValuesArgs>? DefaultValues { get; set; }
 
         [Input("mappedDataSetParameters")]
         private InputList<Inputs.TemplateMappedDataSetParameterArgs>? _mappedDataSetParameters;
-
-        /// <summary>
-        /// A dataset parameter that is mapped to an analysis parameter.
-        /// </summary>
         public InputList<Inputs.TemplateMappedDataSetParameterArgs> MappedDataSetParameters
         {
             get => _mappedDataSetParameters ?? (_mappedDataSetParameters = new InputList<Inputs.TemplateMappedDataSetParameterArgs>());

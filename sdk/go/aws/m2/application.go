@@ -21,6 +21,8 @@ type Application struct {
 	// The identifier of the application.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+	//
+	// For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
 	Definition pulumi.AnyOutput `pulumi:"definition"`
 	// The description of the application.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -92,6 +94,8 @@ func (ApplicationState) ElementType() reflect.Type {
 
 type applicationArgs struct {
 	// The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+	//
+	// For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
 	Definition interface{} `pulumi:"definition"`
 	// The description of the application.
 	Description *string `pulumi:"description"`
@@ -112,6 +116,8 @@ type applicationArgs struct {
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
 	// The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+	//
+	// For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
 	Definition pulumi.Input
 	// The description of the application.
 	Description pulumi.StringPtrInput
@@ -177,6 +183,8 @@ func (o ApplicationOutput) ApplicationId() pulumi.StringOutput {
 }
 
 // The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+//
+// For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
 func (o ApplicationOutput) Definition() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Application) pulumi.AnyOutput { return v.Definition }).(pulumi.AnyOutput)
 }

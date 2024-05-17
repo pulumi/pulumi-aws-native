@@ -27,8 +27,7 @@ type Policy struct {
 	PolicyDocument pulumi.AnyOutput `pulumi:"policyDocument"`
 	// The policy name.
 	PolicyName pulumi.StringPtrOutput `pulumi:"policyName"`
-	// A set of key/value pairs that are used to manage the resource.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags       aws.TagArrayOutput     `pulumi:"tags"`
 }
 
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
@@ -83,9 +82,8 @@ type policyArgs struct {
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
 	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// The policy name.
-	PolicyName *string `pulumi:"policyName"`
-	// A set of key/value pairs that are used to manage the resource.
-	Tags []aws.Tag `pulumi:"tags"`
+	PolicyName *string   `pulumi:"policyName"`
+	Tags       []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Policy resource.
@@ -96,8 +94,7 @@ type PolicyArgs struct {
 	PolicyDocument pulumi.Input
 	// The policy name.
 	PolicyName pulumi.StringPtrInput
-	// A set of key/value pairs that are used to manage the resource.
-	Tags aws.TagArrayInput
+	Tags       aws.TagArrayInput
 }
 
 func (PolicyArgs) ElementType() reflect.Type {
@@ -159,7 +156,6 @@ func (o PolicyOutput) PolicyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.PolicyName }).(pulumi.StringPtrOutput)
 }
 
-// A set of key/value pairs that are used to manage the resource.
 func (o PolicyOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Policy) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

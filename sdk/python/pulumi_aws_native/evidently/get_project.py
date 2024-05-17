@@ -41,7 +41,11 @@ class GetProjectResult:
     @pulumi.getter(name="appConfigResource")
     def app_config_resource(self) -> Optional['outputs.ProjectAppConfigResourceObject']:
         """
-        This is a structure that defines the configuration of how your application integrates with AWS AppConfig to run client-side evaluation.
+        Use this parameter if the project will use *client-side evaluation powered by AWS AppConfig* . Client-side evaluation allows your application to assign variations to user sessions locally instead of by calling the [EvaluateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html) operation. This mitigates the latency and availability risks that come with an API call. For more information, see [Use client-side evaluation - powered by AWS AppConfig .](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-client-side-evaluation.html)
+
+        This parameter is a structure that contains information about the AWS AppConfig application that will be used as for client-side evaluation.
+
+        To create a project that uses client-side evaluation, you must have the `evidently:ExportProjectAsConfiguration` permission.
         """
         return pulumi.get(self, "app_config_resource")
 
@@ -57,7 +61,9 @@ class GetProjectResult:
     @pulumi.getter(name="dataDelivery")
     def data_delivery(self) -> Optional['outputs.ProjectDataDeliveryObject']:
         """
-        A structure that contains information about where Evidently is to store evaluation events for longer term storage.
+        A structure that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view.
+
+        You can't specify both `CloudWatchLogs` and `S3Destination` in the same operation.
         """
         return pulumi.get(self, "data_delivery")
 

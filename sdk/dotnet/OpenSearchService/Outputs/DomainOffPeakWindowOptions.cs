@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// A custom 10-hour, low-traffic window during which OpenSearch Service can perform mandatory configuration changes on the domain. These actions can include scheduled service software updates and blue/green Auto-Tune enhancements. OpenSearch Service will schedule these actions during the window that you specify. If you don't specify a window start time, it defaults to 10:00 P.M. local time.
+        /// Off-peak window settings for the domain.
         /// </summary>
         public readonly Outputs.DomainOffPeakWindow? OffPeakWindow;
 

@@ -29,9 +29,9 @@ type LookupCapacityProviderArgs struct {
 }
 
 type LookupCapacityProviderResult struct {
-	// The details of the Auto Scaling group for the capacity provider.
+	// The Auto Scaling group settings for the capacity provider.
 	AutoScalingGroupProvider *CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
-	// The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+	// The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
 	//
 	// The following basic restrictions apply to tags:
 	//
@@ -81,14 +81,14 @@ func (o LookupCapacityProviderResultOutput) ToLookupCapacityProviderResultOutput
 	return o
 }
 
-// The details of the Auto Scaling group for the capacity provider.
+// The Auto Scaling group settings for the capacity provider.
 func (o LookupCapacityProviderResultOutput) AutoScalingGroupProvider() CapacityProviderAutoScalingGroupProviderPtrOutput {
 	return o.ApplyT(func(v LookupCapacityProviderResult) *CapacityProviderAutoScalingGroupProvider {
 		return v.AutoScalingGroupProvider
 	}).(CapacityProviderAutoScalingGroupProviderPtrOutput)
 }
 
-// The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+// The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
 //
 // The following basic restrictions apply to tags:
 //

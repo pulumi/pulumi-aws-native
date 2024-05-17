@@ -114,7 +114,7 @@ class GetUserPoolResult:
     @pulumi.getter(name="adminCreateUserConfig")
     def admin_create_user_config(self) -> Optional['outputs.UserPoolAdminCreateUserConfig']:
         """
-        The configuration for `AdminCreateUser` requests.
+        The configuration for creating a new user profile.
         """
         return pulumi.get(self, "admin_create_user_config")
 
@@ -160,11 +160,9 @@ class GetUserPoolResult:
     @pulumi.getter(name="deviceConfiguration")
     def device_configuration(self) -> Optional['outputs.UserPoolDeviceConfiguration']:
         """
-        The device-remembering configuration for a user pool. A [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) request returns a null value for this object when the user pool isn't configured to remember devices. When device remembering is active, you can remember a user's device with a [ConfirmDevice](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html) API request. Additionally. when the property `DeviceOnlyRememberedOnUserPrompt` is `true` , you must follow `ConfirmDevice` with an [UpdateDeviceStatus](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html) API request that sets the user's device to `remembered` or `not_remembered` .
+        The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.
 
-        To sign in with a remembered device, include `DEVICE_KEY` in the authentication parameters in your user's [InitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html) request. If your app doesn't include a `DEVICE_KEY` parameter, the [response](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html#API_InitiateAuth_ResponseSyntax) from Amazon Cognito includes newly-generated `DEVICE_KEY` and `DEVICE_GROUP_KEY` values under `NewDeviceMetadata` . Store these values to use in future device-authentication requests.
-
-        > When you provide a value for any property of `DeviceConfiguration` , you activate the device remembering for the user pool.
+        > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
         """
         return pulumi.get(self, "device_configuration")
 
@@ -196,7 +194,13 @@ class GetUserPoolResult:
     @pulumi.getter(name="lambdaConfig")
     def lambda_config(self) -> Optional['outputs.UserPoolLambdaConfig']:
         """
-        Specifies the configuration for AWS Lambda triggers.
+        The Lambda trigger configuration information for the new user pool.
+
+        > In a push model, event sources (such as Amazon S3 and custom applications) need permission to invoke a function. So you must make an extra call to add permission for these event sources to invoke your Lambda function.
+        > 
+        > For more information on using the Lambda API to add permission, see [AddPermission](https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html) .
+        > 
+        > For adding permission using the AWS CLI , see [add-permission](https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html) .
         """
         return pulumi.get(self, "lambda_config")
 
@@ -240,9 +244,9 @@ class GetUserPoolResult:
     @pulumi.getter
     def schema(self) -> Optional[Sequence['outputs.UserPoolSchemaAttribute']]:
         """
-        A list of the user attributes and their properties in your user pool. The attribute schema contains standard attributes, custom attributes with a `custom:` prefix, and developer attributes with a `dev:` prefix. For more information, see [User pool attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html) .
+        The schema attributes for the new user pool. These attributes can be standard or custom attributes.
 
-        Developer-only attributes are a legacy feature of user pools, are read-only to all app clients. You can create and update developer-only attributes only with IAM-authenticated API operations. Use app client read/write permissions instead.
+        > During a user pool update, you can add new schema attributes but you cannot modify or delete an existing schema attribute.
         """
         return pulumi.get(self, "schema")
 
@@ -258,7 +262,7 @@ class GetUserPoolResult:
     @pulumi.getter(name="smsConfiguration")
     def sms_configuration(self) -> Optional['outputs.UserPoolSmsConfiguration']:
         """
-        The SMS configuration type that includes the settings the Cognito User Pool needs to call for the Amazon SNS service to send an SMS message from your AWS account . The Cognito User Pool makes the request to the Amazon SNS Service by using an IAM role that you provide for your AWS account .
+        The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account .
         """
         return pulumi.get(self, "sms_configuration")
 
@@ -328,7 +332,7 @@ class GetUserPoolResult:
     @pulumi.getter(name="usernameConfiguration")
     def username_configuration(self) -> Optional['outputs.UserPoolUsernameConfiguration']:
         """
-        The `UsernameConfiguration` property type specifies case sensitivity on the username input for the selected sign-in option.
+        You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to `False` , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set.
         """
         return pulumi.get(self, "username_configuration")
 
@@ -336,7 +340,7 @@ class GetUserPoolResult:
     @pulumi.getter(name="verificationMessageTemplate")
     def verification_message_template(self) -> Optional['outputs.UserPoolVerificationMessageTemplate']:
         """
-        The template for verification messages.
+        The template for the verification message that the user sees when the app requests permission to access the user's information.
         """
         return pulumi.get(self, "verification_message_template")
 

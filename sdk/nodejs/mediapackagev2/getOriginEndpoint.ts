@@ -55,7 +55,7 @@ export interface GetOriginEndpointResult {
      */
     readonly modifiedAt?: string;
     /**
-     * The segment configuration, including the segment name, duration, and other configuration values.
+     * The segment associated with the origin endpoint.
      */
     readonly segment?: outputs.mediapackagev2.OriginEndpointSegment;
     /**

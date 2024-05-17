@@ -38,17 +38,7 @@ type Workspace struct {
 	ModificationTimestamp pulumi.StringOutput `pulumi:"modificationTimestamp"`
 	// The user friendly name of a workspace.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The configuration settings for in-bound network access to your workspace.
-	//
-	// When this is configured, only listed IP addresses and VPC endpoints will be able to access your workspace. Standard Grafana authentication and authorization are still required.
-	//
-	// Access is granted to a caller that is in either the IP address list or the VPC endpoint list - they do not need to be in both.
-	//
-	// If this is not configured, or is removed, then all IP addresses and VPC endpoints are allowed. Standard Grafana authentication and authorization are still required.
-	//
-	// > While both `prefixListIds` and `vpceIds` are required, you can pass in an empty array of strings for either parameter if you do not want to allow any of that type.
-	// >
-	// > If both are passed as empty arrays, no traffic is allowed to the workspace, because only *explicitly* allowed connections are accepted.
+	// The configuration settings for network access to your workspace.
 	NetworkAccessControl WorkspaceNetworkAccessControlPtrOutput `pulumi:"networkAccessControl"`
 	// List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
 	NotificationDestinations WorkspaceNotificationDestinationTypeArrayOutput `pulumi:"notificationDestinations"`
@@ -68,7 +58,7 @@ type Workspace struct {
 	PluginAdminEnabled pulumi.BoolPtrOutput `pulumi:"pluginAdminEnabled"`
 	// IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
-	// A structure containing information about how this workspace works with SAML.
+	// If the workspace uses SAML, use this structure to map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the `Admin` and `Editor` roles in the workspace.
 	SamlConfiguration WorkspaceSamlConfigurationPtrOutput `pulumi:"samlConfiguration"`
 	// Specifies whether the workspace's SAML configuration is complete.
 	//
@@ -88,8 +78,6 @@ type Workspace struct {
 	Status WorkspaceStatusOutput `pulumi:"status"`
 	// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
 	//
-	// > Provided `securityGroupIds` and `subnetIds` must be part of the same VPC.
-	// >
 	// > Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
 	VpcConfiguration WorkspaceVpcConfigurationPtrOutput `pulumi:"vpcConfiguration"`
 }
@@ -161,17 +149,7 @@ type workspaceArgs struct {
 	GrafanaVersion *string `pulumi:"grafanaVersion"`
 	// The user friendly name of a workspace.
 	Name *string `pulumi:"name"`
-	// The configuration settings for in-bound network access to your workspace.
-	//
-	// When this is configured, only listed IP addresses and VPC endpoints will be able to access your workspace. Standard Grafana authentication and authorization are still required.
-	//
-	// Access is granted to a caller that is in either the IP address list or the VPC endpoint list - they do not need to be in both.
-	//
-	// If this is not configured, or is removed, then all IP addresses and VPC endpoints are allowed. Standard Grafana authentication and authorization are still required.
-	//
-	// > While both `prefixListIds` and `vpceIds` are required, you can pass in an empty array of strings for either parameter if you do not want to allow any of that type.
-	// >
-	// > If both are passed as empty arrays, no traffic is allowed to the workspace, because only *explicitly* allowed connections are accepted.
+	// The configuration settings for network access to your workspace.
 	NetworkAccessControl *WorkspaceNetworkAccessControl `pulumi:"networkAccessControl"`
 	// List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
 	NotificationDestinations []WorkspaceNotificationDestinationType `pulumi:"notificationDestinations"`
@@ -191,14 +169,12 @@ type workspaceArgs struct {
 	PluginAdminEnabled *bool `pulumi:"pluginAdminEnabled"`
 	// IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
 	RoleArn *string `pulumi:"roleArn"`
-	// A structure containing information about how this workspace works with SAML.
+	// If the workspace uses SAML, use this structure to map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the `Admin` and `Editor` roles in the workspace.
 	SamlConfiguration *WorkspaceSamlConfiguration `pulumi:"samlConfiguration"`
 	// The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
 	StackSetName *string `pulumi:"stackSetName"`
 	// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
 	//
-	// > Provided `securityGroupIds` and `subnetIds` must be part of the same VPC.
-	// >
 	// > Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
 	VpcConfiguration *WorkspaceVpcConfiguration `pulumi:"vpcConfiguration"`
 }
@@ -219,17 +195,7 @@ type WorkspaceArgs struct {
 	GrafanaVersion pulumi.StringPtrInput
 	// The user friendly name of a workspace.
 	Name pulumi.StringPtrInput
-	// The configuration settings for in-bound network access to your workspace.
-	//
-	// When this is configured, only listed IP addresses and VPC endpoints will be able to access your workspace. Standard Grafana authentication and authorization are still required.
-	//
-	// Access is granted to a caller that is in either the IP address list or the VPC endpoint list - they do not need to be in both.
-	//
-	// If this is not configured, or is removed, then all IP addresses and VPC endpoints are allowed. Standard Grafana authentication and authorization are still required.
-	//
-	// > While both `prefixListIds` and `vpceIds` are required, you can pass in an empty array of strings for either parameter if you do not want to allow any of that type.
-	// >
-	// > If both are passed as empty arrays, no traffic is allowed to the workspace, because only *explicitly* allowed connections are accepted.
+	// The configuration settings for network access to your workspace.
 	NetworkAccessControl WorkspaceNetworkAccessControlPtrInput
 	// List of notification destinations on the customers service managed IAM role that the Grafana workspace can query.
 	NotificationDestinations WorkspaceNotificationDestinationTypeArrayInput
@@ -249,14 +215,12 @@ type WorkspaceArgs struct {
 	PluginAdminEnabled pulumi.BoolPtrInput
 	// IAM Role that will be used to grant the Grafana workspace access to a customers AWS resources.
 	RoleArn pulumi.StringPtrInput
-	// A structure containing information about how this workspace works with SAML.
+	// If the workspace uses SAML, use this structure to map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the `Admin` and `Editor` roles in the workspace.
 	SamlConfiguration WorkspaceSamlConfigurationPtrInput
 	// The name of the AWS CloudFormation stack set to use to generate IAM roles to be used for this workspace.
 	StackSetName pulumi.StringPtrInput
 	// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
 	//
-	// > Provided `securityGroupIds` and `subnetIds` must be part of the same VPC.
-	// >
 	// > Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
 	VpcConfiguration WorkspaceVpcConfigurationPtrInput
 }
@@ -353,17 +317,7 @@ func (o WorkspaceOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The configuration settings for in-bound network access to your workspace.
-//
-// When this is configured, only listed IP addresses and VPC endpoints will be able to access your workspace. Standard Grafana authentication and authorization are still required.
-//
-// Access is granted to a caller that is in either the IP address list or the VPC endpoint list - they do not need to be in both.
-//
-// If this is not configured, or is removed, then all IP addresses and VPC endpoints are allowed. Standard Grafana authentication and authorization are still required.
-//
-// > While both `prefixListIds` and `vpceIds` are required, you can pass in an empty array of strings for either parameter if you do not want to allow any of that type.
-// >
-// > If both are passed as empty arrays, no traffic is allowed to the workspace, because only *explicitly* allowed connections are accepted.
+// The configuration settings for network access to your workspace.
 func (o WorkspaceOutput) NetworkAccessControl() WorkspaceNetworkAccessControlPtrOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceNetworkAccessControlPtrOutput { return v.NetworkAccessControl }).(WorkspaceNetworkAccessControlPtrOutput)
 }
@@ -404,7 +358,7 @@ func (o WorkspaceOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// A structure containing information about how this workspace works with SAML.
+// If the workspace uses SAML, use this structure to map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the `Admin` and `Editor` roles in the workspace.
 func (o WorkspaceOutput) SamlConfiguration() WorkspaceSamlConfigurationPtrOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceSamlConfigurationPtrOutput { return v.SamlConfiguration }).(WorkspaceSamlConfigurationPtrOutput)
 }
@@ -439,8 +393,6 @@ func (o WorkspaceOutput) Status() WorkspaceStatusOutput {
 
 // The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
 //
-// > Provided `securityGroupIds` and `subnetIds` must be part of the same VPC.
-// >
 // > Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
 func (o WorkspaceOutput) VpcConfiguration() WorkspaceVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceVpcConfigurationPtrOutput { return v.VpcConfiguration }).(WorkspaceVpcConfigurationPtrOutput)

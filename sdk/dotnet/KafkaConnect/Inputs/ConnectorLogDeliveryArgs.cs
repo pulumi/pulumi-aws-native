@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
     public sealed class ConnectorLogDeliveryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Workers can send worker logs to different destination types. This configuration specifies the details of these destinations.
+        /// The workers can send worker logs to different destination types. This configuration specifies the details of these destinations.
         /// </summary>
         [Input("workerLogDelivery", required: true)]
         public Input<Inputs.ConnectorWorkerLogDeliveryArgs> WorkerLogDelivery { get; set; } = null!;

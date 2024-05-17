@@ -67,7 +67,7 @@ export class ServiceNetwork extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Specifies a tag for a service network.
+     * The tags for the service network.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -123,7 +123,7 @@ export interface ServiceNetworkArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies a tag for a service network.
+     * The tags for the service network.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

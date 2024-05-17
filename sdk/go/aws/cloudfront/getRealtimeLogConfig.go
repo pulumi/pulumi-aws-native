@@ -30,7 +30,7 @@ type LookupRealtimeLogConfigArgs struct {
 type LookupRealtimeLogConfigResult struct {
 	// The Amazon Resource Name (ARN) of the real-time log configuration. For example: `arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig` .
 	Arn *string `pulumi:"arn"`
-	// Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+	// Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
 	EndPoints []RealtimeLogConfigEndPoint `pulumi:"endPoints"`
 	// A list of fields that are included in each real-time log record. In an API response, the fields are provided in the same order in which they are sent to the Amazon Kinesis data stream.
 	//
@@ -81,7 +81,7 @@ func (o LookupRealtimeLogConfigResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRealtimeLogConfigResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+// Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
 func (o LookupRealtimeLogConfigResultOutput) EndPoints() RealtimeLogConfigEndPointArrayOutput {
 	return o.ApplyT(func(v LookupRealtimeLogConfigResult) []RealtimeLogConfigEndPoint { return v.EndPoints }).(RealtimeLogConfigEndPointArrayOutput)
 }

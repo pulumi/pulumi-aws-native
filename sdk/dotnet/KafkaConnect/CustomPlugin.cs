@@ -33,14 +33,11 @@ namespace Pulumi.AwsNative.KafkaConnect
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
-        /// <summary>
-        /// Details about a custom plugin file.
-        /// </summary>
         [Output("fileDescription")]
         public Output<Outputs.CustomPluginFileDescription> FileDescription { get; private set; } = null!;
 
         /// <summary>
-        /// Information about the location of a custom plugin.
+        /// Information about the location of the custom plugin.
         /// </summary>
         [Output("location")]
         public Output<Outputs.CustomPluginLocation> Location { get; private set; } = null!;
@@ -128,7 +125,7 @@ namespace Pulumi.AwsNative.KafkaConnect
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Information about the location of a custom plugin.
+        /// Information about the location of the custom plugin.
         /// </summary>
         [Input("location", required: true)]
         public Input<Inputs.CustomPluginLocationArgs> Location { get; set; } = null!;

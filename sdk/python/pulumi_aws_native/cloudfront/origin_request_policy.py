@@ -19,15 +19,7 @@ class OriginRequestPolicyArgs:
                  origin_request_policy_config: pulumi.Input['OriginRequestPolicyConfigArgs']):
         """
         The set of arguments for constructing a OriginRequestPolicy resource.
-        :param pulumi.Input['OriginRequestPolicyConfigArgs'] origin_request_policy_config: An origin request policy configuration.
-               
-               This configuration determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:
-               
-               - The request body and the URL path (without the domain name) from the viewer request.
-               - The headers that CloudFront automatically includes in every origin request, including `Host` , `User-Agent` , and `X-Amz-Cf-Id` .
-               - All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.
-               
-               CloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use `CachePolicy` .
+        :param pulumi.Input['OriginRequestPolicyConfigArgs'] origin_request_policy_config: The origin request policy configuration.
         """
         pulumi.set(__self__, "origin_request_policy_config", origin_request_policy_config)
 
@@ -35,15 +27,7 @@ class OriginRequestPolicyArgs:
     @pulumi.getter(name="originRequestPolicyConfig")
     def origin_request_policy_config(self) -> pulumi.Input['OriginRequestPolicyConfigArgs']:
         """
-        An origin request policy configuration.
-
-        This configuration determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:
-
-        - The request body and the URL path (without the domain name) from the viewer request.
-        - The headers that CloudFront automatically includes in every origin request, including `Host` , `User-Agent` , and `X-Amz-Cf-Id` .
-        - All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.
-
-        CloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use `CachePolicy` .
+        The origin request policy configuration.
         """
         return pulumi.get(self, "origin_request_policy_config")
 
@@ -64,15 +48,7 @@ class OriginRequestPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['OriginRequestPolicyConfigArgs']] origin_request_policy_config: An origin request policy configuration.
-               
-               This configuration determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:
-               
-               - The request body and the URL path (without the domain name) from the viewer request.
-               - The headers that CloudFront automatically includes in every origin request, including `Host` , `User-Agent` , and `X-Amz-Cf-Id` .
-               - All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.
-               
-               CloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use `CachePolicy` .
+        :param pulumi.Input[pulumi.InputType['OriginRequestPolicyConfigArgs']] origin_request_policy_config: The origin request policy configuration.
         """
         ...
     @overload
@@ -160,15 +136,7 @@ class OriginRequestPolicy(pulumi.CustomResource):
     @pulumi.getter(name="originRequestPolicyConfig")
     def origin_request_policy_config(self) -> pulumi.Output['outputs.OriginRequestPolicyConfig']:
         """
-        An origin request policy configuration.
-
-        This configuration determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:
-
-        - The request body and the URL path (without the domain name) from the viewer request.
-        - The headers that CloudFront automatically includes in every origin request, including `Host` , `User-Agent` , and `X-Amz-Cf-Id` .
-        - All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.
-
-        CloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use `CachePolicy` .
+        The origin request policy configuration.
         """
         return pulumi.get(self, "origin_request_policy_config")
 

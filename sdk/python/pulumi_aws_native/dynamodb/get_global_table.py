@@ -70,7 +70,7 @@ class GetGlobalTableResult:
     @pulumi.getter(name="attributeDefinitions")
     def attribute_definitions(self) -> Optional[Sequence['outputs.GlobalTableAttributeDefinition']]:
         """
-        Represents an attribute for describing the schema for the table and indexes.
+        A list of attributes that describe the key schema for the global table and indexes.
         """
         return pulumi.get(self, "attribute_definitions")
 
@@ -91,7 +91,9 @@ class GetGlobalTableResult:
     @pulumi.getter(name="globalSecondaryIndexes")
     def global_secondary_indexes(self) -> Optional[Sequence['outputs.GlobalTableGlobalSecondaryIndex']]:
         """
-        Allows you to specify a global secondary index for the global table. The index will be defined on all replicas.
+        Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
+
+        Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
         """
         return pulumi.get(self, "global_secondary_indexes")
 
@@ -99,7 +101,13 @@ class GetGlobalTableResult:
     @pulumi.getter
     def replicas(self) -> Optional[Sequence['outputs.GlobalTableReplicaSpecification']]:
         """
-        Defines settings specific to a single replica of a global table.
+        Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
+
+        > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
+        > 
+        > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica. 
+
+        You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
         """
         return pulumi.get(self, "replicas")
 
@@ -107,7 +115,7 @@ class GetGlobalTableResult:
     @pulumi.getter(name="sseSpecification")
     def sse_specification(self) -> Optional['outputs.GlobalTableSseSpecification']:
         """
-        Represents the settings used to enable server-side encryption.
+        Specifies the settings to enable server-side encryption. These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
         """
         return pulumi.get(self, "sse_specification")
 
@@ -125,9 +133,7 @@ class GetGlobalTableResult:
     @pulumi.getter(name="streamSpecification")
     def stream_specification(self) -> Optional['outputs.GlobalTableStreamSpecification']:
         """
-        Represents the DynamoDB Streams configuration for a table in DynamoDB.
-
-        You can only modify this value if your `AWS::DynamoDB::GlobalTable` contains only one entry in `Replicas` . You must specify a value for this property if your `AWS::DynamoDB::GlobalTable` contains more than one replica.
+        Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
         """
         return pulumi.get(self, "stream_specification")
 
@@ -143,7 +149,7 @@ class GetGlobalTableResult:
     @pulumi.getter(name="timeToLiveSpecification")
     def time_to_live_specification(self) -> Optional['outputs.GlobalTableTimeToLiveSpecification']:
         """
-        Represents the settings used to enable or disable Time to Live (TTL) for the specified table. All replicas will have the same time to live configuration.
+        Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
         """
         return pulumi.get(self, "time_to_live_specification")
 

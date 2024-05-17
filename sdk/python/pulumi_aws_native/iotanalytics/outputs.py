@@ -205,7 +205,7 @@ class ChannelStorage(dict):
                  customer_managed_s3: Optional['outputs.ChannelCustomerManagedS3'] = None,
                  service_managed_s3: Optional['outputs.ChannelServiceManagedS3'] = None):
         """
-        :param 'ChannelCustomerManagedS3' customer_managed_s3: Used to store channel data in an S3 bucket that you manage.
+        :param 'ChannelCustomerManagedS3' customer_managed_s3: Used to store channel data in an S3 bucket that you manage. If customer managed storage is selected, the `retentionPeriod` parameter is ignored. You can't change the choice of S3 storage after the data store is created.
         :param 'ChannelServiceManagedS3' service_managed_s3: Used to store channel data in an S3 bucket managed by AWS IoT Analytics . You can't change the choice of S3 storage after the data store is created.
         """
         if customer_managed_s3 is not None:
@@ -217,7 +217,7 @@ class ChannelStorage(dict):
     @pulumi.getter(name="customerManagedS3")
     def customer_managed_s3(self) -> Optional['outputs.ChannelCustomerManagedS3']:
         """
-        Used to store channel data in an S3 bucket that you manage.
+        Used to store channel data in an S3 bucket that you manage. If customer managed storage is selected, the `retentionPeriod` parameter is ignored. You can't change the choice of S3 storage after the data store is created.
         """
         return pulumi.get(self, "customer_managed_s3")
 
@@ -259,7 +259,7 @@ class DatasetAction(dict):
                  query_action: Optional['outputs.DatasetQueryAction'] = None):
         """
         :param str action_name: The name of the data set action by which data set contents are automatically created.
-        :param 'DatasetContainerAction' container_action: Information needed to run the "containerAction" to produce data set contents.
+        :param 'DatasetContainerAction' container_action: Information which allows the system to run a containerized application in order to create the data set contents. The application must be in a Docker container along with any needed support libraries.
         :param 'DatasetQueryAction' query_action: An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
         """
         pulumi.set(__self__, "action_name", action_name)
@@ -280,7 +280,7 @@ class DatasetAction(dict):
     @pulumi.getter(name="containerAction")
     def container_action(self) -> Optional['outputs.DatasetContainerAction']:
         """
-        Information needed to run the "containerAction" to produce data set contents.
+        Information which allows the system to run a containerized application in order to create the data set contents. The application must be in a Docker container along with any needed support libraries.
         """
         return pulumi.get(self, "container_action")
 
@@ -322,8 +322,8 @@ class DatasetContainerAction(dict):
         """
         :param str execution_role_arn: The ARN of the role which gives permission to the system to access needed resources in order to run the "containerAction". This includes, at minimum, permission to retrieve the data set contents which are the input to the containerized application.
         :param str image: The ARN of the Docker container stored in your account. The Docker container contains an application and needed support libraries and is used to generate data set contents.
-        :param 'DatasetResourceConfiguration' resource_configuration: The configuration of the resource used to execute the `containerAction` .
-        :param Sequence['DatasetVariable'] variables: An instance of a variable to be passed to the `containerAction` execution. Each variable must have a name and a value given by one of `stringValue` , `datasetContentVersionValue` , or `outputFileUriValue` .
+        :param 'DatasetResourceConfiguration' resource_configuration: Configuration of the resource which executes the "containerAction".
+        :param Sequence['DatasetVariable'] variables: The values of variables used within the context of the execution of the containerized application (basically, parameters passed to the application). Each variable must have a name and a value given by one of "stringValue", "datasetContentVersionValue", or "outputFileUriValue".
         """
         pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         pulumi.set(__self__, "image", image)
@@ -351,7 +351,7 @@ class DatasetContainerAction(dict):
     @pulumi.getter(name="resourceConfiguration")
     def resource_configuration(self) -> 'outputs.DatasetResourceConfiguration':
         """
-        The configuration of the resource used to execute the `containerAction` .
+        Configuration of the resource which executes the "containerAction".
         """
         return pulumi.get(self, "resource_configuration")
 
@@ -359,7 +359,7 @@ class DatasetContainerAction(dict):
     @pulumi.getter
     def variables(self) -> Optional[Sequence['outputs.DatasetVariable']]:
         """
-        An instance of a variable to be passed to the `containerAction` execution. Each variable must have a name and a value given by one of `stringValue` , `datasetContentVersionValue` , or `outputFileUriValue` .
+        The values of variables used within the context of the execution of the containerized application (basically, parameters passed to the application). Each variable must have a name and a value given by one of "stringValue", "datasetContentVersionValue", or "outputFileUriValue".
         """
         return pulumi.get(self, "variables")
 
@@ -437,7 +437,7 @@ class DatasetContentDeliveryRuleDestination(dict):
                  s3_destination_configuration: Optional['outputs.DatasetS3DestinationConfiguration'] = None):
         """
         :param 'DatasetIotEventsDestinationConfiguration' iot_events_destination_configuration: Configuration information for delivery of dataset contents to AWS IoT Events .
-        :param 'DatasetS3DestinationConfiguration' s3_destination_configuration: Configuration information for delivery of dataset contents to Amazon Simple Storage Service (Amazon S3).
+        :param 'DatasetS3DestinationConfiguration' s3_destination_configuration: Configuration information for delivery of dataset contents to Amazon S3.
         """
         if iot_events_destination_configuration is not None:
             pulumi.set(__self__, "iot_events_destination_configuration", iot_events_destination_configuration)
@@ -456,7 +456,7 @@ class DatasetContentDeliveryRuleDestination(dict):
     @pulumi.getter(name="s3DestinationConfiguration")
     def s3_destination_configuration(self) -> Optional['outputs.DatasetS3DestinationConfiguration']:
         """
-        Configuration information for delivery of dataset contents to Amazon Simple Storage Service (Amazon S3).
+        Configuration information for delivery of dataset contents to Amazon S3.
         """
         return pulumi.get(self, "s3_destination_configuration")
 
@@ -740,7 +740,7 @@ class DatasetLateDataRule(dict):
                  rule_configuration: 'outputs.DatasetLateDataRuleConfiguration',
                  rule_name: Optional[str] = None):
         """
-        :param 'DatasetLateDataRuleConfiguration' rule_configuration: The information needed to configure a delta time session window.
+        :param 'DatasetLateDataRuleConfiguration' rule_configuration: The information needed to configure the late data rule.
         :param str rule_name: The name of the late data rule.
         """
         pulumi.set(__self__, "rule_configuration", rule_configuration)
@@ -751,7 +751,7 @@ class DatasetLateDataRule(dict):
     @pulumi.getter(name="ruleConfiguration")
     def rule_configuration(self) -> 'outputs.DatasetLateDataRuleConfiguration':
         """
-        The information needed to configure a delta time session window.
+        The information needed to configure the late data rule.
         """
         return pulumi.get(self, "rule_configuration")
 
@@ -786,9 +786,7 @@ class DatasetLateDataRuleConfiguration(dict):
     def __init__(__self__, *,
                  delta_time_session_window_configuration: Optional['outputs.DatasetDeltaTimeSessionWindowConfiguration'] = None):
         """
-        :param 'DatasetDeltaTimeSessionWindowConfiguration' delta_time_session_window_configuration: A structure that contains the configuration information of a delta time session window.
-               
-               [`DeltaTime`](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html) specifies a time interval. You can use `DeltaTime` to create dataset contents with data that has arrived in the data store since the last execution. For an example of `DeltaTime` , see [Creating a SQL dataset with a delta window (CLI)](https://docs.aws.amazon.com/iotanalytics/latest/userguide/automate-create-dataset.html#automate-example6) in the *AWS IoT Analytics User Guide* .
+        :param 'DatasetDeltaTimeSessionWindowConfiguration' delta_time_session_window_configuration: The information needed to configure a delta time session window.
         """
         if delta_time_session_window_configuration is not None:
             pulumi.set(__self__, "delta_time_session_window_configuration", delta_time_session_window_configuration)
@@ -797,9 +795,7 @@ class DatasetLateDataRuleConfiguration(dict):
     @pulumi.getter(name="deltaTimeSessionWindowConfiguration")
     def delta_time_session_window_configuration(self) -> Optional['outputs.DatasetDeltaTimeSessionWindowConfiguration']:
         """
-        A structure that contains the configuration information of a delta time session window.
-
-        [`DeltaTime`](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html) specifies a time interval. You can use `DeltaTime` to create dataset contents with data that has arrived in the data store since the last execution. For an example of `DeltaTime` , see [Creating a SQL dataset with a delta window (CLI)](https://docs.aws.amazon.com/iotanalytics/latest/userguide/automate-create-dataset.html#automate-example6) in the *AWS IoT Analytics User Guide* .
+        The information needed to configure a delta time session window.
         """
         return pulumi.get(self, "delta_time_session_window_configuration")
 
@@ -863,7 +859,7 @@ class DatasetQueryAction(dict):
                  filters: Optional[Sequence['outputs.DatasetFilter']] = None):
         """
         :param str sql_query: An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
-        :param Sequence['DatasetFilter'] filters: Information which is used to filter message data, to segregate it according to the time frame in which it arrives.
+        :param Sequence['DatasetFilter'] filters: Pre-filters applied to message data.
         """
         pulumi.set(__self__, "sql_query", sql_query)
         if filters is not None:
@@ -881,7 +877,7 @@ class DatasetQueryAction(dict):
     @pulumi.getter
     def filters(self) -> Optional[Sequence['outputs.DatasetFilter']]:
         """
-        Information which is used to filter message data, to segregate it according to the time frame in which it arrives.
+        Pre-filters applied to message data.
         """
         return pulumi.get(self, "filters")
 
@@ -1131,8 +1127,8 @@ class DatasetTrigger(dict):
                  schedule: Optional['outputs.DatasetSchedule'] = None,
                  triggering_dataset: Optional['outputs.DatasetTriggeringDataset'] = None):
         """
-        :param 'DatasetSchedule' schedule: The schedule for when to trigger an update.
-        :param 'DatasetTriggeringDataset' triggering_dataset: Information about the dataset whose content generation triggers the new dataset content generation.
+        :param 'DatasetSchedule' schedule: The "Schedule" when the trigger is initiated.
+        :param 'DatasetTriggeringDataset' triggering_dataset: Information about the data set whose content generation triggers the new data set content generation.
         """
         if schedule is not None:
             pulumi.set(__self__, "schedule", schedule)
@@ -1143,7 +1139,7 @@ class DatasetTrigger(dict):
     @pulumi.getter
     def schedule(self) -> Optional['outputs.DatasetSchedule']:
         """
-        The schedule for when to trigger an update.
+        The "Schedule" when the trigger is initiated.
         """
         return pulumi.get(self, "schedule")
 
@@ -1151,7 +1147,7 @@ class DatasetTrigger(dict):
     @pulumi.getter(name="triggeringDataset")
     def triggering_dataset(self) -> Optional['outputs.DatasetTriggeringDataset']:
         """
-        Information about the dataset whose content generation triggers the new dataset content generation.
+        Information about the data set whose content generation triggers the new data set content generation.
         """
         return pulumi.get(self, "triggering_dataset")
 
@@ -1226,7 +1222,7 @@ class DatasetVariable(dict):
                  string_value: Optional[str] = None):
         """
         :param str variable_name: The name of the variable.
-        :param 'DatasetContentVersionValue' dataset_content_version_value: The dataset whose latest contents are used as input to the notebook or application.
+        :param 'DatasetContentVersionValue' dataset_content_version_value: The value of the variable as a structure that specifies a dataset content version.
         :param float double_value: The value of the variable as a double (numeric).
         :param 'DatasetOutputFileUriValue' output_file_uri_value: The value of the variable as a structure that specifies an output file URI.
         :param str string_value: The value of the variable as a string.
@@ -1253,7 +1249,7 @@ class DatasetVariable(dict):
     @pulumi.getter(name="datasetContentVersionValue")
     def dataset_content_version_value(self) -> Optional['outputs.DatasetContentVersionValue']:
         """
-        The dataset whose latest contents are used as input to the notebook or application.
+        The value of the variable as a structure that specifies a dataset content version.
         """
         return pulumi.get(self, "dataset_content_version_value")
 
@@ -1538,7 +1534,7 @@ class DatastoreIotSiteWiseMultiLayerStorage(dict):
     def __init__(__self__, *,
                  customer_managed_s3_storage: Optional['outputs.DatastoreCustomerManagedS3Storage'] = None):
         """
-        :param 'DatastoreCustomerManagedS3Storage' customer_managed_s3_storage: Amazon S3 -customer-managed; When you choose customer-managed storage, the `retentionPeriod` parameter is ignored. You can't change the choice of Amazon S3 storage after your data store is created.
+        :param 'DatastoreCustomerManagedS3Storage' customer_managed_s3_storage: Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage.
         """
         if customer_managed_s3_storage is not None:
             pulumi.set(__self__, "customer_managed_s3_storage", customer_managed_s3_storage)
@@ -1547,7 +1543,7 @@ class DatastoreIotSiteWiseMultiLayerStorage(dict):
     @pulumi.getter(name="customerManagedS3Storage")
     def customer_managed_s3_storage(self) -> Optional['outputs.DatastoreCustomerManagedS3Storage']:
         """
-        Amazon S3 -customer-managed; When you choose customer-managed storage, the `retentionPeriod` parameter is ignored. You can't change the choice of Amazon S3 storage after your data store is created.
+        Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage.
         """
         return pulumi.get(self, "customer_managed_s3_storage")
 
@@ -1617,7 +1613,7 @@ class DatastorePartition(dict):
                  partition: Optional['outputs.Partition'] = None,
                  timestamp_partition: Optional['outputs.DatastoreTimestampPartition'] = None):
         """
-        :param 'Partition' partition: A single dimension to partition a data store. The dimension must be an `AttributePartition` or a `TimestampPartition` .
+        :param 'Partition' partition: A partition dimension defined by an attribute.
         :param 'DatastoreTimestampPartition' timestamp_partition: A partition dimension defined by a timestamp attribute.
         """
         if partition is not None:
@@ -1629,7 +1625,7 @@ class DatastorePartition(dict):
     @pulumi.getter
     def partition(self) -> Optional['outputs.Partition']:
         """
-        A single dimension to partition a data store. The dimension must be an `AttributePartition` or a `TimestampPartition` .
+        A partition dimension defined by an attribute.
         """
         return pulumi.get(self, "partition")
 
@@ -1647,7 +1643,7 @@ class DatastorePartitions(dict):
     def __init__(__self__, *,
                  partitions: Optional[Sequence['outputs.DatastorePartition']] = None):
         """
-        :param Sequence['DatastorePartition'] partitions: A single dimension to partition a data store. The dimension must be an `AttributePartition` or a `TimestampPartition` .
+        :param Sequence['DatastorePartition'] partitions: A list of partition dimensions in a data store.
         """
         if partitions is not None:
             pulumi.set(__self__, "partitions", partitions)
@@ -1656,7 +1652,7 @@ class DatastorePartitions(dict):
     @pulumi.getter
     def partitions(self) -> Optional[Sequence['outputs.DatastorePartition']]:
         """
-        A single dimension to partition a data store. The dimension must be an `AttributePartition` or a `TimestampPartition` .
+        A list of partition dimensions in a data store.
         """
         return pulumi.get(self, "partitions")
 
@@ -1714,7 +1710,9 @@ class DatastoreSchemaDefinition(dict):
     def __init__(__self__, *,
                  columns: Optional[Sequence['outputs.DatastoreColumn']] = None):
         """
-        :param Sequence['DatastoreColumn'] columns: Contains information about a column that stores your data.
+        :param Sequence['DatastoreColumn'] columns: Specifies one or more columns that store your data.
+               
+               Each schema can have up to 100 columns. Each column can have up to 100 nested types.
         """
         if columns is not None:
             pulumi.set(__self__, "columns", columns)
@@ -1723,7 +1721,9 @@ class DatastoreSchemaDefinition(dict):
     @pulumi.getter
     def columns(self) -> Optional[Sequence['outputs.DatastoreColumn']]:
         """
-        Contains information about a column that stores your data.
+        Specifies one or more columns that store your data.
+
+        Each schema can have up to 100 columns. Each column can have up to 100 nested types.
         """
         return pulumi.get(self, "columns")
 
@@ -1762,8 +1762,8 @@ class DatastoreStorage(dict):
                  iot_site_wise_multi_layer_storage: Optional['outputs.DatastoreIotSiteWiseMultiLayerStorage'] = None,
                  service_managed_s3: Optional['outputs.DatastoreServiceManagedS3'] = None):
         """
-        :param 'DatastoreCustomerManagedS3' customer_managed_s3: S3-customer-managed; When you choose customer-managed storage, the `retentionPeriod` parameter is ignored. You can't change the choice of Amazon S3 storage after your data store is created.
-        :param 'DatastoreIotSiteWiseMultiLayerStorage' iot_site_wise_multi_layer_storage: Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
+        :param 'DatastoreCustomerManagedS3' customer_managed_s3: Use this to store data store data in an S3 bucket that you manage. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
+        :param 'DatastoreIotSiteWiseMultiLayerStorage' iot_site_wise_multi_layer_storage: Use this to store data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
         :param 'DatastoreServiceManagedS3' service_managed_s3: Use this to store data store data in an S3 bucket managed by the AWS IoT Analytics service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
         """
         if customer_managed_s3 is not None:
@@ -1777,7 +1777,7 @@ class DatastoreStorage(dict):
     @pulumi.getter(name="customerManagedS3")
     def customer_managed_s3(self) -> Optional['outputs.DatastoreCustomerManagedS3']:
         """
-        S3-customer-managed; When you choose customer-managed storage, the `retentionPeriod` parameter is ignored. You can't change the choice of Amazon S3 storage after your data store is created.
+        Use this to store data store data in an S3 bucket that you manage. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
         """
         return pulumi.get(self, "customer_managed_s3")
 
@@ -1785,7 +1785,7 @@ class DatastoreStorage(dict):
     @pulumi.getter(name="iotSiteWiseMultiLayerStorage")
     def iot_site_wise_multi_layer_storage(self) -> Optional['outputs.DatastoreIotSiteWiseMultiLayerStorage']:
         """
-        Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
+        Use this to store data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
         """
         return pulumi.get(self, "iot_site_wise_multi_layer_storage")
 
@@ -1923,15 +1923,15 @@ class PipelineActivity(dict):
                  remove_attributes: Optional['outputs.PipelineRemoveAttributes'] = None,
                  select_attributes: Optional['outputs.PipelineSelectAttributes'] = None):
         """
-        :param 'PipelineAddAttributes' add_attributes: An activity that adds other attributes based on existing attributes in the message.
+        :param 'PipelineAddAttributes' add_attributes: Adds other attributes based on existing attributes in the message.
         :param 'PipelineChannel' channel: Determines the source of the messages to be processed.
-        :param 'PipelineDatastore' datastore: The datastore activity that specifies where to store the processed data.
-        :param 'PipelineDeviceRegistryEnrich' device_registry_enrich: An activity that adds data from the AWS IoT device registry to your message.
-        :param 'PipelineDeviceShadowEnrich' device_shadow_enrich: An activity that adds information from the AWS IoT Device Shadows service to a message.
-        :param 'PipelineFilter' filter: An activity that filters a message based on its attributes.
-        :param 'PipelineLambda' lambda_: An activity that runs a Lambda function to modify the message.
-        :param 'PipelineMath' math: An activity that computes an arithmetic expression using the message's attributes.
-        :param 'PipelineRemoveAttributes' remove_attributes: An activity that removes attributes from a message.
+        :param 'PipelineDatastore' datastore: Specifies where to store the processed message data.
+        :param 'PipelineDeviceRegistryEnrich' device_registry_enrich: Adds data from the AWS IoT device registry to your message.
+        :param 'PipelineDeviceShadowEnrich' device_shadow_enrich: Adds information from the AWS IoT Device Shadows service to a message.
+        :param 'PipelineFilter' filter: Filters a message based on its attributes.
+        :param 'PipelineLambda' lambda_: Runs a Lambda function to modify the message.
+        :param 'PipelineMath' math: Computes an arithmetic expression using the message's attributes and adds it to the message.
+        :param 'PipelineRemoveAttributes' remove_attributes: Removes attributes from a message.
         :param 'PipelineSelectAttributes' select_attributes: Creates a new message using only the specified attributes from the original message.
         """
         if add_attributes is not None:
@@ -1959,7 +1959,7 @@ class PipelineActivity(dict):
     @pulumi.getter(name="addAttributes")
     def add_attributes(self) -> Optional['outputs.PipelineAddAttributes']:
         """
-        An activity that adds other attributes based on existing attributes in the message.
+        Adds other attributes based on existing attributes in the message.
         """
         return pulumi.get(self, "add_attributes")
 
@@ -1975,7 +1975,7 @@ class PipelineActivity(dict):
     @pulumi.getter
     def datastore(self) -> Optional['outputs.PipelineDatastore']:
         """
-        The datastore activity that specifies where to store the processed data.
+        Specifies where to store the processed message data.
         """
         return pulumi.get(self, "datastore")
 
@@ -1983,7 +1983,7 @@ class PipelineActivity(dict):
     @pulumi.getter(name="deviceRegistryEnrich")
     def device_registry_enrich(self) -> Optional['outputs.PipelineDeviceRegistryEnrich']:
         """
-        An activity that adds data from the AWS IoT device registry to your message.
+        Adds data from the AWS IoT device registry to your message.
         """
         return pulumi.get(self, "device_registry_enrich")
 
@@ -1991,7 +1991,7 @@ class PipelineActivity(dict):
     @pulumi.getter(name="deviceShadowEnrich")
     def device_shadow_enrich(self) -> Optional['outputs.PipelineDeviceShadowEnrich']:
         """
-        An activity that adds information from the AWS IoT Device Shadows service to a message.
+        Adds information from the AWS IoT Device Shadows service to a message.
         """
         return pulumi.get(self, "device_shadow_enrich")
 
@@ -1999,7 +1999,7 @@ class PipelineActivity(dict):
     @pulumi.getter
     def filter(self) -> Optional['outputs.PipelineFilter']:
         """
-        An activity that filters a message based on its attributes.
+        Filters a message based on its attributes.
         """
         return pulumi.get(self, "filter")
 
@@ -2007,7 +2007,7 @@ class PipelineActivity(dict):
     @pulumi.getter(name="lambda")
     def lambda_(self) -> Optional['outputs.PipelineLambda']:
         """
-        An activity that runs a Lambda function to modify the message.
+        Runs a Lambda function to modify the message.
         """
         return pulumi.get(self, "lambda_")
 
@@ -2015,7 +2015,7 @@ class PipelineActivity(dict):
     @pulumi.getter
     def math(self) -> Optional['outputs.PipelineMath']:
         """
-        An activity that computes an arithmetic expression using the message's attributes.
+        Computes an arithmetic expression using the message's attributes and adds it to the message.
         """
         return pulumi.get(self, "math")
 
@@ -2023,7 +2023,7 @@ class PipelineActivity(dict):
     @pulumi.getter(name="removeAttributes")
     def remove_attributes(self) -> Optional['outputs.PipelineRemoveAttributes']:
         """
-        An activity that removes attributes from a message.
+        Removes attributes from a message.
         """
         return pulumi.get(self, "remove_attributes")
 

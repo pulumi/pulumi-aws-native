@@ -22,19 +22,19 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<string> CreationTime { get; private set; } = null!;
 
         /// <summary>
-        /// Information about the container that a data quality monitoring job runs.
+        /// Specifies the container that runs the monitoring job.
         /// </summary>
         [Output("dataQualityAppSpecification")]
         public Output<Outputs.DataQualityJobDefinitionDataQualityAppSpecification> DataQualityAppSpecification { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
+        /// Configures the constraints and baselines for the monitoring job.
         /// </summary>
         [Output("dataQualityBaselineConfig")]
         public Output<Outputs.DataQualityJobDefinitionDataQualityBaselineConfig?> DataQualityBaselineConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The input for the data quality monitoring job. Currently endpoints are supported for input.
+        /// A list of inputs for the monitoring job. Currently endpoints are supported as monitoring inputs.
         /// </summary>
         [Output("dataQualityJobInput")]
         public Output<Outputs.DataQualityJobDefinitionDataQualityJobInput> DataQualityJobInput { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<Outputs.DataQualityJobDefinitionMonitoringResources> JobResources { get; private set; } = null!;
 
         /// <summary>
-        /// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        /// Specifies networking configuration for the monitoring job.
         /// </summary>
         [Output("networkConfig")]
         public Output<Outputs.DataQualityJobDefinitionNetworkConfig?> NetworkConfig { get; private set; } = null!;
@@ -79,13 +79,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
-        /// 
-        /// To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-        /// 
-        /// The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
-        /// 
-        /// &gt; The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+        /// A time limit for how long the monitoring job is allowed to run before stopping.
         /// </summary>
         [Output("stoppingCondition")]
         public Output<Outputs.DataQualityJobDefinitionStoppingCondition?> StoppingCondition { get; private set; } = null!;
@@ -156,19 +150,19 @@ namespace Pulumi.AwsNative.SageMaker
     public sealed class DataQualityJobDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Information about the container that a data quality monitoring job runs.
+        /// Specifies the container that runs the monitoring job.
         /// </summary>
         [Input("dataQualityAppSpecification", required: true)]
         public Input<Inputs.DataQualityJobDefinitionDataQualityAppSpecificationArgs> DataQualityAppSpecification { get; set; } = null!;
 
         /// <summary>
-        /// Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
+        /// Configures the constraints and baselines for the monitoring job.
         /// </summary>
         [Input("dataQualityBaselineConfig")]
         public Input<Inputs.DataQualityJobDefinitionDataQualityBaselineConfigArgs>? DataQualityBaselineConfig { get; set; }
 
         /// <summary>
-        /// The input for the data quality monitoring job. Currently endpoints are supported for input.
+        /// A list of inputs for the monitoring job. Currently endpoints are supported as monitoring inputs.
         /// </summary>
         [Input("dataQualityJobInput", required: true)]
         public Input<Inputs.DataQualityJobDefinitionDataQualityJobInputArgs> DataQualityJobInput { get; set; } = null!;
@@ -195,7 +189,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Input<Inputs.DataQualityJobDefinitionMonitoringResourcesArgs> JobResources { get; set; } = null!;
 
         /// <summary>
-        /// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        /// Specifies networking configuration for the monitoring job.
         /// </summary>
         [Input("networkConfig")]
         public Input<Inputs.DataQualityJobDefinitionNetworkConfigArgs>? NetworkConfig { get; set; }
@@ -207,13 +201,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
-        /// 
-        /// To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-        /// 
-        /// The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
-        /// 
-        /// &gt; The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+        /// A time limit for how long the monitoring job is allowed to run before stopping.
         /// </summary>
         [Input("stoppingCondition")]
         public Input<Inputs.DataQualityJobDefinitionStoppingConditionArgs>? StoppingCondition { get; set; }

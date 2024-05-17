@@ -25,7 +25,12 @@ class EventInvokeConfigArgs:
         The set of arguments for constructing a EventInvokeConfig resource.
         :param pulumi.Input[str] function_name: The name of the Lambda function.
         :param pulumi.Input[str] qualifier: The identifier of a version or alias.
-        :param pulumi.Input['EventInvokeConfigDestinationConfigArgs'] destination_config: A configuration object that specifies the destination of an event after Lambda processes it.
+        :param pulumi.Input['EventInvokeConfigDestinationConfigArgs'] destination_config: A destination for events after they have been sent to a function for processing.
+               
+               **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
+               - *Queue* - The ARN of a standard SQS queue.
+               - *Topic* - The ARN of a standard SNS topic.
+               - *Event Bus* - The ARN of an Amazon EventBridge event bus.
         :param pulumi.Input[int] maximum_event_age_in_seconds: The maximum age of a request that Lambda sends to a function for processing.
         :param pulumi.Input[int] maximum_retry_attempts: The maximum number of times to retry when the function returns an error.
         """
@@ -66,7 +71,12 @@ class EventInvokeConfigArgs:
     @pulumi.getter(name="destinationConfig")
     def destination_config(self) -> Optional[pulumi.Input['EventInvokeConfigDestinationConfigArgs']]:
         """
-        A configuration object that specifies the destination of an event after Lambda processes it.
+        A destination for events after they have been sent to a function for processing.
+
+        **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
+        - *Queue* - The ARN of a standard SQS queue.
+        - *Topic* - The ARN of a standard SNS topic.
+        - *Event Bus* - The ARN of an Amazon EventBridge event bus.
         """
         return pulumi.get(self, "destination_config")
 
@@ -115,7 +125,12 @@ class EventInvokeConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['EventInvokeConfigDestinationConfigArgs']] destination_config: A configuration object that specifies the destination of an event after Lambda processes it.
+        :param pulumi.Input[pulumi.InputType['EventInvokeConfigDestinationConfigArgs']] destination_config: A destination for events after they have been sent to a function for processing.
+               
+               **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
+               - *Queue* - The ARN of a standard SQS queue.
+               - *Topic* - The ARN of a standard SNS topic.
+               - *Event Bus* - The ARN of an Amazon EventBridge event bus.
         :param pulumi.Input[str] function_name: The name of the Lambda function.
         :param pulumi.Input[int] maximum_event_age_in_seconds: The maximum age of a request that Lambda sends to a function for processing.
         :param pulumi.Input[int] maximum_retry_attempts: The maximum number of times to retry when the function returns an error.
@@ -203,7 +218,12 @@ class EventInvokeConfig(pulumi.CustomResource):
     @pulumi.getter(name="destinationConfig")
     def destination_config(self) -> pulumi.Output[Optional['outputs.EventInvokeConfigDestinationConfig']]:
         """
-        A configuration object that specifies the destination of an event after Lambda processes it.
+        A destination for events after they have been sent to a function for processing.
+
+        **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
+        - *Queue* - The ARN of a standard SQS queue.
+        - *Topic* - The ARN of a standard SNS topic.
+        - *Event Bus* - The ARN of an Amazon EventBridge event bus.
         """
         return pulumi.get(self, "destination_config")
 

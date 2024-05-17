@@ -302,7 +302,7 @@ class CapacityReservationFleetTagSpecificationArgs:
         :param pulumi.Input[str] resource_type: The type of resource to tag on creation. Specify `capacity-reservation-fleet` .
                
                To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html) .
-        :param pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetTagArgs']]] tags: Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        :param pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetTagArgs']]] tags: The tags to apply to the resource.
         """
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
@@ -327,7 +327,7 @@ class CapacityReservationFleetTagSpecificationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetTagArgs']]]]:
         """
-        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        The tags to apply to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -380,7 +380,7 @@ class CapacityReservationTagSpecificationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagArgs']]]] = None):
         """
         :param pulumi.Input[str] resource_type: The type of resource to tag. Specify `capacity-reservation` .
-        :param pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagArgs']]] tags: Describes a tag.
+        :param pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagArgs']]] tags: The tags to apply to the resource.
         """
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
@@ -403,7 +403,7 @@ class CapacityReservationTagSpecificationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagArgs']]]]:
         """
-        Describes a tag.
+        The tags to apply to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -795,21 +795,10 @@ class Ec2FleetFleetLaunchTemplateConfigRequestArgs:
                  launch_template_specification: Optional[pulumi.Input['Ec2FleetFleetLaunchTemplateSpecificationRequestArgs']] = None,
                  overrides: Optional[pulumi.Input[Sequence[pulumi.Input['Ec2FleetFleetLaunchTemplateOverridesRequestArgs']]]] = None):
         """
-        :param pulumi.Input['Ec2FleetFleetLaunchTemplateSpecificationRequestArgs'] launch_template_specification: Specifies the launch template to be used by the EC2 Fleet for configuring Amazon EC2 instances.
+        :param pulumi.Input['Ec2FleetFleetLaunchTemplateSpecificationRequestArgs'] launch_template_specification: The launch template to use. You must specify either the launch template ID or launch template name in the request.
+        :param pulumi.Input[Sequence[pulumi.Input['Ec2FleetFleetLaunchTemplateOverridesRequestArgs']]] overrides: Any parameters that you specify override the same parameters in the launch template.
                
-               You must specify the following:
-               
-               - The ID or the name of the launch template, but not both.
-               - The version of the launch template.
-               
-               `FleetLaunchTemplateSpecificationRequest` is a property of the [FleetLaunchTemplateConfigRequest](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html) property type.
-               
-               For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) in the *Amazon EC2 User Guide* .
-               
-               For examples of launch templates, see [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) .
-        :param pulumi.Input[Sequence[pulumi.Input['Ec2FleetFleetLaunchTemplateOverridesRequestArgs']]] overrides: Specifies overrides for a launch template for an EC2 Fleet.
-               
-               `FleetLaunchTemplateOverridesRequest` is a property of the [FleetLaunchTemplateConfigRequest](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html) property type.
+               For fleets of type `request` and `maintain` , a maximum of 300 items is allowed across all launch templates.
         """
         if launch_template_specification is not None:
             pulumi.set(__self__, "launch_template_specification", launch_template_specification)
@@ -820,18 +809,7 @@ class Ec2FleetFleetLaunchTemplateConfigRequestArgs:
     @pulumi.getter(name="launchTemplateSpecification")
     def launch_template_specification(self) -> Optional[pulumi.Input['Ec2FleetFleetLaunchTemplateSpecificationRequestArgs']]:
         """
-        Specifies the launch template to be used by the EC2 Fleet for configuring Amazon EC2 instances.
-
-        You must specify the following:
-
-        - The ID or the name of the launch template, but not both.
-        - The version of the launch template.
-
-        `FleetLaunchTemplateSpecificationRequest` is a property of the [FleetLaunchTemplateConfigRequest](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html) property type.
-
-        For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) in the *Amazon EC2 User Guide* .
-
-        For examples of launch templates, see [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) .
+        The launch template to use. You must specify either the launch template ID or launch template name in the request.
         """
         return pulumi.get(self, "launch_template_specification")
 
@@ -843,9 +821,9 @@ class Ec2FleetFleetLaunchTemplateConfigRequestArgs:
     @pulumi.getter
     def overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['Ec2FleetFleetLaunchTemplateOverridesRequestArgs']]]]:
         """
-        Specifies overrides for a launch template for an EC2 Fleet.
+        Any parameters that you specify override the same parameters in the launch template.
 
-        `FleetLaunchTemplateOverridesRequest` is a property of the [FleetLaunchTemplateConfigRequest](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html) property type.
+        For fleets of type `request` and `maintain` , a maximum of 300 items is allowed across all launch templates.
         """
         return pulumi.get(self, "overrides")
 
@@ -867,22 +845,9 @@ class Ec2FleetFleetLaunchTemplateOverridesRequestArgs:
                  weighted_capacity: Optional[pulumi.Input[float]] = None):
         """
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to launch the instances.
-        :param pulumi.Input['Ec2FleetInstanceRequirementsRequestArgs'] instance_requirements: The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
-               
-               You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
-               
-               When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
-               
-               To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
-               
-               - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
-               - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+        :param pulumi.Input['Ec2FleetInstanceRequirementsRequestArgs'] instance_requirements: The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
                
                > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
-               > 
-               > Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) , or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements` . 
-               
-               For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
         :param pulumi.Input[str] instance_type: The instance type.
                
                `mac1.metal` is not supported as a launch template override.
@@ -891,7 +856,7 @@ class Ec2FleetFleetLaunchTemplateOverridesRequestArgs:
         :param pulumi.Input[str] max_price: The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
                
                > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
-        :param pulumi.Input['Ec2FleetPlacementArgs'] placement: Describes the placement of an instance.
+        :param pulumi.Input['Ec2FleetPlacementArgs'] placement: The location where the instance launched, if applicable.
         :param pulumi.Input[float] priority: The priority for the launch template override. The highest priority is launched first.
                
                If the On-Demand `AllocationStrategy` is set to `prioritized` , EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity.
@@ -937,22 +902,9 @@ class Ec2FleetFleetLaunchTemplateOverridesRequestArgs:
     @pulumi.getter(name="instanceRequirements")
     def instance_requirements(self) -> Optional[pulumi.Input['Ec2FleetInstanceRequirementsRequestArgs']]:
         """
-        The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
-
-        You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
-
-        When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
-
-        To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
-
-        - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
-        - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+        The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
 
         > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
-        > 
-        > Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) , or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements` . 
-
-        For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
         """
         return pulumi.get(self, "instance_requirements")
 
@@ -994,7 +946,7 @@ class Ec2FleetFleetLaunchTemplateOverridesRequestArgs:
     @pulumi.getter
     def placement(self) -> Optional[pulumi.Input['Ec2FleetPlacementArgs']]:
         """
-        Describes the placement of an instance.
+        The location where the instance launched, if applicable.
         """
         return pulumi.get(self, "placement")
 
@@ -1145,7 +1097,11 @@ class Ec2FleetInstanceRequirementsRequestArgs:
                  total_local_storage_gb: Optional[pulumi.Input['Ec2FleetTotalLocalStorageGbRequestArgs']] = None,
                  v_cpu_count: Optional[pulumi.Input['Ec2FleetVCpuCountRangeRequestArgs']] = None):
         """
-        :param pulumi.Input['Ec2FleetAcceleratorCountRequestArgs'] accelerator_count: The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance. To exclude accelerator-enabled instance types, set `Max` to `0` .
+        :param pulumi.Input['Ec2FleetAcceleratorCountRequestArgs'] accelerator_count: The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
+               
+               To exclude accelerator-enabled instance types, set `Max` to `0` .
+               
+               Default: No minimum or maximum limits
         :param pulumi.Input[Sequence[pulumi.Input['Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem']]] accelerator_manufacturers: Indicates whether instance types must have accelerators by specific manufacturers.
                
                - For instance types with AWS devices, specify `amazon-web-services` .
@@ -1172,6 +1128,8 @@ class Ec2FleetInstanceRequirementsRequestArgs:
                
                Default: Any accelerator
         :param pulumi.Input['Ec2FleetAcceleratorTotalMemoryMiBRequestArgs'] accelerator_total_memory_mi_b: The minimum and maximum amount of total accelerator memory, in MiB.
+               
+               Default: No minimum or maximum limits
         :param pulumi.Input[Sequence[pulumi.Input['Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem']]] accelerator_types: The accelerator types that must be on the instance type.
                
                - To include instance types with GPU hardware, specify `gpu` .
@@ -1196,6 +1154,8 @@ class Ec2FleetInstanceRequirementsRequestArgs:
                
                Default: `excluded`
         :param pulumi.Input['Ec2FleetBaselineEbsBandwidthMbpsRequestArgs'] baseline_ebs_bandwidth_mbps: The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
+               
+               Default: No minimum or maximum limits
         :param pulumi.Input['Ec2FleetInstanceRequirementsRequestBurstablePerformance'] burstable_performance: Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
                
                - To include burstable performance instance types, specify `included` .
@@ -1249,11 +1209,15 @@ class Ec2FleetInstanceRequirementsRequestArgs:
                
                > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
         :param pulumi.Input['Ec2FleetMemoryGiBPerVCpuRequestArgs'] memory_gi_b_per_v_cpu: The minimum and maximum amount of memory per vCPU, in GiB.
-        :param pulumi.Input['Ec2FleetMemoryMiBRequestArgs'] memory_mi_b: The minimum and maximum amount of memory, in MiB.
-        :param pulumi.Input['Ec2FleetNetworkBandwidthGbpsRequestArgs'] network_bandwidth_gbps: The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
                
-               > Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see [Available instance bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth) in the *Amazon EC2 User Guide* .
+               Default: No minimum or maximum limits
+        :param pulumi.Input['Ec2FleetMemoryMiBRequestArgs'] memory_mi_b: The minimum and maximum amount of memory, in MiB.
+        :param pulumi.Input['Ec2FleetNetworkBandwidthGbpsRequestArgs'] network_bandwidth_gbps: The minimum and maximum amount of baseline network bandwidth, in gigabits per second (Gbps). For more information, see [Amazon EC2 instance network bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html) in the *Amazon EC2 User Guide* .
+               
+               Default: No minimum or maximum limits
         :param pulumi.Input['Ec2FleetNetworkInterfaceCountRequestArgs'] network_interface_count: The minimum and maximum number of network interfaces.
+               
+               Default: No minimum or maximum limits
         :param pulumi.Input[int] on_demand_max_price_percentage_over_lowest_price: [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
                
                The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
@@ -1282,6 +1246,8 @@ class Ec2FleetInstanceRequirementsRequestArgs:
                
                Default: `100`
         :param pulumi.Input['Ec2FleetTotalLocalStorageGbRequestArgs'] total_local_storage_gb: The minimum and maximum amount of total local storage, in GB.
+               
+               Default: No minimum or maximum limits
         :param pulumi.Input['Ec2FleetVCpuCountRangeRequestArgs'] v_cpu_count: The minimum and maximum number of vCPUs.
         """
         if accelerator_count is not None:
@@ -1337,7 +1303,11 @@ class Ec2FleetInstanceRequirementsRequestArgs:
     @pulumi.getter(name="acceleratorCount")
     def accelerator_count(self) -> Optional[pulumi.Input['Ec2FleetAcceleratorCountRequestArgs']]:
         """
-        The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance. To exclude accelerator-enabled instance types, set `Max` to `0` .
+        The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
+
+        To exclude accelerator-enabled instance types, set `Max` to `0` .
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "accelerator_count")
 
@@ -1397,6 +1367,8 @@ class Ec2FleetInstanceRequirementsRequestArgs:
     def accelerator_total_memory_mi_b(self) -> Optional[pulumi.Input['Ec2FleetAcceleratorTotalMemoryMiBRequestArgs']]:
         """
         The minimum and maximum amount of total accelerator memory, in MiB.
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "accelerator_total_memory_mi_b")
 
@@ -1465,6 +1437,8 @@ class Ec2FleetInstanceRequirementsRequestArgs:
     def baseline_ebs_bandwidth_mbps(self) -> Optional[pulumi.Input['Ec2FleetBaselineEbsBandwidthMbpsRequestArgs']]:
         """
         The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "baseline_ebs_bandwidth_mbps")
 
@@ -1606,6 +1580,8 @@ class Ec2FleetInstanceRequirementsRequestArgs:
     def memory_gi_b_per_v_cpu(self) -> Optional[pulumi.Input['Ec2FleetMemoryGiBPerVCpuRequestArgs']]:
         """
         The minimum and maximum amount of memory per vCPU, in GiB.
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "memory_gi_b_per_v_cpu")
 
@@ -1629,9 +1605,9 @@ class Ec2FleetInstanceRequirementsRequestArgs:
     @pulumi.getter(name="networkBandwidthGbps")
     def network_bandwidth_gbps(self) -> Optional[pulumi.Input['Ec2FleetNetworkBandwidthGbpsRequestArgs']]:
         """
-        The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+        The minimum and maximum amount of baseline network bandwidth, in gigabits per second (Gbps). For more information, see [Amazon EC2 instance network bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html) in the *Amazon EC2 User Guide* .
 
-        > Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see [Available instance bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth) in the *Amazon EC2 User Guide* .
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "network_bandwidth_gbps")
 
@@ -1644,6 +1620,8 @@ class Ec2FleetInstanceRequirementsRequestArgs:
     def network_interface_count(self) -> Optional[pulumi.Input['Ec2FleetNetworkInterfaceCountRequestArgs']]:
         """
         The minimum and maximum number of network interfaces.
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "network_interface_count")
 
@@ -1716,6 +1694,8 @@ class Ec2FleetInstanceRequirementsRequestArgs:
     def total_local_storage_gb(self) -> Optional[pulumi.Input['Ec2FleetTotalLocalStorageGbRequestArgs']]:
         """
         The minimum and maximum amount of total local storage, in GB.
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "total_local_storage_gb")
 
@@ -1741,7 +1721,7 @@ class Ec2FleetMaintenanceStrategiesArgs:
     def __init__(__self__, *,
                  capacity_rebalance: Optional[pulumi.Input['Ec2FleetCapacityRebalanceArgs']] = None):
         """
-        :param pulumi.Input['Ec2FleetCapacityRebalanceArgs'] capacity_rebalance: The Spot Instance replacement strategy to use when Amazon EC2 emits a rebalance notification signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide* .
+        :param pulumi.Input['Ec2FleetCapacityRebalanceArgs'] capacity_rebalance: The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.
         """
         if capacity_rebalance is not None:
             pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
@@ -1750,7 +1730,7 @@ class Ec2FleetMaintenanceStrategiesArgs:
     @pulumi.getter(name="capacityRebalance")
     def capacity_rebalance(self) -> Optional[pulumi.Input['Ec2FleetCapacityRebalanceArgs']]:
         """
-        The Spot Instance replacement strategy to use when Amazon EC2 emits a rebalance notification signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide* .
+        The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.
         """
         return pulumi.get(self, "capacity_rebalance")
 
@@ -1932,11 +1912,9 @@ class Ec2FleetOnDemandOptionsRequestArgs:
                `prioritized` - EC2 Fleet uses the priority that you assigned to each launch template override, launching the highest priority first.
                
                Default: `lowest-price`
-        :param pulumi.Input['Ec2FleetCapacityReservationOptionsRequestArgs'] capacity_reservation_options: Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
+        :param pulumi.Input['Ec2FleetCapacityReservationOptionsRequestArgs'] capacity_reservation_options: The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
                
-               > This strategy can only be used if the EC2 Fleet is of type `instant` . 
-               
-               For more information about Capacity Reservations, see [On-Demand Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html) in the *Amazon EC2 User Guide* . For examples of using Capacity Reservations in an EC2 Fleet, see [EC2 Fleet example configurations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html) in the *Amazon EC2 User Guide* .
+               Supported only for fleets of type `instant` .
         :param pulumi.Input[str] max_total_price: The maximum amount per hour for On-Demand Instances that you're willing to pay.
                
                > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
@@ -1987,11 +1965,9 @@ class Ec2FleetOnDemandOptionsRequestArgs:
     @pulumi.getter(name="capacityReservationOptions")
     def capacity_reservation_options(self) -> Optional[pulumi.Input['Ec2FleetCapacityReservationOptionsRequestArgs']]:
         """
-        Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
+        The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
 
-        > This strategy can only be used if the EC2 Fleet is of type `instant` . 
-
-        For more information about Capacity Reservations, see [On-Demand Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html) in the *Amazon EC2 User Guide* . For examples of using Capacity Reservations in an EC2 Fleet, see [EC2 Fleet example configurations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html) in the *Amazon EC2 User Guide* .
+        Supported only for fleets of type `instant` .
         """
         return pulumi.get(self, "capacity_reservation_options")
 
@@ -2411,7 +2387,7 @@ class Ec2FleetTagSpecificationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['Ec2FleetTagArgs']]]] = None):
         """
         :param pulumi.Input['Ec2FleetTagSpecificationResourceType'] resource_type: The type of resource to tag.
-        :param pulumi.Input[Sequence[pulumi.Input['Ec2FleetTagArgs']]] tags: Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        :param pulumi.Input[Sequence[pulumi.Input['Ec2FleetTagArgs']]] tags: The tags to apply to the resource.
         """
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
@@ -2434,7 +2410,7 @@ class Ec2FleetTagSpecificationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['Ec2FleetTagArgs']]]]:
         """
-        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        The tags to apply to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -6942,9 +6918,9 @@ class NetworkInsightsAccessScopeAccessScopePathRequestArgs:
                  source: Optional[pulumi.Input['NetworkInsightsAccessScopePathStatementRequestArgs']] = None,
                  through_resources: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs']]]] = None):
         """
-        :param pulumi.Input['NetworkInsightsAccessScopePathStatementRequestArgs'] destination: Describes a path statement.
-        :param pulumi.Input['NetworkInsightsAccessScopePathStatementRequestArgs'] source: Describes a path statement.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs']]] through_resources: Describes a through resource statement.
+        :param pulumi.Input['NetworkInsightsAccessScopePathStatementRequestArgs'] destination: The destination.
+        :param pulumi.Input['NetworkInsightsAccessScopePathStatementRequestArgs'] source: The source.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs']]] through_resources: The through resources.
         """
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
@@ -6957,7 +6933,7 @@ class NetworkInsightsAccessScopeAccessScopePathRequestArgs:
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input['NetworkInsightsAccessScopePathStatementRequestArgs']]:
         """
-        Describes a path statement.
+        The destination.
         """
         return pulumi.get(self, "destination")
 
@@ -6969,7 +6945,7 @@ class NetworkInsightsAccessScopeAccessScopePathRequestArgs:
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input['NetworkInsightsAccessScopePathStatementRequestArgs']]:
         """
-        Describes a path statement.
+        The source.
         """
         return pulumi.get(self, "source")
 
@@ -6981,7 +6957,7 @@ class NetworkInsightsAccessScopeAccessScopePathRequestArgs:
     @pulumi.getter(name="throughResources")
     def through_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs']]]]:
         """
-        Describes a through resource statement.
+        The through resources.
         """
         return pulumi.get(self, "through_resources")
 
@@ -7115,8 +7091,8 @@ class NetworkInsightsAccessScopePathStatementRequestArgs:
                  packet_header_statement: Optional[pulumi.Input['NetworkInsightsAccessScopePacketHeaderStatementRequestArgs']] = None,
                  resource_statement: Optional[pulumi.Input['NetworkInsightsAccessScopeResourceStatementRequestArgs']] = None):
         """
-        :param pulumi.Input['NetworkInsightsAccessScopePacketHeaderStatementRequestArgs'] packet_header_statement: Describes a packet header statement.
-        :param pulumi.Input['NetworkInsightsAccessScopeResourceStatementRequestArgs'] resource_statement: Describes a resource statement.
+        :param pulumi.Input['NetworkInsightsAccessScopePacketHeaderStatementRequestArgs'] packet_header_statement: The packet header statement.
+        :param pulumi.Input['NetworkInsightsAccessScopeResourceStatementRequestArgs'] resource_statement: The resource statement.
         """
         if packet_header_statement is not None:
             pulumi.set(__self__, "packet_header_statement", packet_header_statement)
@@ -7127,7 +7103,7 @@ class NetworkInsightsAccessScopePathStatementRequestArgs:
     @pulumi.getter(name="packetHeaderStatement")
     def packet_header_statement(self) -> Optional[pulumi.Input['NetworkInsightsAccessScopePacketHeaderStatementRequestArgs']]:
         """
-        Describes a packet header statement.
+        The packet header statement.
         """
         return pulumi.get(self, "packet_header_statement")
 
@@ -7139,7 +7115,7 @@ class NetworkInsightsAccessScopePathStatementRequestArgs:
     @pulumi.getter(name="resourceStatement")
     def resource_statement(self) -> Optional[pulumi.Input['NetworkInsightsAccessScopeResourceStatementRequestArgs']]:
         """
-        Describes a resource statement.
+        The resource statement.
         """
         return pulumi.get(self, "resource_statement")
 
@@ -7192,7 +7168,7 @@ class NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs:
     def __init__(__self__, *,
                  resource_statement: Optional[pulumi.Input['NetworkInsightsAccessScopeResourceStatementRequestArgs']] = None):
         """
-        :param pulumi.Input['NetworkInsightsAccessScopeResourceStatementRequestArgs'] resource_statement: Describes a resource statement.
+        :param pulumi.Input['NetworkInsightsAccessScopeResourceStatementRequestArgs'] resource_statement: The resource statement.
         """
         if resource_statement is not None:
             pulumi.set(__self__, "resource_statement", resource_statement)
@@ -7201,7 +7177,7 @@ class NetworkInsightsAccessScopeThroughResourcesStatementRequestArgs:
     @pulumi.getter(name="resourceStatement")
     def resource_statement(self) -> Optional[pulumi.Input['NetworkInsightsAccessScopeResourceStatementRequestArgs']]:
         """
-        Describes a resource statement.
+        The resource statement.
         """
         return pulumi.get(self, "resource_statement")
 
@@ -7258,9 +7234,9 @@ class NetworkInsightsPathPathFilterArgs:
                  source_port_range: Optional[pulumi.Input['NetworkInsightsPathFilterPortRangeArgs']] = None):
         """
         :param pulumi.Input[str] destination_address: The destination IPv4 address.
-        :param pulumi.Input['NetworkInsightsPathFilterPortRangeArgs'] destination_port_range: Describes a port range.
+        :param pulumi.Input['NetworkInsightsPathFilterPortRangeArgs'] destination_port_range: The destination port range.
         :param pulumi.Input[str] source_address: The source IPv4 address.
-        :param pulumi.Input['NetworkInsightsPathFilterPortRangeArgs'] source_port_range: Describes a port range.
+        :param pulumi.Input['NetworkInsightsPathFilterPortRangeArgs'] source_port_range: The source port range.
         """
         if destination_address is not None:
             pulumi.set(__self__, "destination_address", destination_address)
@@ -7287,7 +7263,7 @@ class NetworkInsightsPathPathFilterArgs:
     @pulumi.getter(name="destinationPortRange")
     def destination_port_range(self) -> Optional[pulumi.Input['NetworkInsightsPathFilterPortRangeArgs']]:
         """
-        Describes a port range.
+        The destination port range.
         """
         return pulumi.get(self, "destination_port_range")
 
@@ -7311,7 +7287,7 @@ class NetworkInsightsPathPathFilterArgs:
     @pulumi.getter(name="sourcePortRange")
     def source_port_range(self) -> Optional[pulumi.Input['NetworkInsightsPathFilterPortRangeArgs']]:
         """
-        Describes a port range.
+        The source port range.
         """
         return pulumi.get(self, "source_port_range")
 
@@ -8185,7 +8161,7 @@ class SpotFleetBlockDeviceMappingArgs:
                  virtual_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] device_name: The device name (for example, `/dev/sdh` or `xvdh` ).
-        :param pulumi.Input['SpotFleetEbsBlockDeviceArgs'] ebs: Describes a block device for an EBS volume.
+        :param pulumi.Input['SpotFleetEbsBlockDeviceArgs'] ebs: Parameters used to automatically set up EBS volumes when the instance is launched.
         :param pulumi.Input[str] no_device: To omit the device from the block device mapping, specify an empty string. When this property is specified, the device is removed from the block device mapping regardless of the assigned value.
         :param pulumi.Input[str] virtual_name: The virtual device name ( `ephemeral` N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
                
@@ -8217,7 +8193,7 @@ class SpotFleetBlockDeviceMappingArgs:
     @pulumi.getter
     def ebs(self) -> Optional[pulumi.Input['SpotFleetEbsBlockDeviceArgs']]:
         """
-        Describes a block device for an EBS volume.
+        Parameters used to automatically set up EBS volumes when the instance is launched.
         """
         return pulumi.get(self, "ebs")
 
@@ -8259,7 +8235,7 @@ class SpotFleetClassicLoadBalancersConfigArgs:
     def __init__(__self__, *,
                  classic_load_balancers: pulumi.Input[Sequence[pulumi.Input['SpotFleetClassicLoadBalancerArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetClassicLoadBalancerArgs']]] classic_load_balancers: Specifies a Classic Load Balancer.
+        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetClassicLoadBalancerArgs']]] classic_load_balancers: One or more Classic Load Balancers.
         """
         pulumi.set(__self__, "classic_load_balancers", classic_load_balancers)
 
@@ -8267,7 +8243,7 @@ class SpotFleetClassicLoadBalancersConfigArgs:
     @pulumi.getter(name="classicLoadBalancers")
     def classic_load_balancers(self) -> pulumi.Input[Sequence[pulumi.Input['SpotFleetClassicLoadBalancerArgs']]]:
         """
-        Specifies a Classic Load Balancer.
+        One or more Classic Load Balancers.
         """
         return pulumi.get(self, "classic_load_balancers")
 
@@ -8607,11 +8583,11 @@ class SpotFleetInstanceNetworkInterfaceSpecificationArgs:
                If you specify a network interface when launching an instance, you must specify the device index.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.
         :param pulumi.Input[int] ipv6_address_count: A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
-        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceIpv6AddressArgs']]] ipv6_addresses: Describes an IPv6 address.
+        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceIpv6AddressArgs']]] ipv6_addresses: The IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
         :param pulumi.Input[str] network_interface_id: The ID of the network interface.
                
                If you are creating a Spot Fleet, omit this parameter because you can’t specify a network interface ID in a launch specification.
-        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetPrivateIpAddressSpecificationArgs']]] private_ip_addresses: Describes a secondary private IPv4 address for a network interface.
+        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetPrivateIpAddressSpecificationArgs']]] private_ip_addresses: The private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) request.
         :param pulumi.Input[int] secondary_private_ip_address_count: The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) request.
         :param pulumi.Input[str] subnet_id: The ID of the subnet associated with the network interface.
         """
@@ -8718,7 +8694,7 @@ class SpotFleetInstanceNetworkInterfaceSpecificationArgs:
     @pulumi.getter(name="ipv6Addresses")
     def ipv6_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceIpv6AddressArgs']]]]:
         """
-        Describes an IPv6 address.
+        The IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
         """
         return pulumi.get(self, "ipv6_addresses")
 
@@ -8744,7 +8720,7 @@ class SpotFleetInstanceNetworkInterfaceSpecificationArgs:
     @pulumi.getter(name="privateIpAddresses")
     def private_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetPrivateIpAddressSpecificationArgs']]]]:
         """
-        Describes a secondary private IPv4 address for a network interface.
+        The private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) request.
         """
         return pulumi.get(self, "private_ip_addresses")
 
@@ -8805,7 +8781,11 @@ class SpotFleetInstanceRequirementsRequestArgs:
                  total_local_storage_gb: Optional[pulumi.Input['SpotFleetTotalLocalStorageGbRequestArgs']] = None,
                  v_cpu_count: Optional[pulumi.Input['SpotFleetVCpuCountRangeRequestArgs']] = None):
         """
-        :param pulumi.Input['SpotFleetAcceleratorCountRequestArgs'] accelerator_count: The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance. To exclude accelerator-enabled instance types, set `Max` to `0` .
+        :param pulumi.Input['SpotFleetAcceleratorCountRequestArgs'] accelerator_count: The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
+               
+               To exclude accelerator-enabled instance types, set `Max` to `0` .
+               
+               Default: No minimum or maximum limits
         :param pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem']]] accelerator_manufacturers: Indicates whether instance types must have accelerators by specific manufacturers.
                
                - For instance types with AWS devices, specify `amazon-web-services` .
@@ -8832,6 +8812,8 @@ class SpotFleetInstanceRequirementsRequestArgs:
                
                Default: Any accelerator
         :param pulumi.Input['SpotFleetAcceleratorTotalMemoryMiBRequestArgs'] accelerator_total_memory_mi_b: The minimum and maximum amount of total accelerator memory, in MiB.
+               
+               Default: No minimum or maximum limits
         :param pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceRequirementsRequestAcceleratorTypesItem']]] accelerator_types: The accelerator types that must be on the instance type.
                
                - To include instance types with GPU hardware, specify `gpu` .
@@ -8856,6 +8838,8 @@ class SpotFleetInstanceRequirementsRequestArgs:
                
                Default: `excluded`
         :param pulumi.Input['SpotFleetBaselineEbsBandwidthMbpsRequestArgs'] baseline_ebs_bandwidth_mbps: The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
+               
+               Default: No minimum or maximum limits
         :param pulumi.Input['SpotFleetInstanceRequirementsRequestBurstablePerformance'] burstable_performance: Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
                
                - To include burstable performance instance types, specify `included` .
@@ -8909,11 +8893,15 @@ class SpotFleetInstanceRequirementsRequestArgs:
                
                > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
         :param pulumi.Input['SpotFleetMemoryGiBPerVCpuRequestArgs'] memory_gi_b_per_v_cpu: The minimum and maximum amount of memory per vCPU, in GiB.
+               
+               Default: No minimum or maximum limits
         :param pulumi.Input['SpotFleetMemoryMiBRequestArgs'] memory_mi_b: The minimum and maximum amount of memory, in MiB.
         :param pulumi.Input['SpotFleetNetworkBandwidthGbpsRequestArgs'] network_bandwidth_gbps: The minimum and maximum amount of baseline network bandwidth, in gigabits per second (Gbps). For more information, see [Amazon EC2 instance network bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html) in the *Amazon EC2 User Guide* .
                
                Default: No minimum or maximum limits
         :param pulumi.Input['SpotFleetNetworkInterfaceCountRequestArgs'] network_interface_count: The minimum and maximum number of network interfaces.
+               
+               Default: No minimum or maximum limits
         :param pulumi.Input[int] on_demand_max_price_percentage_over_lowest_price: [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
                
                The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
@@ -8942,6 +8930,8 @@ class SpotFleetInstanceRequirementsRequestArgs:
                
                Default: `100`
         :param pulumi.Input['SpotFleetTotalLocalStorageGbRequestArgs'] total_local_storage_gb: The minimum and maximum amount of total local storage, in GB.
+               
+               Default: No minimum or maximum limits
         :param pulumi.Input['SpotFleetVCpuCountRangeRequestArgs'] v_cpu_count: The minimum and maximum number of vCPUs.
         """
         if accelerator_count is not None:
@@ -8997,7 +8987,11 @@ class SpotFleetInstanceRequirementsRequestArgs:
     @pulumi.getter(name="acceleratorCount")
     def accelerator_count(self) -> Optional[pulumi.Input['SpotFleetAcceleratorCountRequestArgs']]:
         """
-        The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance. To exclude accelerator-enabled instance types, set `Max` to `0` .
+        The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
+
+        To exclude accelerator-enabled instance types, set `Max` to `0` .
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "accelerator_count")
 
@@ -9057,6 +9051,8 @@ class SpotFleetInstanceRequirementsRequestArgs:
     def accelerator_total_memory_mi_b(self) -> Optional[pulumi.Input['SpotFleetAcceleratorTotalMemoryMiBRequestArgs']]:
         """
         The minimum and maximum amount of total accelerator memory, in MiB.
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "accelerator_total_memory_mi_b")
 
@@ -9125,6 +9121,8 @@ class SpotFleetInstanceRequirementsRequestArgs:
     def baseline_ebs_bandwidth_mbps(self) -> Optional[pulumi.Input['SpotFleetBaselineEbsBandwidthMbpsRequestArgs']]:
         """
         The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "baseline_ebs_bandwidth_mbps")
 
@@ -9266,6 +9264,8 @@ class SpotFleetInstanceRequirementsRequestArgs:
     def memory_gi_b_per_v_cpu(self) -> Optional[pulumi.Input['SpotFleetMemoryGiBPerVCpuRequestArgs']]:
         """
         The minimum and maximum amount of memory per vCPU, in GiB.
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "memory_gi_b_per_v_cpu")
 
@@ -9304,6 +9304,8 @@ class SpotFleetInstanceRequirementsRequestArgs:
     def network_interface_count(self) -> Optional[pulumi.Input['SpotFleetNetworkInterfaceCountRequestArgs']]:
         """
         The minimum and maximum number of network interfaces.
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "network_interface_count")
 
@@ -9376,6 +9378,8 @@ class SpotFleetInstanceRequirementsRequestArgs:
     def total_local_storage_gb(self) -> Optional[pulumi.Input['SpotFleetTotalLocalStorageGbRequestArgs']]:
         """
         The minimum and maximum amount of total local storage, in GB.
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "total_local_storage_gb")
 
@@ -9419,44 +9423,31 @@ class SpotFleetLaunchSpecificationArgs:
                  weighted_capacity: Optional[pulumi.Input[float]] = None):
         """
         :param pulumi.Input[str] image_id: The ID of the AMI.
-        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetBlockDeviceMappingArgs']]] block_device_mappings: Specifies a block device mapping.
-               
-               You can specify `Ebs` or `VirtualName` , but not both.
+        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetBlockDeviceMappingArgs']]] block_device_mappings: One or more block devices that are mapped to the Spot Instances. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
         :param pulumi.Input[bool] ebs_optimized: Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
                
                Default: `false`
-        :param pulumi.Input['SpotFleetIamInstanceProfileSpecificationArgs'] iam_instance_profile: Describes an IAM instance profile.
-        :param pulumi.Input['SpotFleetInstanceRequirementsRequestArgs'] instance_requirements: The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
-               
-               You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
-               
-               When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
-               
-               To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
-               
-               - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
-               - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+        :param pulumi.Input['SpotFleetIamInstanceProfileSpecificationArgs'] iam_instance_profile: The IAM instance profile.
+        :param pulumi.Input['SpotFleetInstanceRequirementsRequestArgs'] instance_requirements: The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
                
                > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
-               > 
-               > Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) , or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements` . 
-               
-               For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
         :param pulumi.Input[str] instance_type: The instance type.
         :param pulumi.Input[str] kernel_id: The ID of the kernel.
         :param pulumi.Input[str] key_name: The name of the key pair.
-        :param pulumi.Input['SpotFleetMonitoringArgs'] monitoring: Describes whether monitoring is enabled.
-        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceNetworkInterfaceSpecificationArgs']]] network_interfaces: Describes a network interface.
-        :param pulumi.Input['SpotFleetSpotPlacementArgs'] placement: Describes Spot Instance placement.
+        :param pulumi.Input['SpotFleetMonitoringArgs'] monitoring: Enable or disable monitoring for the instances.
+        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceNetworkInterfaceSpecificationArgs']]] network_interfaces: The network interfaces.
+        :param pulumi.Input['SpotFleetSpotPlacementArgs'] placement: The placement information.
         :param pulumi.Input[str] ramdisk_id: The ID of the RAM disk. Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, refer to the AWS Resource Center and search for the kernel ID.
-        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetGroupIdentifierArgs']]] security_groups: Describes a security group.
+        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetGroupIdentifierArgs']]] security_groups: The security groups.
+               
+               If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
         :param pulumi.Input[str] spot_price: The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
                
                > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
         :param pulumi.Input[str] subnet_id: The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".
                
                If you specify a network interface, you must specify any subnets as part of the network interface instead of using this parameter.
-        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetTagSpecificationArgs']]] tag_specifications: The tags for a Spot Fleet resource.
+        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetTagSpecificationArgs']]] tag_specifications: The tags to apply during creation.
         :param pulumi.Input[str] user_data: The base64-encoded user data that instances use when starting up. User data is limited to 16 KB.
         :param pulumi.Input[float] weighted_capacity: The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
                
@@ -9514,9 +9505,7 @@ class SpotFleetLaunchSpecificationArgs:
     @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetBlockDeviceMappingArgs']]]]:
         """
-        Specifies a block device mapping.
-
-        You can specify `Ebs` or `VirtualName` , but not both.
+        One or more block devices that are mapped to the Spot Instances. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
         """
         return pulumi.get(self, "block_device_mappings")
 
@@ -9542,7 +9531,7 @@ class SpotFleetLaunchSpecificationArgs:
     @pulumi.getter(name="iamInstanceProfile")
     def iam_instance_profile(self) -> Optional[pulumi.Input['SpotFleetIamInstanceProfileSpecificationArgs']]:
         """
-        Describes an IAM instance profile.
+        The IAM instance profile.
         """
         return pulumi.get(self, "iam_instance_profile")
 
@@ -9554,22 +9543,9 @@ class SpotFleetLaunchSpecificationArgs:
     @pulumi.getter(name="instanceRequirements")
     def instance_requirements(self) -> Optional[pulumi.Input['SpotFleetInstanceRequirementsRequestArgs']]:
         """
-        The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
-
-        You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
-
-        When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
-
-        To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
-
-        - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
-        - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+        The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
 
         > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
-        > 
-        > Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) , or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements` . 
-
-        For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
         """
         return pulumi.get(self, "instance_requirements")
 
@@ -9617,7 +9593,7 @@ class SpotFleetLaunchSpecificationArgs:
     @pulumi.getter
     def monitoring(self) -> Optional[pulumi.Input['SpotFleetMonitoringArgs']]:
         """
-        Describes whether monitoring is enabled.
+        Enable or disable monitoring for the instances.
         """
         return pulumi.get(self, "monitoring")
 
@@ -9629,7 +9605,7 @@ class SpotFleetLaunchSpecificationArgs:
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceNetworkInterfaceSpecificationArgs']]]]:
         """
-        Describes a network interface.
+        The network interfaces.
         """
         return pulumi.get(self, "network_interfaces")
 
@@ -9641,7 +9617,7 @@ class SpotFleetLaunchSpecificationArgs:
     @pulumi.getter
     def placement(self) -> Optional[pulumi.Input['SpotFleetSpotPlacementArgs']]:
         """
-        Describes Spot Instance placement.
+        The placement information.
         """
         return pulumi.get(self, "placement")
 
@@ -9665,7 +9641,9 @@ class SpotFleetLaunchSpecificationArgs:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetGroupIdentifierArgs']]]]:
         """
-        Describes a security group.
+        The security groups.
+
+        If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
         """
         return pulumi.get(self, "security_groups")
 
@@ -9705,7 +9683,7 @@ class SpotFleetLaunchSpecificationArgs:
     @pulumi.getter(name="tagSpecifications")
     def tag_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetTagSpecificationArgs']]]]:
         """
-        The tags for a Spot Fleet resource.
+        The tags to apply during creation.
         """
         return pulumi.get(self, "tag_specifications")
 
@@ -9746,19 +9724,8 @@ class SpotFleetLaunchTemplateConfigArgs:
                  launch_template_specification: Optional[pulumi.Input['SpotFleetFleetLaunchTemplateSpecificationArgs']] = None,
                  overrides: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetLaunchTemplateOverridesArgs']]]] = None):
         """
-        :param pulumi.Input['SpotFleetFleetLaunchTemplateSpecificationArgs'] launch_template_specification: Specifies the launch template to be used by the Spot Fleet request for configuring Amazon EC2 instances.
-               
-               You must specify the following:
-               
-               - The ID or the name of the launch template, but not both.
-               - The version of the launch template.
-               
-               `FleetLaunchTemplateSpecification` is a property of the [AWS::EC2::SpotFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html) resource.
-               
-               For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) in the *Amazon EC2 User Guide* .
-               
-               For examples of launch templates, see [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) .
-        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetLaunchTemplateOverridesArgs']]] overrides: Specifies overrides for a launch template.
+        :param pulumi.Input['SpotFleetFleetLaunchTemplateSpecificationArgs'] launch_template_specification: The launch template to use. Make sure that the launch template does not contain the `NetworkInterfaceId` parameter because you can't specify a network interface ID in a Spot Fleet.
+        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetLaunchTemplateOverridesArgs']]] overrides: Any parameters that you specify override the same parameters in the launch template.
         """
         if launch_template_specification is not None:
             pulumi.set(__self__, "launch_template_specification", launch_template_specification)
@@ -9769,18 +9736,7 @@ class SpotFleetLaunchTemplateConfigArgs:
     @pulumi.getter(name="launchTemplateSpecification")
     def launch_template_specification(self) -> Optional[pulumi.Input['SpotFleetFleetLaunchTemplateSpecificationArgs']]:
         """
-        Specifies the launch template to be used by the Spot Fleet request for configuring Amazon EC2 instances.
-
-        You must specify the following:
-
-        - The ID or the name of the launch template, but not both.
-        - The version of the launch template.
-
-        `FleetLaunchTemplateSpecification` is a property of the [AWS::EC2::SpotFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html) resource.
-
-        For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) in the *Amazon EC2 User Guide* .
-
-        For examples of launch templates, see [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) .
+        The launch template to use. Make sure that the launch template does not contain the `NetworkInterfaceId` parameter because you can't specify a network interface ID in a Spot Fleet.
         """
         return pulumi.get(self, "launch_template_specification")
 
@@ -9792,7 +9748,7 @@ class SpotFleetLaunchTemplateConfigArgs:
     @pulumi.getter
     def overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetLaunchTemplateOverridesArgs']]]]:
         """
-        Specifies overrides for a launch template.
+        Any parameters that you specify override the same parameters in the launch template.
         """
         return pulumi.get(self, "overrides")
 
@@ -9813,22 +9769,9 @@ class SpotFleetLaunchTemplateOverridesArgs:
                  weighted_capacity: Optional[pulumi.Input[float]] = None):
         """
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to launch the instances.
-        :param pulumi.Input['SpotFleetInstanceRequirementsRequestArgs'] instance_requirements: The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
-               
-               You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
-               
-               When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
-               
-               To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
-               
-               - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
-               - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+        :param pulumi.Input['SpotFleetInstanceRequirementsRequestArgs'] instance_requirements: The instance requirements. When you specify instance requirements, Amazon EC2 will identify instance types with the provided requirements, and then use your On-Demand and Spot allocation strategies to launch instances from these instance types, in the same way as when you specify a list of instance types.
                
                > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
-               > 
-               > Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) , or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements` . 
-               
-               For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
         :param pulumi.Input[str] instance_type: The instance type.
         :param pulumi.Input[float] priority: The priority for the launch template override. The highest priority is launched first.
                
@@ -9876,22 +9819,9 @@ class SpotFleetLaunchTemplateOverridesArgs:
     @pulumi.getter(name="instanceRequirements")
     def instance_requirements(self) -> Optional[pulumi.Input['SpotFleetInstanceRequirementsRequestArgs']]:
         """
-        The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
-
-        You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
-
-        When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
-
-        To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
-
-        - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
-        - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+        The instance requirements. When you specify instance requirements, Amazon EC2 will identify instance types with the provided requirements, and then use your On-Demand and Spot allocation strategies to launch instances from these instance types, in the same way as when you specify a list of instance types.
 
         > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
-        > 
-        > Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) , or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements` . 
-
-        For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
         """
         return pulumi.get(self, "instance_requirements")
 
@@ -9976,8 +9906,8 @@ class SpotFleetLoadBalancersConfigArgs:
                  classic_load_balancers_config: Optional[pulumi.Input['SpotFleetClassicLoadBalancersConfigArgs']] = None,
                  target_groups_config: Optional[pulumi.Input['SpotFleetTargetGroupsConfigArgs']] = None):
         """
-        :param pulumi.Input['SpotFleetClassicLoadBalancersConfigArgs'] classic_load_balancers_config: Specifies the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these Classic Load Balancers.
-        :param pulumi.Input['SpotFleetTargetGroupsConfigArgs'] target_groups_config: Describes the target groups to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these target groups.
+        :param pulumi.Input['SpotFleetClassicLoadBalancersConfigArgs'] classic_load_balancers_config: The Classic Load Balancers.
+        :param pulumi.Input['SpotFleetTargetGroupsConfigArgs'] target_groups_config: The target groups.
         """
         if classic_load_balancers_config is not None:
             pulumi.set(__self__, "classic_load_balancers_config", classic_load_balancers_config)
@@ -9988,7 +9918,7 @@ class SpotFleetLoadBalancersConfigArgs:
     @pulumi.getter(name="classicLoadBalancersConfig")
     def classic_load_balancers_config(self) -> Optional[pulumi.Input['SpotFleetClassicLoadBalancersConfigArgs']]:
         """
-        Specifies the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these Classic Load Balancers.
+        The Classic Load Balancers.
         """
         return pulumi.get(self, "classic_load_balancers_config")
 
@@ -10000,7 +9930,7 @@ class SpotFleetLoadBalancersConfigArgs:
     @pulumi.getter(name="targetGroupsConfig")
     def target_groups_config(self) -> Optional[pulumi.Input['SpotFleetTargetGroupsConfigArgs']]:
         """
-        Describes the target groups to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these target groups.
+        The target groups.
         """
         return pulumi.get(self, "target_groups_config")
 
@@ -10277,9 +10207,11 @@ class SpotFleetRequestConfigDataArgs:
         :param pulumi.Input[int] instance_pools_to_use_count: The number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot *AllocationStrategy* is set to `lowest-price` . Spot Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
                
                Note that Spot Fleet attempts to draw Spot Instances from the number of pools that you specify on a best effort basis. If a pool runs out of Spot capacity before fulfilling your target capacity, Spot Fleet will continue to fulfill your request by drawing from the next cheapest pool. To ensure that your target capacity is met, you might receive Spot Instances from more than the number of pools that you specified. Similarly, if most of the pools have no Spot capacity, you might receive your full target capacity from fewer than the number of pools that you specified.
-        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetLaunchSpecificationArgs']]] launch_specifications: Specifies the launch specification for one or more Spot Instances. If you include On-Demand capacity in your fleet request, you can't use `SpotFleetLaunchSpecification` ; you must use [LaunchTemplateConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html) .
-        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetLaunchTemplateConfigArgs']]] launch_template_configs: Specifies a launch template and overrides.
-        :param pulumi.Input['SpotFleetLoadBalancersConfigArgs'] load_balancers_config: Specifies the Classic Load Balancers and target groups to attach to a Spot Fleet request.
+        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetLaunchSpecificationArgs']]] launch_specifications: The launch specifications for the Spot Fleet request. If you specify `LaunchSpecifications` , you can't specify `LaunchTemplateConfigs` .
+        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetLaunchTemplateConfigArgs']]] launch_template_configs: The launch template and overrides. If you specify `LaunchTemplateConfigs` , you can't specify `LaunchSpecifications` .
+        :param pulumi.Input['SpotFleetLoadBalancersConfigArgs'] load_balancers_config: One or more Classic Load Balancers and target groups to attach to the Spot Fleet request. Spot Fleet registers the running Spot Instances with the specified Classic Load Balancers and target groups.
+               
+               With Network Load Balancers, Spot Fleet cannot register instances that have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1.
         :param pulumi.Input[str] on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. If you specify `lowestPrice` , Spot Fleet uses price to determine the order, launching the lowest price first. If you specify `prioritized` , Spot Fleet uses the priority that you assign to each Spot Fleet launch template override, launching the highest priority first. If you do not specify a value, Spot Fleet defaults to `lowestPrice` .
         :param pulumi.Input[str] on_demand_max_total_price: The maximum amount per hour for On-Demand Instances that you're willing to pay. You can use the `onDemandMaxTotalPrice` parameter, the `spotMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
                
@@ -10448,7 +10380,7 @@ class SpotFleetRequestConfigDataArgs:
     @pulumi.getter(name="launchSpecifications")
     def launch_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetLaunchSpecificationArgs']]]]:
         """
-        Specifies the launch specification for one or more Spot Instances. If you include On-Demand capacity in your fleet request, you can't use `SpotFleetLaunchSpecification` ; you must use [LaunchTemplateConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html) .
+        The launch specifications for the Spot Fleet request. If you specify `LaunchSpecifications` , you can't specify `LaunchTemplateConfigs` .
         """
         return pulumi.get(self, "launch_specifications")
 
@@ -10460,7 +10392,7 @@ class SpotFleetRequestConfigDataArgs:
     @pulumi.getter(name="launchTemplateConfigs")
     def launch_template_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetLaunchTemplateConfigArgs']]]]:
         """
-        Specifies a launch template and overrides.
+        The launch template and overrides. If you specify `LaunchTemplateConfigs` , you can't specify `LaunchSpecifications` .
         """
         return pulumi.get(self, "launch_template_configs")
 
@@ -10472,7 +10404,9 @@ class SpotFleetRequestConfigDataArgs:
     @pulumi.getter(name="loadBalancersConfig")
     def load_balancers_config(self) -> Optional[pulumi.Input['SpotFleetLoadBalancersConfigArgs']]:
         """
-        Specifies the Classic Load Balancers and target groups to attach to a Spot Fleet request.
+        One or more Classic Load Balancers and target groups to attach to the Spot Fleet request. Spot Fleet registers the running Spot Instances with the specified Classic Load Balancers and target groups.
+
+        With Network Load Balancers, Spot Fleet cannot register instances that have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1.
         """
         return pulumi.get(self, "load_balancers_config")
 
@@ -10793,7 +10727,7 @@ class SpotFleetTagSpecificationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetTagArgs']]]] = None):
         """
         :param pulumi.Input['SpotFleetTagSpecificationResourceType'] resource_type: The type of resource. Currently, the only resource type that is supported is `instance` . To tag the Spot Fleet request on creation, use the `TagSpecifications` parameter in `[SpotFleetRequestConfigData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html)` .
-        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetTagArgs']]] tags: Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetTagArgs']]] tags: The tags.
         """
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
@@ -10816,7 +10750,7 @@ class SpotFleetTagSpecificationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetTagArgs']]]]:
         """
-        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        The tags.
         """
         return pulumi.get(self, "tags")
 
@@ -10867,7 +10801,7 @@ class SpotFleetTargetGroupsConfigArgs:
     def __init__(__self__, *,
                  target_groups: pulumi.Input[Sequence[pulumi.Input['SpotFleetTargetGroupArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetTargetGroupArgs']]] target_groups: Describes a load balancer target group.
+        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetTargetGroupArgs']]] target_groups: One or more target groups.
         """
         pulumi.set(__self__, "target_groups", target_groups)
 
@@ -10875,7 +10809,7 @@ class SpotFleetTargetGroupsConfigArgs:
     @pulumi.getter(name="targetGroups")
     def target_groups(self) -> pulumi.Input[Sequence[pulumi.Input['SpotFleetTargetGroupArgs']]]:
         """
-        Describes a load balancer target group.
+        One or more target groups.
         """
         return pulumi.get(self, "target_groups")
 

@@ -37,7 +37,7 @@ type Plugin struct {
 	ServerUrl pulumi.StringPtrOutput `pulumi:"serverUrl"`
 	// The current status of the plugin.
 	State PluginStateEnumPtrOutput `pulumi:"state"`
-	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	// A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The type of the plugin.
 	Type PluginTypeOutput `pulumi:"type"`
@@ -114,7 +114,7 @@ type pluginArgs struct {
 	ServerUrl *string `pulumi:"serverUrl"`
 	// The current status of the plugin.
 	State *PluginStateEnum `pulumi:"state"`
-	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	// A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The type of the plugin.
 	Type PluginType `pulumi:"type"`
@@ -134,7 +134,7 @@ type PluginArgs struct {
 	ServerUrl pulumi.StringPtrInput
 	// The current status of the plugin.
 	State PluginStateEnumPtrInput
-	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	// A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 	Tags aws.TagArrayInput
 	// The type of the plugin.
 	Type PluginTypeInput
@@ -227,7 +227,7 @@ func (o PluginOutput) State() PluginStateEnumPtrOutput {
 	return o.ApplyT(func(v *Plugin) PluginStateEnumPtrOutput { return v.State }).(PluginStateEnumPtrOutput)
 }
 
-// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+// A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 func (o PluginOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Plugin) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

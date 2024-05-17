@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.ElastiCache
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// The usage limits for storage and ElastiCache Processing Units for the cache.
+        /// The cache usage limit for the serverless cache.
         /// </summary>
         public readonly Outputs.ServerlessCacheCacheUsageLimits? CacheUsageLimits;
         /// <summary>

@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class ThemeTileLayoutStyleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The display options for gutter spacing between tiles on a sheet.
+        /// The gutter settings that apply between tiles.
         /// </summary>
         [Input("gutter")]
         public Input<Inputs.ThemeGutterStyleArgs>? Gutter { get; set; }
 
         /// <summary>
-        /// The display options for margins around the outside edge of sheets.
+        /// The margin settings that apply around the outside edge of sheets.
         /// </summary>
         [Input("margin")]
         public Input<Inputs.ThemeMarginStyleArgs>? Margin { get; set; }

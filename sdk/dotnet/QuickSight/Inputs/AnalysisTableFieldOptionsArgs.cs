@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.AnalysisTableFieldOptionArgs>? _selectedFieldOptions;
 
         /// <summary>
-        /// The options for a table field.
+        /// The field options to be configured to a table.
         /// </summary>
         public InputList<Inputs.AnalysisTableFieldOptionArgs> SelectedFieldOptions
         {

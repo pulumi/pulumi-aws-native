@@ -16,45 +16,37 @@ namespace Pulumi.AwsNative.S3.Inputs
     public sealed class StorageLensAccountLevelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This resource enables Amazon S3 Storage Lens activity metrics. Activity metrics show details about how your storage is requested, such as requests (for example, All requests, Get requests, Put requests), bytes uploaded or downloaded, and errors.
-        /// 
-        /// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+        /// This property contains the details of account-level activity metrics for S3 Storage Lens.
         /// </summary>
         [Input("activityMetrics")]
         public Input<Inputs.StorageLensActivityMetricsArgs>? ActivityMetrics { get; set; }
 
         /// <summary>
-        /// This resource enables Amazon S3 Storage Lens advanced cost optimization metrics. Advanced cost optimization metrics provide insights that you can use to manage and optimize your storage costs, for example, lifecycle rule counts for transitions, expirations, and incomplete multipart uploads.
-        /// 
-        /// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+        /// This property contains the details of account-level advanced cost optimization metrics for S3 Storage Lens.
         /// </summary>
         [Input("advancedCostOptimizationMetrics")]
         public Input<Inputs.StorageLensAdvancedCostOptimizationMetricsArgs>? AdvancedCostOptimizationMetrics { get; set; }
 
         /// <summary>
-        /// This resource enables Amazon S3 Storage Lens advanced data protection metrics. Advanced data protection metrics provide insights that you can use to perform audits and protect your data, for example replication rule counts within and across Regions.
-        /// 
-        /// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+        /// This property contains the details of account-level advanced data protection metrics for S3 Storage Lens.
         /// </summary>
         [Input("advancedDataProtectionMetrics")]
         public Input<Inputs.StorageLensAdvancedDataProtectionMetricsArgs>? AdvancedDataProtectionMetrics { get; set; }
 
         /// <summary>
-        /// A property for the bucket-level storage metrics for Amazon S3 Storage Lens.
+        /// This property contains the details of the account-level bucket-level configurations for Amazon S3 Storage Lens.
         /// </summary>
         [Input("bucketLevel", required: true)]
         public Input<Inputs.StorageLensBucketLevelArgs> BucketLevel { get; set; } = null!;
 
         /// <summary>
-        /// This resource enables Amazon S3 Storage Lens detailed status code metrics. Detailed status code metrics generate metrics for HTTP status codes, such as `200 OK` , `403 Forbidden` , `503 Service Unavailable` and others.
-        /// 
-        /// For more information, see [Assessing your storage activity and usage with S3 Storage Lens](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html) in the *Amazon S3 User Guide* . For a complete list of metrics, see [S3 Storage Lens metrics glossary](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html) in the *Amazon S3 User Guide* .
+        /// This property contains the details of account-level detailed status code metrics for S3 Storage Lens.
         /// </summary>
         [Input("detailedStatusCodesMetrics")]
         public Input<Inputs.StorageLensDetailedStatusCodesMetricsArgs>? DetailedStatusCodesMetrics { get; set; }
 
         /// <summary>
-        /// This resource determines the scope of Storage Lens group data that is displayed in the Storage Lens dashboard.
+        /// This property determines the scope of Storage Lens group data that is displayed in the Storage Lens dashboard.
         /// </summary>
         [Input("storageLensGroupLevel")]
         public Input<Inputs.StorageLensGroupLevelArgs>? StorageLensGroupLevel { get; set; }

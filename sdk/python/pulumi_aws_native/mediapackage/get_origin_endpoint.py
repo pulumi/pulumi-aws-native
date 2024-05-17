@@ -80,7 +80,7 @@ class GetOriginEndpointResult:
     @pulumi.getter
     def authorization(self) -> Optional['outputs.OriginEndpointAuthorization']:
         """
-        Parameters for enabling CDN authorization on the endpoint.
+        Parameters for CDN authorization.
         """
         return pulumi.get(self, "authorization")
 

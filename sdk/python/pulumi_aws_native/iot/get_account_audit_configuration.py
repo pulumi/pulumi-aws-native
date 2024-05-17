@@ -34,7 +34,15 @@ class GetAccountAuditConfigurationResult:
     @pulumi.getter(name="auditCheckConfigurations")
     def audit_check_configurations(self) -> Optional['outputs.AccountAuditConfigurationAuditCheckConfigurations']:
         """
-        The types of audit checks that can be performed.
+        Specifies which audit checks are enabled and disabled for this account.
+
+        Some data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted. To disable a check, set the value of the `Enabled:` key to `false` .
+
+        If an enabled check is removed from the template, it will also be disabled.
+
+        You can't disable a check if it's used by any scheduled audit. You must delete the check from the scheduled audit or delete the scheduled audit itself to disable the check.
+
+        For more information on avialbe auidt checks see [AWS::IoT::AccountAuditConfiguration AuditCheckConfigurations](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html)
         """
         return pulumi.get(self, "audit_check_configurations")
 
@@ -42,7 +50,7 @@ class GetAccountAuditConfigurationResult:
     @pulumi.getter(name="auditNotificationTargetConfigurations")
     def audit_notification_target_configurations(self) -> Optional['outputs.AccountAuditConfigurationAuditNotificationTargetConfigurations']:
         """
-        The configuration of the audit notification target.
+        Information about the targets to which audit notifications are sent.
         """
         return pulumi.get(self, "audit_notification_target_configurations")
 

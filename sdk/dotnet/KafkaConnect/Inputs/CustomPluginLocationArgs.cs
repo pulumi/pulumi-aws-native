@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
     public sealed class CustomPluginLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The location of an object in Amazon S3.
+        /// The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.
         /// </summary>
         [Input("s3Location", required: true)]
         public Input<Inputs.CustomPluginS3LocationArgs> S3Location { get; set; } = null!;

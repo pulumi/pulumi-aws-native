@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.AnalysisAggregationSortConfigurationArgs>? _aggregationSortConfigurations;
 
         /// <summary>
-        /// The configuration options to sort aggregated values.
+        /// The aggregation and sort configuration of the top bottom filter.
         /// </summary>
         public InputList<Inputs.AnalysisAggregationSortConfigurationArgs> AggregationSortConfigurations
         {
@@ -25,13 +25,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// A column of a data set.
+        /// The column that the filter is applied to.
         /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.AnalysisColumnIdentifierArgs> Column { get; set; } = null!;
 
         /// <summary>
-        /// The default configuration for all dependent controls of the filter.
+        /// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
         /// </summary>
         [Input("defaultFilterControlConfiguration")]
         public Input<Inputs.AnalysisDefaultFilterControlConfigurationArgs>? DefaultFilterControlConfiguration { get; set; }

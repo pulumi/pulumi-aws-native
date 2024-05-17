@@ -34,7 +34,7 @@ type KnowledgeBase struct {
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The status of the knowledge base.
 	Status KnowledgeBaseStatusOutput `pulumi:"status"`
-	// Contains the storage configuration of the knowledge base.
+	// Contains details about the storage configuration of the knowledge base.
 	StorageConfiguration KnowledgeBaseStorageConfigurationOutput `pulumi:"storageConfiguration"`
 	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
 	//
@@ -107,7 +107,7 @@ type knowledgeBaseArgs struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with AmazonBedrockExecutionRoleForKnowledgeBase_
 	RoleArn string `pulumi:"roleArn"`
-	// Contains the storage configuration of the knowledge base.
+	// Contains details about the storage configuration of the knowledge base.
 	StorageConfiguration KnowledgeBaseStorageConfiguration `pulumi:"storageConfiguration"`
 	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
 	//
@@ -126,7 +126,7 @@ type KnowledgeBaseArgs struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with AmazonBedrockExecutionRoleForKnowledgeBase_
 	RoleArn pulumi.StringInput
-	// Contains the storage configuration of the knowledge base.
+	// Contains details about the storage configuration of the knowledge base.
 	StorageConfiguration KnowledgeBaseStorageConfigurationInput
 	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
 	//
@@ -217,7 +217,7 @@ func (o KnowledgeBaseOutput) Status() KnowledgeBaseStatusOutput {
 	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseStatusOutput { return v.Status }).(KnowledgeBaseStatusOutput)
 }
 
-// Contains the storage configuration of the knowledge base.
+// Contains details about the storage configuration of the knowledge base.
 func (o KnowledgeBaseOutput) StorageConfiguration() KnowledgeBaseStorageConfigurationOutput {
 	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseStorageConfigurationOutput { return v.StorageConfiguration }).(KnowledgeBaseStorageConfigurationOutput)
 }

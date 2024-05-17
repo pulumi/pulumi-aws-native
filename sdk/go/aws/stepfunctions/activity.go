@@ -104,7 +104,9 @@ type Activity struct {
 	//
 	// To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The `TagsEntry` property specifies *tags* to identify an activity.
+	// The list of tags to add to a resource.
+	//
+	// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -164,7 +166,9 @@ type activityArgs struct {
 	//
 	// To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
 	Name *string `pulumi:"name"`
-	// The `TagsEntry` property specifies *tags* to identify an activity.
+	// The list of tags to add to a resource.
+	//
+	// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -182,7 +186,9 @@ type ActivityArgs struct {
 	//
 	// To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
 	Name pulumi.StringPtrInput
-	// The `TagsEntry` property specifies *tags* to identify an activity.
+	// The list of tags to add to a resource.
+	//
+	// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
 	Tags aws.TagArrayInput
 }
 
@@ -243,7 +249,9 @@ func (o ActivityOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Activity) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The `TagsEntry` property specifies *tags* to identify an activity.
+// The list of tags to add to a resource.
+//
+// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
 func (o ActivityOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Activity) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

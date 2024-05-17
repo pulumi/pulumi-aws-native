@@ -37,7 +37,7 @@ type Listener struct {
 	ServiceId pulumi.StringOutput `pulumi:"serviceId"`
 	// The ID or Amazon Resource Name (ARN) of the service.
 	ServiceIdentifier pulumi.StringPtrOutput `pulumi:"serviceIdentifier"`
-	// Specifies a tag for a listener.
+	// The tags for the listener.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -106,7 +106,7 @@ type listenerArgs struct {
 	Protocol ListenerProtocol `pulumi:"protocol"`
 	// The ID or Amazon Resource Name (ARN) of the service.
 	ServiceIdentifier *string `pulumi:"serviceIdentifier"`
-	// Specifies a tag for a listener.
+	// The tags for the listener.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -124,7 +124,7 @@ type ListenerArgs struct {
 	Protocol ListenerProtocolInput
 	// The ID or Amazon Resource Name (ARN) of the service.
 	ServiceIdentifier pulumi.StringPtrInput
-	// Specifies a tag for a listener.
+	// The tags for the listener.
 	Tags aws.TagArrayInput
 }
 
@@ -212,7 +212,7 @@ func (o ListenerOutput) ServiceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringPtrOutput { return v.ServiceIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a tag for a listener.
+// The tags for the listener.
 func (o ListenerOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Listener) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         /// </summary>
         public readonly string TableName;
         /// <summary>
-        /// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+        /// Represents an Amazon S3 location (bucket name and object key) where DataBrew can store intermediate results.
         /// </summary>
         public readonly Outputs.JobS3Location? TempDirectory;
 

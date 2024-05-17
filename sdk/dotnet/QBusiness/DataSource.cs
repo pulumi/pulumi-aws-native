@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.QBusiness
         public Output<string?> SyncSchedule { get; private set; } = null!;
 
         /// <summary>
-        /// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        /// A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.QBusiness
         public Output<string> UpdatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Provides configuration information needed to connect to an Amazon VPC (Virtual Private Cloud).
+        /// Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source. For more information, see [Using Amazon VPC with Amazon Q Business connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connector-vpc.html) .
         /// </summary>
         [Output("vpcConfiguration")]
         public Output<Outputs.DataSourceVpcConfiguration?> VpcConfiguration { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.AwsNative.QBusiness
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        /// A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
@@ -234,7 +234,7 @@ namespace Pulumi.AwsNative.QBusiness
         }
 
         /// <summary>
-        /// Provides configuration information needed to connect to an Amazon VPC (Virtual Private Cloud).
+        /// Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source. For more information, see [Using Amazon VPC with Amazon Q Business connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connector-vpc.html) .
         /// </summary>
         [Input("vpcConfiguration")]
         public Input<Inputs.DataSourceVpcConfigurationArgs>? VpcConfiguration { get; set; }

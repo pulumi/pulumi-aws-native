@@ -43,9 +43,15 @@ type LookupDomainConfigurationResult struct {
 	//
 	// For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
 	ServerCertificateConfig *DomainConfigurationServerCertificateConfig `pulumi:"serverCertificateConfig"`
-	// An object that contains information about a server certificate.
+	// The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
 	ServerCertificates []DomainConfigurationServerCertificateSummary `pulumi:"serverCertificates"`
-	// A set of key/value pairs that are used to manage the resource.
+	// Metadata which can be used to manage the domain configuration.
+	//
+	// > For URI Request parameters use format: ...key1=value1&key2=value2...
+	// >
+	// > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+	// >
+	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
 	Tags []aws.Tag `pulumi:"tags"`
 	// An object that specifies the TLS configuration for a domain.
 	TlsConfig *DomainConfigurationTlsConfig `pulumi:"tlsConfig"`
@@ -120,14 +126,20 @@ func (o LookupDomainConfigurationResultOutput) ServerCertificateConfig() DomainC
 	}).(DomainConfigurationServerCertificateConfigPtrOutput)
 }
 
-// An object that contains information about a server certificate.
+// The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
 func (o LookupDomainConfigurationResultOutput) ServerCertificates() DomainConfigurationServerCertificateSummaryArrayOutput {
 	return o.ApplyT(func(v LookupDomainConfigurationResult) []DomainConfigurationServerCertificateSummary {
 		return v.ServerCertificates
 	}).(DomainConfigurationServerCertificateSummaryArrayOutput)
 }
 
-// A set of key/value pairs that are used to manage the resource.
+// Metadata which can be used to manage the domain configuration.
+//
+// > For URI Request parameters use format: ...key1=value1&key2=value2...
+// >
+// > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+// >
+// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
 func (o LookupDomainConfigurationResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDomainConfigurationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

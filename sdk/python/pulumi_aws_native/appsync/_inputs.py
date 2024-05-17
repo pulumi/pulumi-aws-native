@@ -94,7 +94,7 @@ class FunctionConfigurationSyncConfigArgs:
         Describes a Sync configuration for a resolver. Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
         :param pulumi.Input[str] conflict_detection: The Conflict Detection strategy to use.
         :param pulumi.Input[str] conflict_handler: The Conflict Resolution strategy to perform in the event of a conflict.
-        :param pulumi.Input['FunctionConfigurationLambdaConflictHandlerConfigArgs'] lambda_conflict_handler_config: The `LambdaConflictHandlerConfig` object when configuring `LAMBDA` as the Conflict Handler.
+        :param pulumi.Input['FunctionConfigurationLambdaConflictHandlerConfigArgs'] lambda_conflict_handler_config: The `LambdaConflictHandlerConfig` when configuring `LAMBDA` as the Conflict Handler.
         """
         pulumi.set(__self__, "conflict_detection", conflict_detection)
         if conflict_handler is not None:
@@ -130,7 +130,7 @@ class FunctionConfigurationSyncConfigArgs:
     @pulumi.getter(name="lambdaConflictHandlerConfig")
     def lambda_conflict_handler_config(self) -> Optional[pulumi.Input['FunctionConfigurationLambdaConflictHandlerConfigArgs']]:
         """
-        The `LambdaConflictHandlerConfig` object when configuring `LAMBDA` as the Conflict Handler.
+        The `LambdaConflictHandlerConfig` when configuring `LAMBDA` as the Conflict Handler.
         """
         return pulumi.get(self, "lambda_conflict_handler_config")
 

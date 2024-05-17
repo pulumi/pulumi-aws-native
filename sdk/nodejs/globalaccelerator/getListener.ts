@@ -35,7 +35,7 @@ export interface GetListenerResult {
      */
     readonly listenerArn?: string;
     /**
-     * A complex type for a range of ports for a listener.
+     * The list of port ranges for the connections from clients to the accelerator.
      */
     readonly portRanges?: outputs.globalaccelerator.ListenerPortRange[];
     /**

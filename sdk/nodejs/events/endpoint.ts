@@ -133,7 +133,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Endpoints can replicate all events to the secondary Region.
+     * Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
      */
     public readonly replicationConfig!: pulumi.Output<outputs.events.EndpointReplicationConfig | undefined>;
     /**
@@ -220,7 +220,7 @@ export interface EndpointArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Endpoints can replicate all events to the secondary Region.
+     * Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
      */
     replicationConfig?: pulumi.Input<inputs.events.EndpointReplicationConfigArgs>;
     /**

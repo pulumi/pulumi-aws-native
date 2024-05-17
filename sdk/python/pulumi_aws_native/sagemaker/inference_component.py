@@ -29,8 +29,6 @@ class InferenceComponentArgs:
         """
         The set of arguments for constructing a InferenceComponent resource.
         :param pulumi.Input[str] endpoint_name: The name of the endpoint that hosts the inference component.
-        :param pulumi.Input['InferenceComponentRuntimeConfigArgs'] runtime_config: Runtime settings for a model that is deployed with an inference component.
-        :param pulumi.Input['InferenceComponentSpecificationArgs'] specification: Details about the resources to deploy with this inference component, including the model, container, and compute resources.
         :param pulumi.Input[str] variant_name: The name of the production variant that hosts the inference component.
         :param pulumi.Input[str] endpoint_arn: The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
         :param pulumi.Input[str] inference_component_name: The name of the inference component.
@@ -61,9 +59,6 @@ class InferenceComponentArgs:
     @property
     @pulumi.getter(name="runtimeConfig")
     def runtime_config(self) -> pulumi.Input['InferenceComponentRuntimeConfigArgs']:
-        """
-        Runtime settings for a model that is deployed with an inference component.
-        """
         return pulumi.get(self, "runtime_config")
 
     @runtime_config.setter
@@ -73,9 +68,6 @@ class InferenceComponentArgs:
     @property
     @pulumi.getter
     def specification(self) -> pulumi.Input['InferenceComponentSpecificationArgs']:
-        """
-        Details about the resources to deploy with this inference component, including the model, container, and compute resources.
-        """
         return pulumi.get(self, "specification")
 
     @specification.setter
@@ -149,8 +141,6 @@ class InferenceComponent(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint_arn: The Amazon Resource Name (ARN) of the endpoint that hosts the inference component.
         :param pulumi.Input[str] endpoint_name: The name of the endpoint that hosts the inference component.
         :param pulumi.Input[str] inference_component_name: The name of the inference component.
-        :param pulumi.Input[pulumi.InputType['InferenceComponentRuntimeConfigArgs']] runtime_config: Runtime settings for a model that is deployed with an inference component.
-        :param pulumi.Input[pulumi.InputType['InferenceComponentSpecificationArgs']] specification: Details about the resources to deploy with this inference component, including the model, container, and compute resources.
         :param pulumi.Input[str] variant_name: The name of the production variant that hosts the inference component.
         """
         ...
@@ -313,17 +303,11 @@ class InferenceComponent(pulumi.CustomResource):
     @property
     @pulumi.getter(name="runtimeConfig")
     def runtime_config(self) -> pulumi.Output['outputs.InferenceComponentRuntimeConfig']:
-        """
-        Runtime settings for a model that is deployed with an inference component.
-        """
         return pulumi.get(self, "runtime_config")
 
     @property
     @pulumi.getter
     def specification(self) -> pulumi.Output['outputs.InferenceComponentSpecification']:
-        """
-        Details about the resources to deploy with this inference component, including the model, container, and compute resources.
-        """
         return pulumi.get(self, "specification")
 
     @property

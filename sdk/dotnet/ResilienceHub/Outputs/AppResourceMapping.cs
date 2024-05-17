@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.ResilienceHub.Outputs
         /// </summary>
         public readonly string MappingType;
         /// <summary>
-        /// Defines a physical resource identifier.
+        /// Identifier of the physical resource.
         /// </summary>
         public readonly Outputs.AppPhysicalResourceId PhysicalResourceId;
         /// <summary>

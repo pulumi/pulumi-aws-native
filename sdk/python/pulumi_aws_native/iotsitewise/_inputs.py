@@ -96,9 +96,9 @@ class AccessPolicyIdentityArgs:
                  user: Optional[pulumi.Input['AccessPolicyUserArgs']] = None):
         """
         The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
-        :param pulumi.Input['AccessPolicyIamRoleArgs'] iam_role: Contains information about an AWS Identity and Access Management role. For more information, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the *IAM User Guide* .
-        :param pulumi.Input['AccessPolicyIamUserArgs'] iam_user: Contains information about an AWS Identity and Access Management user.
-        :param pulumi.Input['AccessPolicyUserArgs'] user: Contains information for a user identity in an access policy.
+        :param pulumi.Input['AccessPolicyIamRoleArgs'] iam_role: An IAM role identity.
+        :param pulumi.Input['AccessPolicyIamUserArgs'] iam_user: An IAM user identity.
+        :param pulumi.Input['AccessPolicyUserArgs'] user: An IAM Identity Center user identity.
         """
         if iam_role is not None:
             pulumi.set(__self__, "iam_role", iam_role)
@@ -111,7 +111,7 @@ class AccessPolicyIdentityArgs:
     @pulumi.getter(name="iamRole")
     def iam_role(self) -> Optional[pulumi.Input['AccessPolicyIamRoleArgs']]:
         """
-        Contains information about an AWS Identity and Access Management role. For more information, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the *IAM User Guide* .
+        An IAM role identity.
         """
         return pulumi.get(self, "iam_role")
 
@@ -123,7 +123,7 @@ class AccessPolicyIdentityArgs:
     @pulumi.getter(name="iamUser")
     def iam_user(self) -> Optional[pulumi.Input['AccessPolicyIamUserArgs']]:
         """
-        Contains information about an AWS Identity and Access Management user.
+        An IAM user identity.
         """
         return pulumi.get(self, "iam_user")
 
@@ -135,7 +135,7 @@ class AccessPolicyIdentityArgs:
     @pulumi.getter
     def user(self) -> Optional[pulumi.Input['AccessPolicyUserArgs']]:
         """
-        Contains information for a user identity in an access policy.
+        An IAM Identity Center user identity.
         """
         return pulumi.get(self, "user")
 
@@ -669,11 +669,7 @@ class AssetModelMetricWindowArgs:
                  tumbling: Optional[pulumi.Input['AssetModelTumblingWindowArgs']] = None):
         """
         Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
-        :param pulumi.Input['AssetModelTumblingWindowArgs'] tumbling: Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and contiguous time window. You can use this window in metrics to aggregate data from properties and other assets.
-               
-               You can use `m` , `h` , `d` , and `w` when you specify an interval or offset. Note that `m` represents minutes, `h` represents hours, `d` represents days, and `w` represents weeks. You can also use `s` to represent seconds in `offset` .
-               
-               The `interval` and `offset` parameters support the [ISO 8601 format](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/ISO_8601) . For example, `PT5S` represents 5 seconds, `PT5M` represents 5 minutes, and `PT5H` represents 5 hours.
+        :param pulumi.Input['AssetModelTumblingWindowArgs'] tumbling: The tumbling time interval window.
         """
         if tumbling is not None:
             pulumi.set(__self__, "tumbling", tumbling)
@@ -682,11 +678,7 @@ class AssetModelMetricWindowArgs:
     @pulumi.getter
     def tumbling(self) -> Optional[pulumi.Input['AssetModelTumblingWindowArgs']]:
         """
-        Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and contiguous time window. You can use this window in metrics to aggregate data from properties and other assets.
-
-        You can use `m` , `h` , `d` , and `w` when you specify an interval or offset. Note that `m` represents minutes, `h` represents hours, `d` represents days, and `w` represents weeks. You can also use `s` to represent seconds in `offset` .
-
-        The `interval` and `offset` parameters support the [ISO 8601 format](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/ISO_8601) . For example, `PT5S` represents 5 seconds, `PT5M` represents 5 minutes, and `PT5H` represents 5 hours.
+        The tumbling time interval window.
         """
         return pulumi.get(self, "tumbling")
 
@@ -780,15 +772,9 @@ class AssetModelPropertyTypeArgs:
         """
         Contains a property type, which can be one of attribute, measurement, metric, or transform.
         :param pulumi.Input['AssetModelTypeName'] type_name: The type of property type, which can be one of `Attribute` , `Measurement` , `Metric` , or `Transform` .
-        :param pulumi.Input['AssetModelAttributeArgs'] attribute: Contains an asset attribute property. For more information, see [Attributes](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#attributes) in the *AWS IoT SiteWise User Guide* .
-        :param pulumi.Input['AssetModelMetricArgs'] metric: Contains an asset metric property. With metrics, you can calculate aggregate functions, such as an average, maximum, or minimum, as specified through an expression. A metric maps several values to a single value (such as a sum).
-               
-               The maximum number of dependent/cascading variables used in any one metric calculation is 10. Therefore, a *root* metric can have up to 10 cascading metrics in its computational dependency tree. Additionally, a metric can only have a data type of `DOUBLE` and consume properties with data types of `INTEGER` or `DOUBLE` .
-               
-               For more information, see [Metrics](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#metrics) in the *AWS IoT SiteWise User Guide* .
-        :param pulumi.Input['AssetModelTransformArgs'] transform: Contains an asset transform property. A transform is a one-to-one mapping of a property's data points from one form to another. For example, you can use a transform to convert a Celsius data stream to Fahrenheit by applying the transformation expression to each data point of the Celsius stream. A transform can only have a data type of `DOUBLE` and consume properties with data types of `INTEGER` or `DOUBLE` .
-               
-               For more information, see [Transforms](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#transforms) in the *AWS IoT SiteWise User Guide* .
+        :param pulumi.Input['AssetModelAttributeArgs'] attribute: Specifies an asset attribute property. An attribute generally contains static information, such as the serial number of an [IIoT](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications) wind turbine.
+        :param pulumi.Input['AssetModelMetricArgs'] metric: Specifies an asset metric property. A metric contains a mathematical expression that uses aggregate functions to process all input data points over a time interval and output a single data point, such as to calculate the average hourly temperature.
+        :param pulumi.Input['AssetModelTransformArgs'] transform: Specifies an asset transform property. A transform contains a mathematical expression that maps a property's data points from one form to another, such as a unit conversion from Celsius to Fahrenheit.
         """
         pulumi.set(__self__, "type_name", type_name)
         if attribute is not None:
@@ -814,7 +800,7 @@ class AssetModelPropertyTypeArgs:
     @pulumi.getter
     def attribute(self) -> Optional[pulumi.Input['AssetModelAttributeArgs']]:
         """
-        Contains an asset attribute property. For more information, see [Attributes](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#attributes) in the *AWS IoT SiteWise User Guide* .
+        Specifies an asset attribute property. An attribute generally contains static information, such as the serial number of an [IIoT](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications) wind turbine.
         """
         return pulumi.get(self, "attribute")
 
@@ -826,11 +812,7 @@ class AssetModelPropertyTypeArgs:
     @pulumi.getter
     def metric(self) -> Optional[pulumi.Input['AssetModelMetricArgs']]:
         """
-        Contains an asset metric property. With metrics, you can calculate aggregate functions, such as an average, maximum, or minimum, as specified through an expression. A metric maps several values to a single value (such as a sum).
-
-        The maximum number of dependent/cascading variables used in any one metric calculation is 10. Therefore, a *root* metric can have up to 10 cascading metrics in its computational dependency tree. Additionally, a metric can only have a data type of `DOUBLE` and consume properties with data types of `INTEGER` or `DOUBLE` .
-
-        For more information, see [Metrics](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#metrics) in the *AWS IoT SiteWise User Guide* .
+        Specifies an asset metric property. A metric contains a mathematical expression that uses aggregate functions to process all input data points over a time interval and output a single data point, such as to calculate the average hourly temperature.
         """
         return pulumi.get(self, "metric")
 
@@ -842,9 +824,7 @@ class AssetModelPropertyTypeArgs:
     @pulumi.getter
     def transform(self) -> Optional[pulumi.Input['AssetModelTransformArgs']]:
         """
-        Contains an asset transform property. A transform is a one-to-one mapping of a property's data points from one form to another. For example, you can use a transform to convert a Celsius data stream to Fahrenheit by applying the transformation expression to each data point of the Celsius stream. A transform can only have a data type of `DOUBLE` and consume properties with data types of `INTEGER` or `DOUBLE` .
-
-        For more information, see [Transforms](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#transforms) in the *AWS IoT SiteWise User Guide* .
+        Specifies an asset transform property. A transform contains a mathematical expression that maps a property's data points from one form to another, such as a unit conversion from Celsius to Fahrenheit.
         """
         return pulumi.get(self, "transform")
 

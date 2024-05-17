@@ -46,7 +46,7 @@ export class Experiment extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+     * An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
      */
     public readonly metricGoals!: pulumi.Output<outputs.evidently.ExperimentMetricGoalObject[]>;
     /**
@@ -90,7 +90,7 @@ export class Experiment extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
+     * An array of structures that describe the configuration of each feature variation used in the experiment.
      */
     public readonly treatments!: pulumi.Output<outputs.evidently.ExperimentTreatmentObject[]>;
 
@@ -161,7 +161,7 @@ export interface ExperimentArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+     * An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
      */
     metricGoals: pulumi.Input<pulumi.Input<inputs.evidently.ExperimentMetricGoalObjectArgs>[]>;
     /**
@@ -205,7 +205,7 @@ export interface ExperimentArgs {
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
-     * A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
+     * An array of structures that describe the configuration of each feature variation used in the experiment.
      */
     treatments: pulumi.Input<pulumi.Input<inputs.evidently.ExperimentTreatmentObjectArgs>[]>;
 }

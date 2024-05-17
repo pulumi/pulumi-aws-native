@@ -23,9 +23,15 @@ class PipelineArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
-        :param pulumi.Input[Sequence[pulumi.Input['PipelineActivityArgs']]] pipeline_activities: An activity that performs a transformation on a message.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineActivityArgs']]] pipeline_activities: A list of "PipelineActivity" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
+               
+               The list can be 2-25 *PipelineActivity* objects and must contain both a `channel` and a `datastore` activity. Each entry in the list must contain only one activity, for example:
+               
+               `pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]`
         :param pulumi.Input[str] pipeline_name: The name of the pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of key-value pairs that are used to manage the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Metadata which can be used to manage the pipeline.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         pulumi.set(__self__, "pipeline_activities", pipeline_activities)
         if pipeline_name is not None:
@@ -37,7 +43,11 @@ class PipelineArgs:
     @pulumi.getter(name="pipelineActivities")
     def pipeline_activities(self) -> pulumi.Input[Sequence[pulumi.Input['PipelineActivityArgs']]]:
         """
-        An activity that performs a transformation on a message.
+        A list of "PipelineActivity" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
+
+        The list can be 2-25 *PipelineActivity* objects and must contain both a `channel` and a `datastore` activity. Each entry in the list must contain only one activity, for example:
+
+        `pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]`
         """
         return pulumi.get(self, "pipeline_activities")
 
@@ -61,7 +71,9 @@ class PipelineArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A set of key-value pairs that are used to manage the resource.
+        Metadata which can be used to manage the pipeline.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         return pulumi.get(self, "tags")
 
@@ -280,9 +292,15 @@ class Pipeline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineActivityArgs']]]] pipeline_activities: An activity that performs a transformation on a message.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineActivityArgs']]]] pipeline_activities: A list of "PipelineActivity" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
+               
+               The list can be 2-25 *PipelineActivity* objects and must contain both a `channel` and a `datastore` activity. Each entry in the list must contain only one activity, for example:
+               
+               `pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]`
         :param pulumi.Input[str] pipeline_name: The name of the pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A set of key-value pairs that are used to manage the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata which can be used to manage the pipeline.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         ...
     @overload
@@ -561,7 +579,11 @@ class Pipeline(pulumi.CustomResource):
     @pulumi.getter(name="pipelineActivities")
     def pipeline_activities(self) -> pulumi.Output[Sequence['outputs.PipelineActivity']]:
         """
-        An activity that performs a transformation on a message.
+        A list of "PipelineActivity" objects. Activities perform transformations on your messages, such as removing, renaming or adding message attributes; filtering messages based on attribute values; invoking your Lambda functions on messages for advanced processing; or performing mathematical transformations to normalize device data.
+
+        The list can be 2-25 *PipelineActivity* objects and must contain both a `channel` and a `datastore` activity. Each entry in the list must contain only one activity, for example:
+
+        `pipelineActivities = [ { "channel": { ... } }, { "lambda": { ... } }, ... ]`
         """
         return pulumi.get(self, "pipeline_activities")
 
@@ -577,7 +599,9 @@ class Pipeline(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A set of key-value pairs that are used to manage the resource.
+        Metadata which can be used to manage the pipeline.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         return pulumi.get(self, "tags")
 

@@ -27,7 +27,7 @@ class AutomationRuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AutomationRule resource.
-        :param pulumi.Input[Sequence[pulumi.Input['AutomationRulesActionArgs']]] actions: One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input['AutomationRulesActionArgs']]] actions: One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
         :param pulumi.Input['AutomationRulesFindingFiltersArgs'] criteria: A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
         :param pulumi.Input[str] description: A description of the rule.
         :param pulumi.Input[bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
@@ -57,7 +57,7 @@ class AutomationRuleArgs:
     @pulumi.getter
     def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AutomationRulesActionArgs']]]]:
         """
-        One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+        One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
         """
         return pulumi.get(self, "actions")
 
@@ -727,7 +727,7 @@ class AutomationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationRulesActionArgs']]]] actions: One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AutomationRulesActionArgs']]]] actions: One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
         :param pulumi.Input[pulumi.InputType['AutomationRulesFindingFiltersArgs']] criteria: A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
         :param pulumi.Input[str] description: A description of the rule.
         :param pulumi.Input[bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
@@ -1387,7 +1387,7 @@ class AutomationRule(pulumi.CustomResource):
     @pulumi.getter
     def actions(self) -> pulumi.Output[Optional[Sequence['outputs.AutomationRulesAction']]]:
         """
-        One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+        One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
         """
         return pulumi.get(self, "actions")
 

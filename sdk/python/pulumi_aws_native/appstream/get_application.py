@@ -92,7 +92,7 @@ class GetApplicationResult:
     @pulumi.getter(name="iconS3Location")
     def icon_s3_location(self) -> Optional['outputs.ApplicationS3Location']:
         """
-        The S3 location of the application icon.
+        The icon S3 location of the application.
         """
         return pulumi.get(self, "icon_s3_location")
 

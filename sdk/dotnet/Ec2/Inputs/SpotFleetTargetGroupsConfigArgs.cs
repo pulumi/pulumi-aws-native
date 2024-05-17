@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         private InputList<Inputs.SpotFleetTargetGroupArgs>? _targetGroups;
 
         /// <summary>
-        /// Describes a load balancer target group.
+        /// One or more target groups.
         /// </summary>
         public InputList<Inputs.SpotFleetTargetGroupArgs> TargetGroups
         {

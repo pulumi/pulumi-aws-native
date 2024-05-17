@@ -60,7 +60,7 @@ export class Membership extends pulumi.CustomResource {
      */
     public readonly collaborationIdentifier!: pulumi.Output<string>;
     /**
-     * Contains configurations for protected query results.
+     * The default protected query result configuration as specified by the member who can receive results.
      */
     public readonly defaultResultConfiguration!: pulumi.Output<outputs.cleanrooms.MembershipProtectedQueryResultConfiguration | undefined>;
     /**
@@ -70,7 +70,7 @@ export class Membership extends pulumi.CustomResource {
      */
     public /*out*/ readonly membershipIdentifier!: pulumi.Output<string>;
     /**
-     * An object representing the payment responsibilities accepted by the collaboration member.
+     * The payment responsibilities accepted by the collaboration member.
      */
     public readonly paymentConfiguration!: pulumi.Output<outputs.cleanrooms.MembershipPaymentConfiguration | undefined>;
     /**
@@ -135,11 +135,11 @@ export interface MembershipArgs {
      */
     collaborationIdentifier: pulumi.Input<string>;
     /**
-     * Contains configurations for protected query results.
+     * The default protected query result configuration as specified by the member who can receive results.
      */
     defaultResultConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipProtectedQueryResultConfigurationArgs>;
     /**
-     * An object representing the payment responsibilities accepted by the collaboration member.
+     * The payment responsibilities accepted by the collaboration member.
      */
     paymentConfiguration?: pulumi.Input<inputs.cleanrooms.MembershipPaymentConfigurationArgs>;
     /**

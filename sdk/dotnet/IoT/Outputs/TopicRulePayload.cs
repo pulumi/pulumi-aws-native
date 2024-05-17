@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
     public sealed class TopicRulePayload
     {
         /// <summary>
-        /// Describes the actions associated with a rule.
+        /// The actions associated with the rule.
         /// </summary>
         public readonly ImmutableArray<Outputs.TopicRuleAction> Actions;
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Describes the actions associated with a rule.
+        /// The action to take when an error occurs.
         /// </summary>
         public readonly Outputs.TopicRuleAction? ErrorAction;
         /// <summary>

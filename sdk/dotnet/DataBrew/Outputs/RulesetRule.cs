@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         /// </summary>
         public readonly string CheckExpression;
         /// <summary>
-        /// Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression.
+        /// List of column selectors. Selectors can be used to select columns using a name or regular expression from the dataset. Rule will be applied to selected columns.
         /// </summary>
         public readonly ImmutableArray<Outputs.RulesetColumnSelector> ColumnSelectors;
         /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.RulesetSubstitutionValue> SubstitutionMap;
         /// <summary>
-        /// The threshold used with a non-aggregate check expression. The non-aggregate check expression will be applied to each row in a specific column. Then the threshold will be used to determine whether the validation succeeds.
+        /// The threshold used with a non-aggregate check expression. Non-aggregate check expressions will be applied to each row in a specific column, and the threshold will be used to determine whether the validation succeeds.
         /// </summary>
         public readonly Outputs.RulesetThreshold? Threshold;
 

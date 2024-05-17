@@ -39,7 +39,7 @@ type LookupServerCertificateResult struct {
 	//
 	// > If you are uploading a server certificate specifically for use with Amazon CloudFront distributions, you must specify a path using the `path` parameter. The path must begin with `/cloudfront` and must include a trailing slash (for example, `/cloudfront/test/` ).
 	Path *string `pulumi:"path"`
-	// A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+	// A list of tags that are attached to the server certificate. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -95,7 +95,7 @@ func (o LookupServerCertificateResultOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerCertificateResult) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+// A list of tags that are attached to the server certificate. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
 func (o LookupServerCertificateResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupServerCertificateResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

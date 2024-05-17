@@ -21,7 +21,7 @@ type TrustStore struct {
 	AssociatedPortalArns pulumi.StringArrayOutput `pulumi:"associatedPortalArns"`
 	// A list of CA certificates to be added to the trust store.
 	CertificateList pulumi.StringArrayOutput `pulumi:"certificateList"`
-	// The tag.
+	// The tags to add to the trust store. A tag is a key-value pair.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ARN of the trust store.
 	TrustStoreArn pulumi.StringOutput `pulumi:"trustStoreArn"`
@@ -72,7 +72,7 @@ func (TrustStoreState) ElementType() reflect.Type {
 type trustStoreArgs struct {
 	// A list of CA certificates to be added to the trust store.
 	CertificateList []string `pulumi:"certificateList"`
-	// The tag.
+	// The tags to add to the trust store. A tag is a key-value pair.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -80,7 +80,7 @@ type trustStoreArgs struct {
 type TrustStoreArgs struct {
 	// A list of CA certificates to be added to the trust store.
 	CertificateList pulumi.StringArrayInput
-	// The tag.
+	// The tags to add to the trust store. A tag is a key-value pair.
 	Tags aws.TagArrayInput
 }
 
@@ -131,7 +131,7 @@ func (o TrustStoreOutput) CertificateList() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TrustStore) pulumi.StringArrayOutput { return v.CertificateList }).(pulumi.StringArrayOutput)
 }
 
-// The tag.
+// The tags to add to the trust store. A tag is a key-value pair.
 func (o TrustStoreOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *TrustStore) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -13,53 +13,37 @@ namespace Pulumi.AwsNative.IoT.Inputs
     public sealed class TopicRuleActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes an action that updates a CloudWatch alarm.
+        /// Change the state of a CloudWatch alarm.
         /// </summary>
         [Input("cloudwatchAlarm")]
         public Input<Inputs.TopicRuleCloudwatchAlarmActionArgs>? CloudwatchAlarm { get; set; }
 
         /// <summary>
-        /// Describes an action that updates a CloudWatch log.
+        /// Sends data to CloudWatch.
         /// </summary>
         [Input("cloudwatchLogs")]
         public Input<Inputs.TopicRuleCloudwatchLogsActionArgs>? CloudwatchLogs { get; set; }
 
         /// <summary>
-        /// Describes an action that captures a CloudWatch metric.
+        /// Capture a CloudWatch metric.
         /// </summary>
         [Input("cloudwatchMetric")]
         public Input<Inputs.TopicRuleCloudwatchMetricActionArgs>? CloudwatchMetric { get; set; }
 
         /// <summary>
-        /// Describes an action to write to a DynamoDB table.
-        /// 
-        /// This DynamoDB action writes each attribute in the message payload into it's own column in the DynamoDB table.
+        /// Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
         /// </summary>
         [Input("dynamoDBv2")]
         public Input<Inputs.TopicRuleDynamoDBv2ActionArgs>? DynamoDBv2 { get; set; }
 
         /// <summary>
-        /// Describes an action to write to a DynamoDB table.
-        /// 
-        /// The `tableName` , `hashKeyField` , and `rangeKeyField` values must match the values used when you created the table.
-        /// 
-        /// The `hashKeyValue` and `rangeKeyvalue` fields use a substitution template syntax. These templates provide data at runtime. The syntax is as follows: ${ *sql-expression* }.
-        /// 
-        /// You can specify any valid expression in a WHERE or SELECT clause, including JSON properties, comparisons, calculations, and functions. For example, the following field uses the third level of the topic:
-        /// 
-        /// `"hashKeyValue": "${topic(3)}"`
-        /// 
-        /// The following field uses the timestamp:
-        /// 
-        /// `"rangeKeyValue": "${timestamp()}"`
-        /// 
-        /// For more information, see [DynamoDBv2 Action](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rule-actions.html) in the *AWS IoT Developer Guide* .
+        /// Write to a DynamoDB table.
         /// </summary>
         [Input("dynamoDb")]
         public Input<Inputs.TopicRuleDynamoDbActionArgs>? DynamoDb { get; set; }
 
         /// <summary>
-        /// Describes an action that writes data to an Amazon OpenSearch Service domain.
+        /// Write data to an Amazon OpenSearch Service domain.
         /// 
         /// &gt; The `Elasticsearch` action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the `OpenSearch` rule action instead. For more information, see [OpenSearchAction](https://docs.aws.amazon.com//iot/latest/apireference/API_OpenSearchAction.html) .
         /// </summary>
@@ -67,7 +51,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public Input<Inputs.TopicRuleElasticsearchActionArgs>? Elasticsearch { get; set; }
 
         /// <summary>
-        /// Describes an action that writes data to an Amazon Kinesis Firehose stream.
+        /// Write to an Amazon Kinesis Firehose stream.
         /// </summary>
         [Input("firehose")]
         public Input<Inputs.TopicRuleFirehoseActionArgs>? Firehose { get; set; }
@@ -91,7 +75,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public Input<Inputs.TopicRuleIotEventsActionArgs>? IotEvents { get; set; }
 
         /// <summary>
-        /// Describes an action to send data from an MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
+        /// Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
         /// </summary>
         [Input("iotSiteWise")]
         public Input<Inputs.TopicRuleIotSiteWiseActionArgs>? IotSiteWise { get; set; }
@@ -103,49 +87,49 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public Input<Inputs.TopicRuleKafkaActionArgs>? Kafka { get; set; }
 
         /// <summary>
-        /// Describes an action to write data to an Amazon Kinesis stream.
+        /// Write data to an Amazon Kinesis stream.
         /// </summary>
         [Input("kinesis")]
         public Input<Inputs.TopicRuleKinesisActionArgs>? Kinesis { get; set; }
 
         /// <summary>
-        /// Describes an action to invoke a Lambda function.
+        /// Invoke a Lambda function.
         /// </summary>
         [Input("lambda")]
         public Input<Inputs.TopicRuleLambdaActionArgs>? Lambda { get; set; }
 
         /// <summary>
-        /// Describes an action to send device location updates from an MQTT message to an Amazon Location tracker resource.
+        /// Sends device location data to [Amazon Location Service](https://docs.aws.amazon.com//location/latest/developerguide/welcome.html) .
         /// </summary>
         [Input("location")]
         public Input<Inputs.TopicRuleLocationActionArgs>? Location { get; set; }
 
         /// <summary>
-        /// Describes an action that writes data to an Amazon OpenSearch Service domain.
+        /// Write data to an Amazon OpenSearch Service domain.
         /// </summary>
         [Input("openSearch")]
         public Input<Inputs.TopicRuleOpenSearchActionArgs>? OpenSearch { get; set; }
 
         /// <summary>
-        /// Describes an action to republish to another topic.
+        /// Publish to another MQTT topic.
         /// </summary>
         [Input("republish")]
         public Input<Inputs.TopicRuleRepublishActionArgs>? Republish { get; set; }
 
         /// <summary>
-        /// Describes an action to write data to an Amazon S3 bucket.
+        /// Write to an Amazon S3 bucket.
         /// </summary>
         [Input("s3")]
         public Input<Inputs.TopicRuleS3ActionArgs>? S3 { get; set; }
 
         /// <summary>
-        /// Describes an action to publish to an Amazon SNS topic.
+        /// Publish to an Amazon SNS topic.
         /// </summary>
         [Input("sns")]
         public Input<Inputs.TopicRuleSnsActionArgs>? Sns { get; set; }
 
         /// <summary>
-        /// Describes an action to publish data to an Amazon SQS queue.
+        /// Publish to an Amazon SQS queue.
         /// </summary>
         [Input("sqs")]
         public Input<Inputs.TopicRuleSqsActionArgs>? Sqs { get; set; }
@@ -157,7 +141,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public Input<Inputs.TopicRuleStepFunctionsActionArgs>? StepFunctions { get; set; }
 
         /// <summary>
-        /// Describes an action that writes records into an Amazon Timestream table.
+        /// Writes attributes from an MQTT message.
         /// </summary>
         [Input("timestream")]
         public Input<Inputs.TopicRuleTimestreamActionArgs>? Timestream { get; set; }

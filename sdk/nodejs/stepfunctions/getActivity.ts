@@ -31,7 +31,9 @@ export interface GetActivityResult {
      */
     readonly arn?: string;
     /**
-     * The `TagsEntry` property specifies *tags* to identify an activity.
+     * The list of tags to add to a resource.
+     *
+     * Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
      */
     readonly tags?: outputs.Tag[];
 }

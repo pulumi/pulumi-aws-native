@@ -14,9 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisVisualTitleLabelOptions
     {
         /// <summary>
-        /// The text format for the title.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The short text format of the title label, such as plain text or rich text.
         /// </summary>
         public readonly Outputs.AnalysisShortFormatText? FormatText;
         /// <summary>

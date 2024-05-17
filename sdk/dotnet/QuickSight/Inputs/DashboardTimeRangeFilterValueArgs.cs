@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string>? Parameter { get; set; }
 
         /// <summary>
-        /// The rolling date configuration of a date time filter.
+        /// The rolling date input value.
         /// </summary>
         [Input("rollingDate")]
         public Input<Inputs.DashboardRollingDateConfigurationArgs>? RollingDate { get; set; }

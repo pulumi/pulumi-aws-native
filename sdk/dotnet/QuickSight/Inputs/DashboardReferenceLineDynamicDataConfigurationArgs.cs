@@ -13,21 +13,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardReferenceLineDynamicDataConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Aggregation for numerical values.
+        /// The calculation that is used in the dynamic data.
         /// </summary>
         [Input("calculation", required: true)]
         public Input<Inputs.DashboardNumericalAggregationFunctionArgs> Calculation { get; set; } = null!;
 
         /// <summary>
-        /// A column of a data set.
+        /// The column that the dynamic data targets.
         /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.DashboardColumnIdentifierArgs> Column { get; set; } = null!;
 
         /// <summary>
-        /// An aggregation function aggregates values from a dimension or measure.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The aggregation function that is used in the dynamic data.
         /// </summary>
         [Input("measureAggregationFunction")]
         public Input<Inputs.DashboardAggregationFunctionArgs>? MeasureAggregationFunction { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
     public sealed class JobDefinitionEcsTaskProperties
     {
         /// <summary>
-        /// Container properties are used for Amazon ECS-based job definitions. These properties to describe the container that's launched as part of a job.
+        /// This object is a list of containers.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionTaskContainerProperties> Containers;
         /// <summary>

@@ -39,7 +39,7 @@ export interface GetRuleResult {
      */
     readonly id?: string;
     /**
-     * Describes a rule match.
+     * The rule match.
      */
     readonly match?: outputs.vpclattice.RuleMatch;
     /**
@@ -47,7 +47,7 @@ export interface GetRuleResult {
      */
     readonly priority?: number;
     /**
-     * Specifies a tag for a listener rule.
+     * The tags for the rule.
      */
     readonly tags?: outputs.Tag[];
 }

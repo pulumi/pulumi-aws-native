@@ -169,13 +169,6 @@ namespace Pulumi.AwsNative.AutoScaling
         [Output("newInstancesProtectedFromScaleIn")]
         public Output<bool?> NewInstancesProtectedFromScaleIn { get; private set; } = null!;
 
-        /// <summary>
-        /// A structure that specifies an Amazon SNS notification configuration for the `NotificationConfigurations` property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
-        /// 
-        /// For an example template snippet, see [Configure Amazon EC2 Auto Scaling resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-auto-scaling.html) .
-        /// 
-        /// For more information, see [Get Amazon SNS notifications when your Auto Scaling group scales](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html) in the *Amazon EC2 Auto Scaling User Guide* .
-        /// </summary>
         [Output("notificationConfiguration")]
         public Output<Outputs.AutoScalingGroupNotificationConfiguration?> NotificationConfiguration { get; private set; } = null!;
 
@@ -452,13 +445,6 @@ namespace Pulumi.AwsNative.AutoScaling
         [Input("newInstancesProtectedFromScaleIn")]
         public Input<bool>? NewInstancesProtectedFromScaleIn { get; set; }
 
-        /// <summary>
-        /// A structure that specifies an Amazon SNS notification configuration for the `NotificationConfigurations` property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
-        /// 
-        /// For an example template snippet, see [Configure Amazon EC2 Auto Scaling resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-ec2-auto-scaling.html) .
-        /// 
-        /// For more information, see [Get Amazon SNS notifications when your Auto Scaling group scales](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html) in the *Amazon EC2 Auto Scaling User Guide* .
-        /// </summary>
         [Input("notificationConfiguration")]
         public Input<Inputs.AutoScalingGroupNotificationConfigurationArgs>? NotificationConfiguration { get; set; }
 

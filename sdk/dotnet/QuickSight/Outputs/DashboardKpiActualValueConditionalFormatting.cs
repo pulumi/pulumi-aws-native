@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardKpiActualValueConditionalFormatting
     {
         /// <summary>
-        /// The formatting configuration for the icon.
+        /// The conditional formatting of the actual value's icon.
         /// </summary>
         public readonly Outputs.DashboardConditionalFormattingIcon? Icon;
         /// <summary>
-        /// The formatting configuration for the color.
+        /// The conditional formatting of the actual value's text color.
         /// </summary>
         public readonly Outputs.DashboardConditionalFormattingColor? TextColor;
 

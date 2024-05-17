@@ -74,7 +74,7 @@ export class ServerCertificate extends pulumi.CustomResource {
      */
     public readonly serverCertificateName!: pulumi.Output<string | undefined>;
     /**
-     * A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+     * A list of tags that are attached to the server certificate. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -149,7 +149,7 @@ export interface ServerCertificateArgs {
      */
     serverCertificateName?: pulumi.Input<string>;
     /**
-     * A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+     * A list of tags that are attached to the server certificate. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

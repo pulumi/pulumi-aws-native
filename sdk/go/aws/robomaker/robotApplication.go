@@ -168,7 +168,7 @@ type RobotApplication struct {
 	Environment pulumi.StringPtrOutput `pulumi:"environment"`
 	// The name of the robot application.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Information about a robot software suite.
+	// The robot software suite used by the robot application.
 	RobotSoftwareSuite RobotApplicationRobotSoftwareSuiteOutput `pulumi:"robotSoftwareSuite"`
 	// The sources of the robot application.
 	Sources RobotApplicationSourceConfigArrayOutput `pulumi:"sources"`
@@ -229,7 +229,7 @@ type robotApplicationArgs struct {
 	Environment *string `pulumi:"environment"`
 	// The name of the robot application.
 	Name *string `pulumi:"name"`
-	// Information about a robot software suite.
+	// The robot software suite used by the robot application.
 	RobotSoftwareSuite RobotApplicationRobotSoftwareSuite `pulumi:"robotSoftwareSuite"`
 	// The sources of the robot application.
 	Sources []RobotApplicationSourceConfig `pulumi:"sources"`
@@ -245,7 +245,7 @@ type RobotApplicationArgs struct {
 	Environment pulumi.StringPtrInput
 	// The name of the robot application.
 	Name pulumi.StringPtrInput
-	// Information about a robot software suite.
+	// The robot software suite used by the robot application.
 	RobotSoftwareSuite RobotApplicationRobotSoftwareSuiteInput
 	// The sources of the robot application.
 	Sources RobotApplicationSourceConfigArrayInput
@@ -310,7 +310,7 @@ func (o RobotApplicationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RobotApplication) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Information about a robot software suite.
+// The robot software suite used by the robot application.
 func (o RobotApplicationOutput) RobotSoftwareSuite() RobotApplicationRobotSoftwareSuiteOutput {
 	return o.ApplyT(func(v *RobotApplication) RobotApplicationRobotSoftwareSuiteOutput { return v.RobotSoftwareSuite }).(RobotApplicationRobotSoftwareSuiteOutput)
 }

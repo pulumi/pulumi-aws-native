@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Sso
     public partial class PermissionSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
+        /// Specifies the names and paths of the customer managed policies that you have attached to your permission set.
         /// </summary>
         [Output("customerManagedPolicyReferences")]
         public Output<ImmutableArray<Outputs.PermissionSetCustomerManagedPolicyReference>> CustomerManagedPolicyReferences { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.Sso
         public Output<string?> SessionDuration { get; private set; } = null!;
 
         /// <summary>
-        /// A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+        /// The tags to attach to the new `PermissionSet` .
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.AwsNative.Sso
         private InputList<Inputs.PermissionSetCustomerManagedPolicyReferenceArgs>? _customerManagedPolicyReferences;
 
         /// <summary>
-        /// Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
+        /// Specifies the names and paths of the customer managed policies that you have attached to your permission set.
         /// </summary>
         public InputList<Inputs.PermissionSetCustomerManagedPolicyReferenceArgs> CustomerManagedPolicyReferences
         {
@@ -209,7 +209,7 @@ namespace Pulumi.AwsNative.Sso
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+        /// The tags to attach to the new `PermissionSet` .
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

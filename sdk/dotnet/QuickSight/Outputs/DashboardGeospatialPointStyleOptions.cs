@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardGeospatialPointStyleOptions
     {
         /// <summary>
-        /// The cluster marker configuration of the geospatial map selected point style.
+        /// The cluster marker configuration of the geospatial point style.
         /// </summary>
         public readonly Outputs.DashboardClusterMarkerConfiguration? ClusterMarkerConfiguration;
         /// <summary>

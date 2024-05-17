@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class AnalysisConditionalFormattingGradientColorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Determines the gradient color settings.
+        /// Determines the color.
         /// </summary>
         [Input("color", required: true)]
         public Input<Inputs.AnalysisGradientColorArgs> Color { get; set; } = null!;

@@ -29,7 +29,7 @@ type TrainingDataset struct {
 	Status TrainingDatasetStatusOutput `pulumi:"status"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms-ml training dataset.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// Defines where the training dataset is located, what type of data it contains, and how to access the data.
+	// An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.
 	TrainingData TrainingDatasetDatasetArrayOutput `pulumi:"trainingData"`
 	// The Amazon Resource Name (ARN) of the training dataset.
 	TrainingDatasetArn pulumi.StringOutput `pulumi:"trainingDatasetArn"`
@@ -98,7 +98,7 @@ type trainingDatasetArgs struct {
 	RoleArn string `pulumi:"roleArn"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms-ml training dataset.
 	Tags []aws.Tag `pulumi:"tags"`
-	// Defines where the training dataset is located, what type of data it contains, and how to access the data.
+	// An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.
 	TrainingData []TrainingDatasetDataset `pulumi:"trainingData"`
 }
 
@@ -114,7 +114,7 @@ type TrainingDatasetArgs struct {
 	RoleArn pulumi.StringInput
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms-ml training dataset.
 	Tags aws.TagArrayInput
-	// Defines where the training dataset is located, what type of data it contains, and how to access the data.
+	// An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.
 	TrainingData TrainingDatasetDatasetArrayInput
 }
 
@@ -182,7 +182,7 @@ func (o TrainingDatasetOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *TrainingDataset) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// Defines where the training dataset is located, what type of data it contains, and how to access the data.
+// An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.
 func (o TrainingDatasetOutput) TrainingData() TrainingDatasetDatasetArrayOutput {
 	return o.ApplyT(func(v *TrainingDataset) TrainingDatasetDatasetArrayOutput { return v.TrainingData }).(TrainingDatasetDatasetArrayOutput)
 }

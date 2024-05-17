@@ -218,7 +218,7 @@ export class ResourceDataSync extends pulumi.CustomResource {
      */
     public readonly kmsKeyArn!: pulumi.Output<string | undefined>;
     /**
-     * Information about the target S3 bucket for the resource data sync.
+     * Configuration information for the target S3 bucket.
      */
     public readonly s3Destination!: pulumi.Output<outputs.ssm.ResourceDataSyncS3Destination | undefined>;
     /**
@@ -230,7 +230,7 @@ export class ResourceDataSync extends pulumi.CustomResource {
      */
     public readonly syncName!: pulumi.Output<string>;
     /**
-     * Information about the source of the data included in the resource data sync.
+     * Information about the source where the data was synchronized.
      */
     public readonly syncSource!: pulumi.Output<outputs.ssm.ResourceDataSyncSyncSource | undefined>;
     /**
@@ -297,7 +297,7 @@ export interface ResourceDataSyncArgs {
      */
     kmsKeyArn?: pulumi.Input<string>;
     /**
-     * Information about the target S3 bucket for the resource data sync.
+     * Configuration information for the target S3 bucket.
      */
     s3Destination?: pulumi.Input<inputs.ssm.ResourceDataSyncS3DestinationArgs>;
     /**
@@ -309,7 +309,7 @@ export interface ResourceDataSyncArgs {
      */
     syncName?: pulumi.Input<string>;
     /**
-     * Information about the source of the data included in the resource data sync.
+     * Information about the source where the data was synchronized.
      */
     syncSource?: pulumi.Input<inputs.ssm.ResourceDataSyncSyncSourceArgs>;
     /**

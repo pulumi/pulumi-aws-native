@@ -73,8 +73,6 @@ class DomainAdvancedSecurityOptionsInput(dict):
         :param bool enabled: True to enable fine-grained access control. You must also enable encryption of data at rest and node-to-node encryption. See [Fine-grained access control in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html) .
         :param bool internal_user_database_enabled: True to enable the internal user database.
         :param 'DomainMasterUserOptions' master_user_options: Specifies information about the master user.
-               
-               Required if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
         :param 'DomainSamlOptions' saml_options: Container for information about the SAML configuration for OpenSearch Dashboards.
         """
         if anonymous_auth_disable_date is not None:
@@ -127,8 +125,6 @@ class DomainAdvancedSecurityOptionsInput(dict):
     def master_user_options(self) -> Optional['outputs.DomainMasterUserOptions']:
         """
         Specifies information about the master user.
-
-        Required if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
         """
         return pulumi.get(self, "master_user_options")
 
@@ -196,7 +192,7 @@ class DomainClusterConfig(dict):
                  zone_awareness_config: Optional['outputs.DomainZoneAwarenessConfig'] = None,
                  zone_awareness_enabled: Optional[bool] = None):
         """
-        :param 'DomainColdStorageOptions' cold_storage_options: Container for the parameters required to enable cold storage for an OpenSearch Service domain. For more information, see [Cold storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cold-storage.html) .
+        :param 'DomainColdStorageOptions' cold_storage_options: Container for cold storage configuration options.
         :param int dedicated_master_count: The number of instances to use for the master node. If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property.
         :param bool dedicated_master_enabled: Indicates whether to use a dedicated master node for the OpenSearch Service domain. A dedicated master node is a cluster node that performs cluster management tasks, but doesn't hold data or respond to data upload requests. Dedicated master nodes offload cluster management tasks to increase the stability of your search clusters. See [Dedicated master nodes in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-dedicatedmasternodes.html) .
         :param str dedicated_master_type: The hardware configuration of the computer that hosts the dedicated master node, such as `m3.medium.search` . If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property. For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
@@ -238,7 +234,7 @@ class DomainClusterConfig(dict):
     @pulumi.getter(name="coldStorageOptions")
     def cold_storage_options(self) -> Optional['outputs.DomainColdStorageOptions']:
         """
-        Container for the parameters required to enable cold storage for an OpenSearch Service domain. For more information, see [Cold storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cold-storage.html) .
+        Container for cold storage configuration options.
         """
         return pulumi.get(self, "cold_storage_options")
 
@@ -883,7 +879,7 @@ class DomainOffPeakWindow(dict):
     def __init__(__self__, *,
                  window_start_time: Optional['outputs.DomainWindowStartTime'] = None):
         """
-        :param 'DomainWindowStartTime' window_start_time: A custom start time for the off-peak window, in Coordinated Universal Time (UTC). The window length will always be 10 hours, so you can't specify an end time. For example, if you specify 11:00 P.M. UTC as a start time, the end time will automatically be set to 9:00 A.M.
+        :param 'DomainWindowStartTime' window_start_time: The desired start time for an off-peak maintenance window.
         """
         if window_start_time is not None:
             pulumi.set(__self__, "window_start_time", window_start_time)
@@ -892,7 +888,7 @@ class DomainOffPeakWindow(dict):
     @pulumi.getter(name="windowStartTime")
     def window_start_time(self) -> Optional['outputs.DomainWindowStartTime']:
         """
-        A custom start time for the off-peak window, in Coordinated Universal Time (UTC). The window length will always be 10 hours, so you can't specify an end time. For example, if you specify 11:00 P.M. UTC as a start time, the end time will automatically be set to 9:00 A.M.
+        The desired start time for an off-peak maintenance window.
         """
         return pulumi.get(self, "window_start_time")
 
@@ -921,7 +917,7 @@ class DomainOffPeakWindowOptions(dict):
                  off_peak_window: Optional['outputs.DomainOffPeakWindow'] = None):
         """
         :param bool enabled: Specifies whether off-peak window settings are enabled for the domain.
-        :param 'DomainOffPeakWindow' off_peak_window: A custom 10-hour, low-traffic window during which OpenSearch Service can perform mandatory configuration changes on the domain. These actions can include scheduled service software updates and blue/green Auto-Tune enhancements. OpenSearch Service will schedule these actions during the window that you specify. If you don't specify a window start time, it defaults to 10:00 P.M. local time.
+        :param 'DomainOffPeakWindow' off_peak_window: Off-peak window settings for the domain.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -940,7 +936,7 @@ class DomainOffPeakWindowOptions(dict):
     @pulumi.getter(name="offPeakWindow")
     def off_peak_window(self) -> Optional['outputs.DomainOffPeakWindow']:
         """
-        A custom 10-hour, low-traffic window during which OpenSearch Service can perform mandatory configuration changes on the domain. These actions can include scheduled service software updates and blue/green Auto-Tune enhancements. OpenSearch Service will schedule these actions during the window that you specify. If you don't specify a window start time, it defaults to 10:00 P.M. local time.
+        Off-peak window settings for the domain.
         """
         return pulumi.get(self, "off_peak_window")
 

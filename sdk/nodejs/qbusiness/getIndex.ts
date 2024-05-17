@@ -32,7 +32,7 @@ export interface GetIndexArgs {
 
 export interface GetIndexResult {
     /**
-     * Provides information about index capacity configuration.
+     * The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
      */
     readonly capacityConfiguration?: outputs.qbusiness.IndexCapacityConfiguration;
     /**
@@ -61,16 +61,13 @@ export interface GetIndexResult {
      * The identifier for the index.
      */
     readonly indexId?: string;
-    /**
-     * Provides information about the number of documents in an index.
-     */
     readonly indexStatistics?: outputs.qbusiness.IndexStatistics;
     /**
      * The current status of the index. When the status is `ACTIVE` , the index is ready.
      */
     readonly status?: enums.qbusiness.IndexStatus;
     /**
-     * A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+     * A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
      */
     readonly tags?: outputs.Tag[];
     /**

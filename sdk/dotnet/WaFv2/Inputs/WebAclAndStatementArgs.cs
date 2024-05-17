@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         private InputList<Inputs.WebAclStatementArgs>? _statements;
 
         /// <summary>
-        /// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+        /// The statements to combine with AND logic. You can use any statements that can be nested.
         /// </summary>
         public InputList<Inputs.WebAclStatementArgs> Statements
         {

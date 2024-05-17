@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string DeviceName;
         /// <summary>
-        /// Describes a block device for an EBS volume.
+        /// Parameters used to automatically set up EBS volumes when the instance is launched.
         /// </summary>
         public readonly Outputs.SpotFleetEbsBlockDevice? Ebs;
         /// <summary>

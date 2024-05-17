@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// </summary>
         public readonly string? BasePromptTemplate;
         /// <summary>
-        /// Specifications about the inference parameters that were provided alongside the prompt. These are specified in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) object that was set when the agent was created or updated. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
+        /// Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
         /// </summary>
         public readonly Outputs.AgentInferenceConfiguration? InferenceConfiguration;
         /// <summary>

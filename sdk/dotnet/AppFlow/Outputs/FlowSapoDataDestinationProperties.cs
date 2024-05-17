@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// <summary>
         /// Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data.
         /// 
-        /// For example, this setting would determine where to write the response from the destination connector upon a successful insert operation.
+        /// For example, this setting would determine where to write the response from a destination connector upon a successful insert operation.
         /// </summary>
         public readonly Outputs.FlowSuccessResponseHandlingConfig? SuccessResponseHandlingConfig;
         /// <summary>

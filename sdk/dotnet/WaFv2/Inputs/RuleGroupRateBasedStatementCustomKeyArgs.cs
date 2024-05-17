@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     public sealed class RuleGroupRateBasedStatementCustomKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies a cookie as an aggregate key for a rate-based rule. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
+        /// Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
         /// </summary>
         [Input("cookie")]
         public Input<Inputs.RuleGroupRateLimitCookieArgs>? Cookie { get; set; }
@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         public Input<Inputs.RuleGroupRateLimitForwardedIpArgs>? ForwardedIp { get; set; }
 
         /// <summary>
-        /// Specifies a header as an aggregate key for a rate-based rule. Each distinct value in the header contributes to the aggregation instance. If you use a single header as your custom key, then each value fully defines an aggregation instance.
+        /// Use the value of a header in the request as an aggregate key. Each distinct value in the header contributes to the aggregation instance. If you use a single header as your custom key, then each value fully defines an aggregation instance.
         /// </summary>
         [Input("header")]
         public Input<Inputs.RuleGroupRateLimitHeaderArgs>? Header { get; set; }
@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         public Input<Inputs.RuleGroupRateLimitIpArgs>? Ip { get; set; }
 
         /// <summary>
-        /// Specifies a label namespace to use as an aggregate key for a rate-based rule. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
+        /// Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
         /// 
         /// This uses only labels that have been added to the request by rules that are evaluated before this rate-based rule in the web ACL.
         /// 
@@ -62,19 +62,19 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         public Input<Inputs.RuleGroupRateLimitLabelNamespaceArgs>? LabelNamespace { get; set; }
 
         /// <summary>
-        /// Specifies a query argument in the request as an aggregate key for a rate-based rule. Each distinct value for the named query argument contributes to the aggregation instance. If you use a single query argument as your custom key, then each value fully defines an aggregation instance.
+        /// Use the specified query argument as an aggregate key. Each distinct value for the named query argument contributes to the aggregation instance. If you use a single query argument as your custom key, then each value fully defines an aggregation instance.
         /// </summary>
         [Input("queryArgument")]
         public Input<Inputs.RuleGroupRateLimitQueryArgumentArgs>? QueryArgument { get; set; }
 
         /// <summary>
-        /// Specifies the request's query string as an aggregate key for a rate-based rule. Each distinct string contributes to the aggregation instance. If you use just the query string as your custom key, then each string fully defines an aggregation instance.
+        /// Use the request's query string as an aggregate key. Each distinct string contributes to the aggregation instance. If you use just the query string as your custom key, then each string fully defines an aggregation instance.
         /// </summary>
         [Input("queryString")]
         public Input<Inputs.RuleGroupRateLimitQueryStringArgs>? QueryString { get; set; }
 
         /// <summary>
-        /// Specifies the request's URI path as an aggregate key for a rate-based rule. Each distinct URI path contributes to the aggregation instance. If you use just the URI path as your custom key, then each URI path fully defines an aggregation instance.
+        /// Use the request's URI path as an aggregate key. Each distinct URI path contributes to the aggregation instance. If you use just the URI path as your custom key, then each URI path fully defines an aggregation instance.
         /// </summary>
         [Input("uriPath")]
         public Input<Inputs.RuleGroupRateLimitUriPathArgs>? UriPath { get; set; }

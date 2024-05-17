@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.CloudFront
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// Origin access identity configuration. Send a `GET` request to the `/ *CloudFront API version* /CloudFront/identity ID/config` resource.
+        /// The current configuration information for the identity.
         /// </summary>
         [Output("cloudFrontOriginAccessIdentityConfig")]
         public Output<Outputs.CloudFrontOriginAccessIdentityConfig> CloudFrontOriginAccessIdentityConfig { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.AwsNative.CloudFront
     public sealed class CloudFrontOriginAccessIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Origin access identity configuration. Send a `GET` request to the `/ *CloudFront API version* /CloudFront/identity ID/config` resource.
+        /// The current configuration information for the identity.
         /// </summary>
         [Input("cloudFrontOriginAccessIdentityConfig", required: true)]
         public Input<Inputs.CloudFrontOriginAccessIdentityConfigArgs> CloudFrontOriginAccessIdentityConfig { get; set; } = null!;

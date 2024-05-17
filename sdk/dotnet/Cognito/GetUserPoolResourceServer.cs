@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// A resource server scope.
+        /// A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
         /// </summary>
         public readonly ImmutableArray<Outputs.UserPoolResourceServerResourceServerScopeType> Scopes;
 

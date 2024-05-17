@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public Input<string> DefaultValue { get; set; } = null!;
 
         /// <summary>
-        /// The identifier of the task template field.
+        /// Identifier of a field.
         /// </summary>
         [Input("id", required: true)]
         public Input<Inputs.TaskTemplateFieldIdentifierArgs> Id { get; set; } = null!;

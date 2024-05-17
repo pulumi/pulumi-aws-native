@@ -16,7 +16,9 @@ namespace Pulumi.AwsNative.Events.Inputs
         private InputList<Inputs.RuleCapacityProviderStrategyItemArgs>? _capacityProviderStrategy;
 
         /// <summary>
-        /// The details of a capacity provider strategy. To learn more, see [CapacityProviderStrategyItem](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CapacityProviderStrategyItem.html) in the Amazon ECS API Reference.
+        /// The capacity provider strategy to use for the task.
+        /// 
+        /// If a `capacityProviderStrategy` is specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or launchType is specified, the `defaultCapacityProviderStrategy` for the cluster is used.
         /// </summary>
         public InputList<Inputs.RuleCapacityProviderStrategyItemArgs> CapacityProviderStrategy
         {
@@ -49,7 +51,9 @@ namespace Pulumi.AwsNative.Events.Inputs
         public Input<string>? LaunchType { get; set; }
 
         /// <summary>
-        /// This structure specifies the network configuration for an ECS task.
+        /// Use this structure if the Amazon ECS task uses the `awsvpc` network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if `LaunchType` is `FARGATE` because the `awsvpc` mode is required for Fargate tasks.
+        /// 
+        /// If you specify `NetworkConfiguration` when the target ECS task does not use the `awsvpc` network mode, the task fails.
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.RuleNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
@@ -58,7 +62,7 @@ namespace Pulumi.AwsNative.Events.Inputs
         private InputList<Inputs.RulePlacementConstraintArgs>? _placementConstraints;
 
         /// <summary>
-        /// An object representing a constraint on task placement. To learn more, see [Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the Amazon Elastic Container Service Developer Guide.
+        /// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime).
         /// </summary>
         public InputList<Inputs.RulePlacementConstraintArgs> PlacementConstraints
         {
@@ -70,7 +74,7 @@ namespace Pulumi.AwsNative.Events.Inputs
         private InputList<Inputs.RulePlacementStrategyArgs>? _placementStrategies;
 
         /// <summary>
-        /// The task placement strategy for a task or service. To learn more, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the Amazon Elastic Container Service Service Developer Guide.
+        /// The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
         /// </summary>
         public InputList<Inputs.RulePlacementStrategyArgs> PlacementStrategies
         {
@@ -102,9 +106,7 @@ namespace Pulumi.AwsNative.Events.Inputs
         private InputList<Inputs.RuleTagArgs>? _tagList;
 
         /// <summary>
-        /// A key-value pair associated with an ECS Target of an EventBridge rule. The tag will be propagated to ECS by EventBridge when starting an ECS task based on a matched event.
-        /// 
-        /// &gt; Currently, tags are only available when using ECS with EventBridge .
+        /// The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-tags) in the Amazon ECS API Reference.
         /// </summary>
         public InputList<Inputs.RuleTagArgs> TagList
         {

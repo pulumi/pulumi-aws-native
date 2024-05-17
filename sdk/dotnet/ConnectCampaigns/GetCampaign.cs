@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.ConnectCampaigns
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// Contains dialer configuration for an outbound campaign.
+        /// Contains information about the dialer configuration.
         /// </summary>
         public readonly Outputs.CampaignDialerConfig? DialerConfig;
         /// <summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.ConnectCampaigns
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Contains outbound call configuration for an outbound campaign.
+        /// Contains information about the outbound call configuration.
         /// </summary>
         public readonly Outputs.CampaignOutboundCallConfig? OutboundCallConfig;
         /// <summary>

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplatePieChartSortConfiguration
     {
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of categories that are displayed in a pie chart.
         /// </summary>
         public readonly Outputs.TemplateItemsLimitConfiguration? CategoryItemsLimit;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateFieldSortOptions> CategorySort;
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of small multiples panels that are displayed.
         /// </summary>
         public readonly Outputs.TemplateItemsLimitConfiguration? SmallMultiplesLimitConfiguration;
         /// <summary>

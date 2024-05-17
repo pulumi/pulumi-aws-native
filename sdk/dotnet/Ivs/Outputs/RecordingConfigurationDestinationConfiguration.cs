@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Ivs.Outputs
     public sealed class RecordingConfigurationDestinationConfiguration
     {
         /// <summary>
-        /// The S3DestinationConfiguration property type describes an S3 location where recorded videos will be stored.
+        /// An S3 destination configuration where recorded videos will be stored. See the [S3DestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html) property type for more information.
         /// </summary>
         public readonly Outputs.RecordingConfigurationS3DestinationConfiguration? S3;
 

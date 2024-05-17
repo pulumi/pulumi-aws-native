@@ -34,7 +34,7 @@ type ServiceNetworkVpcAssociation struct {
 	ServiceNetworkName pulumi.StringOutput `pulumi:"serviceNetworkName"`
 	// The status of the association.
 	Status ServiceNetworkVpcAssociationStatusOutput `pulumi:"status"`
-	// Specifies a tag for a VPC association.
+	// The tags for the association.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -91,7 +91,7 @@ type serviceNetworkVpcAssociationArgs struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN when the resources specified in the operation are in different accounts.
 	ServiceNetworkIdentifier *string `pulumi:"serviceNetworkIdentifier"`
-	// Specifies a tag for a VPC association.
+	// The tags for the association.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the VPC.
 	VpcIdentifier *string `pulumi:"vpcIdentifier"`
@@ -103,7 +103,7 @@ type ServiceNetworkVpcAssociationArgs struct {
 	SecurityGroupIds pulumi.StringArrayInput
 	// The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN when the resources specified in the operation are in different accounts.
 	ServiceNetworkIdentifier pulumi.StringPtrInput
-	// Specifies a tag for a VPC association.
+	// The tags for the association.
 	Tags aws.TagArrayInput
 	// The ID of the VPC.
 	VpcIdentifier pulumi.StringPtrInput
@@ -191,7 +191,7 @@ func (o ServiceNetworkVpcAssociationOutput) Status() ServiceNetworkVpcAssociatio
 	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) ServiceNetworkVpcAssociationStatusOutput { return v.Status }).(ServiceNetworkVpcAssociationStatusOutput)
 }
 
-// Specifies a tag for a VPC association.
+// The tags for the association.
 func (o ServiceNetworkVpcAssociationOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ServiceNetworkVpcAssociation) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

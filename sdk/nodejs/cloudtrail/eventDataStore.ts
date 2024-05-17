@@ -98,7 +98,7 @@ export class EventDataStore extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+     * A list of tags.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -217,7 +217,7 @@ export interface EventDataStoreArgs {
      */
     retentionPeriod?: pulumi.Input<number>;
     /**
-     * A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+     * A list of tags.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

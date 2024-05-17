@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Bedrock
         public Output<Pulumi.AwsNative.Bedrock.KnowledgeBaseStatus> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Contains the storage configuration of the knowledge base.
+        /// Contains details about the storage configuration of the knowledge base.
         /// </summary>
         [Output("storageConfiguration")]
         public Output<Outputs.KnowledgeBaseStorageConfiguration> StorageConfiguration { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.AwsNative.Bedrock
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// Contains the storage configuration of the knowledge base.
+        /// Contains details about the storage configuration of the knowledge base.
         /// </summary>
         [Input("storageConfiguration", required: true)]
         public Input<Inputs.KnowledgeBaseStorageConfigurationArgs> StorageConfiguration { get; set; } = null!;

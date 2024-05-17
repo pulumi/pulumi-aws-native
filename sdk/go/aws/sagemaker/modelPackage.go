@@ -46,7 +46,7 @@ type ModelPackage struct {
 	// - `REJECTED` - The model is rejected.
 	// - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
 	ModelApprovalStatus ModelPackageModelApprovalStatusPtrOutput `pulumi:"modelApprovalStatus"`
-	// Contains metrics captured from a model.
+	// Metrics for the model.
 	ModelMetrics ModelPackageModelMetricsPtrOutput `pulumi:"modelMetrics"`
 	// The Amazon Resource Name (ARN) of the model package.
 	ModelPackageArn pulumi.StringOutput `pulumi:"modelPackageArn"`
@@ -165,7 +165,7 @@ type modelPackageArgs struct {
 	// - `REJECTED` - The model is rejected.
 	// - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
 	ModelApprovalStatus *ModelPackageModelApprovalStatus `pulumi:"modelApprovalStatus"`
-	// Contains metrics captured from a model.
+	// Metrics for the model.
 	ModelMetrics *ModelPackageModelMetrics `pulumi:"modelMetrics"`
 	// The description of the model package.
 	ModelPackageDescription *string `pulumi:"modelPackageDescription"`
@@ -221,7 +221,7 @@ type ModelPackageArgs struct {
 	// - `REJECTED` - The model is rejected.
 	// - `PENDING_MANUAL_APPROVAL` - The model is waiting for manual approval.
 	ModelApprovalStatus ModelPackageModelApprovalStatusPtrInput
-	// Contains metrics captured from a model.
+	// Metrics for the model.
 	ModelMetrics ModelPackageModelMetricsPtrInput
 	// The description of the model package.
 	ModelPackageDescription pulumi.StringPtrInput
@@ -359,7 +359,7 @@ func (o ModelPackageOutput) ModelApprovalStatus() ModelPackageModelApprovalStatu
 	return o.ApplyT(func(v *ModelPackage) ModelPackageModelApprovalStatusPtrOutput { return v.ModelApprovalStatus }).(ModelPackageModelApprovalStatusPtrOutput)
 }
 
-// Contains metrics captured from a model.
+// Metrics for the model.
 func (o ModelPackageOutput) ModelMetrics() ModelPackageModelMetricsPtrOutput {
 	return o.ApplyT(func(v *ModelPackage) ModelPackageModelMetricsPtrOutput { return v.ModelMetrics }).(ModelPackageModelMetricsPtrOutput)
 }

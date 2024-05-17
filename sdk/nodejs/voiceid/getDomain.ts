@@ -31,7 +31,7 @@ export interface GetDomainResult {
      */
     readonly domainId?: string;
     /**
-     * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+     * The tags used to organize, track, or control access for this resource.
      */
     readonly tags?: outputs.Tag[];
 }

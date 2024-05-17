@@ -75,7 +75,7 @@ class GetEventTypeResult:
     @pulumi.getter(name="entityTypes")
     def entity_types(self) -> Optional[Sequence['outputs.EventTypeEntityType']]:
         """
-        The entity type details.
+        The event type entity types.
         """
         return pulumi.get(self, "entity_types")
 
@@ -83,7 +83,7 @@ class GetEventTypeResult:
     @pulumi.getter(name="eventVariables")
     def event_variables(self) -> Optional[Sequence['outputs.EventTypeEventVariable']]:
         """
-        The variables associated with this event type.
+        The event type event variables.
         """
         return pulumi.get(self, "event_variables")
 
@@ -91,7 +91,7 @@ class GetEventTypeResult:
     @pulumi.getter
     def labels(self) -> Optional[Sequence['outputs.EventTypeLabel']]:
         """
-        The label associated with the event type.
+        The event type labels.
         """
         return pulumi.get(self, "labels")
 

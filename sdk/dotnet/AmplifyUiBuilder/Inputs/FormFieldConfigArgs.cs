@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
         public Input<bool>? Excluded { get; set; }
 
         /// <summary>
-        /// The `FieldInputConfig` property specifies the configuration for the default input values to display for a field.
+        /// Describes the configuration for the default input value to display for a field.
         /// </summary>
         [Input("inputType")]
         public Input<Inputs.FormFieldInputConfigArgs>? InputType { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// The `FieldPosition` property specifies the field position.
+        /// Specifies the field position.
         /// </summary>
         [Input("position")]
         public object? Position { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
         private InputList<Inputs.FormFieldValidationConfigurationArgs>? _validations;
 
         /// <summary>
-        /// The `FieldValidationConfiguration` property specifies the validation configuration for a field.
+        /// The validations to perform on the value in the field.
         /// </summary>
         public InputList<Inputs.FormFieldValidationConfigurationArgs> Validations
         {

@@ -26,7 +26,7 @@ class LandingZoneArgs:
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
         :param pulumi.Input[str] version: The landing zone's current deployed version.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags applied to the landing zone.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags to be applied to the landing zone.
         """
         pulumi.set(__self__, "manifest", manifest)
         pulumi.set(__self__, "version", version)
@@ -63,7 +63,7 @@ class LandingZoneArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        Tags applied to the landing zone.
+        Tags to be applied to the landing zone.
         """
         return pulumi.get(self, "tags")
 
@@ -89,7 +89,7 @@ class LandingZone(pulumi.CustomResource):
         :param Any manifest: The landing zone manifest JSON text file that specifies the landing zone configurations.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags applied to the landing zone.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags to be applied to the landing zone.
         :param pulumi.Input[str] version: The landing zone's current deployed version.
         """
         ...
@@ -226,7 +226,7 @@ class LandingZone(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        Tags applied to the landing zone.
+        Tags to be applied to the landing zone.
         """
         return pulumi.get(self, "tags")
 

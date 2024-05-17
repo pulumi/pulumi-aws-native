@@ -28,8 +28,8 @@ class IdMappingWorkflowArgs:
                  workflow_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IdMappingWorkflow resource.
-        :param pulumi.Input['IdMappingWorkflowIdMappingTechniquesArgs'] id_mapping_techniques: An object which defines the ID mapping techniques and provider configurations.
-        :param pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowInputSourceArgs']]] input_source_config: An object containing `InputSourceARN` , `SchemaName` , and `Type` .
+        :param pulumi.Input['IdMappingWorkflowIdMappingTechniquesArgs'] id_mapping_techniques: An object which defines the `idMappingType` and the `providerProperties` .
+        :param pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowInputSourceArgs']]] input_source_config: A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
         :param pulumi.Input[str] description: The description of the IdMappingWorkflow
         :param pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowOutputSourceArgs']]] output_source_config: A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
@@ -52,7 +52,7 @@ class IdMappingWorkflowArgs:
     @pulumi.getter(name="idMappingTechniques")
     def id_mapping_techniques(self) -> pulumi.Input['IdMappingWorkflowIdMappingTechniquesArgs']:
         """
-        An object which defines the ID mapping techniques and provider configurations.
+        An object which defines the `idMappingType` and the `providerProperties` .
         """
         return pulumi.get(self, "id_mapping_techniques")
 
@@ -64,7 +64,7 @@ class IdMappingWorkflowArgs:
     @pulumi.getter(name="inputSourceConfig")
     def input_source_config(self) -> pulumi.Input[Sequence[pulumi.Input['IdMappingWorkflowInputSourceArgs']]]:
         """
-        An object containing `InputSourceARN` , `SchemaName` , and `Type` .
+        A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
         """
         return pulumi.get(self, "input_source_config")
 
@@ -152,8 +152,8 @@ class IdMappingWorkflow(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the IdMappingWorkflow
-        :param pulumi.Input[pulumi.InputType['IdMappingWorkflowIdMappingTechniquesArgs']] id_mapping_techniques: An object which defines the ID mapping techniques and provider configurations.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdMappingWorkflowInputSourceArgs']]]] input_source_config: An object containing `InputSourceARN` , `SchemaName` , and `Type` .
+        :param pulumi.Input[pulumi.InputType['IdMappingWorkflowIdMappingTechniquesArgs']] id_mapping_techniques: An object which defines the `idMappingType` and the `providerProperties` .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdMappingWorkflowInputSourceArgs']]]] input_source_config: A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdMappingWorkflowOutputSourceArgs']]]] output_source_config: A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags used to organize, track, or control access for this resource.
@@ -268,7 +268,7 @@ class IdMappingWorkflow(pulumi.CustomResource):
     @pulumi.getter(name="idMappingTechniques")
     def id_mapping_techniques(self) -> pulumi.Output['outputs.IdMappingWorkflowIdMappingTechniques']:
         """
-        An object which defines the ID mapping techniques and provider configurations.
+        An object which defines the `idMappingType` and the `providerProperties` .
         """
         return pulumi.get(self, "id_mapping_techniques")
 
@@ -276,7 +276,7 @@ class IdMappingWorkflow(pulumi.CustomResource):
     @pulumi.getter(name="inputSourceConfig")
     def input_source_config(self) -> pulumi.Output[Sequence['outputs.IdMappingWorkflowInputSource']]:
         """
-        An object containing `InputSourceARN` , `SchemaName` , and `Type` .
+        A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
         """
         return pulumi.get(self, "input_source_config")
 

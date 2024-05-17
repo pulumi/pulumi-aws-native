@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// The DNS information.
+        /// The DNS information of the service.
         /// </summary>
         [Output("dnsEntry")]
         public Output<Outputs.ServiceNetworkServiceAssociationDnsEntry?> DnsEntry { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Output<Pulumi.AwsNative.VpcLattice.ServiceNetworkServiceAssociationStatus> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a tag for a service association.
+        /// The tags for the association.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.AwsNative.VpcLattice
     public sealed class ServiceNetworkServiceAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The DNS information.
+        /// The DNS information of the service.
         /// </summary>
         [Input("dnsEntry")]
         public Input<Inputs.ServiceNetworkServiceAssociationDnsEntryArgs>? DnsEntry { get; set; }
@@ -171,7 +171,7 @@ namespace Pulumi.AwsNative.VpcLattice
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// Specifies a tag for a service association.
+        /// The tags for the association.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

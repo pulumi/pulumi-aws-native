@@ -30,12 +30,9 @@ export interface GetFleetResult {
      * The Amazon Resource Name (ARN) assigned to the fleet.
      */
     readonly arn?: string;
-    /**
-     * The amounts and attributes of fleets.
-     */
     readonly capabilities?: outputs.deadline.FleetCapabilities;
     /**
-     * Fleet configuration details.
+     * The configuration details for the fleet.
      */
     readonly configuration?: outputs.deadline.FleetConfiguration0Properties | outputs.deadline.FleetConfiguration1Properties;
     /**

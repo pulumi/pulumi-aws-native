@@ -51,7 +51,7 @@ class GetDatasetResult:
     @pulumi.getter
     def actions(self) -> Optional[Sequence['outputs.DatasetAction']]:
         """
-        Information needed to run the "containerAction" to produce data set contents.
+        The `DatasetAction` objects that automatically create the dataset contents.
         """
         return pulumi.get(self, "actions")
 
@@ -59,7 +59,7 @@ class GetDatasetResult:
     @pulumi.getter(name="contentDeliveryRules")
     def content_delivery_rules(self) -> Optional[Sequence['outputs.DatasetContentDeliveryRule']]:
         """
-        When dataset contents are created, they are delivered to destination specified here.
+        When dataset contents are created they are delivered to destinations specified here.
         """
         return pulumi.get(self, "content_delivery_rules")
 
@@ -72,7 +72,7 @@ class GetDatasetResult:
     @pulumi.getter(name="lateDataRules")
     def late_data_rules(self) -> Optional[Sequence['outputs.DatasetLateDataRule']]:
         """
-        A structure that contains the name and configuration information of a late data rule.
+        A list of data rules that send notifications to CloudWatch, when data arrives late. To specify `lateDataRules` , the dataset must use a [DeltaTimer](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html) filter.
         """
         return pulumi.get(self, "late_data_rules")
 
@@ -80,7 +80,7 @@ class GetDatasetResult:
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional['outputs.DatasetRetentionPeriod']:
         """
-        How long, in days, message data is kept.
+        Optional. How long, in days, message data is kept for the dataset.
         """
         return pulumi.get(self, "retention_period")
 
@@ -88,7 +88,9 @@ class GetDatasetResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        A set of key-value pairs that are used to manage the resource.
+        Metadata which can be used to manage the data set.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         return pulumi.get(self, "tags")
 
@@ -96,7 +98,7 @@ class GetDatasetResult:
     @pulumi.getter
     def triggers(self) -> Optional[Sequence['outputs.DatasetTrigger']]:
         """
-        The "DatasetTrigger" that specifies when the data set is automatically updated.
+        The `DatasetTrigger` objects that specify when the dataset is automatically updated.
         """
         return pulumi.get(self, "triggers")
 
@@ -104,7 +106,7 @@ class GetDatasetResult:
     @pulumi.getter(name="versioningConfiguration")
     def versioning_configuration(self) -> Optional['outputs.DatasetVersioningConfiguration']:
         """
-        Information about the versioning of dataset contents.
+        Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of AWS IoT Analytics datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *AWS IoT Analytics User Guide* .
         """
         return pulumi.get(self, "versioning_configuration")
 

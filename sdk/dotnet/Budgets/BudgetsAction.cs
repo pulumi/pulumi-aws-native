@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.Budgets
         public Output<string> BudgetName { get; private set; } = null!;
 
         /// <summary>
-        /// The definition is where you specify all of the type-specific parameters.
+        /// Specifies all of the type-specific parameters.
         /// </summary>
         [Output("definition")]
         public Output<Outputs.BudgetsActionDefinition> Definition { get; private set; } = null!;
@@ -64,18 +64,13 @@ namespace Pulumi.AwsNative.Budgets
         public Output<Pulumi.AwsNative.Budgets.BudgetsActionNotificationType> NotificationType { get; private set; } = null!;
 
         /// <summary>
-        /// The tag structure that contains a tag key and value.
+        /// An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
         /// </summary>
         [Output("resourceTags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> ResourceTags { get; private set; } = null!;
 
         /// <summary>
-        /// The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
-        /// 
-        /// For example, an email subscriber has the following parameters:
-        /// 
-        /// - A `subscriptionType` of `EMAIL`
-        /// - An `address` of `example@example.com`
+        /// A list of subscribers.
         /// </summary>
         [Output("subscribers")]
         public Output<ImmutableArray<Outputs.BudgetsActionSubscriber>> Subscribers { get; private set; } = null!;
@@ -155,7 +150,7 @@ namespace Pulumi.AwsNative.Budgets
         public Input<string> BudgetName { get; set; } = null!;
 
         /// <summary>
-        /// The definition is where you specify all of the type-specific parameters.
+        /// Specifies all of the type-specific parameters.
         /// </summary>
         [Input("definition", required: true)]
         public Input<Inputs.BudgetsActionDefinitionArgs> Definition { get; set; } = null!;
@@ -176,7 +171,7 @@ namespace Pulumi.AwsNative.Budgets
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _resourceTags;
 
         /// <summary>
-        /// The tag structure that contains a tag key and value.
+        /// An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> ResourceTags
         {
@@ -188,12 +183,7 @@ namespace Pulumi.AwsNative.Budgets
         private InputList<Inputs.BudgetsActionSubscriberArgs>? _subscribers;
 
         /// <summary>
-        /// The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
-        /// 
-        /// For example, an email subscriber has the following parameters:
-        /// 
-        /// - A `subscriptionType` of `EMAIL`
-        /// - An `address` of `example@example.com`
+        /// A list of subscribers.
         /// </summary>
         public InputList<Inputs.BudgetsActionSubscriberArgs> Subscribers
         {

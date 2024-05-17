@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string? ChartColor;
         /// <summary>
-        /// The color map that determines the color options for a particular element.
+        /// The color map options for the visual palette.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardDataPathColor> ColorMap;
 

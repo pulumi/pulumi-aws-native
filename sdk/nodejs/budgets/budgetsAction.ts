@@ -58,7 +58,7 @@ export class BudgetsAction extends pulumi.CustomResource {
      */
     public readonly budgetName!: pulumi.Output<string>;
     /**
-     * The definition is where you specify all of the type-specific parameters.
+     * Specifies all of the type-specific parameters.
      */
     public readonly definition!: pulumi.Output<outputs.budgets.BudgetsActionDefinition>;
     /**
@@ -70,16 +70,11 @@ export class BudgetsAction extends pulumi.CustomResource {
      */
     public readonly notificationType!: pulumi.Output<enums.budgets.BudgetsActionNotificationType>;
     /**
-     * The tag structure that contains a tag key and value.
+     * An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
      */
     public readonly resourceTags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
-     *
-     * For example, an email subscriber has the following parameters:
-     *
-     * - A `subscriptionType` of `EMAIL`
-     * - An `address` of `example@example.com`
+     * A list of subscribers.
      */
     public readonly subscribers!: pulumi.Output<outputs.budgets.BudgetsActionSubscriber[]>;
 
@@ -165,7 +160,7 @@ export interface BudgetsActionArgs {
      */
     budgetName: pulumi.Input<string>;
     /**
-     * The definition is where you specify all of the type-specific parameters.
+     * Specifies all of the type-specific parameters.
      */
     definition: pulumi.Input<inputs.budgets.BudgetsActionDefinitionArgs>;
     /**
@@ -177,16 +172,11 @@ export interface BudgetsActionArgs {
      */
     notificationType: pulumi.Input<enums.budgets.BudgetsActionNotificationType>;
     /**
-     * The tag structure that contains a tag key and value.
+     * An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
      */
     resourceTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
-     * The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
-     *
-     * For example, an email subscriber has the following parameters:
-     *
-     * - A `subscriptionType` of `EMAIL`
-     * - An `address` of `example@example.com`
+     * A list of subscribers.
      */
     subscribers: pulumi.Input<pulumi.Input<inputs.budgets.BudgetsActionSubscriberArgs>[]>;
 }

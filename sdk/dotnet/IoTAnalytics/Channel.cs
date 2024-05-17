@@ -135,19 +135,21 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public Output<string?> ChannelName { get; private set; } = null!;
 
         /// <summary>
-        /// Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+        /// Where channel data is stored.
         /// </summary>
         [Output("channelStorage")]
         public Output<Outputs.ChannelStorage?> ChannelStorage { get; private set; } = null!;
 
         /// <summary>
-        /// How long, in days, message data is kept.
+        /// How long, in days, message data is kept for the channel.
         /// </summary>
         [Output("retentionPeriod")]
         public Output<Outputs.ChannelRetentionPeriod?> RetentionPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// A set of key-value pairs that are used to manage the resource.
+        /// Metadata which can be used to manage the channel.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -208,13 +210,13 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public Input<string>? ChannelName { get; set; }
 
         /// <summary>
-        /// Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+        /// Where channel data is stored.
         /// </summary>
         [Input("channelStorage")]
         public Input<Inputs.ChannelStorageArgs>? ChannelStorage { get; set; }
 
         /// <summary>
-        /// How long, in days, message data is kept.
+        /// How long, in days, message data is kept for the channel.
         /// </summary>
         [Input("retentionPeriod")]
         public Input<Inputs.ChannelRetentionPeriodArgs>? RetentionPeriod { get; set; }
@@ -223,7 +225,9 @@ namespace Pulumi.AwsNative.IoTAnalytics
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A set of key-value pairs that are used to manage the resource.
+        /// Metadata which can be used to manage the channel.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

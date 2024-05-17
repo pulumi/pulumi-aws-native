@@ -29,7 +29,7 @@ type LookupMitigationActionArgs struct {
 }
 
 type LookupMitigationActionResult struct {
-	// Defines the type of action and the parameters for that action.
+	// The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
 	ActionParams *MitigationActionActionParams `pulumi:"actionParams"`
 	// The Amazon Resource Name (ARN) of the mitigation action.
 	MitigationActionArn *string `pulumi:"mitigationActionArn"`
@@ -77,7 +77,7 @@ func (o LookupMitigationActionResultOutput) ToLookupMitigationActionResultOutput
 	return o
 }
 
-// Defines the type of action and the parameters for that action.
+// The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
 func (o LookupMitigationActionResultOutput) ActionParams() MitigationActionActionParamsPtrOutput {
 	return o.ApplyT(func(v LookupMitigationActionResult) *MitigationActionActionParams { return v.ActionParams }).(MitigationActionActionParamsPtrOutput)
 }

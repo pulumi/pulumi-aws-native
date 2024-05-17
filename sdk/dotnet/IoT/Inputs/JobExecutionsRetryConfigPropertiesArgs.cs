@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         private InputList<Inputs.JobTemplateRetryCriteriaArgs>? _retryCriteriaList;
 
         /// <summary>
-        /// The criteria that determines how many retries are allowed for each failure type for a job.
+        /// The list of criteria that determines how many retries are allowed for each failure type for a job.
         /// </summary>
         public InputList<Inputs.JobTemplateRetryCriteriaArgs> RetryCriteriaList
         {

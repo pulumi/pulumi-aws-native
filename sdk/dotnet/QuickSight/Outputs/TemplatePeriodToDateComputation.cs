@@ -29,11 +29,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateTimeGranularity? PeriodTimeGranularity;
         /// <summary>
-        /// The dimension type field.
+        /// The time field that is used in a computation.
         /// </summary>
         public readonly Outputs.TemplateDimensionField? Time;
         /// <summary>
-        /// The measure (metric) type field.
+        /// The value field that is used in a computation.
         /// </summary>
         public readonly Outputs.TemplateMeasureField? Value;
 

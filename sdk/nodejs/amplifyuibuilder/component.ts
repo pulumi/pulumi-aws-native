@@ -50,7 +50,7 @@ export class Component extends pulumi.CustomResource {
      */
     public readonly bindingProperties!: pulumi.Output<{[key: string]: outputs.amplifyuibuilder.ComponentBindingPropertiesValue} | undefined>;
     /**
-     * The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
+     * A list of the component's `ComponentChild` instances.
      */
     public readonly children!: pulumi.Output<outputs.amplifyuibuilder.ComponentChild[] | undefined>;
     /**
@@ -102,7 +102,7 @@ export class Component extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
+     * A list of the component's variants. A variant is a unique style configuration of a main component.
      */
     public readonly variants!: pulumi.Output<outputs.amplifyuibuilder.ComponentVariant[] | undefined>;
 
@@ -173,7 +173,7 @@ export interface ComponentArgs {
      */
     bindingProperties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.amplifyuibuilder.ComponentBindingPropertiesValueArgs>}>;
     /**
-     * The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
+     * A list of the component's `ComponentChild` instances.
      */
     children?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ComponentChildArgs>[]>;
     /**
@@ -217,7 +217,7 @@ export interface ComponentArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
+     * A list of the component's variants. A variant is a unique style configuration of a main component.
      */
     variants?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ComponentVariantArgs>[]>;
 }

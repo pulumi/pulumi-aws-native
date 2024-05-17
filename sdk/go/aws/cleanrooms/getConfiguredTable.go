@@ -31,7 +31,7 @@ type LookupConfiguredTableArgs struct {
 }
 
 type LookupConfiguredTableResult struct {
-	// A specification about how data from the configured table can be used in a query.
+	// The entire created analysis rule.
 	AnalysisRules []ConfiguredTableAnalysisRule `pulumi:"analysisRules"`
 	// Returns the Amazon Resource Name (ARN) of the specified configured table.
 	//
@@ -87,7 +87,7 @@ func (o LookupConfiguredTableResultOutput) ToLookupConfiguredTableResultOutputWi
 	return o
 }
 
-// A specification about how data from the configured table can be used in a query.
+// The entire created analysis rule.
 func (o LookupConfiguredTableResultOutput) AnalysisRules() ConfiguredTableAnalysisRuleArrayOutput {
 	return o.ApplyT(func(v LookupConfiguredTableResult) []ConfiguredTableAnalysisRule { return v.AnalysisRules }).(ConfiguredTableAnalysisRuleArrayOutput)
 }

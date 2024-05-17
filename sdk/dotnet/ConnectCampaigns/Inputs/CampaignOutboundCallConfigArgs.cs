@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.ConnectCampaigns.Inputs
     public sealed class CampaignOutboundCallConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains information about answering machine detection.
+        /// Whether answering machine detection has been enabled.
         /// </summary>
         [Input("answerMachineDetectionConfig")]
         public Input<Inputs.CampaignAnswerMachineDetectionConfigArgs>? AnswerMachineDetectionConfig { get; set; }

@@ -54,25 +54,25 @@ namespace Pulumi.AwsNative.AppStream
         public Output<string?> PackagingType { get; private set; } = null!;
 
         /// <summary>
-        /// The details of the script.
+        /// The post setup script details of the app block.
         /// </summary>
         [Output("postSetupScriptDetails")]
         public Output<Outputs.AppBlockScriptDetails?> PostSetupScriptDetails { get; private set; } = null!;
 
         /// <summary>
-        /// The details of the script.
+        /// The setup script details of the app block.
         /// </summary>
         [Output("setupScriptDetails")]
         public Output<Outputs.AppBlockScriptDetails?> SetupScriptDetails { get; private set; } = null!;
 
         /// <summary>
-        /// The S3 location of the app block.
+        /// The source S3 location of the app block.
         /// </summary>
         [Output("sourceS3Location")]
         public Output<Outputs.AppBlockS3Location> SourceS3Location { get; private set; } = null!;
 
         /// <summary>
-        /// The tag of the app block.
+        /// The tags of the app block.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Union<Outputs.AppBlockTag0Properties, Outputs.AppBlockTag1Properties>>> Tags { get; private set; } = null!;
@@ -159,19 +159,19 @@ namespace Pulumi.AwsNative.AppStream
         public Input<string>? PackagingType { get; set; }
 
         /// <summary>
-        /// The details of the script.
+        /// The post setup script details of the app block.
         /// </summary>
         [Input("postSetupScriptDetails")]
         public Input<Inputs.AppBlockScriptDetailsArgs>? PostSetupScriptDetails { get; set; }
 
         /// <summary>
-        /// The details of the script.
+        /// The setup script details of the app block.
         /// </summary>
         [Input("setupScriptDetails")]
         public Input<Inputs.AppBlockScriptDetailsArgs>? SetupScriptDetails { get; set; }
 
         /// <summary>
-        /// The S3 location of the app block.
+        /// The source S3 location of the app block.
         /// </summary>
         [Input("sourceS3Location", required: true)]
         public Input<Inputs.AppBlockS3LocationArgs> SourceS3Location { get; set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.AwsNative.AppStream
         private InputList<Union<Inputs.AppBlockTag0PropertiesArgs, Inputs.AppBlockTag1PropertiesArgs>>? _tags;
 
         /// <summary>
-        /// The tag of the app block.
+        /// The tags of the app block.
         /// </summary>
         public InputList<Union<Inputs.AppBlockTag0PropertiesArgs, Inputs.AppBlockTag1PropertiesArgs>> Tags
         {

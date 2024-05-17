@@ -13,7 +13,12 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardDonutOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The options that determine the arc thickness of a `GaugeChartVisual` .
+        /// The option for define the arc of the chart shape. Valid values are as follows:
+        /// 
+        /// - `WHOLE` - A pie chart
+        /// - `SMALL` - A small-sized donut chart
+        /// - `MEDIUM` - A medium-sized donut chart
+        /// - `LARGE` - A large-sized donut chart
         /// </summary>
         [Input("arcOptions")]
         public Input<Inputs.DashboardArcOptionsArgs>? ArcOptions { get; set; }

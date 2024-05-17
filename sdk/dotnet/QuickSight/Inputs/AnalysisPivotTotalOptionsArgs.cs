@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string>? CustomLabel { get; set; }
 
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The cell styling options for the total of header cells.
         /// </summary>
         [Input("metricHeaderCellStyle")]
         public Input<Inputs.AnalysisTableCellStyleArgs>? MetricHeaderCellStyle { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.AnalysisTotalAggregationOptionArgs>? _totalAggregationOptions;
 
         /// <summary>
-        /// The total aggregation settings map of a field id.
+        /// The total aggregation options for each value field.
         /// </summary>
         public InputList<Inputs.AnalysisTotalAggregationOptionArgs> TotalAggregationOptions
         {
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The cell styling options for the total cells.
         /// </summary>
         [Input("totalCellStyle")]
         public Input<Inputs.AnalysisTableCellStyleArgs>? TotalCellStyle { get; set; }
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? TotalsVisibility { get; set; }
 
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The cell styling options for the totals of value cells.
         /// </summary>
         [Input("valueCellStyle")]
         public Input<Inputs.AnalysisTableCellStyleArgs>? ValueCellStyle { get; set; }

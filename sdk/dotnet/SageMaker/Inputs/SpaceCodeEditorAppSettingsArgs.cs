@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     public sealed class SpaceCodeEditorAppSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+        /// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
         /// </summary>
         [Input("defaultResourceSpec")]
         public Input<Inputs.SpaceResourceSpecArgs>? DefaultResourceSpec { get; set; }

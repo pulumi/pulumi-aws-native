@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string? AvailabilityZone;
         /// <summary>
-        /// Describes a path component.
+        /// Information about the instance.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Instance;
         /// <summary>

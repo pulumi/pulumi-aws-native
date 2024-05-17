@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.VpcLattice.Inputs
     public sealed class RuleMatchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes criteria that can be applied to incoming requests.
+        /// The HTTP criteria that a rule must match.
         /// </summary>
         [Input("httpMatch", required: true)]
         public Input<Inputs.RuleHttpMatchArgs> HttpMatch { get; set; } = null!;

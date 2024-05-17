@@ -35,7 +35,7 @@ export interface GetUserPoolResourceServerResult {
      */
     readonly name?: string;
     /**
-     * A resource server scope.
+     * A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
      */
     readonly scopes?: outputs.cognito.UserPoolResourceServerResourceServerScopeType[];
 }

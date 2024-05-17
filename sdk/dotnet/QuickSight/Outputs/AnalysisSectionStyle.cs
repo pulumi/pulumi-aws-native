@@ -18,7 +18,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string? Height;
         /// <summary>
-        /// The configuration of spacing (often a margin or padding).
+        /// The spacing between section content and its top, bottom, left, and right edges.
+        /// 
+        /// There is no padding by default.
         /// </summary>
         public readonly Outputs.AnalysisSpacing? Padding;
 

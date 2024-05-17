@@ -95,7 +95,7 @@ class GetDataSourceResult:
     @pulumi.getter(name="dataSourceParameters")
     def data_source_parameters(self) -> Optional['outputs.DataSourceParameters']:
         """
-        The parameters that Amazon QuickSight uses to connect to your underlying data source. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+        The parameters that Amazon QuickSight uses to connect to your underlying source.
         """
         return pulumi.get(self, "data_source_parameters")
 
@@ -103,7 +103,7 @@ class GetDataSourceResult:
     @pulumi.getter(name="errorInfo")
     def error_info(self) -> Optional['outputs.DataSourceErrorInfo']:
         """
-        Error information for the data source creation or update.
+        Error information from the last update or the creation of the data source.
         """
         return pulumi.get(self, "error_info")
 
@@ -127,7 +127,7 @@ class GetDataSourceResult:
     @pulumi.getter
     def permissions(self) -> Optional[Sequence['outputs.DataSourceResourcePermission']]:
         """
-        Permission for the resource.
+        A list of resource permissions on the data source.
         """
         return pulumi.get(self, "permissions")
 
@@ -135,7 +135,7 @@ class GetDataSourceResult:
     @pulumi.getter(name="sslProperties")
     def ssl_properties(self) -> Optional['outputs.DataSourceSslProperties']:
         """
-        Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying data source.
+        Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
         """
         return pulumi.get(self, "ssl_properties")
 
@@ -159,7 +159,7 @@ class GetDataSourceResult:
     @pulumi.getter(name="vpcConnectionProperties")
     def vpc_connection_properties(self) -> Optional['outputs.DataSourceVpcConnectionProperties']:
         """
-        VPC connection properties.
+        Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
         """
         return pulumi.get(self, "vpc_connection_properties")
 

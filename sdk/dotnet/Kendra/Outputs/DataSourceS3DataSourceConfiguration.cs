@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     public sealed class DataSourceS3DataSourceConfiguration
     {
         /// <summary>
-        /// Specifies access control list files for the documents in a data source.
+        /// Provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html) .
         /// </summary>
         public readonly Outputs.DataSourceAccessControlListConfiguration? AccessControlListConfiguration;
         /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// </summary>
         public readonly string BucketName;
         /// <summary>
-        /// Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document.
+        /// Specifies document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document.
         /// </summary>
         public readonly Outputs.DataSourceDocumentsMetadataConfiguration? DocumentsMetadataConfiguration;
         /// <summary>

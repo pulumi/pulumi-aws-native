@@ -44,7 +44,13 @@ class DomainConfigurationArgs:
         :param pulumi.Input['DomainConfigurationServiceType'] service_type: The type of service delivered by the endpoint.
                
                > AWS IoT Core currently supports only the `DATA` service type.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of key/value pairs that are used to manage the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Metadata which can be used to manage the domain configuration.
+               
+               > For URI Request parameters use format: ...key1=value1&key2=value2...
+               > 
+               > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+               > 
+               > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
         :param pulumi.Input['DomainConfigurationTlsConfigArgs'] tls_config: An object that specifies the TLS configuration for a domain.
         :param pulumi.Input[str] validation_certificate_arn: The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for AWS -managed domains.
         """
@@ -163,7 +169,13 @@ class DomainConfigurationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A set of key/value pairs that are used to manage the resource.
+        Metadata which can be used to manage the domain configuration.
+
+        > For URI Request parameters use format: ...key1=value1&key2=value2...
+        > 
+        > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+        > 
+        > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
         """
         return pulumi.get(self, "tags")
 
@@ -230,7 +242,13 @@ class DomainConfiguration(pulumi.CustomResource):
         :param pulumi.Input['DomainConfigurationServiceType'] service_type: The type of service delivered by the endpoint.
                
                > AWS IoT Core currently supports only the `DATA` service type.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A set of key/value pairs that are used to manage the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata which can be used to manage the domain configuration.
+               
+               > For URI Request parameters use format: ...key1=value1&key2=value2...
+               > 
+               > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+               > 
+               > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
         :param pulumi.Input[pulumi.InputType['DomainConfigurationTlsConfigArgs']] tls_config: An object that specifies the TLS configuration for a domain.
         :param pulumi.Input[str] validation_certificate_arn: The certificate used to validate the server certificate and prove domain name ownership. This certificate must be signed by a public certificate authority. This value is not required for AWS -managed domains.
         """
@@ -401,7 +419,7 @@ class DomainConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="serverCertificates")
     def server_certificates(self) -> pulumi.Output[Sequence['outputs.DomainConfigurationServerCertificateSummary']]:
         """
-        An object that contains information about a server certificate.
+        The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
         """
         return pulumi.get(self, "server_certificates")
 
@@ -419,7 +437,13 @@ class DomainConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A set of key/value pairs that are used to manage the resource.
+        Metadata which can be used to manage the domain configuration.
+
+        > For URI Request parameters use format: ...key1=value1&key2=value2...
+        > 
+        > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+        > 
+        > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
         """
         return pulumi.get(self, "tags")
 

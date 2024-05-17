@@ -14,9 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardVisualSubtitleLabelOptions
     {
         /// <summary>
-        /// The text format for a subtitle.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The long text format of the subtitle label, such as plain text or rich text.
         /// </summary>
         public readonly Outputs.DashboardLongFormatText? FormatText;
         /// <summary>

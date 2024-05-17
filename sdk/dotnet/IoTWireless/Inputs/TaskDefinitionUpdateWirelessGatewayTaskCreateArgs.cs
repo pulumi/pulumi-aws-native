@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
     public sealed class TaskDefinitionUpdateWirelessGatewayTaskCreateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The signature used to verify the update firmware.
+        /// The properties that relate to the LoRaWAN wireless gateway.
         /// </summary>
         [Input("loRaWan")]
         public Input<Inputs.TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs>? LoRaWan { get; set; }

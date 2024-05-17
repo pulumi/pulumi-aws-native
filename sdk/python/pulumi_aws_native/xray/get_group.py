@@ -66,6 +66,9 @@ class GetGroupResult:
     def insights_configuration(self) -> Optional['outputs.GroupInsightsConfiguration']:
         """
         The structure containing configurations related to insights.
+
+        - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
+        - The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
         """
         return pulumi.get(self, "insights_configuration")
 

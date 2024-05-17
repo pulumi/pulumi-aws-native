@@ -75,7 +75,7 @@ class GetBudgetsActionResult:
     @pulumi.getter
     def definition(self) -> Optional['outputs.BudgetsActionDefinition']:
         """
-        The definition is where you specify all of the type-specific parameters.
+        Specifies all of the type-specific parameters.
         """
         return pulumi.get(self, "definition")
 
@@ -99,7 +99,7 @@ class GetBudgetsActionResult:
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        The tag structure that contains a tag key and value.
+        An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
         """
         return pulumi.get(self, "resource_tags")
 
@@ -107,12 +107,7 @@ class GetBudgetsActionResult:
     @pulumi.getter
     def subscribers(self) -> Optional[Sequence['outputs.BudgetsActionSubscriber']]:
         """
-        The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
-
-        For example, an email subscriber has the following parameters:
-
-        - A `subscriptionType` of `EMAIL`
-        - An `address` of `example@example.com`
+        A list of subscribers.
         """
         return pulumi.get(self, "subscribers")
 

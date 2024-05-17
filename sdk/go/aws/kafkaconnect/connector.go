@@ -17,7 +17,7 @@ import (
 type Connector struct {
 	pulumi.CustomResourceState
 
-	// Information about the capacity of the connector, whether it is auto scaled or provisioned.
+	// The connector's compute capacity settings.
 	Capacity ConnectorCapacityOutput `pulumi:"capacity"`
 	// Amazon Resource Name for the created Connector.
 	ConnectorArn pulumi.StringOutput `pulumi:"connectorArn"`
@@ -29,13 +29,13 @@ type Connector struct {
 	ConnectorName pulumi.StringOutput `pulumi:"connectorName"`
 	// The details of the Apache Kafka cluster to which the connector is connected.
 	KafkaCluster ConnectorKafkaClusterOutput `pulumi:"kafkaCluster"`
-	// The client authentication information used in order to authenticate with the Apache Kafka cluster.
+	// The type of client authentication used to connect to the Apache Kafka cluster. The value is NONE when no client authentication is used.
 	KafkaClusterClientAuthentication ConnectorKafkaClusterClientAuthenticationOutput `pulumi:"kafkaClusterClientAuthentication"`
 	// Details of encryption in transit to the Apache Kafka cluster.
 	KafkaClusterEncryptionInTransit ConnectorKafkaClusterEncryptionInTransitOutput `pulumi:"kafkaClusterEncryptionInTransit"`
 	// The version of Kafka Connect. It has to be compatible with both the Kafka cluster's version and the plugins.
 	KafkaConnectVersion pulumi.StringOutput `pulumi:"kafkaConnectVersion"`
-	// Details about log delivery.
+	// The settings for delivering connector logs to Amazon CloudWatch Logs.
 	LogDelivery ConnectorLogDeliveryPtrOutput `pulumi:"logDelivery"`
 	// List of plugins to use with the connector.
 	Plugins ConnectorPluginArrayOutput `pulumi:"plugins"`
@@ -43,7 +43,7 @@ type Connector struct {
 	ServiceExecutionRoleArn pulumi.StringOutput `pulumi:"serviceExecutionRoleArn"`
 	// A collection of tags associated with a resource
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// The configuration of the workers, which are the processes that run the connector logic.
+	// The worker configurations that are in use with the connector.
 	WorkerConfiguration ConnectorWorkerConfigurationPtrOutput `pulumi:"workerConfiguration"`
 }
 
@@ -125,7 +125,7 @@ func (ConnectorState) ElementType() reflect.Type {
 }
 
 type connectorArgs struct {
-	// Information about the capacity of the connector, whether it is auto scaled or provisioned.
+	// The connector's compute capacity settings.
 	Capacity ConnectorCapacity `pulumi:"capacity"`
 	// The configuration for the connector.
 	ConnectorConfiguration map[string]string `pulumi:"connectorConfiguration"`
@@ -135,13 +135,13 @@ type connectorArgs struct {
 	ConnectorName *string `pulumi:"connectorName"`
 	// The details of the Apache Kafka cluster to which the connector is connected.
 	KafkaCluster ConnectorKafkaCluster `pulumi:"kafkaCluster"`
-	// The client authentication information used in order to authenticate with the Apache Kafka cluster.
+	// The type of client authentication used to connect to the Apache Kafka cluster. The value is NONE when no client authentication is used.
 	KafkaClusterClientAuthentication ConnectorKafkaClusterClientAuthentication `pulumi:"kafkaClusterClientAuthentication"`
 	// Details of encryption in transit to the Apache Kafka cluster.
 	KafkaClusterEncryptionInTransit ConnectorKafkaClusterEncryptionInTransit `pulumi:"kafkaClusterEncryptionInTransit"`
 	// The version of Kafka Connect. It has to be compatible with both the Kafka cluster's version and the plugins.
 	KafkaConnectVersion string `pulumi:"kafkaConnectVersion"`
-	// Details about log delivery.
+	// The settings for delivering connector logs to Amazon CloudWatch Logs.
 	LogDelivery *ConnectorLogDelivery `pulumi:"logDelivery"`
 	// List of plugins to use with the connector.
 	Plugins []ConnectorPlugin `pulumi:"plugins"`
@@ -149,13 +149,13 @@ type connectorArgs struct {
 	ServiceExecutionRoleArn string `pulumi:"serviceExecutionRoleArn"`
 	// A collection of tags associated with a resource
 	Tags []aws.Tag `pulumi:"tags"`
-	// The configuration of the workers, which are the processes that run the connector logic.
+	// The worker configurations that are in use with the connector.
 	WorkerConfiguration *ConnectorWorkerConfiguration `pulumi:"workerConfiguration"`
 }
 
 // The set of arguments for constructing a Connector resource.
 type ConnectorArgs struct {
-	// Information about the capacity of the connector, whether it is auto scaled or provisioned.
+	// The connector's compute capacity settings.
 	Capacity ConnectorCapacityInput
 	// The configuration for the connector.
 	ConnectorConfiguration pulumi.StringMapInput
@@ -165,13 +165,13 @@ type ConnectorArgs struct {
 	ConnectorName pulumi.StringPtrInput
 	// The details of the Apache Kafka cluster to which the connector is connected.
 	KafkaCluster ConnectorKafkaClusterInput
-	// The client authentication information used in order to authenticate with the Apache Kafka cluster.
+	// The type of client authentication used to connect to the Apache Kafka cluster. The value is NONE when no client authentication is used.
 	KafkaClusterClientAuthentication ConnectorKafkaClusterClientAuthenticationInput
 	// Details of encryption in transit to the Apache Kafka cluster.
 	KafkaClusterEncryptionInTransit ConnectorKafkaClusterEncryptionInTransitInput
 	// The version of Kafka Connect. It has to be compatible with both the Kafka cluster's version and the plugins.
 	KafkaConnectVersion pulumi.StringInput
-	// Details about log delivery.
+	// The settings for delivering connector logs to Amazon CloudWatch Logs.
 	LogDelivery ConnectorLogDeliveryPtrInput
 	// List of plugins to use with the connector.
 	Plugins ConnectorPluginArrayInput
@@ -179,7 +179,7 @@ type ConnectorArgs struct {
 	ServiceExecutionRoleArn pulumi.StringInput
 	// A collection of tags associated with a resource
 	Tags aws.TagArrayInput
-	// The configuration of the workers, which are the processes that run the connector logic.
+	// The worker configurations that are in use with the connector.
 	WorkerConfiguration ConnectorWorkerConfigurationPtrInput
 }
 
@@ -220,7 +220,7 @@ func (o ConnectorOutput) ToConnectorOutputWithContext(ctx context.Context) Conne
 	return o
 }
 
-// Information about the capacity of the connector, whether it is auto scaled or provisioned.
+// The connector's compute capacity settings.
 func (o ConnectorOutput) Capacity() ConnectorCapacityOutput {
 	return o.ApplyT(func(v *Connector) ConnectorCapacityOutput { return v.Capacity }).(ConnectorCapacityOutput)
 }
@@ -250,7 +250,7 @@ func (o ConnectorOutput) KafkaCluster() ConnectorKafkaClusterOutput {
 	return o.ApplyT(func(v *Connector) ConnectorKafkaClusterOutput { return v.KafkaCluster }).(ConnectorKafkaClusterOutput)
 }
 
-// The client authentication information used in order to authenticate with the Apache Kafka cluster.
+// The type of client authentication used to connect to the Apache Kafka cluster. The value is NONE when no client authentication is used.
 func (o ConnectorOutput) KafkaClusterClientAuthentication() ConnectorKafkaClusterClientAuthenticationOutput {
 	return o.ApplyT(func(v *Connector) ConnectorKafkaClusterClientAuthenticationOutput {
 		return v.KafkaClusterClientAuthentication
@@ -269,7 +269,7 @@ func (o ConnectorOutput) KafkaConnectVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringOutput { return v.KafkaConnectVersion }).(pulumi.StringOutput)
 }
 
-// Details about log delivery.
+// The settings for delivering connector logs to Amazon CloudWatch Logs.
 func (o ConnectorOutput) LogDelivery() ConnectorLogDeliveryPtrOutput {
 	return o.ApplyT(func(v *Connector) ConnectorLogDeliveryPtrOutput { return v.LogDelivery }).(ConnectorLogDeliveryPtrOutput)
 }
@@ -289,7 +289,7 @@ func (o ConnectorOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Connector) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// The configuration of the workers, which are the processes that run the connector logic.
+// The worker configurations that are in use with the connector.
 func (o ConnectorOutput) WorkerConfiguration() ConnectorWorkerConfigurationPtrOutput {
 	return o.ApplyT(func(v *Connector) ConnectorWorkerConfigurationPtrOutput { return v.WorkerConfiguration }).(ConnectorWorkerConfigurationPtrOutput)
 }

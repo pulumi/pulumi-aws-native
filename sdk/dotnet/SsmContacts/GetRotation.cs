@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.SsmContacts
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Information about when an on-call rotation is in effect and how long the rotation period lasts.
+        /// Information about the rule that specifies when shift team members rotate.
         /// </summary>
         public readonly Outputs.RotationRecurrenceSettings? Recurrence;
         /// <summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.SsmContacts
         /// </summary>
         public readonly string? StartTime;
         /// <summary>
-        /// A container of a key-value name pair.
+        /// Optional metadata to assign to the rotation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see [Tagging Incident Manager resources](https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html) in the *Incident Manager User Guide* .
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>

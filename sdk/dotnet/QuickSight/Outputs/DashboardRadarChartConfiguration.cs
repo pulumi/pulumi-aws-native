@@ -30,31 +30,31 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardRadarChartAxesRangeScale? AxesRangeScale;
         /// <summary>
-        /// The series settings of a radar chart.
+        /// The base sreies settings of a radar chart.
         /// </summary>
         public readonly Outputs.DashboardRadarChartSeriesSettings? BaseSeriesSettings;
         /// <summary>
-        /// The display options for the axis label.
+        /// The category axis of a radar chart.
         /// </summary>
         public readonly Outputs.DashboardAxisDisplayOptions? CategoryAxis;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The category label options of a radar chart.
         /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? CategoryLabelOptions;
         /// <summary>
-        /// The display options for the axis label.
+        /// The color axis of a radar chart.
         /// </summary>
         public readonly Outputs.DashboardAxisDisplayOptions? ColorAxis;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The color label options of a radar chart.
         /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? ColorLabelOptions;
         /// <summary>
-        /// The field wells of a radar chart visual.
+        /// The field well configuration of a `RadarChartVisual` .
         /// </summary>
         public readonly Outputs.DashboardRadarChartFieldWells? FieldWells;
         /// <summary>
-        /// The options for the legend setup of a visual.
+        /// The legend display setup of the visual.
         /// </summary>
         public readonly Outputs.DashboardLegendOptions? Legend;
         /// <summary>
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly double? StartAngle;
         /// <summary>
-        /// The visual display options for the visual palette.
+        /// The palette (chart color) display setup of the visual.
         /// </summary>
         public readonly Outputs.DashboardVisualPalette? VisualPalette;
 

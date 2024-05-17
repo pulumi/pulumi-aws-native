@@ -41,7 +41,7 @@ type LookupMonitoringScheduleResult struct {
 	LastMonitoringExecutionSummary *MonitoringScheduleMonitoringExecutionSummary `pulumi:"lastMonitoringExecutionSummary"`
 	// The Amazon Resource Name (ARN) of the monitoring schedule.
 	MonitoringScheduleArn *string `pulumi:"monitoringScheduleArn"`
-	// Configures the monitoring schedule and defines the monitoring job.
+	// The configuration object that specifies the monitoring schedule and defines the monitoring job.
 	MonitoringScheduleConfig *MonitoringScheduleConfig `pulumi:"monitoringScheduleConfig"`
 	// The status of a schedule job.
 	MonitoringScheduleStatus *MonitoringScheduleStatus `pulumi:"monitoringScheduleStatus"`
@@ -117,7 +117,7 @@ func (o LookupMonitoringScheduleResultOutput) MonitoringScheduleArn() pulumi.Str
 	return o.ApplyT(func(v LookupMonitoringScheduleResult) *string { return v.MonitoringScheduleArn }).(pulumi.StringPtrOutput)
 }
 
-// Configures the monitoring schedule and defines the monitoring job.
+// The configuration object that specifies the monitoring schedule and defines the monitoring job.
 func (o LookupMonitoringScheduleResultOutput) MonitoringScheduleConfig() MonitoringScheduleConfigPtrOutput {
 	return o.ApplyT(func(v LookupMonitoringScheduleResult) *MonitoringScheduleConfig { return v.MonitoringScheduleConfig }).(MonitoringScheduleConfigPtrOutput)
 }

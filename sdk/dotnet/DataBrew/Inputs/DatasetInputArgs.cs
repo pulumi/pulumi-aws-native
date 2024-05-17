@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     public sealed class DatasetInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Represents how metadata stored in the AWS Glue Data Catalog is defined in a DataBrew dataset.
+        /// The AWS Glue Data Catalog parameters for the data.
         /// </summary>
         [Input("dataCatalogInputDefinition")]
         public Input<Inputs.DatasetDataCatalogInputDefinitionArgs>? DataCatalogInputDefinition { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public Input<Inputs.DatasetMetadataArgs>? Metadata { get; set; }
 
         /// <summary>
-        /// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+        /// The Amazon S3 location where the data is stored.
         /// </summary>
         [Input("s3InputDefinition")]
         public Input<Inputs.DatasetS3LocationArgs>? S3InputDefinition { get; set; }

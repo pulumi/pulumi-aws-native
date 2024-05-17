@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Msk.Inputs
     public sealed class ClusterEbsStorageInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.
+        /// EBS volume provisioned throughput information.
         /// </summary>
         [Input("provisionedThroughput")]
         public Input<Inputs.ClusterProvisionedThroughputArgs>? ProvisionedThroughput { get; set; }

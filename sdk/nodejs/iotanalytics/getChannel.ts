@@ -27,16 +27,18 @@ export interface GetChannelArgs {
 
 export interface GetChannelResult {
     /**
-     * Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+     * Where channel data is stored.
      */
     readonly channelStorage?: outputs.iotanalytics.ChannelStorage;
     readonly id?: string;
     /**
-     * How long, in days, message data is kept.
+     * How long, in days, message data is kept for the channel.
      */
     readonly retentionPeriod?: outputs.iotanalytics.ChannelRetentionPeriod;
     /**
-     * A set of key-value pairs that are used to manage the resource.
+     * Metadata which can be used to manage the channel.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     readonly tags?: outputs.Tag[];
 }

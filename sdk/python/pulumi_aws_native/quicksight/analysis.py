@@ -36,13 +36,16 @@ class AnalysisArgs:
         The set of arguments for constructing a Analysis resource.
         :param pulumi.Input[str] analysis_id: The ID for the analysis that you're creating. This ID displays in the URL of the analysis.
         :param pulumi.Input[str] aws_account_id: The ID of the AWS account where you are creating an analysis.
-        :param pulumi.Input['AnalysisDefinitionArgs'] definition: The definition of an analysis.
         :param pulumi.Input[Sequence[pulumi.Input['AnalysisErrorArgs']]] errors: <p>Errors associated with the analysis.</p>
         :param pulumi.Input[str] name: <p>The descriptive name of the analysis.</p>
-        :param pulumi.Input['AnalysisParametersArgs'] parameters: A list of Amazon QuickSight parameters and the list's override values.
-        :param pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]] permissions: Permission for the resource.
+        :param pulumi.Input['AnalysisParametersArgs'] parameters: The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values.
+        :param pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]] permissions: A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+               
+               To specify no permissions, omit `Permissions` .
         :param pulumi.Input[Sequence[pulumi.Input['AnalysisSheetArgs']]] sheets: <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-        :param pulumi.Input['AnalysisSourceEntityArgs'] source_entity: The source entity of an analysis.
+        :param pulumi.Input['AnalysisSourceEntityArgs'] source_entity: A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.
+               
+               Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
         :param pulumi.Input['AnalysisResourceStatus'] status: Status associated with the analysis.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.
         :param pulumi.Input[str] theme_arn: <p>The ARN of the theme of the analysis.</p>
@@ -100,9 +103,6 @@ class AnalysisArgs:
     @property
     @pulumi.getter
     def definition(self) -> Optional[pulumi.Input['AnalysisDefinitionArgs']]:
-        """
-        The definition of an analysis.
-        """
         return pulumi.get(self, "definition")
 
     @definition.setter
@@ -137,7 +137,7 @@ class AnalysisArgs:
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input['AnalysisParametersArgs']]:
         """
-        A list of Amazon QuickSight parameters and the list's override values.
+        The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values.
         """
         return pulumi.get(self, "parameters")
 
@@ -149,7 +149,9 @@ class AnalysisArgs:
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalysisResourcePermissionArgs']]]]:
         """
-        Permission for the resource.
+        A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+
+        To specify no permissions, omit `Permissions` .
         """
         return pulumi.get(self, "permissions")
 
@@ -173,7 +175,9 @@ class AnalysisArgs:
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> Optional[pulumi.Input['AnalysisSourceEntityArgs']]:
         """
-        The source entity of an analysis.
+        A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.
+
+        Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
         """
         return pulumi.get(self, "source_entity")
 
@@ -256,13 +260,16 @@ class Analysis(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] analysis_id: The ID for the analysis that you're creating. This ID displays in the URL of the analysis.
         :param pulumi.Input[str] aws_account_id: The ID of the AWS account where you are creating an analysis.
-        :param pulumi.Input[pulumi.InputType['AnalysisDefinitionArgs']] definition: The definition of an analysis.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisErrorArgs']]]] errors: <p>Errors associated with the analysis.</p>
         :param pulumi.Input[str] name: <p>The descriptive name of the analysis.</p>
-        :param pulumi.Input[pulumi.InputType['AnalysisParametersArgs']] parameters: A list of Amazon QuickSight parameters and the list's override values.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisResourcePermissionArgs']]]] permissions: Permission for the resource.
+        :param pulumi.Input[pulumi.InputType['AnalysisParametersArgs']] parameters: The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisResourcePermissionArgs']]]] permissions: A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+               
+               To specify no permissions, omit `Permissions` .
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalysisSheetArgs']]]] sheets: <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-        :param pulumi.Input[pulumi.InputType['AnalysisSourceEntityArgs']] source_entity: The source entity of an analysis.
+        :param pulumi.Input[pulumi.InputType['AnalysisSourceEntityArgs']] source_entity: A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.
+               
+               Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
         :param pulumi.Input['AnalysisResourceStatus'] status: Status associated with the analysis.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Contains a map of the key-value pairs for the resource tag or tags assigned to the analysis.
         :param pulumi.Input[str] theme_arn: <p>The ARN of the theme of the analysis.</p>
@@ -421,9 +428,6 @@ class Analysis(pulumi.CustomResource):
     @property
     @pulumi.getter
     def definition(self) -> pulumi.Output[Optional['outputs.AnalysisDefinition']]:
-        """
-        The definition of an analysis.
-        """
         return pulumi.get(self, "definition")
 
     @property
@@ -454,7 +458,7 @@ class Analysis(pulumi.CustomResource):
     @pulumi.getter
     def parameters(self) -> pulumi.Output[Optional['outputs.AnalysisParameters']]:
         """
-        A list of Amazon QuickSight parameters and the list's override values.
+        The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values.
         """
         return pulumi.get(self, "parameters")
 
@@ -462,7 +466,9 @@ class Analysis(pulumi.CustomResource):
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.AnalysisResourcePermission']]]:
         """
-        Permission for the resource.
+        A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+
+        To specify no permissions, omit `Permissions` .
         """
         return pulumi.get(self, "permissions")
 
@@ -478,7 +484,9 @@ class Analysis(pulumi.CustomResource):
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> pulumi.Output[Optional['outputs.AnalysisSourceEntity']]:
         """
-        The source entity of an analysis.
+        A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.
+
+        Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
         """
         return pulumi.get(self, "source_entity")
 

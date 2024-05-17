@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ComponentVersionComponentDependencyRequirement>? ComponentDependencies;
         /// <summary>
-        /// Contains parameters for a Lambda function that runs on AWS IoT Greengrass .
+        /// The system and runtime parameters for the Lambda function as it runs on the AWS IoT Greengrass core device.
         /// </summary>
         public readonly Outputs.ComponentVersionLambdaExecutionParameters? ComponentLambdaParameters;
         /// <summary>
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
         /// </summary>
         public readonly string? ComponentName;
         /// <summary>
-        /// Contains information about a platform that a component supports.
+        /// The platforms that the component version supports.
         /// </summary>
         public readonly ImmutableArray<Outputs.ComponentVersionComponentPlatform> ComponentPlatforms;
         /// <summary>

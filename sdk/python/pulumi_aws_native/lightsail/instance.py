@@ -37,12 +37,18 @@ class InstanceArgs:
         :param pulumi.Input[str] bundle_id: The bundle of specification information for your virtual private server (or instance ), including the pricing plan (e.g., micro_1_0 ).
         :param pulumi.Input[Sequence[pulumi.Input['InstanceAddOnArgs']]] add_ons: An array of objects representing the add-ons to enable for the new instance.
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
-        :param pulumi.Input['InstanceHardwareArgs'] hardware: `Hardware` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+        :param pulumi.Input['InstanceHardwareArgs'] hardware: The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+               
+               > The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
         :param pulumi.Input[str] instance_name: The names to use for your new Lightsail instance.
         :param pulumi.Input[str] key_pair_name: The name of your key pair.
-        :param pulumi.Input['InstanceLocationArgs'] location: `Location` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the location for an instance.
-        :param pulumi.Input['InstanceNetworkingArgs'] networking: `Networking` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the public ports and the monthly amount of data transfer allocated for the instance.
-        :param pulumi.Input['InstanceStateArgs'] state: `State` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the status code and the state (for example, `running` ) of an instance.
+        :param pulumi.Input['InstanceLocationArgs'] location: The location for the instance, such as the AWS Region and Availability Zone.
+               
+               > The `Location` property is read-only and should not be specified in a create instance or update instance request.
+        :param pulumi.Input['InstanceNetworkingArgs'] networking: The public ports and the monthly amount of data transfer allocated for the instance.
+        :param pulumi.Input['InstanceStateArgs'] state: The status code and the state (for example, `running` ) of the instance.
+               
+               > The `State` property is read-only and should not be specified in a create instance or update instance request.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] user_data: A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
         """
@@ -121,7 +127,9 @@ class InstanceArgs:
     @pulumi.getter
     def hardware(self) -> Optional[pulumi.Input['InstanceHardwareArgs']]:
         """
-        `Hardware` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+        The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+
+        > The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
         """
         return pulumi.get(self, "hardware")
 
@@ -157,7 +165,9 @@ class InstanceArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input['InstanceLocationArgs']]:
         """
-        `Location` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the location for an instance.
+        The location for the instance, such as the AWS Region and Availability Zone.
+
+        > The `Location` property is read-only and should not be specified in a create instance or update instance request.
         """
         return pulumi.get(self, "location")
 
@@ -169,7 +179,7 @@ class InstanceArgs:
     @pulumi.getter
     def networking(self) -> Optional[pulumi.Input['InstanceNetworkingArgs']]:
         """
-        `Networking` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the public ports and the monthly amount of data transfer allocated for the instance.
+        The public ports and the monthly amount of data transfer allocated for the instance.
         """
         return pulumi.get(self, "networking")
 
@@ -181,7 +191,9 @@ class InstanceArgs:
     @pulumi.getter
     def state(self) -> Optional[pulumi.Input['InstanceStateArgs']]:
         """
-        `State` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the status code and the state (for example, `running` ) of an instance.
+        The status code and the state (for example, `running` ) of the instance.
+
+        > The `State` property is read-only and should not be specified in a create instance or update instance request.
         """
         return pulumi.get(self, "state")
 
@@ -241,12 +253,18 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] availability_zone: The Availability Zone in which to create your instance. Use the following format: us-east-2a (case sensitive). Be sure to add the include Availability Zones parameter to your request.
         :param pulumi.Input[str] blueprint_id: The ID for a virtual private server image (e.g., app_wordpress_4_4 or app_lamp_7_0 ). Use the get blueprints operation to return a list of available images (or blueprints ).
         :param pulumi.Input[str] bundle_id: The bundle of specification information for your virtual private server (or instance ), including the pricing plan (e.g., micro_1_0 ).
-        :param pulumi.Input[pulumi.InputType['InstanceHardwareArgs']] hardware: `Hardware` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+        :param pulumi.Input[pulumi.InputType['InstanceHardwareArgs']] hardware: The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+               
+               > The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
         :param pulumi.Input[str] instance_name: The names to use for your new Lightsail instance.
         :param pulumi.Input[str] key_pair_name: The name of your key pair.
-        :param pulumi.Input[pulumi.InputType['InstanceLocationArgs']] location: `Location` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the location for an instance.
-        :param pulumi.Input[pulumi.InputType['InstanceNetworkingArgs']] networking: `Networking` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the public ports and the monthly amount of data transfer allocated for the instance.
-        :param pulumi.Input[pulumi.InputType['InstanceStateArgs']] state: `State` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the status code and the state (for example, `running` ) of an instance.
+        :param pulumi.Input[pulumi.InputType['InstanceLocationArgs']] location: The location for the instance, such as the AWS Region and Availability Zone.
+               
+               > The `Location` property is read-only and should not be specified in a create instance or update instance request.
+        :param pulumi.Input[pulumi.InputType['InstanceNetworkingArgs']] networking: The public ports and the monthly amount of data transfer allocated for the instance.
+        :param pulumi.Input[pulumi.InputType['InstanceStateArgs']] state: The status code and the state (for example, `running` ) of the instance.
+               
+               > The `State` property is read-only and should not be specified in a create instance or update instance request.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] user_data: A launch script you can create that configures a server with additional user data. For example, you might want to run apt-get -y update.
         """
@@ -401,7 +419,9 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter
     def hardware(self) -> pulumi.Output[Optional['outputs.InstanceHardware']]:
         """
-        `Hardware` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+        The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+
+        > The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
         """
         return pulumi.get(self, "hardware")
 
@@ -441,7 +461,9 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional['outputs.InstanceLocation']]:
         """
-        `Location` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the location for an instance.
+        The location for the instance, such as the AWS Region and Availability Zone.
+
+        > The `Location` property is read-only and should not be specified in a create instance or update instance request.
         """
         return pulumi.get(self, "location")
 
@@ -449,7 +471,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter
     def networking(self) -> pulumi.Output[Optional['outputs.InstanceNetworking']]:
         """
-        `Networking` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the public ports and the monthly amount of data transfer allocated for the instance.
+        The public ports and the monthly amount of data transfer allocated for the instance.
         """
         return pulumi.get(self, "networking")
 
@@ -489,7 +511,9 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter
     def state(self) -> pulumi.Output[Optional['outputs.InstanceState']]:
         """
-        `State` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the status code and the state (for example, `running` ) of an instance.
+        The status code and the state (for example, `running` ) of the instance.
+
+        > The `State` property is read-only and should not be specified in a create instance or update instance request.
         """
         return pulumi.get(self, "state")
 

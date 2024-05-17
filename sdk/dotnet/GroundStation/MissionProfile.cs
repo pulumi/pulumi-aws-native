@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.GroundStation
         public Output<int?> ContactPrePassDurationSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// A dataflow edge defines from where and to where data will flow during a contact.
+        /// A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
         /// </summary>
         [Output("dataflowEdges")]
         public Output<ImmutableArray<Outputs.MissionProfileDataflowEdge>> DataflowEdges { get; private set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.AwsNative.GroundStation
         private InputList<Inputs.MissionProfileDataflowEdgeArgs>? _dataflowEdges;
 
         /// <summary>
-        /// A dataflow edge defines from where and to where data will flow during a contact.
+        /// A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
         /// </summary>
         public InputList<Inputs.MissionProfileDataflowEdgeArgs> DataflowEdges
         {

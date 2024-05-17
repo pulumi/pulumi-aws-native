@@ -31,7 +31,7 @@ type LandingZone struct {
 	Manifest pulumi.AnyOutput `pulumi:"manifest"`
 	// The landing zone deployment status. One of `ACTIVE` , `PROCESSING` , `FAILED` .
 	Status LandingZoneStatusOutput `pulumi:"status"`
-	// Tags applied to the landing zone.
+	// Tags to be applied to the landing zone.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The landing zone's current deployed version.
 	Version pulumi.StringOutput `pulumi:"version"`
@@ -87,7 +87,7 @@ type landingZoneArgs struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
 	Manifest interface{} `pulumi:"manifest"`
-	// Tags applied to the landing zone.
+	// Tags to be applied to the landing zone.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The landing zone's current deployed version.
 	Version string `pulumi:"version"`
@@ -99,7 +99,7 @@ type LandingZoneArgs struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ControlTower::LandingZone` for more information about the expected schema for this property.
 	Manifest pulumi.Input
-	// Tags applied to the landing zone.
+	// Tags to be applied to the landing zone.
 	Tags aws.TagArrayInput
 	// The landing zone's current deployed version.
 	Version pulumi.StringInput
@@ -174,7 +174,7 @@ func (o LandingZoneOutput) Status() LandingZoneStatusOutput {
 	return o.ApplyT(func(v *LandingZone) LandingZoneStatusOutput { return v.Status }).(LandingZoneStatusOutput)
 }
 
-// Tags applied to the landing zone.
+// Tags to be applied to the landing zone.
 func (o LandingZoneOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *LandingZone) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

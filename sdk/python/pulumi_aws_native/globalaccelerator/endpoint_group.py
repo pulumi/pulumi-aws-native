@@ -36,9 +36,7 @@ class EndpointGroupArgs:
         :param pulumi.Input[str] health_check_path: If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/).
         :param pulumi.Input[int] health_check_port: The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         :param pulumi.Input['EndpointGroupHealthCheckProtocol'] health_check_protocol: The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]] port_overrides: Override specific listener ports used to route traffic to endpoints that are part of an endpoint group. For example, you can create a port override in which the listener receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080 and 1443, respectively, on the endpoints.
-               
-               For more information, see [Port overrides](https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html) in the *AWS Global Accelerator Developer Guide* .
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]] port_overrides: Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
         :param pulumi.Input[int] threshold_count: The number of consecutive health checks required to set the state of the endpoint to unhealthy.
         :param pulumi.Input[float] traffic_dial_percentage: The percentage of traffic to sent to an AWS Region
         """
@@ -149,9 +147,7 @@ class EndpointGroupArgs:
     @pulumi.getter(name="portOverrides")
     def port_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointGroupPortOverrideArgs']]]]:
         """
-        Override specific listener ports used to route traffic to endpoints that are part of an endpoint group. For example, you can create a port override in which the listener receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080 and 1443, respectively, on the endpoints.
-
-        For more information, see [Port overrides](https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html) in the *AWS Global Accelerator Developer Guide* .
+        Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
         """
         return pulumi.get(self, "port_overrides")
 
@@ -212,9 +208,7 @@ class EndpointGroup(pulumi.CustomResource):
         :param pulumi.Input[int] health_check_port: The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         :param pulumi.Input['EndpointGroupHealthCheckProtocol'] health_check_protocol: The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         :param pulumi.Input[str] listener_arn: The Amazon Resource Name (ARN) of the listener
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupPortOverrideArgs']]]] port_overrides: Override specific listener ports used to route traffic to endpoints that are part of an endpoint group. For example, you can create a port override in which the listener receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080 and 1443, respectively, on the endpoints.
-               
-               For more information, see [Port overrides](https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html) in the *AWS Global Accelerator Developer Guide* .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointGroupPortOverrideArgs']]]] port_overrides: Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
         :param pulumi.Input[int] threshold_count: The number of consecutive health checks required to set the state of the endpoint to unhealthy.
         :param pulumi.Input[float] traffic_dial_percentage: The percentage of traffic to sent to an AWS Region
         """
@@ -381,9 +375,7 @@ class EndpointGroup(pulumi.CustomResource):
     @pulumi.getter(name="portOverrides")
     def port_overrides(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointGroupPortOverride']]]:
         """
-        Override specific listener ports used to route traffic to endpoints that are part of an endpoint group. For example, you can create a port override in which the listener receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080 and 1443, respectively, on the endpoints.
-
-        For more information, see [Port overrides](https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html) in the *AWS Global Accelerator Developer Guide* .
+        Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
         """
         return pulumi.get(self, "port_overrides")
 

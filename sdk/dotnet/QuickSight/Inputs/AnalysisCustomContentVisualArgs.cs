@@ -37,13 +37,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string> DataSetIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// The subtitle label options for a visual.
+        /// The subtitle that is displayed on the visual.
         /// </summary>
         [Input("subtitle")]
         public Input<Inputs.AnalysisVisualSubtitleLabelOptionsArgs>? Subtitle { get; set; }
 
         /// <summary>
-        /// The title label options for a visual.
+        /// The title that is displayed on the visual.
         /// </summary>
         [Input("title")]
         public Input<Inputs.AnalysisVisualTitleLabelOptionsArgs>? Title { get; set; }

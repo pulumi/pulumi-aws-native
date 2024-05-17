@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.TemplatePivotTableFieldSubtotalOptionsArgs>? _fieldLevelOptions;
 
         /// <summary>
-        /// The optional configuration of subtotals cells.
+        /// The optional configuration of subtotal cells.
         /// </summary>
         public InputList<Inputs.TemplatePivotTableFieldSubtotalOptionsArgs> FieldLevelOptions
         {
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The cell styling options for the subtotals of header cells.
         /// </summary>
         [Input("metricHeaderCellStyle")]
         public Input<Inputs.TemplateTableCellStyleArgs>? MetricHeaderCellStyle { get; set; }
@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.TemplateTableStyleTargetArgs>? _styleTargets;
 
         /// <summary>
-        /// The table style target.
+        /// The style targets options for subtotals.
         /// </summary>
         public InputList<Inputs.TemplateTableStyleTargetArgs> StyleTargets
         {
@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The cell styling options for the subtotal cells.
         /// </summary>
         [Input("totalCellStyle")]
         public Input<Inputs.TemplateTableCellStyleArgs>? TotalCellStyle { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? TotalsVisibility { get; set; }
 
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The cell styling options for the subtotals of value cells.
         /// </summary>
         [Input("valueCellStyle")]
         public Input<Inputs.TemplateTableCellStyleArgs>? ValueCellStyle { get; set; }

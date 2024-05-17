@@ -21,7 +21,7 @@ type Map struct {
 	//
 	// - Format example: `arn:aws:geo:region:account-id:maps/ExampleMap`
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specifies the map tile style selected from an available provider.
+	// Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
 	Configuration MapConfigurationOutput `pulumi:"configuration"`
 	// The timestamp for when the map resource was created in [ISO 8601](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) format: `YYYY-MM-DDThh:mm:ss.sssZ` .
 	CreateTime pulumi.StringOutput `pulumi:"createTime"`
@@ -97,7 +97,7 @@ func (MapState) ElementType() reflect.Type {
 }
 
 type mapArgs struct {
-	// Specifies the map tile style selected from an available provider.
+	// Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
 	Configuration MapConfiguration `pulumi:"configuration"`
 	// An optional description for the map resource.
 	Description *string `pulumi:"description"`
@@ -119,7 +119,7 @@ type mapArgs struct {
 
 // The set of arguments for constructing a Map resource.
 type MapArgs struct {
-	// Specifies the map tile style selected from an available provider.
+	// Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
 	Configuration MapConfigurationInput
 	// An optional description for the map resource.
 	Description pulumi.StringPtrInput
@@ -183,7 +183,7 @@ func (o MapOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies the map tile style selected from an available provider.
+// Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
 func (o MapOutput) Configuration() MapConfigurationOutput {
 	return o.ApplyT(func(v *Map) MapConfigurationOutput { return v.Configuration }).(MapConfigurationOutput)
 }

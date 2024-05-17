@@ -28,7 +28,7 @@ type LookupServiceActionArgs struct {
 }
 
 type LookupServiceActionResult struct {
-	// The list of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}] or [{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]` .
+	// A map that defines the self-service action.
 	Definition []ServiceActionDefinitionParameter `pulumi:"definition"`
 	// The self-service action definition type. For example, `SSM_AUTOMATION` .
 	DefinitionType *ServiceActionDefinitionType `pulumi:"definitionType"`
@@ -76,7 +76,7 @@ func (o LookupServiceActionResultOutput) ToLookupServiceActionResultOutputWithCo
 	return o
 }
 
-// The list of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}] or [{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]` .
+// A map that defines the self-service action.
 func (o LookupServiceActionResultOutput) Definition() ServiceActionDefinitionParameterArrayOutput {
 	return o.ApplyT(func(v LookupServiceActionResult) []ServiceActionDefinitionParameter { return v.Definition }).(ServiceActionDefinitionParameterArrayOutput)
 }

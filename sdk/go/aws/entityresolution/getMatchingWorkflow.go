@@ -32,9 +32,9 @@ type LookupMatchingWorkflowResult struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// The description of the MatchingWorkflow
 	Description *string `pulumi:"description"`
-	// An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig []MatchingWorkflowInputSource `pulumi:"inputSourceConfig"`
-	// A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+	// A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
 	OutputSourceConfig []MatchingWorkflowOutputSource `pulumi:"outputSourceConfig"`
 	// An object which defines the `resolutionType` and the `ruleBasedProperties` .
 	ResolutionTechniques *MatchingWorkflowResolutionTechniques `pulumi:"resolutionTechniques"`
@@ -91,12 +91,12 @@ func (o LookupMatchingWorkflowResultOutput) Description() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupMatchingWorkflowResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 func (o LookupMatchingWorkflowResultOutput) InputSourceConfig() MatchingWorkflowInputSourceArrayOutput {
 	return o.ApplyT(func(v LookupMatchingWorkflowResult) []MatchingWorkflowInputSource { return v.InputSourceConfig }).(MatchingWorkflowInputSourceArrayOutput)
 }
 
-// A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+// A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
 func (o LookupMatchingWorkflowResultOutput) OutputSourceConfig() MatchingWorkflowOutputSourceArrayOutput {
 	return o.ApplyT(func(v LookupMatchingWorkflowResult) []MatchingWorkflowOutputSource { return v.OutputSourceConfig }).(MatchingWorkflowOutputSourceArrayOutput)
 }

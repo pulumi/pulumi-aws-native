@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The identifier of the task template field.
+        /// The unique identifier for the field.
         /// </summary>
         public readonly Outputs.TaskTemplateFieldIdentifier Id;
         /// <summary>

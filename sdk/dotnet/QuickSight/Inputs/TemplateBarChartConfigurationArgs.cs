@@ -19,19 +19,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.TemplateBarsArrangement>? BarsArrangement { get; set; }
 
         /// <summary>
-        /// The display options for the axis label.
+        /// The label display options (grid line, range, scale, axis step) for bar chart category.
         /// </summary>
         [Input("categoryAxis")]
         public Input<Inputs.TemplateAxisDisplayOptionsArgs>? CategoryAxis { get; set; }
 
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility and sort icon visibility) for a bar chart.
         /// </summary>
         [Input("categoryLabelOptions")]
         public Input<Inputs.TemplateChartAxisLabelOptionsArgs>? CategoryLabelOptions { get; set; }
 
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility and sort icon visibility) for a color that is used in a bar chart.
         /// </summary>
         [Input("colorLabelOptions")]
         public Input<Inputs.TemplateChartAxisLabelOptionsArgs>? ColorLabelOptions { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.TemplateContributionAnalysisDefaultArgs>? _contributionAnalysisDefaults;
 
         /// <summary>
-        /// The contribution analysis visual display for a line, pie, or bar chart.
+        /// The contribution analysis (anomaly configuration) setup of the visual.
         /// </summary>
         public InputList<Inputs.TemplateContributionAnalysisDefaultArgs> ContributionAnalysisDefaults
         {
@@ -49,21 +49,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The options that determine the presentation of the data labels.
+        /// The options that determine if visual data labels are displayed.
         /// </summary>
         [Input("dataLabels")]
         public Input<Inputs.TemplateDataLabelOptionsArgs>? DataLabels { get; set; }
 
         /// <summary>
-        /// The field wells of a `BarChartVisual` .
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The field wells of the visual.
         /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.TemplateBarChartFieldWellsArgs>? FieldWells { get; set; }
 
         /// <summary>
-        /// The options for the legend setup of a visual.
+        /// The legend display setup of the visual.
         /// </summary>
         [Input("legend")]
         public Input<Inputs.TemplateLegendOptionsArgs>? Legend { get; set; }
@@ -81,7 +79,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.TemplateReferenceLineArgs>? _referenceLines;
 
         /// <summary>
-        /// The reference line visual display options.
+        /// The reference line setup of the visual.
         /// </summary>
         public InputList<Inputs.TemplateReferenceLineArgs> ReferenceLines
         {
@@ -90,37 +88,37 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// Options that determine the layout and display options of a chart's small multiples.
+        /// The small multiples setup for the visual.
         /// </summary>
         [Input("smallMultiplesOptions")]
         public Input<Inputs.TemplateSmallMultiplesOptionsArgs>? SmallMultiplesOptions { get; set; }
 
         /// <summary>
-        /// sort-configuration-description
+        /// The sort configuration of a `BarChartVisual` .
         /// </summary>
         [Input("sortConfiguration")]
         public Input<Inputs.TemplateBarChartSortConfigurationArgs>? SortConfiguration { get; set; }
 
         /// <summary>
-        /// The display options for the visual tooltip.
+        /// The tooltip display setup of the visual.
         /// </summary>
         [Input("tooltip")]
         public Input<Inputs.TemplateTooltipOptionsArgs>? Tooltip { get; set; }
 
         /// <summary>
-        /// The display options for the axis label.
+        /// The label display options (grid line, range, scale, axis step) for a bar chart value.
         /// </summary>
         [Input("valueAxis")]
         public Input<Inputs.TemplateAxisDisplayOptionsArgs>? ValueAxis { get; set; }
 
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility and sort icon visibility) for a bar chart value.
         /// </summary>
         [Input("valueLabelOptions")]
         public Input<Inputs.TemplateChartAxisLabelOptionsArgs>? ValueLabelOptions { get; set; }
 
         /// <summary>
-        /// The visual display options for the visual palette.
+        /// The palette (chart color) display setup of the visual.
         /// </summary>
         [Input("visualPalette")]
         public Input<Inputs.TemplateVisualPaletteArgs>? VisualPalette { get; set; }

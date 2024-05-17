@@ -19,22 +19,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
-        /// 
-        /// You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
-        /// 
-        /// When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
-        /// 
-        /// To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
-        /// 
-        /// - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
-        /// - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+        /// The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
         /// 
         /// &gt; If you specify `InstanceRequirements` , you can't specify `InstanceType` .
-        /// &gt; 
-        /// &gt; Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) , or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements` . 
-        /// 
-        /// For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
         /// </summary>
         [Input("instanceRequirements")]
         public Input<Inputs.Ec2FleetInstanceRequirementsRequestArgs>? InstanceRequirements { get; set; }
@@ -58,7 +45,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<string>? MaxPrice { get; set; }
 
         /// <summary>
-        /// Describes the placement of an instance.
+        /// The location where the instance launched, if applicable.
         /// </summary>
         [Input("placement")]
         public Input<Inputs.Ec2FleetPlacementArgs>? Placement { get; set; }

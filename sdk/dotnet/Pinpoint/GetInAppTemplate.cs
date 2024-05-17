@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Pinpoint
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// Specifies the configuration of an in-app message, including its header, body, buttons, colors, and images.
+        /// An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
         /// </summary>
         public readonly ImmutableArray<Outputs.InAppTemplateInAppMessageContent> Content;
         /// <summary>

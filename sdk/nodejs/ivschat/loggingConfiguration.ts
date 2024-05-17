@@ -46,7 +46,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
-     * The DestinationConfiguration property type describes a location where chat logs will be stored. Each member represents the configuration of one log destination. For logging, you define only one type of destination.
+     * The DestinationConfiguration is a complex type that contains information about where chat content will be logged.
      */
     public readonly destinationConfiguration!: pulumi.Output<outputs.ivschat.LoggingConfigurationDestinationConfiguration>;
     /**
@@ -100,7 +100,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
  */
 export interface LoggingConfigurationArgs {
     /**
-     * The DestinationConfiguration property type describes a location where chat logs will be stored. Each member represents the configuration of one log destination. For logging, you define only one type of destination.
+     * The DestinationConfiguration is a complex type that contains information about where chat content will be logged.
      */
     destinationConfiguration: pulumi.Input<inputs.ivschat.LoggingConfigurationDestinationConfigurationArgs>;
     /**

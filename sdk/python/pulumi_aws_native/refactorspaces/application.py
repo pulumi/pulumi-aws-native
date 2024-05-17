@@ -30,7 +30,7 @@ class ApplicationArgs:
         :param pulumi.Input[str] environment_identifier: The unique identifier of the environment.
         :param pulumi.Input['ApplicationProxyType'] proxy_type: The proxy type of the proxy created within the application.
         :param pulumi.Input[str] vpc_id: The ID of the virtual private cloud (VPC).
-        :param pulumi.Input['ApplicationApiGatewayProxyInputArgs'] api_gateway_proxy: A wrapper object holding the Amazon API Gateway endpoint input.
+        :param pulumi.Input['ApplicationApiGatewayProxyInputArgs'] api_gateway_proxy: The endpoint URL of the Amazon API Gateway proxy.
         :param pulumi.Input[str] name: The name of the application.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         """
@@ -84,7 +84,7 @@ class ApplicationArgs:
     @pulumi.getter(name="apiGatewayProxy")
     def api_gateway_proxy(self) -> Optional[pulumi.Input['ApplicationApiGatewayProxyInputArgs']]:
         """
-        A wrapper object holding the Amazon API Gateway endpoint input.
+        The endpoint URL of the Amazon API Gateway proxy.
         """
         return pulumi.get(self, "api_gateway_proxy")
 
@@ -134,7 +134,7 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ApplicationApiGatewayProxyInputArgs']] api_gateway_proxy: A wrapper object holding the Amazon API Gateway endpoint input.
+        :param pulumi.Input[pulumi.InputType['ApplicationApiGatewayProxyInputArgs']] api_gateway_proxy: The endpoint URL of the Amazon API Gateway proxy.
         :param pulumi.Input[str] environment_identifier: The unique identifier of the environment.
         :param pulumi.Input[str] name: The name of the application.
         :param pulumi.Input['ApplicationProxyType'] proxy_type: The proxy type of the proxy created within the application.
@@ -252,7 +252,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="apiGatewayProxy")
     def api_gateway_proxy(self) -> pulumi.Output[Optional['outputs.ApplicationApiGatewayProxyInput']]:
         """
-        A wrapper object holding the Amazon API Gateway endpoint input.
+        The endpoint URL of the Amazon API Gateway proxy.
         """
         return pulumi.get(self, "api_gateway_proxy")
 

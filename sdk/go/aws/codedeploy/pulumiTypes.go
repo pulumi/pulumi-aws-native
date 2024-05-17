@@ -681,9 +681,9 @@ func (o DeploymentConfigTimeBasedLinearPtrOutput) LinearPercentage() pulumi.IntP
 }
 
 type DeploymentConfigTrafficRoutingConfig struct {
-	// A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+	// A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
 	TimeBasedCanary *DeploymentConfigTimeBasedCanary `pulumi:"timeBasedCanary"`
-	// A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+	// A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or Amazon ECS task sets are specified in the deployment's AppSpec file.
 	TimeBasedLinear *DeploymentConfigTimeBasedLinear `pulumi:"timeBasedLinear"`
 	// The type of traffic shifting ( `TimeBasedCanary` or `TimeBasedLinear` ) used by a deployment configuration.
 	Type string `pulumi:"type"`
@@ -701,9 +701,9 @@ type DeploymentConfigTrafficRoutingConfigInput interface {
 }
 
 type DeploymentConfigTrafficRoutingConfigArgs struct {
-	// A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+	// A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
 	TimeBasedCanary DeploymentConfigTimeBasedCanaryPtrInput `pulumi:"timeBasedCanary"`
-	// A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+	// A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or Amazon ECS task sets are specified in the deployment's AppSpec file.
 	TimeBasedLinear DeploymentConfigTimeBasedLinearPtrInput `pulumi:"timeBasedLinear"`
 	// The type of traffic shifting ( `TimeBasedCanary` or `TimeBasedLinear` ) used by a deployment configuration.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -786,14 +786,14 @@ func (o DeploymentConfigTrafficRoutingConfigOutput) ToDeploymentConfigTrafficRou
 	}).(DeploymentConfigTrafficRoutingConfigPtrOutput)
 }
 
-// A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+// A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
 func (o DeploymentConfigTrafficRoutingConfigOutput) TimeBasedCanary() DeploymentConfigTimeBasedCanaryPtrOutput {
 	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfig) *DeploymentConfigTimeBasedCanary {
 		return v.TimeBasedCanary
 	}).(DeploymentConfigTimeBasedCanaryPtrOutput)
 }
 
-// A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+// A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or Amazon ECS task sets are specified in the deployment's AppSpec file.
 func (o DeploymentConfigTrafficRoutingConfigOutput) TimeBasedLinear() DeploymentConfigTimeBasedLinearPtrOutput {
 	return o.ApplyT(func(v DeploymentConfigTrafficRoutingConfig) *DeploymentConfigTimeBasedLinear {
 		return v.TimeBasedLinear
@@ -829,7 +829,7 @@ func (o DeploymentConfigTrafficRoutingConfigPtrOutput) Elem() DeploymentConfigTr
 	}).(DeploymentConfigTrafficRoutingConfigOutput)
 }
 
-// A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+// A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in two increments. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
 func (o DeploymentConfigTrafficRoutingConfigPtrOutput) TimeBasedCanary() DeploymentConfigTimeBasedCanaryPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfigTrafficRoutingConfig) *DeploymentConfigTimeBasedCanary {
 		if v == nil {
@@ -839,7 +839,7 @@ func (o DeploymentConfigTrafficRoutingConfigPtrOutput) TimeBasedCanary() Deploym
 	}).(DeploymentConfigTimeBasedCanaryPtrOutput)
 }
 
-// A configuration that shifts traffic from one version of a Lambda function or ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or ECS task sets are specified in the deployment's AppSpec file.
+// A configuration that shifts traffic from one version of a Lambda function or Amazon ECS task set to another in equal increments, with an equal number of minutes between each increment. The original and target Lambda function versions or Amazon ECS task sets are specified in the deployment's AppSpec file.
 func (o DeploymentConfigTrafficRoutingConfigPtrOutput) TimeBasedLinear() DeploymentConfigTimeBasedLinearPtrOutput {
 	return o.ApplyT(func(v *DeploymentConfigTrafficRoutingConfig) *DeploymentConfigTimeBasedLinear {
 		if v == nil {
@@ -864,7 +864,11 @@ type DeploymentConfigZonalConfig struct {
 	//
 	// For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
 	FirstZoneMonitorDurationInSeconds *int `pulumi:"firstZoneMonitorDurationInSeconds"`
-	// Information about the minimum number of healthy instances per Availability Zone.
+	// The number or percentage of instances that must remain available per Availability Zone during a deployment. This option works in conjunction with the `MinimumHealthyHosts` option. For more information, see [About the minimum number of healthy hosts per Availability Zone](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html#minimum-healthy-hosts-az) in the *CodeDeploy User Guide* .
+	//
+	// If you don't specify the `minimumHealthyHostsPerZone` option, then CodeDeploy uses a default value of `0` percent.
+	//
+	// For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
 	MinimumHealthyHostsPerZone *DeploymentConfigMinimumHealthyHostsPerZone `pulumi:"minimumHealthyHostsPerZone"`
 	// The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. Consider adding a monitor duration to give the deployment some time to prove itself (or 'bake') in one Availability Zone before it is released in the next zone. If you don't specify a `monitorDurationInSeconds` , CodeDeploy starts deploying to the next Availability Zone immediately.
 	//
@@ -888,7 +892,11 @@ type DeploymentConfigZonalConfigArgs struct {
 	//
 	// For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
 	FirstZoneMonitorDurationInSeconds pulumi.IntPtrInput `pulumi:"firstZoneMonitorDurationInSeconds"`
-	// Information about the minimum number of healthy instances per Availability Zone.
+	// The number or percentage of instances that must remain available per Availability Zone during a deployment. This option works in conjunction with the `MinimumHealthyHosts` option. For more information, see [About the minimum number of healthy hosts per Availability Zone](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html#minimum-healthy-hosts-az) in the *CodeDeploy User Guide* .
+	//
+	// If you don't specify the `minimumHealthyHostsPerZone` option, then CodeDeploy uses a default value of `0` percent.
+	//
+	// For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
 	MinimumHealthyHostsPerZone DeploymentConfigMinimumHealthyHostsPerZonePtrInput `pulumi:"minimumHealthyHostsPerZone"`
 	// The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. Consider adding a monitor duration to give the deployment some time to prove itself (or 'bake') in one Availability Zone before it is released in the next zone. If you don't specify a `monitorDurationInSeconds` , CodeDeploy starts deploying to the next Availability Zone immediately.
 	//
@@ -980,7 +988,11 @@ func (o DeploymentConfigZonalConfigOutput) FirstZoneMonitorDurationInSeconds() p
 	return o.ApplyT(func(v DeploymentConfigZonalConfig) *int { return v.FirstZoneMonitorDurationInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Information about the minimum number of healthy instances per Availability Zone.
+// The number or percentage of instances that must remain available per Availability Zone during a deployment. This option works in conjunction with the `MinimumHealthyHosts` option. For more information, see [About the minimum number of healthy hosts per Availability Zone](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html#minimum-healthy-hosts-az) in the *CodeDeploy User Guide* .
+//
+// If you don't specify the `minimumHealthyHostsPerZone` option, then CodeDeploy uses a default value of `0` percent.
+//
+// For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
 func (o DeploymentConfigZonalConfigOutput) MinimumHealthyHostsPerZone() DeploymentConfigMinimumHealthyHostsPerZonePtrOutput {
 	return o.ApplyT(func(v DeploymentConfigZonalConfig) *DeploymentConfigMinimumHealthyHostsPerZone {
 		return v.MinimumHealthyHostsPerZone
@@ -1030,7 +1042,11 @@ func (o DeploymentConfigZonalConfigPtrOutput) FirstZoneMonitorDurationInSeconds(
 	}).(pulumi.IntPtrOutput)
 }
 
-// Information about the minimum number of healthy instances per Availability Zone.
+// The number or percentage of instances that must remain available per Availability Zone during a deployment. This option works in conjunction with the `MinimumHealthyHosts` option. For more information, see [About the minimum number of healthy hosts per Availability Zone](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html#minimum-healthy-hosts-az) in the *CodeDeploy User Guide* .
+//
+// If you don't specify the `minimumHealthyHostsPerZone` option, then CodeDeploy uses a default value of `0` percent.
+//
+// For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
 func (o DeploymentConfigZonalConfigPtrOutput) MinimumHealthyHostsPerZone() DeploymentConfigMinimumHealthyHostsPerZonePtrOutput {
 	return o.ApplyT(func(v *DeploymentConfigZonalConfig) *DeploymentConfigMinimumHealthyHostsPerZone {
 		if v == nil {

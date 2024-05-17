@@ -17,11 +17,11 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     public sealed class ModelPackageDriftCheckExplainability
     {
         /// <summary>
-        /// Contains details regarding the file source.
+        /// The explainability config file for the model.
         /// </summary>
         public readonly Outputs.ModelPackageFileSource? ConfigFile;
         /// <summary>
-        /// Details about the metrics source.
+        /// The drift check explainability constraints.
         /// </summary>
         public readonly Outputs.ModelPackageMetricsSource? Constraints;
 

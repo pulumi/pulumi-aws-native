@@ -14,13 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type LinkConfiguration struct {
-	// When used in `MetricConfiguration` this field specifies which metric namespaces are to be shared with the monitoring account
-	//
-	// When used in `LogGroupConfiguration` this field specifies which log groups are to share their log events with the monitoring account. Use the term `LogGroupName` and one or more of the following operands.
+	// Use this structure to filter which log groups are to share log events from this source account to the monitoring account.
 	LogGroupConfiguration *LinkFilter `pulumi:"logGroupConfiguration"`
-	// When used in `MetricConfiguration` this field specifies which metric namespaces are to be shared with the monitoring account
-	//
-	// When used in `LogGroupConfiguration` this field specifies which log groups are to share their log events with the monitoring account. Use the term `LogGroupName` and one or more of the following operands.
+	// Use this structure to filter which metric namespaces are to be shared from the source account to the monitoring account.
 	MetricConfiguration *LinkFilter `pulumi:"metricConfiguration"`
 }
 
@@ -36,13 +32,9 @@ type LinkConfigurationInput interface {
 }
 
 type LinkConfigurationArgs struct {
-	// When used in `MetricConfiguration` this field specifies which metric namespaces are to be shared with the monitoring account
-	//
-	// When used in `LogGroupConfiguration` this field specifies which log groups are to share their log events with the monitoring account. Use the term `LogGroupName` and one or more of the following operands.
+	// Use this structure to filter which log groups are to share log events from this source account to the monitoring account.
 	LogGroupConfiguration LinkFilterPtrInput `pulumi:"logGroupConfiguration"`
-	// When used in `MetricConfiguration` this field specifies which metric namespaces are to be shared with the monitoring account
-	//
-	// When used in `LogGroupConfiguration` this field specifies which log groups are to share their log events with the monitoring account. Use the term `LogGroupName` and one or more of the following operands.
+	// Use this structure to filter which metric namespaces are to be shared from the source account to the monitoring account.
 	MetricConfiguration LinkFilterPtrInput `pulumi:"metricConfiguration"`
 }
 
@@ -123,16 +115,12 @@ func (o LinkConfigurationOutput) ToLinkConfigurationPtrOutputWithContext(ctx con
 	}).(LinkConfigurationPtrOutput)
 }
 
-// When used in `MetricConfiguration` this field specifies which metric namespaces are to be shared with the monitoring account
-//
-// When used in `LogGroupConfiguration` this field specifies which log groups are to share their log events with the monitoring account. Use the term `LogGroupName` and one or more of the following operands.
+// Use this structure to filter which log groups are to share log events from this source account to the monitoring account.
 func (o LinkConfigurationOutput) LogGroupConfiguration() LinkFilterPtrOutput {
 	return o.ApplyT(func(v LinkConfiguration) *LinkFilter { return v.LogGroupConfiguration }).(LinkFilterPtrOutput)
 }
 
-// When used in `MetricConfiguration` this field specifies which metric namespaces are to be shared with the monitoring account
-//
-// When used in `LogGroupConfiguration` this field specifies which log groups are to share their log events with the monitoring account. Use the term `LogGroupName` and one or more of the following operands.
+// Use this structure to filter which metric namespaces are to be shared from the source account to the monitoring account.
 func (o LinkConfigurationOutput) MetricConfiguration() LinkFilterPtrOutput {
 	return o.ApplyT(func(v LinkConfiguration) *LinkFilter { return v.MetricConfiguration }).(LinkFilterPtrOutput)
 }
@@ -161,9 +149,7 @@ func (o LinkConfigurationPtrOutput) Elem() LinkConfigurationOutput {
 	}).(LinkConfigurationOutput)
 }
 
-// When used in `MetricConfiguration` this field specifies which metric namespaces are to be shared with the monitoring account
-//
-// When used in `LogGroupConfiguration` this field specifies which log groups are to share their log events with the monitoring account. Use the term `LogGroupName` and one or more of the following operands.
+// Use this structure to filter which log groups are to share log events from this source account to the monitoring account.
 func (o LinkConfigurationPtrOutput) LogGroupConfiguration() LinkFilterPtrOutput {
 	return o.ApplyT(func(v *LinkConfiguration) *LinkFilter {
 		if v == nil {
@@ -173,9 +159,7 @@ func (o LinkConfigurationPtrOutput) LogGroupConfiguration() LinkFilterPtrOutput 
 	}).(LinkFilterPtrOutput)
 }
 
-// When used in `MetricConfiguration` this field specifies which metric namespaces are to be shared with the monitoring account
-//
-// When used in `LogGroupConfiguration` this field specifies which log groups are to share their log events with the monitoring account. Use the term `LogGroupName` and one or more of the following operands.
+// Use this structure to filter which metric namespaces are to be shared from the source account to the monitoring account.
 func (o LinkConfigurationPtrOutput) MetricConfiguration() LinkFilterPtrOutput {
 	return o.ApplyT(func(v *LinkConfiguration) *LinkFilter {
 		if v == nil {

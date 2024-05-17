@@ -27,32 +27,34 @@ export interface GetDatasetArgs {
 
 export interface GetDatasetResult {
     /**
-     * Information needed to run the "containerAction" to produce data set contents.
+     * The `DatasetAction` objects that automatically create the dataset contents.
      */
     readonly actions?: outputs.iotanalytics.DatasetAction[];
     /**
-     * When dataset contents are created, they are delivered to destination specified here.
+     * When dataset contents are created they are delivered to destinations specified here.
      */
     readonly contentDeliveryRules?: outputs.iotanalytics.DatasetContentDeliveryRule[];
     readonly id?: string;
     /**
-     * A structure that contains the name and configuration information of a late data rule.
+     * A list of data rules that send notifications to CloudWatch, when data arrives late. To specify `lateDataRules` , the dataset must use a [DeltaTimer](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html) filter.
      */
     readonly lateDataRules?: outputs.iotanalytics.DatasetLateDataRule[];
     /**
-     * How long, in days, message data is kept.
+     * Optional. How long, in days, message data is kept for the dataset.
      */
     readonly retentionPeriod?: outputs.iotanalytics.DatasetRetentionPeriod;
     /**
-     * A set of key-value pairs that are used to manage the resource.
+     * Metadata which can be used to manage the data set.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     readonly tags?: outputs.Tag[];
     /**
-     * The "DatasetTrigger" that specifies when the data set is automatically updated.
+     * The `DatasetTrigger` objects that specify when the dataset is automatically updated.
      */
     readonly triggers?: outputs.iotanalytics.DatasetTrigger[];
     /**
-     * Information about the versioning of dataset contents.
+     * Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of AWS IoT Analytics datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *AWS IoT Analytics User Guide* .
      */
     readonly versioningConfiguration?: outputs.iotanalytics.DatasetVersioningConfiguration;
 }

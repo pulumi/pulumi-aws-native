@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
     public sealed class ResponseHeadersPolicyRemoveHeadersConfig
     {
         /// <summary>
-        /// The name of an HTTP header that CloudFront removes from HTTP responses to requests that match the cache behavior that this response headers policy is attached to.
+        /// The list of HTTP header names.
         /// </summary>
         public readonly ImmutableArray<Outputs.ResponseHeadersPolicyRemoveHeader> Items;
 

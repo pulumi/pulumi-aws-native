@@ -67,15 +67,17 @@ export class FhirDatastore extends pulumi.CustomResource {
      */
     public readonly identityProviderConfiguration!: pulumi.Output<outputs.healthlake.FhirDatastoreIdentityProviderConfiguration | undefined>;
     /**
-     * Optional parameter to preload data upon creation of the data store. Currently, the only supported preloaded data is synthetic data generated from Synthea.
+     * The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
      */
     public readonly preloadDataConfig!: pulumi.Output<outputs.healthlake.FhirDatastorePreloadDataConfig | undefined>;
     /**
-     * The server-side encryption key configuration for a customer provided encryption key.
+     * The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
      */
     public readonly sseConfiguration!: pulumi.Output<outputs.healthlake.FhirDatastoreSseConfiguration | undefined>;
     /**
-     * A tag is a label consisting of a user-defined key and value. The form for tags is {"Key", "Value"}
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -141,15 +143,17 @@ export interface FhirDatastoreArgs {
      */
     identityProviderConfiguration?: pulumi.Input<inputs.healthlake.FhirDatastoreIdentityProviderConfigurationArgs>;
     /**
-     * Optional parameter to preload data upon creation of the data store. Currently, the only supported preloaded data is synthetic data generated from Synthea.
+     * The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
      */
     preloadDataConfig?: pulumi.Input<inputs.healthlake.FhirDatastorePreloadDataConfigArgs>;
     /**
-     * The server-side encryption key configuration for a customer provided encryption key.
+     * The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
      */
     sseConfiguration?: pulumi.Input<inputs.healthlake.FhirDatastoreSseConfigurationArgs>;
     /**
-     * A tag is a label consisting of a user-defined key and value. The form for tags is {"Key", "Value"}
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

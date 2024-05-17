@@ -38,11 +38,6 @@ export interface GetDomainResult {
      * The required AWS Identity and Access Management (IAMlong) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
      */
     readonly autoSubDomainIamRole?: string;
-    /**
-     * Describes the SSL/TLS certificate for the domain association. This can be your own custom certificate or the default certificate that Amplify provisions for you.
-     *
-     * If you are updating your domain to use a different certificate, `Certificate` points to the new certificate that is being created instead of the current active certificate. Otherwise, `Certificate` points to the current active certificate.
-     */
     readonly certificate?: outputs.amplify.DomainCertificate;
     /**
      * DNS Record for certificate verification.
@@ -61,7 +56,7 @@ export interface GetDomainResult {
      */
     readonly statusReason?: string;
     /**
-     * The SubDomainSetting property type enables you to connect a subdomain (for example, example.exampledomain.com) to a specific branch.
+     * The setting for the subdomain.
      */
     readonly subDomainSettings?: outputs.amplify.DomainSubDomainSetting[];
     /**

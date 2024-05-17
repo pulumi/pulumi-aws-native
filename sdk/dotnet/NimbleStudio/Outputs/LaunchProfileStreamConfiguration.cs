@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
         /// </summary>
         public readonly double? MaxStoppedSessionLengthInMinutes;
         /// <summary>
-        /// Configures how streaming sessions are backed up when launched from this launch profile.
+        /// Information about the streaming session backup.
         /// </summary>
         public readonly Outputs.LaunchProfileStreamConfigurationSessionBackup? SessionBackup;
         /// <summary>
@@ -69,7 +69,7 @@ namespace Pulumi.AwsNative.NimbleStudio.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.NimbleStudio.LaunchProfileSessionPersistenceMode? SessionPersistenceMode;
         /// <summary>
-        /// The configuration for a streaming session’s upload storage.
+        /// The upload storage for a streaming session.
         /// </summary>
         public readonly Outputs.LaunchProfileStreamConfigurationSessionStorage? SessionStorage;
         /// <summary>

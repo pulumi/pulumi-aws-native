@@ -62,9 +62,7 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Specifies the configuration of a Spot Fleet request. For more information, see [Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html) in the *Amazon EC2 User Guide* .
-        /// 
-        /// You must specify either `LaunchSpecifications` or `LaunchTemplateConfigs` .
+        /// Describes the configuration of a Spot Fleet request.
         /// </summary>
         public readonly Outputs.SpotFleetRequestConfigData? SpotFleetRequestConfigData;
 

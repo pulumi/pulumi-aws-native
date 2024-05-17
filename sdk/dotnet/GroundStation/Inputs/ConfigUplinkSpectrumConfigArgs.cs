@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
     public sealed class ConfigUplinkSpectrumConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines a frequency.
+        /// The center frequency of the spectrum. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
         /// </summary>
         [Input("centerFrequency")]
         public Input<Inputs.ConfigFrequencyArgs>? CenterFrequency { get; set; }

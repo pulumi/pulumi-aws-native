@@ -19,13 +19,13 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public Input<string>? BackgroundColor { get; set; }
 
         /// <summary>
-        /// Specifies the configuration of the main body text of the in-app message.
+        /// An object that contains configuration information about the header or title text of the in-app message.
         /// </summary>
         [Input("bodyConfig")]
         public Input<Inputs.InAppTemplateBodyConfigArgs>? BodyConfig { get; set; }
 
         /// <summary>
-        /// Specifies the configuration and content of the header or title text of the in-app message.
+        /// An object that contains configuration information about the header or title text of the in-app message.
         /// </summary>
         [Input("headerConfig")]
         public Input<Inputs.InAppTemplateHeaderConfigArgs>? HeaderConfig { get; set; }
@@ -37,13 +37,13 @@ namespace Pulumi.AwsNative.Pinpoint.Inputs
         public Input<string>? ImageUrl { get; set; }
 
         /// <summary>
-        /// Specifies the behavior of buttons that appear in an in-app message template.
+        /// An object that contains configuration information about the primary button in an in-app message.
         /// </summary>
         [Input("primaryBtn")]
         public Input<Inputs.InAppTemplateButtonConfigArgs>? PrimaryBtn { get; set; }
 
         /// <summary>
-        /// Specifies the behavior of buttons that appear in an in-app message template.
+        /// An object that contains configuration information about the secondary button in an in-app message.
         /// </summary>
         [Input("secondaryBtn")]
         public Input<Inputs.InAppTemplateButtonConfigArgs>? SecondaryBtn { get; set; }

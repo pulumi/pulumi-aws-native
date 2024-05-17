@@ -66,16 +66,13 @@ class GetFleetResult:
     @property
     @pulumi.getter
     def capabilities(self) -> Optional['outputs.FleetCapabilities']:
-        """
-        The amounts and attributes of fleets.
-        """
         return pulumi.get(self, "capabilities")
 
     @property
     @pulumi.getter
     def configuration(self) -> Optional[Any]:
         """
-        Fleet configuration details.
+        The configuration details for the fleet.
         """
         return pulumi.get(self, "configuration")
 

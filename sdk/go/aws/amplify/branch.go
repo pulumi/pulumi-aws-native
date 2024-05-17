@@ -21,11 +21,11 @@ type Branch struct {
 	AppId pulumi.StringOutput `pulumi:"appId"`
 	// ARN for a branch, part of an Amplify App.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Describes the backend associated with an Amplify `Branch` .
+	// The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
 	//
-	// This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
+	// This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
 	Backend BranchBackendPtrOutput `pulumi:"backend"`
-	// Use the BasicAuthConfig property type to set password protection for a specific branch.
+	// The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
 	BasicAuthConfig BranchBasicAuthConfigPtrOutput `pulumi:"basicAuthConfig"`
 	// The name for the branch.
 	BranchName pulumi.StringOutput `pulumi:"branchName"`
@@ -45,7 +45,7 @@ type Branch struct {
 	//
 	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
 	EnablePullRequestPreview pulumi.BoolPtrOutput `pulumi:"enablePullRequestPreview"`
-	// The EnvironmentVariable property type sets environment variables for a specific branch. Environment variables are key-value pairs that are available at build time.
+	// The environment variables for the branch.
 	EnvironmentVariables BranchEnvironmentVariableArrayOutput `pulumi:"environmentVariables"`
 	// The framework for the branch.
 	Framework pulumi.StringPtrOutput `pulumi:"framework"`
@@ -59,7 +59,7 @@ type Branch struct {
 	PullRequestEnvironmentName pulumi.StringPtrOutput `pulumi:"pullRequestEnvironmentName"`
 	// Describes the current stage for the branch.
 	Stage BranchStagePtrOutput `pulumi:"stage"`
-	// The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::Branch` resource.
+	// The tag for the branch.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -113,11 +113,11 @@ func (BranchState) ElementType() reflect.Type {
 type branchArgs struct {
 	// The unique ID for an Amplify app.
 	AppId string `pulumi:"appId"`
-	// Describes the backend associated with an Amplify `Branch` .
+	// The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
 	//
-	// This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
+	// This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
 	Backend *BranchBackend `pulumi:"backend"`
-	// Use the BasicAuthConfig property type to set password protection for a specific branch.
+	// The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
 	BasicAuthConfig *BranchBasicAuthConfig `pulumi:"basicAuthConfig"`
 	// The name for the branch.
 	BranchName *string `pulumi:"branchName"`
@@ -137,7 +137,7 @@ type branchArgs struct {
 	//
 	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
 	EnablePullRequestPreview *bool `pulumi:"enablePullRequestPreview"`
-	// The EnvironmentVariable property type sets environment variables for a specific branch. Environment variables are key-value pairs that are available at build time.
+	// The environment variables for the branch.
 	EnvironmentVariables []BranchEnvironmentVariable `pulumi:"environmentVariables"`
 	// The framework for the branch.
 	Framework *string `pulumi:"framework"`
@@ -151,7 +151,7 @@ type branchArgs struct {
 	PullRequestEnvironmentName *string `pulumi:"pullRequestEnvironmentName"`
 	// Describes the current stage for the branch.
 	Stage *BranchStage `pulumi:"stage"`
-	// The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::Branch` resource.
+	// The tag for the branch.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -159,11 +159,11 @@ type branchArgs struct {
 type BranchArgs struct {
 	// The unique ID for an Amplify app.
 	AppId pulumi.StringInput
-	// Describes the backend associated with an Amplify `Branch` .
+	// The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
 	//
-	// This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
+	// This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
 	Backend BranchBackendPtrInput
-	// Use the BasicAuthConfig property type to set password protection for a specific branch.
+	// The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
 	BasicAuthConfig BranchBasicAuthConfigPtrInput
 	// The name for the branch.
 	BranchName pulumi.StringPtrInput
@@ -183,7 +183,7 @@ type BranchArgs struct {
 	//
 	// For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
 	EnablePullRequestPreview pulumi.BoolPtrInput
-	// The EnvironmentVariable property type sets environment variables for a specific branch. Environment variables are key-value pairs that are available at build time.
+	// The environment variables for the branch.
 	EnvironmentVariables BranchEnvironmentVariableArrayInput
 	// The framework for the branch.
 	Framework pulumi.StringPtrInput
@@ -197,7 +197,7 @@ type BranchArgs struct {
 	PullRequestEnvironmentName pulumi.StringPtrInput
 	// Describes the current stage for the branch.
 	Stage BranchStagePtrInput
-	// The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::Branch` resource.
+	// The tag for the branch.
 	Tags aws.TagArrayInput
 }
 
@@ -248,14 +248,14 @@ func (o BranchOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Branch) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Describes the backend associated with an Amplify `Branch` .
+// The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
 //
-// This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
+// This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
 func (o BranchOutput) Backend() BranchBackendPtrOutput {
 	return o.ApplyT(func(v *Branch) BranchBackendPtrOutput { return v.Backend }).(BranchBackendPtrOutput)
 }
 
-// Use the BasicAuthConfig property type to set password protection for a specific branch.
+// The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
 func (o BranchOutput) BasicAuthConfig() BranchBasicAuthConfigPtrOutput {
 	return o.ApplyT(func(v *Branch) BranchBasicAuthConfigPtrOutput { return v.BasicAuthConfig }).(BranchBasicAuthConfigPtrOutput)
 }
@@ -296,7 +296,7 @@ func (o BranchOutput) EnablePullRequestPreview() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Branch) pulumi.BoolPtrOutput { return v.EnablePullRequestPreview }).(pulumi.BoolPtrOutput)
 }
 
-// The EnvironmentVariable property type sets environment variables for a specific branch. Environment variables are key-value pairs that are available at build time.
+// The environment variables for the branch.
 func (o BranchOutput) EnvironmentVariables() BranchEnvironmentVariableArrayOutput {
 	return o.ApplyT(func(v *Branch) BranchEnvironmentVariableArrayOutput { return v.EnvironmentVariables }).(BranchEnvironmentVariableArrayOutput)
 }
@@ -322,7 +322,7 @@ func (o BranchOutput) Stage() BranchStagePtrOutput {
 	return o.ApplyT(func(v *Branch) BranchStagePtrOutput { return v.Stage }).(BranchStagePtrOutput)
 }
 
-// The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::Branch` resource.
+// The tag for the branch.
 func (o BranchOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Branch) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

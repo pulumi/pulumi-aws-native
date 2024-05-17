@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
         /// </summary>
         public readonly string? ConsumerGroupId;
         /// <summary>
-        /// The AWS Secrets Manager secret that stores your stream credentials.
+        /// The credentials needed to access the resource.
         /// </summary>
         public readonly Union<Outputs.PipeMskAccessCredentials0Properties, Outputs.PipeMskAccessCredentials1Properties>? Credentials;
         /// <summary>

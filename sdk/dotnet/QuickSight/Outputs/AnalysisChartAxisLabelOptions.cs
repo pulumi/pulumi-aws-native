@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisChartAxisLabelOptions
     {
         /// <summary>
-        /// The label options for a chart axis. You must specify the field that the label is targeted to.
+        /// The label options for a chart axis.
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisAxisLabelOptions> AxisLabelOptions;
         /// <summary>

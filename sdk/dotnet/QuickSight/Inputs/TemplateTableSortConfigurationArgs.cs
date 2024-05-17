@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateTableSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The pagination configuration for a table visual or boxplot.
+        /// The pagination configuration (page size, page number) for the table.
         /// </summary>
         [Input("paginationConfiguration")]
         public Input<Inputs.TemplatePaginationConfigurationArgs>? PaginationConfiguration { get; set; }

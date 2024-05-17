@@ -1074,7 +1074,7 @@ func (o LogDeliveryConfigurationLogConfigurationArrayOutput) Index(i pulumi.IntI
 }
 
 type UserPoolAccountRecoverySetting struct {
-	// A map containing a priority as a key, and recovery method name as a value.
+	// The list of `RecoveryOptionTypes` .
 	RecoveryMechanisms []UserPoolRecoveryOption `pulumi:"recoveryMechanisms"`
 }
 
@@ -1090,7 +1090,7 @@ type UserPoolAccountRecoverySettingInput interface {
 }
 
 type UserPoolAccountRecoverySettingArgs struct {
-	// A map containing a priority as a key, and recovery method name as a value.
+	// The list of `RecoveryOptionTypes` .
 	RecoveryMechanisms UserPoolRecoveryOptionArrayInput `pulumi:"recoveryMechanisms"`
 }
 
@@ -1171,7 +1171,7 @@ func (o UserPoolAccountRecoverySettingOutput) ToUserPoolAccountRecoverySettingPt
 	}).(UserPoolAccountRecoverySettingPtrOutput)
 }
 
-// A map containing a priority as a key, and recovery method name as a value.
+// The list of `RecoveryOptionTypes` .
 func (o UserPoolAccountRecoverySettingOutput) RecoveryMechanisms() UserPoolRecoveryOptionArrayOutput {
 	return o.ApplyT(func(v UserPoolAccountRecoverySetting) []UserPoolRecoveryOption { return v.RecoveryMechanisms }).(UserPoolRecoveryOptionArrayOutput)
 }
@@ -1200,7 +1200,7 @@ func (o UserPoolAccountRecoverySettingPtrOutput) Elem() UserPoolAccountRecoveryS
 	}).(UserPoolAccountRecoverySettingOutput)
 }
 
-// A map containing a priority as a key, and recovery method name as a value.
+// The list of `RecoveryOptionTypes` .
 func (o UserPoolAccountRecoverySettingPtrOutput) RecoveryMechanisms() UserPoolRecoveryOptionArrayOutput {
 	return o.ApplyT(func(v *UserPoolAccountRecoverySetting) []UserPoolRecoveryOption {
 		if v == nil {
@@ -3038,7 +3038,7 @@ type UserPoolLambdaConfig struct {
 	//
 	// You can set ``
 	PreTokenGeneration *string `pulumi:"preTokenGeneration"`
-	// The properties of a pre token generation Lambda trigger.
+	// The detailed configuration of a pre token generation trigger. If you also set an ARN in `PreTokenGeneration` , its value must be identical to `PreTokenGenerationConfig` .
 	PreTokenGenerationConfig *UserPoolPreTokenGenerationConfig `pulumi:"preTokenGenerationConfig"`
 	// The user migration Lambda config type.
 	UserMigration *string `pulumi:"userMigration"`
@@ -3084,7 +3084,7 @@ type UserPoolLambdaConfigArgs struct {
 	//
 	// You can set ``
 	PreTokenGeneration pulumi.StringPtrInput `pulumi:"preTokenGeneration"`
-	// The properties of a pre token generation Lambda trigger.
+	// The detailed configuration of a pre token generation trigger. If you also set an ARN in `PreTokenGeneration` , its value must be identical to `PreTokenGenerationConfig` .
 	PreTokenGenerationConfig UserPoolPreTokenGenerationConfigPtrInput `pulumi:"preTokenGenerationConfig"`
 	// The user migration Lambda config type.
 	UserMigration pulumi.StringPtrInput `pulumi:"userMigration"`
@@ -3228,7 +3228,7 @@ func (o UserPoolLambdaConfigOutput) PreTokenGeneration() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.PreTokenGeneration }).(pulumi.StringPtrOutput)
 }
 
-// The properties of a pre token generation Lambda trigger.
+// The detailed configuration of a pre token generation trigger. If you also set an ARN in `PreTokenGeneration` , its value must be identical to `PreTokenGenerationConfig` .
 func (o UserPoolLambdaConfigOutput) PreTokenGenerationConfig() UserPoolPreTokenGenerationConfigPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *UserPoolPreTokenGenerationConfig { return v.PreTokenGenerationConfig }).(UserPoolPreTokenGenerationConfigPtrOutput)
 }
@@ -3381,7 +3381,7 @@ func (o UserPoolLambdaConfigPtrOutput) PreTokenGeneration() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The properties of a pre token generation Lambda trigger.
+// The detailed configuration of a pre token generation trigger. If you also set an ARN in `PreTokenGeneration` , its value must be identical to `PreTokenGenerationConfig` .
 func (o UserPoolLambdaConfigPtrOutput) PreTokenGenerationConfig() UserPoolPreTokenGenerationConfigPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *UserPoolPreTokenGenerationConfig {
 		if v == nil {
@@ -3808,7 +3808,7 @@ func (o UserPoolPasswordPolicyPtrOutput) TemporaryPasswordValidityDays() pulumi.
 }
 
 type UserPoolPolicies struct {
-	// The password policy type.
+	// The password policy.
 	PasswordPolicy *UserPoolPasswordPolicy `pulumi:"passwordPolicy"`
 }
 
@@ -3824,7 +3824,7 @@ type UserPoolPoliciesInput interface {
 }
 
 type UserPoolPoliciesArgs struct {
-	// The password policy type.
+	// The password policy.
 	PasswordPolicy UserPoolPasswordPolicyPtrInput `pulumi:"passwordPolicy"`
 }
 
@@ -3905,7 +3905,7 @@ func (o UserPoolPoliciesOutput) ToUserPoolPoliciesPtrOutputWithContext(ctx conte
 	}).(UserPoolPoliciesPtrOutput)
 }
 
-// The password policy type.
+// The password policy.
 func (o UserPoolPoliciesOutput) PasswordPolicy() UserPoolPasswordPolicyPtrOutput {
 	return o.ApplyT(func(v UserPoolPolicies) *UserPoolPasswordPolicy { return v.PasswordPolicy }).(UserPoolPasswordPolicyPtrOutput)
 }
@@ -3934,7 +3934,7 @@ func (o UserPoolPoliciesPtrOutput) Elem() UserPoolPoliciesOutput {
 	}).(UserPoolPoliciesOutput)
 }
 
-// The password policy type.
+// The password policy.
 func (o UserPoolPoliciesPtrOutput) PasswordPolicy() UserPoolPasswordPolicyPtrOutput {
 	return o.ApplyT(func(v *UserPoolPolicies) *UserPoolPasswordPolicy {
 		if v == nil {
@@ -4497,11 +4497,11 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput) N
 }
 
 type UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType struct {
-	// Account takeover action type.
+	// Action to take for a high risk.
 	HighAction *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType `pulumi:"highAction"`
-	// Account takeover action type.
+	// Action to take for a low risk.
 	LowAction *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType `pulumi:"lowAction"`
-	// Account takeover action type.
+	// Action to take for a medium risk.
 	MediumAction *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType `pulumi:"mediumAction"`
 }
 
@@ -4517,11 +4517,11 @@ type UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeInput interfac
 }
 
 type UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgs struct {
-	// Account takeover action type.
+	// Action to take for a high risk.
 	HighAction UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrInput `pulumi:"highAction"`
-	// Account takeover action type.
+	// Action to take for a low risk.
 	LowAction UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrInput `pulumi:"lowAction"`
-	// Account takeover action type.
+	// Action to take for a medium risk.
 	MediumAction UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrInput `pulumi:"mediumAction"`
 }
 
@@ -4602,21 +4602,21 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput) ToU
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput)
 }
 
-// Account takeover action type.
+// Action to take for a high risk.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput) HighAction() UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType) *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType {
 		return v.HighAction
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput)
 }
 
-// Account takeover action type.
+// Action to take for a low risk.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput) LowAction() UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType) *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType {
 		return v.LowAction
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput)
 }
 
-// Account takeover action type.
+// Action to take for a medium risk.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput) MediumAction() UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType) *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType {
 		return v.MediumAction
@@ -4647,7 +4647,7 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) 
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput)
 }
 
-// Account takeover action type.
+// Action to take for a high risk.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) HighAction() UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType) *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType {
 		if v == nil {
@@ -4657,7 +4657,7 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) 
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput)
 }
 
-// Account takeover action type.
+// Action to take for a low risk.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) LowAction() UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType) *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType {
 		if v == nil {
@@ -4667,7 +4667,7 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) 
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput)
 }
 
-// Account takeover action type.
+// Action to take for a medium risk.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) MediumAction() UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType) *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType {
 		if v == nil {
@@ -4678,9 +4678,9 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) 
 }
 
 type UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType struct {
-	// Account takeover actions type.
+	// Account takeover risk configuration actions.
 	Actions UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType `pulumi:"actions"`
-	// The notify configuration type.
+	// The notify configuration used to construct email notifications.
 	NotifyConfiguration *UserPoolRiskConfigurationAttachmentNotifyConfigurationType `pulumi:"notifyConfiguration"`
 }
 
@@ -4696,9 +4696,9 @@ type UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeInpu
 }
 
 type UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs struct {
-	// Account takeover actions type.
+	// Account takeover risk configuration actions.
 	Actions UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeInput `pulumi:"actions"`
-	// The notify configuration type.
+	// The notify configuration used to construct email notifications.
 	NotifyConfiguration UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrInput `pulumi:"notifyConfiguration"`
 }
 
@@ -4779,14 +4779,14 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeO
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput)
 }
 
-// Account takeover actions type.
+// Account takeover risk configuration actions.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeOutput) Actions() UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType) UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType {
 		return v.Actions
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput)
 }
 
-// The notify configuration type.
+// The notify configuration used to construct email notifications.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeOutput) NotifyConfiguration() UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType) *UserPoolRiskConfigurationAttachmentNotifyConfigurationType {
 		return v.NotifyConfiguration
@@ -4817,7 +4817,7 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeP
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeOutput)
 }
 
-// Account takeover actions type.
+// Account takeover risk configuration actions.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput) Actions() UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType) *UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType {
 		if v == nil {
@@ -4827,7 +4827,7 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeP
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput)
 }
 
-// The notify configuration type.
+// The notify configuration used to construct email notifications.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput) NotifyConfiguration() UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType) *UserPoolRiskConfigurationAttachmentNotifyConfigurationType {
 		if v == nil {
@@ -4977,7 +4977,7 @@ func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypePtrO
 }
 
 type UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType struct {
-	// The compromised credentials actions type.
+	// The compromised credentials risk configuration actions.
 	Actions UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType `pulumi:"actions"`
 	// Perform the action for these events. The default is to perform all events if no event filter is specified.
 	EventFilter []string `pulumi:"eventFilter"`
@@ -4995,7 +4995,7 @@ type UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationT
 }
 
 type UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs struct {
-	// The compromised credentials actions type.
+	// The compromised credentials risk configuration actions.
 	Actions UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeInput `pulumi:"actions"`
 	// Perform the action for these events. The default is to perform all events if no event filter is specified.
 	EventFilter pulumi.StringArrayInput `pulumi:"eventFilter"`
@@ -5078,7 +5078,7 @@ func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurati
 	}).(UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput)
 }
 
-// The compromised credentials actions type.
+// The compromised credentials risk configuration actions.
 func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeOutput) Actions() UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType) UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType {
 		return v.Actions
@@ -5116,7 +5116,7 @@ func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurati
 	}).(UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeOutput)
 }
 
-// The compromised credentials actions type.
+// The compromised credentials risk configuration actions.
 func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput) Actions() UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType) *UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType {
 		if v == nil {
@@ -5137,13 +5137,13 @@ func (o UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurati
 }
 
 type UserPoolRiskConfigurationAttachmentNotifyConfigurationType struct {
-	// The notify email type.
+	// Email template used when a detected risk event is blocked.
 	BlockEmail *UserPoolRiskConfigurationAttachmentNotifyEmailType `pulumi:"blockEmail"`
 	// The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
 	From *string `pulumi:"from"`
-	// The notify email type.
+	// The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk.
 	MfaEmail *UserPoolRiskConfigurationAttachmentNotifyEmailType `pulumi:"mfaEmail"`
-	// The notify email type.
+	// The email template used when a detected risk event is allowed.
 	NoActionEmail *UserPoolRiskConfigurationAttachmentNotifyEmailType `pulumi:"noActionEmail"`
 	// The destination to which the receiver of an email should reply to.
 	ReplyTo *string `pulumi:"replyTo"`
@@ -5163,13 +5163,13 @@ type UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeInput interface {
 }
 
 type UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgs struct {
-	// The notify email type.
+	// Email template used when a detected risk event is blocked.
 	BlockEmail UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrInput `pulumi:"blockEmail"`
 	// The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
 	From pulumi.StringPtrInput `pulumi:"from"`
-	// The notify email type.
+	// The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk.
 	MfaEmail UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrInput `pulumi:"mfaEmail"`
-	// The notify email type.
+	// The email template used when a detected risk event is allowed.
 	NoActionEmail UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrInput `pulumi:"noActionEmail"`
 	// The destination to which the receiver of an email should reply to.
 	ReplyTo pulumi.StringPtrInput `pulumi:"replyTo"`
@@ -5254,7 +5254,7 @@ func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput) ToUser
 	}).(UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput)
 }
 
-// The notify email type.
+// Email template used when a detected risk event is blocked.
 func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput) BlockEmail() UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentNotifyConfigurationType) *UserPoolRiskConfigurationAttachmentNotifyEmailType {
 		return v.BlockEmail
@@ -5266,14 +5266,14 @@ func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput) From()
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentNotifyConfigurationType) *string { return v.From }).(pulumi.StringPtrOutput)
 }
 
-// The notify email type.
+// The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk.
 func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput) MfaEmail() UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentNotifyConfigurationType) *UserPoolRiskConfigurationAttachmentNotifyEmailType {
 		return v.MfaEmail
 	}).(UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput)
 }
 
-// The notify email type.
+// The email template used when a detected risk event is allowed.
 func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput) NoActionEmail() UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentNotifyConfigurationType) *UserPoolRiskConfigurationAttachmentNotifyEmailType {
 		return v.NoActionEmail
@@ -5314,7 +5314,7 @@ func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) Ele
 	}).(UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeOutput)
 }
 
-// The notify email type.
+// Email template used when a detected risk event is blocked.
 func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) BlockEmail() UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentNotifyConfigurationType) *UserPoolRiskConfigurationAttachmentNotifyEmailType {
 		if v == nil {
@@ -5334,7 +5334,7 @@ func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) Fro
 	}).(pulumi.StringPtrOutput)
 }
 
-// The notify email type.
+// The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk.
 func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) MfaEmail() UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentNotifyConfigurationType) *UserPoolRiskConfigurationAttachmentNotifyEmailType {
 		if v == nil {
@@ -5344,7 +5344,7 @@ func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) Mfa
 	}).(UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput)
 }
 
-// The notify email type.
+// The email template used when a detected risk event is allowed.
 func (o UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput) NoActionEmail() UserPoolRiskConfigurationAttachmentNotifyEmailTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentNotifyConfigurationType) *UserPoolRiskConfigurationAttachmentNotifyEmailType {
 		if v == nil {
@@ -5722,11 +5722,11 @@ type UserPoolSchemaAttribute struct {
 	Mutable *bool `pulumi:"mutable"`
 	// The name of your user pool attribute. When you create or update a user pool, adding a schema attribute creates a custom or developer-only attribute. When you add an attribute with a `Name` value of `MyAttribute` , Amazon Cognito creates the custom attribute `custom:MyAttribute` . When `DeveloperOnlyAttribute` is `true` , Amazon Cognito creates your attribute as `dev:MyAttribute` . In an operation that describes a user pool, Amazon Cognito returns this value as `value` for standard attributes, `custom:value` for custom attributes, and `dev:value` for developer-only attributes..
 	Name *string `pulumi:"name"`
-	// The minimum and maximum values of an attribute that is of the number data type.
+	// Specifies the constraints for an attribute of the number type.
 	NumberAttributeConstraints *UserPoolNumberAttributeConstraints `pulumi:"numberAttributeConstraints"`
 	// Specifies whether a user pool attribute is required. If the attribute is required and the user doesn't provide a value, registration or sign-in will fail.
 	Required *bool `pulumi:"required"`
-	// The `StringAttributeConstraints` property type defines the string attribute constraints of an Amazon Cognito user pool. `StringAttributeConstraints` is a subproperty of the [SchemaAttribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html) property type.
+	// Specifies the constraints for an attribute of the string type.
 	StringAttributeConstraints *UserPoolStringAttributeConstraints `pulumi:"stringAttributeConstraints"`
 }
 
@@ -5754,11 +5754,11 @@ type UserPoolSchemaAttributeArgs struct {
 	Mutable pulumi.BoolPtrInput `pulumi:"mutable"`
 	// The name of your user pool attribute. When you create or update a user pool, adding a schema attribute creates a custom or developer-only attribute. When you add an attribute with a `Name` value of `MyAttribute` , Amazon Cognito creates the custom attribute `custom:MyAttribute` . When `DeveloperOnlyAttribute` is `true` , Amazon Cognito creates your attribute as `dev:MyAttribute` . In an operation that describes a user pool, Amazon Cognito returns this value as `value` for standard attributes, `custom:value` for custom attributes, and `dev:value` for developer-only attributes..
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The minimum and maximum values of an attribute that is of the number data type.
+	// Specifies the constraints for an attribute of the number type.
 	NumberAttributeConstraints UserPoolNumberAttributeConstraintsPtrInput `pulumi:"numberAttributeConstraints"`
 	// Specifies whether a user pool attribute is required. If the attribute is required and the user doesn't provide a value, registration or sign-in will fail.
 	Required pulumi.BoolPtrInput `pulumi:"required"`
-	// The `StringAttributeConstraints` property type defines the string attribute constraints of an Amazon Cognito user pool. `StringAttributeConstraints` is a subproperty of the [SchemaAttribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html) property type.
+	// Specifies the constraints for an attribute of the string type.
 	StringAttributeConstraints UserPoolStringAttributeConstraintsPtrInput `pulumi:"stringAttributeConstraints"`
 }
 
@@ -5837,7 +5837,7 @@ func (o UserPoolSchemaAttributeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolSchemaAttribute) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The minimum and maximum values of an attribute that is of the number data type.
+// Specifies the constraints for an attribute of the number type.
 func (o UserPoolSchemaAttributeOutput) NumberAttributeConstraints() UserPoolNumberAttributeConstraintsPtrOutput {
 	return o.ApplyT(func(v UserPoolSchemaAttribute) *UserPoolNumberAttributeConstraints {
 		return v.NumberAttributeConstraints
@@ -5849,7 +5849,7 @@ func (o UserPoolSchemaAttributeOutput) Required() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolSchemaAttribute) *bool { return v.Required }).(pulumi.BoolPtrOutput)
 }
 
-// The `StringAttributeConstraints` property type defines the string attribute constraints of an Amazon Cognito user pool. `StringAttributeConstraints` is a subproperty of the [SchemaAttribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html) property type.
+// Specifies the constraints for an attribute of the string type.
 func (o UserPoolSchemaAttributeOutput) StringAttributeConstraints() UserPoolStringAttributeConstraintsPtrOutput {
 	return o.ApplyT(func(v UserPoolSchemaAttribute) *UserPoolStringAttributeConstraints {
 		return v.StringAttributeConstraints

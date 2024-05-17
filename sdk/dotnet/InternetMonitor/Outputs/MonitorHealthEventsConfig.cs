@@ -14,13 +14,7 @@ namespace Pulumi.AwsNative.InternetMonitor.Outputs
     public sealed class MonitorHealthEventsConfig
     {
         /// <summary>
-        /// Configuration information that determines the threshold and other conditions for when Internet Monitor creates a health event for a local performance or availability issue, when scores cross a threshold for one or more city-networks.
-        /// 
-        /// Defines the percentages, for performance scores or availability scores, that are the local thresholds for when Amazon CloudWatch Internet Monitor creates a health event. Also defines whether a local threshold is enabled or disabled, and the minimum percentage of overall traffic that must be impacted by an issue before Internet Monitor creates an event when a	threshold is crossed for a local health score.
-        /// 
-        /// If you don't set a local health event threshold, the default value is 60%.
-        /// 
-        /// For more information, see [Change health event thresholds](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-overview.html#IMUpdateThresholdFromOverview) in the Internet Monitor section of the *Amazon CloudWatch User Guide* .
+        /// The configuration that determines the threshold and other conditions for when Internet Monitor creates a health event for a local availability issue.
         /// </summary>
         public readonly Outputs.MonitorLocalHealthEventsConfig? AvailabilityLocalHealthEventsConfig;
         /// <summary>
@@ -28,13 +22,7 @@ namespace Pulumi.AwsNative.InternetMonitor.Outputs
         /// </summary>
         public readonly double? AvailabilityScoreThreshold;
         /// <summary>
-        /// Configuration information that determines the threshold and other conditions for when Internet Monitor creates a health event for a local performance or availability issue, when scores cross a threshold for one or more city-networks.
-        /// 
-        /// Defines the percentages, for performance scores or availability scores, that are the local thresholds for when Amazon CloudWatch Internet Monitor creates a health event. Also defines whether a local threshold is enabled or disabled, and the minimum percentage of overall traffic that must be impacted by an issue before Internet Monitor creates an event when a	threshold is crossed for a local health score.
-        /// 
-        /// If you don't set a local health event threshold, the default value is 60%.
-        /// 
-        /// For more information, see [Change health event thresholds](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-overview.html#IMUpdateThresholdFromOverview) in the Internet Monitor section of the *Amazon CloudWatch User Guide* .
+        /// The configuration that determines the threshold and other conditions for when Internet Monitor creates a health event for a local performance issue.
         /// </summary>
         public readonly Outputs.MonitorLocalHealthEventsConfig? PerformanceLocalHealthEventsConfig;
         /// <summary>

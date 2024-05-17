@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.S3
     public partial class StorageLensGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// This resource sets the criteria for the Storage Lens group data that is displayed. For multiple filter conditions, the `AND` or `OR` logical operator is used.
+        /// This property contains the criteria for the Storage Lens group data that is displayed
         /// </summary>
         [Output("filter")]
         public Output<Outputs.StorageLensGroupFilter> Filter { get; private set; } = null!;
@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.S3
     public sealed class StorageLensGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This resource sets the criteria for the Storage Lens group data that is displayed. For multiple filter conditions, the `AND` or `OR` logical operator is used.
+        /// This property contains the criteria for the Storage Lens group data that is displayed
         /// </summary>
         [Input("filter", required: true)]
         public Input<Inputs.StorageLensGroupFilterArgs> Filter { get; set; } = null!;

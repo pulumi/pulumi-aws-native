@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardLineChartSortConfiguration
     {
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of categories that are displayed in a line chart.
         /// </summary>
         public readonly Outputs.DashboardItemsLimitConfiguration? CategoryItemsLimitConfiguration;
         /// <summary>
@@ -22,11 +22,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardFieldSortOptions> CategorySort;
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of lines that are displayed in a line chart.
         /// </summary>
         public readonly Outputs.DashboardItemsLimitConfiguration? ColorItemsLimitConfiguration;
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of small multiples panels that are displayed.
         /// </summary>
         public readonly Outputs.DashboardItemsLimitConfiguration? SmallMultiplesLimitConfiguration;
         /// <summary>

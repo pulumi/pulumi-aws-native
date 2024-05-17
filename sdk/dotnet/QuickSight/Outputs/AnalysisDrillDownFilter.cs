@@ -14,15 +14,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisDrillDownFilter
     {
         /// <summary>
-        /// The category drill down filter.
+        /// The category type drill down filter. This filter is used for string type columns.
         /// </summary>
         public readonly Outputs.AnalysisCategoryDrillDownFilter? CategoryFilter;
         /// <summary>
-        /// The numeric equality type drill down filter.
+        /// The numeric equality type drill down filter. This filter is used for number type columns.
         /// </summary>
         public readonly Outputs.AnalysisNumericEqualityDrillDownFilter? NumericEqualityFilter;
         /// <summary>
-        /// The time range drill down filter.
+        /// The time range drill down filter. This filter is used for date time columns.
         /// </summary>
         public readonly Outputs.AnalysisTimeRangeDrillDownFilter? TimeRangeFilter;
 

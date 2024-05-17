@@ -70,7 +70,9 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         public readonly string? RoleArn;
         /// <summary>
-        /// A set of key/value pairs that are used to manage the resource.
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

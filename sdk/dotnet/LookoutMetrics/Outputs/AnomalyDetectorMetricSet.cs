@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
         /// </summary>
         public readonly int? Offset;
         /// <summary>
-        /// Contains information about the column used to track time in a source data file.
+        /// Contains information about the column used for tracking time in your source data.
         /// </summary>
         public readonly Outputs.AnomalyDetectorTimestampColumn? TimestampColumn;
         /// <summary>

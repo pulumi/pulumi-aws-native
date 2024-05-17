@@ -28,7 +28,7 @@ class AnalyzerArgs:
         :param pulumi.Input[str] type: The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
         :param pulumi.Input['AnalyzerConfigurationPropertiesArgs'] analyzer_configuration: The configuration for the analyzer
         :param pulumi.Input[str] analyzer_name: Analyzer name
-        :param pulumi.Input[Sequence[pulumi.Input['AnalyzerArchiveRuleArgs']]] archive_rules: Contains information about an archive rule.
+        :param pulumi.Input[Sequence[pulumi.Input['AnalyzerArchiveRuleArgs']]] archive_rules: Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "type", type)
@@ -81,7 +81,7 @@ class AnalyzerArgs:
     @pulumi.getter(name="archiveRules")
     def archive_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalyzerArchiveRuleArgs']]]]:
         """
-        Contains information about an archive rule.
+        Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
         """
         return pulumi.get(self, "archive_rules")
 
@@ -156,7 +156,7 @@ class Analyzer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AnalyzerConfigurationPropertiesArgs']] analyzer_configuration: The configuration for the analyzer
         :param pulumi.Input[str] analyzer_name: Analyzer name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyzerArchiveRuleArgs']]]] archive_rules: Contains information about an archive rule.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyzerArchiveRuleArgs']]]] archive_rules: Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[str] type: The type of the analyzer, must be one of ACCOUNT, ORGANIZATION, ACCOUNT_UNUSED_ACCESS or ORGANIZATION_UNUSED_ACCESS
         """
@@ -294,7 +294,7 @@ class Analyzer(pulumi.CustomResource):
     @pulumi.getter(name="archiveRules")
     def archive_rules(self) -> pulumi.Output[Optional[Sequence['outputs.AnalyzerArchiveRule']]]:
         """
-        Contains information about an archive rule.
+        Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
         """
         return pulumi.get(self, "archive_rules")
 

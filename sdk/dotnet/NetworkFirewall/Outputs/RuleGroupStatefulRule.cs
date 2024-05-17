@@ -30,11 +30,11 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.NetworkFirewall.RuleGroupStatefulRuleAction Action;
         /// <summary>
-        /// The 5-tuple criteria for AWS Network Firewall to use to inspect packet headers in stateful traffic flow inspection. Traffic flows that match the criteria are a match for the corresponding stateful rule.
+        /// The stateful inspection criteria for this rule, used to inspect traffic flows.
         /// </summary>
         public readonly Outputs.RuleGroupHeader Header;
         /// <summary>
-        /// Additional settings for a stateful rule.
+        /// Additional settings for a stateful rule, provided as keywords and settings.
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupRuleOption> RuleOptions;
 

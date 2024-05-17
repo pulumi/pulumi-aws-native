@@ -16,9 +16,6 @@ namespace Pulumi.AwsNative.DataSync.Outputs
     [OutputType]
     public sealed class TaskReportConfigDestinationProperties
     {
-        /// <summary>
-        /// Specifies the Amazon S3 bucket where DataSync uploads your [task report](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
-        /// </summary>
         public readonly Outputs.TaskReportConfigDestinationS3? S3;
 
         [OutputConstructor]

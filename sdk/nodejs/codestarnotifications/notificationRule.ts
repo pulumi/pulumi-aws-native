@@ -78,7 +78,7 @@ export class NotificationRule extends pulumi.CustomResource {
      */
     public readonly targetAddress!: pulumi.Output<string | undefined>;
     /**
-     * Information about the AWS Chatbot topics or AWS Chatbot clients associated with a notification rule.
+     * A list of Amazon Resource Names (ARNs) of Amazon SNS topics and AWS Chatbot clients to associate with the notification rule.
      */
     public readonly targets!: pulumi.Output<outputs.codestarnotifications.NotificationRuleTarget[]>;
 
@@ -177,7 +177,7 @@ export interface NotificationRuleArgs {
      */
     targetAddress?: pulumi.Input<string>;
     /**
-     * Information about the AWS Chatbot topics or AWS Chatbot clients associated with a notification rule.
+     * A list of Amazon Resource Names (ARNs) of Amazon SNS topics and AWS Chatbot clients to associate with the notification rule.
      */
     targets: pulumi.Input<pulumi.Input<inputs.codestarnotifications.NotificationRuleTargetArgs>[]>;
 }

@@ -518,7 +518,12 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly autoScalingSpecifications!: pulumi.Output<outputs.cassandra.TableAutoScalingSpecification | undefined>;
     /**
-     * Determines the billing mode for the table - on-demand or provisioned.
+     * The billing mode for the table, which determines how you'll be charged for reads and writes:
+     *
+     * - *On-demand mode* (default) - You pay based on the actual reads and writes your application performs.
+     * - *Provisioned mode* - Lets you specify the number of reads and writes per second that you need for your application.
+     *
+     * If you don't specify a value for this property, then the table will use on-demand mode.
      */
     public readonly billingMode!: pulumi.Output<outputs.cassandra.TableBillingMode | undefined>;
     /**
@@ -534,7 +539,14 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly defaultTimeToLive!: pulumi.Output<number | undefined>;
     /**
-     * Specifies the encryption at rest option selected for the table.
+     * The encryption at rest options for the table.
+     *
+     * - *AWS owned key* (default) - The key is owned by Amazon Keyspaces .
+     * - *Customer managed key* - The key is stored in your account and is created, owned, and managed by you.
+     *
+     * > If you choose encryption with a customer managed key, you must specify a valid customer managed KMS key with permissions granted to Amazon Keyspaces.
+     *
+     * For more information, see [Encryption at rest in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide* .
      */
     public readonly encryptionSpecification!: pulumi.Output<outputs.cassandra.TableEncryptionSpecification | undefined>;
     /**
@@ -633,7 +645,12 @@ export interface TableArgs {
      */
     autoScalingSpecifications?: pulumi.Input<inputs.cassandra.TableAutoScalingSpecificationArgs>;
     /**
-     * Determines the billing mode for the table - on-demand or provisioned.
+     * The billing mode for the table, which determines how you'll be charged for reads and writes:
+     *
+     * - *On-demand mode* (default) - You pay based on the actual reads and writes your application performs.
+     * - *Provisioned mode* - Lets you specify the number of reads and writes per second that you need for your application.
+     *
+     * If you don't specify a value for this property, then the table will use on-demand mode.
      */
     billingMode?: pulumi.Input<inputs.cassandra.TableBillingModeArgs>;
     /**
@@ -649,7 +666,14 @@ export interface TableArgs {
      */
     defaultTimeToLive?: pulumi.Input<number>;
     /**
-     * Specifies the encryption at rest option selected for the table.
+     * The encryption at rest options for the table.
+     *
+     * - *AWS owned key* (default) - The key is owned by Amazon Keyspaces .
+     * - *Customer managed key* - The key is stored in your account and is created, owned, and managed by you.
+     *
+     * > If you choose encryption with a customer managed key, you must specify a valid customer managed KMS key with permissions granted to Amazon Keyspaces.
+     *
+     * For more information, see [Encryption at rest in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide* .
      */
     encryptionSpecification?: pulumi.Input<inputs.cassandra.TableEncryptionSpecificationArgs>;
     /**

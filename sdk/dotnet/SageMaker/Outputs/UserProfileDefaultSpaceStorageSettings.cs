@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     public sealed class UserProfileDefaultSpaceStorageSettings
     {
         /// <summary>
-        /// A collection of default EBS storage settings that apply to spaces created within a domain or user profile.
+        /// The default EBS storage settings for a space.
         /// </summary>
         public readonly Outputs.UserProfileDefaultEbsStorageSettings? DefaultEbsStorageSettings;
 

@@ -61,11 +61,11 @@ export class Alias extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A provisioned concurrency configuration for a function's alias.
+     * Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
      */
     public readonly provisionedConcurrencyConfig!: pulumi.Output<outputs.lambda.AliasProvisionedConcurrencyConfiguration | undefined>;
     /**
-     * The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+     * The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
      */
     public readonly routingConfig!: pulumi.Output<outputs.lambda.AliasRoutingConfiguration | undefined>;
 
@@ -136,11 +136,11 @@ export interface AliasArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A provisioned concurrency configuration for a function's alias.
+     * Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
      */
     provisionedConcurrencyConfig?: pulumi.Input<inputs.lambda.AliasProvisionedConcurrencyConfigurationArgs>;
     /**
-     * The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+     * The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
      */
     routingConfig?: pulumi.Input<inputs.lambda.AliasRoutingConfigurationArgs>;
 }

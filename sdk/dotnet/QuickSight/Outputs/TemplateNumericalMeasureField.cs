@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateNumericalMeasureField
     {
         /// <summary>
-        /// Aggregation for numerical values.
+        /// The aggregation function of the measure field.
         /// </summary>
         public readonly Outputs.TemplateNumericalAggregationFunction? AggregationFunction;
         /// <summary>
-        /// A column of a data set.
+        /// The column that is used in the `NumericalMeasureField` .
         /// </summary>
         public readonly Outputs.TemplateColumnIdentifier Column;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string FieldId;
         /// <summary>
-        /// Formatting configuration for number fields.
+        /// The format configuration of the field.
         /// </summary>
         public readonly Outputs.TemplateNumberFormatConfiguration? FormatConfiguration;
 

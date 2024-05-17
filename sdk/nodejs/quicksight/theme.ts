@@ -50,7 +50,7 @@ export class Theme extends pulumi.CustomResource {
      */
     public readonly baseThemeId!: pulumi.Output<string>;
     /**
-     * The theme configuration. This configuration contains all of the display properties for a theme.
+     * The theme configuration, which contains the theme display properties.
      */
     public readonly configuration!: pulumi.Output<outputs.quicksight.ThemeConfiguration>;
     /**
@@ -66,7 +66,7 @@ export class Theme extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Permission for the resource.
+     * A valid grouping of resource permissions to apply to the new theme.
      */
     public readonly permissions!: pulumi.Output<outputs.quicksight.ThemeResourcePermission[] | undefined>;
     /**
@@ -81,9 +81,6 @@ export class Theme extends pulumi.CustomResource {
      * Theme type.
      */
     public /*out*/ readonly type!: pulumi.Output<enums.quicksight.ThemeType>;
-    /**
-     * A version of a theme.
-     */
     public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.ThemeVersion>;
     /**
      * A description of the first version of the theme that you're creating. Every time `UpdateTheme` is called, a new version is created. Each version of the theme has a description of the version in the `VersionDescription` field.
@@ -161,7 +158,7 @@ export interface ThemeArgs {
      */
     baseThemeId: pulumi.Input<string>;
     /**
-     * The theme configuration. This configuration contains all of the display properties for a theme.
+     * The theme configuration, which contains the theme display properties.
      */
     configuration: pulumi.Input<inputs.quicksight.ThemeConfigurationArgs>;
     /**
@@ -169,7 +166,7 @@ export interface ThemeArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Permission for the resource.
+     * A valid grouping of resource permissions to apply to the new theme.
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.ThemeResourcePermissionArgs>[]>;
     /**

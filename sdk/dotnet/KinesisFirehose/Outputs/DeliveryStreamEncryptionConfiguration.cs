@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     public sealed class DeliveryStreamEncryptionConfiguration
     {
         /// <summary>
-        /// The `KMSEncryptionConfig` property type specifies the AWS Key Management Service ( AWS KMS) encryption key that Amazon Simple Storage Service (Amazon S3) uses to encrypt data delivered by the Amazon Kinesis Data Firehose (Kinesis Data Firehose) stream.
+        /// The AWS Key Management Service ( AWS KMS) encryption key that Amazon S3 uses to encrypt your data.
         /// </summary>
         public readonly Outputs.DeliveryStreamKmsEncryptionConfig? KmsEncryptionConfig;
         /// <summary>

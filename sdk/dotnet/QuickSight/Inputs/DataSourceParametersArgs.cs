@@ -30,19 +30,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.DataSourceAmazonOpenSearchParametersArgs>? AmazonOpenSearchParameters { get; set; }
 
         /// <summary>
-        /// Parameters for Amazon Athena.
+        /// The parameters for Amazon Athena.
         /// </summary>
         [Input("athenaParameters")]
         public Input<Inputs.DataSourceAthenaParametersArgs>? AthenaParameters { get; set; }
 
         /// <summary>
-        /// Parameters for Amazon Aurora.
+        /// The parameters for Amazon Aurora MySQL.
         /// </summary>
         [Input("auroraParameters")]
         public Input<Inputs.DataSourceAuroraParametersArgs>? AuroraParameters { get; set; }
 
         /// <summary>
-        /// Parameters for Amazon Aurora PostgreSQL-Compatible Edition.
+        /// The parameters for Amazon Aurora.
         /// </summary>
         [Input("auroraPostgreSqlParameters")]
         public Input<Inputs.DataSourceAuroraPostgreSqlParametersArgs>? AuroraPostgreSqlParameters { get; set; }
@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.DataSourceRdsParametersArgs>? RdsParameters { get; set; }
 
         /// <summary>
-        /// The parameters for Amazon Redshift. The `ClusterId` field can be blank if `Host` and `Port` are both set. The `Host` and `Port` fields can be blank if the `ClusterId` field is set.
+        /// The parameters for Amazon Redshift.
         /// </summary>
         [Input("redshiftParameters")]
         public Input<Inputs.DataSourceRedshiftParametersArgs>? RedshiftParameters { get; set; }

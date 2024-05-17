@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisTimeRangeDrillDownFilter
     {
         /// <summary>
-        /// A column of a data set.
+        /// The column that the filter is applied to.
         /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier Column;
         /// <summary>

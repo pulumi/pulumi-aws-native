@@ -42,7 +42,7 @@ class UserSettingsArgs:
         :param pulumi.Input[str] customer_managed_key: The customer managed key used to encrypt sensitive information in the user settings.
         :param pulumi.Input[float] disconnect_timeout_in_minutes: The amount of time that a streaming session remains active after users disconnect.
         :param pulumi.Input[float] idle_disconnect_timeout_in_minutes: The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tag.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the user settings resource. A tag is a key-value pair.
         """
         pulumi.set(__self__, "copy_allowed", copy_allowed)
         pulumi.set(__self__, "download_allowed", download_allowed)
@@ -186,7 +186,7 @@ class UserSettingsArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The tag.
+        The tags to add to the user settings resource. A tag is a key-value pair.
         """
         return pulumi.get(self, "tags")
 
@@ -226,7 +226,7 @@ class UserSettings(pulumi.CustomResource):
         :param pulumi.Input[float] idle_disconnect_timeout_in_minutes: The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
         :param pulumi.Input['UserSettingsEnabledType'] paste_allowed: Specifies whether the user can paste text from the local device to the streaming session.
         :param pulumi.Input['UserSettingsEnabledType'] print_allowed: Specifies whether the user can print to the local device.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tag.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to add to the user settings resource. A tag is a key-value pair.
         :param pulumi.Input['UserSettingsEnabledType'] upload_allowed: Specifies whether the user can upload files from the local device to the streaming session.
         """
         ...
@@ -419,7 +419,7 @@ class UserSettings(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The tag.
+        The tags to add to the user settings resource. A tag is a key-value pair.
         """
         return pulumi.get(self, "tags")
 

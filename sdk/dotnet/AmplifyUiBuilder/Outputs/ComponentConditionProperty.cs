@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     public sealed class ComponentConditionProperty
     {
         /// <summary>
-        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// The value to assign to the property if the condition is not met.
         /// </summary>
         public readonly Outputs.ComponentProperty? Else;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
         /// </summary>
         public readonly string? Property;
         /// <summary>
-        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// The value to assign to the property if the condition is met.
         /// </summary>
         public readonly Outputs.ComponentProperty? Then;
 

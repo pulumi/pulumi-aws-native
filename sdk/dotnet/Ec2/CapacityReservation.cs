@@ -108,9 +108,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> PlacementGroupArn { get; private set; } = null!;
 
         /// <summary>
-        /// An array of key-value pairs to apply to this resource.
-        /// 
-        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// The tags to apply to the Capacity Reservation during launch.
         /// </summary>
         [Output("tagSpecifications")]
         public Output<ImmutableArray<Outputs.CapacityReservationTagSpecification>> TagSpecifications { get; private set; } = null!;
@@ -272,9 +270,7 @@ namespace Pulumi.AwsNative.Ec2
         private InputList<Inputs.CapacityReservationTagSpecificationArgs>? _tagSpecifications;
 
         /// <summary>
-        /// An array of key-value pairs to apply to this resource.
-        /// 
-        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        /// The tags to apply to the Capacity Reservation during launch.
         /// </summary>
         public InputList<Inputs.CapacityReservationTagSpecificationArgs> TagSpecifications
         {

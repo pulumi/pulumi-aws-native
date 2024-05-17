@@ -62,7 +62,9 @@ namespace Pulumi.AwsNative.StepFunctions
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// The `TagsEntry` property specifies *tags* to identify an activity.
+        /// The list of tags to add to a resource.
+        /// 
+        /// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

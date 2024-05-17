@@ -79,11 +79,6 @@ class GetDomainResult:
     @property
     @pulumi.getter
     def certificate(self) -> Optional['outputs.DomainCertificate']:
-        """
-        Describes the SSL/TLS certificate for the domain association. This can be your own custom certificate or the default certificate that Amplify provisions for you.
-
-        If you are updating your domain to use a different certificate, `Certificate` points to the new certificate that is being created instead of the current active certificate. Otherwise, `Certificate` points to the current active certificate.
-        """
         return pulumi.get(self, "certificate")
 
     @property
@@ -122,7 +117,7 @@ class GetDomainResult:
     @pulumi.getter(name="subDomainSettings")
     def sub_domain_settings(self) -> Optional[Sequence['outputs.DomainSubDomainSetting']]:
         """
-        The SubDomainSetting property type enables you to connect a subdomain (for example, example.exampledomain.com) to a specific branch.
+        The setting for the subdomain.
         """
         return pulumi.get(self, "sub_domain_settings")
 

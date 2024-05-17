@@ -17,10 +17,9 @@ type Fleet struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name (ARN) assigned to the fleet.
-	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The amounts and attributes of fleets.
+	Arn          pulumi.StringOutput     `pulumi:"arn"`
 	Capabilities FleetCapabilitiesOutput `pulumi:"capabilities"`
-	// Fleet configuration details.
+	// The configuration details for the fleet.
 	Configuration pulumi.AnyOutput `pulumi:"configuration"`
 	// A description that helps identify what the fleet is used for.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -98,7 +97,7 @@ func (FleetState) ElementType() reflect.Type {
 }
 
 type fleetArgs struct {
-	// Fleet configuration details.
+	// The configuration details for the fleet.
 	Configuration interface{} `pulumi:"configuration"`
 	// A description that helps identify what the fleet is used for.
 	Description *string `pulumi:"description"`
@@ -116,7 +115,7 @@ type fleetArgs struct {
 
 // The set of arguments for constructing a Fleet resource.
 type FleetArgs struct {
-	// Fleet configuration details.
+	// The configuration details for the fleet.
 	Configuration pulumi.Input
 	// A description that helps identify what the fleet is used for.
 	Description pulumi.StringPtrInput
@@ -174,12 +173,11 @@ func (o FleetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The amounts and attributes of fleets.
 func (o FleetOutput) Capabilities() FleetCapabilitiesOutput {
 	return o.ApplyT(func(v *Fleet) FleetCapabilitiesOutput { return v.Capabilities }).(FleetCapabilitiesOutput)
 }
 
-// Fleet configuration details.
+// The configuration details for the fleet.
 func (o FleetOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.AnyOutput { return v.Configuration }).(pulumi.AnyOutput)
 }

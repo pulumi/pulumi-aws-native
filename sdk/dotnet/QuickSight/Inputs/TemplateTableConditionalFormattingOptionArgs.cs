@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.TemplateTableCellConditionalFormattingArgs>? Cell { get; set; }
 
         /// <summary>
-        /// The conditional formatting of a table row.
+        /// The row conditional formatting option for a table.
         /// </summary>
         [Input("row")]
         public Input<Inputs.TemplateTableRowConditionalFormattingArgs>? Row { get; set; }

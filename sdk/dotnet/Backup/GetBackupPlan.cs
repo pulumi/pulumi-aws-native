@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.Backup
     public sealed class GetBackupPlanResult
     {
         /// <summary>
-        /// Specifies an object containing properties used to create a backup plan.
+        /// Uniquely identifies the backup plan to be associated with the selection of resources.
         /// </summary>
         public readonly Outputs.BackupPlanResourceType? BackupPlanValue;
         /// <summary>

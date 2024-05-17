@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         private InputList<Inputs.CapacityReservationTagArgs>? _tags;
 
         /// <summary>
-        /// Describes a tag.
+        /// The tags to apply to the resource.
         /// </summary>
         public InputList<Inputs.CapacityReservationTagArgs> Tags
         {

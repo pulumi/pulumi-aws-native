@@ -47,6 +47,8 @@ export class Application extends pulumi.CustomResource {
     public /*out*/ readonly applicationId!: pulumi.Output<string>;
     /**
      * The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+     *
+     * For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
      */
     public readonly definition!: pulumi.Output<outputs.m2.ApplicationDefinition0Properties | outputs.m2.ApplicationDefinition1Properties>;
     /**
@@ -126,6 +128,8 @@ export class Application extends pulumi.CustomResource {
 export interface ApplicationArgs {
     /**
      * The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+     *
+     * For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
      */
     definition: pulumi.Input<inputs.m2.ApplicationDefinition0PropertiesArgs | inputs.m2.ApplicationDefinition1PropertiesArgs>;
     /**

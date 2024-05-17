@@ -99,7 +99,7 @@ export interface GetClusterResult {
      */
     readonly encrypted?: boolean;
     /**
-     * Describes a connection endpoint.
+     * The connection endpoint.
      */
     readonly endpoint?: outputs.redshift.ClusterEndpoint;
     /**

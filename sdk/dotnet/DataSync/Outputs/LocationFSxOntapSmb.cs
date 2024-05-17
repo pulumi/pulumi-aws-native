@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.DataSync.Outputs
         /// </summary>
         public readonly string? Domain;
         /// <summary>
-        /// Specifies the version of the Server Message Block (SMB) protocol that AWS DataSync uses to access an SMB file server.
+        /// Specifies how DataSync can access a location using the SMB protocol.
         /// </summary>
         public readonly Outputs.LocationFSxOntapSmbMountOptions MountOptions;
         /// <summary>

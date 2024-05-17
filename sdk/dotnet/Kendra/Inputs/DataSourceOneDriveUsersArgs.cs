@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         }
 
         /// <summary>
-        /// Information required to find a specific file in an Amazon S3 bucket.
+        /// The S3 bucket location of a file containing a list of users whose documents should be indexed.
         /// </summary>
         [Input("oneDriveUserS3Path")]
         public Input<Inputs.DataSourceS3PathArgs>? OneDriveUserS3Path { get; set; }

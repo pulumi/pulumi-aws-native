@@ -37,7 +37,7 @@ type Collaboration struct {
 	DataEncryptionMetadata CollaborationDataEncryptionMetadataPtrOutput `pulumi:"dataEncryptionMetadata"`
 	// A description of the collaboration provided by the collaboration owner.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Basic metadata used to construct a new member.
+	// A list of initial members, not including the creator. This list is immutable.
 	Members CollaborationMemberSpecificationArrayOutput `pulumi:"members"`
 	// A human-readable identifier provided by the collaboration owner. Display names are not unique.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -123,7 +123,7 @@ type collaborationArgs struct {
 	DataEncryptionMetadata *CollaborationDataEncryptionMetadata `pulumi:"dataEncryptionMetadata"`
 	// A description of the collaboration provided by the collaboration owner.
 	Description string `pulumi:"description"`
-	// Basic metadata used to construct a new member.
+	// A list of initial members, not including the creator. This list is immutable.
 	Members []CollaborationMemberSpecification `pulumi:"members"`
 	// A human-readable identifier provided by the collaboration owner. Display names are not unique.
 	Name *string `pulumi:"name"`
@@ -147,7 +147,7 @@ type CollaborationArgs struct {
 	DataEncryptionMetadata CollaborationDataEncryptionMetadataPtrInput
 	// A description of the collaboration provided by the collaboration owner.
 	Description pulumi.StringInput
-	// Basic metadata used to construct a new member.
+	// A list of initial members, not including the creator. This list is immutable.
 	Members CollaborationMemberSpecificationArrayInput
 	// A human-readable identifier provided by the collaboration owner. Display names are not unique.
 	Name pulumi.StringPtrInput
@@ -237,7 +237,7 @@ func (o CollaborationOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Collaboration) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Basic metadata used to construct a new member.
+// A list of initial members, not including the creator. This list is immutable.
 func (o CollaborationOutput) Members() CollaborationMemberSpecificationArrayOutput {
 	return o.ApplyT(func(v *Collaboration) CollaborationMemberSpecificationArrayOutput { return v.Members }).(CollaborationMemberSpecificationArrayOutput)
 }

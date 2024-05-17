@@ -28,7 +28,7 @@ type Application struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The display name of the application. This name is visible to users in the application catalog.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// The S3 location of the application icon.
+	// The icon S3 location of the application.
 	IconS3Location ApplicationS3LocationOutput `pulumi:"iconS3Location"`
 	// The instance families the application supports.
 	//
@@ -46,7 +46,7 @@ type Application struct {
 	//
 	// *Allowed Values* : `WINDOWS_SERVER_2019` | `AMAZON_LINUX2`
 	Platforms pulumi.StringArrayOutput `pulumi:"platforms"`
-	// The tag of the application.
+	// The tags of the application.
 	Tags pulumi.ArrayOutput `pulumi:"tags"`
 	// The working directory of the application.
 	WorkingDirectory pulumi.StringPtrOutput `pulumi:"workingDirectory"`
@@ -121,7 +121,7 @@ type applicationArgs struct {
 	Description *string `pulumi:"description"`
 	// The display name of the application. This name is visible to users in the application catalog.
 	DisplayName *string `pulumi:"displayName"`
-	// The S3 location of the application icon.
+	// The icon S3 location of the application.
 	IconS3Location ApplicationS3Location `pulumi:"iconS3Location"`
 	// The instance families the application supports.
 	//
@@ -139,7 +139,7 @@ type applicationArgs struct {
 	//
 	// *Allowed Values* : `WINDOWS_SERVER_2019` | `AMAZON_LINUX2`
 	Platforms []string `pulumi:"platforms"`
-	// The tag of the application.
+	// The tags of the application.
 	Tags []interface{} `pulumi:"tags"`
 	// The working directory of the application.
 	WorkingDirectory *string `pulumi:"workingDirectory"`
@@ -155,7 +155,7 @@ type ApplicationArgs struct {
 	Description pulumi.StringPtrInput
 	// The display name of the application. This name is visible to users in the application catalog.
 	DisplayName pulumi.StringPtrInput
-	// The S3 location of the application icon.
+	// The icon S3 location of the application.
 	IconS3Location ApplicationS3LocationInput
 	// The instance families the application supports.
 	//
@@ -173,7 +173,7 @@ type ApplicationArgs struct {
 	//
 	// *Allowed Values* : `WINDOWS_SERVER_2019` | `AMAZON_LINUX2`
 	Platforms pulumi.StringArrayInput
-	// The tag of the application.
+	// The tags of the application.
 	Tags pulumi.ArrayInput
 	// The working directory of the application.
 	WorkingDirectory pulumi.StringPtrInput
@@ -246,7 +246,7 @@ func (o ApplicationOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The S3 location of the application icon.
+// The icon S3 location of the application.
 func (o ApplicationOutput) IconS3Location() ApplicationS3LocationOutput {
 	return o.ApplyT(func(v *Application) ApplicationS3LocationOutput { return v.IconS3Location }).(ApplicationS3LocationOutput)
 }
@@ -282,7 +282,7 @@ func (o ApplicationOutput) Platforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringArrayOutput { return v.Platforms }).(pulumi.StringArrayOutput)
 }
 
-// The tag of the application.
+// The tags of the application.
 func (o ApplicationOutput) Tags() pulumi.ArrayOutput {
 	return o.ApplyT(func(v *Application) pulumi.ArrayOutput { return v.Tags }).(pulumi.ArrayOutput)
 }

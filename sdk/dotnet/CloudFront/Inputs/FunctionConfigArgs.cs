@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         private InputList<Inputs.FunctionKeyValueStoreAssociationArgs>? _keyValueStoreAssociations;
 
         /// <summary>
-        /// The key value store association.
+        /// The configuration for the key value store associations.
         /// </summary>
         public InputList<Inputs.FunctionKeyValueStoreAssociationArgs> KeyValueStoreAssociations
         {

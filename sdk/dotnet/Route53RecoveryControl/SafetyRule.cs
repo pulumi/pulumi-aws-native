@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The rule configuration for an assertion rule. That is, the criteria that you set for specific assertion controls (routing controls) that specify how many controls must be enabled after a transaction completes.
+        /// The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction. For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
         /// </summary>
         [Output("ruleConfig")]
         public Output<Outputs.SafetyRuleRuleConfig?> RuleConfig { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The rule configuration for an assertion rule. That is, the criteria that you set for specific assertion controls (routing controls) that specify how many controls must be enabled after a transaction completes.
+        /// The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction. For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
         /// </summary>
         [Input("ruleConfig")]
         public Input<Inputs.SafetyRuleRuleConfigArgs>? RuleConfig { get; set; }

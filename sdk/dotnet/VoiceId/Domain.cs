@@ -34,13 +34,13 @@ namespace Pulumi.AwsNative.VoiceId
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration containing information about the customer managed key used for encrypting customer data.
+        /// The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
         /// </summary>
         [Output("serverSideEncryptionConfiguration")]
         public Output<Outputs.DomainServerSideEncryptionConfiguration> ServerSideEncryptionConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        /// The tags used to organize, track, or control access for this resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.VoiceId
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The configuration containing information about the customer managed key used for encrypting customer data.
+        /// The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
         /// </summary>
         [Input("serverSideEncryptionConfiguration", required: true)]
         public Input<Inputs.DomainServerSideEncryptionConfigurationArgs> ServerSideEncryptionConfiguration { get; set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.VoiceId
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        /// The tags used to organize, track, or control access for this resource.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

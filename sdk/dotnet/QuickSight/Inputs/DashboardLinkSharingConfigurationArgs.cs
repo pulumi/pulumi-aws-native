@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.DashboardResourcePermissionArgs>? _permissions;
 
         /// <summary>
-        /// Permission for the resource.
+        /// A structure that contains the permissions of a shareable link.
         /// </summary>
         public InputList<Inputs.DashboardResourcePermissionArgs> Permissions
         {

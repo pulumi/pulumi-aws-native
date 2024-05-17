@@ -53,9 +53,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// 
         /// &gt; If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
         /// 
-        /// This configuration is used for `GeoMatchStatement` and `RateBasedStatement` . For `IPSetReferenceStatement` , use `IPSetForwardedIPConfig` instead.
-        /// 
-        /// AWS WAF only evaluates the first IP address found in the specified HTTP header.
+        /// This is required if you specify a forwarded IP in the rule's aggregate key settings.
         /// </summary>
         public readonly Outputs.RuleGroupForwardedIpConfiguration? ForwardedIpConfig;
         /// <summary>
@@ -68,7 +66,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// </summary>
         public readonly int Limit;
         /// <summary>
-        /// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+        /// An optional nested statement that narrows the scope of the web requests that are evaluated and managed by the rate-based statement. When you use a scope-down statement, the rate-based rule only tracks and rate limits requests that match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
         /// </summary>
         public readonly Outputs.RuleGroupStatement? ScopeDownStatement;
 

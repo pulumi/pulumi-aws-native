@@ -46,7 +46,7 @@ type EventDataStore struct {
 	RetentionPeriod pulumi.IntPtrOutput `pulumi:"retentionPeriod"`
 	// The status of an event data store. Values are STARTING_INGESTION, ENABLED, STOPPING_INGESTION, STOPPED_INGESTION and PENDING_DELETION.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+	// A list of tags.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Indicates whether the event data store is protected from termination.
 	TerminationProtectionEnabled pulumi.BoolPtrOutput `pulumi:"terminationProtectionEnabled"`
@@ -118,7 +118,7 @@ type eventDataStoreArgs struct {
 	OrganizationEnabled *bool `pulumi:"organizationEnabled"`
 	// The retention period, in days.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
-	// A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+	// A list of tags.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Indicates whether the event data store is protected from termination.
 	TerminationProtectionEnabled *bool `pulumi:"terminationProtectionEnabled"`
@@ -150,7 +150,7 @@ type EventDataStoreArgs struct {
 	OrganizationEnabled pulumi.BoolPtrInput
 	// The retention period, in days.
 	RetentionPeriod pulumi.IntPtrInput
-	// A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+	// A list of tags.
 	Tags aws.TagArrayInput
 	// Indicates whether the event data store is protected from termination.
 	TerminationProtectionEnabled pulumi.BoolPtrInput
@@ -270,7 +270,7 @@ func (o EventDataStoreOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventDataStore) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
-// A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+// A list of tags.
 func (o EventDataStoreOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *EventDataStore) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

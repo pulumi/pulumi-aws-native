@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.CleanRooms
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Basic metadata used to construct a new member.
+        /// A list of initial members, not including the creator. This list is immutable.
         /// </summary>
         [Output("members")]
         public Output<ImmutableArray<Outputs.CollaborationMemberSpecification>> Members { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.AwsNative.CleanRooms
         private InputList<Inputs.CollaborationMemberSpecificationArgs>? _members;
 
         /// <summary>
-        /// Basic metadata used to construct a new member.
+        /// A list of initial members, not including the creator. This list is immutable.
         /// </summary>
         public InputList<Inputs.CollaborationMemberSpecificationArgs> Members
         {

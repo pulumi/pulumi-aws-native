@@ -43,7 +43,7 @@ export class SamplingRule extends pulumi.CustomResource {
     public /*out*/ readonly ruleArn!: pulumi.Output<string>;
     public readonly ruleName!: pulumi.Output<string | undefined>;
     /**
-     * A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+     * The sampling rule to be created or updated.
      */
     public readonly samplingRule!: pulumi.Output<outputs.xray.SamplingRule | undefined>;
     public readonly samplingRuleRecord!: pulumi.Output<outputs.xray.SamplingRuleRecord | undefined>;
@@ -89,7 +89,7 @@ export class SamplingRule extends pulumi.CustomResource {
 export interface SamplingRuleArgs {
     ruleName?: pulumi.Input<string>;
     /**
-     * A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+     * The sampling rule to be created or updated.
      */
     samplingRule?: pulumi.Input<inputs.xray.SamplingRuleArgs>;
     samplingRuleRecord?: pulumi.Input<inputs.xray.SamplingRuleRecordArgs>;

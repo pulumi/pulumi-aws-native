@@ -17,7 +17,7 @@ import (
 type StorageLensGroup struct {
 	pulumi.CustomResourceState
 
-	// This resource sets the criteria for the Storage Lens group data that is displayed. For multiple filter conditions, the `AND` or `OR` logical operator is used.
+	// This property contains the criteria for the Storage Lens group data that is displayed
 	Filter StorageLensGroupFilterOutput `pulumi:"filter"`
 	// This property contains the Storage Lens group name.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -74,7 +74,7 @@ func (StorageLensGroupState) ElementType() reflect.Type {
 }
 
 type storageLensGroupArgs struct {
-	// This resource sets the criteria for the Storage Lens group data that is displayed. For multiple filter conditions, the `AND` or `OR` logical operator is used.
+	// This property contains the criteria for the Storage Lens group data that is displayed
 	Filter StorageLensGroupFilter `pulumi:"filter"`
 	// This property contains the Storage Lens group name.
 	Name *string `pulumi:"name"`
@@ -84,7 +84,7 @@ type storageLensGroupArgs struct {
 
 // The set of arguments for constructing a StorageLensGroup resource.
 type StorageLensGroupArgs struct {
-	// This resource sets the criteria for the Storage Lens group data that is displayed. For multiple filter conditions, the `AND` or `OR` logical operator is used.
+	// This property contains the criteria for the Storage Lens group data that is displayed
 	Filter StorageLensGroupFilterInput
 	// This property contains the Storage Lens group name.
 	Name pulumi.StringPtrInput
@@ -129,7 +129,7 @@ func (o StorageLensGroupOutput) ToStorageLensGroupOutputWithContext(ctx context.
 	return o
 }
 
-// This resource sets the criteria for the Storage Lens group data that is displayed. For multiple filter conditions, the `AND` or `OR` logical operator is used.
+// This property contains the criteria for the Storage Lens group data that is displayed
 func (o StorageLensGroupOutput) Filter() StorageLensGroupFilterOutput {
 	return o.ApplyT(func(v *StorageLensGroup) StorageLensGroupFilterOutput { return v.Filter }).(StorageLensGroupFilterOutput)
 }

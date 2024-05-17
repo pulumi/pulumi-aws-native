@@ -107,9 +107,6 @@ namespace Pulumi.AwsNative.CleanRooms
         /// Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
         /// </summary>
         public readonly string? MembershipArn;
-        /// <summary>
-        /// A relation within an analysis.
-        /// </summary>
         public readonly Outputs.AnalysisTemplateAnalysisSchema? Schema;
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.

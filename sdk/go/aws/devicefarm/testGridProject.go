@@ -22,9 +22,11 @@ type TestGridProject struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A human-readable name for the project.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// The VPC security groups and subnets attached to the `TestGrid` project.
+	// The VPC security groups and subnets that are attached to a project.
 	VpcConfig TestGridProjectVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
 
@@ -72,9 +74,11 @@ type testGridProjectArgs struct {
 	Description *string `pulumi:"description"`
 	// A human-readable name for the project.
 	Name *string `pulumi:"name"`
-	// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
 	Tags []aws.Tag `pulumi:"tags"`
-	// The VPC security groups and subnets attached to the `TestGrid` project.
+	// The VPC security groups and subnets that are attached to a project.
 	VpcConfig *TestGridProjectVpcConfig `pulumi:"vpcConfig"`
 }
 
@@ -84,9 +88,11 @@ type TestGridProjectArgs struct {
 	Description pulumi.StringPtrInput
 	// A human-readable name for the project.
 	Name pulumi.StringPtrInput
-	// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
 	Tags aws.TagArrayInput
-	// The VPC security groups and subnets attached to the `TestGrid` project.
+	// The VPC security groups and subnets that are attached to a project.
 	VpcConfig TestGridProjectVpcConfigPtrInput
 }
 
@@ -142,12 +148,14 @@ func (o TestGridProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TestGridProject) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
 func (o TestGridProjectOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *TestGridProject) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// The VPC security groups and subnets attached to the `TestGrid` project.
+// The VPC security groups and subnets that are attached to a project.
 func (o TestGridProjectOutput) VpcConfig() TestGridProjectVpcConfigPtrOutput {
 	return o.ApplyT(func(v *TestGridProject) TestGridProjectVpcConfigPtrOutput { return v.VpcConfig }).(TestGridProjectVpcConfigPtrOutput)
 }

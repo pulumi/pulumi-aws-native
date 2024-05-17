@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly ImmutableArray<string> CalculatedFieldSynonyms;
         /// <summary>
-        /// A structure that represents the cell value synonym.
+        /// The other names or aliases for the calculated field cell value.
         /// </summary>
         public readonly ImmutableArray<Outputs.TopicCellValueSynonym> CellValueSynonyms;
         /// <summary>
@@ -42,11 +42,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TopicColumnDataRole? ColumnDataRole;
         /// <summary>
-        /// The order in which data is displayed for the column when it's used in a comparative context.
+        /// The order in which data is displayed for the calculated field when it's used in a comparative context.
         /// </summary>
         public readonly Outputs.TopicComparativeOrder? ComparativeOrder;
         /// <summary>
-        /// A structure that represents a default formatting definition.
+        /// The default formatting definition.
         /// </summary>
         public readonly Outputs.TopicDefaultFormatting? DefaultFormatting;
         /// <summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.QuickSight.TopicAuthorSpecifiedAggregation> NotAllowedAggregations;
         /// <summary>
-        /// A structure that represents a semantic type.
+        /// The semantic type.
         /// </summary>
         public readonly Outputs.TopicSemanticType? SemanticType;
         /// <summary>

@@ -30,9 +30,7 @@ type LookupKeyGroupArgs struct {
 type LookupKeyGroupResult struct {
 	// The identifier for the key group.
 	Id *string `pulumi:"id"`
-	// A key group configuration.
-	//
-	// A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) .
+	// The key group configuration.
 	KeyGroupConfig *KeyGroupConfig `pulumi:"keyGroupConfig"`
 	// The date and time when the key group was last modified.
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
@@ -79,9 +77,7 @@ func (o LookupKeyGroupResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKeyGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// A key group configuration.
-//
-// A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) .
+// The key group configuration.
 func (o LookupKeyGroupResultOutput) KeyGroupConfig() KeyGroupConfigPtrOutput {
 	return o.ApplyT(func(v LookupKeyGroupResult) *KeyGroupConfig { return v.KeyGroupConfig }).(KeyGroupConfigPtrOutput)
 }

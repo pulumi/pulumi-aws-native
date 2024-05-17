@@ -52,13 +52,13 @@ namespace Pulumi.AwsNative.S3.Inputs
         }
 
         /// <summary>
-        /// This resource contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+        /// This property contains `DaysGreaterThan` and `DaysLessThan` properties to define the object age range (minimum and maximum number of days).
         /// </summary>
         [Input("matchObjectAge")]
         public Input<Inputs.StorageLensGroupMatchObjectAgeArgs>? MatchObjectAge { get; set; }
 
         /// <summary>
-        /// This resource filters objects that match the specified object size range.
+        /// This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
         /// </summary>
         [Input("matchObjectSize")]
         public Input<Inputs.StorageLensGroupMatchObjectSizeArgs>? MatchObjectSize { get; set; }

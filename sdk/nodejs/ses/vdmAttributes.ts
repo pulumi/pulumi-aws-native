@@ -38,11 +38,11 @@ export class VdmAttributes extends pulumi.CustomResource {
     }
 
     /**
-     * Settings for your VDM configuration as applicable to the Dashboard.
+     * Specifies additional settings for your VDM configuration as applicable to the Dashboard.
      */
     public readonly dashboardAttributes!: pulumi.Output<outputs.ses.VdmAttributesDashboardAttributes | undefined>;
     /**
-     * Settings for your VDM configuration as applicable to the Guardian.
+     * Specifies additional settings for your VDM configuration as applicable to the Guardian.
      */
     public readonly guardianAttributes!: pulumi.Output<outputs.ses.VdmAttributesGuardianAttributes | undefined>;
     /**
@@ -79,11 +79,11 @@ export class VdmAttributes extends pulumi.CustomResource {
  */
 export interface VdmAttributesArgs {
     /**
-     * Settings for your VDM configuration as applicable to the Dashboard.
+     * Specifies additional settings for your VDM configuration as applicable to the Dashboard.
      */
     dashboardAttributes?: pulumi.Input<inputs.ses.VdmAttributesDashboardAttributesArgs>;
     /**
-     * Settings for your VDM configuration as applicable to the Guardian.
+     * Specifies additional settings for your VDM configuration as applicable to the Guardian.
      */
     guardianAttributes?: pulumi.Input<inputs.ses.VdmAttributesGuardianAttributesArgs>;
 }

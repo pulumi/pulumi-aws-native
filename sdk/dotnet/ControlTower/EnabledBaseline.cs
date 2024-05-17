@@ -34,13 +34,13 @@ namespace Pulumi.AwsNative.ControlTower
         public Output<string> EnabledBaselineIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// A key-value parameter to an `EnabledBaseline` resource.
+        /// Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableArray<Outputs.EnabledBaselineParameter>> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// A key-value parameter to an `EnabledBaseline` resource.
+        /// Tags associated with input to `EnableBaseline` .
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.AwsNative.ControlTower
         private InputList<Inputs.EnabledBaselineParameterArgs>? _parameters;
 
         /// <summary>
-        /// A key-value parameter to an `EnabledBaseline` resource.
+        /// Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
         /// </summary>
         public InputList<Inputs.EnabledBaselineParameterArgs> Parameters
         {
@@ -129,7 +129,7 @@ namespace Pulumi.AwsNative.ControlTower
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A key-value parameter to an `EnabledBaseline` resource.
+        /// Tags associated with input to `EnableBaseline` .
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

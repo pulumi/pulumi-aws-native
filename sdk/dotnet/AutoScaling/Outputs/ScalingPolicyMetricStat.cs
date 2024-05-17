@@ -14,9 +14,7 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
     public sealed class ScalingPolicyMetricStat
     {
         /// <summary>
-        /// Represents a specific metric.
-        /// 
-        /// `Metric` is a property of the [AWS::AutoScaling::ScalingPolicy MetricStat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricstat.html) property type.
+        /// The CloudWatch metric to return, including the metric name, namespace, and dimensions. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
         /// </summary>
         public readonly Outputs.ScalingPolicyMetric Metric;
         /// <summary>

@@ -62,9 +62,7 @@ namespace Pulumi.AwsNative.CloudFront
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// A key group configuration.
-        /// 
-        /// A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) .
+        /// The key group configuration.
         /// </summary>
         public readonly Outputs.KeyGroupConfig? KeyGroupConfig;
         /// <summary>

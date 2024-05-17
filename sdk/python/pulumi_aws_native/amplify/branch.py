@@ -36,10 +36,10 @@ class BranchArgs:
         """
         The set of arguments for constructing a Branch resource.
         :param pulumi.Input[str] app_id: The unique ID for an Amplify app.
-        :param pulumi.Input['BranchBackendArgs'] backend: Describes the backend associated with an Amplify `Branch` .
+        :param pulumi.Input['BranchBackendArgs'] backend: The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
                
-               This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
-        :param pulumi.Input['BranchBasicAuthConfigArgs'] basic_auth_config: Use the BasicAuthConfig property type to set password protection for a specific branch.
+               This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
+        :param pulumi.Input['BranchBasicAuthConfigArgs'] basic_auth_config: The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
         :param pulumi.Input[str] branch_name: The name for the branch.
         :param pulumi.Input[str] build_spec: The build specification (build spec) for the branch.
         :param pulumi.Input[str] description: The description for the branch that is part of an Amplify app.
@@ -52,7 +52,7 @@ class BranchArgs:
                To provide backend support for your preview, Amplify automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
                
                For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
-        :param pulumi.Input[Sequence[pulumi.Input['BranchEnvironmentVariableArgs']]] environment_variables: The EnvironmentVariable property type sets environment variables for a specific branch. Environment variables are key-value pairs that are available at build time.
+        :param pulumi.Input[Sequence[pulumi.Input['BranchEnvironmentVariableArgs']]] environment_variables: The environment variables for the branch.
         :param pulumi.Input[str] framework: The framework for the branch.
         :param pulumi.Input[str] pull_request_environment_name: If pull request previews are enabled for this branch, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI and mapped to this branch.
                
@@ -62,7 +62,7 @@ class BranchArgs:
                
                For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
         :param pulumi.Input['BranchStage'] stage: Describes the current stage for the branch.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::Branch` resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tag for the branch.
         """
         pulumi.set(__self__, "app_id", app_id)
         if backend is not None:
@@ -108,9 +108,9 @@ class BranchArgs:
     @pulumi.getter
     def backend(self) -> Optional[pulumi.Input['BranchBackendArgs']]:
         """
-        Describes the backend associated with an Amplify `Branch` .
+        The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
 
-        This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
+        This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
         """
         return pulumi.get(self, "backend")
 
@@ -122,7 +122,7 @@ class BranchArgs:
     @pulumi.getter(name="basicAuthConfig")
     def basic_auth_config(self) -> Optional[pulumi.Input['BranchBasicAuthConfigArgs']]:
         """
-        Use the BasicAuthConfig property type to set password protection for a specific branch.
+        The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
         """
         return pulumi.get(self, "basic_auth_config")
 
@@ -212,7 +212,7 @@ class BranchArgs:
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BranchEnvironmentVariableArgs']]]]:
         """
-        The EnvironmentVariable property type sets environment variables for a specific branch. Environment variables are key-value pairs that are available at build time.
+        The environment variables for the branch.
         """
         return pulumi.get(self, "environment_variables")
 
@@ -266,7 +266,7 @@ class BranchArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::Branch` resource.
+        The tag for the branch.
         """
         return pulumi.get(self, "tags")
 
@@ -301,10 +301,10 @@ class Branch(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The unique ID for an Amplify app.
-        :param pulumi.Input[pulumi.InputType['BranchBackendArgs']] backend: Describes the backend associated with an Amplify `Branch` .
+        :param pulumi.Input[pulumi.InputType['BranchBackendArgs']] backend: The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
                
-               This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
-        :param pulumi.Input[pulumi.InputType['BranchBasicAuthConfigArgs']] basic_auth_config: Use the BasicAuthConfig property type to set password protection for a specific branch.
+               This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
+        :param pulumi.Input[pulumi.InputType['BranchBasicAuthConfigArgs']] basic_auth_config: The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
         :param pulumi.Input[str] branch_name: The name for the branch.
         :param pulumi.Input[str] build_spec: The build specification (build spec) for the branch.
         :param pulumi.Input[str] description: The description for the branch that is part of an Amplify app.
@@ -317,7 +317,7 @@ class Branch(pulumi.CustomResource):
                To provide backend support for your preview, Amplify automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
                
                For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchEnvironmentVariableArgs']]]] environment_variables: The EnvironmentVariable property type sets environment variables for a specific branch. Environment variables are key-value pairs that are available at build time.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BranchEnvironmentVariableArgs']]]] environment_variables: The environment variables for the branch.
         :param pulumi.Input[str] framework: The framework for the branch.
         :param pulumi.Input[str] pull_request_environment_name: If pull request previews are enabled for this branch, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI and mapped to this branch.
                
@@ -327,7 +327,7 @@ class Branch(pulumi.CustomResource):
                
                For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
         :param pulumi.Input['BranchStage'] stage: Describes the current stage for the branch.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::Branch` resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tag for the branch.
         """
         ...
     @overload
@@ -454,9 +454,9 @@ class Branch(pulumi.CustomResource):
     @pulumi.getter
     def backend(self) -> pulumi.Output[Optional['outputs.BranchBackend']]:
         """
-        Describes the backend associated with an Amplify `Branch` .
+        The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
 
-        This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
+        This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
         """
         return pulumi.get(self, "backend")
 
@@ -464,7 +464,7 @@ class Branch(pulumi.CustomResource):
     @pulumi.getter(name="basicAuthConfig")
     def basic_auth_config(self) -> pulumi.Output[Optional['outputs.BranchBasicAuthConfig']]:
         """
-        Use the BasicAuthConfig property type to set password protection for a specific branch.
+        The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
         """
         return pulumi.get(self, "basic_auth_config")
 
@@ -526,7 +526,7 @@ class Branch(pulumi.CustomResource):
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> pulumi.Output[Optional[Sequence['outputs.BranchEnvironmentVariable']]]:
         """
-        The EnvironmentVariable property type sets environment variables for a specific branch. Environment variables are key-value pairs that are available at build time.
+        The environment variables for the branch.
         """
         return pulumi.get(self, "environment_variables")
 
@@ -564,7 +564,7 @@ class Branch(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::Branch` resource.
+        The tag for the branch.
         """
         return pulumi.get(self, "tags")
 

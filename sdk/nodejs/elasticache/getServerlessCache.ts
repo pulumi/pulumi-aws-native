@@ -31,7 +31,7 @@ export interface GetServerlessCacheResult {
      */
     readonly arn?: string;
     /**
-     * The usage limits for storage and ElastiCache Processing Units for the cache.
+     * The cache usage limit for the serverless cache.
      */
     readonly cacheUsageLimits?: outputs.elasticache.ServerlessCacheCacheUsageLimits;
     /**

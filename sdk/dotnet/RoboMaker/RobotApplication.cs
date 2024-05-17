@@ -172,7 +172,7 @@ namespace Pulumi.AwsNative.RoboMaker
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Information about a robot software suite.
+        /// The robot software suite used by the robot application.
         /// </summary>
         [Output("robotSoftwareSuite")]
         public Output<Outputs.RobotApplicationRobotSoftwareSuite> RobotSoftwareSuite { get; private set; } = null!;
@@ -257,7 +257,7 @@ namespace Pulumi.AwsNative.RoboMaker
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Information about a robot software suite.
+        /// The robot software suite used by the robot application.
         /// </summary>
         [Input("robotSoftwareSuite", required: true)]
         public Input<Inputs.RobotApplicationRobotSoftwareSuiteArgs> RobotSoftwareSuite { get; set; } = null!;

@@ -19,13 +19,13 @@ namespace Pulumi.AwsNative.IoT.Inputs
         public Input<string>? Quality { get; set; }
 
         /// <summary>
-        /// An asset property timestamp entry containing the following information.
+        /// The asset property value timestamp.
         /// </summary>
         [Input("timestamp", required: true)]
         public Input<Inputs.TopicRuleAssetPropertyTimestampArgs> Timestamp { get; set; } = null!;
 
         /// <summary>
-        /// Contains an asset property value (of a single type).
+        /// The value of the asset property.
         /// </summary>
         [Input("value", required: true)]
         public Input<Inputs.TopicRuleAssetPropertyVariantArgs> Value { get; set; } = null!;

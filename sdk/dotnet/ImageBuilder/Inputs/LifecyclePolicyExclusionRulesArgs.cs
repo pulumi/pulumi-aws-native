@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.ImageBuilder.Inputs
     public sealed class LifecyclePolicyExclusionRulesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines criteria for AMIs that are excluded from lifecycle actions.
+        /// Lists configuration values that apply to AMIs that Image Builder should exclude from the lifecycle action.
         /// </summary>
         [Input("amis")]
         public Input<Inputs.LifecyclePolicyAmiExclusionRulesArgs>? Amis { get; set; }

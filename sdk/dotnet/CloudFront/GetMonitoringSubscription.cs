@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.CloudFront
     public sealed class GetMonitoringSubscriptionResult
     {
         /// <summary>
-        /// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+        /// A subscription configuration for additional CloudWatch metrics.
         /// </summary>
         public readonly Outputs.MonitoringSubscription? MonitoringSubscriptionValue;
 

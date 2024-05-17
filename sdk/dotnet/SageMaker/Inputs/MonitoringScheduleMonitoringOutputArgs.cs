@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     public sealed class MonitoringScheduleMonitoringOutputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Information about where and how you want to store the results of a monitoring job.
+        /// The Amazon S3 storage location where the results of a monitoring job are saved.
         /// </summary>
         [Input("s3Output", required: true)]
         public Input<Inputs.MonitoringScheduleS3OutputArgs> S3Output { get; set; } = null!;

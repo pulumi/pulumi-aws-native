@@ -24,9 +24,9 @@ class CapacityProviderArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CapacityProvider resource.
-        :param pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs'] auto_scaling_group_provider: The details of the Auto Scaling group for the capacity provider.
+        :param pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs'] auto_scaling_group_provider: The Auto Scaling group settings for the capacity provider.
         :param pulumi.Input[str] name: The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
                
                The following basic restrictions apply to tags:
                
@@ -48,7 +48,7 @@ class CapacityProviderArgs:
     @pulumi.getter(name="autoScalingGroupProvider")
     def auto_scaling_group_provider(self) -> pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs']:
         """
-        The details of the Auto Scaling group for the capacity provider.
+        The Auto Scaling group settings for the capacity provider.
         """
         return pulumi.get(self, "auto_scaling_group_provider")
 
@@ -72,7 +72,7 @@ class CapacityProviderArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+        The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
 
         The following basic restrictions apply to tags:
 
@@ -241,9 +241,9 @@ class CapacityProvider(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CapacityProviderAutoScalingGroupProviderArgs']] auto_scaling_group_provider: The details of the Auto Scaling group for the capacity provider.
+        :param pulumi.Input[pulumi.InputType['CapacityProviderAutoScalingGroupProviderArgs']] auto_scaling_group_provider: The Auto Scaling group settings for the capacity provider.
         :param pulumi.Input[str] name: The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
                
                The following basic restrictions apply to tags:
                
@@ -432,7 +432,7 @@ class CapacityProvider(pulumi.CustomResource):
             __props__.__dict__["auto_scaling_group_provider"] = auto_scaling_group_provider
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["autoScalingGroupProvider.autoScalingGroupArn", "name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(CapacityProvider, __self__).__init__(
             'aws-native:ecs:CapacityProvider',
@@ -465,7 +465,7 @@ class CapacityProvider(pulumi.CustomResource):
     @pulumi.getter(name="autoScalingGroupProvider")
     def auto_scaling_group_provider(self) -> pulumi.Output['outputs.CapacityProviderAutoScalingGroupProvider']:
         """
-        The details of the Auto Scaling group for the capacity provider.
+        The Auto Scaling group settings for the capacity provider.
         """
         return pulumi.get(self, "auto_scaling_group_provider")
 
@@ -481,7 +481,7 @@ class CapacityProvider(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+        The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
 
         The following basic restrictions apply to tags:
 

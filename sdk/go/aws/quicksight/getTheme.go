@@ -39,13 +39,12 @@ type LookupThemeResult struct {
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// A display name for the theme.
 	Name *string `pulumi:"name"`
-	// Permission for the resource.
+	// A valid grouping of resource permissions to apply to the new theme.
 	Permissions []ThemeResourcePermission `pulumi:"permissions"`
 	// A map of the key-value pairs for the resource tag or tags that you want to add to the resource.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Theme type.
-	Type *ThemeType `pulumi:"type"`
-	// A version of a theme.
+	Type    *ThemeType    `pulumi:"type"`
 	Version *ThemeVersion `pulumi:"version"`
 }
 
@@ -107,7 +106,7 @@ func (o LookupThemeResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Permission for the resource.
+// A valid grouping of resource permissions to apply to the new theme.
 func (o LookupThemeResultOutput) Permissions() ThemeResourcePermissionArrayOutput {
 	return o.ApplyT(func(v LookupThemeResult) []ThemeResourcePermission { return v.Permissions }).(ThemeResourcePermissionArrayOutput)
 }
@@ -122,7 +121,6 @@ func (o LookupThemeResultOutput) Type() ThemeTypePtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *ThemeType { return v.Type }).(ThemeTypePtrOutput)
 }
 
-// A version of a theme.
 func (o LookupThemeResultOutput) Version() ThemeVersionPtrOutput {
 	return o.ApplyT(func(v LookupThemeResult) *ThemeVersion { return v.Version }).(ThemeVersionPtrOutput)
 }

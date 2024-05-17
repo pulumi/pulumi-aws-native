@@ -26,13 +26,13 @@ class DataSourceArgs:
                  vector_ingestion_configuration: Optional[pulumi.Input['DataSourceVectorIngestionConfigurationArgs']] = None):
         """
         The set of arguments for constructing a DataSource resource.
-        :param pulumi.Input['DataSourceConfigurationArgs'] data_source_configuration: Contains details about how a data source is stored.
+        :param pulumi.Input['DataSourceConfigurationArgs'] data_source_configuration: Contains details about how the data source is stored.
         :param pulumi.Input[str] knowledge_base_id: The unique identifier of the knowledge base to which to add the data source.
         :param pulumi.Input['DataSourceDataDeletionPolicy'] data_deletion_policy: The data deletion policy for a data source.
         :param pulumi.Input[str] description: Description of the Resource.
         :param pulumi.Input[str] name: The name of the data source.
-        :param pulumi.Input['DataSourceServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Contains the configuration for server-side encryption.
-        :param pulumi.Input['DataSourceVectorIngestionConfigurationArgs'] vector_ingestion_configuration: Contains details about how to ingest the documents in a data source.
+        :param pulumi.Input['DataSourceServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: Contains details about the configuration of the server-side encryption.
+        :param pulumi.Input['DataSourceVectorIngestionConfigurationArgs'] vector_ingestion_configuration: Contains details about how to ingest the documents in the data source.
         """
         pulumi.set(__self__, "data_source_configuration", data_source_configuration)
         pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
@@ -51,7 +51,7 @@ class DataSourceArgs:
     @pulumi.getter(name="dataSourceConfiguration")
     def data_source_configuration(self) -> pulumi.Input['DataSourceConfigurationArgs']:
         """
-        Contains details about how a data source is stored.
+        Contains details about how the data source is stored.
         """
         return pulumi.get(self, "data_source_configuration")
 
@@ -111,7 +111,7 @@ class DataSourceArgs:
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> Optional[pulumi.Input['DataSourceServerSideEncryptionConfigurationArgs']]:
         """
-        Contains the configuration for server-side encryption.
+        Contains details about the configuration of the server-side encryption.
         """
         return pulumi.get(self, "server_side_encryption_configuration")
 
@@ -123,7 +123,7 @@ class DataSourceArgs:
     @pulumi.getter(name="vectorIngestionConfiguration")
     def vector_ingestion_configuration(self) -> Optional[pulumi.Input['DataSourceVectorIngestionConfigurationArgs']]:
         """
-        Contains details about how to ingest the documents in a data source.
+        Contains details about how to ingest the documents in the data source.
         """
         return pulumi.get(self, "vector_ingestion_configuration")
 
@@ -151,12 +151,12 @@ class DataSource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['DataSourceDataDeletionPolicy'] data_deletion_policy: The data deletion policy for a data source.
-        :param pulumi.Input[pulumi.InputType['DataSourceConfigurationArgs']] data_source_configuration: Contains details about how a data source is stored.
+        :param pulumi.Input[pulumi.InputType['DataSourceConfigurationArgs']] data_source_configuration: Contains details about how the data source is stored.
         :param pulumi.Input[str] description: Description of the Resource.
         :param pulumi.Input[str] knowledge_base_id: The unique identifier of the knowledge base to which to add the data source.
         :param pulumi.Input[str] name: The name of the data source.
-        :param pulumi.Input[pulumi.InputType['DataSourceServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: Contains the configuration for server-side encryption.
-        :param pulumi.Input[pulumi.InputType['DataSourceVectorIngestionConfigurationArgs']] vector_ingestion_configuration: Contains details about how to ingest the documents in a data source.
+        :param pulumi.Input[pulumi.InputType['DataSourceServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: Contains details about the configuration of the server-side encryption.
+        :param pulumi.Input[pulumi.InputType['DataSourceVectorIngestionConfigurationArgs']] vector_ingestion_configuration: Contains details about how to ingest the documents in the data source.
         """
         ...
     @overload
@@ -272,7 +272,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="dataSourceConfiguration")
     def data_source_configuration(self) -> pulumi.Output['outputs.DataSourceConfiguration']:
         """
-        Contains details about how a data source is stored.
+        Contains details about how the data source is stored.
         """
         return pulumi.get(self, "data_source_configuration")
 
@@ -331,7 +331,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> pulumi.Output[Optional['outputs.DataSourceServerSideEncryptionConfiguration']]:
         """
-        Contains the configuration for server-side encryption.
+        Contains details about the configuration of the server-side encryption.
         """
         return pulumi.get(self, "server_side_encryption_configuration")
 
@@ -347,7 +347,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="vectorIngestionConfiguration")
     def vector_ingestion_configuration(self) -> pulumi.Output[Optional['outputs.DataSourceVectorIngestionConfiguration']]:
         """
-        Contains details about how to ingest the documents in a data source.
+        Contains details about how to ingest the documents in the data source.
         """
         return pulumi.get(self, "vector_ingestion_configuration")
 

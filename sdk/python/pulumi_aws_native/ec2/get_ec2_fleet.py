@@ -64,9 +64,7 @@ class GetEc2FleetResult:
     @pulumi.getter(name="targetCapacitySpecification")
     def target_capacity_specification(self) -> Optional['outputs.Ec2FleetTargetCapacitySpecificationRequest']:
         """
-        Specifies the number of units to request for an EC2 Fleet. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of `0` and add capacity later.
-
-        `TargetCapacitySpecificationRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+        The number of units to request.
         """
         return pulumi.get(self, "target_capacity_specification")
 

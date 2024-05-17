@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// </summary>
         public readonly string? ModifiedAt;
         /// <summary>
-        /// The segment configuration, including the segment name, duration, and other configuration values.
+        /// The segment associated with the origin endpoint.
         /// </summary>
         public readonly Outputs.OriginEndpointSegment? Segment;
         /// <summary>

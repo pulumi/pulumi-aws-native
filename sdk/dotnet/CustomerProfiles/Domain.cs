@@ -52,20 +52,17 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public Output<string> LastUpdatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// The process of matching duplicate profiles. If `Matching = true` , Amazon Connect Customer Profiles starts a weekly batch process called *Identity Resolution Job* . If you do not specify a date and time for the *Identity Resolution Job* to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the *Identity Resolution Job* completes, use the `GetMatches` API to return and review the results. Or, if you have configured `ExportingConfig` in the `MatchingRequest` , you can download the results from S3.
+        /// The process of matching duplicate profiles.
         /// </summary>
         [Output("matching")]
         public Output<Outputs.DomainMatching?> Matching { get; private set; } = null!;
 
         /// <summary>
-        /// The process of matching duplicate profiles using Rule-Based matching. If `RuleBasedMatching = true` , Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the `RuleBasedMatchingRequest` . You can use the `ListRuleBasedMatches` and `GetSimilarProfiles` API to return and review the results. Also, if you have configured `ExportingConfig` in the `RuleBasedMatchingRequest` , you can download the results from S3.
+        /// The process of matching duplicate profiles using Rule-Based matching.
         /// </summary>
         [Output("ruleBasedMatching")]
         public Output<Outputs.DomainRuleBasedMatching?> RuleBasedMatching { get; private set; } = null!;
 
-        /// <summary>
-        /// Usage-specific statistics about the domain.
-        /// </summary>
         [Output("stats")]
         public Output<Outputs.DomainStats> Stats { get; private set; } = null!;
 
@@ -149,13 +146,13 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
-        /// The process of matching duplicate profiles. If `Matching = true` , Amazon Connect Customer Profiles starts a weekly batch process called *Identity Resolution Job* . If you do not specify a date and time for the *Identity Resolution Job* to run, by default it runs every Saturday at 12AM UTC to detect duplicate profiles in your domains. After the *Identity Resolution Job* completes, use the `GetMatches` API to return and review the results. Or, if you have configured `ExportingConfig` in the `MatchingRequest` , you can download the results from S3.
+        /// The process of matching duplicate profiles.
         /// </summary>
         [Input("matching")]
         public Input<Inputs.DomainMatchingArgs>? Matching { get; set; }
 
         /// <summary>
-        /// The process of matching duplicate profiles using Rule-Based matching. If `RuleBasedMatching = true` , Amazon Connect Customer Profiles will start to match and merge your profiles according to your configuration in the `RuleBasedMatchingRequest` . You can use the `ListRuleBasedMatches` and `GetSimilarProfiles` API to return and review the results. Also, if you have configured `ExportingConfig` in the `RuleBasedMatchingRequest` , you can download the results from S3.
+        /// The process of matching duplicate profiles using Rule-Based matching.
         /// </summary>
         [Input("ruleBasedMatching")]
         public Input<Inputs.DomainRuleBasedMatchingArgs>? RuleBasedMatching { get; set; }

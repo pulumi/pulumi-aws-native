@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.Location
         public Output<bool?> NoExpiry { get; private set; } = null!;
 
         /// <summary>
-        /// API Restrictions on the allowed actions, resources, and referers for an API key resource.
+        /// The API key restrictions for the API key resource.
         /// </summary>
         [Output("restrictions")]
         public Output<Outputs.ApiKeyRestrictions> Restrictions { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.AwsNative.Location
         public Input<bool>? NoExpiry { get; set; }
 
         /// <summary>
-        /// API Restrictions on the allowed actions, resources, and referers for an API key resource.
+        /// The API key restrictions for the API key resource.
         /// </summary>
         [Input("restrictions", required: true)]
         public Input<Inputs.ApiKeyRestrictionsArgs> Restrictions { get; set; } = null!;

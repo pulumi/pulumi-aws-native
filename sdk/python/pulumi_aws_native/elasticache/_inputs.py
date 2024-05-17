@@ -221,8 +221,8 @@ class ServerlessCacheCacheUsageLimitsArgs:
                  ecpu_per_second: Optional[pulumi.Input['ServerlessCacheEcpuPerSecondArgs']] = None):
         """
         The cache capacity limit of the Serverless Cache.
-        :param pulumi.Input['ServerlessCacheDataStorageArgs'] data_storage: The data storage limit.
-        :param pulumi.Input['ServerlessCacheEcpuPerSecondArgs'] ecpu_per_second: The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.
+        :param pulumi.Input['ServerlessCacheDataStorageArgs'] data_storage: The maximum data storage limit in the cache, expressed in Gigabytes.
+        :param pulumi.Input['ServerlessCacheEcpuPerSecondArgs'] ecpu_per_second: The number of ElastiCache Processing Units (ECPU) the cache can consume per second.
         """
         if data_storage is not None:
             pulumi.set(__self__, "data_storage", data_storage)
@@ -233,7 +233,7 @@ class ServerlessCacheCacheUsageLimitsArgs:
     @pulumi.getter(name="dataStorage")
     def data_storage(self) -> Optional[pulumi.Input['ServerlessCacheDataStorageArgs']]:
         """
-        The data storage limit.
+        The maximum data storage limit in the cache, expressed in Gigabytes.
         """
         return pulumi.get(self, "data_storage")
 
@@ -245,7 +245,7 @@ class ServerlessCacheCacheUsageLimitsArgs:
     @pulumi.getter(name="ecpuPerSecond")
     def ecpu_per_second(self) -> Optional[pulumi.Input['ServerlessCacheEcpuPerSecondArgs']]:
         """
-        The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.
+        The number of ElastiCache Processing Units (ECPU) the cache can consume per second.
         """
         return pulumi.get(self, "ecpu_per_second")
 

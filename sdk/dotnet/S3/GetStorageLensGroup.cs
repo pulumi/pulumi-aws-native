@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.S3
     public sealed class GetStorageLensGroupResult
     {
         /// <summary>
-        /// This resource sets the criteria for the Storage Lens group data that is displayed. For multiple filter conditions, the `AND` or `OR` logical operator is used.
+        /// This property contains the criteria for the Storage Lens group data that is displayed
         /// </summary>
         public readonly Outputs.StorageLensGroupFilter? Filter;
         /// <summary>

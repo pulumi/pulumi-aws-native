@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.PaymentCryptography.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.PaymentCryptography.KeyClass KeyClass;
         /// <summary>
-        /// The list of cryptographic operations that you can perform using the key. The modes of use are deﬁned in section A.5.3 of the TR-31 spec.
+        /// The list of cryptographic operations that you can perform using the key.
         /// </summary>
         public readonly Outputs.KeyModesOfUse KeyModesOfUse;
         /// <summary>

@@ -25,7 +25,7 @@ class SamplingRuleInitArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a SamplingRule resource.
-        :param pulumi.Input['SamplingRuleArgs'] sampling_rule: A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+        :param pulumi.Input['SamplingRuleArgs'] sampling_rule: The sampling rule to be created or updated.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if rule_name is not None:
@@ -52,7 +52,7 @@ class SamplingRuleInitArgs:
     @pulumi.getter(name="samplingRule")
     def sampling_rule(self) -> Optional[pulumi.Input['SamplingRuleArgs']]:
         """
-        A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+        The sampling rule to be created or updated.
         """
         return pulumi.get(self, "sampling_rule")
 
@@ -107,7 +107,7 @@ class SamplingRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SamplingRuleArgs']] sampling_rule: A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+        :param pulumi.Input[pulumi.InputType['SamplingRuleArgs']] sampling_rule: The sampling rule to be created or updated.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -201,7 +201,7 @@ class SamplingRule(pulumi.CustomResource):
     @pulumi.getter(name="samplingRule")
     def sampling_rule(self) -> pulumi.Output[Optional['outputs.SamplingRule']]:
         """
-        A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+        The sampling rule to be created or updated.
         """
         return pulumi.get(self, "sampling_rule")
 

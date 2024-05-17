@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateLineSeriesAxisDisplayOptions
     {
         /// <summary>
-        /// The display options for the axis label.
+        /// The options that determine the presentation of the line series axis.
         /// </summary>
         public readonly Outputs.TemplateAxisDisplayOptions? AxisOptions;
         /// <summary>

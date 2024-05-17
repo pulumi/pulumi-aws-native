@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardPivotTableOptions
     {
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The table cell style of cells.
         /// </summary>
         public readonly Outputs.DashboardTableCellStyle? CellStyle;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? CollapsedRowDimensionsVisibility;
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The table cell style of the column header.
         /// </summary>
         public readonly Outputs.DashboardTableCellStyle? ColumnHeaderStyle;
         /// <summary>
@@ -38,19 +38,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardPivotTableMetricPlacement? MetricPlacement;
         /// <summary>
-        /// Determines the row alternate color options.
+        /// The row alternate color options (widget status, row alternate colors).
         /// </summary>
         public readonly Outputs.DashboardRowAlternateColorOptions? RowAlternateColorOptions;
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The table cell style of row field names.
         /// </summary>
         public readonly Outputs.DashboardTableCellStyle? RowFieldNamesStyle;
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The table cell style of the row headers.
         /// </summary>
         public readonly Outputs.DashboardTableCellStyle? RowHeaderStyle;
         /// <summary>
-        /// The options for the label thta is located above the row headers. This option is only applicable when `RowsLayout` is set to `HIERARCHY` .
+        /// The options for the label that is located above the row headers. This option is only applicable when `RowsLayout` is set to `HIERARCHY` .
         /// </summary>
         public readonly Outputs.DashboardPivotTableRowsLabelOptions? RowsLabelOptions;
         /// <summary>

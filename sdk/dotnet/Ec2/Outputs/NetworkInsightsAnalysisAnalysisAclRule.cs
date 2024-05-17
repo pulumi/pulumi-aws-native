@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly bool? Egress;
         /// <summary>
-        /// Describes a range of ports.
+        /// The range of ports.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisPortRange? PortRange;
         /// <summary>

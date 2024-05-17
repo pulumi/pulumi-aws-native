@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Batch
         /// </summary>
         public readonly string? ComputeEnvironmentArn;
         /// <summary>
-        /// Details about the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the *AWS Batch User Guide* .
+        /// The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
         /// </summary>
         public readonly Outputs.ComputeEnvironmentComputeResources? ComputeResources;
         /// <summary>

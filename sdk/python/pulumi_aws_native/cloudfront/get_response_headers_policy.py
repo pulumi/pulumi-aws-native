@@ -51,8 +51,6 @@ class GetResponseHeadersPolicyResult:
     def response_headers_policy_config(self) -> Optional['outputs.ResponseHeadersPolicyConfig']:
         """
         A response headers policy configuration.
-
-        A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
         """
         return pulumi.get(self, "response_headers_policy_config")
 

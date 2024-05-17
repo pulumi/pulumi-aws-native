@@ -22,13 +22,13 @@ namespace Pulumi.AwsNative.LicenseManager
         public Output<string?> Beneficiary { get; private set; } = null!;
 
         /// <summary>
-        /// Details about a consumption configuration.
+        /// Configuration for consumption of the license.
         /// </summary>
         [Output("consumptionConfiguration")]
         public Output<Outputs.LicenseConsumptionConfiguration> ConsumptionConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Describes a resource entitled for use with a license.
+        /// License entitlements.
         /// </summary>
         [Output("entitlements")]
         public Output<ImmutableArray<Outputs.LicenseEntitlement>> Entitlements { get; private set; } = null!;
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.LicenseManager
         public Output<string> HomeRegion { get; private set; } = null!;
 
         /// <summary>
-        /// Details associated with the issuer of a license.
+        /// License issuer.
         /// </summary>
         [Output("issuer")]
         public Output<Outputs.LicenseIssuerData> Issuer { get; private set; } = null!;
@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.LicenseManager
         public Output<string> LicenseArn { get; private set; } = null!;
 
         /// <summary>
-        /// Describes key/value pairs.
+        /// License metadata.
         /// </summary>
         [Output("licenseMetadata")]
         public Output<ImmutableArray<Outputs.LicenseMetadata>> LicenseMetadata { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.AwsNative.LicenseManager
         public Input<string>? Beneficiary { get; set; }
 
         /// <summary>
-        /// Details about a consumption configuration.
+        /// Configuration for consumption of the license.
         /// </summary>
         [Input("consumptionConfiguration", required: true)]
         public Input<Inputs.LicenseConsumptionConfigurationArgs> ConsumptionConfiguration { get; set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.AwsNative.LicenseManager
         private InputList<Inputs.LicenseEntitlementArgs>? _entitlements;
 
         /// <summary>
-        /// Describes a resource entitled for use with a license.
+        /// License entitlements.
         /// </summary>
         public InputList<Inputs.LicenseEntitlementArgs> Entitlements
         {
@@ -169,7 +169,7 @@ namespace Pulumi.AwsNative.LicenseManager
         public Input<string> HomeRegion { get; set; } = null!;
 
         /// <summary>
-        /// Details associated with the issuer of a license.
+        /// License issuer.
         /// </summary>
         [Input("issuer", required: true)]
         public Input<Inputs.LicenseIssuerDataArgs> Issuer { get; set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.AwsNative.LicenseManager
         private InputList<Inputs.LicenseMetadataArgs>? _licenseMetadata;
 
         /// <summary>
-        /// Describes key/value pairs.
+        /// License metadata.
         /// </summary>
         public InputList<Inputs.LicenseMetadataArgs> LicenseMetadata
         {

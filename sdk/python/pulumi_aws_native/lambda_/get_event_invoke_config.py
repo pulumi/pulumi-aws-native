@@ -34,7 +34,12 @@ class GetEventInvokeConfigResult:
     @pulumi.getter(name="destinationConfig")
     def destination_config(self) -> Optional['outputs.EventInvokeConfigDestinationConfig']:
         """
-        A configuration object that specifies the destination of an event after Lambda processes it.
+        A destination for events after they have been sent to a function for processing.
+
+        **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
+        - *Queue* - The ARN of a standard SQS queue.
+        - *Topic* - The ARN of a standard SNS topic.
+        - *Event Bus* - The ARN of an Amazon EventBridge event bus.
         """
         return pulumi.get(self, "destination_config")
 

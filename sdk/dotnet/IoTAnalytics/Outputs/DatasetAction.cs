@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
         /// </summary>
         public readonly string ActionName;
         /// <summary>
-        /// Information needed to run the "containerAction" to produce data set contents.
+        /// Information which allows the system to run a containerized application in order to create the data set contents. The application must be in a Docker container along with any needed support libraries.
         /// </summary>
         public readonly Outputs.DatasetContainerAction? ContainerAction;
         /// <summary>

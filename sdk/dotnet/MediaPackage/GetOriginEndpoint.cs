@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.MediaPackage
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// Parameters for enabling CDN authorization on the endpoint.
+        /// Parameters for CDN authorization.
         /// </summary>
         public readonly Outputs.OriginEndpointAuthorization? Authorization;
         /// <summary>

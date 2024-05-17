@@ -144,9 +144,9 @@ class CampaignDialerConfig(dict):
                  progressive_dialer_config: Optional['outputs.CampaignProgressiveDialerConfig'] = None):
         """
         The possible types of dialer config parameters
-        :param 'CampaignAgentlessDialerConfig' agentless_dialer_config: Contains agentless dialer configuration for an outbound campaign.
-        :param 'CampaignPredictiveDialerConfig' predictive_dialer_config: Contains predictive dialer configuration for an outbound campaign.
-        :param 'CampaignProgressiveDialerConfig' progressive_dialer_config: Contains progressive dialer configuration for an outbound campaign.
+        :param 'CampaignAgentlessDialerConfig' agentless_dialer_config: The configuration of the agentless dialer.
+        :param 'CampaignPredictiveDialerConfig' predictive_dialer_config: The configuration of the predictive dialer.
+        :param 'CampaignProgressiveDialerConfig' progressive_dialer_config: The configuration of the progressive dialer.
         """
         if agentless_dialer_config is not None:
             pulumi.set(__self__, "agentless_dialer_config", agentless_dialer_config)
@@ -159,7 +159,7 @@ class CampaignDialerConfig(dict):
     @pulumi.getter(name="agentlessDialerConfig")
     def agentless_dialer_config(self) -> Optional['outputs.CampaignAgentlessDialerConfig']:
         """
-        Contains agentless dialer configuration for an outbound campaign.
+        The configuration of the agentless dialer.
         """
         return pulumi.get(self, "agentless_dialer_config")
 
@@ -167,7 +167,7 @@ class CampaignDialerConfig(dict):
     @pulumi.getter(name="predictiveDialerConfig")
     def predictive_dialer_config(self) -> Optional['outputs.CampaignPredictiveDialerConfig']:
         """
-        Contains predictive dialer configuration for an outbound campaign.
+        The configuration of the predictive dialer.
         """
         return pulumi.get(self, "predictive_dialer_config")
 
@@ -175,7 +175,7 @@ class CampaignDialerConfig(dict):
     @pulumi.getter(name="progressiveDialerConfig")
     def progressive_dialer_config(self) -> Optional['outputs.CampaignProgressiveDialerConfig']:
         """
-        Contains progressive dialer configuration for an outbound campaign.
+        The configuration of the progressive dialer.
         """
         return pulumi.get(self, "progressive_dialer_config")
 
@@ -216,7 +216,7 @@ class CampaignOutboundCallConfig(dict):
         """
         The configuration used for outbound calls.
         :param str connect_contact_flow_arn: The identifier of the contact flow for the outbound call.
-        :param 'CampaignAnswerMachineDetectionConfig' answer_machine_detection_config: Contains information about answering machine detection.
+        :param 'CampaignAnswerMachineDetectionConfig' answer_machine_detection_config: Whether answering machine detection has been enabled.
         :param str connect_queue_arn: The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
         :param str connect_source_phone_number: The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
         """
@@ -240,7 +240,7 @@ class CampaignOutboundCallConfig(dict):
     @pulumi.getter(name="answerMachineDetectionConfig")
     def answer_machine_detection_config(self) -> Optional['outputs.CampaignAnswerMachineDetectionConfig']:
         """
-        Contains information about answering machine detection.
+        Whether answering machine detection has been enabled.
         """
         return pulumi.get(self, "answer_machine_detection_config")
 

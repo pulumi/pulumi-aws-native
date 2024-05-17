@@ -47,7 +47,7 @@ export interface GetResponsePlanResult {
      */
     readonly engagements?: string[];
     /**
-     * The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
+     * Details used to create an incident when using this response plan.
      */
     readonly incidentTemplate?: outputs.ssmincidents.ResponsePlanIncidentTemplate;
     /**

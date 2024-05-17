@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateUniqueValuesComputationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The dimension type field.
+        /// The category field that is used in a computation.
         /// </summary>
         [Input("category")]
         public Input<Inputs.TemplateDimensionFieldArgs>? Category { get; set; }

@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.RedshiftServerless.Outputs
         /// </summary>
         public readonly int? BaseCapacity;
         /// <summary>
-        /// A array of parameters to set for more control over a serverless database.
+        /// An array of parameters to set for advanced control over a database. The options are `auto_mv` , `datestyle` , `enable_case_sensitive_identifier` , `enable_user_activity_logging` , `query_group` , `search_path` , `require_ssl` , `use_fips_ssl` , and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see [Query monitoring metrics for Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) .
         /// </summary>
         public readonly ImmutableArray<Outputs.WorkgroupConfigParameter> ConfigParameters;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.RedshiftServerless.Outputs
         /// </summary>
         public readonly string? CreationDate;
         /// <summary>
-        /// The VPC endpoint object.
+        /// The endpoint that is created from the workgroup.
         /// </summary>
         public readonly Outputs.WorkgroupEndpoint? Endpoint;
         /// <summary>

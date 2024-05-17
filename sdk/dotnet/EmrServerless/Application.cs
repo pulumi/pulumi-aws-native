@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.EmrServerless
         public Output<Outputs.ApplicationAutoStopConfiguration?> AutoStopConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The image configuration.
+        /// The image configuration applied to all worker types.
         /// </summary>
         [Output("imageConfiguration")]
         public Output<Outputs.ApplicationImageConfigurationInput?> ImageConfiguration { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.EmrServerless
         public Output<Outputs.ApplicationMaximumAllowedResources?> MaximumCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration setting for monitoring.
+        /// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
         /// </summary>
         [Output("monitoringConfiguration")]
         public Output<Outputs.ApplicationMonitoringConfiguration?> MonitoringConfiguration { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.AwsNative.EmrServerless
         public Input<Inputs.ApplicationAutoStopConfigurationArgs>? AutoStopConfiguration { get; set; }
 
         /// <summary>
-        /// The image configuration.
+        /// The image configuration applied to all worker types.
         /// </summary>
         [Input("imageConfiguration")]
         public Input<Inputs.ApplicationImageConfigurationInputArgs>? ImageConfiguration { get; set; }
@@ -204,7 +204,7 @@ namespace Pulumi.AwsNative.EmrServerless
         public Input<Inputs.ApplicationMaximumAllowedResourcesArgs>? MaximumCapacity { get; set; }
 
         /// <summary>
-        /// The configuration setting for monitoring.
+        /// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
         /// </summary>
         [Input("monitoringConfiguration")]
         public Input<Inputs.ApplicationMonitoringConfigurationArgs>? MonitoringConfiguration { get; set; }

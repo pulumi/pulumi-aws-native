@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string ComputationId;
         /// <summary>
-        /// The measure (metric) type field.
+        /// The field that is used in a metric comparison from value setup.
         /// </summary>
         public readonly Outputs.DashboardMeasureField? FromValue;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The measure (metric) type field.
+        /// The field that is used in a metric comparison to value setup.
         /// </summary>
         public readonly Outputs.DashboardMeasureField? TargetValue;
         /// <summary>
-        /// The dimension type field.
+        /// The time field that is used in a computation.
         /// </summary>
         public readonly Outputs.DashboardDimensionField? Time;
 

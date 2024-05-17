@@ -70,13 +70,13 @@ namespace Pulumi.AwsNative.Panorama
         public Output<int> LastUpdatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// Parameter overrides for an application instance. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the overrides document.
+        /// Setting overrides for the application manifest.
         /// </summary>
         [Output("manifestOverridesPayload")]
         public Output<Outputs.ApplicationInstanceManifestOverridesPayload?> ManifestOverridesPayload { get; private set; } = null!;
 
         /// <summary>
-        /// A application verion's manifest file. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the application manifest ( `graph.json` ). This file is located in the `graphs` folder in your application source.
+        /// The application's manifest document.
         /// </summary>
         [Output("manifestPayload")]
         public Output<Outputs.ApplicationInstanceManifestPayload> ManifestPayload { get; private set; } = null!;
@@ -185,13 +185,13 @@ namespace Pulumi.AwsNative.Panorama
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Parameter overrides for an application instance. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the overrides document.
+        /// Setting overrides for the application manifest.
         /// </summary>
         [Input("manifestOverridesPayload")]
         public Input<Inputs.ApplicationInstanceManifestOverridesPayloadArgs>? ManifestOverridesPayload { get; set; }
 
         /// <summary>
-        /// A application verion's manifest file. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the application manifest ( `graph.json` ). This file is located in the `graphs` folder in your application source.
+        /// The application's manifest document.
         /// </summary>
         [Input("manifestPayload", required: true)]
         public Input<Inputs.ApplicationInstanceManifestPayloadArgs> ManifestPayload { get; set; } = null!;

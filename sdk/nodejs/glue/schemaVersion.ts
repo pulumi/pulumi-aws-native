@@ -38,7 +38,7 @@ export class SchemaVersion extends pulumi.CustomResource {
     }
 
     /**
-     * A wrapper structure to contain schema identity fields. Either `SchemaArn` , or `SchemaName` and `RegistryName` has to be provided.
+     * The schema that includes the schema version.
      */
     public readonly schema!: pulumi.Output<outputs.glue.SchemaVersionSchema>;
     /**
@@ -87,7 +87,7 @@ export class SchemaVersion extends pulumi.CustomResource {
  */
 export interface SchemaVersionArgs {
     /**
-     * A wrapper structure to contain schema identity fields. Either `SchemaArn` , or `SchemaName` and `RegistryName` has to be provided.
+     * The schema that includes the schema version.
      */
     schema: pulumi.Input<inputs.glue.SchemaVersionSchemaArgs>;
     /**

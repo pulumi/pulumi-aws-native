@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.VoiceId
         /// </summary>
         public readonly string? DomainId;
         /// <summary>
-        /// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        /// The tags used to organize, track, or control access for this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

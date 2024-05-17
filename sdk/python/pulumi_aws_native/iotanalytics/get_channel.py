@@ -38,7 +38,7 @@ class GetChannelResult:
     @pulumi.getter(name="channelStorage")
     def channel_storage(self) -> Optional['outputs.ChannelStorage']:
         """
-        Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+        Where channel data is stored.
         """
         return pulumi.get(self, "channel_storage")
 
@@ -51,7 +51,7 @@ class GetChannelResult:
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional['outputs.ChannelRetentionPeriod']:
         """
-        How long, in days, message data is kept.
+        How long, in days, message data is kept for the channel.
         """
         return pulumi.get(self, "retention_period")
 
@@ -59,7 +59,9 @@ class GetChannelResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        A set of key-value pairs that are used to manage the resource.
+        Metadata which can be used to manage the channel.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         return pulumi.get(self, "tags")
 

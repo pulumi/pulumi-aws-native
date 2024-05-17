@@ -22,13 +22,13 @@ namespace Pulumi.AwsNative.Ec2
         public Output<ImmutableArray<string>> AdditionalAccounts { get; private set; } = null!;
 
         /// <summary>
-        /// Describes an potential intermediate component of a feasible path.
+        /// Potential intermediate components.
         /// </summary>
         [Output("alternatePathHints")]
         public Output<ImmutableArray<Outputs.NetworkInsightsAnalysisAlternatePathHint>> AlternatePathHints { get; private set; } = null!;
 
         /// <summary>
-        /// Describes an explanation code for an unreachable path. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
+        /// The explanations. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
         /// </summary>
         [Output("explanations")]
         public Output<ImmutableArray<Outputs.NetworkInsightsAnalysisExplanation>> Explanations { get; private set; } = null!;
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<ImmutableArray<string>> FilterInArns { get; private set; } = null!;
 
         /// <summary>
-        /// Describes a path component.
+        /// The components in the path from source to destination.
         /// </summary>
         [Output("forwardPathComponents")]
         public Output<ImmutableArray<Outputs.NetworkInsightsAnalysisPathComponent>> ForwardPathComponents { get; private set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<bool> NetworkPathFound { get; private set; } = null!;
 
         /// <summary>
-        /// Describes a path component.
+        /// The components in the path from destination to source.
         /// </summary>
         [Output("returnPathComponents")]
         public Output<ImmutableArray<Outputs.NetworkInsightsAnalysisPathComponent>> ReturnPathComponents { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<ImmutableArray<string>> SuggestedAccounts { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// The tags to apply.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.AwsNative.Ec2
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// The tags to apply.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

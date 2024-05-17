@@ -70,15 +70,15 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class GetUserPoolRiskConfigurationAttachmentResult
     {
         /// <summary>
-        /// Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.
+        /// The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
         /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType? AccountTakeoverRiskConfiguration;
         /// <summary>
-        /// The compromised credentials risk configuration type.
+        /// The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
         /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType? CompromisedCredentialsRiskConfiguration;
         /// <summary>
-        /// The type of the configuration to override the risk decision.
+        /// The configuration to override the risk decision.
         /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType? RiskExceptionConfiguration;
 

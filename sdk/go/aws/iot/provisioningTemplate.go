@@ -21,11 +21,11 @@ type ProvisioningTemplate struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// True to enable the fleet provisioning template, otherwise false.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Structure that contains payloadVersion and targetArn. Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
+	// Creates a pre-provisioning hook template.
 	PreProvisioningHook ProvisioningTemplateProvisioningHookPtrOutput `pulumi:"preProvisioningHook"`
 	// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
 	ProvisioningRoleArn pulumi.StringOutput `pulumi:"provisioningRoleArn"`
-	// A set of key/value pairs that are used to manage the resource.
+	// Metadata that can be used to manage the fleet provisioning template.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ARN that identifies the provisioning template.
 	TemplateArn pulumi.StringOutput `pulumi:"templateArn"`
@@ -92,11 +92,11 @@ type provisioningTemplateArgs struct {
 	Description *string `pulumi:"description"`
 	// True to enable the fleet provisioning template, otherwise false.
 	Enabled *bool `pulumi:"enabled"`
-	// Structure that contains payloadVersion and targetArn. Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
+	// Creates a pre-provisioning hook template.
 	PreProvisioningHook *ProvisioningTemplateProvisioningHook `pulumi:"preProvisioningHook"`
 	// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
 	ProvisioningRoleArn string `pulumi:"provisioningRoleArn"`
-	// A set of key/value pairs that are used to manage the resource.
+	// Metadata that can be used to manage the fleet provisioning template.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The JSON formatted contents of the fleet provisioning template version.
 	TemplateBody string `pulumi:"templateBody"`
@@ -112,11 +112,11 @@ type ProvisioningTemplateArgs struct {
 	Description pulumi.StringPtrInput
 	// True to enable the fleet provisioning template, otherwise false.
 	Enabled pulumi.BoolPtrInput
-	// Structure that contains payloadVersion and targetArn. Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
+	// Creates a pre-provisioning hook template.
 	PreProvisioningHook ProvisioningTemplateProvisioningHookPtrInput
 	// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
 	ProvisioningRoleArn pulumi.StringInput
-	// A set of key/value pairs that are used to manage the resource.
+	// Metadata that can be used to manage the fleet provisioning template.
 	Tags aws.TagArrayInput
 	// The JSON formatted contents of the fleet provisioning template version.
 	TemplateBody pulumi.StringInput
@@ -173,7 +173,7 @@ func (o ProvisioningTemplateOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Structure that contains payloadVersion and targetArn. Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
+// Creates a pre-provisioning hook template.
 func (o ProvisioningTemplateOutput) PreProvisioningHook() ProvisioningTemplateProvisioningHookPtrOutput {
 	return o.ApplyT(func(v *ProvisioningTemplate) ProvisioningTemplateProvisioningHookPtrOutput {
 		return v.PreProvisioningHook
@@ -185,7 +185,7 @@ func (o ProvisioningTemplateOutput) ProvisioningRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisioningTemplate) pulumi.StringOutput { return v.ProvisioningRoleArn }).(pulumi.StringOutput)
 }
 
-// A set of key/value pairs that are used to manage the resource.
+// Metadata that can be used to manage the fleet provisioning template.
 func (o ProvisioningTemplateOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ProvisioningTemplate) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

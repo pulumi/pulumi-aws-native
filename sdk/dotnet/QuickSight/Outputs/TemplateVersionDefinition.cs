@@ -13,42 +13,39 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateVersionDefinition
     {
-        /// <summary>
-        /// The configuration for default analysis settings.
-        /// </summary>
         public readonly Outputs.TemplateAnalysisDefaults? AnalysisDefaults;
         /// <summary>
-        /// The calculated field of an analysis.
+        /// An array of calculated field definitions for the template.
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateCalculatedField> CalculatedFields;
         /// <summary>
-        /// The general configuration of a column.
+        /// An array of template-level column configurations. Column configurations are used to set default formatting for a column that's used throughout a template.
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateColumnConfiguration> ColumnConfigurations;
         /// <summary>
-        /// Dataset configuration.
+        /// An array of dataset configurations. These configurations define the required columns for each dataset used within a template.
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateDataSetConfiguration> DataSetConfigurations;
         /// <summary>
-        /// A grouping of individual filters. Filter groups are applied to the same group of visuals.
+        /// Filter definitions for a template.
         /// 
-        /// For more information, see [Adding filter conditions (group filters) with AND and OR operators](https://docs.aws.amazon.com/quicksight/latest/user/add-a-compound-filter.html) in the *Amazon QuickSight User Guide* .
+        /// For more information, see [Filtering Data](https://docs.aws.amazon.com/quicksight/latest/user/filtering-visual-data.html) in the *Amazon QuickSight User Guide* .
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateFilterGroup> FilterGroups;
         /// <summary>
-        /// An array of analysis level configurations.
+        /// An array of option definitions for a template.
         /// </summary>
         public readonly Outputs.TemplateAssetOptions? Options;
         /// <summary>
-        /// The declaration definition of a parameter.
+        /// An array of parameter declarations for a template.
+        /// 
+        /// *Parameters* are named variables that can transfer a value for use by an action or an object.
         /// 
         /// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateParameterDeclaration> ParameterDeclarations;
         /// <summary>
-        /// A sheet is an object that contains a set of visuals that are viewed together on one page in a paginated report. Every analysis and dashboard must contain at least one sheet.
+        /// An array of sheet definitions for a template.
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateSheetDefinition> Sheets;
 

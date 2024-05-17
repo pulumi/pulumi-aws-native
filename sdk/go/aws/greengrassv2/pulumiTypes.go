@@ -228,7 +228,7 @@ func (o ComponentVersionComponentPlatformArrayOutput) Index(i pulumi.IntInput) C
 }
 
 type ComponentVersionLambdaContainerParams struct {
-	// Contains information about a device that Linux processes in a container can access.
+	// The list of system devices that the container can access.
 	Devices []ComponentVersionLambdaDeviceMount `pulumi:"devices"`
 	// The memory size of the container, expressed in kilobytes.
 	//
@@ -238,7 +238,7 @@ type ComponentVersionLambdaContainerParams struct {
 	//
 	// Default: `false`
 	MountRoSysfs *bool `pulumi:"mountRoSysfs"`
-	// Contains information about a volume that Linux processes in a container can access. When you define a volume, the AWS IoT Greengrass Core software mounts the source files to the destination inside the container.
+	// The list of volumes that the container can access.
 	Volumes []ComponentVersionLambdaVolumeMount `pulumi:"volumes"`
 }
 
@@ -254,7 +254,7 @@ type ComponentVersionLambdaContainerParamsInput interface {
 }
 
 type ComponentVersionLambdaContainerParamsArgs struct {
-	// Contains information about a device that Linux processes in a container can access.
+	// The list of system devices that the container can access.
 	Devices ComponentVersionLambdaDeviceMountArrayInput `pulumi:"devices"`
 	// The memory size of the container, expressed in kilobytes.
 	//
@@ -264,7 +264,7 @@ type ComponentVersionLambdaContainerParamsArgs struct {
 	//
 	// Default: `false`
 	MountRoSysfs pulumi.BoolPtrInput `pulumi:"mountRoSysfs"`
-	// Contains information about a volume that Linux processes in a container can access. When you define a volume, the AWS IoT Greengrass Core software mounts the source files to the destination inside the container.
+	// The list of volumes that the container can access.
 	Volumes ComponentVersionLambdaVolumeMountArrayInput `pulumi:"volumes"`
 }
 
@@ -345,7 +345,7 @@ func (o ComponentVersionLambdaContainerParamsOutput) ToComponentVersionLambdaCon
 	}).(ComponentVersionLambdaContainerParamsPtrOutput)
 }
 
-// Contains information about a device that Linux processes in a container can access.
+// The list of system devices that the container can access.
 func (o ComponentVersionLambdaContainerParamsOutput) Devices() ComponentVersionLambdaDeviceMountArrayOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaContainerParams) []ComponentVersionLambdaDeviceMount { return v.Devices }).(ComponentVersionLambdaDeviceMountArrayOutput)
 }
@@ -364,7 +364,7 @@ func (o ComponentVersionLambdaContainerParamsOutput) MountRoSysfs() pulumi.BoolP
 	return o.ApplyT(func(v ComponentVersionLambdaContainerParams) *bool { return v.MountRoSysfs }).(pulumi.BoolPtrOutput)
 }
 
-// Contains information about a volume that Linux processes in a container can access. When you define a volume, the AWS IoT Greengrass Core software mounts the source files to the destination inside the container.
+// The list of volumes that the container can access.
 func (o ComponentVersionLambdaContainerParamsOutput) Volumes() ComponentVersionLambdaVolumeMountArrayOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaContainerParams) []ComponentVersionLambdaVolumeMount { return v.Volumes }).(ComponentVersionLambdaVolumeMountArrayOutput)
 }
@@ -393,7 +393,7 @@ func (o ComponentVersionLambdaContainerParamsPtrOutput) Elem() ComponentVersionL
 	}).(ComponentVersionLambdaContainerParamsOutput)
 }
 
-// Contains information about a device that Linux processes in a container can access.
+// The list of system devices that the container can access.
 func (o ComponentVersionLambdaContainerParamsPtrOutput) Devices() ComponentVersionLambdaDeviceMountArrayOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaContainerParams) []ComponentVersionLambdaDeviceMount {
 		if v == nil {
@@ -427,7 +427,7 @@ func (o ComponentVersionLambdaContainerParamsPtrOutput) MountRoSysfs() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Contains information about a volume that Linux processes in a container can access. When you define a volume, the AWS IoT Greengrass Core software mounts the source files to the destination inside the container.
+// The list of volumes that the container can access.
 func (o ComponentVersionLambdaContainerParamsPtrOutput) Volumes() ComponentVersionLambdaVolumeMountArrayOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaContainerParams) []ComponentVersionLambdaVolumeMount {
 		if v == nil {
@@ -684,7 +684,7 @@ func (o ComponentVersionLambdaEventSourceArrayOutput) Index(i pulumi.IntInput) C
 type ComponentVersionLambdaExecutionParameters struct {
 	// The map of environment variables that are available to the Lambda function when it runs.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
-	// Contains information about an event source for an AWS Lambda function. The event source defines the topics on which this Lambda function subscribes to receive messages that run the function.
+	// The list of event sources to which to subscribe to receive work messages. The Lambda function runs when it receives a message from an event source. You can subscribe this function to local publish/subscribe messages and AWS IoT Core MQTT messages.
 	EventSources []ComponentVersionLambdaEventSource `pulumi:"eventSources"`
 	// The list of arguments to pass to the Lambda function when it runs.
 	ExecArgs []string `pulumi:"execArgs"`
@@ -692,7 +692,7 @@ type ComponentVersionLambdaExecutionParameters struct {
 	//
 	// Default: `json`
 	InputPayloadEncodingType *ComponentVersionLambdaExecutionParametersInputPayloadEncodingType `pulumi:"inputPayloadEncodingType"`
-	// Contains parameters for a Linux process that contains an AWS Lambda function.
+	// The parameters for the Linux process that contains the Lambda function.
 	LinuxProcessParams *ComponentVersionLambdaLinuxProcessParams `pulumi:"linuxProcessParams"`
 	// The maximum amount of time in seconds that a non-pinned Lambda function can idle before the AWS IoT Greengrass Core software stops its process.
 	MaxIdleTimeInSeconds *int `pulumi:"maxIdleTimeInSeconds"`
@@ -727,7 +727,7 @@ type ComponentVersionLambdaExecutionParametersInput interface {
 type ComponentVersionLambdaExecutionParametersArgs struct {
 	// The map of environment variables that are available to the Lambda function when it runs.
 	EnvironmentVariables pulumi.StringMapInput `pulumi:"environmentVariables"`
-	// Contains information about an event source for an AWS Lambda function. The event source defines the topics on which this Lambda function subscribes to receive messages that run the function.
+	// The list of event sources to which to subscribe to receive work messages. The Lambda function runs when it receives a message from an event source. You can subscribe this function to local publish/subscribe messages and AWS IoT Core MQTT messages.
 	EventSources ComponentVersionLambdaEventSourceArrayInput `pulumi:"eventSources"`
 	// The list of arguments to pass to the Lambda function when it runs.
 	ExecArgs pulumi.StringArrayInput `pulumi:"execArgs"`
@@ -735,7 +735,7 @@ type ComponentVersionLambdaExecutionParametersArgs struct {
 	//
 	// Default: `json`
 	InputPayloadEncodingType ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypePtrInput `pulumi:"inputPayloadEncodingType"`
-	// Contains parameters for a Linux process that contains an AWS Lambda function.
+	// The parameters for the Linux process that contains the Lambda function.
 	LinuxProcessParams ComponentVersionLambdaLinuxProcessParamsPtrInput `pulumi:"linuxProcessParams"`
 	// The maximum amount of time in seconds that a non-pinned Lambda function can idle before the AWS IoT Greengrass Core software stops its process.
 	MaxIdleTimeInSeconds pulumi.IntPtrInput `pulumi:"maxIdleTimeInSeconds"`
@@ -838,7 +838,7 @@ func (o ComponentVersionLambdaExecutionParametersOutput) EnvironmentVariables() 
 	return o.ApplyT(func(v ComponentVersionLambdaExecutionParameters) map[string]string { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
 }
 
-// Contains information about an event source for an AWS Lambda function. The event source defines the topics on which this Lambda function subscribes to receive messages that run the function.
+// The list of event sources to which to subscribe to receive work messages. The Lambda function runs when it receives a message from an event source. You can subscribe this function to local publish/subscribe messages and AWS IoT Core MQTT messages.
 func (o ComponentVersionLambdaExecutionParametersOutput) EventSources() ComponentVersionLambdaEventSourceArrayOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaExecutionParameters) []ComponentVersionLambdaEventSource {
 		return v.EventSources
@@ -859,7 +859,7 @@ func (o ComponentVersionLambdaExecutionParametersOutput) InputPayloadEncodingTyp
 	}).(ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypePtrOutput)
 }
 
-// Contains parameters for a Linux process that contains an AWS Lambda function.
+// The parameters for the Linux process that contains the Lambda function.
 func (o ComponentVersionLambdaExecutionParametersOutput) LinuxProcessParams() ComponentVersionLambdaLinuxProcessParamsPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaExecutionParameters) *ComponentVersionLambdaLinuxProcessParams {
 		return v.LinuxProcessParams
@@ -935,7 +935,7 @@ func (o ComponentVersionLambdaExecutionParametersPtrOutput) EnvironmentVariables
 	}).(pulumi.StringMapOutput)
 }
 
-// Contains information about an event source for an AWS Lambda function. The event source defines the topics on which this Lambda function subscribes to receive messages that run the function.
+// The list of event sources to which to subscribe to receive work messages. The Lambda function runs when it receives a message from an event source. You can subscribe this function to local publish/subscribe messages and AWS IoT Core MQTT messages.
 func (o ComponentVersionLambdaExecutionParametersPtrOutput) EventSources() ComponentVersionLambdaEventSourceArrayOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaExecutionParameters) []ComponentVersionLambdaEventSource {
 		if v == nil {
@@ -967,7 +967,7 @@ func (o ComponentVersionLambdaExecutionParametersPtrOutput) InputPayloadEncoding
 	}).(ComponentVersionLambdaExecutionParametersInputPayloadEncodingTypePtrOutput)
 }
 
-// Contains parameters for a Linux process that contains an AWS Lambda function.
+// The parameters for the Linux process that contains the Lambda function.
 func (o ComponentVersionLambdaExecutionParametersPtrOutput) LinuxProcessParams() ComponentVersionLambdaLinuxProcessParamsPtrOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaExecutionParameters) *ComponentVersionLambdaLinuxProcessParams {
 		if v == nil {
@@ -1045,13 +1045,13 @@ func (o ComponentVersionLambdaExecutionParametersPtrOutput) TimeoutInSeconds() p
 type ComponentVersionLambdaFunctionRecipeSource struct {
 	// The component versions on which this Lambda function component depends.
 	ComponentDependencies map[string]ComponentVersionComponentDependencyRequirement `pulumi:"componentDependencies"`
-	// Contains parameters for a Lambda function that runs on AWS IoT Greengrass .
+	// The system and runtime parameters for the Lambda function as it runs on the AWS IoT Greengrass core device.
 	ComponentLambdaParameters *ComponentVersionLambdaExecutionParameters `pulumi:"componentLambdaParameters"`
 	// The name of the component.
 	//
 	// Defaults to the name of the Lambda function.
 	ComponentName *string `pulumi:"componentName"`
-	// Contains information about a platform that a component supports.
+	// The platforms that the component version supports.
 	ComponentPlatforms []ComponentVersionComponentPlatform `pulumi:"componentPlatforms"`
 	// The version of the component.
 	//
@@ -1075,13 +1075,13 @@ type ComponentVersionLambdaFunctionRecipeSourceInput interface {
 type ComponentVersionLambdaFunctionRecipeSourceArgs struct {
 	// The component versions on which this Lambda function component depends.
 	ComponentDependencies ComponentVersionComponentDependencyRequirementMapInput `pulumi:"componentDependencies"`
-	// Contains parameters for a Lambda function that runs on AWS IoT Greengrass .
+	// The system and runtime parameters for the Lambda function as it runs on the AWS IoT Greengrass core device.
 	ComponentLambdaParameters ComponentVersionLambdaExecutionParametersPtrInput `pulumi:"componentLambdaParameters"`
 	// The name of the component.
 	//
 	// Defaults to the name of the Lambda function.
 	ComponentName pulumi.StringPtrInput `pulumi:"componentName"`
-	// Contains information about a platform that a component supports.
+	// The platforms that the component version supports.
 	ComponentPlatforms ComponentVersionComponentPlatformArrayInput `pulumi:"componentPlatforms"`
 	// The version of the component.
 	//
@@ -1175,7 +1175,7 @@ func (o ComponentVersionLambdaFunctionRecipeSourceOutput) ComponentDependencies(
 	}).(ComponentVersionComponentDependencyRequirementMapOutput)
 }
 
-// Contains parameters for a Lambda function that runs on AWS IoT Greengrass .
+// The system and runtime parameters for the Lambda function as it runs on the AWS IoT Greengrass core device.
 func (o ComponentVersionLambdaFunctionRecipeSourceOutput) ComponentLambdaParameters() ComponentVersionLambdaExecutionParametersPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaFunctionRecipeSource) *ComponentVersionLambdaExecutionParameters {
 		return v.ComponentLambdaParameters
@@ -1189,7 +1189,7 @@ func (o ComponentVersionLambdaFunctionRecipeSourceOutput) ComponentName() pulumi
 	return o.ApplyT(func(v ComponentVersionLambdaFunctionRecipeSource) *string { return v.ComponentName }).(pulumi.StringPtrOutput)
 }
 
-// Contains information about a platform that a component supports.
+// The platforms that the component version supports.
 func (o ComponentVersionLambdaFunctionRecipeSourceOutput) ComponentPlatforms() ComponentVersionComponentPlatformArrayOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaFunctionRecipeSource) []ComponentVersionComponentPlatform {
 		return v.ComponentPlatforms
@@ -1242,7 +1242,7 @@ func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) ComponentDependenci
 	}).(ComponentVersionComponentDependencyRequirementMapOutput)
 }
 
-// Contains parameters for a Lambda function that runs on AWS IoT Greengrass .
+// The system and runtime parameters for the Lambda function as it runs on the AWS IoT Greengrass core device.
 func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) ComponentLambdaParameters() ComponentVersionLambdaExecutionParametersPtrOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaFunctionRecipeSource) *ComponentVersionLambdaExecutionParameters {
 		if v == nil {
@@ -1264,7 +1264,7 @@ func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) ComponentName() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains information about a platform that a component supports.
+// The platforms that the component version supports.
 func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) ComponentPlatforms() ComponentVersionComponentPlatformArrayOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaFunctionRecipeSource) []ComponentVersionComponentPlatform {
 		if v == nil {
@@ -1297,7 +1297,7 @@ func (o ComponentVersionLambdaFunctionRecipeSourcePtrOutput) LambdaArn() pulumi.
 }
 
 type ComponentVersionLambdaLinuxProcessParams struct {
-	// Contains information about a container in which AWS Lambda functions run on AWS IoT Greengrass core devices.
+	// The parameters for the container in which the Lambda function runs.
 	ContainerParams *ComponentVersionLambdaContainerParams `pulumi:"containerParams"`
 	// The isolation mode for the process that contains the Lambda function. The process can run in an isolated runtime environment inside the AWS IoT Greengrass container, or as a regular process outside any container.
 	//
@@ -1317,7 +1317,7 @@ type ComponentVersionLambdaLinuxProcessParamsInput interface {
 }
 
 type ComponentVersionLambdaLinuxProcessParamsArgs struct {
-	// Contains information about a container in which AWS Lambda functions run on AWS IoT Greengrass core devices.
+	// The parameters for the container in which the Lambda function runs.
 	ContainerParams ComponentVersionLambdaContainerParamsPtrInput `pulumi:"containerParams"`
 	// The isolation mode for the process that contains the Lambda function. The process can run in an isolated runtime environment inside the AWS IoT Greengrass container, or as a regular process outside any container.
 	//
@@ -1402,7 +1402,7 @@ func (o ComponentVersionLambdaLinuxProcessParamsOutput) ToComponentVersionLambda
 	}).(ComponentVersionLambdaLinuxProcessParamsPtrOutput)
 }
 
-// Contains information about a container in which AWS Lambda functions run on AWS IoT Greengrass core devices.
+// The parameters for the container in which the Lambda function runs.
 func (o ComponentVersionLambdaLinuxProcessParamsOutput) ContainerParams() ComponentVersionLambdaContainerParamsPtrOutput {
 	return o.ApplyT(func(v ComponentVersionLambdaLinuxProcessParams) *ComponentVersionLambdaContainerParams {
 		return v.ContainerParams
@@ -1442,7 +1442,7 @@ func (o ComponentVersionLambdaLinuxProcessParamsPtrOutput) Elem() ComponentVersi
 	}).(ComponentVersionLambdaLinuxProcessParamsOutput)
 }
 
-// Contains information about a container in which AWS Lambda functions run on AWS IoT Greengrass core devices.
+// The parameters for the container in which the Lambda function runs.
 func (o ComponentVersionLambdaLinuxProcessParamsPtrOutput) ContainerParams() ComponentVersionLambdaContainerParamsPtrOutput {
 	return o.ApplyT(func(v *ComponentVersionLambdaLinuxProcessParams) *ComponentVersionLambdaContainerParams {
 		if v == nil {
@@ -2351,12 +2351,7 @@ func (o DeploymentConfigurationValidationPolicyPtrOutput) TimeoutInSeconds() pul
 }
 
 type DeploymentIoTJobAbortConfig struct {
-	// Contains criteria that define when and how to cancel a job.
-	//
-	// The deployment stops if the following conditions are true:
-	//
-	// - The number of things that receive the deployment exceeds the `minNumberOfExecutedThings` .
-	// - The percentage of failures with type `failureType` exceeds the `thresholdPercentage` .
+	// The list of criteria that define when and how to cancel the configuration deployment.
 	CriteriaList []DeploymentIoTJobAbortCriteria `pulumi:"criteriaList"`
 }
 
@@ -2372,12 +2367,7 @@ type DeploymentIoTJobAbortConfigInput interface {
 }
 
 type DeploymentIoTJobAbortConfigArgs struct {
-	// Contains criteria that define when and how to cancel a job.
-	//
-	// The deployment stops if the following conditions are true:
-	//
-	// - The number of things that receive the deployment exceeds the `minNumberOfExecutedThings` .
-	// - The percentage of failures with type `failureType` exceeds the `thresholdPercentage` .
+	// The list of criteria that define when and how to cancel the configuration deployment.
 	CriteriaList DeploymentIoTJobAbortCriteriaArrayInput `pulumi:"criteriaList"`
 }
 
@@ -2458,12 +2448,7 @@ func (o DeploymentIoTJobAbortConfigOutput) ToDeploymentIoTJobAbortConfigPtrOutpu
 	}).(DeploymentIoTJobAbortConfigPtrOutput)
 }
 
-// Contains criteria that define when and how to cancel a job.
-//
-// The deployment stops if the following conditions are true:
-//
-// - The number of things that receive the deployment exceeds the `minNumberOfExecutedThings` .
-// - The percentage of failures with type `failureType` exceeds the `thresholdPercentage` .
+// The list of criteria that define when and how to cancel the configuration deployment.
 func (o DeploymentIoTJobAbortConfigOutput) CriteriaList() DeploymentIoTJobAbortCriteriaArrayOutput {
 	return o.ApplyT(func(v DeploymentIoTJobAbortConfig) []DeploymentIoTJobAbortCriteria { return v.CriteriaList }).(DeploymentIoTJobAbortCriteriaArrayOutput)
 }
@@ -2492,12 +2477,7 @@ func (o DeploymentIoTJobAbortConfigPtrOutput) Elem() DeploymentIoTJobAbortConfig
 	}).(DeploymentIoTJobAbortConfigOutput)
 }
 
-// Contains criteria that define when and how to cancel a job.
-//
-// The deployment stops if the following conditions are true:
-//
-// - The number of things that receive the deployment exceeds the `minNumberOfExecutedThings` .
-// - The percentage of failures with type `failureType` exceeds the `thresholdPercentage` .
+// The list of criteria that define when and how to cancel the configuration deployment.
 func (o DeploymentIoTJobAbortConfigPtrOutput) CriteriaList() DeploymentIoTJobAbortCriteriaArrayOutput {
 	return o.ApplyT(func(v *DeploymentIoTJobAbortConfig) []DeploymentIoTJobAbortCriteria {
 		if v == nil {
@@ -2638,11 +2618,11 @@ func (o DeploymentIoTJobAbortCriteriaArrayOutput) Index(i pulumi.IntInput) Deplo
 }
 
 type DeploymentIoTJobConfiguration struct {
-	// Contains a list of criteria that define when and how to cancel a configuration deployment.
+	// The stop configuration for the job. This configuration defines when and how to stop a job rollout.
 	AbortConfig *DeploymentIoTJobAbortConfig `pulumi:"abortConfig"`
-	// Contains information about the rollout configuration for a job. This configuration defines the rate at which the job deploys a configuration to a fleet of target devices.
+	// The rollout configuration for the job. This configuration defines the rate at which the job rolls out to the fleet of target devices.
 	JobExecutionsRolloutConfig *DeploymentIoTJobExecutionsRolloutConfig `pulumi:"jobExecutionsRolloutConfig"`
-	// Contains information about the timeout configuration for a job.
+	// The timeout configuration for the job. This configuration defines the amount of time each device has to complete the job.
 	TimeoutConfig *DeploymentIoTJobTimeoutConfig `pulumi:"timeoutConfig"`
 }
 
@@ -2658,11 +2638,11 @@ type DeploymentIoTJobConfigurationInput interface {
 }
 
 type DeploymentIoTJobConfigurationArgs struct {
-	// Contains a list of criteria that define when and how to cancel a configuration deployment.
+	// The stop configuration for the job. This configuration defines when and how to stop a job rollout.
 	AbortConfig DeploymentIoTJobAbortConfigPtrInput `pulumi:"abortConfig"`
-	// Contains information about the rollout configuration for a job. This configuration defines the rate at which the job deploys a configuration to a fleet of target devices.
+	// The rollout configuration for the job. This configuration defines the rate at which the job rolls out to the fleet of target devices.
 	JobExecutionsRolloutConfig DeploymentIoTJobExecutionsRolloutConfigPtrInput `pulumi:"jobExecutionsRolloutConfig"`
-	// Contains information about the timeout configuration for a job.
+	// The timeout configuration for the job. This configuration defines the amount of time each device has to complete the job.
 	TimeoutConfig DeploymentIoTJobTimeoutConfigPtrInput `pulumi:"timeoutConfig"`
 }
 
@@ -2743,19 +2723,19 @@ func (o DeploymentIoTJobConfigurationOutput) ToDeploymentIoTJobConfigurationPtrO
 	}).(DeploymentIoTJobConfigurationPtrOutput)
 }
 
-// Contains a list of criteria that define when and how to cancel a configuration deployment.
+// The stop configuration for the job. This configuration defines when and how to stop a job rollout.
 func (o DeploymentIoTJobConfigurationOutput) AbortConfig() DeploymentIoTJobAbortConfigPtrOutput {
 	return o.ApplyT(func(v DeploymentIoTJobConfiguration) *DeploymentIoTJobAbortConfig { return v.AbortConfig }).(DeploymentIoTJobAbortConfigPtrOutput)
 }
 
-// Contains information about the rollout configuration for a job. This configuration defines the rate at which the job deploys a configuration to a fleet of target devices.
+// The rollout configuration for the job. This configuration defines the rate at which the job rolls out to the fleet of target devices.
 func (o DeploymentIoTJobConfigurationOutput) JobExecutionsRolloutConfig() DeploymentIoTJobExecutionsRolloutConfigPtrOutput {
 	return o.ApplyT(func(v DeploymentIoTJobConfiguration) *DeploymentIoTJobExecutionsRolloutConfig {
 		return v.JobExecutionsRolloutConfig
 	}).(DeploymentIoTJobExecutionsRolloutConfigPtrOutput)
 }
 
-// Contains information about the timeout configuration for a job.
+// The timeout configuration for the job. This configuration defines the amount of time each device has to complete the job.
 func (o DeploymentIoTJobConfigurationOutput) TimeoutConfig() DeploymentIoTJobTimeoutConfigPtrOutput {
 	return o.ApplyT(func(v DeploymentIoTJobConfiguration) *DeploymentIoTJobTimeoutConfig { return v.TimeoutConfig }).(DeploymentIoTJobTimeoutConfigPtrOutput)
 }
@@ -2784,7 +2764,7 @@ func (o DeploymentIoTJobConfigurationPtrOutput) Elem() DeploymentIoTJobConfigura
 	}).(DeploymentIoTJobConfigurationOutput)
 }
 
-// Contains a list of criteria that define when and how to cancel a configuration deployment.
+// The stop configuration for the job. This configuration defines when and how to stop a job rollout.
 func (o DeploymentIoTJobConfigurationPtrOutput) AbortConfig() DeploymentIoTJobAbortConfigPtrOutput {
 	return o.ApplyT(func(v *DeploymentIoTJobConfiguration) *DeploymentIoTJobAbortConfig {
 		if v == nil {
@@ -2794,7 +2774,7 @@ func (o DeploymentIoTJobConfigurationPtrOutput) AbortConfig() DeploymentIoTJobAb
 	}).(DeploymentIoTJobAbortConfigPtrOutput)
 }
 
-// Contains information about the rollout configuration for a job. This configuration defines the rate at which the job deploys a configuration to a fleet of target devices.
+// The rollout configuration for the job. This configuration defines the rate at which the job rolls out to the fleet of target devices.
 func (o DeploymentIoTJobConfigurationPtrOutput) JobExecutionsRolloutConfig() DeploymentIoTJobExecutionsRolloutConfigPtrOutput {
 	return o.ApplyT(func(v *DeploymentIoTJobConfiguration) *DeploymentIoTJobExecutionsRolloutConfig {
 		if v == nil {
@@ -2804,7 +2784,7 @@ func (o DeploymentIoTJobConfigurationPtrOutput) JobExecutionsRolloutConfig() Dep
 	}).(DeploymentIoTJobExecutionsRolloutConfigPtrOutput)
 }
 
-// Contains information about the timeout configuration for a job.
+// The timeout configuration for the job. This configuration defines the amount of time each device has to complete the job.
 func (o DeploymentIoTJobConfigurationPtrOutput) TimeoutConfig() DeploymentIoTJobTimeoutConfigPtrOutput {
 	return o.ApplyT(func(v *DeploymentIoTJobConfiguration) *DeploymentIoTJobTimeoutConfig {
 		if v == nil {
@@ -2815,7 +2795,7 @@ func (o DeploymentIoTJobConfigurationPtrOutput) TimeoutConfig() DeploymentIoTJob
 }
 
 type DeploymentIoTJobExecutionsRolloutConfig struct {
-	// Contains information about an exponential rollout rate for a configuration deployment job.
+	// The exponential rate to increase the job rollout rate.
 	ExponentialRate *DeploymentIoTJobExponentialRolloutRate `pulumi:"exponentialRate"`
 	// The maximum number of devices that receive a pending job notification, per minute.
 	MaximumPerMinute *int `pulumi:"maximumPerMinute"`
@@ -2833,7 +2813,7 @@ type DeploymentIoTJobExecutionsRolloutConfigInput interface {
 }
 
 type DeploymentIoTJobExecutionsRolloutConfigArgs struct {
-	// Contains information about an exponential rollout rate for a configuration deployment job.
+	// The exponential rate to increase the job rollout rate.
 	ExponentialRate DeploymentIoTJobExponentialRolloutRatePtrInput `pulumi:"exponentialRate"`
 	// The maximum number of devices that receive a pending job notification, per minute.
 	MaximumPerMinute pulumi.IntPtrInput `pulumi:"maximumPerMinute"`
@@ -2916,7 +2896,7 @@ func (o DeploymentIoTJobExecutionsRolloutConfigOutput) ToDeploymentIoTJobExecuti
 	}).(DeploymentIoTJobExecutionsRolloutConfigPtrOutput)
 }
 
-// Contains information about an exponential rollout rate for a configuration deployment job.
+// The exponential rate to increase the job rollout rate.
 func (o DeploymentIoTJobExecutionsRolloutConfigOutput) ExponentialRate() DeploymentIoTJobExponentialRolloutRatePtrOutput {
 	return o.ApplyT(func(v DeploymentIoTJobExecutionsRolloutConfig) *DeploymentIoTJobExponentialRolloutRate {
 		return v.ExponentialRate
@@ -2952,7 +2932,7 @@ func (o DeploymentIoTJobExecutionsRolloutConfigPtrOutput) Elem() DeploymentIoTJo
 	}).(DeploymentIoTJobExecutionsRolloutConfigOutput)
 }
 
-// Contains information about an exponential rollout rate for a configuration deployment job.
+// The exponential rate to increase the job rollout rate.
 func (o DeploymentIoTJobExecutionsRolloutConfigPtrOutput) ExponentialRate() DeploymentIoTJobExponentialRolloutRatePtrOutput {
 	return o.ApplyT(func(v *DeploymentIoTJobExecutionsRolloutConfig) *DeploymentIoTJobExponentialRolloutRate {
 		if v == nil {
@@ -2979,7 +2959,7 @@ type DeploymentIoTJobExponentialRolloutRate struct {
 	//
 	// This parameter supports up to one digit after the decimal (for example, you can specify `1.5` , but not `1.55` ).
 	IncrementFactor float64 `pulumi:"incrementFactor"`
-	// Contains information about criteria to meet before a job increases its rollout rate. Specify either `numberOfNotifiedThings` or `numberOfSucceededThings` .
+	// The criteria to increase the rollout rate for the job.
 	RateIncreaseCriteria DeploymentIoTJobRateIncreaseCriteria `pulumi:"rateIncreaseCriteria"`
 }
 
@@ -3001,7 +2981,7 @@ type DeploymentIoTJobExponentialRolloutRateArgs struct {
 	//
 	// This parameter supports up to one digit after the decimal (for example, you can specify `1.5` , but not `1.55` ).
 	IncrementFactor pulumi.Float64Input `pulumi:"incrementFactor"`
-	// Contains information about criteria to meet before a job increases its rollout rate. Specify either `numberOfNotifiedThings` or `numberOfSucceededThings` .
+	// The criteria to increase the rollout rate for the job.
 	RateIncreaseCriteria DeploymentIoTJobRateIncreaseCriteriaInput `pulumi:"rateIncreaseCriteria"`
 }
 
@@ -3094,7 +3074,7 @@ func (o DeploymentIoTJobExponentialRolloutRateOutput) IncrementFactor() pulumi.F
 	return o.ApplyT(func(v DeploymentIoTJobExponentialRolloutRate) float64 { return v.IncrementFactor }).(pulumi.Float64Output)
 }
 
-// Contains information about criteria to meet before a job increases its rollout rate. Specify either `numberOfNotifiedThings` or `numberOfSucceededThings` .
+// The criteria to increase the rollout rate for the job.
 func (o DeploymentIoTJobExponentialRolloutRateOutput) RateIncreaseCriteria() DeploymentIoTJobRateIncreaseCriteriaOutput {
 	return o.ApplyT(func(v DeploymentIoTJobExponentialRolloutRate) DeploymentIoTJobRateIncreaseCriteria {
 		return v.RateIncreaseCriteria
@@ -3147,7 +3127,7 @@ func (o DeploymentIoTJobExponentialRolloutRatePtrOutput) IncrementFactor() pulum
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Contains information about criteria to meet before a job increases its rollout rate. Specify either `numberOfNotifiedThings` or `numberOfSucceededThings` .
+// The criteria to increase the rollout rate for the job.
 func (o DeploymentIoTJobExponentialRolloutRatePtrOutput) RateIncreaseCriteria() DeploymentIoTJobRateIncreaseCriteriaPtrOutput {
 	return o.ApplyT(func(v *DeploymentIoTJobExponentialRolloutRate) *DeploymentIoTJobRateIncreaseCriteria {
 		if v == nil {
@@ -3421,11 +3401,9 @@ func (o DeploymentIoTJobTimeoutConfigPtrOutput) InProgressTimeoutInMinutes() pul
 }
 
 type DeploymentPolicies struct {
-	// Contains information about a deployment's policy that defines when components are safe to update.
-	//
-	// Each component on a device can report whether or not it's ready to update. After a component and its dependencies are ready, they can apply the update in the deployment. You can configure whether or not the deployment notifies components of an update and waits for a response. You specify the amount of time each component has to respond to the update notification.
+	// The component update policy for the configuration deployment. This policy defines when it's safe to deploy the configuration to devices.
 	ComponentUpdatePolicy *DeploymentComponentUpdatePolicy `pulumi:"componentUpdatePolicy"`
-	// Contains information about how long a component on a core device can validate its configuration updates before it times out. Components can use the [SubscribeToValidateConfigurationUpdates](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-subscribetovalidateconfigurationupdates) IPC operation to receive notifications when a deployment specifies a configuration update. Then, components can respond with the [SendConfigurationValidityReport](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-sendconfigurationvalidityreport) IPC operation. For more information, see the [Create deployments](https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+	// The configuration validation policy for the configuration deployment. This policy defines how long each component has to validate its configure updates.
 	ConfigurationValidationPolicy *DeploymentConfigurationValidationPolicy `pulumi:"configurationValidationPolicy"`
 	// The failure handling policy for the configuration deployment. This policy defines what to do if the deployment fails.
 	//
@@ -3445,11 +3423,9 @@ type DeploymentPoliciesInput interface {
 }
 
 type DeploymentPoliciesArgs struct {
-	// Contains information about a deployment's policy that defines when components are safe to update.
-	//
-	// Each component on a device can report whether or not it's ready to update. After a component and its dependencies are ready, they can apply the update in the deployment. You can configure whether or not the deployment notifies components of an update and waits for a response. You specify the amount of time each component has to respond to the update notification.
+	// The component update policy for the configuration deployment. This policy defines when it's safe to deploy the configuration to devices.
 	ComponentUpdatePolicy DeploymentComponentUpdatePolicyPtrInput `pulumi:"componentUpdatePolicy"`
-	// Contains information about how long a component on a core device can validate its configuration updates before it times out. Components can use the [SubscribeToValidateConfigurationUpdates](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-subscribetovalidateconfigurationupdates) IPC operation to receive notifications when a deployment specifies a configuration update. Then, components can respond with the [SendConfigurationValidityReport](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-sendconfigurationvalidityreport) IPC operation. For more information, see the [Create deployments](https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+	// The configuration validation policy for the configuration deployment. This policy defines how long each component has to validate its configure updates.
 	ConfigurationValidationPolicy DeploymentConfigurationValidationPolicyPtrInput `pulumi:"configurationValidationPolicy"`
 	// The failure handling policy for the configuration deployment. This policy defines what to do if the deployment fails.
 	//
@@ -3534,14 +3510,12 @@ func (o DeploymentPoliciesOutput) ToDeploymentPoliciesPtrOutputWithContext(ctx c
 	}).(DeploymentPoliciesPtrOutput)
 }
 
-// Contains information about a deployment's policy that defines when components are safe to update.
-//
-// Each component on a device can report whether or not it's ready to update. After a component and its dependencies are ready, they can apply the update in the deployment. You can configure whether or not the deployment notifies components of an update and waits for a response. You specify the amount of time each component has to respond to the update notification.
+// The component update policy for the configuration deployment. This policy defines when it's safe to deploy the configuration to devices.
 func (o DeploymentPoliciesOutput) ComponentUpdatePolicy() DeploymentComponentUpdatePolicyPtrOutput {
 	return o.ApplyT(func(v DeploymentPolicies) *DeploymentComponentUpdatePolicy { return v.ComponentUpdatePolicy }).(DeploymentComponentUpdatePolicyPtrOutput)
 }
 
-// Contains information about how long a component on a core device can validate its configuration updates before it times out. Components can use the [SubscribeToValidateConfigurationUpdates](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-subscribetovalidateconfigurationupdates) IPC operation to receive notifications when a deployment specifies a configuration update. Then, components can respond with the [SendConfigurationValidityReport](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-sendconfigurationvalidityreport) IPC operation. For more information, see the [Create deployments](https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+// The configuration validation policy for the configuration deployment. This policy defines how long each component has to validate its configure updates.
 func (o DeploymentPoliciesOutput) ConfigurationValidationPolicy() DeploymentConfigurationValidationPolicyPtrOutput {
 	return o.ApplyT(func(v DeploymentPolicies) *DeploymentConfigurationValidationPolicy {
 		return v.ConfigurationValidationPolicy
@@ -3579,9 +3553,7 @@ func (o DeploymentPoliciesPtrOutput) Elem() DeploymentPoliciesOutput {
 	}).(DeploymentPoliciesOutput)
 }
 
-// Contains information about a deployment's policy that defines when components are safe to update.
-//
-// Each component on a device can report whether or not it's ready to update. After a component and its dependencies are ready, they can apply the update in the deployment. You can configure whether or not the deployment notifies components of an update and waits for a response. You specify the amount of time each component has to respond to the update notification.
+// The component update policy for the configuration deployment. This policy defines when it's safe to deploy the configuration to devices.
 func (o DeploymentPoliciesPtrOutput) ComponentUpdatePolicy() DeploymentComponentUpdatePolicyPtrOutput {
 	return o.ApplyT(func(v *DeploymentPolicies) *DeploymentComponentUpdatePolicy {
 		if v == nil {
@@ -3591,7 +3563,7 @@ func (o DeploymentPoliciesPtrOutput) ComponentUpdatePolicy() DeploymentComponent
 	}).(DeploymentComponentUpdatePolicyPtrOutput)
 }
 
-// Contains information about how long a component on a core device can validate its configuration updates before it times out. Components can use the [SubscribeToValidateConfigurationUpdates](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-subscribetovalidateconfigurationupdates) IPC operation to receive notifications when a deployment specifies a configuration update. Then, components can respond with the [SendConfigurationValidityReport](https://docs.aws.amazon.com/greengrass/v2/developerguide/interprocess-communication.html#ipc-operation-sendconfigurationvalidityreport) IPC operation. For more information, see the [Create deployments](https://docs.aws.amazon.com/greengrass/v2/developerguide/create-deployments.html) in the *AWS IoT Greengrass V2 Developer Guide* .
+// The configuration validation policy for the configuration deployment. This policy defines how long each component has to validate its configure updates.
 func (o DeploymentPoliciesPtrOutput) ConfigurationValidationPolicy() DeploymentConfigurationValidationPolicyPtrOutput {
 	return o.ApplyT(func(v *DeploymentPolicies) *DeploymentConfigurationValidationPolicy {
 		if v == nil {

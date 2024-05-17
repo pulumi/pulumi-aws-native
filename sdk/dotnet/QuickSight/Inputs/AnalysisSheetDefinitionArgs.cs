@@ -31,9 +31,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.AnalysisFilterControlArgs>? _filterControls;
 
         /// <summary>
-        /// The control of a filter that is used to interact with a dashboard or an analysis.
+        /// The list of filter controls that are on a sheet.
         /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon QuickSight User Guide* .
         /// </summary>
         public InputList<Inputs.AnalysisFilterControlArgs> FilterControls
         {
@@ -45,11 +45,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.AnalysisLayoutArgs>? _layouts;
 
         /// <summary>
-        /// A `Layout` defines the placement of elements within a sheet.
+        /// Layouts define how the components of a sheet are arranged.
         /// 
         /// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon QuickSight User Guide* .
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
         /// </summary>
         public InputList<Inputs.AnalysisLayoutArgs> Layouts
         {
@@ -67,9 +65,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.AnalysisParameterControlArgs>? _parameterControls;
 
         /// <summary>
-        /// The control of a parameter that users can interact with in a dashboard or an analysis.
+        /// The list of parameter controls that are on a sheet.
         /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// For more information, see [Using a Control with a Parameter in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html) in the *Amazon QuickSight User Guide* .
         /// </summary>
         public InputList<Inputs.AnalysisParameterControlArgs> ParameterControls
         {
@@ -81,7 +79,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.AnalysisSheetControlLayoutArgs>? _sheetControlLayouts;
 
         /// <summary>
-        /// A grid layout to define the placement of sheet control.
+        /// The control layouts of the sheet.
         /// </summary>
         public InputList<Inputs.AnalysisSheetControlLayoutArgs> SheetControlLayouts
         {
@@ -99,7 +97,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.AnalysisSheetTextBoxArgs>? _textBoxes;
 
         /// <summary>
-        /// A text box.
+        /// The text boxes that are on a sheet.
         /// </summary>
         public InputList<Inputs.AnalysisSheetTextBoxArgs> TextBoxes
         {
@@ -117,9 +115,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.AnalysisVisualArgs>? _visuals;
 
         /// <summary>
-        /// A visual displayed on a sheet in an analysis, dashboard, or template.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// A list of the visuals that are on a sheet. Visual placement is determined by the layout of the sheet.
         /// </summary>
         public InputList<Inputs.AnalysisVisualArgs> Visuals
         {

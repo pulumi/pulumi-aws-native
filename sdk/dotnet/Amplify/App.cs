@@ -46,13 +46,13 @@ namespace Pulumi.AwsNative.Amplify
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Use the AutoBranchCreationConfig property type to automatically create branches that match a certain pattern.
+        /// Sets the configuration for your automatic branch creation.
         /// </summary>
         [Output("autoBranchCreationConfig")]
         public Output<Outputs.AppAutoBranchCreationConfig?> AutoBranchCreationConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
+        /// The credentials for basic authorization for an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
         /// </summary>
         [Output("basicAuthConfig")]
         public Output<Outputs.AppBasicAuthConfig?> BasicAuthConfig { get; private set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Amplify
         public Output<string?> CustomHeaders { get; private set; } = null!;
 
         /// <summary>
-        /// The CustomRule property type allows you to specify redirects, rewrites, and reverse proxies. Redirects enable a web app to reroute navigation from one URL to another.
+        /// The custom rewrite and redirect rules for an Amplify app.
         /// </summary>
         [Output("customRules")]
         public Output<ImmutableArray<Outputs.AppCustomRule>> CustomRules { get; private set; } = null!;
@@ -94,7 +94,9 @@ namespace Pulumi.AwsNative.Amplify
         public Output<bool?> EnableBranchAutoDeletion { get; private set; } = null!;
 
         /// <summary>
-        /// Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+        /// The environment variables for the Amplify app.
+        /// 
+        /// For a list of the environment variables that are accessible to Amplify by default, see [Amplify Environment variables](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html) in the *Amplify Hosting User Guide* .
         /// </summary>
         [Output("environmentVariables")]
         public Output<ImmutableArray<Outputs.AppEnvironmentVariable>> EnvironmentVariables { get; private set; } = null!;
@@ -136,7 +138,7 @@ namespace Pulumi.AwsNative.Amplify
         public Output<string?> Repository { get; private set; } = null!;
 
         /// <summary>
-        /// The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::App` resource.
+        /// The tag for an Amplify app.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -199,13 +201,13 @@ namespace Pulumi.AwsNative.Amplify
         public Input<string>? AccessToken { get; set; }
 
         /// <summary>
-        /// Use the AutoBranchCreationConfig property type to automatically create branches that match a certain pattern.
+        /// Sets the configuration for your automatic branch creation.
         /// </summary>
         [Input("autoBranchCreationConfig")]
         public Input<Inputs.AppAutoBranchCreationConfigArgs>? AutoBranchCreationConfig { get; set; }
 
         /// <summary>
-        /// Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
+        /// The credentials for basic authorization for an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
         /// </summary>
         [Input("basicAuthConfig")]
         public Input<Inputs.AppBasicAuthConfigArgs>? BasicAuthConfig { get; set; }
@@ -226,7 +228,7 @@ namespace Pulumi.AwsNative.Amplify
         private InputList<Inputs.AppCustomRuleArgs>? _customRules;
 
         /// <summary>
-        /// The CustomRule property type allows you to specify redirects, rewrites, and reverse proxies. Redirects enable a web app to reroute navigation from one URL to another.
+        /// The custom rewrite and redirect rules for an Amplify app.
         /// </summary>
         public InputList<Inputs.AppCustomRuleArgs> CustomRules
         {
@@ -250,7 +252,9 @@ namespace Pulumi.AwsNative.Amplify
         private InputList<Inputs.AppEnvironmentVariableArgs>? _environmentVariables;
 
         /// <summary>
-        /// Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+        /// The environment variables for the Amplify app.
+        /// 
+        /// For a list of the environment variables that are accessible to Amplify by default, see [Amplify Environment variables](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html) in the *Amplify Hosting User Guide* .
         /// </summary>
         public InputList<Inputs.AppEnvironmentVariableArgs> EnvironmentVariables
         {
@@ -298,7 +302,7 @@ namespace Pulumi.AwsNative.Amplify
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::App` resource.
+        /// The tag for an Amplify app.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

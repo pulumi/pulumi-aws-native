@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
         private InputList<Inputs.JobDefinitionNodeRangePropertyArgs>? _nodeRangeProperties;
 
         /// <summary>
-        /// This is an object that represents the properties of the node range for a multi-node parallel job.
+        /// A list of node ranges and their properties that are associated with a multi-node parallel job.
         /// </summary>
         public InputList<Inputs.JobDefinitionNodeRangePropertyArgs> NodeRangeProperties
         {

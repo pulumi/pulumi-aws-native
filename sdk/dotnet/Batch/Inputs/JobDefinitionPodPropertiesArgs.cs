@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
         private InputList<Inputs.JobDefinitionEksContainerArgs>? _containers;
 
         /// <summary>
-        /// EKS container properties are used in job definitions for Amazon EKS based job definitions to describe the properties for a container node in the pod that's launched as part of a job. This can't be specified for Amazon ECS based job definitions.
+        /// The properties of the container that's used on the Amazon EKS pod.
         /// </summary>
         public InputList<Inputs.JobDefinitionEksContainerArgs> Containers
         {
@@ -40,10 +40,6 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
         [Input("imagePullSecrets")]
         private InputList<Inputs.JobDefinitionImagePullSecretArgs>? _imagePullSecrets;
-
-        /// <summary>
-        /// References a Kubernetes secret resource. This name of the secret must start and end with an alphanumeric character, is required to be lowercase, can include periods (.) and hyphens (-), and can't contain more than 253 characters.
-        /// </summary>
         public InputList<Inputs.JobDefinitionImagePullSecretArgs> ImagePullSecrets
         {
             get => _imagePullSecrets ?? (_imagePullSecrets = new InputList<Inputs.JobDefinitionImagePullSecretArgs>());
@@ -86,7 +82,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
         private InputList<Inputs.JobDefinitionEksVolumeArgs>? _volumes;
 
         /// <summary>
-        /// Specifies an Amazon EKS volume for a job definition.
+        /// Specifies the volumes for a job definition that uses Amazon EKS resources.
         /// </summary>
         public InputList<Inputs.JobDefinitionEksVolumeArgs> Volumes
         {

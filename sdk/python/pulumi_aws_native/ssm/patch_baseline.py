@@ -35,9 +35,7 @@ class PatchBaselineArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a PatchBaseline resource.
-        :param pulumi.Input['PatchBaselineRuleGroupArgs'] approval_rules: The `RuleGroup` property type specifies a set of rules that define the approval rules for an AWS Systems Manager patch baseline.
-               
-               `RuleGroup` is the property type for the `ApprovalRules` property of the [AWS::SSM::PatchBaseline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html) resource.
+        :param pulumi.Input['PatchBaselineRuleGroupArgs'] approval_rules: A set of rules used to include patches in the baseline.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] approved_patches: A list of explicitly approved patches for the baseline.
         :param pulumi.Input['PatchBaselineApprovedPatchesComplianceLevel'] approved_patches_compliance_level: Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
         :param pulumi.Input[bool] approved_patches_enable_non_security: Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
@@ -85,9 +83,7 @@ class PatchBaselineArgs:
     @pulumi.getter(name="approvalRules")
     def approval_rules(self) -> Optional[pulumi.Input['PatchBaselineRuleGroupArgs']]:
         """
-        The `RuleGroup` property type specifies a set of rules that define the approval rules for an AWS Systems Manager patch baseline.
-
-        `RuleGroup` is the property type for the `ApprovalRules` property of the [AWS::SSM::PatchBaseline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html) resource.
+        A set of rules used to include patches in the baseline.
         """
         return pulumi.get(self, "approval_rules")
 
@@ -431,9 +427,7 @@ class PatchBaseline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PatchBaselineRuleGroupArgs']] approval_rules: The `RuleGroup` property type specifies a set of rules that define the approval rules for an AWS Systems Manager patch baseline.
-               
-               `RuleGroup` is the property type for the `ApprovalRules` property of the [AWS::SSM::PatchBaseline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html) resource.
+        :param pulumi.Input[pulumi.InputType['PatchBaselineRuleGroupArgs']] approval_rules: A set of rules used to include patches in the baseline.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] approved_patches: A list of explicitly approved patches for the baseline.
         :param pulumi.Input['PatchBaselineApprovedPatchesComplianceLevel'] approved_patches_compliance_level: Defines the compliance level for approved patches. This means that if an approved patch is reported as missing, this is the severity of the compliance violation. The default value is UNSPECIFIED.
         :param pulumi.Input[bool] approved_patches_enable_non_security: Indicates whether the list of approved patches includes non-security updates that should be applied to the instances. The default value is 'false'. Applies to Linux instances only.
@@ -709,9 +703,7 @@ class PatchBaseline(pulumi.CustomResource):
     @pulumi.getter(name="approvalRules")
     def approval_rules(self) -> pulumi.Output[Optional['outputs.PatchBaselineRuleGroup']]:
         """
-        The `RuleGroup` property type specifies a set of rules that define the approval rules for an AWS Systems Manager patch baseline.
-
-        `RuleGroup` is the property type for the `ApprovalRules` property of the [AWS::SSM::PatchBaseline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html) resource.
+        A set of rules used to include patches in the baseline.
         """
         return pulumi.get(self, "approval_rules")
 

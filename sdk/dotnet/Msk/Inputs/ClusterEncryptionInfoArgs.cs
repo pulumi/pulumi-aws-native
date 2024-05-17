@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.Msk.Inputs
     public sealed class ClusterEncryptionInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The data-volume encryption details. You can't update encryption at rest settings for existing clusters.
+        /// The data-volume encryption details.
         /// </summary>
         [Input("encryptionAtRest")]
         public Input<Inputs.ClusterEncryptionAtRestArgs>? EncryptionAtRest { get; set; }
 
         /// <summary>
-        /// The settings for encrypting data in transit.
+        /// The details for encryption in transit.
         /// </summary>
         [Input("encryptionInTransit")]
         public Input<Inputs.ClusterEncryptionInTransitArgs>? EncryptionInTransit { get; set; }

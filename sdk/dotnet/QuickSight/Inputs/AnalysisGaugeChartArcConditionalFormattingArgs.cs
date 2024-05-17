@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class AnalysisGaugeChartArcConditionalFormattingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The formatting configuration for the color.
+        /// The conditional formatting of the arc foreground color.
         /// </summary>
         [Input("foregroundColor")]
         public Input<Inputs.AnalysisConditionalFormattingColorArgs>? ForegroundColor { get; set; }

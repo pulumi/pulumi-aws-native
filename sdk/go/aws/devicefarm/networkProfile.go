@@ -33,7 +33,9 @@ type NetworkProfile struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of the specified project.
 	ProjectArn pulumi.StringOutput `pulumi:"projectArn"`
-	// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The data throughput rate in bits per second, as an integer from 0 to 104857600.
 	UplinkBandwidthBits pulumi.IntPtrOutput `pulumi:"uplinkBandwidthBits"`
@@ -106,7 +108,9 @@ type networkProfileArgs struct {
 	Name *string `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of the specified project.
 	ProjectArn string `pulumi:"projectArn"`
-	// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
 	Tags []aws.Tag `pulumi:"tags"`
 	// The data throughput rate in bits per second, as an integer from 0 to 104857600.
 	UplinkBandwidthBits *int `pulumi:"uplinkBandwidthBits"`
@@ -134,7 +138,9 @@ type NetworkProfileArgs struct {
 	Name pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the specified project.
 	ProjectArn pulumi.StringInput
-	// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
 	Tags aws.TagArrayInput
 	// The data throughput rate in bits per second, as an integer from 0 to 104857600.
 	UplinkBandwidthBits pulumi.IntPtrInput
@@ -223,7 +229,9 @@ func (o NetworkProfileOutput) ProjectArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.ProjectArn }).(pulumi.StringOutput)
 }
 
-// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
 func (o NetworkProfileOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *NetworkProfile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

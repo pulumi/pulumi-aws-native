@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
         /// </summary>
         public readonly bool? Excluded;
         /// <summary>
-        /// The `FieldInputConfig` property specifies the configuration for the default input values to display for a field.
+        /// Describes the configuration for the default input value to display for a field.
         /// </summary>
         public readonly Outputs.FormFieldInputConfig? InputType;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
         /// </summary>
         public readonly string? Label;
         /// <summary>
-        /// The `FieldPosition` property specifies the field position.
+        /// Specifies the field position.
         /// </summary>
         public readonly object? Position;
         /// <summary>
-        /// The `FieldValidationConfiguration` property specifies the validation configuration for a field.
+        /// The validations to perform on the value in the field.
         /// </summary>
         public readonly ImmutableArray<Outputs.FormFieldValidationConfiguration> Validations;
 

@@ -29,7 +29,7 @@ type AccessLogSubscription struct {
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// The ID or Amazon Resource Name (ARN) of the service network or service.
 	ResourceIdentifier pulumi.StringPtrOutput `pulumi:"resourceIdentifier"`
-	// Specifies a tag for an access log subscription.
+	// The tags for the access log subscription.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -84,7 +84,7 @@ type accessLogSubscriptionArgs struct {
 	DestinationArn string `pulumi:"destinationArn"`
 	// The ID or Amazon Resource Name (ARN) of the service network or service.
 	ResourceIdentifier *string `pulumi:"resourceIdentifier"`
-	// Specifies a tag for an access log subscription.
+	// The tags for the access log subscription.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -94,7 +94,7 @@ type AccessLogSubscriptionArgs struct {
 	DestinationArn pulumi.StringInput
 	// The ID or Amazon Resource Name (ARN) of the service network or service.
 	ResourceIdentifier pulumi.StringPtrInput
-	// Specifies a tag for an access log subscription.
+	// The tags for the access log subscription.
 	Tags aws.TagArrayInput
 }
 
@@ -165,7 +165,7 @@ func (o AccessLogSubscriptionOutput) ResourceIdentifier() pulumi.StringPtrOutput
 	return o.ApplyT(func(v *AccessLogSubscription) pulumi.StringPtrOutput { return v.ResourceIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a tag for an access log subscription.
+// The tags for the access log subscription.
 func (o AccessLogSubscriptionOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *AccessLogSubscription) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

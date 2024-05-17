@@ -29,7 +29,7 @@ type MonitoringSchedule struct {
 	LastMonitoringExecutionSummary MonitoringScheduleMonitoringExecutionSummaryPtrOutput `pulumi:"lastMonitoringExecutionSummary"`
 	// The Amazon Resource Name (ARN) of the monitoring schedule.
 	MonitoringScheduleArn pulumi.StringOutput `pulumi:"monitoringScheduleArn"`
-	// Configures the monitoring schedule and defines the monitoring job.
+	// The configuration object that specifies the monitoring schedule and defines the monitoring job.
 	MonitoringScheduleConfig MonitoringScheduleConfigOutput `pulumi:"monitoringScheduleConfig"`
 	// The name of the monitoring schedule.
 	MonitoringScheduleName pulumi.StringOutput `pulumi:"monitoringScheduleName"`
@@ -92,7 +92,7 @@ type monitoringScheduleArgs struct {
 	FailureReason *string `pulumi:"failureReason"`
 	// Describes metadata on the last execution to run, if there was one.
 	LastMonitoringExecutionSummary *MonitoringScheduleMonitoringExecutionSummary `pulumi:"lastMonitoringExecutionSummary"`
-	// Configures the monitoring schedule and defines the monitoring job.
+	// The configuration object that specifies the monitoring schedule and defines the monitoring job.
 	MonitoringScheduleConfig MonitoringScheduleConfig `pulumi:"monitoringScheduleConfig"`
 	// The name of the monitoring schedule.
 	MonitoringScheduleName *string `pulumi:"monitoringScheduleName"`
@@ -110,7 +110,7 @@ type MonitoringScheduleArgs struct {
 	FailureReason pulumi.StringPtrInput
 	// Describes metadata on the last execution to run, if there was one.
 	LastMonitoringExecutionSummary MonitoringScheduleMonitoringExecutionSummaryPtrInput
-	// Configures the monitoring schedule and defines the monitoring job.
+	// The configuration object that specifies the monitoring schedule and defines the monitoring job.
 	MonitoringScheduleConfig MonitoringScheduleConfigInput
 	// The name of the monitoring schedule.
 	MonitoringScheduleName pulumi.StringPtrInput
@@ -189,7 +189,7 @@ func (o MonitoringScheduleOutput) MonitoringScheduleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitoringSchedule) pulumi.StringOutput { return v.MonitoringScheduleArn }).(pulumi.StringOutput)
 }
 
-// Configures the monitoring schedule and defines the monitoring job.
+// The configuration object that specifies the monitoring schedule and defines the monitoring job.
 func (o MonitoringScheduleOutput) MonitoringScheduleConfig() MonitoringScheduleConfigOutput {
 	return o.ApplyT(func(v *MonitoringSchedule) MonitoringScheduleConfigOutput { return v.MonitoringScheduleConfig }).(MonitoringScheduleConfigOutput)
 }

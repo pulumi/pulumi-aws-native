@@ -18,33 +18,31 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateBarsArrangement? BarsArrangement;
         /// <summary>
-        /// The display options for the axis label.
+        /// The label display options (grid line, range, scale, axis step) for bar chart category.
         /// </summary>
         public readonly Outputs.TemplateAxisDisplayOptions? CategoryAxis;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility and sort icon visibility) for a bar chart.
         /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? CategoryLabelOptions;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility and sort icon visibility) for a color that is used in a bar chart.
         /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? ColorLabelOptions;
         /// <summary>
-        /// The contribution analysis visual display for a line, pie, or bar chart.
+        /// The contribution analysis (anomaly configuration) setup of the visual.
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateContributionAnalysisDefault> ContributionAnalysisDefaults;
         /// <summary>
-        /// The options that determine the presentation of the data labels.
+        /// The options that determine if visual data labels are displayed.
         /// </summary>
         public readonly Outputs.TemplateDataLabelOptions? DataLabels;
         /// <summary>
-        /// The field wells of a `BarChartVisual` .
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The field wells of the visual.
         /// </summary>
         public readonly Outputs.TemplateBarChartFieldWells? FieldWells;
         /// <summary>
-        /// The options for the legend setup of a visual.
+        /// The legend display setup of the visual.
         /// </summary>
         public readonly Outputs.TemplateLegendOptions? Legend;
         /// <summary>
@@ -55,31 +53,31 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateBarChartOrientation? Orientation;
         /// <summary>
-        /// The reference line visual display options.
+        /// The reference line setup of the visual.
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateReferenceLine> ReferenceLines;
         /// <summary>
-        /// Options that determine the layout and display options of a chart's small multiples.
+        /// The small multiples setup for the visual.
         /// </summary>
         public readonly Outputs.TemplateSmallMultiplesOptions? SmallMultiplesOptions;
         /// <summary>
-        /// sort-configuration-description
+        /// The sort configuration of a `BarChartVisual` .
         /// </summary>
         public readonly Outputs.TemplateBarChartSortConfiguration? SortConfiguration;
         /// <summary>
-        /// The display options for the visual tooltip.
+        /// The tooltip display setup of the visual.
         /// </summary>
         public readonly Outputs.TemplateTooltipOptions? Tooltip;
         /// <summary>
-        /// The display options for the axis label.
+        /// The label display options (grid line, range, scale, axis step) for a bar chart value.
         /// </summary>
         public readonly Outputs.TemplateAxisDisplayOptions? ValueAxis;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility and sort icon visibility) for a bar chart value.
         /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? ValueLabelOptions;
         /// <summary>
-        /// The visual display options for the visual palette.
+        /// The palette (chart color) display setup of the visual.
         /// </summary>
         public readonly Outputs.TemplateVisualPalette? VisualPalette;
 

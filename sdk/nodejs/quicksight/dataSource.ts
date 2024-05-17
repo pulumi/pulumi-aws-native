@@ -62,7 +62,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
     /**
-     * Data source credentials. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+     * The credentials Amazon QuickSight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
      */
     public readonly credentials!: pulumi.Output<outputs.quicksight.DataSourceCredentials | undefined>;
     /**
@@ -70,11 +70,11 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly dataSourceId!: pulumi.Output<string | undefined>;
     /**
-     * The parameters that Amazon QuickSight uses to connect to your underlying data source. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+     * The parameters that Amazon QuickSight uses to connect to your underlying source.
      */
     public readonly dataSourceParameters!: pulumi.Output<outputs.quicksight.DataSourceParameters | undefined>;
     /**
-     * Error information for the data source creation or update.
+     * Error information from the last update or the creation of the data source.
      */
     public readonly errorInfo!: pulumi.Output<outputs.quicksight.DataSourceErrorInfo | undefined>;
     /**
@@ -86,11 +86,11 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Permission for the resource.
+     * A list of resource permissions on the data source.
      */
     public readonly permissions!: pulumi.Output<outputs.quicksight.DataSourceResourcePermission[] | undefined>;
     /**
-     * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying data source.
+     * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
      */
     public readonly sslProperties!: pulumi.Output<outputs.quicksight.DataSourceSslProperties | undefined>;
     /**
@@ -108,7 +108,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly type!: pulumi.Output<enums.quicksight.DataSourceType>;
     /**
-     * VPC connection properties.
+     * Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
      */
     public readonly vpcConnectionProperties!: pulumi.Output<outputs.quicksight.DataSourceVpcConnectionProperties | undefined>;
 
@@ -188,7 +188,7 @@ export interface DataSourceArgs {
      */
     awsAccountId?: pulumi.Input<string>;
     /**
-     * Data source credentials. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+     * The credentials Amazon QuickSight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
      */
     credentials?: pulumi.Input<inputs.quicksight.DataSourceCredentialsArgs>;
     /**
@@ -196,11 +196,11 @@ export interface DataSourceArgs {
      */
     dataSourceId?: pulumi.Input<string>;
     /**
-     * The parameters that Amazon QuickSight uses to connect to your underlying data source. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+     * The parameters that Amazon QuickSight uses to connect to your underlying source.
      */
     dataSourceParameters?: pulumi.Input<inputs.quicksight.DataSourceParametersArgs>;
     /**
-     * Error information for the data source creation or update.
+     * Error information from the last update or the creation of the data source.
      */
     errorInfo?: pulumi.Input<inputs.quicksight.DataSourceErrorInfoArgs>;
     /**
@@ -208,11 +208,11 @@ export interface DataSourceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Permission for the resource.
+     * A list of resource permissions on the data source.
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.DataSourceResourcePermissionArgs>[]>;
     /**
-     * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying data source.
+     * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
      */
     sslProperties?: pulumi.Input<inputs.quicksight.DataSourceSslPropertiesArgs>;
     /**
@@ -226,7 +226,7 @@ export interface DataSourceArgs {
      */
     type: pulumi.Input<enums.quicksight.DataSourceType>;
     /**
-     * VPC connection properties.
+     * Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
      */
     vpcConnectionProperties?: pulumi.Input<inputs.quicksight.DataSourceVpcConnectionPropertiesArgs>;
 }

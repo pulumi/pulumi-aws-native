@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateVisualCustomAction
     {
         /// <summary>
-        /// The operation that is defined by the custom action.
+        /// A list of `VisualCustomActionOperations` .
         /// 
         /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
         /// </summary>

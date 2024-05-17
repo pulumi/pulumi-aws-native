@@ -85,7 +85,7 @@ export class ApiKey extends pulumi.CustomResource {
      */
     public readonly noExpiry!: pulumi.Output<boolean | undefined>;
     /**
-     * API Restrictions on the allowed actions, resources, and referers for an API key resource.
+     * The API key restrictions for the API key resource.
      */
     public readonly restrictions!: pulumi.Output<outputs.location.ApiKeyRestrictions>;
     /**
@@ -184,7 +184,7 @@ export interface ApiKeyArgs {
      */
     noExpiry?: pulumi.Input<boolean>;
     /**
-     * API Restrictions on the allowed actions, resources, and referers for an API key resource.
+     * The API key restrictions for the API key resource.
      */
     restrictions: pulumi.Input<inputs.location.ApiKeyRestrictionsArgs>;
     /**

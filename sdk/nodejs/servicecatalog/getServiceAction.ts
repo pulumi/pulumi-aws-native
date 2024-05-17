@@ -27,7 +27,7 @@ export interface GetServiceActionArgs {
 
 export interface GetServiceActionResult {
     /**
-     * The list of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}] or [{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]` .
+     * A map that defines the self-service action.
      */
     readonly definition?: outputs.servicecatalog.ServiceActionDefinitionParameter[];
     /**

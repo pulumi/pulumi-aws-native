@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<Pulumi.AwsNative.IoT.CaCertificateCertificateMode?> CertificateMode { get; private set; } = null!;
 
         /// <summary>
-        /// The registration configuration.
+        /// Information about the registration configuration.
         /// </summary>
         [Output("registrationConfig")]
         public Output<Outputs.CaCertificateRegistrationConfig?> RegistrationConfig { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.AwsNative.IoT
         public Input<Pulumi.AwsNative.IoT.CaCertificateCertificateMode>? CertificateMode { get; set; }
 
         /// <summary>
-        /// The registration configuration.
+        /// Information about the registration configuration.
         /// </summary>
         [Input("registrationConfig")]
         public Input<Inputs.CaCertificateRegistrationConfigArgs>? RegistrationConfig { get; set; }

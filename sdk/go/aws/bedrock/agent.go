@@ -57,7 +57,7 @@ type Agent struct {
 	KnowledgeBases AgentKnowledgeBaseArrayOutput `pulumi:"knowledgeBases"`
 	// Time Stamp.
 	PreparedAt pulumi.StringOutput `pulumi:"preparedAt"`
-	// Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+	// Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
 	PromptOverrideConfiguration AgentPromptOverrideConfigurationPtrOutput `pulumi:"promptOverrideConfiguration"`
 	// The recommended actions users can take to resolve an error in failureReasons.
 	RecommendedActions pulumi.StringArrayOutput `pulumi:"recommendedActions"`
@@ -137,7 +137,7 @@ type agentArgs struct {
 	Instruction *string `pulumi:"instruction"`
 	// List of Agent Knowledge Bases
 	KnowledgeBases []AgentKnowledgeBase `pulumi:"knowledgeBases"`
-	// Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+	// Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
 	PromptOverrideConfiguration *AgentPromptOverrideConfiguration `pulumi:"promptOverrideConfiguration"`
 	// Specifies whether to allow deleting agent while it is in use.
 	SkipResourceInUseCheckOnDelete *bool `pulumi:"skipResourceInUseCheckOnDelete"`
@@ -175,7 +175,7 @@ type AgentArgs struct {
 	Instruction pulumi.StringPtrInput
 	// List of Agent Knowledge Bases
 	KnowledgeBases AgentKnowledgeBaseArrayInput
-	// Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+	// Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
 	PromptOverrideConfiguration AgentPromptOverrideConfigurationPtrInput
 	// Specifies whether to allow deleting agent while it is in use.
 	SkipResourceInUseCheckOnDelete pulumi.BoolPtrInput
@@ -321,7 +321,7 @@ func (o AgentOutput) PreparedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Agent) pulumi.StringOutput { return v.PreparedAt }).(pulumi.StringOutput)
 }
 
-// Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+// Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
 func (o AgentOutput) PromptOverrideConfiguration() AgentPromptOverrideConfigurationPtrOutput {
 	return o.ApplyT(func(v *Agent) AgentPromptOverrideConfigurationPtrOutput { return v.PromptOverrideConfiguration }).(AgentPromptOverrideConfigurationPtrOutput)
 }

@@ -25,7 +25,7 @@ type TaskTemplate struct {
 	Constraints ConstraintsPropertiesPtrOutput `pulumi:"constraints"`
 	// The identifier of the contact flow.
 	ContactFlowArn pulumi.StringPtrOutput `pulumi:"contactFlowArn"`
-	// Describes a default field and its corresponding value.
+	// The default values for fields when a task is created by referencing this template.
 	Defaults TaskTemplateDefaultFieldValueArrayOutput `pulumi:"defaults"`
 	// The description of the task template.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -90,7 +90,7 @@ type taskTemplateArgs struct {
 	Constraints *ConstraintsProperties `pulumi:"constraints"`
 	// The identifier of the contact flow.
 	ContactFlowArn *string `pulumi:"contactFlowArn"`
-	// Describes a default field and its corresponding value.
+	// The default values for fields when a task is created by referencing this template.
 	Defaults []TaskTemplateDefaultFieldValue `pulumi:"defaults"`
 	// The description of the task template.
 	Description *string `pulumi:"description"`
@@ -114,7 +114,7 @@ type TaskTemplateArgs struct {
 	Constraints ConstraintsPropertiesPtrInput
 	// The identifier of the contact flow.
 	ContactFlowArn pulumi.StringPtrInput
-	// Describes a default field and its corresponding value.
+	// The default values for fields when a task is created by referencing this template.
 	Defaults TaskTemplateDefaultFieldValueArrayInput
 	// The description of the task template.
 	Description pulumi.StringPtrInput
@@ -187,7 +187,7 @@ func (o TaskTemplateOutput) ContactFlowArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskTemplate) pulumi.StringPtrOutput { return v.ContactFlowArn }).(pulumi.StringPtrOutput)
 }
 
-// Describes a default field and its corresponding value.
+// The default values for fields when a task is created by referencing this template.
 func (o TaskTemplateOutput) Defaults() TaskTemplateDefaultFieldValueArrayOutput {
 	return o.ApplyT(func(v *TaskTemplate) TaskTemplateDefaultFieldValueArrayOutput { return v.Defaults }).(TaskTemplateDefaultFieldValueArrayOutput)
 }

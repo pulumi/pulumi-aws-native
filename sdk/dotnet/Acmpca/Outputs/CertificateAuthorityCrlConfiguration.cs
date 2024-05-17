@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Acmpca.Outputs
     public sealed class CertificateAuthorityCrlConfiguration
     {
         /// <summary>
-        /// Contains configuration information for the default behavior of the CRL Distribution Point (CDP) extension in certificates issued by your CA. This extension contains a link to download the CRL, so you can check whether a certificate has been revoked. To choose whether you want this extension omitted or not in certificates issued by your CA, you can set the *OmitExtension* parameter.
+        /// Configures the default behavior of the CRL Distribution Point extension for certificates issued by your CA. If this field is not provided, then the CRL Distribution Point extension will be present and contain the default CRL URL.
         /// </summary>
         public readonly Outputs.CertificateAuthorityCrlDistributionPointExtensionConfiguration? CrlDistributionPointExtensionConfiguration;
         /// <summary>

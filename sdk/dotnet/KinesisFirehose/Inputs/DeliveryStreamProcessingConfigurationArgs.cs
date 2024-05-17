@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         private InputList<Inputs.DeliveryStreamProcessorArgs>? _processors;
 
         /// <summary>
-        /// The `Processor` property specifies a data processor for an Amazon Kinesis Data Firehose delivery stream.
+        /// The data processors.
         /// </summary>
         public InputList<Inputs.DeliveryStreamProcessorArgs> Processors
         {

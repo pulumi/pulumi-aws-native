@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
         public Input<Inputs.DataflowEndpointGroupAwsGroundStationAgentEndpointArgs>? AwsGroundStationAgentEndpoint { get; set; }
 
         /// <summary>
-        /// Contains information such as socket address and name that defines an endpoint.
+        /// Information about the endpoint such as name and the endpoint address.
         /// </summary>
         [Input("endpoint")]
         public Input<Inputs.DataflowEndpointGroupDataflowEndpointArgs>? Endpoint { get; set; }
 
         /// <summary>
-        /// Information about IAM roles, subnets, and security groups needed for this DataflowEndpointGroup.
+        /// The role ARN, and IDs for security groups and subnets.
         /// </summary>
         [Input("securityDetails")]
         public Input<Inputs.DataflowEndpointGroupSecurityDetailsArgs>? SecurityDetails { get; set; }

@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
         /// </summary>
         public readonly bool? Excluded;
         /// <summary>
-        /// The `FieldPosition` property specifies the field position.
+        /// The position of the button.
         /// </summary>
         public readonly object? Position;
 

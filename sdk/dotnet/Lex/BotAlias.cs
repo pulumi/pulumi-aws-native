@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Lex
         public Output<string?> BotVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+        /// Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
         /// </summary>
         [Output("conversationLogSettings")]
         public Output<Outputs.BotAliasConversationLogSettings?> ConversationLogSettings { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.AwsNative.Lex
         public Input<string>? BotVersion { get; set; }
 
         /// <summary>
-        /// Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+        /// Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
         /// </summary>
         [Input("conversationLogSettings")]
         public Input<Inputs.BotAliasConversationLogSettingsArgs>? ConversationLogSettings { get; set; }

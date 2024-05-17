@@ -29,12 +29,14 @@ type LookupChannelArgs struct {
 }
 
 type LookupChannelResult struct {
-	// Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+	// Where channel data is stored.
 	ChannelStorage *ChannelStorage `pulumi:"channelStorage"`
 	Id             *string         `pulumi:"id"`
-	// How long, in days, message data is kept.
+	// How long, in days, message data is kept for the channel.
 	RetentionPeriod *ChannelRetentionPeriod `pulumi:"retentionPeriod"`
-	// A set of key-value pairs that are used to manage the resource.
+	// Metadata which can be used to manage the channel.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -74,7 +76,7 @@ func (o LookupChannelResultOutput) ToLookupChannelResultOutputWithContext(ctx co
 	return o
 }
 
-// Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+// Where channel data is stored.
 func (o LookupChannelResultOutput) ChannelStorage() ChannelStoragePtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *ChannelStorage { return v.ChannelStorage }).(ChannelStoragePtrOutput)
 }
@@ -83,12 +85,14 @@ func (o LookupChannelResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// How long, in days, message data is kept.
+// How long, in days, message data is kept for the channel.
 func (o LookupChannelResultOutput) RetentionPeriod() ChannelRetentionPeriodPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *ChannelRetentionPeriod { return v.RetentionPeriod }).(ChannelRetentionPeriodPtrOutput)
 }
 
-// A set of key-value pairs that are used to manage the resource.
+// Metadata which can be used to manage the channel.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o LookupChannelResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupChannelResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

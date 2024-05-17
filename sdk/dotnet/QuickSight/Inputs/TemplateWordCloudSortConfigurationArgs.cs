@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateWordCloudSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of groups that are displayed in a word cloud.
         /// </summary>
         [Input("categoryItemsLimit")]
         public Input<Inputs.TemplateItemsLimitConfigurationArgs>? CategoryItemsLimit { get; set; }

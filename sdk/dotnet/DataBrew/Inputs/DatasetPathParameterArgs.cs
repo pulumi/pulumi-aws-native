@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
     public sealed class DatasetPathParameterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Represents a dataset paramater that defines type and conditions for a parameter in the Amazon S3 path of the dataset.
+        /// The path parameter definition.
         /// </summary>
         [Input("datasetParameter", required: true)]
         public Input<Inputs.DatasetParameterArgs> DatasetParameter { get; set; } = null!;

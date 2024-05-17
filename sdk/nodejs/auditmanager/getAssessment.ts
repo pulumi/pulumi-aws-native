@@ -35,7 +35,7 @@ export interface GetAssessmentResult {
      */
     readonly assessmentId?: string;
     /**
-     * The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+     * The destination that evidence reports are stored in for the assessment.
      */
     readonly assessmentReportsDestination?: outputs.auditmanager.AssessmentReportsDestination;
     /**
@@ -51,7 +51,7 @@ export interface GetAssessmentResult {
      */
     readonly roles?: outputs.auditmanager.AssessmentRole[];
     /**
-     * The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+     * The wrapper of AWS accounts and services that are in scope for the assessment.
      */
     readonly scope?: outputs.auditmanager.AssessmentScope;
     /**

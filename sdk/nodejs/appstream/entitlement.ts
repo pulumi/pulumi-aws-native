@@ -42,7 +42,7 @@ export class Entitlement extends pulumi.CustomResource {
      */
     public readonly appVisibility!: pulumi.Output<string>;
     /**
-     * An attribute that belongs to an entitlement. Application entitlements work by matching a supported SAML 2.0 attribute name to a value when a user identity federates to an AppStream 2.0 SAML application.
+     * The attributes of the entitlement.
      */
     public readonly attributes!: pulumi.Output<outputs.appstream.EntitlementAttribute[]>;
     /**
@@ -118,7 +118,7 @@ export interface EntitlementArgs {
      */
     appVisibility: pulumi.Input<string>;
     /**
-     * An attribute that belongs to an entitlement. Application entitlements work by matching a supported SAML 2.0 attribute name to a value when a user identity federates to an AppStream 2.0 SAML application.
+     * The attributes of the entitlement.
      */
     attributes: pulumi.Input<pulumi.Input<inputs.appstream.EntitlementAttributeArgs>[]>;
     /**

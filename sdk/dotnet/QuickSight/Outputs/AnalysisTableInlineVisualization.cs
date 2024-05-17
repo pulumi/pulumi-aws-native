@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisTableInlineVisualization
     {
         /// <summary>
-        /// The options for data bars.
+        /// The configuration of the inline visualization of the data bars within a chart.
         /// </summary>
         public readonly Outputs.AnalysisDataBarsOptions? DataBars;
 

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.AnalysisCascadingControlConfigurationArgs>? CascadingControlConfiguration { get; set; }
 
         /// <summary>
-        /// The display options of a control.
+        /// The display options of the `FilterDropDownControl` .
         /// </summary>
         [Input("displayOptions")]
         public Input<Inputs.AnalysisDropDownControlDisplayOptionsArgs>? DisplayOptions { get; set; }

@@ -76,8 +76,7 @@ type LookupFunctionResult struct {
 	Runtime *string `pulumi:"runtime"`
 	// Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
 	RuntimeManagementConfig *FunctionRuntimeManagementConfig `pulumi:"runtimeManagementConfig"`
-	// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
-	SnapStartResponse *FunctionSnapStartResponse `pulumi:"snapStartResponse"`
+	SnapStartResponse       *FunctionSnapStartResponse       `pulumi:"snapStartResponse"`
 	// A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
@@ -224,7 +223,6 @@ func (o LookupFunctionResultOutput) RuntimeManagementConfig() FunctionRuntimeMan
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionRuntimeManagementConfig { return v.RuntimeManagementConfig }).(FunctionRuntimeManagementConfigPtrOutput)
 }
 
-// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
 func (o LookupFunctionResultOutput) SnapStartResponse() FunctionSnapStartResponsePtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *FunctionSnapStartResponse { return v.SnapStartResponse }).(FunctionSnapStartResponsePtrOutput)
 }

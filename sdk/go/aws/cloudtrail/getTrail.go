@@ -67,7 +67,7 @@ type LookupTrailResult struct {
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
 	// Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
 	SnsTopicName *string `pulumi:"snsTopicName"`
-	// A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+	// A custom set of tags (key-value pairs) for this trail.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -193,7 +193,7 @@ func (o LookupTrailResultOutput) SnsTopicName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTrailResult) *string { return v.SnsTopicName }).(pulumi.StringPtrOutput)
 }
 
-// A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+// A custom set of tags (key-value pairs) for this trail.
 func (o LookupTrailResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTrailResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

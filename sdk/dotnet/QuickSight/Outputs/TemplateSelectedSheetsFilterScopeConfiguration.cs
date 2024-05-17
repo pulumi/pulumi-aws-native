@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateSelectedSheetsFilterScopeConfiguration
     {
         /// <summary>
-        /// The filter that is applied to the options.
+        /// The sheet ID and visual IDs of the sheet and visuals that the filter is applied to.
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateSheetVisualScopingConfiguration> SheetVisualScopingConfigurations;
 

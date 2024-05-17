@@ -33,17 +33,17 @@ type LookupCapabilityResult struct {
 	CapabilityArn *string `pulumi:"capabilityArn"`
 	// Returns a system-assigned unique identifier for the capability.
 	CapabilityId *string `pulumi:"capabilityId"`
-	// A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
+	// Specifies a structure that contains the details for a capability.
 	Configuration *CapabilityConfigurationProperties `pulumi:"configuration"`
 	// Returns a timestamp for creation date and time of the capability.
 	CreatedAt *string `pulumi:"createdAt"`
-	// Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
+	// Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
 	InstructionsDocuments []CapabilityS3Location `pulumi:"instructionsDocuments"`
 	// Returns a timestamp that identifies the most recent date and time that the capability was modified.
 	ModifiedAt *string `pulumi:"modifiedAt"`
 	// The display name of the capability.
 	Name *string `pulumi:"name"`
-	// A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
+	// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -93,7 +93,7 @@ func (o LookupCapabilityResultOutput) CapabilityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapabilityResult) *string { return v.CapabilityId }).(pulumi.StringPtrOutput)
 }
 
-// A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
+// Specifies a structure that contains the details for a capability.
 func (o LookupCapabilityResultOutput) Configuration() CapabilityConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v LookupCapabilityResult) *CapabilityConfigurationProperties { return v.Configuration }).(CapabilityConfigurationPropertiesPtrOutput)
 }
@@ -103,7 +103,7 @@ func (o LookupCapabilityResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapabilityResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
+// Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
 func (o LookupCapabilityResultOutput) InstructionsDocuments() CapabilityS3LocationArrayOutput {
 	return o.ApplyT(func(v LookupCapabilityResult) []CapabilityS3Location { return v.InstructionsDocuments }).(CapabilityS3LocationArrayOutput)
 }
@@ -118,7 +118,7 @@ func (o LookupCapabilityResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapabilityResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
+// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
 func (o LookupCapabilityResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupCapabilityResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

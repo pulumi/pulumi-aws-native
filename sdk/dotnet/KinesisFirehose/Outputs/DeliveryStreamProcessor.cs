@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
     public sealed class DeliveryStreamProcessor
     {
         /// <summary>
-        /// The `ProcessorParameter` property specifies a processor parameter in a data processor for an Amazon Kinesis Data Firehose delivery stream.
+        /// The processor parameters.
         /// </summary>
         public readonly ImmutableArray<Outputs.DeliveryStreamProcessorParameter> Parameters;
         /// <summary>

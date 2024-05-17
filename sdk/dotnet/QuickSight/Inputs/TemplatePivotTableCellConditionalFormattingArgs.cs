@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.TemplatePivotTableConditionalFormattingScopeArgs>? _scopes;
 
         /// <summary>
-        /// The scope of the cell for conditional formatting.
+        /// A list of cell scopes for conditional formatting.
         /// </summary>
         public InputList<Inputs.TemplatePivotTableConditionalFormattingScopeArgs> Scopes
         {
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The conditional formatting for the text.
+        /// The text format of the cell for conditional formatting.
         /// </summary>
         [Input("textFormat")]
         public Input<Inputs.TemplateTextConditionalFormatArgs>? TextFormat { get; set; }

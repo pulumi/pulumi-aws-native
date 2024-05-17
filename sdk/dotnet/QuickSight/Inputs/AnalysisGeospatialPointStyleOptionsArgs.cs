@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class AnalysisGeospatialPointStyleOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The cluster marker configuration of the geospatial map selected point style.
+        /// The cluster marker configuration of the geospatial point style.
         /// </summary>
         [Input("clusterMarkerConfiguration")]
         public Input<Inputs.AnalysisClusterMarkerConfigurationArgs>? ClusterMarkerConfiguration { get; set; }

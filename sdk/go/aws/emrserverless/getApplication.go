@@ -39,13 +39,13 @@ type LookupApplicationResult struct {
 	AutoStartConfiguration *ApplicationAutoStartConfiguration `pulumi:"autoStartConfiguration"`
 	// Configuration for Auto Stop of Application.
 	AutoStopConfiguration *ApplicationAutoStopConfiguration `pulumi:"autoStopConfiguration"`
-	// The image configuration.
+	// The image configuration applied to all worker types.
 	ImageConfiguration *ApplicationImageConfigurationInput `pulumi:"imageConfiguration"`
 	// Initial capacity initialized when an Application is started.
 	InitialCapacity []ApplicationInitialCapacityConfigKeyValuePair `pulumi:"initialCapacity"`
 	// Maximum allowed cumulative resources for an Application. No new resources will be created once the limit is hit.
 	MaximumCapacity *ApplicationMaximumAllowedResources `pulumi:"maximumCapacity"`
-	// The configuration setting for monitoring.
+	// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
 	MonitoringConfiguration *ApplicationMonitoringConfiguration `pulumi:"monitoringConfiguration"`
 	// Network Configuration for customer VPC connectivity.
 	NetworkConfiguration *ApplicationNetworkConfiguration `pulumi:"networkConfiguration"`
@@ -120,7 +120,7 @@ func (o LookupApplicationResultOutput) AutoStopConfiguration() ApplicationAutoSt
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationAutoStopConfiguration { return v.AutoStopConfiguration }).(ApplicationAutoStopConfigurationPtrOutput)
 }
 
-// The image configuration.
+// The image configuration applied to all worker types.
 func (o LookupApplicationResultOutput) ImageConfiguration() ApplicationImageConfigurationInputPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationImageConfigurationInput { return v.ImageConfiguration }).(ApplicationImageConfigurationInputPtrOutput)
 }
@@ -137,7 +137,7 @@ func (o LookupApplicationResultOutput) MaximumCapacity() ApplicationMaximumAllow
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationMaximumAllowedResources { return v.MaximumCapacity }).(ApplicationMaximumAllowedResourcesPtrOutput)
 }
 
-// The configuration setting for monitoring.
+// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
 func (o LookupApplicationResultOutput) MonitoringConfiguration() ApplicationMonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupApplicationResult) *ApplicationMonitoringConfiguration { return v.MonitoringConfiguration }).(ApplicationMonitoringConfigurationPtrOutput)
 }

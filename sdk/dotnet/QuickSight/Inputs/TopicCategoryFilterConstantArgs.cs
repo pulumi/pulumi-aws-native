@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TopicCategoryFilterConstantArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A structure that represents a collective constant.
+        /// A collective constant used in a category filter. This element is used to specify a list of values for the constant.
         /// </summary>
         [Input("collectiveConstant")]
         public Input<Inputs.TopicCollectiveConstantArgs>? CollectiveConstant { get; set; }

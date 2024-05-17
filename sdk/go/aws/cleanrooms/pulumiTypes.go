@@ -448,7 +448,9 @@ type CollaborationMemberSpecification struct {
 	//
 	// *Allowed Values* : `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
 	MemberAbilities []CollaborationMemberAbility `pulumi:"memberAbilities"`
-	// An object representing the collaboration member's payment responsibilities set by the collaboration creator.
+	// The collaboration member's payment responsibilities set by the collaboration creator.
+	//
+	// If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.
 	PaymentConfiguration *CollaborationPaymentConfiguration `pulumi:"paymentConfiguration"`
 }
 
@@ -472,7 +474,9 @@ type CollaborationMemberSpecificationArgs struct {
 	//
 	// *Allowed Values* : `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
 	MemberAbilities CollaborationMemberAbilityArrayInput `pulumi:"memberAbilities"`
-	// An object representing the collaboration member's payment responsibilities set by the collaboration creator.
+	// The collaboration member's payment responsibilities set by the collaboration creator.
+	//
+	// If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.
 	PaymentConfiguration CollaborationPaymentConfigurationPtrInput `pulumi:"paymentConfiguration"`
 }
 
@@ -544,7 +548,9 @@ func (o CollaborationMemberSpecificationOutput) MemberAbilities() CollaborationM
 	return o.ApplyT(func(v CollaborationMemberSpecification) []CollaborationMemberAbility { return v.MemberAbilities }).(CollaborationMemberAbilityArrayOutput)
 }
 
-// An object representing the collaboration member's payment responsibilities set by the collaboration creator.
+// The collaboration member's payment responsibilities set by the collaboration creator.
+//
+// If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.
 func (o CollaborationMemberSpecificationOutput) PaymentConfiguration() CollaborationPaymentConfigurationPtrOutput {
 	return o.ApplyT(func(v CollaborationMemberSpecification) *CollaborationPaymentConfiguration {
 		return v.PaymentConfiguration
@@ -572,7 +578,7 @@ func (o CollaborationMemberSpecificationArrayOutput) Index(i pulumi.IntInput) Co
 }
 
 type CollaborationPaymentConfiguration struct {
-	// An object representing the collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
+	// The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
 	QueryCompute CollaborationQueryComputePaymentConfig `pulumi:"queryCompute"`
 }
 
@@ -588,7 +594,7 @@ type CollaborationPaymentConfigurationInput interface {
 }
 
 type CollaborationPaymentConfigurationArgs struct {
-	// An object representing the collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
+	// The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
 	QueryCompute CollaborationQueryComputePaymentConfigInput `pulumi:"queryCompute"`
 }
 
@@ -669,7 +675,7 @@ func (o CollaborationPaymentConfigurationOutput) ToCollaborationPaymentConfigura
 	}).(CollaborationPaymentConfigurationPtrOutput)
 }
 
-// An object representing the collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
+// The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
 func (o CollaborationPaymentConfigurationOutput) QueryCompute() CollaborationQueryComputePaymentConfigOutput {
 	return o.ApplyT(func(v CollaborationPaymentConfiguration) CollaborationQueryComputePaymentConfig {
 		return v.QueryCompute
@@ -700,7 +706,7 @@ func (o CollaborationPaymentConfigurationPtrOutput) Elem() CollaborationPaymentC
 	}).(CollaborationPaymentConfigurationOutput)
 }
 
-// An object representing the collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
+// The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
 func (o CollaborationPaymentConfigurationPtrOutput) QueryCompute() CollaborationQueryComputePaymentConfigPtrOutput {
 	return o.ApplyT(func(v *CollaborationPaymentConfiguration) *CollaborationQueryComputePaymentConfig {
 		if v == nil {
@@ -1077,7 +1083,7 @@ func (o ConfiguredTableAggregationConstraintArrayOutput) Index(i pulumi.IntInput
 }
 
 type ConfiguredTableAnalysisRule struct {
-	// Controls on the query specifications that can be run on a configured table.
+	// A policy that describes the associated data usage limitations.
 	Policy ConfiguredTableAnalysisRulePolicy `pulumi:"policy"`
 	// The type of analysis rule.
 	Type ConfiguredTableAnalysisRuleType `pulumi:"type"`
@@ -1095,7 +1101,7 @@ type ConfiguredTableAnalysisRuleInput interface {
 }
 
 type ConfiguredTableAnalysisRuleArgs struct {
-	// Controls on the query specifications that can be run on a configured table.
+	// A policy that describes the associated data usage limitations.
 	Policy ConfiguredTableAnalysisRulePolicyInput `pulumi:"policy"`
 	// The type of analysis rule.
 	Type ConfiguredTableAnalysisRuleTypeInput `pulumi:"type"`
@@ -1152,7 +1158,7 @@ func (o ConfiguredTableAnalysisRuleOutput) ToConfiguredTableAnalysisRuleOutputWi
 	return o
 }
 
-// Controls on the query specifications that can be run on a configured table.
+// A policy that describes the associated data usage limitations.
 func (o ConfiguredTableAnalysisRuleOutput) Policy() ConfiguredTableAnalysisRulePolicyOutput {
 	return o.ApplyT(func(v ConfiguredTableAnalysisRule) ConfiguredTableAnalysisRulePolicy { return v.Policy }).(ConfiguredTableAnalysisRulePolicyOutput)
 }
@@ -1902,7 +1908,7 @@ func (o ConfiguredTableGlueTableReferenceOutput) TableName() pulumi.StringOutput
 }
 
 type ConfiguredTableTableReference struct {
-	// A reference to a table within an AWS Glue data catalog.
+	// If present, a reference to the AWS Glue table referred to by this table reference.
 	Glue ConfiguredTableGlueTableReference `pulumi:"glue"`
 }
 
@@ -1918,7 +1924,7 @@ type ConfiguredTableTableReferenceInput interface {
 }
 
 type ConfiguredTableTableReferenceArgs struct {
-	// A reference to a table within an AWS Glue data catalog.
+	// If present, a reference to the AWS Glue table referred to by this table reference.
 	Glue ConfiguredTableGlueTableReferenceInput `pulumi:"glue"`
 }
 
@@ -1948,7 +1954,7 @@ func (o ConfiguredTableTableReferenceOutput) ToConfiguredTableTableReferenceOutp
 	return o
 }
 
-// A reference to a table within an AWS Glue data catalog.
+// If present, a reference to the AWS Glue table referred to by this table reference.
 func (o ConfiguredTableTableReferenceOutput) Glue() ConfiguredTableGlueTableReferenceOutput {
 	return o.ApplyT(func(v ConfiguredTableTableReference) ConfiguredTableGlueTableReference { return v.Glue }).(ConfiguredTableGlueTableReferenceOutput)
 }
@@ -1961,7 +1967,7 @@ type ConfiguredTableTag struct {
 }
 
 type MembershipPaymentConfiguration struct {
-	// An object representing the payment responsibilities accepted by the collaboration member for query compute costs.
+	// The payment responsibilities accepted by the collaboration member for query compute costs.
 	QueryCompute MembershipQueryComputePaymentConfig `pulumi:"queryCompute"`
 }
 
@@ -1977,7 +1983,7 @@ type MembershipPaymentConfigurationInput interface {
 }
 
 type MembershipPaymentConfigurationArgs struct {
-	// An object representing the payment responsibilities accepted by the collaboration member for query compute costs.
+	// The payment responsibilities accepted by the collaboration member for query compute costs.
 	QueryCompute MembershipQueryComputePaymentConfigInput `pulumi:"queryCompute"`
 }
 
@@ -2058,7 +2064,7 @@ func (o MembershipPaymentConfigurationOutput) ToMembershipPaymentConfigurationPt
 	}).(MembershipPaymentConfigurationPtrOutput)
 }
 
-// An object representing the payment responsibilities accepted by the collaboration member for query compute costs.
+// The payment responsibilities accepted by the collaboration member for query compute costs.
 func (o MembershipPaymentConfigurationOutput) QueryCompute() MembershipQueryComputePaymentConfigOutput {
 	return o.ApplyT(func(v MembershipPaymentConfiguration) MembershipQueryComputePaymentConfig { return v.QueryCompute }).(MembershipQueryComputePaymentConfigOutput)
 }
@@ -2087,7 +2093,7 @@ func (o MembershipPaymentConfigurationPtrOutput) Elem() MembershipPaymentConfigu
 	}).(MembershipPaymentConfigurationOutput)
 }
 
-// An object representing the payment responsibilities accepted by the collaboration member for query compute costs.
+// The payment responsibilities accepted by the collaboration member for query compute costs.
 func (o MembershipPaymentConfigurationPtrOutput) QueryCompute() MembershipQueryComputePaymentConfigPtrOutput {
 	return o.ApplyT(func(v *MembershipPaymentConfiguration) *MembershipQueryComputePaymentConfig {
 		if v == nil {
@@ -2098,7 +2104,7 @@ func (o MembershipPaymentConfigurationPtrOutput) QueryCompute() MembershipQueryC
 }
 
 type MembershipProtectedQueryOutputConfiguration struct {
-	// Contains the configuration to write the query results to S3.
+	// Required configuration for a protected query with an `S3` output type.
 	S3 MembershipProtectedQueryS3OutputConfiguration `pulumi:"s3"`
 }
 
@@ -2114,7 +2120,7 @@ type MembershipProtectedQueryOutputConfigurationInput interface {
 }
 
 type MembershipProtectedQueryOutputConfigurationArgs struct {
-	// Contains the configuration to write the query results to S3.
+	// Required configuration for a protected query with an `S3` output type.
 	S3 MembershipProtectedQueryS3OutputConfigurationInput `pulumi:"s3"`
 }
 
@@ -2195,7 +2201,7 @@ func (o MembershipProtectedQueryOutputConfigurationOutput) ToMembershipProtected
 	}).(MembershipProtectedQueryOutputConfigurationPtrOutput)
 }
 
-// Contains the configuration to write the query results to S3.
+// Required configuration for a protected query with an `S3` output type.
 func (o MembershipProtectedQueryOutputConfigurationOutput) S3() MembershipProtectedQueryS3OutputConfigurationOutput {
 	return o.ApplyT(func(v MembershipProtectedQueryOutputConfiguration) MembershipProtectedQueryS3OutputConfiguration {
 		return v.S3
@@ -2226,7 +2232,7 @@ func (o MembershipProtectedQueryOutputConfigurationPtrOutput) Elem() MembershipP
 	}).(MembershipProtectedQueryOutputConfigurationOutput)
 }
 
-// Contains the configuration to write the query results to S3.
+// Required configuration for a protected query with an `S3` output type.
 func (o MembershipProtectedQueryOutputConfigurationPtrOutput) S3() MembershipProtectedQueryS3OutputConfigurationPtrOutput {
 	return o.ApplyT(func(v *MembershipProtectedQueryOutputConfiguration) *MembershipProtectedQueryS3OutputConfiguration {
 		if v == nil {
@@ -2237,7 +2243,7 @@ func (o MembershipProtectedQueryOutputConfigurationPtrOutput) S3() MembershipPro
 }
 
 type MembershipProtectedQueryResultConfiguration struct {
-	// Contains configurations for protected query results.
+	// Configuration for protected query results.
 	OutputConfiguration MembershipProtectedQueryOutputConfiguration `pulumi:"outputConfiguration"`
 	// The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected query results to the result location, given by the member who can receive results.
 	RoleArn *string `pulumi:"roleArn"`
@@ -2255,7 +2261,7 @@ type MembershipProtectedQueryResultConfigurationInput interface {
 }
 
 type MembershipProtectedQueryResultConfigurationArgs struct {
-	// Contains configurations for protected query results.
+	// Configuration for protected query results.
 	OutputConfiguration MembershipProtectedQueryOutputConfigurationInput `pulumi:"outputConfiguration"`
 	// The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected query results to the result location, given by the member who can receive results.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
@@ -2338,7 +2344,7 @@ func (o MembershipProtectedQueryResultConfigurationOutput) ToMembershipProtected
 	}).(MembershipProtectedQueryResultConfigurationPtrOutput)
 }
 
-// Contains configurations for protected query results.
+// Configuration for protected query results.
 func (o MembershipProtectedQueryResultConfigurationOutput) OutputConfiguration() MembershipProtectedQueryOutputConfigurationOutput {
 	return o.ApplyT(func(v MembershipProtectedQueryResultConfiguration) MembershipProtectedQueryOutputConfiguration {
 		return v.OutputConfiguration
@@ -2374,7 +2380,7 @@ func (o MembershipProtectedQueryResultConfigurationPtrOutput) Elem() MembershipP
 	}).(MembershipProtectedQueryResultConfigurationOutput)
 }
 
-// Contains configurations for protected query results.
+// Configuration for protected query results.
 func (o MembershipProtectedQueryResultConfigurationPtrOutput) OutputConfiguration() MembershipProtectedQueryOutputConfigurationPtrOutput {
 	return o.ApplyT(func(v *MembershipProtectedQueryResultConfiguration) *MembershipProtectedQueryOutputConfiguration {
 		if v == nil {

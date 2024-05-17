@@ -59,7 +59,7 @@ export interface GetServiceNetworkVpcAssociationResult {
      */
     readonly status?: enums.vpclattice.ServiceNetworkVpcAssociationStatus;
     /**
-     * Specifies a tag for a VPC association.
+     * The tags for the association.
      */
     readonly tags?: outputs.Tag[];
     /**

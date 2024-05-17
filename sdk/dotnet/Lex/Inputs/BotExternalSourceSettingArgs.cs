@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     public sealed class BotExternalSourceSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Settings requried for a slot type based on a grammar that you provide.
+        /// Settings required for a slot type based on a grammar that you provide.
         /// </summary>
         [Input("grammarSlotTypeSetting")]
         public Input<Inputs.BotGrammarSlotTypeSettingArgs>? GrammarSlotTypeSetting { get; set; }

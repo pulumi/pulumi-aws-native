@@ -49,7 +49,7 @@ export interface GetEndpointResult {
      */
     readonly eventBuses?: outputs.events.EndpointEventBus[];
     /**
-     * Endpoints can replicate all events to the secondary Region.
+     * Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
      */
     readonly replicationConfig?: outputs.events.EndpointReplicationConfig;
     /**

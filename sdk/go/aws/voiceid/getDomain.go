@@ -31,7 +31,7 @@ type LookupDomainArgs struct {
 type LookupDomainResult struct {
 	// The identifier of the domain.
 	DomainId *string `pulumi:"domainId"`
-	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+	// The tags used to organize, track, or control access for this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -76,7 +76,7 @@ func (o LookupDomainResultOutput) DomainId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.DomainId }).(pulumi.StringPtrOutput)
 }
 
-// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+// The tags used to organize, track, or control access for this resource.
 func (o LookupDomainResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

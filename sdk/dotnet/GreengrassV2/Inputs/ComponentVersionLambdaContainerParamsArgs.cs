@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
         private InputList<Inputs.ComponentVersionLambdaDeviceMountArgs>? _devices;
 
         /// <summary>
-        /// Contains information about a device that Linux processes in a container can access.
+        /// The list of system devices that the container can access.
         /// </summary>
         public InputList<Inputs.ComponentVersionLambdaDeviceMountArgs> Devices
         {
@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
         private InputList<Inputs.ComponentVersionLambdaVolumeMountArgs>? _volumes;
 
         /// <summary>
-        /// Contains information about a volume that Linux processes in a container can access. When you define a volume, the AWS IoT Greengrass Core software mounts the source files to the destination inside the container.
+        /// The list of volumes that the container can access.
         /// </summary>
         public InputList<Inputs.ComponentVersionLambdaVolumeMountArgs> Volumes
         {

@@ -27,11 +27,11 @@ export interface GetCapacityProviderArgs {
 
 export interface GetCapacityProviderResult {
     /**
-     * The details of the Auto Scaling group for the capacity provider.
+     * The Auto Scaling group settings for the capacity provider.
      */
     readonly autoScalingGroupProvider?: outputs.ecs.CapacityProviderAutoScalingGroupProvider;
     /**
-     * The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+     * The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
      *
      * The following basic restrictions apply to tags:
      *

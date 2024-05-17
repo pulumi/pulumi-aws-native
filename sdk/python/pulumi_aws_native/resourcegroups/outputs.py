@@ -93,14 +93,9 @@ class GroupQuery(dict):
         :param str stack_identifier: Specifies the ARN of a CloudFormation stack. All supported resources of the CloudFormation stack are members of the resource group. If you don't specify an ARN, this parameter defaults to the current stack that you are defining, which means that all the resources of the current stack are grouped.
                
                You can specify a value for `StackIdentifier` only when the `ResourceQuery.Type` property is `CLOUDFORMATION_STACK_1_0.`
-        :param Sequence['GroupTagFilter'] tag_filters: Specifies a single tag key and optional values that you can use to specify membership in a tag-based group. An AWS resource that doesn't have a matching tag key and value is rejected as a member of the group.
+        :param Sequence['GroupTagFilter'] tag_filters: A list of key-value pair objects that limit which resources can be members of the resource group. This property is required when the `ResourceQuery.Type` property is `TAG_FILTERS_1_0` .
                
-               A `TagFilter` object includes two properties: `Key` (a string) and `Values` (a list of strings). Only resources in the account that are tagged with a matching key-value pair are members of the group. The `Values` property of `TagFilter` is optional, but specifying it narrows the query results.
-               
-               As an example, suppose the `TagFilters` string is `[{"Key": "Stage", "Values": ["Test", "Beta"]}, {"Key": "Storage"}]` . In this case, only resources with all of the following tags are members of the group:
-               
-               - `Stage` tag key with a value of either `Test` or `Beta`
-               - `Storage` tag key with any value
+               A resource must have a tag that matches every filter that is provided in the `TagFilters` list.
         """
         if resource_type_filters is not None:
             pulumi.set(__self__, "resource_type_filters", resource_type_filters)
@@ -131,14 +126,9 @@ class GroupQuery(dict):
     @pulumi.getter(name="tagFilters")
     def tag_filters(self) -> Optional[Sequence['outputs.GroupTagFilter']]:
         """
-        Specifies a single tag key and optional values that you can use to specify membership in a tag-based group. An AWS resource that doesn't have a matching tag key and value is rejected as a member of the group.
+        A list of key-value pair objects that limit which resources can be members of the resource group. This property is required when the `ResourceQuery.Type` property is `TAG_FILTERS_1_0` .
 
-        A `TagFilter` object includes two properties: `Key` (a string) and `Values` (a list of strings). Only resources in the account that are tagged with a matching key-value pair are members of the group. The `Values` property of `TagFilter` is optional, but specifying it narrows the query results.
-
-        As an example, suppose the `TagFilters` string is `[{"Key": "Stage", "Values": ["Test", "Beta"]}, {"Key": "Storage"}]` . In this case, only resources with all of the following tags are members of the group:
-
-        - `Stage` tag key with a value of either `Test` or `Beta`
-        - `Storage` tag key with any value
+        A resource must have a tag that matches every filter that is provided in the `TagFilters` list.
         """
         return pulumi.get(self, "tag_filters")
 
@@ -149,7 +139,12 @@ class GroupResourceQuery(dict):
                  query: Optional['outputs.GroupQuery'] = None,
                  type: Optional['GroupResourceQueryType'] = None):
         """
-        :param 'GroupQuery' query: Specifies details within a `ResourceQuery` structure that determines the membership of the resource group. The contents required in the `Query` structure are determined by the `Type` property of the containing `ResourceQuery` structure.
+        :param 'GroupQuery' query: The query that defines the membership of the group. This is a structure with properties that depend on the `Type` .
+               
+               The `Query` structure must be included in the following scenarios:
+               
+               - When the `Type` is `TAG_FILTERS_1_0` , you must specify a `Query` structure that contains a `TagFilters` list of tags. Resources with tags that match those in the `TagFilter` list become members of the resource group.
+               - When the `Type` is `CLOUDFORMATION_STACK_1_0` then this field is required only when you must specify a CloudFormation stack other than the one you are defining. To do this, the `Query` structure must contain the `StackIdentifier` property. If you don't specify either a `Query` structure or a `StackIdentifier` within that `Query` , then it defaults to the CloudFormation stack that you're currently constructing.
         :param 'GroupResourceQueryType' type: Specifies the type of resource query that determines this group's membership. There are two valid query types:
                
                - `TAG_FILTERS_1_0` indicates that the group is a tag-based group. To complete the group membership, you must include the `TagFilters` property to specify the tag filters to use in the query.
@@ -164,7 +159,12 @@ class GroupResourceQuery(dict):
     @pulumi.getter
     def query(self) -> Optional['outputs.GroupQuery']:
         """
-        Specifies details within a `ResourceQuery` structure that determines the membership of the resource group. The contents required in the `Query` structure are determined by the `Type` property of the containing `ResourceQuery` structure.
+        The query that defines the membership of the group. This is a structure with properties that depend on the `Type` .
+
+        The `Query` structure must be included in the following scenarios:
+
+        - When the `Type` is `TAG_FILTERS_1_0` , you must specify a `Query` structure that contains a `TagFilters` list of tags. Resources with tags that match those in the `TagFilter` list become members of the resource group.
+        - When the `Type` is `CLOUDFORMATION_STACK_1_0` then this field is required only when you must specify a CloudFormation stack other than the one you are defining. To do this, the `Query` structure must contain the `StackIdentifier` property. If you don't specify either a `Query` structure or a `StackIdentifier` within that `Query` , then it defaults to the CloudFormation stack that you're currently constructing.
         """
         return pulumi.get(self, "query")
 

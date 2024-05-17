@@ -58,7 +58,7 @@ type LookupEnvironmentResult struct {
 	EnvironmentClass *string `pulumi:"environmentClass"`
 	// The Amazon Resource Name (ARN) of the execution role in IAM that allows MWAA to access AWS resources in your environment. For example, `arn:aws:iam::123456789:role/my-execution-role` . To learn more, see [Amazon MWAA Execution role](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) .
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
-	// The type of Apache Airflow logs to send to CloudWatch Logs.
+	// The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
 	LoggingConfiguration *EnvironmentLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// The maximum number of workers that you want to run in your environment. MWAA scales the number of Apache Airflow workers up to the number you specify in the `MaxWorkers` field. For example, `20` . When there are no more tasks running, and no more in the queue, MWAA disposes of the extra workers leaving the one worker that is included with your environment, or the number you specify in `MinWorkers` .
 	MaxWorkers *int `pulumi:"maxWorkers"`
@@ -200,7 +200,7 @@ func (o LookupEnvironmentResultOutput) ExecutionRoleArn() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupEnvironmentResult) *string { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The type of Apache Airflow logs to send to CloudWatch Logs.
+// The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
 func (o LookupEnvironmentResultOutput) LoggingConfiguration() EnvironmentLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupEnvironmentResult) *EnvironmentLoggingConfiguration { return v.LoggingConfiguration }).(EnvironmentLoggingConfigurationPtrOutput)
 }

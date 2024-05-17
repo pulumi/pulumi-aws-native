@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public Input<Inputs.DataSourceConfluenceConfigurationArgs>? ConfluenceConfiguration { get; set; }
 
         /// <summary>
-        /// Provides the configuration information to an [Amazon Kendra supported database](https://docs.aws.amazon.com/kendra/latest/dg/data-source-database.html) .
+        /// Provides the configuration information to connect to a database as your data source.
         /// </summary>
         [Input("databaseConfiguration")]
         public Input<Inputs.DataSourceDatabaseConfigurationArgs>? DatabaseConfiguration { get; set; }
@@ -31,13 +31,13 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public Input<Inputs.DataSourceGoogleDriveConfigurationArgs>? GoogleDriveConfiguration { get; set; }
 
         /// <summary>
-        /// Provides the configuration information to connect to OneDrive as your data source.
+        /// Provides the configuration information to connect to Microsoft OneDrive as your data source.
         /// </summary>
         [Input("oneDriveConfiguration")]
         public Input<Inputs.DataSourceOneDriveConfigurationArgs>? OneDriveConfiguration { get; set; }
 
         /// <summary>
-        /// Provides the configuration information to connect to an Amazon S3 bucket.
+        /// Provides the configuration information to connect to an Amazon S3 bucket as your data source.
         /// 
         /// &gt; Amazon Kendra now supports an upgraded Amazon S3 connector.
         /// &gt; 
@@ -76,8 +76,6 @@ namespace Pulumi.AwsNative.Kendra.Inputs
 
         /// <summary>
         /// Provides the configuration information to connect to Amazon WorkDocs as your data source.
-        /// 
-        /// Amazon WorkDocs connector is available in Oregon, North Virginia, Sydney, Singapore and Ireland regions.
         /// </summary>
         [Input("workDocsConfiguration")]
         public Input<Inputs.DataSourceWorkDocsConfigurationArgs>? WorkDocsConfiguration { get; set; }

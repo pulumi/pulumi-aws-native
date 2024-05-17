@@ -14,17 +14,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardNumericRangeFilter
     {
         /// <summary>
-        /// An aggregation function aggregates values from a dimension or measure.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The aggregation function of the filter.
         /// </summary>
         public readonly Outputs.DashboardAggregationFunction? AggregationFunction;
         /// <summary>
-        /// A column of a data set.
+        /// The column that the filter is applied to.
         /// </summary>
         public readonly Outputs.DashboardColumnIdentifier Column;
         /// <summary>
-        /// The default configuration for all dependent controls of the filter.
+        /// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
         /// </summary>
         public readonly Outputs.DashboardDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
         /// <summary>
@@ -48,11 +46,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardFilterNullOption NullOption;
         /// <summary>
-        /// The value input pf the numeric range filter.
+        /// The maximum value for the filter value range.
         /// </summary>
         public readonly Outputs.DashboardNumericRangeFilterValue? RangeMaximum;
         /// <summary>
-        /// The value input pf the numeric range filter.
+        /// The minimum value for the filter value range.
         /// </summary>
         public readonly Outputs.DashboardNumericRangeFilterValue? RangeMinimum;
         /// <summary>

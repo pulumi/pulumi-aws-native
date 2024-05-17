@@ -58,11 +58,11 @@ namespace Pulumi.AwsNative.Ses
     public sealed class GetVdmAttributesResult
     {
         /// <summary>
-        /// Settings for your VDM configuration as applicable to the Dashboard.
+        /// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         /// </summary>
         public readonly Outputs.VdmAttributesDashboardAttributes? DashboardAttributes;
         /// <summary>
-        /// Settings for your VDM configuration as applicable to the Guardian.
+        /// Specifies additional settings for your VDM configuration as applicable to the Guardian.
         /// </summary>
         public readonly Outputs.VdmAttributesGuardianAttributes? GuardianAttributes;
         /// <summary>

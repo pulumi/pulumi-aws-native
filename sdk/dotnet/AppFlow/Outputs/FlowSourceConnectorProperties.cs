@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     public sealed class FlowSourceConnectorProperties
     {
         /// <summary>
-        /// The properties that are applied when Amplitude is being used as a source.
+        /// Specifies the information that is required for querying Amplitude.
         /// </summary>
         public readonly Outputs.FlowAmplitudeSourceProperties? Amplitude;
         /// <summary>
@@ -25,35 +25,35 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// </summary>
         public readonly Outputs.FlowCustomConnectorSourceProperties? CustomConnector;
         /// <summary>
-        /// The properties that are applied when Datadog is being used as a source.
+        /// Specifies the information that is required for querying Datadog.
         /// </summary>
         public readonly Outputs.FlowDatadogSourceProperties? Datadog;
         /// <summary>
-        /// The properties that are applied when Dynatrace is being used as a source.
+        /// Specifies the information that is required for querying Dynatrace.
         /// </summary>
         public readonly Outputs.FlowDynatraceSourceProperties? Dynatrace;
         /// <summary>
-        /// The properties that are applied when Google Analytics is being used as a source.
+        /// Specifies the information that is required for querying Google Analytics.
         /// </summary>
         public readonly Outputs.FlowGoogleAnalyticsSourceProperties? GoogleAnalytics;
         /// <summary>
-        /// The properties that are applied when Infor Nexus is being used as a source.
+        /// Specifies the information that is required for querying Infor Nexus.
         /// </summary>
         public readonly Outputs.FlowInforNexusSourceProperties? InforNexus;
         /// <summary>
-        /// The properties that are applied when Marketo is being used as a source.
+        /// Specifies the information that is required for querying Marketo.
         /// </summary>
         public readonly Outputs.FlowMarketoSourceProperties? Marketo;
         /// <summary>
-        /// The properties that are applied when Salesforce Pardot is being used as a source.
+        /// Specifies the information that is required for querying Salesforce Pardot.
         /// </summary>
         public readonly Outputs.FlowPardotSourceProperties? Pardot;
         /// <summary>
-        /// The properties that are applied when Amazon S3 is being used as the flow source.
+        /// Specifies the information that is required for querying Amazon S3.
         /// </summary>
         public readonly Outputs.FlowS3SourceProperties? S3;
         /// <summary>
-        /// The properties that are applied when Salesforce is being used as a source.
+        /// Specifies the information that is required for querying Salesforce.
         /// </summary>
         public readonly Outputs.FlowSalesforceSourceProperties? Salesforce;
         /// <summary>
@@ -61,27 +61,27 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// </summary>
         public readonly Outputs.FlowSapoDataSourceProperties? SapoData;
         /// <summary>
-        /// The properties that are applied when ServiceNow is being used as a source.
+        /// Specifies the information that is required for querying ServiceNow.
         /// </summary>
         public readonly Outputs.FlowServiceNowSourceProperties? ServiceNow;
         /// <summary>
-        /// The properties that are applied when Singular is being used as a source.
+        /// Specifies the information that is required for querying Singular.
         /// </summary>
         public readonly Outputs.FlowSingularSourceProperties? Singular;
         /// <summary>
-        /// The properties that are applied when Slack is being used as a source.
+        /// Specifies the information that is required for querying Slack.
         /// </summary>
         public readonly Outputs.FlowSlackSourceProperties? Slack;
         /// <summary>
-        /// The properties that are applied when using Trend Micro as a flow source.
+        /// Specifies the information that is required for querying Trend Micro.
         /// </summary>
         public readonly Outputs.FlowTrendmicroSourceProperties? Trendmicro;
         /// <summary>
-        /// The properties that are applied when using Veeva as a flow source.
+        /// Specifies the information that is required for querying Veeva.
         /// </summary>
         public readonly Outputs.FlowVeevaSourceProperties? Veeva;
         /// <summary>
-        /// The properties that are applied when using Zendesk as a flow source.
+        /// Specifies the information that is required for querying Zendesk.
         /// </summary>
         public readonly Outputs.FlowZendeskSourceProperties? Zendesk;
 

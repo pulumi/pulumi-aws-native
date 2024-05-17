@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateDataPathValueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of the data path value.
+        /// The type configuration of the field.
         /// </summary>
         [Input("dataPathType")]
         public Input<Inputs.TemplateDataPathTypeArgs>? DataPathType { get; set; }

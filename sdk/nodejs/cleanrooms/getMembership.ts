@@ -47,7 +47,7 @@ export interface GetMembershipResult {
      */
     readonly collaborationCreatorAccountId?: string;
     /**
-     * Contains configurations for protected query results.
+     * The default protected query result configuration as specified by the member who can receive results.
      */
     readonly defaultResultConfiguration?: outputs.cleanrooms.MembershipProtectedQueryResultConfiguration;
     /**
@@ -57,7 +57,7 @@ export interface GetMembershipResult {
      */
     readonly membershipIdentifier?: string;
     /**
-     * An object representing the payment responsibilities accepted by the collaboration member.
+     * The payment responsibilities accepted by the collaboration member.
      */
     readonly paymentConfiguration?: outputs.cleanrooms.MembershipPaymentConfiguration;
     /**

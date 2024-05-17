@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateKpiActualValueConditionalFormatting
     {
         /// <summary>
-        /// The formatting configuration for the icon.
+        /// The conditional formatting of the actual value's icon.
         /// </summary>
         public readonly Outputs.TemplateConditionalFormattingIcon? Icon;
         /// <summary>
-        /// The formatting configuration for the color.
+        /// The conditional formatting of the actual value's text color.
         /// </summary>
         public readonly Outputs.TemplateConditionalFormattingColor? TextColor;
 

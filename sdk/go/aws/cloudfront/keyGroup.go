@@ -18,9 +18,7 @@ type KeyGroup struct {
 
 	// The identifier for the key group.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
-	// A key group configuration.
-	//
-	// A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) .
+	// The key group configuration.
 	KeyGroupConfig KeyGroupConfigOutput `pulumi:"keyGroupConfig"`
 	// The date and time when the key group was last modified.
 	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
@@ -69,17 +67,13 @@ func (KeyGroupState) ElementType() reflect.Type {
 }
 
 type keyGroupArgs struct {
-	// A key group configuration.
-	//
-	// A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) .
+	// The key group configuration.
 	KeyGroupConfig KeyGroupConfig `pulumi:"keyGroupConfig"`
 }
 
 // The set of arguments for constructing a KeyGroup resource.
 type KeyGroupArgs struct {
-	// A key group configuration.
-	//
-	// A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) .
+	// The key group configuration.
 	KeyGroupConfig KeyGroupConfigInput
 }
 
@@ -125,9 +119,7 @@ func (o KeyGroupOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
-// A key group configuration.
-//
-// A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) .
+// The key group configuration.
 func (o KeyGroupOutput) KeyGroupConfig() KeyGroupConfigOutput {
 	return o.ApplyT(func(v *KeyGroup) KeyGroupConfigOutput { return v.KeyGroupConfig }).(KeyGroupConfigOutput)
 }

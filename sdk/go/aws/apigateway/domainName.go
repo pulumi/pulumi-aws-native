@@ -104,9 +104,7 @@ type DomainName struct {
 	DistributionHostedZoneId pulumi.StringOutput `pulumi:"distributionHostedZoneId"`
 	// The custom domain name as an API host name, for example, `my-api.example.com` .
 	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
-	// The `EndpointConfiguration` property type specifies the endpoint types of an Amazon API Gateway domain name.
-	//
-	// `EndpointConfiguration` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
+	// The endpoint configuration of this DomainName showing the endpoint types of the domain name.
 	EndpointConfiguration DomainNameEndpointConfigurationPtrOutput `pulumi:"endpointConfiguration"`
 	// The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
 	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrOutput `pulumi:"mutualTlsAuthentication"`
@@ -120,9 +118,7 @@ type DomainName struct {
 	RegionalHostedZoneId pulumi.StringOutput `pulumi:"regionalHostedZoneId"`
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
 	SecurityPolicy pulumi.StringPtrOutput `pulumi:"securityPolicy"`
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// The collection of tags. Each tag element is associated with a given resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -174,9 +170,7 @@ type domainNameArgs struct {
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The custom domain name as an API host name, for example, `my-api.example.com` .
 	DomainName *string `pulumi:"domainName"`
-	// The `EndpointConfiguration` property type specifies the endpoint types of an Amazon API Gateway domain name.
-	//
-	// `EndpointConfiguration` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
+	// The endpoint configuration of this DomainName showing the endpoint types of the domain name.
 	EndpointConfiguration *DomainNameEndpointConfiguration `pulumi:"endpointConfiguration"`
 	// The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
 	MutualTlsAuthentication *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
@@ -186,9 +180,7 @@ type domainNameArgs struct {
 	RegionalCertificateArn *string `pulumi:"regionalCertificateArn"`
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
 	SecurityPolicy *string `pulumi:"securityPolicy"`
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// The collection of tags. Each tag element is associated with a given resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -198,9 +190,7 @@ type DomainNameArgs struct {
 	CertificateArn pulumi.StringPtrInput
 	// The custom domain name as an API host name, for example, `my-api.example.com` .
 	DomainName pulumi.StringPtrInput
-	// The `EndpointConfiguration` property type specifies the endpoint types of an Amazon API Gateway domain name.
-	//
-	// `EndpointConfiguration` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
+	// The endpoint configuration of this DomainName showing the endpoint types of the domain name.
 	EndpointConfiguration DomainNameEndpointConfigurationPtrInput
 	// The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
 	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrInput
@@ -210,9 +200,7 @@ type DomainNameArgs struct {
 	RegionalCertificateArn pulumi.StringPtrInput
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
 	SecurityPolicy pulumi.StringPtrInput
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// The collection of tags. Each tag element is associated with a given resource.
 	Tags aws.TagArrayInput
 }
 
@@ -275,9 +263,7 @@ func (o DomainNameOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
 }
 
-// The `EndpointConfiguration` property type specifies the endpoint types of an Amazon API Gateway domain name.
-//
-// `EndpointConfiguration` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
+// The endpoint configuration of this DomainName showing the endpoint types of the domain name.
 func (o DomainNameOutput) EndpointConfiguration() DomainNameEndpointConfigurationPtrOutput {
 	return o.ApplyT(func(v *DomainName) DomainNameEndpointConfigurationPtrOutput { return v.EndpointConfiguration }).(DomainNameEndpointConfigurationPtrOutput)
 }
@@ -312,9 +298,7 @@ func (o DomainNameOutput) SecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.SecurityPolicy }).(pulumi.StringPtrOutput)
 }
 
-// An array of key-value pairs to apply to this resource.
-//
-// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+// The collection of tags. Each tag element is associated with a given resource.
 func (o DomainNameOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DomainName) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -102,7 +102,7 @@ export class Trail extends pulumi.CustomResource {
      */
     public readonly snsTopicName!: pulumi.Output<string | undefined>;
     /**
-     * A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+     * A custom set of tags (key-value pairs) for this trail.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -239,7 +239,7 @@ export interface TrailArgs {
      */
     snsTopicName?: pulumi.Input<string>;
     /**
-     * A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+     * A custom set of tags (key-value pairs) for this trail.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

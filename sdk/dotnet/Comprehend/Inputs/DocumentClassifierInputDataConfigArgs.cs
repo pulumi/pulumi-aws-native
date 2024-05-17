@@ -16,7 +16,9 @@ namespace Pulumi.AwsNative.Comprehend.Inputs
         private InputList<Inputs.DocumentClassifierAugmentedManifestsListItemArgs>? _augmentedManifests;
 
         /// <summary>
-        /// An augmented manifest file that provides training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
+        /// A list of augmented manifest files that provide training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
+        /// 
+        /// This parameter is required if you set `DataFormat` to `AUGMENTED_MANIFEST` .
         /// </summary>
         public InputList<Inputs.DocumentClassifierAugmentedManifestsListItemArgs> AugmentedManifests
         {
@@ -37,19 +39,6 @@ namespace Pulumi.AwsNative.Comprehend.Inputs
         [Input("dataFormat")]
         public Input<Pulumi.AwsNative.Comprehend.DocumentClassifierInputDataConfigDataFormat>? DataFormat { get; set; }
 
-        /// <summary>
-        /// Provides configuration parameters to override the default actions for extracting text from PDF documents and image files.
-        /// 
-        /// By default, Amazon Comprehend performs the following actions to extract text from files, based on the input file type:
-        /// 
-        /// - *Word files* - Amazon Comprehend parser extracts the text.
-        /// - *Digital PDF files* - Amazon Comprehend parser extracts the text.
-        /// - *Image files and scanned PDF files* - Amazon Comprehend uses the Amazon Textract `DetectDocumentText` API to extract the text.
-        /// 
-        /// `DocumentReaderConfig` does not apply to plain text files or Word files.
-        /// 
-        /// For image files and PDF documents, you can override these default actions using the fields listed below. For more information, see [Setting text extraction options](https://docs.aws.amazon.com/comprehend/latest/dg/idp-set-textract-options.html) in the Comprehend Developer Guide.
-        /// </summary>
         [Input("documentReaderConfig")]
         public Input<Inputs.DocumentClassifierDocumentReaderConfigArgs>? DocumentReaderConfig { get; set; }
 
@@ -60,7 +49,7 @@ namespace Pulumi.AwsNative.Comprehend.Inputs
         public Input<Pulumi.AwsNative.Comprehend.DocumentClassifierInputDataConfigDocumentType>? DocumentType { get; set; }
 
         /// <summary>
-        /// The location of the training documents. This parameter is required in a request to create a semi-structured document classification model.
+        /// The S3 location of the training documents. This parameter is required in a request to create a native document model.
         /// </summary>
         [Input("documents")]
         public Input<Inputs.DocumentClassifierDocumentsArgs>? Documents { get; set; }

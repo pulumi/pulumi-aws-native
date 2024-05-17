@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
         /// </summary>
         public readonly string DestinationArn;
         /// <summary>
-        /// Specifies a Kafka header using key-value pairs when you create a Rule’s Kafka Action. You can use these headers to route data from IoT clients to downstream Kafka clusters without modifying your message payload.
+        /// The list of Kafka headers that you specify.
         /// </summary>
         public readonly ImmutableArray<Outputs.TopicRuleKafkaActionHeader> Headers;
         /// <summary>

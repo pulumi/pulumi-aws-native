@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardLineSeriesAxisDisplayOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The display options for the axis label.
+        /// The options that determine the presentation of the line series axis.
         /// </summary>
         [Input("axisOptions")]
         public Input<Inputs.DashboardAxisDisplayOptionsArgs>? AxisOptions { get; set; }

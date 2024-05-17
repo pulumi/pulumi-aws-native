@@ -69,7 +69,7 @@ type Stack struct {
 	LastUpdateTime pulumi.StringOutput `pulumi:"lastUpdateTime"`
 	// The Amazon Simple Notification Service (Amazon SNS) topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs using the Amazon SNS console or your Command Line Interface (CLI).
 	NotificationArns pulumi.StringArrayOutput `pulumi:"notificationArns"`
-	// The Output data type.
+	// A list of output structures.
 	Outputs StackOutputTypeArrayOutput `pulumi:"outputs"`
 	// The set value pairs that represent the parameters passed to CloudFormation when this nested stack is created. Each parameter has a name corresponding to a parameter defined in the embedded template and a value representing the value that you want to set for the parameter.
 	//
@@ -107,7 +107,7 @@ type Stack struct {
 	StackStatus StackStatusOutput `pulumi:"stackStatus"`
 	// Success/failure message associated with the stack status.
 	StackStatusReason pulumi.StringPtrOutput `pulumi:"stackStatusReason"`
-	// The Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation stack.
+	// Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to [Template anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) in the AWS CloudFormation User Guide.
 	//
@@ -240,7 +240,7 @@ type stackArgs struct {
 	StackPolicyUrl *string `pulumi:"stackPolicyUrl"`
 	// Success/failure message associated with the stack status.
 	StackStatusReason *string `pulumi:"stackStatusReason"`
-	// The Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation stack.
+	// Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to [Template anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) in the AWS CloudFormation User Guide.
 	//
@@ -331,7 +331,7 @@ type StackArgs struct {
 	StackPolicyUrl pulumi.StringPtrInput
 	// Success/failure message associated with the stack status.
 	StackStatusReason pulumi.StringPtrInput
-	// The Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation stack.
+	// Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
 	Tags aws.TagArrayInput
 	// Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to [Template anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) in the AWS CloudFormation User Guide.
 	//
@@ -463,7 +463,7 @@ func (o StackOutput) NotificationArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringArrayOutput { return v.NotificationArns }).(pulumi.StringArrayOutput)
 }
 
-// The Output data type.
+// A list of output structures.
 func (o StackOutput) Outputs() StackOutputTypeArrayOutput {
 	return o.ApplyT(func(v *Stack) StackOutputTypeArrayOutput { return v.Outputs }).(StackOutputTypeArrayOutput)
 }
@@ -534,7 +534,7 @@ func (o StackOutput) StackStatusReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stack) pulumi.StringPtrOutput { return v.StackStatusReason }).(pulumi.StringPtrOutput)
 }
 
-// The Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation stack.
+// Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
 func (o StackOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Stack) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

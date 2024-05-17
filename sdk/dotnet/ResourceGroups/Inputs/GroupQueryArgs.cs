@@ -36,14 +36,9 @@ namespace Pulumi.AwsNative.ResourceGroups.Inputs
         private InputList<Inputs.GroupTagFilterArgs>? _tagFilters;
 
         /// <summary>
-        /// Specifies a single tag key and optional values that you can use to specify membership in a tag-based group. An AWS resource that doesn't have a matching tag key and value is rejected as a member of the group.
+        /// A list of key-value pair objects that limit which resources can be members of the resource group. This property is required when the `ResourceQuery.Type` property is `TAG_FILTERS_1_0` .
         /// 
-        /// A `TagFilter` object includes two properties: `Key` (a string) and `Values` (a list of strings). Only resources in the account that are tagged with a matching key-value pair are members of the group. The `Values` property of `TagFilter` is optional, but specifying it narrows the query results.
-        /// 
-        /// As an example, suppose the `TagFilters` string is `[{"Key": "Stage", "Values": ["Test", "Beta"]}, {"Key": "Storage"}]` . In this case, only resources with all of the following tags are members of the group:
-        /// 
-        /// - `Stage` tag key with a value of either `Test` or `Beta`
-        /// - `Storage` tag key with any value
+        /// A resource must have a tag that matches every filter that is provided in the `TagFilters` list.
         /// </summary>
         public InputList<Inputs.GroupTagFilterArgs> TagFilters
         {

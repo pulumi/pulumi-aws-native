@@ -30,7 +30,7 @@ type LookupComputeEnvironmentArgs struct {
 type LookupComputeEnvironmentResult struct {
 	// Returns the compute environment ARN, such as `batch: *us-east-1* : *111122223333* :compute-environment/ *ComputeEnvironmentName*` .
 	ComputeEnvironmentArn *string `pulumi:"computeEnvironmentArn"`
-	// Details about the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the *AWS Batch User Guide* .
+	// The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
 	ComputeResources *ComputeEnvironmentComputeResources `pulumi:"computeResources"`
 	// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf. For more information, see [AWS Batch service IAM role](https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html) in the *AWS Batch User Guide* .
 	//
@@ -97,7 +97,7 @@ func (o LookupComputeEnvironmentResultOutput) ComputeEnvironmentArn() pulumi.Str
 	return o.ApplyT(func(v LookupComputeEnvironmentResult) *string { return v.ComputeEnvironmentArn }).(pulumi.StringPtrOutput)
 }
 
-// Details about the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the *AWS Batch User Guide* .
+// The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
 func (o LookupComputeEnvironmentResultOutput) ComputeResources() ComputeEnvironmentComputeResourcesPtrOutput {
 	return o.ApplyT(func(v LookupComputeEnvironmentResult) *ComputeEnvironmentComputeResources { return v.ComputeResources }).(ComputeEnvironmentComputeResourcesPtrOutput)
 }

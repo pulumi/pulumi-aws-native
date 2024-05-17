@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.DataBrew
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Represents a single step from a DataBrew recipe to be performed.
+        /// A list of steps that are defined by the recipe.
         /// </summary>
         public readonly ImmutableArray<Outputs.RecipeStep> Steps;
 

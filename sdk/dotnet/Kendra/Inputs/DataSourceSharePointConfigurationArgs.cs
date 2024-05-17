@@ -110,7 +110,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public Input<bool>? UseChangeLog { get; set; }
 
         /// <summary>
-        /// Provides the configuration information to connect to an Amazon VPC.
+        /// Provides information for connecting to an Amazon VPC.
         /// </summary>
         [Input("vpcConfiguration")]
         public Input<Inputs.DataSourceVpcConfigurationArgs>? VpcConfiguration { get; set; }

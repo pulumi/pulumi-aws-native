@@ -33,15 +33,15 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly int? MaxPayloadInMb;
         /// <summary>
-        /// Describes the input source of a transform job and the way the transform job consumes it.
+        /// A description of the input source and the way the transform job consumes it.
         /// </summary>
         public readonly Outputs.ModelPackageTransformInput TransformInput;
         /// <summary>
-        /// Describes the results of a transform job.
+        /// Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.
         /// </summary>
         public readonly Outputs.ModelPackageTransformOutput TransformOutput;
         /// <summary>
-        /// Describes the resources, including ML instance types and ML instance count, to use for transform job.
+        /// Identifies the ML compute instances for the transform job.
         /// </summary>
         public readonly Outputs.ModelPackageTransformResources TransformResources;
 

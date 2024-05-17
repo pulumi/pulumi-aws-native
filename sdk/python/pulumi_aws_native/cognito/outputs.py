@@ -461,7 +461,7 @@ class UserPoolAccountRecoverySetting(dict):
     def __init__(__self__, *,
                  recovery_mechanisms: Optional[Sequence['outputs.UserPoolRecoveryOption']] = None):
         """
-        :param Sequence['UserPoolRecoveryOption'] recovery_mechanisms: A map containing a priority as a key, and recovery method name as a value.
+        :param Sequence['UserPoolRecoveryOption'] recovery_mechanisms: The list of `RecoveryOptionTypes` .
         """
         if recovery_mechanisms is not None:
             pulumi.set(__self__, "recovery_mechanisms", recovery_mechanisms)
@@ -470,7 +470,7 @@ class UserPoolAccountRecoverySetting(dict):
     @pulumi.getter(name="recoveryMechanisms")
     def recovery_mechanisms(self) -> Optional[Sequence['outputs.UserPoolRecoveryOption']]:
         """
-        A map containing a priority as a key, and recovery method name as a value.
+        The list of `RecoveryOptionTypes` .
         """
         return pulumi.get(self, "recovery_mechanisms")
 
@@ -1203,7 +1203,7 @@ class UserPoolLambdaConfig(dict):
                Set this parameter for legacy purposes. If you also set an ARN in `PreTokenGenerationConfig` , its value must be identical to `PreTokenGeneration` . For new instances of pre token generation triggers, set the `LambdaArn` of `PreTokenGenerationConfig` .
                
                You can set ``
-        :param 'UserPoolPreTokenGenerationConfig' pre_token_generation_config: The properties of a pre token generation Lambda trigger.
+        :param 'UserPoolPreTokenGenerationConfig' pre_token_generation_config: The detailed configuration of a pre token generation trigger. If you also set an ARN in `PreTokenGeneration` , its value must be identical to `PreTokenGenerationConfig` .
         :param str user_migration: The user migration Lambda config type.
         :param str verify_auth_challenge_response: Verifies the authentication challenge response.
         """
@@ -1332,7 +1332,7 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="preTokenGenerationConfig")
     def pre_token_generation_config(self) -> Optional['outputs.UserPoolPreTokenGenerationConfig']:
         """
-        The properties of a pre token generation Lambda trigger.
+        The detailed configuration of a pre token generation trigger. If you also set an ARN in `PreTokenGeneration` , its value must be identical to `PreTokenGenerationConfig` .
         """
         return pulumi.get(self, "pre_token_generation_config")
 
@@ -1535,7 +1535,7 @@ class UserPoolPolicies(dict):
     def __init__(__self__, *,
                  password_policy: Optional['outputs.UserPoolPasswordPolicy'] = None):
         """
-        :param 'UserPoolPasswordPolicy' password_policy: The password policy type.
+        :param 'UserPoolPasswordPolicy' password_policy: The password policy.
         """
         if password_policy is not None:
             pulumi.set(__self__, "password_policy", password_policy)
@@ -1544,7 +1544,7 @@ class UserPoolPolicies(dict):
     @pulumi.getter(name="passwordPolicy")
     def password_policy(self) -> Optional['outputs.UserPoolPasswordPolicy']:
         """
-        The password policy type.
+        The password policy.
         """
         return pulumi.get(self, "password_policy")
 
@@ -1766,9 +1766,9 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType(dict):
                  low_action: Optional['outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverActionType'] = None,
                  medium_action: Optional['outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverActionType'] = None):
         """
-        :param 'UserPoolRiskConfigurationAttachmentAccountTakeoverActionType' high_action: Account takeover action type.
-        :param 'UserPoolRiskConfigurationAttachmentAccountTakeoverActionType' low_action: Account takeover action type.
-        :param 'UserPoolRiskConfigurationAttachmentAccountTakeoverActionType' medium_action: Account takeover action type.
+        :param 'UserPoolRiskConfigurationAttachmentAccountTakeoverActionType' high_action: Action to take for a high risk.
+        :param 'UserPoolRiskConfigurationAttachmentAccountTakeoverActionType' low_action: Action to take for a low risk.
+        :param 'UserPoolRiskConfigurationAttachmentAccountTakeoverActionType' medium_action: Action to take for a medium risk.
         """
         if high_action is not None:
             pulumi.set(__self__, "high_action", high_action)
@@ -1781,7 +1781,7 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType(dict):
     @pulumi.getter(name="highAction")
     def high_action(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverActionType']:
         """
-        Account takeover action type.
+        Action to take for a high risk.
         """
         return pulumi.get(self, "high_action")
 
@@ -1789,7 +1789,7 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType(dict):
     @pulumi.getter(name="lowAction")
     def low_action(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverActionType']:
         """
-        Account takeover action type.
+        Action to take for a low risk.
         """
         return pulumi.get(self, "low_action")
 
@@ -1797,7 +1797,7 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType(dict):
     @pulumi.getter(name="mediumAction")
     def medium_action(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverActionType']:
         """
-        Account takeover action type.
+        Action to take for a medium risk.
         """
         return pulumi.get(self, "medium_action")
 
@@ -1825,8 +1825,8 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType(di
                  actions: 'outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType',
                  notify_configuration: Optional['outputs.UserPoolRiskConfigurationAttachmentNotifyConfigurationType'] = None):
         """
-        :param 'UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType' actions: Account takeover actions type.
-        :param 'UserPoolRiskConfigurationAttachmentNotifyConfigurationType' notify_configuration: The notify configuration type.
+        :param 'UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType' actions: Account takeover risk configuration actions.
+        :param 'UserPoolRiskConfigurationAttachmentNotifyConfigurationType' notify_configuration: The notify configuration used to construct email notifications.
         """
         pulumi.set(__self__, "actions", actions)
         if notify_configuration is not None:
@@ -1836,7 +1836,7 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType(di
     @pulumi.getter
     def actions(self) -> 'outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType':
         """
-        Account takeover actions type.
+        Account takeover risk configuration actions.
         """
         return pulumi.get(self, "actions")
 
@@ -1844,7 +1844,7 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType(di
     @pulumi.getter(name="notifyConfiguration")
     def notify_configuration(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentNotifyConfigurationType']:
         """
-        The notify configuration type.
+        The notify configuration used to construct email notifications.
         """
         return pulumi.get(self, "notify_configuration")
 
@@ -1907,7 +1907,7 @@ class UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfiguration
                  actions: 'outputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType',
                  event_filter: Optional[Sequence[str]] = None):
         """
-        :param 'UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType' actions: The compromised credentials actions type.
+        :param 'UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType' actions: The compromised credentials risk configuration actions.
         :param Sequence[str] event_filter: Perform the action for these events. The default is to perform all events if no event filter is specified.
         """
         pulumi.set(__self__, "actions", actions)
@@ -1918,7 +1918,7 @@ class UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfiguration
     @pulumi.getter
     def actions(self) -> 'outputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType':
         """
-        The compromised credentials actions type.
+        The compromised credentials risk configuration actions.
         """
         return pulumi.get(self, "actions")
 
@@ -1969,10 +1969,10 @@ class UserPoolRiskConfigurationAttachmentNotifyConfigurationType(dict):
                  reply_to: Optional[str] = None):
         """
         :param str source_arn: The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the `From` parameter.
-        :param 'UserPoolRiskConfigurationAttachmentNotifyEmailType' block_email: The notify email type.
+        :param 'UserPoolRiskConfigurationAttachmentNotifyEmailType' block_email: Email template used when a detected risk event is blocked.
         :param str from_: The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
-        :param 'UserPoolRiskConfigurationAttachmentNotifyEmailType' mfa_email: The notify email type.
-        :param 'UserPoolRiskConfigurationAttachmentNotifyEmailType' no_action_email: The notify email type.
+        :param 'UserPoolRiskConfigurationAttachmentNotifyEmailType' mfa_email: The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk.
+        :param 'UserPoolRiskConfigurationAttachmentNotifyEmailType' no_action_email: The email template used when a detected risk event is allowed.
         :param str reply_to: The destination to which the receiver of an email should reply to.
         """
         pulumi.set(__self__, "source_arn", source_arn)
@@ -1999,7 +1999,7 @@ class UserPoolRiskConfigurationAttachmentNotifyConfigurationType(dict):
     @pulumi.getter(name="blockEmail")
     def block_email(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentNotifyEmailType']:
         """
-        The notify email type.
+        Email template used when a detected risk event is blocked.
         """
         return pulumi.get(self, "block_email")
 
@@ -2015,7 +2015,7 @@ class UserPoolRiskConfigurationAttachmentNotifyConfigurationType(dict):
     @pulumi.getter(name="mfaEmail")
     def mfa_email(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentNotifyEmailType']:
         """
-        The notify email type.
+        The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk.
         """
         return pulumi.get(self, "mfa_email")
 
@@ -2023,7 +2023,7 @@ class UserPoolRiskConfigurationAttachmentNotifyConfigurationType(dict):
     @pulumi.getter(name="noActionEmail")
     def no_action_email(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentNotifyEmailType']:
         """
-        The notify email type.
+        The email template used when a detected risk event is allowed.
         """
         return pulumi.get(self, "no_action_email")
 
@@ -2189,9 +2189,9 @@ class UserPoolSchemaAttribute(dict):
                
                Any user pool attribute whose value you map from an IdP attribute must be mutable, with a parameter value of `true` . Amazon Cognito updates mapped attributes when users sign in to your application through an IdP. If an attribute is immutable, Amazon Cognito throws an error when it attempts to update the attribute. For more information, see [Specifying Identity Provider Attribute Mappings for Your User Pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html) .
         :param str name: The name of your user pool attribute. When you create or update a user pool, adding a schema attribute creates a custom or developer-only attribute. When you add an attribute with a `Name` value of `MyAttribute` , Amazon Cognito creates the custom attribute `custom:MyAttribute` . When `DeveloperOnlyAttribute` is `true` , Amazon Cognito creates your attribute as `dev:MyAttribute` . In an operation that describes a user pool, Amazon Cognito returns this value as `value` for standard attributes, `custom:value` for custom attributes, and `dev:value` for developer-only attributes..
-        :param 'UserPoolNumberAttributeConstraints' number_attribute_constraints: The minimum and maximum values of an attribute that is of the number data type.
+        :param 'UserPoolNumberAttributeConstraints' number_attribute_constraints: Specifies the constraints for an attribute of the number type.
         :param bool required: Specifies whether a user pool attribute is required. If the attribute is required and the user doesn't provide a value, registration or sign-in will fail.
-        :param 'UserPoolStringAttributeConstraints' string_attribute_constraints: The `StringAttributeConstraints` property type defines the string attribute constraints of an Amazon Cognito user pool. `StringAttributeConstraints` is a subproperty of the [SchemaAttribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html) property type.
+        :param 'UserPoolStringAttributeConstraints' string_attribute_constraints: Specifies the constraints for an attribute of the string type.
         """
         if attribute_data_type is not None:
             pulumi.set(__self__, "attribute_data_type", attribute_data_type)
@@ -2248,7 +2248,7 @@ class UserPoolSchemaAttribute(dict):
     @pulumi.getter(name="numberAttributeConstraints")
     def number_attribute_constraints(self) -> Optional['outputs.UserPoolNumberAttributeConstraints']:
         """
-        The minimum and maximum values of an attribute that is of the number data type.
+        Specifies the constraints for an attribute of the number type.
         """
         return pulumi.get(self, "number_attribute_constraints")
 
@@ -2264,7 +2264,7 @@ class UserPoolSchemaAttribute(dict):
     @pulumi.getter(name="stringAttributeConstraints")
     def string_attribute_constraints(self) -> Optional['outputs.UserPoolStringAttributeConstraints']:
         """
-        The `StringAttributeConstraints` property type defines the string attribute constraints of an Amazon Cognito user pool. `StringAttributeConstraints` is a subproperty of the [SchemaAttribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html) property type.
+        Specifies the constraints for an attribute of the string type.
         """
         return pulumi.get(self, "string_attribute_constraints")
 

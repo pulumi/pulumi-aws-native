@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.AppStream
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The S3 location of the application icon.
+        /// The icon S3 location of the application.
         /// </summary>
         [Output("iconS3Location")]
         public Output<Outputs.ApplicationS3Location> IconS3Location { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.AppStream
         public Output<ImmutableArray<string>> Platforms { get; private set; } = null!;
 
         /// <summary>
-        /// The tag of the application.
+        /// The tags of the application.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Union<Outputs.ApplicationTag0Properties, Outputs.ApplicationTag1Properties>>> Tags { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.AwsNative.AppStream
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// The S3 location of the application icon.
+        /// The icon S3 location of the application.
         /// </summary>
         [Input("iconS3Location", required: true)]
         public Input<Inputs.ApplicationS3LocationArgs> IconS3Location { get; set; } = null!;
@@ -244,7 +244,7 @@ namespace Pulumi.AwsNative.AppStream
         private InputList<Union<Inputs.ApplicationTag0PropertiesArgs, Inputs.ApplicationTag1PropertiesArgs>>? _tags;
 
         /// <summary>
-        /// The tag of the application.
+        /// The tags of the application.
         /// </summary>
         public InputList<Union<Inputs.ApplicationTag0PropertiesArgs, Inputs.ApplicationTag1PropertiesArgs>> Tags
         {

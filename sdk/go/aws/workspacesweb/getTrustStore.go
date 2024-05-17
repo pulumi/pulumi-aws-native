@@ -33,7 +33,7 @@ type LookupTrustStoreResult struct {
 	AssociatedPortalArns []string `pulumi:"associatedPortalArns"`
 	// A list of CA certificates to be added to the trust store.
 	CertificateList []string `pulumi:"certificateList"`
-	// The tag.
+	// The tags to add to the trust store. A tag is a key-value pair.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN of the trust store.
 	TrustStoreArn *string `pulumi:"trustStoreArn"`
@@ -85,7 +85,7 @@ func (o LookupTrustStoreResultOutput) CertificateList() pulumi.StringArrayOutput
 	return o.ApplyT(func(v LookupTrustStoreResult) []string { return v.CertificateList }).(pulumi.StringArrayOutput)
 }
 
-// The tag.
+// The tags to add to the trust store. A tag is a key-value pair.
 func (o LookupTrustStoreResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTrustStoreResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

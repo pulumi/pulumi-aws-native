@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.Events.Outputs
         /// </summary>
         public readonly string JobName;
         /// <summary>
-        /// The retry strategy to use for failed jobs, if the target is an AWS Batch job. If you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
+        /// The retry strategy to use for failed jobs, if the target is an AWS Batch job. The retry strategy is the number of times to retry the failed job execution. Valid values are 1–10. When you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
         /// </summary>
         public readonly Outputs.RuleBatchRetryStrategy? RetryStrategy;
 

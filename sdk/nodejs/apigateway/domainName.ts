@@ -100,9 +100,7 @@ export class DomainName extends pulumi.CustomResource {
      */
     public readonly domainName!: pulumi.Output<string | undefined>;
     /**
-     * The `EndpointConfiguration` property type specifies the endpoint types of an Amazon API Gateway domain name.
-     *
-     * `EndpointConfiguration` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
+     * The endpoint configuration of this DomainName showing the endpoint types of the domain name.
      */
     public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.DomainNameEndpointConfiguration | undefined>;
     /**
@@ -130,9 +128,7 @@ export class DomainName extends pulumi.CustomResource {
      */
     public readonly securityPolicy!: pulumi.Output<string | undefined>;
     /**
-     * An array of key-value pairs to apply to this resource.
-     *
-     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     * The collection of tags. Each tag element is associated with a given resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -193,9 +189,7 @@ export interface DomainNameArgs {
      */
     domainName?: pulumi.Input<string>;
     /**
-     * The `EndpointConfiguration` property type specifies the endpoint types of an Amazon API Gateway domain name.
-     *
-     * `EndpointConfiguration` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
+     * The endpoint configuration of this DomainName showing the endpoint types of the domain name.
      */
     endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameEndpointConfigurationArgs>;
     /**
@@ -215,9 +209,7 @@ export interface DomainNameArgs {
      */
     securityPolicy?: pulumi.Input<string>;
     /**
-     * An array of key-value pairs to apply to this resource.
-     *
-     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     * The collection of tags. Each tag element is associated with a given resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

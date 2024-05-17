@@ -49,7 +49,7 @@ class GetTopicResult:
     @pulumi.getter(name="dataSets")
     def data_sets(self) -> Optional[Sequence['outputs.TopicDatasetMetadata']]:
         """
-        A structure that represents a dataset.
+        The data sets that the topic is associated with.
         """
         return pulumi.get(self, "data_sets")
 

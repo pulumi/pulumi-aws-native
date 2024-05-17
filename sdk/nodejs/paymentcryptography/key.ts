@@ -64,9 +64,6 @@ export class Key extends pulumi.CustomResource {
      * The state of key that is being created or deleted.
      */
     public /*out*/ readonly keyState!: pulumi.Output<enums.paymentcryptography.KeyState>;
-    /**
-     * A structure that contains information about a tag.
-     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -131,8 +128,5 @@ export interface KeyArgs {
      * For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
      */
     keyCheckValueAlgorithm?: pulumi.Input<enums.paymentcryptography.KeyCheckValueAlgorithm>;
-    /**
-     * A structure that contains information about a tag.
-     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

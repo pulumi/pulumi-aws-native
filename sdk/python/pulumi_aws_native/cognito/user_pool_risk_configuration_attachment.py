@@ -25,9 +25,9 @@ class UserPoolRiskConfigurationAttachmentArgs:
         The set of arguments for constructing a UserPoolRiskConfigurationAttachment resource.
         :param pulumi.Input[str] client_id: The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
         :param pulumi.Input[str] user_pool_id: The user pool ID.
-        :param pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs'] account_takeover_risk_configuration: Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.
-        :param pulumi.Input['UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs'] compromised_credentials_risk_configuration: The compromised credentials risk configuration type.
-        :param pulumi.Input['UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs'] risk_exception_configuration: The type of the configuration to override the risk decision.
+        :param pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs'] account_takeover_risk_configuration: The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
+        :param pulumi.Input['UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs'] compromised_credentials_risk_configuration: The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
+        :param pulumi.Input['UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs'] risk_exception_configuration: The configuration to override the risk decision.
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -66,7 +66,7 @@ class UserPoolRiskConfigurationAttachmentArgs:
     @pulumi.getter(name="accountTakeoverRiskConfiguration")
     def account_takeover_risk_configuration(self) -> Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs']]:
         """
-        Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.
+        The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
         """
         return pulumi.get(self, "account_takeover_risk_configuration")
 
@@ -78,7 +78,7 @@ class UserPoolRiskConfigurationAttachmentArgs:
     @pulumi.getter(name="compromisedCredentialsRiskConfiguration")
     def compromised_credentials_risk_configuration(self) -> Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs']]:
         """
-        The compromised credentials risk configuration type.
+        The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
         """
         return pulumi.get(self, "compromised_credentials_risk_configuration")
 
@@ -90,7 +90,7 @@ class UserPoolRiskConfigurationAttachmentArgs:
     @pulumi.getter(name="riskExceptionConfiguration")
     def risk_exception_configuration(self) -> Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs']]:
         """
-        The type of the configuration to override the risk decision.
+        The configuration to override the risk decision.
         """
         return pulumi.get(self, "risk_exception_configuration")
 
@@ -115,10 +115,10 @@ class UserPoolRiskConfigurationAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs']] account_takeover_risk_configuration: Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.
+        :param pulumi.Input[pulumi.InputType['UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs']] account_takeover_risk_configuration: The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
         :param pulumi.Input[str] client_id: The app client ID. You can specify the risk configuration for a single client (with a specific ClientId) or for all clients (by setting the ClientId to `ALL` ).
-        :param pulumi.Input[pulumi.InputType['UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs']] compromised_credentials_risk_configuration: The compromised credentials risk configuration type.
-        :param pulumi.Input[pulumi.InputType['UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs']] risk_exception_configuration: The type of the configuration to override the risk decision.
+        :param pulumi.Input[pulumi.InputType['UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs']] compromised_credentials_risk_configuration: The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
+        :param pulumi.Input[pulumi.InputType['UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs']] risk_exception_configuration: The configuration to override the risk decision.
         :param pulumi.Input[str] user_pool_id: The user pool ID.
         """
         ...
@@ -203,7 +203,7 @@ class UserPoolRiskConfigurationAttachment(pulumi.CustomResource):
     @pulumi.getter(name="accountTakeoverRiskConfiguration")
     def account_takeover_risk_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType']]:
         """
-        Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.
+        The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
         """
         return pulumi.get(self, "account_takeover_risk_configuration")
 
@@ -219,7 +219,7 @@ class UserPoolRiskConfigurationAttachment(pulumi.CustomResource):
     @pulumi.getter(name="compromisedCredentialsRiskConfiguration")
     def compromised_credentials_risk_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType']]:
         """
-        The compromised credentials risk configuration type.
+        The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
         """
         return pulumi.get(self, "compromised_credentials_risk_configuration")
 
@@ -227,7 +227,7 @@ class UserPoolRiskConfigurationAttachment(pulumi.CustomResource):
     @pulumi.getter(name="riskExceptionConfiguration")
     def risk_exception_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType']]:
         """
-        The type of the configuration to override the risk decision.
+        The configuration to override the risk decision.
         """
         return pulumi.get(self, "risk_exception_configuration")
 

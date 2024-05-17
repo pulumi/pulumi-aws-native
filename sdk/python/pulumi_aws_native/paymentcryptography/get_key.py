@@ -105,9 +105,6 @@ class GetKeyResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        A structure that contains information about a tag.
-        """
         return pulumi.get(self, "tags")
 
 

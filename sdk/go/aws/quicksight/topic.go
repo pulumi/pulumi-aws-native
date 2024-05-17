@@ -19,7 +19,7 @@ type Topic struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the AWS account that you want to create a topic in.
 	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
-	// A structure that represents a dataset.
+	// The data sets that the topic is associated with.
 	DataSets TopicDatasetMetadataArrayOutput `pulumi:"dataSets"`
 	// The description of the topic.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -78,7 +78,7 @@ func (TopicState) ElementType() reflect.Type {
 type topicArgs struct {
 	// The ID of the AWS account that you want to create a topic in.
 	AwsAccountId *string `pulumi:"awsAccountId"`
-	// A structure that represents a dataset.
+	// The data sets that the topic is associated with.
 	DataSets []TopicDatasetMetadata `pulumi:"dataSets"`
 	// The description of the topic.
 	Description *string `pulumi:"description"`
@@ -94,7 +94,7 @@ type topicArgs struct {
 type TopicArgs struct {
 	// The ID of the AWS account that you want to create a topic in.
 	AwsAccountId pulumi.StringPtrInput
-	// A structure that represents a dataset.
+	// The data sets that the topic is associated with.
 	DataSets TopicDatasetMetadataArrayInput
 	// The description of the topic.
 	Description pulumi.StringPtrInput
@@ -153,7 +153,7 @@ func (o TopicOutput) AwsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
-// A structure that represents a dataset.
+// The data sets that the topic is associated with.
 func (o TopicOutput) DataSets() TopicDatasetMetadataArrayOutput {
 	return o.ApplyT(func(v *Topic) TopicDatasetMetadataArrayOutput { return v.DataSets }).(TopicDatasetMetadataArrayOutput)
 }

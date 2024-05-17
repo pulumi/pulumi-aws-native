@@ -20,27 +20,27 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardCategoryFilter? CategoryFilter;
         /// <summary>
-        /// A `NumericEqualityFilter` filters values that are equal to the specified value.
+        /// A `NumericEqualityFilter` filters numeric values that equal or do not equal a given numeric value.
         /// </summary>
         public readonly Outputs.DashboardNumericEqualityFilter? NumericEqualityFilter;
         /// <summary>
-        /// A `NumericRangeFilter` filters values that are within the value range.
+        /// A `NumericRangeFilter` filters numeric values that are either inside or outside a given numeric range.
         /// </summary>
         public readonly Outputs.DashboardNumericRangeFilter? NumericRangeFilter;
         /// <summary>
-        /// A `RelativeDatesFilter` filters relative dates values.
+        /// A `RelativeDatesFilter` filters date values that are relative to a given date.
         /// </summary>
         public readonly Outputs.DashboardRelativeDatesFilter? RelativeDatesFilter;
         /// <summary>
-        /// A `TimeEqualityFilter` filters values that are equal to a given value.
+        /// A `TimeEqualityFilter` filters date-time values that equal or do not equal a given date/time value.
         /// </summary>
         public readonly Outputs.DashboardTimeEqualityFilter? TimeEqualityFilter;
         /// <summary>
-        /// A `TimeRangeFilter` filters values that are between two specified values.
+        /// A `TimeRangeFilter` filters date-time values that are either inside or outside a given date/time range.
         /// </summary>
         public readonly Outputs.DashboardTimeRangeFilter? TimeRangeFilter;
         /// <summary>
-        /// A `TopBottomFilter` filters values that are at the top or the bottom.
+        /// A `TopBottomFilter` filters data to the top or bottom values for a given column.
         /// </summary>
         public readonly Outputs.DashboardTopBottomFilter? TopBottomFilter;
 

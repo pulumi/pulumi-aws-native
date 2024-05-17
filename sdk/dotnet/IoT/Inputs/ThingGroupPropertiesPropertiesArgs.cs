@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     public sealed class ThingGroupPropertiesPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The attribute payload.
+        /// The thing group attributes in JSON format.
         /// </summary>
         [Input("attributePayload")]
         public Input<Inputs.ThingGroupAttributePayloadArgs>? AttributePayload { get; set; }

@@ -25,25 +25,32 @@ type Dashboard struct {
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// The ID for the dashboard, also added to the IAM policy.
 	DashboardId pulumi.StringOutput `pulumi:"dashboardId"`
-	// Dashboard publish options.
-	DashboardPublishOptions DashboardPublishOptionsPtrOutput `pulumi:"dashboardPublishOptions"`
-	// The contents of a dashboard.
-	Definition DashboardVersionDefinitionPtrOutput `pulumi:"definition"`
+	// Options for publishing the dashboard when you create it:
+	//
+	// - `AvailabilityStatus` for `AdHocFilteringOption` - This status can be either `ENABLED` or `DISABLED` . When this is set to `DISABLED` , Amazon QuickSight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is `ENABLED` by default.
+	// - `AvailabilityStatus` for `ExportToCSVOption` - This status can be either `ENABLED` or `DISABLED` . The visual option to export data to .CSV format isn't enabled when this is set to `DISABLED` . This option is `ENABLED` by default.
+	// - `VisibilityState` for `SheetControlsOption` - This visibility state can be either `COLLAPSED` or `EXPANDED` . This option is `COLLAPSED` by default.
+	DashboardPublishOptions DashboardPublishOptionsPtrOutput    `pulumi:"dashboardPublishOptions"`
+	Definition              DashboardVersionDefinitionPtrOutput `pulumi:"definition"`
 	// <p>The last time that this dashboard was published.</p>
 	LastPublishedTime pulumi.StringOutput `pulumi:"lastPublishedTime"`
 	// <p>The last time that this dashboard was updated.</p>
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
 	LinkEntities pulumi.StringArrayOutput `pulumi:"linkEntities"`
-	// A structure that contains the configuration of a shareable link to the dashboard.
+	// A structure that contains the link sharing configurations that you want to apply overrides to.
 	LinkSharingConfiguration DashboardLinkSharingConfigurationPtrOutput `pulumi:"linkSharingConfiguration"`
 	// The display name of the dashboard.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A list of Amazon QuickSight parameters and the list's override values.
+	// The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values.
 	Parameters DashboardParametersPtrOutput `pulumi:"parameters"`
-	// Permission for the resource.
+	// A structure that contains the permissions of the dashboard. You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
+	//
+	// To specify no permissions, omit the permissions list.
 	Permissions DashboardResourcePermissionArrayOutput `pulumi:"permissions"`
-	// Dashboard source entity.
+	// The entity that you are using as a source when you create the dashboard. In `SourceEntity` , you specify the type of object that you want to use. You can only create a dashboard from a template, so you use a `SourceTemplate` entity. If you need to create a dashboard from an analysis, first convert the analysis to a template by using the `CreateTemplate` API operation. For `SourceTemplate` , specify the Amazon Resource Name (ARN) of the source template. The `SourceTemplate` ARN can contain any AWS account; and any QuickSight-supported AWS Region .
+	//
+	// Use the `DataSetReferences` entity within `SourceTemplate` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
 	SourceEntity DashboardSourceEntityPtrOutput `pulumi:"sourceEntity"`
 	// Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -51,8 +58,7 @@ type Dashboard struct {
 	ThemeArn pulumi.StringPtrOutput `pulumi:"themeArn"`
 	// The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
 	ValidationStrategy DashboardValidationStrategyPtrOutput `pulumi:"validationStrategy"`
-	// Dashboard version.
-	Version DashboardVersionOutput `pulumi:"version"`
+	Version            DashboardVersionOutput               `pulumi:"version"`
 	// A description for the first version of the dashboard being created.
 	VersionDescription pulumi.StringPtrOutput `pulumi:"versionDescription"`
 }
@@ -112,21 +118,28 @@ type dashboardArgs struct {
 	AwsAccountId string `pulumi:"awsAccountId"`
 	// The ID for the dashboard, also added to the IAM policy.
 	DashboardId string `pulumi:"dashboardId"`
-	// Dashboard publish options.
-	DashboardPublishOptions *DashboardPublishOptions `pulumi:"dashboardPublishOptions"`
-	// The contents of a dashboard.
-	Definition *DashboardVersionDefinition `pulumi:"definition"`
+	// Options for publishing the dashboard when you create it:
+	//
+	// - `AvailabilityStatus` for `AdHocFilteringOption` - This status can be either `ENABLED` or `DISABLED` . When this is set to `DISABLED` , Amazon QuickSight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is `ENABLED` by default.
+	// - `AvailabilityStatus` for `ExportToCSVOption` - This status can be either `ENABLED` or `DISABLED` . The visual option to export data to .CSV format isn't enabled when this is set to `DISABLED` . This option is `ENABLED` by default.
+	// - `VisibilityState` for `SheetControlsOption` - This visibility state can be either `COLLAPSED` or `EXPANDED` . This option is `COLLAPSED` by default.
+	DashboardPublishOptions *DashboardPublishOptions    `pulumi:"dashboardPublishOptions"`
+	Definition              *DashboardVersionDefinition `pulumi:"definition"`
 	// A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
 	LinkEntities []string `pulumi:"linkEntities"`
-	// A structure that contains the configuration of a shareable link to the dashboard.
+	// A structure that contains the link sharing configurations that you want to apply overrides to.
 	LinkSharingConfiguration *DashboardLinkSharingConfiguration `pulumi:"linkSharingConfiguration"`
 	// The display name of the dashboard.
 	Name *string `pulumi:"name"`
-	// A list of Amazon QuickSight parameters and the list's override values.
+	// The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values.
 	Parameters *DashboardParameters `pulumi:"parameters"`
-	// Permission for the resource.
+	// A structure that contains the permissions of the dashboard. You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
+	//
+	// To specify no permissions, omit the permissions list.
 	Permissions []DashboardResourcePermission `pulumi:"permissions"`
-	// Dashboard source entity.
+	// The entity that you are using as a source when you create the dashboard. In `SourceEntity` , you specify the type of object that you want to use. You can only create a dashboard from a template, so you use a `SourceTemplate` entity. If you need to create a dashboard from an analysis, first convert the analysis to a template by using the `CreateTemplate` API operation. For `SourceTemplate` , specify the Amazon Resource Name (ARN) of the source template. The `SourceTemplate` ARN can contain any AWS account; and any QuickSight-supported AWS Region .
+	//
+	// Use the `DataSetReferences` entity within `SourceTemplate` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
 	SourceEntity *DashboardSourceEntity `pulumi:"sourceEntity"`
 	// Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -144,21 +157,28 @@ type DashboardArgs struct {
 	AwsAccountId pulumi.StringInput
 	// The ID for the dashboard, also added to the IAM policy.
 	DashboardId pulumi.StringInput
-	// Dashboard publish options.
+	// Options for publishing the dashboard when you create it:
+	//
+	// - `AvailabilityStatus` for `AdHocFilteringOption` - This status can be either `ENABLED` or `DISABLED` . When this is set to `DISABLED` , Amazon QuickSight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is `ENABLED` by default.
+	// - `AvailabilityStatus` for `ExportToCSVOption` - This status can be either `ENABLED` or `DISABLED` . The visual option to export data to .CSV format isn't enabled when this is set to `DISABLED` . This option is `ENABLED` by default.
+	// - `VisibilityState` for `SheetControlsOption` - This visibility state can be either `COLLAPSED` or `EXPANDED` . This option is `COLLAPSED` by default.
 	DashboardPublishOptions DashboardPublishOptionsPtrInput
-	// The contents of a dashboard.
-	Definition DashboardVersionDefinitionPtrInput
+	Definition              DashboardVersionDefinitionPtrInput
 	// A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.
 	LinkEntities pulumi.StringArrayInput
-	// A structure that contains the configuration of a shareable link to the dashboard.
+	// A structure that contains the link sharing configurations that you want to apply overrides to.
 	LinkSharingConfiguration DashboardLinkSharingConfigurationPtrInput
 	// The display name of the dashboard.
 	Name pulumi.StringPtrInput
-	// A list of Amazon QuickSight parameters and the list's override values.
+	// The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values.
 	Parameters DashboardParametersPtrInput
-	// Permission for the resource.
+	// A structure that contains the permissions of the dashboard. You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
+	//
+	// To specify no permissions, omit the permissions list.
 	Permissions DashboardResourcePermissionArrayInput
-	// Dashboard source entity.
+	// The entity that you are using as a source when you create the dashboard. In `SourceEntity` , you specify the type of object that you want to use. You can only create a dashboard from a template, so you use a `SourceTemplate` entity. If you need to create a dashboard from an analysis, first convert the analysis to a template by using the `CreateTemplate` API operation. For `SourceTemplate` , specify the Amazon Resource Name (ARN) of the source template. The `SourceTemplate` ARN can contain any AWS account; and any QuickSight-supported AWS Region .
+	//
+	// Use the `DataSetReferences` entity within `SourceTemplate` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
 	SourceEntity DashboardSourceEntityPtrInput
 	// Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
 	Tags aws.TagArrayInput
@@ -227,12 +247,15 @@ func (o DashboardOutput) DashboardId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.DashboardId }).(pulumi.StringOutput)
 }
 
-// Dashboard publish options.
+// Options for publishing the dashboard when you create it:
+//
+// - `AvailabilityStatus` for `AdHocFilteringOption` - This status can be either `ENABLED` or `DISABLED` . When this is set to `DISABLED` , Amazon QuickSight disables the left filter pane on the published dashboard, which can be used for ad hoc (one-time) filtering. This option is `ENABLED` by default.
+// - `AvailabilityStatus` for `ExportToCSVOption` - This status can be either `ENABLED` or `DISABLED` . The visual option to export data to .CSV format isn't enabled when this is set to `DISABLED` . This option is `ENABLED` by default.
+// - `VisibilityState` for `SheetControlsOption` - This visibility state can be either `COLLAPSED` or `EXPANDED` . This option is `COLLAPSED` by default.
 func (o DashboardOutput) DashboardPublishOptions() DashboardPublishOptionsPtrOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardPublishOptionsPtrOutput { return v.DashboardPublishOptions }).(DashboardPublishOptionsPtrOutput)
 }
 
-// The contents of a dashboard.
 func (o DashboardOutput) Definition() DashboardVersionDefinitionPtrOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardVersionDefinitionPtrOutput { return v.Definition }).(DashboardVersionDefinitionPtrOutput)
 }
@@ -252,7 +275,7 @@ func (o DashboardOutput) LinkEntities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringArrayOutput { return v.LinkEntities }).(pulumi.StringArrayOutput)
 }
 
-// A structure that contains the configuration of a shareable link to the dashboard.
+// A structure that contains the link sharing configurations that you want to apply overrides to.
 func (o DashboardOutput) LinkSharingConfiguration() DashboardLinkSharingConfigurationPtrOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardLinkSharingConfigurationPtrOutput { return v.LinkSharingConfiguration }).(DashboardLinkSharingConfigurationPtrOutput)
 }
@@ -262,17 +285,21 @@ func (o DashboardOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A list of Amazon QuickSight parameters and the list's override values.
+// The parameters for the creation of the dashboard, which you want to use to override the default settings. A dashboard can have any type of parameters, and some parameters might accept multiple values.
 func (o DashboardOutput) Parameters() DashboardParametersPtrOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardParametersPtrOutput { return v.Parameters }).(DashboardParametersPtrOutput)
 }
 
-// Permission for the resource.
+// A structure that contains the permissions of the dashboard. You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
+//
+// To specify no permissions, omit the permissions list.
 func (o DashboardOutput) Permissions() DashboardResourcePermissionArrayOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardResourcePermissionArrayOutput { return v.Permissions }).(DashboardResourcePermissionArrayOutput)
 }
 
-// Dashboard source entity.
+// The entity that you are using as a source when you create the dashboard. In `SourceEntity` , you specify the type of object that you want to use. You can only create a dashboard from a template, so you use a `SourceTemplate` entity. If you need to create a dashboard from an analysis, first convert the analysis to a template by using the `CreateTemplate` API operation. For `SourceTemplate` , specify the Amazon Resource Name (ARN) of the source template. The `SourceTemplate` ARN can contain any AWS account; and any QuickSight-supported AWS Region .
+//
+// Use the `DataSetReferences` entity within `SourceTemplate` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
 func (o DashboardOutput) SourceEntity() DashboardSourceEntityPtrOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardSourceEntityPtrOutput { return v.SourceEntity }).(DashboardSourceEntityPtrOutput)
 }
@@ -292,7 +319,6 @@ func (o DashboardOutput) ValidationStrategy() DashboardValidationStrategyPtrOutp
 	return o.ApplyT(func(v *Dashboard) DashboardValidationStrategyPtrOutput { return v.ValidationStrategy }).(DashboardValidationStrategyPtrOutput)
 }
 
-// Dashboard version.
 func (o DashboardOutput) Version() DashboardVersionOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardVersionOutput { return v.Version }).(DashboardVersionOutput)
 }

@@ -349,9 +349,6 @@ export class Function extends pulumi.CustomResource {
      * The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
      */
     public readonly snapStart!: pulumi.Output<outputs.lambda.FunctionSnapStart | undefined>;
-    /**
-     * The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
-     */
     public /*out*/ readonly snapStartResponse!: pulumi.Output<outputs.lambda.FunctionSnapStartResponse>;
     /**
      * A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.

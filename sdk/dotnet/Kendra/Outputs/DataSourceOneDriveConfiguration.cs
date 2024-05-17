@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// </summary>
         public readonly ImmutableArray<string> InclusionPatterns;
         /// <summary>
-        /// User accounts whose documents should be indexed.
+        /// A list of user accounts whose documents should be indexed.
         /// </summary>
         public readonly Outputs.DataSourceOneDriveUsers OneDriveUsers;
         /// <summary>

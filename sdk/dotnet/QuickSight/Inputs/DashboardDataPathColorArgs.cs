@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string> Color { get; set; } = null!;
 
         /// <summary>
-        /// The data path that needs to be sorted.
+        /// The element that the color needs to be applied to.
         /// </summary>
         [Input("element", required: true)]
         public Input<Inputs.DashboardDataPathValueArgs> Element { get; set; } = null!;

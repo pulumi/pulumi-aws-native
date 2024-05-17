@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.B2bi
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+        /// Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
         /// </summary>
         [Output("ediType")]
         public Output<Outputs.TransformerEdiTypeProperties> EdiType { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.AwsNative.B2bi
     public sealed class TransformerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+        /// Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
         /// </summary>
         [Input("ediType", required: true)]
         public Input<Inputs.TransformerEdiTypePropertiesArgs> EdiType { get; set; } = null!;

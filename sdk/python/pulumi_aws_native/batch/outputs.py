@@ -172,9 +172,13 @@ class ComputeEnvironmentComputeResources(dict):
                > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it. > AWS Batch doesn't support changing the desired number of vCPUs of an existing compute environment. Don't specify this parameter for compute environments using Amazon EKS clusters. > When you update the `desiredvCpus` setting, the value must be between the `minvCpus` and `maxvCpus` values.
                > 
                > Additionally, the updated `desiredvCpus` value must be greater than or equal to the current `desiredvCpus` value. For more information, see [Troubleshooting AWS Batch](https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#error-desired-vcpus-update) in the *AWS Batch User Guide* .
-        :param Sequence['ComputeEnvironmentEc2ConfigurationObject'] ec2_configuration: Provides information used to select Amazon Machine Images (AMIs) for instances in the compute environment. If `Ec2Configuration` isn't specified, the default is `ECS_AL2` ( [Amazon Linux 2](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) ).
+        :param Sequence['ComputeEnvironmentEc2ConfigurationObject'] ec2_configuration: Provides information used to select Amazon Machine Images (AMIs) for Amazon EC2 instances in the compute environment. If `Ec2Configuration` isn't specified, the default is `ECS_AL2` .
                
-               > This object isn't applicable to jobs that are running on Fargate resources.
+               When updating a compute environment, changing this setting requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* . To remove the Amazon EC2 configuration and any custom AMI ID specified in `imageIdOverride` , set this value to an empty string.
+               
+               One or two values can be provided.
+               
+               > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
         :param str ec2_key_pair: The Amazon EC2 key pair that's used for instances launched in the compute environment. You can use this key pair to log in to your instances with SSH. To remove the Amazon EC2 key pair, set this value to an empty string.
                
                When updating a compute environment, changing the Amazon EC2 key pair requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
@@ -195,11 +199,11 @@ class ComputeEnvironmentComputeResources(dict):
                When updating a compute environment, changing this setting requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* .
                
                > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it. > When you create a compute environment, the instance types that you select for the compute environment must share the same architecture. For example, you can't mix x86 and ARM instances in the same compute environment. > Currently, `optimal` uses instance types from the C4, M4, and R4 instance families. In Regions that don't have instance types from those instance families, instance types from the C5, M5, and R5 instance families are used.
-        :param 'ComputeEnvironmentLaunchTemplateSpecification' launch_template: An object that represents a launch template that's associated with a compute resource. You must specify either the launch template ID or launch template name in the request, but not both.
+        :param 'ComputeEnvironmentLaunchTemplateSpecification' launch_template: The launch template to use for your compute resources. Any other compute resource parameters that you specify in a [CreateComputeEnvironment](https://docs.aws.amazon.com/batch/latest/APIReference/API_CreateComputeEnvironment.html) API operation override the same parameters in the launch template. You must specify either the launch template ID or launch template name in the request, but not both. For more information, see [Launch Template Support](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the ** . Removing the launch template from a compute environment will not remove the AMI specified in the launch template. In order to update the AMI specified in a launch template, the `updateToLatestImageVersion` parameter must be set to `true` .
                
-               If security groups are specified using both the `securityGroupIds` parameter of `CreateComputeEnvironment` and the launch template, the values in the `securityGroupIds` parameter of `CreateComputeEnvironment` will be used.
+               When updating a compute environment, changing the launch template requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the ** .
                
-               > This object isn't applicable to jobs that are running on Fargate resources.
+               > This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param int minv_cpus: The minimum number of vCPUs that an environment should maintain (even if the compute environment is `DISABLED` ).
                
                > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
@@ -342,9 +346,13 @@ class ComputeEnvironmentComputeResources(dict):
     @pulumi.getter(name="ec2Configuration")
     def ec2_configuration(self) -> Optional[Sequence['outputs.ComputeEnvironmentEc2ConfigurationObject']]:
         """
-        Provides information used to select Amazon Machine Images (AMIs) for instances in the compute environment. If `Ec2Configuration` isn't specified, the default is `ECS_AL2` ( [Amazon Linux 2](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) ).
+        Provides information used to select Amazon Machine Images (AMIs) for Amazon EC2 instances in the compute environment. If `Ec2Configuration` isn't specified, the default is `ECS_AL2` .
 
-        > This object isn't applicable to jobs that are running on Fargate resources.
+        When updating a compute environment, changing this setting requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* . To remove the Amazon EC2 configuration and any custom AMI ID specified in `imageIdOverride` , set this value to an empty string.
+
+        One or two values can be provided.
+
+        > This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
         """
         return pulumi.get(self, "ec2_configuration")
 
@@ -400,11 +408,11 @@ class ComputeEnvironmentComputeResources(dict):
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> Optional['outputs.ComputeEnvironmentLaunchTemplateSpecification']:
         """
-        An object that represents a launch template that's associated with a compute resource. You must specify either the launch template ID or launch template name in the request, but not both.
+        The launch template to use for your compute resources. Any other compute resource parameters that you specify in a [CreateComputeEnvironment](https://docs.aws.amazon.com/batch/latest/APIReference/API_CreateComputeEnvironment.html) API operation override the same parameters in the launch template. You must specify either the launch template ID or launch template name in the request, but not both. For more information, see [Launch Template Support](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the ** . Removing the launch template from a compute environment will not remove the AMI specified in the launch template. In order to update the AMI specified in a launch template, the `updateToLatestImageVersion` parameter must be set to `true` .
 
-        If security groups are specified using both the `securityGroupIds` parameter of `CreateComputeEnvironment` and the launch template, the values in the `securityGroupIds` parameter of `CreateComputeEnvironment` will be used.
+        When updating a compute environment, changing the launch template requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the ** .
 
-        > This object isn't applicable to jobs that are running on Fargate resources.
+        > This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         return pulumi.get(self, "launch_template")
 
@@ -862,35 +870,45 @@ class JobDefinitionContainerProperties(dict):
                - Images in other repositories on Docker Hub are qualified with an organization name (for example, `amazon/amazon-ecs-agent` ).
                - Images in other online repositories are qualified further by a domain name (for example, `quay.io/assemblyline/ubuntu` ).
         :param Sequence[str] command: The command that's passed to the container. This parameter maps to `Cmd` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `COMMAND` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) .
-        :param Sequence['JobDefinitionEnvironment'] environment: The Environment property type specifies environment variables to use in a job definition.
+        :param Sequence['JobDefinitionEnvironment'] environment: The environment variables to pass to a container. This parameter maps to `Env` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+               
+               > We don't recommend using plaintext environment variables for sensitive information, such as credential data. > Environment variables cannot start with " `AWS_BATCH` ". This naming convention is reserved for variables that AWS Batch sets.
         :param 'JobDefinitionEphemeralStorage' ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate .
         :param str execution_role_arn: The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide* .
-        :param 'JobDefinitionFargatePlatformConfiguration' fargate_platform_configuration: The platform configuration for jobs that are running on Fargate resources. Jobs that run on Amazon EC2 resources must not specify this parameter.
+        :param 'JobDefinitionFargatePlatformConfiguration' fargate_platform_configuration: The platform configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
         :param str instance_type: The instance type to use for a multi-node parallel job. All node groups in a multi-node parallel job must use the same instance type.
                
                > This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
         :param str job_role_arn: The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions. For more information, see [IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
         :param 'JobDefinitionLinuxParameters' linux_parameters: Linux-specific modifications that are applied to the container, such as details for device mappings.
-        :param 'JobDefinitionLogConfiguration' log_configuration: Log configuration options to send to a custom log driver for the container.
+        :param 'JobDefinitionLogConfiguration' log_configuration: The log configuration specification for the container.
+               
+               This parameter maps to `LogConfig` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--log-driver` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . By default, containers use the same logging driver that the Docker daemon uses. However the container might use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.
+               
+               > AWS Batch currently supports a subset of the logging drivers available to the Docker daemon (shown in the [LogConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-logconfiguration.html) data type). 
+               
+               This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
+               
+               > The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the `ECS_AVAILABLE_LOGGING_DRIVERS` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide* .
         :param int memory: This parameter is deprecated, use `resourceRequirements` to specify the memory requirements for the job definition. It's not supported for jobs running on Fargate resources. For jobs that run on Amazon EC2 resources, it specifies the memory hard limit (in MiB) for a container. If your container attempts to exceed the specified number, it's terminated. You must specify at least 4 MiB of memory for a job using this parameter. The memory hard limit can be specified in several places. It must be specified for each node at least once.
-        :param Sequence['JobDefinitionMountPoints'] mount_points: Details for a Docker volume mount point that's used in a job's container properties. This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.43/#tag/Container/operation/ContainerCreate) section of the *Docker Remote API* and the `--volume` option to docker run.
+        :param Sequence['JobDefinitionMountPoints'] mount_points: The mount points for data volumes in your container. This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--volume` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
         :param 'JobDefinitionNetworkConfiguration' network_configuration: The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
         :param bool privileged: When this parameter is true, the container is given elevated permissions on the host container instance (similar to the `root` user). This parameter maps to `Privileged` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--privileged` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . The default value is false.
                
                > This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided, or specified as false.
         :param bool readonly_root_filesystem: When this parameter is true, the container is given read-only access to its root file system. This parameter maps to `ReadonlyRootfs` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--read-only` option to `docker run` .
-        :param 'JobDefinitionRepositoryCredentials' repository_credentials: The repository credentials for private registry authentication.
-        :param Sequence['JobDefinitionResourceRequirement'] resource_requirements: The type and amount of a resource to assign to a container. The supported resources include `GPU` , `MEMORY` , and `VCPU` .
+        :param 'JobDefinitionRepositoryCredentials' repository_credentials: The private repository authentication credentials to use.
+        :param Sequence['JobDefinitionResourceRequirement'] resource_requirements: The type and amount of resources to assign to a container. The supported resources include `GPU` , `MEMORY` , and `VCPU` .
         :param 'JobDefinitionRuntimePlatform' runtime_platform: An object that represents the compute environment architecture for AWS Batch jobs on Fargate.
         :param Sequence['JobDefinitionSecret'] secrets: The secrets for the container. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html) in the *AWS Batch User Guide* .
-        :param Sequence['JobDefinitionUlimit'] ulimits: The `ulimit` settings to pass to the container. For more information, see [Ulimit](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Ulimit.html) .
+        :param Sequence['JobDefinitionUlimit'] ulimits: A list of `ulimits` to set in the container. This parameter maps to `Ulimits` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--ulimit` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
                
-               > This object isn't applicable to jobs that are running on Fargate resources.
+               > This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.
         :param str user: The user name to use inside the container. This parameter maps to `User` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--user` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
         :param int vcpus: This parameter is deprecated, use `resourceRequirements` to specify the vCPU requirements for the job definition. It's not supported for jobs running on Fargate resources. For jobs running on Amazon EC2 resources, it specifies the number of vCPUs reserved for the job.
                
                Each vCPU is equivalent to 1,024 CPU shares. This parameter maps to `CpuShares` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--cpu-shares` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . The number of vCPUs must be specified but can be specified in several places. You must specify it at least once for each node.
-        :param Sequence['JobDefinitionVolumes'] volumes: A list of volumes that are associated with the job.
+        :param Sequence['JobDefinitionVolumes'] volumes: A list of data volumes used in a job.
         """
         pulumi.set(__self__, "image", image)
         if command is not None:
@@ -966,7 +984,9 @@ class JobDefinitionContainerProperties(dict):
     @pulumi.getter
     def environment(self) -> Optional[Sequence['outputs.JobDefinitionEnvironment']]:
         """
-        The Environment property type specifies environment variables to use in a job definition.
+        The environment variables to pass to a container. This parameter maps to `Env` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+
+        > We don't recommend using plaintext environment variables for sensitive information, such as credential data. > Environment variables cannot start with " `AWS_BATCH` ". This naming convention is reserved for variables that AWS Batch sets.
         """
         return pulumi.get(self, "environment")
 
@@ -990,7 +1010,7 @@ class JobDefinitionContainerProperties(dict):
     @pulumi.getter(name="fargatePlatformConfiguration")
     def fargate_platform_configuration(self) -> Optional['outputs.JobDefinitionFargatePlatformConfiguration']:
         """
-        The platform configuration for jobs that are running on Fargate resources. Jobs that run on Amazon EC2 resources must not specify this parameter.
+        The platform configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
         """
         return pulumi.get(self, "fargate_platform_configuration")
 
@@ -1024,7 +1044,15 @@ class JobDefinitionContainerProperties(dict):
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional['outputs.JobDefinitionLogConfiguration']:
         """
-        Log configuration options to send to a custom log driver for the container.
+        The log configuration specification for the container.
+
+        This parameter maps to `LogConfig` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--log-driver` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . By default, containers use the same logging driver that the Docker daemon uses. However the container might use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.
+
+        > AWS Batch currently supports a subset of the logging drivers available to the Docker daemon (shown in the [LogConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-logconfiguration.html) data type). 
+
+        This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
+
+        > The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the `ECS_AVAILABLE_LOGGING_DRIVERS` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide* .
         """
         return pulumi.get(self, "log_configuration")
 
@@ -1040,7 +1068,7 @@ class JobDefinitionContainerProperties(dict):
     @pulumi.getter(name="mountPoints")
     def mount_points(self) -> Optional[Sequence['outputs.JobDefinitionMountPoints']]:
         """
-        Details for a Docker volume mount point that's used in a job's container properties. This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.43/#tag/Container/operation/ContainerCreate) section of the *Docker Remote API* and the `--volume` option to docker run.
+        The mount points for data volumes in your container. This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--volume` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
         """
         return pulumi.get(self, "mount_points")
 
@@ -1074,7 +1102,7 @@ class JobDefinitionContainerProperties(dict):
     @pulumi.getter(name="repositoryCredentials")
     def repository_credentials(self) -> Optional['outputs.JobDefinitionRepositoryCredentials']:
         """
-        The repository credentials for private registry authentication.
+        The private repository authentication credentials to use.
         """
         return pulumi.get(self, "repository_credentials")
 
@@ -1082,7 +1110,7 @@ class JobDefinitionContainerProperties(dict):
     @pulumi.getter(name="resourceRequirements")
     def resource_requirements(self) -> Optional[Sequence['outputs.JobDefinitionResourceRequirement']]:
         """
-        The type and amount of a resource to assign to a container. The supported resources include `GPU` , `MEMORY` , and `VCPU` .
+        The type and amount of resources to assign to a container. The supported resources include `GPU` , `MEMORY` , and `VCPU` .
         """
         return pulumi.get(self, "resource_requirements")
 
@@ -1106,9 +1134,9 @@ class JobDefinitionContainerProperties(dict):
     @pulumi.getter
     def ulimits(self) -> Optional[Sequence['outputs.JobDefinitionUlimit']]:
         """
-        The `ulimit` settings to pass to the container. For more information, see [Ulimit](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Ulimit.html) .
+        A list of `ulimits` to set in the container. This parameter maps to `Ulimits` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--ulimit` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
 
-        > This object isn't applicable to jobs that are running on Fargate resources.
+        > This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.
         """
         return pulumi.get(self, "ulimits")
 
@@ -1134,7 +1162,7 @@ class JobDefinitionContainerProperties(dict):
     @pulumi.getter
     def volumes(self) -> Optional[Sequence['outputs.JobDefinitionVolumes']]:
         """
-        A list of volumes that are associated with the job.
+        A list of data volumes used in a job.
         """
         return pulumi.get(self, "volumes")
 
@@ -1223,7 +1251,9 @@ class JobDefinitionEcsProperties(dict):
     def __init__(__self__, *,
                  task_properties: Sequence['outputs.JobDefinitionEcsTaskProperties']):
         """
-        :param Sequence['JobDefinitionEcsTaskProperties'] task_properties: The properties for a task definition that describes the container and volume definitions of an Amazon ECS task. You can specify which Docker images to use, the required resources, and other configurations related to launching the task definition through an Amazon ECS service or task.
+        :param Sequence['JobDefinitionEcsTaskProperties'] task_properties: An object that contains the properties for the Amazon ECS task definition of a job.
+               
+               > This object is currently limited to one element.
         """
         pulumi.set(__self__, "task_properties", task_properties)
 
@@ -1231,7 +1261,9 @@ class JobDefinitionEcsProperties(dict):
     @pulumi.getter(name="taskProperties")
     def task_properties(self) -> Sequence['outputs.JobDefinitionEcsTaskProperties']:
         """
-        The properties for a task definition that describes the container and volume definitions of an Amazon ECS task. You can specify which Docker images to use, the required resources, and other configurations related to launching the task definition through an Amazon ECS service or task.
+        An object that contains the properties for the Amazon ECS task definition of a job.
+
+        > This object is currently limited to one element.
         """
         return pulumi.get(self, "task_properties")
 
@@ -1281,7 +1313,7 @@ class JobDefinitionEcsTaskProperties(dict):
                  task_role_arn: Optional[str] = None,
                  volumes: Optional[Sequence['outputs.JobDefinitionVolumes']] = None):
         """
-        :param Sequence['JobDefinitionTaskContainerProperties'] containers: Container properties are used for Amazon ECS-based job definitions. These properties to describe the container that's launched as part of a job.
+        :param Sequence['JobDefinitionTaskContainerProperties'] containers: This object is a list of containers.
         :param 'JobDefinitionEphemeralStorage' ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate .
         :param str execution_role_arn: The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide* .
         :param str ipc_mode: The IPC resource namespace to use for the containers in the task. The valid values are `host` , `task` , or `none` .
@@ -1333,7 +1365,7 @@ class JobDefinitionEcsTaskProperties(dict):
     @pulumi.getter
     def containers(self) -> Optional[Sequence['outputs.JobDefinitionTaskContainerProperties']]:
         """
-        Container properties are used for Amazon ECS-based job definitions. These properties to describe the container that's launched as part of a job.
+        This object is a list of containers.
         """
         return pulumi.get(self, "containers")
 
@@ -1562,12 +1594,14 @@ class JobDefinitionEksContainer(dict):
         :param Sequence[str] command: The entrypoint for the container. This isn't run within a shell. If this isn't specified, the `ENTRYPOINT` of the container image is used. Environment variable references are expanded using the container's environment.
                
                If the referenced environment variable doesn't exist, the reference in the command isn't changed. For example, if the reference is to " `$(NAME1)` " and the `NAME1` environment variable doesn't exist, the command string will remain " `$(NAME1)` ." `$$` is replaced with `$` and the resulting string isn't expanded. For example, `$$(VAR_NAME)` will be passed as `$(VAR_NAME)` whether or not the `VAR_NAME` environment variable exists. The entrypoint can't be updated. For more information, see [ENTRYPOINT](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#entrypoint) in the *Dockerfile reference* and [Define a command and arguments for a container](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/) and [Entrypoint](https://docs.aws.amazon.com/https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/#entrypoint) in the *Kubernetes documentation* .
-        :param Sequence['JobDefinitionEksContainerEnvironmentVariable'] env: An environment variable.
+        :param Sequence['JobDefinitionEksContainerEnvironmentVariable'] env: The environment variables to pass to a container.
+               
+               > Environment variables cannot start with " `AWS_BATCH` ". This naming convention is reserved for variables that AWS Batch sets.
         :param str image_pull_policy: The image pull policy for the container. Supported values are `Always` , `IfNotPresent` , and `Never` . This parameter defaults to `IfNotPresent` . However, if the `:latest` tag is specified, it defaults to `Always` . For more information, see [Updating images](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/containers/images/#updating-images) in the *Kubernetes documentation* .
         :param str name: The name of the container. If the name isn't specified, the default name " `Default` " is used. Each container in a pod must have a unique name.
         :param 'JobDefinitionEksContainerResourceRequirements' resources: The type and amount of resources to assign to a container. The supported resources include `memory` , `cpu` , and `nvidia.com/gpu` . For more information, see [Resource management for pods and containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) in the *Kubernetes documentation* .
         :param 'JobDefinitionEksContainerSecurityContext' security_context: The security context for a job. For more information, see [Configure a security context for a pod or container](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) in the *Kubernetes documentation* .
-        :param Sequence['JobDefinitionEksContainerVolumeMount'] volume_mounts: The volume mounts for a container for an Amazon EKS job. For more information about volumes and volume mounts in Kubernetes, see [Volumes](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/) in the *Kubernetes documentation* .
+        :param Sequence['JobDefinitionEksContainerVolumeMount'] volume_mounts: The volume mounts for the container. AWS Batch supports `emptyDir` , `hostPath` , and `secret` volume types. For more information about volumes and volume mounts in Kubernetes, see [Volumes](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/) in the *Kubernetes documentation* .
         """
         pulumi.set(__self__, "image", image)
         if args is not None:
@@ -1619,7 +1653,9 @@ class JobDefinitionEksContainer(dict):
     @pulumi.getter
     def env(self) -> Optional[Sequence['outputs.JobDefinitionEksContainerEnvironmentVariable']]:
         """
-        An environment variable.
+        The environment variables to pass to a container.
+
+        > Environment variables cannot start with " `AWS_BATCH` ". This naming convention is reserved for variables that AWS Batch sets.
         """
         return pulumi.get(self, "env")
 
@@ -1659,7 +1695,7 @@ class JobDefinitionEksContainer(dict):
     @pulumi.getter(name="volumeMounts")
     def volume_mounts(self) -> Optional[Sequence['outputs.JobDefinitionEksContainerVolumeMount']]:
         """
-        The volume mounts for a container for an Amazon EKS job. For more information about volumes and volume mounts in Kubernetes, see [Volumes](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/) in the *Kubernetes documentation* .
+        The volume mounts for the container. AWS Batch supports `emptyDir` , `hostPath` , and `secret` volume types. For more information about volumes and volume mounts in Kubernetes, see [Volumes](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/) in the *Kubernetes documentation* .
         """
         return pulumi.get(self, "volume_mounts")
 
@@ -2010,7 +2046,7 @@ class JobDefinitionEksProperties(dict):
     def __init__(__self__, *,
                  pod_properties: Optional['outputs.JobDefinitionPodProperties'] = None):
         """
-        :param 'JobDefinitionPodProperties' pod_properties: The properties for the pod.
+        :param 'JobDefinitionPodProperties' pod_properties: The properties for the Kubernetes pod resources of a job.
         """
         if pod_properties is not None:
             pulumi.set(__self__, "pod_properties", pod_properties)
@@ -2019,7 +2055,7 @@ class JobDefinitionEksProperties(dict):
     @pulumi.getter(name="podProperties")
     def pod_properties(self) -> Optional['outputs.JobDefinitionPodProperties']:
         """
-        The properties for the pod.
+        The properties for the Kubernetes pod resources of a job.
         """
         return pulumi.get(self, "pod_properties")
 
@@ -2099,8 +2135,8 @@ class JobDefinitionEksVolume(dict):
                  secret: Optional['outputs.JobDefinitionEksSecret'] = None):
         """
         :param str name: The name of the volume. The name must be allowed as a DNS subdomain name. For more information, see [DNS subdomain names](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names) in the *Kubernetes documentation* .
-        :param 'JobDefinitionEksEmptyDir' empty_dir: Specifies the configuration of a Kubernetes `emptyDir` volume. An `emptyDir` volume is first created when a pod is assigned to a node. It exists as long as that pod is running on that node. The `emptyDir` volume is initially empty. All containers in the pod can read and write the files in the `emptyDir` volume. However, the `emptyDir` volume can be mounted at the same or different paths in each container. When a pod is removed from a node for any reason, the data in the `emptyDir` is deleted permanently. For more information, see [emptyDir](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) in the *Kubernetes documentation* .
-        :param 'JobDefinitionEksHostPath' host_path: Specifies the configuration of a Kubernetes `hostPath` volume. A `hostPath` volume mounts an existing file or directory from the host node's filesystem into your pod. For more information, see [hostPath](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) in the *Kubernetes documentation* .
+        :param 'JobDefinitionEksEmptyDir' empty_dir: Specifies the configuration of a Kubernetes `emptyDir` volume. For more information, see [emptyDir](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) in the *Kubernetes documentation* .
+        :param 'JobDefinitionEksHostPath' host_path: Specifies the configuration of a Kubernetes `hostPath` volume. For more information, see [hostPath](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) in the *Kubernetes documentation* .
         :param 'JobDefinitionEksSecret' secret: Specifies the configuration of a Kubernetes `secret` volume. For more information, see [secret](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#secret) in the *Kubernetes documentation* .
         """
         pulumi.set(__self__, "name", name)
@@ -2123,7 +2159,7 @@ class JobDefinitionEksVolume(dict):
     @pulumi.getter(name="emptyDir")
     def empty_dir(self) -> Optional['outputs.JobDefinitionEksEmptyDir']:
         """
-        Specifies the configuration of a Kubernetes `emptyDir` volume. An `emptyDir` volume is first created when a pod is assigned to a node. It exists as long as that pod is running on that node. The `emptyDir` volume is initially empty. All containers in the pod can read and write the files in the `emptyDir` volume. However, the `emptyDir` volume can be mounted at the same or different paths in each container. When a pod is removed from a node for any reason, the data in the `emptyDir` is deleted permanently. For more information, see [emptyDir](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) in the *Kubernetes documentation* .
+        Specifies the configuration of a Kubernetes `emptyDir` volume. For more information, see [emptyDir](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#emptydir) in the *Kubernetes documentation* .
         """
         return pulumi.get(self, "empty_dir")
 
@@ -2131,7 +2167,7 @@ class JobDefinitionEksVolume(dict):
     @pulumi.getter(name="hostPath")
     def host_path(self) -> Optional['outputs.JobDefinitionEksHostPath']:
         """
-        Specifies the configuration of a Kubernetes `hostPath` volume. A `hostPath` volume mounts an existing file or directory from the host node's filesystem into your pod. For more information, see [hostPath](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) in the *Kubernetes documentation* .
+        Specifies the configuration of a Kubernetes `hostPath` volume. For more information, see [hostPath](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/#hostpath) in the *Kubernetes documentation* .
         """
         return pulumi.get(self, "host_path")
 
@@ -2374,9 +2410,9 @@ class JobDefinitionLinuxParameters(dict):
                  swappiness: Optional[int] = None,
                  tmpfs: Optional[Sequence['outputs.JobDefinitionTmpfs']] = None):
         """
-        :param Sequence['JobDefinitionDevice'] devices: An object that represents a container instance host device.
+        :param Sequence['JobDefinitionDevice'] devices: Any of the host devices to expose to the container. This parameter maps to `Devices` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--device` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
                
-               > This object isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.
+               > This parameter isn't applicable to jobs that are running on Fargate resources. Don't provide it for these jobs.
         :param bool init_process_enabled: If true, run an `init` process inside the container that forwards signals and reaps processes. This parameter maps to the `--init` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . This parameter requires version 1.25 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
         :param int max_swap: The total amount of swap memory (in MiB) a container can use. This parameter is translated to the `--memory-swap` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) where the value is the sum of the container memory plus the `maxSwap` value. For more information, see [`--memory-swap` details](https://docs.aws.amazon.com/https://docs.docker.com/config/containers/resource_constraints/#--memory-swap-details) in the Docker documentation.
                
@@ -2397,9 +2433,9 @@ class JobDefinitionLinuxParameters(dict):
                - If the `maxSwap` and `swappiness` parameters are omitted from a job definition, each container has a default `swappiness` value of 60. Moreover, the total swap usage is limited to two times the memory reservation of the container.
                
                > This parameter isn't applicable to jobs that are running on Fargate resources. Don't provide it for these jobs.
-        :param Sequence['JobDefinitionTmpfs'] tmpfs: The container path, mount options, and size of the `tmpfs` mount.
+        :param Sequence['JobDefinitionTmpfs'] tmpfs: The container path, mount options, and size (in MiB) of the `tmpfs` mount. This parameter maps to the `--tmpfs` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
                
-               > This object isn't applicable to jobs that are running on Fargate resources.
+               > This parameter isn't applicable to jobs that are running on Fargate resources. Don't provide this parameter for this resource type.
         """
         if devices is not None:
             pulumi.set(__self__, "devices", devices)
@@ -2418,9 +2454,9 @@ class JobDefinitionLinuxParameters(dict):
     @pulumi.getter
     def devices(self) -> Optional[Sequence['outputs.JobDefinitionDevice']]:
         """
-        An object that represents a container instance host device.
+        Any of the host devices to expose to the container. This parameter maps to `Devices` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--device` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
 
-        > This object isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.
+        > This parameter isn't applicable to jobs that are running on Fargate resources. Don't provide it for these jobs.
         """
         return pulumi.get(self, "devices")
 
@@ -2476,9 +2512,9 @@ class JobDefinitionLinuxParameters(dict):
     @pulumi.getter
     def tmpfs(self) -> Optional[Sequence['outputs.JobDefinitionTmpfs']]:
         """
-        The container path, mount options, and size of the `tmpfs` mount.
+        The container path, mount options, and size (in MiB) of the `tmpfs` mount. This parameter maps to the `--tmpfs` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
 
-        > This object isn't applicable to jobs that are running on Fargate resources.
+        > This parameter isn't applicable to jobs that are running on Fargate resources. Don't provide this parameter for this resource type.
         """
         return pulumi.get(self, "tmpfs")
 
@@ -2527,12 +2563,7 @@ class JobDefinitionLogConfiguration(dict):
                
                This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
         :param Any options: The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
-        :param Sequence['JobDefinitionSecret'] secret_options: An object that represents the secret to expose to your container. Secrets can be exposed to a container in the following ways:
-               
-               - To inject sensitive data into your containers as environment variables, use the `secrets` container definition parameter.
-               - To reference sensitive information in the log configuration of a container, use the `secretOptions` container definition parameter.
-               
-               For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html) in the *AWS Batch User Guide* .
+        :param Sequence['JobDefinitionSecret'] secret_options: The secrets to pass to the log configuration. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html) in the *AWS Batch User Guide* .
         """
         pulumi.set(__self__, "log_driver", log_driver)
         if options is not None:
@@ -2576,12 +2607,7 @@ class JobDefinitionLogConfiguration(dict):
     @pulumi.getter(name="secretOptions")
     def secret_options(self) -> Optional[Sequence['outputs.JobDefinitionSecret']]:
         """
-        An object that represents the secret to expose to your container. Secrets can be exposed to a container in the following ways:
-
-        - To inject sensitive data into your containers as environment variables, use the `secrets` container definition parameter.
-        - To reference sensitive information in the log configuration of a container, use the `secretOptions` container definition parameter.
-
-        For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html) in the *AWS Batch User Guide* .
+        The secrets to pass to the log configuration. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html) in the *AWS Batch User Guide* .
         """
         return pulumi.get(self, "secret_options")
 
@@ -2734,7 +2760,7 @@ class JobDefinitionNodeProperties(dict):
                  num_nodes: int):
         """
         :param int main_node: Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.
-        :param Sequence['JobDefinitionNodeRangeProperty'] node_range_properties: This is an object that represents the properties of the node range for a multi-node parallel job.
+        :param Sequence['JobDefinitionNodeRangeProperty'] node_range_properties: A list of node ranges and their properties that are associated with a multi-node parallel job.
         :param int num_nodes: The number of nodes that are associated with a multi-node parallel job.
         """
         pulumi.set(__self__, "main_node", main_node)
@@ -2753,7 +2779,7 @@ class JobDefinitionNodeProperties(dict):
     @pulumi.getter(name="nodeRangeProperties")
     def node_range_properties(self) -> Sequence['outputs.JobDefinitionNodeRangeProperty']:
         """
-        This is an object that represents the properties of the node range for a multi-node parallel job.
+        A list of node ranges and their properties that are associated with a multi-node parallel job.
         """
         return pulumi.get(self, "node_range_properties")
 
@@ -2796,8 +2822,8 @@ class JobDefinitionNodeRangeProperty(dict):
                  instance_types: Optional[Sequence[str]] = None):
         """
         :param str target_nodes: The range of nodes, using node index values. A range of `0:3` indicates nodes with index values of `0` through `3` . If the starting range value is omitted ( `:n` ), then `0` is used to start the range. If the ending range value is omitted ( `n:` ), then the highest possible node index is used to end the range. Your accumulative node ranges must account for all nodes ( `0:n` ). You can nest node ranges (for example, `0:10` and `4:5` ). In this case, the `4:5` range properties override the `0:10` properties.
-        :param 'JobDefinitionContainerProperties' container: Container properties are used for Amazon ECS based job definitions. These properties to describe the container that's launched as part of a job.
-        :param 'JobDefinitionEcsProperties' ecs_properties: An object that contains the properties for the Amazon ECS resources of a job.
+        :param 'JobDefinitionContainerProperties' container: The container details for the node range.
+        :param 'JobDefinitionEcsProperties' ecs_properties: This is an object that represents the properties of the node range for a multi-node parallel job.
         :param Sequence[str] instance_types: The instance types of the underlying host infrastructure of a multi-node parallel job.
                
                > This parameter isn't applicable to jobs that are running on Fargate resources.
@@ -2824,7 +2850,7 @@ class JobDefinitionNodeRangeProperty(dict):
     @pulumi.getter
     def container(self) -> Optional['outputs.JobDefinitionContainerProperties']:
         """
-        Container properties are used for Amazon ECS based job definitions. These properties to describe the container that's launched as part of a job.
+        The container details for the node range.
         """
         return pulumi.get(self, "container")
 
@@ -2832,7 +2858,7 @@ class JobDefinitionNodeRangeProperty(dict):
     @pulumi.getter(name="ecsProperties")
     def ecs_properties(self) -> Optional['outputs.JobDefinitionEcsProperties']:
         """
-        An object that contains the properties for the Amazon ECS resources of a job.
+        This is an object that represents the properties of the node range for a multi-node parallel job.
         """
         return pulumi.get(self, "ecs_properties")
 
@@ -2889,19 +2915,18 @@ class JobDefinitionPodProperties(dict):
                  share_process_namespace: Optional[bool] = None,
                  volumes: Optional[Sequence['outputs.JobDefinitionEksVolume']] = None):
         """
-        :param Sequence['JobDefinitionEksContainer'] containers: EKS container properties are used in job definitions for Amazon EKS based job definitions to describe the properties for a container node in the pod that's launched as part of a job. This can't be specified for Amazon ECS based job definitions.
+        :param Sequence['JobDefinitionEksContainer'] containers: The properties of the container that's used on the Amazon EKS pod.
         :param str dns_policy: The DNS policy for the pod. The default value is `ClusterFirst` . If the `hostNetwork` parameter is not specified, the default is `ClusterFirstWithHostNet` . `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see [Pod's DNS policy](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) in the *Kubernetes documentation* .
                
                Valid values: `Default` | `ClusterFirst` | `ClusterFirstWithHostNet`
         :param bool host_network: Indicates if the pod uses the hosts' network IP address. The default value is `true` . Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections. For more information, see [Host namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#host-namespaces) and [Pod networking](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking) in the *Kubernetes documentation* .
-        :param Sequence['JobDefinitionImagePullSecret'] image_pull_secrets: References a Kubernetes secret resource. This name of the secret must start and end with an alphanumeric character, is required to be lowercase, can include periods (.) and hyphens (-), and can't contain more than 253 characters.
         :param Sequence['JobDefinitionEksContainer'] init_containers: These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
                
                > This object is limited to 10 elements
         :param 'JobDefinitionMetadata' metadata: Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
         :param str service_account_name: The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
         :param bool share_process_namespace: Indicates if the processes in a container are shared, or visible, to other containers in the same pod. For more information, see [Share Process Namespace between Containers in a Pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/) .
-        :param Sequence['JobDefinitionEksVolume'] volumes: Specifies an Amazon EKS volume for a job definition.
+        :param Sequence['JobDefinitionEksVolume'] volumes: Specifies the volumes for a job definition that uses Amazon EKS resources.
         """
         if containers is not None:
             pulumi.set(__self__, "containers", containers)
@@ -2926,7 +2951,7 @@ class JobDefinitionPodProperties(dict):
     @pulumi.getter
     def containers(self) -> Optional[Sequence['outputs.JobDefinitionEksContainer']]:
         """
-        EKS container properties are used in job definitions for Amazon EKS based job definitions to describe the properties for a container node in the pod that's launched as part of a job. This can't be specified for Amazon ECS based job definitions.
+        The properties of the container that's used on the Amazon EKS pod.
         """
         return pulumi.get(self, "containers")
 
@@ -2951,9 +2976,6 @@ class JobDefinitionPodProperties(dict):
     @property
     @pulumi.getter(name="imagePullSecrets")
     def image_pull_secrets(self) -> Optional[Sequence['outputs.JobDefinitionImagePullSecret']]:
-        """
-        References a Kubernetes secret resource. This name of the secret must start and end with an alphanumeric character, is required to be lowercase, can include periods (.) and hyphens (-), and can't contain more than 253 characters.
-        """
         return pulumi.get(self, "image_pull_secrets")
 
     @property
@@ -2994,7 +3016,7 @@ class JobDefinitionPodProperties(dict):
     @pulumi.getter
     def volumes(self) -> Optional[Sequence['outputs.JobDefinitionEksVolume']]:
         """
-        Specifies an Amazon EKS volume for a job definition.
+        Specifies the volumes for a job definition that uses Amazon EKS resources.
         """
         return pulumi.get(self, "volumes")
 
@@ -3163,7 +3185,7 @@ class JobDefinitionRetryStrategy(dict):
                  evaluate_on_exit: Optional[Sequence['outputs.JobDefinitionEvaluateOnExit']] = None):
         """
         :param int attempts: The number of times to move a job to the `RUNNABLE` status. You can specify between 1 and 10 attempts. If the value of `attempts` is greater than one, the job is retried on failure the same number of attempts as the value.
-        :param Sequence['JobDefinitionEvaluateOnExit'] evaluate_on_exit: Specifies an array of up to 5 conditions to be met, and an action to take ( `RETRY` or `EXIT` ) if all conditions are met. If none of the `EvaluateOnExit` conditions in a `RetryStrategy` match, then the job is retried.
+        :param Sequence['JobDefinitionEvaluateOnExit'] evaluate_on_exit: Array of up to 5 objects that specify the conditions where jobs are retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. If none of the listed conditions match, then the job is retried.
         """
         if attempts is not None:
             pulumi.set(__self__, "attempts", attempts)
@@ -3182,7 +3204,7 @@ class JobDefinitionRetryStrategy(dict):
     @pulumi.getter(name="evaluateOnExit")
     def evaluate_on_exit(self) -> Optional[Sequence['outputs.JobDefinitionEvaluateOnExit']]:
         """
-        Specifies an array of up to 5 conditions to be met, and an action to take ( `RETRY` or `EXIT` ) if all conditions are met. If none of the `EvaluateOnExit` conditions in a `RetryStrategy` match, then the job is retried.
+        Array of up to 5 objects that specify the conditions where jobs are retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. If none of the listed conditions match, then the job is retried.
         """
         return pulumi.get(self, "evaluate_on_exit")
 
@@ -3400,15 +3422,25 @@ class JobDefinitionTaskContainerProperties(dict):
         """
         :param str image: The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either `repository-url/image:tag` or `repository-url/image@digest` . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to `Image` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `IMAGE` parameter of the [*docker run*](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
         :param Sequence[str] command: The command that's passed to the container. This parameter maps to `Cmd` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `COMMAND` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . For more information, see [Dockerfile reference: CMD](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) .
-        :param Sequence['JobDefinitionTaskContainerDependency'] depends_on: A list of containers that this task depends on.
+        :param Sequence['JobDefinitionTaskContainerDependency'] depends_on: A list of containers that this container depends on.
         :param Sequence['JobDefinitionEnvironment'] environment: The environment variables to pass to a container. This parameter maps to Env inthe [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
                
                > We don't recommend using plaintext environment variables for sensitive information, such as credential data. > Environment variables cannot start with `AWS_BATCH` . This naming convention is reserved for variables that AWS Batch sets.
         :param bool essential: If the essential parameter of a container is marked as `true` , and that container fails or stops for any reason, all other containers that are part of the task are stopped. If the `essential` parameter of a container is marked as false, its failure doesn't affect the rest of the containers in a task. If this parameter is omitted, a container is assumed to be essential.
                
                All jobs must have at least one essential container. If you have an application that's composed of multiple containers, group containers that are used for a common purpose into components, and separate the different components into multiple task definitions. For more information, see [Application Architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html) in the *Amazon Elastic Container Service Developer Guide* .
-        :param 'JobDefinitionLinuxParameters' linux_parameters: Linux-specific modifications that are applied to the container, such as details for device mappings.
-        :param 'JobDefinitionLogConfiguration' log_configuration: Log configuration options to send to a custom log driver for the container.
+        :param 'JobDefinitionLinuxParameters' linux_parameters: Linux-specific modifications that are applied to the container, such as Linux kernel capabilities. For more information, see [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html) .
+        :param 'JobDefinitionLogConfiguration' log_configuration: The log configuration specification for the container.
+               
+               This parameter maps to `LogConfig` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--log-driver` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
+               
+               By default, containers use the same logging driver that the Docker daemon uses. However the container can use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the *Docker documentation* .
+               
+               > Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the `LogConfiguration` data type). Additional log drivers may be available in future releases of the Amazon ECS container agent. 
+               
+               This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: sudo docker version `--format '{{.Server.APIVersion}}'`
+               
+               > The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the `ECS_AVAILABLE_LOGGING_DRIVERS` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide* .
         :param Sequence['JobDefinitionMountPoints'] mount_points: The mount points for data volumes in your container.
                
                This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the [--volume](https://docs.aws.amazon.com/) option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
@@ -3421,7 +3453,7 @@ class JobDefinitionTaskContainerProperties(dict):
         :param bool readonly_root_filesystem: When this parameter is true, the container is given read-only access to its root file system. This parameter maps to `ReadonlyRootfs` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--read-only` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
                
                > This parameter is not supported for Windows containers.
-        :param 'JobDefinitionRepositoryCredentials' repository_credentials: The repository credentials for private registry authentication.
+        :param 'JobDefinitionRepositoryCredentials' repository_credentials: The private repository authentication credentials to use.
         :param Sequence['JobDefinitionResourceRequirement'] resource_requirements: The type and amount of a resource to assign to a container. The only supported resource is a GPU.
         :param Sequence['JobDefinitionSecret'] secrets: The secrets to pass to the container. For more information, see [Specifying Sensitive Data](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html) in the Amazon Elastic Container Service Developer Guide.
         :param Sequence['JobDefinitionUlimit'] ulimits: A list of `ulimits` to set in the container. If a `ulimit` value is specified in a task definition, it overrides the default values set by Docker. This parameter maps to `Ulimits` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--ulimit` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
@@ -3498,7 +3530,7 @@ class JobDefinitionTaskContainerProperties(dict):
     @pulumi.getter(name="dependsOn")
     def depends_on(self) -> Optional[Sequence['outputs.JobDefinitionTaskContainerDependency']]:
         """
-        A list of containers that this task depends on.
+        A list of containers that this container depends on.
         """
         return pulumi.get(self, "depends_on")
 
@@ -3526,7 +3558,7 @@ class JobDefinitionTaskContainerProperties(dict):
     @pulumi.getter(name="linuxParameters")
     def linux_parameters(self) -> Optional['outputs.JobDefinitionLinuxParameters']:
         """
-        Linux-specific modifications that are applied to the container, such as details for device mappings.
+        Linux-specific modifications that are applied to the container, such as Linux kernel capabilities. For more information, see [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html) .
         """
         return pulumi.get(self, "linux_parameters")
 
@@ -3534,7 +3566,17 @@ class JobDefinitionTaskContainerProperties(dict):
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional['outputs.JobDefinitionLogConfiguration']:
         """
-        Log configuration options to send to a custom log driver for the container.
+        The log configuration specification for the container.
+
+        This parameter maps to `LogConfig` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--log-driver` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
+
+        By default, containers use the same logging driver that the Docker daemon uses. However the container can use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the *Docker documentation* .
+
+        > Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the `LogConfiguration` data type). Additional log drivers may be available in future releases of the Amazon ECS container agent. 
+
+        This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: sudo docker version `--format '{{.Server.APIVersion}}'`
+
+        > The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the `ECS_AVAILABLE_LOGGING_DRIVERS` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide* .
         """
         return pulumi.get(self, "log_configuration")
 
@@ -3582,7 +3624,7 @@ class JobDefinitionTaskContainerProperties(dict):
     @pulumi.getter(name="repositoryCredentials")
     def repository_credentials(self) -> Optional['outputs.JobDefinitionRepositoryCredentials']:
         """
-        The repository credentials for private registry authentication.
+        The private repository authentication credentials to use.
         """
         return pulumi.get(self, "repository_credentials")
 
@@ -3830,7 +3872,9 @@ class JobDefinitionVolumes(dict):
                  name: Optional[str] = None):
         """
         :param 'JobDefinitionEfsVolumeConfiguration' efs_volume_configuration: This is used when you're using an Amazon Elastic File System file system for job storage. For more information, see [Amazon EFS Volumes](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html) in the *AWS Batch User Guide* .
-        :param 'JobDefinitionVolumesHost' host: Determine whether your data volume persists on the host container instance and where it's stored. If this parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
+        :param 'JobDefinitionVolumesHost' host: The contents of the `host` parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
+               
+               > This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.
         :param str name: The name of the volume. It can be up to 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_). This name is referenced in the `sourceVolume` parameter of container definition `mountPoints` .
         """
         if efs_volume_configuration is not None:
@@ -3852,7 +3896,9 @@ class JobDefinitionVolumes(dict):
     @pulumi.getter
     def host(self) -> Optional['outputs.JobDefinitionVolumesHost']:
         """
-        Determine whether your data volume persists on the host container instance and where it's stored. If this parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
+        The contents of the `host` parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
+
+        > This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.
         """
         return pulumi.get(self, "host")
 

@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string FieldId;
         /// <summary>
-        /// The shape conditional formatting of a filled map visual.
+        /// The conditional formatting that determines the background color of a filled map's shape.
         /// </summary>
         public readonly Outputs.AnalysisShapeConditionalFormat? Format;
 

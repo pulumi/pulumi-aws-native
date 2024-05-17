@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? GutterVisibility { get; set; }
 
         /// <summary>
-        /// The options that determine the title styles for each small multiples panel.
+        /// Configures the title display within each small multiples panel.
         /// </summary>
         [Input("title")]
         public Input<Inputs.AnalysisPanelTitleOptionsArgs>? Title { get; set; }

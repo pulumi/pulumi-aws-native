@@ -182,9 +182,7 @@ class StateMachineLogDestinationArgs:
     def __init__(__self__, *,
                  cloud_watch_logs_log_group: Optional[pulumi.Input['StateMachineCloudWatchLogsLogGroupArgs']] = None):
         """
-        :param pulumi.Input['StateMachineCloudWatchLogsLogGroupArgs'] cloud_watch_logs_log_group: Defines a CloudWatch log group.
-               
-               > For more information see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
+        :param pulumi.Input['StateMachineCloudWatchLogsLogGroupArgs'] cloud_watch_logs_log_group: An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the AWS CloudFormation User Guide.
         """
         if cloud_watch_logs_log_group is not None:
             pulumi.set(__self__, "cloud_watch_logs_log_group", cloud_watch_logs_log_group)
@@ -193,9 +191,7 @@ class StateMachineLogDestinationArgs:
     @pulumi.getter(name="cloudWatchLogsLogGroup")
     def cloud_watch_logs_log_group(self) -> Optional[pulumi.Input['StateMachineCloudWatchLogsLogGroupArgs']]:
         """
-        Defines a CloudWatch log group.
-
-        > For more information see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
+        An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the AWS CloudFormation User Guide.
         """
         return pulumi.get(self, "cloud_watch_logs_log_group")
 
@@ -211,9 +207,7 @@ class StateMachineLoggingConfigurationArgs:
                  include_execution_data: Optional[pulumi.Input[bool]] = None,
                  level: Optional[pulumi.Input['StateMachineLoggingConfigurationLevel']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['StateMachineLogDestinationArgs']]] destinations: Defines a destination for `LoggingConfiguration` .
-               
-               > For more information on logging with `EXPRESS` workflows, see [Logging Express Workflows Using CloudWatch Logs](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) .
+        :param pulumi.Input[Sequence[pulumi.Input['StateMachineLogDestinationArgs']]] destinations: An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to `OFF` .
         :param pulumi.Input[bool] include_execution_data: Determines whether execution data is included in your log. When set to `false` , data is excluded.
         :param pulumi.Input['StateMachineLoggingConfigurationLevel'] level: Defines which category of execution history events are logged.
         """
@@ -228,9 +222,7 @@ class StateMachineLoggingConfigurationArgs:
     @pulumi.getter
     def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StateMachineLogDestinationArgs']]]]:
         """
-        Defines a destination for `LoggingConfiguration` .
-
-        > For more information on logging with `EXPRESS` workflows, see [Logging Express Workflows Using CloudWatch Logs](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) .
+        An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to `OFF` .
         """
         return pulumi.get(self, "destinations")
 

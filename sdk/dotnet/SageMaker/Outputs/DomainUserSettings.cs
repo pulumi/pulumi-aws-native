@@ -18,12 +18,10 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     {
         /// <summary>
         /// The Code Editor application settings.
-        /// 
-        /// For more information about Code Editor, see [Get started with Code Editor in Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/code-editor.html) .
         /// </summary>
         public readonly Outputs.DomainCodeEditorAppSettings? CodeEditorAppSettings;
         /// <summary>
-        /// The settings for assigning a custom file system to a user profile or space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.
+        /// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
         /// </summary>
         public readonly ImmutableArray<Outputs.DomainCustomFileSystemConfig> CustomFileSystemConfigs;
         /// <summary>
@@ -51,7 +49,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly Outputs.DomainKernelGatewayAppSettings? KernelGatewayAppSettings;
         /// <summary>
-        /// A collection of settings that apply to an `RSessionGateway` app.
+        /// A collection of settings that configure the `RSessionGateway` app.
         /// </summary>
         public readonly Outputs.DomainRSessionAppSettings? RSessionAppSettings;
         /// <summary>
@@ -67,7 +65,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly Outputs.DomainSharingSettings? SharingSettings;
         /// <summary>
-        /// The default storage settings for a space.
+        /// The storage settings for a space.
         /// </summary>
         public readonly Outputs.DomainDefaultSpaceStorageSettings? SpaceStorageSettings;
         /// <summary>

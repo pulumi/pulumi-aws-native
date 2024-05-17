@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     public sealed class MonitoringScheduleMonitoringJobDefinition
     {
         /// <summary>
-        /// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
+        /// Baseline configuration used to validate that the data conforms to the specified constraints and statistics
         /// </summary>
         public readonly Outputs.MonitoringScheduleBaselineConfig? BaselineConfig;
         /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly object? Environment;
         /// <summary>
-        /// Container image configuration object for the monitoring job.
+        /// Configures the monitoring job to run a specified Docker container image.
         /// </summary>
         public readonly Outputs.MonitoringScheduleMonitoringAppSpecification MonitoringAppSpecification;
         /// <summary>
@@ -33,15 +33,15 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.MonitoringScheduleMonitoringInput> MonitoringInputs;
         /// <summary>
-        /// The output configuration for monitoring jobs.
+        /// The array of outputs from the monitoring job to be uploaded to Amazon S3.
         /// </summary>
         public readonly Outputs.MonitoringScheduleMonitoringOutputConfig MonitoringOutputConfig;
         /// <summary>
-        /// Identifies the resources to deploy for a monitoring job.
+        /// Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. In distributed processing, you specify more than one instance.
         /// </summary>
         public readonly Outputs.MonitoringScheduleMonitoringResources MonitoringResources;
         /// <summary>
-        /// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        /// Specifies networking options for an monitoring job.
         /// </summary>
         public readonly Outputs.MonitoringScheduleNetworkConfig? NetworkConfig;
         /// <summary>
@@ -49,13 +49,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly string RoleArn;
         /// <summary>
-        /// Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
-        /// 
-        /// To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-        /// 
-        /// The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
-        /// 
-        /// &gt; The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+        /// Specifies a time limit for how long the monitoring job is allowed to run.
         /// </summary>
         public readonly Outputs.MonitoringScheduleStoppingCondition? StoppingCondition;
 

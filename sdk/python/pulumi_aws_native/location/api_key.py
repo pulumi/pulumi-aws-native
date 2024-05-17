@@ -28,7 +28,7 @@ class ApiKeyArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ApiKey resource.
-        :param pulumi.Input['ApiKeyRestrictionsArgs'] restrictions: API Restrictions on the allowed actions, resources, and referers for an API key resource.
+        :param pulumi.Input['ApiKeyRestrictionsArgs'] restrictions: The API key restrictions for the API key resource.
         :param pulumi.Input[str] description: Updates the description for the API key resource.
         :param pulumi.Input[str] expire_time: The optional timestamp for when the API key resource will expire in [ISO 8601 format](https://docs.aws.amazon.com/https://www.iso.org/iso-8601-date-and-time-format.html) .
         :param pulumi.Input[bool] force_delete: ForceDelete bypasses an API key's expiry conditions and deletes the key. Set the parameter `true` to delete the key or to `false` to not preemptively delete the API key.
@@ -68,7 +68,7 @@ class ApiKeyArgs:
     @pulumi.getter
     def restrictions(self) -> pulumi.Input['ApiKeyRestrictionsArgs']:
         """
-        API Restrictions on the allowed actions, resources, and referers for an API key resource.
+        The API key restrictions for the API key resource.
         """
         return pulumi.get(self, "restrictions")
 
@@ -208,7 +208,7 @@ class ApiKey(pulumi.CustomResource):
                - Must be a unique API key name.
                - No spaces allowed. For example, `ExampleAPIKey` .
         :param pulumi.Input[bool] no_expiry: Whether the API key should expire. Set to `true` to set the API key to have no expiration time.
-        :param pulumi.Input[pulumi.InputType['ApiKeyRestrictionsArgs']] restrictions: API Restrictions on the allowed actions, resources, and referers for an API key resource.
+        :param pulumi.Input[pulumi.InputType['ApiKeyRestrictionsArgs']] restrictions: The API key restrictions for the API key resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -391,7 +391,7 @@ class ApiKey(pulumi.CustomResource):
     @pulumi.getter
     def restrictions(self) -> pulumi.Output['outputs.ApiKeyRestrictions']:
         """
-        API Restrictions on the allowed actions, resources, and referers for an API key resource.
+        The API key restrictions for the API key resource.
         """
         return pulumi.get(self, "restrictions")
 

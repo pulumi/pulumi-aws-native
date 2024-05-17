@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.SageMaker
     public partial class ModelCard : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The content of the model card. It follows the [model card json schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
+        /// The content of the model card. Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
         /// </summary>
         [Output("content")]
         public Output<Outputs.ModelCardContent> Content { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.AwsNative.SageMaker
     public sealed class ModelCardArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The content of the model card. It follows the [model card json schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
+        /// The content of the model card. Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
         /// </summary>
         [Input("content", required: true)]
         public Input<Inputs.ModelCardContentArgs> Content { get; set; } = null!;

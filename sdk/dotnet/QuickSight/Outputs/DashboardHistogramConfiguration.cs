@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardHistogramBinOptions? BinOptions;
         /// <summary>
-        /// The options that determine the presentation of the data labels.
+        /// The data label configuration of a histogram.
         /// </summary>
         public readonly Outputs.DashboardDataLabelOptions? DataLabels;
         /// <summary>
@@ -26,23 +26,23 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardHistogramFieldWells? FieldWells;
         /// <summary>
-        /// The display options for the visual tooltip.
+        /// The tooltip configuration of a histogram.
         /// </summary>
         public readonly Outputs.DashboardTooltipOptions? Tooltip;
         /// <summary>
-        /// The visual display options for the visual palette.
+        /// The visual palette configuration of a histogram.
         /// </summary>
         public readonly Outputs.DashboardVisualPalette? VisualPalette;
         /// <summary>
-        /// The display options for the axis label.
+        /// The options that determine the presentation of the x-axis.
         /// </summary>
         public readonly Outputs.DashboardAxisDisplayOptions? XAxisDisplayOptions;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The options that determine the presentation of the x-axis label.
         /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? XAxisLabelOptions;
         /// <summary>
-        /// The display options for the axis label.
+        /// The options that determine the presentation of the y-axis.
         /// </summary>
         public readonly Outputs.DashboardAxisDisplayOptions? YAxisDisplayOptions;
 

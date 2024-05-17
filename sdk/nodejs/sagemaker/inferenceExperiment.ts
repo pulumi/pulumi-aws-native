@@ -47,8 +47,6 @@ export class InferenceExperiment extends pulumi.CustomResource {
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
     /**
      * The Amazon S3 location and configuration for storing inference request and response data.
-     *
-     * This is an optional parameter that you can use for data capture. For more information, see [Capture data](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html) .
      */
     public readonly dataStorageConfig!: pulumi.Output<outputs.sagemaker.InferenceExperimentDataStorageConfig | undefined>;
     /**
@@ -59,9 +57,6 @@ export class InferenceExperiment extends pulumi.CustomResource {
      * The desired state of the experiment after starting or stopping operation.
      */
     public readonly desiredState!: pulumi.Output<enums.sagemaker.InferenceExperimentDesiredState | undefined>;
-    /**
-     * The metadata of the endpoint.
-     */
     public /*out*/ readonly endpointMetadata!: pulumi.Output<outputs.sagemaker.InferenceExperimentEndpointMetadata>;
     /**
      * The name of the endpoint.
@@ -88,13 +83,13 @@ export class InferenceExperiment extends pulumi.CustomResource {
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
-     * The start and end times of an inference experiment.
+     * The duration for which the inference experiment ran or will run.
      *
      * The maximum duration that you can set for an inference experiment is 30 days.
      */
     public readonly schedule!: pulumi.Output<outputs.sagemaker.InferenceExperimentSchedule | undefined>;
     /**
-     * The configuration of `ShadowMode` inference experiment type, which specifies a production variant to take all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also specifies the percentage of requests that Amazon SageMaker replicates.
+     * The configuration of `ShadowMode` inference experiment type, which shows the production variant that takes all the inference requests, and the shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also shows the percentage of requests that Amazon SageMaker replicates.
      */
     public readonly shadowModeConfig!: pulumi.Output<outputs.sagemaker.InferenceExperimentShadowModeConfig | undefined>;
     /**
@@ -188,8 +183,6 @@ export class InferenceExperiment extends pulumi.CustomResource {
 export interface InferenceExperimentArgs {
     /**
      * The Amazon S3 location and configuration for storing inference request and response data.
-     *
-     * This is an optional parameter that you can use for data capture. For more information, see [Capture data](https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html) .
      */
     dataStorageConfig?: pulumi.Input<inputs.sagemaker.InferenceExperimentDataStorageConfigArgs>;
     /**
@@ -221,13 +214,13 @@ export interface InferenceExperimentArgs {
      */
     roleArn: pulumi.Input<string>;
     /**
-     * The start and end times of an inference experiment.
+     * The duration for which the inference experiment ran or will run.
      *
      * The maximum duration that you can set for an inference experiment is 30 days.
      */
     schedule?: pulumi.Input<inputs.sagemaker.InferenceExperimentScheduleArgs>;
     /**
-     * The configuration of `ShadowMode` inference experiment type, which specifies a production variant to take all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also specifies the percentage of requests that Amazon SageMaker replicates.
+     * The configuration of `ShadowMode` inference experiment type, which shows the production variant that takes all the inference requests, and the shadow variant to which Amazon SageMaker replicates a percentage of the inference requests. For the shadow variant it also shows the percentage of requests that Amazon SageMaker replicates.
      */
     shadowModeConfig?: pulumi.Input<inputs.sagemaker.InferenceExperimentShadowModeConfigArgs>;
     /**

@@ -31,7 +31,7 @@ export interface GetFleetMetricResult {
      */
     readonly aggregationField?: string;
     /**
-     * The type of aggregation queries.
+     * The type of the aggregation query.
      */
     readonly aggregationType?: outputs.iot.FleetMetricAggregationType;
     /**

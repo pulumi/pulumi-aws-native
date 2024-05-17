@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateForecastScenario
     {
         /// <summary>
-        /// Provides the forecast to meet the target for a particular date.
+        /// The what-if analysis forecast setup with the target date.
         /// </summary>
         public readonly Outputs.TemplateWhatIfPointScenario? WhatIfPointScenario;
         /// <summary>
-        /// Provides the forecast to meet the target for a particular date range.
+        /// The what-if analysis forecast setup with the date range.
         /// </summary>
         public readonly Outputs.TemplateWhatIfRangeScenario? WhatIfRangeScenario;
 

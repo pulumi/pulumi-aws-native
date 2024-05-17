@@ -22,9 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.TemplateNullValueFormatConfiguration? NullValueFormatConfiguration;
         /// <summary>
-        /// The options that determine the numeric format configuration.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The formatting configuration for numeric `DateTime` fields.
         /// </summary>
         public readonly Outputs.TemplateNumericFormatConfiguration? NumericFormatConfiguration;
 

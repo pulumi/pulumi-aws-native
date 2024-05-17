@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.DataSync.Inputs
     public sealed class LocationFSxOpenZfsProtocolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Represents the Network File System (NFS) protocol that AWS DataSync uses to access your Amazon FSx for OpenZFS file system.
+        /// Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system.
         /// </summary>
         [Input("nfs")]
         public Input<Inputs.LocationFSxOpenZfsNfsArgs>? Nfs { get; set; }

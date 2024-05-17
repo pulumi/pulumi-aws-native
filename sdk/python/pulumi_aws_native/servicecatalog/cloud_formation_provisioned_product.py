@@ -59,17 +59,11 @@ class CloudFormationProvisionedProductArgs:
         :param pulumi.Input[str] provisioning_artifact_name: The name of the provisioning artifact (also known as a version) for the product. This name must be unique for the product.
                
                > You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.
-        :param pulumi.Input[Sequence[pulumi.Input['CloudFormationProvisionedProductProvisioningParameterArgs']]] provisioning_parameters: Information about a parameter used to provision a product.
-        :param pulumi.Input['CloudFormationProvisionedProductProvisioningPreferencesArgs'] provisioning_preferences: The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product type
+        :param pulumi.Input[Sequence[pulumi.Input['CloudFormationProvisionedProductProvisioningParameterArgs']]] provisioning_parameters: Parameters specified by the administrator that are required for provisioning the product.
+        :param pulumi.Input['CloudFormationProvisionedProductProvisioningPreferencesArgs'] provisioning_preferences: StackSet preferences that are required for provisioning the product or updating a provisioned product.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
                
-               One or more AWS accounts that will have access to the provisioned product.
-               
-               Applicable only to a `CFN_STACKSET` provisioned product type.
-               
-               The AWS accounts specified should be within the list of accounts in the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
-               
-               If no values are specified, the default value is all accounts from the `STACKSET` constraint.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
+               > Requires the provisioned product to have an [ResourceUpdateConstraint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html) resource with `TagUpdatesOnProvisionedProduct` set to `ALLOWED` to allow tag updates. If `RESOURCE_UPDATE` constraint is not present, tags updates are ignored.
         """
         if accept_language is not None:
             pulumi.set(__self__, "accept_language", accept_language)
@@ -225,7 +219,7 @@ class CloudFormationProvisionedProductArgs:
     @pulumi.getter(name="provisioningParameters")
     def provisioning_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudFormationProvisionedProductProvisioningParameterArgs']]]]:
         """
-        Information about a parameter used to provision a product.
+        Parameters specified by the administrator that are required for provisioning the product.
         """
         return pulumi.get(self, "provisioning_parameters")
 
@@ -237,15 +231,7 @@ class CloudFormationProvisionedProductArgs:
     @pulumi.getter(name="provisioningPreferences")
     def provisioning_preferences(self) -> Optional[pulumi.Input['CloudFormationProvisionedProductProvisioningPreferencesArgs']]:
         """
-        The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product type
-
-        One or more AWS accounts that will have access to the provisioned product.
-
-        Applicable only to a `CFN_STACKSET` provisioned product type.
-
-        The AWS accounts specified should be within the list of accounts in the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
-
-        If no values are specified, the default value is all accounts from the `STACKSET` constraint.
+        StackSet preferences that are required for provisioning the product or updating a provisioned product.
         """
         return pulumi.get(self, "provisioning_preferences")
 
@@ -257,7 +243,9 @@ class CloudFormationProvisionedProductArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
+        One or more tags.
+
+        > Requires the provisioned product to have an [ResourceUpdateConstraint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html) resource with `TagUpdatesOnProvisionedProduct` set to `ALLOWED` to allow tag updates. If `RESOURCE_UPDATE` constraint is not present, tags updates are ignored.
         """
         return pulumi.get(self, "tags")
 
@@ -315,17 +303,11 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
         :param pulumi.Input[str] provisioning_artifact_name: The name of the provisioning artifact (also known as a version) for the product. This name must be unique for the product.
                
                > You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudFormationProvisionedProductProvisioningParameterArgs']]]] provisioning_parameters: Information about a parameter used to provision a product.
-        :param pulumi.Input[pulumi.InputType['CloudFormationProvisionedProductProvisioningPreferencesArgs']] provisioning_preferences: The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product type
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudFormationProvisionedProductProvisioningParameterArgs']]]] provisioning_parameters: Parameters specified by the administrator that are required for provisioning the product.
+        :param pulumi.Input[pulumi.InputType['CloudFormationProvisionedProductProvisioningPreferencesArgs']] provisioning_preferences: StackSet preferences that are required for provisioning the product or updating a provisioned product.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tags.
                
-               One or more AWS accounts that will have access to the provisioned product.
-               
-               Applicable only to a `CFN_STACKSET` provisioned product type.
-               
-               The AWS accounts specified should be within the list of accounts in the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
-               
-               If no values are specified, the default value is all accounts from the `STACKSET` constraint.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
+               > Requires the provisioned product to have an [ResourceUpdateConstraint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html) resource with `TagUpdatesOnProvisionedProduct` set to `ALLOWED` to allow tag updates. If `RESOURCE_UPDATE` constraint is not present, tags updates are ignored.
         """
         ...
     @overload
@@ -544,7 +526,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
     @pulumi.getter(name="provisioningParameters")
     def provisioning_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.CloudFormationProvisionedProductProvisioningParameter']]]:
         """
-        Information about a parameter used to provision a product.
+        Parameters specified by the administrator that are required for provisioning the product.
         """
         return pulumi.get(self, "provisioning_parameters")
 
@@ -552,15 +534,7 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
     @pulumi.getter(name="provisioningPreferences")
     def provisioning_preferences(self) -> pulumi.Output[Optional['outputs.CloudFormationProvisionedProductProvisioningPreferences']]:
         """
-        The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product type
-
-        One or more AWS accounts that will have access to the provisioned product.
-
-        Applicable only to a `CFN_STACKSET` provisioned product type.
-
-        The AWS accounts specified should be within the list of accounts in the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
-
-        If no values are specified, the default value is all accounts from the `STACKSET` constraint.
+        StackSet preferences that are required for provisioning the product or updating a provisioned product.
         """
         return pulumi.get(self, "provisioning_preferences")
 
@@ -576,7 +550,9 @@ class CloudFormationProvisionedProduct(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
+        One or more tags.
+
+        > Requires the provisioned product to have an [ResourceUpdateConstraint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html) resource with `TagUpdatesOnProvisionedProduct` set to `ALLOWED` to allow tag updates. If `RESOURCE_UPDATE` constraint is not present, tags updates are ignored.
         """
         return pulumi.get(self, "tags")
 

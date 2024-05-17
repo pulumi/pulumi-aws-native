@@ -14,15 +14,15 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     public sealed class NetworkInsightsAccessScopeAccessScopePathRequest
     {
         /// <summary>
-        /// Describes a path statement.
+        /// The destination.
         /// </summary>
         public readonly Outputs.NetworkInsightsAccessScopePathStatementRequest? Destination;
         /// <summary>
-        /// Describes a path statement.
+        /// The source.
         /// </summary>
         public readonly Outputs.NetworkInsightsAccessScopePathStatementRequest? Source;
         /// <summary>
-        /// Describes a through resource statement.
+        /// The through resources.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInsightsAccessScopeThroughResourcesStatementRequest> ThroughResources;
 

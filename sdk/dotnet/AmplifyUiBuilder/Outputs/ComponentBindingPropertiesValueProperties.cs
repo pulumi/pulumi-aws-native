@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
         /// </summary>
         public readonly string? Model;
         /// <summary>
-        /// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+        /// A list of predicates for binding a component's properties to data.
         /// </summary>
         public readonly ImmutableArray<Outputs.ComponentPredicate> Predicates;
         /// <summary>

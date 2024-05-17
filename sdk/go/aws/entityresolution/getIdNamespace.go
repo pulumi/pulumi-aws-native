@@ -33,11 +33,11 @@ type LookupIdNamespaceResult struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// The description of the ID namespace.
 	Description *string `pulumi:"description"`
-	// An object containing `IdMappingType` and `ProviderProperties` .
+	// Determines the properties of `IdMappingWorflow` where this `IdNamespace` can be used as a `Source` or a `Target` .
 	IdMappingWorkflowProperties []IdNamespaceIdMappingWorkflowProperties `pulumi:"idMappingWorkflowProperties"`
 	// The arn associated with the IdNamespace
 	IdNamespaceArn *string `pulumi:"idNamespaceArn"`
-	// An object containing `InputSourceARN` and `SchemaName` .
+	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig []IdNamespaceInputSource `pulumi:"inputSourceConfig"`
 	// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to access the resources defined in this `IdNamespace` on your behalf as part of the workflow run.
 	RoleArn *string `pulumi:"roleArn"`
@@ -99,7 +99,7 @@ func (o LookupIdNamespaceResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIdNamespaceResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// An object containing `IdMappingType` and `ProviderProperties` .
+// Determines the properties of `IdMappingWorflow` where this `IdNamespace` can be used as a `Source` or a `Target` .
 func (o LookupIdNamespaceResultOutput) IdMappingWorkflowProperties() IdNamespaceIdMappingWorkflowPropertiesArrayOutput {
 	return o.ApplyT(func(v LookupIdNamespaceResult) []IdNamespaceIdMappingWorkflowProperties {
 		return v.IdMappingWorkflowProperties
@@ -111,7 +111,7 @@ func (o LookupIdNamespaceResultOutput) IdNamespaceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIdNamespaceResult) *string { return v.IdNamespaceArn }).(pulumi.StringPtrOutput)
 }
 
-// An object containing `InputSourceARN` and `SchemaName` .
+// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 func (o LookupIdNamespaceResultOutput) InputSourceConfig() IdNamespaceInputSourceArrayOutput {
 	return o.ApplyT(func(v LookupIdNamespaceResult) []IdNamespaceInputSource { return v.InputSourceConfig }).(IdNamespaceInputSourceArrayOutput)
 }

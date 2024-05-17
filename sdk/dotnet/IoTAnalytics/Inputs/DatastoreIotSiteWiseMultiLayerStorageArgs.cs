@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
     public sealed class DatastoreIotSiteWiseMultiLayerStorageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon S3 -customer-managed; When you choose customer-managed storage, the `retentionPeriod` parameter is ignored. You can't change the choice of Amazon S3 storage after your data store is created.
+        /// Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage.
         /// </summary>
         [Input("customerManagedS3Storage")]
         public Input<Inputs.DatastoreCustomerManagedS3StorageArgs>? CustomerManagedS3Storage { get; set; }

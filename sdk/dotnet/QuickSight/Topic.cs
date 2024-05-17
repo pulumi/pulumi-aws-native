@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string?> AwsAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// A structure that represents a dataset.
+        /// The data sets that the topic is associated with.
         /// </summary>
         [Output("dataSets")]
         public Output<ImmutableArray<Outputs.TopicDatasetMetadata>> DataSets { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.AwsNative.QuickSight
         private InputList<Inputs.TopicDatasetMetadataArgs>? _dataSets;
 
         /// <summary>
-        /// A structure that represents a dataset.
+        /// The data sets that the topic is associated with.
         /// </summary>
         public InputList<Inputs.TopicDatasetMetadataArgs> DataSets
         {

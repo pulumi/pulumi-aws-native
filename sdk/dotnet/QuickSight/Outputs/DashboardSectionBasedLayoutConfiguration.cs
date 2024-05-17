@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardSectionBasedLayoutConfiguration
     {
         /// <summary>
-        /// The configuration of a body section.
+        /// A list of body section configurations.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardBodySectionConfiguration> BodySections;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardSectionBasedLayoutCanvasSizeOptions CanvasSizeOptions;
         /// <summary>
-        /// The configuration of a header or footer section.
+        /// A list of footer section configurations.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardHeaderFooterSectionConfiguration> FooterSections;
         /// <summary>

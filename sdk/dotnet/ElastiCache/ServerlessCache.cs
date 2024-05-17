@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.ElastiCache
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The usage limits for storage and ElastiCache Processing Units for the cache.
+        /// The cache usage limit for the serverless cache.
         /// </summary>
         [Output("cacheUsageLimits")]
         public Output<Outputs.ServerlessCacheCacheUsageLimits?> CacheUsageLimits { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.AwsNative.ElastiCache
     public sealed class ServerlessCacheArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The usage limits for storage and ElastiCache Processing Units for the cache.
+        /// The cache usage limit for the serverless cache.
         /// </summary>
         [Input("cacheUsageLimits")]
         public Input<Inputs.ServerlessCacheCacheUsageLimitsArgs>? CacheUsageLimits { get; set; }

@@ -25,11 +25,11 @@ type AssistantAssociation struct {
 	AssistantAssociationId pulumi.StringOutput `pulumi:"assistantAssociationId"`
 	// The identifier of the Wisdom assistant.
 	AssistantId pulumi.StringOutput `pulumi:"assistantId"`
-	// A union type that currently has a single argument, which is the knowledge base ID.
+	// The identifier of the associated resource.
 	Association AssistantAssociationAssociationDataOutput `pulumi:"association"`
 	// The type of association.
 	AssociationType AssistantAssociationAssociationTypeOutput `pulumi:"associationType"`
-	// Metadata to assign to the Wisdom assistant association. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+	// The tags used to organize, track, or control access for this resource.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
@@ -91,11 +91,11 @@ func (AssistantAssociationState) ElementType() reflect.Type {
 type assistantAssociationArgs struct {
 	// The identifier of the Wisdom assistant.
 	AssistantId string `pulumi:"assistantId"`
-	// A union type that currently has a single argument, which is the knowledge base ID.
+	// The identifier of the associated resource.
 	Association AssistantAssociationAssociationData `pulumi:"association"`
 	// The type of association.
 	AssociationType AssistantAssociationAssociationType `pulumi:"associationType"`
-	// Metadata to assign to the Wisdom assistant association. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+	// The tags used to organize, track, or control access for this resource.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
@@ -103,11 +103,11 @@ type assistantAssociationArgs struct {
 type AssistantAssociationArgs struct {
 	// The identifier of the Wisdom assistant.
 	AssistantId pulumi.StringInput
-	// A union type that currently has a single argument, which is the knowledge base ID.
+	// The identifier of the associated resource.
 	Association AssistantAssociationAssociationDataInput
 	// The type of association.
 	AssociationType AssistantAssociationAssociationTypeInput
-	// Metadata to assign to the Wisdom assistant association. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+	// The tags used to organize, track, or control access for this resource.
 	Tags aws.CreateOnlyTagArrayInput
 }
 
@@ -168,7 +168,7 @@ func (o AssistantAssociationOutput) AssistantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AssistantAssociation) pulumi.StringOutput { return v.AssistantId }).(pulumi.StringOutput)
 }
 
-// A union type that currently has a single argument, which is the knowledge base ID.
+// The identifier of the associated resource.
 func (o AssistantAssociationOutput) Association() AssistantAssociationAssociationDataOutput {
 	return o.ApplyT(func(v *AssistantAssociation) AssistantAssociationAssociationDataOutput { return v.Association }).(AssistantAssociationAssociationDataOutput)
 }
@@ -178,7 +178,7 @@ func (o AssistantAssociationOutput) AssociationType() AssistantAssociationAssoci
 	return o.ApplyT(func(v *AssistantAssociation) AssistantAssociationAssociationTypeOutput { return v.AssociationType }).(AssistantAssociationAssociationTypeOutput)
 }
 
-// Metadata to assign to the Wisdom assistant association. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+// The tags used to organize, track, or control access for this resource.
 func (o AssistantAssociationOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *AssistantAssociation) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }

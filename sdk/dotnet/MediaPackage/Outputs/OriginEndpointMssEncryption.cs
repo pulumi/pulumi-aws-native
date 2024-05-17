@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
     public sealed class OriginEndpointMssEncryption
     {
         /// <summary>
-        /// Key provider settings for DRM.
+        /// Parameters for the SPEKE key provider.
         /// </summary>
         public readonly Outputs.OriginEndpointSpekeKeyProvider SpekeKeyProvider;
 

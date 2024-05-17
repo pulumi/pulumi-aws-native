@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Scheduler.Outputs
     public sealed class ScheduleNetworkConfiguration
     {
         /// <summary>
-        /// This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.
+        /// Specifies the Amazon VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.
         /// </summary>
         public readonly Outputs.ScheduleAwsVpcConfiguration? AwsvpcConfiguration;
 

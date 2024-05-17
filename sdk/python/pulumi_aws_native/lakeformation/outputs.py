@@ -1014,11 +1014,9 @@ class TagAssociationResource(dict):
                  table_with_columns: Optional['outputs.TagAssociationTableWithColumnsResource'] = None):
         """
         :param 'TagAssociationCatalogResource' catalog: The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment.
-        :param 'TagAssociationDatabaseResource' database: A structure for the database object.
-        :param 'TagAssociationTableResource' table: A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
-        :param 'TagAssociationTableWithColumnsResource' table_with_columns: A structure for a table with columns object. This object is only used when granting a SELECT permission.
-               
-               This object must take a value for at least one of `ColumnsNames` , `ColumnsIndexes` , or `ColumnsWildcard` .
+        :param 'TagAssociationDatabaseResource' database: The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal.
+        :param 'TagAssociationTableResource' table: The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+        :param 'TagAssociationTableWithColumnsResource' table_with_columns: The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.
         """
         if catalog is not None:
             pulumi.set(__self__, "catalog", catalog)
@@ -1041,7 +1039,7 @@ class TagAssociationResource(dict):
     @pulumi.getter
     def database(self) -> Optional['outputs.TagAssociationDatabaseResource']:
         """
-        A structure for the database object.
+        The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal.
         """
         return pulumi.get(self, "database")
 
@@ -1049,7 +1047,7 @@ class TagAssociationResource(dict):
     @pulumi.getter
     def table(self) -> Optional['outputs.TagAssociationTableResource']:
         """
-        A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+        The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
         """
         return pulumi.get(self, "table")
 
@@ -1057,9 +1055,7 @@ class TagAssociationResource(dict):
     @pulumi.getter(name="tableWithColumns")
     def table_with_columns(self) -> Optional['outputs.TagAssociationTableWithColumnsResource']:
         """
-        A structure for a table with columns object. This object is only used when granting a SELECT permission.
-
-        This object must take a value for at least one of `ColumnsNames` , `ColumnsIndexes` , or `ColumnsWildcard` .
+        The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.
         """
         return pulumi.get(self, "table_with_columns")
 

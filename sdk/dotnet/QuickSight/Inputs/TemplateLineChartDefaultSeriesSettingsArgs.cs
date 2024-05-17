@@ -19,13 +19,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.TemplateAxisBinding>? AxisBinding { get; set; }
 
         /// <summary>
-        /// Line styles options for a line series in `LineChartVisual` .
+        /// Line styles options for all line series in the visual.
         /// </summary>
         [Input("lineStyleSettings")]
         public Input<Inputs.TemplateLineChartLineStyleSettingsArgs>? LineStyleSettings { get; set; }
 
         /// <summary>
-        /// Marker styles options for a line series in `LineChartVisual` .
+        /// Marker styles options for all line series in the visual.
         /// </summary>
         [Input("markerStyleSettings")]
         public Input<Inputs.TemplateLineChartMarkerStyleSettingsArgs>? MarkerStyleSettings { get; set; }

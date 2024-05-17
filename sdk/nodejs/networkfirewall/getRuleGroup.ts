@@ -31,11 +31,7 @@ export interface GetRuleGroupResult {
      */
     readonly description?: string;
     /**
-     * The object that defines the rules in a rule group.
-     *
-     * AWS Network Firewall uses a rule group to inspect and control network traffic. You define stateless rule groups to inspect individual packets and you define stateful rule groups to inspect packets in the context of their traffic flow.
-     *
-     * To use a rule group, you include it by reference in an Network Firewall firewall policy, then you use the policy in a firewall. You can reference a rule group from more than one firewall policy, and you can use a firewall policy in more than one firewall.
+     * An object that defines the rule group rules.
      */
     readonly ruleGroup?: outputs.networkfirewall.RuleGroup;
     /**
@@ -47,7 +43,9 @@ export interface GetRuleGroupResult {
      */
     readonly ruleGroupId?: string;
     /**
-     * A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     readonly tags?: outputs.Tag[];
 }

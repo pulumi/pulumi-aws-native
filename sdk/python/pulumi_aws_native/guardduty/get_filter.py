@@ -57,7 +57,7 @@ class GetFilterResult:
     @pulumi.getter(name="findingCriteria")
     def finding_criteria(self) -> Optional['outputs.FilterFindingCriteria']:
         """
-        Represents a map of finding properties that match specified conditions and values when querying findings.
+        Represents the criteria to be used in the filter for querying findings.
         """
         return pulumi.get(self, "finding_criteria")
 

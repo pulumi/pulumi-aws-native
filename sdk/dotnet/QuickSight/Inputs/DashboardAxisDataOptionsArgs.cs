@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardAxisDataOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The options that determine how a date axis is displayed.
+        /// The options for an axis with a date field.
         /// </summary>
         [Input("dateAxisOptions")]
         public Input<Inputs.DashboardDateAxisOptionsArgs>? DateAxisOptions { get; set; }

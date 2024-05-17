@@ -25,7 +25,7 @@ type FargateProfile struct {
 	FargateProfileName pulumi.StringPtrOutput `pulumi:"fargateProfileName"`
 	// The IAM policy arn for pods
 	PodExecutionRoleArn pulumi.StringOutput `pulumi:"podExecutionRoleArn"`
-	// An object representing an AWS Fargate profile selector.
+	// The selectors to match for a `Pod` to use this Fargate profile. Each selector must have an associated Kubernetes `namespace` . Optionally, you can also specify `labels` for a `namespace` . You may specify up to five selectors in a Fargate profile.
 	Selectors FargateProfileSelectorArrayOutput `pulumi:"selectors"`
 	// The IDs of subnets to launch a `Pod` into. A `Pod` running on Fargate isn't assigned a public IP address, so only private subnets (with no direct route to an Internet Gateway) are accepted for this parameter.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
@@ -96,7 +96,7 @@ type fargateProfileArgs struct {
 	FargateProfileName *string `pulumi:"fargateProfileName"`
 	// The IAM policy arn for pods
 	PodExecutionRoleArn string `pulumi:"podExecutionRoleArn"`
-	// An object representing an AWS Fargate profile selector.
+	// The selectors to match for a `Pod` to use this Fargate profile. Each selector must have an associated Kubernetes `namespace` . Optionally, you can also specify `labels` for a `namespace` . You may specify up to five selectors in a Fargate profile.
 	Selectors []FargateProfileSelector `pulumi:"selectors"`
 	// The IDs of subnets to launch a `Pod` into. A `Pod` running on Fargate isn't assigned a public IP address, so only private subnets (with no direct route to an Internet Gateway) are accepted for this parameter.
 	Subnets []string `pulumi:"subnets"`
@@ -112,7 +112,7 @@ type FargateProfileArgs struct {
 	FargateProfileName pulumi.StringPtrInput
 	// The IAM policy arn for pods
 	PodExecutionRoleArn pulumi.StringInput
-	// An object representing an AWS Fargate profile selector.
+	// The selectors to match for a `Pod` to use this Fargate profile. Each selector must have an associated Kubernetes `namespace` . Optionally, you can also specify `labels` for a `namespace` . You may specify up to five selectors in a Fargate profile.
 	Selectors FargateProfileSelectorArrayInput
 	// The IDs of subnets to launch a `Pod` into. A `Pod` running on Fargate isn't assigned a public IP address, so only private subnets (with no direct route to an Internet Gateway) are accepted for this parameter.
 	Subnets pulumi.StringArrayInput
@@ -177,7 +177,7 @@ func (o FargateProfileOutput) PodExecutionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FargateProfile) pulumi.StringOutput { return v.PodExecutionRoleArn }).(pulumi.StringOutput)
 }
 
-// An object representing an AWS Fargate profile selector.
+// The selectors to match for a `Pod` to use this Fargate profile. Each selector must have an associated Kubernetes `namespace` . Optionally, you can also specify `labels` for a `namespace` . You may specify up to five selectors in a Fargate profile.
 func (o FargateProfileOutput) Selectors() FargateProfileSelectorArrayOutput {
 	return o.ApplyT(func(v *FargateProfile) FargateProfileSelectorArrayOutput { return v.Selectors }).(FargateProfileSelectorArrayOutput)
 }

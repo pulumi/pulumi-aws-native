@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
     public sealed class TopicRuleRepublishActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
+        /// MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
         /// </summary>
         [Input("headers")]
         public Input<Inputs.TopicRuleRepublishActionHeadersArgs>? Headers { get; set; }

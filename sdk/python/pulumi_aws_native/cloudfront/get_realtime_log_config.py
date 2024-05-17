@@ -45,7 +45,7 @@ class GetRealtimeLogConfigResult:
     @pulumi.getter(name="endPoints")
     def end_points(self) -> Optional[Sequence['outputs.RealtimeLogConfigEndPoint']]:
         """
-        Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+        Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
         """
         return pulumi.get(self, "end_points")
 

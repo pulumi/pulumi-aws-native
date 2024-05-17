@@ -891,10 +891,10 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskCreate(dict):
                  update_signature: Optional[str] = None,
                  update_version: Optional['outputs.TaskDefinitionLoRaWanGatewayVersion'] = None):
         """
-        :param 'TaskDefinitionLoRaWanGatewayVersion' current_version: LoRaWANGatewayVersion object.
+        :param 'TaskDefinitionLoRaWanGatewayVersion' current_version: The version of the gateways that should receive the update.
         :param int sig_key_crc: The CRC of the signature private key to check.
         :param str update_signature: The signature used to verify the update firmware.
-        :param 'TaskDefinitionLoRaWanGatewayVersion' update_version: LoRaWANGatewayVersion object.
+        :param 'TaskDefinitionLoRaWanGatewayVersion' update_version: The firmware version to update the gateway to.
         """
         if current_version is not None:
             pulumi.set(__self__, "current_version", current_version)
@@ -909,7 +909,7 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskCreate(dict):
     @pulumi.getter(name="currentVersion")
     def current_version(self) -> Optional['outputs.TaskDefinitionLoRaWanGatewayVersion']:
         """
-        LoRaWANGatewayVersion object.
+        The version of the gateways that should receive the update.
         """
         return pulumi.get(self, "current_version")
 
@@ -933,7 +933,7 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskCreate(dict):
     @pulumi.getter(name="updateVersion")
     def update_version(self) -> Optional['outputs.TaskDefinitionLoRaWanGatewayVersion']:
         """
-        LoRaWANGatewayVersion object.
+        The firmware version to update the gateway to.
         """
         return pulumi.get(self, "update_version")
 
@@ -963,8 +963,8 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskEntry(dict):
                  current_version: Optional['outputs.TaskDefinitionLoRaWanGatewayVersion'] = None,
                  update_version: Optional['outputs.TaskDefinitionLoRaWanGatewayVersion'] = None):
         """
-        :param 'TaskDefinitionLoRaWanGatewayVersion' current_version: LoRaWANGatewayVersion object.
-        :param 'TaskDefinitionLoRaWanGatewayVersion' update_version: LoRaWANGatewayVersion object.
+        :param 'TaskDefinitionLoRaWanGatewayVersion' current_version: The version of the gateways that should receive the update.
+        :param 'TaskDefinitionLoRaWanGatewayVersion' update_version: The firmware version to update the gateway to.
         """
         if current_version is not None:
             pulumi.set(__self__, "current_version", current_version)
@@ -975,7 +975,7 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskEntry(dict):
     @pulumi.getter(name="currentVersion")
     def current_version(self) -> Optional['outputs.TaskDefinitionLoRaWanGatewayVersion']:
         """
-        LoRaWANGatewayVersion object.
+        The version of the gateways that should receive the update.
         """
         return pulumi.get(self, "current_version")
 
@@ -983,7 +983,7 @@ class TaskDefinitionLoRaWanUpdateGatewayTaskEntry(dict):
     @pulumi.getter(name="updateVersion")
     def update_version(self) -> Optional['outputs.TaskDefinitionLoRaWanGatewayVersion']:
         """
-        LoRaWANGatewayVersion object.
+        The firmware version to update the gateway to.
         """
         return pulumi.get(self, "update_version")
 
@@ -1016,7 +1016,7 @@ class TaskDefinitionUpdateWirelessGatewayTaskCreate(dict):
                  update_data_role: Optional[str] = None,
                  update_data_source: Optional[str] = None):
         """
-        :param 'TaskDefinitionLoRaWanUpdateGatewayTaskCreate' lo_ra_wan: The signature used to verify the update firmware.
+        :param 'TaskDefinitionLoRaWanUpdateGatewayTaskCreate' lo_ra_wan: The properties that relate to the LoRaWAN wireless gateway.
         :param str update_data_role: The IAM role used to read data from the S3 bucket.
         :param str update_data_source: The link to the S3 bucket.
         """
@@ -1031,7 +1031,7 @@ class TaskDefinitionUpdateWirelessGatewayTaskCreate(dict):
     @pulumi.getter(name="loRaWan")
     def lo_ra_wan(self) -> Optional['outputs.TaskDefinitionLoRaWanUpdateGatewayTaskCreate']:
         """
-        The signature used to verify the update firmware.
+        The properties that relate to the LoRaWAN wireless gateway.
         """
         return pulumi.get(self, "lo_ra_wan")
 
@@ -1242,7 +1242,7 @@ class WirelessDeviceLoRaWanDevice(dict):
                  otaa_v11: Optional['outputs.WirelessDeviceOtaaV11'] = None,
                  service_profile_id: Optional[str] = None):
         """
-        :param 'WirelessDeviceAbpV10x' abp_v10x: ABP device object for LoRaWAN specification v1.0.x
+        :param 'WirelessDeviceAbpV10x' abp_v10x: ABP device object for LoRaWAN specification v1.0.x.
         :param 'WirelessDeviceAbpV11' abp_v11: ABP device object for create APIs for v1.1.
         :param str dev_eui: The DevEUI value.
         :param str device_profile_id: The ID of the device profile for the new wireless device.
@@ -1269,7 +1269,7 @@ class WirelessDeviceLoRaWanDevice(dict):
     @pulumi.getter(name="abpV10x")
     def abp_v10x(self) -> Optional['outputs.WirelessDeviceAbpV10x']:
         """
-        ABP device object for LoRaWAN specification v1.0.x
+        ABP device object for LoRaWAN specification v1.0.x.
         """
         return pulumi.get(self, "abp_v10x")
 

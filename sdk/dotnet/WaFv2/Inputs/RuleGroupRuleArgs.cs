@@ -16,19 +16,19 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     public sealed class RuleGroupRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action that AWS WAF should take on a web request when it matches a rule's statement. Settings at the web ACL level can override the rule action setting.
+        /// The action that AWS WAF should take on a web request when it matches the rule statement. Settings at the web ACL level can override the rule action setting.
         /// </summary>
         [Input("action")]
         public Input<Inputs.RuleGroupRuleActionArgs>? Action { get; set; }
 
         /// <summary>
-        /// Specifies how AWS WAF should handle `CAPTCHA` evaluations. This is available at the web ACL level and in each rule.
+        /// Specifies how AWS WAF should handle `CAPTCHA` evaluations. If you don't specify this, AWS WAF uses the `CAPTCHA` configuration that's defined for the web ACL.
         /// </summary>
         [Input("captchaConfig")]
         public Input<Inputs.RuleGroupCaptchaConfigArgs>? CaptchaConfig { get; set; }
 
         /// <summary>
-        /// Specifies how AWS WAF should handle `Challenge` evaluations. This is available at the web ACL level and in each rule.
+        /// Specifies how AWS WAF should handle `Challenge` evaluations. If you don't specify this, AWS WAF uses the challenge configuration that's defined for the web ACL.
         /// </summary>
         [Input("challengeConfig")]
         public Input<Inputs.RuleGroupChallengeConfigArgs>? ChallengeConfig { get; set; }
@@ -60,13 +60,15 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         }
 
         /// <summary>
-        /// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+        /// The AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `SizeConstraintStatement` .
         /// </summary>
         [Input("statement", required: true)]
         public Input<Inputs.RuleGroupStatementArgs> Statement { get; set; } = null!;
 
         /// <summary>
         /// Defines and enables Amazon CloudWatch metrics and web request sample collection.
+        /// 
+        /// If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name as well. AWS WAF doesn't automatically update the metric name.
         /// </summary>
         [Input("visibilityConfig", required: true)]
         public Input<Inputs.RuleGroupVisibilityConfigArgs> VisibilityConfig { get; set; } = null!;

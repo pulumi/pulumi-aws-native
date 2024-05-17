@@ -71,7 +71,7 @@ class GetIdentityPoolResult:
     @pulumi.getter(name="cognitoIdentityProviders")
     def cognito_identity_providers(self) -> Optional[Sequence['outputs.IdentityPoolCognitoIdentityProvider']]:
         """
-        `CognitoIdentityProvider` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that represents an Amazon Cognito user pool and its client ID.
+        The Amazon Cognito user pools and their client IDs.
         """
         return pulumi.get(self, "cognito_identity_providers")
 

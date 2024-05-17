@@ -29,6 +29,8 @@ namespace Pulumi.AwsNative.M2
 
         /// <summary>
         /// The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+        /// 
+        /// For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
         /// </summary>
         [Output("definition")]
         public Output<Union<Outputs.ApplicationDefinition0Properties, Outputs.ApplicationDefinition1Properties>> Definition { get; private set; } = null!;
@@ -125,6 +127,8 @@ namespace Pulumi.AwsNative.M2
     {
         /// <summary>
         /// The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+        /// 
+        /// For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
         /// </summary>
         [Input("definition", required: true)]
         public InputUnion<Inputs.ApplicationDefinition0PropertiesArgs, Inputs.ApplicationDefinition1PropertiesArgs> Definition { get; set; } = null!;

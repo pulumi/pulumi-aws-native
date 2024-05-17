@@ -68,7 +68,7 @@ class GetTransformerResult:
     @pulumi.getter(name="ediType")
     def edi_type(self) -> Optional['outputs.TransformerEdiTypeProperties']:
         """
-        Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+        Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
         """
         return pulumi.get(self, "edi_type")
 

@@ -1634,7 +1634,7 @@ func (o FargateProfileLabelArrayOutput) Index(i pulumi.IntInput) FargateProfileL
 }
 
 type FargateProfileSelector struct {
-	// A key-value pair.
+	// The Kubernetes labels that the selector should match. A pod must contain all of the labels that are specified in the selector for it to be considered a match.
 	Labels []FargateProfileLabel `pulumi:"labels"`
 	// The Kubernetes `namespace` that the selector should match.
 	Namespace string `pulumi:"namespace"`
@@ -1652,7 +1652,7 @@ type FargateProfileSelectorInput interface {
 }
 
 type FargateProfileSelectorArgs struct {
-	// A key-value pair.
+	// The Kubernetes labels that the selector should match. A pod must contain all of the labels that are specified in the selector for it to be considered a match.
 	Labels FargateProfileLabelArrayInput `pulumi:"labels"`
 	// The Kubernetes `namespace` that the selector should match.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
@@ -1709,7 +1709,7 @@ func (o FargateProfileSelectorOutput) ToFargateProfileSelectorOutputWithContext(
 	return o
 }
 
-// A key-value pair.
+// The Kubernetes labels that the selector should match. A pod must contain all of the labels that are specified in the selector for it to be considered a match.
 func (o FargateProfileSelectorOutput) Labels() FargateProfileLabelArrayOutput {
 	return o.ApplyT(func(v FargateProfileSelector) []FargateProfileLabel { return v.Labels }).(FargateProfileLabelArrayOutput)
 }
@@ -1757,7 +1757,7 @@ type IdentityProviderConfigOidcIdentityProviderConfig struct {
 	GroupsPrefix *string `pulumi:"groupsPrefix"`
 	// The URL of the OpenID identity provider that allows the API server to discover public signing keys for verifying tokens.
 	IssuerUrl string `pulumi:"issuerUrl"`
-	// A key-value pair that describes a required claim in the identity token. If set, each claim is verified to be present in the token with a matching value.
+	// The key-value pairs that describe required claims in the identity token. If set, each claim is verified to be present in the token with a matching value.
 	RequiredClaims []IdentityProviderConfigRequiredClaim `pulumi:"requiredClaims"`
 	// The JSON Web Token (JWT) claim to use as the username. The default is sub, which is expected to be a unique identifier of the end user. You can choose other claims, such as email or name, depending on the OpenID identity provider. Claims other than email are prefixed with the issuer URL to prevent naming clashes with other plug-ins.
 	UsernameClaim *string `pulumi:"usernameClaim"`
@@ -1786,7 +1786,7 @@ type IdentityProviderConfigOidcIdentityProviderConfigArgs struct {
 	GroupsPrefix pulumi.StringPtrInput `pulumi:"groupsPrefix"`
 	// The URL of the OpenID identity provider that allows the API server to discover public signing keys for verifying tokens.
 	IssuerUrl pulumi.StringInput `pulumi:"issuerUrl"`
-	// A key-value pair that describes a required claim in the identity token. If set, each claim is verified to be present in the token with a matching value.
+	// The key-value pairs that describe required claims in the identity token. If set, each claim is verified to be present in the token with a matching value.
 	RequiredClaims IdentityProviderConfigRequiredClaimArrayInput `pulumi:"requiredClaims"`
 	// The JSON Web Token (JWT) claim to use as the username. The default is sub, which is expected to be a unique identifier of the end user. You can choose other claims, such as email or name, depending on the OpenID identity provider. Claims other than email are prefixed with the issuer URL to prevent naming clashes with other plug-ins.
 	UsernameClaim pulumi.StringPtrInput `pulumi:"usernameClaim"`
@@ -1892,7 +1892,7 @@ func (o IdentityProviderConfigOidcIdentityProviderConfigOutput) IssuerUrl() pulu
 	return o.ApplyT(func(v IdentityProviderConfigOidcIdentityProviderConfig) string { return v.IssuerUrl }).(pulumi.StringOutput)
 }
 
-// A key-value pair that describes a required claim in the identity token. If set, each claim is verified to be present in the token with a matching value.
+// The key-value pairs that describe required claims in the identity token. If set, each claim is verified to be present in the token with a matching value.
 func (o IdentityProviderConfigOidcIdentityProviderConfigOutput) RequiredClaims() IdentityProviderConfigRequiredClaimArrayOutput {
 	return o.ApplyT(func(v IdentityProviderConfigOidcIdentityProviderConfig) []IdentityProviderConfigRequiredClaim {
 		return v.RequiredClaims
@@ -1973,7 +1973,7 @@ func (o IdentityProviderConfigOidcIdentityProviderConfigPtrOutput) IssuerUrl() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// A key-value pair that describes a required claim in the identity token. If set, each claim is verified to be present in the token with a matching value.
+// The key-value pairs that describe required claims in the identity token. If set, each claim is verified to be present in the token with a matching value.
 func (o IdentityProviderConfigOidcIdentityProviderConfigPtrOutput) RequiredClaims() IdentityProviderConfigRequiredClaimArrayOutput {
 	return o.ApplyT(func(v *IdentityProviderConfigOidcIdentityProviderConfig) []IdentityProviderConfigRequiredClaim {
 		if v == nil {

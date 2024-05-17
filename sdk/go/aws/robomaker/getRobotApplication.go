@@ -34,7 +34,7 @@ type LookupRobotApplicationResult struct {
 	CurrentRevisionId *string `pulumi:"currentRevisionId"`
 	// The URI of the Docker image for the robot application.
 	Environment *string `pulumi:"environment"`
-	// Information about a robot software suite.
+	// The robot software suite used by the robot application.
 	RobotSoftwareSuite *RobotApplicationRobotSoftwareSuite `pulumi:"robotSoftwareSuite"`
 	// A map that contains tag keys and tag values that are attached to the robot application.
 	Tags map[string]string `pulumi:"tags"`
@@ -91,7 +91,7 @@ func (o LookupRobotApplicationResultOutput) Environment() pulumi.StringPtrOutput
 	return o.ApplyT(func(v LookupRobotApplicationResult) *string { return v.Environment }).(pulumi.StringPtrOutput)
 }
 
-// Information about a robot software suite.
+// The robot software suite used by the robot application.
 func (o LookupRobotApplicationResultOutput) RobotSoftwareSuite() RobotApplicationRobotSoftwareSuitePtrOutput {
 	return o.ApplyT(func(v LookupRobotApplicationResult) *RobotApplicationRobotSoftwareSuite { return v.RobotSoftwareSuite }).(RobotApplicationRobotSoftwareSuitePtrOutput)
 }

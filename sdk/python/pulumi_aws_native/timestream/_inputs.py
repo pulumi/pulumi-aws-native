@@ -302,7 +302,7 @@ class ScheduledQueryErrorReportConfigurationArgs:
                  s3_configuration: pulumi.Input['ScheduledQueryS3ConfigurationArgs']):
         """
         Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
-        :param pulumi.Input['ScheduledQueryS3ConfigurationArgs'] s3_configuration: Details on S3 location for error reports that result from running a query.
+        :param pulumi.Input['ScheduledQueryS3ConfigurationArgs'] s3_configuration: The S3 configuration for the error reports.
         """
         pulumi.set(__self__, "s3_configuration", s3_configuration)
 
@@ -310,7 +310,7 @@ class ScheduledQueryErrorReportConfigurationArgs:
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> pulumi.Input['ScheduledQueryS3ConfigurationArgs']:
         """
-        Details on S3 location for error reports that result from running a query.
+        The S3 configuration for the error reports.
         """
         return pulumi.get(self, "s3_configuration")
 
@@ -473,7 +473,7 @@ class ScheduledQueryNotificationConfigurationArgs:
                  sns_configuration: pulumi.Input['ScheduledQuerySnsConfigurationArgs']):
         """
         Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
-        :param pulumi.Input['ScheduledQuerySnsConfigurationArgs'] sns_configuration: Details on SNS that are required to send the notification.
+        :param pulumi.Input['ScheduledQuerySnsConfigurationArgs'] sns_configuration: Details on SNS configuration.
         """
         pulumi.set(__self__, "sns_configuration", sns_configuration)
 
@@ -481,7 +481,7 @@ class ScheduledQueryNotificationConfigurationArgs:
     @pulumi.getter(name="snsConfiguration")
     def sns_configuration(self) -> pulumi.Input['ScheduledQuerySnsConfigurationArgs']:
         """
-        Details on SNS that are required to send the notification.
+        Details on SNS configuration.
         """
         return pulumi.get(self, "sns_configuration")
 
@@ -597,7 +597,7 @@ class ScheduledQueryTargetConfigurationArgs:
                  timestream_configuration: pulumi.Input['ScheduledQueryTimestreamConfigurationArgs']):
         """
         Configuration of target store where scheduled query results are written to.
-        :param pulumi.Input['ScheduledQueryTimestreamConfigurationArgs'] timestream_configuration: Configuration to write data into Timestream database and table. This configuration allows the user to map the query result select columns into the destination table columns.
+        :param pulumi.Input['ScheduledQueryTimestreamConfigurationArgs'] timestream_configuration: Configuration needed to write data into the Timestream database and table.
         """
         pulumi.set(__self__, "timestream_configuration", timestream_configuration)
 
@@ -605,7 +605,7 @@ class ScheduledQueryTargetConfigurationArgs:
     @pulumi.getter(name="timestreamConfiguration")
     def timestream_configuration(self) -> pulumi.Input['ScheduledQueryTimestreamConfigurationArgs']:
         """
-        Configuration to write data into Timestream database and table. This configuration allows the user to map the query result select columns into the destination table columns.
+        Configuration needed to write data into the Timestream database and table.
         """
         return pulumi.get(self, "timestream_configuration")
 
@@ -632,7 +632,7 @@ class ScheduledQueryTimestreamConfigurationArgs:
         :param pulumi.Input[str] time_column: Column from query result that should be used as the time column in destination table. Column type for this should be TIMESTAMP.
         :param pulumi.Input[str] measure_name_column: Name of the measure column. Also see `MultiMeasureMappings` and `MixedMeasureMappings` for how measure name properties on those relate to `MeasureNameColumn` .
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledQueryMixedMeasureMappingArgs']]] mixed_measure_mappings: Specifies how to map measures to multi-measure records.
-        :param pulumi.Input['ScheduledQueryMultiMeasureMappingsArgs'] multi_measure_mappings: Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
+        :param pulumi.Input['ScheduledQueryMultiMeasureMappingsArgs'] multi_measure_mappings: Multi-measure mappings.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "dimension_mappings", dimension_mappings)
@@ -721,7 +721,7 @@ class ScheduledQueryTimestreamConfigurationArgs:
     @pulumi.getter(name="multiMeasureMappings")
     def multi_measure_mappings(self) -> Optional[pulumi.Input['ScheduledQueryMultiMeasureMappingsArgs']]:
         """
-        Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
+        Multi-measure mappings.
         """
         return pulumi.get(self, "multi_measure_mappings")
 

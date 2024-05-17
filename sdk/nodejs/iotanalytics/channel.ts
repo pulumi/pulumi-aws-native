@@ -113,15 +113,17 @@ export class Channel extends pulumi.CustomResource {
      */
     public readonly channelName!: pulumi.Output<string | undefined>;
     /**
-     * Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+     * Where channel data is stored.
      */
     public readonly channelStorage!: pulumi.Output<outputs.iotanalytics.ChannelStorage | undefined>;
     /**
-     * How long, in days, message data is kept.
+     * How long, in days, message data is kept for the channel.
      */
     public readonly retentionPeriod!: pulumi.Output<outputs.iotanalytics.ChannelRetentionPeriod | undefined>;
     /**
-     * A set of key-value pairs that are used to manage the resource.
+     * Metadata which can be used to manage the channel.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -164,15 +166,17 @@ export interface ChannelArgs {
      */
     channelName?: pulumi.Input<string>;
     /**
-     * Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+     * Where channel data is stored.
      */
     channelStorage?: pulumi.Input<inputs.iotanalytics.ChannelStorageArgs>;
     /**
-     * How long, in days, message data is kept.
+     * How long, in days, message data is kept for the channel.
      */
     retentionPeriod?: pulumi.Input<inputs.iotanalytics.ChannelRetentionPeriodArgs>;
     /**
-     * A set of key-value pairs that are used to manage the resource.
+     * Metadata which can be used to manage the channel.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

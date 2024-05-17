@@ -330,9 +330,17 @@ type Simulation struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Role ARN.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+	// The location of the simulation schema in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+	//
+	// Provide a `SchemaS3Location` to start your simulation from a schema.
+	//
+	// If you provide a `SchemaS3Location` then you can't provide a `SnapshotS3Location` .
 	SchemaS3Location SimulationS3LocationPtrOutput `pulumi:"schemaS3Location"`
-	// A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+	// The location of the snapshot in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+	//
+	// Provide a `SnapshotS3Location` to start your simulation from a snapshot.
+	//
+	// If you provide a `SnapshotS3Location` then you can't provide a `SchemaS3Location` .
 	SnapshotS3Location SimulationS3LocationPtrOutput `pulumi:"snapshotS3Location"`
 }
 
@@ -393,9 +401,17 @@ type simulationArgs struct {
 	Name *string `pulumi:"name"`
 	// Role ARN.
 	RoleArn string `pulumi:"roleArn"`
-	// A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+	// The location of the simulation schema in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+	//
+	// Provide a `SchemaS3Location` to start your simulation from a schema.
+	//
+	// If you provide a `SchemaS3Location` then you can't provide a `SnapshotS3Location` .
 	SchemaS3Location *SimulationS3Location `pulumi:"schemaS3Location"`
-	// A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+	// The location of the snapshot in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+	//
+	// Provide a `SnapshotS3Location` to start your simulation from a snapshot.
+	//
+	// If you provide a `SnapshotS3Location` then you can't provide a `SchemaS3Location` .
 	SnapshotS3Location *SimulationS3Location `pulumi:"snapshotS3Location"`
 }
 
@@ -407,9 +423,17 @@ type SimulationArgs struct {
 	Name pulumi.StringPtrInput
 	// Role ARN.
 	RoleArn pulumi.StringInput
-	// A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+	// The location of the simulation schema in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+	//
+	// Provide a `SchemaS3Location` to start your simulation from a schema.
+	//
+	// If you provide a `SchemaS3Location` then you can't provide a `SnapshotS3Location` .
 	SchemaS3Location SimulationS3LocationPtrInput
-	// A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+	// The location of the snapshot in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+	//
+	// Provide a `SnapshotS3Location` to start your simulation from a snapshot.
+	//
+	// If you provide a `SnapshotS3Location` then you can't provide a `SchemaS3Location` .
 	SnapshotS3Location SimulationS3LocationPtrInput
 }
 
@@ -470,12 +494,20 @@ func (o SimulationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Simulation) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+// The location of the simulation schema in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+//
+// Provide a `SchemaS3Location` to start your simulation from a schema.
+//
+// If you provide a `SchemaS3Location` then you can't provide a `SnapshotS3Location` .
 func (o SimulationOutput) SchemaS3Location() SimulationS3LocationPtrOutput {
 	return o.ApplyT(func(v *Simulation) SimulationS3LocationPtrOutput { return v.SchemaS3Location }).(SimulationS3LocationPtrOutput)
 }
 
-// A location in Amazon Simple Storage Service ( Amazon S3 ) where SimSpace Weaver stores simulation data, such as your app .zip files and schema file. For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+// The location of the snapshot in Amazon Simple Storage Service ( Amazon S3 ). For more information about Amazon S3 , see the [*Amazon Simple Storage Service User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) .
+//
+// Provide a `SnapshotS3Location` to start your simulation from a snapshot.
+//
+// If you provide a `SnapshotS3Location` then you can't provide a `SchemaS3Location` .
 func (o SimulationOutput) SnapshotS3Location() SimulationS3LocationPtrOutput {
 	return o.ApplyT(func(v *Simulation) SimulationS3LocationPtrOutput { return v.SnapshotS3Location }).(SimulationS3LocationPtrOutput)
 }

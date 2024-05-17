@@ -28,8 +28,8 @@ class MembershipArgs:
         The set of arguments for constructing a Membership resource.
         :param pulumi.Input[str] collaboration_identifier: The unique ID for the associated collaboration.
         :param pulumi.Input['MembershipQueryLogStatus'] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
-        :param pulumi.Input['MembershipProtectedQueryResultConfigurationArgs'] default_result_configuration: Contains configurations for protected query results.
-        :param pulumi.Input['MembershipPaymentConfigurationArgs'] payment_configuration: An object representing the payment responsibilities accepted by the collaboration member.
+        :param pulumi.Input['MembershipProtectedQueryResultConfigurationArgs'] default_result_configuration: The default protected query result configuration as specified by the member who can receive results.
+        :param pulumi.Input['MembershipPaymentConfigurationArgs'] payment_configuration: The payment responsibilities accepted by the collaboration member.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
         """
         pulumi.set(__self__, "collaboration_identifier", collaboration_identifier)
@@ -69,7 +69,7 @@ class MembershipArgs:
     @pulumi.getter(name="defaultResultConfiguration")
     def default_result_configuration(self) -> Optional[pulumi.Input['MembershipProtectedQueryResultConfigurationArgs']]:
         """
-        Contains configurations for protected query results.
+        The default protected query result configuration as specified by the member who can receive results.
         """
         return pulumi.get(self, "default_result_configuration")
 
@@ -81,7 +81,7 @@ class MembershipArgs:
     @pulumi.getter(name="paymentConfiguration")
     def payment_configuration(self) -> Optional[pulumi.Input['MembershipPaymentConfigurationArgs']]:
         """
-        An object representing the payment responsibilities accepted by the collaboration member.
+        The payment responsibilities accepted by the collaboration member.
         """
         return pulumi.get(self, "payment_configuration")
 
@@ -119,8 +119,8 @@ class Membership(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] collaboration_identifier: The unique ID for the associated collaboration.
-        :param pulumi.Input[pulumi.InputType['MembershipProtectedQueryResultConfigurationArgs']] default_result_configuration: Contains configurations for protected query results.
-        :param pulumi.Input[pulumi.InputType['MembershipPaymentConfigurationArgs']] payment_configuration: An object representing the payment responsibilities accepted by the collaboration member.
+        :param pulumi.Input[pulumi.InputType['MembershipProtectedQueryResultConfigurationArgs']] default_result_configuration: The default protected query result configuration as specified by the member who can receive results.
+        :param pulumi.Input[pulumi.InputType['MembershipPaymentConfigurationArgs']] payment_configuration: The payment responsibilities accepted by the collaboration member.
         :param pulumi.Input['MembershipQueryLogStatus'] query_log_status: An indicator as to whether query logging has been enabled or disabled for the membership.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms membership.
         """
@@ -252,7 +252,7 @@ class Membership(pulumi.CustomResource):
     @pulumi.getter(name="defaultResultConfiguration")
     def default_result_configuration(self) -> pulumi.Output[Optional['outputs.MembershipProtectedQueryResultConfiguration']]:
         """
-        Contains configurations for protected query results.
+        The default protected query result configuration as specified by the member who can receive results.
         """
         return pulumi.get(self, "default_result_configuration")
 
@@ -270,7 +270,7 @@ class Membership(pulumi.CustomResource):
     @pulumi.getter(name="paymentConfiguration")
     def payment_configuration(self) -> pulumi.Output[Optional['outputs.MembershipPaymentConfiguration']]:
         """
-        An object representing the payment responsibilities accepted by the collaboration member.
+        The payment responsibilities accepted by the collaboration member.
         """
         return pulumi.get(self, "payment_configuration")
 

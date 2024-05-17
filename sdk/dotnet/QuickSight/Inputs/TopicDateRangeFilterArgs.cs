@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TopicDateRangeFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A constant value that is used in a range filter to specify the endpoints of the range.
+        /// The constant used in a date range filter.
         /// </summary>
         [Input("constant")]
         public Input<Inputs.TopicRangeFilterConstantArgs>? Constant { get; set; }

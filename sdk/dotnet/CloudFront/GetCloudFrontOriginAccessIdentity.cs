@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.CloudFront
     public sealed class GetCloudFrontOriginAccessIdentityResult
     {
         /// <summary>
-        /// Origin access identity configuration. Send a `GET` request to the `/ *CloudFront API version* /CloudFront/identity ID/config` resource.
+        /// The current configuration information for the identity.
         /// </summary>
         public readonly Outputs.CloudFrontOriginAccessIdentityConfig? CloudFrontOriginAccessIdentityConfig;
         /// <summary>

@@ -50,7 +50,7 @@ export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
-     * The DNS information.
+     * The DNS information of the service.
      */
     public readonly dnsEntry!: pulumi.Output<outputs.vpclattice.ServiceNetworkServiceAssociationDnsEntry | undefined>;
     /**
@@ -90,7 +90,7 @@ export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<enums.vpclattice.ServiceNetworkServiceAssociationStatus>;
     /**
-     * Specifies a tag for a service association.
+     * The tags for the association.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -147,7 +147,7 @@ export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {
  */
 export interface ServiceNetworkServiceAssociationArgs {
     /**
-     * The DNS information.
+     * The DNS information of the service.
      */
     dnsEntry?: pulumi.Input<inputs.vpclattice.ServiceNetworkServiceAssociationDnsEntryArgs>;
     /**
@@ -159,7 +159,7 @@ export interface ServiceNetworkServiceAssociationArgs {
      */
     serviceNetworkIdentifier?: pulumi.Input<string>;
     /**
-     * Specifies a tag for a service association.
+     * The tags for the association.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

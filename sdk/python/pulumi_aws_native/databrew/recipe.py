@@ -24,7 +24,7 @@ class RecipeArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Recipe resource.
-        :param pulumi.Input[Sequence[pulumi.Input['RecipeStepArgs']]] steps: Represents a single step from a DataBrew recipe to be performed.
+        :param pulumi.Input[Sequence[pulumi.Input['RecipeStepArgs']]] steps: A list of steps that are defined by the recipe.
         :param pulumi.Input[str] description: Description of the recipe
         :param pulumi.Input[str] name: Recipe name
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: Metadata tags that have been applied to the recipe.
@@ -41,7 +41,7 @@ class RecipeArgs:
     @pulumi.getter
     def steps(self) -> pulumi.Input[Sequence[pulumi.Input['RecipeStepArgs']]]:
         """
-        Represents a single step from a DataBrew recipe to be performed.
+        A list of steps that are defined by the recipe.
         """
         return pulumi.get(self, "steps")
 
@@ -135,7 +135,7 @@ class Recipe(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the recipe
         :param pulumi.Input[str] name: Recipe name
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecipeStepArgs']]]] steps: Represents a single step from a DataBrew recipe to be performed.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RecipeStepArgs']]]] steps: A list of steps that are defined by the recipe.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: Metadata tags that have been applied to the recipe.
         """
         ...
@@ -263,7 +263,7 @@ class Recipe(pulumi.CustomResource):
     @pulumi.getter
     def steps(self) -> pulumi.Output[Sequence['outputs.RecipeStep']]:
         """
-        Represents a single step from a DataBrew recipe to be performed.
+        A list of steps that are defined by the recipe.
         """
         return pulumi.get(self, "steps")
 

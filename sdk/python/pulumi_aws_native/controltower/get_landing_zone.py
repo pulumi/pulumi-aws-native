@@ -100,7 +100,7 @@ class GetLandingZoneResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        Tags applied to the landing zone.
+        Tags to be applied to the landing zone.
         """
         return pulumi.get(self, "tags")
 

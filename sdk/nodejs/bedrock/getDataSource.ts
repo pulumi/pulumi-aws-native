@@ -40,7 +40,7 @@ export interface GetDataSourceResult {
      */
     readonly dataDeletionPolicy?: enums.bedrock.DataSourceDataDeletionPolicy;
     /**
-     * Contains details about how a data source is stored.
+     * Contains details about how the data source is stored.
      */
     readonly dataSourceConfiguration?: outputs.bedrock.DataSourceConfiguration;
     /**
@@ -67,7 +67,7 @@ export interface GetDataSourceResult {
      */
     readonly name?: string;
     /**
-     * Contains the configuration for server-side encryption.
+     * Contains details about the configuration of the server-side encryption.
      */
     readonly serverSideEncryptionConfiguration?: outputs.bedrock.DataSourceServerSideEncryptionConfiguration;
     /**

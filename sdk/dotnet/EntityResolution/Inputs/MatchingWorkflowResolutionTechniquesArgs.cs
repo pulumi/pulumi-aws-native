@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
     public sealed class MatchingWorkflowResolutionTechniquesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An object containing the `providerServiceARN` , `intermediateSourceConfiguration` , and `providerConfiguration` .
+        /// The properties of the provider service.
         /// </summary>
         [Input("providerProperties")]
         public Input<Inputs.MatchingWorkflowProviderPropertiesArgs>? ProviderProperties { get; set; }

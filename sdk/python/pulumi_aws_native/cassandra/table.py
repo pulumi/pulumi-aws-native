@@ -37,11 +37,23 @@ class TableArgs:
         :param pulumi.Input[str] keyspace_name: Name for Cassandra keyspace
         :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] partition_key_columns: Partition key columns of the table
         :param pulumi.Input['TableAutoScalingSpecificationArgs'] auto_scaling_specifications: The optional auto scaling capacity settings for a table in provisioned capacity mode.
-        :param pulumi.Input['TableBillingModeArgs'] billing_mode: Determines the billing mode for the table - on-demand or provisioned.
+        :param pulumi.Input['TableBillingModeArgs'] billing_mode: The billing mode for the table, which determines how you'll be charged for reads and writes:
+               
+               - *On-demand mode* (default) - You pay based on the actual reads and writes your application performs.
+               - *Provisioned mode* - Lets you specify the number of reads and writes per second that you need for your application.
+               
+               If you don't specify a value for this property, then the table will use on-demand mode.
         :param pulumi.Input[bool] client_side_timestamps_enabled: Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
         :param pulumi.Input[Sequence[pulumi.Input['TableClusteringKeyColumnArgs']]] clustering_key_columns: Clustering key columns of the table
         :param pulumi.Input[int] default_time_to_live: Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
-        :param pulumi.Input['TableEncryptionSpecificationArgs'] encryption_specification: Specifies the encryption at rest option selected for the table.
+        :param pulumi.Input['TableEncryptionSpecificationArgs'] encryption_specification: The encryption at rest options for the table.
+               
+               - *AWS owned key* (default) - The key is owned by Amazon Keyspaces .
+               - *Customer managed key* - The key is stored in your account and is created, owned, and managed by you.
+               
+               > If you choose encryption with a customer managed key, you must specify a valid customer managed KMS key with permissions granted to Amazon Keyspaces.
+               
+               For more information, see [Encryption at rest in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide* .
         :param pulumi.Input[bool] point_in_time_recovery_enabled: Indicates whether point in time recovery is enabled (true) or disabled (false) on the table
         :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] regular_columns: Non-key columns of the table
         :param pulumi.Input[Sequence[pulumi.Input['TableReplicaSpecificationArgs']]] replica_specifications: The AWS Region specific settings of a multi-Region table.
@@ -119,7 +131,12 @@ class TableArgs:
     @pulumi.getter(name="billingMode")
     def billing_mode(self) -> Optional[pulumi.Input['TableBillingModeArgs']]:
         """
-        Determines the billing mode for the table - on-demand or provisioned.
+        The billing mode for the table, which determines how you'll be charged for reads and writes:
+
+        - *On-demand mode* (default) - You pay based on the actual reads and writes your application performs.
+        - *Provisioned mode* - Lets you specify the number of reads and writes per second that you need for your application.
+
+        If you don't specify a value for this property, then the table will use on-demand mode.
         """
         return pulumi.get(self, "billing_mode")
 
@@ -167,7 +184,14 @@ class TableArgs:
     @pulumi.getter(name="encryptionSpecification")
     def encryption_specification(self) -> Optional[pulumi.Input['TableEncryptionSpecificationArgs']]:
         """
-        Specifies the encryption at rest option selected for the table.
+        The encryption at rest options for the table.
+
+        - *AWS owned key* (default) - The key is owned by Amazon Keyspaces .
+        - *Customer managed key* - The key is stored in your account and is created, owned, and managed by you.
+
+        > If you choose encryption with a customer managed key, you must specify a valid customer managed KMS key with permissions granted to Amazon Keyspaces.
+
+        For more information, see [Encryption at rest in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide* .
         """
         return pulumi.get(self, "encryption_specification")
 
@@ -733,11 +757,23 @@ class Table(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['TableAutoScalingSpecificationArgs']] auto_scaling_specifications: The optional auto scaling capacity settings for a table in provisioned capacity mode.
-        :param pulumi.Input[pulumi.InputType['TableBillingModeArgs']] billing_mode: Determines the billing mode for the table - on-demand or provisioned.
+        :param pulumi.Input[pulumi.InputType['TableBillingModeArgs']] billing_mode: The billing mode for the table, which determines how you'll be charged for reads and writes:
+               
+               - *On-demand mode* (default) - You pay based on the actual reads and writes your application performs.
+               - *Provisioned mode* - Lets you specify the number of reads and writes per second that you need for your application.
+               
+               If you don't specify a value for this property, then the table will use on-demand mode.
         :param pulumi.Input[bool] client_side_timestamps_enabled: Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableClusteringKeyColumnArgs']]]] clustering_key_columns: Clustering key columns of the table
         :param pulumi.Input[int] default_time_to_live: Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
-        :param pulumi.Input[pulumi.InputType['TableEncryptionSpecificationArgs']] encryption_specification: Specifies the encryption at rest option selected for the table.
+        :param pulumi.Input[pulumi.InputType['TableEncryptionSpecificationArgs']] encryption_specification: The encryption at rest options for the table.
+               
+               - *AWS owned key* (default) - The key is owned by Amazon Keyspaces .
+               - *Customer managed key* - The key is stored in your account and is created, owned, and managed by you.
+               
+               > If you choose encryption with a customer managed key, you must specify a valid customer managed KMS key with permissions granted to Amazon Keyspaces.
+               
+               For more information, see [Encryption at rest in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide* .
         :param pulumi.Input[str] keyspace_name: Name for Cassandra keyspace
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableColumnArgs']]]] partition_key_columns: Partition key columns of the table
         :param pulumi.Input[bool] point_in_time_recovery_enabled: Indicates whether point in time recovery is enabled (true) or disabled (false) on the table
@@ -1332,7 +1368,12 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="billingMode")
     def billing_mode(self) -> pulumi.Output[Optional['outputs.TableBillingMode']]:
         """
-        Determines the billing mode for the table - on-demand or provisioned.
+        The billing mode for the table, which determines how you'll be charged for reads and writes:
+
+        - *On-demand mode* (default) - You pay based on the actual reads and writes your application performs.
+        - *Provisioned mode* - Lets you specify the number of reads and writes per second that you need for your application.
+
+        If you don't specify a value for this property, then the table will use on-demand mode.
         """
         return pulumi.get(self, "billing_mode")
 
@@ -1364,7 +1405,14 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="encryptionSpecification")
     def encryption_specification(self) -> pulumi.Output[Optional['outputs.TableEncryptionSpecification']]:
         """
-        Specifies the encryption at rest option selected for the table.
+        The encryption at rest options for the table.
+
+        - *AWS owned key* (default) - The key is owned by Amazon Keyspaces .
+        - *Customer managed key* - The key is stored in your account and is created, owned, and managed by you.
+
+        > If you choose encryption with a customer managed key, you must specify a valid customer managed KMS key with permissions granted to Amazon Keyspaces.
+
+        For more information, see [Encryption at rest in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide* .
         """
         return pulumi.get(self, "encryption_specification")
 

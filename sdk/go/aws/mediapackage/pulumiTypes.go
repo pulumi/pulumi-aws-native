@@ -703,7 +703,7 @@ type OriginEndpointCmafEncryption struct {
 	EncryptionMethod *OriginEndpointCmafEncryptionEncryptionMethod `pulumi:"encryptionMethod"`
 	// Time (in seconds) between each encryption key rotation.
 	KeyRotationIntervalSeconds *int `pulumi:"keyRotationIntervalSeconds"`
-	// Key provider settings for DRM.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider OriginEndpointSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
@@ -726,7 +726,7 @@ type OriginEndpointCmafEncryptionArgs struct {
 	EncryptionMethod OriginEndpointCmafEncryptionEncryptionMethodPtrInput `pulumi:"encryptionMethod"`
 	// Time (in seconds) between each encryption key rotation.
 	KeyRotationIntervalSeconds pulumi.IntPtrInput `pulumi:"keyRotationIntervalSeconds"`
-	// Key provider settings for DRM.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider OriginEndpointSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
@@ -825,7 +825,7 @@ func (o OriginEndpointCmafEncryptionOutput) KeyRotationIntervalSeconds() pulumi.
 	return o.ApplyT(func(v OriginEndpointCmafEncryption) *int { return v.KeyRotationIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Key provider settings for DRM.
+// Parameters for the SPEKE key provider.
 func (o OriginEndpointCmafEncryptionOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderOutput {
 	return o.ApplyT(func(v OriginEndpointCmafEncryption) OriginEndpointSpekeKeyProvider { return v.SpekeKeyProvider }).(OriginEndpointSpekeKeyProviderOutput)
 }
@@ -884,7 +884,7 @@ func (o OriginEndpointCmafEncryptionPtrOutput) KeyRotationIntervalSeconds() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Key provider settings for DRM.
+// Parameters for the SPEKE key provider.
 func (o OriginEndpointCmafEncryptionPtrOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointCmafEncryption) *OriginEndpointSpekeKeyProvider {
 		if v == nil {
@@ -896,7 +896,7 @@ func (o OriginEndpointCmafEncryptionPtrOutput) SpekeKeyProvider() OriginEndpoint
 
 // A Common Media Application Format (CMAF) packaging configuration.
 type OriginEndpointCmafPackage struct {
-	// Holds encryption information so that access to the content can be controlled by a DRM solution.
+	// Parameters for encrypting content.
 	Encryption *OriginEndpointCmafEncryption `pulumi:"encryption"`
 	// A list of HLS manifest configurations
 	HlsManifests []OriginEndpointHlsManifest `pulumi:"hlsManifests"`
@@ -921,7 +921,7 @@ type OriginEndpointCmafPackageInput interface {
 
 // A Common Media Application Format (CMAF) packaging configuration.
 type OriginEndpointCmafPackageArgs struct {
-	// Holds encryption information so that access to the content can be controlled by a DRM solution.
+	// Parameters for encrypting content.
 	Encryption OriginEndpointCmafEncryptionPtrInput `pulumi:"encryption"`
 	// A list of HLS manifest configurations
 	HlsManifests OriginEndpointHlsManifestArrayInput `pulumi:"hlsManifests"`
@@ -1011,7 +1011,7 @@ func (o OriginEndpointCmafPackageOutput) ToOriginEndpointCmafPackagePtrOutputWit
 	}).(OriginEndpointCmafPackagePtrOutput)
 }
 
-// Holds encryption information so that access to the content can be controlled by a DRM solution.
+// Parameters for encrypting content.
 func (o OriginEndpointCmafPackageOutput) Encryption() OriginEndpointCmafEncryptionPtrOutput {
 	return o.ApplyT(func(v OriginEndpointCmafPackage) *OriginEndpointCmafEncryption { return v.Encryption }).(OriginEndpointCmafEncryptionPtrOutput)
 }
@@ -1060,7 +1060,7 @@ func (o OriginEndpointCmafPackagePtrOutput) Elem() OriginEndpointCmafPackageOutp
 	}).(OriginEndpointCmafPackageOutput)
 }
 
-// Holds encryption information so that access to the content can be controlled by a DRM solution.
+// Parameters for encrypting content.
 func (o OriginEndpointCmafPackagePtrOutput) Encryption() OriginEndpointCmafEncryptionPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointCmafPackage) *OriginEndpointCmafEncryption {
 		if v == nil {
@@ -1114,7 +1114,7 @@ func (o OriginEndpointCmafPackagePtrOutput) StreamSelection() OriginEndpointStre
 type OriginEndpointDashEncryption struct {
 	// Time (in seconds) between each encryption key rotation.
 	KeyRotationIntervalSeconds *int `pulumi:"keyRotationIntervalSeconds"`
-	// Key provider settings for DRM.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider OriginEndpointSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
@@ -1133,7 +1133,7 @@ type OriginEndpointDashEncryptionInput interface {
 type OriginEndpointDashEncryptionArgs struct {
 	// Time (in seconds) between each encryption key rotation.
 	KeyRotationIntervalSeconds pulumi.IntPtrInput `pulumi:"keyRotationIntervalSeconds"`
-	// Key provider settings for DRM.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider OriginEndpointSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
@@ -1220,7 +1220,7 @@ func (o OriginEndpointDashEncryptionOutput) KeyRotationIntervalSeconds() pulumi.
 	return o.ApplyT(func(v OriginEndpointDashEncryption) *int { return v.KeyRotationIntervalSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Key provider settings for DRM.
+// Parameters for the SPEKE key provider.
 func (o OriginEndpointDashEncryptionOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderOutput {
 	return o.ApplyT(func(v OriginEndpointDashEncryption) OriginEndpointSpekeKeyProvider { return v.SpekeKeyProvider }).(OriginEndpointSpekeKeyProviderOutput)
 }
@@ -1259,7 +1259,7 @@ func (o OriginEndpointDashEncryptionPtrOutput) KeyRotationIntervalSeconds() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Key provider settings for DRM.
+// Parameters for the SPEKE key provider.
 func (o OriginEndpointDashEncryptionPtrOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashEncryption) *OriginEndpointSpekeKeyProvider {
 		if v == nil {
@@ -1275,7 +1275,7 @@ type OriginEndpointDashPackage struct {
 	AdTriggers []OriginEndpointDashPackageAdTriggersItem `pulumi:"adTriggers"`
 	// The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
 	AdsOnDeliveryRestrictions *OriginEndpointAdsOnDeliveryRestrictions `pulumi:"adsOnDeliveryRestrictions"`
-	// Holds encryption information so that access to the content can be controlled by a DRM solution.
+	// Parameters for encrypting content.
 	Encryption *OriginEndpointDashEncryption `pulumi:"encryption"`
 	// When enabled, an I-Frame only stream will be included in the output.
 	IncludeIframeOnlyStream *bool `pulumi:"includeIframeOnlyStream"`
@@ -1322,7 +1322,7 @@ type OriginEndpointDashPackageArgs struct {
 	AdTriggers OriginEndpointDashPackageAdTriggersItemArrayInput `pulumi:"adTriggers"`
 	// The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
 	AdsOnDeliveryRestrictions OriginEndpointAdsOnDeliveryRestrictionsPtrInput `pulumi:"adsOnDeliveryRestrictions"`
-	// Holds encryption information so that access to the content can be controlled by a DRM solution.
+	// Parameters for encrypting content.
 	Encryption OriginEndpointDashEncryptionPtrInput `pulumi:"encryption"`
 	// When enabled, an I-Frame only stream will be included in the output.
 	IncludeIframeOnlyStream pulumi.BoolPtrInput `pulumi:"includeIframeOnlyStream"`
@@ -1442,7 +1442,7 @@ func (o OriginEndpointDashPackageOutput) AdsOnDeliveryRestrictions() OriginEndpo
 	}).(OriginEndpointAdsOnDeliveryRestrictionsPtrOutput)
 }
 
-// Holds encryption information so that access to the content can be controlled by a DRM solution.
+// Parameters for encrypting content.
 func (o OriginEndpointDashPackageOutput) Encryption() OriginEndpointDashEncryptionPtrOutput {
 	return o.ApplyT(func(v OriginEndpointDashPackage) *OriginEndpointDashEncryption { return v.Encryption }).(OriginEndpointDashEncryptionPtrOutput)
 }
@@ -1560,7 +1560,7 @@ func (o OriginEndpointDashPackagePtrOutput) AdsOnDeliveryRestrictions() OriginEn
 	}).(OriginEndpointAdsOnDeliveryRestrictionsPtrOutput)
 }
 
-// Holds encryption information so that access to the content can be controlled by a DRM solution.
+// Parameters for encrypting content.
 func (o OriginEndpointDashPackagePtrOutput) Encryption() OriginEndpointDashEncryptionPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointDashPackage) *OriginEndpointDashEncryption {
 		if v == nil {
@@ -1873,7 +1873,7 @@ type OriginEndpointHlsEncryption struct {
 	KeyRotationIntervalSeconds *int `pulumi:"keyRotationIntervalSeconds"`
 	// When enabled, the EXT-X-KEY tag will be repeated in output manifests.
 	RepeatExtXKey *bool `pulumi:"repeatExtXKey"`
-	// Key provider settings for DRM.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider OriginEndpointSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
@@ -1898,7 +1898,7 @@ type OriginEndpointHlsEncryptionArgs struct {
 	KeyRotationIntervalSeconds pulumi.IntPtrInput `pulumi:"keyRotationIntervalSeconds"`
 	// When enabled, the EXT-X-KEY tag will be repeated in output manifests.
 	RepeatExtXKey pulumi.BoolPtrInput `pulumi:"repeatExtXKey"`
-	// Key provider settings for DRM.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider OriginEndpointSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
@@ -2002,7 +2002,7 @@ func (o OriginEndpointHlsEncryptionOutput) RepeatExtXKey() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v OriginEndpointHlsEncryption) *bool { return v.RepeatExtXKey }).(pulumi.BoolPtrOutput)
 }
 
-// Key provider settings for DRM.
+// Parameters for the SPEKE key provider.
 func (o OriginEndpointHlsEncryptionOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderOutput {
 	return o.ApplyT(func(v OriginEndpointHlsEncryption) OriginEndpointSpekeKeyProvider { return v.SpekeKeyProvider }).(OriginEndpointSpekeKeyProviderOutput)
 }
@@ -2071,7 +2071,7 @@ func (o OriginEndpointHlsEncryptionPtrOutput) RepeatExtXKey() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Key provider settings for DRM.
+// Parameters for the SPEKE key provider.
 func (o OriginEndpointHlsEncryptionPtrOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsEncryption) *OriginEndpointSpekeKeyProvider {
 		if v == nil {
@@ -2272,7 +2272,7 @@ type OriginEndpointHlsPackage struct {
 	AdTriggers []OriginEndpointHlsPackageAdTriggersItem `pulumi:"adTriggers"`
 	// The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
 	AdsOnDeliveryRestrictions *OriginEndpointAdsOnDeliveryRestrictions `pulumi:"adsOnDeliveryRestrictions"`
-	// Holds encryption information so that access to the content can be controlled by a DRM solution.
+	// Parameters for encrypting content.
 	Encryption *OriginEndpointHlsEncryption `pulumi:"encryption"`
 	// When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
 	IncludeDvbSubtitles *bool `pulumi:"includeDvbSubtitles"`
@@ -2311,7 +2311,7 @@ type OriginEndpointHlsPackageArgs struct {
 	AdTriggers OriginEndpointHlsPackageAdTriggersItemArrayInput `pulumi:"adTriggers"`
 	// The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
 	AdsOnDeliveryRestrictions OriginEndpointAdsOnDeliveryRestrictionsPtrInput `pulumi:"adsOnDeliveryRestrictions"`
-	// Holds encryption information so that access to the content can be controlled by a DRM solution.
+	// Parameters for encrypting content.
 	Encryption OriginEndpointHlsEncryptionPtrInput `pulumi:"encryption"`
 	// When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
 	IncludeDvbSubtitles pulumi.BoolPtrInput `pulumi:"includeDvbSubtitles"`
@@ -2426,7 +2426,7 @@ func (o OriginEndpointHlsPackageOutput) AdsOnDeliveryRestrictions() OriginEndpoi
 	}).(OriginEndpointAdsOnDeliveryRestrictionsPtrOutput)
 }
 
-// Holds encryption information so that access to the content can be controlled by a DRM solution.
+// Parameters for encrypting content.
 func (o OriginEndpointHlsPackageOutput) Encryption() OriginEndpointHlsEncryptionPtrOutput {
 	return o.ApplyT(func(v OriginEndpointHlsPackage) *OriginEndpointHlsEncryption { return v.Encryption }).(OriginEndpointHlsEncryptionPtrOutput)
 }
@@ -2525,7 +2525,7 @@ func (o OriginEndpointHlsPackagePtrOutput) AdsOnDeliveryRestrictions() OriginEnd
 	}).(OriginEndpointAdsOnDeliveryRestrictionsPtrOutput)
 }
 
-// Holds encryption information so that access to the content can be controlled by a DRM solution.
+// Parameters for encrypting content.
 func (o OriginEndpointHlsPackagePtrOutput) Encryption() OriginEndpointHlsEncryptionPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointHlsPackage) *OriginEndpointHlsEncryption {
 		if v == nil {
@@ -2617,7 +2617,7 @@ func (o OriginEndpointHlsPackagePtrOutput) UseAudioRenditionGroup() pulumi.BoolP
 
 // A Microsoft Smooth Streaming (MSS) encryption configuration.
 type OriginEndpointMssEncryption struct {
-	// Key provider settings for DRM.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider OriginEndpointSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
@@ -2634,7 +2634,7 @@ type OriginEndpointMssEncryptionInput interface {
 
 // A Microsoft Smooth Streaming (MSS) encryption configuration.
 type OriginEndpointMssEncryptionArgs struct {
-	// Key provider settings for DRM.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider OriginEndpointSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
@@ -2716,7 +2716,7 @@ func (o OriginEndpointMssEncryptionOutput) ToOriginEndpointMssEncryptionPtrOutpu
 	}).(OriginEndpointMssEncryptionPtrOutput)
 }
 
-// Key provider settings for DRM.
+// Parameters for the SPEKE key provider.
 func (o OriginEndpointMssEncryptionOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderOutput {
 	return o.ApplyT(func(v OriginEndpointMssEncryption) OriginEndpointSpekeKeyProvider { return v.SpekeKeyProvider }).(OriginEndpointSpekeKeyProviderOutput)
 }
@@ -2745,7 +2745,7 @@ func (o OriginEndpointMssEncryptionPtrOutput) Elem() OriginEndpointMssEncryption
 	}).(OriginEndpointMssEncryptionOutput)
 }
 
-// Key provider settings for DRM.
+// Parameters for the SPEKE key provider.
 func (o OriginEndpointMssEncryptionPtrOutput) SpekeKeyProvider() OriginEndpointSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointMssEncryption) *OriginEndpointSpekeKeyProvider {
 		if v == nil {
@@ -2757,7 +2757,7 @@ func (o OriginEndpointMssEncryptionPtrOutput) SpekeKeyProvider() OriginEndpointS
 
 // A Microsoft Smooth Streaming (MSS) packaging configuration.
 type OriginEndpointMssPackage struct {
-	// Holds encryption information so that access to the content can be controlled by a DRM solution.
+	// Parameters for encrypting content.
 	Encryption *OriginEndpointMssEncryption `pulumi:"encryption"`
 	// The time window (in seconds) contained in each manifest.
 	ManifestWindowSeconds *int `pulumi:"manifestWindowSeconds"`
@@ -2780,7 +2780,7 @@ type OriginEndpointMssPackageInput interface {
 
 // A Microsoft Smooth Streaming (MSS) packaging configuration.
 type OriginEndpointMssPackageArgs struct {
-	// Holds encryption information so that access to the content can be controlled by a DRM solution.
+	// Parameters for encrypting content.
 	Encryption OriginEndpointMssEncryptionPtrInput `pulumi:"encryption"`
 	// The time window (in seconds) contained in each manifest.
 	ManifestWindowSeconds pulumi.IntPtrInput `pulumi:"manifestWindowSeconds"`
@@ -2868,7 +2868,7 @@ func (o OriginEndpointMssPackageOutput) ToOriginEndpointMssPackagePtrOutputWithC
 	}).(OriginEndpointMssPackagePtrOutput)
 }
 
-// Holds encryption information so that access to the content can be controlled by a DRM solution.
+// Parameters for encrypting content.
 func (o OriginEndpointMssPackageOutput) Encryption() OriginEndpointMssEncryptionPtrOutput {
 	return o.ApplyT(func(v OriginEndpointMssPackage) *OriginEndpointMssEncryption { return v.Encryption }).(OriginEndpointMssEncryptionPtrOutput)
 }
@@ -2912,7 +2912,7 @@ func (o OriginEndpointMssPackagePtrOutput) Elem() OriginEndpointMssPackageOutput
 	}).(OriginEndpointMssPackageOutput)
 }
 
-// Holds encryption information so that access to the content can be controlled by a DRM solution.
+// Parameters for encrypting content.
 func (o OriginEndpointMssPackagePtrOutput) Encryption() OriginEndpointMssEncryptionPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointMssPackage) *OriginEndpointMssEncryption {
 		if v == nil {
@@ -2956,13 +2956,7 @@ func (o OriginEndpointMssPackagePtrOutput) StreamSelection() OriginEndpointStrea
 type OriginEndpointSpekeKeyProvider struct {
 	// An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service.
 	CertificateArn *string `pulumi:"certificateArn"`
-	// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines the content keys used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use. For more information about these presets, see [SPEKE Version 2.0 Presets](https://docs.aws.amazon.com/mediapackage/latest/ug/drm-content-speke-v2-presets.html) .
-	//
-	// Note the following considerations when using `encryptionContractConfiguration` :
-	//
-	// - You can use `encryptionContractConfiguration` for DASH endpoints that use SPEKE Version 2.0. SPEKE Version 2.0 relies on the CPIX Version 2.3 specification.
-	// - You cannot combine an `UNENCRYPTED` preset with `UNENCRYPTED` or `SHARED` presets across `presetSpeke20Audio` and `presetSpeke20Video` .
-	// - When you use a `SHARED` preset, you must use it for both `presetSpeke20Audio` and `presetSpeke20Video` .
+	// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.
 	EncryptionContractConfiguration *OriginEndpointEncryptionContractConfiguration `pulumi:"encryptionContractConfiguration"`
 	// The resource ID to include in key requests.
 	ResourceId string `pulumi:"resourceId"`
@@ -2989,13 +2983,7 @@ type OriginEndpointSpekeKeyProviderInput interface {
 type OriginEndpointSpekeKeyProviderArgs struct {
 	// An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service.
 	CertificateArn pulumi.StringPtrInput `pulumi:"certificateArn"`
-	// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines the content keys used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use. For more information about these presets, see [SPEKE Version 2.0 Presets](https://docs.aws.amazon.com/mediapackage/latest/ug/drm-content-speke-v2-presets.html) .
-	//
-	// Note the following considerations when using `encryptionContractConfiguration` :
-	//
-	// - You can use `encryptionContractConfiguration` for DASH endpoints that use SPEKE Version 2.0. SPEKE Version 2.0 relies on the CPIX Version 2.3 specification.
-	// - You cannot combine an `UNENCRYPTED` preset with `UNENCRYPTED` or `SHARED` presets across `presetSpeke20Audio` and `presetSpeke20Video` .
-	// - When you use a `SHARED` preset, you must use it for both `presetSpeke20Audio` and `presetSpeke20Video` .
+	// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.
 	EncryptionContractConfiguration OriginEndpointEncryptionContractConfigurationPtrInput `pulumi:"encryptionContractConfiguration"`
 	// The resource ID to include in key requests.
 	ResourceId pulumi.StringInput `pulumi:"resourceId"`
@@ -3090,13 +3078,7 @@ func (o OriginEndpointSpekeKeyProviderOutput) CertificateArn() pulumi.StringPtrO
 	return o.ApplyT(func(v OriginEndpointSpekeKeyProvider) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
-// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines the content keys used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use. For more information about these presets, see [SPEKE Version 2.0 Presets](https://docs.aws.amazon.com/mediapackage/latest/ug/drm-content-speke-v2-presets.html) .
-//
-// Note the following considerations when using `encryptionContractConfiguration` :
-//
-// - You can use `encryptionContractConfiguration` for DASH endpoints that use SPEKE Version 2.0. SPEKE Version 2.0 relies on the CPIX Version 2.3 specification.
-// - You cannot combine an `UNENCRYPTED` preset with `UNENCRYPTED` or `SHARED` presets across `presetSpeke20Audio` and `presetSpeke20Video` .
-// - When you use a `SHARED` preset, you must use it for both `presetSpeke20Audio` and `presetSpeke20Video` .
+// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.
 func (o OriginEndpointSpekeKeyProviderOutput) EncryptionContractConfiguration() OriginEndpointEncryptionContractConfigurationPtrOutput {
 	return o.ApplyT(func(v OriginEndpointSpekeKeyProvider) *OriginEndpointEncryptionContractConfiguration {
 		return v.EncryptionContractConfiguration
@@ -3157,13 +3139,7 @@ func (o OriginEndpointSpekeKeyProviderPtrOutput) CertificateArn() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines the content keys used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use. For more information about these presets, see [SPEKE Version 2.0 Presets](https://docs.aws.amazon.com/mediapackage/latest/ug/drm-content-speke-v2-presets.html) .
-//
-// Note the following considerations when using `encryptionContractConfiguration` :
-//
-// - You can use `encryptionContractConfiguration` for DASH endpoints that use SPEKE Version 2.0. SPEKE Version 2.0 relies on the CPIX Version 2.3 specification.
-// - You cannot combine an `UNENCRYPTED` preset with `UNENCRYPTED` or `SHARED` presets across `presetSpeke20Audio` and `presetSpeke20Video` .
-// - When you use a `SHARED` preset, you must use it for both `presetSpeke20Audio` and `presetSpeke20Video` .
+// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.
 func (o OriginEndpointSpekeKeyProviderPtrOutput) EncryptionContractConfiguration() OriginEndpointEncryptionContractConfigurationPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointSpekeKeyProvider) *OriginEndpointEncryptionContractConfiguration {
 		if v == nil {
@@ -3398,7 +3374,7 @@ type OriginEndpointTag struct {
 
 // A CMAF encryption configuration.
 type PackagingConfigurationCmafEncryption struct {
-	// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider PackagingConfigurationSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
@@ -3415,7 +3391,7 @@ type PackagingConfigurationCmafEncryptionInput interface {
 
 // A CMAF encryption configuration.
 type PackagingConfigurationCmafEncryptionArgs struct {
-	// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider PackagingConfigurationSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
@@ -3497,7 +3473,7 @@ func (o PackagingConfigurationCmafEncryptionOutput) ToPackagingConfigurationCmaf
 	}).(PackagingConfigurationCmafEncryptionPtrOutput)
 }
 
-// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+// Parameters for the SPEKE key provider.
 func (o PackagingConfigurationCmafEncryptionOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderOutput {
 	return o.ApplyT(func(v PackagingConfigurationCmafEncryption) PackagingConfigurationSpekeKeyProvider {
 		return v.SpekeKeyProvider
@@ -3528,7 +3504,7 @@ func (o PackagingConfigurationCmafEncryptionPtrOutput) Elem() PackagingConfigura
 	}).(PackagingConfigurationCmafEncryptionOutput)
 }
 
-// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+// Parameters for the SPEKE key provider.
 func (o PackagingConfigurationCmafEncryptionPtrOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationCmafEncryption) *PackagingConfigurationSpekeKeyProvider {
 		if v == nil {
@@ -3540,7 +3516,7 @@ func (o PackagingConfigurationCmafEncryptionPtrOutput) SpekeKeyProvider() Packag
 
 // A CMAF packaging configuration.
 type PackagingConfigurationCmafPackage struct {
-	// Holds encryption information so that access to the content can be controlled by a DRM solution.
+	// Parameters for encrypting content.
 	Encryption *PackagingConfigurationCmafEncryption `pulumi:"encryption"`
 	// A list of HLS manifest configurations.
 	HlsManifests []PackagingConfigurationHlsManifest `pulumi:"hlsManifests"`
@@ -3563,7 +3539,7 @@ type PackagingConfigurationCmafPackageInput interface {
 
 // A CMAF packaging configuration.
 type PackagingConfigurationCmafPackageArgs struct {
-	// Holds encryption information so that access to the content can be controlled by a DRM solution.
+	// Parameters for encrypting content.
 	Encryption PackagingConfigurationCmafEncryptionPtrInput `pulumi:"encryption"`
 	// A list of HLS manifest configurations.
 	HlsManifests PackagingConfigurationHlsManifestArrayInput `pulumi:"hlsManifests"`
@@ -3651,7 +3627,7 @@ func (o PackagingConfigurationCmafPackageOutput) ToPackagingConfigurationCmafPac
 	}).(PackagingConfigurationCmafPackagePtrOutput)
 }
 
-// Holds encryption information so that access to the content can be controlled by a DRM solution.
+// Parameters for encrypting content.
 func (o PackagingConfigurationCmafPackageOutput) Encryption() PackagingConfigurationCmafEncryptionPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationCmafPackage) *PackagingConfigurationCmafEncryption { return v.Encryption }).(PackagingConfigurationCmafEncryptionPtrOutput)
 }
@@ -3695,7 +3671,7 @@ func (o PackagingConfigurationCmafPackagePtrOutput) Elem() PackagingConfiguratio
 	}).(PackagingConfigurationCmafPackageOutput)
 }
 
-// Holds encryption information so that access to the content can be controlled by a DRM solution.
+// Parameters for encrypting content.
 func (o PackagingConfigurationCmafPackagePtrOutput) Encryption() PackagingConfigurationCmafEncryptionPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationCmafPackage) *PackagingConfigurationCmafEncryption {
 		if v == nil {
@@ -3737,7 +3713,7 @@ func (o PackagingConfigurationCmafPackagePtrOutput) SegmentDurationSeconds() pul
 
 // A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
 type PackagingConfigurationDashEncryption struct {
-	// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider PackagingConfigurationSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
@@ -3754,7 +3730,7 @@ type PackagingConfigurationDashEncryptionInput interface {
 
 // A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
 type PackagingConfigurationDashEncryptionArgs struct {
-	// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider PackagingConfigurationSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
@@ -3836,7 +3812,7 @@ func (o PackagingConfigurationDashEncryptionOutput) ToPackagingConfigurationDash
 	}).(PackagingConfigurationDashEncryptionPtrOutput)
 }
 
-// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+// Parameters for the SPEKE key provider.
 func (o PackagingConfigurationDashEncryptionOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderOutput {
 	return o.ApplyT(func(v PackagingConfigurationDashEncryption) PackagingConfigurationSpekeKeyProvider {
 		return v.SpekeKeyProvider
@@ -3867,7 +3843,7 @@ func (o PackagingConfigurationDashEncryptionPtrOutput) Elem() PackagingConfigura
 	}).(PackagingConfigurationDashEncryptionOutput)
 }
 
-// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+// Parameters for the SPEKE key provider.
 func (o PackagingConfigurationDashEncryptionPtrOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationDashEncryption) *PackagingConfigurationSpekeKeyProvider {
 		if v == nil {
@@ -4034,7 +4010,7 @@ func (o PackagingConfigurationDashManifestArrayOutput) Index(i pulumi.IntInput) 
 type PackagingConfigurationDashPackage struct {
 	// A list of DASH manifest configurations.
 	DashManifests []PackagingConfigurationDashManifest `pulumi:"dashManifests"`
-	// Holds encryption information so that access to the content can be controlled by a DRM solution.
+	// Parameters for encrypting content.
 	Encryption *PackagingConfigurationDashEncryption `pulumi:"encryption"`
 	// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
 	IncludeEncoderConfigurationInSegments *bool `pulumi:"includeEncoderConfigurationInSegments"`
@@ -4063,7 +4039,7 @@ type PackagingConfigurationDashPackageInput interface {
 type PackagingConfigurationDashPackageArgs struct {
 	// A list of DASH manifest configurations.
 	DashManifests PackagingConfigurationDashManifestArrayInput `pulumi:"dashManifests"`
-	// Holds encryption information so that access to the content can be controlled by a DRM solution.
+	// Parameters for encrypting content.
 	Encryption PackagingConfigurationDashEncryptionPtrInput `pulumi:"encryption"`
 	// When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
 	IncludeEncoderConfigurationInSegments pulumi.BoolPtrInput `pulumi:"includeEncoderConfigurationInSegments"`
@@ -4160,7 +4136,7 @@ func (o PackagingConfigurationDashPackageOutput) DashManifests() PackagingConfig
 	return o.ApplyT(func(v PackagingConfigurationDashPackage) []PackagingConfigurationDashManifest { return v.DashManifests }).(PackagingConfigurationDashManifestArrayOutput)
 }
 
-// Holds encryption information so that access to the content can be controlled by a DRM solution.
+// Parameters for encrypting content.
 func (o PackagingConfigurationDashPackageOutput) Encryption() PackagingConfigurationDashEncryptionPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationDashPackage) *PackagingConfigurationDashEncryption { return v.Encryption }).(PackagingConfigurationDashEncryptionPtrOutput)
 }
@@ -4228,7 +4204,7 @@ func (o PackagingConfigurationDashPackagePtrOutput) DashManifests() PackagingCon
 	}).(PackagingConfigurationDashManifestArrayOutput)
 }
 
-// Holds encryption information so that access to the content can be controlled by a DRM solution.
+// Parameters for encrypting content.
 func (o PackagingConfigurationDashPackagePtrOutput) Encryption() PackagingConfigurationDashEncryptionPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationDashPackage) *PackagingConfigurationDashEncryption {
 		if v == nil {
@@ -4457,7 +4433,7 @@ type PackagingConfigurationHlsEncryption struct {
 	ConstantInitializationVector *string `pulumi:"constantInitializationVector"`
 	// The encryption method to use.
 	EncryptionMethod *PackagingConfigurationHlsEncryptionEncryptionMethod `pulumi:"encryptionMethod"`
-	// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider PackagingConfigurationSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
@@ -4478,7 +4454,7 @@ type PackagingConfigurationHlsEncryptionArgs struct {
 	ConstantInitializationVector pulumi.StringPtrInput `pulumi:"constantInitializationVector"`
 	// The encryption method to use.
 	EncryptionMethod PackagingConfigurationHlsEncryptionEncryptionMethodPtrInput `pulumi:"encryptionMethod"`
-	// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider PackagingConfigurationSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
@@ -4572,7 +4548,7 @@ func (o PackagingConfigurationHlsEncryptionOutput) EncryptionMethod() PackagingC
 	}).(PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput)
 }
 
-// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+// Parameters for the SPEKE key provider.
 func (o PackagingConfigurationHlsEncryptionOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderOutput {
 	return o.ApplyT(func(v PackagingConfigurationHlsEncryption) PackagingConfigurationSpekeKeyProvider {
 		return v.SpekeKeyProvider
@@ -4623,7 +4599,7 @@ func (o PackagingConfigurationHlsEncryptionPtrOutput) EncryptionMethod() Packagi
 	}).(PackagingConfigurationHlsEncryptionEncryptionMethodPtrOutput)
 }
 
-// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+// Parameters for the SPEKE key provider.
 func (o PackagingConfigurationHlsEncryptionPtrOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationHlsEncryption) *PackagingConfigurationSpekeKeyProvider {
 		if v == nil {
@@ -4645,7 +4621,7 @@ type PackagingConfigurationHlsManifest struct {
 	ProgramDateTimeIntervalSeconds *int `pulumi:"programDateTimeIntervalSeconds"`
 	// When enabled, the EXT-X-KEY tag will be repeated in output manifests.
 	RepeatExtXKey *bool `pulumi:"repeatExtXKey"`
-	// Limitations for outputs from the endpoint, based on the video bitrate.
+	// Video bitrate limitations for outputs from this packaging configuration.
 	StreamSelection *PackagingConfigurationStreamSelection `pulumi:"streamSelection"`
 }
 
@@ -4672,7 +4648,7 @@ type PackagingConfigurationHlsManifestArgs struct {
 	ProgramDateTimeIntervalSeconds pulumi.IntPtrInput `pulumi:"programDateTimeIntervalSeconds"`
 	// When enabled, the EXT-X-KEY tag will be repeated in output manifests.
 	RepeatExtXKey pulumi.BoolPtrInput `pulumi:"repeatExtXKey"`
-	// Limitations for outputs from the endpoint, based on the video bitrate.
+	// Video bitrate limitations for outputs from this packaging configuration.
 	StreamSelection PackagingConfigurationStreamSelectionPtrInput `pulumi:"streamSelection"`
 }
 
@@ -4755,7 +4731,7 @@ func (o PackagingConfigurationHlsManifestOutput) RepeatExtXKey() pulumi.BoolPtrO
 	return o.ApplyT(func(v PackagingConfigurationHlsManifest) *bool { return v.RepeatExtXKey }).(pulumi.BoolPtrOutput)
 }
 
-// Limitations for outputs from the endpoint, based on the video bitrate.
+// Video bitrate limitations for outputs from this packaging configuration.
 func (o PackagingConfigurationHlsManifestOutput) StreamSelection() PackagingConfigurationStreamSelectionPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationHlsManifest) *PackagingConfigurationStreamSelection {
 		return v.StreamSelection
@@ -4784,7 +4760,7 @@ func (o PackagingConfigurationHlsManifestArrayOutput) Index(i pulumi.IntInput) P
 
 // An HTTP Live Streaming (HLS) packaging configuration.
 type PackagingConfigurationHlsPackage struct {
-	// Holds encryption information so that access to the content can be controlled by a DRM solution.
+	// Parameters for encrypting content.
 	Encryption *PackagingConfigurationHlsEncryption `pulumi:"encryption"`
 	// A list of HLS manifest configurations.
 	HlsManifests []PackagingConfigurationHlsManifest `pulumi:"hlsManifests"`
@@ -4809,7 +4785,7 @@ type PackagingConfigurationHlsPackageInput interface {
 
 // An HTTP Live Streaming (HLS) packaging configuration.
 type PackagingConfigurationHlsPackageArgs struct {
-	// Holds encryption information so that access to the content can be controlled by a DRM solution.
+	// Parameters for encrypting content.
 	Encryption PackagingConfigurationHlsEncryptionPtrInput `pulumi:"encryption"`
 	// A list of HLS manifest configurations.
 	HlsManifests PackagingConfigurationHlsManifestArrayInput `pulumi:"hlsManifests"`
@@ -4899,7 +4875,7 @@ func (o PackagingConfigurationHlsPackageOutput) ToPackagingConfigurationHlsPacka
 	}).(PackagingConfigurationHlsPackagePtrOutput)
 }
 
-// Holds encryption information so that access to the content can be controlled by a DRM solution.
+// Parameters for encrypting content.
 func (o PackagingConfigurationHlsPackageOutput) Encryption() PackagingConfigurationHlsEncryptionPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationHlsPackage) *PackagingConfigurationHlsEncryption { return v.Encryption }).(PackagingConfigurationHlsEncryptionPtrOutput)
 }
@@ -4948,7 +4924,7 @@ func (o PackagingConfigurationHlsPackagePtrOutput) Elem() PackagingConfiguration
 	}).(PackagingConfigurationHlsPackageOutput)
 }
 
-// Holds encryption information so that access to the content can be controlled by a DRM solution.
+// Parameters for encrypting content.
 func (o PackagingConfigurationHlsPackagePtrOutput) Encryption() PackagingConfigurationHlsEncryptionPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationHlsPackage) *PackagingConfigurationHlsEncryption {
 		if v == nil {
@@ -5000,7 +4976,7 @@ func (o PackagingConfigurationHlsPackagePtrOutput) UseAudioRenditionGroup() pulu
 
 // A CMAF encryption configuration.
 type PackagingConfigurationMssEncryption struct {
-	// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider PackagingConfigurationSpekeKeyProvider `pulumi:"spekeKeyProvider"`
 }
 
@@ -5017,7 +4993,7 @@ type PackagingConfigurationMssEncryptionInput interface {
 
 // A CMAF encryption configuration.
 type PackagingConfigurationMssEncryptionArgs struct {
-	// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+	// Parameters for the SPEKE key provider.
 	SpekeKeyProvider PackagingConfigurationSpekeKeyProviderInput `pulumi:"spekeKeyProvider"`
 }
 
@@ -5099,7 +5075,7 @@ func (o PackagingConfigurationMssEncryptionOutput) ToPackagingConfigurationMssEn
 	}).(PackagingConfigurationMssEncryptionPtrOutput)
 }
 
-// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+// Parameters for the SPEKE key provider.
 func (o PackagingConfigurationMssEncryptionOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderOutput {
 	return o.ApplyT(func(v PackagingConfigurationMssEncryption) PackagingConfigurationSpekeKeyProvider {
 		return v.SpekeKeyProvider
@@ -5130,7 +5106,7 @@ func (o PackagingConfigurationMssEncryptionPtrOutput) Elem() PackagingConfigurat
 	}).(PackagingConfigurationMssEncryptionOutput)
 }
 
-// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+// Parameters for the SPEKE key provider.
 func (o PackagingConfigurationMssEncryptionPtrOutput) SpekeKeyProvider() PackagingConfigurationSpekeKeyProviderPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationMssEncryption) *PackagingConfigurationSpekeKeyProvider {
 		if v == nil {
@@ -5144,7 +5120,7 @@ func (o PackagingConfigurationMssEncryptionPtrOutput) SpekeKeyProvider() Packagi
 type PackagingConfigurationMssManifest struct {
 	// A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
 	ManifestName *string `pulumi:"manifestName"`
-	// Limitations for outputs from the endpoint, based on the video bitrate.
+	// Video bitrate limitations for outputs from this packaging configuration.
 	StreamSelection *PackagingConfigurationStreamSelection `pulumi:"streamSelection"`
 }
 
@@ -5163,7 +5139,7 @@ type PackagingConfigurationMssManifestInput interface {
 type PackagingConfigurationMssManifestArgs struct {
 	// A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
 	ManifestName pulumi.StringPtrInput `pulumi:"manifestName"`
-	// Limitations for outputs from the endpoint, based on the video bitrate.
+	// Video bitrate limitations for outputs from this packaging configuration.
 	StreamSelection PackagingConfigurationStreamSelectionPtrInput `pulumi:"streamSelection"`
 }
 
@@ -5224,7 +5200,7 @@ func (o PackagingConfigurationMssManifestOutput) ManifestName() pulumi.StringPtr
 	return o.ApplyT(func(v PackagingConfigurationMssManifest) *string { return v.ManifestName }).(pulumi.StringPtrOutput)
 }
 
-// Limitations for outputs from the endpoint, based on the video bitrate.
+// Video bitrate limitations for outputs from this packaging configuration.
 func (o PackagingConfigurationMssManifestOutput) StreamSelection() PackagingConfigurationStreamSelectionPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationMssManifest) *PackagingConfigurationStreamSelection {
 		return v.StreamSelection
@@ -5253,7 +5229,7 @@ func (o PackagingConfigurationMssManifestArrayOutput) Index(i pulumi.IntInput) P
 
 // A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
 type PackagingConfigurationMssPackage struct {
-	// Holds encryption information so that access to the content can be controlled by a DRM solution.
+	// Parameters for encrypting content.
 	Encryption *PackagingConfigurationMssEncryption `pulumi:"encryption"`
 	// A list of MSS manifest configurations.
 	MssManifests []PackagingConfigurationMssManifest `pulumi:"mssManifests"`
@@ -5274,7 +5250,7 @@ type PackagingConfigurationMssPackageInput interface {
 
 // A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
 type PackagingConfigurationMssPackageArgs struct {
-	// Holds encryption information so that access to the content can be controlled by a DRM solution.
+	// Parameters for encrypting content.
 	Encryption PackagingConfigurationMssEncryptionPtrInput `pulumi:"encryption"`
 	// A list of MSS manifest configurations.
 	MssManifests PackagingConfigurationMssManifestArrayInput `pulumi:"mssManifests"`
@@ -5360,7 +5336,7 @@ func (o PackagingConfigurationMssPackageOutput) ToPackagingConfigurationMssPacka
 	}).(PackagingConfigurationMssPackagePtrOutput)
 }
 
-// Holds encryption information so that access to the content can be controlled by a DRM solution.
+// Parameters for encrypting content.
 func (o PackagingConfigurationMssPackageOutput) Encryption() PackagingConfigurationMssEncryptionPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationMssPackage) *PackagingConfigurationMssEncryption { return v.Encryption }).(PackagingConfigurationMssEncryptionPtrOutput)
 }
@@ -5399,7 +5375,7 @@ func (o PackagingConfigurationMssPackagePtrOutput) Elem() PackagingConfiguration
 	}).(PackagingConfigurationMssPackageOutput)
 }
 
-// Holds encryption information so that access to the content can be controlled by a DRM solution.
+// Parameters for encrypting content.
 func (o PackagingConfigurationMssPackagePtrOutput) Encryption() PackagingConfigurationMssEncryptionPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationMssPackage) *PackagingConfigurationMssEncryption {
 		if v == nil {
@@ -5431,13 +5407,7 @@ func (o PackagingConfigurationMssPackagePtrOutput) SegmentDurationSeconds() pulu
 
 // A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
 type PackagingConfigurationSpekeKeyProvider struct {
-	// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines the content keys used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use. For more information about these presets, see [SPEKE Version 2.0 Presets](https://docs.aws.amazon.com/mediapackage/latest/ug/drm-content-speke-v2-presets.html) .
-	//
-	// Note the following considerations when using `encryptionContractConfiguration` :
-	//
-	// - You can use `encryptionContractConfiguration` for DASH endpoints that use SPEKE Version 2.0. SPEKE Version 2.0 relies on the CPIX Version 2.3 specification.
-	// - You cannot combine an `UNENCRYPTED` preset with `UNENCRYPTED` or `SHARED` presets across `presetSpeke20Audio` and `presetSpeke20Video` .
-	// - When you use a `SHARED` preset, you must use it for both `presetSpeke20Audio` and `presetSpeke20Video` .
+	// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.
 	EncryptionContractConfiguration *PackagingConfigurationEncryptionContractConfiguration `pulumi:"encryptionContractConfiguration"`
 	// The ARN for the IAM role that's granted by the key provider to provide access to the key provider API. Valid format: arn:aws:iam::{accountID}:role/{name}
 	RoleArn string `pulumi:"roleArn"`
@@ -5460,13 +5430,7 @@ type PackagingConfigurationSpekeKeyProviderInput interface {
 
 // A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that will provide encryption keys.
 type PackagingConfigurationSpekeKeyProviderArgs struct {
-	// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines the content keys used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use. For more information about these presets, see [SPEKE Version 2.0 Presets](https://docs.aws.amazon.com/mediapackage/latest/ug/drm-content-speke-v2-presets.html) .
-	//
-	// Note the following considerations when using `encryptionContractConfiguration` :
-	//
-	// - You can use `encryptionContractConfiguration` for DASH endpoints that use SPEKE Version 2.0. SPEKE Version 2.0 relies on the CPIX Version 2.3 specification.
-	// - You cannot combine an `UNENCRYPTED` preset with `UNENCRYPTED` or `SHARED` presets across `presetSpeke20Audio` and `presetSpeke20Video` .
-	// - When you use a `SHARED` preset, you must use it for both `presetSpeke20Audio` and `presetSpeke20Video` .
+	// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.
 	EncryptionContractConfiguration PackagingConfigurationEncryptionContractConfigurationPtrInput `pulumi:"encryptionContractConfiguration"`
 	// The ARN for the IAM role that's granted by the key provider to provide access to the key provider API. Valid format: arn:aws:iam::{accountID}:role/{name}
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
@@ -5554,13 +5518,7 @@ func (o PackagingConfigurationSpekeKeyProviderOutput) ToPackagingConfigurationSp
 	}).(PackagingConfigurationSpekeKeyProviderPtrOutput)
 }
 
-// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines the content keys used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use. For more information about these presets, see [SPEKE Version 2.0 Presets](https://docs.aws.amazon.com/mediapackage/latest/ug/drm-content-speke-v2-presets.html) .
-//
-// Note the following considerations when using `encryptionContractConfiguration` :
-//
-// - You can use `encryptionContractConfiguration` for DASH endpoints that use SPEKE Version 2.0. SPEKE Version 2.0 relies on the CPIX Version 2.3 specification.
-// - You cannot combine an `UNENCRYPTED` preset with `UNENCRYPTED` or `SHARED` presets across `presetSpeke20Audio` and `presetSpeke20Video` .
-// - When you use a `SHARED` preset, you must use it for both `presetSpeke20Audio` and `presetSpeke20Video` .
+// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.
 func (o PackagingConfigurationSpekeKeyProviderOutput) EncryptionContractConfiguration() PackagingConfigurationEncryptionContractConfigurationPtrOutput {
 	return o.ApplyT(func(v PackagingConfigurationSpekeKeyProvider) *PackagingConfigurationEncryptionContractConfiguration {
 		return v.EncryptionContractConfiguration
@@ -5606,13 +5564,7 @@ func (o PackagingConfigurationSpekeKeyProviderPtrOutput) Elem() PackagingConfigu
 	}).(PackagingConfigurationSpekeKeyProviderOutput)
 }
 
-// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines the content keys used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use. For more information about these presets, see [SPEKE Version 2.0 Presets](https://docs.aws.amazon.com/mediapackage/latest/ug/drm-content-speke-v2-presets.html) .
-//
-// Note the following considerations when using `encryptionContractConfiguration` :
-//
-// - You can use `encryptionContractConfiguration` for DASH endpoints that use SPEKE Version 2.0. SPEKE Version 2.0 relies on the CPIX Version 2.3 specification.
-// - You cannot combine an `UNENCRYPTED` preset with `UNENCRYPTED` or `SHARED` presets across `presetSpeke20Audio` and `presetSpeke20Video` .
-// - When you use a `SHARED` preset, you must use it for both `presetSpeke20Audio` and `presetSpeke20Video` .
+// Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.
 func (o PackagingConfigurationSpekeKeyProviderPtrOutput) EncryptionContractConfiguration() PackagingConfigurationEncryptionContractConfigurationPtrOutput {
 	return o.ApplyT(func(v *PackagingConfigurationSpekeKeyProvider) *PackagingConfigurationEncryptionContractConfiguration {
 		if v == nil {

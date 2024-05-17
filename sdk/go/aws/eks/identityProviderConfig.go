@@ -23,7 +23,7 @@ type IdentityProviderConfig struct {
 	IdentityProviderConfigArn pulumi.StringOutput `pulumi:"identityProviderConfigArn"`
 	// The name of the OIDC provider configuration.
 	IdentityProviderConfigName pulumi.StringPtrOutput `pulumi:"identityProviderConfigName"`
-	// An object representing the configuration for an OpenID Connect (OIDC) identity provider.
+	// An object representing an OpenID Connect (OIDC) identity provider configuration.
 	Oidc IdentityProviderConfigOidcIdentityProviderConfigPtrOutput `pulumi:"oidc"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -88,7 +88,7 @@ type identityProviderConfigArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// The name of the OIDC provider configuration.
 	IdentityProviderConfigName *string `pulumi:"identityProviderConfigName"`
-	// An object representing the configuration for an OpenID Connect (OIDC) identity provider.
+	// An object representing an OpenID Connect (OIDC) identity provider configuration.
 	Oidc *IdentityProviderConfigOidcIdentityProviderConfig `pulumi:"oidc"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -102,7 +102,7 @@ type IdentityProviderConfigArgs struct {
 	ClusterName pulumi.StringInput
 	// The name of the OIDC provider configuration.
 	IdentityProviderConfigName pulumi.StringPtrInput
-	// An object representing the configuration for an OpenID Connect (OIDC) identity provider.
+	// An object representing an OpenID Connect (OIDC) identity provider configuration.
 	Oidc IdentityProviderConfigOidcIdentityProviderConfigPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
@@ -162,7 +162,7 @@ func (o IdentityProviderConfigOutput) IdentityProviderConfigName() pulumi.String
 	return o.ApplyT(func(v *IdentityProviderConfig) pulumi.StringPtrOutput { return v.IdentityProviderConfigName }).(pulumi.StringPtrOutput)
 }
 
-// An object representing the configuration for an OpenID Connect (OIDC) identity provider.
+// An object representing an OpenID Connect (OIDC) identity provider configuration.
 func (o IdentityProviderConfigOutput) Oidc() IdentityProviderConfigOidcIdentityProviderConfigPtrOutput {
 	return o.ApplyT(func(v *IdentityProviderConfig) IdentityProviderConfigOidcIdentityProviderConfigPtrOutput {
 		return v.Oidc

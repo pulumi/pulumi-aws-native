@@ -70,7 +70,7 @@ class GetClusterResult:
     @pulumi.getter(name="brokerNodeGroupInfo")
     def broker_node_group_info(self) -> Optional['outputs.ClusterBrokerNodeGroupInfo']:
         """
-        Describes the setup to be used for the broker nodes in the cluster.
+        Information about the broker nodes in the cluster.
         """
         return pulumi.get(self, "broker_node_group_info")
 
@@ -78,7 +78,7 @@ class GetClusterResult:
     @pulumi.getter(name="clientAuthentication")
     def client_authentication(self) -> Optional['outputs.ClusterClientAuthentication']:
         """
-        Includes all client authentication information.
+        VPC connection control settings for brokers.
         """
         return pulumi.get(self, "client_authentication")
 
@@ -86,7 +86,7 @@ class GetClusterResult:
     @pulumi.getter(name="configurationInfo")
     def configuration_info(self) -> Optional['outputs.ClusterConfigurationInfo']:
         """
-        Specifies the configuration to use for the brokers.
+        Represents the configuration that you want MSK to use for the cluster.
         """
         return pulumi.get(self, "configuration_info")
 
@@ -102,7 +102,7 @@ class GetClusterResult:
     @pulumi.getter(name="encryptionInfo")
     def encryption_info(self) -> Optional['outputs.ClusterEncryptionInfo']:
         """
-        Includes encryption-related information, such as the Amazon KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.
+        Includes all encryption-related information.
         """
         return pulumi.get(self, "encryption_info")
 
@@ -126,7 +126,7 @@ class GetClusterResult:
     @pulumi.getter(name="loggingInfo")
     def logging_info(self) -> Optional['outputs.ClusterLoggingInfo']:
         """
-        You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
+        Logging Info details.
         """
         return pulumi.get(self, "logging_info")
 
@@ -142,7 +142,7 @@ class GetClusterResult:
     @pulumi.getter(name="openMonitoring")
     def open_monitoring(self) -> Optional['outputs.ClusterOpenMonitoring']:
         """
-        JMX and Node monitoring for the MSK cluster.
+        The settings for open monitoring.
         """
         return pulumi.get(self, "open_monitoring")
 

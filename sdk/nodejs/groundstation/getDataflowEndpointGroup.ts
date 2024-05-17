@@ -39,7 +39,7 @@ export interface GetDataflowEndpointGroupResult {
      */
     readonly contactPrePassDurationSeconds?: number;
     /**
-     * The security details and endpoint information.
+     * List of Endpoint Details, containing address and port for each endpoint.
      */
     readonly endpointDetails?: outputs.groundstation.DataflowEndpointGroupEndpointDetails[];
     /**

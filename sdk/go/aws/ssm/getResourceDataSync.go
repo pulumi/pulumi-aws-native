@@ -28,7 +28,7 @@ type LookupResourceDataSyncArgs struct {
 }
 
 type LookupResourceDataSyncResult struct {
-	// Information about the source of the data included in the resource data sync.
+	// Information about the source where the data was synchronized.
 	SyncSource *ResourceDataSyncSyncSource `pulumi:"syncSource"`
 }
 
@@ -68,7 +68,7 @@ func (o LookupResourceDataSyncResultOutput) ToLookupResourceDataSyncResultOutput
 	return o
 }
 
-// Information about the source of the data included in the resource data sync.
+// Information about the source where the data was synchronized.
 func (o LookupResourceDataSyncResultOutput) SyncSource() ResourceDataSyncSyncSourcePtrOutput {
 	return o.ApplyT(func(v LookupResourceDataSyncResult) *ResourceDataSyncSyncSource { return v.SyncSource }).(ResourceDataSyncSyncSourcePtrOutput)
 }

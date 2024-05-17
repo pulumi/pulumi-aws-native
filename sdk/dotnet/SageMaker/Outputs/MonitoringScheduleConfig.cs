@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.MonitoringScheduleMonitoringType? MonitoringType;
         /// <summary>
-        /// Configuration details about the monitoring schedule.
+        /// Configures the monitoring schedule.
         /// </summary>
         public readonly Outputs.MonitoringScheduleScheduleConfig? ScheduleConfig;
 

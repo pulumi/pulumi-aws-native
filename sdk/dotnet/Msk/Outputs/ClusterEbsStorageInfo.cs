@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Msk.Outputs
     public sealed class ClusterEbsStorageInfo
     {
         /// <summary>
-        /// Contains information about provisioned throughput for EBS storage volumes attached to kafka broker nodes.
+        /// EBS volume provisioned throughput information.
         /// </summary>
         public readonly Outputs.ClusterProvisionedThroughput? ProvisionedThroughput;
         /// <summary>

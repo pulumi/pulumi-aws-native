@@ -194,7 +194,9 @@ class CollaborationMemberSpecificationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]] member_abilities: The abilities granted to the collaboration member.
                
                *Allowed Values* : `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
-        :param pulumi.Input['CollaborationPaymentConfigurationArgs'] payment_configuration: An object representing the collaboration member's payment responsibilities set by the collaboration creator.
+        :param pulumi.Input['CollaborationPaymentConfigurationArgs'] payment_configuration: The collaboration member's payment responsibilities set by the collaboration creator.
+               
+               If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "display_name", display_name)
@@ -244,7 +246,9 @@ class CollaborationMemberSpecificationArgs:
     @pulumi.getter(name="paymentConfiguration")
     def payment_configuration(self) -> Optional[pulumi.Input['CollaborationPaymentConfigurationArgs']]:
         """
-        An object representing the collaboration member's payment responsibilities set by the collaboration creator.
+        The collaboration member's payment responsibilities set by the collaboration creator.
+
+        If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.
         """
         return pulumi.get(self, "payment_configuration")
 
@@ -258,7 +262,7 @@ class CollaborationPaymentConfigurationArgs:
     def __init__(__self__, *,
                  query_compute: pulumi.Input['CollaborationQueryComputePaymentConfigArgs']):
         """
-        :param pulumi.Input['CollaborationQueryComputePaymentConfigArgs'] query_compute: An object representing the collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
+        :param pulumi.Input['CollaborationQueryComputePaymentConfigArgs'] query_compute: The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
         """
         pulumi.set(__self__, "query_compute", query_compute)
 
@@ -266,7 +270,7 @@ class CollaborationPaymentConfigurationArgs:
     @pulumi.getter(name="queryCompute")
     def query_compute(self) -> pulumi.Input['CollaborationQueryComputePaymentConfigArgs']:
         """
-        An object representing the collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
+        The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
         """
         return pulumi.get(self, "query_compute")
 
@@ -609,7 +613,7 @@ class ConfiguredTableAnalysisRuleArgs:
                  policy: pulumi.Input['ConfiguredTableAnalysisRulePolicyArgs'],
                  type: pulumi.Input['ConfiguredTableAnalysisRuleType']):
         """
-        :param pulumi.Input['ConfiguredTableAnalysisRulePolicyArgs'] policy: Controls on the query specifications that can be run on a configured table.
+        :param pulumi.Input['ConfiguredTableAnalysisRulePolicyArgs'] policy: A policy that describes the associated data usage limitations.
         :param pulumi.Input['ConfiguredTableAnalysisRuleType'] type: The type of analysis rule.
         """
         pulumi.set(__self__, "policy", policy)
@@ -619,7 +623,7 @@ class ConfiguredTableAnalysisRuleArgs:
     @pulumi.getter
     def policy(self) -> pulumi.Input['ConfiguredTableAnalysisRulePolicyArgs']:
         """
-        Controls on the query specifications that can be run on a configured table.
+        A policy that describes the associated data usage limitations.
         """
         return pulumi.get(self, "policy")
 
@@ -714,7 +718,7 @@ class ConfiguredTableTableReferenceArgs:
     def __init__(__self__, *,
                  glue: pulumi.Input['ConfiguredTableGlueTableReferenceArgs']):
         """
-        :param pulumi.Input['ConfiguredTableGlueTableReferenceArgs'] glue: A reference to a table within an AWS Glue data catalog.
+        :param pulumi.Input['ConfiguredTableGlueTableReferenceArgs'] glue: If present, a reference to the AWS Glue table referred to by this table reference.
         """
         pulumi.set(__self__, "glue", glue)
 
@@ -722,7 +726,7 @@ class ConfiguredTableTableReferenceArgs:
     @pulumi.getter
     def glue(self) -> pulumi.Input['ConfiguredTableGlueTableReferenceArgs']:
         """
-        A reference to a table within an AWS Glue data catalog.
+        If present, a reference to the AWS Glue table referred to by this table reference.
         """
         return pulumi.get(self, "glue")
 
@@ -736,7 +740,7 @@ class MembershipPaymentConfigurationArgs:
     def __init__(__self__, *,
                  query_compute: pulumi.Input['MembershipQueryComputePaymentConfigArgs']):
         """
-        :param pulumi.Input['MembershipQueryComputePaymentConfigArgs'] query_compute: An object representing the payment responsibilities accepted by the collaboration member for query compute costs.
+        :param pulumi.Input['MembershipQueryComputePaymentConfigArgs'] query_compute: The payment responsibilities accepted by the collaboration member for query compute costs.
         """
         pulumi.set(__self__, "query_compute", query_compute)
 
@@ -744,7 +748,7 @@ class MembershipPaymentConfigurationArgs:
     @pulumi.getter(name="queryCompute")
     def query_compute(self) -> pulumi.Input['MembershipQueryComputePaymentConfigArgs']:
         """
-        An object representing the payment responsibilities accepted by the collaboration member for query compute costs.
+        The payment responsibilities accepted by the collaboration member for query compute costs.
         """
         return pulumi.get(self, "query_compute")
 
@@ -758,7 +762,7 @@ class MembershipProtectedQueryOutputConfigurationArgs:
     def __init__(__self__, *,
                  s3: pulumi.Input['MembershipProtectedQueryS3OutputConfigurationArgs']):
         """
-        :param pulumi.Input['MembershipProtectedQueryS3OutputConfigurationArgs'] s3: Contains the configuration to write the query results to S3.
+        :param pulumi.Input['MembershipProtectedQueryS3OutputConfigurationArgs'] s3: Required configuration for a protected query with an `S3` output type.
         """
         pulumi.set(__self__, "s3", s3)
 
@@ -766,7 +770,7 @@ class MembershipProtectedQueryOutputConfigurationArgs:
     @pulumi.getter
     def s3(self) -> pulumi.Input['MembershipProtectedQueryS3OutputConfigurationArgs']:
         """
-        Contains the configuration to write the query results to S3.
+        Required configuration for a protected query with an `S3` output type.
         """
         return pulumi.get(self, "s3")
 
@@ -781,7 +785,7 @@ class MembershipProtectedQueryResultConfigurationArgs:
                  output_configuration: pulumi.Input['MembershipProtectedQueryOutputConfigurationArgs'],
                  role_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['MembershipProtectedQueryOutputConfigurationArgs'] output_configuration: Contains configurations for protected query results.
+        :param pulumi.Input['MembershipProtectedQueryOutputConfigurationArgs'] output_configuration: Configuration for protected query results.
         :param pulumi.Input[str] role_arn: The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected query results to the result location, given by the member who can receive results.
         """
         pulumi.set(__self__, "output_configuration", output_configuration)
@@ -792,7 +796,7 @@ class MembershipProtectedQueryResultConfigurationArgs:
     @pulumi.getter(name="outputConfiguration")
     def output_configuration(self) -> pulumi.Input['MembershipProtectedQueryOutputConfigurationArgs']:
         """
-        Contains configurations for protected query results.
+        Configuration for protected query results.
         """
         return pulumi.get(self, "output_configuration")
 

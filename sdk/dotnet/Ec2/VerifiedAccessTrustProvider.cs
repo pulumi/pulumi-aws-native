@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the options for an AWS Verified Access device-identity based trust provider.
+        /// The options for device-identity trust provider.
         /// </summary>
         [Output("deviceOptions")]
         public Output<Outputs.VerifiedAccessTrustProviderDeviceOptions?> DeviceOptions { get; private set; } = null!;
@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the options for an OpenID Connect-compatible user-identity trust provider.
+        /// The options for an OpenID Connect-compatible user-identity trust provider.
         /// </summary>
         [Output("oidcOptions")]
         public Output<Outputs.VerifiedAccessTrustProviderOidcOptions?> OidcOptions { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Describes the options for an AWS Verified Access device-identity based trust provider.
+        /// The options for device-identity trust provider.
         /// </summary>
         [Input("deviceOptions")]
         public Input<Inputs.VerifiedAccessTrustProviderDeviceOptionsArgs>? DeviceOptions { get; set; }
@@ -159,7 +159,7 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string>? DeviceTrustProviderType { get; set; }
 
         /// <summary>
-        /// Describes the options for an OpenID Connect-compatible user-identity trust provider.
+        /// The options for an OpenID Connect-compatible user-identity trust provider.
         /// </summary>
         [Input("oidcOptions")]
         public Input<Inputs.VerifiedAccessTrustProviderOidcOptionsArgs>? OidcOptions { get; set; }

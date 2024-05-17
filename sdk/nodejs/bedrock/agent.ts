@@ -114,7 +114,7 @@ export class Agent extends pulumi.CustomResource {
      */
     public /*out*/ readonly preparedAt!: pulumi.Output<string>;
     /**
-     * Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+     * Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
      */
     public readonly promptOverrideConfiguration!: pulumi.Output<outputs.bedrock.AgentPromptOverrideConfiguration | undefined>;
     /**
@@ -253,7 +253,7 @@ export interface AgentArgs {
      */
     knowledgeBases?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentKnowledgeBaseArgs>[]>;
     /**
-     * Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+     * Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
      */
     promptOverrideConfiguration?: pulumi.Input<inputs.bedrock.AgentPromptOverrideConfigurationArgs>;
     /**

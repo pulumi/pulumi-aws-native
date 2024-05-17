@@ -35,7 +35,7 @@ type IpAccessSettings struct {
 	IpAccessSettingsArn pulumi.StringOutput `pulumi:"ipAccessSettingsArn"`
 	// The IP rules of the IP access settings.
 	IpRules IpAccessSettingsIpRuleArrayOutput `pulumi:"ipRules"`
-	// The tag.
+	// The tags to add to the browser settings resource. A tag is a key-value pair.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -99,7 +99,7 @@ type ipAccessSettingsArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The IP rules of the IP access settings.
 	IpRules []IpAccessSettingsIpRule `pulumi:"ipRules"`
-	// The tag.
+	// The tags to add to the browser settings resource. A tag is a key-value pair.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -117,7 +117,7 @@ type IpAccessSettingsArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// The IP rules of the IP access settings.
 	IpRules IpAccessSettingsIpRuleArrayInput
-	// The tag.
+	// The tags to add to the browser settings resource. A tag is a key-value pair.
 	Tags aws.TagArrayInput
 }
 
@@ -200,7 +200,7 @@ func (o IpAccessSettingsOutput) IpRules() IpAccessSettingsIpRuleArrayOutput {
 	return o.ApplyT(func(v *IpAccessSettings) IpAccessSettingsIpRuleArrayOutput { return v.IpRules }).(IpAccessSettingsIpRuleArrayOutput)
 }
 
-// The tag.
+// The tags to add to the browser settings resource. A tag is a key-value pair.
 func (o IpAccessSettingsOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *IpAccessSettings) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

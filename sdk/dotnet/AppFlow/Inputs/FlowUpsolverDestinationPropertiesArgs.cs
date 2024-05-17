@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public Input<string>? BucketPrefix { get; set; }
 
         /// <summary>
-        /// The configuration that determines how Amazon AppFlow formats the flow output data when Upsolver is used as the destination.
+        /// The configuration that determines how data is formatted when Upsolver is used as the flow destination.
         /// </summary>
         [Input("s3OutputFormatConfig", required: true)]
         public Input<Inputs.FlowUpsolverS3OutputFormatConfigArgs> S3OutputFormatConfig { get; set; } = null!;

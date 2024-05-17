@@ -19,19 +19,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.TemplateAnchorDateConfigurationArgs> AnchorDateConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// A column of a data set.
+        /// The column that the filter is applied to.
         /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.TemplateColumnIdentifierArgs> Column { get; set; } = null!;
 
         /// <summary>
-        /// The default configuration for all dependent controls of the filter.
+        /// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
         /// </summary>
         [Input("defaultFilterControlConfiguration")]
         public Input<Inputs.TemplateDefaultFilterControlConfigurationArgs>? DefaultFilterControlConfiguration { get; set; }
 
         /// <summary>
-        /// The exclude period of `TimeRangeFilter` or `RelativeDatesFilter` .
+        /// The configuration for the exclude period of the filter.
         /// </summary>
         [Input("excludePeriodConfiguration")]
         public Input<Inputs.TemplateExcludePeriodConfigurationArgs>? ExcludePeriodConfiguration { get; set; }

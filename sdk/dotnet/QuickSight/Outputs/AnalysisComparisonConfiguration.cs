@@ -15,8 +15,6 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         /// <summary>
         /// The format of the comparison.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
         /// </summary>
         public readonly Outputs.AnalysisComparisonFormatConfiguration? ComparisonFormat;
         /// <summary>

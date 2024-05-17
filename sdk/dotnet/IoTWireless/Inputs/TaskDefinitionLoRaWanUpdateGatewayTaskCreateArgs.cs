@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
     public sealed class TaskDefinitionLoRaWanUpdateGatewayTaskCreateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// LoRaWANGatewayVersion object.
+        /// The version of the gateways that should receive the update.
         /// </summary>
         [Input("currentVersion")]
         public Input<Inputs.TaskDefinitionLoRaWanGatewayVersionArgs>? CurrentVersion { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.IoTWireless.Inputs
         public Input<string>? UpdateSignature { get; set; }
 
         /// <summary>
-        /// LoRaWANGatewayVersion object.
+        /// The firmware version to update the gateway to.
         /// </summary>
         [Input("updateVersion")]
         public Input<Inputs.TaskDefinitionLoRaWanGatewayVersionArgs>? UpdateVersion { get; set; }

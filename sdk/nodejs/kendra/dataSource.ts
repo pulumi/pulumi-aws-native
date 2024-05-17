@@ -50,13 +50,15 @@ export class DataSource extends pulumi.CustomResource {
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
-     * Provides the configuration information for altering document metadata and content during the document ingestion process.
-     *
-     * For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
+     * Configuration information for altering document metadata and content during the document ingestion process.
      */
     public readonly customDocumentEnrichmentConfiguration!: pulumi.Output<outputs.kendra.DataSourceCustomDocumentEnrichmentConfiguration | undefined>;
     /**
-     * Provides the configuration information for an Amazon Kendra data source.
+     * Configuration information for an Amazon Kendra data source. The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration.
+     *
+     * You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM` .
+     *
+     * The `Configuration` parameter is required for all other data sources.
      */
     public readonly dataSourceConfiguration!: pulumi.Output<outputs.kendra.DataSourceConfiguration | undefined>;
     /**
@@ -151,13 +153,15 @@ export class DataSource extends pulumi.CustomResource {
  */
 export interface DataSourceArgs {
     /**
-     * Provides the configuration information for altering document metadata and content during the document ingestion process.
-     *
-     * For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
+     * Configuration information for altering document metadata and content during the document ingestion process.
      */
     customDocumentEnrichmentConfiguration?: pulumi.Input<inputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationArgs>;
     /**
-     * Provides the configuration information for an Amazon Kendra data source.
+     * Configuration information for an Amazon Kendra data source. The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration.
+     *
+     * You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM` .
+     *
+     * The `Configuration` parameter is required for all other data sources.
      */
     dataSourceConfiguration?: pulumi.Input<inputs.kendra.DataSourceConfigurationArgs>;
     /**

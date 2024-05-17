@@ -69,7 +69,7 @@ class GetRuleResult:
     @pulumi.getter
     def match(self) -> Optional['outputs.RuleMatch']:
         """
-        Describes a rule match.
+        The rule match.
         """
         return pulumi.get(self, "match")
 
@@ -85,7 +85,7 @@ class GetRuleResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        Specifies a tag for a listener rule.
+        The tags for the rule.
         """
         return pulumi.get(self, "tags")
 

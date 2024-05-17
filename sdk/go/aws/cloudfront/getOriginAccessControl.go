@@ -30,11 +30,7 @@ type LookupOriginAccessControlArgs struct {
 type LookupOriginAccessControlResult struct {
 	// The unique identifier of the origin access control.
 	Id *string `pulumi:"id"`
-	// Creates a new origin access control in CloudFront. After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
-	//
-	// This makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.
-	//
-	// For more information about using a CloudFront origin access control, see [Restricting access to an AWS origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide* .
+	// The origin access control.
 	OriginAccessControlConfig *OriginAccessControlConfig `pulumi:"originAccessControlConfig"`
 }
 
@@ -79,11 +75,7 @@ func (o LookupOriginAccessControlResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOriginAccessControlResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Creates a new origin access control in CloudFront. After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
-//
-// This makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.
-//
-// For more information about using a CloudFront origin access control, see [Restricting access to an AWS origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide* .
+// The origin access control.
 func (o LookupOriginAccessControlResultOutput) OriginAccessControlConfig() OriginAccessControlConfigPtrOutput {
 	return o.ApplyT(func(v LookupOriginAccessControlResult) *OriginAccessControlConfig { return v.OriginAccessControlConfig }).(OriginAccessControlConfigPtrOutput)
 }

@@ -18,11 +18,7 @@ type OriginAccessControl struct {
 
 	// The unique identifier of the origin access control.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
-	// Creates a new origin access control in CloudFront. After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
-	//
-	// This makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.
-	//
-	// For more information about using a CloudFront origin access control, see [Restricting access to an AWS origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide* .
+	// The origin access control.
 	OriginAccessControlConfig OriginAccessControlConfigOutput `pulumi:"originAccessControlConfig"`
 }
 
@@ -69,21 +65,13 @@ func (OriginAccessControlState) ElementType() reflect.Type {
 }
 
 type originAccessControlArgs struct {
-	// Creates a new origin access control in CloudFront. After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
-	//
-	// This makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.
-	//
-	// For more information about using a CloudFront origin access control, see [Restricting access to an AWS origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide* .
+	// The origin access control.
 	OriginAccessControlConfig OriginAccessControlConfig `pulumi:"originAccessControlConfig"`
 }
 
 // The set of arguments for constructing a OriginAccessControl resource.
 type OriginAccessControlArgs struct {
-	// Creates a new origin access control in CloudFront. After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
-	//
-	// This makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.
-	//
-	// For more information about using a CloudFront origin access control, see [Restricting access to an AWS origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide* .
+	// The origin access control.
 	OriginAccessControlConfig OriginAccessControlConfigInput
 }
 
@@ -129,11 +117,7 @@ func (o OriginAccessControlOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginAccessControl) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
-// Creates a new origin access control in CloudFront. After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
-//
-// This makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.
-//
-// For more information about using a CloudFront origin access control, see [Restricting access to an AWS origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide* .
+// The origin access control.
 func (o OriginAccessControlOutput) OriginAccessControlConfig() OriginAccessControlConfigOutput {
 	return o.ApplyT(func(v *OriginAccessControl) OriginAccessControlConfigOutput { return v.OriginAccessControlConfig }).(OriginAccessControlConfigOutput)
 }

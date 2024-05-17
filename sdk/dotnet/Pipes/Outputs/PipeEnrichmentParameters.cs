@@ -14,7 +14,9 @@ namespace Pulumi.AwsNative.Pipes.Outputs
     public sealed class PipeEnrichmentParameters
     {
         /// <summary>
-        /// These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. In the latter case, these are merged with any InvocationParameters specified on the Connection, with any values from the Connection taking precedence.
+        /// Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination.
+        /// 
+        /// If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence.
         /// </summary>
         public readonly Outputs.PipeEnrichmentHttpParameters? HttpParameters;
         /// <summary>

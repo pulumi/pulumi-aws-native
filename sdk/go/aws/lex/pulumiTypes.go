@@ -4179,7 +4179,7 @@ func (o BotElicitationCodeHookInvocationSettingPtrOutput) InvocationLabel() pulu
 
 // Provides information about the external source of the slot type's definition.
 type BotExternalSourceSetting struct {
-	// Settings requried for a slot type based on a grammar that you provide.
+	// Settings required for a slot type based on a grammar that you provide.
 	GrammarSlotTypeSetting *BotGrammarSlotTypeSetting `pulumi:"grammarSlotTypeSetting"`
 }
 
@@ -4196,7 +4196,7 @@ type BotExternalSourceSettingInput interface {
 
 // Provides information about the external source of the slot type's definition.
 type BotExternalSourceSettingArgs struct {
-	// Settings requried for a slot type based on a grammar that you provide.
+	// Settings required for a slot type based on a grammar that you provide.
 	GrammarSlotTypeSetting BotGrammarSlotTypeSettingPtrInput `pulumi:"grammarSlotTypeSetting"`
 }
 
@@ -4278,7 +4278,7 @@ func (o BotExternalSourceSettingOutput) ToBotExternalSourceSettingPtrOutputWithC
 	}).(BotExternalSourceSettingPtrOutput)
 }
 
-// Settings requried for a slot type based on a grammar that you provide.
+// Settings required for a slot type based on a grammar that you provide.
 func (o BotExternalSourceSettingOutput) GrammarSlotTypeSetting() BotGrammarSlotTypeSettingPtrOutput {
 	return o.ApplyT(func(v BotExternalSourceSetting) *BotGrammarSlotTypeSetting { return v.GrammarSlotTypeSetting }).(BotGrammarSlotTypeSettingPtrOutput)
 }
@@ -4307,7 +4307,7 @@ func (o BotExternalSourceSettingPtrOutput) Elem() BotExternalSourceSettingOutput
 	}).(BotExternalSourceSettingOutput)
 }
 
-// Settings requried for a slot type based on a grammar that you provide.
+// Settings required for a slot type based on a grammar that you provide.
 func (o BotExternalSourceSettingPtrOutput) GrammarSlotTypeSetting() BotGrammarSlotTypeSettingPtrOutput {
 	return o.ApplyT(func(v *BotExternalSourceSetting) *BotGrammarSlotTypeSetting {
 		if v == nil {
@@ -4321,11 +4321,11 @@ func (o BotExternalSourceSettingPtrOutput) GrammarSlotTypeSetting() BotGrammarSl
 type BotFulfillmentCodeHookSetting struct {
 	// Indicates whether a Lambda function should be invoked to fulfill a specific intent.
 	Enabled bool `pulumi:"enabled"`
-	// Provides information for updating the user on the progress of fulfilling an intent.
+	// Provides settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations.
 	FulfillmentUpdatesSpecification *BotFulfillmentUpdatesSpecification `pulumi:"fulfillmentUpdatesSpecification"`
 	// Determines whether the fulfillment code hook is used. When active is false, the code hook doesn't run.
 	IsActive *bool `pulumi:"isActive"`
-	// Provides a setting that determines whether the post-fulfillment response is sent to the user. For more information, see [](https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete)
+	// Provides settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations.
 	PostFulfillmentStatusSpecification *BotPostFulfillmentStatusSpecification `pulumi:"postFulfillmentStatusSpecification"`
 }
 
@@ -4344,11 +4344,11 @@ type BotFulfillmentCodeHookSettingInput interface {
 type BotFulfillmentCodeHookSettingArgs struct {
 	// Indicates whether a Lambda function should be invoked to fulfill a specific intent.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Provides information for updating the user on the progress of fulfilling an intent.
+	// Provides settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations.
 	FulfillmentUpdatesSpecification BotFulfillmentUpdatesSpecificationPtrInput `pulumi:"fulfillmentUpdatesSpecification"`
 	// Determines whether the fulfillment code hook is used. When active is false, the code hook doesn't run.
 	IsActive pulumi.BoolPtrInput `pulumi:"isActive"`
-	// Provides a setting that determines whether the post-fulfillment response is sent to the user. For more information, see [](https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete)
+	// Provides settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations.
 	PostFulfillmentStatusSpecification BotPostFulfillmentStatusSpecificationPtrInput `pulumi:"postFulfillmentStatusSpecification"`
 }
 
@@ -4435,7 +4435,7 @@ func (o BotFulfillmentCodeHookSettingOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BotFulfillmentCodeHookSetting) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Provides information for updating the user on the progress of fulfilling an intent.
+// Provides settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations.
 func (o BotFulfillmentCodeHookSettingOutput) FulfillmentUpdatesSpecification() BotFulfillmentUpdatesSpecificationPtrOutput {
 	return o.ApplyT(func(v BotFulfillmentCodeHookSetting) *BotFulfillmentUpdatesSpecification {
 		return v.FulfillmentUpdatesSpecification
@@ -4447,7 +4447,7 @@ func (o BotFulfillmentCodeHookSettingOutput) IsActive() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BotFulfillmentCodeHookSetting) *bool { return v.IsActive }).(pulumi.BoolPtrOutput)
 }
 
-// Provides a setting that determines whether the post-fulfillment response is sent to the user. For more information, see [](https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete)
+// Provides settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations.
 func (o BotFulfillmentCodeHookSettingOutput) PostFulfillmentStatusSpecification() BotPostFulfillmentStatusSpecificationPtrOutput {
 	return o.ApplyT(func(v BotFulfillmentCodeHookSetting) *BotPostFulfillmentStatusSpecification {
 		return v.PostFulfillmentStatusSpecification
@@ -4488,7 +4488,7 @@ func (o BotFulfillmentCodeHookSettingPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Provides information for updating the user on the progress of fulfilling an intent.
+// Provides settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations.
 func (o BotFulfillmentCodeHookSettingPtrOutput) FulfillmentUpdatesSpecification() BotFulfillmentUpdatesSpecificationPtrOutput {
 	return o.ApplyT(func(v *BotFulfillmentCodeHookSetting) *BotFulfillmentUpdatesSpecification {
 		if v == nil {
@@ -4508,7 +4508,7 @@ func (o BotFulfillmentCodeHookSettingPtrOutput) IsActive() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Provides a setting that determines whether the post-fulfillment response is sent to the user. For more information, see [](https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete)
+// Provides settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations.
 func (o BotFulfillmentCodeHookSettingPtrOutput) PostFulfillmentStatusSpecification() BotPostFulfillmentStatusSpecificationPtrOutput {
 	return o.ApplyT(func(v *BotFulfillmentCodeHookSetting) *BotPostFulfillmentStatusSpecification {
 		if v == nil {
@@ -4878,11 +4878,11 @@ func (o BotFulfillmentUpdateResponseSpecificationPtrOutput) MessageGroups() BotM
 type BotFulfillmentUpdatesSpecification struct {
 	// Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.
 	Active bool `pulumi:"active"`
-	// Provides settings for a message that is sent to the user when a fulfillment Lambda function starts running.
+	// Provides configuration information for the message sent to users when the fulfillment Lambda functions starts running.
 	StartResponse *BotFulfillmentStartResponseSpecification `pulumi:"startResponse"`
 	// The length of time that the fulfillment Lambda function should run before it times out.
 	TimeoutInSeconds *int `pulumi:"timeoutInSeconds"`
-	// Provides settings for a message that is sent periodically to the user while a fulfillment Lambda function is running.
+	// Provides configuration information for messages sent periodically to the user while the fulfillment Lambda function is running.
 	UpdateResponse *BotFulfillmentUpdateResponseSpecification `pulumi:"updateResponse"`
 }
 
@@ -4901,11 +4901,11 @@ type BotFulfillmentUpdatesSpecificationInput interface {
 type BotFulfillmentUpdatesSpecificationArgs struct {
 	// Determines whether fulfillment updates are sent to the user. When this field is true, updates are sent.
 	Active pulumi.BoolInput `pulumi:"active"`
-	// Provides settings for a message that is sent to the user when a fulfillment Lambda function starts running.
+	// Provides configuration information for the message sent to users when the fulfillment Lambda functions starts running.
 	StartResponse BotFulfillmentStartResponseSpecificationPtrInput `pulumi:"startResponse"`
 	// The length of time that the fulfillment Lambda function should run before it times out.
 	TimeoutInSeconds pulumi.IntPtrInput `pulumi:"timeoutInSeconds"`
-	// Provides settings for a message that is sent periodically to the user while a fulfillment Lambda function is running.
+	// Provides configuration information for messages sent periodically to the user while the fulfillment Lambda function is running.
 	UpdateResponse BotFulfillmentUpdateResponseSpecificationPtrInput `pulumi:"updateResponse"`
 }
 
@@ -4992,7 +4992,7 @@ func (o BotFulfillmentUpdatesSpecificationOutput) Active() pulumi.BoolOutput {
 	return o.ApplyT(func(v BotFulfillmentUpdatesSpecification) bool { return v.Active }).(pulumi.BoolOutput)
 }
 
-// Provides settings for a message that is sent to the user when a fulfillment Lambda function starts running.
+// Provides configuration information for the message sent to users when the fulfillment Lambda functions starts running.
 func (o BotFulfillmentUpdatesSpecificationOutput) StartResponse() BotFulfillmentStartResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v BotFulfillmentUpdatesSpecification) *BotFulfillmentStartResponseSpecification {
 		return v.StartResponse
@@ -5004,7 +5004,7 @@ func (o BotFulfillmentUpdatesSpecificationOutput) TimeoutInSeconds() pulumi.IntP
 	return o.ApplyT(func(v BotFulfillmentUpdatesSpecification) *int { return v.TimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Provides settings for a message that is sent periodically to the user while a fulfillment Lambda function is running.
+// Provides configuration information for messages sent periodically to the user while the fulfillment Lambda function is running.
 func (o BotFulfillmentUpdatesSpecificationOutput) UpdateResponse() BotFulfillmentUpdateResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v BotFulfillmentUpdatesSpecification) *BotFulfillmentUpdateResponseSpecification {
 		return v.UpdateResponse
@@ -5045,7 +5045,7 @@ func (o BotFulfillmentUpdatesSpecificationPtrOutput) Active() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Provides settings for a message that is sent to the user when a fulfillment Lambda function starts running.
+// Provides configuration information for the message sent to users when the fulfillment Lambda functions starts running.
 func (o BotFulfillmentUpdatesSpecificationPtrOutput) StartResponse() BotFulfillmentStartResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v *BotFulfillmentUpdatesSpecification) *BotFulfillmentStartResponseSpecification {
 		if v == nil {
@@ -5065,7 +5065,7 @@ func (o BotFulfillmentUpdatesSpecificationPtrOutput) TimeoutInSeconds() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// Provides settings for a message that is sent periodically to the user while a fulfillment Lambda function is running.
+// Provides configuration information for messages sent periodically to the user while the fulfillment Lambda function is running.
 func (o BotFulfillmentUpdatesSpecificationPtrOutput) UpdateResponse() BotFulfillmentUpdateResponseSpecificationPtrOutput {
 	return o.ApplyT(func(v *BotFulfillmentUpdatesSpecification) *BotFulfillmentUpdateResponseSpecification {
 		if v == nil {
@@ -5077,7 +5077,7 @@ func (o BotFulfillmentUpdatesSpecificationPtrOutput) UpdateResponse() BotFulfill
 
 // Settings required for a slot type based on a grammar that you provide.
 type BotGrammarSlotTypeSetting struct {
-	// Describes the Amazon S3 bucket name and location for the grammar that is the source for the slot type.
+	// The source of the grammar used to create the slot type.
 	Source *BotGrammarSlotTypeSource `pulumi:"source"`
 }
 
@@ -5094,7 +5094,7 @@ type BotGrammarSlotTypeSettingInput interface {
 
 // Settings required for a slot type based on a grammar that you provide.
 type BotGrammarSlotTypeSettingArgs struct {
-	// Describes the Amazon S3 bucket name and location for the grammar that is the source for the slot type.
+	// The source of the grammar used to create the slot type.
 	Source BotGrammarSlotTypeSourcePtrInput `pulumi:"source"`
 }
 
@@ -5176,7 +5176,7 @@ func (o BotGrammarSlotTypeSettingOutput) ToBotGrammarSlotTypeSettingPtrOutputWit
 	}).(BotGrammarSlotTypeSettingPtrOutput)
 }
 
-// Describes the Amazon S3 bucket name and location for the grammar that is the source for the slot type.
+// The source of the grammar used to create the slot type.
 func (o BotGrammarSlotTypeSettingOutput) Source() BotGrammarSlotTypeSourcePtrOutput {
 	return o.ApplyT(func(v BotGrammarSlotTypeSetting) *BotGrammarSlotTypeSource { return v.Source }).(BotGrammarSlotTypeSourcePtrOutput)
 }
@@ -5205,7 +5205,7 @@ func (o BotGrammarSlotTypeSettingPtrOutput) Elem() BotGrammarSlotTypeSettingOutp
 	}).(BotGrammarSlotTypeSettingOutput)
 }
 
-// Describes the Amazon S3 bucket name and location for the grammar that is the source for the slot type.
+// The source of the grammar used to create the slot type.
 func (o BotGrammarSlotTypeSettingPtrOutput) Source() BotGrammarSlotTypeSourcePtrOutput {
 	return o.ApplyT(func(v *BotGrammarSlotTypeSetting) *BotGrammarSlotTypeSource {
 		if v == nil {
@@ -5891,17 +5891,17 @@ func (o BotInputContextArrayOutput) Index(i pulumi.IntInput) BotInputContextOutp
 type BotIntent struct {
 	// Description of thr intent.
 	Description *string `pulumi:"description"`
-	// Settings that determine the Lambda function that Amazon Lex uses for processing user responses.
+	// Specifies that Amazon Lex invokes the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction.
 	DialogCodeHook *BotDialogCodeHookSetting `pulumi:"dialogCodeHook"`
-	// Determines if a Lambda function should be invoked for a specific intent.
+	// Specifies that Amazon Lex invokes the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user.
 	FulfillmentCodeHook *BotFulfillmentCodeHookSetting `pulumi:"fulfillmentCodeHook"`
 	// Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
 	InitialResponseSetting *BotInitialResponseSetting `pulumi:"initialResponseSetting"`
 	// A list of contexts that must be active for this intent to be considered by Amazon Lex .
 	InputContexts []BotInputContext `pulumi:"inputContexts"`
-	// Provides a statement the Amazon Lex conveys to the user when the intent is successfully fulfilled.
+	// Sets the response that Amazon Lex sends to the user when the intent is closed.
 	IntentClosingSetting *BotIntentClosingSetting `pulumi:"intentClosingSetting"`
-	// Provides a prompt for making sure that the user is ready for the intent to be fulfilled.
+	// Provides prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers "no," the settings contain a statement that is sent to the user to end the intent.
 	IntentConfirmationSetting *BotIntentConfirmationSetting `pulumi:"intentConfirmationSetting"`
 	// Provides configuration information for the `AMAZON.KendraSearchIntent` intent. When you use this intent, Amazon Lex searches the specified Amazon Kendra index and returns documents from the index that match the user's utterance.
 	KendraConfiguration *BotKendraConfiguration `pulumi:"kendraConfiguration"`
@@ -5934,17 +5934,17 @@ type BotIntentInput interface {
 type BotIntentArgs struct {
 	// Description of thr intent.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Settings that determine the Lambda function that Amazon Lex uses for processing user responses.
+	// Specifies that Amazon Lex invokes the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction.
 	DialogCodeHook BotDialogCodeHookSettingPtrInput `pulumi:"dialogCodeHook"`
-	// Determines if a Lambda function should be invoked for a specific intent.
+	// Specifies that Amazon Lex invokes the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user.
 	FulfillmentCodeHook BotFulfillmentCodeHookSettingPtrInput `pulumi:"fulfillmentCodeHook"`
 	// Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.
 	InitialResponseSetting BotInitialResponseSettingPtrInput `pulumi:"initialResponseSetting"`
 	// A list of contexts that must be active for this intent to be considered by Amazon Lex .
 	InputContexts BotInputContextArrayInput `pulumi:"inputContexts"`
-	// Provides a statement the Amazon Lex conveys to the user when the intent is successfully fulfilled.
+	// Sets the response that Amazon Lex sends to the user when the intent is closed.
 	IntentClosingSetting BotIntentClosingSettingPtrInput `pulumi:"intentClosingSetting"`
-	// Provides a prompt for making sure that the user is ready for the intent to be fulfilled.
+	// Provides prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers "no," the settings contain a statement that is sent to the user to end the intent.
 	IntentConfirmationSetting BotIntentConfirmationSettingPtrInput `pulumi:"intentConfirmationSetting"`
 	// Provides configuration information for the `AMAZON.KendraSearchIntent` intent. When you use this intent, Amazon Lex searches the specified Amazon Kendra index and returns documents from the index that match the user's utterance.
 	KendraConfiguration BotKendraConfigurationPtrInput `pulumi:"kendraConfiguration"`
@@ -6019,12 +6019,12 @@ func (o BotIntentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotIntent) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Settings that determine the Lambda function that Amazon Lex uses for processing user responses.
+// Specifies that Amazon Lex invokes the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction.
 func (o BotIntentOutput) DialogCodeHook() BotDialogCodeHookSettingPtrOutput {
 	return o.ApplyT(func(v BotIntent) *BotDialogCodeHookSetting { return v.DialogCodeHook }).(BotDialogCodeHookSettingPtrOutput)
 }
 
-// Determines if a Lambda function should be invoked for a specific intent.
+// Specifies that Amazon Lex invokes the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user.
 func (o BotIntentOutput) FulfillmentCodeHook() BotFulfillmentCodeHookSettingPtrOutput {
 	return o.ApplyT(func(v BotIntent) *BotFulfillmentCodeHookSetting { return v.FulfillmentCodeHook }).(BotFulfillmentCodeHookSettingPtrOutput)
 }
@@ -6039,12 +6039,12 @@ func (o BotIntentOutput) InputContexts() BotInputContextArrayOutput {
 	return o.ApplyT(func(v BotIntent) []BotInputContext { return v.InputContexts }).(BotInputContextArrayOutput)
 }
 
-// Provides a statement the Amazon Lex conveys to the user when the intent is successfully fulfilled.
+// Sets the response that Amazon Lex sends to the user when the intent is closed.
 func (o BotIntentOutput) IntentClosingSetting() BotIntentClosingSettingPtrOutput {
 	return o.ApplyT(func(v BotIntent) *BotIntentClosingSetting { return v.IntentClosingSetting }).(BotIntentClosingSettingPtrOutput)
 }
 
-// Provides a prompt for making sure that the user is ready for the intent to be fulfilled.
+// Provides prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers "no," the settings contain a statement that is sent to the user to end the intent.
 func (o BotIntentOutput) IntentConfirmationSetting() BotIntentConfirmationSettingPtrOutput {
 	return o.ApplyT(func(v BotIntent) *BotIntentConfirmationSetting { return v.IntentConfirmationSetting }).(BotIntentConfirmationSettingPtrOutput)
 }
@@ -7018,7 +7018,7 @@ type BotLambdaCodeHook struct {
 
 // A locale in the bot, which contains the intents and slot types that the bot uses in conversations with users in the specified language and locale.
 type BotLocale struct {
-	// Specifies a custom vocabulary. A custom vocabulary is a list of words that you expect to be used during a conversation with your bot.
+	// Specifies a custom vocabulary to use with a specific locale.
 	CustomVocabulary *BotCustomVocabulary `pulumi:"customVocabulary"`
 	// A description of the bot locale. Use this to help identify the bot locale in lists.
 	Description *string `pulumi:"description"`
@@ -7047,7 +7047,7 @@ type BotLocaleInput interface {
 
 // A locale in the bot, which contains the intents and slot types that the bot uses in conversations with users in the specified language and locale.
 type BotLocaleArgs struct {
-	// Specifies a custom vocabulary. A custom vocabulary is a list of words that you expect to be used during a conversation with your bot.
+	// Specifies a custom vocabulary to use with a specific locale.
 	CustomVocabulary BotCustomVocabularyPtrInput `pulumi:"customVocabulary"`
 	// A description of the bot locale. Use this to help identify the bot locale in lists.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -7115,7 +7115,7 @@ func (o BotLocaleOutput) ToBotLocaleOutputWithContext(ctx context.Context) BotLo
 	return o
 }
 
-// Specifies a custom vocabulary. A custom vocabulary is a list of words that you expect to be used during a conversation with your bot.
+// Specifies a custom vocabulary to use with a specific locale.
 func (o BotLocaleOutput) CustomVocabulary() BotCustomVocabularyPtrOutput {
 	return o.ApplyT(func(v BotLocale) *BotCustomVocabulary { return v.CustomVocabulary }).(BotCustomVocabularyPtrOutput)
 }
@@ -9602,11 +9602,16 @@ type BotSlot struct {
 	MultipleValuesSetting *BotMultipleValuesSetting `pulumi:"multipleValuesSetting"`
 	// The name given to the slot.
 	Name string `pulumi:"name"`
-	// Determines whether Amazon Lex obscures slot values in conversation logs.
+	// Determines whether the contents of the slot are obfuscated in Amazon CloudWatch Logs logs. Use obfuscated slots to protect information such as personally identifiable information (PII) in logs.
 	ObfuscationSetting *BotObfuscationSetting `pulumi:"obfuscationSetting"`
 	// The name of the slot type that this slot is based on. The slot type defines the acceptable values for the slot.
 	SlotTypeName string `pulumi:"slotTypeName"`
-	// Specifies the elicitation setting details eliciting a slot.
+	// Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
+	//
+	// - ORIGINAL_VALUE - Returns the value entered by the user, if the user value is similar to a slot value.
+	// - TOP_RESOLUTION - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
+	//
+	// If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
 	ValueElicitationSetting BotSlotValueElicitationSetting `pulumi:"valueElicitationSetting"`
 }
 
@@ -9629,11 +9634,16 @@ type BotSlotArgs struct {
 	MultipleValuesSetting BotMultipleValuesSettingPtrInput `pulumi:"multipleValuesSetting"`
 	// The name given to the slot.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Determines whether Amazon Lex obscures slot values in conversation logs.
+	// Determines whether the contents of the slot are obfuscated in Amazon CloudWatch Logs logs. Use obfuscated slots to protect information such as personally identifiable information (PII) in logs.
 	ObfuscationSetting BotObfuscationSettingPtrInput `pulumi:"obfuscationSetting"`
 	// The name of the slot type that this slot is based on. The slot type defines the acceptable values for the slot.
 	SlotTypeName pulumi.StringInput `pulumi:"slotTypeName"`
-	// Specifies the elicitation setting details eliciting a slot.
+	// Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
+	//
+	// - ORIGINAL_VALUE - Returns the value entered by the user, if the user value is similar to a slot value.
+	// - TOP_RESOLUTION - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
+	//
+	// If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
 	ValueElicitationSetting BotSlotValueElicitationSettingInput `pulumi:"valueElicitationSetting"`
 }
 
@@ -9704,7 +9714,7 @@ func (o BotSlotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BotSlot) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Determines whether Amazon Lex obscures slot values in conversation logs.
+// Determines whether the contents of the slot are obfuscated in Amazon CloudWatch Logs logs. Use obfuscated slots to protect information such as personally identifiable information (PII) in logs.
 func (o BotSlotOutput) ObfuscationSetting() BotObfuscationSettingPtrOutput {
 	return o.ApplyT(func(v BotSlot) *BotObfuscationSetting { return v.ObfuscationSetting }).(BotObfuscationSettingPtrOutput)
 }
@@ -9714,7 +9724,12 @@ func (o BotSlotOutput) SlotTypeName() pulumi.StringOutput {
 	return o.ApplyT(func(v BotSlot) string { return v.SlotTypeName }).(pulumi.StringOutput)
 }
 
-// Specifies the elicitation setting details eliciting a slot.
+// Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
+//
+// - ORIGINAL_VALUE - Returns the value entered by the user, if the user value is similar to a slot value.
+// - TOP_RESOLUTION - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
+//
+// If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
 func (o BotSlotOutput) ValueElicitationSetting() BotSlotValueElicitationSettingOutput {
 	return o.ApplyT(func(v BotSlot) BotSlotValueElicitationSetting { return v.ValueElicitationSetting }).(BotSlotValueElicitationSettingOutput)
 }
@@ -10362,7 +10377,7 @@ func (o BotSlotPriorityArrayOutput) Index(i pulumi.IntInput) BotSlotPriorityOutp
 type BotSlotType struct {
 	// A description of the slot type. Use the description to help identify the slot type in lists.
 	Description *string `pulumi:"description"`
-	// Provides information about the external source of the slot type's definition.
+	// Sets the type of external information used to create the slot type.
 	ExternalSourceSetting *BotExternalSourceSetting `pulumi:"externalSourceSetting"`
 	// The name of the slot type. A slot type name must be unique withing the account.
 	Name string `pulumi:"name"`
@@ -10372,7 +10387,12 @@ type BotSlotType struct {
 	ParentSlotTypeSignature *string `pulumi:"parentSlotTypeSignature"`
 	// A list of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for the slot.
 	SlotTypeValues []BotSlotTypeValue `pulumi:"slotTypeValues"`
-	// Contains settings used by Amazon Lex to select a slot value.
+	// Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
+	//
+	// - `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value.
+	// - `TOP_RESOLUTION` - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
+	//
+	// If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
 	ValueSelectionSetting *BotSlotValueSelectionSetting `pulumi:"valueSelectionSetting"`
 }
 
@@ -10391,7 +10411,7 @@ type BotSlotTypeInput interface {
 type BotSlotTypeArgs struct {
 	// A description of the slot type. Use the description to help identify the slot type in lists.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Provides information about the external source of the slot type's definition.
+	// Sets the type of external information used to create the slot type.
 	ExternalSourceSetting BotExternalSourceSettingPtrInput `pulumi:"externalSourceSetting"`
 	// The name of the slot type. A slot type name must be unique withing the account.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -10401,7 +10421,12 @@ type BotSlotTypeArgs struct {
 	ParentSlotTypeSignature pulumi.StringPtrInput `pulumi:"parentSlotTypeSignature"`
 	// A list of SlotTypeValue objects that defines the values that the slot type can take. Each value can have a list of synonyms, additional values that help train the machine learning model about the values that it resolves for the slot.
 	SlotTypeValues BotSlotTypeValueArrayInput `pulumi:"slotTypeValues"`
-	// Contains settings used by Amazon Lex to select a slot value.
+	// Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
+	//
+	// - `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value.
+	// - `TOP_RESOLUTION` - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
+	//
+	// If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
 	ValueSelectionSetting BotSlotValueSelectionSettingPtrInput `pulumi:"valueSelectionSetting"`
 }
 
@@ -10462,7 +10487,7 @@ func (o BotSlotTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotSlotType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Provides information about the external source of the slot type's definition.
+// Sets the type of external information used to create the slot type.
 func (o BotSlotTypeOutput) ExternalSourceSetting() BotExternalSourceSettingPtrOutput {
 	return o.ApplyT(func(v BotSlotType) *BotExternalSourceSetting { return v.ExternalSourceSetting }).(BotExternalSourceSettingPtrOutput)
 }
@@ -10484,7 +10509,12 @@ func (o BotSlotTypeOutput) SlotTypeValues() BotSlotTypeValueArrayOutput {
 	return o.ApplyT(func(v BotSlotType) []BotSlotTypeValue { return v.SlotTypeValues }).(BotSlotTypeValueArrayOutput)
 }
 
-// Contains settings used by Amazon Lex to select a slot value.
+// Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
+//
+// - `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value.
+// - `TOP_RESOLUTION` - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
+//
+// If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
 func (o BotSlotTypeOutput) ValueSelectionSetting() BotSlotValueSelectionSettingPtrOutput {
 	return o.ApplyT(func(v BotSlotType) *BotSlotValueSelectionSetting { return v.ValueSelectionSetting }).(BotSlotValueSelectionSettingPtrOutput)
 }
@@ -11083,7 +11113,7 @@ func (o BotSlotValueOverrideArrayOutput) Index(i pulumi.IntInput) BotSlotValueOv
 type BotSlotValueOverrideMap struct {
 	// The name of the slot.
 	SlotName *string `pulumi:"slotName"`
-	// The slot values that Amazon Lex uses when it sets slot values in a dialog step.
+	// The SlotValueOverride object to which the slot name will be mapped.
 	SlotValueOverride *BotSlotValueOverride `pulumi:"slotValueOverride"`
 }
 
@@ -11102,7 +11132,7 @@ type BotSlotValueOverrideMapInput interface {
 type BotSlotValueOverrideMapArgs struct {
 	// The name of the slot.
 	SlotName pulumi.StringPtrInput `pulumi:"slotName"`
-	// The slot values that Amazon Lex uses when it sets slot values in a dialog step.
+	// The SlotValueOverride object to which the slot name will be mapped.
 	SlotValueOverride BotSlotValueOverridePtrInput `pulumi:"slotValueOverride"`
 }
 
@@ -11163,7 +11193,7 @@ func (o BotSlotValueOverrideMapOutput) SlotName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotSlotValueOverrideMap) *string { return v.SlotName }).(pulumi.StringPtrOutput)
 }
 
-// The slot values that Amazon Lex uses when it sets slot values in a dialog step.
+// The SlotValueOverride object to which the slot name will be mapped.
 func (o BotSlotValueOverrideMapOutput) SlotValueOverride() BotSlotValueOverridePtrOutput {
 	return o.ApplyT(func(v BotSlotValueOverrideMap) *BotSlotValueOverride { return v.SlotValueOverride }).(BotSlotValueOverridePtrOutput)
 }
@@ -11330,9 +11360,9 @@ func (o BotSlotValueRegexFilterPtrOutput) Pattern() pulumi.StringPtrOutput {
 
 // Contains settings used by Amazon Lex to select a slot value.
 type BotSlotValueSelectionSetting struct {
-	// Provides settings that enable advanced recognition settings for slot values.
+	// Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
 	AdvancedRecognitionSetting *BotAdvancedRecognitionSetting `pulumi:"advancedRecognitionSetting"`
-	// Provides a regular expression used to validate the value of a slot.
+	// A regular expression used to validate the value of a slot.
 	RegexFilter *BotSlotValueRegexFilter `pulumi:"regexFilter"`
 	// Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
 	//
@@ -11356,9 +11386,9 @@ type BotSlotValueSelectionSettingInput interface {
 
 // Contains settings used by Amazon Lex to select a slot value.
 type BotSlotValueSelectionSettingArgs struct {
-	// Provides settings that enable advanced recognition settings for slot values.
+	// Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
 	AdvancedRecognitionSetting BotAdvancedRecognitionSettingPtrInput `pulumi:"advancedRecognitionSetting"`
-	// Provides a regular expression used to validate the value of a slot.
+	// A regular expression used to validate the value of a slot.
 	RegexFilter BotSlotValueRegexFilterPtrInput `pulumi:"regexFilter"`
 	// Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
 	//
@@ -11447,14 +11477,14 @@ func (o BotSlotValueSelectionSettingOutput) ToBotSlotValueSelectionSettingPtrOut
 	}).(BotSlotValueSelectionSettingPtrOutput)
 }
 
-// Provides settings that enable advanced recognition settings for slot values.
+// Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
 func (o BotSlotValueSelectionSettingOutput) AdvancedRecognitionSetting() BotAdvancedRecognitionSettingPtrOutput {
 	return o.ApplyT(func(v BotSlotValueSelectionSetting) *BotAdvancedRecognitionSetting {
 		return v.AdvancedRecognitionSetting
 	}).(BotAdvancedRecognitionSettingPtrOutput)
 }
 
-// Provides a regular expression used to validate the value of a slot.
+// A regular expression used to validate the value of a slot.
 func (o BotSlotValueSelectionSettingOutput) RegexFilter() BotSlotValueRegexFilterPtrOutput {
 	return o.ApplyT(func(v BotSlotValueSelectionSetting) *BotSlotValueRegexFilter { return v.RegexFilter }).(BotSlotValueRegexFilterPtrOutput)
 }
@@ -11493,7 +11523,7 @@ func (o BotSlotValueSelectionSettingPtrOutput) Elem() BotSlotValueSelectionSetti
 	}).(BotSlotValueSelectionSettingOutput)
 }
 
-// Provides settings that enable advanced recognition settings for slot values.
+// Provides settings that enable advanced recognition settings for slot values. You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
 func (o BotSlotValueSelectionSettingPtrOutput) AdvancedRecognitionSetting() BotAdvancedRecognitionSettingPtrOutput {
 	return o.ApplyT(func(v *BotSlotValueSelectionSetting) *BotAdvancedRecognitionSetting {
 		if v == nil {
@@ -11503,7 +11533,7 @@ func (o BotSlotValueSelectionSettingPtrOutput) AdvancedRecognitionSetting() BotA
 	}).(BotAdvancedRecognitionSettingPtrOutput)
 }
 
-// Provides a regular expression used to validate the value of a slot.
+// A regular expression used to validate the value of a slot.
 func (o BotSlotValueSelectionSettingPtrOutput) RegexFilter() BotSlotValueRegexFilterPtrOutput {
 	return o.ApplyT(func(v *BotSlotValueSelectionSetting) *BotSlotValueRegexFilter {
 		if v == nil {
@@ -11978,7 +12008,7 @@ func (o BotTagArrayOutput) Index(i pulumi.IntInput) BotTagOutput {
 type BotTestBotAliasSettings struct {
 	// Specifies settings that are unique to a locale. For example, you can use a different Lambda function depending on the bot's locale.
 	BotAliasLocaleSettings []BotAliasLocaleSettingsItem `pulumi:"botAliasLocaleSettings"`
-	// Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+	// Specifies settings for conversation logs that save audio, text, and metadata information for conversations with your users.
 	ConversationLogSettings *BotConversationLogSettings `pulumi:"conversationLogSettings"`
 	// Specifies a description for the test bot alias.
 	Description *string `pulumi:"description"`
@@ -12001,7 +12031,7 @@ type BotTestBotAliasSettingsInput interface {
 type BotTestBotAliasSettingsArgs struct {
 	// Specifies settings that are unique to a locale. For example, you can use a different Lambda function depending on the bot's locale.
 	BotAliasLocaleSettings BotAliasLocaleSettingsItemArrayInput `pulumi:"botAliasLocaleSettings"`
-	// Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+	// Specifies settings for conversation logs that save audio, text, and metadata information for conversations with your users.
 	ConversationLogSettings BotConversationLogSettingsPtrInput `pulumi:"conversationLogSettings"`
 	// Specifies a description for the test bot alias.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -12092,7 +12122,7 @@ func (o BotTestBotAliasSettingsOutput) BotAliasLocaleSettings() BotAliasLocaleSe
 	return o.ApplyT(func(v BotTestBotAliasSettings) []BotAliasLocaleSettingsItem { return v.BotAliasLocaleSettings }).(BotAliasLocaleSettingsItemArrayOutput)
 }
 
-// Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+// Specifies settings for conversation logs that save audio, text, and metadata information for conversations with your users.
 func (o BotTestBotAliasSettingsOutput) ConversationLogSettings() BotConversationLogSettingsPtrOutput {
 	return o.ApplyT(func(v BotTestBotAliasSettings) *BotConversationLogSettings { return v.ConversationLogSettings }).(BotConversationLogSettingsPtrOutput)
 }
@@ -12143,7 +12173,7 @@ func (o BotTestBotAliasSettingsPtrOutput) BotAliasLocaleSettings() BotAliasLocal
 	}).(BotAliasLocaleSettingsItemArrayOutput)
 }
 
-// Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+// Specifies settings for conversation logs that save audio, text, and metadata information for conversations with your users.
 func (o BotTestBotAliasSettingsPtrOutput) ConversationLogSettings() BotConversationLogSettingsPtrOutput {
 	return o.ApplyT(func(v *BotTestBotAliasSettings) *BotConversationLogSettings {
 		if v == nil {

@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The configuration for a `PivotTableVisual` .
+        /// The configuration settings of the visual.
         /// </summary>
         [Input("chartConfiguration")]
         public Input<Inputs.AnalysisPivotTableConfigurationArgs>? ChartConfiguration { get; set; }
@@ -37,13 +37,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.AnalysisPivotTableConditionalFormattingArgs>? ConditionalFormatting { get; set; }
 
         /// <summary>
-        /// The subtitle label options for a visual.
+        /// The subtitle that is displayed on the visual.
         /// </summary>
         [Input("subtitle")]
         public Input<Inputs.AnalysisVisualSubtitleLabelOptionsArgs>? Subtitle { get; set; }
 
         /// <summary>
-        /// The title label options for a visual.
+        /// The title that is displayed on the visual.
         /// </summary>
         [Input("title")]
         public Input<Inputs.AnalysisVisualTitleLabelOptionsArgs>? Title { get; set; }

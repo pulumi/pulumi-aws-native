@@ -25,7 +25,7 @@ type Rule struct {
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The ID or Amazon Resource Name (ARN) of the listener.
 	ListenerIdentifier pulumi.StringPtrOutput `pulumi:"listenerIdentifier"`
-	// Describes a rule match.
+	// The rule match.
 	Match RuleMatchOutput `pulumi:"match"`
 	// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	//
@@ -35,7 +35,7 @@ type Rule struct {
 	Priority pulumi.IntOutput `pulumi:"priority"`
 	// The ID or Amazon Resource Name (ARN) of the service.
 	ServiceIdentifier pulumi.StringPtrOutput `pulumi:"serviceIdentifier"`
-	// Specifies a tag for a listener rule.
+	// The tags for the rule.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -98,7 +98,7 @@ type ruleArgs struct {
 	Action RuleAction `pulumi:"action"`
 	// The ID or Amazon Resource Name (ARN) of the listener.
 	ListenerIdentifier *string `pulumi:"listenerIdentifier"`
-	// Describes a rule match.
+	// The rule match.
 	Match RuleMatch `pulumi:"match"`
 	// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	//
@@ -108,7 +108,7 @@ type ruleArgs struct {
 	Priority int `pulumi:"priority"`
 	// The ID or Amazon Resource Name (ARN) of the service.
 	ServiceIdentifier *string `pulumi:"serviceIdentifier"`
-	// Specifies a tag for a listener rule.
+	// The tags for the rule.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -118,7 +118,7 @@ type RuleArgs struct {
 	Action RuleActionInput
 	// The ID or Amazon Resource Name (ARN) of the listener.
 	ListenerIdentifier pulumi.StringPtrInput
-	// Describes a rule match.
+	// The rule match.
 	Match RuleMatchInput
 	// The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	//
@@ -128,7 +128,7 @@ type RuleArgs struct {
 	Priority pulumi.IntInput
 	// The ID or Amazon Resource Name (ARN) of the service.
 	ServiceIdentifier pulumi.StringPtrInput
-	// Specifies a tag for a listener rule.
+	// The tags for the rule.
 	Tags aws.TagArrayInput
 }
 
@@ -189,7 +189,7 @@ func (o RuleOutput) ListenerIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.ListenerIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// Describes a rule match.
+// The rule match.
 func (o RuleOutput) Match() RuleMatchOutput {
 	return o.ApplyT(func(v *Rule) RuleMatchOutput { return v.Match }).(RuleMatchOutput)
 }
@@ -211,7 +211,7 @@ func (o RuleOutput) ServiceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.ServiceIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a tag for a listener rule.
+// The tags for the rule.
 func (o RuleOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Rule) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

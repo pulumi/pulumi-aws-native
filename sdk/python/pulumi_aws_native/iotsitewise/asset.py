@@ -31,9 +31,11 @@ class AssetArgs:
         :param pulumi.Input[str] asset_model_id: The ID of the asset model from which to create the asset.
         :param pulumi.Input[str] asset_description: A description for the asset
         :param pulumi.Input[str] asset_external_id: The External ID of the asset
-        :param pulumi.Input[Sequence[pulumi.Input['AssetHierarchyArgs']]] asset_hierarchies: Describes an asset hierarchy that contains a hierarchy's name and ID.
+        :param pulumi.Input[Sequence[pulumi.Input['AssetHierarchyArgs']]] asset_hierarchies: A list of asset hierarchies that each contain a `hierarchyId` . A hierarchy specifies allowed parent/child asset relationships.
         :param pulumi.Input[str] asset_name: A unique, friendly name for the asset.
-        :param pulumi.Input[Sequence[pulumi.Input['AssetPropertyArgs']]] asset_properties: Contains asset property information.
+        :param pulumi.Input[Sequence[pulumi.Input['AssetPropertyArgs']]] asset_properties: The list of asset properties for the asset.
+               
+               This object doesn't include properties that you define in composite models. You can find composite model properties in the `assetCompositeModels` object.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the asset.
         """
         pulumi.set(__self__, "asset_model_id", asset_model_id)
@@ -90,7 +92,7 @@ class AssetArgs:
     @pulumi.getter(name="assetHierarchies")
     def asset_hierarchies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetHierarchyArgs']]]]:
         """
-        Describes an asset hierarchy that contains a hierarchy's name and ID.
+        A list of asset hierarchies that each contain a `hierarchyId` . A hierarchy specifies allowed parent/child asset relationships.
         """
         return pulumi.get(self, "asset_hierarchies")
 
@@ -114,7 +116,9 @@ class AssetArgs:
     @pulumi.getter(name="assetProperties")
     def asset_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetPropertyArgs']]]]:
         """
-        Contains asset property information.
+        The list of asset properties for the asset.
+
+        This object doesn't include properties that you define in composite models. You can find composite model properties in the `assetCompositeModels` object.
         """
         return pulumi.get(self, "asset_properties")
 
@@ -155,10 +159,12 @@ class Asset(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] asset_description: A description for the asset
         :param pulumi.Input[str] asset_external_id: The External ID of the asset
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetHierarchyArgs']]]] asset_hierarchies: Describes an asset hierarchy that contains a hierarchy's name and ID.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetHierarchyArgs']]]] asset_hierarchies: A list of asset hierarchies that each contain a `hierarchyId` . A hierarchy specifies allowed parent/child asset relationships.
         :param pulumi.Input[str] asset_model_id: The ID of the asset model from which to create the asset.
         :param pulumi.Input[str] asset_name: A unique, friendly name for the asset.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetPropertyArgs']]]] asset_properties: Contains asset property information.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetPropertyArgs']]]] asset_properties: The list of asset properties for the asset.
+               
+               This object doesn't include properties that you define in composite models. You can find composite model properties in the `assetCompositeModels` object.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the asset.
         """
         ...
@@ -273,7 +279,7 @@ class Asset(pulumi.CustomResource):
     @pulumi.getter(name="assetHierarchies")
     def asset_hierarchies(self) -> pulumi.Output[Optional[Sequence['outputs.AssetHierarchy']]]:
         """
-        Describes an asset hierarchy that contains a hierarchy's name and ID.
+        A list of asset hierarchies that each contain a `hierarchyId` . A hierarchy specifies allowed parent/child asset relationships.
         """
         return pulumi.get(self, "asset_hierarchies")
 
@@ -305,7 +311,9 @@ class Asset(pulumi.CustomResource):
     @pulumi.getter(name="assetProperties")
     def asset_properties(self) -> pulumi.Output[Optional[Sequence['outputs.AssetProperty']]]:
         """
-        Contains asset property information.
+        The list of asset properties for the asset.
+
+        This object doesn't include properties that you define in composite models. You can find composite model properties in the `assetCompositeModels` object.
         """
         return pulumi.get(self, "asset_properties")
 

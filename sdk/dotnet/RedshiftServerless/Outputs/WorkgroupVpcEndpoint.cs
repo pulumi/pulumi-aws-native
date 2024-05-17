@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.RedshiftServerless.Outputs
     public sealed class WorkgroupVpcEndpoint
     {
         /// <summary>
-        /// Contains information about a network interface in an Amazon Redshift Serverless managed VPC endpoint.
+        /// One or more network interfaces of the endpoint. Also known as an interface endpoint.
         /// </summary>
         public readonly ImmutableArray<Outputs.WorkgroupNetworkInterface> NetworkInterfaces;
         /// <summary>

@@ -36,13 +36,19 @@ type DomainConfiguration struct {
 	//
 	// For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
 	ServerCertificateConfig DomainConfigurationServerCertificateConfigPtrOutput `pulumi:"serverCertificateConfig"`
-	// An object that contains information about a server certificate.
+	// The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
 	ServerCertificates DomainConfigurationServerCertificateSummaryArrayOutput `pulumi:"serverCertificates"`
 	// The type of service delivered by the endpoint.
 	//
 	// > AWS IoT Core currently supports only the `DATA` service type.
 	ServiceType DomainConfigurationServiceTypePtrOutput `pulumi:"serviceType"`
-	// A set of key/value pairs that are used to manage the resource.
+	// Metadata which can be used to manage the domain configuration.
+	//
+	// > For URI Request parameters use format: ...key1=value1&key2=value2...
+	// >
+	// > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+	// >
+	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// An object that specifies the TLS configuration for a domain.
 	TlsConfig DomainConfigurationTlsConfigPtrOutput `pulumi:"tlsConfig"`
@@ -118,7 +124,13 @@ type domainConfigurationArgs struct {
 	//
 	// > AWS IoT Core currently supports only the `DATA` service type.
 	ServiceType *DomainConfigurationServiceType `pulumi:"serviceType"`
-	// A set of key/value pairs that are used to manage the resource.
+	// Metadata which can be used to manage the domain configuration.
+	//
+	// > For URI Request parameters use format: ...key1=value1&key2=value2...
+	// >
+	// > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+	// >
+	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
 	Tags []aws.Tag `pulumi:"tags"`
 	// An object that specifies the TLS configuration for a domain.
 	TlsConfig *DomainConfigurationTlsConfig `pulumi:"tlsConfig"`
@@ -148,7 +160,13 @@ type DomainConfigurationArgs struct {
 	//
 	// > AWS IoT Core currently supports only the `DATA` service type.
 	ServiceType DomainConfigurationServiceTypePtrInput
-	// A set of key/value pairs that are used to manage the resource.
+	// Metadata which can be used to manage the domain configuration.
+	//
+	// > For URI Request parameters use format: ...key1=value1&key2=value2...
+	// >
+	// > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+	// >
+	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
 	Tags aws.TagArrayInput
 	// An object that specifies the TLS configuration for a domain.
 	TlsConfig DomainConfigurationTlsConfigPtrInput
@@ -239,7 +257,7 @@ func (o DomainConfigurationOutput) ServerCertificateConfig() DomainConfiguration
 	}).(DomainConfigurationServerCertificateConfigPtrOutput)
 }
 
-// An object that contains information about a server certificate.
+// The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
 func (o DomainConfigurationOutput) ServerCertificates() DomainConfigurationServerCertificateSummaryArrayOutput {
 	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationServerCertificateSummaryArrayOutput {
 		return v.ServerCertificates
@@ -253,7 +271,13 @@ func (o DomainConfigurationOutput) ServiceType() DomainConfigurationServiceTypeP
 	return o.ApplyT(func(v *DomainConfiguration) DomainConfigurationServiceTypePtrOutput { return v.ServiceType }).(DomainConfigurationServiceTypePtrOutput)
 }
 
-// A set of key/value pairs that are used to manage the resource.
+// Metadata which can be used to manage the domain configuration.
+//
+// > For URI Request parameters use format: ...key1=value1&key2=value2...
+// >
+// > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+// >
+// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
 func (o DomainConfigurationOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DomainConfiguration) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -26,8 +26,8 @@ class CampaignArgs:
         """
         The set of arguments for constructing a Campaign resource.
         :param pulumi.Input[str] connect_instance_arn: Amazon Connect Instance Arn
-        :param pulumi.Input['CampaignDialerConfigArgs'] dialer_config: Contains dialer configuration for an outbound campaign.
-        :param pulumi.Input['CampaignOutboundCallConfigArgs'] outbound_call_config: Contains outbound call configuration for an outbound campaign.
+        :param pulumi.Input['CampaignDialerConfigArgs'] dialer_config: Contains information about the dialer configuration.
+        :param pulumi.Input['CampaignOutboundCallConfigArgs'] outbound_call_config: Contains information about the outbound call configuration.
         :param pulumi.Input[str] name: Amazon Connect Campaign Name
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
         """
@@ -55,7 +55,7 @@ class CampaignArgs:
     @pulumi.getter(name="dialerConfig")
     def dialer_config(self) -> pulumi.Input['CampaignDialerConfigArgs']:
         """
-        Contains dialer configuration for an outbound campaign.
+        Contains information about the dialer configuration.
         """
         return pulumi.get(self, "dialer_config")
 
@@ -67,7 +67,7 @@ class CampaignArgs:
     @pulumi.getter(name="outboundCallConfig")
     def outbound_call_config(self) -> pulumi.Input['CampaignOutboundCallConfigArgs']:
         """
-        Contains outbound call configuration for an outbound campaign.
+        Contains information about the outbound call configuration.
         """
         return pulumi.get(self, "outbound_call_config")
 
@@ -117,9 +117,9 @@ class Campaign(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connect_instance_arn: Amazon Connect Instance Arn
-        :param pulumi.Input[pulumi.InputType['CampaignDialerConfigArgs']] dialer_config: Contains dialer configuration for an outbound campaign.
+        :param pulumi.Input[pulumi.InputType['CampaignDialerConfigArgs']] dialer_config: Contains information about the dialer configuration.
         :param pulumi.Input[str] name: Amazon Connect Campaign Name
-        :param pulumi.Input[pulumi.InputType['CampaignOutboundCallConfigArgs']] outbound_call_config: Contains outbound call configuration for an outbound campaign.
+        :param pulumi.Input[pulumi.InputType['CampaignOutboundCallConfigArgs']] outbound_call_config: Contains information about the outbound call configuration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: One or more tags.
         """
         ...
@@ -224,7 +224,7 @@ class Campaign(pulumi.CustomResource):
     @pulumi.getter(name="dialerConfig")
     def dialer_config(self) -> pulumi.Output['outputs.CampaignDialerConfig']:
         """
-        Contains dialer configuration for an outbound campaign.
+        Contains information about the dialer configuration.
         """
         return pulumi.get(self, "dialer_config")
 
@@ -240,7 +240,7 @@ class Campaign(pulumi.CustomResource):
     @pulumi.getter(name="outboundCallConfig")
     def outbound_call_config(self) -> pulumi.Output['outputs.CampaignOutboundCallConfig']:
         """
-        Contains outbound call configuration for an outbound campaign.
+        Contains information about the outbound call configuration.
         """
         return pulumi.get(self, "outbound_call_config")
 

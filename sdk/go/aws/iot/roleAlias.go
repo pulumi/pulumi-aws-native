@@ -25,7 +25,9 @@ type RoleAlias struct {
 	RoleAliasArn pulumi.StringOutput `pulumi:"roleAliasArn"`
 	// The role ARN.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
-	// A set of key/value pairs that are used to manage the resource.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -82,7 +84,9 @@ type roleAliasArgs struct {
 	RoleAlias *string `pulumi:"roleAlias"`
 	// The role ARN.
 	RoleArn string `pulumi:"roleArn"`
-	// A set of key/value pairs that are used to manage the resource.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -94,7 +98,9 @@ type RoleAliasArgs struct {
 	RoleAlias pulumi.StringPtrInput
 	// The role ARN.
 	RoleArn pulumi.StringInput
-	// A set of key/value pairs that are used to manage the resource.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags aws.TagArrayInput
 }
 
@@ -155,7 +161,9 @@ func (o RoleAliasOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleAlias) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// A set of key/value pairs that are used to manage the resource.
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o RoleAliasOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *RoleAlias) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

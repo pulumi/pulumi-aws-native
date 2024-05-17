@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
-        /// Contains the channel and queue identifier for a routing profile.
+        /// Contains information about a queue resource.
         /// </summary>
         [Input("queueReference", required: true)]
         public Input<Inputs.RoutingProfileQueueReferenceArgs> QueueReference { get; set; } = null!;

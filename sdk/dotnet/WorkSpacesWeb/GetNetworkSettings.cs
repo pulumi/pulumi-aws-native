@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
         /// <summary>
-        /// The tag.
+        /// The tags to add to the network settings resource. A tag is a key-value pair.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>

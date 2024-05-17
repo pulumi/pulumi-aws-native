@@ -35,7 +35,9 @@ type LookupRoleAliasResult struct {
 	RoleAliasArn *string `pulumi:"roleAliasArn"`
 	// The role ARN.
 	RoleArn *string `pulumi:"roleArn"`
-	// A set of key/value pairs that are used to manage the resource.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -90,7 +92,9 @@ func (o LookupRoleAliasResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRoleAliasResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// A set of key/value pairs that are used to manage the resource.
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o LookupRoleAliasResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupRoleAliasResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

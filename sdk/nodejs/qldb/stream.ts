@@ -108,7 +108,7 @@ export class Stream extends pulumi.CustomResource {
      */
     public readonly inclusiveStartTime!: pulumi.Output<string>;
     /**
-     * The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal stream.
+     * The configuration settings of the Kinesis Data Streams destination for your stream request.
      */
     public readonly kinesisConfiguration!: pulumi.Output<outputs.qldb.StreamKinesisConfiguration>;
     /**
@@ -201,7 +201,7 @@ export interface StreamArgs {
      */
     inclusiveStartTime: pulumi.Input<string>;
     /**
-     * The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal stream.
+     * The configuration settings of the Kinesis Data Streams destination for your stream request.
      */
     kinesisConfiguration: pulumi.Input<inputs.qldb.StreamKinesisConfigurationArgs>;
     /**

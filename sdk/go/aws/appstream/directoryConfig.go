@@ -22,7 +22,7 @@ type DirectoryConfig struct {
 	DirectoryName pulumi.StringOutput `pulumi:"directoryName"`
 	// The distinguished names of the organizational units for computer accounts.
 	OrganizationalUnitDistinguishedNames pulumi.StringArrayOutput `pulumi:"organizationalUnitDistinguishedNames"`
-	// The credentials for the service account used by the streaming instance to connect to the directory.
+	// The credentials for the service account used by the streaming instance to connect to the directory. Do not use this parameter directly. Use `ServiceAccountCredentials` as an input parameter with `noEcho` as shown in the [Parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html) . For best practices information, see [Do Not Embed Credentials in Your Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html#creds) .
 	ServiceAccountCredentials DirectoryConfigServiceAccountCredentialsOutput `pulumi:"serviceAccountCredentials"`
 }
 
@@ -85,7 +85,7 @@ type directoryConfigArgs struct {
 	DirectoryName string `pulumi:"directoryName"`
 	// The distinguished names of the organizational units for computer accounts.
 	OrganizationalUnitDistinguishedNames []string `pulumi:"organizationalUnitDistinguishedNames"`
-	// The credentials for the service account used by the streaming instance to connect to the directory.
+	// The credentials for the service account used by the streaming instance to connect to the directory. Do not use this parameter directly. Use `ServiceAccountCredentials` as an input parameter with `noEcho` as shown in the [Parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html) . For best practices information, see [Do Not Embed Credentials in Your Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html#creds) .
 	ServiceAccountCredentials DirectoryConfigServiceAccountCredentials `pulumi:"serviceAccountCredentials"`
 }
 
@@ -97,7 +97,7 @@ type DirectoryConfigArgs struct {
 	DirectoryName pulumi.StringInput
 	// The distinguished names of the organizational units for computer accounts.
 	OrganizationalUnitDistinguishedNames pulumi.StringArrayInput
-	// The credentials for the service account used by the streaming instance to connect to the directory.
+	// The credentials for the service account used by the streaming instance to connect to the directory. Do not use this parameter directly. Use `ServiceAccountCredentials` as an input parameter with `noEcho` as shown in the [Parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html) . For best practices information, see [Do Not Embed Credentials in Your Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html#creds) .
 	ServiceAccountCredentials DirectoryConfigServiceAccountCredentialsInput
 }
 
@@ -155,7 +155,7 @@ func (o DirectoryConfigOutput) OrganizationalUnitDistinguishedNames() pulumi.Str
 	return o.ApplyT(func(v *DirectoryConfig) pulumi.StringArrayOutput { return v.OrganizationalUnitDistinguishedNames }).(pulumi.StringArrayOutput)
 }
 
-// The credentials for the service account used by the streaming instance to connect to the directory.
+// The credentials for the service account used by the streaming instance to connect to the directory. Do not use this parameter directly. Use `ServiceAccountCredentials` as an input parameter with `noEcho` as shown in the [Parameters](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html) . For best practices information, see [Do Not Embed Credentials in Your Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/best-practices.html#creds) .
 func (o DirectoryConfigOutput) ServiceAccountCredentials() DirectoryConfigServiceAccountCredentialsOutput {
 	return o.ApplyT(func(v *DirectoryConfig) DirectoryConfigServiceAccountCredentialsOutput {
 		return v.ServiceAccountCredentials

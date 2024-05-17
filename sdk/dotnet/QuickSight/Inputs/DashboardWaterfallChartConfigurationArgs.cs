@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardWaterfallChartConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The display options for the axis label.
+        /// The options that determine the presentation of the category axis.
         /// </summary>
         [Input("categoryAxisDisplayOptions")]
         public Input<Inputs.DashboardAxisDisplayOptionsArgs>? CategoryAxisDisplayOptions { get; set; }
 
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The options that determine the presentation of the category axis label.
         /// </summary>
         [Input("categoryAxisLabelOptions")]
         public Input<Inputs.DashboardChartAxisLabelOptionsArgs>? CategoryAxisLabelOptions { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.DashboardWaterfallChartColorConfigurationArgs>? ColorConfiguration { get; set; }
 
         /// <summary>
-        /// The options that determine the presentation of the data labels.
+        /// The data label configuration of a waterfall visual.
         /// </summary>
         [Input("dataLabels")]
         public Input<Inputs.DashboardDataLabelOptionsArgs>? DataLabels { get; set; }
@@ -43,19 +43,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.DashboardWaterfallChartFieldWellsArgs>? FieldWells { get; set; }
 
         /// <summary>
-        /// The options for the legend setup of a visual.
+        /// The legend configuration of a waterfall visual.
         /// </summary>
         [Input("legend")]
         public Input<Inputs.DashboardLegendOptionsArgs>? Legend { get; set; }
 
         /// <summary>
-        /// The display options for the axis label.
+        /// The options that determine the presentation of the y-axis.
         /// </summary>
         [Input("primaryYAxisDisplayOptions")]
         public Input<Inputs.DashboardAxisDisplayOptionsArgs>? PrimaryYAxisDisplayOptions { get; set; }
 
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The options that determine the presentation of the y-axis label.
         /// </summary>
         [Input("primaryYAxisLabelOptions")]
         public Input<Inputs.DashboardChartAxisLabelOptionsArgs>? PrimaryYAxisLabelOptions { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.DashboardWaterfallChartSortConfigurationArgs>? SortConfiguration { get; set; }
 
         /// <summary>
-        /// The visual display options for the visual palette.
+        /// The visual palette configuration of a waterfall visual.
         /// </summary>
         [Input("visualPalette")]
         public Input<Inputs.DashboardVisualPaletteArgs>? VisualPalette { get; set; }

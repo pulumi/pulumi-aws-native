@@ -49,12 +49,9 @@ export class CustomPlugin extends pulumi.CustomResource {
      * A summary description of the custom plugin.
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * Details about a custom plugin file.
-     */
     public /*out*/ readonly fileDescription!: pulumi.Output<outputs.kafkaconnect.CustomPluginFileDescription>;
     /**
-     * Information about the location of a custom plugin.
+     * Information about the location of the custom plugin.
      */
     public readonly location!: pulumi.Output<outputs.kafkaconnect.CustomPluginLocation>;
     /**
@@ -125,7 +122,7 @@ export interface CustomPluginArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Information about the location of a custom plugin.
+     * Information about the location of the custom plugin.
      */
     location: pulumi.Input<inputs.kafkaconnect.CustomPluginLocationArgs>;
     /**

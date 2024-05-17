@@ -14,13 +14,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardColumnTooltipItem
     {
         /// <summary>
-        /// An aggregation function aggregates values from a dimension or measure.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The aggregation function of the column tooltip item.
         /// </summary>
         public readonly Outputs.DashboardAggregationFunction? Aggregation;
         /// <summary>
-        /// A column of a data set.
+        /// The target column of the tooltip item.
         /// </summary>
         public readonly Outputs.DashboardColumnIdentifier Column;
         /// <summary>

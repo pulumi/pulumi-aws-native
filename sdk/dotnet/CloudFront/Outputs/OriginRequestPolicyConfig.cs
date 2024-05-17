@@ -18,11 +18,11 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly string? Comment;
         /// <summary>
-        /// An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in requests that CloudFront sends to the origin.
+        /// The cookies from viewer requests to include in origin requests.
         /// </summary>
         public readonly Outputs.OriginRequestPolicyCookiesConfig CookiesConfig;
         /// <summary>
-        /// An object that determines whether any HTTP headers (and if so, which headers) are included in requests that CloudFront sends to the origin.
+        /// The HTTP headers to include in origin requests. These can include headers from viewer requests and additional headers added by CloudFront.
         /// </summary>
         public readonly Outputs.OriginRequestPolicyHeadersConfig HeadersConfig;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in requests that CloudFront sends to the origin.
+        /// The URL query strings from viewer requests to include in origin requests.
         /// </summary>
         public readonly Outputs.OriginRequestPolicyQueryStringsConfig QueryStringsConfig;
 

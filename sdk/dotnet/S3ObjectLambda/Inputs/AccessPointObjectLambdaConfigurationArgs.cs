@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.S3ObjectLambda.Inputs
         private InputList<Inputs.AccessPointTransformationConfigurationArgs>? _transformationConfigurations;
 
         /// <summary>
-        /// A configuration used when creating an Object Lambda Access Point transformation.
+        /// A container for transformation configurations for an Object Lambda Access Point.
         /// </summary>
         public InputList<Inputs.AccessPointTransformationConfigurationArgs> TransformationConfigurations
         {

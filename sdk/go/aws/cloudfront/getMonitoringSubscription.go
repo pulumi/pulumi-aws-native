@@ -28,7 +28,7 @@ type LookupMonitoringSubscriptionArgs struct {
 }
 
 type LookupMonitoringSubscriptionResult struct {
-	// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+	// A subscription configuration for additional CloudWatch metrics.
 	MonitoringSubscription *MonitoringSubscriptionType `pulumi:"monitoringSubscription"`
 }
 
@@ -68,7 +68,7 @@ func (o LookupMonitoringSubscriptionResultOutput) ToLookupMonitoringSubscription
 	return o
 }
 
-// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+// A subscription configuration for additional CloudWatch metrics.
 func (o LookupMonitoringSubscriptionResultOutput) MonitoringSubscription() MonitoringSubscriptionTypePtrOutput {
 	return o.ApplyT(func(v LookupMonitoringSubscriptionResult) *MonitoringSubscriptionType {
 		return v.MonitoringSubscription

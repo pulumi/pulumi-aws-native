@@ -28,7 +28,7 @@ class IntegrationArgs:
         """
         The set of arguments for constructing a Integration resource.
         :param pulumi.Input[str] domain_name: The unique name of the domain.
-        :param pulumi.Input['IntegrationFlowDefinitionArgs'] flow_definition: The configurations that control how Customer Profiles retrieves data from the source, Amazon AppFlow. Customer Profiles uses this information to create an AppFlow flow on behalf of customers.
+        :param pulumi.Input['IntegrationFlowDefinitionArgs'] flow_definition: The configuration that controls how Customer Profiles retrieves data from the source.
         :param pulumi.Input[str] object_type_name: The name of the ObjectType defined for the 3rd party data in Profile Service
         :param pulumi.Input[Sequence[pulumi.Input['IntegrationObjectTypeMappingArgs']]] object_type_names: The mapping between 3rd party event types and ObjectType names
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags (keys and values) associated with the integration
@@ -62,7 +62,7 @@ class IntegrationArgs:
     @pulumi.getter(name="flowDefinition")
     def flow_definition(self) -> Optional[pulumi.Input['IntegrationFlowDefinitionArgs']]:
         """
-        The configurations that control how Customer Profiles retrieves data from the source, Amazon AppFlow. Customer Profiles uses this information to create an AppFlow flow on behalf of customers.
+        The configuration that controls how Customer Profiles retrieves data from the source.
         """
         return pulumi.get(self, "flow_definition")
 
@@ -137,7 +137,7 @@ class Integration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: The unique name of the domain.
-        :param pulumi.Input[pulumi.InputType['IntegrationFlowDefinitionArgs']] flow_definition: The configurations that control how Customer Profiles retrieves data from the source, Amazon AppFlow. Customer Profiles uses this information to create an AppFlow flow on behalf of customers.
+        :param pulumi.Input[pulumi.InputType['IntegrationFlowDefinitionArgs']] flow_definition: The configuration that controls how Customer Profiles retrieves data from the source.
         :param pulumi.Input[str] object_type_name: The name of the ObjectType defined for the 3rd party data in Profile Service
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IntegrationObjectTypeMappingArgs']]]] object_type_names: The mapping between 3rd party event types and ObjectType names
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags (keys and values) associated with the integration
@@ -246,7 +246,7 @@ class Integration(pulumi.CustomResource):
     @pulumi.getter(name="flowDefinition")
     def flow_definition(self) -> pulumi.Output[Optional['outputs.IntegrationFlowDefinition']]:
         """
-        The configurations that control how Customer Profiles retrieves data from the source, Amazon AppFlow. Customer Profiles uses this information to create an AppFlow flow on behalf of customers.
+        The configuration that controls how Customer Profiles retrieves data from the source.
         """
         return pulumi.get(self, "flow_definition")
 

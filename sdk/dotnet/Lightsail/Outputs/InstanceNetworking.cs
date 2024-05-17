@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Lightsail.Outputs
     public sealed class InstanceNetworking
     {
         /// <summary>
-        /// `MonthlyTransfer` is a property of the [Networking](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html) property. It describes the amount of allocated monthly data transfer (in GB) for an instance.
+        /// The monthly amount of data transfer, in GB, allocated for the instance
         /// </summary>
         public readonly Outputs.InstanceMonthlyTransfer? MonthlyTransfer;
         /// <summary>

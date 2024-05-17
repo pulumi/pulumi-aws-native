@@ -73,7 +73,9 @@ class GetCrossAccountAttachmentResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        A complex type that contains a `Tag` key and `Tag` value.
+        Add tags for a cross-account attachment.
+
+        For more information, see [Tagging in AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
         """
         return pulumi.get(self, "tags")
 

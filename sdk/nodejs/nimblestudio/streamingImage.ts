@@ -45,9 +45,6 @@ export class StreamingImage extends pulumi.CustomResource {
      * <p>The ID of an EC2 machine image with which to create this streaming image.</p>
      */
     public readonly ec2ImageId!: pulumi.Output<string>;
-    /**
-     * Specifies how a streaming image is encrypted.
-     */
     public /*out*/ readonly encryptionConfiguration!: pulumi.Output<outputs.nimblestudio.StreamingImageEncryptionConfiguration>;
     /**
      * <p>The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.</p>

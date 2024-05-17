@@ -38,7 +38,7 @@ class OriginEndpointArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsManifestConfigurationArgs']]] hls_manifests: <p>An HTTP live streaming (HLS) manifest configuration.</p>
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointLowLatencyHlsManifestConfigurationArgs']]] low_latency_hls_manifests: <p>A low-latency HLS manifest configuration.</p>
         :param pulumi.Input[str] origin_endpoint_name: The name of the origin endpoint associated with the origin endpoint configuration.
-        :param pulumi.Input['OriginEndpointSegmentArgs'] segment: The segment configuration, including the segment name, duration, and other configuration values.
+        :param pulumi.Input['OriginEndpointSegmentArgs'] segment: The segment associated with the origin endpoint.
         :param pulumi.Input[int] startover_window_seconds: <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags associated with the origin endpoint.
         """
@@ -149,7 +149,7 @@ class OriginEndpointArgs:
     @pulumi.getter
     def segment(self) -> Optional[pulumi.Input['OriginEndpointSegmentArgs']]:
         """
-        The segment configuration, including the segment name, duration, and other configuration values.
+        The segment associated with the origin endpoint.
         """
         return pulumi.get(self, "segment")
 
@@ -210,7 +210,7 @@ class OriginEndpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointHlsManifestConfigurationArgs']]]] hls_manifests: <p>An HTTP live streaming (HLS) manifest configuration.</p>
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OriginEndpointLowLatencyHlsManifestConfigurationArgs']]]] low_latency_hls_manifests: <p>A low-latency HLS manifest configuration.</p>
         :param pulumi.Input[str] origin_endpoint_name: The name of the origin endpoint associated with the origin endpoint configuration.
-        :param pulumi.Input[pulumi.InputType['OriginEndpointSegmentArgs']] segment: The segment configuration, including the segment name, duration, and other configuration values.
+        :param pulumi.Input[pulumi.InputType['OriginEndpointSegmentArgs']] segment: The segment associated with the origin endpoint.
         :param pulumi.Input[int] startover_window_seconds: <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags associated with the origin endpoint.
         """
@@ -397,7 +397,7 @@ class OriginEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def segment(self) -> pulumi.Output[Optional['outputs.OriginEndpointSegment']]:
         """
-        The segment configuration, including the segment name, duration, and other configuration values.
+        The segment associated with the origin endpoint.
         """
         return pulumi.get(self, "segment")
 

@@ -68,7 +68,7 @@ export class UserPoolUser extends pulumi.CustomResource {
      */
     public readonly messageAction!: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether the attribute is standard or custom.
+     * An array of name-value pairs that contain user attributes and attribute values.
      */
     public readonly userAttributes!: pulumi.Output<outputs.cognito.UserPoolUserAttributeType[] | undefined>;
     /**
@@ -84,7 +84,11 @@ export class UserPoolUser extends pulumi.CustomResource {
      */
     public readonly username!: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether the attribute is standard or custom.
+     * Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger. This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.
+     *
+     * Your Lambda function can analyze this additional data and act on it. Your function might perform external API operations like logging user attributes and validation data to Amazon CloudWatch Logs. Validation data might also affect the response that your function returns to Amazon Cognito, like automatically confirming the user if they sign up from within your network.
+     *
+     * For more information about the pre sign-up Lambda trigger, see [Pre sign-up Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html) .
      */
     public readonly validationData!: pulumi.Output<outputs.cognito.UserPoolUserAttributeType[] | undefined>;
 
@@ -162,7 +166,7 @@ export interface UserPoolUserArgs {
      */
     messageAction?: pulumi.Input<string>;
     /**
-     * Specifies whether the attribute is standard or custom.
+     * An array of name-value pairs that contain user attributes and attribute values.
      */
     userAttributes?: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolUserAttributeTypeArgs>[]>;
     /**
@@ -178,7 +182,11 @@ export interface UserPoolUserArgs {
      */
     username?: pulumi.Input<string>;
     /**
-     * Specifies whether the attribute is standard or custom.
+     * Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger. This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.
+     *
+     * Your Lambda function can analyze this additional data and act on it. Your function might perform external API operations like logging user attributes and validation data to Amazon CloudWatch Logs. Validation data might also affect the response that your function returns to Amazon Cognito, like automatically confirming the user if they sign up from within your network.
+     *
+     * For more information about the pre sign-up Lambda trigger, see [Pre sign-up Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html) .
      */
     validationData?: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolUserAttributeTypeArgs>[]>;
 }

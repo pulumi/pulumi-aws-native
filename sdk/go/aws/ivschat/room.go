@@ -96,7 +96,7 @@ type Room struct {
 	MaximumMessageLength pulumi.IntPtrOutput `pulumi:"maximumMessageLength"`
 	// The maximum number of messages per second that can be sent to the room.
 	MaximumMessageRatePerSecond pulumi.IntPtrOutput `pulumi:"maximumMessageRatePerSecond"`
-	// The MessageReviewHandler property type specifies configuration information for optional message review.
+	// Configuration information for optional review of messages.
 	MessageReviewHandler RoomMessageReviewHandlerPtrOutput `pulumi:"messageReviewHandler"`
 	// The name of the room. The value does not need to be unique.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
@@ -150,7 +150,7 @@ type roomArgs struct {
 	MaximumMessageLength *int `pulumi:"maximumMessageLength"`
 	// The maximum number of messages per second that can be sent to the room.
 	MaximumMessageRatePerSecond *int `pulumi:"maximumMessageRatePerSecond"`
-	// The MessageReviewHandler property type specifies configuration information for optional message review.
+	// Configuration information for optional review of messages.
 	MessageReviewHandler *RoomMessageReviewHandler `pulumi:"messageReviewHandler"`
 	// The name of the room. The value does not need to be unique.
 	Name *string `pulumi:"name"`
@@ -166,7 +166,7 @@ type RoomArgs struct {
 	MaximumMessageLength pulumi.IntPtrInput
 	// The maximum number of messages per second that can be sent to the room.
 	MaximumMessageRatePerSecond pulumi.IntPtrInput
-	// The MessageReviewHandler property type specifies configuration information for optional message review.
+	// Configuration information for optional review of messages.
 	MessageReviewHandler RoomMessageReviewHandlerPtrInput
 	// The name of the room. The value does not need to be unique.
 	Name pulumi.StringPtrInput
@@ -236,7 +236,7 @@ func (o RoomOutput) MaximumMessageRatePerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Room) pulumi.IntPtrOutput { return v.MaximumMessageRatePerSecond }).(pulumi.IntPtrOutput)
 }
 
-// The MessageReviewHandler property type specifies configuration information for optional message review.
+// Configuration information for optional review of messages.
 func (o RoomOutput) MessageReviewHandler() RoomMessageReviewHandlerPtrOutput {
 	return o.ApplyT(func(v *Room) RoomMessageReviewHandlerPtrOutput { return v.MessageReviewHandler }).(RoomMessageReviewHandlerPtrOutput)
 }

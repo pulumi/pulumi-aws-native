@@ -110,9 +110,6 @@ export interface GetFunctionResult {
      * Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
      */
     readonly runtimeManagementConfig?: outputs.lambda.FunctionRuntimeManagementConfig;
-    /**
-     * The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
-     */
     readonly snapStartResponse?: outputs.lambda.FunctionSnapStartResponse;
     /**
      * A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.

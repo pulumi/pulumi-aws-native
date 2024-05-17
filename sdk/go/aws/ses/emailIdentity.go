@@ -18,7 +18,7 @@ type EmailIdentity struct {
 
 	// Used to associate a configuration set with an email identity.
 	ConfigurationSetAttributes EmailIdentityConfigurationSetAttributesPtrOutput `pulumi:"configurationSetAttributes"`
-	// Used to enable or disable DKIM authentication for an email identity.
+	// An object that contains information about the DKIM attributes for the identity.
 	DkimAttributes EmailIdentityDkimAttributesPtrOutput `pulumi:"dkimAttributes"`
 	// The host name for the first token that you have to add to the DNS configuration for your domain.
 	DkimDnsTokenName1 pulumi.StringOutput `pulumi:"dkimDnsTokenName1"`
@@ -32,18 +32,11 @@ type EmailIdentity struct {
 	DkimDnsTokenValue2 pulumi.StringOutput `pulumi:"dkimDnsTokenValue2"`
 	// The record value for the third token that you have to add to the DNS configuration for your domain.
 	DkimDnsTokenValue3 pulumi.StringOutput `pulumi:"dkimDnsTokenValue3"`
-	// Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:
-	//
-	// - Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).
-	// - Update the key length that should be used for Easy DKIM.
-	// - Change from using no DKIM authentication to using Easy DKIM.
-	// - Change from using no DKIM authentication to using BYODKIM.
-	// - Change from using Easy DKIM to using BYODKIM.
-	// - Change from using BYODKIM to using Easy DKIM.
+	// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
 	DkimSigningAttributes EmailIdentityDkimSigningAttributesPtrOutput `pulumi:"dkimSigningAttributes"`
 	// The email address or domain to verify.
 	EmailIdentity pulumi.StringOutput `pulumi:"emailIdentity"`
-	// Used to enable or disable feedback forwarding for an identity. This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.
+	// Used to enable or disable feedback forwarding for an identity.
 	FeedbackAttributes EmailIdentityFeedbackAttributesPtrOutput `pulumi:"feedbackAttributes"`
 	// Used to enable or disable the custom Mail-From domain configuration for an email identity.
 	MailFromAttributes EmailIdentityMailFromAttributesPtrOutput `pulumi:"mailFromAttributes"`
@@ -98,20 +91,13 @@ func (EmailIdentityState) ElementType() reflect.Type {
 type emailIdentityArgs struct {
 	// Used to associate a configuration set with an email identity.
 	ConfigurationSetAttributes *EmailIdentityConfigurationSetAttributes `pulumi:"configurationSetAttributes"`
-	// Used to enable or disable DKIM authentication for an email identity.
+	// An object that contains information about the DKIM attributes for the identity.
 	DkimAttributes *EmailIdentityDkimAttributes `pulumi:"dkimAttributes"`
-	// Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:
-	//
-	// - Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).
-	// - Update the key length that should be used for Easy DKIM.
-	// - Change from using no DKIM authentication to using Easy DKIM.
-	// - Change from using no DKIM authentication to using BYODKIM.
-	// - Change from using Easy DKIM to using BYODKIM.
-	// - Change from using BYODKIM to using Easy DKIM.
+	// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
 	DkimSigningAttributes *EmailIdentityDkimSigningAttributes `pulumi:"dkimSigningAttributes"`
 	// The email address or domain to verify.
 	EmailIdentity string `pulumi:"emailIdentity"`
-	// Used to enable or disable feedback forwarding for an identity. This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.
+	// Used to enable or disable feedback forwarding for an identity.
 	FeedbackAttributes *EmailIdentityFeedbackAttributes `pulumi:"feedbackAttributes"`
 	// Used to enable or disable the custom Mail-From domain configuration for an email identity.
 	MailFromAttributes *EmailIdentityMailFromAttributes `pulumi:"mailFromAttributes"`
@@ -121,20 +107,13 @@ type emailIdentityArgs struct {
 type EmailIdentityArgs struct {
 	// Used to associate a configuration set with an email identity.
 	ConfigurationSetAttributes EmailIdentityConfigurationSetAttributesPtrInput
-	// Used to enable or disable DKIM authentication for an email identity.
+	// An object that contains information about the DKIM attributes for the identity.
 	DkimAttributes EmailIdentityDkimAttributesPtrInput
-	// Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:
-	//
-	// - Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).
-	// - Update the key length that should be used for Easy DKIM.
-	// - Change from using no DKIM authentication to using Easy DKIM.
-	// - Change from using no DKIM authentication to using BYODKIM.
-	// - Change from using Easy DKIM to using BYODKIM.
-	// - Change from using BYODKIM to using Easy DKIM.
+	// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
 	DkimSigningAttributes EmailIdentityDkimSigningAttributesPtrInput
 	// The email address or domain to verify.
 	EmailIdentity pulumi.StringInput
-	// Used to enable or disable feedback forwarding for an identity. This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.
+	// Used to enable or disable feedback forwarding for an identity.
 	FeedbackAttributes EmailIdentityFeedbackAttributesPtrInput
 	// Used to enable or disable the custom Mail-From domain configuration for an email identity.
 	MailFromAttributes EmailIdentityMailFromAttributesPtrInput
@@ -184,7 +163,7 @@ func (o EmailIdentityOutput) ConfigurationSetAttributes() EmailIdentityConfigura
 	}).(EmailIdentityConfigurationSetAttributesPtrOutput)
 }
 
-// Used to enable or disable DKIM authentication for an email identity.
+// An object that contains information about the DKIM attributes for the identity.
 func (o EmailIdentityOutput) DkimAttributes() EmailIdentityDkimAttributesPtrOutput {
 	return o.ApplyT(func(v *EmailIdentity) EmailIdentityDkimAttributesPtrOutput { return v.DkimAttributes }).(EmailIdentityDkimAttributesPtrOutput)
 }
@@ -219,14 +198,7 @@ func (o EmailIdentityOutput) DkimDnsTokenValue3() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.DkimDnsTokenValue3 }).(pulumi.StringOutput)
 }
 
-// Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:
-//
-// - Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).
-// - Update the key length that should be used for Easy DKIM.
-// - Change from using no DKIM authentication to using Easy DKIM.
-// - Change from using no DKIM authentication to using BYODKIM.
-// - Change from using Easy DKIM to using BYODKIM.
-// - Change from using BYODKIM to using Easy DKIM.
+// If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
 func (o EmailIdentityOutput) DkimSigningAttributes() EmailIdentityDkimSigningAttributesPtrOutput {
 	return o.ApplyT(func(v *EmailIdentity) EmailIdentityDkimSigningAttributesPtrOutput { return v.DkimSigningAttributes }).(EmailIdentityDkimSigningAttributesPtrOutput)
 }
@@ -236,7 +208,7 @@ func (o EmailIdentityOutput) EmailIdentity() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.EmailIdentity }).(pulumi.StringOutput)
 }
 
-// Used to enable or disable feedback forwarding for an identity. This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.
+// Used to enable or disable feedback forwarding for an identity.
 func (o EmailIdentityOutput) FeedbackAttributes() EmailIdentityFeedbackAttributesPtrOutput {
 	return o.ApplyT(func(v *EmailIdentity) EmailIdentityFeedbackAttributesPtrOutput { return v.FeedbackAttributes }).(EmailIdentityFeedbackAttributesPtrOutput)
 }

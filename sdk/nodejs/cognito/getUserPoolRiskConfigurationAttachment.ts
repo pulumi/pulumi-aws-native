@@ -32,15 +32,15 @@ export interface GetUserPoolRiskConfigurationAttachmentArgs {
 
 export interface GetUserPoolRiskConfigurationAttachmentResult {
     /**
-     * Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.
+     * The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
      */
     readonly accountTakeoverRiskConfiguration?: outputs.cognito.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType;
     /**
-     * The compromised credentials risk configuration type.
+     * The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
      */
     readonly compromisedCredentialsRiskConfiguration?: outputs.cognito.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType;
     /**
-     * The type of the configuration to override the risk decision.
+     * The configuration to override the risk decision.
      */
     readonly riskExceptionConfiguration?: outputs.cognito.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType;
 }

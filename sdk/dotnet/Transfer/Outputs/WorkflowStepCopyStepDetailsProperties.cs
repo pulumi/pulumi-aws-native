@@ -16,9 +16,6 @@ namespace Pulumi.AwsNative.Transfer.Outputs
     [OutputType]
     public sealed class WorkflowStepCopyStepDetailsProperties
     {
-        /// <summary>
-        /// Specifies the S3 details for the file being used, such as bucket, ETag, and so forth.
-        /// </summary>
         public readonly Outputs.WorkflowS3FileLocation? DestinationFileLocation;
         /// <summary>
         /// The name of the step, used as an identifier.

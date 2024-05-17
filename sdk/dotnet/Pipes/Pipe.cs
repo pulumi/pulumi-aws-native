@@ -110,7 +110,7 @@ namespace Pulumi.AwsNative.Pipes
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
         /// <summary>
-        /// Represents the configuration settings for the logs to which this pipe should report events.
+        /// The logging configuration settings for the pipe.
         /// </summary>
         [Output("logConfiguration")]
         public Output<Outputs.PipeLogConfiguration?> LogConfiguration { get; private set; } = null!;
@@ -249,7 +249,7 @@ namespace Pulumi.AwsNative.Pipes
         public Input<Inputs.PipeEnrichmentParametersArgs>? EnrichmentParameters { get; set; }
 
         /// <summary>
-        /// Represents the configuration settings for the logs to which this pipe should report events.
+        /// The logging configuration settings for the pipe.
         /// </summary>
         [Input("logConfiguration")]
         public Input<Inputs.PipeLogConfigurationArgs>? LogConfiguration { get; set; }

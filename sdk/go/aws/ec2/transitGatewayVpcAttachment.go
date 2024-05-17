@@ -27,7 +27,7 @@ type TransitGatewayVpcAttachment struct {
 	RemoveSubnetIds pulumi.StringArrayOutput `pulumi:"removeSubnetIds"`
 	// The IDs of the subnets.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	// The tags for the VPC attachment.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the transit gateway.
 	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
@@ -98,7 +98,7 @@ type transitGatewayVpcAttachmentArgs struct {
 	RemoveSubnetIds []string `pulumi:"removeSubnetIds"`
 	// The IDs of the subnets.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	// The tags for the VPC attachment.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the transit gateway.
 	TransitGatewayId string `pulumi:"transitGatewayId"`
@@ -116,7 +116,7 @@ type TransitGatewayVpcAttachmentArgs struct {
 	RemoveSubnetIds pulumi.StringArrayInput
 	// The IDs of the subnets.
 	SubnetIds pulumi.StringArrayInput
-	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	// The tags for the VPC attachment.
 	Tags aws.TagArrayInput
 	// The ID of the transit gateway.
 	TransitGatewayId pulumi.StringInput
@@ -186,7 +186,7 @@ func (o TransitGatewayVpcAttachmentOutput) SubnetIds() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v *TransitGatewayVpcAttachment) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+// The tags for the VPC attachment.
 func (o TransitGatewayVpcAttachmentOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *TransitGatewayVpcAttachment) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

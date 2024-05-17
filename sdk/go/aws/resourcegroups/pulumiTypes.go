@@ -220,14 +220,9 @@ type GroupQuery struct {
 	//
 	// You can specify a value for `StackIdentifier` only when the `ResourceQuery.Type` property is `CLOUDFORMATION_STACK_1_0.`
 	StackIdentifier *string `pulumi:"stackIdentifier"`
-	// Specifies a single tag key and optional values that you can use to specify membership in a tag-based group. An AWS resource that doesn't have a matching tag key and value is rejected as a member of the group.
+	// A list of key-value pair objects that limit which resources can be members of the resource group. This property is required when the `ResourceQuery.Type` property is `TAG_FILTERS_1_0` .
 	//
-	// A `TagFilter` object includes two properties: `Key` (a string) and `Values` (a list of strings). Only resources in the account that are tagged with a matching key-value pair are members of the group. The `Values` property of `TagFilter` is optional, but specifying it narrows the query results.
-	//
-	// As an example, suppose the `TagFilters` string is `[{"Key": "Stage", "Values": ["Test", "Beta"]}, {"Key": "Storage"}]` . In this case, only resources with all of the following tags are members of the group:
-	//
-	// - `Stage` tag key with a value of either `Test` or `Beta`
-	// - `Storage` tag key with any value
+	// A resource must have a tag that matches every filter that is provided in the `TagFilters` list.
 	TagFilters []GroupTagFilter `pulumi:"tagFilters"`
 }
 
@@ -249,14 +244,9 @@ type GroupQueryArgs struct {
 	//
 	// You can specify a value for `StackIdentifier` only when the `ResourceQuery.Type` property is `CLOUDFORMATION_STACK_1_0.`
 	StackIdentifier pulumi.StringPtrInput `pulumi:"stackIdentifier"`
-	// Specifies a single tag key and optional values that you can use to specify membership in a tag-based group. An AWS resource that doesn't have a matching tag key and value is rejected as a member of the group.
+	// A list of key-value pair objects that limit which resources can be members of the resource group. This property is required when the `ResourceQuery.Type` property is `TAG_FILTERS_1_0` .
 	//
-	// A `TagFilter` object includes two properties: `Key` (a string) and `Values` (a list of strings). Only resources in the account that are tagged with a matching key-value pair are members of the group. The `Values` property of `TagFilter` is optional, but specifying it narrows the query results.
-	//
-	// As an example, suppose the `TagFilters` string is `[{"Key": "Stage", "Values": ["Test", "Beta"]}, {"Key": "Storage"}]` . In this case, only resources with all of the following tags are members of the group:
-	//
-	// - `Stage` tag key with a value of either `Test` or `Beta`
-	// - `Storage` tag key with any value
+	// A resource must have a tag that matches every filter that is provided in the `TagFilters` list.
 	TagFilters GroupTagFilterArrayInput `pulumi:"tagFilters"`
 }
 
@@ -349,14 +339,9 @@ func (o GroupQueryOutput) StackIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupQuery) *string { return v.StackIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a single tag key and optional values that you can use to specify membership in a tag-based group. An AWS resource that doesn't have a matching tag key and value is rejected as a member of the group.
+// A list of key-value pair objects that limit which resources can be members of the resource group. This property is required when the `ResourceQuery.Type` property is `TAG_FILTERS_1_0` .
 //
-// A `TagFilter` object includes two properties: `Key` (a string) and `Values` (a list of strings). Only resources in the account that are tagged with a matching key-value pair are members of the group. The `Values` property of `TagFilter` is optional, but specifying it narrows the query results.
-//
-// As an example, suppose the `TagFilters` string is `[{"Key": "Stage", "Values": ["Test", "Beta"]}, {"Key": "Storage"}]` . In this case, only resources with all of the following tags are members of the group:
-//
-// - `Stage` tag key with a value of either `Test` or `Beta`
-// - `Storage` tag key with any value
+// A resource must have a tag that matches every filter that is provided in the `TagFilters` list.
 func (o GroupQueryOutput) TagFilters() GroupTagFilterArrayOutput {
 	return o.ApplyT(func(v GroupQuery) []GroupTagFilter { return v.TagFilters }).(GroupTagFilterArrayOutput)
 }
@@ -407,14 +392,9 @@ func (o GroupQueryPtrOutput) StackIdentifier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a single tag key and optional values that you can use to specify membership in a tag-based group. An AWS resource that doesn't have a matching tag key and value is rejected as a member of the group.
+// A list of key-value pair objects that limit which resources can be members of the resource group. This property is required when the `ResourceQuery.Type` property is `TAG_FILTERS_1_0` .
 //
-// A `TagFilter` object includes two properties: `Key` (a string) and `Values` (a list of strings). Only resources in the account that are tagged with a matching key-value pair are members of the group. The `Values` property of `TagFilter` is optional, but specifying it narrows the query results.
-//
-// As an example, suppose the `TagFilters` string is `[{"Key": "Stage", "Values": ["Test", "Beta"]}, {"Key": "Storage"}]` . In this case, only resources with all of the following tags are members of the group:
-//
-// - `Stage` tag key with a value of either `Test` or `Beta`
-// - `Storage` tag key with any value
+// A resource must have a tag that matches every filter that is provided in the `TagFilters` list.
 func (o GroupQueryPtrOutput) TagFilters() GroupTagFilterArrayOutput {
 	return o.ApplyT(func(v *GroupQuery) []GroupTagFilter {
 		if v == nil {
@@ -425,7 +405,12 @@ func (o GroupQueryPtrOutput) TagFilters() GroupTagFilterArrayOutput {
 }
 
 type GroupResourceQuery struct {
-	// Specifies details within a `ResourceQuery` structure that determines the membership of the resource group. The contents required in the `Query` structure are determined by the `Type` property of the containing `ResourceQuery` structure.
+	// The query that defines the membership of the group. This is a structure with properties that depend on the `Type` .
+	//
+	// The `Query` structure must be included in the following scenarios:
+	//
+	// - When the `Type` is `TAG_FILTERS_1_0` , you must specify a `Query` structure that contains a `TagFilters` list of tags. Resources with tags that match those in the `TagFilter` list become members of the resource group.
+	// - When the `Type` is `CLOUDFORMATION_STACK_1_0` then this field is required only when you must specify a CloudFormation stack other than the one you are defining. To do this, the `Query` structure must contain the `StackIdentifier` property. If you don't specify either a `Query` structure or a `StackIdentifier` within that `Query` , then it defaults to the CloudFormation stack that you're currently constructing.
 	Query *GroupQuery `pulumi:"query"`
 	// Specifies the type of resource query that determines this group's membership. There are two valid query types:
 	//
@@ -446,7 +431,12 @@ type GroupResourceQueryInput interface {
 }
 
 type GroupResourceQueryArgs struct {
-	// Specifies details within a `ResourceQuery` structure that determines the membership of the resource group. The contents required in the `Query` structure are determined by the `Type` property of the containing `ResourceQuery` structure.
+	// The query that defines the membership of the group. This is a structure with properties that depend on the `Type` .
+	//
+	// The `Query` structure must be included in the following scenarios:
+	//
+	// - When the `Type` is `TAG_FILTERS_1_0` , you must specify a `Query` structure that contains a `TagFilters` list of tags. Resources with tags that match those in the `TagFilter` list become members of the resource group.
+	// - When the `Type` is `CLOUDFORMATION_STACK_1_0` then this field is required only when you must specify a CloudFormation stack other than the one you are defining. To do this, the `Query` structure must contain the `StackIdentifier` property. If you don't specify either a `Query` structure or a `StackIdentifier` within that `Query` , then it defaults to the CloudFormation stack that you're currently constructing.
 	Query GroupQueryPtrInput `pulumi:"query"`
 	// Specifies the type of resource query that determines this group's membership. There are two valid query types:
 	//
@@ -532,7 +522,12 @@ func (o GroupResourceQueryOutput) ToGroupResourceQueryPtrOutputWithContext(ctx c
 	}).(GroupResourceQueryPtrOutput)
 }
 
-// Specifies details within a `ResourceQuery` structure that determines the membership of the resource group. The contents required in the `Query` structure are determined by the `Type` property of the containing `ResourceQuery` structure.
+// The query that defines the membership of the group. This is a structure with properties that depend on the `Type` .
+//
+// The `Query` structure must be included in the following scenarios:
+//
+// - When the `Type` is `TAG_FILTERS_1_0` , you must specify a `Query` structure that contains a `TagFilters` list of tags. Resources with tags that match those in the `TagFilter` list become members of the resource group.
+// - When the `Type` is `CLOUDFORMATION_STACK_1_0` then this field is required only when you must specify a CloudFormation stack other than the one you are defining. To do this, the `Query` structure must contain the `StackIdentifier` property. If you don't specify either a `Query` structure or a `StackIdentifier` within that `Query` , then it defaults to the CloudFormation stack that you're currently constructing.
 func (o GroupResourceQueryOutput) Query() GroupQueryPtrOutput {
 	return o.ApplyT(func(v GroupResourceQuery) *GroupQuery { return v.Query }).(GroupQueryPtrOutput)
 }
@@ -569,7 +564,12 @@ func (o GroupResourceQueryPtrOutput) Elem() GroupResourceQueryOutput {
 	}).(GroupResourceQueryOutput)
 }
 
-// Specifies details within a `ResourceQuery` structure that determines the membership of the resource group. The contents required in the `Query` structure are determined by the `Type` property of the containing `ResourceQuery` structure.
+// The query that defines the membership of the group. This is a structure with properties that depend on the `Type` .
+//
+// The `Query` structure must be included in the following scenarios:
+//
+// - When the `Type` is `TAG_FILTERS_1_0` , you must specify a `Query` structure that contains a `TagFilters` list of tags. Resources with tags that match those in the `TagFilter` list become members of the resource group.
+// - When the `Type` is `CLOUDFORMATION_STACK_1_0` then this field is required only when you must specify a CloudFormation stack other than the one you are defining. To do this, the `Query` structure must contain the `StackIdentifier` property. If you don't specify either a `Query` structure or a `StackIdentifier` within that `Query` , then it defaults to the CloudFormation stack that you're currently constructing.
 func (o GroupResourceQueryPtrOutput) Query() GroupQueryPtrOutput {
 	return o.ApplyT(func(v *GroupResourceQuery) *GroupQuery {
 		if v == nil {

@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
     public sealed class BotExternalSourceSetting
     {
         /// <summary>
-        /// Settings requried for a slot type based on a grammar that you provide.
+        /// Settings required for a slot type based on a grammar that you provide.
         /// </summary>
         public readonly Outputs.BotGrammarSlotTypeSetting? GrammarSlotTypeSetting;
 

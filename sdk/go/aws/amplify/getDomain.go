@@ -33,11 +33,8 @@ type LookupDomainResult struct {
 	// Sets the branch patterns for automatic subdomain creation.
 	AutoSubDomainCreationPatterns []string `pulumi:"autoSubDomainCreationPatterns"`
 	// The required AWS Identity and Access Management (IAMlong) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
-	AutoSubDomainIamRole *string `pulumi:"autoSubDomainIamRole"`
-	// Describes the SSL/TLS certificate for the domain association. This can be your own custom certificate or the default certificate that Amplify provisions for you.
-	//
-	// If you are updating your domain to use a different certificate, `Certificate` points to the new certificate that is being created instead of the current active certificate. Otherwise, `Certificate` points to the current active certificate.
-	Certificate *DomainCertificate `pulumi:"certificate"`
+	AutoSubDomainIamRole *string            `pulumi:"autoSubDomainIamRole"`
+	Certificate          *DomainCertificate `pulumi:"certificate"`
 	// DNS Record for certificate verification.
 	CertificateRecord *string `pulumi:"certificateRecord"`
 	// Status for the Domain Association.
@@ -46,7 +43,7 @@ type LookupDomainResult struct {
 	EnableAutoSubDomain *bool `pulumi:"enableAutoSubDomain"`
 	// Reason for the current status of the domain.
 	StatusReason *string `pulumi:"statusReason"`
-	// The SubDomainSetting property type enables you to connect a subdomain (for example, example.exampledomain.com) to a specific branch.
+	// The setting for the subdomain.
 	SubDomainSettings []DomainSubDomainSetting `pulumi:"subDomainSettings"`
 	// The status of the domain update operation that is currently in progress. The following list describes the valid update states.
 	//
@@ -111,9 +108,6 @@ func (o LookupDomainResultOutput) AutoSubDomainIamRole() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.AutoSubDomainIamRole }).(pulumi.StringPtrOutput)
 }
 
-// Describes the SSL/TLS certificate for the domain association. This can be your own custom certificate or the default certificate that Amplify provisions for you.
-//
-// If you are updating your domain to use a different certificate, `Certificate` points to the new certificate that is being created instead of the current active certificate. Otherwise, `Certificate` points to the current active certificate.
 func (o LookupDomainResultOutput) Certificate() DomainCertificatePtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *DomainCertificate { return v.Certificate }).(DomainCertificatePtrOutput)
 }
@@ -138,7 +132,7 @@ func (o LookupDomainResultOutput) StatusReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.StatusReason }).(pulumi.StringPtrOutput)
 }
 
-// The SubDomainSetting property type enables you to connect a subdomain (for example, example.exampledomain.com) to a specific branch.
+// The setting for the subdomain.
 func (o LookupDomainResultOutput) SubDomainSettings() DomainSubDomainSettingArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []DomainSubDomainSetting { return v.SubDomainSettings }).(DomainSubDomainSettingArrayOutput)
 }

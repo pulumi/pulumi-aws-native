@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     public sealed class StorageLensPrefixLevelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This resource contains the details of the prefix-level storage metrics for Amazon S3 Storage Lens.
+        /// A property for the prefix-level storage metrics for Amazon S3 Storage Lens.
         /// </summary>
         [Input("storageMetrics", required: true)]
         public Input<Inputs.StorageLensPrefixLevelStorageMetricsArgs> StorageMetrics { get; set; } = null!;

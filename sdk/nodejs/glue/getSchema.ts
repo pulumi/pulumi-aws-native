@@ -31,7 +31,7 @@ export interface GetSchemaResult {
      */
     readonly arn?: string;
     /**
-     * Specifies the version of a schema.
+     * Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
      */
     readonly checkpointVersion?: outputs.glue.SchemaVersion;
     /**

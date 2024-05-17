@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly ImmutableArray<string> StagingDistributionDnsNames;
         /// <summary>
-        /// The traffic configuration of your continuous deployment.
+        /// Contains the parameters for routing production traffic from your primary to staging distributions.
         /// </summary>
         public readonly Outputs.ContinuousDeploymentPolicyTrafficConfig? TrafficConfig;
         /// <summary>

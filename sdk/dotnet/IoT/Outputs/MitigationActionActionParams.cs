@@ -17,27 +17,27 @@ namespace Pulumi.AwsNative.IoT.Outputs
     public sealed class MitigationActionActionParams
     {
         /// <summary>
-        /// Parameters used when defining a mitigation action that move a set of things to a thing group.
+        /// Specifies the group to which you want to add the devices.
         /// </summary>
         public readonly Outputs.MitigationActionAddThingsToThingGroupParams? AddThingsToThingGroupParams;
         /// <summary>
-        /// Parameters used when defining a mitigation action that enable AWS IoT Core logging.
+        /// Specifies the logging level and the role with permissions for logging. You cannot specify a logging level of `DISABLED` .
         /// </summary>
         public readonly Outputs.MitigationActionEnableIoTLoggingParams? EnableIoTLoggingParams;
         /// <summary>
-        /// Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
+        /// Specifies the topic to which the finding should be published.
         /// </summary>
         public readonly Outputs.MitigationActionPublishFindingToSnsParams? PublishFindingToSnsParams;
         /// <summary>
-        /// Parameters to define a mitigation action that adds a blank policy to restrict permissions.
+        /// Replaces the policy version with a default or blank policy. You specify the template name. Only a value of `BLANK_POLICY` is currently supported.
         /// </summary>
         public readonly Outputs.MitigationActionReplaceDefaultPolicyVersionParams? ReplaceDefaultPolicyVersionParams;
         /// <summary>
-        /// Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
+        /// Specifies the new state for the CA certificate. Only a value of `DEACTIVATE` is currently supported.
         /// </summary>
         public readonly Outputs.MitigationActionUpdateCaCertificateParams? UpdateCaCertificateParams;
         /// <summary>
-        /// Parameters to define a mitigation action that changes the state of the device certificate to inactive.
+        /// Specifies the new state for a device certificate. Only a value of `DEACTIVATE` is currently supported.
         /// </summary>
         public readonly Outputs.MitigationActionUpdateDeviceCertificateParams? UpdateDeviceCertificateParams;
 

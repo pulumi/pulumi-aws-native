@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
     public sealed class PackagingConfigurationDashEncryption
     {
         /// <summary>
-        /// A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+        /// Parameters for the SPEKE key provider.
         /// </summary>
         public readonly Outputs.PackagingConfigurationSpekeKeyProvider SpekeKeyProvider;
 

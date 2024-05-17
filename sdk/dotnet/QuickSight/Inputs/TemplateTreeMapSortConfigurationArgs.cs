@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateTreeMapSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of groups that are displayed.
         /// </summary>
         [Input("treeMapGroupItemsLimitConfiguration")]
         public Input<Inputs.TemplateItemsLimitConfigurationArgs>? TreeMapGroupItemsLimitConfiguration { get; set; }

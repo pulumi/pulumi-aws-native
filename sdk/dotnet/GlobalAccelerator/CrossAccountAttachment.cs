@@ -40,7 +40,9 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         public Output<ImmutableArray<Outputs.CrossAccountAttachmentResource>> Resources { get; private set; } = null!;
 
         /// <summary>
-        /// A complex type that contains a `Tag` key and `Tag` value.
+        /// Add tags for a cross-account attachment.
+        /// 
+        /// For more information, see [Tagging in AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -124,7 +126,9 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A complex type that contains a `Tag` key and `Tag` value.
+        /// Add tags for a cross-account attachment.
+        /// 
+        /// For more information, see [Tagging in AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

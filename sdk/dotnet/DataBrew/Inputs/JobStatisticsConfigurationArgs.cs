@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         private InputList<Inputs.JobStatisticOverrideArgs>? _overrides;
 
         /// <summary>
-        /// Override of a particular evaluation for a profile job.
+        /// List of overrides for evaluations.
         /// </summary>
         public InputList<Inputs.JobStatisticOverrideArgs> Overrides
         {

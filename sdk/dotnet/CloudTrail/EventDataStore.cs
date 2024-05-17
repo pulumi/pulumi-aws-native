@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.CloudTrail
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+        /// A list of tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -256,7 +256,7 @@ namespace Pulumi.AwsNative.CloudTrail
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+        /// A list of tags.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

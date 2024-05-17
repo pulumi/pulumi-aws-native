@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.SystemsManagerSap
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The credentials of your SAP application.
+        /// The credentials of the SAP application.
         /// </summary>
         [Output("credentials")]
         public Output<ImmutableArray<Outputs.ApplicationCredential>> Credentials { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.AwsNative.SystemsManagerSap
         private InputList<Inputs.ApplicationCredentialArgs>? _credentials;
 
         /// <summary>
-        /// The credentials of your SAP application.
+        /// The credentials of the SAP application.
         /// </summary>
         public InputList<Inputs.ApplicationCredentialArgs> Credentials
         {

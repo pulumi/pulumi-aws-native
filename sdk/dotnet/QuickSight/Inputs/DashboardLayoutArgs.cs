@@ -13,9 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardLayoutArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The configuration that determines what the type of layout will be used on a sheet.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The configuration that determines what the type of layout for a sheet.
         /// </summary>
         [Input("configuration", required: true)]
         public Input<Inputs.DashboardLayoutConfigurationArgs> Configuration { get; set; } = null!;

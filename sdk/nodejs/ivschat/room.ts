@@ -94,7 +94,7 @@ export class Room extends pulumi.CustomResource {
      */
     public readonly maximumMessageRatePerSecond!: pulumi.Output<number | undefined>;
     /**
-     * The MessageReviewHandler property type specifies configuration information for optional message review.
+     * Configuration information for optional review of messages.
      */
     public readonly messageReviewHandler!: pulumi.Output<outputs.ivschat.RoomMessageReviewHandler | undefined>;
     /**
@@ -157,7 +157,7 @@ export interface RoomArgs {
      */
     maximumMessageRatePerSecond?: pulumi.Input<number>;
     /**
-     * The MessageReviewHandler property type specifies configuration information for optional message review.
+     * Configuration information for optional review of messages.
      */
     messageReviewHandler?: pulumi.Input<inputs.ivschat.RoomMessageReviewHandlerArgs>;
     /**

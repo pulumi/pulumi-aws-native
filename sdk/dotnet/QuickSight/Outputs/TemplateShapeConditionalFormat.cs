@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateShapeConditionalFormat
     {
         /// <summary>
-        /// The formatting configuration for the color.
+        /// The conditional formatting for the shape background color of a filled map visual.
         /// </summary>
         public readonly Outputs.TemplateConditionalFormattingColor BackgroundColor;
 

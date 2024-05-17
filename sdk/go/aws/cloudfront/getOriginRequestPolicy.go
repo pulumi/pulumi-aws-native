@@ -32,15 +32,7 @@ type LookupOriginRequestPolicyResult struct {
 	Id *string `pulumi:"id"`
 	// The date and time when the origin request policy was last modified.
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// An origin request policy configuration.
-	//
-	// This configuration determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:
-	//
-	// - The request body and the URL path (without the domain name) from the viewer request.
-	// - The headers that CloudFront automatically includes in every origin request, including `Host` , `User-Agent` , and `X-Amz-Cf-Id` .
-	// - All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.
-	//
-	// CloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use `CachePolicy` .
+	// The origin request policy configuration.
 	OriginRequestPolicyConfig *OriginRequestPolicyConfig `pulumi:"originRequestPolicyConfig"`
 }
 
@@ -90,15 +82,7 @@ func (o LookupOriginRequestPolicyResultOutput) LastModifiedTime() pulumi.StringP
 	return o.ApplyT(func(v LookupOriginRequestPolicyResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
-// An origin request policy configuration.
-//
-// This configuration determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:
-//
-// - The request body and the URL path (without the domain name) from the viewer request.
-// - The headers that CloudFront automatically includes in every origin request, including `Host` , `User-Agent` , and `X-Amz-Cf-Id` .
-// - All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.
-//
-// CloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use `CachePolicy` .
+// The origin request policy configuration.
 func (o LookupOriginRequestPolicyResultOutput) OriginRequestPolicyConfig() OriginRequestPolicyConfigPtrOutput {
 	return o.ApplyT(func(v LookupOriginRequestPolicyResult) *OriginRequestPolicyConfig { return v.OriginRequestPolicyConfig }).(OriginRequestPolicyConfigPtrOutput)
 }

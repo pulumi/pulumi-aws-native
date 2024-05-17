@@ -26,9 +26,9 @@ class AssistantAssociationArgs:
         """
         The set of arguments for constructing a AssistantAssociation resource.
         :param pulumi.Input[str] assistant_id: The identifier of the Wisdom assistant.
-        :param pulumi.Input['AssistantAssociationAssociationDataArgs'] association: A union type that currently has a single argument, which is the knowledge base ID.
+        :param pulumi.Input['AssistantAssociationAssociationDataArgs'] association: The identifier of the associated resource.
         :param pulumi.Input['AssistantAssociationAssociationType'] association_type: The type of association.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: Metadata to assign to the Wisdom assistant association. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The tags used to organize, track, or control access for this resource.
         """
         pulumi.set(__self__, "assistant_id", assistant_id)
         pulumi.set(__self__, "association", association)
@@ -52,7 +52,7 @@ class AssistantAssociationArgs:
     @pulumi.getter
     def association(self) -> pulumi.Input['AssistantAssociationAssociationDataArgs']:
         """
-        A union type that currently has a single argument, which is the knowledge base ID.
+        The identifier of the associated resource.
         """
         return pulumi.get(self, "association")
 
@@ -76,7 +76,7 @@ class AssistantAssociationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
-        Metadata to assign to the Wisdom assistant association. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+        The tags used to organize, track, or control access for this resource.
         """
         return pulumi.get(self, "tags")
 
@@ -101,9 +101,9 @@ class AssistantAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assistant_id: The identifier of the Wisdom assistant.
-        :param pulumi.Input[pulumi.InputType['AssistantAssociationAssociationDataArgs']] association: A union type that currently has a single argument, which is the knowledge base ID.
+        :param pulumi.Input[pulumi.InputType['AssistantAssociationAssociationDataArgs']] association: The identifier of the associated resource.
         :param pulumi.Input['AssistantAssociationAssociationType'] association_type: The type of association.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: Metadata to assign to the Wisdom assistant association. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
     @overload
@@ -224,7 +224,7 @@ class AssistantAssociation(pulumi.CustomResource):
     @pulumi.getter
     def association(self) -> pulumi.Output['outputs.AssistantAssociationAssociationData']:
         """
-        A union type that currently has a single argument, which is the knowledge base ID.
+        The identifier of the associated resource.
         """
         return pulumi.get(self, "association")
 
@@ -240,7 +240,7 @@ class AssistantAssociation(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
         """
-        Metadata to assign to the Wisdom assistant association. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+        The tags used to organize, track, or control access for this resource.
         """
         return pulumi.get(self, "tags")
 

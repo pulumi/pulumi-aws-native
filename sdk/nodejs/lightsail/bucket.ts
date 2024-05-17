@@ -42,7 +42,7 @@ export class Bucket extends pulumi.CustomResource {
      */
     public /*out*/ readonly ableToUpdateBundle!: pulumi.Output<boolean>;
     /**
-     * `AccessRules` is a property of the [AWS::Lightsail::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html) resource. It describes access rules for a bucket.
+     * An object that describes the access rules for the bucket.
      */
     public readonly accessRules!: pulumi.Output<outputs.lightsail.BucketAccessRules | undefined>;
     /**
@@ -126,7 +126,7 @@ export class Bucket extends pulumi.CustomResource {
  */
 export interface BucketArgs {
     /**
-     * `AccessRules` is a property of the [AWS::Lightsail::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html) resource. It describes access rules for a bucket.
+     * An object that describes the access rules for the bucket.
      */
     accessRules?: pulumi.Input<inputs.lightsail.BucketAccessRulesArgs>;
     /**

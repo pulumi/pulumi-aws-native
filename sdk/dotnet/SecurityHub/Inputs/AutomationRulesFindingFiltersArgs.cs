@@ -16,7 +16,9 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleStringFilterArgs>? _awsAccountId;
 
         /// <summary>
-        /// A string filter for filtering AWS Security Hub findings.
+        /// The AWS account ID in which a finding was generated.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 100 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleStringFilterArgs> AwsAccountId
         {
@@ -84,7 +86,9 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleNumberFilterArgs>? _confidence;
 
         /// <summary>
-        /// A number filter for querying findings.
+        /// The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *AWS Security Hub User Guide* .
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleNumberFilterArgs> Confidence
         {
@@ -96,7 +100,17 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleDateFilterArgs>? _createdAt;
 
         /// <summary>
-        /// A date filter for querying findings.
+        /// A timestamp that indicates when this finding record was created.
+        /// 
+        /// This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+        /// 
+        /// - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
+        /// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
+        /// - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
+        /// - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
+        /// - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleDateFilterArgs> CreatedAt
         {
@@ -328,7 +342,9 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
         private InputList<Inputs.AutomationRuleMapFilterArgs>? _resourceDetailsOther;
 
         /// <summary>
-        /// A map filter for filtering AWS Security Hub findings. Each map filter provides the field to check for, the value to check for, and the comparison operator.
+        /// Custom fields and values about the resource that a finding pertains to.
+        /// 
+        /// Array Members: Minimum number of 1 item. Maximum number of 20 items.
         /// </summary>
         public InputList<Inputs.AutomationRuleMapFilterArgs> ResourceDetailsOther
         {

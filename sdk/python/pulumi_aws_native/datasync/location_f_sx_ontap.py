@@ -28,7 +28,7 @@ class LocationFSxOntapArgs:
         The set of arguments for constructing a LocationFSxOntap resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The ARNs of the security groups that are to use to configure the FSx ONTAP file system.
         :param pulumi.Input[str] storage_virtual_machine_arn: The Amazon Resource Name (ARN) for the FSx ONTAP SVM.
-        :param pulumi.Input['LocationFSxOntapProtocolArgs'] protocol: Specifies the data transfer protocol that AWS DataSync uses to access your Amazon FSx file system.
+        :param pulumi.Input['LocationFSxOntapProtocolArgs'] protocol: Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.
         :param pulumi.Input[str] subdirectory: A subdirectory in the location's path.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -69,7 +69,7 @@ class LocationFSxOntapArgs:
     @pulumi.getter
     def protocol(self) -> Optional[pulumi.Input['LocationFSxOntapProtocolArgs']]:
         """
-        Specifies the data transfer protocol that AWS DataSync uses to access your Amazon FSx file system.
+        Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.
         """
         return pulumi.get(self, "protocol")
 
@@ -118,7 +118,7 @@ class LocationFSxOntap(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LocationFSxOntapProtocolArgs']] protocol: Specifies the data transfer protocol that AWS DataSync uses to access your Amazon FSx file system.
+        :param pulumi.Input[pulumi.InputType['LocationFSxOntapProtocolArgs']] protocol: Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_arns: The ARNs of the security groups that are to use to configure the FSx ONTAP file system.
         :param pulumi.Input[str] storage_virtual_machine_arn: The Amazon Resource Name (ARN) for the FSx ONTAP SVM.
         :param pulumi.Input[str] subdirectory: A subdirectory in the location's path.
@@ -236,7 +236,7 @@ class LocationFSxOntap(pulumi.CustomResource):
     @pulumi.getter
     def protocol(self) -> pulumi.Output[Optional['outputs.LocationFSxOntapProtocol']]:
         """
-        Specifies the data transfer protocol that AWS DataSync uses to access your Amazon FSx file system.
+        Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.
         """
         return pulumi.get(self, "protocol")
 

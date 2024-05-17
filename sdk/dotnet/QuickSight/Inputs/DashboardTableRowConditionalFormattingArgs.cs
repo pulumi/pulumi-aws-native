@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardTableRowConditionalFormattingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The formatting configuration for the color.
+        /// The conditional formatting color (solid, gradient) of the background for a table row.
         /// </summary>
         [Input("backgroundColor")]
         public Input<Inputs.DashboardConditionalFormattingColorArgs>? BackgroundColor { get; set; }
 
         /// <summary>
-        /// The formatting configuration for the color.
+        /// The conditional formatting color (solid, gradient) of the text for a table row.
         /// </summary>
         [Input("textColor")]
         public Input<Inputs.DashboardConditionalFormattingColorArgs>? TextColor { get; set; }

@@ -56,21 +56,15 @@ type CloudFormationProvisionedProduct struct {
 	//
 	// > You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.
 	ProvisioningArtifactName pulumi.StringPtrOutput `pulumi:"provisioningArtifactName"`
-	// Information about a parameter used to provision a product.
+	// Parameters specified by the administrator that are required for provisioning the product.
 	ProvisioningParameters CloudFormationProvisionedProductProvisioningParameterArrayOutput `pulumi:"provisioningParameters"`
-	// The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product type
-	//
-	// One or more AWS accounts that will have access to the provisioned product.
-	//
-	// Applicable only to a `CFN_STACKSET` provisioned product type.
-	//
-	// The AWS accounts specified should be within the list of accounts in the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
-	//
-	// If no values are specified, the default value is all accounts from the `STACKSET` constraint.
+	// StackSet preferences that are required for provisioning the product or updating a provisioned product.
 	ProvisioningPreferences CloudFormationProvisionedProductProvisioningPreferencesPtrOutput `pulumi:"provisioningPreferences"`
 	// The ID of the record, such as `rec-rjeatvy434trk` .
 	RecordId pulumi.StringOutput `pulumi:"recordId"`
-	// Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
+	// One or more tags.
+	//
+	// > Requires the provisioned product to have an [ResourceUpdateConstraint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html) resource with `TagUpdatesOnProvisionedProduct` set to `ALLOWED` to allow tag updates. If `RESOURCE_UPDATE` constraint is not present, tags updates are ignored.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -154,19 +148,13 @@ type cloudFormationProvisionedProductArgs struct {
 	//
 	// > You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.
 	ProvisioningArtifactName *string `pulumi:"provisioningArtifactName"`
-	// Information about a parameter used to provision a product.
+	// Parameters specified by the administrator that are required for provisioning the product.
 	ProvisioningParameters []CloudFormationProvisionedProductProvisioningParameter `pulumi:"provisioningParameters"`
-	// The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product type
-	//
-	// One or more AWS accounts that will have access to the provisioned product.
-	//
-	// Applicable only to a `CFN_STACKSET` provisioned product type.
-	//
-	// The AWS accounts specified should be within the list of accounts in the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
-	//
-	// If no values are specified, the default value is all accounts from the `STACKSET` constraint.
+	// StackSet preferences that are required for provisioning the product or updating a provisioned product.
 	ProvisioningPreferences *CloudFormationProvisionedProductProvisioningPreferences `pulumi:"provisioningPreferences"`
-	// Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
+	// One or more tags.
+	//
+	// > Requires the provisioned product to have an [ResourceUpdateConstraint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html) resource with `TagUpdatesOnProvisionedProduct` set to `ALLOWED` to allow tag updates. If `RESOURCE_UPDATE` constraint is not present, tags updates are ignored.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -207,19 +195,13 @@ type CloudFormationProvisionedProductArgs struct {
 	//
 	// > You must specify either the name or the ID of the provisioning artifact, but not both. You must also specify either the name or the ID of the product, but not both.
 	ProvisioningArtifactName pulumi.StringPtrInput
-	// Information about a parameter used to provision a product.
+	// Parameters specified by the administrator that are required for provisioning the product.
 	ProvisioningParameters CloudFormationProvisionedProductProvisioningParameterArrayInput
-	// The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product type
-	//
-	// One or more AWS accounts that will have access to the provisioned product.
-	//
-	// Applicable only to a `CFN_STACKSET` provisioned product type.
-	//
-	// The AWS accounts specified should be within the list of accounts in the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
-	//
-	// If no values are specified, the default value is all accounts from the `STACKSET` constraint.
+	// StackSet preferences that are required for provisioning the product or updating a provisioned product.
 	ProvisioningPreferences CloudFormationProvisionedProductProvisioningPreferencesPtrInput
-	// Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
+	// One or more tags.
+	//
+	// > Requires the provisioned product to have an [ResourceUpdateConstraint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html) resource with `TagUpdatesOnProvisionedProduct` set to `ALLOWED` to allow tag updates. If `RESOURCE_UPDATE` constraint is not present, tags updates are ignored.
 	Tags aws.TagArrayInput
 }
 
@@ -338,22 +320,14 @@ func (o CloudFormationProvisionedProductOutput) ProvisioningArtifactName() pulum
 	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringPtrOutput { return v.ProvisioningArtifactName }).(pulumi.StringPtrOutput)
 }
 
-// Information about a parameter used to provision a product.
+// Parameters specified by the administrator that are required for provisioning the product.
 func (o CloudFormationProvisionedProductOutput) ProvisioningParameters() CloudFormationProvisionedProductProvisioningParameterArrayOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProduct) CloudFormationProvisionedProductProvisioningParameterArrayOutput {
 		return v.ProvisioningParameters
 	}).(CloudFormationProvisionedProductProvisioningParameterArrayOutput)
 }
 
-// The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product type
-//
-// One or more AWS accounts that will have access to the provisioned product.
-//
-// Applicable only to a `CFN_STACKSET` provisioned product type.
-//
-// The AWS accounts specified should be within the list of accounts in the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
-//
-// If no values are specified, the default value is all accounts from the `STACKSET` constraint.
+// StackSet preferences that are required for provisioning the product or updating a provisioned product.
 func (o CloudFormationProvisionedProductOutput) ProvisioningPreferences() CloudFormationProvisionedProductProvisioningPreferencesPtrOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProduct) CloudFormationProvisionedProductProvisioningPreferencesPtrOutput {
 		return v.ProvisioningPreferences
@@ -365,7 +339,9 @@ func (o CloudFormationProvisionedProductOutput) RecordId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProduct) pulumi.StringOutput { return v.RecordId }).(pulumi.StringOutput)
 }
 
-// Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
+// One or more tags.
+//
+// > Requires the provisioned product to have an [ResourceUpdateConstraint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html) resource with `TagUpdatesOnProvisionedProduct` set to `ALLOWED` to allow tag updates. If `RESOURCE_UPDATE` constraint is not present, tags updates are ignored.
 func (o CloudFormationProvisionedProductOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *CloudFormationProvisionedProduct) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

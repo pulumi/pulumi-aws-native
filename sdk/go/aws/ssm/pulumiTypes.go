@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AssociationInstanceAssociationOutputLocation struct {
-	// `S3OutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
+	// `S3OutputLocation` is a property of the [InstanceAssociationOutputLocation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html) property that specifies an Amazon S3 bucket where you want to store the results of this request.
 	S3Location *AssociationS3OutputLocation `pulumi:"s3Location"`
 }
 
@@ -30,7 +30,7 @@ type AssociationInstanceAssociationOutputLocationInput interface {
 }
 
 type AssociationInstanceAssociationOutputLocationArgs struct {
-	// `S3OutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
+	// `S3OutputLocation` is a property of the [InstanceAssociationOutputLocation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html) property that specifies an Amazon S3 bucket where you want to store the results of this request.
 	S3Location AssociationS3OutputLocationPtrInput `pulumi:"s3Location"`
 }
 
@@ -111,7 +111,7 @@ func (o AssociationInstanceAssociationOutputLocationOutput) ToAssociationInstanc
 	}).(AssociationInstanceAssociationOutputLocationPtrOutput)
 }
 
-// `S3OutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
+// `S3OutputLocation` is a property of the [InstanceAssociationOutputLocation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html) property that specifies an Amazon S3 bucket where you want to store the results of this request.
 func (o AssociationInstanceAssociationOutputLocationOutput) S3Location() AssociationS3OutputLocationPtrOutput {
 	return o.ApplyT(func(v AssociationInstanceAssociationOutputLocation) *AssociationS3OutputLocation { return v.S3Location }).(AssociationS3OutputLocationPtrOutput)
 }
@@ -140,7 +140,7 @@ func (o AssociationInstanceAssociationOutputLocationPtrOutput) Elem() Associatio
 	}).(AssociationInstanceAssociationOutputLocationOutput)
 }
 
-// `S3OutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
+// `S3OutputLocation` is a property of the [InstanceAssociationOutputLocation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html) property that specifies an Amazon S3 bucket where you want to store the results of this request.
 func (o AssociationInstanceAssociationOutputLocationPtrOutput) S3Location() AssociationS3OutputLocationPtrOutput {
 	return o.ApplyT(func(v *AssociationInstanceAssociationOutputLocation) *AssociationS3OutputLocation {
 		if v == nil {
@@ -788,11 +788,7 @@ func (o PatchBaselinePatchFilterArrayOutput) Index(i pulumi.IntInput) PatchBasel
 
 // The patch filter group that defines the criteria for the rule.
 type PatchBaselinePatchFilterGroup struct {
-	// The `PatchFilter` property type defines a patch filter for an AWS Systems Manager patch baseline.
-	//
-	// The `PatchFilters` property of the [PatchFilterGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html) property type contains a list of `PatchFilter` property types.
-	//
-	// You can view lists of valid values for the patch properties by running the `DescribePatchProperties` command. For more information, see [DescribePatchProperties](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html) in the *AWS Systems Manager API Reference* .
+	// The set of patch filters that make up the group.
 	PatchFilters []PatchBaselinePatchFilter `pulumi:"patchFilters"`
 }
 
@@ -809,11 +805,7 @@ type PatchBaselinePatchFilterGroupInput interface {
 
 // The patch filter group that defines the criteria for the rule.
 type PatchBaselinePatchFilterGroupArgs struct {
-	// The `PatchFilter` property type defines a patch filter for an AWS Systems Manager patch baseline.
-	//
-	// The `PatchFilters` property of the [PatchFilterGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html) property type contains a list of `PatchFilter` property types.
-	//
-	// You can view lists of valid values for the patch properties by running the `DescribePatchProperties` command. For more information, see [DescribePatchProperties](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html) in the *AWS Systems Manager API Reference* .
+	// The set of patch filters that make up the group.
 	PatchFilters PatchBaselinePatchFilterArrayInput `pulumi:"patchFilters"`
 }
 
@@ -895,11 +887,7 @@ func (o PatchBaselinePatchFilterGroupOutput) ToPatchBaselinePatchFilterGroupPtrO
 	}).(PatchBaselinePatchFilterGroupPtrOutput)
 }
 
-// The `PatchFilter` property type defines a patch filter for an AWS Systems Manager patch baseline.
-//
-// The `PatchFilters` property of the [PatchFilterGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html) property type contains a list of `PatchFilter` property types.
-//
-// You can view lists of valid values for the patch properties by running the `DescribePatchProperties` command. For more information, see [DescribePatchProperties](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html) in the *AWS Systems Manager API Reference* .
+// The set of patch filters that make up the group.
 func (o PatchBaselinePatchFilterGroupOutput) PatchFilters() PatchBaselinePatchFilterArrayOutput {
 	return o.ApplyT(func(v PatchBaselinePatchFilterGroup) []PatchBaselinePatchFilter { return v.PatchFilters }).(PatchBaselinePatchFilterArrayOutput)
 }
@@ -928,11 +916,7 @@ func (o PatchBaselinePatchFilterGroupPtrOutput) Elem() PatchBaselinePatchFilterG
 	}).(PatchBaselinePatchFilterGroupOutput)
 }
 
-// The `PatchFilter` property type defines a patch filter for an AWS Systems Manager patch baseline.
-//
-// The `PatchFilters` property of the [PatchFilterGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html) property type contains a list of `PatchFilter` property types.
-//
-// You can view lists of valid values for the patch properties by running the `DescribePatchProperties` command. For more information, see [DescribePatchProperties](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html) in the *AWS Systems Manager API Reference* .
+// The set of patch filters that make up the group.
 func (o PatchBaselinePatchFilterGroupPtrOutput) PatchFilters() PatchBaselinePatchFilterArrayOutput {
 	return o.ApplyT(func(v *PatchBaselinePatchFilterGroup) []PatchBaselinePatchFilter {
 		if v == nil {
@@ -1106,9 +1090,7 @@ type PatchBaselineRule struct {
 	ComplianceLevel *PatchBaselineRuleComplianceLevel `pulumi:"complianceLevel"`
 	// For managed nodes identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is `false` . Applies to Linux managed nodes only.
 	EnableNonSecurity *bool `pulumi:"enableNonSecurity"`
-	// The `PatchFilterGroup` property type specifies a set of patch filters for an AWS Systems Manager patch baseline, typically used for approval rules for a Systems Manager patch baseline.
-	//
-	// `PatchFilterGroup` is the property type for the `GlobalFilters` property of the [AWS::SSM::PatchBaseline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html) resource and the `PatchFilterGroup` property of the [Rule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html) property type.
+	// The patch filter group that defines the criteria for the rule.
 	PatchFilterGroup *PatchBaselinePatchFilterGroup `pulumi:"patchFilterGroup"`
 }
 
@@ -1139,9 +1121,7 @@ type PatchBaselineRuleArgs struct {
 	ComplianceLevel PatchBaselineRuleComplianceLevelPtrInput `pulumi:"complianceLevel"`
 	// For managed nodes identified by the approval rule filters, enables a patch baseline to apply non-security updates available in the specified repository. The default value is `false` . Applies to Linux managed nodes only.
 	EnableNonSecurity pulumi.BoolPtrInput `pulumi:"enableNonSecurity"`
-	// The `PatchFilterGroup` property type specifies a set of patch filters for an AWS Systems Manager patch baseline, typically used for approval rules for a Systems Manager patch baseline.
-	//
-	// `PatchFilterGroup` is the property type for the `GlobalFilters` property of the [AWS::SSM::PatchBaseline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html) resource and the `PatchFilterGroup` property of the [Rule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html) property type.
+	// The patch filter group that defines the criteria for the rule.
 	PatchFilterGroup PatchBaselinePatchFilterGroupPtrInput `pulumi:"patchFilterGroup"`
 }
 
@@ -1223,9 +1203,7 @@ func (o PatchBaselineRuleOutput) EnableNonSecurity() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PatchBaselineRule) *bool { return v.EnableNonSecurity }).(pulumi.BoolPtrOutput)
 }
 
-// The `PatchFilterGroup` property type specifies a set of patch filters for an AWS Systems Manager patch baseline, typically used for approval rules for a Systems Manager patch baseline.
-//
-// `PatchFilterGroup` is the property type for the `GlobalFilters` property of the [AWS::SSM::PatchBaseline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html) resource and the `PatchFilterGroup` property of the [Rule](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html) property type.
+// The patch filter group that defines the criteria for the rule.
 func (o PatchBaselineRuleOutput) PatchFilterGroup() PatchBaselinePatchFilterGroupPtrOutput {
 	return o.ApplyT(func(v PatchBaselineRule) *PatchBaselinePatchFilterGroup { return v.PatchFilterGroup }).(PatchBaselinePatchFilterGroupPtrOutput)
 }
@@ -1252,9 +1230,7 @@ func (o PatchBaselineRuleArrayOutput) Index(i pulumi.IntInput) PatchBaselineRule
 
 // A set of rules defining the approval rules for a patch baseline.
 type PatchBaselineRuleGroup struct {
-	// The `Rule` property type specifies an approval rule for a Systems Manager patch baseline.
-	//
-	// The `PatchRules` property of the [RuleGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html) property type contains a list of `Rule` property types.
+	// The rules that make up the rule group.
 	PatchRules []PatchBaselineRule `pulumi:"patchRules"`
 }
 
@@ -1271,9 +1247,7 @@ type PatchBaselineRuleGroupInput interface {
 
 // A set of rules defining the approval rules for a patch baseline.
 type PatchBaselineRuleGroupArgs struct {
-	// The `Rule` property type specifies an approval rule for a Systems Manager patch baseline.
-	//
-	// The `PatchRules` property of the [RuleGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html) property type contains a list of `Rule` property types.
+	// The rules that make up the rule group.
 	PatchRules PatchBaselineRuleArrayInput `pulumi:"patchRules"`
 }
 
@@ -1355,9 +1329,7 @@ func (o PatchBaselineRuleGroupOutput) ToPatchBaselineRuleGroupPtrOutputWithConte
 	}).(PatchBaselineRuleGroupPtrOutput)
 }
 
-// The `Rule` property type specifies an approval rule for a Systems Manager patch baseline.
-//
-// The `PatchRules` property of the [RuleGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html) property type contains a list of `Rule` property types.
+// The rules that make up the rule group.
 func (o PatchBaselineRuleGroupOutput) PatchRules() PatchBaselineRuleArrayOutput {
 	return o.ApplyT(func(v PatchBaselineRuleGroup) []PatchBaselineRule { return v.PatchRules }).(PatchBaselineRuleArrayOutput)
 }
@@ -1386,9 +1358,7 @@ func (o PatchBaselineRuleGroupPtrOutput) Elem() PatchBaselineRuleGroupOutput {
 	}).(PatchBaselineRuleGroupOutput)
 }
 
-// The `Rule` property type specifies an approval rule for a Systems Manager patch baseline.
-//
-// The `PatchRules` property of the [RuleGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html) property type contains a list of `Rule` property types.
+// The rules that make up the rule group.
 func (o PatchBaselineRuleGroupPtrOutput) PatchRules() PatchBaselineRuleArrayOutput {
 	return o.ApplyT(func(v *PatchBaselineRuleGroup) []PatchBaselineRule {
 		if v == nil {
@@ -1776,7 +1746,7 @@ func (o ResourceDataSyncS3DestinationPtrOutput) SyncFormat() pulumi.StringPtrOut
 }
 
 type ResourceDataSyncSyncSource struct {
-	// Information about the `AwsOrganizationsSource` resource data sync source. A sync source of this type can synchronize data from AWS Organizations or, if an AWS organization isn't present, from multiple AWS Regions .
+	// Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations .
 	AwsOrganizationsSource *ResourceDataSyncAwsOrganizationsSource `pulumi:"awsOrganizationsSource"`
 	// Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
 	IncludeFutureRegions *bool `pulumi:"includeFutureRegions"`
@@ -1798,7 +1768,7 @@ type ResourceDataSyncSyncSourceInput interface {
 }
 
 type ResourceDataSyncSyncSourceArgs struct {
-	// Information about the `AwsOrganizationsSource` resource data sync source. A sync source of this type can synchronize data from AWS Organizations or, if an AWS organization isn't present, from multiple AWS Regions .
+	// Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations .
 	AwsOrganizationsSource ResourceDataSyncAwsOrganizationsSourcePtrInput `pulumi:"awsOrganizationsSource"`
 	// Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
 	IncludeFutureRegions pulumi.BoolPtrInput `pulumi:"includeFutureRegions"`
@@ -1885,7 +1855,7 @@ func (o ResourceDataSyncSyncSourceOutput) ToResourceDataSyncSyncSourcePtrOutputW
 	}).(ResourceDataSyncSyncSourcePtrOutput)
 }
 
-// Information about the `AwsOrganizationsSource` resource data sync source. A sync source of this type can synchronize data from AWS Organizations or, if an AWS organization isn't present, from multiple AWS Regions .
+// Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations .
 func (o ResourceDataSyncSyncSourceOutput) AwsOrganizationsSource() ResourceDataSyncAwsOrganizationsSourcePtrOutput {
 	return o.ApplyT(func(v ResourceDataSyncSyncSource) *ResourceDataSyncAwsOrganizationsSource {
 		return v.AwsOrganizationsSource
@@ -1931,7 +1901,7 @@ func (o ResourceDataSyncSyncSourcePtrOutput) Elem() ResourceDataSyncSyncSourceOu
 	}).(ResourceDataSyncSyncSourceOutput)
 }
 
-// Information about the `AwsOrganizationsSource` resource data sync source. A sync source of this type can synchronize data from AWS Organizations or, if an AWS organization isn't present, from multiple AWS Regions .
+// Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations .
 func (o ResourceDataSyncSyncSourcePtrOutput) AwsOrganizationsSource() ResourceDataSyncAwsOrganizationsSourcePtrOutput {
 	return o.ApplyT(func(v *ResourceDataSyncSyncSource) *ResourceDataSyncAwsOrganizationsSource {
 		if v == nil {

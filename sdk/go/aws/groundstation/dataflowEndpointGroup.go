@@ -72,7 +72,7 @@ type DataflowEndpointGroup struct {
 	ContactPostPassDurationSeconds pulumi.IntPtrOutput `pulumi:"contactPostPassDurationSeconds"`
 	// Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
 	ContactPrePassDurationSeconds pulumi.IntPtrOutput `pulumi:"contactPrePassDurationSeconds"`
-	// The security details and endpoint information.
+	// List of Endpoint Details, containing address and port for each endpoint.
 	EndpointDetails DataflowEndpointGroupEndpointDetailsArrayOutput `pulumi:"endpointDetails"`
 	// Tags assigned to a resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -125,7 +125,7 @@ type dataflowEndpointGroupArgs struct {
 	ContactPostPassDurationSeconds *int `pulumi:"contactPostPassDurationSeconds"`
 	// Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
 	ContactPrePassDurationSeconds *int `pulumi:"contactPrePassDurationSeconds"`
-	// The security details and endpoint information.
+	// List of Endpoint Details, containing address and port for each endpoint.
 	EndpointDetails []DataflowEndpointGroupEndpointDetails `pulumi:"endpointDetails"`
 	// Tags assigned to a resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -137,7 +137,7 @@ type DataflowEndpointGroupArgs struct {
 	ContactPostPassDurationSeconds pulumi.IntPtrInput
 	// Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
 	ContactPrePassDurationSeconds pulumi.IntPtrInput
-	// The security details and endpoint information.
+	// List of Endpoint Details, containing address and port for each endpoint.
 	EndpointDetails DataflowEndpointGroupEndpointDetailsArrayInput
 	// Tags assigned to a resource.
 	Tags aws.TagArrayInput
@@ -200,7 +200,7 @@ func (o DataflowEndpointGroupOutput) ContactPrePassDurationSeconds() pulumi.IntP
 	return o.ApplyT(func(v *DataflowEndpointGroup) pulumi.IntPtrOutput { return v.ContactPrePassDurationSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The security details and endpoint information.
+// List of Endpoint Details, containing address and port for each endpoint.
 func (o DataflowEndpointGroupOutput) EndpointDetails() DataflowEndpointGroupEndpointDetailsArrayOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroup) DataflowEndpointGroupEndpointDetailsArrayOutput {
 		return v.EndpointDetails

@@ -22,9 +22,9 @@ type Deployment struct {
 	DeploymentId pulumi.StringOutput `pulumi:"deploymentId"`
 	// The name of the deployment.
 	DeploymentName pulumi.StringPtrOutput `pulumi:"deploymentName"`
-	// Contains information about policies that define how a deployment updates components and handles failure.
+	// The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.
 	DeploymentPolicies DeploymentPoliciesPtrOutput `pulumi:"deploymentPolicies"`
-	// Contains information about an AWS IoT job configuration.
+	// The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
 	IotJobConfiguration DeploymentIoTJobConfigurationPtrOutput `pulumi:"iotJobConfiguration"`
 	// The parent deployment's [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for a subdeployment.
 	ParentTargetArn pulumi.StringPtrOutput `pulumi:"parentTargetArn"`
@@ -92,9 +92,9 @@ type deploymentArgs struct {
 	Components map[string]DeploymentComponentDeploymentSpecification `pulumi:"components"`
 	// The name of the deployment.
 	DeploymentName *string `pulumi:"deploymentName"`
-	// Contains information about policies that define how a deployment updates components and handles failure.
+	// The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.
 	DeploymentPolicies *DeploymentPolicies `pulumi:"deploymentPolicies"`
-	// Contains information about an AWS IoT job configuration.
+	// The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
 	IotJobConfiguration *DeploymentIoTJobConfiguration `pulumi:"iotJobConfiguration"`
 	// The parent deployment's [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for a subdeployment.
 	ParentTargetArn *string `pulumi:"parentTargetArn"`
@@ -112,9 +112,9 @@ type DeploymentArgs struct {
 	Components DeploymentComponentDeploymentSpecificationMapInput
 	// The name of the deployment.
 	DeploymentName pulumi.StringPtrInput
-	// Contains information about policies that define how a deployment updates components and handles failure.
+	// The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.
 	DeploymentPolicies DeploymentPoliciesPtrInput
-	// Contains information about an AWS IoT job configuration.
+	// The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
 	IotJobConfiguration DeploymentIoTJobConfigurationPtrInput
 	// The parent deployment's [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for a subdeployment.
 	ParentTargetArn pulumi.StringPtrInput
@@ -178,12 +178,12 @@ func (o DeploymentOutput) DeploymentName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Deployment) pulumi.StringPtrOutput { return v.DeploymentName }).(pulumi.StringPtrOutput)
 }
 
-// Contains information about policies that define how a deployment updates components and handles failure.
+// The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.
 func (o DeploymentOutput) DeploymentPolicies() DeploymentPoliciesPtrOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentPoliciesPtrOutput { return v.DeploymentPolicies }).(DeploymentPoliciesPtrOutput)
 }
 
-// Contains information about an AWS IoT job configuration.
+// The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
 func (o DeploymentOutput) IotJobConfiguration() DeploymentIoTJobConfigurationPtrOutput {
 	return o.ApplyT(func(v *Deployment) DeploymentIoTJobConfigurationPtrOutput { return v.IotJobConfiguration }).(DeploymentIoTJobConfigurationPtrOutput)
 }

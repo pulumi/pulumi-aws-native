@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateForecastComputationSeasonality? Seasonality;
         /// <summary>
-        /// The dimension type field.
+        /// The time field that is used in a computation.
         /// </summary>
         public readonly Outputs.TemplateDimensionField? Time;
         /// <summary>
@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly double? UpperBoundary;
         /// <summary>
-        /// The measure (metric) type field.
+        /// The value field that is used in a computation.
         /// </summary>
         public readonly Outputs.TemplateMeasureField? Value;
 

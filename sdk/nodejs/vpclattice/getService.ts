@@ -46,7 +46,7 @@ export interface GetServiceResult {
      */
     readonly createdAt?: string;
     /**
-     * Describes the DNS information of a service.
+     * The DNS information of the service.
      */
     readonly dnsEntry?: outputs.vpclattice.ServiceDnsEntry;
     /**
@@ -62,7 +62,7 @@ export interface GetServiceResult {
      */
     readonly status?: enums.vpclattice.ServiceStatus;
     /**
-     * Specifies a tag for a service.
+     * The tags for the service.
      */
     readonly tags?: outputs.Tag[];
 }

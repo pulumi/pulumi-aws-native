@@ -54,11 +54,11 @@ export class VariantStore extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The read set's genome reference ARN.
+     * The genome reference for the store's variants.
      */
     public readonly reference!: pulumi.Output<outputs.omics.VariantStoreReferenceItem>;
     /**
-     * Server-side encryption (SSE) settings for a store.
+     * Server-side encryption (SSE) settings for the store.
      */
     public readonly sseConfig!: pulumi.Output<outputs.omics.VariantStoreSseConfig | undefined>;
     /**
@@ -146,11 +146,11 @@ export interface VariantStoreArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The read set's genome reference ARN.
+     * The genome reference for the store's variants.
      */
     reference: pulumi.Input<inputs.omics.VariantStoreReferenceItemArgs>;
     /**
-     * Server-side encryption (SSE) settings for a store.
+     * Server-side encryption (SSE) settings for the store.
      */
     sseConfig?: pulumi.Input<inputs.omics.VariantStoreSseConfigArgs>;
     /**

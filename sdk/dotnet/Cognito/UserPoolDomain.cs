@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Cognito
         public Output<string> CloudFrontDistribution { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+        /// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
         /// </summary>
         [Output("customDomainConfig")]
         public Output<Outputs.UserPoolDomainCustomDomainConfigType?> CustomDomainConfig { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class UserPoolDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+        /// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
         /// </summary>
         [Input("customDomainConfig")]
         public Input<Inputs.UserPoolDomainCustomDomainConfigTypeArgs>? CustomDomainConfig { get; set; }

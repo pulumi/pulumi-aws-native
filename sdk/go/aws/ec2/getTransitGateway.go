@@ -45,7 +45,7 @@ type LookupTransitGatewayResult struct {
 	Id *string `pulumi:"id"`
 	// The ID of the default propagation route table.
 	PropagationDefaultRouteTableId *string `pulumi:"propagationDefaultRouteTableId"`
-	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	// The tags for the transit gateway.
 	Tags              []aws.Tag `pulumi:"tags"`
 	TransitGatewayArn *string   `pulumi:"transitGatewayArn"`
 	// The transit gateway CIDR blocks.
@@ -130,7 +130,7 @@ func (o LookupTransitGatewayResultOutput) PropagationDefaultRouteTableId() pulum
 	return o.ApplyT(func(v LookupTransitGatewayResult) *string { return v.PropagationDefaultRouteTableId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+// The tags for the transit gateway.
 func (o LookupTransitGatewayResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTransitGatewayResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

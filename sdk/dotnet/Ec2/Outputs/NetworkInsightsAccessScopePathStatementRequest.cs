@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     public sealed class NetworkInsightsAccessScopePathStatementRequest
     {
         /// <summary>
-        /// Describes a packet header statement.
+        /// The packet header statement.
         /// </summary>
         public readonly Outputs.NetworkInsightsAccessScopePacketHeaderStatementRequest? PacketHeaderStatement;
         /// <summary>
-        /// Describes a resource statement.
+        /// The resource statement.
         /// </summary>
         public readonly Outputs.NetworkInsightsAccessScopeResourceStatementRequest? ResourceStatement;
 

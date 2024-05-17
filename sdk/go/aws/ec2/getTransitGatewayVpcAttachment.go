@@ -33,7 +33,7 @@ type LookupTransitGatewayVpcAttachmentResult struct {
 	Id *string `pulumi:"id"`
 	// The options for the transit gateway vpc attachment.
 	Options *OptionsProperties `pulumi:"options"`
-	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	// The tags for the VPC attachment.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -83,7 +83,7 @@ func (o LookupTransitGatewayVpcAttachmentResultOutput) Options() OptionsProperti
 	return o.ApplyT(func(v LookupTransitGatewayVpcAttachmentResult) *OptionsProperties { return v.Options }).(OptionsPropertiesPtrOutput)
 }
 
-// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+// The tags for the VPC attachment.
 func (o LookupTransitGatewayVpcAttachmentResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTransitGatewayVpcAttachmentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Deadline.Inputs
     public sealed class QueueJobRunAsUserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The POSIX user.
+        /// The user and group that the jobs in the queue run as.
         /// </summary>
         [Input("posix")]
         public Input<Inputs.QueuePosixUserArgs>? Posix { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Deadline.Inputs
         public Input<Pulumi.AwsNative.Deadline.QueueRunAs> RunAs { get; set; } = null!;
 
         /// <summary>
-        /// The Windows user details.
+        /// Identifies a Microsoft Windows user.
         /// </summary>
         [Input("windows")]
         public Input<Inputs.QueueWindowsUserArgs>? Windows { get; set; }

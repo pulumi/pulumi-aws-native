@@ -41,7 +41,7 @@ type LookupCaCertificateResult struct {
 	AutoRegistrationStatus *CaCertificateAutoRegistrationStatus `pulumi:"autoRegistrationStatus"`
 	// The CA certificate ID.
 	Id *string `pulumi:"id"`
-	// The registration configuration.
+	// Information about the registration configuration.
 	RegistrationConfig *CaCertificateRegistrationConfig `pulumi:"registrationConfig"`
 	// The status of the CA certificate.
 	//
@@ -110,7 +110,7 @@ func (o LookupCaCertificateResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCaCertificateResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The registration configuration.
+// Information about the registration configuration.
 func (o LookupCaCertificateResultOutput) RegistrationConfig() CaCertificateRegistrationConfigPtrOutput {
 	return o.ApplyT(func(v LookupCaCertificateResult) *CaCertificateRegistrationConfig { return v.RegistrationConfig }).(CaCertificateRegistrationConfigPtrOutput)
 }

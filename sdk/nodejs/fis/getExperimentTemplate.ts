@@ -35,7 +35,7 @@ export interface GetExperimentTemplateResult {
      */
     readonly description?: string;
     /**
-     * Describes the experiment options for an experiment template.
+     * The experiment options for an experiment template.
      */
     readonly experimentOptions?: outputs.fis.ExperimentTemplateExperimentOptions;
     /**
@@ -43,9 +43,7 @@ export interface GetExperimentTemplateResult {
      */
     readonly id?: string;
     /**
-     * Specifies the configuration for experiment logging.
-     *
-     * For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+     * The configuration for experiment logging.
      */
     readonly logConfiguration?: outputs.fis.ExperimentTemplateLogConfiguration;
     /**

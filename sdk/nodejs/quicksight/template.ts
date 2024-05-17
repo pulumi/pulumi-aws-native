@@ -49,9 +49,6 @@ export class Template extends pulumi.CustomResource {
      * <p>Time when this was created.</p>
      */
     public /*out*/ readonly createdTime!: pulumi.Output<string>;
-    /**
-     * The detailed definition of a template.
-     */
     public readonly definition!: pulumi.Output<outputs.quicksight.TemplateVersionDefinition | undefined>;
     /**
      * <p>Time when this was last updated.</p>
@@ -62,11 +59,15 @@ export class Template extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Permission for the resource.
+     * A list of resource permissions to be set on the template.
      */
     public readonly permissions!: pulumi.Output<outputs.quicksight.TemplateResourcePermission[] | undefined>;
     /**
-     * The source entity of the template.
+     * The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+     *
+     * Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
+     *
+     * Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
      */
     public readonly sourceEntity!: pulumi.Output<outputs.quicksight.TemplateSourceEntity | undefined>;
     /**
@@ -81,9 +82,6 @@ export class Template extends pulumi.CustomResource {
      * The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
      */
     public readonly validationStrategy!: pulumi.Output<outputs.quicksight.TemplateValidationStrategy | undefined>;
-    /**
-     * A version of a template.
-     */
     public /*out*/ readonly version!: pulumi.Output<outputs.quicksight.TemplateVersion>;
     /**
      * A description of the current template version being created. This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
@@ -150,20 +148,21 @@ export interface TemplateArgs {
      * The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
      */
     awsAccountId: pulumi.Input<string>;
-    /**
-     * The detailed definition of a template.
-     */
     definition?: pulumi.Input<inputs.quicksight.TemplateVersionDefinitionArgs>;
     /**
      * A display name for the template.
      */
     name?: pulumi.Input<string>;
     /**
-     * Permission for the resource.
+     * A list of resource permissions to be set on the template.
      */
     permissions?: pulumi.Input<pulumi.Input<inputs.quicksight.TemplateResourcePermissionArgs>[]>;
     /**
-     * The source entity of the template.
+     * The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+     *
+     * Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
+     *
+     * Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
      */
     sourceEntity?: pulumi.Input<inputs.quicksight.TemplateSourceEntityArgs>;
     /**

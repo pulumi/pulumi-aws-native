@@ -20,9 +20,6 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
         /// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
         /// </summary>
         public readonly int? Mtu;
-        /// <summary>
-        /// The address of the endpoint, such as `192.168.1.1` .
-        /// </summary>
         public readonly Outputs.DataflowEndpointGroupSocketAddress? SocketAddress;
 
         [OutputConstructor]

@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// Configurable options for connection tracking on a network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon Elastic Compute Cloud User Guide* .
+        /// A connection tracking specification for the network interface.
         /// </summary>
         [Output("connectionTrackingSpecification")]
         public Output<Outputs.NetworkInterfaceConnectionTrackingSpecification?> ConnectionTrackingSpecification { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class NetworkInterfaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configurable options for connection tracking on a network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon Elastic Compute Cloud User Guide* .
+        /// A connection tracking specification for the network interface.
         /// </summary>
         [Input("connectionTrackingSpecification")]
         public Input<Inputs.NetworkInterfaceConnectionTrackingSpecificationArgs>? ConnectionTrackingSpecification { get; set; }

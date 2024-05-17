@@ -14,43 +14,43 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     public sealed class NetworkInsightsAnalysisPathComponent
     {
         /// <summary>
-        /// Describes a network access control (ACL) rule.
+        /// The network ACL rule.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisAclRule? AclRule;
         /// <summary>
-        /// Describes an additional detail for a path analysis. For more information, see [Reachability Analyzer additional detail codes](https://docs.aws.amazon.com/vpc/latest/reachability/additional-detail-codes.html) .
+        /// The additional details.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisAdditionalDetail> AdditionalDetails;
         /// <summary>
-        /// Describes a path component.
+        /// The component.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Component;
         /// <summary>
-        /// Describes a path component.
+        /// The destination VPC.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? DestinationVpc;
         /// <summary>
-        /// Describes a path component.
+        /// The load balancer listener.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? ElasticLoadBalancerListener;
         /// <summary>
-        /// Describes an explanation code for an unreachable path. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
+        /// The explanation codes.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisExplanation> Explanations;
         /// <summary>
-        /// Describes a header. Reflects any changes made by a component as traffic passes through. The fields of an inbound header are null except for the first component of a path.
+        /// The inbound header.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisPacketHeader? InboundHeader;
         /// <summary>
-        /// Describes a header. Reflects any changes made by a component as traffic passes through. The fields of an inbound header are null except for the first component of a path.
+        /// The outbound header.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisPacketHeader? OutboundHeader;
         /// <summary>
-        /// Describes a route table route.
+        /// The route table route.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisRouteTableRoute? RouteTableRoute;
         /// <summary>
-        /// Describes a security group rule.
+        /// The security group rule.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisSecurityGroupRule? SecurityGroupRule;
         /// <summary>
@@ -62,23 +62,23 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string? ServiceName;
         /// <summary>
-        /// Describes a path component.
+        /// The source VPC.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? SourceVpc;
         /// <summary>
-        /// Describes a path component.
+        /// The subnet.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Subnet;
         /// <summary>
-        /// Describes a path component.
+        /// The transit gateway.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? TransitGateway;
         /// <summary>
-        /// Describes a route in a transit gateway route table.
+        /// The route in a transit gateway route table.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisTransitGatewayRouteTableRoute? TransitGatewayRouteTableRoute;
         /// <summary>
-        /// Describes a path component.
+        /// The component VPC.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Vpc;
 

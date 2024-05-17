@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.MediaTailor.Inputs
         public Input<Pulumi.AwsNative.MediaTailor.SourceLocationAccessType>? AccessType { get; set; }
 
         /// <summary>
-        /// AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see [Working with AWS Secrets Manager access token authentication](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html) .
+        /// AWS Secrets Manager access token configuration parameters.
         /// </summary>
         [Input("secretsManagerAccessTokenConfiguration")]
         public Input<Inputs.SourceLocationSecretsManagerAccessTokenConfigurationArgs>? SecretsManagerAccessTokenConfiguration { get; set; }

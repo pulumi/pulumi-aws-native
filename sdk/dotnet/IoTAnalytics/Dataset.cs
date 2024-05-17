@@ -232,7 +232,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
     public partial class Dataset : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Information needed to run the "containerAction" to produce data set contents.
+        /// The `DatasetAction` objects that automatically create the dataset contents.
         /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<Outputs.DatasetAction>> Actions { get; private set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// When dataset contents are created, they are delivered to destination specified here.
+        /// When dataset contents are created they are delivered to destinations specified here.
         /// </summary>
         [Output("contentDeliveryRules")]
         public Output<ImmutableArray<Outputs.DatasetContentDeliveryRule>> ContentDeliveryRules { get; private set; } = null!;
@@ -253,31 +253,33 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public Output<string?> DatasetName { get; private set; } = null!;
 
         /// <summary>
-        /// A structure that contains the name and configuration information of a late data rule.
+        /// A list of data rules that send notifications to CloudWatch, when data arrives late. To specify `lateDataRules` , the dataset must use a [DeltaTimer](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html) filter.
         /// </summary>
         [Output("lateDataRules")]
         public Output<ImmutableArray<Outputs.DatasetLateDataRule>> LateDataRules { get; private set; } = null!;
 
         /// <summary>
-        /// How long, in days, message data is kept.
+        /// Optional. How long, in days, message data is kept for the dataset.
         /// </summary>
         [Output("retentionPeriod")]
         public Output<Outputs.DatasetRetentionPeriod?> RetentionPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// A set of key-value pairs that are used to manage the resource.
+        /// Metadata which can be used to manage the data set.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The "DatasetTrigger" that specifies when the data set is automatically updated.
+        /// The `DatasetTrigger` objects that specify when the dataset is automatically updated.
         /// </summary>
         [Output("triggers")]
         public Output<ImmutableArray<Outputs.DatasetTrigger>> Triggers { get; private set; } = null!;
 
         /// <summary>
-        /// Information about the versioning of dataset contents.
+        /// Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of AWS IoT Analytics datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *AWS IoT Analytics User Guide* .
         /// </summary>
         [Output("versioningConfiguration")]
         public Output<Outputs.DatasetVersioningConfiguration?> VersioningConfiguration { get; private set; } = null!;
@@ -335,7 +337,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
         private InputList<Inputs.DatasetActionArgs>? _actions;
 
         /// <summary>
-        /// Information needed to run the "containerAction" to produce data set contents.
+        /// The `DatasetAction` objects that automatically create the dataset contents.
         /// </summary>
         public InputList<Inputs.DatasetActionArgs> Actions
         {
@@ -347,7 +349,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
         private InputList<Inputs.DatasetContentDeliveryRuleArgs>? _contentDeliveryRules;
 
         /// <summary>
-        /// When dataset contents are created, they are delivered to destination specified here.
+        /// When dataset contents are created they are delivered to destinations specified here.
         /// </summary>
         public InputList<Inputs.DatasetContentDeliveryRuleArgs> ContentDeliveryRules
         {
@@ -365,7 +367,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
         private InputList<Inputs.DatasetLateDataRuleArgs>? _lateDataRules;
 
         /// <summary>
-        /// A structure that contains the name and configuration information of a late data rule.
+        /// A list of data rules that send notifications to CloudWatch, when data arrives late. To specify `lateDataRules` , the dataset must use a [DeltaTimer](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html) filter.
         /// </summary>
         public InputList<Inputs.DatasetLateDataRuleArgs> LateDataRules
         {
@@ -374,7 +376,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
         }
 
         /// <summary>
-        /// How long, in days, message data is kept.
+        /// Optional. How long, in days, message data is kept for the dataset.
         /// </summary>
         [Input("retentionPeriod")]
         public Input<Inputs.DatasetRetentionPeriodArgs>? RetentionPeriod { get; set; }
@@ -383,7 +385,9 @@ namespace Pulumi.AwsNative.IoTAnalytics
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A set of key-value pairs that are used to manage the resource.
+        /// Metadata which can be used to manage the data set.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
@@ -395,7 +399,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
         private InputList<Inputs.DatasetTriggerArgs>? _triggers;
 
         /// <summary>
-        /// The "DatasetTrigger" that specifies when the data set is automatically updated.
+        /// The `DatasetTrigger` objects that specify when the dataset is automatically updated.
         /// </summary>
         public InputList<Inputs.DatasetTriggerArgs> Triggers
         {
@@ -404,7 +408,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
         }
 
         /// <summary>
-        /// Information about the versioning of dataset contents.
+        /// Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of AWS IoT Analytics datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *AWS IoT Analytics User Guide* .
         /// </summary>
         [Input("versioningConfiguration")]
         public Input<Inputs.DatasetVersioningConfigurationArgs>? VersioningConfiguration { get; set; }

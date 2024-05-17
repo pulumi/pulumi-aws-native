@@ -34,7 +34,7 @@ class GetVdmAttributesResult:
     @pulumi.getter(name="dashboardAttributes")
     def dashboard_attributes(self) -> Optional['outputs.VdmAttributesDashboardAttributes']:
         """
-        Settings for your VDM configuration as applicable to the Dashboard.
+        Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         """
         return pulumi.get(self, "dashboard_attributes")
 
@@ -42,7 +42,7 @@ class GetVdmAttributesResult:
     @pulumi.getter(name="guardianAttributes")
     def guardian_attributes(self) -> Optional['outputs.VdmAttributesGuardianAttributes']:
         """
-        Settings for your VDM configuration as applicable to the Guardian.
+        Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """
         return pulumi.get(self, "guardian_attributes")
 

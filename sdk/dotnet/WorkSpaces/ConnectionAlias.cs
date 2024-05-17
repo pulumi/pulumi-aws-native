@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.WorkSpaces
         public Output<string> AliasId { get; private set; } = null!;
 
         /// <summary>
-        /// Describes a connection alias association that is used for cross-Region redirection. For more information, see [Cross-Region Redirection for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html) .
+        /// The association status of the connection alias.
         /// </summary>
         [Output("associations")]
         public Output<ImmutableArray<Outputs.ConnectionAliasAssociation>> Associations { get; private set; } = null!;
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.WorkSpaces
         public Output<string> ConnectionString { get; private set; } = null!;
 
         /// <summary>
-        /// Describes a tag.
+        /// The tags to associate with the connection alias.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
@@ -105,7 +105,7 @@ namespace Pulumi.AwsNative.WorkSpaces
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
 
         /// <summary>
-        /// Describes a tag.
+        /// The tags to associate with the connection alias.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {

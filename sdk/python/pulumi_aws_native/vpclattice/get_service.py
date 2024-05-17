@@ -89,7 +89,7 @@ class GetServiceResult:
     @pulumi.getter(name="dnsEntry")
     def dns_entry(self) -> Optional['outputs.ServiceDnsEntry']:
         """
-        Describes the DNS information of a service.
+        The DNS information of the service.
         """
         return pulumi.get(self, "dns_entry")
 
@@ -121,7 +121,7 @@ class GetServiceResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        Specifies a tag for a service.
+        The tags for the service.
         """
         return pulumi.get(self, "tags")
 

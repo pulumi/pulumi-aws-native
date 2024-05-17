@@ -30,13 +30,13 @@ type AppBlock struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The packaging type of the app block.
 	PackagingType pulumi.StringPtrOutput `pulumi:"packagingType"`
-	// The details of the script.
+	// The post setup script details of the app block.
 	PostSetupScriptDetails AppBlockScriptDetailsPtrOutput `pulumi:"postSetupScriptDetails"`
-	// The details of the script.
+	// The setup script details of the app block.
 	SetupScriptDetails AppBlockScriptDetailsPtrOutput `pulumi:"setupScriptDetails"`
-	// The S3 location of the app block.
+	// The source S3 location of the app block.
 	SourceS3Location AppBlockS3LocationOutput `pulumi:"sourceS3Location"`
-	// The tag of the app block.
+	// The tags of the app block.
 	Tags pulumi.ArrayOutput `pulumi:"tags"`
 }
 
@@ -103,13 +103,13 @@ type appBlockArgs struct {
 	Name *string `pulumi:"name"`
 	// The packaging type of the app block.
 	PackagingType *string `pulumi:"packagingType"`
-	// The details of the script.
+	// The post setup script details of the app block.
 	PostSetupScriptDetails *AppBlockScriptDetails `pulumi:"postSetupScriptDetails"`
-	// The details of the script.
+	// The setup script details of the app block.
 	SetupScriptDetails *AppBlockScriptDetails `pulumi:"setupScriptDetails"`
-	// The S3 location of the app block.
+	// The source S3 location of the app block.
 	SourceS3Location AppBlockS3Location `pulumi:"sourceS3Location"`
-	// The tag of the app block.
+	// The tags of the app block.
 	Tags []interface{} `pulumi:"tags"`
 }
 
@@ -125,13 +125,13 @@ type AppBlockArgs struct {
 	Name pulumi.StringPtrInput
 	// The packaging type of the app block.
 	PackagingType pulumi.StringPtrInput
-	// The details of the script.
+	// The post setup script details of the app block.
 	PostSetupScriptDetails AppBlockScriptDetailsPtrInput
-	// The details of the script.
+	// The setup script details of the app block.
 	SetupScriptDetails AppBlockScriptDetailsPtrInput
-	// The S3 location of the app block.
+	// The source S3 location of the app block.
 	SourceS3Location AppBlockS3LocationInput
-	// The tag of the app block.
+	// The tags of the app block.
 	Tags pulumi.ArrayInput
 }
 
@@ -204,22 +204,22 @@ func (o AppBlockOutput) PackagingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppBlock) pulumi.StringPtrOutput { return v.PackagingType }).(pulumi.StringPtrOutput)
 }
 
-// The details of the script.
+// The post setup script details of the app block.
 func (o AppBlockOutput) PostSetupScriptDetails() AppBlockScriptDetailsPtrOutput {
 	return o.ApplyT(func(v *AppBlock) AppBlockScriptDetailsPtrOutput { return v.PostSetupScriptDetails }).(AppBlockScriptDetailsPtrOutput)
 }
 
-// The details of the script.
+// The setup script details of the app block.
 func (o AppBlockOutput) SetupScriptDetails() AppBlockScriptDetailsPtrOutput {
 	return o.ApplyT(func(v *AppBlock) AppBlockScriptDetailsPtrOutput { return v.SetupScriptDetails }).(AppBlockScriptDetailsPtrOutput)
 }
 
-// The S3 location of the app block.
+// The source S3 location of the app block.
 func (o AppBlockOutput) SourceS3Location() AppBlockS3LocationOutput {
 	return o.ApplyT(func(v *AppBlock) AppBlockS3LocationOutput { return v.SourceS3Location }).(AppBlockS3LocationOutput)
 }
 
-// The tag of the app block.
+// The tags of the app block.
 func (o AppBlockOutput) Tags() pulumi.ArrayOutput {
 	return o.ApplyT(func(v *AppBlock) pulumi.ArrayOutput { return v.Tags }).(pulumi.ArrayOutput)
 }

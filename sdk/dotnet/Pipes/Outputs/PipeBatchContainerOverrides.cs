@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
         /// </summary>
         public readonly string? InstanceType;
         /// <summary>
-        /// The type and amount of a resource to assign to a container. The supported resources include `GPU` , `MEMORY` , and `VCPU` .
+        /// The type and amount of resources to assign to a container. This overrides the settings in the job definition. The supported resources include `GPU` , `MEMORY` , and `VCPU` .
         /// </summary>
         public readonly ImmutableArray<Outputs.PipeBatchResourceRequirement> ResourceRequirements;
 

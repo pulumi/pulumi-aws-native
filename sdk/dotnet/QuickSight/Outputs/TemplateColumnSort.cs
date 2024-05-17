@@ -14,18 +14,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateColumnSort
     {
         /// <summary>
-        /// An aggregation function aggregates values from a dimension or measure.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The aggregation function that is defined in the column sort.
         /// </summary>
         public readonly Outputs.TemplateAggregationFunction? AggregationFunction;
         /// <summary>
         /// The sort direction.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateSortDirection Direction;
-        /// <summary>
-        /// A column of a data set.
-        /// </summary>
         public readonly Outputs.TemplateColumnIdentifier SortBy;
 
         [OutputConstructor]

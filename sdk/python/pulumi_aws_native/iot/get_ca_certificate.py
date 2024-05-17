@@ -75,7 +75,7 @@ class GetCaCertificateResult:
     @pulumi.getter(name="registrationConfig")
     def registration_config(self) -> Optional['outputs.CaCertificateRegistrationConfig']:
         """
-        The registration configuration.
+        Information about the registration configuration.
         """
         return pulumi.get(self, "registration_config")
 

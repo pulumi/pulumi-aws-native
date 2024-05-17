@@ -81,7 +81,7 @@ type Analyzer struct {
 	AnalyzerConfiguration AnalyzerConfigurationPropertiesPtrOutput `pulumi:"analyzerConfiguration"`
 	// Analyzer name
 	AnalyzerName pulumi.StringPtrOutput `pulumi:"analyzerName"`
-	// Contains information about an archive rule.
+	// Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
 	ArchiveRules AnalyzerArchiveRuleArrayOutput `pulumi:"archiveRules"`
 	// Amazon Resource Name (ARN) of the analyzer
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -144,7 +144,7 @@ type analyzerArgs struct {
 	AnalyzerConfiguration *AnalyzerConfigurationProperties `pulumi:"analyzerConfiguration"`
 	// Analyzer name
 	AnalyzerName *string `pulumi:"analyzerName"`
-	// Contains information about an archive rule.
+	// Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
 	ArchiveRules []AnalyzerArchiveRule `pulumi:"archiveRules"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -158,7 +158,7 @@ type AnalyzerArgs struct {
 	AnalyzerConfiguration AnalyzerConfigurationPropertiesPtrInput
 	// Analyzer name
 	AnalyzerName pulumi.StringPtrInput
-	// Contains information about an archive rule.
+	// Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
 	ArchiveRules AnalyzerArchiveRuleArrayInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
@@ -213,7 +213,7 @@ func (o AnalyzerOutput) AnalyzerName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Analyzer) pulumi.StringPtrOutput { return v.AnalyzerName }).(pulumi.StringPtrOutput)
 }
 
-// Contains information about an archive rule.
+// Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
 func (o AnalyzerOutput) ArchiveRules() AnalyzerArchiveRuleArrayOutput {
 	return o.ApplyT(func(v *Analyzer) AnalyzerArchiveRuleArrayOutput { return v.ArchiveRules }).(AnalyzerArchiveRuleArrayOutput)
 }

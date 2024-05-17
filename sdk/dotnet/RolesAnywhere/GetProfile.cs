@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
         /// </summary>
         public readonly string? SessionPolicy;
         /// <summary>
-        /// A label that consists of a key and value you define.
+        /// A list of Tags.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

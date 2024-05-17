@@ -19,13 +19,13 @@ type CisScanConfiguration struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the scan
 	ScanName pulumi.StringPtrOutput `pulumi:"scanName"`
-	// The schedule the CIS scan configuration runs on. Each CIS scan configuration has exactly one type of schedule.
+	// The CIS scan configuration's schedule.
 	Schedule CisScanConfigurationSchedulePtrOutput `pulumi:"schedule"`
 	// The CIS scan configuration's CIS Benchmark level.
 	SecurityLevel CisScanConfigurationCisSecurityLevelPtrOutput `pulumi:"securityLevel"`
 	// The CIS scan configuration's tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The CIS targets.
+	// The CIS scan configuration's targets.
 	Targets CisScanConfigurationCisTargetsPtrOutput `pulumi:"targets"`
 }
 
@@ -71,13 +71,13 @@ func (CisScanConfigurationState) ElementType() reflect.Type {
 type cisScanConfigurationArgs struct {
 	// Name of the scan
 	ScanName *string `pulumi:"scanName"`
-	// The schedule the CIS scan configuration runs on. Each CIS scan configuration has exactly one type of schedule.
+	// The CIS scan configuration's schedule.
 	Schedule *CisScanConfigurationSchedule `pulumi:"schedule"`
 	// The CIS scan configuration's CIS Benchmark level.
 	SecurityLevel *CisScanConfigurationCisSecurityLevel `pulumi:"securityLevel"`
 	// The CIS scan configuration's tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The CIS targets.
+	// The CIS scan configuration's targets.
 	Targets *CisScanConfigurationCisTargets `pulumi:"targets"`
 }
 
@@ -85,13 +85,13 @@ type cisScanConfigurationArgs struct {
 type CisScanConfigurationArgs struct {
 	// Name of the scan
 	ScanName pulumi.StringPtrInput
-	// The schedule the CIS scan configuration runs on. Each CIS scan configuration has exactly one type of schedule.
+	// The CIS scan configuration's schedule.
 	Schedule CisScanConfigurationSchedulePtrInput
 	// The CIS scan configuration's CIS Benchmark level.
 	SecurityLevel CisScanConfigurationCisSecurityLevelPtrInput
 	// The CIS scan configuration's tags.
 	Tags pulumi.StringMapInput
-	// The CIS targets.
+	// The CIS scan configuration's targets.
 	Targets CisScanConfigurationCisTargetsPtrInput
 }
 
@@ -142,7 +142,7 @@ func (o CisScanConfigurationOutput) ScanName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CisScanConfiguration) pulumi.StringPtrOutput { return v.ScanName }).(pulumi.StringPtrOutput)
 }
 
-// The schedule the CIS scan configuration runs on. Each CIS scan configuration has exactly one type of schedule.
+// The CIS scan configuration's schedule.
 func (o CisScanConfigurationOutput) Schedule() CisScanConfigurationSchedulePtrOutput {
 	return o.ApplyT(func(v *CisScanConfiguration) CisScanConfigurationSchedulePtrOutput { return v.Schedule }).(CisScanConfigurationSchedulePtrOutput)
 }
@@ -157,7 +157,7 @@ func (o CisScanConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CisScanConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The CIS targets.
+// The CIS scan configuration's targets.
 func (o CisScanConfigurationOutput) Targets() CisScanConfigurationCisTargetsPtrOutput {
 	return o.ApplyT(func(v *CisScanConfiguration) CisScanConfigurationCisTargetsPtrOutput { return v.Targets }).(CisScanConfigurationCisTargetsPtrOutput)
 }

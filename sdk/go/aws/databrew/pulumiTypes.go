@@ -179,7 +179,7 @@ type DatasetDataCatalogInputDefinition struct {
 	DatabaseName *string `pulumi:"databaseName"`
 	// Table name
 	TableName *string `pulumi:"tableName"`
-	// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+	// An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
 	TempDirectory *DatasetS3Location `pulumi:"tempDirectory"`
 }
 
@@ -201,7 +201,7 @@ type DatasetDataCatalogInputDefinitionArgs struct {
 	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
 	// Table name
 	TableName pulumi.StringPtrInput `pulumi:"tableName"`
-	// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+	// An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
 	TempDirectory DatasetS3LocationPtrInput `pulumi:"tempDirectory"`
 }
 
@@ -297,7 +297,7 @@ func (o DatasetDataCatalogInputDefinitionOutput) TableName() pulumi.StringPtrOut
 	return o.ApplyT(func(v DatasetDataCatalogInputDefinition) *string { return v.TableName }).(pulumi.StringPtrOutput)
 }
 
-// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+// An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
 func (o DatasetDataCatalogInputDefinitionOutput) TempDirectory() DatasetS3LocationPtrOutput {
 	return o.ApplyT(func(v DatasetDataCatalogInputDefinition) *DatasetS3Location { return v.TempDirectory }).(DatasetS3LocationPtrOutput)
 }
@@ -356,7 +356,7 @@ func (o DatasetDataCatalogInputDefinitionPtrOutput) TableName() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+// An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
 func (o DatasetDataCatalogInputDefinitionPtrOutput) TempDirectory() DatasetS3LocationPtrOutput {
 	return o.ApplyT(func(v *DatasetDataCatalogInputDefinition) *DatasetS3Location {
 		if v == nil {
@@ -373,7 +373,7 @@ type DatasetDatabaseInputDefinition struct {
 	GlueConnectionName string `pulumi:"glueConnectionName"`
 	// Custom SQL to run against the provided AWS Glue connection. This SQL will be used as the input for DataBrew projects and jobs.
 	QueryString *string `pulumi:"queryString"`
-	// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+	// An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
 	TempDirectory *DatasetS3Location `pulumi:"tempDirectory"`
 }
 
@@ -395,7 +395,7 @@ type DatasetDatabaseInputDefinitionArgs struct {
 	GlueConnectionName pulumi.StringInput `pulumi:"glueConnectionName"`
 	// Custom SQL to run against the provided AWS Glue connection. This SQL will be used as the input for DataBrew projects and jobs.
 	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
-	// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+	// An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
 	TempDirectory DatasetS3LocationPtrInput `pulumi:"tempDirectory"`
 }
 
@@ -491,7 +491,7 @@ func (o DatasetDatabaseInputDefinitionOutput) QueryString() pulumi.StringPtrOutp
 	return o.ApplyT(func(v DatasetDatabaseInputDefinition) *string { return v.QueryString }).(pulumi.StringPtrOutput)
 }
 
-// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+// An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
 func (o DatasetDatabaseInputDefinitionOutput) TempDirectory() DatasetS3LocationPtrOutput {
 	return o.ApplyT(func(v DatasetDatabaseInputDefinition) *DatasetS3Location { return v.TempDirectory }).(DatasetS3LocationPtrOutput)
 }
@@ -550,7 +550,7 @@ func (o DatasetDatabaseInputDefinitionPtrOutput) QueryString() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+// An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
 func (o DatasetDatabaseInputDefinitionPtrOutput) TempDirectory() DatasetS3LocationPtrOutput {
 	return o.ApplyT(func(v *DatasetDatabaseInputDefinition) *DatasetS3Location {
 		if v == nil {
@@ -1088,7 +1088,7 @@ func (o DatasetFilesLimitPtrOutput) OrderedBy() DatasetFilesLimitOrderedByPtrOut
 type DatasetFilterExpression struct {
 	// Filtering expression for a parameter
 	Expression string `pulumi:"expression"`
-	// Represents a single entry in the `ValuesMap` of a `FilterExpression` . A `FilterValue` associates the name of a substitution variable in an expression to its value.
+	// The map of substitution variable names to their values used in this filter expression.
 	ValuesMap []DatasetFilterValue `pulumi:"valuesMap"`
 }
 
@@ -1106,7 +1106,7 @@ type DatasetFilterExpressionInput interface {
 type DatasetFilterExpressionArgs struct {
 	// Filtering expression for a parameter
 	Expression pulumi.StringInput `pulumi:"expression"`
-	// Represents a single entry in the `ValuesMap` of a `FilterExpression` . A `FilterValue` associates the name of a substitution variable in an expression to its value.
+	// The map of substitution variable names to their values used in this filter expression.
 	ValuesMap DatasetFilterValueArrayInput `pulumi:"valuesMap"`
 }
 
@@ -1192,7 +1192,7 @@ func (o DatasetFilterExpressionOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetFilterExpression) string { return v.Expression }).(pulumi.StringOutput)
 }
 
-// Represents a single entry in the `ValuesMap` of a `FilterExpression` . A `FilterValue` associates the name of a substitution variable in an expression to its value.
+// The map of substitution variable names to their values used in this filter expression.
 func (o DatasetFilterExpressionOutput) ValuesMap() DatasetFilterValueArrayOutput {
 	return o.ApplyT(func(v DatasetFilterExpression) []DatasetFilterValue { return v.ValuesMap }).(DatasetFilterValueArrayOutput)
 }
@@ -1231,7 +1231,7 @@ func (o DatasetFilterExpressionPtrOutput) Expression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents a single entry in the `ValuesMap` of a `FilterExpression` . A `FilterValue` associates the name of a substitution variable in an expression to its value.
+// The map of substitution variable names to their values used in this filter expression.
 func (o DatasetFilterExpressionPtrOutput) ValuesMap() DatasetFilterValueArrayOutput {
 	return o.ApplyT(func(v *DatasetFilterExpression) []DatasetFilterValue {
 		if v == nil {
@@ -1352,11 +1352,11 @@ func (o DatasetFilterValueArrayOutput) Index(i pulumi.IntInput) DatasetFilterVal
 
 // Format options for dataset
 type DatasetFormatOptions struct {
-	// Represents a set of options that define how DataBrew will read a comma-separated value (CSV) file when creating a dataset from that file.
+	// Options that define how CSV input is to be interpreted by DataBrew.
 	Csv *DatasetCsvOptions `pulumi:"csv"`
-	// Represents a set of options that define how DataBrew will interpret a Microsoft Excel file when creating a dataset from that file.
+	// Options that define how Excel input is to be interpreted by DataBrew.
 	Excel *DatasetExcelOptions `pulumi:"excel"`
-	// Represents the JSON-specific options that define how input is to be interpreted by AWS Glue DataBrew .
+	// Options that define how JSON input is to be interpreted by DataBrew.
 	Json *DatasetJsonOptions `pulumi:"json"`
 }
 
@@ -1373,11 +1373,11 @@ type DatasetFormatOptionsInput interface {
 
 // Format options for dataset
 type DatasetFormatOptionsArgs struct {
-	// Represents a set of options that define how DataBrew will read a comma-separated value (CSV) file when creating a dataset from that file.
+	// Options that define how CSV input is to be interpreted by DataBrew.
 	Csv DatasetCsvOptionsPtrInput `pulumi:"csv"`
-	// Represents a set of options that define how DataBrew will interpret a Microsoft Excel file when creating a dataset from that file.
+	// Options that define how Excel input is to be interpreted by DataBrew.
 	Excel DatasetExcelOptionsPtrInput `pulumi:"excel"`
-	// Represents the JSON-specific options that define how input is to be interpreted by AWS Glue DataBrew .
+	// Options that define how JSON input is to be interpreted by DataBrew.
 	Json DatasetJsonOptionsPtrInput `pulumi:"json"`
 }
 
@@ -1459,17 +1459,17 @@ func (o DatasetFormatOptionsOutput) ToDatasetFormatOptionsPtrOutputWithContext(c
 	}).(DatasetFormatOptionsPtrOutput)
 }
 
-// Represents a set of options that define how DataBrew will read a comma-separated value (CSV) file when creating a dataset from that file.
+// Options that define how CSV input is to be interpreted by DataBrew.
 func (o DatasetFormatOptionsOutput) Csv() DatasetCsvOptionsPtrOutput {
 	return o.ApplyT(func(v DatasetFormatOptions) *DatasetCsvOptions { return v.Csv }).(DatasetCsvOptionsPtrOutput)
 }
 
-// Represents a set of options that define how DataBrew will interpret a Microsoft Excel file when creating a dataset from that file.
+// Options that define how Excel input is to be interpreted by DataBrew.
 func (o DatasetFormatOptionsOutput) Excel() DatasetExcelOptionsPtrOutput {
 	return o.ApplyT(func(v DatasetFormatOptions) *DatasetExcelOptions { return v.Excel }).(DatasetExcelOptionsPtrOutput)
 }
 
-// Represents the JSON-specific options that define how input is to be interpreted by AWS Glue DataBrew .
+// Options that define how JSON input is to be interpreted by DataBrew.
 func (o DatasetFormatOptionsOutput) Json() DatasetJsonOptionsPtrOutput {
 	return o.ApplyT(func(v DatasetFormatOptions) *DatasetJsonOptions { return v.Json }).(DatasetJsonOptionsPtrOutput)
 }
@@ -1498,7 +1498,7 @@ func (o DatasetFormatOptionsPtrOutput) Elem() DatasetFormatOptionsOutput {
 	}).(DatasetFormatOptionsOutput)
 }
 
-// Represents a set of options that define how DataBrew will read a comma-separated value (CSV) file when creating a dataset from that file.
+// Options that define how CSV input is to be interpreted by DataBrew.
 func (o DatasetFormatOptionsPtrOutput) Csv() DatasetCsvOptionsPtrOutput {
 	return o.ApplyT(func(v *DatasetFormatOptions) *DatasetCsvOptions {
 		if v == nil {
@@ -1508,7 +1508,7 @@ func (o DatasetFormatOptionsPtrOutput) Csv() DatasetCsvOptionsPtrOutput {
 	}).(DatasetCsvOptionsPtrOutput)
 }
 
-// Represents a set of options that define how DataBrew will interpret a Microsoft Excel file when creating a dataset from that file.
+// Options that define how Excel input is to be interpreted by DataBrew.
 func (o DatasetFormatOptionsPtrOutput) Excel() DatasetExcelOptionsPtrOutput {
 	return o.ApplyT(func(v *DatasetFormatOptions) *DatasetExcelOptions {
 		if v == nil {
@@ -1518,7 +1518,7 @@ func (o DatasetFormatOptionsPtrOutput) Excel() DatasetExcelOptionsPtrOutput {
 	}).(DatasetExcelOptionsPtrOutput)
 }
 
-// Represents the JSON-specific options that define how input is to be interpreted by AWS Glue DataBrew .
+// Options that define how JSON input is to be interpreted by DataBrew.
 func (o DatasetFormatOptionsPtrOutput) Json() DatasetJsonOptionsPtrOutput {
 	return o.ApplyT(func(v *DatasetFormatOptions) *DatasetJsonOptions {
 		if v == nil {
@@ -1530,13 +1530,13 @@ func (o DatasetFormatOptionsPtrOutput) Json() DatasetJsonOptionsPtrOutput {
 
 // Input
 type DatasetInputType struct {
-	// Represents how metadata stored in the AWS Glue Data Catalog is defined in a DataBrew dataset.
+	// The AWS Glue Data Catalog parameters for the data.
 	DataCatalogInputDefinition *DatasetDataCatalogInputDefinition `pulumi:"dataCatalogInputDefinition"`
 	// Connection information for dataset input files stored in a database.
 	DatabaseInputDefinition *DatasetDatabaseInputDefinition `pulumi:"databaseInputDefinition"`
 	// Contains additional resource information needed for specific datasets.
 	Metadata *DatasetMetadata `pulumi:"metadata"`
-	// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+	// The Amazon S3 location where the data is stored.
 	S3InputDefinition *DatasetS3Location `pulumi:"s3InputDefinition"`
 }
 
@@ -1553,13 +1553,13 @@ type DatasetInputTypeInput interface {
 
 // Input
 type DatasetInputTypeArgs struct {
-	// Represents how metadata stored in the AWS Glue Data Catalog is defined in a DataBrew dataset.
+	// The AWS Glue Data Catalog parameters for the data.
 	DataCatalogInputDefinition DatasetDataCatalogInputDefinitionPtrInput `pulumi:"dataCatalogInputDefinition"`
 	// Connection information for dataset input files stored in a database.
 	DatabaseInputDefinition DatasetDatabaseInputDefinitionPtrInput `pulumi:"databaseInputDefinition"`
 	// Contains additional resource information needed for specific datasets.
 	Metadata DatasetMetadataPtrInput `pulumi:"metadata"`
-	// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+	// The Amazon S3 location where the data is stored.
 	S3InputDefinition DatasetS3LocationPtrInput `pulumi:"s3InputDefinition"`
 }
 
@@ -1590,7 +1590,7 @@ func (o DatasetInputTypeOutput) ToDatasetInputTypeOutputWithContext(ctx context.
 	return o
 }
 
-// Represents how metadata stored in the AWS Glue Data Catalog is defined in a DataBrew dataset.
+// The AWS Glue Data Catalog parameters for the data.
 func (o DatasetInputTypeOutput) DataCatalogInputDefinition() DatasetDataCatalogInputDefinitionPtrOutput {
 	return o.ApplyT(func(v DatasetInputType) *DatasetDataCatalogInputDefinition { return v.DataCatalogInputDefinition }).(DatasetDataCatalogInputDefinitionPtrOutput)
 }
@@ -1605,7 +1605,7 @@ func (o DatasetInputTypeOutput) Metadata() DatasetMetadataPtrOutput {
 	return o.ApplyT(func(v DatasetInputType) *DatasetMetadata { return v.Metadata }).(DatasetMetadataPtrOutput)
 }
 
-// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+// The Amazon S3 location where the data is stored.
 func (o DatasetInputTypeOutput) S3InputDefinition() DatasetS3LocationPtrOutput {
 	return o.ApplyT(func(v DatasetInputType) *DatasetS3Location { return v.S3InputDefinition }).(DatasetS3LocationPtrOutput)
 }
@@ -1634,7 +1634,7 @@ func (o DatasetInputTypePtrOutput) Elem() DatasetInputTypeOutput {
 	}).(DatasetInputTypeOutput)
 }
 
-// Represents how metadata stored in the AWS Glue Data Catalog is defined in a DataBrew dataset.
+// The AWS Glue Data Catalog parameters for the data.
 func (o DatasetInputTypePtrOutput) DataCatalogInputDefinition() DatasetDataCatalogInputDefinitionPtrOutput {
 	return o.ApplyT(func(v *DatasetInputType) *DatasetDataCatalogInputDefinition {
 		if v == nil {
@@ -1664,7 +1664,7 @@ func (o DatasetInputTypePtrOutput) Metadata() DatasetMetadataPtrOutput {
 	}).(DatasetMetadataPtrOutput)
 }
 
-// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+// The Amazon S3 location where the data is stored.
 func (o DatasetInputTypePtrOutput) S3InputDefinition() DatasetS3LocationPtrOutput {
 	return o.ApplyT(func(v *DatasetInputType) *DatasetS3Location {
 		if v == nil {
@@ -1954,9 +1954,9 @@ func (o DatasetMetadataPtrOutput) SourceArn() pulumi.StringPtrOutput {
 type DatasetParameter struct {
 	// Add the value of this parameter as a column in a dataset.
 	CreateColumn *bool `pulumi:"createColumn"`
-	// Represents additional options for correct interpretation of datetime parameters used in the Amazon S3 path of a dataset.
+	// Additional parameter options such as a format and a timezone. Required for datetime parameters.
 	DatetimeOptions *DatasetDatetimeOptions `pulumi:"datetimeOptions"`
-	// Represents a structure for defining parameter conditions.
+	// The optional filter expression structure to apply additional matching criteria to the parameter.
 	Filter *DatasetFilterExpression `pulumi:"filter"`
 	// The name of the parameter that is used in the dataset's Amazon S3 path.
 	Name string `pulumi:"name"`
@@ -1978,9 +1978,9 @@ type DatasetParameterInput interface {
 type DatasetParameterArgs struct {
 	// Add the value of this parameter as a column in a dataset.
 	CreateColumn pulumi.BoolPtrInput `pulumi:"createColumn"`
-	// Represents additional options for correct interpretation of datetime parameters used in the Amazon S3 path of a dataset.
+	// Additional parameter options such as a format and a timezone. Required for datetime parameters.
 	DatetimeOptions DatasetDatetimeOptionsPtrInput `pulumi:"datetimeOptions"`
-	// Represents a structure for defining parameter conditions.
+	// The optional filter expression structure to apply additional matching criteria to the parameter.
 	Filter DatasetFilterExpressionPtrInput `pulumi:"filter"`
 	// The name of the parameter that is used in the dataset's Amazon S3 path.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2019,12 +2019,12 @@ func (o DatasetParameterOutput) CreateColumn() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DatasetParameter) *bool { return v.CreateColumn }).(pulumi.BoolPtrOutput)
 }
 
-// Represents additional options for correct interpretation of datetime parameters used in the Amazon S3 path of a dataset.
+// Additional parameter options such as a format and a timezone. Required for datetime parameters.
 func (o DatasetParameterOutput) DatetimeOptions() DatasetDatetimeOptionsPtrOutput {
 	return o.ApplyT(func(v DatasetParameter) *DatasetDatetimeOptions { return v.DatetimeOptions }).(DatasetDatetimeOptionsPtrOutput)
 }
 
-// Represents a structure for defining parameter conditions.
+// The optional filter expression structure to apply additional matching criteria to the parameter.
 func (o DatasetParameterOutput) Filter() DatasetFilterExpressionPtrOutput {
 	return o.ApplyT(func(v DatasetParameter) *DatasetFilterExpression { return v.Filter }).(DatasetFilterExpressionPtrOutput)
 }
@@ -2041,11 +2041,11 @@ func (o DatasetParameterOutput) Type() DatasetParameterTypeOutput {
 
 // Path options for dataset
 type DatasetPathOptions struct {
-	// Represents a limit imposed on number of Amazon S3 files that should be selected for a dataset from a connected Amazon S3 path.
+	// If provided, this structure imposes a limit on a number of files that should be selected.
 	FilesLimit *DatasetFilesLimit `pulumi:"filesLimit"`
-	// Represents a structure for defining parameter conditions.
+	// If provided, this structure defines a date range for matching Amazon S3 objects based on their LastModifiedDate attribute in Amazon S3 .
 	LastModifiedDateCondition *DatasetFilterExpression `pulumi:"lastModifiedDateCondition"`
-	// Represents a single entry in the path parameters of a dataset. Each `PathParameter` consists of a name and a parameter definition.
+	// A structure that maps names of parameters used in the Amazon S3 path of a dataset to their definitions.
 	Parameters []DatasetPathParameter `pulumi:"parameters"`
 }
 
@@ -2062,11 +2062,11 @@ type DatasetPathOptionsInput interface {
 
 // Path options for dataset
 type DatasetPathOptionsArgs struct {
-	// Represents a limit imposed on number of Amazon S3 files that should be selected for a dataset from a connected Amazon S3 path.
+	// If provided, this structure imposes a limit on a number of files that should be selected.
 	FilesLimit DatasetFilesLimitPtrInput `pulumi:"filesLimit"`
-	// Represents a structure for defining parameter conditions.
+	// If provided, this structure defines a date range for matching Amazon S3 objects based on their LastModifiedDate attribute in Amazon S3 .
 	LastModifiedDateCondition DatasetFilterExpressionPtrInput `pulumi:"lastModifiedDateCondition"`
-	// Represents a single entry in the path parameters of a dataset. Each `PathParameter` consists of a name and a parameter definition.
+	// A structure that maps names of parameters used in the Amazon S3 path of a dataset to their definitions.
 	Parameters DatasetPathParameterArrayInput `pulumi:"parameters"`
 }
 
@@ -2148,17 +2148,17 @@ func (o DatasetPathOptionsOutput) ToDatasetPathOptionsPtrOutputWithContext(ctx c
 	}).(DatasetPathOptionsPtrOutput)
 }
 
-// Represents a limit imposed on number of Amazon S3 files that should be selected for a dataset from a connected Amazon S3 path.
+// If provided, this structure imposes a limit on a number of files that should be selected.
 func (o DatasetPathOptionsOutput) FilesLimit() DatasetFilesLimitPtrOutput {
 	return o.ApplyT(func(v DatasetPathOptions) *DatasetFilesLimit { return v.FilesLimit }).(DatasetFilesLimitPtrOutput)
 }
 
-// Represents a structure for defining parameter conditions.
+// If provided, this structure defines a date range for matching Amazon S3 objects based on their LastModifiedDate attribute in Amazon S3 .
 func (o DatasetPathOptionsOutput) LastModifiedDateCondition() DatasetFilterExpressionPtrOutput {
 	return o.ApplyT(func(v DatasetPathOptions) *DatasetFilterExpression { return v.LastModifiedDateCondition }).(DatasetFilterExpressionPtrOutput)
 }
 
-// Represents a single entry in the path parameters of a dataset. Each `PathParameter` consists of a name and a parameter definition.
+// A structure that maps names of parameters used in the Amazon S3 path of a dataset to their definitions.
 func (o DatasetPathOptionsOutput) Parameters() DatasetPathParameterArrayOutput {
 	return o.ApplyT(func(v DatasetPathOptions) []DatasetPathParameter { return v.Parameters }).(DatasetPathParameterArrayOutput)
 }
@@ -2187,7 +2187,7 @@ func (o DatasetPathOptionsPtrOutput) Elem() DatasetPathOptionsOutput {
 	}).(DatasetPathOptionsOutput)
 }
 
-// Represents a limit imposed on number of Amazon S3 files that should be selected for a dataset from a connected Amazon S3 path.
+// If provided, this structure imposes a limit on a number of files that should be selected.
 func (o DatasetPathOptionsPtrOutput) FilesLimit() DatasetFilesLimitPtrOutput {
 	return o.ApplyT(func(v *DatasetPathOptions) *DatasetFilesLimit {
 		if v == nil {
@@ -2197,7 +2197,7 @@ func (o DatasetPathOptionsPtrOutput) FilesLimit() DatasetFilesLimitPtrOutput {
 	}).(DatasetFilesLimitPtrOutput)
 }
 
-// Represents a structure for defining parameter conditions.
+// If provided, this structure defines a date range for matching Amazon S3 objects based on their LastModifiedDate attribute in Amazon S3 .
 func (o DatasetPathOptionsPtrOutput) LastModifiedDateCondition() DatasetFilterExpressionPtrOutput {
 	return o.ApplyT(func(v *DatasetPathOptions) *DatasetFilterExpression {
 		if v == nil {
@@ -2207,7 +2207,7 @@ func (o DatasetPathOptionsPtrOutput) LastModifiedDateCondition() DatasetFilterEx
 	}).(DatasetFilterExpressionPtrOutput)
 }
 
-// Represents a single entry in the path parameters of a dataset. Each `PathParameter` consists of a name and a parameter definition.
+// A structure that maps names of parameters used in the Amazon S3 path of a dataset to their definitions.
 func (o DatasetPathOptionsPtrOutput) Parameters() DatasetPathParameterArrayOutput {
 	return o.ApplyT(func(v *DatasetPathOptions) []DatasetPathParameter {
 		if v == nil {
@@ -2219,7 +2219,7 @@ func (o DatasetPathOptionsPtrOutput) Parameters() DatasetPathParameterArrayOutpu
 
 // A key-value pair to associate dataset parameter name with its definition.
 type DatasetPathParameter struct {
-	// Represents a dataset paramater that defines type and conditions for a parameter in the Amazon S3 path of the dataset.
+	// The path parameter definition.
 	DatasetParameter DatasetParameter `pulumi:"datasetParameter"`
 	// The name of the path parameter.
 	PathParameterName string `pulumi:"pathParameterName"`
@@ -2238,7 +2238,7 @@ type DatasetPathParameterInput interface {
 
 // A key-value pair to associate dataset parameter name with its definition.
 type DatasetPathParameterArgs struct {
-	// Represents a dataset paramater that defines type and conditions for a parameter in the Amazon S3 path of the dataset.
+	// The path parameter definition.
 	DatasetParameter DatasetParameterInput `pulumi:"datasetParameter"`
 	// The name of the path parameter.
 	PathParameterName pulumi.StringInput `pulumi:"pathParameterName"`
@@ -2296,7 +2296,7 @@ func (o DatasetPathParameterOutput) ToDatasetPathParameterOutputWithContext(ctx 
 	return o
 }
 
-// Represents a dataset paramater that defines type and conditions for a parameter in the Amazon S3 path of the dataset.
+// The path parameter definition.
 func (o DatasetPathParameterOutput) DatasetParameter() DatasetParameterOutput {
 	return o.ApplyT(func(v DatasetPathParameter) DatasetParameter { return v.DatasetParameter }).(DatasetParameterOutput)
 }
@@ -2735,9 +2735,9 @@ func (o JobColumnSelectorArrayOutput) Index(i pulumi.IntInput) JobColumnSelector
 }
 
 type JobColumnStatisticsConfiguration struct {
-	// Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression.
+	// List of column selectors. Selectors can be used to select columns from the dataset. When selectors are undefined, configuration will be applied to all supported columns.
 	Selectors []JobColumnSelector `pulumi:"selectors"`
-	// Configuration of evaluations for a profile job. This configuration can be used to select evaluations and override the parameters of selected evaluations.
+	// Configuration for evaluations. Statistics can be used to select evaluations and override parameters of evaluations.
 	Statistics JobStatisticsConfiguration `pulumi:"statistics"`
 }
 
@@ -2753,9 +2753,9 @@ type JobColumnStatisticsConfigurationInput interface {
 }
 
 type JobColumnStatisticsConfigurationArgs struct {
-	// Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression.
+	// List of column selectors. Selectors can be used to select columns from the dataset. When selectors are undefined, configuration will be applied to all supported columns.
 	Selectors JobColumnSelectorArrayInput `pulumi:"selectors"`
-	// Configuration of evaluations for a profile job. This configuration can be used to select evaluations and override the parameters of selected evaluations.
+	// Configuration for evaluations. Statistics can be used to select evaluations and override parameters of evaluations.
 	Statistics JobStatisticsConfigurationInput `pulumi:"statistics"`
 }
 
@@ -2810,12 +2810,12 @@ func (o JobColumnStatisticsConfigurationOutput) ToJobColumnStatisticsConfigurati
 	return o
 }
 
-// Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression.
+// List of column selectors. Selectors can be used to select columns from the dataset. When selectors are undefined, configuration will be applied to all supported columns.
 func (o JobColumnStatisticsConfigurationOutput) Selectors() JobColumnSelectorArrayOutput {
 	return o.ApplyT(func(v JobColumnStatisticsConfiguration) []JobColumnSelector { return v.Selectors }).(JobColumnSelectorArrayOutput)
 }
 
-// Configuration of evaluations for a profile job. This configuration can be used to select evaluations and override the parameters of selected evaluations.
+// Configuration for evaluations. Statistics can be used to select evaluations and override parameters of evaluations.
 func (o JobColumnStatisticsConfigurationOutput) Statistics() JobStatisticsConfigurationOutput {
 	return o.ApplyT(func(v JobColumnStatisticsConfiguration) JobStatisticsConfiguration { return v.Statistics }).(JobStatisticsConfigurationOutput)
 }
@@ -3240,7 +3240,7 @@ func (o JobDatabaseOutputArrayOutput) Index(i pulumi.IntInput) JobDatabaseOutput
 type JobDatabaseTableOutputOptions struct {
 	// A prefix for the name of a table DataBrew will create in the database.
 	TableName string `pulumi:"tableName"`
-	// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+	// Represents an Amazon S3 location (bucket name and object key) where DataBrew can store intermediate results.
 	TempDirectory *JobS3Location `pulumi:"tempDirectory"`
 }
 
@@ -3258,7 +3258,7 @@ type JobDatabaseTableOutputOptionsInput interface {
 type JobDatabaseTableOutputOptionsArgs struct {
 	// A prefix for the name of a table DataBrew will create in the database.
 	TableName pulumi.StringInput `pulumi:"tableName"`
-	// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+	// Represents an Amazon S3 location (bucket name and object key) where DataBrew can store intermediate results.
 	TempDirectory JobS3LocationPtrInput `pulumi:"tempDirectory"`
 }
 
@@ -3344,7 +3344,7 @@ func (o JobDatabaseTableOutputOptionsOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDatabaseTableOutputOptions) string { return v.TableName }).(pulumi.StringOutput)
 }
 
-// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+// Represents an Amazon S3 location (bucket name and object key) where DataBrew can store intermediate results.
 func (o JobDatabaseTableOutputOptionsOutput) TempDirectory() JobS3LocationPtrOutput {
 	return o.ApplyT(func(v JobDatabaseTableOutputOptions) *JobS3Location { return v.TempDirectory }).(JobS3LocationPtrOutput)
 }
@@ -3383,7 +3383,7 @@ func (o JobDatabaseTableOutputOptionsPtrOutput) TableName() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+// Represents an Amazon S3 location (bucket name and object key) where DataBrew can store intermediate results.
 func (o JobDatabaseTableOutputOptionsPtrOutput) TempDirectory() JobS3LocationPtrOutput {
 	return o.ApplyT(func(v *JobDatabaseTableOutputOptions) *JobS3Location {
 		if v == nil {
@@ -3642,9 +3642,9 @@ type JobOutputType struct {
 	CompressionFormat *JobOutputCompressionFormat `pulumi:"compressionFormat"`
 	// The data format of the output of the job.
 	Format *JobOutputFormat `pulumi:"format"`
-	// Represents a set of options that define the structure of comma-separated (CSV) job output.
+	// Represents options that define how DataBrew formats job output files.
 	FormatOptions *JobOutputFormatOptions `pulumi:"formatOptions"`
-	// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+	// The location in Amazon S3 where the job writes its output.
 	Location JobS3Location `pulumi:"location"`
 	// The maximum number of files to be generated by the job and written to the output folder.
 	MaxOutputFiles *int `pulumi:"maxOutputFiles"`
@@ -3670,9 +3670,9 @@ type JobOutputTypeArgs struct {
 	CompressionFormat JobOutputCompressionFormatPtrInput `pulumi:"compressionFormat"`
 	// The data format of the output of the job.
 	Format JobOutputFormatPtrInput `pulumi:"format"`
-	// Represents a set of options that define the structure of comma-separated (CSV) job output.
+	// Represents options that define how DataBrew formats job output files.
 	FormatOptions JobOutputFormatOptionsPtrInput `pulumi:"formatOptions"`
-	// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+	// The location in Amazon S3 where the job writes its output.
 	Location JobS3LocationInput `pulumi:"location"`
 	// The maximum number of files to be generated by the job and written to the output folder.
 	MaxOutputFiles pulumi.IntPtrInput `pulumi:"maxOutputFiles"`
@@ -3743,12 +3743,12 @@ func (o JobOutputTypeOutput) Format() JobOutputFormatPtrOutput {
 	return o.ApplyT(func(v JobOutputType) *JobOutputFormat { return v.Format }).(JobOutputFormatPtrOutput)
 }
 
-// Represents a set of options that define the structure of comma-separated (CSV) job output.
+// Represents options that define how DataBrew formats job output files.
 func (o JobOutputTypeOutput) FormatOptions() JobOutputFormatOptionsPtrOutput {
 	return o.ApplyT(func(v JobOutputType) *JobOutputFormatOptions { return v.FormatOptions }).(JobOutputFormatOptionsPtrOutput)
 }
 
-// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+// The location in Amazon S3 where the job writes its output.
 func (o JobOutputTypeOutput) Location() JobS3LocationOutput {
 	return o.ApplyT(func(v JobOutputType) JobS3Location { return v.Location }).(JobS3LocationOutput)
 }
@@ -3790,7 +3790,7 @@ func (o JobOutputTypeArrayOutput) Index(i pulumi.IntInput) JobOutputTypeOutput {
 
 // Format options for job Output
 type JobOutputFormatOptions struct {
-	// Represents a set of options that define how DataBrew will write a comma-separated value (CSV) file.
+	// Represents a set of options that define the structure of comma-separated value (CSV) job output.
 	Csv *JobCsvOutputOptions `pulumi:"csv"`
 }
 
@@ -3807,7 +3807,7 @@ type JobOutputFormatOptionsInput interface {
 
 // Format options for job Output
 type JobOutputFormatOptionsArgs struct {
-	// Represents a set of options that define how DataBrew will write a comma-separated value (CSV) file.
+	// Represents a set of options that define the structure of comma-separated value (CSV) job output.
 	Csv JobCsvOutputOptionsPtrInput `pulumi:"csv"`
 }
 
@@ -3889,7 +3889,7 @@ func (o JobOutputFormatOptionsOutput) ToJobOutputFormatOptionsPtrOutputWithConte
 	}).(JobOutputFormatOptionsPtrOutput)
 }
 
-// Represents a set of options that define how DataBrew will write a comma-separated value (CSV) file.
+// Represents a set of options that define the structure of comma-separated value (CSV) job output.
 func (o JobOutputFormatOptionsOutput) Csv() JobCsvOutputOptionsPtrOutput {
 	return o.ApplyT(func(v JobOutputFormatOptions) *JobCsvOutputOptions { return v.Csv }).(JobCsvOutputOptionsPtrOutput)
 }
@@ -3918,7 +3918,7 @@ func (o JobOutputFormatOptionsPtrOutput) Elem() JobOutputFormatOptionsOutput {
 	}).(JobOutputFormatOptionsOutput)
 }
 
-// Represents a set of options that define how DataBrew will write a comma-separated value (CSV) file.
+// Represents a set of options that define the structure of comma-separated value (CSV) job output.
 func (o JobOutputFormatOptionsPtrOutput) Csv() JobCsvOutputOptionsPtrOutput {
 	return o.ApplyT(func(v *JobOutputFormatOptions) *JobCsvOutputOptions {
 		if v == nil {
@@ -4103,9 +4103,9 @@ func (o JobOutputLocationPtrOutput) Key() pulumi.StringPtrOutput {
 }
 
 type JobProfileConfiguration struct {
-	// Configuration for column evaluations for a profile job. ColumnStatisticsConfiguration can be used to select evaluations and override parameters of evaluations for particular columns.
+	// List of configurations for column evaluations. ColumnStatisticsConfigurations are used to select evaluations and override parameters of evaluations for particular columns. When ColumnStatisticsConfigurations is undefined, the profile job will profile all supported columns and run all supported evaluations.
 	ColumnStatisticsConfigurations []JobColumnStatisticsConfiguration `pulumi:"columnStatisticsConfigurations"`
-	// Configuration of evaluations for a profile job. This configuration can be used to select evaluations and override the parameters of selected evaluations.
+	// Configuration for inter-column evaluations. Configuration can be used to select evaluations and override parameters of evaluations. When configuration is undefined, the profile job will run all supported inter-column evaluations.
 	DatasetStatisticsConfiguration *JobStatisticsConfiguration `pulumi:"datasetStatisticsConfiguration"`
 	// Configuration of entity detection for a profile job. When undefined, entity detection is disabled.
 	EntityDetectorConfiguration *JobEntityDetectorConfiguration `pulumi:"entityDetectorConfiguration"`
@@ -4125,9 +4125,9 @@ type JobProfileConfigurationInput interface {
 }
 
 type JobProfileConfigurationArgs struct {
-	// Configuration for column evaluations for a profile job. ColumnStatisticsConfiguration can be used to select evaluations and override parameters of evaluations for particular columns.
+	// List of configurations for column evaluations. ColumnStatisticsConfigurations are used to select evaluations and override parameters of evaluations for particular columns. When ColumnStatisticsConfigurations is undefined, the profile job will profile all supported columns and run all supported evaluations.
 	ColumnStatisticsConfigurations JobColumnStatisticsConfigurationArrayInput `pulumi:"columnStatisticsConfigurations"`
-	// Configuration of evaluations for a profile job. This configuration can be used to select evaluations and override the parameters of selected evaluations.
+	// Configuration for inter-column evaluations. Configuration can be used to select evaluations and override parameters of evaluations. When configuration is undefined, the profile job will run all supported inter-column evaluations.
 	DatasetStatisticsConfiguration JobStatisticsConfigurationPtrInput `pulumi:"datasetStatisticsConfiguration"`
 	// Configuration of entity detection for a profile job. When undefined, entity detection is disabled.
 	EntityDetectorConfiguration JobEntityDetectorConfigurationPtrInput `pulumi:"entityDetectorConfiguration"`
@@ -4212,14 +4212,14 @@ func (o JobProfileConfigurationOutput) ToJobProfileConfigurationPtrOutputWithCon
 	}).(JobProfileConfigurationPtrOutput)
 }
 
-// Configuration for column evaluations for a profile job. ColumnStatisticsConfiguration can be used to select evaluations and override parameters of evaluations for particular columns.
+// List of configurations for column evaluations. ColumnStatisticsConfigurations are used to select evaluations and override parameters of evaluations for particular columns. When ColumnStatisticsConfigurations is undefined, the profile job will profile all supported columns and run all supported evaluations.
 func (o JobProfileConfigurationOutput) ColumnStatisticsConfigurations() JobColumnStatisticsConfigurationArrayOutput {
 	return o.ApplyT(func(v JobProfileConfiguration) []JobColumnStatisticsConfiguration {
 		return v.ColumnStatisticsConfigurations
 	}).(JobColumnStatisticsConfigurationArrayOutput)
 }
 
-// Configuration of evaluations for a profile job. This configuration can be used to select evaluations and override the parameters of selected evaluations.
+// Configuration for inter-column evaluations. Configuration can be used to select evaluations and override parameters of evaluations. When configuration is undefined, the profile job will run all supported inter-column evaluations.
 func (o JobProfileConfigurationOutput) DatasetStatisticsConfiguration() JobStatisticsConfigurationPtrOutput {
 	return o.ApplyT(func(v JobProfileConfiguration) *JobStatisticsConfiguration { return v.DatasetStatisticsConfiguration }).(JobStatisticsConfigurationPtrOutput)
 }
@@ -4258,7 +4258,7 @@ func (o JobProfileConfigurationPtrOutput) Elem() JobProfileConfigurationOutput {
 	}).(JobProfileConfigurationOutput)
 }
 
-// Configuration for column evaluations for a profile job. ColumnStatisticsConfiguration can be used to select evaluations and override parameters of evaluations for particular columns.
+// List of configurations for column evaluations. ColumnStatisticsConfigurations are used to select evaluations and override parameters of evaluations for particular columns. When ColumnStatisticsConfigurations is undefined, the profile job will profile all supported columns and run all supported evaluations.
 func (o JobProfileConfigurationPtrOutput) ColumnStatisticsConfigurations() JobColumnStatisticsConfigurationArrayOutput {
 	return o.ApplyT(func(v *JobProfileConfiguration) []JobColumnStatisticsConfiguration {
 		if v == nil {
@@ -4268,7 +4268,7 @@ func (o JobProfileConfigurationPtrOutput) ColumnStatisticsConfigurations() JobCo
 	}).(JobColumnStatisticsConfigurationArrayOutput)
 }
 
-// Configuration of evaluations for a profile job. This configuration can be used to select evaluations and override the parameters of selected evaluations.
+// Configuration for inter-column evaluations. Configuration can be used to select evaluations and override parameters of evaluations. When configuration is undefined, the profile job will run all supported inter-column evaluations.
 func (o JobProfileConfigurationPtrOutput) DatasetStatisticsConfiguration() JobStatisticsConfigurationPtrOutput {
 	return o.ApplyT(func(v *JobProfileConfiguration) *JobStatisticsConfiguration {
 		if v == nil {
@@ -4633,7 +4633,7 @@ func (o JobS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
 }
 
 type JobS3TableOutputOptions struct {
-	// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+	// Represents an Amazon S3 location (bucket name and object key) where DataBrew can write output from a job.
 	Location JobS3Location `pulumi:"location"`
 }
 
@@ -4649,7 +4649,7 @@ type JobS3TableOutputOptionsInput interface {
 }
 
 type JobS3TableOutputOptionsArgs struct {
-	// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+	// Represents an Amazon S3 location (bucket name and object key) where DataBrew can write output from a job.
 	Location JobS3LocationInput `pulumi:"location"`
 }
 
@@ -4730,7 +4730,7 @@ func (o JobS3TableOutputOptionsOutput) ToJobS3TableOutputOptionsPtrOutputWithCon
 	}).(JobS3TableOutputOptionsPtrOutput)
 }
 
-// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+// Represents an Amazon S3 location (bucket name and object key) where DataBrew can write output from a job.
 func (o JobS3TableOutputOptionsOutput) Location() JobS3LocationOutput {
 	return o.ApplyT(func(v JobS3TableOutputOptions) JobS3Location { return v.Location }).(JobS3LocationOutput)
 }
@@ -4759,7 +4759,7 @@ func (o JobS3TableOutputOptionsPtrOutput) Elem() JobS3TableOutputOptionsOutput {
 	}).(JobS3TableOutputOptionsOutput)
 }
 
-// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+// Represents an Amazon S3 location (bucket name and object key) where DataBrew can write output from a job.
 func (o JobS3TableOutputOptionsPtrOutput) Location() JobS3LocationPtrOutput {
 	return o.ApplyT(func(v *JobS3TableOutputOptions) *JobS3Location {
 		if v == nil {
@@ -5057,7 +5057,7 @@ func (o JobStatisticOverrideArrayOutput) Index(i pulumi.IntInput) JobStatisticOv
 type JobStatisticsConfiguration struct {
 	// List of included evaluations. When the list is undefined, all supported evaluations will be included.
 	IncludedStatistics []string `pulumi:"includedStatistics"`
-	// Override of a particular evaluation for a profile job.
+	// List of overrides for evaluations.
 	Overrides []JobStatisticOverride `pulumi:"overrides"`
 }
 
@@ -5075,7 +5075,7 @@ type JobStatisticsConfigurationInput interface {
 type JobStatisticsConfigurationArgs struct {
 	// List of included evaluations. When the list is undefined, all supported evaluations will be included.
 	IncludedStatistics pulumi.StringArrayInput `pulumi:"includedStatistics"`
-	// Override of a particular evaluation for a profile job.
+	// List of overrides for evaluations.
 	Overrides JobStatisticOverrideArrayInput `pulumi:"overrides"`
 }
 
@@ -5161,7 +5161,7 @@ func (o JobStatisticsConfigurationOutput) IncludedStatistics() pulumi.StringArra
 	return o.ApplyT(func(v JobStatisticsConfiguration) []string { return v.IncludedStatistics }).(pulumi.StringArrayOutput)
 }
 
-// Override of a particular evaluation for a profile job.
+// List of overrides for evaluations.
 func (o JobStatisticsConfigurationOutput) Overrides() JobStatisticOverrideArrayOutput {
 	return o.ApplyT(func(v JobStatisticsConfiguration) []JobStatisticOverride { return v.Overrides }).(JobStatisticOverrideArrayOutput)
 }
@@ -5200,7 +5200,7 @@ func (o JobStatisticsConfigurationPtrOutput) IncludedStatistics() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// Override of a particular evaluation for a profile job.
+// List of overrides for evaluations.
 func (o JobStatisticsConfigurationPtrOutput) Overrides() JobStatisticOverrideArrayOutput {
 	return o.ApplyT(func(v *JobStatisticsConfiguration) []JobStatisticOverride {
 		if v == nil {
@@ -7901,7 +7901,7 @@ func (o RecipeSecondaryInputArrayOutput) Index(i pulumi.IntInput) RecipeSecondar
 }
 
 type RecipeStep struct {
-	// Represents a transformation and associated parameters that are used to apply a change to an AWS Glue DataBrew dataset.
+	// The particular action to be performed in the recipe step.
 	Action RecipeAction `pulumi:"action"`
 	// Condition expressions applied to the step action
 	ConditionExpressions []RecipeConditionExpression `pulumi:"conditionExpressions"`
@@ -7919,7 +7919,7 @@ type RecipeStepInput interface {
 }
 
 type RecipeStepArgs struct {
-	// Represents a transformation and associated parameters that are used to apply a change to an AWS Glue DataBrew dataset.
+	// The particular action to be performed in the recipe step.
 	Action RecipeActionInput `pulumi:"action"`
 	// Condition expressions applied to the step action
 	ConditionExpressions RecipeConditionExpressionArrayInput `pulumi:"conditionExpressions"`
@@ -7976,7 +7976,7 @@ func (o RecipeStepOutput) ToRecipeStepOutputWithContext(ctx context.Context) Rec
 	return o
 }
 
-// Represents a transformation and associated parameters that are used to apply a change to an AWS Glue DataBrew dataset.
+// The particular action to be performed in the recipe step.
 func (o RecipeStepOutput) Action() RecipeActionOutput {
 	return o.ApplyT(func(v RecipeStep) RecipeAction { return v.Action }).(RecipeActionOutput)
 }
@@ -8125,7 +8125,7 @@ func (o RulesetColumnSelectorArrayOutput) Index(i pulumi.IntInput) RulesetColumn
 type RulesetRule struct {
 	// The expression which includes column references, condition names followed by variable references, possibly grouped and combined with other conditions. For example, `(:col1 starts_with :prefix1 or :col1 starts_with :prefix2) and (:col1 ends_with :suffix1 or :col1 ends_with :suffix2)` . Column and value references are substitution variables that should start with the ':' symbol. Depending on the context, substitution variables' values can be either an actual value or a column name. These values are defined in the SubstitutionMap. If a CheckExpression starts with a column reference, then ColumnSelectors in the rule should be null. If ColumnSelectors has been defined, then there should be no columnn reference in the left side of a condition, for example, `is_between :val1 and :val2` .
 	CheckExpression string `pulumi:"checkExpression"`
-	// Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression.
+	// List of column selectors. Selectors can be used to select columns using a name or regular expression from the dataset. Rule will be applied to selected columns.
 	ColumnSelectors []RulesetColumnSelector `pulumi:"columnSelectors"`
 	// A value that specifies whether the rule is disabled. Once a rule is disabled, a profile job will not validate it during a job run. Default value is false.
 	Disabled *bool `pulumi:"disabled"`
@@ -8133,7 +8133,7 @@ type RulesetRule struct {
 	Name string `pulumi:"name"`
 	// The map of substitution variable names to their values used in a check expression. Variable names should start with a ':' (colon). Variable values can either be actual values or column names. To differentiate between the two, column names should be enclosed in backticks, for example, `":col1": "`Column A`".`
 	SubstitutionMap []RulesetSubstitutionValue `pulumi:"substitutionMap"`
-	// The threshold used with a non-aggregate check expression. The non-aggregate check expression will be applied to each row in a specific column. Then the threshold will be used to determine whether the validation succeeds.
+	// The threshold used with a non-aggregate check expression. Non-aggregate check expressions will be applied to each row in a specific column, and the threshold will be used to determine whether the validation succeeds.
 	Threshold *RulesetThreshold `pulumi:"threshold"`
 }
 
@@ -8152,7 +8152,7 @@ type RulesetRuleInput interface {
 type RulesetRuleArgs struct {
 	// The expression which includes column references, condition names followed by variable references, possibly grouped and combined with other conditions. For example, `(:col1 starts_with :prefix1 or :col1 starts_with :prefix2) and (:col1 ends_with :suffix1 or :col1 ends_with :suffix2)` . Column and value references are substitution variables that should start with the ':' symbol. Depending on the context, substitution variables' values can be either an actual value or a column name. These values are defined in the SubstitutionMap. If a CheckExpression starts with a column reference, then ColumnSelectors in the rule should be null. If ColumnSelectors has been defined, then there should be no columnn reference in the left side of a condition, for example, `is_between :val1 and :val2` .
 	CheckExpression pulumi.StringInput `pulumi:"checkExpression"`
-	// Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression.
+	// List of column selectors. Selectors can be used to select columns using a name or regular expression from the dataset. Rule will be applied to selected columns.
 	ColumnSelectors RulesetColumnSelectorArrayInput `pulumi:"columnSelectors"`
 	// A value that specifies whether the rule is disabled. Once a rule is disabled, a profile job will not validate it during a job run. Default value is false.
 	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
@@ -8160,7 +8160,7 @@ type RulesetRuleArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The map of substitution variable names to their values used in a check expression. Variable names should start with a ':' (colon). Variable values can either be actual values or column names. To differentiate between the two, column names should be enclosed in backticks, for example, `":col1": "`Column A`".`
 	SubstitutionMap RulesetSubstitutionValueArrayInput `pulumi:"substitutionMap"`
-	// The threshold used with a non-aggregate check expression. The non-aggregate check expression will be applied to each row in a specific column. Then the threshold will be used to determine whether the validation succeeds.
+	// The threshold used with a non-aggregate check expression. Non-aggregate check expressions will be applied to each row in a specific column, and the threshold will be used to determine whether the validation succeeds.
 	Threshold RulesetThresholdPtrInput `pulumi:"threshold"`
 }
 
@@ -8221,7 +8221,7 @@ func (o RulesetRuleOutput) CheckExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v RulesetRule) string { return v.CheckExpression }).(pulumi.StringOutput)
 }
 
-// Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression.
+// List of column selectors. Selectors can be used to select columns using a name or regular expression from the dataset. Rule will be applied to selected columns.
 func (o RulesetRuleOutput) ColumnSelectors() RulesetColumnSelectorArrayOutput {
 	return o.ApplyT(func(v RulesetRule) []RulesetColumnSelector { return v.ColumnSelectors }).(RulesetColumnSelectorArrayOutput)
 }
@@ -8241,7 +8241,7 @@ func (o RulesetRuleOutput) SubstitutionMap() RulesetSubstitutionValueArrayOutput
 	return o.ApplyT(func(v RulesetRule) []RulesetSubstitutionValue { return v.SubstitutionMap }).(RulesetSubstitutionValueArrayOutput)
 }
 
-// The threshold used with a non-aggregate check expression. The non-aggregate check expression will be applied to each row in a specific column. Then the threshold will be used to determine whether the validation succeeds.
+// The threshold used with a non-aggregate check expression. Non-aggregate check expressions will be applied to each row in a specific column, and the threshold will be used to determine whether the validation succeeds.
 func (o RulesetRuleOutput) Threshold() RulesetThresholdPtrOutput {
 	return o.ApplyT(func(v RulesetRule) *RulesetThreshold { return v.Threshold }).(RulesetThresholdPtrOutput)
 }

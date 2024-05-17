@@ -126,9 +126,7 @@ class CachePolicyConfig(dict):
                The default value for this field is 31536000 seconds (one year). If the value of `MinTTL` or `DefaultTTL` is more than 31536000 seconds, then the default value for this field is the same as the value of `DefaultTTL` .
         :param float min_ttl: The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide* .
         :param str name: A unique name to identify the cache policy.
-        :param 'CachePolicyParametersInCacheKeyAndForwardedToOrigin' parameters_in_cache_key_and_forwarded_to_origin: This object determines the values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.
-               
-               The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find an object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use `OriginRequestPolicy` .
+        :param 'CachePolicyParametersInCacheKeyAndForwardedToOrigin' parameters_in_cache_key_and_forwarded_to_origin: The HTTP headers, cookies, and URL query strings to include in the cache key. The values included in the cache key are also included in requests that CloudFront sends to the origin.
         :param str comment: A comment to describe the cache policy. The comment cannot be longer than 128 characters.
         """
         pulumi.set(__self__, "default_ttl", default_ttl)
@@ -179,9 +177,7 @@ class CachePolicyConfig(dict):
     @pulumi.getter(name="parametersInCacheKeyAndForwardedToOrigin")
     def parameters_in_cache_key_and_forwarded_to_origin(self) -> 'outputs.CachePolicyParametersInCacheKeyAndForwardedToOrigin':
         """
-        This object determines the values that CloudFront includes in the cache key. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.
-
-        The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find an object in its cache that matches the request's cache key. If you want to send values to the origin but *not* include them in the cache key, use `OriginRequestPolicy` .
+        The HTTP headers, cookies, and URL query strings to include in the cache key. The values included in the cache key are also included in requests that CloudFront sends to the origin.
         """
         return pulumi.get(self, "parameters_in_cache_key_and_forwarded_to_origin")
 
@@ -554,7 +550,7 @@ class ContinuousDeploymentPolicyConfig(dict):
         :param Sequence[str] staging_distribution_dns_names: The CloudFront domain name of the staging distribution. For example: `d111111abcdef8.cloudfront.net` .
         :param 'ContinuousDeploymentPolicyConfigSingleHeaderPolicyConfigProperties' single_header_policy_config: This configuration determines which HTTP requests are sent to the staging distribution. If the HTTP request contains a header and value that matches what you specify here, the request is sent to the staging distribution. Otherwise the request is sent to the primary distribution.
         :param 'ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigProperties' single_weight_policy_config: This configuration determines the percentage of HTTP requests that are sent to the staging distribution.
-        :param 'ContinuousDeploymentPolicyTrafficConfig' traffic_config: The traffic configuration of your continuous deployment.
+        :param 'ContinuousDeploymentPolicyTrafficConfig' traffic_config: Contains the parameters for routing production traffic from your primary to staging distributions.
         :param 'ContinuousDeploymentPolicyConfigType' type: The type of traffic configuration.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -604,7 +600,7 @@ class ContinuousDeploymentPolicyConfig(dict):
     @pulumi.getter(name="trafficConfig")
     def traffic_config(self) -> Optional['outputs.ContinuousDeploymentPolicyTrafficConfig']:
         """
-        The traffic configuration of your continuous deployment.
+        Contains the parameters for routing production traffic from your primary to staging distributions.
         """
         return pulumi.get(self, "traffic_config")
 
@@ -669,7 +665,6 @@ class ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigProperties(dict):
                  session_stickiness_config: Optional['outputs.ContinuousDeploymentPolicySessionStickinessConfig'] = None):
         """
         This configuration determines the percentage of HTTP requests that are sent to the staging distribution.
-        :param 'ContinuousDeploymentPolicySessionStickinessConfig' session_stickiness_config: Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to your staging distribution, while others are sent to your primary distribution. Define the session duration using TTL values.
         """
         pulumi.set(__self__, "weight", weight)
         if session_stickiness_config is not None:
@@ -683,9 +678,6 @@ class ContinuousDeploymentPolicyConfigSingleWeightPolicyConfigProperties(dict):
     @property
     @pulumi.getter(name="sessionStickinessConfig")
     def session_stickiness_config(self) -> Optional['outputs.ContinuousDeploymentPolicySessionStickinessConfig']:
-        """
-        Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to your staging distribution, while others are sent to your primary distribution. Define the session duration using TTL values.
-        """
         return pulumi.get(self, "session_stickiness_config")
 
 
@@ -841,7 +833,7 @@ class ContinuousDeploymentPolicyTrafficConfig(dict):
         """
         :param 'ContinuousDeploymentPolicyTrafficConfigType' type: The type of traffic configuration.
         :param 'ContinuousDeploymentPolicySingleHeaderConfig' single_header_config: Determines which HTTP requests are sent to the staging distribution.
-        :param 'ContinuousDeploymentPolicySingleWeightConfig' single_weight_config: This configuration determines the percentage of HTTP requests that are sent to the staging distribution.
+        :param 'ContinuousDeploymentPolicySingleWeightConfig' single_weight_config: Contains the percentage of traffic to send to the staging distribution.
         """
         pulumi.set(__self__, "type", type)
         if single_header_config is not None:
@@ -869,7 +861,7 @@ class ContinuousDeploymentPolicyTrafficConfig(dict):
     @pulumi.getter(name="singleWeightConfig")
     def single_weight_config(self) -> Optional['outputs.ContinuousDeploymentPolicySingleWeightConfig']:
         """
-        This configuration determines the percentage of HTTP requests that are sent to the staging distribution.
+        Contains the percentage of traffic to send to the staging distribution.
         """
         return pulumi.get(self, "single_weight_config")
 
@@ -3545,7 +3537,7 @@ class FunctionConfig(dict):
         """
         :param str comment: A comment to describe the function.
         :param str runtime: The function's runtime environment version.
-        :param Sequence['FunctionKeyValueStoreAssociation'] key_value_store_associations: The key value store association.
+        :param Sequence['FunctionKeyValueStoreAssociation'] key_value_store_associations: The configuration for the key value store associations.
         """
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "runtime", runtime)
@@ -3572,7 +3564,7 @@ class FunctionConfig(dict):
     @pulumi.getter(name="keyValueStoreAssociations")
     def key_value_store_associations(self) -> Optional[Sequence['outputs.FunctionKeyValueStoreAssociation']]:
         """
-        The key value store association.
+        The configuration for the key value store associations.
         """
         return pulumi.get(self, "key_value_store_associations")
 
@@ -3934,10 +3926,10 @@ class OriginRequestPolicyConfig(dict):
                  query_strings_config: 'outputs.OriginRequestPolicyQueryStringsConfig',
                  comment: Optional[str] = None):
         """
-        :param 'OriginRequestPolicyCookiesConfig' cookies_config: An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in requests that CloudFront sends to the origin.
-        :param 'OriginRequestPolicyHeadersConfig' headers_config: An object that determines whether any HTTP headers (and if so, which headers) are included in requests that CloudFront sends to the origin.
+        :param 'OriginRequestPolicyCookiesConfig' cookies_config: The cookies from viewer requests to include in origin requests.
+        :param 'OriginRequestPolicyHeadersConfig' headers_config: The HTTP headers to include in origin requests. These can include headers from viewer requests and additional headers added by CloudFront.
         :param str name: A unique name to identify the origin request policy.
-        :param 'OriginRequestPolicyQueryStringsConfig' query_strings_config: An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in requests that CloudFront sends to the origin.
+        :param 'OriginRequestPolicyQueryStringsConfig' query_strings_config: The URL query strings from viewer requests to include in origin requests.
         :param str comment: A comment to describe the origin request policy. The comment cannot be longer than 128 characters.
         """
         pulumi.set(__self__, "cookies_config", cookies_config)
@@ -3951,7 +3943,7 @@ class OriginRequestPolicyConfig(dict):
     @pulumi.getter(name="cookiesConfig")
     def cookies_config(self) -> 'outputs.OriginRequestPolicyCookiesConfig':
         """
-        An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in requests that CloudFront sends to the origin.
+        The cookies from viewer requests to include in origin requests.
         """
         return pulumi.get(self, "cookies_config")
 
@@ -3959,7 +3951,7 @@ class OriginRequestPolicyConfig(dict):
     @pulumi.getter(name="headersConfig")
     def headers_config(self) -> 'outputs.OriginRequestPolicyHeadersConfig':
         """
-        An object that determines whether any HTTP headers (and if so, which headers) are included in requests that CloudFront sends to the origin.
+        The HTTP headers to include in origin requests. These can include headers from viewer requests and additional headers added by CloudFront.
         """
         return pulumi.get(self, "headers_config")
 
@@ -3975,7 +3967,7 @@ class OriginRequestPolicyConfig(dict):
     @pulumi.getter(name="queryStringsConfig")
     def query_strings_config(self) -> 'outputs.OriginRequestPolicyQueryStringsConfig':
         """
-        An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in requests that CloudFront sends to the origin.
+        The URL query strings from viewer requests to include in origin requests.
         """
         return pulumi.get(self, "query_strings_config")
 
@@ -4470,12 +4462,10 @@ class ResponseHeadersPolicyConfig(dict):
         :param str comment: A comment to describe the response headers policy.
                
                The comment cannot be longer than 128 characters.
-        :param 'ResponseHeadersPolicyCorsConfig' cors_config: A configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS). CloudFront adds these headers to HTTP responses that it sends for CORS requests that match a cache behavior associated with this response headers policy.
-               
-               For more information about CORS, see [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) in the MDN Web Docs.
-        :param 'ResponseHeadersPolicyCustomHeadersConfig' custom_headers_config: A list of HTTP response header names and their values. CloudFront includes these headers in HTTP responses that it sends for requests that match a cache behavior that's associated with this response headers policy.
-        :param 'ResponseHeadersPolicyRemoveHeadersConfig' remove_headers_config: A list of HTTP header names that CloudFront removes from HTTP responses to requests that match the cache behavior that this response headers policy is attached to.
-        :param 'ResponseHeadersPolicySecurityHeadersConfig' security_headers_config: A configuration for a set of security-related HTTP response headers. CloudFront adds these headers to HTTP responses that it sends for requests that match a cache behavior associated with this response headers policy.
+        :param 'ResponseHeadersPolicyCorsConfig' cors_config: A configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS).
+        :param 'ResponseHeadersPolicyCustomHeadersConfig' custom_headers_config: A configuration for a set of custom HTTP response headers.
+        :param 'ResponseHeadersPolicyRemoveHeadersConfig' remove_headers_config: A configuration for a set of HTTP headers to remove from the HTTP response.
+        :param 'ResponseHeadersPolicySecurityHeadersConfig' security_headers_config: A configuration for a set of security-related HTTP response headers.
         :param 'ResponseHeadersPolicyServerTimingHeadersConfig' server_timing_headers_config: A configuration for enabling the `Server-Timing` header in HTTP responses sent from CloudFront.
         """
         pulumi.set(__self__, "name", name)
@@ -4516,9 +4506,7 @@ class ResponseHeadersPolicyConfig(dict):
     @pulumi.getter(name="corsConfig")
     def cors_config(self) -> Optional['outputs.ResponseHeadersPolicyCorsConfig']:
         """
-        A configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS). CloudFront adds these headers to HTTP responses that it sends for CORS requests that match a cache behavior associated with this response headers policy.
-
-        For more information about CORS, see [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) in the MDN Web Docs.
+        A configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS).
         """
         return pulumi.get(self, "cors_config")
 
@@ -4526,7 +4514,7 @@ class ResponseHeadersPolicyConfig(dict):
     @pulumi.getter(name="customHeadersConfig")
     def custom_headers_config(self) -> Optional['outputs.ResponseHeadersPolicyCustomHeadersConfig']:
         """
-        A list of HTTP response header names and their values. CloudFront includes these headers in HTTP responses that it sends for requests that match a cache behavior that's associated with this response headers policy.
+        A configuration for a set of custom HTTP response headers.
         """
         return pulumi.get(self, "custom_headers_config")
 
@@ -4534,7 +4522,7 @@ class ResponseHeadersPolicyConfig(dict):
     @pulumi.getter(name="removeHeadersConfig")
     def remove_headers_config(self) -> Optional['outputs.ResponseHeadersPolicyRemoveHeadersConfig']:
         """
-        A list of HTTP header names that CloudFront removes from HTTP responses to requests that match the cache behavior that this response headers policy is attached to.
+        A configuration for a set of HTTP headers to remove from the HTTP response.
         """
         return pulumi.get(self, "remove_headers_config")
 
@@ -4542,7 +4530,7 @@ class ResponseHeadersPolicyConfig(dict):
     @pulumi.getter(name="securityHeadersConfig")
     def security_headers_config(self) -> Optional['outputs.ResponseHeadersPolicySecurityHeadersConfig']:
         """
-        A configuration for a set of security-related HTTP response headers. CloudFront adds these headers to HTTP responses that it sends for requests that match a cache behavior associated with this response headers policy.
+        A configuration for a set of security-related HTTP response headers.
         """
         return pulumi.get(self, "security_headers_config")
 
@@ -4803,7 +4791,7 @@ class ResponseHeadersPolicyCustomHeadersConfig(dict):
     def __init__(__self__, *,
                  items: Sequence['outputs.ResponseHeadersPolicyCustomHeader']):
         """
-        :param Sequence['ResponseHeadersPolicyCustomHeader'] items: An HTTP response header name and its value. CloudFront includes this header in HTTP responses that it sends for requests that match a cache behavior that's associated with this response headers policy.
+        :param Sequence['ResponseHeadersPolicyCustomHeader'] items: The list of HTTP response headers and their values.
         """
         pulumi.set(__self__, "items", items)
 
@@ -4811,7 +4799,7 @@ class ResponseHeadersPolicyCustomHeadersConfig(dict):
     @pulumi.getter
     def items(self) -> Sequence['outputs.ResponseHeadersPolicyCustomHeader']:
         """
-        An HTTP response header name and its value. CloudFront includes this header in HTTP responses that it sends for requests that match a cache behavior that's associated with this response headers policy.
+        The list of HTTP response headers and their values.
         """
         return pulumi.get(self, "items")
 
@@ -4957,7 +4945,7 @@ class ResponseHeadersPolicyRemoveHeadersConfig(dict):
     def __init__(__self__, *,
                  items: Sequence['outputs.ResponseHeadersPolicyRemoveHeader']):
         """
-        :param Sequence['ResponseHeadersPolicyRemoveHeader'] items: The name of an HTTP header that CloudFront removes from HTTP responses to requests that match the cache behavior that this response headers policy is attached to.
+        :param Sequence['ResponseHeadersPolicyRemoveHeader'] items: The list of HTTP header names.
         """
         pulumi.set(__self__, "items", items)
 
@@ -4965,7 +4953,7 @@ class ResponseHeadersPolicyRemoveHeadersConfig(dict):
     @pulumi.getter
     def items(self) -> Sequence['outputs.ResponseHeadersPolicyRemoveHeader']:
         """
-        The name of an HTTP header that CloudFront removes from HTTP responses to requests that match the cache behavior that this response headers policy is attached to.
+        The list of HTTP header names.
         """
         return pulumi.get(self, "items")
 
@@ -5021,7 +5009,7 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
                For more information about the `Referrer-Policy` HTTP response header, see [Referrer-Policy](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) in the MDN Web Docs.
         :param 'ResponseHeadersPolicyStrictTransportSecurity' strict_transport_security: Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header's value.
                
-               For more information about the `Strict-Transport-Security` HTTP response header, see [Strict-Transport-Security](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) in the MDN Web Docs.
+               For more information about the `Strict-Transport-Security` HTTP response header, see [Security headers](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/understanding-response-headers-policies.html#understanding-response-headers-policies-security) in the *Amazon CloudFront Developer Guide* and [Strict-Transport-Security](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) in the MDN Web Docs.
         :param 'ResponseHeadersPolicyXssProtection' xss_protection: Determines whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header's value.
                
                For more information about the `X-XSS-Protection` HTTP response header, see [X-XSS-Protection](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection) in the MDN Web Docs.
@@ -5085,7 +5073,7 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
         """
         Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header's value.
 
-        For more information about the `Strict-Transport-Security` HTTP response header, see [Strict-Transport-Security](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) in the MDN Web Docs.
+        For more information about the `Strict-Transport-Security` HTTP response header, see [Security headers](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/understanding-response-headers-policies.html#understanding-response-headers-policies-security) in the *Amazon CloudFront Developer Guide* and [Strict-Transport-Security](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) in the MDN Web Docs.
         """
         return pulumi.get(self, "strict_transport_security")
 

@@ -71,7 +71,7 @@ class GetVerifiedAccessTrustProviderResult:
     @pulumi.getter(name="oidcOptions")
     def oidc_options(self) -> Optional['outputs.VerifiedAccessTrustProviderOidcOptions']:
         """
-        Describes the options for an OpenID Connect-compatible user-identity trust provider.
+        The options for an OpenID Connect-compatible user-identity trust provider.
         """
         return pulumi.get(self, "oidc_options")
 

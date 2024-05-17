@@ -27,6 +27,8 @@ class ApplicationArgs:
         """
         The set of arguments for constructing a Application resource.
         :param pulumi.Input[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition1PropertiesArgs']] definition: The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+               
+               For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
         :param pulumi.Input['ApplicationEngineType'] engine_type: The type of the target platform for this application.
         :param pulumi.Input[str] description: The description of the application.
         :param pulumi.Input[str] kms_key_id: The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
@@ -54,6 +56,8 @@ class ApplicationArgs:
     def definition(self) -> pulumi.Input[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition1PropertiesArgs']]:
         """
         The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+
+        For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
         """
         return pulumi.get(self, "definition")
 
@@ -155,6 +159,8 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[pulumi.InputType['ApplicationDefinition0PropertiesArgs'], pulumi.InputType['ApplicationDefinition1PropertiesArgs']]] definition: The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+               
+               For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
         :param pulumi.Input[str] description: The description of the application.
         :param pulumi.Input['ApplicationEngineType'] engine_type: The type of the target platform for this application.
         :param pulumi.Input[str] kms_key_id: The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting application-related resources.
@@ -273,6 +279,8 @@ class Application(pulumi.CustomResource):
     def definition(self) -> pulumi.Output[Any]:
         """
         The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+
+        For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
         """
         return pulumi.get(self, "definition")
 

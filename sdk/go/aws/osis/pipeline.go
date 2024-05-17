@@ -23,7 +23,7 @@ type Pipeline struct {
 	EncryptionAtRestOptions PipelineEncryptionAtRestOptionsPtrOutput `pulumi:"encryptionAtRestOptions"`
 	// A list of endpoints that can be used for ingesting data into a pipeline
 	IngestEndpointUrls pulumi.StringArrayOutput `pulumi:"ingestEndpointUrls"`
-	// Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
+	// Key-value pairs that represent log publishing settings.
 	LogPublishingOptions PipelineLogPublishingOptionsPtrOutput `pulumi:"logPublishingOptions"`
 	// The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
 	MaxUnits pulumi.IntOutput `pulumi:"maxUnits"`
@@ -100,7 +100,7 @@ type pipelineArgs struct {
 	BufferOptions *PipelineBufferOptions `pulumi:"bufferOptions"`
 	// Options to control how OpenSearch encrypts buffer data.
 	EncryptionAtRestOptions *PipelineEncryptionAtRestOptions `pulumi:"encryptionAtRestOptions"`
-	// Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
+	// Key-value pairs that represent log publishing settings.
 	LogPublishingOptions *PipelineLogPublishingOptions `pulumi:"logPublishingOptions"`
 	// The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
 	MaxUnits int `pulumi:"maxUnits"`
@@ -122,7 +122,7 @@ type PipelineArgs struct {
 	BufferOptions PipelineBufferOptionsPtrInput
 	// Options to control how OpenSearch encrypts buffer data.
 	EncryptionAtRestOptions PipelineEncryptionAtRestOptionsPtrInput
-	// Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
+	// Key-value pairs that represent log publishing settings.
 	LogPublishingOptions PipelineLogPublishingOptionsPtrInput
 	// The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
 	MaxUnits pulumi.IntInput
@@ -190,7 +190,7 @@ func (o PipelineOutput) IngestEndpointUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringArrayOutput { return v.IngestEndpointUrls }).(pulumi.StringArrayOutput)
 }
 
-// Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
+// Key-value pairs that represent log publishing settings.
 func (o PipelineOutput) LogPublishingOptions() PipelineLogPublishingOptionsPtrOutput {
 	return o.ApplyT(func(v *Pipeline) PipelineLogPublishingOptionsPtrOutput { return v.LogPublishingOptions }).(PipelineLogPublishingOptionsPtrOutput)
 }

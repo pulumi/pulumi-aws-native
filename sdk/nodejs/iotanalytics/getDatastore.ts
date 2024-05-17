@@ -44,11 +44,13 @@ export interface GetDatastoreResult {
     readonly fileFormatConfiguration?: outputs.iotanalytics.DatastoreFileFormatConfiguration;
     readonly id?: string;
     /**
-     * How long, in days, message data is kept.
+     * How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
      */
     readonly retentionPeriod?: outputs.iotanalytics.DatastoreRetentionPeriod;
     /**
-     * A set of key-value pairs that are used to manage the resource.
+     * Metadata which can be used to manage the data store.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     readonly tags?: outputs.Tag[];
 }

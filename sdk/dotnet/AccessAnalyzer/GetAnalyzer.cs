@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.AccessAnalyzer
     public sealed class GetAnalyzerResult
     {
         /// <summary>
-        /// Contains information about an archive rule.
+        /// Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalyzerArchiveRule> ArchiveRules;
         /// <summary>

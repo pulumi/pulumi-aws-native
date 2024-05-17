@@ -375,29 +375,9 @@ class DataSourceDocumentEnrichmentConfiguration(dict):
                  post_extraction_hook_configuration: Optional['outputs.DataSourceHookConfiguration'] = None,
                  pre_extraction_hook_configuration: Optional['outputs.DataSourceHookConfiguration'] = None):
         """
-        :param Sequence['DataSourceInlineDocumentEnrichmentConfiguration'] inline_configurations: Provides the configuration information for applying basic logic to alter document metadata and content when ingesting documents into Amazon Q Business.
-               
-               To apply advanced logic, to go beyond what you can do with basic logic, see [`HookConfiguration`](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_HookConfiguration.html) .
-               
-               For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
-        :param 'DataSourceHookConfiguration' post_extraction_hook_configuration: Provides the configuration information for invoking a Lambda function in AWS Lambda to alter document metadata and content when ingesting documents into Amazon Q Business.
-               
-               You can configure your Lambda function using the `PreExtractionHookConfiguration` parameter if you want to apply advanced alterations on the original or raw documents.
-               
-               If you want to apply advanced alterations on the Amazon Q Business structured documents, you must configure your Lambda function using `PostExtractionHookConfiguration` .
-               
-               You can only invoke one Lambda function. However, this function can invoke other functions it requires.
-               
-               For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
-        :param 'DataSourceHookConfiguration' pre_extraction_hook_configuration: Provides the configuration information for invoking a Lambda function in AWS Lambda to alter document metadata and content when ingesting documents into Amazon Q Business.
-               
-               You can configure your Lambda function using the `PreExtractionHookConfiguration` parameter if you want to apply advanced alterations on the original or raw documents.
-               
-               If you want to apply advanced alterations on the Amazon Q Business structured documents, you must configure your Lambda function using `PostExtractionHookConfiguration` .
-               
-               You can only invoke one Lambda function. However, this function can invoke other functions it requires.
-               
-               For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
+        :param Sequence['DataSourceInlineDocumentEnrichmentConfiguration'] inline_configurations: Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Q Business.
+        :param 'DataSourceHookConfiguration' post_extraction_hook_configuration: Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
+        :param 'DataSourceHookConfiguration' pre_extraction_hook_configuration: Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
         """
         if inline_configurations is not None:
             pulumi.set(__self__, "inline_configurations", inline_configurations)
@@ -410,11 +390,7 @@ class DataSourceDocumentEnrichmentConfiguration(dict):
     @pulumi.getter(name="inlineConfigurations")
     def inline_configurations(self) -> Optional[Sequence['outputs.DataSourceInlineDocumentEnrichmentConfiguration']]:
         """
-        Provides the configuration information for applying basic logic to alter document metadata and content when ingesting documents into Amazon Q Business.
-
-        To apply advanced logic, to go beyond what you can do with basic logic, see [`HookConfiguration`](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_HookConfiguration.html) .
-
-        For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
+        Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Q Business.
         """
         return pulumi.get(self, "inline_configurations")
 
@@ -422,15 +398,7 @@ class DataSourceDocumentEnrichmentConfiguration(dict):
     @pulumi.getter(name="postExtractionHookConfiguration")
     def post_extraction_hook_configuration(self) -> Optional['outputs.DataSourceHookConfiguration']:
         """
-        Provides the configuration information for invoking a Lambda function in AWS Lambda to alter document metadata and content when ingesting documents into Amazon Q Business.
-
-        You can configure your Lambda function using the `PreExtractionHookConfiguration` parameter if you want to apply advanced alterations on the original or raw documents.
-
-        If you want to apply advanced alterations on the Amazon Q Business structured documents, you must configure your Lambda function using `PostExtractionHookConfiguration` .
-
-        You can only invoke one Lambda function. However, this function can invoke other functions it requires.
-
-        For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
+        Configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
         """
         return pulumi.get(self, "post_extraction_hook_configuration")
 
@@ -438,15 +406,7 @@ class DataSourceDocumentEnrichmentConfiguration(dict):
     @pulumi.getter(name="preExtractionHookConfiguration")
     def pre_extraction_hook_configuration(self) -> Optional['outputs.DataSourceHookConfiguration']:
         """
-        Provides the configuration information for invoking a Lambda function in AWS Lambda to alter document metadata and content when ingesting documents into Amazon Q Business.
-
-        You can configure your Lambda function using the `PreExtractionHookConfiguration` parameter if you want to apply advanced alterations on the original or raw documents.
-
-        If you want to apply advanced alterations on the Amazon Q Business structured documents, you must configure your Lambda function using `PostExtractionHookConfiguration` .
-
-        You can only invoke one Lambda function. However, this function can invoke other functions it requires.
-
-        For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
+        Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Using Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html) .
         """
         return pulumi.get(self, "pre_extraction_hook_configuration")
 
@@ -482,11 +442,9 @@ class DataSourceHookConfiguration(dict):
                  role_arn: Optional[str] = None,
                  s3_bucket_name: Optional[str] = None):
         """
-        :param 'DataSourceDocumentAttributeCondition' invocation_condition: The condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business. You use this with [`DocumentAttributeTarget`](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html) to apply the condition.
+        :param 'DataSourceDocumentAttributeCondition' invocation_condition: The condition used for when a Lambda function should be invoked.
                
-               For example, you can create the 'Department' target field and have it prefill department names associated with the documents based on information in the 'Source_URI' field. Set the condition that if the 'Source_URI' field contains 'financial' in its URI value, then prefill the target field 'Department' with the target value 'Finance' for the document.
-               
-               Amazon Q Business can't create a target field if it has not already been created as an index field. After you create your index field, you can create a document metadata field using `DocumentAttributeTarget` . Amazon Q Business then will map your newly created metadata field to your index field.
+               For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.
         :param str lambda_arn: The Amazon Resource Name (ARN) of a role with permission to run a Lambda function during ingestion. For more information, see [IAM roles for Custom Document Enrichment (CDE)](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html#cde-iam-role) .
         :param str role_arn: The Amazon Resource Name (ARN) of a role with permission to run `PreExtractionHookConfiguration` and `PostExtractionHookConfiguration` for altering document metadata and content during the document ingestion process.
         :param str s3_bucket_name: Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/cde-lambda-operations.html#cde-lambda-operations-data-contracts) .
@@ -504,11 +462,9 @@ class DataSourceHookConfiguration(dict):
     @pulumi.getter(name="invocationCondition")
     def invocation_condition(self) -> Optional['outputs.DataSourceDocumentAttributeCondition']:
         """
-        The condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business. You use this with [`DocumentAttributeTarget`](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html) to apply the condition.
+        The condition used for when a Lambda function should be invoked.
 
-        For example, you can create the 'Department' target field and have it prefill department names associated with the documents based on information in the 'Source_URI' field. Set the condition that if the 'Source_URI' field contains 'financial' in its URI value, then prefill the target field 'Department' with the target value 'Finance' for the document.
-
-        Amazon Q Business can't create a target field if it has not already been created as an index field. After you create your index field, you can create a document metadata field using `DocumentAttributeTarget` . Amazon Q Business then will map your newly created metadata field to your index field.
+        For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.
         """
         return pulumi.get(self, "invocation_condition")
 
@@ -561,19 +517,9 @@ class DataSourceInlineDocumentEnrichmentConfiguration(dict):
                  document_content_operator: Optional['DataSourceDocumentContentOperator'] = None,
                  target: Optional['outputs.DataSourceDocumentAttributeTarget'] = None):
         """
-        :param 'DataSourceDocumentAttributeCondition' condition: The condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business. You use this with [`DocumentAttributeTarget`](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html) to apply the condition.
-               
-               For example, you can create the 'Department' target field and have it prefill department names associated with the documents based on information in the 'Source_URI' field. Set the condition that if the 'Source_URI' field contains 'financial' in its URI value, then prefill the target field 'Department' with the target value 'Finance' for the document.
-               
-               Amazon Q Business can't create a target field if it has not already been created as an index field. After you create your index field, you can create a document metadata field using `DocumentAttributeTarget` . Amazon Q Business then will map your newly created metadata field to your index field.
+        :param 'DataSourceDocumentAttributeCondition' condition: Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business .
         :param 'DataSourceDocumentContentOperator' document_content_operator: `TRUE` to delete content if the condition used for the target attribute is met.
-        :param 'DataSourceDocumentAttributeTarget' target: The target document attribute or metadata field you want to alter when ingesting documents into Amazon Q Business.
-               
-               For example, you can delete all customer identification numbers associated with the documents, stored in the document metadata field called 'Customer_ID' by setting the target key as 'Customer_ID' and the deletion flag to `TRUE` . This removes all customer ID values in the field 'Customer_ID'. This would scrub personally identifiable information from each document's metadata.
-               
-               Amazon Q Business can't create a target field if it has not already been created as an index field. After you create your index field, you can create a document metadata field using [`DocumentAttributeTarget`](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html) . Amazon Q Business will then map your newly created document attribute to your index field.
-               
-               You can also use this with [`DocumentAttributeCondition`](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeCondition.html) .
+        :param 'DataSourceDocumentAttributeTarget' target: Configuration of the target document attribute or metadata field when ingesting documents into Amazon Q Business . You can also include a value.
         """
         if condition is not None:
             pulumi.set(__self__, "condition", condition)
@@ -586,11 +532,7 @@ class DataSourceInlineDocumentEnrichmentConfiguration(dict):
     @pulumi.getter
     def condition(self) -> Optional['outputs.DataSourceDocumentAttributeCondition']:
         """
-        The condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business. You use this with [`DocumentAttributeTarget`](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html) to apply the condition.
-
-        For example, you can create the 'Department' target field and have it prefill department names associated with the documents based on information in the 'Source_URI' field. Set the condition that if the 'Source_URI' field contains 'financial' in its URI value, then prefill the target field 'Department' with the target value 'Finance' for the document.
-
-        Amazon Q Business can't create a target field if it has not already been created as an index field. After you create your index field, you can create a document metadata field using `DocumentAttributeTarget` . Amazon Q Business then will map your newly created metadata field to your index field.
+        Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business .
         """
         return pulumi.get(self, "condition")
 
@@ -606,13 +548,7 @@ class DataSourceInlineDocumentEnrichmentConfiguration(dict):
     @pulumi.getter
     def target(self) -> Optional['outputs.DataSourceDocumentAttributeTarget']:
         """
-        The target document attribute or metadata field you want to alter when ingesting documents into Amazon Q Business.
-
-        For example, you can delete all customer identification numbers associated with the documents, stored in the document metadata field called 'Customer_ID' by setting the target key as 'Customer_ID' and the deletion flag to `TRUE` . This removes all customer ID values in the field 'Customer_ID'. This would scrub personally identifiable information from each document's metadata.
-
-        Amazon Q Business can't create a target field if it has not already been created as an index field. After you create your index field, you can create a document metadata field using [`DocumentAttributeTarget`](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html) . Amazon Q Business will then map your newly created document attribute to your index field.
-
-        You can also use this with [`DocumentAttributeCondition`](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeCondition.html) .
+        Configuration of the target document attribute or metadata field when ingesting documents into Amazon Q Business . You can also include a value.
         """
         return pulumi.get(self, "target")
 
@@ -749,7 +685,7 @@ class IndexStatistics(dict):
     def __init__(__self__, *,
                  text_document_statistics: Optional['outputs.IndexTextDocumentStatistics'] = None):
         """
-        :param 'IndexTextDocumentStatistics' text_document_statistics: Provides information about text documents in an index.
+        :param 'IndexTextDocumentStatistics' text_document_statistics: The number of documents indexed.
         """
         if text_document_statistics is not None:
             pulumi.set(__self__, "text_document_statistics", text_document_statistics)
@@ -758,7 +694,7 @@ class IndexStatistics(dict):
     @pulumi.getter(name="textDocumentStatistics")
     def text_document_statistics(self) -> Optional['outputs.IndexTextDocumentStatistics']:
         """
-        Provides information about text documents in an index.
+        The number of documents indexed.
         """
         return pulumi.get(self, "text_document_statistics")
 
@@ -988,7 +924,7 @@ class PluginCustomPluginConfiguration(dict):
                  api_schema_type: 'PluginApiSchemaType',
                  description: str):
         """
-        :param Union['PluginApiSchema0Properties', 'PluginApiSchema1Properties'] api_schema: Contains details about the OpenAPI schema for a custom plugin. For more information, see [custom plugin OpenAPI schemas](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/custom-plugin.html#plugins-api-schema) . You can either include the schema directly in the payload field or you can upload it to an S3 bucket and specify the S3 bucket location in the `s3` field.
+        :param Union['PluginApiSchema0Properties', 'PluginApiSchema1Properties'] api_schema: Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema.
         :param 'PluginApiSchemaType' api_schema_type: The type of OpenAPI schema to use.
         :param str description: A description for your custom plugin configuration.
         """
@@ -1000,7 +936,7 @@ class PluginCustomPluginConfiguration(dict):
     @pulumi.getter(name="apiSchema")
     def api_schema(self) -> Any:
         """
-        Contains details about the OpenAPI schema for a custom plugin. For more information, see [custom plugin OpenAPI schemas](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/custom-plugin.html#plugins-api-schema) . You can either include the schema directly in the payload field or you can upload it to an S3 bucket and specify the S3 bucket location in the `s3` field.
+        Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema.
         """
         return pulumi.get(self, "api_schema")
 

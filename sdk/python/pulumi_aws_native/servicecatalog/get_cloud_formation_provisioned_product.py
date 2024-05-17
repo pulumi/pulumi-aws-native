@@ -163,7 +163,7 @@ class GetCloudFormationProvisionedProductResult:
     @pulumi.getter(name="provisioningParameters")
     def provisioning_parameters(self) -> Optional[Sequence['outputs.CloudFormationProvisionedProductProvisioningParameter']]:
         """
-        Information about a parameter used to provision a product.
+        Parameters specified by the administrator that are required for provisioning the product.
         """
         return pulumi.get(self, "provisioning_parameters")
 
@@ -171,15 +171,7 @@ class GetCloudFormationProvisionedProductResult:
     @pulumi.getter(name="provisioningPreferences")
     def provisioning_preferences(self) -> Optional['outputs.CloudFormationProvisionedProductProvisioningPreferences']:
         """
-        The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product type
-
-        One or more AWS accounts that will have access to the provisioned product.
-
-        Applicable only to a `CFN_STACKSET` provisioned product type.
-
-        The AWS accounts specified should be within the list of accounts in the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
-
-        If no values are specified, the default value is all accounts from the `STACKSET` constraint.
+        StackSet preferences that are required for provisioning the product or updating a provisioned product.
         """
         return pulumi.get(self, "provisioning_preferences")
 
@@ -195,7 +187,9 @@ class GetCloudFormationProvisionedProductResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
+        One or more tags.
+
+        > Requires the provisioned product to have an [ResourceUpdateConstraint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html) resource with `TagUpdatesOnProvisionedProduct` set to `ALLOWED` to allow tag updates. If `RESOURCE_UPDATE` constraint is not present, tags updates are ignored.
         """
         return pulumi.get(self, "tags")
 

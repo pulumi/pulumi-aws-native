@@ -53,15 +53,15 @@ namespace Pulumi.AwsNative.Msk
     {
         public readonly string? Arn;
         /// <summary>
-        /// Describes the setup to be used for the broker nodes in the cluster.
+        /// Information about the broker nodes in the cluster.
         /// </summary>
         public readonly Outputs.ClusterBrokerNodeGroupInfo? BrokerNodeGroupInfo;
         /// <summary>
-        /// Includes all client authentication information.
+        /// VPC connection control settings for brokers.
         /// </summary>
         public readonly Outputs.ClusterClientAuthentication? ClientAuthentication;
         /// <summary>
-        /// Specifies the configuration to use for the brokers.
+        /// Represents the configuration that you want MSK to use for the cluster.
         /// </summary>
         public readonly Outputs.ClusterConfigurationInfo? ConfigurationInfo;
         /// <summary>
@@ -69,7 +69,7 @@ namespace Pulumi.AwsNative.Msk
         /// </summary>
         public readonly string? CurrentVersion;
         /// <summary>
-        /// Includes encryption-related information, such as the Amazon KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.
+        /// Includes all encryption-related information.
         /// </summary>
         public readonly Outputs.ClusterEncryptionInfo? EncryptionInfo;
         /// <summary>
@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.Msk
         /// </summary>
         public readonly string? KafkaVersion;
         /// <summary>
-        /// You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
+        /// Logging Info details.
         /// </summary>
         public readonly Outputs.ClusterLoggingInfo? LoggingInfo;
         /// <summary>
@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.Msk
         /// </summary>
         public readonly int? NumberOfBrokerNodes;
         /// <summary>
-        /// JMX and Node monitoring for the MSK cluster.
+        /// The settings for open monitoring.
         /// </summary>
         public readonly Outputs.ClusterOpenMonitoring? OpenMonitoring;
         /// <summary>

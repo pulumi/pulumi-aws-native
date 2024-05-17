@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.VpcLattice.Inputs
         public Input<bool>? CaseSensitive { get; set; }
 
         /// <summary>
-        /// Describes a header match type.
+        /// The header match type.
         /// </summary>
         [Input("match", required: true)]
         public Input<Inputs.RuleHeaderMatchTypeArgs> Match { get; set; } = null!;

@@ -35,7 +35,7 @@ export interface GetUserAccessLoggingSettingsResult {
      */
     readonly kinesisStreamArn?: string;
     /**
-     * The tag.
+     * The tags to add to the user access logging settings resource. A tag is a key-value pair.
      */
     readonly tags?: outputs.Tag[];
     /**

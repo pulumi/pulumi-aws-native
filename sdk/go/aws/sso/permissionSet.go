@@ -17,7 +17,7 @@ import (
 type PermissionSet struct {
 	pulumi.CustomResourceState
 
-	// Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
+	// Specifies the names and paths of the customer managed policies that you have attached to your permission set.
 	CustomerManagedPolicyReferences PermissionSetCustomerManagedPolicyReferenceArrayOutput `pulumi:"customerManagedPolicyReferences"`
 	// The permission set description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -41,7 +41,7 @@ type PermissionSet struct {
 	RelayStateType pulumi.StringPtrOutput `pulumi:"relayStateType"`
 	// The length of time that a user can be signed in to an AWS account.
 	SessionDuration pulumi.StringPtrOutput `pulumi:"sessionDuration"`
-	// A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+	// The tags to attach to the new `PermissionSet` .
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -93,7 +93,7 @@ func (PermissionSetState) ElementType() reflect.Type {
 }
 
 type permissionSetArgs struct {
-	// Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
+	// Specifies the names and paths of the customer managed policies that you have attached to your permission set.
 	CustomerManagedPolicyReferences []PermissionSetCustomerManagedPolicyReference `pulumi:"customerManagedPolicyReferences"`
 	// The permission set description.
 	Description *string `pulumi:"description"`
@@ -115,13 +115,13 @@ type permissionSetArgs struct {
 	RelayStateType *string `pulumi:"relayStateType"`
 	// The length of time that a user can be signed in to an AWS account.
 	SessionDuration *string `pulumi:"sessionDuration"`
-	// A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+	// The tags to attach to the new `PermissionSet` .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a PermissionSet resource.
 type PermissionSetArgs struct {
-	// Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
+	// Specifies the names and paths of the customer managed policies that you have attached to your permission set.
 	CustomerManagedPolicyReferences PermissionSetCustomerManagedPolicyReferenceArrayInput
 	// The permission set description.
 	Description pulumi.StringPtrInput
@@ -143,7 +143,7 @@ type PermissionSetArgs struct {
 	RelayStateType pulumi.StringPtrInput
 	// The length of time that a user can be signed in to an AWS account.
 	SessionDuration pulumi.StringPtrInput
-	// A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+	// The tags to attach to the new `PermissionSet` .
 	Tags aws.TagArrayInput
 }
 
@@ -184,7 +184,7 @@ func (o PermissionSetOutput) ToPermissionSetOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
+// Specifies the names and paths of the customer managed policies that you have attached to your permission set.
 func (o PermissionSetOutput) CustomerManagedPolicyReferences() PermissionSetCustomerManagedPolicyReferenceArrayOutput {
 	return o.ApplyT(func(v *PermissionSet) PermissionSetCustomerManagedPolicyReferenceArrayOutput {
 		return v.CustomerManagedPolicyReferences
@@ -240,7 +240,7 @@ func (o PermissionSetOutput) SessionDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.StringPtrOutput { return v.SessionDuration }).(pulumi.StringPtrOutput)
 }
 
-// A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+// The tags to attach to the new `PermissionSet` .
 func (o PermissionSetOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *PermissionSet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

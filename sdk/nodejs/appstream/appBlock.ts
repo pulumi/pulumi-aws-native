@@ -64,19 +64,19 @@ export class AppBlock extends pulumi.CustomResource {
      */
     public readonly packagingType!: pulumi.Output<string | undefined>;
     /**
-     * The details of the script.
+     * The post setup script details of the app block.
      */
     public readonly postSetupScriptDetails!: pulumi.Output<outputs.appstream.AppBlockScriptDetails | undefined>;
     /**
-     * The details of the script.
+     * The setup script details of the app block.
      */
     public readonly setupScriptDetails!: pulumi.Output<outputs.appstream.AppBlockScriptDetails | undefined>;
     /**
-     * The S3 location of the app block.
+     * The source S3 location of the app block.
      */
     public readonly sourceS3Location!: pulumi.Output<outputs.appstream.AppBlockS3Location>;
     /**
-     * The tag of the app block.
+     * The tags of the app block.
      */
     public readonly tags!: pulumi.Output<(outputs.appstream.AppBlockTag0Properties | outputs.appstream.AppBlockTag1Properties)[] | undefined>;
 
@@ -146,19 +146,19 @@ export interface AppBlockArgs {
      */
     packagingType?: pulumi.Input<string>;
     /**
-     * The details of the script.
+     * The post setup script details of the app block.
      */
     postSetupScriptDetails?: pulumi.Input<inputs.appstream.AppBlockScriptDetailsArgs>;
     /**
-     * The details of the script.
+     * The setup script details of the app block.
      */
     setupScriptDetails?: pulumi.Input<inputs.appstream.AppBlockScriptDetailsArgs>;
     /**
-     * The S3 location of the app block.
+     * The source S3 location of the app block.
      */
     sourceS3Location: pulumi.Input<inputs.appstream.AppBlockS3LocationArgs>;
     /**
-     * The tag of the app block.
+     * The tags of the app block.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.appstream.AppBlockTag0PropertiesArgs | inputs.appstream.AppBlockTag1PropertiesArgs>[]>;
 }

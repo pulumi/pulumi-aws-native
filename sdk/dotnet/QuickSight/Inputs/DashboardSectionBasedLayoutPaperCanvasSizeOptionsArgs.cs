@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardSectionBasedLayoutPaperCanvasSizeOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The configuration of spacing (often a margin or padding).
+        /// Defines the spacing between the canvas content and the top, bottom, left, and right edges.
         /// </summary>
         [Input("paperMargin")]
         public Input<Inputs.DashboardSpacingArgs>? PaperMargin { get; set; }

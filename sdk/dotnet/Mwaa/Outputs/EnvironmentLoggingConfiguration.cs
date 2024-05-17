@@ -17,23 +17,23 @@ namespace Pulumi.AwsNative.Mwaa.Outputs
     public sealed class EnvironmentLoggingConfiguration
     {
         /// <summary>
-        /// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        /// Defines the processing logs sent to CloudWatch Logs and the logging level to send.
         /// </summary>
         public readonly Outputs.EnvironmentModuleLoggingConfiguration? DagProcessingLogs;
         /// <summary>
-        /// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        /// Defines the scheduler logs sent to CloudWatch Logs and the logging level to send.
         /// </summary>
         public readonly Outputs.EnvironmentModuleLoggingConfiguration? SchedulerLogs;
         /// <summary>
-        /// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        /// Defines the task logs sent to CloudWatch Logs and the logging level to send.
         /// </summary>
         public readonly Outputs.EnvironmentModuleLoggingConfiguration? TaskLogs;
         /// <summary>
-        /// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        /// Defines the web server logs sent to CloudWatch Logs and the logging level to send.
         /// </summary>
         public readonly Outputs.EnvironmentModuleLoggingConfiguration? WebserverLogs;
         /// <summary>
-        /// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        /// Defines the worker logs sent to CloudWatch Logs and the logging level to send.
         /// </summary>
         public readonly Outputs.EnvironmentModuleLoggingConfiguration? WorkerLogs;
 

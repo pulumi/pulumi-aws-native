@@ -31,11 +31,11 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         /// </summary>
         public readonly Outputs.TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusProperties? CheckCertificateRevocationStatus;
         /// <summary>
-        /// Settings that define the Secure Sockets Layer/Transport Layer Security (SSL/TLS) traffic that Network Firewall should decrypt for inspection by the stateful rule engine.
+        /// A list of scopes.
         /// </summary>
         public readonly ImmutableArray<Outputs.TlsInspectionConfigurationServerCertificateScope> Scopes;
         /// <summary>
-        /// Any AWS Certificate Manager (ACM) Secure Sockets Layer/Transport Layer Security (SSL/TLS) server certificate that's associated with a [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificateconfiguration.html) . Used in a [TLSInspectionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-tlsinspectionconfiguration.html) for inspection of inbound traffic to your firewall. You must request or import a SSL/TLS certificate into ACM for each domain Network Firewall needs to decrypt and inspect. AWS Network Firewall uses the SSL/TLS certificates to decrypt specified inbound SSL/TLS traffic going to your firewall. For information about working with certificates in AWS Certificate Manager , see [Request a public certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html) or [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide* .
+        /// The list of server certificates to use for inbound SSL/TLS inspection.
         /// </summary>
         public readonly ImmutableArray<Outputs.TlsInspectionConfigurationServerCertificate> ServerCertificates;
 

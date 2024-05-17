@@ -109,7 +109,7 @@ class GetApplicationResult:
     @pulumi.getter(name="imageConfiguration")
     def image_configuration(self) -> Optional['outputs.ApplicationImageConfigurationInput']:
         """
-        The image configuration.
+        The image configuration applied to all worker types.
         """
         return pulumi.get(self, "image_configuration")
 
@@ -133,7 +133,7 @@ class GetApplicationResult:
     @pulumi.getter(name="monitoringConfiguration")
     def monitoring_configuration(self) -> Optional['outputs.ApplicationMonitoringConfiguration']:
         """
-        The configuration setting for monitoring.
+        A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
         """
         return pulumi.get(self, "monitoring_configuration")
 

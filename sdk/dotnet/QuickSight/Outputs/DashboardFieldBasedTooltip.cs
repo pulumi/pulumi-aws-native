@@ -18,9 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? AggregationVisibility;
         /// <summary>
-        /// The tooltip.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The fields configuration in the tooltip.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardTooltipItem> TooltipFields;
         /// <summary>

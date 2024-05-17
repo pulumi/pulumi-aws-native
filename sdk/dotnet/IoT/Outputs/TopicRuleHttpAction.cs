@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
     public sealed class TopicRuleHttpAction
     {
         /// <summary>
-        /// The authorization method used to send messages.
+        /// The authentication method to use when sending data to an HTTPS endpoint.
         /// </summary>
         public readonly Outputs.TopicRuleHttpAuthorization? Auth;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
         /// </summary>
         public readonly string? ConfirmationUrl;
         /// <summary>
-        /// The HTTP action header.
+        /// The HTTP headers to send with the message data.
         /// </summary>
         public readonly ImmutableArray<Outputs.TopicRuleHttpActionHeader> Headers;
         /// <summary>

@@ -15,15 +15,15 @@ var _ = internal.GetEnvOrDefault
 
 // Logging configuration for the environment.
 type EnvironmentLoggingConfiguration struct {
-	// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+	// Defines the processing logs sent to CloudWatch Logs and the logging level to send.
 	DagProcessingLogs *EnvironmentModuleLoggingConfiguration `pulumi:"dagProcessingLogs"`
-	// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+	// Defines the scheduler logs sent to CloudWatch Logs and the logging level to send.
 	SchedulerLogs *EnvironmentModuleLoggingConfiguration `pulumi:"schedulerLogs"`
-	// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+	// Defines the task logs sent to CloudWatch Logs and the logging level to send.
 	TaskLogs *EnvironmentModuleLoggingConfiguration `pulumi:"taskLogs"`
-	// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+	// Defines the web server logs sent to CloudWatch Logs and the logging level to send.
 	WebserverLogs *EnvironmentModuleLoggingConfiguration `pulumi:"webserverLogs"`
-	// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+	// Defines the worker logs sent to CloudWatch Logs and the logging level to send.
 	WorkerLogs *EnvironmentModuleLoggingConfiguration `pulumi:"workerLogs"`
 }
 
@@ -40,15 +40,15 @@ type EnvironmentLoggingConfigurationInput interface {
 
 // Logging configuration for the environment.
 type EnvironmentLoggingConfigurationArgs struct {
-	// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+	// Defines the processing logs sent to CloudWatch Logs and the logging level to send.
 	DagProcessingLogs EnvironmentModuleLoggingConfigurationPtrInput `pulumi:"dagProcessingLogs"`
-	// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+	// Defines the scheduler logs sent to CloudWatch Logs and the logging level to send.
 	SchedulerLogs EnvironmentModuleLoggingConfigurationPtrInput `pulumi:"schedulerLogs"`
-	// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+	// Defines the task logs sent to CloudWatch Logs and the logging level to send.
 	TaskLogs EnvironmentModuleLoggingConfigurationPtrInput `pulumi:"taskLogs"`
-	// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+	// Defines the web server logs sent to CloudWatch Logs and the logging level to send.
 	WebserverLogs EnvironmentModuleLoggingConfigurationPtrInput `pulumi:"webserverLogs"`
-	// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+	// Defines the worker logs sent to CloudWatch Logs and the logging level to send.
 	WorkerLogs EnvironmentModuleLoggingConfigurationPtrInput `pulumi:"workerLogs"`
 }
 
@@ -130,29 +130,29 @@ func (o EnvironmentLoggingConfigurationOutput) ToEnvironmentLoggingConfiguration
 	}).(EnvironmentLoggingConfigurationPtrOutput)
 }
 
-// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+// Defines the processing logs sent to CloudWatch Logs and the logging level to send.
 func (o EnvironmentLoggingConfigurationOutput) DagProcessingLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration {
 		return v.DagProcessingLogs
 	}).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
-// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+// Defines the scheduler logs sent to CloudWatch Logs and the logging level to send.
 func (o EnvironmentLoggingConfigurationOutput) SchedulerLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration { return v.SchedulerLogs }).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
-// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+// Defines the task logs sent to CloudWatch Logs and the logging level to send.
 func (o EnvironmentLoggingConfigurationOutput) TaskLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration { return v.TaskLogs }).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
-// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+// Defines the web server logs sent to CloudWatch Logs and the logging level to send.
 func (o EnvironmentLoggingConfigurationOutput) WebserverLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration { return v.WebserverLogs }).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
-// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+// Defines the worker logs sent to CloudWatch Logs and the logging level to send.
 func (o EnvironmentLoggingConfigurationOutput) WorkerLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration { return v.WorkerLogs }).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
@@ -181,7 +181,7 @@ func (o EnvironmentLoggingConfigurationPtrOutput) Elem() EnvironmentLoggingConfi
 	}).(EnvironmentLoggingConfigurationOutput)
 }
 
-// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+// Defines the processing logs sent to CloudWatch Logs and the logging level to send.
 func (o EnvironmentLoggingConfigurationPtrOutput) DagProcessingLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration {
 		if v == nil {
@@ -191,7 +191,7 @@ func (o EnvironmentLoggingConfigurationPtrOutput) DagProcessingLogs() Environmen
 	}).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
-// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+// Defines the scheduler logs sent to CloudWatch Logs and the logging level to send.
 func (o EnvironmentLoggingConfigurationPtrOutput) SchedulerLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration {
 		if v == nil {
@@ -201,7 +201,7 @@ func (o EnvironmentLoggingConfigurationPtrOutput) SchedulerLogs() EnvironmentMod
 	}).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
-// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+// Defines the task logs sent to CloudWatch Logs and the logging level to send.
 func (o EnvironmentLoggingConfigurationPtrOutput) TaskLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration {
 		if v == nil {
@@ -211,7 +211,7 @@ func (o EnvironmentLoggingConfigurationPtrOutput) TaskLogs() EnvironmentModuleLo
 	}).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
-// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+// Defines the web server logs sent to CloudWatch Logs and the logging level to send.
 func (o EnvironmentLoggingConfigurationPtrOutput) WebserverLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration {
 		if v == nil {
@@ -221,7 +221,7 @@ func (o EnvironmentLoggingConfigurationPtrOutput) WebserverLogs() EnvironmentMod
 	}).(EnvironmentModuleLoggingConfigurationPtrOutput)
 }
 
-// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+// Defines the worker logs sent to CloudWatch Logs and the logging level to send.
 func (o EnvironmentLoggingConfigurationPtrOutput) WorkerLogs() EnvironmentModuleLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *EnvironmentLoggingConfiguration) *EnvironmentModuleLoggingConfiguration {
 		if v == nil {

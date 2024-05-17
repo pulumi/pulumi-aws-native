@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// The list of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}] or [{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]` .
+        /// A map that defines the self-service action.
         /// </summary>
         [Output("definition")]
         public Output<ImmutableArray<Outputs.ServiceActionDefinitionParameter>> Definition { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.AwsNative.ServiceCatalog
         private InputList<Inputs.ServiceActionDefinitionParameterArgs>? _definition;
 
         /// <summary>
-        /// The list of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}] or [{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]` .
+        /// A map that defines the self-service action.
         /// </summary>
         public InputList<Inputs.ServiceActionDefinitionParameterArgs> Definition
         {

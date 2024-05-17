@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.TopicComparativeOrderArgs>? ComparativeOrder { get; set; }
 
         /// <summary>
-        /// A structure that represents a default formatting definition.
+        /// The default formatting used for values in the column.
         /// </summary>
         [Input("defaultFormatting")]
         public Input<Inputs.TopicDefaultFormattingArgs>? DefaultFormatting { get; set; }
@@ -127,7 +127,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// A structure that represents a semantic type.
+        /// The semantic type of data contained in the column.
         /// </summary>
         [Input("semanticType")]
         public Input<Inputs.TopicSemanticTypeArgs>? SemanticType { get; set; }

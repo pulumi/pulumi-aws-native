@@ -38,7 +38,7 @@ export class StorageLens extends pulumi.CustomResource {
     }
 
     /**
-     * This is the property of the Amazon S3 Storage Lens configuration.
+     * This resource contains the details Amazon S3 Storage Lens configuration.
      */
     public readonly storageLensConfiguration!: pulumi.Output<outputs.s3.StorageLensConfiguration>;
     /**
@@ -78,7 +78,7 @@ export class StorageLens extends pulumi.CustomResource {
  */
 export interface StorageLensArgs {
     /**
-     * This is the property of the Amazon S3 Storage Lens configuration.
+     * This resource contains the details Amazon S3 Storage Lens configuration.
      */
     storageLensConfiguration: pulumi.Input<inputs.s3.StorageLensConfigurationArgs>;
     /**

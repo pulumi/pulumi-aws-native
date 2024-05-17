@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.Athena.Inputs
     public sealed class WorkGroupResultConfigurationUpdatesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. When Athena stores query results in Amazon S3, the canned ACL is set with the `x-amz-acl` request header. For more information about S3 Object Ownership, see [Object Ownership settings](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html#object-ownership-overview) in the *Amazon S3 User Guide* .
+        /// The ACL configuration for the query results.
         /// </summary>
         [Input("aclConfiguration")]
         public Input<Inputs.WorkGroupAclConfigurationArgs>? AclConfiguration { get; set; }
 
         /// <summary>
-        /// If query results are encrypted in Amazon S3, indicates the encryption option used (for example, `SSE_KMS` or `CSE_KMS` ) and key information.
+        /// The encryption configuration for the query results.
         /// </summary>
         [Input("encryptionConfiguration")]
         public Input<Inputs.WorkGroupEncryptionConfigurationArgs>? EncryptionConfiguration { get; set; }

@@ -27,7 +27,9 @@ type FirewallPolicy struct {
 	FirewallPolicyId pulumi.StringOutput `pulumi:"firewallPolicyId"`
 	// The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.
 	FirewallPolicyName pulumi.StringOutput `pulumi:"firewallPolicyName"`
-	// A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -84,7 +86,9 @@ type firewallPolicyArgs struct {
 	FirewallPolicy FirewallPolicyType `pulumi:"firewallPolicy"`
 	// The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.
 	FirewallPolicyName *string `pulumi:"firewallPolicyName"`
-	// A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -96,7 +100,9 @@ type FirewallPolicyArgs struct {
 	FirewallPolicy FirewallPolicyTypeInput
 	// The descriptive name of the firewall policy. You can't change the name of a firewall policy after you create it.
 	FirewallPolicyName pulumi.StringPtrInput
-	// A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags aws.TagArrayInput
 }
 
@@ -162,7 +168,9 @@ func (o FirewallPolicyOutput) FirewallPolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.FirewallPolicyName }).(pulumi.StringOutput)
 }
 
-// A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o FirewallPolicyOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *FirewallPolicy) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -68,7 +68,7 @@ func (o VirtualClusterContainerInfoOutput) EksInfo() VirtualClusterEksInfoOutput
 type VirtualClusterContainerProvider struct {
 	// The ID of the container cluster
 	Id string `pulumi:"id"`
-	// The information about the container used for a job run or a managed endpoint.
+	// The information about the container cluster.
 	Info VirtualClusterContainerInfo `pulumi:"info"`
 	// The type of the container provider
 	Type string `pulumi:"type"`
@@ -88,7 +88,7 @@ type VirtualClusterContainerProviderInput interface {
 type VirtualClusterContainerProviderArgs struct {
 	// The ID of the container cluster
 	Id pulumi.StringInput `pulumi:"id"`
-	// The information about the container used for a job run or a managed endpoint.
+	// The information about the container cluster.
 	Info VirtualClusterContainerInfoInput `pulumi:"info"`
 	// The type of the container provider
 	Type pulumi.StringInput `pulumi:"type"`
@@ -125,7 +125,7 @@ func (o VirtualClusterContainerProviderOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v VirtualClusterContainerProvider) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The information about the container used for a job run or a managed endpoint.
+// The information about the container cluster.
 func (o VirtualClusterContainerProviderOutput) Info() VirtualClusterContainerInfoOutput {
 	return o.ApplyT(func(v VirtualClusterContainerProvider) VirtualClusterContainerInfo { return v.Info }).(VirtualClusterContainerInfoOutput)
 }

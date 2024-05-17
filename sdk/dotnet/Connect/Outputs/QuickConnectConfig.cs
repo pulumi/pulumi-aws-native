@@ -17,11 +17,11 @@ namespace Pulumi.AwsNative.Connect.Outputs
     public sealed class QuickConnectConfig
     {
         /// <summary>
-        /// Contains information about a phone number for a quick connect.
+        /// The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
         /// </summary>
         public readonly Outputs.QuickConnectPhoneNumberQuickConnectConfig? PhoneConfig;
         /// <summary>
-        /// Contains information about a queue for a quick connect. The flow must be of type Transfer to Queue.
+        /// The queue configuration. This is required only if QuickConnectType is QUEUE.
         /// </summary>
         public readonly Outputs.QuickConnectQueueQuickConnectConfig? QueueConfig;
         /// <summary>
@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.Connect.QuickConnectType QuickConnectType;
         /// <summary>
-        /// Contains information about the quick connect configuration settings for a user. The contact flow must be of type Transfer to Agent.
+        /// The user configuration. This is required only if QuickConnectType is USER.
         /// </summary>
         public readonly Outputs.QuickConnectUserQuickConnectConfig? UserConfig;
 

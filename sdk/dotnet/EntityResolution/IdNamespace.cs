@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.EntityResolution
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An object containing `IdMappingType` and `ProviderProperties` .
+        /// Determines the properties of `IdMappingWorflow` where this `IdNamespace` can be used as a `Source` or a `Target` .
         /// </summary>
         [Output("idMappingWorkflowProperties")]
         public Output<ImmutableArray<Outputs.IdNamespaceIdMappingWorkflowProperties>> IdMappingWorkflowProperties { get; private set; } = null!;
@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.EntityResolution
         public Output<string> IdNamespaceName { get; private set; } = null!;
 
         /// <summary>
-        /// An object containing `InputSourceARN` and `SchemaName` .
+        /// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
         /// </summary>
         [Output("inputSourceConfig")]
         public Output<ImmutableArray<Outputs.IdNamespaceInputSource>> InputSourceConfig { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.AwsNative.EntityResolution
         private InputList<Inputs.IdNamespaceIdMappingWorkflowPropertiesArgs>? _idMappingWorkflowProperties;
 
         /// <summary>
-        /// An object containing `IdMappingType` and `ProviderProperties` .
+        /// Determines the properties of `IdMappingWorflow` where this `IdNamespace` can be used as a `Source` or a `Target` .
         /// </summary>
         public InputList<Inputs.IdNamespaceIdMappingWorkflowPropertiesArgs> IdMappingWorkflowProperties
         {
@@ -156,7 +156,7 @@ namespace Pulumi.AwsNative.EntityResolution
         private InputList<Inputs.IdNamespaceInputSourceArgs>? _inputSourceConfig;
 
         /// <summary>
-        /// An object containing `InputSourceARN` and `SchemaName` .
+        /// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
         /// </summary>
         public InputList<Inputs.IdNamespaceInputSourceArgs> InputSourceConfig
         {

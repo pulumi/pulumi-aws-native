@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
         public Input<string> Property { get; set; } = null!;
 
         /// <summary>
-        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// The state configuration to assign to the property.
         /// </summary>
         [Input("set", required: true)]
         public Input<Inputs.ComponentPropertyArgs> Set { get; set; } = null!;

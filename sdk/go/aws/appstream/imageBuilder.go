@@ -17,7 +17,7 @@ import (
 type ImageBuilder struct {
 	pulumi.CustomResourceState
 
-	// Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+	// The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
 	AccessEndpoints ImageBuilderAccessEndpointArrayOutput `pulumi:"accessEndpoints"`
 	// The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
 	AppstreamAgentVersion pulumi.StringPtrOutput `pulumi:"appstreamAgentVersion"`
@@ -77,9 +77,9 @@ type ImageBuilder struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The URL to start an image builder streaming session, returned as a string.
 	StreamingUrl pulumi.StringOutput `pulumi:"streamingUrl"`
-	// The tag of the image builder.
+	// An array of key-value pairs.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// The VPC configuration for the image builder.
+	// The VPC configuration for the image builder. You can specify only one subnet.
 	VpcConfig ImageBuilderVpcConfigPtrOutput `pulumi:"vpcConfig"`
 }
 
@@ -126,7 +126,7 @@ func (ImageBuilderState) ElementType() reflect.Type {
 }
 
 type imageBuilderArgs struct {
-	// Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+	// The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
 	AccessEndpoints []ImageBuilderAccessEndpoint `pulumi:"accessEndpoints"`
 	// The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
 	AppstreamAgentVersion *string `pulumi:"appstreamAgentVersion"`
@@ -184,15 +184,15 @@ type imageBuilderArgs struct {
 	InstanceType string `pulumi:"instanceType"`
 	// A unique name for the image builder.
 	Name *string `pulumi:"name"`
-	// The tag of the image builder.
+	// An array of key-value pairs.
 	Tags []aws.Tag `pulumi:"tags"`
-	// The VPC configuration for the image builder.
+	// The VPC configuration for the image builder. You can specify only one subnet.
 	VpcConfig *ImageBuilderVpcConfig `pulumi:"vpcConfig"`
 }
 
 // The set of arguments for constructing a ImageBuilder resource.
 type ImageBuilderArgs struct {
-	// Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+	// The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
 	AccessEndpoints ImageBuilderAccessEndpointArrayInput
 	// The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
 	AppstreamAgentVersion pulumi.StringPtrInput
@@ -250,9 +250,9 @@ type ImageBuilderArgs struct {
 	InstanceType pulumi.StringInput
 	// A unique name for the image builder.
 	Name pulumi.StringPtrInput
-	// The tag of the image builder.
+	// An array of key-value pairs.
 	Tags aws.TagArrayInput
-	// The VPC configuration for the image builder.
+	// The VPC configuration for the image builder. You can specify only one subnet.
 	VpcConfig ImageBuilderVpcConfigPtrInput
 }
 
@@ -293,7 +293,7 @@ func (o ImageBuilderOutput) ToImageBuilderOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+// The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
 func (o ImageBuilderOutput) AccessEndpoints() ImageBuilderAccessEndpointArrayOutput {
 	return o.ApplyT(func(v *ImageBuilder) ImageBuilderAccessEndpointArrayOutput { return v.AccessEndpoints }).(ImageBuilderAccessEndpointArrayOutput)
 }
@@ -389,12 +389,12 @@ func (o ImageBuilderOutput) StreamingUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringOutput { return v.StreamingUrl }).(pulumi.StringOutput)
 }
 
-// The tag of the image builder.
+// An array of key-value pairs.
 func (o ImageBuilderOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ImageBuilder) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// The VPC configuration for the image builder.
+// The VPC configuration for the image builder. You can specify only one subnet.
 func (o ImageBuilderOutput) VpcConfig() ImageBuilderVpcConfigPtrOutput {
 	return o.ApplyT(func(v *ImageBuilder) ImageBuilderVpcConfigPtrOutput { return v.VpcConfig }).(ImageBuilderVpcConfigPtrOutput)
 }

@@ -24,9 +24,9 @@ class ConfigurationAggregatorArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ConfigurationAggregator resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationAggregatorAccountAggregationSourceArgs']]] account_aggregation_sources: A collection of accounts and regions.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationAggregatorAccountAggregationSourceArgs']]] account_aggregation_sources: Provides a list of source accounts and regions to be aggregated.
         :param pulumi.Input[str] configuration_aggregator_name: The name of the aggregator.
-        :param pulumi.Input['ConfigurationAggregatorOrganizationAggregationSourceArgs'] organization_aggregation_source: This object contains regions to set up the aggregator and an IAM role to retrieve organization details.
+        :param pulumi.Input['ConfigurationAggregatorOrganizationAggregationSourceArgs'] organization_aggregation_source: Provides an organization and list of regions to be aggregated.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the configuration aggregator.
         """
         if account_aggregation_sources is not None:
@@ -42,7 +42,7 @@ class ConfigurationAggregatorArgs:
     @pulumi.getter(name="accountAggregationSources")
     def account_aggregation_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationAggregatorAccountAggregationSourceArgs']]]]:
         """
-        A collection of accounts and regions.
+        Provides a list of source accounts and regions to be aggregated.
         """
         return pulumi.get(self, "account_aggregation_sources")
 
@@ -66,7 +66,7 @@ class ConfigurationAggregatorArgs:
     @pulumi.getter(name="organizationAggregationSource")
     def organization_aggregation_source(self) -> Optional[pulumi.Input['ConfigurationAggregatorOrganizationAggregationSourceArgs']]:
         """
-        This object contains regions to set up the aggregator and an IAM role to retrieve organization details.
+        Provides an organization and list of regions to be aggregated.
         """
         return pulumi.get(self, "organization_aggregation_source")
 
@@ -102,9 +102,9 @@ class ConfigurationAggregator(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationAggregatorAccountAggregationSourceArgs']]]] account_aggregation_sources: A collection of accounts and regions.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationAggregatorAccountAggregationSourceArgs']]]] account_aggregation_sources: Provides a list of source accounts and regions to be aggregated.
         :param pulumi.Input[str] configuration_aggregator_name: The name of the aggregator.
-        :param pulumi.Input[pulumi.InputType['ConfigurationAggregatorOrganizationAggregationSourceArgs']] organization_aggregation_source: This object contains regions to set up the aggregator and an IAM role to retrieve organization details.
+        :param pulumi.Input[pulumi.InputType['ConfigurationAggregatorOrganizationAggregationSourceArgs']] organization_aggregation_source: Provides an organization and list of regions to be aggregated.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the configuration aggregator.
         """
         ...
@@ -184,7 +184,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
     @pulumi.getter(name="accountAggregationSources")
     def account_aggregation_sources(self) -> pulumi.Output[Optional[Sequence['outputs.ConfigurationAggregatorAccountAggregationSource']]]:
         """
-        A collection of accounts and regions.
+        Provides a list of source accounts and regions to be aggregated.
         """
         return pulumi.get(self, "account_aggregation_sources")
 
@@ -208,7 +208,7 @@ class ConfigurationAggregator(pulumi.CustomResource):
     @pulumi.getter(name="organizationAggregationSource")
     def organization_aggregation_source(self) -> pulumi.Output[Optional['outputs.ConfigurationAggregatorOrganizationAggregationSource']]:
         """
-        This object contains regions to set up the aggregator and an IAM role to retrieve organization details.
+        Provides an organization and list of regions to be aggregated.
         """
         return pulumi.get(self, "organization_aggregation_source")
 

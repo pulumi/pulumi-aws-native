@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.Ec2.SpotFleetTagSpecificationResourceType? ResourceType;
         /// <summary>
-        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// The tags.
         /// </summary>
         public readonly ImmutableArray<Outputs.SpotFleetTag> Tags;
 

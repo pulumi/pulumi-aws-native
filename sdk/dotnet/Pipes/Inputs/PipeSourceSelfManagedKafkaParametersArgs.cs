@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         public Input<string>? ConsumerGroupId { get; set; }
 
         /// <summary>
-        /// The AWS Secrets Manager secret that stores your stream credentials.
+        /// The credentials needed to access the resource.
         /// </summary>
         [Input("credentials")]
         public object? Credentials { get; set; }

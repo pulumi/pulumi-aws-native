@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The dimension type field.
+        /// The time field that is used in a computation.
         /// </summary>
         [Input("time")]
         public Input<Inputs.TemplateDimensionFieldArgs>? Time { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.TemplateMaximumMinimumComputationType> Type { get; set; } = null!;
 
         /// <summary>
-        /// The measure (metric) type field.
+        /// The value field that is used in a computation.
         /// </summary>
         [Input("value")]
         public Input<Inputs.TemplateMeasureFieldArgs>? Value { get; set; }

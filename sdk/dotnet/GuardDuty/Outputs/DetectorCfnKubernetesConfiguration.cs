@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.GuardDuty.Outputs
     public sealed class DetectorCfnKubernetesConfiguration
     {
         /// <summary>
-        /// Describes which optional data sources are enabled for a detector.
+        /// Describes whether Kubernetes audit logs are enabled as a data source for the detector.
         /// </summary>
         public readonly Outputs.DetectorCfnKubernetesAuditLogsConfiguration AuditLogs;
 

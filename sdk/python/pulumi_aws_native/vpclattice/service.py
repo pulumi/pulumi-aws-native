@@ -33,11 +33,11 @@ class ServiceArgs:
                - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
         :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) of the certificate.
         :param pulumi.Input[str] custom_domain_name: The custom domain name of the service.
-        :param pulumi.Input['ServiceDnsEntryArgs'] dns_entry: Describes the DNS information of a service.
+        :param pulumi.Input['ServiceDnsEntryArgs'] dns_entry: The DNS information of the service.
         :param pulumi.Input[str] name: The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
                
                If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Specifies a tag for a service.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the service.
         """
         if auth_type is not None:
             pulumi.set(__self__, "auth_type", auth_type)
@@ -95,7 +95,7 @@ class ServiceArgs:
     @pulumi.getter(name="dnsEntry")
     def dns_entry(self) -> Optional[pulumi.Input['ServiceDnsEntryArgs']]:
         """
-        Describes the DNS information of a service.
+        The DNS information of the service.
         """
         return pulumi.get(self, "dns_entry")
 
@@ -121,7 +121,7 @@ class ServiceArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        Specifies a tag for a service.
+        The tags for the service.
         """
         return pulumi.get(self, "tags")
 
@@ -153,11 +153,11 @@ class Service(pulumi.CustomResource):
                - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
         :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) of the certificate.
         :param pulumi.Input[str] custom_domain_name: The custom domain name of the service.
-        :param pulumi.Input[pulumi.InputType['ServiceDnsEntryArgs']] dns_entry: Describes the DNS information of a service.
+        :param pulumi.Input[pulumi.InputType['ServiceDnsEntryArgs']] dns_entry: The DNS information of the service.
         :param pulumi.Input[str] name: The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
                
                If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies a tag for a service.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the service.
         """
         ...
     @overload
@@ -301,7 +301,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="dnsEntry")
     def dns_entry(self) -> pulumi.Output[Optional['outputs.ServiceDnsEntry']]:
         """
-        Describes the DNS information of a service.
+        The DNS information of the service.
         """
         return pulumi.get(self, "dns_entry")
 
@@ -335,7 +335,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        Specifies a tag for a service.
+        The tags for the service.
         """
         return pulumi.get(self, "tags")
 

@@ -33,7 +33,7 @@ class TransitGatewayVpcAttachmentArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] add_subnet_ids: The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.
         :param pulumi.Input['OptionsPropertiesArgs'] options: The options for the transit gateway vpc attachment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] remove_subnet_ids: The IDs of one or more subnets to remove.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the VPC attachment.
         """
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
@@ -123,7 +123,7 @@ class TransitGatewayVpcAttachmentArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        The tags for the VPC attachment.
         """
         return pulumi.get(self, "tags")
 
@@ -154,7 +154,7 @@ class TransitGatewayVpcAttachment(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['OptionsPropertiesArgs']] options: The options for the transit gateway vpc attachment.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] remove_subnet_ids: The IDs of one or more subnets to remove.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The IDs of the subnets.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the VPC attachment.
         :param pulumi.Input[str] transit_gateway_id: The ID of the transit gateway.
         :param pulumi.Input[str] vpc_id: The ID of the VPC.
         """
@@ -290,7 +290,7 @@ class TransitGatewayVpcAttachment(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        The tags for the VPC attachment.
         """
         return pulumi.get(self, "tags")
 

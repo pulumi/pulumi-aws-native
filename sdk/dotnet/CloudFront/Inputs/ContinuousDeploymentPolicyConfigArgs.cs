@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         }
 
         /// <summary>
-        /// The traffic configuration of your continuous deployment.
+        /// Contains the parameters for routing production traffic from your primary to staging distributions.
         /// </summary>
         [Input("trafficConfig")]
         public Input<Inputs.ContinuousDeploymentPolicyTrafficConfigArgs>? TrafficConfig { get; set; }

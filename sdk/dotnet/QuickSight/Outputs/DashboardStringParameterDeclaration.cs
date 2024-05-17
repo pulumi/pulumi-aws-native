@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardStringParameterDeclaration
     {
         /// <summary>
-        /// The default values of the `StringParameterDeclaration` .
+        /// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
         /// </summary>
         public readonly Outputs.DashboardStringDefaultValues? DefaultValues;
         public readonly ImmutableArray<Outputs.DashboardMappedDataSetParameter> MappedDataSetParameters;

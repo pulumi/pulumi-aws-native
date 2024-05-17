@@ -60,7 +60,7 @@ export class BrowserSettings extends pulumi.CustomResource {
      */
     public readonly customerManagedKey!: pulumi.Output<string | undefined>;
     /**
-     * The tag.
+     * The tags to add to the browser settings resource. A tag is a key-value pair.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -115,7 +115,7 @@ export interface BrowserSettingsArgs {
      */
     customerManagedKey?: pulumi.Input<string>;
     /**
-     * The tag.
+     * The tags to add to the browser settings resource. A tag is a key-value pair.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

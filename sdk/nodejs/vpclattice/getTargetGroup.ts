@@ -31,9 +31,7 @@ export interface GetTargetGroupResult {
      */
     readonly arn?: string;
     /**
-     * Describes the configuration of a target group.
-     *
-     * For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in the *Amazon VPC Lattice User Guide* .
+     * The target group configuration.
      */
     readonly config?: outputs.vpclattice.TargetGroupConfig;
     /**
@@ -53,7 +51,7 @@ export interface GetTargetGroupResult {
      */
     readonly status?: enums.vpclattice.TargetGroupStatus;
     /**
-     * Specifies a tag for a target group.
+     * The tags for the target group.
      */
     readonly tags?: outputs.Tag[];
     /**

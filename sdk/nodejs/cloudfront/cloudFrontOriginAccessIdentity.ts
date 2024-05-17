@@ -66,7 +66,7 @@ export class CloudFrontOriginAccessIdentity extends pulumi.CustomResource {
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
-     * Origin access identity configuration. Send a `GET` request to the `/ *CloudFront API version* /CloudFront/identity ID/config` resource.
+     * The current configuration information for the identity.
      */
     public readonly cloudFrontOriginAccessIdentityConfig!: pulumi.Output<outputs.cloudfront.CloudFrontOriginAccessIdentityConfig>;
     /**
@@ -106,7 +106,7 @@ export class CloudFrontOriginAccessIdentity extends pulumi.CustomResource {
  */
 export interface CloudFrontOriginAccessIdentityArgs {
     /**
-     * Origin access identity configuration. Send a `GET` request to the `/ *CloudFront API version* /CloudFront/identity ID/config` resource.
+     * The current configuration information for the identity.
      */
     cloudFrontOriginAccessIdentityConfig: pulumi.Input<inputs.cloudfront.CloudFrontOriginAccessIdentityConfigArgs>;
 }

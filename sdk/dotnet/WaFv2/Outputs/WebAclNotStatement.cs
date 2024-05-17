@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     public sealed class WebAclNotStatement
     {
         /// <summary>
-        /// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+        /// The statement to negate. You can use any statement that can be nested.
         /// </summary>
         public readonly Outputs.WebAclStatement Statement;
 

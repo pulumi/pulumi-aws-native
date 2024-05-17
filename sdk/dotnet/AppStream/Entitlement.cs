@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.AppStream
         public Output<string> AppVisibility { get; private set; } = null!;
 
         /// <summary>
-        /// An attribute that belongs to an entitlement. Application entitlements work by matching a supported SAML 2.0 attribute name to a value when a user identity federates to an AppStream 2.0 SAML application.
+        /// The attributes of the entitlement.
         /// </summary>
         [Output("attributes")]
         public Output<ImmutableArray<Outputs.EntitlementAttribute>> Attributes { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.AwsNative.AppStream
         private InputList<Inputs.EntitlementAttributeArgs>? _attributes;
 
         /// <summary>
-        /// An attribute that belongs to an entitlement. Application entitlements work by matching a supported SAML 2.0 attribute name to a value when a user identity federates to an AppStream 2.0 SAML application.
+        /// The attributes of the entitlement.
         /// </summary>
         public InputList<Inputs.EntitlementAttributeArgs> Attributes
         {

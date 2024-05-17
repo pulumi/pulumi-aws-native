@@ -21,9 +21,7 @@ namespace Pulumi.AwsNative.GameLift.Outputs
         /// </summary>
         public readonly double? EstimatedInstanceWarmup;
         /// <summary>
-        /// *This data type is used with the Amazon GameLift FleetIQ and game server groups.*
-        /// 
-        /// Settings for a target-based scaling policy as part of a `GameServerGroupAutoScalingPolicy` . These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric `"PercentUtilizedGameServers"` and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
+        /// Settings for a target-based scaling policy applied to Auto Scaling group. These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric `PercentUtilizedGameServers` and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
         /// </summary>
         public readonly Outputs.GameServerGroupTargetTrackingConfiguration TargetTrackingConfiguration;
 

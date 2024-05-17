@@ -14,9 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisDateTimeHierarchy
     {
         /// <summary>
-        /// The drill down filter for the column hierarchies.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The option that determines the drill down filters for the `DateTime` hierarchy.
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDrillDownFilter> DrillDownFilters;
         /// <summary>

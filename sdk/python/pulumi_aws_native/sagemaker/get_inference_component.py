@@ -123,17 +123,11 @@ class GetInferenceComponentResult:
     @property
     @pulumi.getter(name="runtimeConfig")
     def runtime_config(self) -> Optional['outputs.InferenceComponentRuntimeConfig']:
-        """
-        Runtime settings for a model that is deployed with an inference component.
-        """
         return pulumi.get(self, "runtime_config")
 
     @property
     @pulumi.getter
     def specification(self) -> Optional['outputs.InferenceComponentSpecification']:
-        """
-        Details about the resources to deploy with this inference component, including the model, container, and compute resources.
-        """
         return pulumi.get(self, "specification")
 
     @property

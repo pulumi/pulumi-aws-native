@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.GuardDuty
         public Output<string?> DetectorId { get; private set; } = null!;
 
         /// <summary>
-        /// Represents a map of finding properties that match specified conditions and values when querying findings.
+        /// Represents the criteria to be used in the filter for querying findings.
         /// </summary>
         [Output("findingCriteria")]
         public Output<Outputs.FilterFindingCriteria> FindingCriteria { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.AwsNative.GuardDuty
         public Input<string>? DetectorId { get; set; }
 
         /// <summary>
-        /// Represents a map of finding properties that match specified conditions and values when querying findings.
+        /// Represents the criteria to be used in the filter for querying findings.
         /// </summary>
         [Input("findingCriteria", required: true)]
         public Input<Inputs.FilterFindingCriteriaArgs> FindingCriteria { get; set; } = null!;

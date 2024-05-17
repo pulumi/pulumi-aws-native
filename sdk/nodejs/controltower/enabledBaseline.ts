@@ -50,11 +50,11 @@ export class EnabledBaseline extends pulumi.CustomResource {
      */
     public /*out*/ readonly enabledBaselineIdentifier!: pulumi.Output<string>;
     /**
-     * A key-value parameter to an `EnabledBaseline` resource.
+     * Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
      */
     public readonly parameters!: pulumi.Output<outputs.controltower.EnabledBaselineParameter[] | undefined>;
     /**
-     * A key-value parameter to an `EnabledBaseline` resource.
+     * Tags associated with input to `EnableBaseline` .
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -116,11 +116,11 @@ export interface EnabledBaselineArgs {
      */
     baselineVersion: pulumi.Input<string>;
     /**
-     * A key-value parameter to an `EnabledBaseline` resource.
+     * Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.controltower.EnabledBaselineParameterArgs>[]>;
     /**
-     * A key-value parameter to an `EnabledBaseline` resource.
+     * Tags associated with input to `EnableBaseline` .
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

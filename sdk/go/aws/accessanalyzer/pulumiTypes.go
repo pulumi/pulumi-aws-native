@@ -15,9 +15,7 @@ var _ = internal.GetEnvOrDefault
 
 // An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
 type AnalyzerArchiveRule struct {
-	// The criteria that defines the archive rule.
-	//
-	// To learn about filter keys that you can use to create an archive rule, see [filter keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html) in the *User Guide* .
+	// The criteria for the rule.
 	Filter []AnalyzerFilter `pulumi:"filter"`
 	// The archive rule name
 	RuleName string `pulumi:"ruleName"`
@@ -36,9 +34,7 @@ type AnalyzerArchiveRuleInput interface {
 
 // An Access Analyzer archive rule. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.
 type AnalyzerArchiveRuleArgs struct {
-	// The criteria that defines the archive rule.
-	//
-	// To learn about filter keys that you can use to create an archive rule, see [filter keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html) in the *User Guide* .
+	// The criteria for the rule.
 	Filter AnalyzerFilterArrayInput `pulumi:"filter"`
 	// The archive rule name
 	RuleName pulumi.StringInput `pulumi:"ruleName"`
@@ -96,9 +92,7 @@ func (o AnalyzerArchiveRuleOutput) ToAnalyzerArchiveRuleOutputWithContext(ctx co
 	return o
 }
 
-// The criteria that defines the archive rule.
-//
-// To learn about filter keys that you can use to create an archive rule, see [filter keys](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html) in the *User Guide* .
+// The criteria for the rule.
 func (o AnalyzerArchiveRuleOutput) Filter() AnalyzerFilterArrayOutput {
 	return o.ApplyT(func(v AnalyzerArchiveRule) []AnalyzerFilter { return v.Filter }).(AnalyzerFilterArrayOutput)
 }
@@ -130,7 +124,7 @@ func (o AnalyzerArchiveRuleArrayOutput) Index(i pulumi.IntInput) AnalyzerArchive
 
 // The configuration for the analyzer
 type AnalyzerConfigurationProperties struct {
-	// Contains information about an unused access analyzer.
+	// Specifies the configuration of an unused access analyzer for an AWS organization or account. External access analyzers do not support any configuration.
 	UnusedAccessConfiguration *AnalyzerUnusedAccessConfiguration `pulumi:"unusedAccessConfiguration"`
 }
 
@@ -147,7 +141,7 @@ type AnalyzerConfigurationPropertiesInput interface {
 
 // The configuration for the analyzer
 type AnalyzerConfigurationPropertiesArgs struct {
-	// Contains information about an unused access analyzer.
+	// Specifies the configuration of an unused access analyzer for an AWS organization or account. External access analyzers do not support any configuration.
 	UnusedAccessConfiguration AnalyzerUnusedAccessConfigurationPtrInput `pulumi:"unusedAccessConfiguration"`
 }
 
@@ -229,7 +223,7 @@ func (o AnalyzerConfigurationPropertiesOutput) ToAnalyzerConfigurationProperties
 	}).(AnalyzerConfigurationPropertiesPtrOutput)
 }
 
-// Contains information about an unused access analyzer.
+// Specifies the configuration of an unused access analyzer for an AWS organization or account. External access analyzers do not support any configuration.
 func (o AnalyzerConfigurationPropertiesOutput) UnusedAccessConfiguration() AnalyzerUnusedAccessConfigurationPtrOutput {
 	return o.ApplyT(func(v AnalyzerConfigurationProperties) *AnalyzerUnusedAccessConfiguration {
 		return v.UnusedAccessConfiguration
@@ -260,7 +254,7 @@ func (o AnalyzerConfigurationPropertiesPtrOutput) Elem() AnalyzerConfigurationPr
 	}).(AnalyzerConfigurationPropertiesOutput)
 }
 
-// Contains information about an unused access analyzer.
+// Specifies the configuration of an unused access analyzer for an AWS organization or account. External access analyzers do not support any configuration.
 func (o AnalyzerConfigurationPropertiesPtrOutput) UnusedAccessConfiguration() AnalyzerUnusedAccessConfigurationPtrOutput {
 	return o.ApplyT(func(v *AnalyzerConfigurationProperties) *AnalyzerUnusedAccessConfiguration {
 		if v == nil {

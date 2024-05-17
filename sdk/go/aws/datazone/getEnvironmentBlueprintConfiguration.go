@@ -42,7 +42,7 @@ type LookupEnvironmentBlueprintConfigurationResult struct {
 	ManageAccessRoleArn *string `pulumi:"manageAccessRoleArn"`
 	// The ARN of the provisioning role.
 	ProvisioningRoleArn *string `pulumi:"provisioningRoleArn"`
-	// The regional parameters in the environment blueprint.
+	// The regional parameters of the environment blueprint.
 	RegionalParameters []EnvironmentBlueprintConfigurationRegionalParameter `pulumi:"regionalParameters"`
 	// The timestamp of when the environment blueprint was updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
@@ -116,7 +116,7 @@ func (o LookupEnvironmentBlueprintConfigurationResultOutput) ProvisioningRoleArn
 	return o.ApplyT(func(v LookupEnvironmentBlueprintConfigurationResult) *string { return v.ProvisioningRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The regional parameters in the environment blueprint.
+// The regional parameters of the environment blueprint.
 func (o LookupEnvironmentBlueprintConfigurationResultOutput) RegionalParameters() EnvironmentBlueprintConfigurationRegionalParameterArrayOutput {
 	return o.ApplyT(func(v LookupEnvironmentBlueprintConfigurationResult) []EnvironmentBlueprintConfigurationRegionalParameter {
 		return v.RegionalParameters

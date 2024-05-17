@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
     public sealed class ServiceSourceConfiguration
     {
         /// <summary>
-        /// Describes resources needed to authenticate access to some source repositories. The specific resource depends on the repository provider.
+        /// Describes the resources that are needed to authenticate access to some source repositories.
         /// </summary>
         public readonly Outputs.ServiceAuthenticationConfiguration? AuthenticationConfiguration;
         /// <summary>
@@ -25,11 +25,15 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
         /// </summary>
         public readonly bool? AutoDeploymentsEnabled;
         /// <summary>
-        /// Describes a source code repository.
+        /// The description of a source code repository.
+        /// 
+        /// You must provide either this member or `ImageRepository` (but not both).
         /// </summary>
         public readonly Outputs.ServiceCodeRepository? CodeRepository;
         /// <summary>
-        /// Describes a source image repository.
+        /// The description of a source image repository.
+        /// 
+        /// You must provide either this member or `CodeRepository` (but not both).
         /// </summary>
         public readonly Outputs.ServiceImageRepository? ImageRepository;
 

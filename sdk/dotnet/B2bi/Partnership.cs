@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.B2bi
         public Output<string> ProfileId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+        /// A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -160,7 +160,7 @@ namespace Pulumi.AwsNative.B2bi
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+        /// A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DataSetColumnTag
     {
         /// <summary>
-        /// Metadata that contains a description for a column.
+        /// A description for a column.
         /// </summary>
         public readonly Outputs.DataSetColumnDescription? ColumnDescription;
         /// <summary>

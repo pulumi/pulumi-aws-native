@@ -19,13 +19,13 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in requests that CloudFront sends to the origin.
+        /// The cookies from viewer requests to include in origin requests.
         /// </summary>
         [Input("cookiesConfig", required: true)]
         public Input<Inputs.OriginRequestPolicyCookiesConfigArgs> CookiesConfig { get; set; } = null!;
 
         /// <summary>
-        /// An object that determines whether any HTTP headers (and if so, which headers) are included in requests that CloudFront sends to the origin.
+        /// The HTTP headers to include in origin requests. These can include headers from viewer requests and additional headers added by CloudFront.
         /// </summary>
         [Input("headersConfig", required: true)]
         public Input<Inputs.OriginRequestPolicyHeadersConfigArgs> HeadersConfig { get; set; } = null!;
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in requests that CloudFront sends to the origin.
+        /// The URL query strings from viewer requests to include in origin requests.
         /// </summary>
         [Input("queryStringsConfig", required: true)]
         public Input<Inputs.OriginRequestPolicyQueryStringsConfigArgs> QueryStringsConfig { get; set; } = null!;

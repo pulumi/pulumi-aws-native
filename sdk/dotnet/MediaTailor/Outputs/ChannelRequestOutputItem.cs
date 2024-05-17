@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.MediaTailor.Outputs
     public sealed class ChannelRequestOutputItem
     {
         /// <summary>
-        /// Dash manifest configuration parameters.
+        /// DASH manifest configuration parameters.
         /// </summary>
         public readonly Outputs.ChannelDashPlaylistSettings? DashPlaylistSettings;
         /// <summary>

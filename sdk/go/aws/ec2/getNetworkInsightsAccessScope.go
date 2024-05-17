@@ -35,7 +35,7 @@ type LookupNetworkInsightsAccessScopeResult struct {
 	NetworkInsightsAccessScopeArn *string `pulumi:"networkInsightsAccessScopeArn"`
 	// The ID of the Network Access Scope.
 	NetworkInsightsAccessScopeId *string `pulumi:"networkInsightsAccessScopeId"`
-	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	// The tags.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The last updated date.
 	UpdatedDate *string `pulumi:"updatedDate"`
@@ -92,7 +92,7 @@ func (o LookupNetworkInsightsAccessScopeResultOutput) NetworkInsightsAccessScope
 	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeResult) *string { return v.NetworkInsightsAccessScopeId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+// The tags.
 func (o LookupNetworkInsightsAccessScopeResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAccessScopeResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

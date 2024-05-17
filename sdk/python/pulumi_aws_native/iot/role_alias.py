@@ -25,7 +25,9 @@ class RoleAliasArgs:
         :param pulumi.Input[str] role_arn: The role ARN.
         :param pulumi.Input[int] credential_duration_seconds: The number of seconds for which the credential is valid.
         :param pulumi.Input[str] role_alias: The role alias.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of key/value pairs that are used to manage the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         pulumi.set(__self__, "role_arn", role_arn)
         if credential_duration_seconds is not None:
@@ -75,7 +77,9 @@ class RoleAliasArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A set of key/value pairs that are used to manage the resource.
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         return pulumi.get(self, "tags")
 
@@ -102,7 +106,9 @@ class RoleAlias(pulumi.CustomResource):
         :param pulumi.Input[int] credential_duration_seconds: The number of seconds for which the credential is valid.
         :param pulumi.Input[str] role_alias: The role alias.
         :param pulumi.Input[str] role_arn: The role ARN.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A set of key/value pairs that are used to manage the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         ...
     @overload
@@ -215,7 +221,9 @@ class RoleAlias(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A set of key/value pairs that are used to manage the resource.
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         return pulumi.get(self, "tags")
 

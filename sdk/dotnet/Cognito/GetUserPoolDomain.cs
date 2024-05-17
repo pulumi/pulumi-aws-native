@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         public readonly string? CloudFrontDistribution;
         /// <summary>
-        /// The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+        /// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
         /// </summary>
         public readonly Outputs.UserPoolDomainCustomDomainConfigType? CustomDomainConfig;
         /// <summary>

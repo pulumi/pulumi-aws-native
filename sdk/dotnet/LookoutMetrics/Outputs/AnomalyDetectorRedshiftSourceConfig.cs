@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.LookoutMetrics.Outputs
         /// </summary>
         public readonly string TableName;
         /// <summary>
-        /// Contains configuration information about the Amazon Virtual Private Cloud (VPC).
+        /// Contains information about the Amazon Virtual Private Cloud (VPC) configuration.
         /// </summary>
         public readonly Outputs.AnomalyDetectorVpcConfiguration VpcConfiguration;
 

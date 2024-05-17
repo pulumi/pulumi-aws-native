@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<string> MonitoringScheduleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Configures the monitoring schedule and defines the monitoring job.
+        /// The configuration object that specifies the monitoring schedule and defines the monitoring job.
         /// </summary>
         [Output("monitoringScheduleConfig")]
         public Output<Outputs.MonitoringScheduleConfig> MonitoringScheduleConfig { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Input<Inputs.MonitoringScheduleMonitoringExecutionSummaryArgs>? LastMonitoringExecutionSummary { get; set; }
 
         /// <summary>
-        /// Configures the monitoring schedule and defines the monitoring job.
+        /// The configuration object that specifies the monitoring schedule and defines the monitoring job.
         /// </summary>
         [Input("monitoringScheduleConfig", required: true)]
         public Input<Inputs.MonitoringScheduleConfigArgs> MonitoringScheduleConfig { get; set; } = null!;

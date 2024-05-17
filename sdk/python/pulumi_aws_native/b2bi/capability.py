@@ -26,11 +26,11 @@ class CapabilityArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Capability resource.
-        :param pulumi.Input['CapabilityConfigurationPropertiesArgs'] configuration: A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
+        :param pulumi.Input['CapabilityConfigurationPropertiesArgs'] configuration: Specifies a structure that contains the details for a capability.
         :param pulumi.Input['CapabilityType'] type: Returns the type of the capability. Currently, only `edi` is supported.
-        :param pulumi.Input[Sequence[pulumi.Input['CapabilityS3LocationArgs']]] instructions_documents: Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
+        :param pulumi.Input[Sequence[pulumi.Input['CapabilityS3LocationArgs']]] instructions_documents: Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
         :param pulumi.Input[str] name: The display name of the capability.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
         """
         pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "type", type)
@@ -45,7 +45,7 @@ class CapabilityArgs:
     @pulumi.getter
     def configuration(self) -> pulumi.Input['CapabilityConfigurationPropertiesArgs']:
         """
-        A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
+        Specifies a structure that contains the details for a capability.
         """
         return pulumi.get(self, "configuration")
 
@@ -69,7 +69,7 @@ class CapabilityArgs:
     @pulumi.getter(name="instructionsDocuments")
     def instructions_documents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityS3LocationArgs']]]]:
         """
-        Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
+        Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
         """
         return pulumi.get(self, "instructions_documents")
 
@@ -93,7 +93,7 @@ class CapabilityArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
         """
         return pulumi.get(self, "tags")
 
@@ -118,10 +118,10 @@ class Capability(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CapabilityConfigurationPropertiesArgs']] configuration: A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapabilityS3LocationArgs']]]] instructions_documents: Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
+        :param pulumi.Input[pulumi.InputType['CapabilityConfigurationPropertiesArgs']] configuration: Specifies a structure that contains the details for a capability.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapabilityS3LocationArgs']]]] instructions_documents: Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
         :param pulumi.Input[str] name: The display name of the capability.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
         :param pulumi.Input['CapabilityType'] type: Returns the type of the capability. Currently, only `edi` is supported.
         """
         ...
@@ -230,7 +230,7 @@ class Capability(pulumi.CustomResource):
     @pulumi.getter
     def configuration(self) -> pulumi.Output['outputs.CapabilityConfigurationProperties']:
         """
-        A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
+        Specifies a structure that contains the details for a capability.
         """
         return pulumi.get(self, "configuration")
 
@@ -246,7 +246,7 @@ class Capability(pulumi.CustomResource):
     @pulumi.getter(name="instructionsDocuments")
     def instructions_documents(self) -> pulumi.Output[Optional[Sequence['outputs.CapabilityS3Location']]]:
         """
-        Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
+        Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
         """
         return pulumi.get(self, "instructions_documents")
 
@@ -270,7 +270,7 @@ class Capability(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
         """
         return pulumi.get(self, "tags")
 

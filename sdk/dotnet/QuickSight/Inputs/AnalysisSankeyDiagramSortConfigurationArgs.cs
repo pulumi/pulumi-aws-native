@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class AnalysisSankeyDiagramSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of destination nodes that are displayed in a sankey diagram.
         /// </summary>
         [Input("destinationItemsLimit")]
         public Input<Inputs.AnalysisItemsLimitConfigurationArgs>? DestinationItemsLimit { get; set; }
 
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of source nodes that are displayed in a sankey diagram.
         /// </summary>
         [Input("sourceItemsLimit")]
         public Input<Inputs.AnalysisItemsLimitConfigurationArgs>? SourceItemsLimit { get; set; }

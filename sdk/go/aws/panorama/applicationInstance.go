@@ -35,9 +35,9 @@ type ApplicationInstance struct {
 	HealthStatus ApplicationInstanceHealthStatusOutput `pulumi:"healthStatus"`
 	// The application instance's last updated time.
 	LastUpdatedTime pulumi.IntOutput `pulumi:"lastUpdatedTime"`
-	// Parameter overrides for an application instance. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the overrides document.
+	// Setting overrides for the application manifest.
 	ManifestOverridesPayload ApplicationInstanceManifestOverridesPayloadPtrOutput `pulumi:"manifestOverridesPayload"`
-	// A application verion's manifest file. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the application manifest ( `graph.json` ). This file is located in the `graphs` folder in your application source.
+	// The application's manifest document.
 	ManifestPayload ApplicationInstanceManifestPayloadOutput `pulumi:"manifestPayload"`
 	// A name for the application instance.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
@@ -113,9 +113,9 @@ type applicationInstanceArgs struct {
 	DefaultRuntimeContextDevice string `pulumi:"defaultRuntimeContextDevice"`
 	// A description for the application instance.
 	Description *string `pulumi:"description"`
-	// Parameter overrides for an application instance. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the overrides document.
+	// Setting overrides for the application manifest.
 	ManifestOverridesPayload *ApplicationInstanceManifestOverridesPayload `pulumi:"manifestOverridesPayload"`
-	// A application verion's manifest file. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the application manifest ( `graph.json` ). This file is located in the `graphs` folder in your application source.
+	// The application's manifest document.
 	ManifestPayload ApplicationInstanceManifestPayload `pulumi:"manifestPayload"`
 	// A name for the application instance.
 	Name *string `pulumi:"name"`
@@ -133,9 +133,9 @@ type ApplicationInstanceArgs struct {
 	DefaultRuntimeContextDevice pulumi.StringInput
 	// A description for the application instance.
 	Description pulumi.StringPtrInput
-	// Parameter overrides for an application instance. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the overrides document.
+	// Setting overrides for the application manifest.
 	ManifestOverridesPayload ApplicationInstanceManifestOverridesPayloadPtrInput
-	// A application verion's manifest file. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the application manifest ( `graph.json` ). This file is located in the `graphs` folder in your application source.
+	// The application's manifest document.
 	ManifestPayload ApplicationInstanceManifestPayloadInput
 	// A name for the application instance.
 	Name pulumi.StringPtrInput
@@ -227,14 +227,14 @@ func (o ApplicationInstanceOutput) LastUpdatedTime() pulumi.IntOutput {
 	return o.ApplyT(func(v *ApplicationInstance) pulumi.IntOutput { return v.LastUpdatedTime }).(pulumi.IntOutput)
 }
 
-// Parameter overrides for an application instance. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the overrides document.
+// Setting overrides for the application manifest.
 func (o ApplicationInstanceOutput) ManifestOverridesPayload() ApplicationInstanceManifestOverridesPayloadPtrOutput {
 	return o.ApplyT(func(v *ApplicationInstance) ApplicationInstanceManifestOverridesPayloadPtrOutput {
 		return v.ManifestOverridesPayload
 	}).(ApplicationInstanceManifestOverridesPayloadPtrOutput)
 }
 
-// A application verion's manifest file. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the application manifest ( `graph.json` ). This file is located in the `graphs` folder in your application source.
+// The application's manifest document.
 func (o ApplicationInstanceOutput) ManifestPayload() ApplicationInstanceManifestPayloadOutput {
 	return o.ApplyT(func(v *ApplicationInstance) ApplicationInstanceManifestPayloadOutput { return v.ManifestPayload }).(ApplicationInstanceManifestPayloadOutput)
 }

@@ -21,7 +21,7 @@ type Route struct {
 	ApplicationIdentifier pulumi.StringOutput `pulumi:"applicationIdentifier"`
 	// The Amazon Resource Name (ARN) of the route.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The configuration for the default route type.
+	// Configuration for the default route type.
 	DefaultRoute RouteDefaultRouteInputPtrOutput `pulumi:"defaultRoute"`
 	// The unique identifier of the environment.
 	EnvironmentIdentifier pulumi.StringOutput `pulumi:"environmentIdentifier"`
@@ -104,7 +104,7 @@ func (RouteState) ElementType() reflect.Type {
 type routeArgs struct {
 	// The unique identifier of the application.
 	ApplicationIdentifier string `pulumi:"applicationIdentifier"`
-	// The configuration for the default route type.
+	// Configuration for the default route type.
 	DefaultRoute *RouteDefaultRouteInput `pulumi:"defaultRoute"`
 	// The unique identifier of the environment.
 	EnvironmentIdentifier string `pulumi:"environmentIdentifier"`
@@ -122,7 +122,7 @@ type routeArgs struct {
 type RouteArgs struct {
 	// The unique identifier of the application.
 	ApplicationIdentifier pulumi.StringInput
-	// The configuration for the default route type.
+	// Configuration for the default route type.
 	DefaultRoute RouteDefaultRouteInputPtrInput
 	// The unique identifier of the environment.
 	EnvironmentIdentifier pulumi.StringInput
@@ -183,7 +183,7 @@ func (o RouteOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The configuration for the default route type.
+// Configuration for the default route type.
 func (o RouteOutput) DefaultRoute() RouteDefaultRouteInputPtrOutput {
 	return o.ApplyT(func(v *Route) RouteDefaultRouteInputPtrOutput { return v.DefaultRoute }).(RouteDefaultRouteInputPtrOutput)
 }

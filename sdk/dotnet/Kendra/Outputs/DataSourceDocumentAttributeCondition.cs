@@ -22,7 +22,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// </summary>
         public readonly string ConditionDocumentAttributeKey;
         /// <summary>
-        /// The value of a document attribute. You can only provide one value for a document attribute.
+        /// The value used by the operator.
+        /// 
+        /// For example, you can specify the value 'financial' for strings in the 'Source_URI' field that partially match or contain this value.
         /// </summary>
         public readonly Outputs.DataSourceDocumentAttributeValue? ConditionOnValue;
         /// <summary>

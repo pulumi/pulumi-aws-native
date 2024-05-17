@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.TopicCellValueSynonymArgs>? _cellValueSynonyms;
 
         /// <summary>
-        /// A structure that represents the cell value synonym.
+        /// The other names or aliases for the calculated field cell value.
         /// </summary>
         public InputList<Inputs.TopicCellValueSynonymArgs> CellValueSynonyms
         {
@@ -73,13 +73,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.TopicColumnDataRole>? ColumnDataRole { get; set; }
 
         /// <summary>
-        /// The order in which data is displayed for the column when it's used in a comparative context.
+        /// The order in which data is displayed for the calculated field when it's used in a comparative context.
         /// </summary>
         [Input("comparativeOrder")]
         public Input<Inputs.TopicComparativeOrderArgs>? ComparativeOrder { get; set; }
 
         /// <summary>
-        /// A structure that represents a default formatting definition.
+        /// The default formatting definition.
         /// </summary>
         [Input("defaultFormatting")]
         public Input<Inputs.TopicDefaultFormattingArgs>? DefaultFormatting { get; set; }
@@ -127,7 +127,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// A structure that represents a semantic type.
+        /// The semantic type.
         /// </summary>
         [Input("semanticType")]
         public Input<Inputs.TopicSemanticTypeArgs>? SemanticType { get; set; }

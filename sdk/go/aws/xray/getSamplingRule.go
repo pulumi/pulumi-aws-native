@@ -32,7 +32,7 @@ type LookupSamplingRuleResult struct {
 	// The sampling rule ARN that was created or updated.
 	RuleArn  *string `pulumi:"ruleArn"`
 	RuleName *string `pulumi:"ruleName"`
-	// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+	// The sampling rule to be created or updated.
 	SamplingRule       *SamplingRuleType   `pulumi:"samplingRule"`
 	SamplingRuleRecord *SamplingRuleRecord `pulumi:"samplingRuleRecord"`
 	SamplingRuleUpdate *SamplingRuleUpdate `pulumi:"samplingRuleUpdate"`
@@ -85,7 +85,7 @@ func (o LookupSamplingRuleResultOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSamplingRuleResult) *string { return v.RuleName }).(pulumi.StringPtrOutput)
 }
 
-// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+// The sampling rule to be created or updated.
 func (o LookupSamplingRuleResultOutput) SamplingRule() SamplingRuleTypePtrOutput {
 	return o.ApplyT(func(v LookupSamplingRuleResult) *SamplingRuleType { return v.SamplingRule }).(SamplingRuleTypePtrOutput)
 }

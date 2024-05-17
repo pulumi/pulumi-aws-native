@@ -39,15 +39,15 @@ export interface GetEventTypeResult {
      */
     readonly description?: string;
     /**
-     * The entity type details.
+     * The event type entity types.
      */
     readonly entityTypes?: outputs.frauddetector.EventTypeEntityType[];
     /**
-     * The variables associated with this event type.
+     * The event type event variables.
      */
     readonly eventVariables?: outputs.frauddetector.EventTypeEventVariable[];
     /**
-     * The label associated with the event type.
+     * The event type labels.
      */
     readonly labels?: outputs.frauddetector.EventTypeLabel[];
     /**

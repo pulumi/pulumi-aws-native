@@ -78,7 +78,7 @@ export class UserSettings extends pulumi.CustomResource {
      */
     public readonly printAllowed!: pulumi.Output<enums.workspacesweb.UserSettingsEnabledType>;
     /**
-     * The tag.
+     * The tags to add to the user settings resource. A tag is a key-value pair.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -192,7 +192,7 @@ export interface UserSettingsArgs {
      */
     printAllowed: pulumi.Input<enums.workspacesweb.UserSettingsEnabledType>;
     /**
-     * The tag.
+     * The tags to add to the user settings resource. A tag is a key-value pair.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

@@ -14,7 +14,11 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     public sealed class SpotFleetInstanceRequirementsRequest
     {
         /// <summary>
-        /// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance. To exclude accelerator-enabled instance types, set `Max` to `0` .
+        /// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
+        /// 
+        /// To exclude accelerator-enabled instance types, set `Max` to `0` .
+        /// 
+        /// Default: No minimum or maximum limits
         /// </summary>
         public readonly Outputs.SpotFleetAcceleratorCountRequest? AcceleratorCount;
         /// <summary>
@@ -50,6 +54,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         public readonly ImmutableArray<Pulumi.AwsNative.Ec2.SpotFleetInstanceRequirementsRequestAcceleratorNamesItem> AcceleratorNames;
         /// <summary>
         /// The minimum and maximum amount of total accelerator memory, in MiB.
+        /// 
+        /// Default: No minimum or maximum limits
         /// </summary>
         public readonly Outputs.SpotFleetAcceleratorTotalMemoryMiBRequest? AcceleratorTotalMemoryMiB;
         /// <summary>
@@ -86,6 +92,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         public readonly Pulumi.AwsNative.Ec2.SpotFleetInstanceRequirementsRequestBareMetal? BareMetal;
         /// <summary>
         /// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
+        /// 
+        /// Default: No minimum or maximum limits
         /// </summary>
         public readonly Outputs.SpotFleetBaselineEbsBandwidthMbpsRequest? BaselineEbsBandwidthMbps;
         /// <summary>
@@ -163,6 +171,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         public readonly int? MaxSpotPriceAsPercentageOfOptimalOnDemandPrice;
         /// <summary>
         /// The minimum and maximum amount of memory per vCPU, in GiB.
+        /// 
+        /// Default: No minimum or maximum limits
         /// </summary>
         public readonly Outputs.SpotFleetMemoryGiBPerVCpuRequest? MemoryGiBPerVCpu;
         /// <summary>
@@ -177,6 +187,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         public readonly Outputs.SpotFleetNetworkBandwidthGbpsRequest? NetworkBandwidthGbps;
         /// <summary>
         /// The minimum and maximum number of network interfaces.
+        /// 
+        /// Default: No minimum or maximum limits
         /// </summary>
         public readonly Outputs.SpotFleetNetworkInterfaceCountRequest? NetworkInterfaceCount;
         /// <summary>
@@ -217,6 +229,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         public readonly int? SpotMaxPricePercentageOverLowestPrice;
         /// <summary>
         /// The minimum and maximum amount of total local storage, in GB.
+        /// 
+        /// Default: No minimum or maximum limits
         /// </summary>
         public readonly Outputs.SpotFleetTotalLocalStorageGbRequest? TotalLocalStorageGb;
         /// <summary>

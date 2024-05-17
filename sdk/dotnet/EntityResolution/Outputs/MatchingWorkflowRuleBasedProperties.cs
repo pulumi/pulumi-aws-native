@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.EntityResolution.MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel AttributeMatchingModel;
         /// <summary>
-        /// An object containing `RuleName` , and `MatchingKeys` .
+        /// A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
         /// </summary>
         public readonly ImmutableArray<Outputs.MatchingWorkflowRule> Rules;
 

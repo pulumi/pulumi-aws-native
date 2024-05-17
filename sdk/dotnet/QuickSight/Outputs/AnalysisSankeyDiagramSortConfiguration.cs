@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisSankeyDiagramSortConfiguration
     {
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of destination nodes that are displayed in a sankey diagram.
         /// </summary>
         public readonly Outputs.AnalysisItemsLimitConfiguration? DestinationItemsLimit;
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of source nodes that are displayed in a sankey diagram.
         /// </summary>
         public readonly Outputs.AnalysisItemsLimitConfiguration? SourceItemsLimit;
         /// <summary>

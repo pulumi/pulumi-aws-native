@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// </summary>
         public readonly Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType? PrintAllowed;
         /// <summary>
-        /// The tag.
+        /// The tags to add to the user settings resource. A tag is a key-value pair.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>

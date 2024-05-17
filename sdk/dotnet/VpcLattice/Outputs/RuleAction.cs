@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
     public sealed class RuleAction
     {
         /// <summary>
-        /// Describes an action that returns a custom HTTP response.
+        /// The fixed response action. The rule returns a custom HTTP response.
         /// </summary>
         public readonly Outputs.RuleFixedResponse? FixedResponse;
         /// <summary>

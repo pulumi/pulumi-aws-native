@@ -400,11 +400,11 @@ type NamespaceTag struct {
 type WorkgroupType struct {
 	// The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
 	BaseCapacity *int `pulumi:"baseCapacity"`
-	// A array of parameters to set for more control over a serverless database.
+	// An array of parameters to set for advanced control over a database. The options are `auto_mv` , `datestyle` , `enable_case_sensitive_identifier` , `enable_user_activity_logging` , `query_group` , `search_path` , `require_ssl` , `use_fips_ssl` , and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see [Query monitoring metrics for Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) .
 	ConfigParameters []WorkgroupConfigParameter `pulumi:"configParameters"`
 	// The creation date of the workgroup.
 	CreationDate *string `pulumi:"creationDate"`
-	// The VPC endpoint object.
+	// The endpoint that is created from the workgroup.
 	Endpoint *WorkgroupEndpoint `pulumi:"endpoint"`
 	// The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
 	EnhancedVpcRouting *bool `pulumi:"enhancedVpcRouting"`
@@ -447,7 +447,7 @@ func (o WorkgroupTypeOutput) BaseCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkgroupType) *int { return v.BaseCapacity }).(pulumi.IntPtrOutput)
 }
 
-// A array of parameters to set for more control over a serverless database.
+// An array of parameters to set for advanced control over a database. The options are `auto_mv` , `datestyle` , `enable_case_sensitive_identifier` , `enable_user_activity_logging` , `query_group` , `search_path` , `require_ssl` , `use_fips_ssl` , and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see [Query monitoring metrics for Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) .
 func (o WorkgroupTypeOutput) ConfigParameters() WorkgroupConfigParameterArrayOutput {
 	return o.ApplyT(func(v WorkgroupType) []WorkgroupConfigParameter { return v.ConfigParameters }).(WorkgroupConfigParameterArrayOutput)
 }
@@ -457,7 +457,7 @@ func (o WorkgroupTypeOutput) CreationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupType) *string { return v.CreationDate }).(pulumi.StringPtrOutput)
 }
 
-// The VPC endpoint object.
+// The endpoint that is created from the workgroup.
 func (o WorkgroupTypeOutput) Endpoint() WorkgroupEndpointPtrOutput {
 	return o.ApplyT(func(v WorkgroupType) *WorkgroupEndpoint { return v.Endpoint }).(WorkgroupEndpointPtrOutput)
 }
@@ -546,7 +546,7 @@ func (o WorkgroupTypePtrOutput) BaseCapacity() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// A array of parameters to set for more control over a serverless database.
+// An array of parameters to set for advanced control over a database. The options are `auto_mv` , `datestyle` , `enable_case_sensitive_identifier` , `enable_user_activity_logging` , `query_group` , `search_path` , `require_ssl` , `use_fips_ssl` , and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see [Query monitoring metrics for Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) .
 func (o WorkgroupTypePtrOutput) ConfigParameters() WorkgroupConfigParameterArrayOutput {
 	return o.ApplyT(func(v *WorkgroupType) []WorkgroupConfigParameter {
 		if v == nil {
@@ -566,7 +566,7 @@ func (o WorkgroupTypePtrOutput) CreationDate() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The VPC endpoint object.
+// The endpoint that is created from the workgroup.
 func (o WorkgroupTypePtrOutput) Endpoint() WorkgroupEndpointPtrOutput {
 	return o.ApplyT(func(v *WorkgroupType) *WorkgroupEndpoint {
 		if v == nil {
@@ -787,7 +787,7 @@ type WorkgroupEndpoint struct {
 	Address *string `pulumi:"address"`
 	// The port that Amazon Redshift Serverless listens on.
 	Port *int `pulumi:"port"`
-	// The connection endpoint for connecting to Amazon Redshift Serverless through the proxy.
+	// An array of `VpcEndpoint` objects.
 	VpcEndpoints []WorkgroupVpcEndpoint `pulumi:"vpcEndpoints"`
 }
 
@@ -815,7 +815,7 @@ func (o WorkgroupEndpointOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkgroupEndpoint) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The connection endpoint for connecting to Amazon Redshift Serverless through the proxy.
+// An array of `VpcEndpoint` objects.
 func (o WorkgroupEndpointOutput) VpcEndpoints() WorkgroupVpcEndpointArrayOutput {
 	return o.ApplyT(func(v WorkgroupEndpoint) []WorkgroupVpcEndpoint { return v.VpcEndpoints }).(WorkgroupVpcEndpointArrayOutput)
 }
@@ -864,7 +864,7 @@ func (o WorkgroupEndpointPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The connection endpoint for connecting to Amazon Redshift Serverless through the proxy.
+// An array of `VpcEndpoint` objects.
 func (o WorkgroupEndpointPtrOutput) VpcEndpoints() WorkgroupVpcEndpointArrayOutput {
 	return o.ApplyT(func(v *WorkgroupEndpoint) []WorkgroupVpcEndpoint {
 		if v == nil {
@@ -947,7 +947,7 @@ type WorkgroupTag struct {
 }
 
 type WorkgroupVpcEndpoint struct {
-	// Contains information about a network interface in an Amazon Redshift Serverless managed VPC endpoint.
+	// One or more network interfaces of the endpoint. Also known as an interface endpoint.
 	NetworkInterfaces []WorkgroupNetworkInterface `pulumi:"networkInterfaces"`
 	// The connection endpoint ID for connecting to Amazon Redshift Serverless.
 	VpcEndpointId *string `pulumi:"vpcEndpointId"`
@@ -969,7 +969,7 @@ func (o WorkgroupVpcEndpointOutput) ToWorkgroupVpcEndpointOutputWithContext(ctx 
 	return o
 }
 
-// Contains information about a network interface in an Amazon Redshift Serverless managed VPC endpoint.
+// One or more network interfaces of the endpoint. Also known as an interface endpoint.
 func (o WorkgroupVpcEndpointOutput) NetworkInterfaces() WorkgroupNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v WorkgroupVpcEndpoint) []WorkgroupNetworkInterface { return v.NetworkInterfaces }).(WorkgroupNetworkInterfaceArrayOutput)
 }

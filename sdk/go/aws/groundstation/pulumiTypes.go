@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ConfigAntennaDownlinkConfig struct {
-	// Defines a spectrum.
+	// Defines the spectrum configuration.
 	SpectrumConfig *ConfigSpectrumConfig `pulumi:"spectrumConfig"`
 }
 
@@ -30,7 +30,7 @@ type ConfigAntennaDownlinkConfigInput interface {
 }
 
 type ConfigAntennaDownlinkConfigArgs struct {
-	// Defines a spectrum.
+	// Defines the spectrum configuration.
 	SpectrumConfig ConfigSpectrumConfigPtrInput `pulumi:"spectrumConfig"`
 }
 
@@ -111,7 +111,7 @@ func (o ConfigAntennaDownlinkConfigOutput) ToConfigAntennaDownlinkConfigPtrOutpu
 	}).(ConfigAntennaDownlinkConfigPtrOutput)
 }
 
-// Defines a spectrum.
+// Defines the spectrum configuration.
 func (o ConfigAntennaDownlinkConfigOutput) SpectrumConfig() ConfigSpectrumConfigPtrOutput {
 	return o.ApplyT(func(v ConfigAntennaDownlinkConfig) *ConfigSpectrumConfig { return v.SpectrumConfig }).(ConfigSpectrumConfigPtrOutput)
 }
@@ -140,7 +140,7 @@ func (o ConfigAntennaDownlinkConfigPtrOutput) Elem() ConfigAntennaDownlinkConfig
 	}).(ConfigAntennaDownlinkConfigOutput)
 }
 
-// Defines a spectrum.
+// Defines the spectrum configuration.
 func (o ConfigAntennaDownlinkConfigPtrOutput) SpectrumConfig() ConfigSpectrumConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigAntennaDownlinkConfig) *ConfigSpectrumConfig {
 		if v == nil {
@@ -151,11 +151,11 @@ func (o ConfigAntennaDownlinkConfigPtrOutput) SpectrumConfig() ConfigSpectrumCon
 }
 
 type ConfigAntennaDownlinkDemodDecodeConfig struct {
-	// Defines decoding settings.
+	// Defines how the RF signal will be decoded.
 	DecodeConfig *ConfigDecodeConfig `pulumi:"decodeConfig"`
-	// Defines demodulation settings.
+	// Defines how the RF signal will be demodulated.
 	DemodulationConfig *ConfigDemodulationConfig `pulumi:"demodulationConfig"`
-	// Defines a spectrum.
+	// Defines the spectrum configuration.
 	SpectrumConfig *ConfigSpectrumConfig `pulumi:"spectrumConfig"`
 }
 
@@ -171,11 +171,11 @@ type ConfigAntennaDownlinkDemodDecodeConfigInput interface {
 }
 
 type ConfigAntennaDownlinkDemodDecodeConfigArgs struct {
-	// Defines decoding settings.
+	// Defines how the RF signal will be decoded.
 	DecodeConfig ConfigDecodeConfigPtrInput `pulumi:"decodeConfig"`
-	// Defines demodulation settings.
+	// Defines how the RF signal will be demodulated.
 	DemodulationConfig ConfigDemodulationConfigPtrInput `pulumi:"demodulationConfig"`
-	// Defines a spectrum.
+	// Defines the spectrum configuration.
 	SpectrumConfig ConfigSpectrumConfigPtrInput `pulumi:"spectrumConfig"`
 }
 
@@ -256,17 +256,17 @@ func (o ConfigAntennaDownlinkDemodDecodeConfigOutput) ToConfigAntennaDownlinkDem
 	}).(ConfigAntennaDownlinkDemodDecodeConfigPtrOutput)
 }
 
-// Defines decoding settings.
+// Defines how the RF signal will be decoded.
 func (o ConfigAntennaDownlinkDemodDecodeConfigOutput) DecodeConfig() ConfigDecodeConfigPtrOutput {
 	return o.ApplyT(func(v ConfigAntennaDownlinkDemodDecodeConfig) *ConfigDecodeConfig { return v.DecodeConfig }).(ConfigDecodeConfigPtrOutput)
 }
 
-// Defines demodulation settings.
+// Defines how the RF signal will be demodulated.
 func (o ConfigAntennaDownlinkDemodDecodeConfigOutput) DemodulationConfig() ConfigDemodulationConfigPtrOutput {
 	return o.ApplyT(func(v ConfigAntennaDownlinkDemodDecodeConfig) *ConfigDemodulationConfig { return v.DemodulationConfig }).(ConfigDemodulationConfigPtrOutput)
 }
 
-// Defines a spectrum.
+// Defines the spectrum configuration.
 func (o ConfigAntennaDownlinkDemodDecodeConfigOutput) SpectrumConfig() ConfigSpectrumConfigPtrOutput {
 	return o.ApplyT(func(v ConfigAntennaDownlinkDemodDecodeConfig) *ConfigSpectrumConfig { return v.SpectrumConfig }).(ConfigSpectrumConfigPtrOutput)
 }
@@ -295,7 +295,7 @@ func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) Elem() ConfigAntennaDow
 	}).(ConfigAntennaDownlinkDemodDecodeConfigOutput)
 }
 
-// Defines decoding settings.
+// Defines how the RF signal will be decoded.
 func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) DecodeConfig() ConfigDecodeConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigAntennaDownlinkDemodDecodeConfig) *ConfigDecodeConfig {
 		if v == nil {
@@ -305,7 +305,7 @@ func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) DecodeConfig() ConfigDe
 	}).(ConfigDecodeConfigPtrOutput)
 }
 
-// Defines demodulation settings.
+// Defines how the RF signal will be demodulated.
 func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) DemodulationConfig() ConfigDemodulationConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigAntennaDownlinkDemodDecodeConfig) *ConfigDemodulationConfig {
 		if v == nil {
@@ -315,7 +315,7 @@ func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) DemodulationConfig() Co
 	}).(ConfigDemodulationConfigPtrOutput)
 }
 
-// Defines a spectrum.
+// Defines the spectrum configuration.
 func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) SpectrumConfig() ConfigSpectrumConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigAntennaDownlinkDemodDecodeConfig) *ConfigSpectrumConfig {
 		if v == nil {
@@ -326,9 +326,9 @@ func (o ConfigAntennaDownlinkDemodDecodeConfigPtrOutput) SpectrumConfig() Config
 }
 
 type ConfigAntennaUplinkConfig struct {
-	// Defines a uplink spectrum.
+	// Defines the spectrum configuration.
 	SpectrumConfig *ConfigUplinkSpectrumConfig `pulumi:"spectrumConfig"`
-	// Defines an equivalent isotropically radiated power (EIRP).
+	// The equivalent isotropically radiated power (EIRP) to use for uplink transmissions. Valid values are between 20.0 to 50.0 dBW.
 	TargetEirp *ConfigEirp `pulumi:"targetEirp"`
 	// Whether or not uplink transmit is disabled.
 	TransmitDisabled *bool `pulumi:"transmitDisabled"`
@@ -346,9 +346,9 @@ type ConfigAntennaUplinkConfigInput interface {
 }
 
 type ConfigAntennaUplinkConfigArgs struct {
-	// Defines a uplink spectrum.
+	// Defines the spectrum configuration.
 	SpectrumConfig ConfigUplinkSpectrumConfigPtrInput `pulumi:"spectrumConfig"`
-	// Defines an equivalent isotropically radiated power (EIRP).
+	// The equivalent isotropically radiated power (EIRP) to use for uplink transmissions. Valid values are between 20.0 to 50.0 dBW.
 	TargetEirp ConfigEirpPtrInput `pulumi:"targetEirp"`
 	// Whether or not uplink transmit is disabled.
 	TransmitDisabled pulumi.BoolPtrInput `pulumi:"transmitDisabled"`
@@ -431,12 +431,12 @@ func (o ConfigAntennaUplinkConfigOutput) ToConfigAntennaUplinkConfigPtrOutputWit
 	}).(ConfigAntennaUplinkConfigPtrOutput)
 }
 
-// Defines a uplink spectrum.
+// Defines the spectrum configuration.
 func (o ConfigAntennaUplinkConfigOutput) SpectrumConfig() ConfigUplinkSpectrumConfigPtrOutput {
 	return o.ApplyT(func(v ConfigAntennaUplinkConfig) *ConfigUplinkSpectrumConfig { return v.SpectrumConfig }).(ConfigUplinkSpectrumConfigPtrOutput)
 }
 
-// Defines an equivalent isotropically radiated power (EIRP).
+// The equivalent isotropically radiated power (EIRP) to use for uplink transmissions. Valid values are between 20.0 to 50.0 dBW.
 func (o ConfigAntennaUplinkConfigOutput) TargetEirp() ConfigEirpPtrOutput {
 	return o.ApplyT(func(v ConfigAntennaUplinkConfig) *ConfigEirp { return v.TargetEirp }).(ConfigEirpPtrOutput)
 }
@@ -470,7 +470,7 @@ func (o ConfigAntennaUplinkConfigPtrOutput) Elem() ConfigAntennaUplinkConfigOutp
 	}).(ConfigAntennaUplinkConfigOutput)
 }
 
-// Defines a uplink spectrum.
+// Defines the spectrum configuration.
 func (o ConfigAntennaUplinkConfigPtrOutput) SpectrumConfig() ConfigUplinkSpectrumConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigAntennaUplinkConfig) *ConfigUplinkSpectrumConfig {
 		if v == nil {
@@ -480,7 +480,7 @@ func (o ConfigAntennaUplinkConfigPtrOutput) SpectrumConfig() ConfigUplinkSpectru
 	}).(ConfigUplinkSpectrumConfigPtrOutput)
 }
 
-// Defines an equivalent isotropically radiated power (EIRP).
+// The equivalent isotropically radiated power (EIRP) to use for uplink transmissions. Valid values are between 20.0 to 50.0 dBW.
 func (o ConfigAntennaUplinkConfigPtrOutput) TargetEirp() ConfigEirpPtrOutput {
 	return o.ApplyT(func(v *ConfigAntennaUplinkConfig) *ConfigEirp {
 		if v == nil {
@@ -501,19 +501,19 @@ func (o ConfigAntennaUplinkConfigPtrOutput) TransmitDisabled() pulumi.BoolPtrOut
 }
 
 type ConfigData struct {
-	// Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink config in a mission profile to receive the downlink data in raw DigIF format.
+	// Provides information for an antenna downlink config object. Antenna downlink config objects are used to provide parameters for downlinks where no demodulation or decoding is performed by Ground Station (RF over IP downlinks).
 	AntennaDownlinkConfig *ConfigAntennaDownlinkConfig `pulumi:"antennaDownlinkConfig"`
-	// Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink demod decode config in a mission profile to receive the downlink data that has been demodulated and decoded.
+	// Provides information for a downlink demod decode config object. Downlink demod decode config objects are used to provide parameters for downlinks where the Ground Station service will demodulate and decode the downlinked data.
 	AntennaDownlinkDemodDecodeConfig *ConfigAntennaDownlinkDemodDecodeConfig `pulumi:"antennaDownlinkDemodDecodeConfig"`
-	// Provides information about how AWS Ground Station should configure an antenna for uplink during a contact.
+	// Provides information for an uplink config object. Uplink config objects are used to provide parameters for uplink contacts.
 	AntennaUplinkConfig *ConfigAntennaUplinkConfig `pulumi:"antennaUplinkConfig"`
-	// Provides information to AWS Ground Station about which IP endpoints to use during a contact.
+	// Provides information for a dataflow endpoint config object. Dataflow endpoint config objects are used to provide parameters about which IP endpoint(s) to use during a contact. Dataflow endpoints are where Ground Station sends data during a downlink contact and where Ground Station receives data to send to the satellite during an uplink contact.
 	DataflowEndpointConfig *ConfigDataflowEndpointConfig `pulumi:"dataflowEndpointConfig"`
-	// Provides information about how AWS Ground Station should save downlink data to S3.
+	// Provides information for an S3 recording config object. S3 recording config objects are used to provide parameters for S3 recording during downlink contacts.
 	S3RecordingConfig *ConfigS3RecordingConfig `pulumi:"s3RecordingConfig"`
-	// Provides information about how AWS Ground Station should track the satellite through the sky during a contact.
+	// Provides information for a tracking config object. Tracking config objects are used to provide parameters about how to track the satellite through the sky during a contact.
 	TrackingConfig *ConfigTrackingConfig `pulumi:"trackingConfig"`
-	// Provides information about how AWS Ground Station should echo back uplink transmissions to a dataflow endpoint.
+	// Provides information for an uplink echo config object. Uplink echo config objects are used to provide parameters for uplink echo during uplink contacts.
 	UplinkEchoConfig *ConfigUplinkEchoConfig `pulumi:"uplinkEchoConfig"`
 }
 
@@ -529,19 +529,19 @@ type ConfigDataInput interface {
 }
 
 type ConfigDataArgs struct {
-	// Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink config in a mission profile to receive the downlink data in raw DigIF format.
+	// Provides information for an antenna downlink config object. Antenna downlink config objects are used to provide parameters for downlinks where no demodulation or decoding is performed by Ground Station (RF over IP downlinks).
 	AntennaDownlinkConfig ConfigAntennaDownlinkConfigPtrInput `pulumi:"antennaDownlinkConfig"`
-	// Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink demod decode config in a mission profile to receive the downlink data that has been demodulated and decoded.
+	// Provides information for a downlink demod decode config object. Downlink demod decode config objects are used to provide parameters for downlinks where the Ground Station service will demodulate and decode the downlinked data.
 	AntennaDownlinkDemodDecodeConfig ConfigAntennaDownlinkDemodDecodeConfigPtrInput `pulumi:"antennaDownlinkDemodDecodeConfig"`
-	// Provides information about how AWS Ground Station should configure an antenna for uplink during a contact.
+	// Provides information for an uplink config object. Uplink config objects are used to provide parameters for uplink contacts.
 	AntennaUplinkConfig ConfigAntennaUplinkConfigPtrInput `pulumi:"antennaUplinkConfig"`
-	// Provides information to AWS Ground Station about which IP endpoints to use during a contact.
+	// Provides information for a dataflow endpoint config object. Dataflow endpoint config objects are used to provide parameters about which IP endpoint(s) to use during a contact. Dataflow endpoints are where Ground Station sends data during a downlink contact and where Ground Station receives data to send to the satellite during an uplink contact.
 	DataflowEndpointConfig ConfigDataflowEndpointConfigPtrInput `pulumi:"dataflowEndpointConfig"`
-	// Provides information about how AWS Ground Station should save downlink data to S3.
+	// Provides information for an S3 recording config object. S3 recording config objects are used to provide parameters for S3 recording during downlink contacts.
 	S3RecordingConfig ConfigS3RecordingConfigPtrInput `pulumi:"s3RecordingConfig"`
-	// Provides information about how AWS Ground Station should track the satellite through the sky during a contact.
+	// Provides information for a tracking config object. Tracking config objects are used to provide parameters about how to track the satellite through the sky during a contact.
 	TrackingConfig ConfigTrackingConfigPtrInput `pulumi:"trackingConfig"`
-	// Provides information about how AWS Ground Station should echo back uplink transmissions to a dataflow endpoint.
+	// Provides information for an uplink echo config object. Uplink echo config objects are used to provide parameters for uplink echo during uplink contacts.
 	UplinkEchoConfig ConfigUplinkEchoConfigPtrInput `pulumi:"uplinkEchoConfig"`
 }
 
@@ -571,37 +571,37 @@ func (o ConfigDataOutput) ToConfigDataOutputWithContext(ctx context.Context) Con
 	return o
 }
 
-// Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink config in a mission profile to receive the downlink data in raw DigIF format.
+// Provides information for an antenna downlink config object. Antenna downlink config objects are used to provide parameters for downlinks where no demodulation or decoding is performed by Ground Station (RF over IP downlinks).
 func (o ConfigDataOutput) AntennaDownlinkConfig() ConfigAntennaDownlinkConfigPtrOutput {
 	return o.ApplyT(func(v ConfigData) *ConfigAntennaDownlinkConfig { return v.AntennaDownlinkConfig }).(ConfigAntennaDownlinkConfigPtrOutput)
 }
 
-// Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink demod decode config in a mission profile to receive the downlink data that has been demodulated and decoded.
+// Provides information for a downlink demod decode config object. Downlink demod decode config objects are used to provide parameters for downlinks where the Ground Station service will demodulate and decode the downlinked data.
 func (o ConfigDataOutput) AntennaDownlinkDemodDecodeConfig() ConfigAntennaDownlinkDemodDecodeConfigPtrOutput {
 	return o.ApplyT(func(v ConfigData) *ConfigAntennaDownlinkDemodDecodeConfig { return v.AntennaDownlinkDemodDecodeConfig }).(ConfigAntennaDownlinkDemodDecodeConfigPtrOutput)
 }
 
-// Provides information about how AWS Ground Station should configure an antenna for uplink during a contact.
+// Provides information for an uplink config object. Uplink config objects are used to provide parameters for uplink contacts.
 func (o ConfigDataOutput) AntennaUplinkConfig() ConfigAntennaUplinkConfigPtrOutput {
 	return o.ApplyT(func(v ConfigData) *ConfigAntennaUplinkConfig { return v.AntennaUplinkConfig }).(ConfigAntennaUplinkConfigPtrOutput)
 }
 
-// Provides information to AWS Ground Station about which IP endpoints to use during a contact.
+// Provides information for a dataflow endpoint config object. Dataflow endpoint config objects are used to provide parameters about which IP endpoint(s) to use during a contact. Dataflow endpoints are where Ground Station sends data during a downlink contact and where Ground Station receives data to send to the satellite during an uplink contact.
 func (o ConfigDataOutput) DataflowEndpointConfig() ConfigDataflowEndpointConfigPtrOutput {
 	return o.ApplyT(func(v ConfigData) *ConfigDataflowEndpointConfig { return v.DataflowEndpointConfig }).(ConfigDataflowEndpointConfigPtrOutput)
 }
 
-// Provides information about how AWS Ground Station should save downlink data to S3.
+// Provides information for an S3 recording config object. S3 recording config objects are used to provide parameters for S3 recording during downlink contacts.
 func (o ConfigDataOutput) S3RecordingConfig() ConfigS3RecordingConfigPtrOutput {
 	return o.ApplyT(func(v ConfigData) *ConfigS3RecordingConfig { return v.S3RecordingConfig }).(ConfigS3RecordingConfigPtrOutput)
 }
 
-// Provides information about how AWS Ground Station should track the satellite through the sky during a contact.
+// Provides information for a tracking config object. Tracking config objects are used to provide parameters about how to track the satellite through the sky during a contact.
 func (o ConfigDataOutput) TrackingConfig() ConfigTrackingConfigPtrOutput {
 	return o.ApplyT(func(v ConfigData) *ConfigTrackingConfig { return v.TrackingConfig }).(ConfigTrackingConfigPtrOutput)
 }
 
-// Provides information about how AWS Ground Station should echo back uplink transmissions to a dataflow endpoint.
+// Provides information for an uplink echo config object. Uplink echo config objects are used to provide parameters for uplink echo during uplink contacts.
 func (o ConfigDataOutput) UplinkEchoConfig() ConfigUplinkEchoConfigPtrOutput {
 	return o.ApplyT(func(v ConfigData) *ConfigUplinkEchoConfig { return v.UplinkEchoConfig }).(ConfigUplinkEchoConfigPtrOutput)
 }
@@ -630,7 +630,7 @@ func (o ConfigDataPtrOutput) Elem() ConfigDataOutput {
 	}).(ConfigDataOutput)
 }
 
-// Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink config in a mission profile to receive the downlink data in raw DigIF format.
+// Provides information for an antenna downlink config object. Antenna downlink config objects are used to provide parameters for downlinks where no demodulation or decoding is performed by Ground Station (RF over IP downlinks).
 func (o ConfigDataPtrOutput) AntennaDownlinkConfig() ConfigAntennaDownlinkConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigData) *ConfigAntennaDownlinkConfig {
 		if v == nil {
@@ -640,7 +640,7 @@ func (o ConfigDataPtrOutput) AntennaDownlinkConfig() ConfigAntennaDownlinkConfig
 	}).(ConfigAntennaDownlinkConfigPtrOutput)
 }
 
-// Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink demod decode config in a mission profile to receive the downlink data that has been demodulated and decoded.
+// Provides information for a downlink demod decode config object. Downlink demod decode config objects are used to provide parameters for downlinks where the Ground Station service will demodulate and decode the downlinked data.
 func (o ConfigDataPtrOutput) AntennaDownlinkDemodDecodeConfig() ConfigAntennaDownlinkDemodDecodeConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigData) *ConfigAntennaDownlinkDemodDecodeConfig {
 		if v == nil {
@@ -650,7 +650,7 @@ func (o ConfigDataPtrOutput) AntennaDownlinkDemodDecodeConfig() ConfigAntennaDow
 	}).(ConfigAntennaDownlinkDemodDecodeConfigPtrOutput)
 }
 
-// Provides information about how AWS Ground Station should configure an antenna for uplink during a contact.
+// Provides information for an uplink config object. Uplink config objects are used to provide parameters for uplink contacts.
 func (o ConfigDataPtrOutput) AntennaUplinkConfig() ConfigAntennaUplinkConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigData) *ConfigAntennaUplinkConfig {
 		if v == nil {
@@ -660,7 +660,7 @@ func (o ConfigDataPtrOutput) AntennaUplinkConfig() ConfigAntennaUplinkConfigPtrO
 	}).(ConfigAntennaUplinkConfigPtrOutput)
 }
 
-// Provides information to AWS Ground Station about which IP endpoints to use during a contact.
+// Provides information for a dataflow endpoint config object. Dataflow endpoint config objects are used to provide parameters about which IP endpoint(s) to use during a contact. Dataflow endpoints are where Ground Station sends data during a downlink contact and where Ground Station receives data to send to the satellite during an uplink contact.
 func (o ConfigDataPtrOutput) DataflowEndpointConfig() ConfigDataflowEndpointConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigData) *ConfigDataflowEndpointConfig {
 		if v == nil {
@@ -670,7 +670,7 @@ func (o ConfigDataPtrOutput) DataflowEndpointConfig() ConfigDataflowEndpointConf
 	}).(ConfigDataflowEndpointConfigPtrOutput)
 }
 
-// Provides information about how AWS Ground Station should save downlink data to S3.
+// Provides information for an S3 recording config object. S3 recording config objects are used to provide parameters for S3 recording during downlink contacts.
 func (o ConfigDataPtrOutput) S3RecordingConfig() ConfigS3RecordingConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigData) *ConfigS3RecordingConfig {
 		if v == nil {
@@ -680,7 +680,7 @@ func (o ConfigDataPtrOutput) S3RecordingConfig() ConfigS3RecordingConfigPtrOutpu
 	}).(ConfigS3RecordingConfigPtrOutput)
 }
 
-// Provides information about how AWS Ground Station should track the satellite through the sky during a contact.
+// Provides information for a tracking config object. Tracking config objects are used to provide parameters about how to track the satellite through the sky during a contact.
 func (o ConfigDataPtrOutput) TrackingConfig() ConfigTrackingConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigData) *ConfigTrackingConfig {
 		if v == nil {
@@ -690,7 +690,7 @@ func (o ConfigDataPtrOutput) TrackingConfig() ConfigTrackingConfigPtrOutput {
 	}).(ConfigTrackingConfigPtrOutput)
 }
 
-// Provides information about how AWS Ground Station should echo back uplink transmissions to a dataflow endpoint.
+// Provides information for an uplink echo config object. Uplink echo config objects are used to provide parameters for uplink echo during uplink contacts.
 func (o ConfigDataPtrOutput) UplinkEchoConfig() ConfigUplinkEchoConfigPtrOutput {
 	return o.ApplyT(func(v *ConfigData) *ConfigUplinkEchoConfig {
 		if v == nil {
@@ -1790,9 +1790,13 @@ func (o ConfigS3RecordingConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
 }
 
 type ConfigSpectrumConfig struct {
-	// Defines a bandwidth.
+	// The bandwidth of the spectrum. AWS Ground Station currently has the following bandwidth limitations:
+	//
+	// - For `AntennaDownlinkDemodDecodeconfig` , valid values are between 125 kHz to 650 MHz.
+	// - For `AntennaDownlinkconfig` , valid values are between 10 kHz to 54 MHz.
+	// - For `AntennaUplinkConfig` , valid values are between 10 kHz to 54 MHz.
 	Bandwidth *ConfigFrequencyBandwidth `pulumi:"bandwidth"`
-	// Defines a frequency.
+	// The center frequency of the spectrum. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
 	CenterFrequency *ConfigFrequency `pulumi:"centerFrequency"`
 	// The polarization of the spectrum. Valid values are `"RIGHT_HAND"` and `"LEFT_HAND"` . Capturing both `"RIGHT_HAND"` and `"LEFT_HAND"` polarization requires two separate configs.
 	Polarization *ConfigPolarization `pulumi:"polarization"`
@@ -1810,9 +1814,13 @@ type ConfigSpectrumConfigInput interface {
 }
 
 type ConfigSpectrumConfigArgs struct {
-	// Defines a bandwidth.
+	// The bandwidth of the spectrum. AWS Ground Station currently has the following bandwidth limitations:
+	//
+	// - For `AntennaDownlinkDemodDecodeconfig` , valid values are between 125 kHz to 650 MHz.
+	// - For `AntennaDownlinkconfig` , valid values are between 10 kHz to 54 MHz.
+	// - For `AntennaUplinkConfig` , valid values are between 10 kHz to 54 MHz.
 	Bandwidth ConfigFrequencyBandwidthPtrInput `pulumi:"bandwidth"`
-	// Defines a frequency.
+	// The center frequency of the spectrum. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
 	CenterFrequency ConfigFrequencyPtrInput `pulumi:"centerFrequency"`
 	// The polarization of the spectrum. Valid values are `"RIGHT_HAND"` and `"LEFT_HAND"` . Capturing both `"RIGHT_HAND"` and `"LEFT_HAND"` polarization requires two separate configs.
 	Polarization ConfigPolarizationPtrInput `pulumi:"polarization"`
@@ -1895,12 +1903,16 @@ func (o ConfigSpectrumConfigOutput) ToConfigSpectrumConfigPtrOutputWithContext(c
 	}).(ConfigSpectrumConfigPtrOutput)
 }
 
-// Defines a bandwidth.
+// The bandwidth of the spectrum. AWS Ground Station currently has the following bandwidth limitations:
+//
+// - For `AntennaDownlinkDemodDecodeconfig` , valid values are between 125 kHz to 650 MHz.
+// - For `AntennaDownlinkconfig` , valid values are between 10 kHz to 54 MHz.
+// - For `AntennaUplinkConfig` , valid values are between 10 kHz to 54 MHz.
 func (o ConfigSpectrumConfigOutput) Bandwidth() ConfigFrequencyBandwidthPtrOutput {
 	return o.ApplyT(func(v ConfigSpectrumConfig) *ConfigFrequencyBandwidth { return v.Bandwidth }).(ConfigFrequencyBandwidthPtrOutput)
 }
 
-// Defines a frequency.
+// The center frequency of the spectrum. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
 func (o ConfigSpectrumConfigOutput) CenterFrequency() ConfigFrequencyPtrOutput {
 	return o.ApplyT(func(v ConfigSpectrumConfig) *ConfigFrequency { return v.CenterFrequency }).(ConfigFrequencyPtrOutput)
 }
@@ -1934,7 +1946,11 @@ func (o ConfigSpectrumConfigPtrOutput) Elem() ConfigSpectrumConfigOutput {
 	}).(ConfigSpectrumConfigOutput)
 }
 
-// Defines a bandwidth.
+// The bandwidth of the spectrum. AWS Ground Station currently has the following bandwidth limitations:
+//
+// - For `AntennaDownlinkDemodDecodeconfig` , valid values are between 125 kHz to 650 MHz.
+// - For `AntennaDownlinkconfig` , valid values are between 10 kHz to 54 MHz.
+// - For `AntennaUplinkConfig` , valid values are between 10 kHz to 54 MHz.
 func (o ConfigSpectrumConfigPtrOutput) Bandwidth() ConfigFrequencyBandwidthPtrOutput {
 	return o.ApplyT(func(v *ConfigSpectrumConfig) *ConfigFrequencyBandwidth {
 		if v == nil {
@@ -1944,7 +1960,7 @@ func (o ConfigSpectrumConfigPtrOutput) Bandwidth() ConfigFrequencyBandwidthPtrOu
 	}).(ConfigFrequencyBandwidthPtrOutput)
 }
 
-// Defines a frequency.
+// The center frequency of the spectrum. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
 func (o ConfigSpectrumConfigPtrOutput) CenterFrequency() ConfigFrequencyPtrOutput {
 	return o.ApplyT(func(v *ConfigSpectrumConfig) *ConfigFrequency {
 		if v == nil {
@@ -2263,7 +2279,7 @@ func (o ConfigUplinkEchoConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 type ConfigUplinkSpectrumConfig struct {
-	// Defines a frequency.
+	// The center frequency of the spectrum. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
 	CenterFrequency *ConfigFrequency `pulumi:"centerFrequency"`
 	// The polarization of the spectrum. Valid values are `"RIGHT_HAND"` and `"LEFT_HAND"` .
 	Polarization *ConfigPolarization `pulumi:"polarization"`
@@ -2281,7 +2297,7 @@ type ConfigUplinkSpectrumConfigInput interface {
 }
 
 type ConfigUplinkSpectrumConfigArgs struct {
-	// Defines a frequency.
+	// The center frequency of the spectrum. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
 	CenterFrequency ConfigFrequencyPtrInput `pulumi:"centerFrequency"`
 	// The polarization of the spectrum. Valid values are `"RIGHT_HAND"` and `"LEFT_HAND"` .
 	Polarization ConfigPolarizationPtrInput `pulumi:"polarization"`
@@ -2364,7 +2380,7 @@ func (o ConfigUplinkSpectrumConfigOutput) ToConfigUplinkSpectrumConfigPtrOutputW
 	}).(ConfigUplinkSpectrumConfigPtrOutput)
 }
 
-// Defines a frequency.
+// The center frequency of the spectrum. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
 func (o ConfigUplinkSpectrumConfigOutput) CenterFrequency() ConfigFrequencyPtrOutput {
 	return o.ApplyT(func(v ConfigUplinkSpectrumConfig) *ConfigFrequency { return v.CenterFrequency }).(ConfigFrequencyPtrOutput)
 }
@@ -2398,7 +2414,7 @@ func (o ConfigUplinkSpectrumConfigPtrOutput) Elem() ConfigUplinkSpectrumConfigOu
 	}).(ConfigUplinkSpectrumConfigOutput)
 }
 
-// Defines a frequency.
+// The center frequency of the spectrum. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
 func (o ConfigUplinkSpectrumConfigPtrOutput) CenterFrequency() ConfigFrequencyPtrOutput {
 	return o.ApplyT(func(v *ConfigUplinkSpectrumConfig) *ConfigFrequency {
 		if v == nil {
@@ -2625,8 +2641,7 @@ func (o DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput) Name() pulu
 // Egress address of AgentEndpoint with an optional mtu.
 type DataflowEndpointGroupConnectionDetails struct {
 	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
-	Mtu *int `pulumi:"mtu"`
-	// The address of the endpoint, such as `192.168.1.1` .
+	Mtu           *int                                `pulumi:"mtu"`
 	SocketAddress *DataflowEndpointGroupSocketAddress `pulumi:"socketAddress"`
 }
 
@@ -2644,8 +2659,7 @@ type DataflowEndpointGroupConnectionDetailsInput interface {
 // Egress address of AgentEndpoint with an optional mtu.
 type DataflowEndpointGroupConnectionDetailsArgs struct {
 	// Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
-	Mtu pulumi.IntPtrInput `pulumi:"mtu"`
-	// The address of the endpoint, such as `192.168.1.1` .
+	Mtu           pulumi.IntPtrInput                         `pulumi:"mtu"`
 	SocketAddress DataflowEndpointGroupSocketAddressPtrInput `pulumi:"socketAddress"`
 }
 
@@ -2732,7 +2746,6 @@ func (o DataflowEndpointGroupConnectionDetailsOutput) Mtu() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v DataflowEndpointGroupConnectionDetails) *int { return v.Mtu }).(pulumi.IntPtrOutput)
 }
 
-// The address of the endpoint, such as `192.168.1.1` .
 func (o DataflowEndpointGroupConnectionDetailsOutput) SocketAddress() DataflowEndpointGroupSocketAddressPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupConnectionDetails) *DataflowEndpointGroupSocketAddress {
 		return v.SocketAddress
@@ -2773,7 +2786,6 @@ func (o DataflowEndpointGroupConnectionDetailsPtrOutput) Mtu() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The address of the endpoint, such as `192.168.1.1` .
 func (o DataflowEndpointGroupConnectionDetailsPtrOutput) SocketAddress() DataflowEndpointGroupSocketAddressPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupConnectionDetails) *DataflowEndpointGroupSocketAddress {
 		if v == nil {
@@ -2784,7 +2796,7 @@ func (o DataflowEndpointGroupConnectionDetailsPtrOutput) SocketAddress() Dataflo
 }
 
 type DataflowEndpointGroupDataflowEndpoint struct {
-	// The address of the endpoint, such as `192.168.1.1` .
+	// The address and port of an endpoint.
 	Address *DataflowEndpointGroupSocketAddress `pulumi:"address"`
 	Mtu     *int                                `pulumi:"mtu"`
 	// The endpoint name.
@@ -2805,7 +2817,7 @@ type DataflowEndpointGroupDataflowEndpointInput interface {
 }
 
 type DataflowEndpointGroupDataflowEndpointArgs struct {
-	// The address of the endpoint, such as `192.168.1.1` .
+	// The address and port of an endpoint.
 	Address DataflowEndpointGroupSocketAddressPtrInput `pulumi:"address"`
 	Mtu     pulumi.IntPtrInput                         `pulumi:"mtu"`
 	// The endpoint name.
@@ -2891,7 +2903,7 @@ func (o DataflowEndpointGroupDataflowEndpointOutput) ToDataflowEndpointGroupData
 	}).(DataflowEndpointGroupDataflowEndpointPtrOutput)
 }
 
-// The address of the endpoint, such as `192.168.1.1` .
+// The address and port of an endpoint.
 func (o DataflowEndpointGroupDataflowEndpointOutput) Address() DataflowEndpointGroupSocketAddressPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupDataflowEndpoint) *DataflowEndpointGroupSocketAddress { return v.Address }).(DataflowEndpointGroupSocketAddressPtrOutput)
 }
@@ -2931,7 +2943,7 @@ func (o DataflowEndpointGroupDataflowEndpointPtrOutput) Elem() DataflowEndpointG
 	}).(DataflowEndpointGroupDataflowEndpointOutput)
 }
 
-// The address of the endpoint, such as `192.168.1.1` .
+// The address and port of an endpoint.
 func (o DataflowEndpointGroupDataflowEndpointPtrOutput) Address() DataflowEndpointGroupSocketAddressPtrOutput {
 	return o.ApplyT(func(v *DataflowEndpointGroupDataflowEndpoint) *DataflowEndpointGroupSocketAddress {
 		if v == nil {
@@ -2964,9 +2976,9 @@ func (o DataflowEndpointGroupDataflowEndpointPtrOutput) Name() pulumi.StringPtrO
 
 type DataflowEndpointGroupEndpointDetails struct {
 	AwsGroundStationAgentEndpoint *DataflowEndpointGroupAwsGroundStationAgentEndpoint `pulumi:"awsGroundStationAgentEndpoint"`
-	// Contains information such as socket address and name that defines an endpoint.
+	// Information about the endpoint such as name and the endpoint address.
 	Endpoint *DataflowEndpointGroupDataflowEndpoint `pulumi:"endpoint"`
-	// Information about IAM roles, subnets, and security groups needed for this DataflowEndpointGroup.
+	// The role ARN, and IDs for security groups and subnets.
 	SecurityDetails *DataflowEndpointGroupSecurityDetails `pulumi:"securityDetails"`
 }
 
@@ -2983,9 +2995,9 @@ type DataflowEndpointGroupEndpointDetailsInput interface {
 
 type DataflowEndpointGroupEndpointDetailsArgs struct {
 	AwsGroundStationAgentEndpoint DataflowEndpointGroupAwsGroundStationAgentEndpointPtrInput `pulumi:"awsGroundStationAgentEndpoint"`
-	// Contains information such as socket address and name that defines an endpoint.
+	// Information about the endpoint such as name and the endpoint address.
 	Endpoint DataflowEndpointGroupDataflowEndpointPtrInput `pulumi:"endpoint"`
-	// Information about IAM roles, subnets, and security groups needed for this DataflowEndpointGroup.
+	// The role ARN, and IDs for security groups and subnets.
 	SecurityDetails DataflowEndpointGroupSecurityDetailsPtrInput `pulumi:"securityDetails"`
 }
 
@@ -3046,12 +3058,12 @@ func (o DataflowEndpointGroupEndpointDetailsOutput) AwsGroundStationAgentEndpoin
 	}).(DataflowEndpointGroupAwsGroundStationAgentEndpointPtrOutput)
 }
 
-// Contains information such as socket address and name that defines an endpoint.
+// Information about the endpoint such as name and the endpoint address.
 func (o DataflowEndpointGroupEndpointDetailsOutput) Endpoint() DataflowEndpointGroupDataflowEndpointPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupEndpointDetails) *DataflowEndpointGroupDataflowEndpoint { return v.Endpoint }).(DataflowEndpointGroupDataflowEndpointPtrOutput)
 }
 
-// Information about IAM roles, subnets, and security groups needed for this DataflowEndpointGroup.
+// The role ARN, and IDs for security groups and subnets.
 func (o DataflowEndpointGroupEndpointDetailsOutput) SecurityDetails() DataflowEndpointGroupSecurityDetailsPtrOutput {
 	return o.ApplyT(func(v DataflowEndpointGroupEndpointDetails) *DataflowEndpointGroupSecurityDetails {
 		return v.SecurityDetails

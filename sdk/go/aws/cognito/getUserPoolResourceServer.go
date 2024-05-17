@@ -32,7 +32,7 @@ type LookupUserPoolResourceServerResult struct {
 	Id *string `pulumi:"id"`
 	// A friendly name for the resource server.
 	Name *string `pulumi:"name"`
-	// A resource server scope.
+	// A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
 	Scopes []UserPoolResourceServerResourceServerScopeType `pulumi:"scopes"`
 }
 
@@ -82,7 +82,7 @@ func (o LookupUserPoolResourceServerResultOutput) Name() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupUserPoolResourceServerResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// A resource server scope.
+// A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
 func (o LookupUserPoolResourceServerResultOutput) Scopes() UserPoolResourceServerResourceServerScopeTypeArrayOutput {
 	return o.ApplyT(func(v LookupUserPoolResourceServerResult) []UserPoolResourceServerResourceServerScopeType {
 		return v.Scopes

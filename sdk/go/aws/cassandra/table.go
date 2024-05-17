@@ -667,7 +667,12 @@ type Table struct {
 
 	// The optional auto scaling capacity settings for a table in provisioned capacity mode.
 	AutoScalingSpecifications TableAutoScalingSpecificationPtrOutput `pulumi:"autoScalingSpecifications"`
-	// Determines the billing mode for the table - on-demand or provisioned.
+	// The billing mode for the table, which determines how you'll be charged for reads and writes:
+	//
+	// - *On-demand mode* (default) - You pay based on the actual reads and writes your application performs.
+	// - *Provisioned mode* - Lets you specify the number of reads and writes per second that you need for your application.
+	//
+	// If you don't specify a value for this property, then the table will use on-demand mode.
 	BillingMode TableBillingModePtrOutput `pulumi:"billingMode"`
 	// Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
 	ClientSideTimestampsEnabled pulumi.BoolPtrOutput `pulumi:"clientSideTimestampsEnabled"`
@@ -675,7 +680,14 @@ type Table struct {
 	ClusteringKeyColumns TableClusteringKeyColumnArrayOutput `pulumi:"clusteringKeyColumns"`
 	// Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
 	DefaultTimeToLive pulumi.IntPtrOutput `pulumi:"defaultTimeToLive"`
-	// Specifies the encryption at rest option selected for the table.
+	// The encryption at rest options for the table.
+	//
+	// - *AWS owned key* (default) - The key is owned by Amazon Keyspaces .
+	// - *Customer managed key* - The key is stored in your account and is created, owned, and managed by you.
+	//
+	// > If you choose encryption with a customer managed key, you must specify a valid customer managed KMS key with permissions granted to Amazon Keyspaces.
+	//
+	// For more information, see [Encryption at rest in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide* .
 	EncryptionSpecification TableEncryptionSpecificationPtrOutput `pulumi:"encryptionSpecification"`
 	// Name for Cassandra keyspace
 	KeyspaceName pulumi.StringOutput `pulumi:"keyspaceName"`
@@ -755,7 +767,12 @@ func (TableState) ElementType() reflect.Type {
 type tableArgs struct {
 	// The optional auto scaling capacity settings for a table in provisioned capacity mode.
 	AutoScalingSpecifications *TableAutoScalingSpecification `pulumi:"autoScalingSpecifications"`
-	// Determines the billing mode for the table - on-demand or provisioned.
+	// The billing mode for the table, which determines how you'll be charged for reads and writes:
+	//
+	// - *On-demand mode* (default) - You pay based on the actual reads and writes your application performs.
+	// - *Provisioned mode* - Lets you specify the number of reads and writes per second that you need for your application.
+	//
+	// If you don't specify a value for this property, then the table will use on-demand mode.
 	BillingMode *TableBillingMode `pulumi:"billingMode"`
 	// Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
 	ClientSideTimestampsEnabled *bool `pulumi:"clientSideTimestampsEnabled"`
@@ -763,7 +780,14 @@ type tableArgs struct {
 	ClusteringKeyColumns []TableClusteringKeyColumn `pulumi:"clusteringKeyColumns"`
 	// Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
 	DefaultTimeToLive *int `pulumi:"defaultTimeToLive"`
-	// Specifies the encryption at rest option selected for the table.
+	// The encryption at rest options for the table.
+	//
+	// - *AWS owned key* (default) - The key is owned by Amazon Keyspaces .
+	// - *Customer managed key* - The key is stored in your account and is created, owned, and managed by you.
+	//
+	// > If you choose encryption with a customer managed key, you must specify a valid customer managed KMS key with permissions granted to Amazon Keyspaces.
+	//
+	// For more information, see [Encryption at rest in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide* .
 	EncryptionSpecification *TableEncryptionSpecification `pulumi:"encryptionSpecification"`
 	// Name for Cassandra keyspace
 	KeyspaceName string `pulumi:"keyspaceName"`
@@ -791,7 +815,12 @@ type tableArgs struct {
 type TableArgs struct {
 	// The optional auto scaling capacity settings for a table in provisioned capacity mode.
 	AutoScalingSpecifications TableAutoScalingSpecificationPtrInput
-	// Determines the billing mode for the table - on-demand or provisioned.
+	// The billing mode for the table, which determines how you'll be charged for reads and writes:
+	//
+	// - *On-demand mode* (default) - You pay based on the actual reads and writes your application performs.
+	// - *Provisioned mode* - Lets you specify the number of reads and writes per second that you need for your application.
+	//
+	// If you don't specify a value for this property, then the table will use on-demand mode.
 	BillingMode TableBillingModePtrInput
 	// Indicates whether client side timestamps are enabled (true) or disabled (false) on the table. False by default, once it is enabled it cannot be disabled again.
 	ClientSideTimestampsEnabled pulumi.BoolPtrInput
@@ -799,7 +828,14 @@ type TableArgs struct {
 	ClusteringKeyColumns TableClusteringKeyColumnArrayInput
 	// Default TTL (Time To Live) in seconds, where zero is disabled. If the value is greater than zero, TTL is enabled for the entire table and an expiration timestamp is added to each column.
 	DefaultTimeToLive pulumi.IntPtrInput
-	// Specifies the encryption at rest option selected for the table.
+	// The encryption at rest options for the table.
+	//
+	// - *AWS owned key* (default) - The key is owned by Amazon Keyspaces .
+	// - *Customer managed key* - The key is stored in your account and is created, owned, and managed by you.
+	//
+	// > If you choose encryption with a customer managed key, you must specify a valid customer managed KMS key with permissions granted to Amazon Keyspaces.
+	//
+	// For more information, see [Encryption at rest in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide* .
 	EncryptionSpecification TableEncryptionSpecificationPtrInput
 	// Name for Cassandra keyspace
 	KeyspaceName pulumi.StringInput
@@ -865,7 +901,12 @@ func (o TableOutput) AutoScalingSpecifications() TableAutoScalingSpecificationPt
 	return o.ApplyT(func(v *Table) TableAutoScalingSpecificationPtrOutput { return v.AutoScalingSpecifications }).(TableAutoScalingSpecificationPtrOutput)
 }
 
-// Determines the billing mode for the table - on-demand or provisioned.
+// The billing mode for the table, which determines how you'll be charged for reads and writes:
+//
+// - *On-demand mode* (default) - You pay based on the actual reads and writes your application performs.
+// - *Provisioned mode* - Lets you specify the number of reads and writes per second that you need for your application.
+//
+// If you don't specify a value for this property, then the table will use on-demand mode.
 func (o TableOutput) BillingMode() TableBillingModePtrOutput {
 	return o.ApplyT(func(v *Table) TableBillingModePtrOutput { return v.BillingMode }).(TableBillingModePtrOutput)
 }
@@ -885,7 +926,14 @@ func (o TableOutput) DefaultTimeToLive() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Table) pulumi.IntPtrOutput { return v.DefaultTimeToLive }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the encryption at rest option selected for the table.
+// The encryption at rest options for the table.
+//
+// - *AWS owned key* (default) - The key is owned by Amazon Keyspaces .
+// - *Customer managed key* - The key is stored in your account and is created, owned, and managed by you.
+//
+// > If you choose encryption with a customer managed key, you must specify a valid customer managed KMS key with permissions granted to Amazon Keyspaces.
+//
+// For more information, see [Encryption at rest in Amazon Keyspaces](https://docs.aws.amazon.com/keyspaces/latest/devguide/EncryptionAtRest.html) in the *Amazon Keyspaces Developer Guide* .
 func (o TableOutput) EncryptionSpecification() TableEncryptionSpecificationPtrOutput {
 	return o.ApplyT(func(v *Table) TableEncryptionSpecificationPtrOutput { return v.EncryptionSpecification }).(TableEncryptionSpecificationPtrOutput)
 }

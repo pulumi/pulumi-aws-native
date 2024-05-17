@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     public sealed class UserProfileCustomFileSystemConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The settings for assigning a custom Amazon EFS file system to a user profile or space for an Amazon SageMaker Domain.
+        /// The settings for a custom Amazon EFS file system.
         /// </summary>
         [Input("efsFileSystemConfig")]
         public Input<Inputs.UserProfileEfsFileSystemConfigArgs>? EfsFileSystemConfig { get; set; }

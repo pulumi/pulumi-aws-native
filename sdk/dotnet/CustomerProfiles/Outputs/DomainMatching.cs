@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
+        /// The S3 location where Identity Resolution Jobs write result files.
         /// </summary>
         public readonly Outputs.DomainExportingConfig? ExportingConfig;
         /// <summary>

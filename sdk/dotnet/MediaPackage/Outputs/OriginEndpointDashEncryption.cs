@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// </summary>
         public readonly int? KeyRotationIntervalSeconds;
         /// <summary>
-        /// Key provider settings for DRM.
+        /// Parameters for the SPEKE key provider.
         /// </summary>
         public readonly Outputs.OriginEndpointSpekeKeyProvider SpekeKeyProvider;
 

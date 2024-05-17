@@ -23,9 +23,9 @@ type Domain struct {
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// The name for the domain.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The configuration containing information about the customer managed key used for encrypting customer data.
+	// The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
 	ServerSideEncryptionConfiguration DomainServerSideEncryptionConfigurationOutput `pulumi:"serverSideEncryptionConfiguration"`
-	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+	// The tags used to organize, track, or control access for this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -76,9 +76,9 @@ type domainArgs struct {
 	Description *string `pulumi:"description"`
 	// The name for the domain.
 	Name *string `pulumi:"name"`
-	// The configuration containing information about the customer managed key used for encrypting customer data.
+	// The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
 	ServerSideEncryptionConfiguration DomainServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
-	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+	// The tags used to organize, track, or control access for this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -88,9 +88,9 @@ type DomainArgs struct {
 	Description pulumi.StringPtrInput
 	// The name for the domain.
 	Name pulumi.StringPtrInput
-	// The configuration containing information about the customer managed key used for encrypting customer data.
+	// The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
 	ServerSideEncryptionConfiguration DomainServerSideEncryptionConfigurationInput
-	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+	// The tags used to organize, track, or control access for this resource.
 	Tags aws.TagArrayInput
 }
 
@@ -146,14 +146,14 @@ func (o DomainOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The configuration containing information about the customer managed key used for encrypting customer data.
+// The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
 func (o DomainOutput) ServerSideEncryptionConfiguration() DomainServerSideEncryptionConfigurationOutput {
 	return o.ApplyT(func(v *Domain) DomainServerSideEncryptionConfigurationOutput {
 		return v.ServerSideEncryptionConfiguration
 	}).(DomainServerSideEncryptionConfigurationOutput)
 }
 
-// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+// The tags used to organize, track, or control access for this resource.
 func (o DomainOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Domain) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

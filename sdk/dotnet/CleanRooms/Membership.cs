@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.CleanRooms
         public Output<string> CollaborationIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Contains configurations for protected query results.
+        /// The default protected query result configuration as specified by the member who can receive results.
         /// </summary>
         [Output("defaultResultConfiguration")]
         public Output<Outputs.MembershipProtectedQueryResultConfiguration?> DefaultResultConfiguration { get; private set; } = null!;
@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.CleanRooms
         public Output<string> MembershipIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// An object representing the payment responsibilities accepted by the collaboration member.
+        /// The payment responsibilities accepted by the collaboration member.
         /// </summary>
         [Output("paymentConfiguration")]
         public Output<Outputs.MembershipPaymentConfiguration?> PaymentConfiguration { get; private set; } = null!;
@@ -133,13 +133,13 @@ namespace Pulumi.AwsNative.CleanRooms
         public Input<string> CollaborationIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// Contains configurations for protected query results.
+        /// The default protected query result configuration as specified by the member who can receive results.
         /// </summary>
         [Input("defaultResultConfiguration")]
         public Input<Inputs.MembershipProtectedQueryResultConfigurationArgs>? DefaultResultConfiguration { get; set; }
 
         /// <summary>
-        /// An object representing the payment responsibilities accepted by the collaboration member.
+        /// The payment responsibilities accepted by the collaboration member.
         /// </summary>
         [Input("paymentConfiguration")]
         public Input<Inputs.MembershipPaymentConfigurationArgs>? PaymentConfiguration { get; set; }

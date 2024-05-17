@@ -38,7 +38,7 @@ export class BackupPlan extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies an object containing properties used to create a backup plan.
+     * Uniquely identifies the backup plan to be associated with the selection of resources.
      */
     public readonly backupPlan!: pulumi.Output<outputs.backup.BackupPlanResourceType>;
     /**
@@ -94,7 +94,7 @@ export class BackupPlan extends pulumi.CustomResource {
  */
 export interface BackupPlanArgs {
     /**
-     * Specifies an object containing properties used to create a backup plan.
+     * Uniquely identifies the backup plan to be associated with the selection of resources.
      */
     backupPlan: pulumi.Input<inputs.backup.BackupPlanResourceTypeArgs>;
     /**

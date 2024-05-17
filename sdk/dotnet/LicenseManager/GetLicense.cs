@@ -62,11 +62,11 @@ namespace Pulumi.AwsNative.LicenseManager
         /// </summary>
         public readonly string? Beneficiary;
         /// <summary>
-        /// Details about a consumption configuration.
+        /// Configuration for consumption of the license.
         /// </summary>
         public readonly Outputs.LicenseConsumptionConfiguration? ConsumptionConfiguration;
         /// <summary>
-        /// Describes a resource entitled for use with a license.
+        /// License entitlements.
         /// </summary>
         public readonly ImmutableArray<Outputs.LicenseEntitlement> Entitlements;
         /// <summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.LicenseManager
         /// </summary>
         public readonly string? HomeRegion;
         /// <summary>
-        /// Details associated with the issuer of a license.
+        /// License issuer.
         /// </summary>
         public readonly Outputs.LicenseIssuerData? Issuer;
         /// <summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.LicenseManager
         /// </summary>
         public readonly string? LicenseArn;
         /// <summary>
-        /// Describes key/value pairs.
+        /// License metadata.
         /// </summary>
         public readonly ImmutableArray<Outputs.LicenseMetadata> LicenseMetadata;
         /// <summary>

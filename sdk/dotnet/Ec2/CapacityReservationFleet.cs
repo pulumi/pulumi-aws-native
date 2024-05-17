@@ -88,9 +88,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<Pulumi.AwsNative.Ec2.CapacityReservationFleetInstanceMatchCriteria?> InstanceMatchCriteria { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies information about an instance type to use in a Capacity Reservation Fleet.
-        /// 
-        /// `InstanceTypeSpecification` is a property of the [AWS::EC2::CapacityReservationFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html) resource.
+        /// Information about the instance types for which to reserve the capacity.
         /// </summary>
         [Output("instanceTypeSpecifications")]
         public Output<ImmutableArray<Outputs.CapacityReservationFleetInstanceTypeSpecification>> InstanceTypeSpecifications { get; private set; } = null!;
@@ -108,9 +106,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<bool?> RemoveEndDate { get; private set; } = null!;
 
         /// <summary>
-        /// The tags to apply to a resource when the resource is being created. When you specify a tag, you must specify the resource type to tag, otherwise the request will fail.
-        /// 
-        /// &gt; The `Valid Values` lists all the resource types that can be tagged. However, the action you're using might not support tagging all of these resource types. If you try to tag a resource type that is unsupported for the action you're using, you'll get an error.
+        /// The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.
         /// </summary>
         [Output("tagSpecifications")]
         public Output<ImmutableArray<Outputs.CapacityReservationFleetTagSpecification>> TagSpecifications { get; private set; } = null!;
@@ -212,9 +208,7 @@ namespace Pulumi.AwsNative.Ec2
         private InputList<Inputs.CapacityReservationFleetInstanceTypeSpecificationArgs>? _instanceTypeSpecifications;
 
         /// <summary>
-        /// Specifies information about an instance type to use in a Capacity Reservation Fleet.
-        /// 
-        /// `InstanceTypeSpecification` is a property of the [AWS::EC2::CapacityReservationFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html) resource.
+        /// Information about the instance types for which to reserve the capacity.
         /// </summary>
         public InputList<Inputs.CapacityReservationFleetInstanceTypeSpecificationArgs> InstanceTypeSpecifications
         {
@@ -238,9 +232,7 @@ namespace Pulumi.AwsNative.Ec2
         private InputList<Inputs.CapacityReservationFleetTagSpecificationArgs>? _tagSpecifications;
 
         /// <summary>
-        /// The tags to apply to a resource when the resource is being created. When you specify a tag, you must specify the resource type to tag, otherwise the request will fail.
-        /// 
-        /// &gt; The `Valid Values` lists all the resource types that can be tagged. However, the action you're using might not support tagging all of these resource types. If you try to tag a resource type that is unsupported for the action you're using, you'll get an error.
+        /// The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.
         /// </summary>
         public InputList<Inputs.CapacityReservationFleetTagSpecificationArgs> TagSpecifications
         {

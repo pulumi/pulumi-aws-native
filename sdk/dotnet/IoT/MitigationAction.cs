@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<string?> ActionName { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the type of action and the parameters for that action.
+        /// The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
         /// </summary>
         [Output("actionParams")]
         public Output<Outputs.MitigationActionActionParams> ActionParams { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.AwsNative.IoT
         public Input<string>? ActionName { get; set; }
 
         /// <summary>
-        /// Defines the type of action and the parameters for that action.
+        /// The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
         /// </summary>
         [Input("actionParams", required: true)]
         public Input<Inputs.MitigationActionActionParamsArgs> ActionParams { get; set; } = null!;

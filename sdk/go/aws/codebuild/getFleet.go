@@ -67,9 +67,9 @@ type LookupFleetResult struct {
 	EnvironmentType *FleetEnvironmentType `pulumi:"environmentType"`
 	// The name of the compute fleet.
 	Name *string `pulumi:"name"`
-	// A tag, consisting of a key and a value.
+	// A list of tag key and value pairs associated with this compute fleet.
 	//
-	// This tag is available for use by AWS services that support tags in AWS CodeBuild .
+	// These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -162,9 +162,9 @@ func (o LookupFleetResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// A tag, consisting of a key and a value.
+// A list of tag key and value pairs associated with this compute fleet.
 //
-// This tag is available for use by AWS services that support tags in AWS CodeBuild .
+// These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
 func (o LookupFleetResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupFleetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

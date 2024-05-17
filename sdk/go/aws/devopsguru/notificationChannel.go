@@ -138,7 +138,7 @@ type NotificationChannel struct {
 
 	// The ID of a notification channel.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
-	// Information about notification channels you have configured with DevOps Guru. The one supported notification channel is Amazon Simple Notification Service (Amazon SNS).
+	// A `NotificationChannelConfig` object that contains information about configured notification channels.
 	Config NotificationChannelConfigOutput `pulumi:"config"`
 }
 
@@ -189,13 +189,13 @@ func (NotificationChannelState) ElementType() reflect.Type {
 }
 
 type notificationChannelArgs struct {
-	// Information about notification channels you have configured with DevOps Guru. The one supported notification channel is Amazon Simple Notification Service (Amazon SNS).
+	// A `NotificationChannelConfig` object that contains information about configured notification channels.
 	Config NotificationChannelConfig `pulumi:"config"`
 }
 
 // The set of arguments for constructing a NotificationChannel resource.
 type NotificationChannelArgs struct {
-	// Information about notification channels you have configured with DevOps Guru. The one supported notification channel is Amazon Simple Notification Service (Amazon SNS).
+	// A `NotificationChannelConfig` object that contains information about configured notification channels.
 	Config NotificationChannelConfigInput
 }
 
@@ -241,7 +241,7 @@ func (o NotificationChannelOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationChannel) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
-// Information about notification channels you have configured with DevOps Guru. The one supported notification channel is Amazon Simple Notification Service (Amazon SNS).
+// A `NotificationChannelConfig` object that contains information about configured notification channels.
 func (o NotificationChannelOutput) Config() NotificationChannelConfigOutput {
 	return o.ApplyT(func(v *NotificationChannel) NotificationChannelConfigOutput { return v.Config }).(NotificationChannelConfigOutput)
 }

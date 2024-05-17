@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.AppStream.Outputs
         /// </summary>
         public readonly string ExecutablePath;
         /// <summary>
-        /// The S3 location of the app block.
+        /// The S3 object location of the script.
         /// </summary>
         public readonly Outputs.AppBlockS3Location ScriptS3Location;
         /// <summary>

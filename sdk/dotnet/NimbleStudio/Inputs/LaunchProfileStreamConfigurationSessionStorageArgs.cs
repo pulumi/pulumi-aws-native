@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.NimbleStudio.Inputs
         }
 
         /// <summary>
-        /// The upload storage root location (folder) on streaming workstations where files are uploaded.
+        /// The configuration for the upload storage root of the streaming session.
         /// </summary>
         [Input("root")]
         public Input<Inputs.LaunchProfileStreamingSessionStorageRootArgs>? Root { get; set; }

@@ -75,17 +75,13 @@ type CapacityReservationFleet struct {
 	//
 	// Currently, Capacity Reservation Fleets support `open` instance matching criteria only. This means that instances that have matching attributes (instance type, platform, and Availability Zone) run in the Capacity Reservations automatically. Instances do not need to explicitly target a Capacity Reservation Fleet to use its reserved capacity.
 	InstanceMatchCriteria CapacityReservationFleetInstanceMatchCriteriaPtrOutput `pulumi:"instanceMatchCriteria"`
-	// Specifies information about an instance type to use in a Capacity Reservation Fleet.
-	//
-	// `InstanceTypeSpecification` is a property of the [AWS::EC2::CapacityReservationFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html) resource.
+	// Information about the instance types for which to reserve the capacity.
 	InstanceTypeSpecifications CapacityReservationFleetInstanceTypeSpecificationArrayOutput `pulumi:"instanceTypeSpecifications"`
 	// Used to add an end date to a Capacity Reservation Fleet that has no end date and time. To add an end date to a Capacity Reservation Fleet, specify `true` for this paramater and specify the end date and time (in UTC time format) for the *EndDate* parameter.
 	NoRemoveEndDate pulumi.BoolPtrOutput `pulumi:"noRemoveEndDate"`
 	// Used to remove an end date from a Capacity Reservation Fleet that is configured to end automatically at a specific date and time. To remove the end date from a Capacity Reservation Fleet, specify `true` for this paramater and omit the *EndDate* parameter.
 	RemoveEndDate pulumi.BoolPtrOutput `pulumi:"removeEndDate"`
-	// The tags to apply to a resource when the resource is being created. When you specify a tag, you must specify the resource type to tag, otherwise the request will fail.
-	//
-	// > The `Valid Values` lists all the resource types that can be tagged. However, the action you're using might not support tagging all of these resource types. If you try to tag a resource type that is unsupported for the action you're using, you'll get an error.
+	// The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.
 	TagSpecifications CapacityReservationFleetTagSpecificationArrayOutput `pulumi:"tagSpecifications"`
 	// Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the following tenancy settings:
 	//
@@ -157,17 +153,13 @@ type capacityReservationFleetArgs struct {
 	//
 	// Currently, Capacity Reservation Fleets support `open` instance matching criteria only. This means that instances that have matching attributes (instance type, platform, and Availability Zone) run in the Capacity Reservations automatically. Instances do not need to explicitly target a Capacity Reservation Fleet to use its reserved capacity.
 	InstanceMatchCriteria *CapacityReservationFleetInstanceMatchCriteria `pulumi:"instanceMatchCriteria"`
-	// Specifies information about an instance type to use in a Capacity Reservation Fleet.
-	//
-	// `InstanceTypeSpecification` is a property of the [AWS::EC2::CapacityReservationFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html) resource.
+	// Information about the instance types for which to reserve the capacity.
 	InstanceTypeSpecifications []CapacityReservationFleetInstanceTypeSpecification `pulumi:"instanceTypeSpecifications"`
 	// Used to add an end date to a Capacity Reservation Fleet that has no end date and time. To add an end date to a Capacity Reservation Fleet, specify `true` for this paramater and specify the end date and time (in UTC time format) for the *EndDate* parameter.
 	NoRemoveEndDate *bool `pulumi:"noRemoveEndDate"`
 	// Used to remove an end date from a Capacity Reservation Fleet that is configured to end automatically at a specific date and time. To remove the end date from a Capacity Reservation Fleet, specify `true` for this paramater and omit the *EndDate* parameter.
 	RemoveEndDate *bool `pulumi:"removeEndDate"`
-	// The tags to apply to a resource when the resource is being created. When you specify a tag, you must specify the resource type to tag, otherwise the request will fail.
-	//
-	// > The `Valid Values` lists all the resource types that can be tagged. However, the action you're using might not support tagging all of these resource types. If you try to tag a resource type that is unsupported for the action you're using, you'll get an error.
+	// The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.
 	TagSpecifications []CapacityReservationFleetTagSpecification `pulumi:"tagSpecifications"`
 	// Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the following tenancy settings:
 	//
@@ -192,17 +184,13 @@ type CapacityReservationFleetArgs struct {
 	//
 	// Currently, Capacity Reservation Fleets support `open` instance matching criteria only. This means that instances that have matching attributes (instance type, platform, and Availability Zone) run in the Capacity Reservations automatically. Instances do not need to explicitly target a Capacity Reservation Fleet to use its reserved capacity.
 	InstanceMatchCriteria CapacityReservationFleetInstanceMatchCriteriaPtrInput
-	// Specifies information about an instance type to use in a Capacity Reservation Fleet.
-	//
-	// `InstanceTypeSpecification` is a property of the [AWS::EC2::CapacityReservationFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html) resource.
+	// Information about the instance types for which to reserve the capacity.
 	InstanceTypeSpecifications CapacityReservationFleetInstanceTypeSpecificationArrayInput
 	// Used to add an end date to a Capacity Reservation Fleet that has no end date and time. To add an end date to a Capacity Reservation Fleet, specify `true` for this paramater and specify the end date and time (in UTC time format) for the *EndDate* parameter.
 	NoRemoveEndDate pulumi.BoolPtrInput
 	// Used to remove an end date from a Capacity Reservation Fleet that is configured to end automatically at a specific date and time. To remove the end date from a Capacity Reservation Fleet, specify `true` for this paramater and omit the *EndDate* parameter.
 	RemoveEndDate pulumi.BoolPtrInput
-	// The tags to apply to a resource when the resource is being created. When you specify a tag, you must specify the resource type to tag, otherwise the request will fail.
-	//
-	// > The `Valid Values` lists all the resource types that can be tagged. However, the action you're using might not support tagging all of these resource types. If you try to tag a resource type that is unsupported for the action you're using, you'll get an error.
+	// The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.
 	TagSpecifications CapacityReservationFleetTagSpecificationArrayInput
 	// Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the following tenancy settings:
 	//
@@ -278,9 +266,7 @@ func (o CapacityReservationFleetOutput) InstanceMatchCriteria() CapacityReservat
 	}).(CapacityReservationFleetInstanceMatchCriteriaPtrOutput)
 }
 
-// Specifies information about an instance type to use in a Capacity Reservation Fleet.
-//
-// `InstanceTypeSpecification` is a property of the [AWS::EC2::CapacityReservationFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html) resource.
+// Information about the instance types for which to reserve the capacity.
 func (o CapacityReservationFleetOutput) InstanceTypeSpecifications() CapacityReservationFleetInstanceTypeSpecificationArrayOutput {
 	return o.ApplyT(func(v *CapacityReservationFleet) CapacityReservationFleetInstanceTypeSpecificationArrayOutput {
 		return v.InstanceTypeSpecifications
@@ -297,9 +283,7 @@ func (o CapacityReservationFleetOutput) RemoveEndDate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CapacityReservationFleet) pulumi.BoolPtrOutput { return v.RemoveEndDate }).(pulumi.BoolPtrOutput)
 }
 
-// The tags to apply to a resource when the resource is being created. When you specify a tag, you must specify the resource type to tag, otherwise the request will fail.
-//
-// > The `Valid Values` lists all the resource types that can be tagged. However, the action you're using might not support tagging all of these resource types. If you try to tag a resource type that is unsupported for the action you're using, you'll get an error.
+// The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.
 func (o CapacityReservationFleetOutput) TagSpecifications() CapacityReservationFleetTagSpecificationArrayOutput {
 	return o.ApplyT(func(v *CapacityReservationFleet) CapacityReservationFleetTagSpecificationArrayOutput {
 		return v.TagSpecifications

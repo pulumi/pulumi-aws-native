@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         /// </summary>
         public readonly ImmutableArray<string> IncludedStatistics;
         /// <summary>
-        /// Override of a particular evaluation for a profile job.
+        /// List of overrides for evaluations.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobStatisticOverride> Overrides;
 

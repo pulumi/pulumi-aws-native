@@ -46,7 +46,7 @@ export class UserPoolDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly cloudFrontDistribution!: pulumi.Output<string>;
     /**
-     * The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+     * The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
      */
     public readonly customDomainConfig!: pulumi.Output<outputs.cognito.UserPoolDomainCustomDomainConfigType | undefined>;
     /**
@@ -101,7 +101,7 @@ export class UserPoolDomain extends pulumi.CustomResource {
  */
 export interface UserPoolDomainArgs {
     /**
-     * The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+     * The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
      */
     customDomainConfig?: pulumi.Input<inputs.cognito.UserPoolDomainCustomDomainConfigTypeArgs>;
     /**

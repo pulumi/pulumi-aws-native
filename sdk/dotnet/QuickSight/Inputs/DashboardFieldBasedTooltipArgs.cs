@@ -22,9 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.DashboardTooltipItemArgs>? _tooltipFields;
 
         /// <summary>
-        /// The tooltip.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The fields configuration in the tooltip.
         /// </summary>
         public InputList<Inputs.DashboardTooltipItemArgs> TooltipFields
         {

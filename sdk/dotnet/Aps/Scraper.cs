@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Aps
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Where to send the metrics from a scraper.
+        /// The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
         /// </summary>
         [Output("destination")]
         public Output<Outputs.ScraperDestination> Destination { get; private set; } = null!;
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Aps
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// A scrape configuration for a scraper, base 64 encoded. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration) in the *Amazon Managed Service for Prometheus User Guide* .
+        /// The configuration in use by the scraper.
         /// </summary>
         [Output("scrapeConfiguration")]
         public Output<Outputs.ScraperScrapeConfiguration> ScrapeConfiguration { get; private set; } = null!;
@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.Aps
         public Output<string> ScraperId { get; private set; } = null!;
 
         /// <summary>
-        /// The source of collected metrics for a scraper.
+        /// The Amazon EKS cluster from which the scraper collects metrics.
         /// </summary>
         [Output("source")]
         public Output<Outputs.ScraperSource> Source { get; private set; } = null!;
@@ -122,19 +122,19 @@ namespace Pulumi.AwsNative.Aps
         public Input<string>? Alias { get; set; }
 
         /// <summary>
-        /// Where to send the metrics from a scraper.
+        /// The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
         /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.ScraperDestinationArgs> Destination { get; set; } = null!;
 
         /// <summary>
-        /// A scrape configuration for a scraper, base 64 encoded. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration) in the *Amazon Managed Service for Prometheus User Guide* .
+        /// The configuration in use by the scraper.
         /// </summary>
         [Input("scrapeConfiguration", required: true)]
         public Input<Inputs.ScraperScrapeConfigurationArgs> ScrapeConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// The source of collected metrics for a scraper.
+        /// The Amazon EKS cluster from which the scraper collects metrics.
         /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.ScraperSourceArgs> Source { get; set; } = null!;

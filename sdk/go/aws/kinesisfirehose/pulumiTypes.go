@@ -178,26 +178,22 @@ func (o DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput) SizeInM
 }
 
 type DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration struct {
-	// Describes the buffering to perform before delivering data to the Serverless offering for Amazon OpenSearch Service destination.
-	BufferingHints *DeliveryStreamAmazonOpenSearchServerlessBufferingHints `pulumi:"bufferingHints"`
-	// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
-	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions `pulumi:"cloudWatchLoggingOptions"`
+	// The buffering options. If no value is specified, the default values for AmazonopensearchserviceBufferingHints are used.
+	BufferingHints           *DeliveryStreamAmazonOpenSearchServerlessBufferingHints `pulumi:"bufferingHints"`
+	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions                 `pulumi:"cloudWatchLoggingOptions"`
 	// The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
 	CollectionEndpoint *string `pulumi:"collectionEndpoint"`
 	// The Serverless offering for Amazon OpenSearch Service index name.
-	IndexName string `pulumi:"indexName"`
-	// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+	IndexName               string                                 `pulumi:"indexName"`
 	ProcessingConfiguration *DeliveryStreamProcessingConfiguration `pulumi:"processingConfiguration"`
-	// Configures retry behavior in case Firehose is unable to deliver documents to the Serverless offering for Amazon OpenSearch Service.
+	// The retry behavior in case Firehose is unable to deliver documents to the Serverless offering for Amazon OpenSearch Service. The default value is 300 (5 minutes).
 	RetryOptions *DeliveryStreamAmazonOpenSearchServerlessRetryOptions `pulumi:"retryOptions"`
 	// The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.
 	RoleArn string `pulumi:"roleArn"`
 	// Defines how documents should be delivered to Amazon S3. When it is set to FailedDocumentsOnly, Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with AmazonOpenSearchService-failed/ appended to the key prefix. When set to AllDocuments, Firehose delivers all incoming records to Amazon S3, and also writes failed documents with AmazonOpenSearchService-failed/ appended to the prefix.
-	S3BackupMode *DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode `pulumi:"s3BackupMode"`
-	// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
-	S3Configuration DeliveryStreamS3DestinationConfiguration `pulumi:"s3Configuration"`
-	// The details of the VPC of the Amazon ES destination.
-	VpcConfiguration *DeliveryStreamVpcConfiguration `pulumi:"vpcConfiguration"`
+	S3BackupMode     *DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode `pulumi:"s3BackupMode"`
+	S3Configuration  DeliveryStreamS3DestinationConfiguration                                      `pulumi:"s3Configuration"`
+	VpcConfiguration *DeliveryStreamVpcConfiguration                                               `pulumi:"vpcConfiguration"`
 }
 
 // DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationInput is an input type that accepts DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs and DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput values.
@@ -212,26 +208,22 @@ type DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationInput inter
 }
 
 type DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs struct {
-	// Describes the buffering to perform before delivering data to the Serverless offering for Amazon OpenSearch Service destination.
-	BufferingHints DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrInput `pulumi:"bufferingHints"`
-	// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
-	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput `pulumi:"cloudWatchLoggingOptions"`
+	// The buffering options. If no value is specified, the default values for AmazonopensearchserviceBufferingHints are used.
+	BufferingHints           DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrInput `pulumi:"bufferingHints"`
+	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput                 `pulumi:"cloudWatchLoggingOptions"`
 	// The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
 	CollectionEndpoint pulumi.StringPtrInput `pulumi:"collectionEndpoint"`
 	// The Serverless offering for Amazon OpenSearch Service index name.
-	IndexName pulumi.StringInput `pulumi:"indexName"`
-	// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+	IndexName               pulumi.StringInput                            `pulumi:"indexName"`
 	ProcessingConfiguration DeliveryStreamProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
-	// Configures retry behavior in case Firehose is unable to deliver documents to the Serverless offering for Amazon OpenSearch Service.
+	// The retry behavior in case Firehose is unable to deliver documents to the Serverless offering for Amazon OpenSearch Service. The default value is 300 (5 minutes).
 	RetryOptions DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrInput `pulumi:"retryOptions"`
 	// The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// Defines how documents should be delivered to Amazon S3. When it is set to FailedDocumentsOnly, Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with AmazonOpenSearchService-failed/ appended to the key prefix. When set to AllDocuments, Firehose delivers all incoming records to Amazon S3, and also writes failed documents with AmazonOpenSearchService-failed/ appended to the prefix.
-	S3BackupMode DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrInput `pulumi:"s3BackupMode"`
-	// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
-	S3Configuration DeliveryStreamS3DestinationConfigurationInput `pulumi:"s3Configuration"`
-	// The details of the VPC of the Amazon ES destination.
-	VpcConfiguration DeliveryStreamVpcConfigurationPtrInput `pulumi:"vpcConfiguration"`
+	S3BackupMode     DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrInput `pulumi:"s3BackupMode"`
+	S3Configuration  DeliveryStreamS3DestinationConfigurationInput                                        `pulumi:"s3Configuration"`
+	VpcConfiguration DeliveryStreamVpcConfigurationPtrInput                                               `pulumi:"vpcConfiguration"`
 }
 
 func (DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs) ElementType() reflect.Type {
@@ -311,14 +303,13 @@ func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) 
 	}).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput)
 }
 
-// Describes the buffering to perform before delivering data to the Serverless offering for Amazon OpenSearch Service destination.
+// The buffering options. If no value is specified, the default values for AmazonopensearchserviceBufferingHints are used.
 func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) BufferingHints() DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamAmazonOpenSearchServerlessBufferingHints {
 		return v.BufferingHints
 	}).(DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput)
 }
 
-// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
 func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		return v.CloudWatchLoggingOptions
@@ -337,14 +328,13 @@ func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) 
 	return o.ApplyT(func(v DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) string { return v.IndexName }).(pulumi.StringOutput)
 }
 
-// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
 func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
 		return v.ProcessingConfiguration
 	}).(DeliveryStreamProcessingConfigurationPtrOutput)
 }
 
-// Configures retry behavior in case Firehose is unable to deliver documents to the Serverless offering for Amazon OpenSearch Service.
+// The retry behavior in case Firehose is unable to deliver documents to the Serverless offering for Amazon OpenSearch Service. The default value is 300 (5 minutes).
 func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) RetryOptions() DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamAmazonOpenSearchServerlessRetryOptions {
 		return v.RetryOptions
@@ -363,14 +353,12 @@ func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) 
 	}).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput)
 }
 
-// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
 func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationOutput {
 	return o.ApplyT(func(v DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) DeliveryStreamS3DestinationConfiguration {
 		return v.S3Configuration
 	}).(DeliveryStreamS3DestinationConfigurationOutput)
 }
 
-// The details of the VPC of the Amazon ES destination.
 func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput) VpcConfiguration() DeliveryStreamVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamVpcConfiguration {
 		return v.VpcConfiguration
@@ -401,7 +389,7 @@ func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutpu
 	}).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationOutput)
 }
 
-// Describes the buffering to perform before delivering data to the Serverless offering for Amazon OpenSearch Service destination.
+// The buffering options. If no value is specified, the default values for AmazonopensearchserviceBufferingHints are used.
 func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput) BufferingHints() DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamAmazonOpenSearchServerlessBufferingHints {
 		if v == nil {
@@ -411,7 +399,6 @@ func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutpu
 	}).(DeliveryStreamAmazonOpenSearchServerlessBufferingHintsPtrOutput)
 }
 
-// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
 func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		if v == nil {
@@ -441,7 +428,6 @@ func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
 func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
 		if v == nil {
@@ -451,7 +437,7 @@ func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutpu
 	}).(DeliveryStreamProcessingConfigurationPtrOutput)
 }
 
-// Configures retry behavior in case Firehose is unable to deliver documents to the Serverless offering for Amazon OpenSearch Service.
+// The retry behavior in case Firehose is unable to deliver documents to the Serverless offering for Amazon OpenSearch Service. The default value is 300 (5 minutes).
 func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput) RetryOptions() DeliveryStreamAmazonOpenSearchServerlessRetryOptionsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamAmazonOpenSearchServerlessRetryOptions {
 		if v == nil {
@@ -481,7 +467,6 @@ func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutpu
 	}).(DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupModePtrOutput)
 }
 
-// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
 func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamS3DestinationConfiguration {
 		if v == nil {
@@ -491,7 +476,6 @@ func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutpu
 	}).(DeliveryStreamS3DestinationConfigurationPtrOutput)
 }
 
-// The details of the VPC of the Amazon ES destination.
 func (o DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationPtrOutput) VpcConfiguration() DeliveryStreamVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration) *DeliveryStreamVpcConfiguration {
 		if v == nil {
@@ -795,9 +779,9 @@ func (o DeliveryStreamAmazonopensearchserviceBufferingHintsPtrOutput) SizeInMbs(
 }
 
 type DeliveryStreamAmazonopensearchserviceDestinationConfiguration struct {
-	// Describes the buffering to perform before delivering data to the Amazon OpenSearch Service destination.
+	// The buffering options. If no value is specified, the default values for AmazonopensearchserviceBufferingHints are used.
 	BufferingHints *DeliveryStreamAmazonopensearchserviceBufferingHints `pulumi:"bufferingHints"`
-	// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+	// Describes the Amazon CloudWatch logging options for your delivery stream.
 	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions `pulumi:"cloudWatchLoggingOptions"`
 	// The endpoint to use when communicating with the cluster. Specify either this ClusterEndpoint or the DomainARN field.
 	ClusterEndpoint *string `pulumi:"clusterEndpoint"`
@@ -809,19 +793,19 @@ type DeliveryStreamAmazonopensearchserviceDestinationConfiguration struct {
 	IndexName string `pulumi:"indexName"`
 	// The Amazon OpenSearch Service index rotation period. Index rotation appends a timestamp to the IndexName to facilitate the expiration of old data.
 	IndexRotationPeriod *DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod `pulumi:"indexRotationPeriod"`
-	// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+	// Describes a data processing configuration.
 	ProcessingConfiguration *DeliveryStreamProcessingConfiguration `pulumi:"processingConfiguration"`
-	// Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon OpenSearch Service.
+	// The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon OpenSearch Service. The default value is 300 (5 minutes).
 	RetryOptions *DeliveryStreamAmazonopensearchserviceRetryOptions `pulumi:"retryOptions"`
 	// The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon OpenSearch Service Configuration API and for indexing documents.
 	RoleArn string `pulumi:"roleArn"`
 	// Defines how documents should be delivered to Amazon S3.
 	S3BackupMode *DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode `pulumi:"s3BackupMode"`
-	// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+	// Describes the configuration of a destination in Amazon S3.
 	S3Configuration DeliveryStreamS3DestinationConfiguration `pulumi:"s3Configuration"`
 	// The Amazon OpenSearch Service type name.
 	TypeName *string `pulumi:"typeName"`
-	// The details of the VPC of the Amazon ES destination.
+	// The details of the VPC of the Amazon OpenSearch Service destination.
 	VpcConfiguration *DeliveryStreamVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
@@ -837,9 +821,9 @@ type DeliveryStreamAmazonopensearchserviceDestinationConfigurationInput interfac
 }
 
 type DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs struct {
-	// Describes the buffering to perform before delivering data to the Amazon OpenSearch Service destination.
+	// The buffering options. If no value is specified, the default values for AmazonopensearchserviceBufferingHints are used.
 	BufferingHints DeliveryStreamAmazonopensearchserviceBufferingHintsPtrInput `pulumi:"bufferingHints"`
-	// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+	// Describes the Amazon CloudWatch logging options for your delivery stream.
 	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput `pulumi:"cloudWatchLoggingOptions"`
 	// The endpoint to use when communicating with the cluster. Specify either this ClusterEndpoint or the DomainARN field.
 	ClusterEndpoint pulumi.StringPtrInput `pulumi:"clusterEndpoint"`
@@ -851,19 +835,19 @@ type DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs struct {
 	IndexName pulumi.StringInput `pulumi:"indexName"`
 	// The Amazon OpenSearch Service index rotation period. Index rotation appends a timestamp to the IndexName to facilitate the expiration of old data.
 	IndexRotationPeriod DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrInput `pulumi:"indexRotationPeriod"`
-	// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+	// Describes a data processing configuration.
 	ProcessingConfiguration DeliveryStreamProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
-	// Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon OpenSearch Service.
+	// The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon OpenSearch Service. The default value is 300 (5 minutes).
 	RetryOptions DeliveryStreamAmazonopensearchserviceRetryOptionsPtrInput `pulumi:"retryOptions"`
 	// The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon OpenSearch Service Configuration API and for indexing documents.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// Defines how documents should be delivered to Amazon S3.
 	S3BackupMode DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrInput `pulumi:"s3BackupMode"`
-	// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+	// Describes the configuration of a destination in Amazon S3.
 	S3Configuration DeliveryStreamS3DestinationConfigurationInput `pulumi:"s3Configuration"`
 	// The Amazon OpenSearch Service type name.
 	TypeName pulumi.StringPtrInput `pulumi:"typeName"`
-	// The details of the VPC of the Amazon ES destination.
+	// The details of the VPC of the Amazon OpenSearch Service destination.
 	VpcConfiguration DeliveryStreamVpcConfigurationPtrInput `pulumi:"vpcConfiguration"`
 }
 
@@ -944,14 +928,14 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationOutput) ToD
 	}).(DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput)
 }
 
-// Describes the buffering to perform before delivering data to the Amazon OpenSearch Service destination.
+// The buffering options. If no value is specified, the default values for AmazonopensearchserviceBufferingHints are used.
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationOutput) BufferingHints() DeliveryStreamAmazonopensearchserviceBufferingHintsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamAmazonopensearchserviceDestinationConfiguration) *DeliveryStreamAmazonopensearchserviceBufferingHints {
 		return v.BufferingHints
 	}).(DeliveryStreamAmazonopensearchserviceBufferingHintsPtrOutput)
 }
 
-// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+// Describes the Amazon CloudWatch logging options for your delivery stream.
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamAmazonopensearchserviceDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		return v.CloudWatchLoggingOptions
@@ -989,14 +973,14 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationOutput) Ind
 	}).(DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrOutput)
 }
 
-// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+// Describes a data processing configuration.
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamAmazonopensearchserviceDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
 		return v.ProcessingConfiguration
 	}).(DeliveryStreamProcessingConfigurationPtrOutput)
 }
 
-// Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon OpenSearch Service.
+// The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon OpenSearch Service. The default value is 300 (5 minutes).
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationOutput) RetryOptions() DeliveryStreamAmazonopensearchserviceRetryOptionsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamAmazonopensearchserviceDestinationConfiguration) *DeliveryStreamAmazonopensearchserviceRetryOptions {
 		return v.RetryOptions
@@ -1015,7 +999,7 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationOutput) S3B
 	}).(DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutput)
 }
 
-// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+// Describes the configuration of a destination in Amazon S3.
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationOutput {
 	return o.ApplyT(func(v DeliveryStreamAmazonopensearchserviceDestinationConfiguration) DeliveryStreamS3DestinationConfiguration {
 		return v.S3Configuration
@@ -1027,7 +1011,7 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationOutput) Typ
 	return o.ApplyT(func(v DeliveryStreamAmazonopensearchserviceDestinationConfiguration) *string { return v.TypeName }).(pulumi.StringPtrOutput)
 }
 
-// The details of the VPC of the Amazon ES destination.
+// The details of the VPC of the Amazon OpenSearch Service destination.
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationOutput) VpcConfiguration() DeliveryStreamVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamAmazonopensearchserviceDestinationConfiguration) *DeliveryStreamVpcConfiguration {
 		return v.VpcConfiguration
@@ -1058,7 +1042,7 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput) 
 	}).(DeliveryStreamAmazonopensearchserviceDestinationConfigurationOutput)
 }
 
-// Describes the buffering to perform before delivering data to the Amazon OpenSearch Service destination.
+// The buffering options. If no value is specified, the default values for AmazonopensearchserviceBufferingHints are used.
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput) BufferingHints() DeliveryStreamAmazonopensearchserviceBufferingHintsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamAmazonopensearchserviceDestinationConfiguration) *DeliveryStreamAmazonopensearchserviceBufferingHints {
 		if v == nil {
@@ -1068,7 +1052,7 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput) 
 	}).(DeliveryStreamAmazonopensearchserviceBufferingHintsPtrOutput)
 }
 
-// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+// Describes the Amazon CloudWatch logging options for your delivery stream.
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamAmazonopensearchserviceDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		if v == nil {
@@ -1128,7 +1112,7 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput) 
 	}).(DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriodPtrOutput)
 }
 
-// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+// Describes a data processing configuration.
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamAmazonopensearchserviceDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
 		if v == nil {
@@ -1138,7 +1122,7 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput) 
 	}).(DeliveryStreamProcessingConfigurationPtrOutput)
 }
 
-// Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon OpenSearch Service.
+// The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon OpenSearch Service. The default value is 300 (5 minutes).
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput) RetryOptions() DeliveryStreamAmazonopensearchserviceRetryOptionsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamAmazonopensearchserviceDestinationConfiguration) *DeliveryStreamAmazonopensearchserviceRetryOptions {
 		if v == nil {
@@ -1168,7 +1152,7 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput) 
 	}).(DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupModePtrOutput)
 }
 
-// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+// Describes the configuration of a destination in Amazon S3.
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamAmazonopensearchserviceDestinationConfiguration) *DeliveryStreamS3DestinationConfiguration {
 		if v == nil {
@@ -1188,7 +1172,7 @@ func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The details of the VPC of the Amazon ES destination.
+// The details of the VPC of the Amazon OpenSearch Service destination.
 func (o DeliveryStreamAmazonopensearchserviceDestinationConfigurationPtrOutput) VpcConfiguration() DeliveryStreamVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamAmazonopensearchserviceDestinationConfiguration) *DeliveryStreamVpcConfiguration {
 		if v == nil {
@@ -2018,11 +2002,11 @@ func (o DeliveryStreamCopyCommandPtrOutput) DataTableName() pulumi.StringPtrOutp
 type DeliveryStreamDataFormatConversionConfiguration struct {
 	// Defaults to `true` . Set it to `false` if you want to disable format conversion while preserving the configuration details.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the deserializer you want to use to convert the format of the input data. This parameter is required if `Enabled` is set to true.
+	// Specifies the deserializer that you want Firehose to use to convert the format of your data from JSON. This parameter is required if `Enabled` is set to true.
 	InputFormatConfiguration *DeliveryStreamInputFormatConfiguration `pulumi:"inputFormatConfiguration"`
-	// Specifies the serializer that you want Firehose to use to convert the format of your data before it writes it to Amazon S3. This parameter is required if `Enabled` is set to true.
+	// Specifies the serializer that you want Firehose to use to convert the format of your data to the Parquet or ORC format. This parameter is required if `Enabled` is set to true.
 	OutputFormatConfiguration *DeliveryStreamOutputFormatConfiguration `pulumi:"outputFormatConfiguration"`
-	// Specifies the schema to which you want Firehose to configure your data before it writes it to Amazon S3. This parameter is required if `Enabled` is set to true.
+	// Specifies the AWS Glue Data Catalog table that contains the column information. This parameter is required if `Enabled` is set to true.
 	SchemaConfiguration *DeliveryStreamSchemaConfiguration `pulumi:"schemaConfiguration"`
 }
 
@@ -2040,11 +2024,11 @@ type DeliveryStreamDataFormatConversionConfigurationInput interface {
 type DeliveryStreamDataFormatConversionConfigurationArgs struct {
 	// Defaults to `true` . Set it to `false` if you want to disable format conversion while preserving the configuration details.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Specifies the deserializer you want to use to convert the format of the input data. This parameter is required if `Enabled` is set to true.
+	// Specifies the deserializer that you want Firehose to use to convert the format of your data from JSON. This parameter is required if `Enabled` is set to true.
 	InputFormatConfiguration DeliveryStreamInputFormatConfigurationPtrInput `pulumi:"inputFormatConfiguration"`
-	// Specifies the serializer that you want Firehose to use to convert the format of your data before it writes it to Amazon S3. This parameter is required if `Enabled` is set to true.
+	// Specifies the serializer that you want Firehose to use to convert the format of your data to the Parquet or ORC format. This parameter is required if `Enabled` is set to true.
 	OutputFormatConfiguration DeliveryStreamOutputFormatConfigurationPtrInput `pulumi:"outputFormatConfiguration"`
-	// Specifies the schema to which you want Firehose to configure your data before it writes it to Amazon S3. This parameter is required if `Enabled` is set to true.
+	// Specifies the AWS Glue Data Catalog table that contains the column information. This parameter is required if `Enabled` is set to true.
 	SchemaConfiguration DeliveryStreamSchemaConfigurationPtrInput `pulumi:"schemaConfiguration"`
 }
 
@@ -2130,21 +2114,21 @@ func (o DeliveryStreamDataFormatConversionConfigurationOutput) Enabled() pulumi.
 	return o.ApplyT(func(v DeliveryStreamDataFormatConversionConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the deserializer you want to use to convert the format of the input data. This parameter is required if `Enabled` is set to true.
+// Specifies the deserializer that you want Firehose to use to convert the format of your data from JSON. This parameter is required if `Enabled` is set to true.
 func (o DeliveryStreamDataFormatConversionConfigurationOutput) InputFormatConfiguration() DeliveryStreamInputFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamDataFormatConversionConfiguration) *DeliveryStreamInputFormatConfiguration {
 		return v.InputFormatConfiguration
 	}).(DeliveryStreamInputFormatConfigurationPtrOutput)
 }
 
-// Specifies the serializer that you want Firehose to use to convert the format of your data before it writes it to Amazon S3. This parameter is required if `Enabled` is set to true.
+// Specifies the serializer that you want Firehose to use to convert the format of your data to the Parquet or ORC format. This parameter is required if `Enabled` is set to true.
 func (o DeliveryStreamDataFormatConversionConfigurationOutput) OutputFormatConfiguration() DeliveryStreamOutputFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamDataFormatConversionConfiguration) *DeliveryStreamOutputFormatConfiguration {
 		return v.OutputFormatConfiguration
 	}).(DeliveryStreamOutputFormatConfigurationPtrOutput)
 }
 
-// Specifies the schema to which you want Firehose to configure your data before it writes it to Amazon S3. This parameter is required if `Enabled` is set to true.
+// Specifies the AWS Glue Data Catalog table that contains the column information. This parameter is required if `Enabled` is set to true.
 func (o DeliveryStreamDataFormatConversionConfigurationOutput) SchemaConfiguration() DeliveryStreamSchemaConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamDataFormatConversionConfiguration) *DeliveryStreamSchemaConfiguration {
 		return v.SchemaConfiguration
@@ -2185,7 +2169,7 @@ func (o DeliveryStreamDataFormatConversionConfigurationPtrOutput) Enabled() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the deserializer you want to use to convert the format of the input data. This parameter is required if `Enabled` is set to true.
+// Specifies the deserializer that you want Firehose to use to convert the format of your data from JSON. This parameter is required if `Enabled` is set to true.
 func (o DeliveryStreamDataFormatConversionConfigurationPtrOutput) InputFormatConfiguration() DeliveryStreamInputFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamDataFormatConversionConfiguration) *DeliveryStreamInputFormatConfiguration {
 		if v == nil {
@@ -2195,7 +2179,7 @@ func (o DeliveryStreamDataFormatConversionConfigurationPtrOutput) InputFormatCon
 	}).(DeliveryStreamInputFormatConfigurationPtrOutput)
 }
 
-// Specifies the serializer that you want Firehose to use to convert the format of your data before it writes it to Amazon S3. This parameter is required if `Enabled` is set to true.
+// Specifies the serializer that you want Firehose to use to convert the format of your data to the Parquet or ORC format. This parameter is required if `Enabled` is set to true.
 func (o DeliveryStreamDataFormatConversionConfigurationPtrOutput) OutputFormatConfiguration() DeliveryStreamOutputFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamDataFormatConversionConfiguration) *DeliveryStreamOutputFormatConfiguration {
 		if v == nil {
@@ -2205,7 +2189,7 @@ func (o DeliveryStreamDataFormatConversionConfigurationPtrOutput) OutputFormatCo
 	}).(DeliveryStreamOutputFormatConfigurationPtrOutput)
 }
 
-// Specifies the schema to which you want Firehose to configure your data before it writes it to Amazon S3. This parameter is required if `Enabled` is set to true.
+// Specifies the AWS Glue Data Catalog table that contains the column information. This parameter is required if `Enabled` is set to true.
 func (o DeliveryStreamDataFormatConversionConfigurationPtrOutput) SchemaConfiguration() DeliveryStreamSchemaConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamDataFormatConversionConfiguration) *DeliveryStreamSchemaConfiguration {
 		if v == nil {
@@ -2521,7 +2505,7 @@ func (o DeliveryStreamDocumentIdOptionsPtrOutput) DefaultDocumentIdFormat() Deli
 type DeliveryStreamDynamicPartitioningConfiguration struct {
 	// Specifies whether dynamic partitioning is enabled for this Kinesis Data Firehose delivery stream.
 	Enabled *bool `pulumi:"enabled"`
-	// Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+	// Specifies the retry behavior in case Kinesis Data Firehose is unable to deliver data to an Amazon S3 prefix.
 	RetryOptions *DeliveryStreamRetryOptions `pulumi:"retryOptions"`
 }
 
@@ -2539,7 +2523,7 @@ type DeliveryStreamDynamicPartitioningConfigurationInput interface {
 type DeliveryStreamDynamicPartitioningConfigurationArgs struct {
 	// Specifies whether dynamic partitioning is enabled for this Kinesis Data Firehose delivery stream.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+	// Specifies the retry behavior in case Kinesis Data Firehose is unable to deliver data to an Amazon S3 prefix.
 	RetryOptions DeliveryStreamRetryOptionsPtrInput `pulumi:"retryOptions"`
 }
 
@@ -2625,7 +2609,7 @@ func (o DeliveryStreamDynamicPartitioningConfigurationOutput) Enabled() pulumi.B
 	return o.ApplyT(func(v DeliveryStreamDynamicPartitioningConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+// Specifies the retry behavior in case Kinesis Data Firehose is unable to deliver data to an Amazon S3 prefix.
 func (o DeliveryStreamDynamicPartitioningConfigurationOutput) RetryOptions() DeliveryStreamRetryOptionsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamDynamicPartitioningConfiguration) *DeliveryStreamRetryOptions {
 		return v.RetryOptions
@@ -2666,7 +2650,7 @@ func (o DeliveryStreamDynamicPartitioningConfigurationPtrOutput) Enabled() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+// Specifies the retry behavior in case Kinesis Data Firehose is unable to deliver data to an Amazon S3 prefix.
 func (o DeliveryStreamDynamicPartitioningConfigurationPtrOutput) RetryOptions() DeliveryStreamRetryOptionsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamDynamicPartitioningConfiguration) *DeliveryStreamRetryOptions {
 		if v == nil {
@@ -2833,11 +2817,9 @@ func (o DeliveryStreamElasticsearchBufferingHintsPtrOutput) SizeInMbs() pulumi.I
 }
 
 type DeliveryStreamElasticsearchDestinationConfiguration struct {
-	// The `ElasticsearchBufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data while delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
-	//
-	// ElasticsearchBufferingHints is the property type for the `BufferingHints` property of the [Amazon Kinesis Data Firehose DeliveryStream ElasticsearchDestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html) property type.
+	// Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon ES domain.
 	BufferingHints *DeliveryStreamElasticsearchBufferingHints `pulumi:"bufferingHints"`
-	// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+	// The Amazon CloudWatch Logs logging options for the delivery stream.
 	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions `pulumi:"cloudWatchLoggingOptions"`
 	// The endpoint to use when communicating with the cluster. Specify either this `ClusterEndpoint` or the `DomainARN` field.
 	ClusterEndpoint *string `pulumi:"clusterEndpoint"`
@@ -2851,15 +2833,15 @@ type DeliveryStreamElasticsearchDestinationConfiguration struct {
 	IndexName string `pulumi:"indexName"`
 	// The frequency of Elasticsearch index rotation. If you enable index rotation, Kinesis Data Firehose appends a portion of the UTC arrival timestamp to the specified index name, and rotates the appended timestamp accordingly. For more information, see [Index Rotation for the Amazon ES Destination](https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation) in the *Amazon Kinesis Data Firehose Developer Guide* .
 	IndexRotationPeriod *DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod `pulumi:"indexRotationPeriod"`
-	// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+	// The data processing configuration for the Kinesis Data Firehose delivery stream.
 	ProcessingConfiguration *DeliveryStreamProcessingConfiguration `pulumi:"processingConfiguration"`
-	// The `ElasticsearchRetryOptions` property type configures the retry behavior for when Amazon Kinesis Data Firehose (Kinesis Data Firehose) can't deliver data to Amazon Elasticsearch Service (Amazon ES).
+	// The retry behavior when Kinesis Data Firehose is unable to deliver data to Amazon ES.
 	RetryOptions *DeliveryStreamElasticsearchRetryOptions `pulumi:"retryOptions"`
 	// The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see [Controlling Access with Amazon Kinesis Data Firehose](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html) .
 	RoleArn string `pulumi:"roleArn"`
 	// The condition under which Kinesis Data Firehose delivers data to Amazon Simple Storage Service (Amazon S3). You can send Amazon S3 all documents (all data) or only the documents that Kinesis Data Firehose could not deliver to the Amazon ES destination. For more information and valid values, see the `S3BackupMode` content for the [ElasticsearchDestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ElasticsearchDestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
 	S3BackupMode *DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode `pulumi:"s3BackupMode"`
-	// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+	// The S3 bucket where Kinesis Data Firehose backs up incoming data.
 	S3Configuration DeliveryStreamS3DestinationConfiguration `pulumi:"s3Configuration"`
 	// The Elasticsearch type name that Amazon ES adds to documents when indexing data.
 	TypeName *string `pulumi:"typeName"`
@@ -2879,11 +2861,9 @@ type DeliveryStreamElasticsearchDestinationConfigurationInput interface {
 }
 
 type DeliveryStreamElasticsearchDestinationConfigurationArgs struct {
-	// The `ElasticsearchBufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data while delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
-	//
-	// ElasticsearchBufferingHints is the property type for the `BufferingHints` property of the [Amazon Kinesis Data Firehose DeliveryStream ElasticsearchDestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html) property type.
+	// Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon ES domain.
 	BufferingHints DeliveryStreamElasticsearchBufferingHintsPtrInput `pulumi:"bufferingHints"`
-	// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+	// The Amazon CloudWatch Logs logging options for the delivery stream.
 	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput `pulumi:"cloudWatchLoggingOptions"`
 	// The endpoint to use when communicating with the cluster. Specify either this `ClusterEndpoint` or the `DomainARN` field.
 	ClusterEndpoint pulumi.StringPtrInput `pulumi:"clusterEndpoint"`
@@ -2897,15 +2877,15 @@ type DeliveryStreamElasticsearchDestinationConfigurationArgs struct {
 	IndexName pulumi.StringInput `pulumi:"indexName"`
 	// The frequency of Elasticsearch index rotation. If you enable index rotation, Kinesis Data Firehose appends a portion of the UTC arrival timestamp to the specified index name, and rotates the appended timestamp accordingly. For more information, see [Index Rotation for the Amazon ES Destination](https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation) in the *Amazon Kinesis Data Firehose Developer Guide* .
 	IndexRotationPeriod DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrInput `pulumi:"indexRotationPeriod"`
-	// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+	// The data processing configuration for the Kinesis Data Firehose delivery stream.
 	ProcessingConfiguration DeliveryStreamProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
-	// The `ElasticsearchRetryOptions` property type configures the retry behavior for when Amazon Kinesis Data Firehose (Kinesis Data Firehose) can't deliver data to Amazon Elasticsearch Service (Amazon ES).
+	// The retry behavior when Kinesis Data Firehose is unable to deliver data to Amazon ES.
 	RetryOptions DeliveryStreamElasticsearchRetryOptionsPtrInput `pulumi:"retryOptions"`
 	// The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see [Controlling Access with Amazon Kinesis Data Firehose](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html) .
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// The condition under which Kinesis Data Firehose delivers data to Amazon Simple Storage Service (Amazon S3). You can send Amazon S3 all documents (all data) or only the documents that Kinesis Data Firehose could not deliver to the Amazon ES destination. For more information and valid values, see the `S3BackupMode` content for the [ElasticsearchDestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ElasticsearchDestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
 	S3BackupMode DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrInput `pulumi:"s3BackupMode"`
-	// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+	// The S3 bucket where Kinesis Data Firehose backs up incoming data.
 	S3Configuration DeliveryStreamS3DestinationConfigurationInput `pulumi:"s3Configuration"`
 	// The Elasticsearch type name that Amazon ES adds to documents when indexing data.
 	TypeName pulumi.StringPtrInput `pulumi:"typeName"`
@@ -2990,16 +2970,14 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationOutput) ToDeliveryStr
 	}).(DeliveryStreamElasticsearchDestinationConfigurationPtrOutput)
 }
 
-// The `ElasticsearchBufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data while delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
-//
-// ElasticsearchBufferingHints is the property type for the `BufferingHints` property of the [Amazon Kinesis Data Firehose DeliveryStream ElasticsearchDestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html) property type.
+// Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon ES domain.
 func (o DeliveryStreamElasticsearchDestinationConfigurationOutput) BufferingHints() DeliveryStreamElasticsearchBufferingHintsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamElasticsearchDestinationConfiguration) *DeliveryStreamElasticsearchBufferingHints {
 		return v.BufferingHints
 	}).(DeliveryStreamElasticsearchBufferingHintsPtrOutput)
 }
 
-// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+// The Amazon CloudWatch Logs logging options for the delivery stream.
 func (o DeliveryStreamElasticsearchDestinationConfigurationOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamElasticsearchDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		return v.CloudWatchLoggingOptions
@@ -3037,14 +3015,14 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationOutput) IndexRotation
 	}).(DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutput)
 }
 
-// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+// The data processing configuration for the Kinesis Data Firehose delivery stream.
 func (o DeliveryStreamElasticsearchDestinationConfigurationOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamElasticsearchDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
 		return v.ProcessingConfiguration
 	}).(DeliveryStreamProcessingConfigurationPtrOutput)
 }
 
-// The `ElasticsearchRetryOptions` property type configures the retry behavior for when Amazon Kinesis Data Firehose (Kinesis Data Firehose) can't deliver data to Amazon Elasticsearch Service (Amazon ES).
+// The retry behavior when Kinesis Data Firehose is unable to deliver data to Amazon ES.
 func (o DeliveryStreamElasticsearchDestinationConfigurationOutput) RetryOptions() DeliveryStreamElasticsearchRetryOptionsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamElasticsearchDestinationConfiguration) *DeliveryStreamElasticsearchRetryOptions {
 		return v.RetryOptions
@@ -3063,7 +3041,7 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationOutput) S3BackupMode(
 	}).(DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput)
 }
 
-// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+// The S3 bucket where Kinesis Data Firehose backs up incoming data.
 func (o DeliveryStreamElasticsearchDestinationConfigurationOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationOutput {
 	return o.ApplyT(func(v DeliveryStreamElasticsearchDestinationConfiguration) DeliveryStreamS3DestinationConfiguration {
 		return v.S3Configuration
@@ -3106,9 +3084,7 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationPtrOutput) Elem() Del
 	}).(DeliveryStreamElasticsearchDestinationConfigurationOutput)
 }
 
-// The `ElasticsearchBufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data while delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
-//
-// ElasticsearchBufferingHints is the property type for the `BufferingHints` property of the [Amazon Kinesis Data Firehose DeliveryStream ElasticsearchDestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html) property type.
+// Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon ES domain.
 func (o DeliveryStreamElasticsearchDestinationConfigurationPtrOutput) BufferingHints() DeliveryStreamElasticsearchBufferingHintsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamElasticsearchDestinationConfiguration) *DeliveryStreamElasticsearchBufferingHints {
 		if v == nil {
@@ -3118,7 +3094,7 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationPtrOutput) BufferingH
 	}).(DeliveryStreamElasticsearchBufferingHintsPtrOutput)
 }
 
-// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+// The Amazon CloudWatch Logs logging options for the delivery stream.
 func (o DeliveryStreamElasticsearchDestinationConfigurationPtrOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamElasticsearchDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		if v == nil {
@@ -3180,7 +3156,7 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationPtrOutput) IndexRotat
 	}).(DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriodPtrOutput)
 }
 
-// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+// The data processing configuration for the Kinesis Data Firehose delivery stream.
 func (o DeliveryStreamElasticsearchDestinationConfigurationPtrOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamElasticsearchDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
 		if v == nil {
@@ -3190,7 +3166,7 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationPtrOutput) Processing
 	}).(DeliveryStreamProcessingConfigurationPtrOutput)
 }
 
-// The `ElasticsearchRetryOptions` property type configures the retry behavior for when Amazon Kinesis Data Firehose (Kinesis Data Firehose) can't deliver data to Amazon Elasticsearch Service (Amazon ES).
+// The retry behavior when Kinesis Data Firehose is unable to deliver data to Amazon ES.
 func (o DeliveryStreamElasticsearchDestinationConfigurationPtrOutput) RetryOptions() DeliveryStreamElasticsearchRetryOptionsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamElasticsearchDestinationConfiguration) *DeliveryStreamElasticsearchRetryOptions {
 		if v == nil {
@@ -3220,7 +3196,7 @@ func (o DeliveryStreamElasticsearchDestinationConfigurationPtrOutput) S3BackupMo
 	}).(DeliveryStreamElasticsearchDestinationConfigurationS3BackupModePtrOutput)
 }
 
-// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+// The S3 bucket where Kinesis Data Firehose backs up incoming data.
 func (o DeliveryStreamElasticsearchDestinationConfigurationPtrOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamElasticsearchDestinationConfiguration) *DeliveryStreamS3DestinationConfiguration {
 		if v == nil {
@@ -3388,7 +3364,7 @@ func (o DeliveryStreamElasticsearchRetryOptionsPtrOutput) DurationInSeconds() pu
 }
 
 type DeliveryStreamEncryptionConfiguration struct {
-	// The `KMSEncryptionConfig` property type specifies the AWS Key Management Service ( AWS KMS) encryption key that Amazon Simple Storage Service (Amazon S3) uses to encrypt data delivered by the Amazon Kinesis Data Firehose (Kinesis Data Firehose) stream.
+	// The AWS Key Management Service ( AWS KMS) encryption key that Amazon S3 uses to encrypt your data.
 	KmsEncryptionConfig *DeliveryStreamKmsEncryptionConfig `pulumi:"kmsEncryptionConfig"`
 	// Disables encryption. For valid values, see the `NoEncryptionConfig` content for the [EncryptionConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_EncryptionConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
 	NoEncryptionConfig *DeliveryStreamEncryptionConfigurationNoEncryptionConfig `pulumi:"noEncryptionConfig"`
@@ -3406,7 +3382,7 @@ type DeliveryStreamEncryptionConfigurationInput interface {
 }
 
 type DeliveryStreamEncryptionConfigurationArgs struct {
-	// The `KMSEncryptionConfig` property type specifies the AWS Key Management Service ( AWS KMS) encryption key that Amazon Simple Storage Service (Amazon S3) uses to encrypt data delivered by the Amazon Kinesis Data Firehose (Kinesis Data Firehose) stream.
+	// The AWS Key Management Service ( AWS KMS) encryption key that Amazon S3 uses to encrypt your data.
 	KmsEncryptionConfig DeliveryStreamKmsEncryptionConfigPtrInput `pulumi:"kmsEncryptionConfig"`
 	// Disables encryption. For valid values, see the `NoEncryptionConfig` content for the [EncryptionConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_EncryptionConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
 	NoEncryptionConfig DeliveryStreamEncryptionConfigurationNoEncryptionConfigPtrInput `pulumi:"noEncryptionConfig"`
@@ -3489,7 +3465,7 @@ func (o DeliveryStreamEncryptionConfigurationOutput) ToDeliveryStreamEncryptionC
 	}).(DeliveryStreamEncryptionConfigurationPtrOutput)
 }
 
-// The `KMSEncryptionConfig` property type specifies the AWS Key Management Service ( AWS KMS) encryption key that Amazon Simple Storage Service (Amazon S3) uses to encrypt data delivered by the Amazon Kinesis Data Firehose (Kinesis Data Firehose) stream.
+// The AWS Key Management Service ( AWS KMS) encryption key that Amazon S3 uses to encrypt your data.
 func (o DeliveryStreamEncryptionConfigurationOutput) KmsEncryptionConfig() DeliveryStreamKmsEncryptionConfigPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamEncryptionConfiguration) *DeliveryStreamKmsEncryptionConfig {
 		return v.KmsEncryptionConfig
@@ -3527,7 +3503,7 @@ func (o DeliveryStreamEncryptionConfigurationPtrOutput) Elem() DeliveryStreamEnc
 	}).(DeliveryStreamEncryptionConfigurationOutput)
 }
 
-// The `KMSEncryptionConfig` property type specifies the AWS Key Management Service ( AWS KMS) encryption key that Amazon Simple Storage Service (Amazon S3) uses to encrypt data delivered by the Amazon Kinesis Data Firehose (Kinesis Data Firehose) stream.
+// The AWS Key Management Service ( AWS KMS) encryption key that Amazon S3 uses to encrypt your data.
 func (o DeliveryStreamEncryptionConfigurationPtrOutput) KmsEncryptionConfig() DeliveryStreamKmsEncryptionConfigPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamEncryptionConfiguration) *DeliveryStreamKmsEncryptionConfig {
 		if v == nil {
@@ -3724,19 +3700,19 @@ func (o DeliveryStreamEncryptionConfigurationInputTypePtrOutput) KeyType() Deliv
 type DeliveryStreamExtendedS3DestinationConfiguration struct {
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket. For constraints, see [ExtendedS3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ExtendedS3DestinationConfiguration.html) in the *Amazon Kinesis Data Firehose API Reference* .
 	BucketArn string `pulumi:"bucketArn"`
-	// The `BufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data before delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
+	// The buffering option.
 	BufferingHints *DeliveryStreamBufferingHints `pulumi:"bufferingHints"`
-	// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+	// The Amazon CloudWatch logging options for your delivery stream.
 	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions `pulumi:"cloudWatchLoggingOptions"`
 	// The compression format. If no value is specified, the default is `UNCOMPRESSED` .
 	CompressionFormat *DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat `pulumi:"compressionFormat"`
 	// The time zone you prefer. UTC is the default.
 	CustomTimeZone *string `pulumi:"customTimeZone"`
-	// Specifies that you want Kinesis Data Firehose to convert data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. Kinesis Data Firehose uses the serializer and deserializer that you specify, in addition to the column information from the AWS Glue table, to deserialize your input data from JSON and then serialize it to the Parquet or ORC format. For more information, see [Kinesis Data Firehose Record Format Conversion](https://docs.aws.amazon.com/firehose/latest/dev/record-format-conversion.html) .
+	// The serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3.
 	DataFormatConversionConfiguration *DeliveryStreamDataFormatConversionConfiguration `pulumi:"dataFormatConversionConfiguration"`
-	// The `DynamicPartitioningConfiguration` property type specifies the configuration of the dynamic partitioning mechanism that creates targeted data sets from the streaming data by partitioning it based on partition keys.
+	// The configuration of the dynamic partitioning mechanism that creates targeted data sets from the streaming data by partitioning it based on partition keys.
 	DynamicPartitioningConfiguration *DeliveryStreamDynamicPartitioningConfiguration `pulumi:"dynamicPartitioningConfiguration"`
-	// The `EncryptionConfiguration` property type specifies the encryption settings that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses when delivering data to Amazon Simple Storage Service (Amazon S3).
+	// The encryption configuration for the Kinesis Data Firehose delivery stream. The default value is `NoEncryption` .
 	EncryptionConfiguration *DeliveryStreamEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html) .
 	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
@@ -3744,11 +3720,11 @@ type DeliveryStreamExtendedS3DestinationConfiguration struct {
 	FileExtension *string `pulumi:"fileExtension"`
 	// The `YYYY/MM/DD/HH` time format prefix is automatically used for delivered Amazon S3 files. For more information, see [ExtendedS3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ExtendedS3DestinationConfiguration.html) in the *Amazon Kinesis Data Firehose API Reference* .
 	Prefix *string `pulumi:"prefix"`
-	// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+	// The data processing configuration for the Kinesis Data Firehose delivery stream.
 	ProcessingConfiguration *DeliveryStreamProcessingConfiguration `pulumi:"processingConfiguration"`
 	// The Amazon Resource Name (ARN) of the AWS credentials. For constraints, see [ExtendedS3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ExtendedS3DestinationConfiguration.html) in the *Amazon Kinesis Data Firehose API Reference* .
 	RoleArn string `pulumi:"roleArn"`
-	// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+	// The configuration for backup in Amazon S3.
 	S3BackupConfiguration *DeliveryStreamS3DestinationConfiguration `pulumi:"s3BackupConfiguration"`
 	// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
 	S3BackupMode *DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode `pulumi:"s3BackupMode"`
@@ -3768,19 +3744,19 @@ type DeliveryStreamExtendedS3DestinationConfigurationInput interface {
 type DeliveryStreamExtendedS3DestinationConfigurationArgs struct {
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket. For constraints, see [ExtendedS3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ExtendedS3DestinationConfiguration.html) in the *Amazon Kinesis Data Firehose API Reference* .
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
-	// The `BufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data before delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
+	// The buffering option.
 	BufferingHints DeliveryStreamBufferingHintsPtrInput `pulumi:"bufferingHints"`
-	// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+	// The Amazon CloudWatch logging options for your delivery stream.
 	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput `pulumi:"cloudWatchLoggingOptions"`
 	// The compression format. If no value is specified, the default is `UNCOMPRESSED` .
 	CompressionFormat DeliveryStreamExtendedS3DestinationConfigurationCompressionFormatPtrInput `pulumi:"compressionFormat"`
 	// The time zone you prefer. UTC is the default.
 	CustomTimeZone pulumi.StringPtrInput `pulumi:"customTimeZone"`
-	// Specifies that you want Kinesis Data Firehose to convert data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. Kinesis Data Firehose uses the serializer and deserializer that you specify, in addition to the column information from the AWS Glue table, to deserialize your input data from JSON and then serialize it to the Parquet or ORC format. For more information, see [Kinesis Data Firehose Record Format Conversion](https://docs.aws.amazon.com/firehose/latest/dev/record-format-conversion.html) .
+	// The serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3.
 	DataFormatConversionConfiguration DeliveryStreamDataFormatConversionConfigurationPtrInput `pulumi:"dataFormatConversionConfiguration"`
-	// The `DynamicPartitioningConfiguration` property type specifies the configuration of the dynamic partitioning mechanism that creates targeted data sets from the streaming data by partitioning it based on partition keys.
+	// The configuration of the dynamic partitioning mechanism that creates targeted data sets from the streaming data by partitioning it based on partition keys.
 	DynamicPartitioningConfiguration DeliveryStreamDynamicPartitioningConfigurationPtrInput `pulumi:"dynamicPartitioningConfiguration"`
-	// The `EncryptionConfiguration` property type specifies the encryption settings that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses when delivering data to Amazon Simple Storage Service (Amazon S3).
+	// The encryption configuration for the Kinesis Data Firehose delivery stream. The default value is `NoEncryption` .
 	EncryptionConfiguration DeliveryStreamEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
 	// A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html) .
 	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
@@ -3788,11 +3764,11 @@ type DeliveryStreamExtendedS3DestinationConfigurationArgs struct {
 	FileExtension pulumi.StringPtrInput `pulumi:"fileExtension"`
 	// The `YYYY/MM/DD/HH` time format prefix is automatically used for delivered Amazon S3 files. For more information, see [ExtendedS3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ExtendedS3DestinationConfiguration.html) in the *Amazon Kinesis Data Firehose API Reference* .
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
-	// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+	// The data processing configuration for the Kinesis Data Firehose delivery stream.
 	ProcessingConfiguration DeliveryStreamProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
 	// The Amazon Resource Name (ARN) of the AWS credentials. For constraints, see [ExtendedS3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ExtendedS3DestinationConfiguration.html) in the *Amazon Kinesis Data Firehose API Reference* .
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+	// The configuration for backup in Amazon S3.
 	S3BackupConfiguration DeliveryStreamS3DestinationConfigurationPtrInput `pulumi:"s3BackupConfiguration"`
 	// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
 	S3BackupMode DeliveryStreamExtendedS3DestinationConfigurationS3BackupModePtrInput `pulumi:"s3BackupMode"`
@@ -3880,14 +3856,14 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) BucketArn() pulu
 	return o.ApplyT(func(v DeliveryStreamExtendedS3DestinationConfiguration) string { return v.BucketArn }).(pulumi.StringOutput)
 }
 
-// The `BufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data before delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
+// The buffering option.
 func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) BufferingHints() DeliveryStreamBufferingHintsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamBufferingHints {
 		return v.BufferingHints
 	}).(DeliveryStreamBufferingHintsPtrOutput)
 }
 
-// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+// The Amazon CloudWatch logging options for your delivery stream.
 func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		return v.CloudWatchLoggingOptions
@@ -3906,21 +3882,21 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) CustomTimeZone()
 	return o.ApplyT(func(v DeliveryStreamExtendedS3DestinationConfiguration) *string { return v.CustomTimeZone }).(pulumi.StringPtrOutput)
 }
 
-// Specifies that you want Kinesis Data Firehose to convert data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. Kinesis Data Firehose uses the serializer and deserializer that you specify, in addition to the column information from the AWS Glue table, to deserialize your input data from JSON and then serialize it to the Parquet or ORC format. For more information, see [Kinesis Data Firehose Record Format Conversion](https://docs.aws.amazon.com/firehose/latest/dev/record-format-conversion.html) .
+// The serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3.
 func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) DataFormatConversionConfiguration() DeliveryStreamDataFormatConversionConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamDataFormatConversionConfiguration {
 		return v.DataFormatConversionConfiguration
 	}).(DeliveryStreamDataFormatConversionConfigurationPtrOutput)
 }
 
-// The `DynamicPartitioningConfiguration` property type specifies the configuration of the dynamic partitioning mechanism that creates targeted data sets from the streaming data by partitioning it based on partition keys.
+// The configuration of the dynamic partitioning mechanism that creates targeted data sets from the streaming data by partitioning it based on partition keys.
 func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) DynamicPartitioningConfiguration() DeliveryStreamDynamicPartitioningConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamDynamicPartitioningConfiguration {
 		return v.DynamicPartitioningConfiguration
 	}).(DeliveryStreamDynamicPartitioningConfigurationPtrOutput)
 }
 
-// The `EncryptionConfiguration` property type specifies the encryption settings that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses when delivering data to Amazon Simple Storage Service (Amazon S3).
+// The encryption configuration for the Kinesis Data Firehose delivery stream. The default value is `NoEncryption` .
 func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) EncryptionConfiguration() DeliveryStreamEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamEncryptionConfiguration {
 		return v.EncryptionConfiguration
@@ -3942,7 +3918,7 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) Prefix() pulumi.
 	return o.ApplyT(func(v DeliveryStreamExtendedS3DestinationConfiguration) *string { return v.Prefix }).(pulumi.StringPtrOutput)
 }
 
-// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+// The data processing configuration for the Kinesis Data Firehose delivery stream.
 func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamProcessingConfiguration {
 		return v.ProcessingConfiguration
@@ -3954,7 +3930,7 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) RoleArn() pulumi
 	return o.ApplyT(func(v DeliveryStreamExtendedS3DestinationConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+// The configuration for backup in Amazon S3.
 func (o DeliveryStreamExtendedS3DestinationConfigurationOutput) S3BackupConfiguration() DeliveryStreamS3DestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamS3DestinationConfiguration {
 		return v.S3BackupConfiguration
@@ -4002,7 +3978,7 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) BucketArn() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The `BufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data before delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
+// The buffering option.
 func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) BufferingHints() DeliveryStreamBufferingHintsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamBufferingHints {
 		if v == nil {
@@ -4012,7 +3988,7 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) BufferingHint
 	}).(DeliveryStreamBufferingHintsPtrOutput)
 }
 
-// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+// The Amazon CloudWatch logging options for your delivery stream.
 func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		if v == nil {
@@ -4042,7 +4018,7 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) CustomTimeZon
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies that you want Kinesis Data Firehose to convert data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. Kinesis Data Firehose uses the serializer and deserializer that you specify, in addition to the column information from the AWS Glue table, to deserialize your input data from JSON and then serialize it to the Parquet or ORC format. For more information, see [Kinesis Data Firehose Record Format Conversion](https://docs.aws.amazon.com/firehose/latest/dev/record-format-conversion.html) .
+// The serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3.
 func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) DataFormatConversionConfiguration() DeliveryStreamDataFormatConversionConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamDataFormatConversionConfiguration {
 		if v == nil {
@@ -4052,7 +4028,7 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) DataFormatCon
 	}).(DeliveryStreamDataFormatConversionConfigurationPtrOutput)
 }
 
-// The `DynamicPartitioningConfiguration` property type specifies the configuration of the dynamic partitioning mechanism that creates targeted data sets from the streaming data by partitioning it based on partition keys.
+// The configuration of the dynamic partitioning mechanism that creates targeted data sets from the streaming data by partitioning it based on partition keys.
 func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) DynamicPartitioningConfiguration() DeliveryStreamDynamicPartitioningConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamDynamicPartitioningConfiguration {
 		if v == nil {
@@ -4062,7 +4038,7 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) DynamicPartit
 	}).(DeliveryStreamDynamicPartitioningConfigurationPtrOutput)
 }
 
-// The `EncryptionConfiguration` property type specifies the encryption settings that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses when delivering data to Amazon Simple Storage Service (Amazon S3).
+// The encryption configuration for the Kinesis Data Firehose delivery stream. The default value is `NoEncryption` .
 func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) EncryptionConfiguration() DeliveryStreamEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamEncryptionConfiguration {
 		if v == nil {
@@ -4102,7 +4078,7 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) Prefix() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+// The data processing configuration for the Kinesis Data Firehose delivery stream.
 func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamProcessingConfiguration {
 		if v == nil {
@@ -4122,7 +4098,7 @@ func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) RoleArn() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+// The configuration for backup in Amazon S3.
 func (o DeliveryStreamExtendedS3DestinationConfigurationPtrOutput) S3BackupConfiguration() DeliveryStreamS3DestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamExtendedS3DestinationConfiguration) *DeliveryStreamS3DestinationConfiguration {
 		if v == nil {
@@ -4561,23 +4537,23 @@ func (o DeliveryStreamHttpEndpointConfigurationPtrOutput) Url() pulumi.StringPtr
 }
 
 type DeliveryStreamHttpEndpointDestinationConfiguration struct {
-	// The `BufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data before delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
+	// The buffering options that can be used before data is delivered to the specified destination. Kinesis Data Firehose treats these options as hints, and it might choose to use more optimal values. The SizeInMBs and IntervalInSeconds parameters are optional. However, if you specify a value for one of them, you must also provide a value for the other.
 	BufferingHints *DeliveryStreamBufferingHints `pulumi:"bufferingHints"`
-	// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+	// Describes the Amazon CloudWatch logging options for your delivery stream.
 	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions `pulumi:"cloudWatchLoggingOptions"`
-	// Describes the configuration of the HTTP endpoint to which Kinesis Firehose delivers data. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+	// The configuration of the HTTP endpoint selected as the destination.
 	EndpointConfiguration DeliveryStreamHttpEndpointConfiguration `pulumi:"endpointConfiguration"`
-	// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+	// Describes the data processing configuration.
 	ProcessingConfiguration *DeliveryStreamProcessingConfiguration `pulumi:"processingConfiguration"`
-	// The configuration of the HTTP endpoint request. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+	// The configuration of the request sent to the HTTP endpoint specified as the destination.
 	RequestConfiguration *DeliveryStreamHttpEndpointRequestConfiguration `pulumi:"requestConfiguration"`
-	// Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+	// Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination.
 	RetryOptions *DeliveryStreamRetryOptions `pulumi:"retryOptions"`
 	// Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs.
 	RoleArn *string `pulumi:"roleArn"`
 	// Describes the S3 bucket backup options for the data that Kinesis Data Firehose delivers to the HTTP endpoint destination. You can back up all documents (AllData) or only the documents that Kinesis Data Firehose could not deliver to the specified HTTP endpoint destination (FailedDataOnly).
 	S3BackupMode *string `pulumi:"s3BackupMode"`
-	// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+	// Describes the configuration of a destination in Amazon S3.
 	S3Configuration DeliveryStreamS3DestinationConfiguration `pulumi:"s3Configuration"`
 }
 
@@ -4593,23 +4569,23 @@ type DeliveryStreamHttpEndpointDestinationConfigurationInput interface {
 }
 
 type DeliveryStreamHttpEndpointDestinationConfigurationArgs struct {
-	// The `BufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data before delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
+	// The buffering options that can be used before data is delivered to the specified destination. Kinesis Data Firehose treats these options as hints, and it might choose to use more optimal values. The SizeInMBs and IntervalInSeconds parameters are optional. However, if you specify a value for one of them, you must also provide a value for the other.
 	BufferingHints DeliveryStreamBufferingHintsPtrInput `pulumi:"bufferingHints"`
-	// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+	// Describes the Amazon CloudWatch logging options for your delivery stream.
 	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput `pulumi:"cloudWatchLoggingOptions"`
-	// Describes the configuration of the HTTP endpoint to which Kinesis Firehose delivers data. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+	// The configuration of the HTTP endpoint selected as the destination.
 	EndpointConfiguration DeliveryStreamHttpEndpointConfigurationInput `pulumi:"endpointConfiguration"`
-	// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+	// Describes the data processing configuration.
 	ProcessingConfiguration DeliveryStreamProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
-	// The configuration of the HTTP endpoint request. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+	// The configuration of the request sent to the HTTP endpoint specified as the destination.
 	RequestConfiguration DeliveryStreamHttpEndpointRequestConfigurationPtrInput `pulumi:"requestConfiguration"`
-	// Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+	// Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination.
 	RetryOptions DeliveryStreamRetryOptionsPtrInput `pulumi:"retryOptions"`
 	// Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 	// Describes the S3 bucket backup options for the data that Kinesis Data Firehose delivers to the HTTP endpoint destination. You can back up all documents (AllData) or only the documents that Kinesis Data Firehose could not deliver to the specified HTTP endpoint destination (FailedDataOnly).
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
-	// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+	// Describes the configuration of a destination in Amazon S3.
 	S3Configuration DeliveryStreamS3DestinationConfigurationInput `pulumi:"s3Configuration"`
 }
 
@@ -4690,42 +4666,42 @@ func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) ToDeliveryStre
 	}).(DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput)
 }
 
-// The `BufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data before delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
+// The buffering options that can be used before data is delivered to the specified destination. Kinesis Data Firehose treats these options as hints, and it might choose to use more optimal values. The SizeInMBs and IntervalInSeconds parameters are optional. However, if you specify a value for one of them, you must also provide a value for the other.
 func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) BufferingHints() DeliveryStreamBufferingHintsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamBufferingHints {
 		return v.BufferingHints
 	}).(DeliveryStreamBufferingHintsPtrOutput)
 }
 
-// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+// Describes the Amazon CloudWatch logging options for your delivery stream.
 func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		return v.CloudWatchLoggingOptions
 	}).(DeliveryStreamCloudWatchLoggingOptionsPtrOutput)
 }
 
-// Describes the configuration of the HTTP endpoint to which Kinesis Firehose delivers data. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+// The configuration of the HTTP endpoint selected as the destination.
 func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) EndpointConfiguration() DeliveryStreamHttpEndpointConfigurationOutput {
 	return o.ApplyT(func(v DeliveryStreamHttpEndpointDestinationConfiguration) DeliveryStreamHttpEndpointConfiguration {
 		return v.EndpointConfiguration
 	}).(DeliveryStreamHttpEndpointConfigurationOutput)
 }
 
-// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+// Describes the data processing configuration.
 func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
 		return v.ProcessingConfiguration
 	}).(DeliveryStreamProcessingConfigurationPtrOutput)
 }
 
-// The configuration of the HTTP endpoint request. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+// The configuration of the request sent to the HTTP endpoint specified as the destination.
 func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) RequestConfiguration() DeliveryStreamHttpEndpointRequestConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamHttpEndpointRequestConfiguration {
 		return v.RequestConfiguration
 	}).(DeliveryStreamHttpEndpointRequestConfigurationPtrOutput)
 }
 
-// Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+// Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination.
 func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) RetryOptions() DeliveryStreamRetryOptionsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamRetryOptions {
 		return v.RetryOptions
@@ -4742,7 +4718,7 @@ func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) S3BackupMode()
 	return o.ApplyT(func(v DeliveryStreamHttpEndpointDestinationConfiguration) *string { return v.S3BackupMode }).(pulumi.StringPtrOutput)
 }
 
-// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+// Describes the configuration of a destination in Amazon S3.
 func (o DeliveryStreamHttpEndpointDestinationConfigurationOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationOutput {
 	return o.ApplyT(func(v DeliveryStreamHttpEndpointDestinationConfiguration) DeliveryStreamS3DestinationConfiguration {
 		return v.S3Configuration
@@ -4773,7 +4749,7 @@ func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) Elem() Deli
 	}).(DeliveryStreamHttpEndpointDestinationConfigurationOutput)
 }
 
-// The `BufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data before delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
+// The buffering options that can be used before data is delivered to the specified destination. Kinesis Data Firehose treats these options as hints, and it might choose to use more optimal values. The SizeInMBs and IntervalInSeconds parameters are optional. However, if you specify a value for one of them, you must also provide a value for the other.
 func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) BufferingHints() DeliveryStreamBufferingHintsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamBufferingHints {
 		if v == nil {
@@ -4783,7 +4759,7 @@ func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) BufferingHi
 	}).(DeliveryStreamBufferingHintsPtrOutput)
 }
 
-// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+// Describes the Amazon CloudWatch logging options for your delivery stream.
 func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		if v == nil {
@@ -4793,7 +4769,7 @@ func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) CloudWatchL
 	}).(DeliveryStreamCloudWatchLoggingOptionsPtrOutput)
 }
 
-// Describes the configuration of the HTTP endpoint to which Kinesis Firehose delivers data. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+// The configuration of the HTTP endpoint selected as the destination.
 func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) EndpointConfiguration() DeliveryStreamHttpEndpointConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamHttpEndpointConfiguration {
 		if v == nil {
@@ -4803,7 +4779,7 @@ func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) EndpointCon
 	}).(DeliveryStreamHttpEndpointConfigurationPtrOutput)
 }
 
-// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+// Describes the data processing configuration.
 func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
 		if v == nil {
@@ -4813,7 +4789,7 @@ func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) ProcessingC
 	}).(DeliveryStreamProcessingConfigurationPtrOutput)
 }
 
-// The configuration of the HTTP endpoint request. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+// The configuration of the request sent to the HTTP endpoint specified as the destination.
 func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) RequestConfiguration() DeliveryStreamHttpEndpointRequestConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamHttpEndpointRequestConfiguration {
 		if v == nil {
@@ -4823,7 +4799,7 @@ func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) RequestConf
 	}).(DeliveryStreamHttpEndpointRequestConfigurationPtrOutput)
 }
 
-// Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+// Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination.
 func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) RetryOptions() DeliveryStreamRetryOptionsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamRetryOptions {
 		if v == nil {
@@ -4853,7 +4829,7 @@ func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) S3BackupMod
 	}).(pulumi.StringPtrOutput)
 }
 
-// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+// Describes the configuration of a destination in Amazon S3.
 func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamHttpEndpointDestinationConfiguration) *DeliveryStreamS3DestinationConfiguration {
 		if v == nil {
@@ -4864,7 +4840,7 @@ func (o DeliveryStreamHttpEndpointDestinationConfigurationPtrOutput) S3Configura
 }
 
 type DeliveryStreamHttpEndpointRequestConfiguration struct {
-	// Describes the metadata that's delivered to the specified HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+	// Describes the metadata sent to the HTTP endpoint destination.
 	CommonAttributes []DeliveryStreamHttpEndpointCommonAttribute `pulumi:"commonAttributes"`
 	// Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. For more information, see Content-Encoding in MDN Web Docs, the official Mozilla documentation.
 	ContentEncoding *DeliveryStreamHttpEndpointRequestConfigurationContentEncoding `pulumi:"contentEncoding"`
@@ -4882,7 +4858,7 @@ type DeliveryStreamHttpEndpointRequestConfigurationInput interface {
 }
 
 type DeliveryStreamHttpEndpointRequestConfigurationArgs struct {
-	// Describes the metadata that's delivered to the specified HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+	// Describes the metadata sent to the HTTP endpoint destination.
 	CommonAttributes DeliveryStreamHttpEndpointCommonAttributeArrayInput `pulumi:"commonAttributes"`
 	// Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. For more information, see Content-Encoding in MDN Web Docs, the official Mozilla documentation.
 	ContentEncoding DeliveryStreamHttpEndpointRequestConfigurationContentEncodingPtrInput `pulumi:"contentEncoding"`
@@ -4965,7 +4941,7 @@ func (o DeliveryStreamHttpEndpointRequestConfigurationOutput) ToDeliveryStreamHt
 	}).(DeliveryStreamHttpEndpointRequestConfigurationPtrOutput)
 }
 
-// Describes the metadata that's delivered to the specified HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+// Describes the metadata sent to the HTTP endpoint destination.
 func (o DeliveryStreamHttpEndpointRequestConfigurationOutput) CommonAttributes() DeliveryStreamHttpEndpointCommonAttributeArrayOutput {
 	return o.ApplyT(func(v DeliveryStreamHttpEndpointRequestConfiguration) []DeliveryStreamHttpEndpointCommonAttribute {
 		return v.CommonAttributes
@@ -5003,7 +4979,7 @@ func (o DeliveryStreamHttpEndpointRequestConfigurationPtrOutput) Elem() Delivery
 	}).(DeliveryStreamHttpEndpointRequestConfigurationOutput)
 }
 
-// Describes the metadata that's delivered to the specified HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+// Describes the metadata sent to the HTTP endpoint destination.
 func (o DeliveryStreamHttpEndpointRequestConfigurationPtrOutput) CommonAttributes() DeliveryStreamHttpEndpointCommonAttributeArrayOutput {
 	return o.ApplyT(func(v *DeliveryStreamHttpEndpointRequestConfiguration) []DeliveryStreamHttpEndpointCommonAttribute {
 		if v == nil {
@@ -5024,7 +5000,7 @@ func (o DeliveryStreamHttpEndpointRequestConfigurationPtrOutput) ContentEncoding
 }
 
 type DeliveryStreamInputFormatConfiguration struct {
-	// The deserializer you want Kinesis Data Firehose to use for converting the input data from JSON. Kinesis Data Firehose then serializes the data to its final format using the `Serializer` . Kinesis Data Firehose supports two types of deserializers: the [Apache Hive JSON SerDe](https://docs.aws.amazon.com/https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-JSON) and the [OpenX JSON SerDe](https://docs.aws.amazon.com/https://github.com/rcongiu/Hive-JSON-Serde) .
+	// Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. If both are non-null, the server rejects the request.
 	Deserializer *DeliveryStreamDeserializer `pulumi:"deserializer"`
 }
 
@@ -5040,7 +5016,7 @@ type DeliveryStreamInputFormatConfigurationInput interface {
 }
 
 type DeliveryStreamInputFormatConfigurationArgs struct {
-	// The deserializer you want Kinesis Data Firehose to use for converting the input data from JSON. Kinesis Data Firehose then serializes the data to its final format using the `Serializer` . Kinesis Data Firehose supports two types of deserializers: the [Apache Hive JSON SerDe](https://docs.aws.amazon.com/https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-JSON) and the [OpenX JSON SerDe](https://docs.aws.amazon.com/https://github.com/rcongiu/Hive-JSON-Serde) .
+	// Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. If both are non-null, the server rejects the request.
 	Deserializer DeliveryStreamDeserializerPtrInput `pulumi:"deserializer"`
 }
 
@@ -5121,7 +5097,7 @@ func (o DeliveryStreamInputFormatConfigurationOutput) ToDeliveryStreamInputForma
 	}).(DeliveryStreamInputFormatConfigurationPtrOutput)
 }
 
-// The deserializer you want Kinesis Data Firehose to use for converting the input data from JSON. Kinesis Data Firehose then serializes the data to its final format using the `Serializer` . Kinesis Data Firehose supports two types of deserializers: the [Apache Hive JSON SerDe](https://docs.aws.amazon.com/https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-JSON) and the [OpenX JSON SerDe](https://docs.aws.amazon.com/https://github.com/rcongiu/Hive-JSON-Serde) .
+// Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. If both are non-null, the server rejects the request.
 func (o DeliveryStreamInputFormatConfigurationOutput) Deserializer() DeliveryStreamDeserializerPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamInputFormatConfiguration) *DeliveryStreamDeserializer { return v.Deserializer }).(DeliveryStreamDeserializerPtrOutput)
 }
@@ -5150,7 +5126,7 @@ func (o DeliveryStreamInputFormatConfigurationPtrOutput) Elem() DeliveryStreamIn
 	}).(DeliveryStreamInputFormatConfigurationOutput)
 }
 
-// The deserializer you want Kinesis Data Firehose to use for converting the input data from JSON. Kinesis Data Firehose then serializes the data to its final format using the `Serializer` . Kinesis Data Firehose supports two types of deserializers: the [Apache Hive JSON SerDe](https://docs.aws.amazon.com/https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-JSON) and the [OpenX JSON SerDe](https://docs.aws.amazon.com/https://github.com/rcongiu/Hive-JSON-Serde) .
+// Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. If both are non-null, the server rejects the request.
 func (o DeliveryStreamInputFormatConfigurationPtrOutput) Deserializer() DeliveryStreamDeserializerPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamInputFormatConfiguration) *DeliveryStreamDeserializer {
 		if v == nil {
@@ -6138,7 +6114,7 @@ func (o DeliveryStreamOrcSerDePtrOutput) StripeSizeBytes() pulumi.IntPtrOutput {
 }
 
 type DeliveryStreamOutputFormatConfiguration struct {
-	// The serializer that you want Firehose to use to convert data to the target format before writing it to Amazon S3. Firehose supports two types of serializers: the [ORC SerDe](https://docs.aws.amazon.com/https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/orc/OrcSerde.html) and the [Parquet SerDe](https://docs.aws.amazon.com/https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/parquet/serde/ParquetHiveSerDe.html) .
+	// Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. If both are non-null, the server rejects the request.
 	Serializer *DeliveryStreamSerializer `pulumi:"serializer"`
 }
 
@@ -6154,7 +6130,7 @@ type DeliveryStreamOutputFormatConfigurationInput interface {
 }
 
 type DeliveryStreamOutputFormatConfigurationArgs struct {
-	// The serializer that you want Firehose to use to convert data to the target format before writing it to Amazon S3. Firehose supports two types of serializers: the [ORC SerDe](https://docs.aws.amazon.com/https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/orc/OrcSerde.html) and the [Parquet SerDe](https://docs.aws.amazon.com/https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/parquet/serde/ParquetHiveSerDe.html) .
+	// Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. If both are non-null, the server rejects the request.
 	Serializer DeliveryStreamSerializerPtrInput `pulumi:"serializer"`
 }
 
@@ -6235,7 +6211,7 @@ func (o DeliveryStreamOutputFormatConfigurationOutput) ToDeliveryStreamOutputFor
 	}).(DeliveryStreamOutputFormatConfigurationPtrOutput)
 }
 
-// The serializer that you want Firehose to use to convert data to the target format before writing it to Amazon S3. Firehose supports two types of serializers: the [ORC SerDe](https://docs.aws.amazon.com/https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/orc/OrcSerde.html) and the [Parquet SerDe](https://docs.aws.amazon.com/https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/parquet/serde/ParquetHiveSerDe.html) .
+// Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. If both are non-null, the server rejects the request.
 func (o DeliveryStreamOutputFormatConfigurationOutput) Serializer() DeliveryStreamSerializerPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamOutputFormatConfiguration) *DeliveryStreamSerializer { return v.Serializer }).(DeliveryStreamSerializerPtrOutput)
 }
@@ -6264,7 +6240,7 @@ func (o DeliveryStreamOutputFormatConfigurationPtrOutput) Elem() DeliveryStreamO
 	}).(DeliveryStreamOutputFormatConfigurationOutput)
 }
 
-// The serializer that you want Firehose to use to convert data to the target format before writing it to Amazon S3. Firehose supports two types of serializers: the [ORC SerDe](https://docs.aws.amazon.com/https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/orc/OrcSerde.html) and the [Parquet SerDe](https://docs.aws.amazon.com/https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/parquet/serde/ParquetHiveSerDe.html) .
+// Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. If both are non-null, the server rejects the request.
 func (o DeliveryStreamOutputFormatConfigurationPtrOutput) Serializer() DeliveryStreamSerializerPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamOutputFormatConfiguration) *DeliveryStreamSerializer {
 		if v == nil {
@@ -6509,7 +6485,7 @@ func (o DeliveryStreamParquetSerDePtrOutput) WriterVersion() pulumi.StringPtrOut
 type DeliveryStreamProcessingConfiguration struct {
 	// Indicates whether data processing is enabled (true) or disabled (false).
 	Enabled *bool `pulumi:"enabled"`
-	// The `Processor` property specifies a data processor for an Amazon Kinesis Data Firehose delivery stream.
+	// The data processors.
 	Processors []DeliveryStreamProcessor `pulumi:"processors"`
 }
 
@@ -6527,7 +6503,7 @@ type DeliveryStreamProcessingConfigurationInput interface {
 type DeliveryStreamProcessingConfigurationArgs struct {
 	// Indicates whether data processing is enabled (true) or disabled (false).
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// The `Processor` property specifies a data processor for an Amazon Kinesis Data Firehose delivery stream.
+	// The data processors.
 	Processors DeliveryStreamProcessorArrayInput `pulumi:"processors"`
 }
 
@@ -6613,7 +6589,7 @@ func (o DeliveryStreamProcessingConfigurationOutput) Enabled() pulumi.BoolPtrOut
 	return o.ApplyT(func(v DeliveryStreamProcessingConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// The `Processor` property specifies a data processor for an Amazon Kinesis Data Firehose delivery stream.
+// The data processors.
 func (o DeliveryStreamProcessingConfigurationOutput) Processors() DeliveryStreamProcessorArrayOutput {
 	return o.ApplyT(func(v DeliveryStreamProcessingConfiguration) []DeliveryStreamProcessor { return v.Processors }).(DeliveryStreamProcessorArrayOutput)
 }
@@ -6652,7 +6628,7 @@ func (o DeliveryStreamProcessingConfigurationPtrOutput) Enabled() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The `Processor` property specifies a data processor for an Amazon Kinesis Data Firehose delivery stream.
+// The data processors.
 func (o DeliveryStreamProcessingConfigurationPtrOutput) Processors() DeliveryStreamProcessorArrayOutput {
 	return o.ApplyT(func(v *DeliveryStreamProcessingConfiguration) []DeliveryStreamProcessor {
 		if v == nil {
@@ -6663,7 +6639,7 @@ func (o DeliveryStreamProcessingConfigurationPtrOutput) Processors() DeliveryStr
 }
 
 type DeliveryStreamProcessor struct {
-	// The `ProcessorParameter` property specifies a processor parameter in a data processor for an Amazon Kinesis Data Firehose delivery stream.
+	// The processor parameters.
 	Parameters []DeliveryStreamProcessorParameter `pulumi:"parameters"`
 	// The type of processor. Valid values: `Lambda` .
 	Type DeliveryStreamProcessorType `pulumi:"type"`
@@ -6681,7 +6657,7 @@ type DeliveryStreamProcessorInput interface {
 }
 
 type DeliveryStreamProcessorArgs struct {
-	// The `ProcessorParameter` property specifies a processor parameter in a data processor for an Amazon Kinesis Data Firehose delivery stream.
+	// The processor parameters.
 	Parameters DeliveryStreamProcessorParameterArrayInput `pulumi:"parameters"`
 	// The type of processor. Valid values: `Lambda` .
 	Type DeliveryStreamProcessorTypeInput `pulumi:"type"`
@@ -6738,7 +6714,7 @@ func (o DeliveryStreamProcessorOutput) ToDeliveryStreamProcessorOutputWithContex
 	return o
 }
 
-// The `ProcessorParameter` property specifies a processor parameter in a data processor for an Amazon Kinesis Data Firehose delivery stream.
+// The processor parameters.
 func (o DeliveryStreamProcessorOutput) Parameters() DeliveryStreamProcessorParameterArrayOutput {
 	return o.ApplyT(func(v DeliveryStreamProcessor) []DeliveryStreamProcessorParameter { return v.Parameters }).(DeliveryStreamProcessorParameterArrayOutput)
 }
@@ -6875,25 +6851,25 @@ func (o DeliveryStreamProcessorParameterArrayOutput) Index(i pulumi.IntInput) De
 }
 
 type DeliveryStreamRedshiftDestinationConfiguration struct {
-	// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+	// The CloudWatch logging options for your delivery stream.
 	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions `pulumi:"cloudWatchLoggingOptions"`
 	// The connection string that Kinesis Data Firehose uses to connect to the Amazon Redshift cluster.
 	ClusterJdbcurl string `pulumi:"clusterJdbcurl"`
-	// The `CopyCommand` property type configures the Amazon Redshift `COPY` command that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses to load data into an Amazon Redshift cluster from an Amazon S3 bucket.
+	// Configures the Amazon Redshift `COPY` command that Kinesis Data Firehose uses to load data into the cluster from the Amazon S3 bucket.
 	CopyCommand DeliveryStreamCopyCommand `pulumi:"copyCommand"`
 	// The password for the Amazon Redshift user that you specified in the `Username` property.
 	Password string `pulumi:"password"`
-	// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+	// The data processing configuration for the Kinesis Data Firehose delivery stream.
 	ProcessingConfiguration *DeliveryStreamProcessingConfiguration `pulumi:"processingConfiguration"`
-	// Configures retry behavior in case Firehose is unable to deliver documents to Amazon Redshift.
+	// The retry behavior in case Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
 	RetryOptions *DeliveryStreamRedshiftRetryOptions `pulumi:"retryOptions"`
 	// The ARN of the AWS Identity and Access Management (IAM) role that grants Kinesis Data Firehose access to your Amazon S3 bucket and AWS KMS (if you enable data encryption). For more information, see [Grant Kinesis Data Firehose Access to an Amazon Redshift Destination](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-rs) in the *Amazon Kinesis Data Firehose Developer Guide* .
 	RoleArn string `pulumi:"roleArn"`
-	// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+	// The configuration for backup in Amazon S3.
 	S3BackupConfiguration *DeliveryStreamS3DestinationConfiguration `pulumi:"s3BackupConfiguration"`
 	// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
 	S3BackupMode *DeliveryStreamRedshiftDestinationConfigurationS3BackupMode `pulumi:"s3BackupMode"`
-	// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+	// The S3 bucket where Kinesis Data Firehose first delivers data. After the data is in the bucket, Kinesis Data Firehose uses the `COPY` command to load the data into the Amazon Redshift cluster. For the Amazon S3 bucket's compression format, don't specify `SNAPPY` or `ZIP` because the Amazon Redshift `COPY` command doesn't support them.
 	S3Configuration DeliveryStreamS3DestinationConfiguration `pulumi:"s3Configuration"`
 	// The Amazon Redshift user that has permission to access the Amazon Redshift cluster. This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.
 	Username string `pulumi:"username"`
@@ -6911,25 +6887,25 @@ type DeliveryStreamRedshiftDestinationConfigurationInput interface {
 }
 
 type DeliveryStreamRedshiftDestinationConfigurationArgs struct {
-	// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+	// The CloudWatch logging options for your delivery stream.
 	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput `pulumi:"cloudWatchLoggingOptions"`
 	// The connection string that Kinesis Data Firehose uses to connect to the Amazon Redshift cluster.
 	ClusterJdbcurl pulumi.StringInput `pulumi:"clusterJdbcurl"`
-	// The `CopyCommand` property type configures the Amazon Redshift `COPY` command that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses to load data into an Amazon Redshift cluster from an Amazon S3 bucket.
+	// Configures the Amazon Redshift `COPY` command that Kinesis Data Firehose uses to load data into the cluster from the Amazon S3 bucket.
 	CopyCommand DeliveryStreamCopyCommandInput `pulumi:"copyCommand"`
 	// The password for the Amazon Redshift user that you specified in the `Username` property.
 	Password pulumi.StringInput `pulumi:"password"`
-	// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+	// The data processing configuration for the Kinesis Data Firehose delivery stream.
 	ProcessingConfiguration DeliveryStreamProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
-	// Configures retry behavior in case Firehose is unable to deliver documents to Amazon Redshift.
+	// The retry behavior in case Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
 	RetryOptions DeliveryStreamRedshiftRetryOptionsPtrInput `pulumi:"retryOptions"`
 	// The ARN of the AWS Identity and Access Management (IAM) role that grants Kinesis Data Firehose access to your Amazon S3 bucket and AWS KMS (if you enable data encryption). For more information, see [Grant Kinesis Data Firehose Access to an Amazon Redshift Destination](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-rs) in the *Amazon Kinesis Data Firehose Developer Guide* .
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+	// The configuration for backup in Amazon S3.
 	S3BackupConfiguration DeliveryStreamS3DestinationConfigurationPtrInput `pulumi:"s3BackupConfiguration"`
 	// The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
 	S3BackupMode DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrInput `pulumi:"s3BackupMode"`
-	// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+	// The S3 bucket where Kinesis Data Firehose first delivers data. After the data is in the bucket, Kinesis Data Firehose uses the `COPY` command to load the data into the Amazon Redshift cluster. For the Amazon S3 bucket's compression format, don't specify `SNAPPY` or `ZIP` because the Amazon Redshift `COPY` command doesn't support them.
 	S3Configuration DeliveryStreamS3DestinationConfigurationInput `pulumi:"s3Configuration"`
 	// The Amazon Redshift user that has permission to access the Amazon Redshift cluster. This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.
 	Username pulumi.StringInput `pulumi:"username"`
@@ -7012,7 +6988,7 @@ func (o DeliveryStreamRedshiftDestinationConfigurationOutput) ToDeliveryStreamRe
 	}).(DeliveryStreamRedshiftDestinationConfigurationPtrOutput)
 }
 
-// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+// The CloudWatch logging options for your delivery stream.
 func (o DeliveryStreamRedshiftDestinationConfigurationOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamRedshiftDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		return v.CloudWatchLoggingOptions
@@ -7024,7 +7000,7 @@ func (o DeliveryStreamRedshiftDestinationConfigurationOutput) ClusterJdbcurl() p
 	return o.ApplyT(func(v DeliveryStreamRedshiftDestinationConfiguration) string { return v.ClusterJdbcurl }).(pulumi.StringOutput)
 }
 
-// The `CopyCommand` property type configures the Amazon Redshift `COPY` command that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses to load data into an Amazon Redshift cluster from an Amazon S3 bucket.
+// Configures the Amazon Redshift `COPY` command that Kinesis Data Firehose uses to load data into the cluster from the Amazon S3 bucket.
 func (o DeliveryStreamRedshiftDestinationConfigurationOutput) CopyCommand() DeliveryStreamCopyCommandOutput {
 	return o.ApplyT(func(v DeliveryStreamRedshiftDestinationConfiguration) DeliveryStreamCopyCommand { return v.CopyCommand }).(DeliveryStreamCopyCommandOutput)
 }
@@ -7034,14 +7010,14 @@ func (o DeliveryStreamRedshiftDestinationConfigurationOutput) Password() pulumi.
 	return o.ApplyT(func(v DeliveryStreamRedshiftDestinationConfiguration) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+// The data processing configuration for the Kinesis Data Firehose delivery stream.
 func (o DeliveryStreamRedshiftDestinationConfigurationOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamRedshiftDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
 		return v.ProcessingConfiguration
 	}).(DeliveryStreamProcessingConfigurationPtrOutput)
 }
 
-// Configures retry behavior in case Firehose is unable to deliver documents to Amazon Redshift.
+// The retry behavior in case Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
 func (o DeliveryStreamRedshiftDestinationConfigurationOutput) RetryOptions() DeliveryStreamRedshiftRetryOptionsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamRedshiftDestinationConfiguration) *DeliveryStreamRedshiftRetryOptions {
 		return v.RetryOptions
@@ -7053,7 +7029,7 @@ func (o DeliveryStreamRedshiftDestinationConfigurationOutput) RoleArn() pulumi.S
 	return o.ApplyT(func(v DeliveryStreamRedshiftDestinationConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+// The configuration for backup in Amazon S3.
 func (o DeliveryStreamRedshiftDestinationConfigurationOutput) S3BackupConfiguration() DeliveryStreamS3DestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamRedshiftDestinationConfiguration) *DeliveryStreamS3DestinationConfiguration {
 		return v.S3BackupConfiguration
@@ -7067,7 +7043,7 @@ func (o DeliveryStreamRedshiftDestinationConfigurationOutput) S3BackupMode() Del
 	}).(DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput)
 }
 
-// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+// The S3 bucket where Kinesis Data Firehose first delivers data. After the data is in the bucket, Kinesis Data Firehose uses the `COPY` command to load the data into the Amazon Redshift cluster. For the Amazon S3 bucket's compression format, don't specify `SNAPPY` or `ZIP` because the Amazon Redshift `COPY` command doesn't support them.
 func (o DeliveryStreamRedshiftDestinationConfigurationOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationOutput {
 	return o.ApplyT(func(v DeliveryStreamRedshiftDestinationConfiguration) DeliveryStreamS3DestinationConfiguration {
 		return v.S3Configuration
@@ -7103,7 +7079,7 @@ func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) Elem() Delivery
 	}).(DeliveryStreamRedshiftDestinationConfigurationOutput)
 }
 
-// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+// The CloudWatch logging options for your delivery stream.
 func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamRedshiftDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		if v == nil {
@@ -7123,7 +7099,7 @@ func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) ClusterJdbcurl(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The `CopyCommand` property type configures the Amazon Redshift `COPY` command that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses to load data into an Amazon Redshift cluster from an Amazon S3 bucket.
+// Configures the Amazon Redshift `COPY` command that Kinesis Data Firehose uses to load data into the cluster from the Amazon S3 bucket.
 func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) CopyCommand() DeliveryStreamCopyCommandPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamRedshiftDestinationConfiguration) *DeliveryStreamCopyCommand {
 		if v == nil {
@@ -7143,7 +7119,7 @@ func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) Password() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+// The data processing configuration for the Kinesis Data Firehose delivery stream.
 func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamRedshiftDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
 		if v == nil {
@@ -7153,7 +7129,7 @@ func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) ProcessingConfi
 	}).(DeliveryStreamProcessingConfigurationPtrOutput)
 }
 
-// Configures retry behavior in case Firehose is unable to deliver documents to Amazon Redshift.
+// The retry behavior in case Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
 func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) RetryOptions() DeliveryStreamRedshiftRetryOptionsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamRedshiftDestinationConfiguration) *DeliveryStreamRedshiftRetryOptions {
 		if v == nil {
@@ -7173,7 +7149,7 @@ func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) RoleArn() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+// The configuration for backup in Amazon S3.
 func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) S3BackupConfiguration() DeliveryStreamS3DestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamRedshiftDestinationConfiguration) *DeliveryStreamS3DestinationConfiguration {
 		if v == nil {
@@ -7193,7 +7169,7 @@ func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) S3BackupMode() 
 	}).(DeliveryStreamRedshiftDestinationConfigurationS3BackupModePtrOutput)
 }
 
-// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+// The S3 bucket where Kinesis Data Firehose first delivers data. After the data is in the bucket, Kinesis Data Firehose uses the `COPY` command to load the data into the Amazon Redshift cluster. For the Amazon S3 bucket's compression format, don't specify `SNAPPY` or `ZIP` because the Amazon Redshift `COPY` command doesn't support them.
 func (o DeliveryStreamRedshiftDestinationConfigurationPtrOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamRedshiftDestinationConfiguration) *DeliveryStreamS3DestinationConfiguration {
 		if v == nil {
@@ -7490,13 +7466,13 @@ func (o DeliveryStreamRetryOptionsPtrOutput) DurationInSeconds() pulumi.IntPtrOu
 type DeliveryStreamS3DestinationConfiguration struct {
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket to send data to.
 	BucketArn string `pulumi:"bucketArn"`
-	// The `BufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data before delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
+	// Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon S3 bucket.
 	BufferingHints *DeliveryStreamBufferingHints `pulumi:"bufferingHints"`
-	// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+	// The CloudWatch logging options for your delivery stream.
 	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions `pulumi:"cloudWatchLoggingOptions"`
 	// The type of compression that Kinesis Data Firehose uses to compress the data that it delivers to the Amazon S3 bucket. For valid values, see the `CompressionFormat` content for the [S3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_S3DestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
 	CompressionFormat *DeliveryStreamS3DestinationConfigurationCompressionFormat `pulumi:"compressionFormat"`
-	// The `EncryptionConfiguration` property type specifies the encryption settings that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses when delivering data to Amazon Simple Storage Service (Amazon S3).
+	// Configures Amazon Simple Storage Service (Amazon S3) server-side encryption. Kinesis Data Firehose uses AWS Key Management Service ( AWS KMS) to encrypt the data that it delivers to your Amazon S3 bucket.
 	EncryptionConfiguration *DeliveryStreamEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html) .
 	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
@@ -7520,13 +7496,13 @@ type DeliveryStreamS3DestinationConfigurationInput interface {
 type DeliveryStreamS3DestinationConfigurationArgs struct {
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket to send data to.
 	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
-	// The `BufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data before delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
+	// Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon S3 bucket.
 	BufferingHints DeliveryStreamBufferingHintsPtrInput `pulumi:"bufferingHints"`
-	// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+	// The CloudWatch logging options for your delivery stream.
 	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput `pulumi:"cloudWatchLoggingOptions"`
 	// The type of compression that Kinesis Data Firehose uses to compress the data that it delivers to the Amazon S3 bucket. For valid values, see the `CompressionFormat` content for the [S3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_S3DestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
 	CompressionFormat DeliveryStreamS3DestinationConfigurationCompressionFormatPtrInput `pulumi:"compressionFormat"`
-	// The `EncryptionConfiguration` property type specifies the encryption settings that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses when delivering data to Amazon Simple Storage Service (Amazon S3).
+	// Configures Amazon Simple Storage Service (Amazon S3) server-side encryption. Kinesis Data Firehose uses AWS Key Management Service ( AWS KMS) to encrypt the data that it delivers to your Amazon S3 bucket.
 	EncryptionConfiguration DeliveryStreamEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
 	// A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html) .
 	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
@@ -7618,14 +7594,14 @@ func (o DeliveryStreamS3DestinationConfigurationOutput) BucketArn() pulumi.Strin
 	return o.ApplyT(func(v DeliveryStreamS3DestinationConfiguration) string { return v.BucketArn }).(pulumi.StringOutput)
 }
 
-// The `BufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data before delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
+// Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon S3 bucket.
 func (o DeliveryStreamS3DestinationConfigurationOutput) BufferingHints() DeliveryStreamBufferingHintsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamS3DestinationConfiguration) *DeliveryStreamBufferingHints {
 		return v.BufferingHints
 	}).(DeliveryStreamBufferingHintsPtrOutput)
 }
 
-// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+// The CloudWatch logging options for your delivery stream.
 func (o DeliveryStreamS3DestinationConfigurationOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamS3DestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		return v.CloudWatchLoggingOptions
@@ -7639,7 +7615,7 @@ func (o DeliveryStreamS3DestinationConfigurationOutput) CompressionFormat() Deli
 	}).(DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput)
 }
 
-// The `EncryptionConfiguration` property type specifies the encryption settings that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses when delivering data to Amazon Simple Storage Service (Amazon S3).
+// Configures Amazon Simple Storage Service (Amazon S3) server-side encryption. Kinesis Data Firehose uses AWS Key Management Service ( AWS KMS) to encrypt the data that it delivers to your Amazon S3 bucket.
 func (o DeliveryStreamS3DestinationConfigurationOutput) EncryptionConfiguration() DeliveryStreamEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamS3DestinationConfiguration) *DeliveryStreamEncryptionConfiguration {
 		return v.EncryptionConfiguration
@@ -7695,7 +7671,7 @@ func (o DeliveryStreamS3DestinationConfigurationPtrOutput) BucketArn() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The `BufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data before delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
+// Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon S3 bucket.
 func (o DeliveryStreamS3DestinationConfigurationPtrOutput) BufferingHints() DeliveryStreamBufferingHintsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamS3DestinationConfiguration) *DeliveryStreamBufferingHints {
 		if v == nil {
@@ -7705,7 +7681,7 @@ func (o DeliveryStreamS3DestinationConfigurationPtrOutput) BufferingHints() Deli
 	}).(DeliveryStreamBufferingHintsPtrOutput)
 }
 
-// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+// The CloudWatch logging options for your delivery stream.
 func (o DeliveryStreamS3DestinationConfigurationPtrOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamS3DestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		if v == nil {
@@ -7725,7 +7701,7 @@ func (o DeliveryStreamS3DestinationConfigurationPtrOutput) CompressionFormat() D
 	}).(DeliveryStreamS3DestinationConfigurationCompressionFormatPtrOutput)
 }
 
-// The `EncryptionConfiguration` property type specifies the encryption settings that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses when delivering data to Amazon Simple Storage Service (Amazon S3).
+// Configures Amazon Simple Storage Service (Amazon S3) server-side encryption. Kinesis Data Firehose uses AWS Key Management Service ( AWS KMS) to encrypt the data that it delivers to your Amazon S3 bucket.
 func (o DeliveryStreamS3DestinationConfigurationPtrOutput) EncryptionConfiguration() DeliveryStreamEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamS3DestinationConfiguration) *DeliveryStreamEncryptionConfiguration {
 		if v == nil {
@@ -8024,7 +8000,7 @@ func (o DeliveryStreamSchemaConfigurationPtrOutput) VersionId() pulumi.StringPtr
 type DeliveryStreamSerializer struct {
 	// A serializer to use for converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://docs.aws.amazon.com/https://orc.apache.org/docs/) .
 	OrcSerDe *DeliveryStreamOrcSerDe `pulumi:"orcSerDe"`
-	// A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/docs/) .
+	// A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/documentation/latest/) .
 	ParquetSerDe *DeliveryStreamParquetSerDe `pulumi:"parquetSerDe"`
 }
 
@@ -8042,7 +8018,7 @@ type DeliveryStreamSerializerInput interface {
 type DeliveryStreamSerializerArgs struct {
 	// A serializer to use for converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://docs.aws.amazon.com/https://orc.apache.org/docs/) .
 	OrcSerDe DeliveryStreamOrcSerDePtrInput `pulumi:"orcSerDe"`
-	// A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/docs/) .
+	// A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/documentation/latest/) .
 	ParquetSerDe DeliveryStreamParquetSerDePtrInput `pulumi:"parquetSerDe"`
 }
 
@@ -8128,7 +8104,7 @@ func (o DeliveryStreamSerializerOutput) OrcSerDe() DeliveryStreamOrcSerDePtrOutp
 	return o.ApplyT(func(v DeliveryStreamSerializer) *DeliveryStreamOrcSerDe { return v.OrcSerDe }).(DeliveryStreamOrcSerDePtrOutput)
 }
 
-// A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/docs/) .
+// A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/documentation/latest/) .
 func (o DeliveryStreamSerializerOutput) ParquetSerDe() DeliveryStreamParquetSerDePtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSerializer) *DeliveryStreamParquetSerDe { return v.ParquetSerDe }).(DeliveryStreamParquetSerDePtrOutput)
 }
@@ -8167,7 +8143,7 @@ func (o DeliveryStreamSerializerPtrOutput) OrcSerDe() DeliveryStreamOrcSerDePtrO
 	}).(DeliveryStreamOrcSerDePtrOutput)
 }
 
-// A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/docs/) .
+// A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/documentation/latest/) .
 func (o DeliveryStreamSerializerPtrOutput) ParquetSerDe() DeliveryStreamParquetSerDePtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSerializer) *DeliveryStreamParquetSerDe {
 		if v == nil {
@@ -8179,8 +8155,7 @@ func (o DeliveryStreamSerializerPtrOutput) ParquetSerDe() DeliveryStreamParquetS
 
 type DeliveryStreamSnowflakeDestinationConfiguration struct {
 	// URL for accessing your Snowflake account. This URL must include your [account identifier](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/admin-account-identifier) . Note that the protocol (https://) and port number are optional.
-	AccountUrl string `pulumi:"accountUrl"`
-	// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+	AccountUrl               string                                  `pulumi:"accountUrl"`
 	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions `pulumi:"cloudWatchLoggingOptions"`
 	// The name of the record content column
 	ContentColumnName *string `pulumi:"contentColumnName"`
@@ -8193,22 +8168,20 @@ type DeliveryStreamSnowflakeDestinationConfiguration struct {
 	// The name of the record metadata column
 	MetaDataColumnName *string `pulumi:"metaDataColumnName"`
 	// The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
-	PrivateKey string `pulumi:"privateKey"`
-	// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+	PrivateKey              string                                 `pulumi:"privateKey"`
 	ProcessingConfiguration *DeliveryStreamProcessingConfiguration `pulumi:"processingConfiguration"`
-	// Specify how long Firehose retries sending data to the New Relic HTTP endpoint. After sending data, Firehose first waits for an acknowledgment from the HTTP endpoint. If an error occurs or the acknowledgment doesn’t arrive within the acknowledgment timeout period, Firehose starts the retry duration counter. It keeps retrying until the retry duration expires. After that, Firehose considers it a data delivery failure and backs up the data to your Amazon S3 bucket. Every time that Firehose sends data to the HTTP endpoint (either the initial attempt or a retry), it restarts the acknowledgement timeout counter and waits for an acknowledgement from the HTTP endpoint. Even if the retry duration expires, Firehose still waits for the acknowledgment until it receives it or the acknowledgement timeout period is reached. If the acknowledgment times out, Firehose determines whether there's time left in the retry counter. If there is time left, it retries again and repeats the logic until it receives an acknowledgment or determines that the retry time has expired. If you don't want Firehose to retry sending data, set this value to 0.
+	// The time period where Firehose will retry sending data to the chosen HTTP endpoint.
 	RetryOptions *DeliveryStreamSnowflakeRetryOptions `pulumi:"retryOptions"`
 	// The Amazon Resource Name (ARN) of the Snowflake role
 	RoleArn string `pulumi:"roleArn"`
 	// Choose an S3 backup mode
-	S3BackupMode *DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode `pulumi:"s3BackupMode"`
-	// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
-	S3Configuration DeliveryStreamS3DestinationConfiguration `pulumi:"s3Configuration"`
+	S3BackupMode    *DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode `pulumi:"s3BackupMode"`
+	S3Configuration DeliveryStreamS3DestinationConfiguration                     `pulumi:"s3Configuration"`
 	// Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views
 	Schema string `pulumi:"schema"`
 	// Optionally configure a Snowflake role. Otherwise the default user role will be used.
 	SnowflakeRoleConfiguration *DeliveryStreamSnowflakeRoleConfiguration `pulumi:"snowflakeRoleConfiguration"`
-	// Configure a Snowflake VPC
+	// The VPCE ID for Firehose to privately connect with Snowflake. The ID format is com.amazonaws.vpce.[region].vpce-svc-<[id]>. For more information, see [Amazon PrivateLink & Snowflake](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/admin-security-privatelink)
 	SnowflakeVpcConfiguration *DeliveryStreamSnowflakeVpcConfiguration `pulumi:"snowflakeVpcConfiguration"`
 	// All data in Snowflake is stored in database tables, logically structured as collections of columns and rows.
 	Table string `pulumi:"table"`
@@ -8229,8 +8202,7 @@ type DeliveryStreamSnowflakeDestinationConfigurationInput interface {
 
 type DeliveryStreamSnowflakeDestinationConfigurationArgs struct {
 	// URL for accessing your Snowflake account. This URL must include your [account identifier](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/admin-account-identifier) . Note that the protocol (https://) and port number are optional.
-	AccountUrl pulumi.StringInput `pulumi:"accountUrl"`
-	// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+	AccountUrl               pulumi.StringInput                             `pulumi:"accountUrl"`
 	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput `pulumi:"cloudWatchLoggingOptions"`
 	// The name of the record content column
 	ContentColumnName pulumi.StringPtrInput `pulumi:"contentColumnName"`
@@ -8243,22 +8215,20 @@ type DeliveryStreamSnowflakeDestinationConfigurationArgs struct {
 	// The name of the record metadata column
 	MetaDataColumnName pulumi.StringPtrInput `pulumi:"metaDataColumnName"`
 	// The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
-	PrivateKey pulumi.StringInput `pulumi:"privateKey"`
-	// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+	PrivateKey              pulumi.StringInput                            `pulumi:"privateKey"`
 	ProcessingConfiguration DeliveryStreamProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
-	// Specify how long Firehose retries sending data to the New Relic HTTP endpoint. After sending data, Firehose first waits for an acknowledgment from the HTTP endpoint. If an error occurs or the acknowledgment doesn’t arrive within the acknowledgment timeout period, Firehose starts the retry duration counter. It keeps retrying until the retry duration expires. After that, Firehose considers it a data delivery failure and backs up the data to your Amazon S3 bucket. Every time that Firehose sends data to the HTTP endpoint (either the initial attempt or a retry), it restarts the acknowledgement timeout counter and waits for an acknowledgement from the HTTP endpoint. Even if the retry duration expires, Firehose still waits for the acknowledgment until it receives it or the acknowledgement timeout period is reached. If the acknowledgment times out, Firehose determines whether there's time left in the retry counter. If there is time left, it retries again and repeats the logic until it receives an acknowledgment or determines that the retry time has expired. If you don't want Firehose to retry sending data, set this value to 0.
+	// The time period where Firehose will retry sending data to the chosen HTTP endpoint.
 	RetryOptions DeliveryStreamSnowflakeRetryOptionsPtrInput `pulumi:"retryOptions"`
 	// The Amazon Resource Name (ARN) of the Snowflake role
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// Choose an S3 backup mode
-	S3BackupMode DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrInput `pulumi:"s3BackupMode"`
-	// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
-	S3Configuration DeliveryStreamS3DestinationConfigurationInput `pulumi:"s3Configuration"`
+	S3BackupMode    DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrInput `pulumi:"s3BackupMode"`
+	S3Configuration DeliveryStreamS3DestinationConfigurationInput                       `pulumi:"s3Configuration"`
 	// Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views
 	Schema pulumi.StringInput `pulumi:"schema"`
 	// Optionally configure a Snowflake role. Otherwise the default user role will be used.
 	SnowflakeRoleConfiguration DeliveryStreamSnowflakeRoleConfigurationPtrInput `pulumi:"snowflakeRoleConfiguration"`
-	// Configure a Snowflake VPC
+	// The VPCE ID for Firehose to privately connect with Snowflake. The ID format is com.amazonaws.vpce.[region].vpce-svc-<[id]>. For more information, see [Amazon PrivateLink & Snowflake](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/admin-security-privatelink)
 	SnowflakeVpcConfiguration DeliveryStreamSnowflakeVpcConfigurationPtrInput `pulumi:"snowflakeVpcConfiguration"`
 	// All data in Snowflake is stored in database tables, logically structured as collections of columns and rows.
 	Table pulumi.StringInput `pulumi:"table"`
@@ -8348,7 +8318,6 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) AccountUrl() pulu
 	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) string { return v.AccountUrl }).(pulumi.StringOutput)
 }
 
-// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
 func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		return v.CloudWatchLoggingOptions
@@ -8387,14 +8356,13 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) PrivateKey() pulu
 	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) string { return v.PrivateKey }).(pulumi.StringOutput)
 }
 
-// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
 func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
 		return v.ProcessingConfiguration
 	}).(DeliveryStreamProcessingConfigurationPtrOutput)
 }
 
-// Specify how long Firehose retries sending data to the New Relic HTTP endpoint. After sending data, Firehose first waits for an acknowledgment from the HTTP endpoint. If an error occurs or the acknowledgment doesn’t arrive within the acknowledgment timeout period, Firehose starts the retry duration counter. It keeps retrying until the retry duration expires. After that, Firehose considers it a data delivery failure and backs up the data to your Amazon S3 bucket. Every time that Firehose sends data to the HTTP endpoint (either the initial attempt or a retry), it restarts the acknowledgement timeout counter and waits for an acknowledgement from the HTTP endpoint. Even if the retry duration expires, Firehose still waits for the acknowledgment until it receives it or the acknowledgement timeout period is reached. If the acknowledgment times out, Firehose determines whether there's time left in the retry counter. If there is time left, it retries again and repeats the logic until it receives an acknowledgment or determines that the retry time has expired. If you don't want Firehose to retry sending data, set this value to 0.
+// The time period where Firehose will retry sending data to the chosen HTTP endpoint.
 func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) RetryOptions() DeliveryStreamSnowflakeRetryOptionsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSnowflakeRetryOptions {
 		return v.RetryOptions
@@ -8413,7 +8381,6 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) S3BackupMode() De
 	}).(DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput)
 }
 
-// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
 func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationOutput {
 	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) DeliveryStreamS3DestinationConfiguration {
 		return v.S3Configuration
@@ -8432,7 +8399,7 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) SnowflakeRoleConf
 	}).(DeliveryStreamSnowflakeRoleConfigurationPtrOutput)
 }
 
-// Configure a Snowflake VPC
+// The VPCE ID for Firehose to privately connect with Snowflake. The ID format is com.amazonaws.vpce.[region].vpce-svc-<[id]>. For more information, see [Amazon PrivateLink & Snowflake](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/admin-security-privatelink)
 func (o DeliveryStreamSnowflakeDestinationConfigurationOutput) SnowflakeVpcConfiguration() DeliveryStreamSnowflakeVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSnowflakeVpcConfiguration {
 		return v.SnowflakeVpcConfiguration
@@ -8483,7 +8450,6 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) AccountUrl() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
 func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		if v == nil {
@@ -8553,7 +8519,6 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) PrivateKey() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
 func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
 		if v == nil {
@@ -8563,7 +8528,7 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) ProcessingConf
 	}).(DeliveryStreamProcessingConfigurationPtrOutput)
 }
 
-// Specify how long Firehose retries sending data to the New Relic HTTP endpoint. After sending data, Firehose first waits for an acknowledgment from the HTTP endpoint. If an error occurs or the acknowledgment doesn’t arrive within the acknowledgment timeout period, Firehose starts the retry duration counter. It keeps retrying until the retry duration expires. After that, Firehose considers it a data delivery failure and backs up the data to your Amazon S3 bucket. Every time that Firehose sends data to the HTTP endpoint (either the initial attempt or a retry), it restarts the acknowledgement timeout counter and waits for an acknowledgement from the HTTP endpoint. Even if the retry duration expires, Firehose still waits for the acknowledgment until it receives it or the acknowledgement timeout period is reached. If the acknowledgment times out, Firehose determines whether there's time left in the retry counter. If there is time left, it retries again and repeats the logic until it receives an acknowledgment or determines that the retry time has expired. If you don't want Firehose to retry sending data, set this value to 0.
+// The time period where Firehose will retry sending data to the chosen HTTP endpoint.
 func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) RetryOptions() DeliveryStreamSnowflakeRetryOptionsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSnowflakeRetryOptions {
 		if v == nil {
@@ -8593,7 +8558,6 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) S3BackupMode()
 	}).(DeliveryStreamSnowflakeDestinationConfigurationS3BackupModePtrOutput)
 }
 
-// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
 func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamS3DestinationConfiguration {
 		if v == nil {
@@ -8623,7 +8587,7 @@ func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) SnowflakeRoleC
 	}).(DeliveryStreamSnowflakeRoleConfigurationPtrOutput)
 }
 
-// Configure a Snowflake VPC
+// The VPCE ID for Firehose to privately connect with Snowflake. The ID format is com.amazonaws.vpce.[region].vpce-svc-<[id]>. For more information, see [Amazon PrivateLink & Snowflake](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/admin-security-privatelink)
 func (o DeliveryStreamSnowflakeDestinationConfigurationPtrOutput) SnowflakeVpcConfiguration() DeliveryStreamSnowflakeVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSnowflakeDestinationConfiguration) *DeliveryStreamSnowflakeVpcConfiguration {
 		if v == nil {
@@ -9242,7 +9206,7 @@ func (o DeliveryStreamSplunkBufferingHintsPtrOutput) SizeInMbs() pulumi.IntPtrOu
 type DeliveryStreamSplunkDestinationConfiguration struct {
 	// The buffering options. If no value is specified, the default values for Splunk are used.
 	BufferingHints *DeliveryStreamSplunkBufferingHints `pulumi:"bufferingHints"`
-	// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+	// The Amazon CloudWatch logging options for your delivery stream.
 	CloudWatchLoggingOptions *DeliveryStreamCloudWatchLoggingOptions `pulumi:"cloudWatchLoggingOptions"`
 	// The amount of time that Firehose waits to receive an acknowledgment from Splunk after it sends it data. At the end of the timeout period, Firehose either tries to send the data again or considers it an error, based on your retry settings.
 	HecAcknowledgmentTimeoutInSeconds *int `pulumi:"hecAcknowledgmentTimeoutInSeconds"`
@@ -9252,15 +9216,15 @@ type DeliveryStreamSplunkDestinationConfiguration struct {
 	HecEndpointType DeliveryStreamSplunkDestinationConfigurationHecEndpointType `pulumi:"hecEndpointType"`
 	// This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
 	HecToken string `pulumi:"hecToken"`
-	// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+	// The data processing configuration.
 	ProcessingConfiguration *DeliveryStreamProcessingConfiguration `pulumi:"processingConfiguration"`
-	// The `SplunkRetryOptions` property type specifies retry behavior in case Kinesis Data Firehose is unable to deliver documents to Splunk or if it doesn't receive an acknowledgment from Splunk.
+	// The retry behavior in case Firehose is unable to deliver data to Splunk, or if it doesn't receive an acknowledgment of receipt from Splunk.
 	RetryOptions *DeliveryStreamSplunkRetryOptions `pulumi:"retryOptions"`
 	// Defines how documents should be delivered to Amazon S3. When set to `FailedEventsOnly` , Firehose writes any data that could not be indexed to the configured Amazon S3 destination. When set to `AllEvents` , Firehose delivers all incoming records to Amazon S3, and also writes failed documents to Amazon S3. The default value is `FailedEventsOnly` .
 	//
 	// You can update this backup mode from `FailedEventsOnly` to `AllEvents` . You can't update it from `AllEvents` to `FailedEventsOnly` .
 	S3BackupMode *string `pulumi:"s3BackupMode"`
-	// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+	// The configuration for the backup Amazon S3 location.
 	S3Configuration DeliveryStreamS3DestinationConfiguration `pulumi:"s3Configuration"`
 }
 
@@ -9278,7 +9242,7 @@ type DeliveryStreamSplunkDestinationConfigurationInput interface {
 type DeliveryStreamSplunkDestinationConfigurationArgs struct {
 	// The buffering options. If no value is specified, the default values for Splunk are used.
 	BufferingHints DeliveryStreamSplunkBufferingHintsPtrInput `pulumi:"bufferingHints"`
-	// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+	// The Amazon CloudWatch logging options for your delivery stream.
 	CloudWatchLoggingOptions DeliveryStreamCloudWatchLoggingOptionsPtrInput `pulumi:"cloudWatchLoggingOptions"`
 	// The amount of time that Firehose waits to receive an acknowledgment from Splunk after it sends it data. At the end of the timeout period, Firehose either tries to send the data again or considers it an error, based on your retry settings.
 	HecAcknowledgmentTimeoutInSeconds pulumi.IntPtrInput `pulumi:"hecAcknowledgmentTimeoutInSeconds"`
@@ -9288,15 +9252,15 @@ type DeliveryStreamSplunkDestinationConfigurationArgs struct {
 	HecEndpointType DeliveryStreamSplunkDestinationConfigurationHecEndpointTypeInput `pulumi:"hecEndpointType"`
 	// This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
 	HecToken pulumi.StringInput `pulumi:"hecToken"`
-	// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+	// The data processing configuration.
 	ProcessingConfiguration DeliveryStreamProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
-	// The `SplunkRetryOptions` property type specifies retry behavior in case Kinesis Data Firehose is unable to deliver documents to Splunk or if it doesn't receive an acknowledgment from Splunk.
+	// The retry behavior in case Firehose is unable to deliver data to Splunk, or if it doesn't receive an acknowledgment of receipt from Splunk.
 	RetryOptions DeliveryStreamSplunkRetryOptionsPtrInput `pulumi:"retryOptions"`
 	// Defines how documents should be delivered to Amazon S3. When set to `FailedEventsOnly` , Firehose writes any data that could not be indexed to the configured Amazon S3 destination. When set to `AllEvents` , Firehose delivers all incoming records to Amazon S3, and also writes failed documents to Amazon S3. The default value is `FailedEventsOnly` .
 	//
 	// You can update this backup mode from `FailedEventsOnly` to `AllEvents` . You can't update it from `AllEvents` to `FailedEventsOnly` .
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
-	// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+	// The configuration for the backup Amazon S3 location.
 	S3Configuration DeliveryStreamS3DestinationConfigurationInput `pulumi:"s3Configuration"`
 }
 
@@ -9384,7 +9348,7 @@ func (o DeliveryStreamSplunkDestinationConfigurationOutput) BufferingHints() Del
 	}).(DeliveryStreamSplunkBufferingHintsPtrOutput)
 }
 
-// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+// The Amazon CloudWatch logging options for your delivery stream.
 func (o DeliveryStreamSplunkDestinationConfigurationOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSplunkDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		return v.CloudWatchLoggingOptions
@@ -9413,14 +9377,14 @@ func (o DeliveryStreamSplunkDestinationConfigurationOutput) HecToken() pulumi.St
 	return o.ApplyT(func(v DeliveryStreamSplunkDestinationConfiguration) string { return v.HecToken }).(pulumi.StringOutput)
 }
 
-// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+// The data processing configuration.
 func (o DeliveryStreamSplunkDestinationConfigurationOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSplunkDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
 		return v.ProcessingConfiguration
 	}).(DeliveryStreamProcessingConfigurationPtrOutput)
 }
 
-// The `SplunkRetryOptions` property type specifies retry behavior in case Kinesis Data Firehose is unable to deliver documents to Splunk or if it doesn't receive an acknowledgment from Splunk.
+// The retry behavior in case Firehose is unable to deliver data to Splunk, or if it doesn't receive an acknowledgment of receipt from Splunk.
 func (o DeliveryStreamSplunkDestinationConfigurationOutput) RetryOptions() DeliveryStreamSplunkRetryOptionsPtrOutput {
 	return o.ApplyT(func(v DeliveryStreamSplunkDestinationConfiguration) *DeliveryStreamSplunkRetryOptions {
 		return v.RetryOptions
@@ -9434,7 +9398,7 @@ func (o DeliveryStreamSplunkDestinationConfigurationOutput) S3BackupMode() pulum
 	return o.ApplyT(func(v DeliveryStreamSplunkDestinationConfiguration) *string { return v.S3BackupMode }).(pulumi.StringPtrOutput)
 }
 
-// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+// The configuration for the backup Amazon S3 location.
 func (o DeliveryStreamSplunkDestinationConfigurationOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationOutput {
 	return o.ApplyT(func(v DeliveryStreamSplunkDestinationConfiguration) DeliveryStreamS3DestinationConfiguration {
 		return v.S3Configuration
@@ -9475,7 +9439,7 @@ func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) BufferingHints() 
 	}).(DeliveryStreamSplunkBufferingHintsPtrOutput)
 }
 
-// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+// The Amazon CloudWatch logging options for your delivery stream.
 func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) CloudWatchLoggingOptions() DeliveryStreamCloudWatchLoggingOptionsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSplunkDestinationConfiguration) *DeliveryStreamCloudWatchLoggingOptions {
 		if v == nil {
@@ -9525,7 +9489,7 @@ func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) HecToken() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+// The data processing configuration.
 func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) ProcessingConfiguration() DeliveryStreamProcessingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSplunkDestinationConfiguration) *DeliveryStreamProcessingConfiguration {
 		if v == nil {
@@ -9535,7 +9499,7 @@ func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) ProcessingConfigu
 	}).(DeliveryStreamProcessingConfigurationPtrOutput)
 }
 
-// The `SplunkRetryOptions` property type specifies retry behavior in case Kinesis Data Firehose is unable to deliver documents to Splunk or if it doesn't receive an acknowledgment from Splunk.
+// The retry behavior in case Firehose is unable to deliver data to Splunk, or if it doesn't receive an acknowledgment of receipt from Splunk.
 func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) RetryOptions() DeliveryStreamSplunkRetryOptionsPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSplunkDestinationConfiguration) *DeliveryStreamSplunkRetryOptions {
 		if v == nil {
@@ -9557,7 +9521,7 @@ func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) S3BackupMode() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+// The configuration for the backup Amazon S3 location.
 func (o DeliveryStreamSplunkDestinationConfigurationPtrOutput) S3Configuration() DeliveryStreamS3DestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v *DeliveryStreamSplunkDestinationConfiguration) *DeliveryStreamS3DestinationConfiguration {
 		if v == nil {

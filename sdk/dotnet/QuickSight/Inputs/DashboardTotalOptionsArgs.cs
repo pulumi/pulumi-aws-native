@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// Cell styling options for the total cells.
         /// </summary>
         [Input("totalCellStyle")]
         public Input<Inputs.DashboardTableCellStyleArgs>? TotalCellStyle { get; set; }

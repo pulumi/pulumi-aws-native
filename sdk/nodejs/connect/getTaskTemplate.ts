@@ -43,7 +43,7 @@ export interface GetTaskTemplateResult {
      */
     readonly contactFlowArn?: string;
     /**
-     * Describes a default field and its corresponding value.
+     * The default values for fields when a task is created by referencing this template.
      */
     readonly defaults?: outputs.connect.TaskTemplateDefaultFieldValue[];
     /**

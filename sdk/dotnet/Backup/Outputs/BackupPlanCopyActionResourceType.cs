@@ -18,7 +18,9 @@ namespace Pulumi.AwsNative.Backup.Outputs
         /// </summary>
         public readonly string DestinationBackupVaultArn;
         /// <summary>
-        /// Specifies an object containing an array of `Transition` objects that determine how long in days before a recovery point transitions to cold storage or is deleted.
+        /// Defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define. If you do not specify a lifecycle, AWS Backup applies the lifecycle policy of the source backup to the destination backup.
+        /// 
+        /// Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.
         /// </summary>
         public readonly Outputs.BackupPlanLifecycleResourceType? Lifecycle;
 

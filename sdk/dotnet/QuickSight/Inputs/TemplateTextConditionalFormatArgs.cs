@@ -13,19 +13,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateTextConditionalFormatArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The formatting configuration for the color.
+        /// The conditional formatting for the text background color.
         /// </summary>
         [Input("backgroundColor")]
         public Input<Inputs.TemplateConditionalFormattingColorArgs>? BackgroundColor { get; set; }
 
         /// <summary>
-        /// The formatting configuration for the icon.
+        /// The conditional formatting for the icon.
         /// </summary>
         [Input("icon")]
         public Input<Inputs.TemplateConditionalFormattingIconArgs>? Icon { get; set; }
 
         /// <summary>
-        /// The formatting configuration for the color.
+        /// The conditional formatting for the text color.
         /// </summary>
         [Input("textColor")]
         public Input<Inputs.TemplateConditionalFormattingColorArgs>? TextColor { get; set; }

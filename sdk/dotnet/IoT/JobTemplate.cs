@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<string> JobTemplateId { get; private set; } = null!;
 
         /// <summary>
-        /// An optional configuration within the `SchedulingConfig` to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+        /// An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
         /// </summary>
         [Output("maintenanceWindows")]
         public Output<ImmutableArray<Outputs.JobTemplateMaintenanceWindow>> MaintenanceWindows { get; private set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.AwsNative.IoT
         private InputList<Inputs.JobTemplateMaintenanceWindowArgs>? _maintenanceWindows;
 
         /// <summary>
-        /// An optional configuration within the `SchedulingConfig` to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+        /// An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
         /// </summary>
         public InputList<Inputs.JobTemplateMaintenanceWindowArgs> MaintenanceWindows
         {

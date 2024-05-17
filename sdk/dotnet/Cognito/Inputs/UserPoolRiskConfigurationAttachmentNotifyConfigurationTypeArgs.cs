@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Cognito.Inputs
     public sealed class UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The notify email type.
+        /// Email template used when a detected risk event is blocked.
         /// </summary>
         [Input("blockEmail")]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgs>? BlockEmail { get; set; }
@@ -25,13 +25,13 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public Input<string>? From { get; set; }
 
         /// <summary>
-        /// The notify email type.
+        /// The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk.
         /// </summary>
         [Input("mfaEmail")]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgs>? MfaEmail { get; set; }
 
         /// <summary>
-        /// The notify email type.
+        /// The email template used when a detected risk event is allowed.
         /// </summary>
         [Input("noActionEmail")]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentNotifyEmailTypeArgs>? NoActionEmail { get; set; }

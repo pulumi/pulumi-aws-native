@@ -69,7 +69,7 @@ class GetLicenseResult:
     @pulumi.getter(name="consumptionConfiguration")
     def consumption_configuration(self) -> Optional['outputs.LicenseConsumptionConfiguration']:
         """
-        Details about a consumption configuration.
+        Configuration for consumption of the license.
         """
         return pulumi.get(self, "consumption_configuration")
 
@@ -77,7 +77,7 @@ class GetLicenseResult:
     @pulumi.getter
     def entitlements(self) -> Optional[Sequence['outputs.LicenseEntitlement']]:
         """
-        Describes a resource entitled for use with a license.
+        License entitlements.
         """
         return pulumi.get(self, "entitlements")
 
@@ -93,7 +93,7 @@ class GetLicenseResult:
     @pulumi.getter
     def issuer(self) -> Optional['outputs.LicenseIssuerData']:
         """
-        Details associated with the issuer of a license.
+        License issuer.
         """
         return pulumi.get(self, "issuer")
 
@@ -109,7 +109,7 @@ class GetLicenseResult:
     @pulumi.getter(name="licenseMetadata")
     def license_metadata(self) -> Optional[Sequence['outputs.LicenseMetadata']]:
         """
-        Describes key/value pairs.
+        License metadata.
         """
         return pulumi.get(self, "license_metadata")
 

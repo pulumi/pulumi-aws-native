@@ -50,7 +50,7 @@ export class RefreshSchedule extends pulumi.CustomResource {
      */
     public readonly dataSetId!: pulumi.Output<string | undefined>;
     /**
-     * A summary of a configured refresh schedule for a dataset.
+     * The refresh schedule of a dataset.
      */
     public readonly schedule!: pulumi.Output<outputs.quicksight.RefreshScheduleMap | undefined>;
 
@@ -95,7 +95,7 @@ export interface RefreshScheduleArgs {
      */
     dataSetId?: pulumi.Input<string>;
     /**
-     * A summary of a configured refresh schedule for a dataset.
+     * The refresh schedule of a dataset.
      */
     schedule?: pulumi.Input<inputs.quicksight.RefreshScheduleMapArgs>;
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TopicRelativeDateFilter
     {
         /// <summary>
-        /// A structure that represents a singular filter constant, used in filters to specify a single value to match against.
+        /// The constant used in a relative date filter.
         /// </summary>
         public readonly Outputs.TopicSingularFilterConstant? Constant;
         /// <summary>

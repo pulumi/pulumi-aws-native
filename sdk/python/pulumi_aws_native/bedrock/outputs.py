@@ -100,19 +100,11 @@ class AgentActionGroup(dict):
         """
         Contains the information of an Agent Action Group
         :param str action_group_name: Name of the action group
-        :param Union['AgentActionGroupExecutor0Properties', 'AgentActionGroupExecutor1Properties'] action_group_executor: Contains details about the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.
+        :param Union['AgentActionGroupExecutor0Properties', 'AgentActionGroupExecutor1Properties'] action_group_executor: The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.
         :param 'AgentActionGroupState' action_group_state: Specifies whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
-        :param Union['AgentApiSchema0Properties', 'AgentApiSchema1Properties'] api_schema: Contains details about the OpenAPI schema for the action group. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html) . You can either include the schema directly in the `payload` field or you can upload it to an S3 bucket and specify the S3 bucket location in the `s3` field.
+        :param Union['AgentApiSchema0Properties', 'AgentApiSchema1Properties'] api_schema: Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html) .
         :param str description: Description of action group
         :param 'AgentFunctionSchema' function_schema: Defines functions that each define parameters that the agent needs to invoke from the user. Each function represents an action in an action group.
-               
-               This data type is used in the following API operations:
-               
-               - [CreateAgentActionGroup request](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_RequestSyntax)
-               - [CreateAgentActionGroup response](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_ResponseSyntax)
-               - [UpdateAgentActionGroup request](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_RequestSyntax)
-               - [UpdateAgentActionGroup response](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_ResponseSyntax)
-               - [GetAgentActionGroup response](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgentActionGroup.html#API_agent_GetAgentActionGroup_ResponseSyntax)
         :param 'AgentActionGroupSignature' parent_action_group_signature: If this field is set as `AMAZON.UserInput` , the agent can request the user for additional information when trying to complete a task. The `description` , `apiSchema` , and `actionGroupExecutor` fields must be blank for this action group.
                
                During orchestration, if the agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an [Observation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html) reprompting the user for more information.
@@ -146,7 +138,7 @@ class AgentActionGroup(dict):
     @pulumi.getter(name="actionGroupExecutor")
     def action_group_executor(self) -> Optional[Any]:
         """
-        Contains details about the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.
+        The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.
         """
         return pulumi.get(self, "action_group_executor")
 
@@ -162,7 +154,7 @@ class AgentActionGroup(dict):
     @pulumi.getter(name="apiSchema")
     def api_schema(self) -> Optional[Any]:
         """
-        Contains details about the OpenAPI schema for the action group. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html) . You can either include the schema directly in the `payload` field or you can upload it to an S3 bucket and specify the S3 bucket location in the `s3` field.
+        Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html) .
         """
         return pulumi.get(self, "api_schema")
 
@@ -179,14 +171,6 @@ class AgentActionGroup(dict):
     def function_schema(self) -> Optional['outputs.AgentFunctionSchema']:
         """
         Defines functions that each define parameters that the agent needs to invoke from the user. Each function represents an action in an action group.
-
-        This data type is used in the following API operations:
-
-        - [CreateAgentActionGroup request](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_RequestSyntax)
-        - [CreateAgentActionGroup response](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_ResponseSyntax)
-        - [UpdateAgentActionGroup request](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_RequestSyntax)
-        - [UpdateAgentActionGroup response](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_ResponseSyntax)
-        - [GetAgentActionGroup response](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgentActionGroup.html#API_agent_GetAgentActionGroup_ResponseSyntax)
         """
         return pulumi.get(self, "function_schema")
 
@@ -744,7 +728,7 @@ class AgentPromptConfiguration(dict):
         """
         BasePromptConfiguration per Prompt Type.
         :param str base_prompt_template: Base Prompt Template.
-        :param 'AgentInferenceConfiguration' inference_configuration: Specifications about the inference parameters that were provided alongside the prompt. These are specified in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) object that was set when the agent was created or updated. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
+        :param 'AgentInferenceConfiguration' inference_configuration: Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
         :param 'AgentCreationMode' parser_mode: Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
         :param 'AgentCreationMode' prompt_creation_mode: Specifies whether to override the default prompt template for this `promptType` . Set this value to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate` . If you leave it as `DEFAULT` , the agent uses a default prompt template.
         :param 'AgentPromptState' prompt_state: Specifies whether to allow the agent to carry out the step specified in the `promptType` . If you set this value to `DISABLED` , the agent skips that step. The default state for each `promptType` is as follows.
@@ -780,7 +764,7 @@ class AgentPromptConfiguration(dict):
     @pulumi.getter(name="inferenceConfiguration")
     def inference_configuration(self) -> Optional['outputs.AgentInferenceConfiguration']:
         """
-        Specifications about the inference parameters that were provided alongside the prompt. These are specified in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) object that was set when the agent was created or updated. For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
+        Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
         """
         return pulumi.get(self, "inference_configuration")
 
@@ -1015,7 +999,7 @@ class DataSourceConfiguration(dict):
                  type: 'DataSourceType'):
         """
         Specifies a raw data source location to ingest.
-        :param 'DataSourceS3DataSourceConfiguration' s3_configuration: Contains information about the S3 configuration of the data source.
+        :param 'DataSourceS3DataSourceConfiguration' s3_configuration: Contains details about the configuration of the S3 object containing the data source.
         :param 'DataSourceType' type: The type of storage for the data source.
         """
         pulumi.set(__self__, "s3_configuration", s3_configuration)
@@ -1025,7 +1009,7 @@ class DataSourceConfiguration(dict):
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> 'outputs.DataSourceS3DataSourceConfiguration':
         """
-        Contains information about the S3 configuration of the data source.
+        Contains details about the configuration of the S3 object containing the data source.
         """
         return pulumi.get(self, "s3_configuration")
 
@@ -1671,7 +1655,7 @@ class KnowledgeBaseConfiguration(dict):
         """
         Contains details about the embeddings model used for the knowledge base.
         :param 'KnowledgeBaseType' type: The type of data that the data source is converted into for the knowledge base.
-        :param 'KnowledgeBaseVectorKnowledgeBaseConfiguration' vector_knowledge_base_configuration: Contains details about the model used to create vector embeddings for the knowledge base.
+        :param 'KnowledgeBaseVectorKnowledgeBaseConfiguration' vector_knowledge_base_configuration: Contains details about the embeddings model that'sused to convert the data source.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "vector_knowledge_base_configuration", vector_knowledge_base_configuration)
@@ -1688,7 +1672,7 @@ class KnowledgeBaseConfiguration(dict):
     @pulumi.getter(name="vectorKnowledgeBaseConfiguration")
     def vector_knowledge_base_configuration(self) -> 'outputs.KnowledgeBaseVectorKnowledgeBaseConfiguration':
         """
-        Contains details about the model used to create vector embeddings for the knowledge base.
+        Contains details about the embeddings model that'sused to convert the data source.
         """
         return pulumi.get(self, "vector_knowledge_base_configuration")
 
@@ -2155,8 +2139,8 @@ class KnowledgeBaseStorageConfiguration(dict):
         """
         The vector store service in which the knowledge base is stored.
         :param 'KnowledgeBaseStorageType' type: The vector store service in which the knowledge base is stored.
-        :param 'KnowledgeBaseOpenSearchServerlessConfiguration' opensearch_serverless_configuration: Contains details about the storage configuration of the knowledge base in Amazon OpenSearch Service. For more information, see [Create a vector index in Amazon OpenSearch Service](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-oss.html) .
-        :param 'KnowledgeBasePineconeConfiguration' pinecone_configuration: Contains details about the storage configuration of the knowledge base in Pinecone. For more information, see [Create a vector index in Pinecone](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-pinecone.html) .
+        :param 'KnowledgeBaseOpenSearchServerlessConfiguration' opensearch_serverless_configuration: Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+        :param 'KnowledgeBasePineconeConfiguration' pinecone_configuration: Contains the storage configuration of the knowledge base in Pinecone.
         :param 'KnowledgeBaseRdsConfiguration' rds_configuration: Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html) .
         """
         pulumi.set(__self__, "type", type)
@@ -2179,7 +2163,7 @@ class KnowledgeBaseStorageConfiguration(dict):
     @pulumi.getter(name="opensearchServerlessConfiguration")
     def opensearch_serverless_configuration(self) -> Optional['outputs.KnowledgeBaseOpenSearchServerlessConfiguration']:
         """
-        Contains details about the storage configuration of the knowledge base in Amazon OpenSearch Service. For more information, see [Create a vector index in Amazon OpenSearch Service](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-oss.html) .
+        Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
         """
         return pulumi.get(self, "opensearch_serverless_configuration")
 
@@ -2187,7 +2171,7 @@ class KnowledgeBaseStorageConfiguration(dict):
     @pulumi.getter(name="pineconeConfiguration")
     def pinecone_configuration(self) -> Optional['outputs.KnowledgeBasePineconeConfiguration']:
         """
-        Contains details about the storage configuration of the knowledge base in Pinecone. For more information, see [Create a vector index in Pinecone](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-pinecone.html) .
+        Contains the storage configuration of the knowledge base in Pinecone.
         """
         return pulumi.get(self, "pinecone_configuration")
 

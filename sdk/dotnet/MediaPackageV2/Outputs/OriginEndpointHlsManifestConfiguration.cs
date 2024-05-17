@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         /// </summary>
         public readonly int? ProgramDateTimeIntervalSeconds;
         /// <summary>
-        /// The SCTE-35 HLS configuration associated with the origin endpoint.
+        /// THE SCTE-35 HLS configuration associated with the HLS manifest configuration.
         /// </summary>
         public readonly Outputs.OriginEndpointScteHls? ScteHls;
         /// <summary>

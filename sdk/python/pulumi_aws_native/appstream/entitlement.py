@@ -24,7 +24,7 @@ class EntitlementArgs:
         """
         The set of arguments for constructing a Entitlement resource.
         :param pulumi.Input[str] app_visibility: Specifies whether to entitle all apps or only selected apps.
-        :param pulumi.Input[Sequence[pulumi.Input['EntitlementAttributeArgs']]] attributes: An attribute that belongs to an entitlement. Application entitlements work by matching a supported SAML 2.0 attribute name to a value when a user identity federates to an AppStream 2.0 SAML application.
+        :param pulumi.Input[Sequence[pulumi.Input['EntitlementAttributeArgs']]] attributes: The attributes of the entitlement.
         :param pulumi.Input[str] stack_name: The name of the stack.
         :param pulumi.Input[str] description: The description of the entitlement.
         :param pulumi.Input[str] name: The name of the entitlement.
@@ -53,7 +53,7 @@ class EntitlementArgs:
     @pulumi.getter
     def attributes(self) -> pulumi.Input[Sequence[pulumi.Input['EntitlementAttributeArgs']]]:
         """
-        An attribute that belongs to an entitlement. Application entitlements work by matching a supported SAML 2.0 attribute name to a value when a user identity federates to an AppStream 2.0 SAML application.
+        The attributes of the entitlement.
         """
         return pulumi.get(self, "attributes")
 
@@ -115,7 +115,7 @@ class Entitlement(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_visibility: Specifies whether to entitle all apps or only selected apps.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EntitlementAttributeArgs']]]] attributes: An attribute that belongs to an entitlement. Application entitlements work by matching a supported SAML 2.0 attribute name to a value when a user identity federates to an AppStream 2.0 SAML application.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EntitlementAttributeArgs']]]] attributes: The attributes of the entitlement.
         :param pulumi.Input[str] description: The description of the entitlement.
         :param pulumi.Input[str] name: The name of the entitlement.
         :param pulumi.Input[str] stack_name: The name of the stack.
@@ -216,7 +216,7 @@ class Entitlement(pulumi.CustomResource):
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Sequence['outputs.EntitlementAttribute']]:
         """
-        An attribute that belongs to an entitlement. Application entitlements work by matching a supported SAML 2.0 attribute name to a value when a user identity federates to an AppStream 2.0 SAML application.
+        The attributes of the entitlement.
         """
         return pulumi.get(self, "attributes")
 

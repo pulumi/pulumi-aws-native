@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateTopBottomMoversComputation
     {
         /// <summary>
-        /// The dimension type field.
+        /// The category field that is used in a computation.
         /// </summary>
         public readonly Outputs.TemplateDimensionField? Category;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateTopBottomSortOrder? SortOrder;
         /// <summary>
-        /// The dimension type field.
+        /// The time field that is used in a computation.
         /// </summary>
         public readonly Outputs.TemplateDimensionField? Time;
         /// <summary>
@@ -45,7 +45,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateTopBottomComputationType Type;
         /// <summary>
-        /// The measure (metric) type field.
+        /// The value field that is used in a computation.
         /// </summary>
         public readonly Outputs.TemplateMeasureField? Value;
 

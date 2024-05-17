@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Deadline
         public Output<string?> FarmId { get; private set; } = null!;
 
         /// <summary>
-        /// The details of the file system location for the resource.
+        /// Operating system specific file system path to the storage location.
         /// </summary>
         [Output("fileSystemLocations")]
         public Output<ImmutableArray<Outputs.StorageProfileFileSystemLocation>> FileSystemLocations { get; private set; } = null!;
@@ -110,7 +110,7 @@ namespace Pulumi.AwsNative.Deadline
         private InputList<Inputs.StorageProfileFileSystemLocationArgs>? _fileSystemLocations;
 
         /// <summary>
-        /// The details of the file system location for the resource.
+        /// Operating system specific file system path to the storage location.
         /// </summary>
         public InputList<Inputs.StorageProfileFileSystemLocationArgs> FileSystemLocations
         {

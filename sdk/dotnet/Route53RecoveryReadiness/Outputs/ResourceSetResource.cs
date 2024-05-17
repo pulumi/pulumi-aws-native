@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Outputs
         /// </summary>
         public readonly string? ComponentId;
         /// <summary>
-        /// A component for DNS/routing control readiness checks and architecture checks.
+        /// A component for DNS/routing control readiness checks. This is a required setting when `ResourceSet` `ResourceSetType` is set to `AWS::Route53RecoveryReadiness::DNSTargetResource` . Do not set it for any other `ResourceSetType` setting.
         /// </summary>
         public readonly Outputs.ResourceSetDnsTargetResource? DnsTargetResource;
         /// <summary>

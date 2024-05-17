@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Structure that contains payloadVersion and targetArn. Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
+        /// Creates a pre-provisioning hook template.
         /// </summary>
         public readonly Outputs.ProvisioningTemplateProvisioningHook? PreProvisioningHook;
         /// <summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         public readonly string? ProvisioningRoleArn;
         /// <summary>
-        /// A set of key/value pairs that are used to manage the resource.
+        /// Metadata that can be used to manage the fleet provisioning template.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>

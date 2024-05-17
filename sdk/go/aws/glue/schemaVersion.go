@@ -16,7 +16,7 @@ import (
 type SchemaVersion struct {
 	pulumi.CustomResourceState
 
-	// A wrapper structure to contain schema identity fields. Either `SchemaArn` , or `SchemaName` and `RegistryName` has to be provided.
+	// The schema that includes the schema version.
 	Schema SchemaVersionSchemaOutput `pulumi:"schema"`
 	// Complete definition of the schema in plain-text.
 	SchemaDefinition pulumi.StringOutput `pulumi:"schemaDefinition"`
@@ -75,7 +75,7 @@ func (SchemaVersionState) ElementType() reflect.Type {
 }
 
 type schemaVersionArgs struct {
-	// A wrapper structure to contain schema identity fields. Either `SchemaArn` , or `SchemaName` and `RegistryName` has to be provided.
+	// The schema that includes the schema version.
 	Schema SchemaVersionSchema `pulumi:"schema"`
 	// Complete definition of the schema in plain-text.
 	SchemaDefinition string `pulumi:"schemaDefinition"`
@@ -83,7 +83,7 @@ type schemaVersionArgs struct {
 
 // The set of arguments for constructing a SchemaVersion resource.
 type SchemaVersionArgs struct {
-	// A wrapper structure to contain schema identity fields. Either `SchemaArn` , or `SchemaName` and `RegistryName` has to be provided.
+	// The schema that includes the schema version.
 	Schema SchemaVersionSchemaInput
 	// Complete definition of the schema in plain-text.
 	SchemaDefinition pulumi.StringInput
@@ -126,7 +126,7 @@ func (o SchemaVersionOutput) ToSchemaVersionOutputWithContext(ctx context.Contex
 	return o
 }
 
-// A wrapper structure to contain schema identity fields. Either `SchemaArn` , or `SchemaName` and `RegistryName` has to be provided.
+// The schema that includes the schema version.
 func (o SchemaVersionOutput) Schema() SchemaVersionSchemaOutput {
 	return o.ApplyT(func(v *SchemaVersion) SchemaVersionSchemaOutput { return v.Schema }).(SchemaVersionSchemaOutput)
 }

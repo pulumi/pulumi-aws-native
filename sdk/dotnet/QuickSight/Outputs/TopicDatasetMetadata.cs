@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TopicDatasetMetadata
     {
         /// <summary>
-        /// A structure that represents a calculated field.
+        /// The list of calculated field definitions.
         /// </summary>
         public readonly ImmutableArray<Outputs.TopicCalculatedField> CalculatedFields;
         /// <summary>
-        /// Represents a column in a dataset.
+        /// The list of column definitions.
         /// </summary>
         public readonly ImmutableArray<Outputs.TopicColumn> Columns;
         /// <summary>
@@ -38,11 +38,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string? DatasetName;
         /// <summary>
-        /// A structure that represents a filter used to select items for a topic.
+        /// The list of filter definitions.
         /// </summary>
         public readonly ImmutableArray<Outputs.TopicFilter> Filters;
         /// <summary>
-        /// A structure that represents a named entity.
+        /// The list of named entities definitions.
         /// </summary>
         public readonly ImmutableArray<Outputs.TopicNamedEntity> NamedEntities;
 

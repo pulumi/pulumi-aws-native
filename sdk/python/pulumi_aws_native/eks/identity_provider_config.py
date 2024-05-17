@@ -29,7 +29,7 @@ class IdentityProviderConfigArgs:
         :param pulumi.Input[str] cluster_name: The name of the identity provider configuration.
         :param pulumi.Input['IdentityProviderConfigType'] type: The type of the identity provider configuration.
         :param pulumi.Input[str] identity_provider_config_name: The name of the OIDC provider configuration.
-        :param pulumi.Input['IdentityProviderConfigOidcIdentityProviderConfigArgs'] oidc: An object representing the configuration for an OpenID Connect (OIDC) identity provider.
+        :param pulumi.Input['IdentityProviderConfigOidcIdentityProviderConfigArgs'] oidc: An object representing an OpenID Connect (OIDC) identity provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -81,7 +81,7 @@ class IdentityProviderConfigArgs:
     @pulumi.getter
     def oidc(self) -> Optional[pulumi.Input['IdentityProviderConfigOidcIdentityProviderConfigArgs']]:
         """
-        An object representing the configuration for an OpenID Connect (OIDC) identity provider.
+        An object representing an OpenID Connect (OIDC) identity provider configuration.
         """
         return pulumi.get(self, "oidc")
 
@@ -120,7 +120,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the identity provider configuration.
         :param pulumi.Input[str] identity_provider_config_name: The name of the OIDC provider configuration.
-        :param pulumi.Input[pulumi.InputType['IdentityProviderConfigOidcIdentityProviderConfigArgs']] oidc: An object representing the configuration for an OpenID Connect (OIDC) identity provider.
+        :param pulumi.Input[pulumi.InputType['IdentityProviderConfigOidcIdentityProviderConfigArgs']] oidc: An object representing an OpenID Connect (OIDC) identity provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['IdentityProviderConfigType'] type: The type of the identity provider configuration.
         """
@@ -232,7 +232,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
     @pulumi.getter
     def oidc(self) -> pulumi.Output[Optional['outputs.IdentityProviderConfigOidcIdentityProviderConfig']]:
         """
-        An object representing the configuration for an OpenID Connect (OIDC) identity provider.
+        An object representing an OpenID Connect (OIDC) identity provider configuration.
         """
         return pulumi.get(self, "oidc")
 

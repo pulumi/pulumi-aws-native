@@ -34,19 +34,19 @@ namespace Pulumi.AwsNative.FraudDetector
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The entity type details.
+        /// The event type entity types.
         /// </summary>
         [Output("entityTypes")]
         public Output<ImmutableArray<Outputs.EventTypeEntityType>> EntityTypes { get; private set; } = null!;
 
         /// <summary>
-        /// The variables associated with this event type.
+        /// The event type event variables.
         /// </summary>
         [Output("eventVariables")]
         public Output<ImmutableArray<Outputs.EventTypeEventVariable>> EventVariables { get; private set; } = null!;
 
         /// <summary>
-        /// The label associated with the event type.
+        /// The event type labels.
         /// </summary>
         [Output("labels")]
         public Output<ImmutableArray<Outputs.EventTypeLabel>> Labels { get; private set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.AwsNative.FraudDetector
         private InputList<Inputs.EventTypeEntityTypeArgs>? _entityTypes;
 
         /// <summary>
-        /// The entity type details.
+        /// The event type entity types.
         /// </summary>
         public InputList<Inputs.EventTypeEntityTypeArgs> EntityTypes
         {
@@ -140,7 +140,7 @@ namespace Pulumi.AwsNative.FraudDetector
         private InputList<Inputs.EventTypeEventVariableArgs>? _eventVariables;
 
         /// <summary>
-        /// The variables associated with this event type.
+        /// The event type event variables.
         /// </summary>
         public InputList<Inputs.EventTypeEventVariableArgs> EventVariables
         {
@@ -152,7 +152,7 @@ namespace Pulumi.AwsNative.FraudDetector
         private InputList<Inputs.EventTypeLabelArgs>? _labels;
 
         /// <summary>
-        /// The label associated with the event type.
+        /// The event type labels.
         /// </summary>
         public InputList<Inputs.EventTypeLabelArgs> Labels
         {

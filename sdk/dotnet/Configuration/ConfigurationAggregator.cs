@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Configuration
     public partial class ConfigurationAggregator : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A collection of accounts and regions.
+        /// Provides a list of source accounts and regions to be aggregated.
         /// </summary>
         [Output("accountAggregationSources")]
         public Output<ImmutableArray<Outputs.ConfigurationAggregatorAccountAggregationSource>> AccountAggregationSources { get; private set; } = null!;
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Configuration
         public Output<string?> ConfigurationAggregatorName { get; private set; } = null!;
 
         /// <summary>
-        /// This object contains regions to set up the aggregator and an IAM role to retrieve organization details.
+        /// Provides an organization and list of regions to be aggregated.
         /// </summary>
         [Output("organizationAggregationSource")]
         public Output<Outputs.ConfigurationAggregatorOrganizationAggregationSource?> OrganizationAggregationSource { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.Configuration
         private InputList<Inputs.ConfigurationAggregatorAccountAggregationSourceArgs>? _accountAggregationSources;
 
         /// <summary>
-        /// A collection of accounts and regions.
+        /// Provides a list of source accounts and regions to be aggregated.
         /// </summary>
         public InputList<Inputs.ConfigurationAggregatorAccountAggregationSourceArgs> AccountAggregationSources
         {
@@ -113,7 +113,7 @@ namespace Pulumi.AwsNative.Configuration
         public Input<string>? ConfigurationAggregatorName { get; set; }
 
         /// <summary>
-        /// This object contains regions to set up the aggregator and an IAM role to retrieve organization details.
+        /// Provides an organization and list of regions to be aggregated.
         /// </summary>
         [Input("organizationAggregationSource")]
         public Input<Inputs.ConfigurationAggregatorOrganizationAggregationSourceArgs>? OrganizationAggregationSource { get; set; }

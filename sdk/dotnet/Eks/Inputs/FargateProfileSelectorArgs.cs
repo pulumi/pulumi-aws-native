@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Eks.Inputs
         private InputList<Inputs.FargateProfileLabelArgs>? _labels;
 
         /// <summary>
-        /// A key-value pair.
+        /// The Kubernetes labels that the selector should match. A pod must contain all of the labels that are specified in the selector for it to be considered a match.
         /// </summary>
         public InputList<Inputs.FargateProfileLabelArgs> Labels
         {

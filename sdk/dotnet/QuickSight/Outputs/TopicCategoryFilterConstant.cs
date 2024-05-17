@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TopicCategoryFilterConstant
     {
         /// <summary>
-        /// A structure that represents a collective constant.
+        /// A collective constant used in a category filter. This element is used to specify a list of values for the constant.
         /// </summary>
         public readonly Outputs.TopicCollectiveConstant? CollectiveConstant;
         /// <summary>

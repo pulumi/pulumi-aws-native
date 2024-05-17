@@ -30,11 +30,11 @@ type LookupZonalAutoshiftConfigurationArgs struct {
 }
 
 type LookupZonalAutoshiftConfigurationResult struct {
-	// A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice run, as well as any blocked dates or blocked windows for the practice run.
+	// A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice run, as well as any blocked dates or blocked windows for the practice run. When a resource has a practice run configuration, Route 53 ARC shifts traffic for the resource weekly for practice runs.
 	//
-	// When a resource has a practice run configuation, Route 53 ARC starts weekly zonal shifts for the resource, to shift traffic away from an Availability Zone. Weekly practice runs help you to make sure that your application can continue to operate normally with the loss of one Availability Zone.
+	// Practice runs are required for zonal autoshift. The zonal shifts that Route 53 ARC starts for practice runs help you to ensure that shifting away traffic from an Availability Zone during an autoshift is safe for your application.
 	//
-	// You can update or delete a practice run configuration. When you delete a practice run configuration, zonal autoshift is disabled for the resource. A practice run configuration is required when zonal autoshift is enabled.
+	// You can update or delete a practice run configuration. Before you delete a practice run configuration, you must disable zonal autoshift for the resource. A practice run configuration is required when zonal autoshift is enabled.
 	PracticeRunConfiguration *ZonalAutoshiftConfigurationPracticeRunConfiguration `pulumi:"practiceRunConfiguration"`
 	// When zonal autoshift is `ENABLED` , you authorize AWS to shift away resource traffic for an application from an Availability Zone during events, on your behalf, to help reduce time to recovery. Traffic is also shifted away for the required weekly practice runs.
 	ZonalAutoshiftStatus *ZonalAutoshiftConfigurationZonalAutoshiftStatus `pulumi:"zonalAutoshiftStatus"`
@@ -78,11 +78,11 @@ func (o LookupZonalAutoshiftConfigurationResultOutput) ToLookupZonalAutoshiftCon
 	return o
 }
 
-// A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice run, as well as any blocked dates or blocked windows for the practice run.
+// A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice run, as well as any blocked dates or blocked windows for the practice run. When a resource has a practice run configuration, Route 53 ARC shifts traffic for the resource weekly for practice runs.
 //
-// When a resource has a practice run configuation, Route 53 ARC starts weekly zonal shifts for the resource, to shift traffic away from an Availability Zone. Weekly practice runs help you to make sure that your application can continue to operate normally with the loss of one Availability Zone.
+// Practice runs are required for zonal autoshift. The zonal shifts that Route 53 ARC starts for practice runs help you to ensure that shifting away traffic from an Availability Zone during an autoshift is safe for your application.
 //
-// You can update or delete a practice run configuration. When you delete a practice run configuration, zonal autoshift is disabled for the resource. A practice run configuration is required when zonal autoshift is enabled.
+// You can update or delete a practice run configuration. Before you delete a practice run configuration, you must disable zonal autoshift for the resource. A practice run configuration is required when zonal autoshift is enabled.
 func (o LookupZonalAutoshiftConfigurationResultOutput) PracticeRunConfiguration() ZonalAutoshiftConfigurationPracticeRunConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupZonalAutoshiftConfigurationResult) *ZonalAutoshiftConfigurationPracticeRunConfiguration {
 		return v.PracticeRunConfiguration

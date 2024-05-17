@@ -31,7 +31,7 @@ type LookupConfigArgs struct {
 type LookupConfigResult struct {
 	// The ARN of the config, such as `arn:aws:groundstation:us-east-2:1234567890:config/tracking/9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 	Arn *string `pulumi:"arn"`
-	// Config objects provide information to Ground Station about how to configure the antenna and how data flows during a contact.
+	// Object containing the parameters of a config. Only one subtype may be specified per config. See the subtype definitions for a description of each config subtype.
 	ConfigData *ConfigData `pulumi:"configData"`
 	// The ID of the config, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 	Id *string `pulumi:"id"`
@@ -84,7 +84,7 @@ func (o LookupConfigResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConfigResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// Config objects provide information to Ground Station about how to configure the antenna and how data flows during a contact.
+// Object containing the parameters of a config. Only one subtype may be specified per config. See the subtype definitions for a description of each config subtype.
 func (o LookupConfigResultOutput) ConfigData() ConfigDataPtrOutput {
 	return o.ApplyT(func(v LookupConfigResult) *ConfigData { return v.ConfigData }).(ConfigDataPtrOutput)
 }

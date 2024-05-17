@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
     public sealed class WirelessDeviceLoRaWanDevice
     {
         /// <summary>
-        /// ABP device object for LoRaWAN specification v1.0.x
+        /// ABP device object for LoRaWAN specification v1.0.x.
         /// </summary>
         public readonly Outputs.WirelessDeviceAbpV10x? AbpV10x;
         /// <summary>

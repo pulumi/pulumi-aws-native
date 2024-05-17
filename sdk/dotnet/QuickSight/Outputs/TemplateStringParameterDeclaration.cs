@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateStringParameterDeclaration
     {
         /// <summary>
-        /// The default values of the `StringParameterDeclaration` .
+        /// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
         /// </summary>
         public readonly Outputs.TemplateStringDefaultValues? DefaultValues;
         public readonly ImmutableArray<Outputs.TemplateMappedDataSetParameter> MappedDataSetParameters;

@@ -13,37 +13,37 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardTableSideBorderOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The border options for a table border.
+        /// The table border options of the bottom border.
         /// </summary>
         [Input("bottom")]
         public Input<Inputs.DashboardTableBorderOptionsArgs>? Bottom { get; set; }
 
         /// <summary>
-        /// The border options for a table border.
+        /// The table border options of the inner horizontal border.
         /// </summary>
         [Input("innerHorizontal")]
         public Input<Inputs.DashboardTableBorderOptionsArgs>? InnerHorizontal { get; set; }
 
         /// <summary>
-        /// The border options for a table border.
+        /// The table border options of the inner vertical border.
         /// </summary>
         [Input("innerVertical")]
         public Input<Inputs.DashboardTableBorderOptionsArgs>? InnerVertical { get; set; }
 
         /// <summary>
-        /// The border options for a table border.
+        /// The table border options of the left border.
         /// </summary>
         [Input("left")]
         public Input<Inputs.DashboardTableBorderOptionsArgs>? Left { get; set; }
 
         /// <summary>
-        /// The border options for a table border.
+        /// The table border options of the right border.
         /// </summary>
         [Input("right")]
         public Input<Inputs.DashboardTableBorderOptionsArgs>? Right { get; set; }
 
         /// <summary>
-        /// The border options for a table border.
+        /// The table border options of the top border.
         /// </summary>
         [Input("top")]
         public Input<Inputs.DashboardTableBorderOptionsArgs>? Top { get; set; }

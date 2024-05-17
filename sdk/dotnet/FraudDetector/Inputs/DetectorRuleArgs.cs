@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.FraudDetector.Inputs
         private InputList<Inputs.DetectorOutcomeArgs>? _outcomes;
 
         /// <summary>
-        /// The outcome.
+        /// The rule outcome.
         /// </summary>
         public InputList<Inputs.DetectorOutcomeArgs> Outcomes
         {

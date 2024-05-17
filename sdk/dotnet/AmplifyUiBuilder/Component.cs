@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         public Output<ImmutableDictionary<string, Outputs.ComponentBindingPropertiesValue>?> BindingProperties { get; private set; } = null!;
 
         /// <summary>
-        /// The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
+        /// A list of the component's `ComponentChild` instances.
         /// </summary>
         [Output("children")]
         public Output<ImmutableArray<Outputs.ComponentChild>> Children { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
+        /// A list of the component's variants. A variant is a unique style configuration of a main component.
         /// </summary>
         [Output("variants")]
         public Output<ImmutableArray<Outputs.ComponentVariant>> Variants { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         private InputList<Inputs.ComponentChildArgs>? _children;
 
         /// <summary>
-        /// The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
+        /// A list of the component's `ComponentChild` instances.
         /// </summary>
         public InputList<Inputs.ComponentChildArgs> Children
         {
@@ -291,7 +291,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         private InputList<Inputs.ComponentVariantArgs>? _variants;
 
         /// <summary>
-        /// The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
+        /// A list of the component's variants. A variant is a unique style configuration of a main component.
         /// </summary>
         public InputList<Inputs.ComponentVariantArgs> Variants
         {

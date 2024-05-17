@@ -16,7 +16,9 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         private InputList<Inputs.RuleGroupPortRangeArgs>? _destinationPorts;
 
         /// <summary>
-        /// A single port range specification. This is used for source and destination port ranges in the stateless `RuleGroup.MatchAttributes` .
+        /// The destination ports to inspect for. If not specified, this matches with any destination port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+        /// 
+        /// You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
         /// </summary>
         public InputList<Inputs.RuleGroupPortRangeArgs> DestinationPorts
         {
@@ -28,7 +30,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         private InputList<Inputs.RuleGroupAddressArgs>? _destinations;
 
         /// <summary>
-        /// A single IP address specification. This is used in the `RuleGroup.MatchAttributes` source and destination specifications.
+        /// The destination IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address.
         /// </summary>
         public InputList<Inputs.RuleGroupAddressArgs> Destinations
         {
@@ -78,11 +80,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         private InputList<Inputs.RuleGroupTcpFlagFieldArgs>? _tcpFlags;
 
         /// <summary>
-        /// TCP flags and masks to inspect packets for. This is used in the `RuleGroup.MatchAttributes` specification.
-        /// 
-        /// For example:
-        /// 
-        /// `"TCPFlags": [ { "Flags": [ "ECE", "SYN" ], "Masks": [ "SYN", "ECE" ] } ]`
+        /// The TCP flags and masks to inspect for. If not specified, this matches with any settings. This setting is only used for protocol 6 (TCP).
         /// </summary>
         public InputList<Inputs.RuleGroupTcpFlagFieldArgs> TcpFlags
         {

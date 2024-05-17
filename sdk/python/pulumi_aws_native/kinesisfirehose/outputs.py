@@ -169,14 +169,10 @@ class DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration(dict):
         """
         :param str index_name: The Serverless offering for Amazon OpenSearch Service index name.
         :param str role_arn: The Amazon Resource Name (ARN) of the IAM role to be assumed by Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.
-        :param 'DeliveryStreamS3DestinationConfiguration' s3_configuration: The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
-        :param 'DeliveryStreamAmazonOpenSearchServerlessBufferingHints' buffering_hints: Describes the buffering to perform before delivering data to the Serverless offering for Amazon OpenSearch Service destination.
-        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        :param 'DeliveryStreamAmazonOpenSearchServerlessBufferingHints' buffering_hints: The buffering options. If no value is specified, the default values for AmazonopensearchserviceBufferingHints are used.
         :param str collection_endpoint: The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service.
-        :param 'DeliveryStreamProcessingConfiguration' processing_configuration: The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
-        :param 'DeliveryStreamAmazonOpenSearchServerlessRetryOptions' retry_options: Configures retry behavior in case Firehose is unable to deliver documents to the Serverless offering for Amazon OpenSearch Service.
+        :param 'DeliveryStreamAmazonOpenSearchServerlessRetryOptions' retry_options: The retry behavior in case Firehose is unable to deliver documents to the Serverless offering for Amazon OpenSearch Service. The default value is 300 (5 minutes).
         :param 'DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationS3BackupMode' s3_backup_mode: Defines how documents should be delivered to Amazon S3. When it is set to FailedDocumentsOnly, Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with AmazonOpenSearchService-failed/ appended to the key prefix. When set to AllDocuments, Firehose delivers all incoming records to Amazon S3, and also writes failed documents with AmazonOpenSearchService-failed/ appended to the prefix.
-        :param 'DeliveryStreamVpcConfiguration' vpc_configuration: The details of the VPC of the Amazon ES destination.
         """
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -215,25 +211,19 @@ class DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration(dict):
     @property
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> 'outputs.DeliveryStreamS3DestinationConfiguration':
-        """
-        The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
-        """
         return pulumi.get(self, "s3_configuration")
 
     @property
     @pulumi.getter(name="bufferingHints")
     def buffering_hints(self) -> Optional['outputs.DeliveryStreamAmazonOpenSearchServerlessBufferingHints']:
         """
-        Describes the buffering to perform before delivering data to the Serverless offering for Amazon OpenSearch Service destination.
+        The buffering options. If no value is specified, the default values for AmazonopensearchserviceBufferingHints are used.
         """
         return pulumi.get(self, "buffering_hints")
 
     @property
     @pulumi.getter(name="cloudWatchLoggingOptions")
     def cloud_watch_logging_options(self) -> Optional['outputs.DeliveryStreamCloudWatchLoggingOptions']:
-        """
-        The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
-        """
         return pulumi.get(self, "cloud_watch_logging_options")
 
     @property
@@ -247,16 +237,13 @@ class DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration(dict):
     @property
     @pulumi.getter(name="processingConfiguration")
     def processing_configuration(self) -> Optional['outputs.DeliveryStreamProcessingConfiguration']:
-        """
-        The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
-        """
         return pulumi.get(self, "processing_configuration")
 
     @property
     @pulumi.getter(name="retryOptions")
     def retry_options(self) -> Optional['outputs.DeliveryStreamAmazonOpenSearchServerlessRetryOptions']:
         """
-        Configures retry behavior in case Firehose is unable to deliver documents to the Serverless offering for Amazon OpenSearch Service.
+        The retry behavior in case Firehose is unable to deliver documents to the Serverless offering for Amazon OpenSearch Service. The default value is 300 (5 minutes).
         """
         return pulumi.get(self, "retry_options")
 
@@ -271,9 +258,6 @@ class DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration(dict):
     @property
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional['outputs.DeliveryStreamVpcConfiguration']:
-        """
-        The details of the VPC of the Amazon ES destination.
-        """
         return pulumi.get(self, "vpc_configuration")
 
 
@@ -426,18 +410,18 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfiguration(dict):
         """
         :param str index_name: The Amazon OpenSearch Service index name.
         :param str role_arn: The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon OpenSearch Service Configuration API and for indexing documents.
-        :param 'DeliveryStreamS3DestinationConfiguration' s3_configuration: The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
-        :param 'DeliveryStreamAmazonopensearchserviceBufferingHints' buffering_hints: Describes the buffering to perform before delivering data to the Amazon OpenSearch Service destination.
-        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        :param 'DeliveryStreamS3DestinationConfiguration' s3_configuration: Describes the configuration of a destination in Amazon S3.
+        :param 'DeliveryStreamAmazonopensearchserviceBufferingHints' buffering_hints: The buffering options. If no value is specified, the default values for AmazonopensearchserviceBufferingHints are used.
+        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: Describes the Amazon CloudWatch logging options for your delivery stream.
         :param str cluster_endpoint: The endpoint to use when communicating with the cluster. Specify either this ClusterEndpoint or the DomainARN field.
         :param 'DeliveryStreamDocumentIdOptions' document_id_options: Indicates the method for setting up document ID. The supported methods are Firehose generated document ID and OpenSearch Service generated document ID.
         :param str domain_arn: The ARN of the Amazon OpenSearch Service domain.
         :param 'DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod' index_rotation_period: The Amazon OpenSearch Service index rotation period. Index rotation appends a timestamp to the IndexName to facilitate the expiration of old data.
-        :param 'DeliveryStreamProcessingConfiguration' processing_configuration: The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
-        :param 'DeliveryStreamAmazonopensearchserviceRetryOptions' retry_options: Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon OpenSearch Service.
+        :param 'DeliveryStreamProcessingConfiguration' processing_configuration: Describes a data processing configuration.
+        :param 'DeliveryStreamAmazonopensearchserviceRetryOptions' retry_options: The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon OpenSearch Service. The default value is 300 (5 minutes).
         :param 'DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode' s3_backup_mode: Defines how documents should be delivered to Amazon S3.
         :param str type_name: The Amazon OpenSearch Service type name.
-        :param 'DeliveryStreamVpcConfiguration' vpc_configuration: The details of the VPC of the Amazon ES destination.
+        :param 'DeliveryStreamVpcConfiguration' vpc_configuration: The details of the VPC of the Amazon OpenSearch Service destination.
         """
         pulumi.set(__self__, "index_name", index_name)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -485,7 +469,7 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfiguration(dict):
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> 'outputs.DeliveryStreamS3DestinationConfiguration':
         """
-        The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        Describes the configuration of a destination in Amazon S3.
         """
         return pulumi.get(self, "s3_configuration")
 
@@ -493,7 +477,7 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfiguration(dict):
     @pulumi.getter(name="bufferingHints")
     def buffering_hints(self) -> Optional['outputs.DeliveryStreamAmazonopensearchserviceBufferingHints']:
         """
-        Describes the buffering to perform before delivering data to the Amazon OpenSearch Service destination.
+        The buffering options. If no value is specified, the default values for AmazonopensearchserviceBufferingHints are used.
         """
         return pulumi.get(self, "buffering_hints")
 
@@ -501,7 +485,7 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfiguration(dict):
     @pulumi.getter(name="cloudWatchLoggingOptions")
     def cloud_watch_logging_options(self) -> Optional['outputs.DeliveryStreamCloudWatchLoggingOptions']:
         """
-        The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        Describes the Amazon CloudWatch logging options for your delivery stream.
         """
         return pulumi.get(self, "cloud_watch_logging_options")
 
@@ -541,7 +525,7 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfiguration(dict):
     @pulumi.getter(name="processingConfiguration")
     def processing_configuration(self) -> Optional['outputs.DeliveryStreamProcessingConfiguration']:
         """
-        The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+        Describes a data processing configuration.
         """
         return pulumi.get(self, "processing_configuration")
 
@@ -549,7 +533,7 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfiguration(dict):
     @pulumi.getter(name="retryOptions")
     def retry_options(self) -> Optional['outputs.DeliveryStreamAmazonopensearchserviceRetryOptions']:
         """
-        Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon OpenSearch Service.
+        The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon OpenSearch Service. The default value is 300 (5 minutes).
         """
         return pulumi.get(self, "retry_options")
 
@@ -573,7 +557,7 @@ class DeliveryStreamAmazonopensearchserviceDestinationConfiguration(dict):
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> Optional['outputs.DeliveryStreamVpcConfiguration']:
         """
-        The details of the VPC of the Amazon ES destination.
+        The details of the VPC of the Amazon OpenSearch Service destination.
         """
         return pulumi.get(self, "vpc_configuration")
 
@@ -873,9 +857,9 @@ class DeliveryStreamDataFormatConversionConfiguration(dict):
                  schema_configuration: Optional['outputs.DeliveryStreamSchemaConfiguration'] = None):
         """
         :param bool enabled: Defaults to `true` . Set it to `false` if you want to disable format conversion while preserving the configuration details.
-        :param 'DeliveryStreamInputFormatConfiguration' input_format_configuration: Specifies the deserializer you want to use to convert the format of the input data. This parameter is required if `Enabled` is set to true.
-        :param 'DeliveryStreamOutputFormatConfiguration' output_format_configuration: Specifies the serializer that you want Firehose to use to convert the format of your data before it writes it to Amazon S3. This parameter is required if `Enabled` is set to true.
-        :param 'DeliveryStreamSchemaConfiguration' schema_configuration: Specifies the schema to which you want Firehose to configure your data before it writes it to Amazon S3. This parameter is required if `Enabled` is set to true.
+        :param 'DeliveryStreamInputFormatConfiguration' input_format_configuration: Specifies the deserializer that you want Firehose to use to convert the format of your data from JSON. This parameter is required if `Enabled` is set to true.
+        :param 'DeliveryStreamOutputFormatConfiguration' output_format_configuration: Specifies the serializer that you want Firehose to use to convert the format of your data to the Parquet or ORC format. This parameter is required if `Enabled` is set to true.
+        :param 'DeliveryStreamSchemaConfiguration' schema_configuration: Specifies the AWS Glue Data Catalog table that contains the column information. This parameter is required if `Enabled` is set to true.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -898,7 +882,7 @@ class DeliveryStreamDataFormatConversionConfiguration(dict):
     @pulumi.getter(name="inputFormatConfiguration")
     def input_format_configuration(self) -> Optional['outputs.DeliveryStreamInputFormatConfiguration']:
         """
-        Specifies the deserializer you want to use to convert the format of the input data. This parameter is required if `Enabled` is set to true.
+        Specifies the deserializer that you want Firehose to use to convert the format of your data from JSON. This parameter is required if `Enabled` is set to true.
         """
         return pulumi.get(self, "input_format_configuration")
 
@@ -906,7 +890,7 @@ class DeliveryStreamDataFormatConversionConfiguration(dict):
     @pulumi.getter(name="outputFormatConfiguration")
     def output_format_configuration(self) -> Optional['outputs.DeliveryStreamOutputFormatConfiguration']:
         """
-        Specifies the serializer that you want Firehose to use to convert the format of your data before it writes it to Amazon S3. This parameter is required if `Enabled` is set to true.
+        Specifies the serializer that you want Firehose to use to convert the format of your data to the Parquet or ORC format. This parameter is required if `Enabled` is set to true.
         """
         return pulumi.get(self, "output_format_configuration")
 
@@ -914,7 +898,7 @@ class DeliveryStreamDataFormatConversionConfiguration(dict):
     @pulumi.getter(name="schemaConfiguration")
     def schema_configuration(self) -> Optional['outputs.DeliveryStreamSchemaConfiguration']:
         """
-        Specifies the schema to which you want Firehose to configure your data before it writes it to Amazon S3. This parameter is required if `Enabled` is set to true.
+        Specifies the AWS Glue Data Catalog table that contains the column information. This parameter is required if `Enabled` is set to true.
         """
         return pulumi.get(self, "schema_configuration")
 
@@ -1032,7 +1016,7 @@ class DeliveryStreamDynamicPartitioningConfiguration(dict):
                  retry_options: Optional['outputs.DeliveryStreamRetryOptions'] = None):
         """
         :param bool enabled: Specifies whether dynamic partitioning is enabled for this Kinesis Data Firehose delivery stream.
-        :param 'DeliveryStreamRetryOptions' retry_options: Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+        :param 'DeliveryStreamRetryOptions' retry_options: Specifies the retry behavior in case Kinesis Data Firehose is unable to deliver data to an Amazon S3 prefix.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -1051,7 +1035,7 @@ class DeliveryStreamDynamicPartitioningConfiguration(dict):
     @pulumi.getter(name="retryOptions")
     def retry_options(self) -> Optional['outputs.DeliveryStreamRetryOptions']:
         """
-        Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+        Specifies the retry behavior in case Kinesis Data Firehose is unable to deliver data to an Amazon S3 prefix.
         """
         return pulumi.get(self, "retry_options")
 
@@ -1169,19 +1153,17 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
         """
         :param str index_name: The name of the Elasticsearch index to which Kinesis Data Firehose adds data for indexing.
         :param str role_arn: The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see [Controlling Access with Amazon Kinesis Data Firehose](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html) .
-        :param 'DeliveryStreamS3DestinationConfiguration' s3_configuration: The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
-        :param 'DeliveryStreamElasticsearchBufferingHints' buffering_hints: The `ElasticsearchBufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data while delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
-               
-               ElasticsearchBufferingHints is the property type for the `BufferingHints` property of the [Amazon Kinesis Data Firehose DeliveryStream ElasticsearchDestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html) property type.
-        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        :param 'DeliveryStreamS3DestinationConfiguration' s3_configuration: The S3 bucket where Kinesis Data Firehose backs up incoming data.
+        :param 'DeliveryStreamElasticsearchBufferingHints' buffering_hints: Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon ES domain.
+        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: The Amazon CloudWatch Logs logging options for the delivery stream.
         :param str cluster_endpoint: The endpoint to use when communicating with the cluster. Specify either this `ClusterEndpoint` or the `DomainARN` field.
         :param 'DeliveryStreamDocumentIdOptions' document_id_options: Indicates the method for setting up document ID. The supported methods are Firehose generated document ID and OpenSearch Service generated document ID.
         :param str domain_arn: The ARN of the Amazon ES domain. The IAM role must have permissions for `DescribeElasticsearchDomain` , `DescribeElasticsearchDomains` , and `DescribeElasticsearchDomainConfig` after assuming the role specified in *RoleARN* .
                
                Specify either `ClusterEndpoint` or `DomainARN` .
         :param 'DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod' index_rotation_period: The frequency of Elasticsearch index rotation. If you enable index rotation, Kinesis Data Firehose appends a portion of the UTC arrival timestamp to the specified index name, and rotates the appended timestamp accordingly. For more information, see [Index Rotation for the Amazon ES Destination](https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation) in the *Amazon Kinesis Data Firehose Developer Guide* .
-        :param 'DeliveryStreamProcessingConfiguration' processing_configuration: The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
-        :param 'DeliveryStreamElasticsearchRetryOptions' retry_options: The `ElasticsearchRetryOptions` property type configures the retry behavior for when Amazon Kinesis Data Firehose (Kinesis Data Firehose) can't deliver data to Amazon Elasticsearch Service (Amazon ES).
+        :param 'DeliveryStreamProcessingConfiguration' processing_configuration: The data processing configuration for the Kinesis Data Firehose delivery stream.
+        :param 'DeliveryStreamElasticsearchRetryOptions' retry_options: The retry behavior when Kinesis Data Firehose is unable to deliver data to Amazon ES.
         :param 'DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode' s3_backup_mode: The condition under which Kinesis Data Firehose delivers data to Amazon Simple Storage Service (Amazon S3). You can send Amazon S3 all documents (all data) or only the documents that Kinesis Data Firehose could not deliver to the Amazon ES destination. For more information and valid values, see the `S3BackupMode` content for the [ElasticsearchDestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ElasticsearchDestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
         :param str type_name: The Elasticsearch type name that Amazon ES adds to documents when indexing data.
         :param 'DeliveryStreamVpcConfiguration' vpc_configuration: The details of the VPC of the Amazon ES destination.
@@ -1232,7 +1214,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> 'outputs.DeliveryStreamS3DestinationConfiguration':
         """
-        The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        The S3 bucket where Kinesis Data Firehose backs up incoming data.
         """
         return pulumi.get(self, "s3_configuration")
 
@@ -1240,9 +1222,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
     @pulumi.getter(name="bufferingHints")
     def buffering_hints(self) -> Optional['outputs.DeliveryStreamElasticsearchBufferingHints']:
         """
-        The `ElasticsearchBufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data while delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
-
-        ElasticsearchBufferingHints is the property type for the `BufferingHints` property of the [Amazon Kinesis Data Firehose DeliveryStream ElasticsearchDestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html) property type.
+        Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon ES domain.
         """
         return pulumi.get(self, "buffering_hints")
 
@@ -1250,7 +1230,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
     @pulumi.getter(name="cloudWatchLoggingOptions")
     def cloud_watch_logging_options(self) -> Optional['outputs.DeliveryStreamCloudWatchLoggingOptions']:
         """
-        The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        The Amazon CloudWatch Logs logging options for the delivery stream.
         """
         return pulumi.get(self, "cloud_watch_logging_options")
 
@@ -1292,7 +1272,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
     @pulumi.getter(name="processingConfiguration")
     def processing_configuration(self) -> Optional['outputs.DeliveryStreamProcessingConfiguration']:
         """
-        The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+        The data processing configuration for the Kinesis Data Firehose delivery stream.
         """
         return pulumi.get(self, "processing_configuration")
 
@@ -1300,7 +1280,7 @@ class DeliveryStreamElasticsearchDestinationConfiguration(dict):
     @pulumi.getter(name="retryOptions")
     def retry_options(self) -> Optional['outputs.DeliveryStreamElasticsearchRetryOptions']:
         """
-        The `ElasticsearchRetryOptions` property type configures the retry behavior for when Amazon Kinesis Data Firehose (Kinesis Data Firehose) can't deliver data to Amazon Elasticsearch Service (Amazon ES).
+        The retry behavior when Kinesis Data Firehose is unable to deliver data to Amazon ES.
         """
         return pulumi.get(self, "retry_options")
 
@@ -1390,7 +1370,7 @@ class DeliveryStreamEncryptionConfiguration(dict):
                  kms_encryption_config: Optional['outputs.DeliveryStreamKmsEncryptionConfig'] = None,
                  no_encryption_config: Optional['DeliveryStreamEncryptionConfigurationNoEncryptionConfig'] = None):
         """
-        :param 'DeliveryStreamKmsEncryptionConfig' kms_encryption_config: The `KMSEncryptionConfig` property type specifies the AWS Key Management Service ( AWS KMS) encryption key that Amazon Simple Storage Service (Amazon S3) uses to encrypt data delivered by the Amazon Kinesis Data Firehose (Kinesis Data Firehose) stream.
+        :param 'DeliveryStreamKmsEncryptionConfig' kms_encryption_config: The AWS Key Management Service ( AWS KMS) encryption key that Amazon S3 uses to encrypt your data.
         :param 'DeliveryStreamEncryptionConfigurationNoEncryptionConfig' no_encryption_config: Disables encryption. For valid values, see the `NoEncryptionConfig` content for the [EncryptionConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_EncryptionConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
         """
         if kms_encryption_config is not None:
@@ -1402,7 +1382,7 @@ class DeliveryStreamEncryptionConfiguration(dict):
     @pulumi.getter(name="kmsEncryptionConfig")
     def kms_encryption_config(self) -> Optional['outputs.DeliveryStreamKmsEncryptionConfig']:
         """
-        The `KMSEncryptionConfig` property type specifies the AWS Key Management Service ( AWS KMS) encryption key that Amazon Simple Storage Service (Amazon S3) uses to encrypt data delivered by the Amazon Kinesis Data Firehose (Kinesis Data Firehose) stream.
+        The AWS Key Management Service ( AWS KMS) encryption key that Amazon S3 uses to encrypt your data.
         """
         return pulumi.get(self, "kms_encryption_config")
 
@@ -1536,18 +1516,18 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
         """
         :param str bucket_arn: The Amazon Resource Name (ARN) of the Amazon S3 bucket. For constraints, see [ExtendedS3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ExtendedS3DestinationConfiguration.html) in the *Amazon Kinesis Data Firehose API Reference* .
         :param str role_arn: The Amazon Resource Name (ARN) of the AWS credentials. For constraints, see [ExtendedS3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ExtendedS3DestinationConfiguration.html) in the *Amazon Kinesis Data Firehose API Reference* .
-        :param 'DeliveryStreamBufferingHints' buffering_hints: The `BufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data before delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
-        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        :param 'DeliveryStreamBufferingHints' buffering_hints: The buffering option.
+        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: The Amazon CloudWatch logging options for your delivery stream.
         :param 'DeliveryStreamExtendedS3DestinationConfigurationCompressionFormat' compression_format: The compression format. If no value is specified, the default is `UNCOMPRESSED` .
         :param str custom_time_zone: The time zone you prefer. UTC is the default.
-        :param 'DeliveryStreamDataFormatConversionConfiguration' data_format_conversion_configuration: Specifies that you want Kinesis Data Firehose to convert data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. Kinesis Data Firehose uses the serializer and deserializer that you specify, in addition to the column information from the AWS Glue table, to deserialize your input data from JSON and then serialize it to the Parquet or ORC format. For more information, see [Kinesis Data Firehose Record Format Conversion](https://docs.aws.amazon.com/firehose/latest/dev/record-format-conversion.html) .
-        :param 'DeliveryStreamDynamicPartitioningConfiguration' dynamic_partitioning_configuration: The `DynamicPartitioningConfiguration` property type specifies the configuration of the dynamic partitioning mechanism that creates targeted data sets from the streaming data by partitioning it based on partition keys.
-        :param 'DeliveryStreamEncryptionConfiguration' encryption_configuration: The `EncryptionConfiguration` property type specifies the encryption settings that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses when delivering data to Amazon Simple Storage Service (Amazon S3).
+        :param 'DeliveryStreamDataFormatConversionConfiguration' data_format_conversion_configuration: The serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3.
+        :param 'DeliveryStreamDynamicPartitioningConfiguration' dynamic_partitioning_configuration: The configuration of the dynamic partitioning mechanism that creates targeted data sets from the streaming data by partitioning it based on partition keys.
+        :param 'DeliveryStreamEncryptionConfiguration' encryption_configuration: The encryption configuration for the Kinesis Data Firehose delivery stream. The default value is `NoEncryption` .
         :param str error_output_prefix: A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html) .
         :param str file_extension: Specify a file extension. It will override the default file extension
         :param str prefix: The `YYYY/MM/DD/HH` time format prefix is automatically used for delivered Amazon S3 files. For more information, see [ExtendedS3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_ExtendedS3DestinationConfiguration.html) in the *Amazon Kinesis Data Firehose API Reference* .
-        :param 'DeliveryStreamProcessingConfiguration' processing_configuration: The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
-        :param 'DeliveryStreamS3DestinationConfiguration' s3_backup_configuration: The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        :param 'DeliveryStreamProcessingConfiguration' processing_configuration: The data processing configuration for the Kinesis Data Firehose delivery stream.
+        :param 'DeliveryStreamS3DestinationConfiguration' s3_backup_configuration: The configuration for backup in Amazon S3.
         :param 'DeliveryStreamExtendedS3DestinationConfigurationS3BackupMode' s3_backup_mode: The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
         """
         pulumi.set(__self__, "bucket_arn", bucket_arn)
@@ -1599,7 +1579,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
     @pulumi.getter(name="bufferingHints")
     def buffering_hints(self) -> Optional['outputs.DeliveryStreamBufferingHints']:
         """
-        The `BufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data before delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
+        The buffering option.
         """
         return pulumi.get(self, "buffering_hints")
 
@@ -1607,7 +1587,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
     @pulumi.getter(name="cloudWatchLoggingOptions")
     def cloud_watch_logging_options(self) -> Optional['outputs.DeliveryStreamCloudWatchLoggingOptions']:
         """
-        The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        The Amazon CloudWatch logging options for your delivery stream.
         """
         return pulumi.get(self, "cloud_watch_logging_options")
 
@@ -1631,7 +1611,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
     @pulumi.getter(name="dataFormatConversionConfiguration")
     def data_format_conversion_configuration(self) -> Optional['outputs.DeliveryStreamDataFormatConversionConfiguration']:
         """
-        Specifies that you want Kinesis Data Firehose to convert data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. Kinesis Data Firehose uses the serializer and deserializer that you specify, in addition to the column information from the AWS Glue table, to deserialize your input data from JSON and then serialize it to the Parquet or ORC format. For more information, see [Kinesis Data Firehose Record Format Conversion](https://docs.aws.amazon.com/firehose/latest/dev/record-format-conversion.html) .
+        The serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3.
         """
         return pulumi.get(self, "data_format_conversion_configuration")
 
@@ -1639,7 +1619,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
     @pulumi.getter(name="dynamicPartitioningConfiguration")
     def dynamic_partitioning_configuration(self) -> Optional['outputs.DeliveryStreamDynamicPartitioningConfiguration']:
         """
-        The `DynamicPartitioningConfiguration` property type specifies the configuration of the dynamic partitioning mechanism that creates targeted data sets from the streaming data by partitioning it based on partition keys.
+        The configuration of the dynamic partitioning mechanism that creates targeted data sets from the streaming data by partitioning it based on partition keys.
         """
         return pulumi.get(self, "dynamic_partitioning_configuration")
 
@@ -1647,7 +1627,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional['outputs.DeliveryStreamEncryptionConfiguration']:
         """
-        The `EncryptionConfiguration` property type specifies the encryption settings that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses when delivering data to Amazon Simple Storage Service (Amazon S3).
+        The encryption configuration for the Kinesis Data Firehose delivery stream. The default value is `NoEncryption` .
         """
         return pulumi.get(self, "encryption_configuration")
 
@@ -1679,7 +1659,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
     @pulumi.getter(name="processingConfiguration")
     def processing_configuration(self) -> Optional['outputs.DeliveryStreamProcessingConfiguration']:
         """
-        The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+        The data processing configuration for the Kinesis Data Firehose delivery stream.
         """
         return pulumi.get(self, "processing_configuration")
 
@@ -1687,7 +1667,7 @@ class DeliveryStreamExtendedS3DestinationConfiguration(dict):
     @pulumi.getter(name="s3BackupConfiguration")
     def s3_backup_configuration(self) -> Optional['outputs.DeliveryStreamS3DestinationConfiguration']:
         """
-        The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        The configuration for backup in Amazon S3.
         """
         return pulumi.get(self, "s3_backup_configuration")
 
@@ -1889,13 +1869,13 @@ class DeliveryStreamHttpEndpointDestinationConfiguration(dict):
                  role_arn: Optional[str] = None,
                  s3_backup_mode: Optional[str] = None):
         """
-        :param 'DeliveryStreamHttpEndpointConfiguration' endpoint_configuration: Describes the configuration of the HTTP endpoint to which Kinesis Firehose delivers data. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
-        :param 'DeliveryStreamS3DestinationConfiguration' s3_configuration: The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
-        :param 'DeliveryStreamBufferingHints' buffering_hints: The `BufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data before delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
-        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
-        :param 'DeliveryStreamProcessingConfiguration' processing_configuration: The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
-        :param 'DeliveryStreamHttpEndpointRequestConfiguration' request_configuration: The configuration of the HTTP endpoint request. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
-        :param 'DeliveryStreamRetryOptions' retry_options: Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+        :param 'DeliveryStreamHttpEndpointConfiguration' endpoint_configuration: The configuration of the HTTP endpoint selected as the destination.
+        :param 'DeliveryStreamS3DestinationConfiguration' s3_configuration: Describes the configuration of a destination in Amazon S3.
+        :param 'DeliveryStreamBufferingHints' buffering_hints: The buffering options that can be used before data is delivered to the specified destination. Kinesis Data Firehose treats these options as hints, and it might choose to use more optimal values. The SizeInMBs and IntervalInSeconds parameters are optional. However, if you specify a value for one of them, you must also provide a value for the other.
+        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: Describes the Amazon CloudWatch logging options for your delivery stream.
+        :param 'DeliveryStreamProcessingConfiguration' processing_configuration: Describes the data processing configuration.
+        :param 'DeliveryStreamHttpEndpointRequestConfiguration' request_configuration: The configuration of the request sent to the HTTP endpoint specified as the destination.
+        :param 'DeliveryStreamRetryOptions' retry_options: Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination.
         :param str role_arn: Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs.
         :param str s3_backup_mode: Describes the S3 bucket backup options for the data that Kinesis Data Firehose delivers to the HTTP endpoint destination. You can back up all documents (AllData) or only the documents that Kinesis Data Firehose could not deliver to the specified HTTP endpoint destination (FailedDataOnly).
         """
@@ -1920,7 +1900,7 @@ class DeliveryStreamHttpEndpointDestinationConfiguration(dict):
     @pulumi.getter(name="endpointConfiguration")
     def endpoint_configuration(self) -> 'outputs.DeliveryStreamHttpEndpointConfiguration':
         """
-        Describes the configuration of the HTTP endpoint to which Kinesis Firehose delivers data. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+        The configuration of the HTTP endpoint selected as the destination.
         """
         return pulumi.get(self, "endpoint_configuration")
 
@@ -1928,7 +1908,7 @@ class DeliveryStreamHttpEndpointDestinationConfiguration(dict):
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> 'outputs.DeliveryStreamS3DestinationConfiguration':
         """
-        The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        Describes the configuration of a destination in Amazon S3.
         """
         return pulumi.get(self, "s3_configuration")
 
@@ -1936,7 +1916,7 @@ class DeliveryStreamHttpEndpointDestinationConfiguration(dict):
     @pulumi.getter(name="bufferingHints")
     def buffering_hints(self) -> Optional['outputs.DeliveryStreamBufferingHints']:
         """
-        The `BufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data before delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
+        The buffering options that can be used before data is delivered to the specified destination. Kinesis Data Firehose treats these options as hints, and it might choose to use more optimal values. The SizeInMBs and IntervalInSeconds parameters are optional. However, if you specify a value for one of them, you must also provide a value for the other.
         """
         return pulumi.get(self, "buffering_hints")
 
@@ -1944,7 +1924,7 @@ class DeliveryStreamHttpEndpointDestinationConfiguration(dict):
     @pulumi.getter(name="cloudWatchLoggingOptions")
     def cloud_watch_logging_options(self) -> Optional['outputs.DeliveryStreamCloudWatchLoggingOptions']:
         """
-        The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        Describes the Amazon CloudWatch logging options for your delivery stream.
         """
         return pulumi.get(self, "cloud_watch_logging_options")
 
@@ -1952,7 +1932,7 @@ class DeliveryStreamHttpEndpointDestinationConfiguration(dict):
     @pulumi.getter(name="processingConfiguration")
     def processing_configuration(self) -> Optional['outputs.DeliveryStreamProcessingConfiguration']:
         """
-        The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+        Describes the data processing configuration.
         """
         return pulumi.get(self, "processing_configuration")
 
@@ -1960,7 +1940,7 @@ class DeliveryStreamHttpEndpointDestinationConfiguration(dict):
     @pulumi.getter(name="requestConfiguration")
     def request_configuration(self) -> Optional['outputs.DeliveryStreamHttpEndpointRequestConfiguration']:
         """
-        The configuration of the HTTP endpoint request. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+        The configuration of the request sent to the HTTP endpoint specified as the destination.
         """
         return pulumi.get(self, "request_configuration")
 
@@ -1968,7 +1948,7 @@ class DeliveryStreamHttpEndpointDestinationConfiguration(dict):
     @pulumi.getter(name="retryOptions")
     def retry_options(self) -> Optional['outputs.DeliveryStreamRetryOptions']:
         """
-        Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+        Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination.
         """
         return pulumi.get(self, "retry_options")
 
@@ -2014,7 +1994,7 @@ class DeliveryStreamHttpEndpointRequestConfiguration(dict):
                  common_attributes: Optional[Sequence['outputs.DeliveryStreamHttpEndpointCommonAttribute']] = None,
                  content_encoding: Optional['DeliveryStreamHttpEndpointRequestConfigurationContentEncoding'] = None):
         """
-        :param Sequence['DeliveryStreamHttpEndpointCommonAttribute'] common_attributes: Describes the metadata that's delivered to the specified HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+        :param Sequence['DeliveryStreamHttpEndpointCommonAttribute'] common_attributes: Describes the metadata sent to the HTTP endpoint destination.
         :param 'DeliveryStreamHttpEndpointRequestConfigurationContentEncoding' content_encoding: Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. For more information, see Content-Encoding in MDN Web Docs, the official Mozilla documentation.
         """
         if common_attributes is not None:
@@ -2026,7 +2006,7 @@ class DeliveryStreamHttpEndpointRequestConfiguration(dict):
     @pulumi.getter(name="commonAttributes")
     def common_attributes(self) -> Optional[Sequence['outputs.DeliveryStreamHttpEndpointCommonAttribute']]:
         """
-        Describes the metadata that's delivered to the specified HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+        Describes the metadata sent to the HTTP endpoint destination.
         """
         return pulumi.get(self, "common_attributes")
 
@@ -2044,7 +2024,7 @@ class DeliveryStreamInputFormatConfiguration(dict):
     def __init__(__self__, *,
                  deserializer: Optional['outputs.DeliveryStreamDeserializer'] = None):
         """
-        :param 'DeliveryStreamDeserializer' deserializer: The deserializer you want Kinesis Data Firehose to use for converting the input data from JSON. Kinesis Data Firehose then serializes the data to its final format using the `Serializer` . Kinesis Data Firehose supports two types of deserializers: the [Apache Hive JSON SerDe](https://docs.aws.amazon.com/https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-JSON) and the [OpenX JSON SerDe](https://docs.aws.amazon.com/https://github.com/rcongiu/Hive-JSON-Serde) .
+        :param 'DeliveryStreamDeserializer' deserializer: Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. If both are non-null, the server rejects the request.
         """
         if deserializer is not None:
             pulumi.set(__self__, "deserializer", deserializer)
@@ -2053,7 +2033,7 @@ class DeliveryStreamInputFormatConfiguration(dict):
     @pulumi.getter
     def deserializer(self) -> Optional['outputs.DeliveryStreamDeserializer']:
         """
-        The deserializer you want Kinesis Data Firehose to use for converting the input data from JSON. Kinesis Data Firehose then serializes the data to its final format using the `Serializer` . Kinesis Data Firehose supports two types of deserializers: the [Apache Hive JSON SerDe](https://docs.aws.amazon.com/https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-JSON) and the [OpenX JSON SerDe](https://docs.aws.amazon.com/https://github.com/rcongiu/Hive-JSON-Serde) .
+        Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. If both are non-null, the server rejects the request.
         """
         return pulumi.get(self, "deserializer")
 
@@ -2443,7 +2423,7 @@ class DeliveryStreamOutputFormatConfiguration(dict):
     def __init__(__self__, *,
                  serializer: Optional['outputs.DeliveryStreamSerializer'] = None):
         """
-        :param 'DeliveryStreamSerializer' serializer: The serializer that you want Firehose to use to convert data to the target format before writing it to Amazon S3. Firehose supports two types of serializers: the [ORC SerDe](https://docs.aws.amazon.com/https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/orc/OrcSerde.html) and the [Parquet SerDe](https://docs.aws.amazon.com/https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/parquet/serde/ParquetHiveSerDe.html) .
+        :param 'DeliveryStreamSerializer' serializer: Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. If both are non-null, the server rejects the request.
         """
         if serializer is not None:
             pulumi.set(__self__, "serializer", serializer)
@@ -2452,7 +2432,7 @@ class DeliveryStreamOutputFormatConfiguration(dict):
     @pulumi.getter
     def serializer(self) -> Optional['outputs.DeliveryStreamSerializer']:
         """
-        The serializer that you want Firehose to use to convert data to the target format before writing it to Amazon S3. Firehose supports two types of serializers: the [ORC SerDe](https://docs.aws.amazon.com/https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/orc/OrcSerde.html) and the [Parquet SerDe](https://docs.aws.amazon.com/https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/parquet/serde/ParquetHiveSerDe.html) .
+        Specifies which serializer to use. You can choose either the ORC SerDe or the Parquet SerDe. If both are non-null, the server rejects the request.
         """
         return pulumi.get(self, "serializer")
 
@@ -2568,7 +2548,7 @@ class DeliveryStreamProcessingConfiguration(dict):
                  processors: Optional[Sequence['outputs.DeliveryStreamProcessor']] = None):
         """
         :param bool enabled: Indicates whether data processing is enabled (true) or disabled (false).
-        :param Sequence['DeliveryStreamProcessor'] processors: The `Processor` property specifies a data processor for an Amazon Kinesis Data Firehose delivery stream.
+        :param Sequence['DeliveryStreamProcessor'] processors: The data processors.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -2587,7 +2567,7 @@ class DeliveryStreamProcessingConfiguration(dict):
     @pulumi.getter
     def processors(self) -> Optional[Sequence['outputs.DeliveryStreamProcessor']]:
         """
-        The `Processor` property specifies a data processor for an Amazon Kinesis Data Firehose delivery stream.
+        The data processors.
         """
         return pulumi.get(self, "processors")
 
@@ -2599,7 +2579,7 @@ class DeliveryStreamProcessor(dict):
                  parameters: Optional[Sequence['outputs.DeliveryStreamProcessorParameter']] = None):
         """
         :param 'DeliveryStreamProcessorType' type: The type of processor. Valid values: `Lambda` .
-        :param Sequence['DeliveryStreamProcessorParameter'] parameters: The `ProcessorParameter` property specifies a processor parameter in a data processor for an Amazon Kinesis Data Firehose delivery stream.
+        :param Sequence['DeliveryStreamProcessorParameter'] parameters: The processor parameters.
         """
         pulumi.set(__self__, "type", type)
         if parameters is not None:
@@ -2617,7 +2597,7 @@ class DeliveryStreamProcessor(dict):
     @pulumi.getter
     def parameters(self) -> Optional[Sequence['outputs.DeliveryStreamProcessorParameter']]:
         """
-        The `ProcessorParameter` property specifies a processor parameter in a data processor for an Amazon Kinesis Data Firehose delivery stream.
+        The processor parameters.
         """
         return pulumi.get(self, "parameters")
 
@@ -2719,15 +2699,15 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
                  s3_backup_mode: Optional['DeliveryStreamRedshiftDestinationConfigurationS3BackupMode'] = None):
         """
         :param str cluster_jdbcurl: The connection string that Kinesis Data Firehose uses to connect to the Amazon Redshift cluster.
-        :param 'DeliveryStreamCopyCommand' copy_command: The `CopyCommand` property type configures the Amazon Redshift `COPY` command that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses to load data into an Amazon Redshift cluster from an Amazon S3 bucket.
+        :param 'DeliveryStreamCopyCommand' copy_command: Configures the Amazon Redshift `COPY` command that Kinesis Data Firehose uses to load data into the cluster from the Amazon S3 bucket.
         :param str password: The password for the Amazon Redshift user that you specified in the `Username` property.
         :param str role_arn: The ARN of the AWS Identity and Access Management (IAM) role that grants Kinesis Data Firehose access to your Amazon S3 bucket and AWS KMS (if you enable data encryption). For more information, see [Grant Kinesis Data Firehose Access to an Amazon Redshift Destination](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-rs) in the *Amazon Kinesis Data Firehose Developer Guide* .
-        :param 'DeliveryStreamS3DestinationConfiguration' s3_configuration: The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        :param 'DeliveryStreamS3DestinationConfiguration' s3_configuration: The S3 bucket where Kinesis Data Firehose first delivers data. After the data is in the bucket, Kinesis Data Firehose uses the `COPY` command to load the data into the Amazon Redshift cluster. For the Amazon S3 bucket's compression format, don't specify `SNAPPY` or `ZIP` because the Amazon Redshift `COPY` command doesn't support them.
         :param str username: The Amazon Redshift user that has permission to access the Amazon Redshift cluster. This user must have `INSERT` privileges for copying data from the Amazon S3 bucket to the cluster.
-        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
-        :param 'DeliveryStreamProcessingConfiguration' processing_configuration: The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
-        :param 'DeliveryStreamRedshiftRetryOptions' retry_options: Configures retry behavior in case Firehose is unable to deliver documents to Amazon Redshift.
-        :param 'DeliveryStreamS3DestinationConfiguration' s3_backup_configuration: The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: The CloudWatch logging options for your delivery stream.
+        :param 'DeliveryStreamProcessingConfiguration' processing_configuration: The data processing configuration for the Kinesis Data Firehose delivery stream.
+        :param 'DeliveryStreamRedshiftRetryOptions' retry_options: The retry behavior in case Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
+        :param 'DeliveryStreamS3DestinationConfiguration' s3_backup_configuration: The configuration for backup in Amazon S3.
         :param 'DeliveryStreamRedshiftDestinationConfigurationS3BackupMode' s3_backup_mode: The Amazon S3 backup mode. After you create a delivery stream, you can update it to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it.
         """
         pulumi.set(__self__, "cluster_jdbcurl", cluster_jdbcurl)
@@ -2759,7 +2739,7 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
     @pulumi.getter(name="copyCommand")
     def copy_command(self) -> 'outputs.DeliveryStreamCopyCommand':
         """
-        The `CopyCommand` property type configures the Amazon Redshift `COPY` command that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses to load data into an Amazon Redshift cluster from an Amazon S3 bucket.
+        Configures the Amazon Redshift `COPY` command that Kinesis Data Firehose uses to load data into the cluster from the Amazon S3 bucket.
         """
         return pulumi.get(self, "copy_command")
 
@@ -2783,7 +2763,7 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> 'outputs.DeliveryStreamS3DestinationConfiguration':
         """
-        The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        The S3 bucket where Kinesis Data Firehose first delivers data. After the data is in the bucket, Kinesis Data Firehose uses the `COPY` command to load the data into the Amazon Redshift cluster. For the Amazon S3 bucket's compression format, don't specify `SNAPPY` or `ZIP` because the Amazon Redshift `COPY` command doesn't support them.
         """
         return pulumi.get(self, "s3_configuration")
 
@@ -2799,7 +2779,7 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
     @pulumi.getter(name="cloudWatchLoggingOptions")
     def cloud_watch_logging_options(self) -> Optional['outputs.DeliveryStreamCloudWatchLoggingOptions']:
         """
-        The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        The CloudWatch logging options for your delivery stream.
         """
         return pulumi.get(self, "cloud_watch_logging_options")
 
@@ -2807,7 +2787,7 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
     @pulumi.getter(name="processingConfiguration")
     def processing_configuration(self) -> Optional['outputs.DeliveryStreamProcessingConfiguration']:
         """
-        The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+        The data processing configuration for the Kinesis Data Firehose delivery stream.
         """
         return pulumi.get(self, "processing_configuration")
 
@@ -2815,7 +2795,7 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
     @pulumi.getter(name="retryOptions")
     def retry_options(self) -> Optional['outputs.DeliveryStreamRedshiftRetryOptions']:
         """
-        Configures retry behavior in case Firehose is unable to deliver documents to Amazon Redshift.
+        The retry behavior in case Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
         """
         return pulumi.get(self, "retry_options")
 
@@ -2823,7 +2803,7 @@ class DeliveryStreamRedshiftDestinationConfiguration(dict):
     @pulumi.getter(name="s3BackupConfiguration")
     def s3_backup_configuration(self) -> Optional['outputs.DeliveryStreamS3DestinationConfiguration']:
         """
-        The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        The configuration for backup in Amazon S3.
         """
         return pulumi.get(self, "s3_backup_configuration")
 
@@ -2951,10 +2931,10 @@ class DeliveryStreamS3DestinationConfiguration(dict):
         """
         :param str bucket_arn: The Amazon Resource Name (ARN) of the Amazon S3 bucket to send data to.
         :param str role_arn: The ARN of an AWS Identity and Access Management (IAM) role that grants Kinesis Data Firehose access to your Amazon S3 bucket and AWS KMS (if you enable data encryption). For more information, see [Grant Kinesis Data Firehose Access to an Amazon S3 Destination](https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3) in the *Amazon Kinesis Data Firehose Developer Guide* .
-        :param 'DeliveryStreamBufferingHints' buffering_hints: The `BufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data before delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
-        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        :param 'DeliveryStreamBufferingHints' buffering_hints: Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon S3 bucket.
+        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: The CloudWatch logging options for your delivery stream.
         :param 'DeliveryStreamS3DestinationConfigurationCompressionFormat' compression_format: The type of compression that Kinesis Data Firehose uses to compress the data that it delivers to the Amazon S3 bucket. For valid values, see the `CompressionFormat` content for the [S3DestinationConfiguration](https://docs.aws.amazon.com/firehose/latest/APIReference/API_S3DestinationConfiguration.html) data type in the *Amazon Kinesis Data Firehose API Reference* .
-        :param 'DeliveryStreamEncryptionConfiguration' encryption_configuration: The `EncryptionConfiguration` property type specifies the encryption settings that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses when delivering data to Amazon Simple Storage Service (Amazon S3).
+        :param 'DeliveryStreamEncryptionConfiguration' encryption_configuration: Configures Amazon Simple Storage Service (Amazon S3) server-side encryption. Kinesis Data Firehose uses AWS Key Management Service ( AWS KMS) to encrypt the data that it delivers to your Amazon S3 bucket.
         :param str error_output_prefix: A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see [Custom Prefixes for Amazon S3 Objects](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html) .
         :param str prefix: A prefix that Kinesis Data Firehose adds to the files that it delivers to the Amazon S3 bucket. The prefix helps you identify the files that Kinesis Data Firehose delivered.
         """
@@ -2993,7 +2973,7 @@ class DeliveryStreamS3DestinationConfiguration(dict):
     @pulumi.getter(name="bufferingHints")
     def buffering_hints(self) -> Optional['outputs.DeliveryStreamBufferingHints']:
         """
-        The `BufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data before delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
+        Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon S3 bucket.
         """
         return pulumi.get(self, "buffering_hints")
 
@@ -3001,7 +2981,7 @@ class DeliveryStreamS3DestinationConfiguration(dict):
     @pulumi.getter(name="cloudWatchLoggingOptions")
     def cloud_watch_logging_options(self) -> Optional['outputs.DeliveryStreamCloudWatchLoggingOptions']:
         """
-        The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        The CloudWatch logging options for your delivery stream.
         """
         return pulumi.get(self, "cloud_watch_logging_options")
 
@@ -3017,7 +2997,7 @@ class DeliveryStreamS3DestinationConfiguration(dict):
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional['outputs.DeliveryStreamEncryptionConfiguration']:
         """
-        The `EncryptionConfiguration` property type specifies the encryption settings that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses when delivering data to Amazon Simple Storage Service (Amazon S3).
+        Configures Amazon Simple Storage Service (Amazon S3) server-side encryption. Kinesis Data Firehose uses AWS Key Management Service ( AWS KMS) to encrypt the data that it delivers to your Amazon S3 bucket.
         """
         return pulumi.get(self, "encryption_configuration")
 
@@ -3180,7 +3160,7 @@ class DeliveryStreamSerializer(dict):
                  parquet_ser_de: Optional['outputs.DeliveryStreamParquetSerDe'] = None):
         """
         :param 'DeliveryStreamOrcSerDe' orc_ser_de: A serializer to use for converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://docs.aws.amazon.com/https://orc.apache.org/docs/) .
-        :param 'DeliveryStreamParquetSerDe' parquet_ser_de: A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/docs/) .
+        :param 'DeliveryStreamParquetSerDe' parquet_ser_de: A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/documentation/latest/) .
         """
         if orc_ser_de is not None:
             pulumi.set(__self__, "orc_ser_de", orc_ser_de)
@@ -3199,7 +3179,7 @@ class DeliveryStreamSerializer(dict):
     @pulumi.getter(name="parquetSerDe")
     def parquet_ser_de(self) -> Optional['outputs.DeliveryStreamParquetSerDe']:
         """
-        A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/docs/) .
+        A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/documentation/latest/) .
         """
         return pulumi.get(self, "parquet_ser_de")
 
@@ -3273,20 +3253,17 @@ class DeliveryStreamSnowflakeDestinationConfiguration(dict):
         :param str database: All data in Snowflake is maintained in databases.
         :param str private_key: The private key used to encrypt your Snowflake client. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
         :param str role_arn: The Amazon Resource Name (ARN) of the Snowflake role
-        :param 'DeliveryStreamS3DestinationConfiguration' s3_configuration: The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
         :param str schema: Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views
         :param str table: All data in Snowflake is stored in database tables, logically structured as collections of columns and rows.
         :param str user: User login name for the Snowflake account.
-        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
         :param str content_column_name: The name of the record content column
         :param 'DeliveryStreamSnowflakeDestinationConfigurationDataLoadingOption' data_loading_option: Choose to load JSON keys mapped to table column names or choose to split the JSON payload where content is mapped to a record content column and source metadata is mapped to a record metadata column.
         :param str key_passphrase: Passphrase to decrypt the private key when the key is encrypted. For information, see [Using Key Pair Authentication & Key Rotation](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation) .
         :param str meta_data_column_name: The name of the record metadata column
-        :param 'DeliveryStreamProcessingConfiguration' processing_configuration: The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
-        :param 'DeliveryStreamSnowflakeRetryOptions' retry_options: Specify how long Firehose retries sending data to the New Relic HTTP endpoint. After sending data, Firehose first waits for an acknowledgment from the HTTP endpoint. If an error occurs or the acknowledgment doesn’t arrive within the acknowledgment timeout period, Firehose starts the retry duration counter. It keeps retrying until the retry duration expires. After that, Firehose considers it a data delivery failure and backs up the data to your Amazon S3 bucket. Every time that Firehose sends data to the HTTP endpoint (either the initial attempt or a retry), it restarts the acknowledgement timeout counter and waits for an acknowledgement from the HTTP endpoint. Even if the retry duration expires, Firehose still waits for the acknowledgment until it receives it or the acknowledgement timeout period is reached. If the acknowledgment times out, Firehose determines whether there's time left in the retry counter. If there is time left, it retries again and repeats the logic until it receives an acknowledgment or determines that the retry time has expired. If you don't want Firehose to retry sending data, set this value to 0.
+        :param 'DeliveryStreamSnowflakeRetryOptions' retry_options: The time period where Firehose will retry sending data to the chosen HTTP endpoint.
         :param 'DeliveryStreamSnowflakeDestinationConfigurationS3BackupMode' s3_backup_mode: Choose an S3 backup mode
         :param 'DeliveryStreamSnowflakeRoleConfiguration' snowflake_role_configuration: Optionally configure a Snowflake role. Otherwise the default user role will be used.
-        :param 'DeliveryStreamSnowflakeVpcConfiguration' snowflake_vpc_configuration: Configure a Snowflake VPC
+        :param 'DeliveryStreamSnowflakeVpcConfiguration' snowflake_vpc_configuration: The VPCE ID for Firehose to privately connect with Snowflake. The ID format is com.amazonaws.vpce.[region].vpce-svc-<[id]>. For more information, see [Amazon PrivateLink & Snowflake](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/admin-security-privatelink)
         """
         pulumi.set(__self__, "account_url", account_url)
         pulumi.set(__self__, "database", database)
@@ -3352,9 +3329,6 @@ class DeliveryStreamSnowflakeDestinationConfiguration(dict):
     @property
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> 'outputs.DeliveryStreamS3DestinationConfiguration':
-        """
-        The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
-        """
         return pulumi.get(self, "s3_configuration")
 
     @property
@@ -3384,9 +3358,6 @@ class DeliveryStreamSnowflakeDestinationConfiguration(dict):
     @property
     @pulumi.getter(name="cloudWatchLoggingOptions")
     def cloud_watch_logging_options(self) -> Optional['outputs.DeliveryStreamCloudWatchLoggingOptions']:
-        """
-        The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
-        """
         return pulumi.get(self, "cloud_watch_logging_options")
 
     @property
@@ -3424,16 +3395,13 @@ class DeliveryStreamSnowflakeDestinationConfiguration(dict):
     @property
     @pulumi.getter(name="processingConfiguration")
     def processing_configuration(self) -> Optional['outputs.DeliveryStreamProcessingConfiguration']:
-        """
-        The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
-        """
         return pulumi.get(self, "processing_configuration")
 
     @property
     @pulumi.getter(name="retryOptions")
     def retry_options(self) -> Optional['outputs.DeliveryStreamSnowflakeRetryOptions']:
         """
-        Specify how long Firehose retries sending data to the New Relic HTTP endpoint. After sending data, Firehose first waits for an acknowledgment from the HTTP endpoint. If an error occurs or the acknowledgment doesn’t arrive within the acknowledgment timeout period, Firehose starts the retry duration counter. It keeps retrying until the retry duration expires. After that, Firehose considers it a data delivery failure and backs up the data to your Amazon S3 bucket. Every time that Firehose sends data to the HTTP endpoint (either the initial attempt or a retry), it restarts the acknowledgement timeout counter and waits for an acknowledgement from the HTTP endpoint. Even if the retry duration expires, Firehose still waits for the acknowledgment until it receives it or the acknowledgement timeout period is reached. If the acknowledgment times out, Firehose determines whether there's time left in the retry counter. If there is time left, it retries again and repeats the logic until it receives an acknowledgment or determines that the retry time has expired. If you don't want Firehose to retry sending data, set this value to 0.
+        The time period where Firehose will retry sending data to the chosen HTTP endpoint.
         """
         return pulumi.get(self, "retry_options")
 
@@ -3457,7 +3425,7 @@ class DeliveryStreamSnowflakeDestinationConfiguration(dict):
     @pulumi.getter(name="snowflakeVpcConfiguration")
     def snowflake_vpc_configuration(self) -> Optional['outputs.DeliveryStreamSnowflakeVpcConfiguration']:
         """
-        Configure a Snowflake VPC
+        The VPCE ID for Firehose to privately connect with Snowflake. The ID format is com.amazonaws.vpce.[region].vpce-svc-<[id]>. For more information, see [Amazon PrivateLink & Snowflake](https://docs.aws.amazon.com/https://docs.snowflake.com/en/user-guide/admin-security-privatelink)
         """
         return pulumi.get(self, "snowflake_vpc_configuration")
 
@@ -3683,12 +3651,12 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
         :param str hec_endpoint: The HTTP Event Collector (HEC) endpoint to which Firehose sends your data.
         :param 'DeliveryStreamSplunkDestinationConfigurationHecEndpointType' hec_endpoint_type: This type can be either `Raw` or `Event` .
         :param str hec_token: This is a GUID that you obtain from your Splunk cluster when you create a new HEC endpoint.
-        :param 'DeliveryStreamS3DestinationConfiguration' s3_configuration: The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        :param 'DeliveryStreamS3DestinationConfiguration' s3_configuration: The configuration for the backup Amazon S3 location.
         :param 'DeliveryStreamSplunkBufferingHints' buffering_hints: The buffering options. If no value is specified, the default values for Splunk are used.
-        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        :param 'DeliveryStreamCloudWatchLoggingOptions' cloud_watch_logging_options: The Amazon CloudWatch logging options for your delivery stream.
         :param int hec_acknowledgment_timeout_in_seconds: The amount of time that Firehose waits to receive an acknowledgment from Splunk after it sends it data. At the end of the timeout period, Firehose either tries to send the data again or considers it an error, based on your retry settings.
-        :param 'DeliveryStreamProcessingConfiguration' processing_configuration: The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
-        :param 'DeliveryStreamSplunkRetryOptions' retry_options: The `SplunkRetryOptions` property type specifies retry behavior in case Kinesis Data Firehose is unable to deliver documents to Splunk or if it doesn't receive an acknowledgment from Splunk.
+        :param 'DeliveryStreamProcessingConfiguration' processing_configuration: The data processing configuration.
+        :param 'DeliveryStreamSplunkRetryOptions' retry_options: The retry behavior in case Firehose is unable to deliver data to Splunk, or if it doesn't receive an acknowledgment of receipt from Splunk.
         :param str s3_backup_mode: Defines how documents should be delivered to Amazon S3. When set to `FailedEventsOnly` , Firehose writes any data that could not be indexed to the configured Amazon S3 destination. When set to `AllEvents` , Firehose delivers all incoming records to Amazon S3, and also writes failed documents to Amazon S3. The default value is `FailedEventsOnly` .
                
                You can update this backup mode from `FailedEventsOnly` to `AllEvents` . You can't update it from `AllEvents` to `FailedEventsOnly` .
@@ -3738,7 +3706,7 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
     @pulumi.getter(name="s3Configuration")
     def s3_configuration(self) -> 'outputs.DeliveryStreamS3DestinationConfiguration':
         """
-        The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        The configuration for the backup Amazon S3 location.
         """
         return pulumi.get(self, "s3_configuration")
 
@@ -3754,7 +3722,7 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
     @pulumi.getter(name="cloudWatchLoggingOptions")
     def cloud_watch_logging_options(self) -> Optional['outputs.DeliveryStreamCloudWatchLoggingOptions']:
         """
-        The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        The Amazon CloudWatch logging options for your delivery stream.
         """
         return pulumi.get(self, "cloud_watch_logging_options")
 
@@ -3770,7 +3738,7 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
     @pulumi.getter(name="processingConfiguration")
     def processing_configuration(self) -> Optional['outputs.DeliveryStreamProcessingConfiguration']:
         """
-        The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+        The data processing configuration.
         """
         return pulumi.get(self, "processing_configuration")
 
@@ -3778,7 +3746,7 @@ class DeliveryStreamSplunkDestinationConfiguration(dict):
     @pulumi.getter(name="retryOptions")
     def retry_options(self) -> Optional['outputs.DeliveryStreamSplunkRetryOptions']:
         """
-        The `SplunkRetryOptions` property type specifies retry behavior in case Kinesis Data Firehose is unable to deliver documents to Splunk or if it doesn't receive an acknowledgment from Splunk.
+        The retry behavior in case Firehose is unable to deliver data to Splunk, or if it doesn't receive an acknowledgment of receipt from Splunk.
         """
         return pulumi.get(self, "retry_options")
 

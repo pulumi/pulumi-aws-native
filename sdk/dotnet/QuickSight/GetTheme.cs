@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Permission for the resource.
+        /// A valid grouping of resource permissions to apply to the new theme.
         /// </summary>
         public readonly ImmutableArray<Outputs.ThemeResourcePermission> Permissions;
         /// <summary>
@@ -97,9 +97,6 @@ namespace Pulumi.AwsNative.QuickSight
         /// Theme type.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.ThemeType? Type;
-        /// <summary>
-        /// A version of a theme.
-        /// </summary>
         public readonly Outputs.ThemeVersion? Version;
 
         [OutputConstructor]

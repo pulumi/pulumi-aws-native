@@ -18,15 +18,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.AnalysisAnchorDateConfiguration AnchorDateConfiguration;
         /// <summary>
-        /// A column of a data set.
+        /// The column that the filter is applied to.
         /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier Column;
         /// <summary>
-        /// The default configuration for all dependent controls of the filter.
+        /// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
         /// </summary>
         public readonly Outputs.AnalysisDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
         /// <summary>
-        /// The exclude period of `TimeRangeFilter` or `RelativeDatesFilter` .
+        /// The configuration for the exclude period of the filter.
         /// </summary>
         public readonly Outputs.AnalysisExcludePeriodConfiguration? ExcludePeriodConfiguration;
         /// <summary>

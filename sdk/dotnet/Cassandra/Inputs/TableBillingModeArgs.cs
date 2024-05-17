@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
         public Input<Pulumi.AwsNative.Cassandra.TableMode> Mode { get; set; } = null!;
 
         /// <summary>
-        /// The provisioned throughput for the table, which consists of `ReadCapacityUnits` and `WriteCapacityUnits` .
+        /// The provisioned read capacity and write capacity for the table. For more information, see [Provisioned throughput capacity mode](https://docs.aws.amazon.com/keyspaces/latest/devguide/ReadWriteCapacityMode.html#ReadWriteCapacityMode.Provisioned) in the *Amazon Keyspaces Developer Guide* .
         /// </summary>
         [Input("provisionedThroughput")]
         public Input<Inputs.TableProvisionedThroughputArgs>? ProvisionedThroughput { get; set; }

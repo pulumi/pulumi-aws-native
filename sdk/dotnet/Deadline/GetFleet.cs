@@ -61,12 +61,9 @@ namespace Pulumi.AwsNative.Deadline
         /// The Amazon Resource Name (ARN) assigned to the fleet.
         /// </summary>
         public readonly string? Arn;
-        /// <summary>
-        /// The amounts and attributes of fleets.
-        /// </summary>
         public readonly Outputs.FleetCapabilities? Capabilities;
         /// <summary>
-        /// Fleet configuration details.
+        /// The configuration details for the fleet.
         /// </summary>
         public readonly Union<Outputs.FleetConfiguration0Properties, Outputs.FleetConfiguration1Properties>? Configuration;
         /// <summary>

@@ -32,10 +32,10 @@ class SchemaArgs:
         :param pulumi.Input['SchemaCompatibility'] compatibility: Compatibility setting for the schema.
         :param pulumi.Input['SchemaDataFormat'] data_format: Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'
         :param pulumi.Input[str] schema_definition: Definition for the initial schema version in plain-text.
-        :param pulumi.Input['SchemaVersionArgs'] checkpoint_version: Specifies the version of a schema.
+        :param pulumi.Input['SchemaVersionArgs'] checkpoint_version: Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
         :param pulumi.Input[str] description: A description of the schema. If description is not provided, there will not be any default value for this.
         :param pulumi.Input[str] name: Name of the schema.
-        :param pulumi.Input['SchemaRegistryArgs'] registry: Specifies a registry in the AWS Glue Schema Registry.
+        :param pulumi.Input['SchemaRegistryArgs'] registry: The registry where a schema is stored.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: List of tags to tag the schema
         """
         pulumi.set(__self__, "compatibility", compatibility)
@@ -92,7 +92,7 @@ class SchemaArgs:
     @pulumi.getter(name="checkpointVersion")
     def checkpoint_version(self) -> Optional[pulumi.Input['SchemaVersionArgs']]:
         """
-        Specifies the version of a schema.
+        Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
         """
         return pulumi.get(self, "checkpoint_version")
 
@@ -128,7 +128,7 @@ class SchemaArgs:
     @pulumi.getter
     def registry(self) -> Optional[pulumi.Input['SchemaRegistryArgs']]:
         """
-        Specifies a registry in the AWS Glue Schema Registry.
+        The registry where a schema is stored.
         """
         return pulumi.get(self, "registry")
 
@@ -168,12 +168,12 @@ class Schema(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SchemaVersionArgs']] checkpoint_version: Specifies the version of a schema.
+        :param pulumi.Input[pulumi.InputType['SchemaVersionArgs']] checkpoint_version: Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
         :param pulumi.Input['SchemaCompatibility'] compatibility: Compatibility setting for the schema.
         :param pulumi.Input['SchemaDataFormat'] data_format: Data format name to use for the schema. Accepted values: 'AVRO', 'JSON', 'PROTOBUF'
         :param pulumi.Input[str] description: A description of the schema. If description is not provided, there will not be any default value for this.
         :param pulumi.Input[str] name: Name of the schema.
-        :param pulumi.Input[pulumi.InputType['SchemaRegistryArgs']] registry: Specifies a registry in the AWS Glue Schema Registry.
+        :param pulumi.Input[pulumi.InputType['SchemaRegistryArgs']] registry: The registry where a schema is stored.
         :param pulumi.Input[str] schema_definition: Definition for the initial schema version in plain-text.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: List of tags to tag the schema
         """
@@ -282,7 +282,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter(name="checkpointVersion")
     def checkpoint_version(self) -> pulumi.Output[Optional['outputs.SchemaVersion']]:
         """
-        Specifies the version of a schema.
+        Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
         """
         return pulumi.get(self, "checkpoint_version")
 
@@ -330,7 +330,7 @@ class Schema(pulumi.CustomResource):
     @pulumi.getter
     def registry(self) -> pulumi.Output[Optional['outputs.SchemaRegistry']]:
         """
-        Specifies a registry in the AWS Glue Schema Registry.
+        The registry where a schema is stored.
         """
         return pulumi.get(self, "registry")
 

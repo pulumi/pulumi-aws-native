@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Connect
         public Output<string?> ContactFlowArn { get; private set; } = null!;
 
         /// <summary>
-        /// Describes a default field and its corresponding value.
+        /// The default values for fields when a task is created by referencing this template.
         /// </summary>
         [Output("defaults")]
         public Output<ImmutableArray<Outputs.TaskTemplateDefaultFieldValue>> Defaults { get; private set; } = null!;
@@ -148,7 +148,7 @@ namespace Pulumi.AwsNative.Connect
         private InputList<Inputs.TaskTemplateDefaultFieldValueArgs>? _defaults;
 
         /// <summary>
-        /// Describes a default field and its corresponding value.
+        /// The default values for fields when a task is created by referencing this template.
         /// </summary>
         public InputList<Inputs.TaskTemplateDefaultFieldValueArgs> Defaults
         {

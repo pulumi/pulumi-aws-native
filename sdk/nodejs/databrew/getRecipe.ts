@@ -31,7 +31,7 @@ export interface GetRecipeResult {
      */
     readonly description?: string;
     /**
-     * Represents a single step from a DataBrew recipe to be performed.
+     * A list of steps that are defined by the recipe.
      */
     readonly steps?: outputs.databrew.RecipeStep[];
 }

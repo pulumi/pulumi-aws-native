@@ -129,7 +129,7 @@ class GetPipeResult:
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional['outputs.PipeLogConfiguration']:
         """
-        Represents the configuration settings for the logs to which this pipe should report events.
+        The logging configuration settings for the pipe.
         """
         return pulumi.get(self, "log_configuration")
 

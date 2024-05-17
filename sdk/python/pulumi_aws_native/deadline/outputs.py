@@ -150,8 +150,8 @@ class FleetCapabilities(dict):
                  amounts: Optional[Sequence['outputs.FleetAmountCapability']] = None,
                  attributes: Optional[Sequence['outputs.FleetAttributeCapability']] = None):
         """
-        :param Sequence['FleetAmountCapability'] amounts: The fleet amount and attribute capabilities.
-        :param Sequence['FleetAttributeCapability'] attributes: Defines the fleet's capability name, minimum, and maximum.
+        :param Sequence['FleetAmountCapability'] amounts: Amount capabilities of the fleet.
+        :param Sequence['FleetAttributeCapability'] attributes: Attribute capabilities of the fleet.
         """
         if amounts is not None:
             pulumi.set(__self__, "amounts", amounts)
@@ -162,7 +162,7 @@ class FleetCapabilities(dict):
     @pulumi.getter
     def amounts(self) -> Optional[Sequence['outputs.FleetAmountCapability']]:
         """
-        The fleet amount and attribute capabilities.
+        Amount capabilities of the fleet.
         """
         return pulumi.get(self, "amounts")
 
@@ -170,7 +170,7 @@ class FleetCapabilities(dict):
     @pulumi.getter
     def attributes(self) -> Optional[Sequence['outputs.FleetAttributeCapability']]:
         """
-        Defines the fleet's capability name, minimum, and maximum.
+        Attribute capabilities of the fleet.
         """
         return pulumi.get(self, "attributes")
 
@@ -702,8 +702,8 @@ class QueueJobRunAsUser(dict):
                  windows: Optional['outputs.QueueWindowsUser'] = None):
         """
         :param 'QueueRunAs' run_as: Specifies whether the job should run using the queue's system user or if the job should run using the worker agent system user.
-        :param 'QueuePosixUser' posix: The POSIX user.
-        :param 'QueueWindowsUser' windows: The Windows user details.
+        :param 'QueuePosixUser' posix: The user and group that the jobs in the queue run as.
+        :param 'QueueWindowsUser' windows: Identifies a Microsoft Windows user.
         """
         pulumi.set(__self__, "run_as", run_as)
         if posix is not None:
@@ -723,7 +723,7 @@ class QueueJobRunAsUser(dict):
     @pulumi.getter
     def posix(self) -> Optional['outputs.QueuePosixUser']:
         """
-        The POSIX user.
+        The user and group that the jobs in the queue run as.
         """
         return pulumi.get(self, "posix")
 
@@ -731,7 +731,7 @@ class QueueJobRunAsUser(dict):
     @pulumi.getter
     def windows(self) -> Optional['outputs.QueueWindowsUser']:
         """
-        The Windows user details.
+        Identifies a Microsoft Windows user.
         """
         return pulumi.get(self, "windows")
 

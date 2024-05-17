@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateIntegerParameterDeclarationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The default values of the `IntegerParameterDeclaration` .
+        /// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
         /// </summary>
         [Input("defaultValues")]
         public Input<Inputs.TemplateIntegerDefaultValuesArgs>? DefaultValues { get; set; }
@@ -40,8 +40,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         /// <summary>
         /// A parameter declaration for the `Integer` data type.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
         /// </summary>
         [Input("valueWhenUnset")]
         public Input<Inputs.TemplateIntegerValueWhenUnsetConfigurationArgs>? ValueWhenUnset { get; set; }

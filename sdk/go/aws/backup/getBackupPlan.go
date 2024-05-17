@@ -28,7 +28,7 @@ type LookupBackupPlanArgs struct {
 }
 
 type LookupBackupPlanResult struct {
-	// Specifies an object containing properties used to create a backup plan.
+	// Uniquely identifies the backup plan to be associated with the selection of resources.
 	BackupPlan *BackupPlanResourceType `pulumi:"backupPlan"`
 	// An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example, `arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50` .
 	BackupPlanArn *string `pulumi:"backupPlanArn"`
@@ -76,7 +76,7 @@ func (o LookupBackupPlanResultOutput) ToLookupBackupPlanResultOutputWithContext(
 	return o
 }
 
-// Specifies an object containing properties used to create a backup plan.
+// Uniquely identifies the backup plan to be associated with the selection of resources.
 func (o LookupBackupPlanResultOutput) BackupPlan() BackupPlanResourceTypePtrOutput {
 	return o.ApplyT(func(v LookupBackupPlanResult) *BackupPlanResourceType { return v.BackupPlan }).(BackupPlanResourceTypePtrOutput)
 }

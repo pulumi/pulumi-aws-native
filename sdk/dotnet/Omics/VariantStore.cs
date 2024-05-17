@@ -40,13 +40,13 @@ namespace Pulumi.AwsNative.Omics
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The read set's genome reference ARN.
+        /// The genome reference for the store's variants.
         /// </summary>
         [Output("reference")]
         public Output<Outputs.VariantStoreReferenceItem> Reference { get; private set; } = null!;
 
         /// <summary>
-        /// Server-side encryption (SSE) settings for a store.
+        /// Server-side encryption (SSE) settings for the store.
         /// </summary>
         [Output("sseConfig")]
         public Output<Outputs.VariantStoreSseConfig?> SseConfig { get; private set; } = null!;
@@ -152,13 +152,13 @@ namespace Pulumi.AwsNative.Omics
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The read set's genome reference ARN.
+        /// The genome reference for the store's variants.
         /// </summary>
         [Input("reference", required: true)]
         public Input<Inputs.VariantStoreReferenceItemArgs> Reference { get; set; } = null!;
 
         /// <summary>
-        /// Server-side encryption (SSE) settings for a store.
+        /// Server-side encryption (SSE) settings for the store.
         /// </summary>
         [Input("sseConfig")]
         public Input<Inputs.VariantStoreSseConfigArgs>? SseConfig { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisKpiOptions
     {
         /// <summary>
-        /// The comparison display configuration of a KPI or gauge chart.
+        /// The comparison configuration of a KPI visual.
         /// </summary>
         public readonly Outputs.AnalysisComparisonConfiguration? Comparison;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisPrimaryValueDisplayType? PrimaryValueDisplayType;
         /// <summary>
-        /// Configures the display properties of the given text.
+        /// The options that determine the primary value font configuration.
         /// </summary>
         public readonly Outputs.AnalysisFontConfiguration? PrimaryValueFontConfiguration;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.AnalysisSecondaryValueOptions? SecondaryValue;
         /// <summary>
-        /// Configures the display properties of the given text.
+        /// The options that determine the secondary value font configuration.
         /// </summary>
         public readonly Outputs.AnalysisFontConfiguration? SecondaryValueFontConfiguration;
         /// <summary>

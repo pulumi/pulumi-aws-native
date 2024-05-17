@@ -34,13 +34,13 @@ namespace Pulumi.AwsNative.Evidently
         public Output<Outputs.LaunchExecutionStatusObject?> ExecutionStatus { get; private set; } = null!;
 
         /// <summary>
-        /// A structure that defines one launch group in a launch. A launch group is a variation of the feature that you are including in the launch.
+        /// An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
         /// </summary>
         [Output("groups")]
         public Output<ImmutableArray<Outputs.LaunchGroupObject>> Groups { get; private set; } = null!;
 
         /// <summary>
-        /// This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
+        /// An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
         /// </summary>
         [Output("metricMonitors")]
         public Output<ImmutableArray<Outputs.LaunchMetricDefinitionObject>> MetricMonitors { get; private set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.Evidently
         public Output<string?> RandomizationSalt { get; private set; } = null!;
 
         /// <summary>
-        /// A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
+        /// An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
         /// </summary>
         [Output("scheduledSplitsConfig")]
         public Output<ImmutableArray<Outputs.LaunchStepConfig>> ScheduledSplitsConfig { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.AwsNative.Evidently
         private InputList<Inputs.LaunchGroupObjectArgs>? _groups;
 
         /// <summary>
-        /// A structure that defines one launch group in a launch. A launch group is a variation of the feature that you are including in the launch.
+        /// An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
         /// </summary>
         public InputList<Inputs.LaunchGroupObjectArgs> Groups
         {
@@ -153,7 +153,7 @@ namespace Pulumi.AwsNative.Evidently
         private InputList<Inputs.LaunchMetricDefinitionObjectArgs>? _metricMonitors;
 
         /// <summary>
-        /// This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
+        /// An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
         /// </summary>
         public InputList<Inputs.LaunchMetricDefinitionObjectArgs> MetricMonitors
         {
@@ -183,7 +183,7 @@ namespace Pulumi.AwsNative.Evidently
         private InputList<Inputs.LaunchStepConfigArgs>? _scheduledSplitsConfig;
 
         /// <summary>
-        /// A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
+        /// An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
         /// </summary>
         public InputList<Inputs.LaunchStepConfigArgs> ScheduledSplitsConfig
         {

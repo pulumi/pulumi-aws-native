@@ -18,11 +18,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisColorFillType ColorFillType;
         /// <summary>
-        /// Determines the color that is applied to a particular data value.
+        /// Determines the list of colors that are applied to the visual.
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDataColor> Colors;
         /// <summary>
-        /// Determines the color that is applied to a particular data value.
+        /// Determines the color that is applied to null values.
         /// </summary>
         public readonly Outputs.AnalysisDataColor? NullValueColor;
 

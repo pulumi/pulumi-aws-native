@@ -31,7 +31,7 @@ export interface GetUserPoolDomainResult {
      */
     readonly cloudFrontDistribution?: string;
     /**
-     * The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+     * The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
      */
     readonly customDomainConfig?: outputs.cognito.UserPoolDomainCustomDomainConfigType;
     /**

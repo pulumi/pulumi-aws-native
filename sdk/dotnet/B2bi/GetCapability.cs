@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.B2bi
         /// </summary>
         public readonly string? CapabilityId;
         /// <summary>
-        /// A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
+        /// Specifies a structure that contains the details for a capability.
         /// </summary>
         public readonly Outputs.CapabilityConfigurationProperties? Configuration;
         /// <summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.B2bi
         /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
-        /// Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
+        /// Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
         /// </summary>
         public readonly ImmutableArray<Outputs.CapabilityS3Location> InstructionsDocuments;
         /// <summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.B2bi
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
+        /// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

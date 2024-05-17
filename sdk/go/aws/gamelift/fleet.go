@@ -47,9 +47,9 @@ type Fleet struct {
 	InstanceRoleArn pulumi.StringPtrOutput `pulumi:"instanceRoleArn"`
 	// Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
 	InstanceRoleCredentialsProvider FleetInstanceRoleCredentialsProviderPtrOutput `pulumi:"instanceRoleCredentialsProvider"`
-	// *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+	// A set of remote locations to deploy additional instances to and manage as part of the fleet. This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any Amazon GameLift-supported AWS Region as a remote location, in the form of an AWS Region code, such as `us-west-2` or Local Zone code. To create a fleet with instances in the home Region only, don't set this parameter.
 	//
-	// A remote location where a multi-location fleet can deploy game servers for game hosting.
+	// When using this parameter, Amazon GameLift requires you to include your home location in the request.
 	Locations FleetLocationConfigurationArrayOutput `pulumi:"locations"`
 	// This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
 	LogPaths pulumi.StringArrayOutput `pulumi:"logPaths"`
@@ -173,9 +173,9 @@ type fleetArgs struct {
 	InstanceRoleArn *string `pulumi:"instanceRoleArn"`
 	// Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
 	InstanceRoleCredentialsProvider *FleetInstanceRoleCredentialsProvider `pulumi:"instanceRoleCredentialsProvider"`
-	// *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+	// A set of remote locations to deploy additional instances to and manage as part of the fleet. This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any Amazon GameLift-supported AWS Region as a remote location, in the form of an AWS Region code, such as `us-west-2` or Local Zone code. To create a fleet with instances in the home Region only, don't set this parameter.
 	//
-	// A remote location where a multi-location fleet can deploy game servers for game hosting.
+	// When using this parameter, Amazon GameLift requires you to include your home location in the request.
 	Locations []FleetLocationConfiguration `pulumi:"locations"`
 	// This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
 	LogPaths []string `pulumi:"logPaths"`
@@ -243,9 +243,9 @@ type FleetArgs struct {
 	InstanceRoleArn pulumi.StringPtrInput
 	// Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
 	InstanceRoleCredentialsProvider FleetInstanceRoleCredentialsProviderPtrInput
-	// *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+	// A set of remote locations to deploy additional instances to and manage as part of the fleet. This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any Amazon GameLift-supported AWS Region as a remote location, in the form of an AWS Region code, such as `us-west-2` or Local Zone code. To create a fleet with instances in the home Region only, don't set this parameter.
 	//
-	// A remote location where a multi-location fleet can deploy game servers for game hosting.
+	// When using this parameter, Amazon GameLift requires you to include your home location in the request.
 	Locations FleetLocationConfigurationArrayInput
 	// This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
 	LogPaths pulumi.StringArrayInput
@@ -392,9 +392,9 @@ func (o FleetOutput) InstanceRoleCredentialsProvider() FleetInstanceRoleCredenti
 	return o.ApplyT(func(v *Fleet) FleetInstanceRoleCredentialsProviderPtrOutput { return v.InstanceRoleCredentialsProvider }).(FleetInstanceRoleCredentialsProviderPtrOutput)
 }
 
-// *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+// A set of remote locations to deploy additional instances to and manage as part of the fleet. This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any Amazon GameLift-supported AWS Region as a remote location, in the form of an AWS Region code, such as `us-west-2` or Local Zone code. To create a fleet with instances in the home Region only, don't set this parameter.
 //
-// A remote location where a multi-location fleet can deploy game servers for game hosting.
+// When using this parameter, Amazon GameLift requires you to include your home location in the request.
 func (o FleetOutput) Locations() FleetLocationConfigurationArrayOutput {
 	return o.ApplyT(func(v *Fleet) FleetLocationConfigurationArrayOutput { return v.Locations }).(FleetLocationConfigurationArrayOutput)
 }

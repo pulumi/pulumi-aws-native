@@ -30,7 +30,7 @@ type LookupUrlArgs struct {
 type LookupUrlResult struct {
 	// Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
 	AuthType *UrlAuthType `pulumi:"authType"`
-	// The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL. Use CORS to grant access to your function URL from any origin. You can also use CORS to control access for specific HTTP headers and methods in requests to your function URL.
+	// The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
 	Cors *UrlCors `pulumi:"cors"`
 	// The full Amazon Resource Name (ARN) of the function associated with the Function URL.
 	FunctionArn *string `pulumi:"functionArn"`
@@ -81,7 +81,7 @@ func (o LookupUrlResultOutput) AuthType() UrlAuthTypePtrOutput {
 	return o.ApplyT(func(v LookupUrlResult) *UrlAuthType { return v.AuthType }).(UrlAuthTypePtrOutput)
 }
 
-// The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL. Use CORS to grant access to your function URL from any origin. You can also use CORS to control access for specific HTTP headers and methods in requests to your function URL.
+// The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
 func (o LookupUrlResultOutput) Cors() UrlCorsPtrOutput {
 	return o.ApplyT(func(v LookupUrlResult) *UrlCors { return v.Cors }).(UrlCorsPtrOutput)
 }

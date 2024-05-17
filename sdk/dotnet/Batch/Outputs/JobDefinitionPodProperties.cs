@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
     public sealed class JobDefinitionPodProperties
     {
         /// <summary>
-        /// EKS container properties are used in job definitions for Amazon EKS based job definitions to describe the properties for a container node in the pod that's launched as part of a job. This can't be specified for Amazon ECS based job definitions.
+        /// The properties of the container that's used on the Amazon EKS pod.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionEksContainer> Containers;
         /// <summary>
@@ -27,9 +27,6 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// Indicates if the pod uses the hosts' network IP address. The default value is `true` . Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections. For more information, see [Host namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#host-namespaces) and [Pod networking](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking) in the *Kubernetes documentation* .
         /// </summary>
         public readonly bool? HostNetwork;
-        /// <summary>
-        /// References a Kubernetes secret resource. This name of the secret must start and end with an alphanumeric character, is required to be lowercase, can include periods (.) and hyphens (-), and can't contain more than 253 characters.
-        /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionImagePullSecret> ImagePullSecrets;
         /// <summary>
         /// These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
@@ -50,7 +47,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// </summary>
         public readonly bool? ShareProcessNamespace;
         /// <summary>
-        /// Specifies an Amazon EKS volume for a job definition.
+        /// Specifies the volumes for a job definition that uses Amazon EKS resources.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionEksVolume> Volumes;
 

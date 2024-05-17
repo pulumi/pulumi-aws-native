@@ -94,7 +94,7 @@ class GetStorageSystemResult:
     @pulumi.getter(name="serverConfiguration")
     def server_configuration(self) -> Optional['outputs.StorageSystemServerConfiguration']:
         """
-        The network settings that DataSync Discovery uses to connect with your on-premises storage system's management interface.
+        Specifies the server name and network port required to connect with the management interface of your on-premises storage system.
         """
         return pulumi.get(self, "server_configuration")
 

@@ -40,9 +40,7 @@ type LookupEndpointGroupResult struct {
 	HealthCheckPort *int `pulumi:"healthCheckPort"`
 	// The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
 	HealthCheckProtocol *EndpointGroupHealthCheckProtocol `pulumi:"healthCheckProtocol"`
-	// Override specific listener ports used to route traffic to endpoints that are part of an endpoint group. For example, you can create a port override in which the listener receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080 and 1443, respectively, on the endpoints.
-	//
-	// For more information, see [Port overrides](https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html) in the *AWS Global Accelerator Developer Guide* .
+	// Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
 	PortOverrides []EndpointGroupPortOverride `pulumi:"portOverrides"`
 	// The number of consecutive health checks required to set the state of the endpoint to unhealthy.
 	ThresholdCount *int `pulumi:"thresholdCount"`
@@ -118,9 +116,7 @@ func (o LookupEndpointGroupResultOutput) HealthCheckProtocol() EndpointGroupHeal
 	return o.ApplyT(func(v LookupEndpointGroupResult) *EndpointGroupHealthCheckProtocol { return v.HealthCheckProtocol }).(EndpointGroupHealthCheckProtocolPtrOutput)
 }
 
-// Override specific listener ports used to route traffic to endpoints that are part of an endpoint group. For example, you can create a port override in which the listener receives user traffic on ports 80 and 443, but your accelerator routes that traffic to ports 1080 and 1443, respectively, on the endpoints.
-//
-// For more information, see [Port overrides](https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html) in the *AWS Global Accelerator Developer Guide* .
+// Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
 func (o LookupEndpointGroupResultOutput) PortOverrides() EndpointGroupPortOverrideArrayOutput {
 	return o.ApplyT(func(v LookupEndpointGroupResult) []EndpointGroupPortOverride { return v.PortOverrides }).(EndpointGroupPortOverrideArrayOutput)
 }

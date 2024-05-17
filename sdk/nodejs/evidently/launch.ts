@@ -50,11 +50,11 @@ export class Launch extends pulumi.CustomResource {
      */
     public readonly executionStatus!: pulumi.Output<outputs.evidently.LaunchExecutionStatusObject | undefined>;
     /**
-     * A structure that defines one launch group in a launch. A launch group is a variation of the feature that you are including in the launch.
+     * An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
      */
     public readonly groups!: pulumi.Output<outputs.evidently.LaunchGroupObject[]>;
     /**
-     * This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
+     * An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
      */
     public readonly metricMonitors!: pulumi.Output<outputs.evidently.LaunchMetricDefinitionObject[] | undefined>;
     /**
@@ -70,7 +70,7 @@ export class Launch extends pulumi.CustomResource {
      */
     public readonly randomizationSalt!: pulumi.Output<string | undefined>;
     /**
-     * A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
+     * An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
      */
     public readonly scheduledSplitsConfig!: pulumi.Output<outputs.evidently.LaunchStepConfig[]>;
     /**
@@ -140,11 +140,11 @@ export interface LaunchArgs {
      */
     executionStatus?: pulumi.Input<inputs.evidently.LaunchExecutionStatusObjectArgs>;
     /**
-     * A structure that defines one launch group in a launch. A launch group is a variation of the feature that you are including in the launch.
+     * An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
      */
     groups: pulumi.Input<pulumi.Input<inputs.evidently.LaunchGroupObjectArgs>[]>;
     /**
-     * This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
+     * An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
      */
     metricMonitors?: pulumi.Input<pulumi.Input<inputs.evidently.LaunchMetricDefinitionObjectArgs>[]>;
     /**
@@ -160,7 +160,7 @@ export interface LaunchArgs {
      */
     randomizationSalt?: pulumi.Input<string>;
     /**
-     * A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
+     * An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
      */
     scheduledSplitsConfig: pulumi.Input<pulumi.Input<inputs.evidently.LaunchStepConfigArgs>[]>;
     /**

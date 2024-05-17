@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
     public sealed class GlobalTableReplicaSpecification
     {
         /// <summary>
-        /// Configures contributor insights settings for a replica or one of its indexes.
+        /// The settings used to enable or disable CloudWatch Contributor Insights for the specified replica. When not specified, defaults to contributor insights disabled for the replica.
         /// </summary>
         public readonly Outputs.GlobalTableContributorInsightsSpecification? ContributorInsightsSpecification;
         /// <summary>
@@ -22,23 +22,23 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
         /// </summary>
         public readonly bool? DeletionProtectionEnabled;
         /// <summary>
-        /// Represents the properties of a global secondary index that can be set on a per-replica basis.
+        /// Defines additional settings for the global secondary indexes of this replica.
         /// </summary>
         public readonly ImmutableArray<Outputs.GlobalTableReplicaGlobalSecondaryIndexSpecification> GlobalSecondaryIndexes;
         /// <summary>
-        /// The Kinesis Data Streams configuration for the specified global table replica.
+        /// Defines the Kinesis Data Streams configuration for the specified replica.
         /// </summary>
         public readonly Outputs.GlobalTableKinesisStreamSpecification? KinesisStreamSpecification;
         /// <summary>
-        /// Represents the settings used to enable point in time recovery.
+        /// The settings used to enable point in time recovery. When not specified, defaults to point in time recovery disabled for the replica.
         /// </summary>
         public readonly Outputs.GlobalTablePointInTimeRecoverySpecification? PointInTimeRecoverySpecification;
         /// <summary>
-        /// Sets the read request settings for a replica table or a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        /// Sets read request settings for the replica table.
         /// </summary>
         public readonly Outputs.GlobalTableReadOnDemandThroughputSettings? ReadOnDemandThroughputSettings;
         /// <summary>
-        /// Allows you to specify the read capacity settings for a replica table or a replica global secondary index when the `BillingMode` is set to `PROVISIONED` . You must specify a value for either `ReadCapacityUnits` or `ReadCapacityAutoScalingSettings` , but not both. You can switch between fixed capacity and auto scaling.
+        /// Defines read capacity settings for the replica table.
         /// </summary>
         public readonly Outputs.GlobalTableReadProvisionedThroughputSettings? ReadProvisionedThroughputSettings;
         /// <summary>
@@ -50,27 +50,13 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
         /// </summary>
         public readonly Outputs.GlobalTableReplicaStreamSpecification? ReplicaStreamSpecification;
         /// <summary>
-        /// Creates or updates a resource-based policy document that contains the permissions for DynamoDB resources, such as a table, its indexes, and stream. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
+        /// A resource-based policy document that contains permissions to add to the specified replica of a DynamoDB global table. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
         /// 
         /// In a CloudFormation template, you can provide the policy in JSON or YAML format because CloudFormation converts YAML to JSON before submitting it to DynamoDB . For more information about resource-based policies, see [Using resource-based policies for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html) .
-        /// 
-        /// While defining resource-based policies in your CloudFormation templates, the following considerations apply:
-        /// 
-        /// - The maximum size supported for a resource-based policy document in JSON format is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.
-        /// - Resource-based policies don't support [drift detection](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html#) . If you update a policy outside of the CloudFormation stack template, you'll need to update the CloudFormation stack with the changes.
-        /// - Resource-based policies don't support out-of-band changes. If you add, update, or delete a policy outside of the CloudFormation template, the change won't be overwritten if there are no changes to the policy within the template.
-        /// 
-        /// For example, say that your template contains a resource-based policy, which you later update outside of the template. If you don't make any changes to the policy in the template, the updated policy in DynamoDB won’t be synced with the policy in the template.
-        /// 
-        /// Conversely, say that your template doesn’t contain a resource-based policy, but you add a policy outside of the template. This policy won’t be removed from DynamoDB as long as you don’t add it to the template. When you add a policy to the template and update the stack, the existing policy in DynamoDB will be updated to match the one defined in the template.
-        /// - Within a resource-based policy, if the action for a DynamoDB service-linked role (SLR) to replicate data for a global table is denied, adding or deleting a replica will fail with an error.
-        /// - The [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource doesn't support creating a replica in the same stack update in Regions other than the Region where you deploy the stack update.
-        /// 
-        /// For a full list of all considerations, see [Resource-based policy considerations](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html) .
         /// </summary>
         public readonly Outputs.GlobalTableResourcePolicy? ResourcePolicy;
         /// <summary>
-        /// Allows you to specify a KMS key identifier to be used for server-side encryption. The key can be specified via ARN, key ID, or alias. The key must be created in the same region as the replica.
+        /// Allows you to specify a customer-managed key for the replica. When using customer-managed keys for server-side encryption, this property must have a value in all replicas.
         /// </summary>
         public readonly Outputs.GlobalTableReplicaSseSpecification? SseSpecification;
         /// <summary>
@@ -78,11 +64,9 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
         /// </summary>
         public readonly string? TableClass;
         /// <summary>
-        /// Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table.
+        /// An array of key-value pairs to apply to this replica.
         /// 
-        /// AWS -assigned tag names and values are automatically assigned the `aws:` prefix, which the user cannot assign. AWS -assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix `user:` in the Cost Allocation Report. You cannot backdate the application of a tag.
-        /// 
-        /// For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide* .
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
         public readonly ImmutableArray<Outputs.GlobalTableTag> Tags;
 

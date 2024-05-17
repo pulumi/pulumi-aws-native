@@ -89,9 +89,9 @@ class CampaignDialerConfigArgs:
                  progressive_dialer_config: Optional[pulumi.Input['CampaignProgressiveDialerConfigArgs']] = None):
         """
         The possible types of dialer config parameters
-        :param pulumi.Input['CampaignAgentlessDialerConfigArgs'] agentless_dialer_config: Contains agentless dialer configuration for an outbound campaign.
-        :param pulumi.Input['CampaignPredictiveDialerConfigArgs'] predictive_dialer_config: Contains predictive dialer configuration for an outbound campaign.
-        :param pulumi.Input['CampaignProgressiveDialerConfigArgs'] progressive_dialer_config: Contains progressive dialer configuration for an outbound campaign.
+        :param pulumi.Input['CampaignAgentlessDialerConfigArgs'] agentless_dialer_config: The configuration of the agentless dialer.
+        :param pulumi.Input['CampaignPredictiveDialerConfigArgs'] predictive_dialer_config: The configuration of the predictive dialer.
+        :param pulumi.Input['CampaignProgressiveDialerConfigArgs'] progressive_dialer_config: The configuration of the progressive dialer.
         """
         if agentless_dialer_config is not None:
             pulumi.set(__self__, "agentless_dialer_config", agentless_dialer_config)
@@ -104,7 +104,7 @@ class CampaignDialerConfigArgs:
     @pulumi.getter(name="agentlessDialerConfig")
     def agentless_dialer_config(self) -> Optional[pulumi.Input['CampaignAgentlessDialerConfigArgs']]:
         """
-        Contains agentless dialer configuration for an outbound campaign.
+        The configuration of the agentless dialer.
         """
         return pulumi.get(self, "agentless_dialer_config")
 
@@ -116,7 +116,7 @@ class CampaignDialerConfigArgs:
     @pulumi.getter(name="predictiveDialerConfig")
     def predictive_dialer_config(self) -> Optional[pulumi.Input['CampaignPredictiveDialerConfigArgs']]:
         """
-        Contains predictive dialer configuration for an outbound campaign.
+        The configuration of the predictive dialer.
         """
         return pulumi.get(self, "predictive_dialer_config")
 
@@ -128,7 +128,7 @@ class CampaignDialerConfigArgs:
     @pulumi.getter(name="progressiveDialerConfig")
     def progressive_dialer_config(self) -> Optional[pulumi.Input['CampaignProgressiveDialerConfigArgs']]:
         """
-        Contains progressive dialer configuration for an outbound campaign.
+        The configuration of the progressive dialer.
         """
         return pulumi.get(self, "progressive_dialer_config")
 
@@ -147,7 +147,7 @@ class CampaignOutboundCallConfigArgs:
         """
         The configuration used for outbound calls.
         :param pulumi.Input[str] connect_contact_flow_arn: The identifier of the contact flow for the outbound call.
-        :param pulumi.Input['CampaignAnswerMachineDetectionConfigArgs'] answer_machine_detection_config: Contains information about answering machine detection.
+        :param pulumi.Input['CampaignAnswerMachineDetectionConfigArgs'] answer_machine_detection_config: Whether answering machine detection has been enabled.
         :param pulumi.Input[str] connect_queue_arn: The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
         :param pulumi.Input[str] connect_source_phone_number: The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
         """
@@ -175,7 +175,7 @@ class CampaignOutboundCallConfigArgs:
     @pulumi.getter(name="answerMachineDetectionConfig")
     def answer_machine_detection_config(self) -> Optional[pulumi.Input['CampaignAnswerMachineDetectionConfigArgs']]:
         """
-        Contains information about answering machine detection.
+        Whether answering machine detection has been enabled.
         """
         return pulumi.get(self, "answer_machine_detection_config")
 

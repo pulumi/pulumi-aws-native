@@ -23,9 +23,9 @@ type EnabledBaseline struct {
 	BaselineVersion pulumi.StringOutput `pulumi:"baselineVersion"`
 	// The ARN of the `EnabledBaseline` resource.
 	EnabledBaselineIdentifier pulumi.StringOutput `pulumi:"enabledBaselineIdentifier"`
-	// A key-value parameter to an `EnabledBaseline` resource.
+	// Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
 	Parameters EnabledBaselineParameterArrayOutput `pulumi:"parameters"`
-	// A key-value parameter to an `EnabledBaseline` resource.
+	// Tags associated with input to `EnableBaseline` .
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The target on which to enable the `Baseline` .
 	TargetIdentifier pulumi.StringOutput `pulumi:"targetIdentifier"`
@@ -89,9 +89,9 @@ type enabledBaselineArgs struct {
 	BaselineIdentifier string `pulumi:"baselineIdentifier"`
 	// The enabled version of the `Baseline` .
 	BaselineVersion string `pulumi:"baselineVersion"`
-	// A key-value parameter to an `EnabledBaseline` resource.
+	// Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
 	Parameters []EnabledBaselineParameter `pulumi:"parameters"`
-	// A key-value parameter to an `EnabledBaseline` resource.
+	// Tags associated with input to `EnableBaseline` .
 	Tags []aws.Tag `pulumi:"tags"`
 	// The target on which to enable the `Baseline` .
 	TargetIdentifier string `pulumi:"targetIdentifier"`
@@ -103,9 +103,9 @@ type EnabledBaselineArgs struct {
 	BaselineIdentifier pulumi.StringInput
 	// The enabled version of the `Baseline` .
 	BaselineVersion pulumi.StringInput
-	// A key-value parameter to an `EnabledBaseline` resource.
+	// Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
 	Parameters EnabledBaselineParameterArrayInput
-	// A key-value parameter to an `EnabledBaseline` resource.
+	// Tags associated with input to `EnableBaseline` .
 	Tags aws.TagArrayInput
 	// The target on which to enable the `Baseline` .
 	TargetIdentifier pulumi.StringInput
@@ -163,12 +163,12 @@ func (o EnabledBaselineOutput) EnabledBaselineIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnabledBaseline) pulumi.StringOutput { return v.EnabledBaselineIdentifier }).(pulumi.StringOutput)
 }
 
-// A key-value parameter to an `EnabledBaseline` resource.
+// Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
 func (o EnabledBaselineOutput) Parameters() EnabledBaselineParameterArrayOutput {
 	return o.ApplyT(func(v *EnabledBaseline) EnabledBaselineParameterArrayOutput { return v.Parameters }).(EnabledBaselineParameterArrayOutput)
 }
 
-// A key-value parameter to an `EnabledBaseline` resource.
+// Tags associated with input to `EnableBaseline` .
 func (o EnabledBaselineOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *EnabledBaseline) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

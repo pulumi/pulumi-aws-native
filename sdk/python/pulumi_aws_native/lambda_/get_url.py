@@ -49,7 +49,7 @@ class GetUrlResult:
     @pulumi.getter
     def cors(self) -> Optional['outputs.UrlCors']:
         """
-        The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL. Use CORS to grant access to your function URL from any origin. You can also use CORS to control access for specific HTTP headers and methods in requests to your function URL.
+        The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
         """
         return pulumi.get(self, "cors")
 

@@ -194,9 +194,7 @@ export class PatchBaseline extends pulumi.CustomResource {
     }
 
     /**
-     * The `RuleGroup` property type specifies a set of rules that define the approval rules for an AWS Systems Manager patch baseline.
-     *
-     * `RuleGroup` is the property type for the `ApprovalRules` property of the [AWS::SSM::PatchBaseline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html) resource.
+     * A set of rules used to include patches in the baseline.
      */
     public readonly approvalRules!: pulumi.Output<outputs.ssm.PatchBaselineRuleGroup | undefined>;
     /**
@@ -311,9 +309,7 @@ export class PatchBaseline extends pulumi.CustomResource {
  */
 export interface PatchBaselineArgs {
     /**
-     * The `RuleGroup` property type specifies a set of rules that define the approval rules for an AWS Systems Manager patch baseline.
-     *
-     * `RuleGroup` is the property type for the `ApprovalRules` property of the [AWS::SSM::PatchBaseline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html) resource.
+     * A set of rules used to include patches in the baseline.
      */
     approvalRules?: pulumi.Input<inputs.ssm.PatchBaselineRuleGroupArgs>;
     /**

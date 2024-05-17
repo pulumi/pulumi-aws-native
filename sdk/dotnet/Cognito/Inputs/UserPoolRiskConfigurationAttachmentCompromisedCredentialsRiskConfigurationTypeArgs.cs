@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Cognito.Inputs
     public sealed class UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The compromised credentials actions type.
+        /// The compromised credentials risk configuration actions.
         /// </summary>
         [Input("actions", required: true)]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsTypeArgs> Actions { get; set; } = null!;

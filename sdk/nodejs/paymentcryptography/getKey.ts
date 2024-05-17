@@ -50,9 +50,6 @@ export interface GetKeyResult {
      * The state of key that is being created or deleted.
      */
     readonly keyState?: enums.paymentcryptography.KeyState;
-    /**
-     * A structure that contains information about a tag.
-     */
     readonly tags?: outputs.Tag[];
 }
 /**

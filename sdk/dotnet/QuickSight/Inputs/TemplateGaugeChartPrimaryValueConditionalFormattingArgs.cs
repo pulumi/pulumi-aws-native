@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateGaugeChartPrimaryValueConditionalFormattingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The formatting configuration for the icon.
+        /// The conditional formatting of the primary value icon.
         /// </summary>
         [Input("icon")]
         public Input<Inputs.TemplateConditionalFormattingIconArgs>? Icon { get; set; }
 
         /// <summary>
-        /// The formatting configuration for the color.
+        /// The conditional formatting of the primary value text color.
         /// </summary>
         [Input("textColor")]
         public Input<Inputs.TemplateConditionalFormattingColorArgs>? TextColor { get; set; }

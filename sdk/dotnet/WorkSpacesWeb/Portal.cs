@@ -132,7 +132,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         public Output<string> StatusReason { get; private set; } = null!;
 
         /// <summary>
-        /// The tag.
+        /// The tags to add to the web portal. A tag is a key-value pair.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -283,7 +283,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// The tag.
+        /// The tags to add to the web portal. A tag is a key-value pair.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

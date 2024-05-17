@@ -35,7 +35,7 @@ class TaskTemplateArgs:
         :param pulumi.Input[str] client_token: A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
         :param pulumi.Input['ConstraintsPropertiesArgs'] constraints: The constraints for the task template
         :param pulumi.Input[str] contact_flow_arn: The identifier of the contact flow.
-        :param pulumi.Input[Sequence[pulumi.Input['TaskTemplateDefaultFieldValueArgs']]] defaults: Describes a default field and its corresponding value.
+        :param pulumi.Input[Sequence[pulumi.Input['TaskTemplateDefaultFieldValueArgs']]] defaults: The default values for fields when a task is created by referencing this template.
         :param pulumi.Input[str] description: The description of the task template.
         :param pulumi.Input[Sequence[pulumi.Input['TaskTemplateFieldArgs']]] fields: The list of task template's fields
         :param pulumi.Input[str] name: The name of the task template.
@@ -114,7 +114,7 @@ class TaskTemplateArgs:
     @pulumi.getter
     def defaults(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateDefaultFieldValueArgs']]]]:
         """
-        Describes a default field and its corresponding value.
+        The default values for fields when a task is created by referencing this template.
         """
         return pulumi.get(self, "defaults")
 
@@ -207,7 +207,7 @@ class TaskTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] client_token: A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
         :param pulumi.Input[pulumi.InputType['ConstraintsPropertiesArgs']] constraints: The constraints for the task template
         :param pulumi.Input[str] contact_flow_arn: The identifier of the contact flow.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskTemplateDefaultFieldValueArgs']]]] defaults: Describes a default field and its corresponding value.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskTemplateDefaultFieldValueArgs']]]] defaults: The default values for fields when a task is created by referencing this template.
         :param pulumi.Input[str] description: The description of the task template.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskTemplateFieldArgs']]]] fields: The list of task template's fields
         :param pulumi.Input[str] instance_arn: The identifier (arn) of the instance.
@@ -342,7 +342,7 @@ class TaskTemplate(pulumi.CustomResource):
     @pulumi.getter
     def defaults(self) -> pulumi.Output[Optional[Sequence['outputs.TaskTemplateDefaultFieldValue']]]:
         """
-        Describes a default field and its corresponding value.
+        The default values for fields when a task is created by referencing this template.
         """
         return pulumi.get(self, "defaults")
 

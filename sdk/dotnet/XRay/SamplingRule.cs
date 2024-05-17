@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.XRay
         public Output<string?> RuleName { get; private set; } = null!;
 
         /// <summary>
-        /// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+        /// The sampling rule to be created or updated.
         /// </summary>
         [Output("samplingRule")]
         public Output<Outputs.SamplingRule?> SamplingRuleValue { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.XRay
         public Input<string>? RuleName { get; set; }
 
         /// <summary>
-        /// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+        /// The sampling rule to be created or updated.
         /// </summary>
         [Input("samplingRule")]
         public Input<Inputs.SamplingRuleArgs>? SamplingRuleValue { get; set; }

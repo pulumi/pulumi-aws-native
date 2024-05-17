@@ -72,7 +72,7 @@ export class EnvironmentBlueprintConfiguration extends pulumi.CustomResource {
      */
     public readonly provisioningRoleArn!: pulumi.Output<string | undefined>;
     /**
-     * The regional parameters in the environment blueprint.
+     * The regional parameters of the environment blueprint.
      */
     public readonly regionalParameters!: pulumi.Output<outputs.datazone.EnvironmentBlueprintConfigurationRegionalParameter[] | undefined>;
     /**
@@ -156,7 +156,7 @@ export interface EnvironmentBlueprintConfigurationArgs {
      */
     provisioningRoleArn?: pulumi.Input<string>;
     /**
-     * The regional parameters in the environment blueprint.
+     * The regional parameters of the environment blueprint.
      */
     regionalParameters?: pulumi.Input<pulumi.Input<inputs.datazone.EnvironmentBlueprintConfigurationRegionalParameterArgs>[]>;
 }

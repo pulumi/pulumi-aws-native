@@ -23,7 +23,7 @@ type TransitGatewayAttachment struct {
 	Options OptionsPropertiesPtrOutput `pulumi:"options"`
 	// The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	// The tags for the attachment.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ID of the transit gateway.
 	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
@@ -89,7 +89,7 @@ type transitGatewayAttachmentArgs struct {
 	Options *OptionsProperties `pulumi:"options"`
 	// The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	// The tags for the attachment.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The ID of the transit gateway.
 	TransitGatewayId string `pulumi:"transitGatewayId"`
@@ -103,7 +103,7 @@ type TransitGatewayAttachmentArgs struct {
 	Options OptionsPropertiesPtrInput
 	// The IDs of one or more subnets. You can specify only one subnet per Availability Zone. You must specify at least one subnet, but we recommend that you specify two subnets for better availability. The transit gateway uses one IP address from each specified subnet.
 	SubnetIds pulumi.StringArrayInput
-	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	// The tags for the attachment.
 	Tags aws.TagArrayInput
 	// The ID of the transit gateway.
 	TransitGatewayId pulumi.StringInput
@@ -163,7 +163,7 @@ func (o TransitGatewayAttachmentOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TransitGatewayAttachment) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+// The tags for the attachment.
 func (o TransitGatewayAttachmentOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *TransitGatewayAttachment) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

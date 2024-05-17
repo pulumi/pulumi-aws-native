@@ -27,7 +27,7 @@ export interface GetMonitoringSubscriptionArgs {
 
 export interface GetMonitoringSubscriptionResult {
     /**
-     * A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+     * A subscription configuration for additional CloudWatch metrics.
      */
     readonly monitoringSubscription?: outputs.cloudfront.MonitoringSubscription;
 }

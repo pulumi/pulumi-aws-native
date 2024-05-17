@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? Visibility;
         /// <summary>
-        /// The range options for the data zoom scroll bar.
+        /// The visibility range for the data zoom scroll bar.
         /// </summary>
         public readonly Outputs.DashboardVisibleRangeOptions? VisibleRange;
 

@@ -54,9 +54,8 @@ type LookupAnalysisTemplateResult struct {
 	// Returns the Amazon Resource Name (ARN) of the member who created the analysis template.
 	//
 	// Example: `arn:aws:cleanrooms:us-east-1:111122223333:membership/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
-	MembershipArn *string `pulumi:"membershipArn"`
-	// A relation within an analysis.
-	Schema *AnalysisTemplateAnalysisSchema `pulumi:"schema"`
+	MembershipArn *string                         `pulumi:"membershipArn"`
+	Schema        *AnalysisTemplateAnalysisSchema `pulumi:"schema"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -141,7 +140,6 @@ func (o LookupAnalysisTemplateResultOutput) MembershipArn() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LookupAnalysisTemplateResult) *string { return v.MembershipArn }).(pulumi.StringPtrOutput)
 }
 
-// A relation within an analysis.
 func (o LookupAnalysisTemplateResultOutput) Schema() AnalysisTemplateAnalysisSchemaPtrOutput {
 	return o.ApplyT(func(v LookupAnalysisTemplateResult) *AnalysisTemplateAnalysisSchema { return v.Schema }).(AnalysisTemplateAnalysisSchemaPtrOutput)
 }

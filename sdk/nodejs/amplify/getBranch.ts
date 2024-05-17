@@ -31,9 +31,9 @@ export interface GetBranchResult {
      */
     readonly arn?: string;
     /**
-     * Describes the backend associated with an Amplify `Branch` .
+     * The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
      *
-     * This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
+     * This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
      */
     readonly backend?: outputs.amplify.BranchBackend;
     /**
@@ -63,7 +63,7 @@ export interface GetBranchResult {
      */
     readonly enablePullRequestPreview?: boolean;
     /**
-     * The EnvironmentVariable property type sets environment variables for a specific branch. Environment variables are key-value pairs that are available at build time.
+     * The environment variables for the branch.
      */
     readonly environmentVariables?: outputs.amplify.BranchEnvironmentVariable[];
     /**
@@ -85,7 +85,7 @@ export interface GetBranchResult {
      */
     readonly stage?: enums.amplify.BranchStage;
     /**
-     * The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::Branch` resource.
+     * The tag for the branch.
      */
     readonly tags?: outputs.Tag[];
 }

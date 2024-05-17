@@ -86,13 +86,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// The time when the inference component was last updated.
         /// </summary>
         public readonly string? LastModifiedTime;
-        /// <summary>
-        /// Runtime settings for a model that is deployed with an inference component.
-        /// </summary>
         public readonly Outputs.InferenceComponentRuntimeConfig? RuntimeConfig;
-        /// <summary>
-        /// Details about the resources to deploy with this inference component, including the model, container, and compute resources.
-        /// </summary>
         public readonly Outputs.InferenceComponentSpecification? Specification;
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>

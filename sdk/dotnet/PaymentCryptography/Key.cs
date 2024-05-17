@@ -56,9 +56,6 @@ namespace Pulumi.AwsNative.PaymentCryptography
         [Output("keyState")]
         public Output<Pulumi.AwsNative.PaymentCryptography.KeyState> KeyState { get; private set; } = null!;
 
-        /// <summary>
-        /// A structure that contains information about a tag.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -135,10 +132,6 @@ namespace Pulumi.AwsNative.PaymentCryptography
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// A structure that contains information about a tag.
-        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

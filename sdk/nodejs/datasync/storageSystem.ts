@@ -58,13 +58,11 @@ export class StorageSystem extends pulumi.CustomResource {
      */
     public /*out*/ readonly secretsManagerArn!: pulumi.Output<string>;
     /**
-     * The network settings that DataSync Discovery uses to connect with your on-premises storage system's management interface.
+     * Specifies the server name and network port required to connect with the management interface of your on-premises storage system.
      */
     public readonly serverConfiguration!: pulumi.Output<outputs.datasync.StorageSystemServerConfiguration>;
     /**
-     * The credentials that provide DataSync Discovery read access to your on-premises storage system's management interface.
-     *
-     * DataSync Discovery stores these credentials in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) . For more information, see [Accessing your on-premises storage system](https://docs.aws.amazon.com/datasync/latest/userguide/discovery-configure-storage.html) .
+     * Specifies the user name and password for accessing your on-premises storage system's management interface.
      */
     public readonly serverCredentials!: pulumi.Output<outputs.datasync.StorageSystemServerCredentials | undefined>;
     /**
@@ -144,13 +142,11 @@ export interface StorageSystemArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The network settings that DataSync Discovery uses to connect with your on-premises storage system's management interface.
+     * Specifies the server name and network port required to connect with the management interface of your on-premises storage system.
      */
     serverConfiguration: pulumi.Input<inputs.datasync.StorageSystemServerConfigurationArgs>;
     /**
-     * The credentials that provide DataSync Discovery read access to your on-premises storage system's management interface.
-     *
-     * DataSync Discovery stores these credentials in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) . For more information, see [Accessing your on-premises storage system](https://docs.aws.amazon.com/datasync/latest/userguide/discovery-configure-storage.html) .
+     * Specifies the user name and password for accessing your on-premises storage system's management interface.
      */
     serverCredentials?: pulumi.Input<inputs.datasync.StorageSystemServerCredentialsArgs>;
     /**

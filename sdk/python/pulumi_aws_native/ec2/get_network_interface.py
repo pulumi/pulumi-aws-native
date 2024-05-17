@@ -83,7 +83,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter(name="connectionTrackingSpecification")
     def connection_tracking_specification(self) -> Optional['outputs.NetworkInterfaceConnectionTrackingSpecification']:
         """
-        Configurable options for connection tracking on a network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon Elastic Compute Cloud User Guide* .
+        A connection tracking specification for the network interface.
         """
         return pulumi.get(self, "connection_tracking_specification")
 

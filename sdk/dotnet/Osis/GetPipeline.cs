@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Osis
         /// </summary>
         public readonly ImmutableArray<string> IngestEndpointUrls;
         /// <summary>
-        /// Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
+        /// Key-value pairs that represent log publishing settings.
         /// </summary>
         public readonly Outputs.PipelineLogPublishingOptions? LogPublishingOptions;
         /// <summary>

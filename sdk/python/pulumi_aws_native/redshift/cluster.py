@@ -99,7 +99,7 @@ class ClusterArgs:
         :param pulumi.Input[str] destination_region: The destination AWS Region that you want to copy snapshots to. Constraints: Must be the name of a valid AWS Region. For more information, see Regions and Endpoints in the Amazon Web Services [https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region] General Reference
         :param pulumi.Input[str] elastic_ip: The Elastic IP (EIP) address for the cluster.
         :param pulumi.Input[bool] encrypted: If true, the data in the cluster is encrypted at rest.
-        :param pulumi.Input['ClusterEndpointArgs'] endpoint: Describes a connection endpoint.
+        :param pulumi.Input['ClusterEndpointArgs'] endpoint: The connection endpoint.
         :param pulumi.Input[bool] enhanced_vpc_routing: An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see Enhanced VPC Routing in the Amazon Redshift Cluster Management Guide.
                
                If this option is true , enhanced VPC routing is enabled.
@@ -526,7 +526,7 @@ class ClusterArgs:
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input['ClusterEndpointArgs']]:
         """
-        Describes a connection endpoint.
+        The connection endpoint.
         """
         return pulumi.get(self, "endpoint")
 
@@ -971,7 +971,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] destination_region: The destination AWS Region that you want to copy snapshots to. Constraints: Must be the name of a valid AWS Region. For more information, see Regions and Endpoints in the Amazon Web Services [https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region] General Reference
         :param pulumi.Input[str] elastic_ip: The Elastic IP (EIP) address for the cluster.
         :param pulumi.Input[bool] encrypted: If true, the data in the cluster is encrypted at rest.
-        :param pulumi.Input[pulumi.InputType['ClusterEndpointArgs']] endpoint: Describes a connection endpoint.
+        :param pulumi.Input[pulumi.InputType['ClusterEndpointArgs']] endpoint: The connection endpoint.
         :param pulumi.Input[bool] enhanced_vpc_routing: An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see Enhanced VPC Routing in the Amazon Redshift Cluster Management Guide.
                
                If this option is true , enhanced VPC routing is enabled.
@@ -1436,7 +1436,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def endpoint(self) -> pulumi.Output[Optional['outputs.ClusterEndpoint']]:
         """
-        Describes a connection endpoint.
+        The connection endpoint.
         """
         return pulumi.get(self, "endpoint")
 

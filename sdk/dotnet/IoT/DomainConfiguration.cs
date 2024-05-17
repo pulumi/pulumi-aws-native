@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<Outputs.DomainConfigurationServerCertificateConfig?> ServerCertificateConfig { get; private set; } = null!;
 
         /// <summary>
-        /// An object that contains information about a server certificate.
+        /// The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
         /// </summary>
         [Output("serverCertificates")]
         public Output<ImmutableArray<Outputs.DomainConfigurationServerCertificateSummary>> ServerCertificates { get; private set; } = null!;
@@ -82,7 +82,13 @@ namespace Pulumi.AwsNative.IoT
         public Output<Pulumi.AwsNative.IoT.DomainConfigurationServiceType?> ServiceType { get; private set; } = null!;
 
         /// <summary>
-        /// A set of key/value pairs that are used to manage the resource.
+        /// Metadata which can be used to manage the domain configuration.
+        /// 
+        /// &gt; For URI Request parameters use format: ...key1=value1&amp;key2=value2...
+        /// &gt; 
+        /// &gt; For the CLI command-line parameter use format: &amp;&amp;tags "key1=value1&amp;key2=value2..."
+        /// &gt; 
+        /// &gt; For the cli-input-json file use format: "tags": "key1=value1&amp;key2=value2..."
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -210,7 +216,13 @@ namespace Pulumi.AwsNative.IoT
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A set of key/value pairs that are used to manage the resource.
+        /// Metadata which can be used to manage the domain configuration.
+        /// 
+        /// &gt; For URI Request parameters use format: ...key1=value1&amp;key2=value2...
+        /// &gt; 
+        /// &gt; For the CLI command-line parameter use format: &amp;&amp;tags "key1=value1&amp;key2=value2..."
+        /// &gt; 
+        /// &gt; For the cli-input-json file use format: "tags": "key1=value1&amp;key2=value2..."
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

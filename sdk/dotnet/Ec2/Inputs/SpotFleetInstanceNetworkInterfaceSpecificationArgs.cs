@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         private InputList<Inputs.SpotFleetInstanceIpv6AddressArgs>? _ipv6Addresses;
 
         /// <summary>
-        /// Describes an IPv6 address.
+        /// The IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
         /// </summary>
         public InputList<Inputs.SpotFleetInstanceIpv6AddressArgs> Ipv6Addresses
         {
@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         private InputList<Inputs.SpotFleetPrivateIpAddressSpecificationArgs>? _privateIpAddresses;
 
         /// <summary>
-        /// Describes a secondary private IPv4 address for a network interface.
+        /// The private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) request.
         /// </summary>
         public InputList<Inputs.SpotFleetPrivateIpAddressSpecificationArgs> PrivateIpAddresses
         {

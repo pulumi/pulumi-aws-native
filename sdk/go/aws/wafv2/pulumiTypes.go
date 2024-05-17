@@ -966,7 +966,7 @@ type RegexPatternSetTag struct {
 
 // Allow traffic towards application.
 type RuleGroupAllowAction struct {
-	// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+	// Defines custom handling for the web request.
 	//
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 	CustomRequestHandling *RuleGroupCustomRequestHandling `pulumi:"customRequestHandling"`
@@ -985,7 +985,7 @@ type RuleGroupAllowActionInput interface {
 
 // Allow traffic towards application.
 type RuleGroupAllowActionArgs struct {
-	// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+	// Defines custom handling for the web request.
 	//
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 	CustomRequestHandling RuleGroupCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
@@ -1069,7 +1069,7 @@ func (o RuleGroupAllowActionOutput) ToRuleGroupAllowActionPtrOutputWithContext(c
 	}).(RuleGroupAllowActionPtrOutput)
 }
 
-// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+// Defines custom handling for the web request.
 //
 // For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 func (o RuleGroupAllowActionOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
@@ -1100,7 +1100,7 @@ func (o RuleGroupAllowActionPtrOutput) Elem() RuleGroupAllowActionOutput {
 	}).(RuleGroupAllowActionOutput)
 }
 
-// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+// Defines custom handling for the web request.
 //
 // For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 func (o RuleGroupAllowActionPtrOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
@@ -1113,7 +1113,7 @@ func (o RuleGroupAllowActionPtrOutput) CustomRequestHandling() RuleGroupCustomRe
 }
 
 type RuleGroupAndStatement struct {
-	// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+	// The statements to combine with AND logic. You can use any statements that can be nested.
 	Statements []RuleGroupStatement `pulumi:"statements"`
 }
 
@@ -1129,7 +1129,7 @@ type RuleGroupAndStatementInput interface {
 }
 
 type RuleGroupAndStatementArgs struct {
-	// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+	// The statements to combine with AND logic. You can use any statements that can be nested.
 	Statements RuleGroupStatementArrayInput `pulumi:"statements"`
 }
 
@@ -1210,7 +1210,7 @@ func (o RuleGroupAndStatementOutput) ToRuleGroupAndStatementPtrOutputWithContext
 	}).(RuleGroupAndStatementPtrOutput)
 }
 
-// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+// The statements to combine with AND logic. You can use any statements that can be nested.
 func (o RuleGroupAndStatementOutput) Statements() RuleGroupStatementArrayOutput {
 	return o.ApplyT(func(v RuleGroupAndStatement) []RuleGroupStatement { return v.Statements }).(RuleGroupStatementArrayOutput)
 }
@@ -1239,7 +1239,7 @@ func (o RuleGroupAndStatementPtrOutput) Elem() RuleGroupAndStatementOutput {
 	}).(RuleGroupAndStatementOutput)
 }
 
-// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+// The statements to combine with AND logic. You can use any statements that can be nested.
 func (o RuleGroupAndStatementPtrOutput) Statements() RuleGroupStatementArrayOutput {
 	return o.ApplyT(func(v *RuleGroupAndStatement) []RuleGroupStatement {
 		if v == nil {
@@ -1251,9 +1251,9 @@ func (o RuleGroupAndStatementPtrOutput) Statements() RuleGroupStatementArrayOutp
 
 // Block traffic towards application.
 type RuleGroupBlockAction struct {
-	// A custom response to send to the client. You can define a custom response for rule actions and default web ACL actions that are set to `Block` .
+	// Defines a custom response for the web request.
 	//
-	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF developer guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 	CustomResponse *RuleGroupCustomResponse `pulumi:"customResponse"`
 }
 
@@ -1270,9 +1270,9 @@ type RuleGroupBlockActionInput interface {
 
 // Block traffic towards application.
 type RuleGroupBlockActionArgs struct {
-	// A custom response to send to the client. You can define a custom response for rule actions and default web ACL actions that are set to `Block` .
+	// Defines a custom response for the web request.
 	//
-	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF developer guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 	CustomResponse RuleGroupCustomResponsePtrInput `pulumi:"customResponse"`
 }
 
@@ -1354,9 +1354,9 @@ func (o RuleGroupBlockActionOutput) ToRuleGroupBlockActionPtrOutputWithContext(c
 	}).(RuleGroupBlockActionPtrOutput)
 }
 
-// A custom response to send to the client. You can define a custom response for rule actions and default web ACL actions that are set to `Block` .
+// Defines a custom response for the web request.
 //
-// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF developer guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 func (o RuleGroupBlockActionOutput) CustomResponse() RuleGroupCustomResponsePtrOutput {
 	return o.ApplyT(func(v RuleGroupBlockAction) *RuleGroupCustomResponse { return v.CustomResponse }).(RuleGroupCustomResponsePtrOutput)
 }
@@ -1385,9 +1385,9 @@ func (o RuleGroupBlockActionPtrOutput) Elem() RuleGroupBlockActionOutput {
 	}).(RuleGroupBlockActionOutput)
 }
 
-// A custom response to send to the client. You can define a custom response for rule actions and default web ACL actions that are set to `Block` .
+// Defines a custom response for the web request.
 //
-// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF developer guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 func (o RuleGroupBlockActionPtrOutput) CustomResponse() RuleGroupCustomResponsePtrOutput {
 	return o.ApplyT(func(v *RuleGroupBlockAction) *RuleGroupCustomResponse {
 		if v == nil {
@@ -1599,22 +1599,7 @@ func (o RuleGroupBodyPtrOutput) OversizeHandling() RuleGroupOversizeHandlingPtrO
 
 // Byte Match statement.
 type RuleGroupByteMatchStatement struct {
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch RuleGroupFieldToMatch `pulumi:"fieldToMatch"`
 	// The area within the portion of the web request that you want AWS WAF to search for `SearchString` . Valid values include the following:
 	//
@@ -1653,7 +1638,7 @@ type RuleGroupByteMatchStatement struct {
 	//
 	// You must specify either `SearchString` or `SearchStringBase64` in a `ByteMatchStatement` .
 	SearchStringBase64 *string `pulumi:"searchStringBase64"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 	TextTransformations []RuleGroupTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -1670,22 +1655,7 @@ type RuleGroupByteMatchStatementInput interface {
 
 // Byte Match statement.
 type RuleGroupByteMatchStatementArgs struct {
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch RuleGroupFieldToMatchInput `pulumi:"fieldToMatch"`
 	// The area within the portion of the web request that you want AWS WAF to search for `SearchString` . Valid values include the following:
 	//
@@ -1724,7 +1694,7 @@ type RuleGroupByteMatchStatementArgs struct {
 	//
 	// You must specify either `SearchString` or `SearchStringBase64` in a `ByteMatchStatement` .
 	SearchStringBase64 pulumi.StringPtrInput `pulumi:"searchStringBase64"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 	TextTransformations RuleGroupTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -1806,22 +1776,7 @@ func (o RuleGroupByteMatchStatementOutput) ToRuleGroupByteMatchStatementPtrOutpu
 	}).(RuleGroupByteMatchStatementPtrOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o RuleGroupByteMatchStatementOutput) FieldToMatch() RuleGroupFieldToMatchOutput {
 	return o.ApplyT(func(v RuleGroupByteMatchStatement) RuleGroupFieldToMatch { return v.FieldToMatch }).(RuleGroupFieldToMatchOutput)
 }
@@ -1872,7 +1827,7 @@ func (o RuleGroupByteMatchStatementOutput) SearchStringBase64() pulumi.StringPtr
 	return o.ApplyT(func(v RuleGroupByteMatchStatement) *string { return v.SearchStringBase64 }).(pulumi.StringPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 func (o RuleGroupByteMatchStatementOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
 	return o.ApplyT(func(v RuleGroupByteMatchStatement) []RuleGroupTextTransformation { return v.TextTransformations }).(RuleGroupTextTransformationArrayOutput)
 }
@@ -1901,22 +1856,7 @@ func (o RuleGroupByteMatchStatementPtrOutput) Elem() RuleGroupByteMatchStatement
 	}).(RuleGroupByteMatchStatementOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o RuleGroupByteMatchStatementPtrOutput) FieldToMatch() RuleGroupFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *RuleGroupByteMatchStatement) *RuleGroupFieldToMatch {
 		if v == nil {
@@ -1987,7 +1927,7 @@ func (o RuleGroupByteMatchStatementPtrOutput) SearchStringBase64() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 func (o RuleGroupByteMatchStatementPtrOutput) TextTransformations() RuleGroupTextTransformationArrayOutput {
 	return o.ApplyT(func(v *RuleGroupByteMatchStatement) []RuleGroupTextTransformation {
 		if v == nil {
@@ -1999,7 +1939,7 @@ func (o RuleGroupByteMatchStatementPtrOutput) TextTransformations() RuleGroupTex
 
 // Checks valid token exists with request.
 type RuleGroupCaptchaAction struct {
-	// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+	// Defines custom handling for the web request, used when the `CAPTCHA` inspection determines that the request's token is valid and unexpired.
 	//
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 	CustomRequestHandling *RuleGroupCustomRequestHandling `pulumi:"customRequestHandling"`
@@ -2018,7 +1958,7 @@ type RuleGroupCaptchaActionInput interface {
 
 // Checks valid token exists with request.
 type RuleGroupCaptchaActionArgs struct {
-	// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+	// Defines custom handling for the web request, used when the `CAPTCHA` inspection determines that the request's token is valid and unexpired.
 	//
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 	CustomRequestHandling RuleGroupCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
@@ -2102,7 +2042,7 @@ func (o RuleGroupCaptchaActionOutput) ToRuleGroupCaptchaActionPtrOutputWithConte
 	}).(RuleGroupCaptchaActionPtrOutput)
 }
 
-// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+// Defines custom handling for the web request, used when the `CAPTCHA` inspection determines that the request's token is valid and unexpired.
 //
 // For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 func (o RuleGroupCaptchaActionOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
@@ -2133,7 +2073,7 @@ func (o RuleGroupCaptchaActionPtrOutput) Elem() RuleGroupCaptchaActionOutput {
 	}).(RuleGroupCaptchaActionOutput)
 }
 
-// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+// Defines custom handling for the web request, used when the `CAPTCHA` inspection determines that the request's token is valid and unexpired.
 //
 // For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 func (o RuleGroupCaptchaActionPtrOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
@@ -2146,7 +2086,7 @@ func (o RuleGroupCaptchaActionPtrOutput) CustomRequestHandling() RuleGroupCustom
 }
 
 type RuleGroupCaptchaConfig struct {
-	// Used for CAPTCHA and challenge token settings. Determines how long a `CAPTCHA` or challenge timestamp remains valid after AWS WAF updates it for a successful `CAPTCHA` or challenge response.
+	// Determines how long a `CAPTCHA` timestamp in the token remains valid after the client successfully solves a `CAPTCHA` puzzle.
 	ImmunityTimeProperty *RuleGroupImmunityTimeProperty `pulumi:"immunityTimeProperty"`
 }
 
@@ -2162,7 +2102,7 @@ type RuleGroupCaptchaConfigInput interface {
 }
 
 type RuleGroupCaptchaConfigArgs struct {
-	// Used for CAPTCHA and challenge token settings. Determines how long a `CAPTCHA` or challenge timestamp remains valid after AWS WAF updates it for a successful `CAPTCHA` or challenge response.
+	// Determines how long a `CAPTCHA` timestamp in the token remains valid after the client successfully solves a `CAPTCHA` puzzle.
 	ImmunityTimeProperty RuleGroupImmunityTimePropertyPtrInput `pulumi:"immunityTimeProperty"`
 }
 
@@ -2243,7 +2183,7 @@ func (o RuleGroupCaptchaConfigOutput) ToRuleGroupCaptchaConfigPtrOutputWithConte
 	}).(RuleGroupCaptchaConfigPtrOutput)
 }
 
-// Used for CAPTCHA and challenge token settings. Determines how long a `CAPTCHA` or challenge timestamp remains valid after AWS WAF updates it for a successful `CAPTCHA` or challenge response.
+// Determines how long a `CAPTCHA` timestamp in the token remains valid after the client successfully solves a `CAPTCHA` puzzle.
 func (o RuleGroupCaptchaConfigOutput) ImmunityTimeProperty() RuleGroupImmunityTimePropertyPtrOutput {
 	return o.ApplyT(func(v RuleGroupCaptchaConfig) *RuleGroupImmunityTimeProperty { return v.ImmunityTimeProperty }).(RuleGroupImmunityTimePropertyPtrOutput)
 }
@@ -2272,7 +2212,7 @@ func (o RuleGroupCaptchaConfigPtrOutput) Elem() RuleGroupCaptchaConfigOutput {
 	}).(RuleGroupCaptchaConfigOutput)
 }
 
-// Used for CAPTCHA and challenge token settings. Determines how long a `CAPTCHA` or challenge timestamp remains valid after AWS WAF updates it for a successful `CAPTCHA` or challenge response.
+// Determines how long a `CAPTCHA` timestamp in the token remains valid after the client successfully solves a `CAPTCHA` puzzle.
 func (o RuleGroupCaptchaConfigPtrOutput) ImmunityTimeProperty() RuleGroupImmunityTimePropertyPtrOutput {
 	return o.ApplyT(func(v *RuleGroupCaptchaConfig) *RuleGroupImmunityTimeProperty {
 		if v == nil {
@@ -2284,7 +2224,7 @@ func (o RuleGroupCaptchaConfigPtrOutput) ImmunityTimeProperty() RuleGroupImmunit
 
 // Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
 type RuleGroupChallengeAction struct {
-	// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+	// Defines custom handling for the web request, used when the challenge inspection determines that the request's token is valid and unexpired.
 	//
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 	CustomRequestHandling *RuleGroupCustomRequestHandling `pulumi:"customRequestHandling"`
@@ -2303,7 +2243,7 @@ type RuleGroupChallengeActionInput interface {
 
 // Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
 type RuleGroupChallengeActionArgs struct {
-	// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+	// Defines custom handling for the web request, used when the challenge inspection determines that the request's token is valid and unexpired.
 	//
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 	CustomRequestHandling RuleGroupCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
@@ -2387,7 +2327,7 @@ func (o RuleGroupChallengeActionOutput) ToRuleGroupChallengeActionPtrOutputWithC
 	}).(RuleGroupChallengeActionPtrOutput)
 }
 
-// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+// Defines custom handling for the web request, used when the challenge inspection determines that the request's token is valid and unexpired.
 //
 // For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 func (o RuleGroupChallengeActionOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
@@ -2418,7 +2358,7 @@ func (o RuleGroupChallengeActionPtrOutput) Elem() RuleGroupChallengeActionOutput
 	}).(RuleGroupChallengeActionOutput)
 }
 
-// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+// Defines custom handling for the web request, used when the challenge inspection determines that the request's token is valid and unexpired.
 //
 // For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 func (o RuleGroupChallengeActionPtrOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
@@ -2431,7 +2371,7 @@ func (o RuleGroupChallengeActionPtrOutput) CustomRequestHandling() RuleGroupCust
 }
 
 type RuleGroupChallengeConfig struct {
-	// Used for CAPTCHA and challenge token settings. Determines how long a `CAPTCHA` or challenge timestamp remains valid after AWS WAF updates it for a successful `CAPTCHA` or challenge response.
+	// Determines how long a challenge timestamp in the token remains valid after the client successfully responds to a challenge.
 	ImmunityTimeProperty *RuleGroupImmunityTimeProperty `pulumi:"immunityTimeProperty"`
 }
 
@@ -2447,7 +2387,7 @@ type RuleGroupChallengeConfigInput interface {
 }
 
 type RuleGroupChallengeConfigArgs struct {
-	// Used for CAPTCHA and challenge token settings. Determines how long a `CAPTCHA` or challenge timestamp remains valid after AWS WAF updates it for a successful `CAPTCHA` or challenge response.
+	// Determines how long a challenge timestamp in the token remains valid after the client successfully responds to a challenge.
 	ImmunityTimeProperty RuleGroupImmunityTimePropertyPtrInput `pulumi:"immunityTimeProperty"`
 }
 
@@ -2528,7 +2468,7 @@ func (o RuleGroupChallengeConfigOutput) ToRuleGroupChallengeConfigPtrOutputWithC
 	}).(RuleGroupChallengeConfigPtrOutput)
 }
 
-// Used for CAPTCHA and challenge token settings. Determines how long a `CAPTCHA` or challenge timestamp remains valid after AWS WAF updates it for a successful `CAPTCHA` or challenge response.
+// Determines how long a challenge timestamp in the token remains valid after the client successfully responds to a challenge.
 func (o RuleGroupChallengeConfigOutput) ImmunityTimeProperty() RuleGroupImmunityTimePropertyPtrOutput {
 	return o.ApplyT(func(v RuleGroupChallengeConfig) *RuleGroupImmunityTimeProperty { return v.ImmunityTimeProperty }).(RuleGroupImmunityTimePropertyPtrOutput)
 }
@@ -2557,7 +2497,7 @@ func (o RuleGroupChallengeConfigPtrOutput) Elem() RuleGroupChallengeConfigOutput
 	}).(RuleGroupChallengeConfigOutput)
 }
 
-// Used for CAPTCHA and challenge token settings. Determines how long a `CAPTCHA` or challenge timestamp remains valid after AWS WAF updates it for a successful `CAPTCHA` or challenge response.
+// Determines how long a challenge timestamp in the token remains valid after the client successfully responds to a challenge.
 func (o RuleGroupChallengeConfigPtrOutput) ImmunityTimeProperty() RuleGroupImmunityTimePropertyPtrOutput {
 	return o.ApplyT(func(v *RuleGroupChallengeConfig) *RuleGroupImmunityTimeProperty {
 		if v == nil {
@@ -2973,7 +2913,7 @@ func (o RuleGroupCookiesPtrOutput) OversizeHandling() RuleGroupOversizeHandlingP
 
 // Count traffic towards application.
 type RuleGroupCountAction struct {
-	// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+	// Defines custom handling for the web request.
 	//
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 	CustomRequestHandling *RuleGroupCustomRequestHandling `pulumi:"customRequestHandling"`
@@ -2992,7 +2932,7 @@ type RuleGroupCountActionInput interface {
 
 // Count traffic towards application.
 type RuleGroupCountActionArgs struct {
-	// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+	// Defines custom handling for the web request.
 	//
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 	CustomRequestHandling RuleGroupCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
@@ -3076,7 +3016,7 @@ func (o RuleGroupCountActionOutput) ToRuleGroupCountActionPtrOutputWithContext(c
 	}).(RuleGroupCountActionPtrOutput)
 }
 
-// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+// Defines custom handling for the web request.
 //
 // For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 func (o RuleGroupCountActionOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
@@ -3107,7 +3047,7 @@ func (o RuleGroupCountActionPtrOutput) Elem() RuleGroupCountActionOutput {
 	}).(RuleGroupCountActionOutput)
 }
 
-// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+// Defines custom handling for the web request.
 //
 // For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 func (o RuleGroupCountActionPtrOutput) CustomRequestHandling() RuleGroupCustomRequestHandlingPtrOutput {
@@ -3685,23 +3625,22 @@ func (o RuleGroupCustomResponseBodyMapOutput) MapIndex(k pulumi.StringInput) Rul
 type RuleGroupFieldToMatch struct {
 	// All query arguments of a web request.
 	AllQueryArguments interface{} `pulumi:"allQueryArguments"`
-	// Inspect the body of the web request. The body immediately follows the request headers.
+	// Inspect the request body as plain text. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
-	// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+	// AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
+	//
+	// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+	// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+	//
+	// For information about how to handle oversized request bodies, see the `Body` object configuration.
 	Body *RuleGroupBody `pulumi:"body"`
-	// Inspect the cookies in the web request. You can specify the parts of the cookies to inspect and you can narrow the set of cookies to inspect by including or excluding specific keys.
+	// Inspect the request cookies. You must configure scope and pattern matching filters in the `Cookies` object, to define the set of cookies and the parts of the cookies that AWS WAF inspects.
 	//
-	// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
-	//
-	// Example JSON: `"Cookies": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`
+	// Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize cookie content in the `Cookies` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
 	Cookies *RuleGroupCookies `pulumi:"cookies"`
-	// Inspect all headers in the web request. You can specify the parts of the headers to inspect and you can narrow the set of headers to inspect by including or excluding specific keys.
+	// Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
 	//
-	// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
-	//
-	// If you want to inspect just the value of a single header, use the `SingleHeader` `FieldToMatch` setting instead.
-	//
-	// Example JSON: `"Headers": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`
+	// Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize header content in the `Headers` object. AWS WAF applies the pattern matching filters to the headers that it receives from the underlying host service.
 	Headers *RuleGroupHeaders `pulumi:"headers"`
 	// Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
 	//
@@ -3711,13 +3650,14 @@ type RuleGroupFieldToMatch struct {
 	//
 	// Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
 	Ja3Fingerprint *RuleGroupJa3Fingerprint `pulumi:"ja3Fingerprint"`
-	// Inspect the body of the web request as JSON. The body immediately follows the request headers.
+	// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
-	// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+	// AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
 	//
-	// Use the specifications in this object to indicate which parts of the JSON body to inspect using the rule's inspection criteria. AWS WAF inspects only the parts of the JSON that result from the matches that you indicate.
+	// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+	// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
 	//
-	// Example JSON: `"JsonBody": { "MatchPattern": { "All": {} }, "MatchScope": "ALL" }`
+	// For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
 	JsonBody *RuleGroupJsonBody `pulumi:"jsonBody"`
 	// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 	Method interface{} `pulumi:"method"`
@@ -3750,23 +3690,22 @@ type RuleGroupFieldToMatchInput interface {
 type RuleGroupFieldToMatchArgs struct {
 	// All query arguments of a web request.
 	AllQueryArguments pulumi.Input `pulumi:"allQueryArguments"`
-	// Inspect the body of the web request. The body immediately follows the request headers.
+	// Inspect the request body as plain text. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
-	// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+	// AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
+	//
+	// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+	// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+	//
+	// For information about how to handle oversized request bodies, see the `Body` object configuration.
 	Body RuleGroupBodyPtrInput `pulumi:"body"`
-	// Inspect the cookies in the web request. You can specify the parts of the cookies to inspect and you can narrow the set of cookies to inspect by including or excluding specific keys.
+	// Inspect the request cookies. You must configure scope and pattern matching filters in the `Cookies` object, to define the set of cookies and the parts of the cookies that AWS WAF inspects.
 	//
-	// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
-	//
-	// Example JSON: `"Cookies": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`
+	// Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize cookie content in the `Cookies` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
 	Cookies RuleGroupCookiesPtrInput `pulumi:"cookies"`
-	// Inspect all headers in the web request. You can specify the parts of the headers to inspect and you can narrow the set of headers to inspect by including or excluding specific keys.
+	// Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
 	//
-	// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
-	//
-	// If you want to inspect just the value of a single header, use the `SingleHeader` `FieldToMatch` setting instead.
-	//
-	// Example JSON: `"Headers": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`
+	// Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize header content in the `Headers` object. AWS WAF applies the pattern matching filters to the headers that it receives from the underlying host service.
 	Headers RuleGroupHeadersPtrInput `pulumi:"headers"`
 	// Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
 	//
@@ -3776,13 +3715,14 @@ type RuleGroupFieldToMatchArgs struct {
 	//
 	// Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
 	Ja3Fingerprint RuleGroupJa3FingerprintPtrInput `pulumi:"ja3Fingerprint"`
-	// Inspect the body of the web request as JSON. The body immediately follows the request headers.
+	// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
-	// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+	// AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
 	//
-	// Use the specifications in this object to indicate which parts of the JSON body to inspect using the rule's inspection criteria. AWS WAF inspects only the parts of the JSON that result from the matches that you indicate.
+	// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+	// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
 	//
-	// Example JSON: `"JsonBody": { "MatchPattern": { "All": {} }, "MatchScope": "ALL" }`
+	// For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
 	JsonBody RuleGroupJsonBodyPtrInput `pulumi:"jsonBody"`
 	// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 	Method pulumi.Input `pulumi:"method"`
@@ -3883,29 +3823,28 @@ func (o RuleGroupFieldToMatchOutput) AllQueryArguments() pulumi.AnyOutput {
 	return o.ApplyT(func(v RuleGroupFieldToMatch) interface{} { return v.AllQueryArguments }).(pulumi.AnyOutput)
 }
 
-// Inspect the body of the web request. The body immediately follows the request headers.
+// Inspect the request body as plain text. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 //
-// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+// AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
+//
+// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+//
+// For information about how to handle oversized request bodies, see the `Body` object configuration.
 func (o RuleGroupFieldToMatchOutput) Body() RuleGroupBodyPtrOutput {
 	return o.ApplyT(func(v RuleGroupFieldToMatch) *RuleGroupBody { return v.Body }).(RuleGroupBodyPtrOutput)
 }
 
-// Inspect the cookies in the web request. You can specify the parts of the cookies to inspect and you can narrow the set of cookies to inspect by including or excluding specific keys.
+// Inspect the request cookies. You must configure scope and pattern matching filters in the `Cookies` object, to define the set of cookies and the parts of the cookies that AWS WAF inspects.
 //
-// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
-//
-// Example JSON: `"Cookies": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`
+// Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize cookie content in the `Cookies` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
 func (o RuleGroupFieldToMatchOutput) Cookies() RuleGroupCookiesPtrOutput {
 	return o.ApplyT(func(v RuleGroupFieldToMatch) *RuleGroupCookies { return v.Cookies }).(RuleGroupCookiesPtrOutput)
 }
 
-// Inspect all headers in the web request. You can specify the parts of the headers to inspect and you can narrow the set of headers to inspect by including or excluding specific keys.
+// Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
 //
-// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
-//
-// If you want to inspect just the value of a single header, use the `SingleHeader` `FieldToMatch` setting instead.
-//
-// Example JSON: `"Headers": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`
+// Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize header content in the `Headers` object. AWS WAF applies the pattern matching filters to the headers that it receives from the underlying host service.
 func (o RuleGroupFieldToMatchOutput) Headers() RuleGroupHeadersPtrOutput {
 	return o.ApplyT(func(v RuleGroupFieldToMatch) *RuleGroupHeaders { return v.Headers }).(RuleGroupHeadersPtrOutput)
 }
@@ -3921,13 +3860,14 @@ func (o RuleGroupFieldToMatchOutput) Ja3Fingerprint() RuleGroupJa3FingerprintPtr
 	return o.ApplyT(func(v RuleGroupFieldToMatch) *RuleGroupJa3Fingerprint { return v.Ja3Fingerprint }).(RuleGroupJa3FingerprintPtrOutput)
 }
 
-// Inspect the body of the web request as JSON. The body immediately follows the request headers.
+// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 //
-// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+// AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
 //
-// Use the specifications in this object to indicate which parts of the JSON body to inspect using the rule's inspection criteria. AWS WAF inspects only the parts of the JSON that result from the matches that you indicate.
+// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
 //
-// Example JSON: `"JsonBody": { "MatchPattern": { "All": {} }, "MatchScope": "ALL" }`
+// For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
 func (o RuleGroupFieldToMatchOutput) JsonBody() RuleGroupJsonBodyPtrOutput {
 	return o.ApplyT(func(v RuleGroupFieldToMatch) *RuleGroupJsonBody { return v.JsonBody }).(RuleGroupJsonBodyPtrOutput)
 }
@@ -3997,9 +3937,14 @@ func (o RuleGroupFieldToMatchPtrOutput) AllQueryArguments() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Inspect the body of the web request. The body immediately follows the request headers.
+// Inspect the request body as plain text. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 //
-// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+// AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
+//
+// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+//
+// For information about how to handle oversized request bodies, see the `Body` object configuration.
 func (o RuleGroupFieldToMatchPtrOutput) Body() RuleGroupBodyPtrOutput {
 	return o.ApplyT(func(v *RuleGroupFieldToMatch) *RuleGroupBody {
 		if v == nil {
@@ -4009,11 +3954,9 @@ func (o RuleGroupFieldToMatchPtrOutput) Body() RuleGroupBodyPtrOutput {
 	}).(RuleGroupBodyPtrOutput)
 }
 
-// Inspect the cookies in the web request. You can specify the parts of the cookies to inspect and you can narrow the set of cookies to inspect by including or excluding specific keys.
+// Inspect the request cookies. You must configure scope and pattern matching filters in the `Cookies` object, to define the set of cookies and the parts of the cookies that AWS WAF inspects.
 //
-// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
-//
-// Example JSON: `"Cookies": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`
+// Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize cookie content in the `Cookies` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
 func (o RuleGroupFieldToMatchPtrOutput) Cookies() RuleGroupCookiesPtrOutput {
 	return o.ApplyT(func(v *RuleGroupFieldToMatch) *RuleGroupCookies {
 		if v == nil {
@@ -4023,13 +3966,9 @@ func (o RuleGroupFieldToMatchPtrOutput) Cookies() RuleGroupCookiesPtrOutput {
 	}).(RuleGroupCookiesPtrOutput)
 }
 
-// Inspect all headers in the web request. You can specify the parts of the headers to inspect and you can narrow the set of headers to inspect by including or excluding specific keys.
+// Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
 //
-// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
-//
-// If you want to inspect just the value of a single header, use the `SingleHeader` `FieldToMatch` setting instead.
-//
-// Example JSON: `"Headers": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`
+// Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize header content in the `Headers` object. AWS WAF applies the pattern matching filters to the headers that it receives from the underlying host service.
 func (o RuleGroupFieldToMatchPtrOutput) Headers() RuleGroupHeadersPtrOutput {
 	return o.ApplyT(func(v *RuleGroupFieldToMatch) *RuleGroupHeaders {
 		if v == nil {
@@ -4055,13 +3994,14 @@ func (o RuleGroupFieldToMatchPtrOutput) Ja3Fingerprint() RuleGroupJa3Fingerprint
 	}).(RuleGroupJa3FingerprintPtrOutput)
 }
 
-// Inspect the body of the web request as JSON. The body immediately follows the request headers.
+// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 //
-// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+// AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
 //
-// Use the specifications in this object to indicate which parts of the JSON body to inspect using the rule's inspection criteria. AWS WAF inspects only the parts of the JSON that result from the matches that you indicate.
+// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
 //
-// Example JSON: `"JsonBody": { "MatchPattern": { "All": {} }, "MatchScope": "ALL" }`
+// For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
 func (o RuleGroupFieldToMatchPtrOutput) JsonBody() RuleGroupJsonBodyPtrOutput {
 	return o.ApplyT(func(v *RuleGroupFieldToMatch) *RuleGroupJsonBody {
 		if v == nil {
@@ -4611,10 +4551,6 @@ type RuleGroupGeoMatchStatement struct {
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	//
-	// This configuration is used for `GeoMatchStatement` and `RateBasedStatement` . For `IPSetReferenceStatement` , use `IPSetForwardedIPConfig` instead.
-	//
-	// AWS WAF only evaluates the first IP address found in the specified HTTP header.
 	ForwardedIpConfig *RuleGroupForwardedIpConfiguration `pulumi:"forwardedIpConfig"`
 }
 
@@ -4637,10 +4573,6 @@ type RuleGroupGeoMatchStatementArgs struct {
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	//
-	// This configuration is used for `GeoMatchStatement` and `RateBasedStatement` . For `IPSetReferenceStatement` , use `IPSetForwardedIPConfig` instead.
-	//
-	// AWS WAF only evaluates the first IP address found in the specified HTTP header.
 	ForwardedIpConfig RuleGroupForwardedIpConfigurationPtrInput `pulumi:"forwardedIpConfig"`
 }
 
@@ -4731,10 +4663,6 @@ func (o RuleGroupGeoMatchStatementOutput) CountryCodes() pulumi.StringArrayOutpu
 // The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 //
 // > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-//
-// This configuration is used for `GeoMatchStatement` and `RateBasedStatement` . For `IPSetReferenceStatement` , use `IPSetForwardedIPConfig` instead.
-//
-// AWS WAF only evaluates the first IP address found in the specified HTTP header.
 func (o RuleGroupGeoMatchStatementOutput) ForwardedIpConfig() RuleGroupForwardedIpConfigurationPtrOutput {
 	return o.ApplyT(func(v RuleGroupGeoMatchStatement) *RuleGroupForwardedIpConfiguration { return v.ForwardedIpConfig }).(RuleGroupForwardedIpConfigurationPtrOutput)
 }
@@ -4778,10 +4706,6 @@ func (o RuleGroupGeoMatchStatementPtrOutput) CountryCodes() pulumi.StringArrayOu
 // The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 //
 // > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-//
-// This configuration is used for `GeoMatchStatement` and `RateBasedStatement` . For `IPSetReferenceStatement` , use `IPSetForwardedIPConfig` instead.
-//
-// AWS WAF only evaluates the first IP address found in the specified HTTP header.
 func (o RuleGroupGeoMatchStatementPtrOutput) ForwardedIpConfig() RuleGroupForwardedIpConfigurationPtrOutput {
 	return o.ApplyT(func(v *RuleGroupGeoMatchStatement) *RuleGroupForwardedIpConfiguration {
 		if v == nil {
@@ -5585,8 +5509,6 @@ type RuleGroupIpSetReferenceStatement struct {
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	//
-	// This configuration is used only for `IPSetReferenceStatement` . For `GeoMatchStatement` and `RateBasedStatement` , use `ForwardedIPConfig` instead.
 	IpSetForwardedIpConfig *RuleGroupIpSetForwardedIpConfiguration `pulumi:"ipSetForwardedIpConfig"`
 }
 
@@ -5607,8 +5529,6 @@ type RuleGroupIpSetReferenceStatementArgs struct {
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	//
-	// This configuration is used only for `IPSetReferenceStatement` . For `GeoMatchStatement` and `RateBasedStatement` , use `ForwardedIPConfig` instead.
 	IpSetForwardedIpConfig RuleGroupIpSetForwardedIpConfigurationPtrInput `pulumi:"ipSetForwardedIpConfig"`
 }
 
@@ -5697,8 +5617,6 @@ func (o RuleGroupIpSetReferenceStatementOutput) Arn() pulumi.StringOutput {
 // The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 //
 // > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-//
-// This configuration is used only for `IPSetReferenceStatement` . For `GeoMatchStatement` and `RateBasedStatement` , use `ForwardedIPConfig` instead.
 func (o RuleGroupIpSetReferenceStatementOutput) IpSetForwardedIpConfig() RuleGroupIpSetForwardedIpConfigurationPtrOutput {
 	return o.ApplyT(func(v RuleGroupIpSetReferenceStatement) *RuleGroupIpSetForwardedIpConfiguration {
 		return v.IpSetForwardedIpConfig
@@ -5742,8 +5660,6 @@ func (o RuleGroupIpSetReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput 
 // The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 //
 // > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-//
-// This configuration is used only for `IPSetReferenceStatement` . For `GeoMatchStatement` and `RateBasedStatement` , use `ForwardedIPConfig` instead.
 func (o RuleGroupIpSetReferenceStatementPtrOutput) IpSetForwardedIpConfig() RuleGroupIpSetForwardedIpConfigurationPtrOutput {
 	return o.ApplyT(func(v *RuleGroupIpSetReferenceStatement) *RuleGroupIpSetForwardedIpConfiguration {
 		if v == nil {
@@ -5931,7 +5847,7 @@ type RuleGroupJsonBody struct {
 	// - Missing colon: `{"key1":"value1","key2""value2"}`
 	// - Extra colons: `{"key1"::"value1","key2""value2"}`
 	InvalidFallbackBehavior *RuleGroupBodyParsingFallbackBehavior `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. This is used with the `FieldToMatch` option `JsonBody` .
+	// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
 	MatchPattern RuleGroupJsonMatchPattern `pulumi:"matchPattern"`
 	// The parts of the JSON to match against using the `MatchPattern` . If you specify `ALL` , AWS WAF matches against keys and values.
 	//
@@ -5985,7 +5901,7 @@ type RuleGroupJsonBodyArgs struct {
 	// - Missing colon: `{"key1":"value1","key2""value2"}`
 	// - Extra colons: `{"key1"::"value1","key2""value2"}`
 	InvalidFallbackBehavior RuleGroupBodyParsingFallbackBehaviorPtrInput `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. This is used with the `FieldToMatch` option `JsonBody` .
+	// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
 	MatchPattern RuleGroupJsonMatchPatternInput `pulumi:"matchPattern"`
 	// The parts of the JSON to match against using the `MatchPattern` . If you specify `ALL` , AWS WAF matches against keys and values.
 	//
@@ -6107,7 +6023,7 @@ func (o RuleGroupJsonBodyOutput) InvalidFallbackBehavior() RuleGroupBodyParsingF
 	return o.ApplyT(func(v RuleGroupJsonBody) *RuleGroupBodyParsingFallbackBehavior { return v.InvalidFallbackBehavior }).(RuleGroupBodyParsingFallbackBehaviorPtrOutput)
 }
 
-// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. This is used with the `FieldToMatch` option `JsonBody` .
+// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
 func (o RuleGroupJsonBodyOutput) MatchPattern() RuleGroupJsonMatchPatternOutput {
 	return o.ApplyT(func(v RuleGroupJsonBody) RuleGroupJsonMatchPattern { return v.MatchPattern }).(RuleGroupJsonMatchPatternOutput)
 }
@@ -6187,7 +6103,7 @@ func (o RuleGroupJsonBodyPtrOutput) InvalidFallbackBehavior() RuleGroupBodyParsi
 	}).(RuleGroupBodyParsingFallbackBehaviorPtrOutput)
 }
 
-// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. This is used with the `FieldToMatch` option `JsonBody` .
+// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
 func (o RuleGroupJsonBodyPtrOutput) MatchPattern() RuleGroupJsonMatchPatternPtrOutput {
 	return o.ApplyT(func(v *RuleGroupJsonBody) *RuleGroupJsonMatchPattern {
 		if v == nil {
@@ -6788,7 +6704,7 @@ func (o RuleGroupLabelSummaryArrayOutput) Index(i pulumi.IntInput) RuleGroupLabe
 }
 
 type RuleGroupNotStatement struct {
-	// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+	// The statement to negate. You can use any statement that can be nested.
 	Statement RuleGroupStatement `pulumi:"statement"`
 }
 
@@ -6804,7 +6720,7 @@ type RuleGroupNotStatementInput interface {
 }
 
 type RuleGroupNotStatementArgs struct {
-	// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+	// The statement to negate. You can use any statement that can be nested.
 	Statement RuleGroupStatementInput `pulumi:"statement"`
 }
 
@@ -6885,7 +6801,7 @@ func (o RuleGroupNotStatementOutput) ToRuleGroupNotStatementPtrOutputWithContext
 	}).(RuleGroupNotStatementPtrOutput)
 }
 
-// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+// The statement to negate. You can use any statement that can be nested.
 func (o RuleGroupNotStatementOutput) Statement() RuleGroupStatementOutput {
 	return o.ApplyT(func(v RuleGroupNotStatement) RuleGroupStatement { return v.Statement }).(RuleGroupStatementOutput)
 }
@@ -6914,7 +6830,7 @@ func (o RuleGroupNotStatementPtrOutput) Elem() RuleGroupNotStatementOutput {
 	}).(RuleGroupNotStatementOutput)
 }
 
-// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+// The statement to negate. You can use any statement that can be nested.
 func (o RuleGroupNotStatementPtrOutput) Statement() RuleGroupStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupNotStatement) *RuleGroupStatement {
 		if v == nil {
@@ -7095,9 +7011,7 @@ type RuleGroupRateBasedStatement struct {
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 	//
-	// This configuration is used for `GeoMatchStatement` and `RateBasedStatement` . For `IPSetReferenceStatement` , use `IPSetForwardedIPConfig` instead.
-	//
-	// AWS WAF only evaluates the first IP address found in the specified HTTP header.
+	// This is required if you specify a forwarded IP in the rule's aggregate key settings.
 	ForwardedIpConfig *RuleGroupForwardedIpConfiguration `pulumi:"forwardedIpConfig"`
 	// The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
 	//
@@ -7106,7 +7020,7 @@ type RuleGroupRateBasedStatement struct {
 	// - If you aggregate on just the IP address, this is the limit on requests from any single IP address.
 	// - If you aggregate on the HTTP method and the query argument name "city", then this is the limit on requests for any single method, city pair.
 	Limit int `pulumi:"limit"`
-	// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+	// An optional nested statement that narrows the scope of the web requests that are evaluated and managed by the rate-based statement. When you use a scope-down statement, the rate-based rule only tracks and rate limits requests that match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
 	ScopeDownStatement *RuleGroupStatement `pulumi:"scopeDownStatement"`
 }
 
@@ -7155,9 +7069,7 @@ type RuleGroupRateBasedStatementArgs struct {
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 	//
-	// This configuration is used for `GeoMatchStatement` and `RateBasedStatement` . For `IPSetReferenceStatement` , use `IPSetForwardedIPConfig` instead.
-	//
-	// AWS WAF only evaluates the first IP address found in the specified HTTP header.
+	// This is required if you specify a forwarded IP in the rule's aggregate key settings.
 	ForwardedIpConfig RuleGroupForwardedIpConfigurationPtrInput `pulumi:"forwardedIpConfig"`
 	// The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
 	//
@@ -7166,7 +7078,7 @@ type RuleGroupRateBasedStatementArgs struct {
 	// - If you aggregate on just the IP address, this is the limit on requests from any single IP address.
 	// - If you aggregate on the HTTP method and the query argument name "city", then this is the limit on requests for any single method, city pair.
 	Limit pulumi.IntInput `pulumi:"limit"`
-	// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+	// An optional nested statement that narrows the scope of the web requests that are evaluated and managed by the rate-based statement. When you use a scope-down statement, the rate-based rule only tracks and rate limits requests that match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
 	ScopeDownStatement RuleGroupStatementPtrInput `pulumi:"scopeDownStatement"`
 }
 
@@ -7291,9 +7203,7 @@ func (o RuleGroupRateBasedStatementOutput) EvaluationWindowSec() pulumi.IntPtrOu
 //
 // > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 //
-// This configuration is used for `GeoMatchStatement` and `RateBasedStatement` . For `IPSetReferenceStatement` , use `IPSetForwardedIPConfig` instead.
-//
-// AWS WAF only evaluates the first IP address found in the specified HTTP header.
+// This is required if you specify a forwarded IP in the rule's aggregate key settings.
 func (o RuleGroupRateBasedStatementOutput) ForwardedIpConfig() RuleGroupForwardedIpConfigurationPtrOutput {
 	return o.ApplyT(func(v RuleGroupRateBasedStatement) *RuleGroupForwardedIpConfiguration { return v.ForwardedIpConfig }).(RuleGroupForwardedIpConfigurationPtrOutput)
 }
@@ -7308,7 +7218,7 @@ func (o RuleGroupRateBasedStatementOutput) Limit() pulumi.IntOutput {
 	return o.ApplyT(func(v RuleGroupRateBasedStatement) int { return v.Limit }).(pulumi.IntOutput)
 }
 
-// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+// An optional nested statement that narrows the scope of the web requests that are evaluated and managed by the rate-based statement. When you use a scope-down statement, the rate-based rule only tracks and rate limits requests that match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
 func (o RuleGroupRateBasedStatementOutput) ScopeDownStatement() RuleGroupStatementPtrOutput {
 	return o.ApplyT(func(v RuleGroupRateBasedStatement) *RuleGroupStatement { return v.ScopeDownStatement }).(RuleGroupStatementPtrOutput)
 }
@@ -7394,9 +7304,7 @@ func (o RuleGroupRateBasedStatementPtrOutput) EvaluationWindowSec() pulumi.IntPt
 //
 // > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 //
-// This configuration is used for `GeoMatchStatement` and `RateBasedStatement` . For `IPSetReferenceStatement` , use `IPSetForwardedIPConfig` instead.
-//
-// AWS WAF only evaluates the first IP address found in the specified HTTP header.
+// This is required if you specify a forwarded IP in the rule's aggregate key settings.
 func (o RuleGroupRateBasedStatementPtrOutput) ForwardedIpConfig() RuleGroupForwardedIpConfigurationPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRateBasedStatement) *RuleGroupForwardedIpConfiguration {
 		if v == nil {
@@ -7421,7 +7329,7 @@ func (o RuleGroupRateBasedStatementPtrOutput) Limit() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+// An optional nested statement that narrows the scope of the web requests that are evaluated and managed by the rate-based statement. When you use a scope-down statement, the rate-based rule only tracks and rate limits requests that match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
 func (o RuleGroupRateBasedStatementPtrOutput) ScopeDownStatement() RuleGroupStatementPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRateBasedStatement) *RuleGroupStatement {
 		if v == nil {
@@ -7433,7 +7341,7 @@ func (o RuleGroupRateBasedStatementPtrOutput) ScopeDownStatement() RuleGroupStat
 
 // Specifies a single custom aggregate key for a rate-base rule.
 type RuleGroupRateBasedStatementCustomKey struct {
-	// Specifies a cookie as an aggregate key for a rate-based rule. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
+	// Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
 	Cookie *RuleGroupRateLimitCookie `pulumi:"cookie"`
 	// Use the first IP address in an HTTP header as an aggregate key. Each distinct forwarded IP address contributes to the aggregation instance.
 	//
@@ -7441,7 +7349,7 @@ type RuleGroupRateBasedStatementCustomKey struct {
 	//
 	// With this option, you must specify the header to use in the rate-based rule's `ForwardedIPConfig` property.
 	ForwardedIp *RuleGroupRateLimitForwardedIp `pulumi:"forwardedIp"`
-	// Specifies a header as an aggregate key for a rate-based rule. Each distinct value in the header contributes to the aggregation instance. If you use a single header as your custom key, then each value fully defines an aggregation instance.
+	// Use the value of a header in the request as an aggregate key. Each distinct value in the header contributes to the aggregation instance. If you use a single header as your custom key, then each value fully defines an aggregation instance.
 	Header *RuleGroupRateLimitHeader `pulumi:"header"`
 	// Use the request's HTTP method as an aggregate key. Each distinct HTTP method contributes to the aggregation instance. If you use just the HTTP method as your custom key, then each method fully defines an aggregation instance.
 	HttpMethod *RuleGroupRateLimitHttpMethod `pulumi:"httpMethod"`
@@ -7449,17 +7357,17 @@ type RuleGroupRateBasedStatementCustomKey struct {
 	//
 	// When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the IP address by specifying `IP` in your rate-based statement's `AggregateKeyType` .
 	Ip *RuleGroupRateLimitIp `pulumi:"ip"`
-	// Specifies a label namespace to use as an aggregate key for a rate-based rule. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
+	// Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
 	//
 	// This uses only labels that have been added to the request by rules that are evaluated before this rate-based rule in the web ACL.
 	//
 	// For information about label namespaces and names, see [Label syntax and naming requirements](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-label-requirements.html) in the *AWS WAF Developer Guide* .
 	LabelNamespace *RuleGroupRateLimitLabelNamespace `pulumi:"labelNamespace"`
-	// Specifies a query argument in the request as an aggregate key for a rate-based rule. Each distinct value for the named query argument contributes to the aggregation instance. If you use a single query argument as your custom key, then each value fully defines an aggregation instance.
+	// Use the specified query argument as an aggregate key. Each distinct value for the named query argument contributes to the aggregation instance. If you use a single query argument as your custom key, then each value fully defines an aggregation instance.
 	QueryArgument *RuleGroupRateLimitQueryArgument `pulumi:"queryArgument"`
-	// Specifies the request's query string as an aggregate key for a rate-based rule. Each distinct string contributes to the aggregation instance. If you use just the query string as your custom key, then each string fully defines an aggregation instance.
+	// Use the request's query string as an aggregate key. Each distinct string contributes to the aggregation instance. If you use just the query string as your custom key, then each string fully defines an aggregation instance.
 	QueryString *RuleGroupRateLimitQueryString `pulumi:"queryString"`
-	// Specifies the request's URI path as an aggregate key for a rate-based rule. Each distinct URI path contributes to the aggregation instance. If you use just the URI path as your custom key, then each URI path fully defines an aggregation instance.
+	// Use the request's URI path as an aggregate key. Each distinct URI path contributes to the aggregation instance. If you use just the URI path as your custom key, then each URI path fully defines an aggregation instance.
 	UriPath *RuleGroupRateLimitUriPath `pulumi:"uriPath"`
 }
 
@@ -7476,7 +7384,7 @@ type RuleGroupRateBasedStatementCustomKeyInput interface {
 
 // Specifies a single custom aggregate key for a rate-base rule.
 type RuleGroupRateBasedStatementCustomKeyArgs struct {
-	// Specifies a cookie as an aggregate key for a rate-based rule. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
+	// Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
 	Cookie RuleGroupRateLimitCookiePtrInput `pulumi:"cookie"`
 	// Use the first IP address in an HTTP header as an aggregate key. Each distinct forwarded IP address contributes to the aggregation instance.
 	//
@@ -7484,7 +7392,7 @@ type RuleGroupRateBasedStatementCustomKeyArgs struct {
 	//
 	// With this option, you must specify the header to use in the rate-based rule's `ForwardedIPConfig` property.
 	ForwardedIp RuleGroupRateLimitForwardedIpPtrInput `pulumi:"forwardedIp"`
-	// Specifies a header as an aggregate key for a rate-based rule. Each distinct value in the header contributes to the aggregation instance. If you use a single header as your custom key, then each value fully defines an aggregation instance.
+	// Use the value of a header in the request as an aggregate key. Each distinct value in the header contributes to the aggregation instance. If you use a single header as your custom key, then each value fully defines an aggregation instance.
 	Header RuleGroupRateLimitHeaderPtrInput `pulumi:"header"`
 	// Use the request's HTTP method as an aggregate key. Each distinct HTTP method contributes to the aggregation instance. If you use just the HTTP method as your custom key, then each method fully defines an aggregation instance.
 	HttpMethod RuleGroupRateLimitHttpMethodPtrInput `pulumi:"httpMethod"`
@@ -7492,17 +7400,17 @@ type RuleGroupRateBasedStatementCustomKeyArgs struct {
 	//
 	// When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the IP address by specifying `IP` in your rate-based statement's `AggregateKeyType` .
 	Ip RuleGroupRateLimitIpPtrInput `pulumi:"ip"`
-	// Specifies a label namespace to use as an aggregate key for a rate-based rule. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
+	// Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
 	//
 	// This uses only labels that have been added to the request by rules that are evaluated before this rate-based rule in the web ACL.
 	//
 	// For information about label namespaces and names, see [Label syntax and naming requirements](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-label-requirements.html) in the *AWS WAF Developer Guide* .
 	LabelNamespace RuleGroupRateLimitLabelNamespacePtrInput `pulumi:"labelNamespace"`
-	// Specifies a query argument in the request as an aggregate key for a rate-based rule. Each distinct value for the named query argument contributes to the aggregation instance. If you use a single query argument as your custom key, then each value fully defines an aggregation instance.
+	// Use the specified query argument as an aggregate key. Each distinct value for the named query argument contributes to the aggregation instance. If you use a single query argument as your custom key, then each value fully defines an aggregation instance.
 	QueryArgument RuleGroupRateLimitQueryArgumentPtrInput `pulumi:"queryArgument"`
-	// Specifies the request's query string as an aggregate key for a rate-based rule. Each distinct string contributes to the aggregation instance. If you use just the query string as your custom key, then each string fully defines an aggregation instance.
+	// Use the request's query string as an aggregate key. Each distinct string contributes to the aggregation instance. If you use just the query string as your custom key, then each string fully defines an aggregation instance.
 	QueryString RuleGroupRateLimitQueryStringPtrInput `pulumi:"queryString"`
-	// Specifies the request's URI path as an aggregate key for a rate-based rule. Each distinct URI path contributes to the aggregation instance. If you use just the URI path as your custom key, then each URI path fully defines an aggregation instance.
+	// Use the request's URI path as an aggregate key. Each distinct URI path contributes to the aggregation instance. If you use just the URI path as your custom key, then each URI path fully defines an aggregation instance.
 	UriPath RuleGroupRateLimitUriPathPtrInput `pulumi:"uriPath"`
 }
 
@@ -7558,7 +7466,7 @@ func (o RuleGroupRateBasedStatementCustomKeyOutput) ToRuleGroupRateBasedStatemen
 	return o
 }
 
-// Specifies a cookie as an aggregate key for a rate-based rule. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
+// Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
 func (o RuleGroupRateBasedStatementCustomKeyOutput) Cookie() RuleGroupRateLimitCookiePtrOutput {
 	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitCookie { return v.Cookie }).(RuleGroupRateLimitCookiePtrOutput)
 }
@@ -7572,7 +7480,7 @@ func (o RuleGroupRateBasedStatementCustomKeyOutput) ForwardedIp() RuleGroupRateL
 	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitForwardedIp { return v.ForwardedIp }).(RuleGroupRateLimitForwardedIpPtrOutput)
 }
 
-// Specifies a header as an aggregate key for a rate-based rule. Each distinct value in the header contributes to the aggregation instance. If you use a single header as your custom key, then each value fully defines an aggregation instance.
+// Use the value of a header in the request as an aggregate key. Each distinct value in the header contributes to the aggregation instance. If you use a single header as your custom key, then each value fully defines an aggregation instance.
 func (o RuleGroupRateBasedStatementCustomKeyOutput) Header() RuleGroupRateLimitHeaderPtrOutput {
 	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitHeader { return v.Header }).(RuleGroupRateLimitHeaderPtrOutput)
 }
@@ -7589,7 +7497,7 @@ func (o RuleGroupRateBasedStatementCustomKeyOutput) Ip() RuleGroupRateLimitIpPtr
 	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitIp { return v.Ip }).(RuleGroupRateLimitIpPtrOutput)
 }
 
-// Specifies a label namespace to use as an aggregate key for a rate-based rule. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
+// Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
 //
 // This uses only labels that have been added to the request by rules that are evaluated before this rate-based rule in the web ACL.
 //
@@ -7600,17 +7508,17 @@ func (o RuleGroupRateBasedStatementCustomKeyOutput) LabelNamespace() RuleGroupRa
 	}).(RuleGroupRateLimitLabelNamespacePtrOutput)
 }
 
-// Specifies a query argument in the request as an aggregate key for a rate-based rule. Each distinct value for the named query argument contributes to the aggregation instance. If you use a single query argument as your custom key, then each value fully defines an aggregation instance.
+// Use the specified query argument as an aggregate key. Each distinct value for the named query argument contributes to the aggregation instance. If you use a single query argument as your custom key, then each value fully defines an aggregation instance.
 func (o RuleGroupRateBasedStatementCustomKeyOutput) QueryArgument() RuleGroupRateLimitQueryArgumentPtrOutput {
 	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitQueryArgument { return v.QueryArgument }).(RuleGroupRateLimitQueryArgumentPtrOutput)
 }
 
-// Specifies the request's query string as an aggregate key for a rate-based rule. Each distinct string contributes to the aggregation instance. If you use just the query string as your custom key, then each string fully defines an aggregation instance.
+// Use the request's query string as an aggregate key. Each distinct string contributes to the aggregation instance. If you use just the query string as your custom key, then each string fully defines an aggregation instance.
 func (o RuleGroupRateBasedStatementCustomKeyOutput) QueryString() RuleGroupRateLimitQueryStringPtrOutput {
 	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitQueryString { return v.QueryString }).(RuleGroupRateLimitQueryStringPtrOutput)
 }
 
-// Specifies the request's URI path as an aggregate key for a rate-based rule. Each distinct URI path contributes to the aggregation instance. If you use just the URI path as your custom key, then each URI path fully defines an aggregation instance.
+// Use the request's URI path as an aggregate key. Each distinct URI path contributes to the aggregation instance. If you use just the URI path as your custom key, then each URI path fully defines an aggregation instance.
 func (o RuleGroupRateBasedStatementCustomKeyOutput) UriPath() RuleGroupRateLimitUriPathPtrOutput {
 	return o.ApplyT(func(v RuleGroupRateBasedStatementCustomKey) *RuleGroupRateLimitUriPath { return v.UriPath }).(RuleGroupRateLimitUriPathPtrOutput)
 }
@@ -8896,22 +8804,7 @@ func (o RuleGroupRateLimitUriPathPtrOutput) TextTransformations() RuleGroupTextT
 }
 
 type RuleGroupRegexMatchStatement struct {
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch RuleGroupFieldToMatch `pulumi:"fieldToMatch"`
 	// The string representing the regular expression.
 	RegexString string `pulumi:"regexString"`
@@ -8931,22 +8824,7 @@ type RuleGroupRegexMatchStatementInput interface {
 }
 
 type RuleGroupRegexMatchStatementArgs struct {
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch RuleGroupFieldToMatchInput `pulumi:"fieldToMatch"`
 	// The string representing the regular expression.
 	RegexString pulumi.StringInput `pulumi:"regexString"`
@@ -9031,22 +8909,7 @@ func (o RuleGroupRegexMatchStatementOutput) ToRuleGroupRegexMatchStatementPtrOut
 	}).(RuleGroupRegexMatchStatementPtrOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o RuleGroupRegexMatchStatementOutput) FieldToMatch() RuleGroupFieldToMatchOutput {
 	return o.ApplyT(func(v RuleGroupRegexMatchStatement) RuleGroupFieldToMatch { return v.FieldToMatch }).(RuleGroupFieldToMatchOutput)
 }
@@ -9085,22 +8948,7 @@ func (o RuleGroupRegexMatchStatementPtrOutput) Elem() RuleGroupRegexMatchStateme
 	}).(RuleGroupRegexMatchStatementOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o RuleGroupRegexMatchStatementPtrOutput) FieldToMatch() RuleGroupFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRegexMatchStatement) *RuleGroupFieldToMatch {
 		if v == nil {
@@ -9133,22 +8981,7 @@ func (o RuleGroupRegexMatchStatementPtrOutput) TextTransformations() RuleGroupTe
 type RuleGroupRegexPatternSetReferenceStatement struct {
 	// The Amazon Resource Name (ARN) of the `RegexPatternSet` that this statement references.
 	Arn string `pulumi:"arn"`
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch RuleGroupFieldToMatch `pulumi:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 	TextTransformations []RuleGroupTextTransformation `pulumi:"textTransformations"`
@@ -9168,22 +9001,7 @@ type RuleGroupRegexPatternSetReferenceStatementInput interface {
 type RuleGroupRegexPatternSetReferenceStatementArgs struct {
 	// The Amazon Resource Name (ARN) of the `RegexPatternSet` that this statement references.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch RuleGroupFieldToMatchInput `pulumi:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 	TextTransformations RuleGroupTextTransformationArrayInput `pulumi:"textTransformations"`
@@ -9271,22 +9089,7 @@ func (o RuleGroupRegexPatternSetReferenceStatementOutput) Arn() pulumi.StringOut
 	return o.ApplyT(func(v RuleGroupRegexPatternSetReferenceStatement) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o RuleGroupRegexPatternSetReferenceStatementOutput) FieldToMatch() RuleGroupFieldToMatchOutput {
 	return o.ApplyT(func(v RuleGroupRegexPatternSetReferenceStatement) RuleGroupFieldToMatch { return v.FieldToMatch }).(RuleGroupFieldToMatchOutput)
 }
@@ -9332,22 +9135,7 @@ func (o RuleGroupRegexPatternSetReferenceStatementPtrOutput) Arn() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o RuleGroupRegexPatternSetReferenceStatementPtrOutput) FieldToMatch() RuleGroupFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRegexPatternSetReferenceStatement) *RuleGroupFieldToMatch {
 		if v == nil {
@@ -9369,11 +9157,11 @@ func (o RuleGroupRegexPatternSetReferenceStatementPtrOutput) TextTransformations
 
 // Rule of RuleGroup that contains condition and action.
 type RuleGroupRule struct {
-	// The action that AWS WAF should take on a web request when it matches a rule's statement. Settings at the web ACL level can override the rule action setting.
+	// The action that AWS WAF should take on a web request when it matches the rule statement. Settings at the web ACL level can override the rule action setting.
 	Action *RuleGroupRuleAction `pulumi:"action"`
-	// Specifies how AWS WAF should handle `CAPTCHA` evaluations. This is available at the web ACL level and in each rule.
+	// Specifies how AWS WAF should handle `CAPTCHA` evaluations. If you don't specify this, AWS WAF uses the `CAPTCHA` configuration that's defined for the web ACL.
 	CaptchaConfig *RuleGroupCaptchaConfig `pulumi:"captchaConfig"`
-	// Specifies how AWS WAF should handle `Challenge` evaluations. This is available at the web ACL level and in each rule.
+	// Specifies how AWS WAF should handle `Challenge` evaluations. If you don't specify this, AWS WAF uses the challenge configuration that's defined for the web ACL.
 	ChallengeConfig *RuleGroupChallengeConfig `pulumi:"challengeConfig"`
 	// The name of the rule.
 	//
@@ -9383,9 +9171,11 @@ type RuleGroupRule struct {
 	Priority int `pulumi:"priority"`
 	// Collection of Rule Labels.
 	RuleLabels []RuleGroupLabel `pulumi:"ruleLabels"`
-	// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+	// The AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `SizeConstraintStatement` .
 	Statement RuleGroupStatement `pulumi:"statement"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
+	//
+	// If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name as well. AWS WAF doesn't automatically update the metric name.
 	VisibilityConfig RuleGroupVisibilityConfig `pulumi:"visibilityConfig"`
 }
 
@@ -9402,11 +9192,11 @@ type RuleGroupRuleInput interface {
 
 // Rule of RuleGroup that contains condition and action.
 type RuleGroupRuleArgs struct {
-	// The action that AWS WAF should take on a web request when it matches a rule's statement. Settings at the web ACL level can override the rule action setting.
+	// The action that AWS WAF should take on a web request when it matches the rule statement. Settings at the web ACL level can override the rule action setting.
 	Action RuleGroupRuleActionPtrInput `pulumi:"action"`
-	// Specifies how AWS WAF should handle `CAPTCHA` evaluations. This is available at the web ACL level and in each rule.
+	// Specifies how AWS WAF should handle `CAPTCHA` evaluations. If you don't specify this, AWS WAF uses the `CAPTCHA` configuration that's defined for the web ACL.
 	CaptchaConfig RuleGroupCaptchaConfigPtrInput `pulumi:"captchaConfig"`
-	// Specifies how AWS WAF should handle `Challenge` evaluations. This is available at the web ACL level and in each rule.
+	// Specifies how AWS WAF should handle `Challenge` evaluations. If you don't specify this, AWS WAF uses the challenge configuration that's defined for the web ACL.
 	ChallengeConfig RuleGroupChallengeConfigPtrInput `pulumi:"challengeConfig"`
 	// The name of the rule.
 	//
@@ -9416,9 +9206,11 @@ type RuleGroupRuleArgs struct {
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// Collection of Rule Labels.
 	RuleLabels RuleGroupLabelArrayInput `pulumi:"ruleLabels"`
-	// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+	// The AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `SizeConstraintStatement` .
 	Statement RuleGroupStatementInput `pulumi:"statement"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
+	//
+	// If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name as well. AWS WAF doesn't automatically update the metric name.
 	VisibilityConfig RuleGroupVisibilityConfigInput `pulumi:"visibilityConfig"`
 }
 
@@ -9474,17 +9266,17 @@ func (o RuleGroupRuleOutput) ToRuleGroupRuleOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The action that AWS WAF should take on a web request when it matches a rule's statement. Settings at the web ACL level can override the rule action setting.
+// The action that AWS WAF should take on a web request when it matches the rule statement. Settings at the web ACL level can override the rule action setting.
 func (o RuleGroupRuleOutput) Action() RuleGroupRuleActionPtrOutput {
 	return o.ApplyT(func(v RuleGroupRule) *RuleGroupRuleAction { return v.Action }).(RuleGroupRuleActionPtrOutput)
 }
 
-// Specifies how AWS WAF should handle `CAPTCHA` evaluations. This is available at the web ACL level and in each rule.
+// Specifies how AWS WAF should handle `CAPTCHA` evaluations. If you don't specify this, AWS WAF uses the `CAPTCHA` configuration that's defined for the web ACL.
 func (o RuleGroupRuleOutput) CaptchaConfig() RuleGroupCaptchaConfigPtrOutput {
 	return o.ApplyT(func(v RuleGroupRule) *RuleGroupCaptchaConfig { return v.CaptchaConfig }).(RuleGroupCaptchaConfigPtrOutput)
 }
 
-// Specifies how AWS WAF should handle `Challenge` evaluations. This is available at the web ACL level and in each rule.
+// Specifies how AWS WAF should handle `Challenge` evaluations. If you don't specify this, AWS WAF uses the challenge configuration that's defined for the web ACL.
 func (o RuleGroupRuleOutput) ChallengeConfig() RuleGroupChallengeConfigPtrOutput {
 	return o.ApplyT(func(v RuleGroupRule) *RuleGroupChallengeConfig { return v.ChallengeConfig }).(RuleGroupChallengeConfigPtrOutput)
 }
@@ -9506,12 +9298,14 @@ func (o RuleGroupRuleOutput) RuleLabels() RuleGroupLabelArrayOutput {
 	return o.ApplyT(func(v RuleGroupRule) []RuleGroupLabel { return v.RuleLabels }).(RuleGroupLabelArrayOutput)
 }
 
-// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+// The AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `SizeConstraintStatement` .
 func (o RuleGroupRuleOutput) Statement() RuleGroupStatementOutput {
 	return o.ApplyT(func(v RuleGroupRule) RuleGroupStatement { return v.Statement }).(RuleGroupStatementOutput)
 }
 
 // Defines and enables Amazon CloudWatch metrics and web request sample collection.
+//
+// If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name as well. AWS WAF doesn't automatically update the metric name.
 func (o RuleGroupRuleOutput) VisibilityConfig() RuleGroupVisibilityConfigOutput {
 	return o.ApplyT(func(v RuleGroupRule) RuleGroupVisibilityConfig { return v.VisibilityConfig }).(RuleGroupVisibilityConfigOutput)
 }
@@ -9538,53 +9332,28 @@ func (o RuleGroupRuleArrayOutput) Index(i pulumi.IntInput) RuleGroupRuleOutput {
 
 // Action taken when Rule matches its condition.
 type RuleGroupRuleAction struct {
-	// Specifies that AWS WAF should allow the request and optionally defines additional custom handling for the request.
-	//
-	// This is used in the context of other settings, for example to specify values for `RuleAction` and web ACL `DefaultAction` .
+	// Instructs AWS WAF to allow the web request.
 	Allow *RuleGroupAllowAction `pulumi:"allow"`
-	// Specifies that AWS WAF should block the request and optionally defines additional custom handling for the response to the web request.
-	//
-	// This is used in the context of other settings, for example to specify values for `RuleAction` and web ACL `DefaultAction` .
+	// Instructs AWS WAF to block the web request.
 	Block *RuleGroupBlockAction `pulumi:"block"`
 	// Specifies that AWS WAF should run a `CAPTCHA` check against the request:
 	//
-	// - If the request includes a valid, unexpired `CAPTCHA` token, AWS WAF applies any custom request handling and labels that you've configured and then allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
-	// - If the request doesn't include a valid, unexpired token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
+	// - If the request includes a valid, unexpired `CAPTCHA` token, AWS WAF allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
+	// - If the request doesn't include a valid, unexpired `CAPTCHA` token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
 	//
 	// AWS WAF generates a response that it sends back to the client, which includes the following:
 	//
 	// - The header `x-amzn-waf-action` with a value of `captcha` .
 	// - The HTTP status code `405 Method Not Allowed` .
-	// - If the request contains an `Accept` header with a value of `text/html` , the response includes a `CAPTCHA` JavaScript page interstitial.
+	// - If the request contains an `Accept` header with a value of `text/html` , the response includes a `CAPTCHA` challenge.
 	//
 	// You can configure the expiration time in the `CaptchaConfig` `ImmunityTimeProperty` setting at the rule and web ACL level. The rule setting overrides the web ACL setting.
 	//
 	// This action option is available for rules. It isn't available for web ACL default actions.
 	Captcha *RuleGroupCaptchaAction `pulumi:"captcha"`
-	// Specifies that AWS WAF should run a `Challenge` check against the request to verify that the request is coming from a legitimate client session:
-	//
-	// - If the request includes a valid, unexpired challenge token, AWS WAF applies any custom request handling and labels that you've configured and then allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
-	// - If the request doesn't include a valid, unexpired challenge token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
-	//
-	// AWS WAF then generates a challenge response that it sends back to the client, which includes the following:
-	//
-	// - The header `x-amzn-waf-action` with a value of `challenge` .
-	// - The HTTP status code `202 Request Accepted` .
-	// - If the request contains an `Accept` header with a value of `text/html` , the response includes a JavaScript page interstitial with a challenge script.
-	//
-	// Challenges run silent browser interrogations in the background, and don't generally affect the end user experience.
-	//
-	// A challenge enforces token acquisition using an interstitial JavaScript challenge that inspects the client session for legitimate behavior. The challenge blocks bots or at least increases the cost of operating sophisticated bots.
-	//
-	// After the client session successfully responds to the challenge, it receives a new token from AWS WAF , which the challenge script uses to resubmit the original request.
-	//
-	// You can configure the expiration time in the `ChallengeConfig` `ImmunityTimeProperty` setting at the rule and web ACL level. The rule setting overrides the web ACL setting.
-	//
-	// This action option is available for rules. It isn't available for web ACL default actions.
+	// Instructs AWS WAF to run a `Challenge` check against the web request.
 	Challenge *RuleGroupChallengeAction `pulumi:"challenge"`
-	// Specifies that AWS WAF should count the request. Optionally defines additional custom handling for the request.
-	//
-	// This is used in the context of other settings, for example to specify values for `RuleAction` and web ACL `DefaultAction` .
+	// Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
 	Count *RuleGroupCountAction `pulumi:"count"`
 }
 
@@ -9601,53 +9370,28 @@ type RuleGroupRuleActionInput interface {
 
 // Action taken when Rule matches its condition.
 type RuleGroupRuleActionArgs struct {
-	// Specifies that AWS WAF should allow the request and optionally defines additional custom handling for the request.
-	//
-	// This is used in the context of other settings, for example to specify values for `RuleAction` and web ACL `DefaultAction` .
+	// Instructs AWS WAF to allow the web request.
 	Allow RuleGroupAllowActionPtrInput `pulumi:"allow"`
-	// Specifies that AWS WAF should block the request and optionally defines additional custom handling for the response to the web request.
-	//
-	// This is used in the context of other settings, for example to specify values for `RuleAction` and web ACL `DefaultAction` .
+	// Instructs AWS WAF to block the web request.
 	Block RuleGroupBlockActionPtrInput `pulumi:"block"`
 	// Specifies that AWS WAF should run a `CAPTCHA` check against the request:
 	//
-	// - If the request includes a valid, unexpired `CAPTCHA` token, AWS WAF applies any custom request handling and labels that you've configured and then allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
-	// - If the request doesn't include a valid, unexpired token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
+	// - If the request includes a valid, unexpired `CAPTCHA` token, AWS WAF allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
+	// - If the request doesn't include a valid, unexpired `CAPTCHA` token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
 	//
 	// AWS WAF generates a response that it sends back to the client, which includes the following:
 	//
 	// - The header `x-amzn-waf-action` with a value of `captcha` .
 	// - The HTTP status code `405 Method Not Allowed` .
-	// - If the request contains an `Accept` header with a value of `text/html` , the response includes a `CAPTCHA` JavaScript page interstitial.
+	// - If the request contains an `Accept` header with a value of `text/html` , the response includes a `CAPTCHA` challenge.
 	//
 	// You can configure the expiration time in the `CaptchaConfig` `ImmunityTimeProperty` setting at the rule and web ACL level. The rule setting overrides the web ACL setting.
 	//
 	// This action option is available for rules. It isn't available for web ACL default actions.
 	Captcha RuleGroupCaptchaActionPtrInput `pulumi:"captcha"`
-	// Specifies that AWS WAF should run a `Challenge` check against the request to verify that the request is coming from a legitimate client session:
-	//
-	// - If the request includes a valid, unexpired challenge token, AWS WAF applies any custom request handling and labels that you've configured and then allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
-	// - If the request doesn't include a valid, unexpired challenge token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
-	//
-	// AWS WAF then generates a challenge response that it sends back to the client, which includes the following:
-	//
-	// - The header `x-amzn-waf-action` with a value of `challenge` .
-	// - The HTTP status code `202 Request Accepted` .
-	// - If the request contains an `Accept` header with a value of `text/html` , the response includes a JavaScript page interstitial with a challenge script.
-	//
-	// Challenges run silent browser interrogations in the background, and don't generally affect the end user experience.
-	//
-	// A challenge enforces token acquisition using an interstitial JavaScript challenge that inspects the client session for legitimate behavior. The challenge blocks bots or at least increases the cost of operating sophisticated bots.
-	//
-	// After the client session successfully responds to the challenge, it receives a new token from AWS WAF , which the challenge script uses to resubmit the original request.
-	//
-	// You can configure the expiration time in the `ChallengeConfig` `ImmunityTimeProperty` setting at the rule and web ACL level. The rule setting overrides the web ACL setting.
-	//
-	// This action option is available for rules. It isn't available for web ACL default actions.
+	// Instructs AWS WAF to run a `Challenge` check against the web request.
 	Challenge RuleGroupChallengeActionPtrInput `pulumi:"challenge"`
-	// Specifies that AWS WAF should count the request. Optionally defines additional custom handling for the request.
-	//
-	// This is used in the context of other settings, for example to specify values for `RuleAction` and web ACL `DefaultAction` .
+	// Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
 	Count RuleGroupCountActionPtrInput `pulumi:"count"`
 }
 
@@ -9729,30 +9473,26 @@ func (o RuleGroupRuleActionOutput) ToRuleGroupRuleActionPtrOutputWithContext(ctx
 	}).(RuleGroupRuleActionPtrOutput)
 }
 
-// Specifies that AWS WAF should allow the request and optionally defines additional custom handling for the request.
-//
-// This is used in the context of other settings, for example to specify values for `RuleAction` and web ACL `DefaultAction` .
+// Instructs AWS WAF to allow the web request.
 func (o RuleGroupRuleActionOutput) Allow() RuleGroupAllowActionPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupAllowAction { return v.Allow }).(RuleGroupAllowActionPtrOutput)
 }
 
-// Specifies that AWS WAF should block the request and optionally defines additional custom handling for the response to the web request.
-//
-// This is used in the context of other settings, for example to specify values for `RuleAction` and web ACL `DefaultAction` .
+// Instructs AWS WAF to block the web request.
 func (o RuleGroupRuleActionOutput) Block() RuleGroupBlockActionPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupBlockAction { return v.Block }).(RuleGroupBlockActionPtrOutput)
 }
 
 // Specifies that AWS WAF should run a `CAPTCHA` check against the request:
 //
-// - If the request includes a valid, unexpired `CAPTCHA` token, AWS WAF applies any custom request handling and labels that you've configured and then allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
-// - If the request doesn't include a valid, unexpired token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
+// - If the request includes a valid, unexpired `CAPTCHA` token, AWS WAF allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
+// - If the request doesn't include a valid, unexpired `CAPTCHA` token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
 //
 // AWS WAF generates a response that it sends back to the client, which includes the following:
 //
 // - The header `x-amzn-waf-action` with a value of `captcha` .
 // - The HTTP status code `405 Method Not Allowed` .
-// - If the request contains an `Accept` header with a value of `text/html` , the response includes a `CAPTCHA` JavaScript page interstitial.
+// - If the request contains an `Accept` header with a value of `text/html` , the response includes a `CAPTCHA` challenge.
 //
 // You can configure the expiration time in the `CaptchaConfig` `ImmunityTimeProperty` setting at the rule and web ACL level. The rule setting overrides the web ACL setting.
 //
@@ -9761,33 +9501,12 @@ func (o RuleGroupRuleActionOutput) Captcha() RuleGroupCaptchaActionPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupCaptchaAction { return v.Captcha }).(RuleGroupCaptchaActionPtrOutput)
 }
 
-// Specifies that AWS WAF should run a `Challenge` check against the request to verify that the request is coming from a legitimate client session:
-//
-// - If the request includes a valid, unexpired challenge token, AWS WAF applies any custom request handling and labels that you've configured and then allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
-// - If the request doesn't include a valid, unexpired challenge token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
-//
-// AWS WAF then generates a challenge response that it sends back to the client, which includes the following:
-//
-// - The header `x-amzn-waf-action` with a value of `challenge` .
-// - The HTTP status code `202 Request Accepted` .
-// - If the request contains an `Accept` header with a value of `text/html` , the response includes a JavaScript page interstitial with a challenge script.
-//
-// Challenges run silent browser interrogations in the background, and don't generally affect the end user experience.
-//
-// A challenge enforces token acquisition using an interstitial JavaScript challenge that inspects the client session for legitimate behavior. The challenge blocks bots or at least increases the cost of operating sophisticated bots.
-//
-// After the client session successfully responds to the challenge, it receives a new token from AWS WAF , which the challenge script uses to resubmit the original request.
-//
-// You can configure the expiration time in the `ChallengeConfig` `ImmunityTimeProperty` setting at the rule and web ACL level. The rule setting overrides the web ACL setting.
-//
-// This action option is available for rules. It isn't available for web ACL default actions.
+// Instructs AWS WAF to run a `Challenge` check against the web request.
 func (o RuleGroupRuleActionOutput) Challenge() RuleGroupChallengeActionPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupChallengeAction { return v.Challenge }).(RuleGroupChallengeActionPtrOutput)
 }
 
-// Specifies that AWS WAF should count the request. Optionally defines additional custom handling for the request.
-//
-// This is used in the context of other settings, for example to specify values for `RuleAction` and web ACL `DefaultAction` .
+// Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
 func (o RuleGroupRuleActionOutput) Count() RuleGroupCountActionPtrOutput {
 	return o.ApplyT(func(v RuleGroupRuleAction) *RuleGroupCountAction { return v.Count }).(RuleGroupCountActionPtrOutput)
 }
@@ -9816,9 +9535,7 @@ func (o RuleGroupRuleActionPtrOutput) Elem() RuleGroupRuleActionOutput {
 	}).(RuleGroupRuleActionOutput)
 }
 
-// Specifies that AWS WAF should allow the request and optionally defines additional custom handling for the request.
-//
-// This is used in the context of other settings, for example to specify values for `RuleAction` and web ACL `DefaultAction` .
+// Instructs AWS WAF to allow the web request.
 func (o RuleGroupRuleActionPtrOutput) Allow() RuleGroupAllowActionPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleAction) *RuleGroupAllowAction {
 		if v == nil {
@@ -9828,9 +9545,7 @@ func (o RuleGroupRuleActionPtrOutput) Allow() RuleGroupAllowActionPtrOutput {
 	}).(RuleGroupAllowActionPtrOutput)
 }
 
-// Specifies that AWS WAF should block the request and optionally defines additional custom handling for the response to the web request.
-//
-// This is used in the context of other settings, for example to specify values for `RuleAction` and web ACL `DefaultAction` .
+// Instructs AWS WAF to block the web request.
 func (o RuleGroupRuleActionPtrOutput) Block() RuleGroupBlockActionPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleAction) *RuleGroupBlockAction {
 		if v == nil {
@@ -9842,14 +9557,14 @@ func (o RuleGroupRuleActionPtrOutput) Block() RuleGroupBlockActionPtrOutput {
 
 // Specifies that AWS WAF should run a `CAPTCHA` check against the request:
 //
-// - If the request includes a valid, unexpired `CAPTCHA` token, AWS WAF applies any custom request handling and labels that you've configured and then allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
-// - If the request doesn't include a valid, unexpired token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
+// - If the request includes a valid, unexpired `CAPTCHA` token, AWS WAF allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
+// - If the request doesn't include a valid, unexpired `CAPTCHA` token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
 //
 // AWS WAF generates a response that it sends back to the client, which includes the following:
 //
 // - The header `x-amzn-waf-action` with a value of `captcha` .
 // - The HTTP status code `405 Method Not Allowed` .
-// - If the request contains an `Accept` header with a value of `text/html` , the response includes a `CAPTCHA` JavaScript page interstitial.
+// - If the request contains an `Accept` header with a value of `text/html` , the response includes a `CAPTCHA` challenge.
 //
 // You can configure the expiration time in the `CaptchaConfig` `ImmunityTimeProperty` setting at the rule and web ACL level. The rule setting overrides the web ACL setting.
 //
@@ -9863,26 +9578,7 @@ func (o RuleGroupRuleActionPtrOutput) Captcha() RuleGroupCaptchaActionPtrOutput 
 	}).(RuleGroupCaptchaActionPtrOutput)
 }
 
-// Specifies that AWS WAF should run a `Challenge` check against the request to verify that the request is coming from a legitimate client session:
-//
-// - If the request includes a valid, unexpired challenge token, AWS WAF applies any custom request handling and labels that you've configured and then allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
-// - If the request doesn't include a valid, unexpired challenge token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
-//
-// AWS WAF then generates a challenge response that it sends back to the client, which includes the following:
-//
-// - The header `x-amzn-waf-action` with a value of `challenge` .
-// - The HTTP status code `202 Request Accepted` .
-// - If the request contains an `Accept` header with a value of `text/html` , the response includes a JavaScript page interstitial with a challenge script.
-//
-// Challenges run silent browser interrogations in the background, and don't generally affect the end user experience.
-//
-// A challenge enforces token acquisition using an interstitial JavaScript challenge that inspects the client session for legitimate behavior. The challenge blocks bots or at least increases the cost of operating sophisticated bots.
-//
-// After the client session successfully responds to the challenge, it receives a new token from AWS WAF , which the challenge script uses to resubmit the original request.
-//
-// You can configure the expiration time in the `ChallengeConfig` `ImmunityTimeProperty` setting at the rule and web ACL level. The rule setting overrides the web ACL setting.
-//
-// This action option is available for rules. It isn't available for web ACL default actions.
+// Instructs AWS WAF to run a `Challenge` check against the web request.
 func (o RuleGroupRuleActionPtrOutput) Challenge() RuleGroupChallengeActionPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleAction) *RuleGroupChallengeAction {
 		if v == nil {
@@ -9892,9 +9588,7 @@ func (o RuleGroupRuleActionPtrOutput) Challenge() RuleGroupChallengeActionPtrOut
 	}).(RuleGroupChallengeActionPtrOutput)
 }
 
-// Specifies that AWS WAF should count the request. Optionally defines additional custom handling for the request.
-//
-// This is used in the context of other settings, for example to specify values for `RuleAction` and web ACL `DefaultAction` .
+// Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
 func (o RuleGroupRuleActionPtrOutput) Count() RuleGroupCountActionPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleAction) *RuleGroupCountAction {
 		if v == nil {
@@ -9908,22 +9602,7 @@ func (o RuleGroupRuleActionPtrOutput) Count() RuleGroupCountActionPtrOutput {
 type RuleGroupSizeConstraintStatement struct {
 	// The operator to use to compare the request part to the size setting.
 	ComparisonOperator RuleGroupSizeConstraintStatementComparisonOperator `pulumi:"comparisonOperator"`
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch RuleGroupFieldToMatch `pulumi:"fieldToMatch"`
 	// The size, in byte, to compare to the request part, after any transformations.
 	Size float64 `pulumi:"size"`
@@ -9946,22 +9625,7 @@ type RuleGroupSizeConstraintStatementInput interface {
 type RuleGroupSizeConstraintStatementArgs struct {
 	// The operator to use to compare the request part to the size setting.
 	ComparisonOperator RuleGroupSizeConstraintStatementComparisonOperatorInput `pulumi:"comparisonOperator"`
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch RuleGroupFieldToMatchInput `pulumi:"fieldToMatch"`
 	// The size, in byte, to compare to the request part, after any transformations.
 	Size pulumi.Float64Input `pulumi:"size"`
@@ -10054,22 +9718,7 @@ func (o RuleGroupSizeConstraintStatementOutput) ComparisonOperator() RuleGroupSi
 	}).(RuleGroupSizeConstraintStatementComparisonOperatorOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o RuleGroupSizeConstraintStatementOutput) FieldToMatch() RuleGroupFieldToMatchOutput {
 	return o.ApplyT(func(v RuleGroupSizeConstraintStatement) RuleGroupFieldToMatch { return v.FieldToMatch }).(RuleGroupFieldToMatchOutput)
 }
@@ -10118,22 +9767,7 @@ func (o RuleGroupSizeConstraintStatementPtrOutput) ComparisonOperator() RuleGrou
 	}).(RuleGroupSizeConstraintStatementComparisonOperatorPtrOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o RuleGroupSizeConstraintStatementPtrOutput) FieldToMatch() RuleGroupFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *RuleGroupSizeConstraintStatement) *RuleGroupFieldToMatch {
 		if v == nil {
@@ -10165,22 +9799,7 @@ func (o RuleGroupSizeConstraintStatementPtrOutput) TextTransformations() RuleGro
 
 // Sqli Match Statement.
 type RuleGroupSqliMatchStatement struct {
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch RuleGroupFieldToMatch `pulumi:"fieldToMatch"`
 	// The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
 	//
@@ -10207,22 +9826,7 @@ type RuleGroupSqliMatchStatementInput interface {
 
 // Sqli Match Statement.
 type RuleGroupSqliMatchStatementArgs struct {
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch RuleGroupFieldToMatchInput `pulumi:"fieldToMatch"`
 	// The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
 	//
@@ -10314,22 +9918,7 @@ func (o RuleGroupSqliMatchStatementOutput) ToRuleGroupSqliMatchStatementPtrOutpu
 	}).(RuleGroupSqliMatchStatementPtrOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o RuleGroupSqliMatchStatementOutput) FieldToMatch() RuleGroupFieldToMatchOutput {
 	return o.ApplyT(func(v RuleGroupSqliMatchStatement) RuleGroupFieldToMatch { return v.FieldToMatch }).(RuleGroupFieldToMatchOutput)
 }
@@ -10374,22 +9963,7 @@ func (o RuleGroupSqliMatchStatementPtrOutput) Elem() RuleGroupSqliMatchStatement
 	}).(RuleGroupSqliMatchStatementOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o RuleGroupSqliMatchStatementPtrOutput) FieldToMatch() RuleGroupFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *RuleGroupSqliMatchStatement) *RuleGroupFieldToMatch {
 		if v == nil {
@@ -11353,22 +10927,7 @@ func (o RuleGroupVisibilityConfigPtrOutput) SampledRequestsEnabled() pulumi.Bool
 
 // Xss Match Statement.
 type RuleGroupXssMatchStatement struct {
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch RuleGroupFieldToMatch `pulumi:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 	TextTransformations []RuleGroupTextTransformation `pulumi:"textTransformations"`
@@ -11387,22 +10946,7 @@ type RuleGroupXssMatchStatementInput interface {
 
 // Xss Match Statement.
 type RuleGroupXssMatchStatementArgs struct {
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch RuleGroupFieldToMatchInput `pulumi:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 	TextTransformations RuleGroupTextTransformationArrayInput `pulumi:"textTransformations"`
@@ -11486,22 +11030,7 @@ func (o RuleGroupXssMatchStatementOutput) ToRuleGroupXssMatchStatementPtrOutputW
 	}).(RuleGroupXssMatchStatementPtrOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o RuleGroupXssMatchStatementOutput) FieldToMatch() RuleGroupFieldToMatchOutput {
 	return o.ApplyT(func(v RuleGroupXssMatchStatement) RuleGroupFieldToMatch { return v.FieldToMatch }).(RuleGroupFieldToMatchOutput)
 }
@@ -11535,22 +11064,7 @@ func (o RuleGroupXssMatchStatementPtrOutput) Elem() RuleGroupXssMatchStatementOu
 	}).(RuleGroupXssMatchStatementOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o RuleGroupXssMatchStatementPtrOutput) FieldToMatch() RuleGroupFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *RuleGroupXssMatchStatement) *RuleGroupFieldToMatch {
 		if v == nil {
@@ -11572,7 +11086,7 @@ func (o RuleGroupXssMatchStatementPtrOutput) TextTransformations() RuleGroupText
 
 // Allow traffic towards application.
 type WebAclAllowAction struct {
-	// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+	// Defines custom handling for the web request.
 	//
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 	CustomRequestHandling *WebAclCustomRequestHandling `pulumi:"customRequestHandling"`
@@ -11591,7 +11105,7 @@ type WebAclAllowActionInput interface {
 
 // Allow traffic towards application.
 type WebAclAllowActionArgs struct {
-	// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+	// Defines custom handling for the web request.
 	//
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 	CustomRequestHandling WebAclCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
@@ -11675,7 +11189,7 @@ func (o WebAclAllowActionOutput) ToWebAclAllowActionPtrOutputWithContext(ctx con
 	}).(WebAclAllowActionPtrOutput)
 }
 
-// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+// Defines custom handling for the web request.
 //
 // For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 func (o WebAclAllowActionOutput) CustomRequestHandling() WebAclCustomRequestHandlingPtrOutput {
@@ -11706,7 +11220,7 @@ func (o WebAclAllowActionPtrOutput) Elem() WebAclAllowActionOutput {
 	}).(WebAclAllowActionOutput)
 }
 
-// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+// Defines custom handling for the web request.
 //
 // For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 func (o WebAclAllowActionPtrOutput) CustomRequestHandling() WebAclCustomRequestHandlingPtrOutput {
@@ -11719,7 +11233,7 @@ func (o WebAclAllowActionPtrOutput) CustomRequestHandling() WebAclCustomRequestH
 }
 
 type WebAclAndStatement struct {
-	// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+	// The statements to combine with AND logic. You can use any statements that can be nested.
 	Statements []WebAclStatement `pulumi:"statements"`
 }
 
@@ -11735,7 +11249,7 @@ type WebAclAndStatementInput interface {
 }
 
 type WebAclAndStatementArgs struct {
-	// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+	// The statements to combine with AND logic. You can use any statements that can be nested.
 	Statements WebAclStatementArrayInput `pulumi:"statements"`
 }
 
@@ -11816,7 +11330,7 @@ func (o WebAclAndStatementOutput) ToWebAclAndStatementPtrOutputWithContext(ctx c
 	}).(WebAclAndStatementPtrOutput)
 }
 
-// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+// The statements to combine with AND logic. You can use any statements that can be nested.
 func (o WebAclAndStatementOutput) Statements() WebAclStatementArrayOutput {
 	return o.ApplyT(func(v WebAclAndStatement) []WebAclStatement { return v.Statements }).(WebAclStatementArrayOutput)
 }
@@ -11845,7 +11359,7 @@ func (o WebAclAndStatementPtrOutput) Elem() WebAclAndStatementOutput {
 	}).(WebAclAndStatementOutput)
 }
 
-// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+// The statements to combine with AND logic. You can use any statements that can be nested.
 func (o WebAclAndStatementPtrOutput) Statements() WebAclStatementArrayOutput {
 	return o.ApplyT(func(v *WebAclAndStatement) []WebAclStatement {
 		if v == nil {
@@ -12036,20 +11550,12 @@ type WebAclAwsManagedRulesAcfpRuleSet struct {
 	// For example, for the URL `https://example.com/web/registration` , you would provide the path `/web/registration` . Registration page paths that start with the path that you provide are considered a match. For example `/web/registration` matches the registration paths `/web/registration` , `/web/registration/` , `/web/registrationPage` , and `/web/registration/thisPage` , but doesn't match the path `/home/web/registration` or `/website/registration` .
 	RegistrationPagePath string `pulumi:"registrationPagePath"`
 	// The criteria for inspecting account creation requests, used by the ACFP rule group to validate and track account creation attempts.
-	//
-	// This is part of the `AWSManagedRulesACFPRuleSet` configuration in `ManagedRuleGroupConfig` .
-	//
-	// In these settings, you specify how your application accepts account creation attempts by providing the request payload type and the names of the fields within the request body where the username, password, email, and primary address and phone number fields are provided.
 	RequestInspection WebAclRequestInspectionAcfp `pulumi:"requestInspection"`
-	// The criteria for inspecting responses to login requests and account creation requests, used by the ATP and ACFP rule groups to track login and account creation success and failure rates.
+	// The criteria for inspecting responses to account creation requests, used by the ACFP rule group to track account creation success rates.
 	//
 	// > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
 	//
-	// The rule groups evaluates the responses that your protected resources send back to client login and account creation attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses with too much suspicious activity in a short amount of time.
-	//
-	// This is part of the `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` configurations in `ManagedRuleGroupConfig` .
-	//
-	// Enable response inspection by configuring exactly one component of the response to inspect, for example, `Header` or `StatusCode` . You can't configure more than one component for inspection. If you don't configure any of the response inspection options, response inspection is disabled.
+	// The ACFP rule group evaluates the responses that your protected resources send back to client account creation attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many successful account creation attempts in a short amount of time.
 	ResponseInspection *WebAclResponseInspection `pulumi:"responseInspection"`
 }
 
@@ -12079,20 +11585,12 @@ type WebAclAwsManagedRulesAcfpRuleSetArgs struct {
 	// For example, for the URL `https://example.com/web/registration` , you would provide the path `/web/registration` . Registration page paths that start with the path that you provide are considered a match. For example `/web/registration` matches the registration paths `/web/registration` , `/web/registration/` , `/web/registrationPage` , and `/web/registration/thisPage` , but doesn't match the path `/home/web/registration` or `/website/registration` .
 	RegistrationPagePath pulumi.StringInput `pulumi:"registrationPagePath"`
 	// The criteria for inspecting account creation requests, used by the ACFP rule group to validate and track account creation attempts.
-	//
-	// This is part of the `AWSManagedRulesACFPRuleSet` configuration in `ManagedRuleGroupConfig` .
-	//
-	// In these settings, you specify how your application accepts account creation attempts by providing the request payload type and the names of the fields within the request body where the username, password, email, and primary address and phone number fields are provided.
 	RequestInspection WebAclRequestInspectionAcfpInput `pulumi:"requestInspection"`
-	// The criteria for inspecting responses to login requests and account creation requests, used by the ATP and ACFP rule groups to track login and account creation success and failure rates.
+	// The criteria for inspecting responses to account creation requests, used by the ACFP rule group to track account creation success rates.
 	//
 	// > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
 	//
-	// The rule groups evaluates the responses that your protected resources send back to client login and account creation attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses with too much suspicious activity in a short amount of time.
-	//
-	// This is part of the `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` configurations in `ManagedRuleGroupConfig` .
-	//
-	// Enable response inspection by configuring exactly one component of the response to inspect, for example, `Header` or `StatusCode` . You can't configure more than one component for inspection. If you don't configure any of the response inspection options, response inspection is disabled.
+	// The ACFP rule group evaluates the responses that your protected resources send back to client account creation attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many successful account creation attempts in a short amount of time.
 	ResponseInspection WebAclResponseInspectionPtrInput `pulumi:"responseInspection"`
 }
 
@@ -12196,23 +11694,15 @@ func (o WebAclAwsManagedRulesAcfpRuleSetOutput) RegistrationPagePath() pulumi.St
 }
 
 // The criteria for inspecting account creation requests, used by the ACFP rule group to validate and track account creation attempts.
-//
-// This is part of the `AWSManagedRulesACFPRuleSet` configuration in `ManagedRuleGroupConfig` .
-//
-// In these settings, you specify how your application accepts account creation attempts by providing the request payload type and the names of the fields within the request body where the username, password, email, and primary address and phone number fields are provided.
 func (o WebAclAwsManagedRulesAcfpRuleSetOutput) RequestInspection() WebAclRequestInspectionAcfpOutput {
 	return o.ApplyT(func(v WebAclAwsManagedRulesAcfpRuleSet) WebAclRequestInspectionAcfp { return v.RequestInspection }).(WebAclRequestInspectionAcfpOutput)
 }
 
-// The criteria for inspecting responses to login requests and account creation requests, used by the ATP and ACFP rule groups to track login and account creation success and failure rates.
+// The criteria for inspecting responses to account creation requests, used by the ACFP rule group to track account creation success rates.
 //
 // > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
 //
-// The rule groups evaluates the responses that your protected resources send back to client login and account creation attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses with too much suspicious activity in a short amount of time.
-//
-// This is part of the `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` configurations in `ManagedRuleGroupConfig` .
-//
-// Enable response inspection by configuring exactly one component of the response to inspect, for example, `Header` or `StatusCode` . You can't configure more than one component for inspection. If you don't configure any of the response inspection options, response inspection is disabled.
+// The ACFP rule group evaluates the responses that your protected resources send back to client account creation attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many successful account creation attempts in a short amount of time.
 func (o WebAclAwsManagedRulesAcfpRuleSetOutput) ResponseInspection() WebAclResponseInspectionPtrOutput {
 	return o.ApplyT(func(v WebAclAwsManagedRulesAcfpRuleSet) *WebAclResponseInspection { return v.ResponseInspection }).(WebAclResponseInspectionPtrOutput)
 }
@@ -12278,10 +11768,6 @@ func (o WebAclAwsManagedRulesAcfpRuleSetPtrOutput) RegistrationPagePath() pulumi
 }
 
 // The criteria for inspecting account creation requests, used by the ACFP rule group to validate and track account creation attempts.
-//
-// This is part of the `AWSManagedRulesACFPRuleSet` configuration in `ManagedRuleGroupConfig` .
-//
-// In these settings, you specify how your application accepts account creation attempts by providing the request payload type and the names of the fields within the request body where the username, password, email, and primary address and phone number fields are provided.
 func (o WebAclAwsManagedRulesAcfpRuleSetPtrOutput) RequestInspection() WebAclRequestInspectionAcfpPtrOutput {
 	return o.ApplyT(func(v *WebAclAwsManagedRulesAcfpRuleSet) *WebAclRequestInspectionAcfp {
 		if v == nil {
@@ -12291,15 +11777,11 @@ func (o WebAclAwsManagedRulesAcfpRuleSetPtrOutput) RequestInspection() WebAclReq
 	}).(WebAclRequestInspectionAcfpPtrOutput)
 }
 
-// The criteria for inspecting responses to login requests and account creation requests, used by the ATP and ACFP rule groups to track login and account creation success and failure rates.
+// The criteria for inspecting responses to account creation requests, used by the ACFP rule group to track account creation success rates.
 //
 // > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
 //
-// The rule groups evaluates the responses that your protected resources send back to client login and account creation attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses with too much suspicious activity in a short amount of time.
-//
-// This is part of the `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` configurations in `ManagedRuleGroupConfig` .
-//
-// Enable response inspection by configuring exactly one component of the response to inspect, for example, `Header` or `StatusCode` . You can't configure more than one component for inspection. If you don't configure any of the response inspection options, response inspection is disabled.
+// The ACFP rule group evaluates the responses that your protected resources send back to client account creation attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many successful account creation attempts in a short amount of time.
 func (o WebAclAwsManagedRulesAcfpRuleSetPtrOutput) ResponseInspection() WebAclResponseInspectionPtrOutput {
 	return o.ApplyT(func(v *WebAclAwsManagedRulesAcfpRuleSet) *WebAclResponseInspection {
 		if v == nil {
@@ -12318,20 +11800,12 @@ type WebAclAwsManagedRulesAtpRuleSet struct {
 	// The rule group inspects only HTTP `POST` requests to your specified login endpoint.
 	LoginPath string `pulumi:"loginPath"`
 	// The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage.
-	//
-	// This is part of the `AWSManagedRulesATPRuleSet` configuration in `ManagedRuleGroupConfig` .
-	//
-	// In these settings, you specify how your application accepts login attempts by providing the request payload type and the names of the fields within the request body where the username and password are provided.
 	RequestInspection *WebAclRequestInspection `pulumi:"requestInspection"`
-	// The criteria for inspecting responses to login requests and account creation requests, used by the ATP and ACFP rule groups to track login and account creation success and failure rates.
+	// The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates.
 	//
 	// > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
 	//
-	// The rule groups evaluates the responses that your protected resources send back to client login and account creation attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses with too much suspicious activity in a short amount of time.
-	//
-	// This is part of the `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` configurations in `ManagedRuleGroupConfig` .
-	//
-	// Enable response inspection by configuring exactly one component of the response to inspect, for example, `Header` or `StatusCode` . You can't configure more than one component for inspection. If you don't configure any of the response inspection options, response inspection is disabled.
+	// The ATP rule group evaluates the responses that your protected resources send back to client login attempts, keeping count of successful and failed attempts for each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many failed login attempts in a short amount of time.
 	ResponseInspection *WebAclResponseInspection `pulumi:"responseInspection"`
 }
 
@@ -12355,20 +11829,12 @@ type WebAclAwsManagedRulesAtpRuleSetArgs struct {
 	// The rule group inspects only HTTP `POST` requests to your specified login endpoint.
 	LoginPath pulumi.StringInput `pulumi:"loginPath"`
 	// The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage.
-	//
-	// This is part of the `AWSManagedRulesATPRuleSet` configuration in `ManagedRuleGroupConfig` .
-	//
-	// In these settings, you specify how your application accepts login attempts by providing the request payload type and the names of the fields within the request body where the username and password are provided.
 	RequestInspection WebAclRequestInspectionPtrInput `pulumi:"requestInspection"`
-	// The criteria for inspecting responses to login requests and account creation requests, used by the ATP and ACFP rule groups to track login and account creation success and failure rates.
+	// The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates.
 	//
 	// > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
 	//
-	// The rule groups evaluates the responses that your protected resources send back to client login and account creation attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses with too much suspicious activity in a short amount of time.
-	//
-	// This is part of the `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` configurations in `ManagedRuleGroupConfig` .
-	//
-	// Enable response inspection by configuring exactly one component of the response to inspect, for example, `Header` or `StatusCode` . You can't configure more than one component for inspection. If you don't configure any of the response inspection options, response inspection is disabled.
+	// The ATP rule group evaluates the responses that your protected resources send back to client login attempts, keeping count of successful and failed attempts for each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many failed login attempts in a short amount of time.
 	ResponseInspection WebAclResponseInspectionPtrInput `pulumi:"responseInspection"`
 }
 
@@ -12463,23 +11929,15 @@ func (o WebAclAwsManagedRulesAtpRuleSetOutput) LoginPath() pulumi.StringOutput {
 }
 
 // The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage.
-//
-// This is part of the `AWSManagedRulesATPRuleSet` configuration in `ManagedRuleGroupConfig` .
-//
-// In these settings, you specify how your application accepts login attempts by providing the request payload type and the names of the fields within the request body where the username and password are provided.
 func (o WebAclAwsManagedRulesAtpRuleSetOutput) RequestInspection() WebAclRequestInspectionPtrOutput {
 	return o.ApplyT(func(v WebAclAwsManagedRulesAtpRuleSet) *WebAclRequestInspection { return v.RequestInspection }).(WebAclRequestInspectionPtrOutput)
 }
 
-// The criteria for inspecting responses to login requests and account creation requests, used by the ATP and ACFP rule groups to track login and account creation success and failure rates.
+// The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates.
 //
 // > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
 //
-// The rule groups evaluates the responses that your protected resources send back to client login and account creation attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses with too much suspicious activity in a short amount of time.
-//
-// This is part of the `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` configurations in `ManagedRuleGroupConfig` .
-//
-// Enable response inspection by configuring exactly one component of the response to inspect, for example, `Header` or `StatusCode` . You can't configure more than one component for inspection. If you don't configure any of the response inspection options, response inspection is disabled.
+// The ATP rule group evaluates the responses that your protected resources send back to client login attempts, keeping count of successful and failed attempts for each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many failed login attempts in a short amount of time.
 func (o WebAclAwsManagedRulesAtpRuleSetOutput) ResponseInspection() WebAclResponseInspectionPtrOutput {
 	return o.ApplyT(func(v WebAclAwsManagedRulesAtpRuleSet) *WebAclResponseInspection { return v.ResponseInspection }).(WebAclResponseInspectionPtrOutput)
 }
@@ -12531,10 +11989,6 @@ func (o WebAclAwsManagedRulesAtpRuleSetPtrOutput) LoginPath() pulumi.StringPtrOu
 }
 
 // The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage.
-//
-// This is part of the `AWSManagedRulesATPRuleSet` configuration in `ManagedRuleGroupConfig` .
-//
-// In these settings, you specify how your application accepts login attempts by providing the request payload type and the names of the fields within the request body where the username and password are provided.
 func (o WebAclAwsManagedRulesAtpRuleSetPtrOutput) RequestInspection() WebAclRequestInspectionPtrOutput {
 	return o.ApplyT(func(v *WebAclAwsManagedRulesAtpRuleSet) *WebAclRequestInspection {
 		if v == nil {
@@ -12544,15 +11998,11 @@ func (o WebAclAwsManagedRulesAtpRuleSetPtrOutput) RequestInspection() WebAclRequ
 	}).(WebAclRequestInspectionPtrOutput)
 }
 
-// The criteria for inspecting responses to login requests and account creation requests, used by the ATP and ACFP rule groups to track login and account creation success and failure rates.
+// The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates.
 //
 // > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
 //
-// The rule groups evaluates the responses that your protected resources send back to client login and account creation attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses with too much suspicious activity in a short amount of time.
-//
-// This is part of the `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` configurations in `ManagedRuleGroupConfig` .
-//
-// Enable response inspection by configuring exactly one component of the response to inspect, for example, `Header` or `StatusCode` . You can't configure more than one component for inspection. If you don't configure any of the response inspection options, response inspection is disabled.
+// The ATP rule group evaluates the responses that your protected resources send back to client login attempts, keeping count of successful and failed attempts for each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many failed login attempts in a short amount of time.
 func (o WebAclAwsManagedRulesAtpRuleSetPtrOutput) ResponseInspection() WebAclResponseInspectionPtrOutput {
 	return o.ApplyT(func(v *WebAclAwsManagedRulesAtpRuleSet) *WebAclResponseInspection {
 		if v == nil {
@@ -12753,9 +12203,9 @@ func (o WebAclAwsManagedRulesBotControlRuleSetPtrOutput) InspectionLevel() WebAc
 
 // Block traffic towards application.
 type WebAclBlockAction struct {
-	// A custom response to send to the client. You can define a custom response for rule actions and default web ACL actions that are set to the block action.
+	// Defines a custom response for the web request.
 	//
-	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF developer guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 	CustomResponse *WebAclCustomResponse `pulumi:"customResponse"`
 }
 
@@ -12772,9 +12222,9 @@ type WebAclBlockActionInput interface {
 
 // Block traffic towards application.
 type WebAclBlockActionArgs struct {
-	// A custom response to send to the client. You can define a custom response for rule actions and default web ACL actions that are set to the block action.
+	// Defines a custom response for the web request.
 	//
-	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF developer guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 	CustomResponse WebAclCustomResponsePtrInput `pulumi:"customResponse"`
 }
 
@@ -12856,9 +12306,9 @@ func (o WebAclBlockActionOutput) ToWebAclBlockActionPtrOutputWithContext(ctx con
 	}).(WebAclBlockActionPtrOutput)
 }
 
-// A custom response to send to the client. You can define a custom response for rule actions and default web ACL actions that are set to the block action.
+// Defines a custom response for the web request.
 //
-// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF developer guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 func (o WebAclBlockActionOutput) CustomResponse() WebAclCustomResponsePtrOutput {
 	return o.ApplyT(func(v WebAclBlockAction) *WebAclCustomResponse { return v.CustomResponse }).(WebAclCustomResponsePtrOutput)
 }
@@ -12887,9 +12337,9 @@ func (o WebAclBlockActionPtrOutput) Elem() WebAclBlockActionOutput {
 	}).(WebAclBlockActionOutput)
 }
 
-// A custom response to send to the client. You can define a custom response for rule actions and default web ACL actions that are set to the block action.
+// Defines a custom response for the web request.
 //
-// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF developer guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 func (o WebAclBlockActionPtrOutput) CustomResponse() WebAclCustomResponsePtrOutput {
 	return o.ApplyT(func(v *WebAclBlockAction) *WebAclCustomResponse {
 		if v == nil {
@@ -13101,22 +12551,7 @@ func (o WebAclBodyPtrOutput) OversizeHandling() WebAclOversizeHandlingPtrOutput 
 
 // Byte Match statement.
 type WebAclByteMatchStatement struct {
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch WebAclFieldToMatch `pulumi:"fieldToMatch"`
 	// The area within the portion of the web request that you want AWS WAF to search for `SearchString` . Valid values include the following:
 	//
@@ -13155,7 +12590,7 @@ type WebAclByteMatchStatement struct {
 	//
 	// You must specify either `SearchString` or `SearchStringBase64` in a `ByteMatchStatement` .
 	SearchStringBase64 *string `pulumi:"searchStringBase64"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 	TextTransformations []WebAclTextTransformation `pulumi:"textTransformations"`
 }
 
@@ -13172,22 +12607,7 @@ type WebAclByteMatchStatementInput interface {
 
 // Byte Match statement.
 type WebAclByteMatchStatementArgs struct {
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch WebAclFieldToMatchInput `pulumi:"fieldToMatch"`
 	// The area within the portion of the web request that you want AWS WAF to search for `SearchString` . Valid values include the following:
 	//
@@ -13226,7 +12646,7 @@ type WebAclByteMatchStatementArgs struct {
 	//
 	// You must specify either `SearchString` or `SearchStringBase64` in a `ByteMatchStatement` .
 	SearchStringBase64 pulumi.StringPtrInput `pulumi:"searchStringBase64"`
-	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 	TextTransformations WebAclTextTransformationArrayInput `pulumi:"textTransformations"`
 }
 
@@ -13308,22 +12728,7 @@ func (o WebAclByteMatchStatementOutput) ToWebAclByteMatchStatementPtrOutputWithC
 	}).(WebAclByteMatchStatementPtrOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o WebAclByteMatchStatementOutput) FieldToMatch() WebAclFieldToMatchOutput {
 	return o.ApplyT(func(v WebAclByteMatchStatement) WebAclFieldToMatch { return v.FieldToMatch }).(WebAclFieldToMatchOutput)
 }
@@ -13374,7 +12779,7 @@ func (o WebAclByteMatchStatementOutput) SearchStringBase64() pulumi.StringPtrOut
 	return o.ApplyT(func(v WebAclByteMatchStatement) *string { return v.SearchStringBase64 }).(pulumi.StringPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 func (o WebAclByteMatchStatementOutput) TextTransformations() WebAclTextTransformationArrayOutput {
 	return o.ApplyT(func(v WebAclByteMatchStatement) []WebAclTextTransformation { return v.TextTransformations }).(WebAclTextTransformationArrayOutput)
 }
@@ -13403,22 +12808,7 @@ func (o WebAclByteMatchStatementPtrOutput) Elem() WebAclByteMatchStatementOutput
 	}).(WebAclByteMatchStatementOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o WebAclByteMatchStatementPtrOutput) FieldToMatch() WebAclFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *WebAclByteMatchStatement) *WebAclFieldToMatch {
 		if v == nil {
@@ -13489,7 +12879,7 @@ func (o WebAclByteMatchStatementPtrOutput) SearchStringBase64() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 func (o WebAclByteMatchStatementPtrOutput) TextTransformations() WebAclTextTransformationArrayOutput {
 	return o.ApplyT(func(v *WebAclByteMatchStatement) []WebAclTextTransformation {
 		if v == nil {
@@ -13501,7 +12891,7 @@ func (o WebAclByteMatchStatementPtrOutput) TextTransformations() WebAclTextTrans
 
 // Checks valid token exists with request.
 type WebAclCaptchaAction struct {
-	// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+	// Defines custom handling for the web request, used when the `CAPTCHA` inspection determines that the request's token is valid and unexpired.
 	//
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 	CustomRequestHandling *WebAclCustomRequestHandling `pulumi:"customRequestHandling"`
@@ -13520,7 +12910,7 @@ type WebAclCaptchaActionInput interface {
 
 // Checks valid token exists with request.
 type WebAclCaptchaActionArgs struct {
-	// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+	// Defines custom handling for the web request, used when the `CAPTCHA` inspection determines that the request's token is valid and unexpired.
 	//
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 	CustomRequestHandling WebAclCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
@@ -13604,7 +12994,7 @@ func (o WebAclCaptchaActionOutput) ToWebAclCaptchaActionPtrOutputWithContext(ctx
 	}).(WebAclCaptchaActionPtrOutput)
 }
 
-// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+// Defines custom handling for the web request, used when the `CAPTCHA` inspection determines that the request's token is valid and unexpired.
 //
 // For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 func (o WebAclCaptchaActionOutput) CustomRequestHandling() WebAclCustomRequestHandlingPtrOutput {
@@ -13635,7 +13025,7 @@ func (o WebAclCaptchaActionPtrOutput) Elem() WebAclCaptchaActionOutput {
 	}).(WebAclCaptchaActionOutput)
 }
 
-// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+// Defines custom handling for the web request, used when the `CAPTCHA` inspection determines that the request's token is valid and unexpired.
 //
 // For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 func (o WebAclCaptchaActionPtrOutput) CustomRequestHandling() WebAclCustomRequestHandlingPtrOutput {
@@ -13648,7 +13038,7 @@ func (o WebAclCaptchaActionPtrOutput) CustomRequestHandling() WebAclCustomReques
 }
 
 type WebAclCaptchaConfig struct {
-	// Used for CAPTCHA and challenge token settings. Determines how long a `CAPTCHA` or challenge timestamp remains valid after AWS WAF updates it for a successful `CAPTCHA` or challenge response.
+	// Determines how long a `CAPTCHA` timestamp in the token remains valid after the client successfully solves a `CAPTCHA` puzzle.
 	ImmunityTimeProperty *WebAclImmunityTimeProperty `pulumi:"immunityTimeProperty"`
 }
 
@@ -13664,7 +13054,7 @@ type WebAclCaptchaConfigInput interface {
 }
 
 type WebAclCaptchaConfigArgs struct {
-	// Used for CAPTCHA and challenge token settings. Determines how long a `CAPTCHA` or challenge timestamp remains valid after AWS WAF updates it for a successful `CAPTCHA` or challenge response.
+	// Determines how long a `CAPTCHA` timestamp in the token remains valid after the client successfully solves a `CAPTCHA` puzzle.
 	ImmunityTimeProperty WebAclImmunityTimePropertyPtrInput `pulumi:"immunityTimeProperty"`
 }
 
@@ -13745,7 +13135,7 @@ func (o WebAclCaptchaConfigOutput) ToWebAclCaptchaConfigPtrOutputWithContext(ctx
 	}).(WebAclCaptchaConfigPtrOutput)
 }
 
-// Used for CAPTCHA and challenge token settings. Determines how long a `CAPTCHA` or challenge timestamp remains valid after AWS WAF updates it for a successful `CAPTCHA` or challenge response.
+// Determines how long a `CAPTCHA` timestamp in the token remains valid after the client successfully solves a `CAPTCHA` puzzle.
 func (o WebAclCaptchaConfigOutput) ImmunityTimeProperty() WebAclImmunityTimePropertyPtrOutput {
 	return o.ApplyT(func(v WebAclCaptchaConfig) *WebAclImmunityTimeProperty { return v.ImmunityTimeProperty }).(WebAclImmunityTimePropertyPtrOutput)
 }
@@ -13774,7 +13164,7 @@ func (o WebAclCaptchaConfigPtrOutput) Elem() WebAclCaptchaConfigOutput {
 	}).(WebAclCaptchaConfigOutput)
 }
 
-// Used for CAPTCHA and challenge token settings. Determines how long a `CAPTCHA` or challenge timestamp remains valid after AWS WAF updates it for a successful `CAPTCHA` or challenge response.
+// Determines how long a `CAPTCHA` timestamp in the token remains valid after the client successfully solves a `CAPTCHA` puzzle.
 func (o WebAclCaptchaConfigPtrOutput) ImmunityTimeProperty() WebAclImmunityTimePropertyPtrOutput {
 	return o.ApplyT(func(v *WebAclCaptchaConfig) *WebAclImmunityTimeProperty {
 		if v == nil {
@@ -13786,9 +13176,9 @@ func (o WebAclCaptchaConfigPtrOutput) ImmunityTimeProperty() WebAclImmunityTimeP
 
 // Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
 type WebAclChallengeAction struct {
-	// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+	// Defines custom handling for the web request, used when the challenge inspection determines that the request's token is valid and unexpired.
 	//
-	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF developer guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 	CustomRequestHandling *WebAclCustomRequestHandling `pulumi:"customRequestHandling"`
 }
 
@@ -13805,9 +13195,9 @@ type WebAclChallengeActionInput interface {
 
 // Checks that the request has a valid token with an unexpired challenge timestamp and, if not, returns a browser challenge to the client.
 type WebAclChallengeActionArgs struct {
-	// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+	// Defines custom handling for the web request, used when the challenge inspection determines that the request's token is valid and unexpired.
 	//
-	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF developer guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 	CustomRequestHandling WebAclCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
 }
 
@@ -13889,9 +13279,9 @@ func (o WebAclChallengeActionOutput) ToWebAclChallengeActionPtrOutputWithContext
 	}).(WebAclChallengeActionPtrOutput)
 }
 
-// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+// Defines custom handling for the web request, used when the challenge inspection determines that the request's token is valid and unexpired.
 //
-// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF developer guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 func (o WebAclChallengeActionOutput) CustomRequestHandling() WebAclCustomRequestHandlingPtrOutput {
 	return o.ApplyT(func(v WebAclChallengeAction) *WebAclCustomRequestHandling { return v.CustomRequestHandling }).(WebAclCustomRequestHandlingPtrOutput)
 }
@@ -13920,9 +13310,9 @@ func (o WebAclChallengeActionPtrOutput) Elem() WebAclChallengeActionOutput {
 	}).(WebAclChallengeActionOutput)
 }
 
-// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+// Defines custom handling for the web request, used when the challenge inspection determines that the request's token is valid and unexpired.
 //
-// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
+// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF developer guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
 func (o WebAclChallengeActionPtrOutput) CustomRequestHandling() WebAclCustomRequestHandlingPtrOutput {
 	return o.ApplyT(func(v *WebAclChallengeAction) *WebAclCustomRequestHandling {
 		if v == nil {
@@ -13933,7 +13323,7 @@ func (o WebAclChallengeActionPtrOutput) CustomRequestHandling() WebAclCustomRequ
 }
 
 type WebAclChallengeConfig struct {
-	// Used for CAPTCHA and challenge token settings. Determines how long a `CAPTCHA` or challenge timestamp remains valid after AWS WAF updates it for a successful `CAPTCHA` or challenge response.
+	// Determines how long a challenge timestamp in the token remains valid after the client successfully responds to a challenge.
 	ImmunityTimeProperty *WebAclImmunityTimeProperty `pulumi:"immunityTimeProperty"`
 }
 
@@ -13949,7 +13339,7 @@ type WebAclChallengeConfigInput interface {
 }
 
 type WebAclChallengeConfigArgs struct {
-	// Used for CAPTCHA and challenge token settings. Determines how long a `CAPTCHA` or challenge timestamp remains valid after AWS WAF updates it for a successful `CAPTCHA` or challenge response.
+	// Determines how long a challenge timestamp in the token remains valid after the client successfully responds to a challenge.
 	ImmunityTimeProperty WebAclImmunityTimePropertyPtrInput `pulumi:"immunityTimeProperty"`
 }
 
@@ -14030,7 +13420,7 @@ func (o WebAclChallengeConfigOutput) ToWebAclChallengeConfigPtrOutputWithContext
 	}).(WebAclChallengeConfigPtrOutput)
 }
 
-// Used for CAPTCHA and challenge token settings. Determines how long a `CAPTCHA` or challenge timestamp remains valid after AWS WAF updates it for a successful `CAPTCHA` or challenge response.
+// Determines how long a challenge timestamp in the token remains valid after the client successfully responds to a challenge.
 func (o WebAclChallengeConfigOutput) ImmunityTimeProperty() WebAclImmunityTimePropertyPtrOutput {
 	return o.ApplyT(func(v WebAclChallengeConfig) *WebAclImmunityTimeProperty { return v.ImmunityTimeProperty }).(WebAclImmunityTimePropertyPtrOutput)
 }
@@ -14059,7 +13449,7 @@ func (o WebAclChallengeConfigPtrOutput) Elem() WebAclChallengeConfigOutput {
 	}).(WebAclChallengeConfigOutput)
 }
 
-// Used for CAPTCHA and challenge token settings. Determines how long a `CAPTCHA` or challenge timestamp remains valid after AWS WAF updates it for a successful `CAPTCHA` or challenge response.
+// Determines how long a challenge timestamp in the token remains valid after the client successfully responds to a challenge.
 func (o WebAclChallengeConfigPtrOutput) ImmunityTimeProperty() WebAclImmunityTimePropertyPtrOutput {
 	return o.ApplyT(func(v *WebAclChallengeConfig) *WebAclImmunityTimeProperty {
 		if v == nil {
@@ -14475,7 +13865,7 @@ func (o WebAclCookiesPtrOutput) OversizeHandling() WebAclOversizeHandlingPtrOutp
 
 // Allow traffic towards application.
 type WebAclCountAction struct {
-	// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+	// Defines custom handling for the web request.
 	//
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 	CustomRequestHandling *WebAclCustomRequestHandling `pulumi:"customRequestHandling"`
@@ -14494,7 +13884,7 @@ type WebAclCountActionInput interface {
 
 // Allow traffic towards application.
 type WebAclCountActionArgs struct {
-	// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+	// Defines custom handling for the web request.
 	//
 	// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 	CustomRequestHandling WebAclCustomRequestHandlingPtrInput `pulumi:"customRequestHandling"`
@@ -14578,7 +13968,7 @@ func (o WebAclCountActionOutput) ToWebAclCountActionPtrOutputWithContext(ctx con
 	}).(WebAclCountActionPtrOutput)
 }
 
-// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+// Defines custom handling for the web request.
 //
 // For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 func (o WebAclCountActionOutput) CustomRequestHandling() WebAclCustomRequestHandlingPtrOutput {
@@ -14609,7 +13999,7 @@ func (o WebAclCountActionPtrOutput) Elem() WebAclCountActionOutput {
 	}).(WebAclCountActionOutput)
 }
 
-// Custom request handling behavior that inserts custom headers into a web request. You can add custom request handling for AWS WAF to use when the rule action doesn't block the request. For example, `CaptchaAction` for requests with valid t okens, and `AllowAction` .
+// Defines custom handling for the web request.
 //
 // For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
 func (o WebAclCountActionPtrOutput) CustomRequestHandling() WebAclCustomRequestHandlingPtrOutput {
@@ -15185,13 +14575,9 @@ func (o WebAclCustomResponseBodyMapOutput) MapIndex(k pulumi.StringInput) WebAcl
 
 // Default Action WebACL will take against ingress traffic when there is no matching Rule.
 type WebAclDefaultAction struct {
-	// Specifies that AWS WAF should allow the request and optionally defines additional custom handling for the request.
-	//
-	// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+	// Specifies that AWS WAF should allow requests by default.
 	Allow *WebAclAllowAction `pulumi:"allow"`
-	// Specifies that AWS WAF should block the request and optionally defines additional custom handling for the response to the web request.
-	//
-	// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+	// Specifies that AWS WAF should block requests by default.
 	Block *WebAclBlockAction `pulumi:"block"`
 }
 
@@ -15208,13 +14594,9 @@ type WebAclDefaultActionInput interface {
 
 // Default Action WebACL will take against ingress traffic when there is no matching Rule.
 type WebAclDefaultActionArgs struct {
-	// Specifies that AWS WAF should allow the request and optionally defines additional custom handling for the request.
-	//
-	// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+	// Specifies that AWS WAF should allow requests by default.
 	Allow WebAclAllowActionPtrInput `pulumi:"allow"`
-	// Specifies that AWS WAF should block the request and optionally defines additional custom handling for the response to the web request.
-	//
-	// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+	// Specifies that AWS WAF should block requests by default.
 	Block WebAclBlockActionPtrInput `pulumi:"block"`
 }
 
@@ -15245,16 +14627,12 @@ func (o WebAclDefaultActionOutput) ToWebAclDefaultActionOutputWithContext(ctx co
 	return o
 }
 
-// Specifies that AWS WAF should allow the request and optionally defines additional custom handling for the request.
-//
-// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+// Specifies that AWS WAF should allow requests by default.
 func (o WebAclDefaultActionOutput) Allow() WebAclAllowActionPtrOutput {
 	return o.ApplyT(func(v WebAclDefaultAction) *WebAclAllowAction { return v.Allow }).(WebAclAllowActionPtrOutput)
 }
 
-// Specifies that AWS WAF should block the request and optionally defines additional custom handling for the response to the web request.
-//
-// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+// Specifies that AWS WAF should block requests by default.
 func (o WebAclDefaultActionOutput) Block() WebAclBlockActionPtrOutput {
 	return o.ApplyT(func(v WebAclDefaultAction) *WebAclBlockAction { return v.Block }).(WebAclBlockActionPtrOutput)
 }
@@ -15283,9 +14661,7 @@ func (o WebAclDefaultActionPtrOutput) Elem() WebAclDefaultActionOutput {
 	}).(WebAclDefaultActionOutput)
 }
 
-// Specifies that AWS WAF should allow the request and optionally defines additional custom handling for the request.
-//
-// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+// Specifies that AWS WAF should allow requests by default.
 func (o WebAclDefaultActionPtrOutput) Allow() WebAclAllowActionPtrOutput {
 	return o.ApplyT(func(v *WebAclDefaultAction) *WebAclAllowAction {
 		if v == nil {
@@ -15295,9 +14671,7 @@ func (o WebAclDefaultActionPtrOutput) Allow() WebAclAllowActionPtrOutput {
 	}).(WebAclAllowActionPtrOutput)
 }
 
-// Specifies that AWS WAF should block the request and optionally defines additional custom handling for the response to the web request.
-//
-// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+// Specifies that AWS WAF should block requests by default.
 func (o WebAclDefaultActionPtrOutput) Block() WebAclBlockActionPtrOutput {
 	return o.ApplyT(func(v *WebAclDefaultAction) *WebAclBlockAction {
 		if v == nil {
@@ -15617,23 +14991,22 @@ func (o WebAclFieldIdentifierArrayOutput) Index(i pulumi.IntInput) WebAclFieldId
 type WebAclFieldToMatch struct {
 	// All query arguments of a web request.
 	AllQueryArguments interface{} `pulumi:"allQueryArguments"`
-	// Inspect the body of the web request. The body immediately follows the request headers.
+	// Inspect the request body as plain text. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
-	// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+	// AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
+	//
+	// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+	// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+	//
+	// For information about how to handle oversized request bodies, see the `Body` object configuration.
 	Body *WebAclBody `pulumi:"body"`
-	// Inspect the cookies in the web request. You can specify the parts of the cookies to inspect and you can narrow the set of cookies to inspect by including or excluding specific keys.
+	// Inspect the request cookies. You must configure scope and pattern matching filters in the `Cookies` object, to define the set of cookies and the parts of the cookies that AWS WAF inspects.
 	//
-	// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
-	//
-	// Example JSON: `"Cookies": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`
+	// Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize cookie content in the `Cookies` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
 	Cookies *WebAclCookies `pulumi:"cookies"`
-	// Inspect all headers in the web request. You can specify the parts of the headers to inspect and you can narrow the set of headers to inspect by including or excluding specific keys.
+	// Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
 	//
-	// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
-	//
-	// If you want to inspect just the value of a single header, use the `SingleHeader` `FieldToMatch` setting instead.
-	//
-	// Example JSON: `"Headers": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`
+	// Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize header content in the `Headers` object. AWS WAF applies the pattern matching filters to the headers that it receives from the underlying host service.
 	Headers *WebAclHeaders `pulumi:"headers"`
 	// Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
 	//
@@ -15643,13 +15016,14 @@ type WebAclFieldToMatch struct {
 	//
 	// Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
 	Ja3Fingerprint *WebAclJa3Fingerprint `pulumi:"ja3Fingerprint"`
-	// Inspect the body of the web request as JSON. The body immediately follows the request headers.
+	// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
-	// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+	// AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
 	//
-	// Use the specifications in this object to indicate which parts of the JSON body to inspect using the rule's inspection criteria. AWS WAF inspects only the parts of the JSON that result from the matches that you indicate.
+	// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+	// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
 	//
-	// Example JSON: `"JsonBody": { "MatchPattern": { "All": {} }, "MatchScope": "ALL" }`
+	// For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
 	JsonBody *WebAclJsonBody `pulumi:"jsonBody"`
 	// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 	Method interface{} `pulumi:"method"`
@@ -15682,23 +15056,22 @@ type WebAclFieldToMatchInput interface {
 type WebAclFieldToMatchArgs struct {
 	// All query arguments of a web request.
 	AllQueryArguments pulumi.Input `pulumi:"allQueryArguments"`
-	// Inspect the body of the web request. The body immediately follows the request headers.
+	// Inspect the request body as plain text. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
-	// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+	// AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
+	//
+	// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+	// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+	//
+	// For information about how to handle oversized request bodies, see the `Body` object configuration.
 	Body WebAclBodyPtrInput `pulumi:"body"`
-	// Inspect the cookies in the web request. You can specify the parts of the cookies to inspect and you can narrow the set of cookies to inspect by including or excluding specific keys.
+	// Inspect the request cookies. You must configure scope and pattern matching filters in the `Cookies` object, to define the set of cookies and the parts of the cookies that AWS WAF inspects.
 	//
-	// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
-	//
-	// Example JSON: `"Cookies": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`
+	// Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize cookie content in the `Cookies` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
 	Cookies WebAclCookiesPtrInput `pulumi:"cookies"`
-	// Inspect all headers in the web request. You can specify the parts of the headers to inspect and you can narrow the set of headers to inspect by including or excluding specific keys.
+	// Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
 	//
-	// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
-	//
-	// If you want to inspect just the value of a single header, use the `SingleHeader` `FieldToMatch` setting instead.
-	//
-	// Example JSON: `"Headers": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`
+	// Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize header content in the `Headers` object. AWS WAF applies the pattern matching filters to the headers that it receives from the underlying host service.
 	Headers WebAclHeadersPtrInput `pulumi:"headers"`
 	// Match against the request's JA3 fingerprint. The JA3 fingerprint is a 32-character hash derived from the TLS Client Hello of an incoming request. This fingerprint serves as a unique identifier for the client's TLS configuration. AWS WAF calculates and logs this fingerprint for each request that has enough TLS Client Hello information for the calculation. Almost all web requests include this information.
 	//
@@ -15708,13 +15081,14 @@ type WebAclFieldToMatchArgs struct {
 	//
 	// Provide the JA3 fingerprint string from the logs in your string match statement specification, to match with any future requests that have the same TLS configuration.
 	Ja3Fingerprint WebAclJa3FingerprintPtrInput `pulumi:"ja3Fingerprint"`
-	// Inspect the body of the web request as JSON. The body immediately follows the request headers.
+	// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 	//
-	// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+	// AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
 	//
-	// Use the specifications in this object to indicate which parts of the JSON body to inspect using the rule's inspection criteria. AWS WAF inspects only the parts of the JSON that result from the matches that you indicate.
+	// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+	// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
 	//
-	// Example JSON: `"JsonBody": { "MatchPattern": { "All": {} }, "MatchScope": "ALL" }`
+	// For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
 	JsonBody WebAclJsonBodyPtrInput `pulumi:"jsonBody"`
 	// The HTTP method of a web request. The method indicates the type of operation that the request is asking the origin to perform.
 	Method pulumi.Input `pulumi:"method"`
@@ -15815,29 +15189,28 @@ func (o WebAclFieldToMatchOutput) AllQueryArguments() pulumi.AnyOutput {
 	return o.ApplyT(func(v WebAclFieldToMatch) interface{} { return v.AllQueryArguments }).(pulumi.AnyOutput)
 }
 
-// Inspect the body of the web request. The body immediately follows the request headers.
+// Inspect the request body as plain text. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 //
-// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+// AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
+//
+// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+//
+// For information about how to handle oversized request bodies, see the `Body` object configuration.
 func (o WebAclFieldToMatchOutput) Body() WebAclBodyPtrOutput {
 	return o.ApplyT(func(v WebAclFieldToMatch) *WebAclBody { return v.Body }).(WebAclBodyPtrOutput)
 }
 
-// Inspect the cookies in the web request. You can specify the parts of the cookies to inspect and you can narrow the set of cookies to inspect by including or excluding specific keys.
+// Inspect the request cookies. You must configure scope and pattern matching filters in the `Cookies` object, to define the set of cookies and the parts of the cookies that AWS WAF inspects.
 //
-// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
-//
-// Example JSON: `"Cookies": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`
+// Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize cookie content in the `Cookies` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
 func (o WebAclFieldToMatchOutput) Cookies() WebAclCookiesPtrOutput {
 	return o.ApplyT(func(v WebAclFieldToMatch) *WebAclCookies { return v.Cookies }).(WebAclCookiesPtrOutput)
 }
 
-// Inspect all headers in the web request. You can specify the parts of the headers to inspect and you can narrow the set of headers to inspect by including or excluding specific keys.
+// Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
 //
-// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
-//
-// If you want to inspect just the value of a single header, use the `SingleHeader` `FieldToMatch` setting instead.
-//
-// Example JSON: `"Headers": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`
+// Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize header content in the `Headers` object. AWS WAF applies the pattern matching filters to the headers that it receives from the underlying host service.
 func (o WebAclFieldToMatchOutput) Headers() WebAclHeadersPtrOutput {
 	return o.ApplyT(func(v WebAclFieldToMatch) *WebAclHeaders { return v.Headers }).(WebAclHeadersPtrOutput)
 }
@@ -15853,13 +15226,14 @@ func (o WebAclFieldToMatchOutput) Ja3Fingerprint() WebAclJa3FingerprintPtrOutput
 	return o.ApplyT(func(v WebAclFieldToMatch) *WebAclJa3Fingerprint { return v.Ja3Fingerprint }).(WebAclJa3FingerprintPtrOutput)
 }
 
-// Inspect the body of the web request as JSON. The body immediately follows the request headers.
+// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 //
-// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+// AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
 //
-// Use the specifications in this object to indicate which parts of the JSON body to inspect using the rule's inspection criteria. AWS WAF inspects only the parts of the JSON that result from the matches that you indicate.
+// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
 //
-// Example JSON: `"JsonBody": { "MatchPattern": { "All": {} }, "MatchScope": "ALL" }`
+// For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
 func (o WebAclFieldToMatchOutput) JsonBody() WebAclJsonBodyPtrOutput {
 	return o.ApplyT(func(v WebAclFieldToMatch) *WebAclJsonBody { return v.JsonBody }).(WebAclJsonBodyPtrOutput)
 }
@@ -15929,9 +15303,14 @@ func (o WebAclFieldToMatchPtrOutput) AllQueryArguments() pulumi.AnyOutput {
 	}).(pulumi.AnyOutput)
 }
 
-// Inspect the body of the web request. The body immediately follows the request headers.
+// Inspect the request body as plain text. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 //
-// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+// AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
+//
+// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+//
+// For information about how to handle oversized request bodies, see the `Body` object configuration.
 func (o WebAclFieldToMatchPtrOutput) Body() WebAclBodyPtrOutput {
 	return o.ApplyT(func(v *WebAclFieldToMatch) *WebAclBody {
 		if v == nil {
@@ -15941,11 +15320,9 @@ func (o WebAclFieldToMatchPtrOutput) Body() WebAclBodyPtrOutput {
 	}).(WebAclBodyPtrOutput)
 }
 
-// Inspect the cookies in the web request. You can specify the parts of the cookies to inspect and you can narrow the set of cookies to inspect by including or excluding specific keys.
+// Inspect the request cookies. You must configure scope and pattern matching filters in the `Cookies` object, to define the set of cookies and the parts of the cookies that AWS WAF inspects.
 //
-// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
-//
-// Example JSON: `"Cookies": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`
+// Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize cookie content in the `Cookies` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
 func (o WebAclFieldToMatchPtrOutput) Cookies() WebAclCookiesPtrOutput {
 	return o.ApplyT(func(v *WebAclFieldToMatch) *WebAclCookies {
 		if v == nil {
@@ -15955,13 +15332,9 @@ func (o WebAclFieldToMatchPtrOutput) Cookies() WebAclCookiesPtrOutput {
 	}).(WebAclCookiesPtrOutput)
 }
 
-// Inspect all headers in the web request. You can specify the parts of the headers to inspect and you can narrow the set of headers to inspect by including or excluding specific keys.
+// Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
 //
-// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
-//
-// If you want to inspect just the value of a single header, use the `SingleHeader` `FieldToMatch` setting instead.
-//
-// Example JSON: `"Headers": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`
+// Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize header content in the `Headers` object. AWS WAF applies the pattern matching filters to the headers that it receives from the underlying host service.
 func (o WebAclFieldToMatchPtrOutput) Headers() WebAclHeadersPtrOutput {
 	return o.ApplyT(func(v *WebAclFieldToMatch) *WebAclHeaders {
 		if v == nil {
@@ -15987,13 +15360,14 @@ func (o WebAclFieldToMatchPtrOutput) Ja3Fingerprint() WebAclJa3FingerprintPtrOut
 	}).(WebAclJa3FingerprintPtrOutput)
 }
 
-// Inspect the body of the web request as JSON. The body immediately follows the request headers.
+// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
 //
-// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+// AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
 //
-// Use the specifications in this object to indicate which parts of the JSON body to inspect using the rule's inspection criteria. AWS WAF inspects only the parts of the JSON that result from the matches that you indicate.
+// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
 //
-// Example JSON: `"JsonBody": { "MatchPattern": { "All": {} }, "MatchScope": "ALL" }`
+// For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
 func (o WebAclFieldToMatchPtrOutput) JsonBody() WebAclJsonBodyPtrOutput {
 	return o.ApplyT(func(v *WebAclFieldToMatch) *WebAclJsonBody {
 		if v == nil {
@@ -16543,10 +15917,6 @@ type WebAclGeoMatchStatement struct {
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	//
-	// This configuration is used for `GeoMatchStatement` and `RateBasedStatement` . For `IPSetReferenceStatement` , use `IPSetForwardedIPConfig` instead.
-	//
-	// AWS WAF only evaluates the first IP address found in the specified HTTP header.
 	ForwardedIpConfig *WebAclForwardedIpConfiguration `pulumi:"forwardedIpConfig"`
 }
 
@@ -16569,10 +15939,6 @@ type WebAclGeoMatchStatementArgs struct {
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	//
-	// This configuration is used for `GeoMatchStatement` and `RateBasedStatement` . For `IPSetReferenceStatement` , use `IPSetForwardedIPConfig` instead.
-	//
-	// AWS WAF only evaluates the first IP address found in the specified HTTP header.
 	ForwardedIpConfig WebAclForwardedIpConfigurationPtrInput `pulumi:"forwardedIpConfig"`
 }
 
@@ -16663,10 +16029,6 @@ func (o WebAclGeoMatchStatementOutput) CountryCodes() pulumi.StringArrayOutput {
 // The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 //
 // > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-//
-// This configuration is used for `GeoMatchStatement` and `RateBasedStatement` . For `IPSetReferenceStatement` , use `IPSetForwardedIPConfig` instead.
-//
-// AWS WAF only evaluates the first IP address found in the specified HTTP header.
 func (o WebAclGeoMatchStatementOutput) ForwardedIpConfig() WebAclForwardedIpConfigurationPtrOutput {
 	return o.ApplyT(func(v WebAclGeoMatchStatement) *WebAclForwardedIpConfiguration { return v.ForwardedIpConfig }).(WebAclForwardedIpConfigurationPtrOutput)
 }
@@ -16710,10 +16072,6 @@ func (o WebAclGeoMatchStatementPtrOutput) CountryCodes() pulumi.StringArrayOutpu
 // The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 //
 // > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-//
-// This configuration is used for `GeoMatchStatement` and `RateBasedStatement` . For `IPSetReferenceStatement` , use `IPSetForwardedIPConfig` instead.
-//
-// AWS WAF only evaluates the first IP address found in the specified HTTP header.
 func (o WebAclGeoMatchStatementPtrOutput) ForwardedIpConfig() WebAclForwardedIpConfigurationPtrOutput {
 	return o.ApplyT(func(v *WebAclGeoMatchStatement) *WebAclForwardedIpConfiguration {
 		if v == nil {
@@ -17517,8 +16875,6 @@ type WebAclIpSetReferenceStatement struct {
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	//
-	// This configuration is used only for `IPSetReferenceStatement` . For `GeoMatchStatement` and `RateBasedStatement` , use `ForwardedIPConfig` instead.
 	IpSetForwardedIpConfig *WebAclIpSetForwardedIpConfiguration `pulumi:"ipSetForwardedIpConfig"`
 }
 
@@ -17539,8 +16895,6 @@ type WebAclIpSetReferenceStatementArgs struct {
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-	//
-	// This configuration is used only for `IPSetReferenceStatement` . For `GeoMatchStatement` and `RateBasedStatement` , use `ForwardedIPConfig` instead.
 	IpSetForwardedIpConfig WebAclIpSetForwardedIpConfigurationPtrInput `pulumi:"ipSetForwardedIpConfig"`
 }
 
@@ -17629,8 +16983,6 @@ func (o WebAclIpSetReferenceStatementOutput) Arn() pulumi.StringOutput {
 // The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 //
 // > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-//
-// This configuration is used only for `IPSetReferenceStatement` . For `GeoMatchStatement` and `RateBasedStatement` , use `ForwardedIPConfig` instead.
 func (o WebAclIpSetReferenceStatementOutput) IpSetForwardedIpConfig() WebAclIpSetForwardedIpConfigurationPtrOutput {
 	return o.ApplyT(func(v WebAclIpSetReferenceStatement) *WebAclIpSetForwardedIpConfiguration {
 		return v.IpSetForwardedIpConfig
@@ -17674,8 +17026,6 @@ func (o WebAclIpSetReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput {
 // The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
 //
 // > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
-//
-// This configuration is used only for `IPSetReferenceStatement` . For `GeoMatchStatement` and `RateBasedStatement` , use `ForwardedIPConfig` instead.
 func (o WebAclIpSetReferenceStatementPtrOutput) IpSetForwardedIpConfig() WebAclIpSetForwardedIpConfigurationPtrOutput {
 	return o.ApplyT(func(v *WebAclIpSetReferenceStatement) *WebAclIpSetForwardedIpConfiguration {
 		if v == nil {
@@ -17863,7 +17213,7 @@ type WebAclJsonBody struct {
 	// - Missing colon: `{"key1":"value1","key2""value2"}`
 	// - Extra colons: `{"key1"::"value1","key2""value2"}`
 	InvalidFallbackBehavior *WebAclBodyParsingFallbackBehavior `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. This is used with the `FieldToMatch` option `JsonBody` .
+	// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
 	MatchPattern WebAclJsonMatchPattern `pulumi:"matchPattern"`
 	// The parts of the JSON to match against using the `MatchPattern` . If you specify `ALL` , AWS WAF matches against keys and values.
 	//
@@ -17917,7 +17267,7 @@ type WebAclJsonBodyArgs struct {
 	// - Missing colon: `{"key1":"value1","key2""value2"}`
 	// - Extra colons: `{"key1"::"value1","key2""value2"}`
 	InvalidFallbackBehavior WebAclBodyParsingFallbackBehaviorPtrInput `pulumi:"invalidFallbackBehavior"`
-	// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. This is used with the `FieldToMatch` option `JsonBody` .
+	// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
 	MatchPattern WebAclJsonMatchPatternInput `pulumi:"matchPattern"`
 	// The parts of the JSON to match against using the `MatchPattern` . If you specify `ALL` , AWS WAF matches against keys and values.
 	//
@@ -18039,7 +17389,7 @@ func (o WebAclJsonBodyOutput) InvalidFallbackBehavior() WebAclBodyParsingFallbac
 	return o.ApplyT(func(v WebAclJsonBody) *WebAclBodyParsingFallbackBehavior { return v.InvalidFallbackBehavior }).(WebAclBodyParsingFallbackBehaviorPtrOutput)
 }
 
-// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. This is used with the `FieldToMatch` option `JsonBody` .
+// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
 func (o WebAclJsonBodyOutput) MatchPattern() WebAclJsonMatchPatternOutput {
 	return o.ApplyT(func(v WebAclJsonBody) WebAclJsonMatchPattern { return v.MatchPattern }).(WebAclJsonMatchPatternOutput)
 }
@@ -18119,7 +17469,7 @@ func (o WebAclJsonBodyPtrOutput) InvalidFallbackBehavior() WebAclBodyParsingFall
 	}).(WebAclBodyParsingFallbackBehaviorPtrOutput)
 }
 
-// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria. This is used with the `FieldToMatch` option `JsonBody` .
+// The patterns to look for in the JSON body. AWS WAF inspects the results of these pattern matches against the rule inspection criteria.
 func (o WebAclJsonBodyPtrOutput) MatchPattern() WebAclJsonMatchPatternPtrOutput {
 	return o.ApplyT(func(v *WebAclJsonBody) *WebAclJsonMatchPattern {
 		if v == nil {
@@ -18624,23 +17974,25 @@ func (o WebAclLabelMatchStatementPtrOutput) Scope() WebAclLabelMatchScopePtrOutp
 
 // ManagedRuleGroupConfig.
 type WebAclManagedRuleGroupConfig struct {
-	// Details for your use of the account creation fraud prevention managed rule group, `AWSManagedRulesACFPRuleSet` . This configuration is used in `ManagedRuleGroupConfig` .
+	// Additional configuration for using the account creation fraud prevention (ACFP) managed rule group, `AWSManagedRulesACFPRuleSet` . Use this to provide account creation request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to account creation requests.
+	//
+	// For information about using the ACFP managed rule group, see [AWS WAF Fraud Control account creation fraud prevention (ACFP) rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-acfp.html) and [AWS WAF Fraud Control account creation fraud prevention (ACFP)](https://docs.aws.amazon.com/waf/latest/developerguide/waf-acfp.html) in the *AWS WAF Developer Guide* .
 	AwsManagedRulesAcfpRuleSet *WebAclAwsManagedRulesAcfpRuleSet `pulumi:"awsManagedRulesAcfpRuleSet"`
-	// Details for your use of the account takeover prevention managed rule group, `AWSManagedRulesATPRuleSet` . This configuration is used in `ManagedRuleGroupConfig` .
+	// Additional configuration for using the account takeover prevention (ATP) managed rule group, `AWSManagedRulesATPRuleSet` . Use this to provide login request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to login requests.
+	//
+	// This configuration replaces the individual configuration fields in `ManagedRuleGroupConfig` and provides additional feature configuration.
+	//
+	// For information about using the ATP managed rule group, see [AWS WAF Fraud Control account takeover prevention (ATP) rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-atp.html) and [AWS WAF Fraud Control account takeover prevention (ATP)](https://docs.aws.amazon.com/waf/latest/developerguide/waf-atp.html) in the *AWS WAF Developer Guide* .
 	AwsManagedRulesAtpRuleSet *WebAclAwsManagedRulesAtpRuleSet `pulumi:"awsManagedRulesAtpRuleSet"`
-	// Details for your use of the Bot Control managed rule group, `AWSManagedRulesBotControlRuleSet` . This configuration is used in `ManagedRuleGroupConfig` .
+	// Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. For information about using the Bot Control managed rule group, see [AWS WAF Bot Control rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html) and [AWS WAF Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/waf-bot-control.html) in the *AWS WAF Developer Guide* .
 	AwsManagedRulesBotControlRuleSet *WebAclAwsManagedRulesBotControlRuleSet `pulumi:"awsManagedRulesBotControlRuleSet"`
 	// > Instead of this setting, provide your configuration under `AWSManagedRulesATPRuleSet` .
 	LoginPath *string `pulumi:"loginPath"`
-	// The identifier of a field in the web request payload that contains customer data.
-	//
-	// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+	// > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
 	PasswordField *WebAclFieldIdentifier `pulumi:"passwordField"`
 	// > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
 	PayloadType *WebAclManagedRuleGroupConfigPayloadType `pulumi:"payloadType"`
-	// The identifier of a field in the web request payload that contains customer data.
-	//
-	// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+	// > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
 	UsernameField *WebAclFieldIdentifier `pulumi:"usernameField"`
 }
 
@@ -18657,23 +18009,25 @@ type WebAclManagedRuleGroupConfigInput interface {
 
 // ManagedRuleGroupConfig.
 type WebAclManagedRuleGroupConfigArgs struct {
-	// Details for your use of the account creation fraud prevention managed rule group, `AWSManagedRulesACFPRuleSet` . This configuration is used in `ManagedRuleGroupConfig` .
+	// Additional configuration for using the account creation fraud prevention (ACFP) managed rule group, `AWSManagedRulesACFPRuleSet` . Use this to provide account creation request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to account creation requests.
+	//
+	// For information about using the ACFP managed rule group, see [AWS WAF Fraud Control account creation fraud prevention (ACFP) rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-acfp.html) and [AWS WAF Fraud Control account creation fraud prevention (ACFP)](https://docs.aws.amazon.com/waf/latest/developerguide/waf-acfp.html) in the *AWS WAF Developer Guide* .
 	AwsManagedRulesAcfpRuleSet WebAclAwsManagedRulesAcfpRuleSetPtrInput `pulumi:"awsManagedRulesAcfpRuleSet"`
-	// Details for your use of the account takeover prevention managed rule group, `AWSManagedRulesATPRuleSet` . This configuration is used in `ManagedRuleGroupConfig` .
+	// Additional configuration for using the account takeover prevention (ATP) managed rule group, `AWSManagedRulesATPRuleSet` . Use this to provide login request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to login requests.
+	//
+	// This configuration replaces the individual configuration fields in `ManagedRuleGroupConfig` and provides additional feature configuration.
+	//
+	// For information about using the ATP managed rule group, see [AWS WAF Fraud Control account takeover prevention (ATP) rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-atp.html) and [AWS WAF Fraud Control account takeover prevention (ATP)](https://docs.aws.amazon.com/waf/latest/developerguide/waf-atp.html) in the *AWS WAF Developer Guide* .
 	AwsManagedRulesAtpRuleSet WebAclAwsManagedRulesAtpRuleSetPtrInput `pulumi:"awsManagedRulesAtpRuleSet"`
-	// Details for your use of the Bot Control managed rule group, `AWSManagedRulesBotControlRuleSet` . This configuration is used in `ManagedRuleGroupConfig` .
+	// Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. For information about using the Bot Control managed rule group, see [AWS WAF Bot Control rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html) and [AWS WAF Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/waf-bot-control.html) in the *AWS WAF Developer Guide* .
 	AwsManagedRulesBotControlRuleSet WebAclAwsManagedRulesBotControlRuleSetPtrInput `pulumi:"awsManagedRulesBotControlRuleSet"`
 	// > Instead of this setting, provide your configuration under `AWSManagedRulesATPRuleSet` .
 	LoginPath pulumi.StringPtrInput `pulumi:"loginPath"`
-	// The identifier of a field in the web request payload that contains customer data.
-	//
-	// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+	// > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
 	PasswordField WebAclFieldIdentifierPtrInput `pulumi:"passwordField"`
 	// > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
 	PayloadType WebAclManagedRuleGroupConfigPayloadTypePtrInput `pulumi:"payloadType"`
-	// The identifier of a field in the web request payload that contains customer data.
-	//
-	// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+	// > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
 	UsernameField WebAclFieldIdentifierPtrInput `pulumi:"usernameField"`
 }
 
@@ -18729,21 +18083,27 @@ func (o WebAclManagedRuleGroupConfigOutput) ToWebAclManagedRuleGroupConfigOutput
 	return o
 }
 
-// Details for your use of the account creation fraud prevention managed rule group, `AWSManagedRulesACFPRuleSet` . This configuration is used in `ManagedRuleGroupConfig` .
+// Additional configuration for using the account creation fraud prevention (ACFP) managed rule group, `AWSManagedRulesACFPRuleSet` . Use this to provide account creation request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to account creation requests.
+//
+// For information about using the ACFP managed rule group, see [AWS WAF Fraud Control account creation fraud prevention (ACFP) rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-acfp.html) and [AWS WAF Fraud Control account creation fraud prevention (ACFP)](https://docs.aws.amazon.com/waf/latest/developerguide/waf-acfp.html) in the *AWS WAF Developer Guide* .
 func (o WebAclManagedRuleGroupConfigOutput) AwsManagedRulesAcfpRuleSet() WebAclAwsManagedRulesAcfpRuleSetPtrOutput {
 	return o.ApplyT(func(v WebAclManagedRuleGroupConfig) *WebAclAwsManagedRulesAcfpRuleSet {
 		return v.AwsManagedRulesAcfpRuleSet
 	}).(WebAclAwsManagedRulesAcfpRuleSetPtrOutput)
 }
 
-// Details for your use of the account takeover prevention managed rule group, `AWSManagedRulesATPRuleSet` . This configuration is used in `ManagedRuleGroupConfig` .
+// Additional configuration for using the account takeover prevention (ATP) managed rule group, `AWSManagedRulesATPRuleSet` . Use this to provide login request information to the rule group. For web ACLs that protect CloudFront distributions, use this to also provide the information about how your distribution responds to login requests.
+//
+// This configuration replaces the individual configuration fields in `ManagedRuleGroupConfig` and provides additional feature configuration.
+//
+// For information about using the ATP managed rule group, see [AWS WAF Fraud Control account takeover prevention (ATP) rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-atp.html) and [AWS WAF Fraud Control account takeover prevention (ATP)](https://docs.aws.amazon.com/waf/latest/developerguide/waf-atp.html) in the *AWS WAF Developer Guide* .
 func (o WebAclManagedRuleGroupConfigOutput) AwsManagedRulesAtpRuleSet() WebAclAwsManagedRulesAtpRuleSetPtrOutput {
 	return o.ApplyT(func(v WebAclManagedRuleGroupConfig) *WebAclAwsManagedRulesAtpRuleSet {
 		return v.AwsManagedRulesAtpRuleSet
 	}).(WebAclAwsManagedRulesAtpRuleSetPtrOutput)
 }
 
-// Details for your use of the Bot Control managed rule group, `AWSManagedRulesBotControlRuleSet` . This configuration is used in `ManagedRuleGroupConfig` .
+// Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. For information about using the Bot Control managed rule group, see [AWS WAF Bot Control rule group](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-bot.html) and [AWS WAF Bot Control](https://docs.aws.amazon.com/waf/latest/developerguide/waf-bot-control.html) in the *AWS WAF Developer Guide* .
 func (o WebAclManagedRuleGroupConfigOutput) AwsManagedRulesBotControlRuleSet() WebAclAwsManagedRulesBotControlRuleSetPtrOutput {
 	return o.ApplyT(func(v WebAclManagedRuleGroupConfig) *WebAclAwsManagedRulesBotControlRuleSet {
 		return v.AwsManagedRulesBotControlRuleSet
@@ -18755,9 +18115,7 @@ func (o WebAclManagedRuleGroupConfigOutput) LoginPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebAclManagedRuleGroupConfig) *string { return v.LoginPath }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of a field in the web request payload that contains customer data.
-//
-// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+// > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
 func (o WebAclManagedRuleGroupConfigOutput) PasswordField() WebAclFieldIdentifierPtrOutput {
 	return o.ApplyT(func(v WebAclManagedRuleGroupConfig) *WebAclFieldIdentifier { return v.PasswordField }).(WebAclFieldIdentifierPtrOutput)
 }
@@ -18767,9 +18125,7 @@ func (o WebAclManagedRuleGroupConfigOutput) PayloadType() WebAclManagedRuleGroup
 	return o.ApplyT(func(v WebAclManagedRuleGroupConfig) *WebAclManagedRuleGroupConfigPayloadType { return v.PayloadType }).(WebAclManagedRuleGroupConfigPayloadTypePtrOutput)
 }
 
-// The identifier of a field in the web request payload that contains customer data.
-//
-// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+// > Instead of this setting, provide your configuration under the request inspection configuration for `AWSManagedRulesATPRuleSet` or `AWSManagedRulesACFPRuleSet` .
 func (o WebAclManagedRuleGroupConfigOutput) UsernameField() WebAclFieldIdentifierPtrOutput {
 	return o.ApplyT(func(v WebAclManagedRuleGroupConfig) *WebAclFieldIdentifier { return v.UsernameField }).(WebAclFieldIdentifierPtrOutput)
 }
@@ -18795,7 +18151,7 @@ func (o WebAclManagedRuleGroupConfigArrayOutput) Index(i pulumi.IntInput) WebAcl
 }
 
 type WebAclManagedRuleGroupStatement struct {
-	// Specifies a single rule in a rule group whose action you want to override to `Count` .
+	// Rules in the referenced rule group whose actions are set to `Count` .
 	//
 	// > Instead of this option, use `RuleActionOverrides` . It accepts any valid action setting, including `Count` .
 	ExcludedRules []WebAclExcludedRule `pulumi:"excludedRules"`
@@ -18805,7 +18161,7 @@ type WebAclManagedRuleGroupStatement struct {
 	Name string `pulumi:"name"`
 	// Action overrides for rules in the rule group.
 	RuleActionOverrides []WebAclRuleActionOverride `pulumi:"ruleActionOverrides"`
-	// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+	// An optional nested statement that narrows the scope of the web requests that are evaluated by the managed rule group. Requests are only evaluated by the rule group if they match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
 	ScopeDownStatement *WebAclStatement `pulumi:"scopeDownStatement"`
 	// The name of the managed rule group vendor. You use this, along with the rule group name, to identify a rule group.
 	VendorName string `pulumi:"vendorName"`
@@ -18825,7 +18181,7 @@ type WebAclManagedRuleGroupStatementInput interface {
 }
 
 type WebAclManagedRuleGroupStatementArgs struct {
-	// Specifies a single rule in a rule group whose action you want to override to `Count` .
+	// Rules in the referenced rule group whose actions are set to `Count` .
 	//
 	// > Instead of this option, use `RuleActionOverrides` . It accepts any valid action setting, including `Count` .
 	ExcludedRules WebAclExcludedRuleArrayInput `pulumi:"excludedRules"`
@@ -18835,7 +18191,7 @@ type WebAclManagedRuleGroupStatementArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// Action overrides for rules in the rule group.
 	RuleActionOverrides WebAclRuleActionOverrideArrayInput `pulumi:"ruleActionOverrides"`
-	// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+	// An optional nested statement that narrows the scope of the web requests that are evaluated by the managed rule group. Requests are only evaluated by the rule group if they match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
 	ScopeDownStatement WebAclStatementPtrInput `pulumi:"scopeDownStatement"`
 	// The name of the managed rule group vendor. You use this, along with the rule group name, to identify a rule group.
 	VendorName pulumi.StringInput `pulumi:"vendorName"`
@@ -18920,7 +18276,7 @@ func (o WebAclManagedRuleGroupStatementOutput) ToWebAclManagedRuleGroupStatement
 	}).(WebAclManagedRuleGroupStatementPtrOutput)
 }
 
-// Specifies a single rule in a rule group whose action you want to override to `Count` .
+// Rules in the referenced rule group whose actions are set to `Count` .
 //
 // > Instead of this option, use `RuleActionOverrides` . It accepts any valid action setting, including `Count` .
 func (o WebAclManagedRuleGroupStatementOutput) ExcludedRules() WebAclExcludedRuleArrayOutput {
@@ -18944,7 +18300,7 @@ func (o WebAclManagedRuleGroupStatementOutput) RuleActionOverrides() WebAclRuleA
 	return o.ApplyT(func(v WebAclManagedRuleGroupStatement) []WebAclRuleActionOverride { return v.RuleActionOverrides }).(WebAclRuleActionOverrideArrayOutput)
 }
 
-// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+// An optional nested statement that narrows the scope of the web requests that are evaluated by the managed rule group. Requests are only evaluated by the rule group if they match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
 func (o WebAclManagedRuleGroupStatementOutput) ScopeDownStatement() WebAclStatementPtrOutput {
 	return o.ApplyT(func(v WebAclManagedRuleGroupStatement) *WebAclStatement { return v.ScopeDownStatement }).(WebAclStatementPtrOutput)
 }
@@ -18983,7 +18339,7 @@ func (o WebAclManagedRuleGroupStatementPtrOutput) Elem() WebAclManagedRuleGroupS
 	}).(WebAclManagedRuleGroupStatementOutput)
 }
 
-// Specifies a single rule in a rule group whose action you want to override to `Count` .
+// Rules in the referenced rule group whose actions are set to `Count` .
 //
 // > Instead of this option, use `RuleActionOverrides` . It accepts any valid action setting, including `Count` .
 func (o WebAclManagedRuleGroupStatementPtrOutput) ExcludedRules() WebAclExcludedRuleArrayOutput {
@@ -19025,7 +18381,7 @@ func (o WebAclManagedRuleGroupStatementPtrOutput) RuleActionOverrides() WebAclRu
 	}).(WebAclRuleActionOverrideArrayOutput)
 }
 
-// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+// An optional nested statement that narrows the scope of the web requests that are evaluated by the managed rule group. Requests are only evaluated by the rule group if they match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
 func (o WebAclManagedRuleGroupStatementPtrOutput) ScopeDownStatement() WebAclStatementPtrOutput {
 	return o.ApplyT(func(v *WebAclManagedRuleGroupStatement) *WebAclStatement {
 		if v == nil {
@@ -19056,7 +18412,7 @@ func (o WebAclManagedRuleGroupStatementPtrOutput) Version() pulumi.StringPtrOutp
 }
 
 type WebAclNotStatement struct {
-	// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+	// The statement to negate. You can use any statement that can be nested.
 	Statement WebAclStatement `pulumi:"statement"`
 }
 
@@ -19072,7 +18428,7 @@ type WebAclNotStatementInput interface {
 }
 
 type WebAclNotStatementArgs struct {
-	// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+	// The statement to negate. You can use any statement that can be nested.
 	Statement WebAclStatementInput `pulumi:"statement"`
 }
 
@@ -19153,7 +18509,7 @@ func (o WebAclNotStatementOutput) ToWebAclNotStatementPtrOutputWithContext(ctx c
 	}).(WebAclNotStatementPtrOutput)
 }
 
-// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+// The statement to negate. You can use any statement that can be nested.
 func (o WebAclNotStatementOutput) Statement() WebAclStatementOutput {
 	return o.ApplyT(func(v WebAclNotStatement) WebAclStatement { return v.Statement }).(WebAclStatementOutput)
 }
@@ -19182,7 +18538,7 @@ func (o WebAclNotStatementPtrOutput) Elem() WebAclNotStatementOutput {
 	}).(WebAclNotStatementOutput)
 }
 
-// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+// The statement to negate. You can use any statement that can be nested.
 func (o WebAclNotStatementPtrOutput) Statement() WebAclStatementPtrOutput {
 	return o.ApplyT(func(v *WebAclNotStatement) *WebAclStatement {
 		if v == nil {
@@ -19522,9 +18878,7 @@ type WebAclRateBasedStatement struct {
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 	//
-	// This configuration is used for `GeoMatchStatement` and `RateBasedStatement` . For `IPSetReferenceStatement` , use `IPSetForwardedIPConfig` instead.
-	//
-	// AWS WAF only evaluates the first IP address found in the specified HTTP header.
+	// This is required if you specify a forwarded IP in the rule's aggregate key settings.
 	ForwardedIpConfig *WebAclForwardedIpConfiguration `pulumi:"forwardedIpConfig"`
 	// The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
 	//
@@ -19533,7 +18887,7 @@ type WebAclRateBasedStatement struct {
 	// - If you aggregate on just the IP address, this is the limit on requests from any single IP address.
 	// - If you aggregate on the HTTP method and the query argument name "city", then this is the limit on requests for any single method, city pair.
 	Limit int `pulumi:"limit"`
-	// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+	// An optional nested statement that narrows the scope of the web requests that are evaluated and managed by the rate-based statement. When you use a scope-down statement, the rate-based rule only tracks and rate limits requests that match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
 	ScopeDownStatement *WebAclStatement `pulumi:"scopeDownStatement"`
 }
 
@@ -19582,9 +18936,7 @@ type WebAclRateBasedStatementArgs struct {
 	//
 	// > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 	//
-	// This configuration is used for `GeoMatchStatement` and `RateBasedStatement` . For `IPSetReferenceStatement` , use `IPSetForwardedIPConfig` instead.
-	//
-	// AWS WAF only evaluates the first IP address found in the specified HTTP header.
+	// This is required if you specify a forwarded IP in the rule's aggregate key settings.
 	ForwardedIpConfig WebAclForwardedIpConfigurationPtrInput `pulumi:"forwardedIpConfig"`
 	// The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
 	//
@@ -19593,7 +18945,7 @@ type WebAclRateBasedStatementArgs struct {
 	// - If you aggregate on just the IP address, this is the limit on requests from any single IP address.
 	// - If you aggregate on the HTTP method and the query argument name "city", then this is the limit on requests for any single method, city pair.
 	Limit pulumi.IntInput `pulumi:"limit"`
-	// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+	// An optional nested statement that narrows the scope of the web requests that are evaluated and managed by the rate-based statement. When you use a scope-down statement, the rate-based rule only tracks and rate limits requests that match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
 	ScopeDownStatement WebAclStatementPtrInput `pulumi:"scopeDownStatement"`
 }
 
@@ -19716,9 +19068,7 @@ func (o WebAclRateBasedStatementOutput) EvaluationWindowSec() pulumi.IntPtrOutpu
 //
 // > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 //
-// This configuration is used for `GeoMatchStatement` and `RateBasedStatement` . For `IPSetReferenceStatement` , use `IPSetForwardedIPConfig` instead.
-//
-// AWS WAF only evaluates the first IP address found in the specified HTTP header.
+// This is required if you specify a forwarded IP in the rule's aggregate key settings.
 func (o WebAclRateBasedStatementOutput) ForwardedIpConfig() WebAclForwardedIpConfigurationPtrOutput {
 	return o.ApplyT(func(v WebAclRateBasedStatement) *WebAclForwardedIpConfiguration { return v.ForwardedIpConfig }).(WebAclForwardedIpConfigurationPtrOutput)
 }
@@ -19733,7 +19083,7 @@ func (o WebAclRateBasedStatementOutput) Limit() pulumi.IntOutput {
 	return o.ApplyT(func(v WebAclRateBasedStatement) int { return v.Limit }).(pulumi.IntOutput)
 }
 
-// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+// An optional nested statement that narrows the scope of the web requests that are evaluated and managed by the rate-based statement. When you use a scope-down statement, the rate-based rule only tracks and rate limits requests that match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
 func (o WebAclRateBasedStatementOutput) ScopeDownStatement() WebAclStatementPtrOutput {
 	return o.ApplyT(func(v WebAclRateBasedStatement) *WebAclStatement { return v.ScopeDownStatement }).(WebAclStatementPtrOutput)
 }
@@ -19819,9 +19169,7 @@ func (o WebAclRateBasedStatementPtrOutput) EvaluationWindowSec() pulumi.IntPtrOu
 //
 // > If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
 //
-// This configuration is used for `GeoMatchStatement` and `RateBasedStatement` . For `IPSetReferenceStatement` , use `IPSetForwardedIPConfig` instead.
-//
-// AWS WAF only evaluates the first IP address found in the specified HTTP header.
+// This is required if you specify a forwarded IP in the rule's aggregate key settings.
 func (o WebAclRateBasedStatementPtrOutput) ForwardedIpConfig() WebAclForwardedIpConfigurationPtrOutput {
 	return o.ApplyT(func(v *WebAclRateBasedStatement) *WebAclForwardedIpConfiguration {
 		if v == nil {
@@ -19846,7 +19194,7 @@ func (o WebAclRateBasedStatementPtrOutput) Limit() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+// An optional nested statement that narrows the scope of the web requests that are evaluated and managed by the rate-based statement. When you use a scope-down statement, the rate-based rule only tracks and rate limits requests that match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
 func (o WebAclRateBasedStatementPtrOutput) ScopeDownStatement() WebAclStatementPtrOutput {
 	return o.ApplyT(func(v *WebAclRateBasedStatement) *WebAclStatement {
 		if v == nil {
@@ -19858,7 +19206,7 @@ func (o WebAclRateBasedStatementPtrOutput) ScopeDownStatement() WebAclStatementP
 
 // Specifies a single custom aggregate key for a rate-base rule.
 type WebAclRateBasedStatementCustomKey struct {
-	// Specifies a cookie as an aggregate key for a rate-based rule. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
+	// Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
 	Cookie *WebAclRateLimitCookie `pulumi:"cookie"`
 	// Use the first IP address in an HTTP header as an aggregate key. Each distinct forwarded IP address contributes to the aggregation instance.
 	//
@@ -19866,7 +19214,7 @@ type WebAclRateBasedStatementCustomKey struct {
 	//
 	// With this option, you must specify the header to use in the rate-based rule's `ForwardedIPConfig` property.
 	ForwardedIp *WebAclRateLimitForwardedIp `pulumi:"forwardedIp"`
-	// Specifies a header as an aggregate key for a rate-based rule. Each distinct value in the header contributes to the aggregation instance. If you use a single header as your custom key, then each value fully defines an aggregation instance.
+	// Use the value of a header in the request as an aggregate key. Each distinct value in the header contributes to the aggregation instance. If you use a single header as your custom key, then each value fully defines an aggregation instance.
 	Header *WebAclRateLimitHeader `pulumi:"header"`
 	// Use the request's HTTP method as an aggregate key. Each distinct HTTP method contributes to the aggregation instance. If you use just the HTTP method as your custom key, then each method fully defines an aggregation instance.
 	HttpMethod *WebAclRateLimitHttpMethod `pulumi:"httpMethod"`
@@ -19874,17 +19222,17 @@ type WebAclRateBasedStatementCustomKey struct {
 	//
 	// When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the IP address by specifying `IP` in your rate-based statement's `AggregateKeyType` .
 	Ip *WebAclRateLimitIp `pulumi:"ip"`
-	// Specifies a label namespace to use as an aggregate key for a rate-based rule. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
+	// Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
 	//
 	// This uses only labels that have been added to the request by rules that are evaluated before this rate-based rule in the web ACL.
 	//
 	// For information about label namespaces and names, see [Label syntax and naming requirements](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-label-requirements.html) in the *AWS WAF Developer Guide* .
 	LabelNamespace *WebAclRateLimitLabelNamespace `pulumi:"labelNamespace"`
-	// Specifies a query argument in the request as an aggregate key for a rate-based rule. Each distinct value for the named query argument contributes to the aggregation instance. If you use a single query argument as your custom key, then each value fully defines an aggregation instance.
+	// Use the specified query argument as an aggregate key. Each distinct value for the named query argument contributes to the aggregation instance. If you use a single query argument as your custom key, then each value fully defines an aggregation instance.
 	QueryArgument *WebAclRateLimitQueryArgument `pulumi:"queryArgument"`
-	// Specifies the request's query string as an aggregate key for a rate-based rule. Each distinct string contributes to the aggregation instance. If you use just the query string as your custom key, then each string fully defines an aggregation instance.
+	// Use the request's query string as an aggregate key. Each distinct string contributes to the aggregation instance. If you use just the query string as your custom key, then each string fully defines an aggregation instance.
 	QueryString *WebAclRateLimitQueryString `pulumi:"queryString"`
-	// Specifies the request's URI path as an aggregate key for a rate-based rule. Each distinct URI path contributes to the aggregation instance. If you use just the URI path as your custom key, then each URI path fully defines an aggregation instance.
+	// Use the request's URI path as an aggregate key. Each distinct URI path contributes to the aggregation instance. If you use just the URI path as your custom key, then each URI path fully defines an aggregation instance.
 	UriPath *WebAclRateLimitUriPath `pulumi:"uriPath"`
 }
 
@@ -19901,7 +19249,7 @@ type WebAclRateBasedStatementCustomKeyInput interface {
 
 // Specifies a single custom aggregate key for a rate-base rule.
 type WebAclRateBasedStatementCustomKeyArgs struct {
-	// Specifies a cookie as an aggregate key for a rate-based rule. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
+	// Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
 	Cookie WebAclRateLimitCookiePtrInput `pulumi:"cookie"`
 	// Use the first IP address in an HTTP header as an aggregate key. Each distinct forwarded IP address contributes to the aggregation instance.
 	//
@@ -19909,7 +19257,7 @@ type WebAclRateBasedStatementCustomKeyArgs struct {
 	//
 	// With this option, you must specify the header to use in the rate-based rule's `ForwardedIPConfig` property.
 	ForwardedIp WebAclRateLimitForwardedIpPtrInput `pulumi:"forwardedIp"`
-	// Specifies a header as an aggregate key for a rate-based rule. Each distinct value in the header contributes to the aggregation instance. If you use a single header as your custom key, then each value fully defines an aggregation instance.
+	// Use the value of a header in the request as an aggregate key. Each distinct value in the header contributes to the aggregation instance. If you use a single header as your custom key, then each value fully defines an aggregation instance.
 	Header WebAclRateLimitHeaderPtrInput `pulumi:"header"`
 	// Use the request's HTTP method as an aggregate key. Each distinct HTTP method contributes to the aggregation instance. If you use just the HTTP method as your custom key, then each method fully defines an aggregation instance.
 	HttpMethod WebAclRateLimitHttpMethodPtrInput `pulumi:"httpMethod"`
@@ -19917,17 +19265,17 @@ type WebAclRateBasedStatementCustomKeyArgs struct {
 	//
 	// When you specify an IP or forwarded IP in the custom key settings, you must also specify at least one other key to use. You can aggregate on only the IP address by specifying `IP` in your rate-based statement's `AggregateKeyType` .
 	Ip WebAclRateLimitIpPtrInput `pulumi:"ip"`
-	// Specifies a label namespace to use as an aggregate key for a rate-based rule. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
+	// Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
 	//
 	// This uses only labels that have been added to the request by rules that are evaluated before this rate-based rule in the web ACL.
 	//
 	// For information about label namespaces and names, see [Label syntax and naming requirements](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-label-requirements.html) in the *AWS WAF Developer Guide* .
 	LabelNamespace WebAclRateLimitLabelNamespacePtrInput `pulumi:"labelNamespace"`
-	// Specifies a query argument in the request as an aggregate key for a rate-based rule. Each distinct value for the named query argument contributes to the aggregation instance. If you use a single query argument as your custom key, then each value fully defines an aggregation instance.
+	// Use the specified query argument as an aggregate key. Each distinct value for the named query argument contributes to the aggregation instance. If you use a single query argument as your custom key, then each value fully defines an aggregation instance.
 	QueryArgument WebAclRateLimitQueryArgumentPtrInput `pulumi:"queryArgument"`
-	// Specifies the request's query string as an aggregate key for a rate-based rule. Each distinct string contributes to the aggregation instance. If you use just the query string as your custom key, then each string fully defines an aggregation instance.
+	// Use the request's query string as an aggregate key. Each distinct string contributes to the aggregation instance. If you use just the query string as your custom key, then each string fully defines an aggregation instance.
 	QueryString WebAclRateLimitQueryStringPtrInput `pulumi:"queryString"`
-	// Specifies the request's URI path as an aggregate key for a rate-based rule. Each distinct URI path contributes to the aggregation instance. If you use just the URI path as your custom key, then each URI path fully defines an aggregation instance.
+	// Use the request's URI path as an aggregate key. Each distinct URI path contributes to the aggregation instance. If you use just the URI path as your custom key, then each URI path fully defines an aggregation instance.
 	UriPath WebAclRateLimitUriPathPtrInput `pulumi:"uriPath"`
 }
 
@@ -19983,7 +19331,7 @@ func (o WebAclRateBasedStatementCustomKeyOutput) ToWebAclRateBasedStatementCusto
 	return o
 }
 
-// Specifies a cookie as an aggregate key for a rate-based rule. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
+// Use the value of a cookie in the request as an aggregate key. Each distinct value in the cookie contributes to the aggregation instance. If you use a single cookie as your custom key, then each value fully defines an aggregation instance.
 func (o WebAclRateBasedStatementCustomKeyOutput) Cookie() WebAclRateLimitCookiePtrOutput {
 	return o.ApplyT(func(v WebAclRateBasedStatementCustomKey) *WebAclRateLimitCookie { return v.Cookie }).(WebAclRateLimitCookiePtrOutput)
 }
@@ -19997,7 +19345,7 @@ func (o WebAclRateBasedStatementCustomKeyOutput) ForwardedIp() WebAclRateLimitFo
 	return o.ApplyT(func(v WebAclRateBasedStatementCustomKey) *WebAclRateLimitForwardedIp { return v.ForwardedIp }).(WebAclRateLimitForwardedIpPtrOutput)
 }
 
-// Specifies a header as an aggregate key for a rate-based rule. Each distinct value in the header contributes to the aggregation instance. If you use a single header as your custom key, then each value fully defines an aggregation instance.
+// Use the value of a header in the request as an aggregate key. Each distinct value in the header contributes to the aggregation instance. If you use a single header as your custom key, then each value fully defines an aggregation instance.
 func (o WebAclRateBasedStatementCustomKeyOutput) Header() WebAclRateLimitHeaderPtrOutput {
 	return o.ApplyT(func(v WebAclRateBasedStatementCustomKey) *WebAclRateLimitHeader { return v.Header }).(WebAclRateLimitHeaderPtrOutput)
 }
@@ -20014,7 +19362,7 @@ func (o WebAclRateBasedStatementCustomKeyOutput) Ip() WebAclRateLimitIpPtrOutput
 	return o.ApplyT(func(v WebAclRateBasedStatementCustomKey) *WebAclRateLimitIp { return v.Ip }).(WebAclRateLimitIpPtrOutput)
 }
 
-// Specifies a label namespace to use as an aggregate key for a rate-based rule. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
+// Use the specified label namespace as an aggregate key. Each distinct fully qualified label name that has the specified label namespace contributes to the aggregation instance. If you use just one label namespace as your custom key, then each label name fully defines an aggregation instance.
 //
 // This uses only labels that have been added to the request by rules that are evaluated before this rate-based rule in the web ACL.
 //
@@ -20023,17 +19371,17 @@ func (o WebAclRateBasedStatementCustomKeyOutput) LabelNamespace() WebAclRateLimi
 	return o.ApplyT(func(v WebAclRateBasedStatementCustomKey) *WebAclRateLimitLabelNamespace { return v.LabelNamespace }).(WebAclRateLimitLabelNamespacePtrOutput)
 }
 
-// Specifies a query argument in the request as an aggregate key for a rate-based rule. Each distinct value for the named query argument contributes to the aggregation instance. If you use a single query argument as your custom key, then each value fully defines an aggregation instance.
+// Use the specified query argument as an aggregate key. Each distinct value for the named query argument contributes to the aggregation instance. If you use a single query argument as your custom key, then each value fully defines an aggregation instance.
 func (o WebAclRateBasedStatementCustomKeyOutput) QueryArgument() WebAclRateLimitQueryArgumentPtrOutput {
 	return o.ApplyT(func(v WebAclRateBasedStatementCustomKey) *WebAclRateLimitQueryArgument { return v.QueryArgument }).(WebAclRateLimitQueryArgumentPtrOutput)
 }
 
-// Specifies the request's query string as an aggregate key for a rate-based rule. Each distinct string contributes to the aggregation instance. If you use just the query string as your custom key, then each string fully defines an aggregation instance.
+// Use the request's query string as an aggregate key. Each distinct string contributes to the aggregation instance. If you use just the query string as your custom key, then each string fully defines an aggregation instance.
 func (o WebAclRateBasedStatementCustomKeyOutput) QueryString() WebAclRateLimitQueryStringPtrOutput {
 	return o.ApplyT(func(v WebAclRateBasedStatementCustomKey) *WebAclRateLimitQueryString { return v.QueryString }).(WebAclRateLimitQueryStringPtrOutput)
 }
 
-// Specifies the request's URI path as an aggregate key for a rate-based rule. Each distinct URI path contributes to the aggregation instance. If you use just the URI path as your custom key, then each URI path fully defines an aggregation instance.
+// Use the request's URI path as an aggregate key. Each distinct URI path contributes to the aggregation instance. If you use just the URI path as your custom key, then each URI path fully defines an aggregation instance.
 func (o WebAclRateBasedStatementCustomKeyOutput) UriPath() WebAclRateLimitUriPathPtrOutput {
 	return o.ApplyT(func(v WebAclRateBasedStatementCustomKey) *WebAclRateLimitUriPath { return v.UriPath }).(WebAclRateLimitUriPathPtrOutput)
 }
@@ -21319,22 +20667,7 @@ func (o WebAclRateLimitUriPathPtrOutput) TextTransformations() WebAclTextTransfo
 }
 
 type WebAclRegexMatchStatement struct {
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch WebAclFieldToMatch `pulumi:"fieldToMatch"`
 	// The string representing the regular expression.
 	RegexString string `pulumi:"regexString"`
@@ -21354,22 +20687,7 @@ type WebAclRegexMatchStatementInput interface {
 }
 
 type WebAclRegexMatchStatementArgs struct {
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch WebAclFieldToMatchInput `pulumi:"fieldToMatch"`
 	// The string representing the regular expression.
 	RegexString pulumi.StringInput `pulumi:"regexString"`
@@ -21454,22 +20772,7 @@ func (o WebAclRegexMatchStatementOutput) ToWebAclRegexMatchStatementPtrOutputWit
 	}).(WebAclRegexMatchStatementPtrOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o WebAclRegexMatchStatementOutput) FieldToMatch() WebAclFieldToMatchOutput {
 	return o.ApplyT(func(v WebAclRegexMatchStatement) WebAclFieldToMatch { return v.FieldToMatch }).(WebAclFieldToMatchOutput)
 }
@@ -21508,22 +20811,7 @@ func (o WebAclRegexMatchStatementPtrOutput) Elem() WebAclRegexMatchStatementOutp
 	}).(WebAclRegexMatchStatementOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o WebAclRegexMatchStatementPtrOutput) FieldToMatch() WebAclFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *WebAclRegexMatchStatement) *WebAclFieldToMatch {
 		if v == nil {
@@ -21556,22 +20844,7 @@ func (o WebAclRegexMatchStatementPtrOutput) TextTransformations() WebAclTextTran
 type WebAclRegexPatternSetReferenceStatement struct {
 	// The Amazon Resource Name (ARN) of the `RegexPatternSet` that this statement references.
 	Arn string `pulumi:"arn"`
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch WebAclFieldToMatch `pulumi:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 	TextTransformations []WebAclTextTransformation `pulumi:"textTransformations"`
@@ -21591,22 +20864,7 @@ type WebAclRegexPatternSetReferenceStatementInput interface {
 type WebAclRegexPatternSetReferenceStatementArgs struct {
 	// The Amazon Resource Name (ARN) of the `RegexPatternSet` that this statement references.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch WebAclFieldToMatchInput `pulumi:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 	TextTransformations WebAclTextTransformationArrayInput `pulumi:"textTransformations"`
@@ -21694,22 +20952,7 @@ func (o WebAclRegexPatternSetReferenceStatementOutput) Arn() pulumi.StringOutput
 	return o.ApplyT(func(v WebAclRegexPatternSetReferenceStatement) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o WebAclRegexPatternSetReferenceStatementOutput) FieldToMatch() WebAclFieldToMatchOutput {
 	return o.ApplyT(func(v WebAclRegexPatternSetReferenceStatement) WebAclFieldToMatch { return v.FieldToMatch }).(WebAclFieldToMatchOutput)
 }
@@ -21755,22 +20998,7 @@ func (o WebAclRegexPatternSetReferenceStatementPtrOutput) Arn() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o WebAclRegexPatternSetReferenceStatementPtrOutput) FieldToMatch() WebAclFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *WebAclRegexPatternSetReferenceStatement) *WebAclFieldToMatch {
 		if v == nil {
@@ -21900,15 +21128,29 @@ func (o WebAclRequestBodyAssociatedResourceTypeConfigMapOutput) MapIndex(k pulum
 
 // Configures the inspection of login requests
 type WebAclRequestInspection struct {
-	// The identifier of a field in the web request payload that contains customer data.
+	// The name of the field in the request payload that contains your customer's password.
 	//
-	// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+	// How you specify this depends on the request inspection payload type.
+	//
+	// - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+	//
+	// For example, for the JSON payload `{ "form": { "password": "THE_PASSWORD" } }` , the password field specification is `/form/password` .
+	// - For form encoded payload types, use the HTML form names.
+	//
+	// For example, for an HTML form with the input element named `password1` , the password field specification is `password1` .
 	PasswordField WebAclFieldIdentifier `pulumi:"passwordField"`
 	// The payload type for your login endpoint, either JSON or form encoded.
 	PayloadType WebAclRequestInspectionPayloadType `pulumi:"payloadType"`
-	// The identifier of a field in the web request payload that contains customer data.
+	// The name of the field in the request payload that contains your customer's username.
 	//
-	// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+	// How you specify this depends on the request inspection payload type.
+	//
+	// - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+	//
+	// For example, for the JSON payload `{ "form": { "username": "THE_USERNAME" } }` , the username field specification is `/form/username` .
+	// - For form encoded payload types, use the HTML form names.
+	//
+	// For example, for an HTML form with the input element named `username1` , the username field specification is `username1`
 	UsernameField WebAclFieldIdentifier `pulumi:"usernameField"`
 }
 
@@ -21925,15 +21167,29 @@ type WebAclRequestInspectionInput interface {
 
 // Configures the inspection of login requests
 type WebAclRequestInspectionArgs struct {
-	// The identifier of a field in the web request payload that contains customer data.
+	// The name of the field in the request payload that contains your customer's password.
 	//
-	// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+	// How you specify this depends on the request inspection payload type.
+	//
+	// - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+	//
+	// For example, for the JSON payload `{ "form": { "password": "THE_PASSWORD" } }` , the password field specification is `/form/password` .
+	// - For form encoded payload types, use the HTML form names.
+	//
+	// For example, for an HTML form with the input element named `password1` , the password field specification is `password1` .
 	PasswordField WebAclFieldIdentifierInput `pulumi:"passwordField"`
 	// The payload type for your login endpoint, either JSON or form encoded.
 	PayloadType WebAclRequestInspectionPayloadTypeInput `pulumi:"payloadType"`
-	// The identifier of a field in the web request payload that contains customer data.
+	// The name of the field in the request payload that contains your customer's username.
 	//
-	// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+	// How you specify this depends on the request inspection payload type.
+	//
+	// - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+	//
+	// For example, for the JSON payload `{ "form": { "username": "THE_USERNAME" } }` , the username field specification is `/form/username` .
+	// - For form encoded payload types, use the HTML form names.
+	//
+	// For example, for an HTML form with the input element named `username1` , the username field specification is `username1`
 	UsernameField WebAclFieldIdentifierInput `pulumi:"usernameField"`
 }
 
@@ -22015,9 +21271,16 @@ func (o WebAclRequestInspectionOutput) ToWebAclRequestInspectionPtrOutputWithCon
 	}).(WebAclRequestInspectionPtrOutput)
 }
 
-// The identifier of a field in the web request payload that contains customer data.
+// The name of the field in the request payload that contains your customer's password.
 //
-// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+// How you specify this depends on the request inspection payload type.
+//
+// - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+//
+// For example, for the JSON payload `{ "form": { "password": "THE_PASSWORD" } }` , the password field specification is `/form/password` .
+// - For form encoded payload types, use the HTML form names.
+//
+// For example, for an HTML form with the input element named `password1` , the password field specification is `password1` .
 func (o WebAclRequestInspectionOutput) PasswordField() WebAclFieldIdentifierOutput {
 	return o.ApplyT(func(v WebAclRequestInspection) WebAclFieldIdentifier { return v.PasswordField }).(WebAclFieldIdentifierOutput)
 }
@@ -22027,9 +21290,16 @@ func (o WebAclRequestInspectionOutput) PayloadType() WebAclRequestInspectionPayl
 	return o.ApplyT(func(v WebAclRequestInspection) WebAclRequestInspectionPayloadType { return v.PayloadType }).(WebAclRequestInspectionPayloadTypeOutput)
 }
 
-// The identifier of a field in the web request payload that contains customer data.
+// The name of the field in the request payload that contains your customer's username.
 //
-// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+// How you specify this depends on the request inspection payload type.
+//
+// - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+//
+// For example, for the JSON payload `{ "form": { "username": "THE_USERNAME" } }` , the username field specification is `/form/username` .
+// - For form encoded payload types, use the HTML form names.
+//
+// For example, for an HTML form with the input element named `username1` , the username field specification is `username1`
 func (o WebAclRequestInspectionOutput) UsernameField() WebAclFieldIdentifierOutput {
 	return o.ApplyT(func(v WebAclRequestInspection) WebAclFieldIdentifier { return v.UsernameField }).(WebAclFieldIdentifierOutput)
 }
@@ -22058,9 +21328,16 @@ func (o WebAclRequestInspectionPtrOutput) Elem() WebAclRequestInspectionOutput {
 	}).(WebAclRequestInspectionOutput)
 }
 
-// The identifier of a field in the web request payload that contains customer data.
+// The name of the field in the request payload that contains your customer's password.
 //
-// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+// How you specify this depends on the request inspection payload type.
+//
+// - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+//
+// For example, for the JSON payload `{ "form": { "password": "THE_PASSWORD" } }` , the password field specification is `/form/password` .
+// - For form encoded payload types, use the HTML form names.
+//
+// For example, for an HTML form with the input element named `password1` , the password field specification is `password1` .
 func (o WebAclRequestInspectionPtrOutput) PasswordField() WebAclFieldIdentifierPtrOutput {
 	return o.ApplyT(func(v *WebAclRequestInspection) *WebAclFieldIdentifier {
 		if v == nil {
@@ -22080,9 +21357,16 @@ func (o WebAclRequestInspectionPtrOutput) PayloadType() WebAclRequestInspectionP
 	}).(WebAclRequestInspectionPayloadTypePtrOutput)
 }
 
-// The identifier of a field in the web request payload that contains customer data.
+// The name of the field in the request payload that contains your customer's username.
 //
-// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+// How you specify this depends on the request inspection payload type.
+//
+// - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+//
+// For example, for the JSON payload `{ "form": { "username": "THE_USERNAME" } }` , the username field specification is `/form/username` .
+// - For form encoded payload types, use the HTML form names.
+//
+// For example, for an HTML form with the input element named `username1` , the username field specification is `username1`
 func (o WebAclRequestInspectionPtrOutput) UsernameField() WebAclFieldIdentifierPtrOutput {
 	return o.ApplyT(func(v *WebAclRequestInspection) *WebAclFieldIdentifier {
 		if v == nil {
@@ -22107,13 +21391,27 @@ type WebAclRequestInspectionAcfp struct {
 	//
 	// For example, for an HTML form with input elements named `primaryaddressline1` , `primaryaddressline2` , and `primaryaddressline3` , the address fields identifiers are `primaryaddressline1` , `primaryaddressline2` , and `primaryaddressline3` .
 	AddressFields []WebAclFieldIdentifier `pulumi:"addressFields"`
-	// The identifier of a field in the web request payload that contains customer data.
+	// The name of the field in the request payload that contains your customer's email.
 	//
-	// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+	// How you specify this depends on the request inspection payload type.
+	//
+	// - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+	//
+	// For example, for the JSON payload `{ "form": { "email": "THE_EMAIL" } }` , the email field specification is `/form/email` .
+	// - For form encoded payload types, use the HTML form names.
+	//
+	// For example, for an HTML form with the input element named `email1` , the email field specification is `email1` .
 	EmailField *WebAclFieldIdentifier `pulumi:"emailField"`
-	// The identifier of a field in the web request payload that contains customer data.
+	// The name of the field in the request payload that contains your customer's password.
 	//
-	// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+	// How you specify this depends on the request inspection payload type.
+	//
+	// - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+	//
+	// For example, for the JSON payload `{ "form": { "password": "THE_PASSWORD" } }` , the password field specification is `/form/password` .
+	// - For form encoded payload types, use the HTML form names.
+	//
+	// For example, for an HTML form with the input element named `password1` , the password field specification is `password1` .
 	PasswordField *WebAclFieldIdentifier `pulumi:"passwordField"`
 	// The payload type for your account creation endpoint, either JSON or form encoded.
 	PayloadType WebAclRequestInspectionAcfpPayloadType `pulumi:"payloadType"`
@@ -22130,9 +21428,16 @@ type WebAclRequestInspectionAcfp struct {
 	//
 	// For example, for an HTML form with input elements named `primaryphoneline1` , `primaryphoneline2` , and `primaryphoneline3` , the phone number field identifiers are `primaryphoneline1` , `primaryphoneline2` , and `primaryphoneline3` .
 	PhoneNumberFields []WebAclFieldIdentifier `pulumi:"phoneNumberFields"`
-	// The identifier of a field in the web request payload that contains customer data.
+	// The name of the field in the request payload that contains your customer's username.
 	//
-	// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+	// How you specify this depends on the request inspection payload type.
+	//
+	// - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+	//
+	// For example, for the JSON payload `{ "form": { "username": "THE_USERNAME" } }` , the username field specification is `/form/username` .
+	// - For form encoded payload types, use the HTML form names.
+	//
+	// For example, for an HTML form with the input element named `username1` , the username field specification is `username1`
 	UsernameField *WebAclFieldIdentifier `pulumi:"usernameField"`
 }
 
@@ -22162,13 +21467,27 @@ type WebAclRequestInspectionAcfpArgs struct {
 	//
 	// For example, for an HTML form with input elements named `primaryaddressline1` , `primaryaddressline2` , and `primaryaddressline3` , the address fields identifiers are `primaryaddressline1` , `primaryaddressline2` , and `primaryaddressline3` .
 	AddressFields WebAclFieldIdentifierArrayInput `pulumi:"addressFields"`
-	// The identifier of a field in the web request payload that contains customer data.
+	// The name of the field in the request payload that contains your customer's email.
 	//
-	// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+	// How you specify this depends on the request inspection payload type.
+	//
+	// - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+	//
+	// For example, for the JSON payload `{ "form": { "email": "THE_EMAIL" } }` , the email field specification is `/form/email` .
+	// - For form encoded payload types, use the HTML form names.
+	//
+	// For example, for an HTML form with the input element named `email1` , the email field specification is `email1` .
 	EmailField WebAclFieldIdentifierPtrInput `pulumi:"emailField"`
-	// The identifier of a field in the web request payload that contains customer data.
+	// The name of the field in the request payload that contains your customer's password.
 	//
-	// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+	// How you specify this depends on the request inspection payload type.
+	//
+	// - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+	//
+	// For example, for the JSON payload `{ "form": { "password": "THE_PASSWORD" } }` , the password field specification is `/form/password` .
+	// - For form encoded payload types, use the HTML form names.
+	//
+	// For example, for an HTML form with the input element named `password1` , the password field specification is `password1` .
 	PasswordField WebAclFieldIdentifierPtrInput `pulumi:"passwordField"`
 	// The payload type for your account creation endpoint, either JSON or form encoded.
 	PayloadType WebAclRequestInspectionAcfpPayloadTypeInput `pulumi:"payloadType"`
@@ -22185,9 +21504,16 @@ type WebAclRequestInspectionAcfpArgs struct {
 	//
 	// For example, for an HTML form with input elements named `primaryphoneline1` , `primaryphoneline2` , and `primaryphoneline3` , the phone number field identifiers are `primaryphoneline1` , `primaryphoneline2` , and `primaryphoneline3` .
 	PhoneNumberFields WebAclFieldIdentifierArrayInput `pulumi:"phoneNumberFields"`
-	// The identifier of a field in the web request payload that contains customer data.
+	// The name of the field in the request payload that contains your customer's username.
 	//
-	// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+	// How you specify this depends on the request inspection payload type.
+	//
+	// - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+	//
+	// For example, for the JSON payload `{ "form": { "username": "THE_USERNAME" } }` , the username field specification is `/form/username` .
+	// - For form encoded payload types, use the HTML form names.
+	//
+	// For example, for an HTML form with the input element named `username1` , the username field specification is `username1`
 	UsernameField WebAclFieldIdentifierPtrInput `pulumi:"usernameField"`
 }
 
@@ -22285,16 +21611,30 @@ func (o WebAclRequestInspectionAcfpOutput) AddressFields() WebAclFieldIdentifier
 	return o.ApplyT(func(v WebAclRequestInspectionAcfp) []WebAclFieldIdentifier { return v.AddressFields }).(WebAclFieldIdentifierArrayOutput)
 }
 
-// The identifier of a field in the web request payload that contains customer data.
+// The name of the field in the request payload that contains your customer's email.
 //
-// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+// How you specify this depends on the request inspection payload type.
+//
+// - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+//
+// For example, for the JSON payload `{ "form": { "email": "THE_EMAIL" } }` , the email field specification is `/form/email` .
+// - For form encoded payload types, use the HTML form names.
+//
+// For example, for an HTML form with the input element named `email1` , the email field specification is `email1` .
 func (o WebAclRequestInspectionAcfpOutput) EmailField() WebAclFieldIdentifierPtrOutput {
 	return o.ApplyT(func(v WebAclRequestInspectionAcfp) *WebAclFieldIdentifier { return v.EmailField }).(WebAclFieldIdentifierPtrOutput)
 }
 
-// The identifier of a field in the web request payload that contains customer data.
+// The name of the field in the request payload that contains your customer's password.
 //
-// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+// How you specify this depends on the request inspection payload type.
+//
+// - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+//
+// For example, for the JSON payload `{ "form": { "password": "THE_PASSWORD" } }` , the password field specification is `/form/password` .
+// - For form encoded payload types, use the HTML form names.
+//
+// For example, for an HTML form with the input element named `password1` , the password field specification is `password1` .
 func (o WebAclRequestInspectionAcfpOutput) PasswordField() WebAclFieldIdentifierPtrOutput {
 	return o.ApplyT(func(v WebAclRequestInspectionAcfp) *WebAclFieldIdentifier { return v.PasswordField }).(WebAclFieldIdentifierPtrOutput)
 }
@@ -22320,9 +21660,16 @@ func (o WebAclRequestInspectionAcfpOutput) PhoneNumberFields() WebAclFieldIdenti
 	return o.ApplyT(func(v WebAclRequestInspectionAcfp) []WebAclFieldIdentifier { return v.PhoneNumberFields }).(WebAclFieldIdentifierArrayOutput)
 }
 
-// The identifier of a field in the web request payload that contains customer data.
+// The name of the field in the request payload that contains your customer's username.
 //
-// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+// How you specify this depends on the request inspection payload type.
+//
+// - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+//
+// For example, for the JSON payload `{ "form": { "username": "THE_USERNAME" } }` , the username field specification is `/form/username` .
+// - For form encoded payload types, use the HTML form names.
+//
+// For example, for an HTML form with the input element named `username1` , the username field specification is `username1`
 func (o WebAclRequestInspectionAcfpOutput) UsernameField() WebAclFieldIdentifierPtrOutput {
 	return o.ApplyT(func(v WebAclRequestInspectionAcfp) *WebAclFieldIdentifier { return v.UsernameField }).(WebAclFieldIdentifierPtrOutput)
 }
@@ -22372,9 +21719,16 @@ func (o WebAclRequestInspectionAcfpPtrOutput) AddressFields() WebAclFieldIdentif
 	}).(WebAclFieldIdentifierArrayOutput)
 }
 
-// The identifier of a field in the web request payload that contains customer data.
+// The name of the field in the request payload that contains your customer's email.
 //
-// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+// How you specify this depends on the request inspection payload type.
+//
+// - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+//
+// For example, for the JSON payload `{ "form": { "email": "THE_EMAIL" } }` , the email field specification is `/form/email` .
+// - For form encoded payload types, use the HTML form names.
+//
+// For example, for an HTML form with the input element named `email1` , the email field specification is `email1` .
 func (o WebAclRequestInspectionAcfpPtrOutput) EmailField() WebAclFieldIdentifierPtrOutput {
 	return o.ApplyT(func(v *WebAclRequestInspectionAcfp) *WebAclFieldIdentifier {
 		if v == nil {
@@ -22384,9 +21738,16 @@ func (o WebAclRequestInspectionAcfpPtrOutput) EmailField() WebAclFieldIdentifier
 	}).(WebAclFieldIdentifierPtrOutput)
 }
 
-// The identifier of a field in the web request payload that contains customer data.
+// The name of the field in the request payload that contains your customer's password.
 //
-// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+// How you specify this depends on the request inspection payload type.
+//
+// - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+//
+// For example, for the JSON payload `{ "form": { "password": "THE_PASSWORD" } }` , the password field specification is `/form/password` .
+// - For form encoded payload types, use the HTML form names.
+//
+// For example, for an HTML form with the input element named `password1` , the password field specification is `password1` .
 func (o WebAclRequestInspectionAcfpPtrOutput) PasswordField() WebAclFieldIdentifierPtrOutput {
 	return o.ApplyT(func(v *WebAclRequestInspectionAcfp) *WebAclFieldIdentifier {
 		if v == nil {
@@ -22427,9 +21788,16 @@ func (o WebAclRequestInspectionAcfpPtrOutput) PhoneNumberFields() WebAclFieldIde
 	}).(WebAclFieldIdentifierArrayOutput)
 }
 
-// The identifier of a field in the web request payload that contains customer data.
+// The name of the field in the request payload that contains your customer's username.
 //
-// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+// How you specify this depends on the request inspection payload type.
+//
+// - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+//
+// For example, for the JSON payload `{ "form": { "username": "THE_USERNAME" } }` , the username field specification is `/form/username` .
+// - For form encoded payload types, use the HTML form names.
+//
+// For example, for an HTML form with the input element named `username1` , the username field specification is `username1`
 func (o WebAclRequestInspectionAcfpPtrOutput) UsernameField() WebAclFieldIdentifierPtrOutput {
 	return o.ApplyT(func(v *WebAclRequestInspectionAcfp) *WebAclFieldIdentifier {
 		if v == nil {
@@ -22441,21 +21809,13 @@ func (o WebAclRequestInspectionAcfpPtrOutput) UsernameField() WebAclFieldIdentif
 
 // Configures the inspection of login responses
 type WebAclResponseInspection struct {
-	// Configures inspection of the response body. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response body. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
-	//
-	// > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+	// Configures inspection of the response body for success and failure indicators. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response body.
 	BodyContains *WebAclResponseInspectionBodyContains `pulumi:"bodyContains"`
-	// Configures inspection of the response header. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
-	//
-	// > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+	// Configures inspection of the response header for success and failure indicators.
 	Header *WebAclResponseInspectionHeader `pulumi:"header"`
-	// Configures inspection of the response JSON. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response JSON. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
-	//
-	// > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+	// Configures inspection of the response JSON for success and failure indicators. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response JSON.
 	Json *WebAclResponseInspectionJson `pulumi:"json"`
-	// Configures inspection of the response status code. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
-	//
-	// > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+	// Configures inspection of the response status code for success and failure indicators.
 	StatusCode *WebAclResponseInspectionStatusCode `pulumi:"statusCode"`
 }
 
@@ -22472,21 +21832,13 @@ type WebAclResponseInspectionInput interface {
 
 // Configures the inspection of login responses
 type WebAclResponseInspectionArgs struct {
-	// Configures inspection of the response body. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response body. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
-	//
-	// > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+	// Configures inspection of the response body for success and failure indicators. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response body.
 	BodyContains WebAclResponseInspectionBodyContainsPtrInput `pulumi:"bodyContains"`
-	// Configures inspection of the response header. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
-	//
-	// > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+	// Configures inspection of the response header for success and failure indicators.
 	Header WebAclResponseInspectionHeaderPtrInput `pulumi:"header"`
-	// Configures inspection of the response JSON. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response JSON. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
-	//
-	// > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+	// Configures inspection of the response JSON for success and failure indicators. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response JSON.
 	Json WebAclResponseInspectionJsonPtrInput `pulumi:"json"`
-	// Configures inspection of the response status code. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
-	//
-	// > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+	// Configures inspection of the response status code for success and failure indicators.
 	StatusCode WebAclResponseInspectionStatusCodePtrInput `pulumi:"statusCode"`
 }
 
@@ -22568,30 +21920,22 @@ func (o WebAclResponseInspectionOutput) ToWebAclResponseInspectionPtrOutputWithC
 	}).(WebAclResponseInspectionPtrOutput)
 }
 
-// Configures inspection of the response body. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response body. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
-//
-// > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+// Configures inspection of the response body for success and failure indicators. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response body.
 func (o WebAclResponseInspectionOutput) BodyContains() WebAclResponseInspectionBodyContainsPtrOutput {
 	return o.ApplyT(func(v WebAclResponseInspection) *WebAclResponseInspectionBodyContains { return v.BodyContains }).(WebAclResponseInspectionBodyContainsPtrOutput)
 }
 
-// Configures inspection of the response header. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
-//
-// > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+// Configures inspection of the response header for success and failure indicators.
 func (o WebAclResponseInspectionOutput) Header() WebAclResponseInspectionHeaderPtrOutput {
 	return o.ApplyT(func(v WebAclResponseInspection) *WebAclResponseInspectionHeader { return v.Header }).(WebAclResponseInspectionHeaderPtrOutput)
 }
 
-// Configures inspection of the response JSON. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response JSON. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
-//
-// > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+// Configures inspection of the response JSON for success and failure indicators. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response JSON.
 func (o WebAclResponseInspectionOutput) Json() WebAclResponseInspectionJsonPtrOutput {
 	return o.ApplyT(func(v WebAclResponseInspection) *WebAclResponseInspectionJson { return v.Json }).(WebAclResponseInspectionJsonPtrOutput)
 }
 
-// Configures inspection of the response status code. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
-//
-// > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+// Configures inspection of the response status code for success and failure indicators.
 func (o WebAclResponseInspectionOutput) StatusCode() WebAclResponseInspectionStatusCodePtrOutput {
 	return o.ApplyT(func(v WebAclResponseInspection) *WebAclResponseInspectionStatusCode { return v.StatusCode }).(WebAclResponseInspectionStatusCodePtrOutput)
 }
@@ -22620,9 +21964,7 @@ func (o WebAclResponseInspectionPtrOutput) Elem() WebAclResponseInspectionOutput
 	}).(WebAclResponseInspectionOutput)
 }
 
-// Configures inspection of the response body. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response body. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
-//
-// > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+// Configures inspection of the response body for success and failure indicators. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response body.
 func (o WebAclResponseInspectionPtrOutput) BodyContains() WebAclResponseInspectionBodyContainsPtrOutput {
 	return o.ApplyT(func(v *WebAclResponseInspection) *WebAclResponseInspectionBodyContains {
 		if v == nil {
@@ -22632,9 +21974,7 @@ func (o WebAclResponseInspectionPtrOutput) BodyContains() WebAclResponseInspecti
 	}).(WebAclResponseInspectionBodyContainsPtrOutput)
 }
 
-// Configures inspection of the response header. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
-//
-// > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+// Configures inspection of the response header for success and failure indicators.
 func (o WebAclResponseInspectionPtrOutput) Header() WebAclResponseInspectionHeaderPtrOutput {
 	return o.ApplyT(func(v *WebAclResponseInspection) *WebAclResponseInspectionHeader {
 		if v == nil {
@@ -22644,9 +21984,7 @@ func (o WebAclResponseInspectionPtrOutput) Header() WebAclResponseInspectionHead
 	}).(WebAclResponseInspectionHeaderPtrOutput)
 }
 
-// Configures inspection of the response JSON. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response JSON. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
-//
-// > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+// Configures inspection of the response JSON for success and failure indicators. AWS WAF can inspect the first 65,536 bytes (64 KB) of the response JSON.
 func (o WebAclResponseInspectionPtrOutput) Json() WebAclResponseInspectionJsonPtrOutput {
 	return o.ApplyT(func(v *WebAclResponseInspection) *WebAclResponseInspectionJson {
 		if v == nil {
@@ -22656,9 +21994,7 @@ func (o WebAclResponseInspectionPtrOutput) Json() WebAclResponseInspectionJsonPt
 	}).(WebAclResponseInspectionJsonPtrOutput)
 }
 
-// Configures inspection of the response status code. This is part of the `ResponseInspection` configuration for `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` .
-//
-// > Response inspection is available only in web ACLs that protect Amazon CloudFront distributions.
+// Configures inspection of the response status code for success and failure indicators.
 func (o WebAclResponseInspectionPtrOutput) StatusCode() WebAclResponseInspectionStatusCodePtrOutput {
 	return o.ApplyT(func(v *WebAclResponseInspection) *WebAclResponseInspectionStatusCode {
 		if v == nil {
@@ -23424,29 +22760,41 @@ func (o WebAclResponseInspectionStatusCodePtrOutput) SuccessCodes() pulumi.IntAr
 
 // Rule of WebACL that contains condition and action.
 type WebAclRule struct {
-	// The action that AWS WAF should take on a web request when it matches a rule's statement. Settings at the web ACL level can override the rule action setting.
+	// The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the web ACL level can override the rule action setting.
+	//
+	// This is used only for rules whose statements don't reference a rule group. Rule statements that reference a rule group are `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement` .
+	//
+	// You must set either this `Action` setting or the rule's `OverrideAction` , but not both:
+	//
+	// - If the rule statement doesn't reference a rule group, you must set this rule action setting and you must not set the rule's override action setting.
+	// - If the rule statement references a rule group, you must not set this action setting, because the actions are already set on the rules inside the rule group. You must set the rule's override action setting to indicate specifically whether to override the actions that are set on the rules in the rule group.
 	Action *WebAclRuleAction `pulumi:"action"`
-	// Specifies how AWS WAF should handle `CAPTCHA` evaluations for rules that don't have their own `CaptchaConfig` settings. If you don't specify this, AWS WAF uses its default settings for `CaptchaConfig` .
+	// Specifies how AWS WAF should handle `CAPTCHA` evaluations. If you don't specify this, AWS WAF uses the `CAPTCHA` configuration that's defined for the web ACL.
 	CaptchaConfig *WebAclCaptchaConfig `pulumi:"captchaConfig"`
-	// Specifies how AWS WAF should handle `Challenge` evaluations. This is available at the web ACL level and in each rule.
+	// Specifies how AWS WAF should handle `Challenge` evaluations. If you don't specify this, AWS WAF uses the challenge configuration that's defined for the web ACL.
 	ChallengeConfig *WebAclChallengeConfig `pulumi:"challengeConfig"`
 	// The name of the rule.
 	//
 	// If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name in the rule's `VisibilityConfig` settings. AWS WAF doesn't automatically update the metric name when you update the rule name.
 	Name string `pulumi:"name"`
-	// The action to use in the place of the action that results from the rule group evaluation. Set the override action to none to leave the result of the rule group alone. Set it to count to override the result to count only.
+	// The override action to apply to the rules in a rule group, instead of the individual rule action settings. This is used only for rules whose statements reference a rule group. Rule statements that reference a rule group are `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement` .
 	//
-	// You can only use this for rule statements that reference a rule group, like `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement` .
+	// Set the override action to none to leave the rule group rule actions in effect. Set it to count to only count matches, regardless of the rule action settings.
 	//
-	// > This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count matches, do not use this and instead use the rule action override option, with `Count` action, in your rule group reference statement settings.
+	// You must set either this `OverrideAction` setting or the `Action` setting, but not both:
+	//
+	// - If the rule statement references a rule group, you must set this override action setting and you must not set the rule's action setting.
+	// - If the rule statement doesn't reference a rule group, you must set the rule action setting and you must not set the rule's override action setting.
 	OverrideAction *WebAclOverrideAction `pulumi:"overrideAction"`
 	// If you define more than one `Rule` in a `WebACL` , AWS WAF evaluates each request against the `Rules` in order based on the value of `Priority` . AWS WAF processes rules with lower priority first. The priorities don't need to be consecutive, but they must all be different.
 	Priority int `pulumi:"priority"`
 	// Collection of Rule Labels.
 	RuleLabels []WebAclLabel `pulumi:"ruleLabels"`
-	// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+	// The AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `SizeConstraintStatement` .
 	Statement WebAclStatement `pulumi:"statement"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
+	//
+	// If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name as well. AWS WAF doesn't automatically update the metric name.
 	VisibilityConfig WebAclVisibilityConfig `pulumi:"visibilityConfig"`
 }
 
@@ -23463,29 +22811,41 @@ type WebAclRuleInput interface {
 
 // Rule of WebACL that contains condition and action.
 type WebAclRuleArgs struct {
-	// The action that AWS WAF should take on a web request when it matches a rule's statement. Settings at the web ACL level can override the rule action setting.
+	// The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the web ACL level can override the rule action setting.
+	//
+	// This is used only for rules whose statements don't reference a rule group. Rule statements that reference a rule group are `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement` .
+	//
+	// You must set either this `Action` setting or the rule's `OverrideAction` , but not both:
+	//
+	// - If the rule statement doesn't reference a rule group, you must set this rule action setting and you must not set the rule's override action setting.
+	// - If the rule statement references a rule group, you must not set this action setting, because the actions are already set on the rules inside the rule group. You must set the rule's override action setting to indicate specifically whether to override the actions that are set on the rules in the rule group.
 	Action WebAclRuleActionPtrInput `pulumi:"action"`
-	// Specifies how AWS WAF should handle `CAPTCHA` evaluations for rules that don't have their own `CaptchaConfig` settings. If you don't specify this, AWS WAF uses its default settings for `CaptchaConfig` .
+	// Specifies how AWS WAF should handle `CAPTCHA` evaluations. If you don't specify this, AWS WAF uses the `CAPTCHA` configuration that's defined for the web ACL.
 	CaptchaConfig WebAclCaptchaConfigPtrInput `pulumi:"captchaConfig"`
-	// Specifies how AWS WAF should handle `Challenge` evaluations. This is available at the web ACL level and in each rule.
+	// Specifies how AWS WAF should handle `Challenge` evaluations. If you don't specify this, AWS WAF uses the challenge configuration that's defined for the web ACL.
 	ChallengeConfig WebAclChallengeConfigPtrInput `pulumi:"challengeConfig"`
 	// The name of the rule.
 	//
 	// If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name in the rule's `VisibilityConfig` settings. AWS WAF doesn't automatically update the metric name when you update the rule name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The action to use in the place of the action that results from the rule group evaluation. Set the override action to none to leave the result of the rule group alone. Set it to count to override the result to count only.
+	// The override action to apply to the rules in a rule group, instead of the individual rule action settings. This is used only for rules whose statements reference a rule group. Rule statements that reference a rule group are `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement` .
 	//
-	// You can only use this for rule statements that reference a rule group, like `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement` .
+	// Set the override action to none to leave the rule group rule actions in effect. Set it to count to only count matches, regardless of the rule action settings.
 	//
-	// > This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count matches, do not use this and instead use the rule action override option, with `Count` action, in your rule group reference statement settings.
+	// You must set either this `OverrideAction` setting or the `Action` setting, but not both:
+	//
+	// - If the rule statement references a rule group, you must set this override action setting and you must not set the rule's action setting.
+	// - If the rule statement doesn't reference a rule group, you must set the rule action setting and you must not set the rule's override action setting.
 	OverrideAction WebAclOverrideActionPtrInput `pulumi:"overrideAction"`
 	// If you define more than one `Rule` in a `WebACL` , AWS WAF evaluates each request against the `Rules` in order based on the value of `Priority` . AWS WAF processes rules with lower priority first. The priorities don't need to be consecutive, but they must all be different.
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// Collection of Rule Labels.
 	RuleLabels WebAclLabelArrayInput `pulumi:"ruleLabels"`
-	// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+	// The AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `SizeConstraintStatement` .
 	Statement WebAclStatementInput `pulumi:"statement"`
 	// Defines and enables Amazon CloudWatch metrics and web request sample collection.
+	//
+	// If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name as well. AWS WAF doesn't automatically update the metric name.
 	VisibilityConfig WebAclVisibilityConfigInput `pulumi:"visibilityConfig"`
 }
 
@@ -23541,17 +22901,24 @@ func (o WebAclRuleOutput) ToWebAclRuleOutputWithContext(ctx context.Context) Web
 	return o
 }
 
-// The action that AWS WAF should take on a web request when it matches a rule's statement. Settings at the web ACL level can override the rule action setting.
+// The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the web ACL level can override the rule action setting.
+//
+// This is used only for rules whose statements don't reference a rule group. Rule statements that reference a rule group are `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement` .
+//
+// You must set either this `Action` setting or the rule's `OverrideAction` , but not both:
+//
+// - If the rule statement doesn't reference a rule group, you must set this rule action setting and you must not set the rule's override action setting.
+// - If the rule statement references a rule group, you must not set this action setting, because the actions are already set on the rules inside the rule group. You must set the rule's override action setting to indicate specifically whether to override the actions that are set on the rules in the rule group.
 func (o WebAclRuleOutput) Action() WebAclRuleActionPtrOutput {
 	return o.ApplyT(func(v WebAclRule) *WebAclRuleAction { return v.Action }).(WebAclRuleActionPtrOutput)
 }
 
-// Specifies how AWS WAF should handle `CAPTCHA` evaluations for rules that don't have their own `CaptchaConfig` settings. If you don't specify this, AWS WAF uses its default settings for `CaptchaConfig` .
+// Specifies how AWS WAF should handle `CAPTCHA` evaluations. If you don't specify this, AWS WAF uses the `CAPTCHA` configuration that's defined for the web ACL.
 func (o WebAclRuleOutput) CaptchaConfig() WebAclCaptchaConfigPtrOutput {
 	return o.ApplyT(func(v WebAclRule) *WebAclCaptchaConfig { return v.CaptchaConfig }).(WebAclCaptchaConfigPtrOutput)
 }
 
-// Specifies how AWS WAF should handle `Challenge` evaluations. This is available at the web ACL level and in each rule.
+// Specifies how AWS WAF should handle `Challenge` evaluations. If you don't specify this, AWS WAF uses the challenge configuration that's defined for the web ACL.
 func (o WebAclRuleOutput) ChallengeConfig() WebAclChallengeConfigPtrOutput {
 	return o.ApplyT(func(v WebAclRule) *WebAclChallengeConfig { return v.ChallengeConfig }).(WebAclChallengeConfigPtrOutput)
 }
@@ -23563,11 +22930,14 @@ func (o WebAclRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The action to use in the place of the action that results from the rule group evaluation. Set the override action to none to leave the result of the rule group alone. Set it to count to override the result to count only.
+// The override action to apply to the rules in a rule group, instead of the individual rule action settings. This is used only for rules whose statements reference a rule group. Rule statements that reference a rule group are `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement` .
 //
-// You can only use this for rule statements that reference a rule group, like `RuleGroupReferenceStatement` and `ManagedRuleGroupStatement` .
+// Set the override action to none to leave the rule group rule actions in effect. Set it to count to only count matches, regardless of the rule action settings.
 //
-// > This option is usually set to none. It does not affect how the rules in the rule group are evaluated. If you want the rules in the rule group to only count matches, do not use this and instead use the rule action override option, with `Count` action, in your rule group reference statement settings.
+// You must set either this `OverrideAction` setting or the `Action` setting, but not both:
+//
+// - If the rule statement references a rule group, you must set this override action setting and you must not set the rule's action setting.
+// - If the rule statement doesn't reference a rule group, you must set the rule action setting and you must not set the rule's override action setting.
 func (o WebAclRuleOutput) OverrideAction() WebAclOverrideActionPtrOutput {
 	return o.ApplyT(func(v WebAclRule) *WebAclOverrideAction { return v.OverrideAction }).(WebAclOverrideActionPtrOutput)
 }
@@ -23582,12 +22952,14 @@ func (o WebAclRuleOutput) RuleLabels() WebAclLabelArrayOutput {
 	return o.ApplyT(func(v WebAclRule) []WebAclLabel { return v.RuleLabels }).(WebAclLabelArrayOutput)
 }
 
-// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+// The AWS WAF processing statement for the rule, for example `ByteMatchStatement` or `SizeConstraintStatement` .
 func (o WebAclRuleOutput) Statement() WebAclStatementOutput {
 	return o.ApplyT(func(v WebAclRule) WebAclStatement { return v.Statement }).(WebAclStatementOutput)
 }
 
 // Defines and enables Amazon CloudWatch metrics and web request sample collection.
+//
+// If you change the name of a `Rule` after you create it and you want the rule's metric name to reflect the change, update the metric name as well. AWS WAF doesn't automatically update the metric name.
 func (o WebAclRuleOutput) VisibilityConfig() WebAclVisibilityConfigOutput {
 	return o.ApplyT(func(v WebAclRule) WebAclVisibilityConfig { return v.VisibilityConfig }).(WebAclVisibilityConfigOutput)
 }
@@ -23614,13 +22986,9 @@ func (o WebAclRuleArrayOutput) Index(i pulumi.IntInput) WebAclRuleOutput {
 
 // Action taken when Rule matches its condition.
 type WebAclRuleAction struct {
-	// Specifies that AWS WAF should allow the request and optionally defines additional custom handling for the request.
-	//
-	// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+	// Instructs AWS WAF to allow the web request.
 	Allow *WebAclAllowAction `pulumi:"allow"`
-	// Specifies that AWS WAF should block the request and optionally defines additional custom handling for the response to the web request.
-	//
-	// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+	// Instructs AWS WAF to block the web request.
 	Block *WebAclBlockAction `pulumi:"block"`
 	// Specifies that AWS WAF should run a `CAPTCHA` check against the request:
 	//
@@ -23637,30 +23005,9 @@ type WebAclRuleAction struct {
 	//
 	// This action option is available for rules. It isn't available for web ACL default actions.
 	Captcha *WebAclCaptchaAction `pulumi:"captcha"`
-	// Specifies that AWS WAF should run a `Challenge` check against the request to verify that the request is coming from a legitimate client session:
-	//
-	// - If the request includes a valid, unexpired challenge token, AWS WAF applies any custom request handling and labels that you've configured and then allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
-	// - If the request doesn't include a valid, unexpired challenge token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
-	//
-	// AWS WAF then generates a challenge response that it sends back to the client, which includes the following:
-	//
-	// - The header `x-amzn-waf-action` with a value of `challenge` .
-	// - The HTTP status code `202 Request Accepted` .
-	// - If the request contains an `Accept` header with a value of `text/html` , the response includes a JavaScript page interstitial with a challenge script.
-	//
-	// Challenges run silent browser interrogations in the background, and don't generally affect the end user experience.
-	//
-	// A challenge enforces token acquisition using an interstitial JavaScript challenge that inspects the client session for legitimate behavior. The challenge blocks bots or at least increases the cost of operating sophisticated bots.
-	//
-	// After the client session successfully responds to the challenge, it receives a new token from AWS WAF , which the challenge script uses to resubmit the original request.
-	//
-	// You can configure the expiration time in the `ChallengeConfig` `ImmunityTimeProperty` setting at the rule and web ACL level. The rule setting overrides the web ACL setting.
-	//
-	// This action option is available for rules. It isn't available for web ACL default actions.
+	// Instructs AWS WAF to run a `Challenge` check against the web request.
 	Challenge *WebAclChallengeAction `pulumi:"challenge"`
-	// Specifies that AWS WAF should count the request. Optionally defines additional custom handling for the request.
-	//
-	// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+	// Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
 	Count *WebAclCountAction `pulumi:"count"`
 }
 
@@ -23677,13 +23024,9 @@ type WebAclRuleActionInput interface {
 
 // Action taken when Rule matches its condition.
 type WebAclRuleActionArgs struct {
-	// Specifies that AWS WAF should allow the request and optionally defines additional custom handling for the request.
-	//
-	// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+	// Instructs AWS WAF to allow the web request.
 	Allow WebAclAllowActionPtrInput `pulumi:"allow"`
-	// Specifies that AWS WAF should block the request and optionally defines additional custom handling for the response to the web request.
-	//
-	// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+	// Instructs AWS WAF to block the web request.
 	Block WebAclBlockActionPtrInput `pulumi:"block"`
 	// Specifies that AWS WAF should run a `CAPTCHA` check against the request:
 	//
@@ -23700,30 +23043,9 @@ type WebAclRuleActionArgs struct {
 	//
 	// This action option is available for rules. It isn't available for web ACL default actions.
 	Captcha WebAclCaptchaActionPtrInput `pulumi:"captcha"`
-	// Specifies that AWS WAF should run a `Challenge` check against the request to verify that the request is coming from a legitimate client session:
-	//
-	// - If the request includes a valid, unexpired challenge token, AWS WAF applies any custom request handling and labels that you've configured and then allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
-	// - If the request doesn't include a valid, unexpired challenge token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
-	//
-	// AWS WAF then generates a challenge response that it sends back to the client, which includes the following:
-	//
-	// - The header `x-amzn-waf-action` with a value of `challenge` .
-	// - The HTTP status code `202 Request Accepted` .
-	// - If the request contains an `Accept` header with a value of `text/html` , the response includes a JavaScript page interstitial with a challenge script.
-	//
-	// Challenges run silent browser interrogations in the background, and don't generally affect the end user experience.
-	//
-	// A challenge enforces token acquisition using an interstitial JavaScript challenge that inspects the client session for legitimate behavior. The challenge blocks bots or at least increases the cost of operating sophisticated bots.
-	//
-	// After the client session successfully responds to the challenge, it receives a new token from AWS WAF , which the challenge script uses to resubmit the original request.
-	//
-	// You can configure the expiration time in the `ChallengeConfig` `ImmunityTimeProperty` setting at the rule and web ACL level. The rule setting overrides the web ACL setting.
-	//
-	// This action option is available for rules. It isn't available for web ACL default actions.
+	// Instructs AWS WAF to run a `Challenge` check against the web request.
 	Challenge WebAclChallengeActionPtrInput `pulumi:"challenge"`
-	// Specifies that AWS WAF should count the request. Optionally defines additional custom handling for the request.
-	//
-	// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+	// Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
 	Count WebAclCountActionPtrInput `pulumi:"count"`
 }
 
@@ -23805,16 +23127,12 @@ func (o WebAclRuleActionOutput) ToWebAclRuleActionPtrOutputWithContext(ctx conte
 	}).(WebAclRuleActionPtrOutput)
 }
 
-// Specifies that AWS WAF should allow the request and optionally defines additional custom handling for the request.
-//
-// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+// Instructs AWS WAF to allow the web request.
 func (o WebAclRuleActionOutput) Allow() WebAclAllowActionPtrOutput {
 	return o.ApplyT(func(v WebAclRuleAction) *WebAclAllowAction { return v.Allow }).(WebAclAllowActionPtrOutput)
 }
 
-// Specifies that AWS WAF should block the request and optionally defines additional custom handling for the response to the web request.
-//
-// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+// Instructs AWS WAF to block the web request.
 func (o WebAclRuleActionOutput) Block() WebAclBlockActionPtrOutput {
 	return o.ApplyT(func(v WebAclRuleAction) *WebAclBlockAction { return v.Block }).(WebAclBlockActionPtrOutput)
 }
@@ -23837,33 +23155,12 @@ func (o WebAclRuleActionOutput) Captcha() WebAclCaptchaActionPtrOutput {
 	return o.ApplyT(func(v WebAclRuleAction) *WebAclCaptchaAction { return v.Captcha }).(WebAclCaptchaActionPtrOutput)
 }
 
-// Specifies that AWS WAF should run a `Challenge` check against the request to verify that the request is coming from a legitimate client session:
-//
-// - If the request includes a valid, unexpired challenge token, AWS WAF applies any custom request handling and labels that you've configured and then allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
-// - If the request doesn't include a valid, unexpired challenge token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
-//
-// AWS WAF then generates a challenge response that it sends back to the client, which includes the following:
-//
-// - The header `x-amzn-waf-action` with a value of `challenge` .
-// - The HTTP status code `202 Request Accepted` .
-// - If the request contains an `Accept` header with a value of `text/html` , the response includes a JavaScript page interstitial with a challenge script.
-//
-// Challenges run silent browser interrogations in the background, and don't generally affect the end user experience.
-//
-// A challenge enforces token acquisition using an interstitial JavaScript challenge that inspects the client session for legitimate behavior. The challenge blocks bots or at least increases the cost of operating sophisticated bots.
-//
-// After the client session successfully responds to the challenge, it receives a new token from AWS WAF , which the challenge script uses to resubmit the original request.
-//
-// You can configure the expiration time in the `ChallengeConfig` `ImmunityTimeProperty` setting at the rule and web ACL level. The rule setting overrides the web ACL setting.
-//
-// This action option is available for rules. It isn't available for web ACL default actions.
+// Instructs AWS WAF to run a `Challenge` check against the web request.
 func (o WebAclRuleActionOutput) Challenge() WebAclChallengeActionPtrOutput {
 	return o.ApplyT(func(v WebAclRuleAction) *WebAclChallengeAction { return v.Challenge }).(WebAclChallengeActionPtrOutput)
 }
 
-// Specifies that AWS WAF should count the request. Optionally defines additional custom handling for the request.
-//
-// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+// Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
 func (o WebAclRuleActionOutput) Count() WebAclCountActionPtrOutput {
 	return o.ApplyT(func(v WebAclRuleAction) *WebAclCountAction { return v.Count }).(WebAclCountActionPtrOutput)
 }
@@ -23892,9 +23189,7 @@ func (o WebAclRuleActionPtrOutput) Elem() WebAclRuleActionOutput {
 	}).(WebAclRuleActionOutput)
 }
 
-// Specifies that AWS WAF should allow the request and optionally defines additional custom handling for the request.
-//
-// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+// Instructs AWS WAF to allow the web request.
 func (o WebAclRuleActionPtrOutput) Allow() WebAclAllowActionPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleAction) *WebAclAllowAction {
 		if v == nil {
@@ -23904,9 +23199,7 @@ func (o WebAclRuleActionPtrOutput) Allow() WebAclAllowActionPtrOutput {
 	}).(WebAclAllowActionPtrOutput)
 }
 
-// Specifies that AWS WAF should block the request and optionally defines additional custom handling for the response to the web request.
-//
-// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+// Instructs AWS WAF to block the web request.
 func (o WebAclRuleActionPtrOutput) Block() WebAclBlockActionPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleAction) *WebAclBlockAction {
 		if v == nil {
@@ -23939,26 +23232,7 @@ func (o WebAclRuleActionPtrOutput) Captcha() WebAclCaptchaActionPtrOutput {
 	}).(WebAclCaptchaActionPtrOutput)
 }
 
-// Specifies that AWS WAF should run a `Challenge` check against the request to verify that the request is coming from a legitimate client session:
-//
-// - If the request includes a valid, unexpired challenge token, AWS WAF applies any custom request handling and labels that you've configured and then allows the web request inspection to proceed to the next rule, similar to a `CountAction` .
-// - If the request doesn't include a valid, unexpired challenge token, AWS WAF discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.
-//
-// AWS WAF then generates a challenge response that it sends back to the client, which includes the following:
-//
-// - The header `x-amzn-waf-action` with a value of `challenge` .
-// - The HTTP status code `202 Request Accepted` .
-// - If the request contains an `Accept` header with a value of `text/html` , the response includes a JavaScript page interstitial with a challenge script.
-//
-// Challenges run silent browser interrogations in the background, and don't generally affect the end user experience.
-//
-// A challenge enforces token acquisition using an interstitial JavaScript challenge that inspects the client session for legitimate behavior. The challenge blocks bots or at least increases the cost of operating sophisticated bots.
-//
-// After the client session successfully responds to the challenge, it receives a new token from AWS WAF , which the challenge script uses to resubmit the original request.
-//
-// You can configure the expiration time in the `ChallengeConfig` `ImmunityTimeProperty` setting at the rule and web ACL level. The rule setting overrides the web ACL setting.
-//
-// This action option is available for rules. It isn't available for web ACL default actions.
+// Instructs AWS WAF to run a `Challenge` check against the web request.
 func (o WebAclRuleActionPtrOutput) Challenge() WebAclChallengeActionPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleAction) *WebAclChallengeAction {
 		if v == nil {
@@ -23968,9 +23242,7 @@ func (o WebAclRuleActionPtrOutput) Challenge() WebAclChallengeActionPtrOutput {
 	}).(WebAclChallengeActionPtrOutput)
 }
 
-// Specifies that AWS WAF should count the request. Optionally defines additional custom handling for the request.
-//
-// This is used in the context of other settings, for example to specify values for a rule action or a web ACL default action.
+// Instructs AWS WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
 func (o WebAclRuleActionPtrOutput) Count() WebAclCountActionPtrOutput {
 	return o.ApplyT(func(v *WebAclRuleAction) *WebAclCountAction {
 		if v == nil {
@@ -23982,7 +23254,7 @@ func (o WebAclRuleActionPtrOutput) Count() WebAclCountActionPtrOutput {
 
 // Action override for rules in the rule group.
 type WebAclRuleActionOverride struct {
-	// The action that AWS WAF should take on a web request when it matches a rule's statement. Settings at the web ACL level can override the rule action setting.
+	// The override action to use, in place of the configured action of the rule in the rule group.
 	ActionToUse WebAclRuleAction `pulumi:"actionToUse"`
 	// The name of the rule to override.
 	Name string `pulumi:"name"`
@@ -24001,7 +23273,7 @@ type WebAclRuleActionOverrideInput interface {
 
 // Action override for rules in the rule group.
 type WebAclRuleActionOverrideArgs struct {
-	// The action that AWS WAF should take on a web request when it matches a rule's statement. Settings at the web ACL level can override the rule action setting.
+	// The override action to use, in place of the configured action of the rule in the rule group.
 	ActionToUse WebAclRuleActionInput `pulumi:"actionToUse"`
 	// The name of the rule to override.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -24059,7 +23331,7 @@ func (o WebAclRuleActionOverrideOutput) ToWebAclRuleActionOverrideOutputWithCont
 	return o
 }
 
-// The action that AWS WAF should take on a web request when it matches a rule's statement. Settings at the web ACL level can override the rule action setting.
+// The override action to use, in place of the configured action of the rule in the rule group.
 func (o WebAclRuleActionOverrideOutput) ActionToUse() WebAclRuleActionOutput {
 	return o.ApplyT(func(v WebAclRuleActionOverride) WebAclRuleAction { return v.ActionToUse }).(WebAclRuleActionOutput)
 }
@@ -24276,22 +23548,7 @@ func (o WebAclRuleGroupReferenceStatementPtrOutput) RuleActionOverrides() WebAcl
 type WebAclSizeConstraintStatement struct {
 	// The operator to use to compare the request part to the size setting.
 	ComparisonOperator WebAclSizeConstraintStatementComparisonOperator `pulumi:"comparisonOperator"`
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch WebAclFieldToMatch `pulumi:"fieldToMatch"`
 	// The size, in byte, to compare to the request part, after any transformations.
 	Size float64 `pulumi:"size"`
@@ -24314,22 +23571,7 @@ type WebAclSizeConstraintStatementInput interface {
 type WebAclSizeConstraintStatementArgs struct {
 	// The operator to use to compare the request part to the size setting.
 	ComparisonOperator WebAclSizeConstraintStatementComparisonOperatorInput `pulumi:"comparisonOperator"`
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch WebAclFieldToMatchInput `pulumi:"fieldToMatch"`
 	// The size, in byte, to compare to the request part, after any transformations.
 	Size pulumi.Float64Input `pulumi:"size"`
@@ -24422,22 +23664,7 @@ func (o WebAclSizeConstraintStatementOutput) ComparisonOperator() WebAclSizeCons
 	}).(WebAclSizeConstraintStatementComparisonOperatorOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o WebAclSizeConstraintStatementOutput) FieldToMatch() WebAclFieldToMatchOutput {
 	return o.ApplyT(func(v WebAclSizeConstraintStatement) WebAclFieldToMatch { return v.FieldToMatch }).(WebAclFieldToMatchOutput)
 }
@@ -24486,22 +23713,7 @@ func (o WebAclSizeConstraintStatementPtrOutput) ComparisonOperator() WebAclSizeC
 	}).(WebAclSizeConstraintStatementComparisonOperatorPtrOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o WebAclSizeConstraintStatementPtrOutput) FieldToMatch() WebAclFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *WebAclSizeConstraintStatement) *WebAclFieldToMatch {
 		if v == nil {
@@ -24533,22 +23745,7 @@ func (o WebAclSizeConstraintStatementPtrOutput) TextTransformations() WebAclText
 
 // Sqli Match Statement.
 type WebAclSqliMatchStatement struct {
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch WebAclFieldToMatch `pulumi:"fieldToMatch"`
 	// The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
 	//
@@ -24575,22 +23772,7 @@ type WebAclSqliMatchStatementInput interface {
 
 // Sqli Match Statement.
 type WebAclSqliMatchStatementArgs struct {
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch WebAclFieldToMatchInput `pulumi:"fieldToMatch"`
 	// The sensitivity that you want AWS WAF to use to inspect for SQL injection attacks.
 	//
@@ -24682,22 +23864,7 @@ func (o WebAclSqliMatchStatementOutput) ToWebAclSqliMatchStatementPtrOutputWithC
 	}).(WebAclSqliMatchStatementPtrOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o WebAclSqliMatchStatementOutput) FieldToMatch() WebAclFieldToMatchOutput {
 	return o.ApplyT(func(v WebAclSqliMatchStatement) WebAclFieldToMatch { return v.FieldToMatch }).(WebAclFieldToMatchOutput)
 }
@@ -24742,22 +23909,7 @@ func (o WebAclSqliMatchStatementPtrOutput) Elem() WebAclSqliMatchStatementOutput
 	}).(WebAclSqliMatchStatementOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o WebAclSqliMatchStatementPtrOutput) FieldToMatch() WebAclFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *WebAclSqliMatchStatement) *WebAclFieldToMatch {
 		if v == nil {
@@ -24822,7 +23974,7 @@ type WebAclStatement struct {
 	LabelMatchStatement *WebAclLabelMatchStatement `pulumi:"labelMatchStatement"`
 	// A rule statement used to run the rules that are defined in a managed rule group. To use this, provide the vendor name and the name of the rule group in this statement. You can retrieve the required names through the API call `ListAvailableManagedRuleGroups` .
 	//
-	// You cannot nest a `ManagedRuleGroupStatement` , for example for use inside a `NotStatement` or `OrStatement` . You cannot use a managed rule group statement inside another rule group. You can only use a managed rule group statement as a top-level statement in a rule that you define in a web ACL.
+	// You cannot nest a `ManagedRuleGroupStatement` , for example for use inside a `NotStatement` or `OrStatement` . It can only be referenced as a top-level statement within a rule.
 	//
 	// > You are charged additional fees when you use the AWS WAF Bot Control managed rule group `AWSManagedRulesBotControlRuleSet` , the AWS WAF Fraud Control account takeover prevention (ATP) managed rule group `AWSManagedRulesATPRuleSet` , or the AWS WAF Fraud Control account creation fraud prevention (ACFP) managed rule group `AWSManagedRulesACFPRuleSet` . For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
 	ManagedRuleGroupStatement *WebAclManagedRuleGroupStatement `pulumi:"managedRuleGroupStatement"`
@@ -24875,7 +24027,7 @@ type WebAclStatement struct {
 	RateBasedStatement *WebAclRateBasedStatement `pulumi:"rateBasedStatement"`
 	// A rule statement used to search web request components for a match against a single regular expression.
 	RegexMatchStatement *WebAclRegexMatchStatement `pulumi:"regexMatchStatement"`
-	// A rule statement used to search web request components for matches with regular expressions. To use this, create a `RegexPatternSet` that specifies the expressions that you want to detect, then use that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set.
+	// A rule statement used to search web request components for matches with regular expressions. To use this, create a `RegexPatternSet` that specifies the expressions that you want to detect, then use the ARN of that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set.
 	//
 	// Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
 	RegexPatternSetReferenceStatement *WebAclRegexPatternSetReferenceStatement `pulumi:"regexPatternSetReferenceStatement"`
@@ -24935,7 +24087,7 @@ type WebAclStatementArgs struct {
 	LabelMatchStatement WebAclLabelMatchStatementPtrInput `pulumi:"labelMatchStatement"`
 	// A rule statement used to run the rules that are defined in a managed rule group. To use this, provide the vendor name and the name of the rule group in this statement. You can retrieve the required names through the API call `ListAvailableManagedRuleGroups` .
 	//
-	// You cannot nest a `ManagedRuleGroupStatement` , for example for use inside a `NotStatement` or `OrStatement` . You cannot use a managed rule group statement inside another rule group. You can only use a managed rule group statement as a top-level statement in a rule that you define in a web ACL.
+	// You cannot nest a `ManagedRuleGroupStatement` , for example for use inside a `NotStatement` or `OrStatement` . It can only be referenced as a top-level statement within a rule.
 	//
 	// > You are charged additional fees when you use the AWS WAF Bot Control managed rule group `AWSManagedRulesBotControlRuleSet` , the AWS WAF Fraud Control account takeover prevention (ATP) managed rule group `AWSManagedRulesATPRuleSet` , or the AWS WAF Fraud Control account creation fraud prevention (ACFP) managed rule group `AWSManagedRulesACFPRuleSet` . For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
 	ManagedRuleGroupStatement WebAclManagedRuleGroupStatementPtrInput `pulumi:"managedRuleGroupStatement"`
@@ -24988,7 +24140,7 @@ type WebAclStatementArgs struct {
 	RateBasedStatement WebAclRateBasedStatementPtrInput `pulumi:"rateBasedStatement"`
 	// A rule statement used to search web request components for a match against a single regular expression.
 	RegexMatchStatement WebAclRegexMatchStatementPtrInput `pulumi:"regexMatchStatement"`
-	// A rule statement used to search web request components for matches with regular expressions. To use this, create a `RegexPatternSet` that specifies the expressions that you want to detect, then use that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set.
+	// A rule statement used to search web request components for matches with regular expressions. To use this, create a `RegexPatternSet` that specifies the expressions that you want to detect, then use the ARN of that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set.
 	//
 	// Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
 	RegexPatternSetReferenceStatement WebAclRegexPatternSetReferenceStatementPtrInput `pulumi:"regexPatternSetReferenceStatement"`
@@ -25153,7 +24305,7 @@ func (o WebAclStatementOutput) LabelMatchStatement() WebAclLabelMatchStatementPt
 
 // A rule statement used to run the rules that are defined in a managed rule group. To use this, provide the vendor name and the name of the rule group in this statement. You can retrieve the required names through the API call `ListAvailableManagedRuleGroups` .
 //
-// You cannot nest a `ManagedRuleGroupStatement` , for example for use inside a `NotStatement` or `OrStatement` . You cannot use a managed rule group statement inside another rule group. You can only use a managed rule group statement as a top-level statement in a rule that you define in a web ACL.
+// You cannot nest a `ManagedRuleGroupStatement` , for example for use inside a `NotStatement` or `OrStatement` . It can only be referenced as a top-level statement within a rule.
 //
 // > You are charged additional fees when you use the AWS WAF Bot Control managed rule group `AWSManagedRulesBotControlRuleSet` , the AWS WAF Fraud Control account takeover prevention (ATP) managed rule group `AWSManagedRulesATPRuleSet` , or the AWS WAF Fraud Control account creation fraud prevention (ACFP) managed rule group `AWSManagedRulesACFPRuleSet` . For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
 func (o WebAclStatementOutput) ManagedRuleGroupStatement() WebAclManagedRuleGroupStatementPtrOutput {
@@ -25221,7 +24373,7 @@ func (o WebAclStatementOutput) RegexMatchStatement() WebAclRegexMatchStatementPt
 	return o.ApplyT(func(v WebAclStatement) *WebAclRegexMatchStatement { return v.RegexMatchStatement }).(WebAclRegexMatchStatementPtrOutput)
 }
 
-// A rule statement used to search web request components for matches with regular expressions. To use this, create a `RegexPatternSet` that specifies the expressions that you want to detect, then use that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set.
+// A rule statement used to search web request components for matches with regular expressions. To use this, create a `RegexPatternSet` that specifies the expressions that you want to detect, then use the ARN of that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set.
 //
 // Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
 func (o WebAclStatementOutput) RegexPatternSetReferenceStatement() WebAclRegexPatternSetReferenceStatementPtrOutput {
@@ -25347,7 +24499,7 @@ func (o WebAclStatementPtrOutput) LabelMatchStatement() WebAclLabelMatchStatemen
 
 // A rule statement used to run the rules that are defined in a managed rule group. To use this, provide the vendor name and the name of the rule group in this statement. You can retrieve the required names through the API call `ListAvailableManagedRuleGroups` .
 //
-// You cannot nest a `ManagedRuleGroupStatement` , for example for use inside a `NotStatement` or `OrStatement` . You cannot use a managed rule group statement inside another rule group. You can only use a managed rule group statement as a top-level statement in a rule that you define in a web ACL.
+// You cannot nest a `ManagedRuleGroupStatement` , for example for use inside a `NotStatement` or `OrStatement` . It can only be referenced as a top-level statement within a rule.
 //
 // > You are charged additional fees when you use the AWS WAF Bot Control managed rule group `AWSManagedRulesBotControlRuleSet` , the AWS WAF Fraud Control account takeover prevention (ATP) managed rule group `AWSManagedRulesATPRuleSet` , or the AWS WAF Fraud Control account creation fraud prevention (ACFP) managed rule group `AWSManagedRulesACFPRuleSet` . For more information, see [AWS WAF Pricing](https://docs.aws.amazon.com/waf/pricing/) .
 func (o WebAclStatementPtrOutput) ManagedRuleGroupStatement() WebAclManagedRuleGroupStatementPtrOutput {
@@ -25440,7 +24592,7 @@ func (o WebAclStatementPtrOutput) RegexMatchStatement() WebAclRegexMatchStatemen
 	}).(WebAclRegexMatchStatementPtrOutput)
 }
 
-// A rule statement used to search web request components for matches with regular expressions. To use this, create a `RegexPatternSet` that specifies the expressions that you want to detect, then use that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set.
+// A rule statement used to search web request components for matches with regular expressions. To use this, create a `RegexPatternSet` that specifies the expressions that you want to detect, then use the ARN of that set in this statement. A web request matches the pattern set rule statement if the request component matches any of the patterns in the set.
 //
 // Each regex pattern set rule statement references a regex pattern set. You create and maintain the set independent of your rules. This allows you to use the single set in multiple rules. When you update the referenced set, AWS WAF automatically updates all rules that reference it.
 func (o WebAclStatementPtrOutput) RegexPatternSetReferenceStatement() WebAclRegexPatternSetReferenceStatementPtrOutput {
@@ -25783,22 +24935,7 @@ func (o WebAclVisibilityConfigPtrOutput) SampledRequestsEnabled() pulumi.BoolPtr
 
 // Xss Match Statement.
 type WebAclXssMatchStatement struct {
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch WebAclFieldToMatch `pulumi:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 	TextTransformations []WebAclTextTransformation `pulumi:"textTransformations"`
@@ -25817,22 +24954,7 @@ type WebAclXssMatchStatementInput interface {
 
 // Xss Match Statement.
 type WebAclXssMatchStatementArgs struct {
-	// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-	//
-	// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-	//
-	// Example JSON for a `QueryString` field to match:
-	//
-	// `"FieldToMatch": { "QueryString": {} }`
-	//
-	// Example JSON for a `Method` field to match specification:
-	//
-	// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-	// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-	//
-	// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-	// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-	// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+	// The part of the web request that you want AWS WAF to inspect.
 	FieldToMatch WebAclFieldToMatchInput `pulumi:"fieldToMatch"`
 	// Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. If you specify one or more transformations in a rule statement, AWS WAF performs all transformations on the content of the request component identified by `FieldToMatch` , starting from the lowest priority setting, before inspecting the content for a match.
 	TextTransformations WebAclTextTransformationArrayInput `pulumi:"textTransformations"`
@@ -25916,22 +25038,7 @@ func (o WebAclXssMatchStatementOutput) ToWebAclXssMatchStatementPtrOutputWithCon
 	}).(WebAclXssMatchStatementPtrOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o WebAclXssMatchStatementOutput) FieldToMatch() WebAclFieldToMatchOutput {
 	return o.ApplyT(func(v WebAclXssMatchStatement) WebAclFieldToMatch { return v.FieldToMatch }).(WebAclFieldToMatchOutput)
 }
@@ -25965,22 +25072,7 @@ func (o WebAclXssMatchStatementPtrOutput) Elem() WebAclXssMatchStatementOutput {
 	}).(WebAclXssMatchStatementOutput)
 }
 
-// Specifies a web request component to be used in a rule match statement or in a logging configuration.
-//
-// - In a rule statement, this is the part of the web request that you want AWS WAF to inspect. Include the single `FieldToMatch` type that you want to inspect, with additional specifications as needed, according to the type. You specify a single request component in `FieldToMatch` for each rule statement that requires it. To inspect more than one component of the web request, create a separate rule statement for each component.
-//
-// Example JSON for a `QueryString` field to match:
-//
-// `"FieldToMatch": { "QueryString": {} }`
-//
-// Example JSON for a `Method` field to match specification:
-//
-// `"FieldToMatch": { "Method": { "Name": "DELETE" } }`
-// - In a logging configuration, this is used in the `RedactedFields` property to specify a field to redact from the logging records. For this use case, note the following:
-//
-// - Even though all `FieldToMatch` settings are available, the only valid settings for field redaction are `UriPath` , `QueryString` , `SingleHeader` , and `Method` .
-// - In this documentation, the descriptions of the individual fields talk about specifying the web request component to inspect, but for field redaction, you are specifying the component type to redact from the logs.
-// - If you have request sampling enabled, the redacted fields configuration for logging has no impact on sampling. The only way to exclude fields from request sampling is by disabling sampling in the web ACL visibility configuration.
+// The part of the web request that you want AWS WAF to inspect.
 func (o WebAclXssMatchStatementPtrOutput) FieldToMatch() WebAclFieldToMatchPtrOutput {
 	return o.ApplyT(func(v *WebAclXssMatchStatement) *WebAclFieldToMatch {
 		if v == nil {

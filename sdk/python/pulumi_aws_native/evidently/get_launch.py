@@ -74,7 +74,7 @@ class GetLaunchResult:
     @pulumi.getter
     def groups(self) -> Optional[Sequence['outputs.LaunchGroupObject']]:
         """
-        A structure that defines one launch group in a launch. A launch group is a variation of the feature that you are including in the launch.
+        An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
         """
         return pulumi.get(self, "groups")
 
@@ -82,7 +82,7 @@ class GetLaunchResult:
     @pulumi.getter(name="metricMonitors")
     def metric_monitors(self) -> Optional[Sequence['outputs.LaunchMetricDefinitionObject']]:
         """
-        This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
+        An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
         """
         return pulumi.get(self, "metric_monitors")
 
@@ -98,7 +98,7 @@ class GetLaunchResult:
     @pulumi.getter(name="scheduledSplitsConfig")
     def scheduled_splits_config(self) -> Optional[Sequence['outputs.LaunchStepConfig']]:
         """
-        A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
+        An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
         """
         return pulumi.get(self, "scheduled_splits_config")
 

@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.EmrServerless.Outputs
     public sealed class ApplicationWorkerTypeSpecificationInput
     {
         /// <summary>
-        /// The image configuration.
+        /// The image configuration for a worker type.
         /// </summary>
         public readonly Outputs.ApplicationImageConfigurationInput? ImageConfiguration;
 

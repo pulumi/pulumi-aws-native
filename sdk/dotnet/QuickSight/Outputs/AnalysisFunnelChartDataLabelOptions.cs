@@ -22,7 +22,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string? LabelColor;
         /// <summary>
-        /// Configures the display properties of the given text.
+        /// The font configuration for the data labels.
+        /// 
+        /// Only the `FontSize` attribute of the font configuration is used for data labels.
         /// </summary>
         public readonly Outputs.AnalysisFontConfiguration? LabelFontConfiguration;
         /// <summary>

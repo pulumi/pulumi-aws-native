@@ -22,11 +22,11 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
         /// </summary>
         public readonly string Image;
         /// <summary>
-        /// The configuration of the resource used to execute the `containerAction` .
+        /// Configuration of the resource which executes the "containerAction".
         /// </summary>
         public readonly Outputs.DatasetResourceConfiguration ResourceConfiguration;
         /// <summary>
-        /// An instance of a variable to be passed to the `containerAction` execution. Each variable must have a name and a value given by one of `stringValue` , `datasetContentVersionValue` , or `outputFileUriValue` .
+        /// The values of variables used within the context of the execution of the containerized application (basically, parameters passed to the application). Each variable must have a name and a value given by one of "stringValue", "datasetContentVersionValue", or "outputFileUriValue".
         /// </summary>
         public readonly ImmutableArray<Outputs.DatasetVariable> Variables;
 

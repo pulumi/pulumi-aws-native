@@ -46,9 +46,7 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
-     * Describes the configuration of a target group.
-     *
-     * For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in the *Amazon VPC Lattice User Guide* .
+     * The target group configuration.
      */
     public readonly config!: pulumi.Output<outputs.vpclattice.TargetGroupConfig | undefined>;
     /**
@@ -70,7 +68,7 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<enums.vpclattice.TargetGroupStatus>;
     /**
-     * Specifies a tag for a target group.
+     * The tags for the target group.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -130,9 +128,7 @@ export class TargetGroup extends pulumi.CustomResource {
  */
 export interface TargetGroupArgs {
     /**
-     * Describes the configuration of a target group.
-     *
-     * For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in the *Amazon VPC Lattice User Guide* .
+     * The target group configuration.
      */
     config?: pulumi.Input<inputs.vpclattice.TargetGroupConfigArgs>;
     /**
@@ -142,7 +138,7 @@ export interface TargetGroupArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies a tag for a target group.
+     * The tags for the target group.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

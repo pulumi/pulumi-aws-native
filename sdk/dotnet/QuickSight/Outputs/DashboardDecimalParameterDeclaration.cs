@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardDecimalParameterDeclaration
     {
         /// <summary>
-        /// The default values of the `DecimalParameterDeclaration` .
+        /// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
         /// </summary>
         public readonly Outputs.DashboardDecimalDefaultValues? DefaultValues;
         public readonly ImmutableArray<Outputs.DashboardMappedDataSetParameter> MappedDataSetParameters;

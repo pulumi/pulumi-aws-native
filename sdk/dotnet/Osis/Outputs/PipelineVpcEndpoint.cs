@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Osis.Outputs
         /// </summary>
         public readonly string? VpcId;
         /// <summary>
-        /// Options that specify the subnets and security groups for an OpenSearch Ingestion VPC endpoint.
+        /// Information about the VPC, including associated subnets and security groups.
         /// </summary>
         public readonly Outputs.PipelineVpcOptions? VpcOptions;
 

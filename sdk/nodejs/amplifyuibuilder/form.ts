@@ -46,11 +46,11 @@ export class Form extends pulumi.CustomResource {
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
-     * The `FormCTA` property specifies the call to action button configuration for the form.
+     * The `FormCTA` object that stores the call to action configuration for the form.
      */
     public readonly cta!: pulumi.Output<outputs.amplifyuibuilder.FormCta | undefined>;
     /**
-     * The `FormDataTypeConfig` property specifies the data type configuration for the data source associated with a form.
+     * The type of data source to use to create the form.
      */
     public readonly dataType!: pulumi.Output<outputs.amplifyuibuilder.FormDataTypeConfig | undefined>;
     /**
@@ -82,7 +82,7 @@ export class Form extends pulumi.CustomResource {
      */
     public readonly sectionalElements!: pulumi.Output<{[key: string]: outputs.amplifyuibuilder.FormSectionalElement} | undefined>;
     /**
-     * The `FormStyle` property specifies the configuration for the form's style.
+     * The configuration for the form's style.
      */
     public readonly style!: pulumi.Output<outputs.amplifyuibuilder.FormStyle | undefined>;
     /**
@@ -145,11 +145,11 @@ export interface FormArgs {
      */
     appId?: pulumi.Input<string>;
     /**
-     * The `FormCTA` property specifies the call to action button configuration for the form.
+     * The `FormCTA` object that stores the call to action configuration for the form.
      */
     cta?: pulumi.Input<inputs.amplifyuibuilder.FormCtaArgs>;
     /**
-     * The `FormDataTypeConfig` property specifies the data type configuration for the data source associated with a form.
+     * The type of data source to use to create the form.
      */
     dataType?: pulumi.Input<inputs.amplifyuibuilder.FormDataTypeConfigArgs>;
     /**
@@ -181,7 +181,7 @@ export interface FormArgs {
      */
     sectionalElements?: pulumi.Input<{[key: string]: pulumi.Input<inputs.amplifyuibuilder.FormSectionalElementArgs>}>;
     /**
-     * The `FormStyle` property specifies the configuration for the form's style.
+     * The configuration for the form's style.
      */
     style?: pulumi.Input<inputs.amplifyuibuilder.FormStyleArgs>;
     /**

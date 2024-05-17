@@ -29,11 +29,17 @@ type LookupProjectArgs struct {
 }
 
 type LookupProjectResult struct {
-	// This is a structure that defines the configuration of how your application integrates with AWS AppConfig to run client-side evaluation.
+	// Use this parameter if the project will use *client-side evaluation powered by AWS AppConfig* . Client-side evaluation allows your application to assign variations to user sessions locally instead of by calling the [EvaluateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html) operation. This mitigates the latency and availability risks that come with an API call. For more information, see [Use client-side evaluation - powered by AWS AppConfig .](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-client-side-evaluation.html)
+	//
+	// This parameter is a structure that contains information about the AWS AppConfig application that will be used as for client-side evaluation.
+	//
+	// To create a project that uses client-side evaluation, you must have the `evidently:ExportProjectAsConfiguration` permission.
 	AppConfigResource *ProjectAppConfigResourceObject `pulumi:"appConfigResource"`
 	// The ARN of the project. For example, `arn:aws:evidently:us-west-2:0123455678912:project/myProject`
 	Arn *string `pulumi:"arn"`
-	// A structure that contains information about where Evidently is to store evaluation events for longer term storage.
+	// A structure that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view.
+	//
+	// You can't specify both `CloudWatchLogs` and `S3Destination` in the same operation.
 	DataDelivery *ProjectDataDeliveryObject `pulumi:"dataDelivery"`
 	// An optional description of the project.
 	Description *string `pulumi:"description"`
@@ -77,7 +83,11 @@ func (o LookupProjectResultOutput) ToLookupProjectResultOutputWithContext(ctx co
 	return o
 }
 
-// This is a structure that defines the configuration of how your application integrates with AWS AppConfig to run client-side evaluation.
+// Use this parameter if the project will use *client-side evaluation powered by AWS AppConfig* . Client-side evaluation allows your application to assign variations to user sessions locally instead of by calling the [EvaluateFeature](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_EvaluateFeature.html) operation. This mitigates the latency and availability risks that come with an API call. For more information, see [Use client-side evaluation - powered by AWS AppConfig .](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-client-side-evaluation.html)
+//
+// This parameter is a structure that contains information about the AWS AppConfig application that will be used as for client-side evaluation.
+//
+// To create a project that uses client-side evaluation, you must have the `evidently:ExportProjectAsConfiguration` permission.
 func (o LookupProjectResultOutput) AppConfigResource() ProjectAppConfigResourceObjectPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *ProjectAppConfigResourceObject { return v.AppConfigResource }).(ProjectAppConfigResourceObjectPtrOutput)
 }
@@ -87,7 +97,9 @@ func (o LookupProjectResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// A structure that contains information about where Evidently is to store evaluation events for longer term storage.
+// A structure that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view.
+//
+// You can't specify both `CloudWatchLogs` and `S3Destination` in the same operation.
 func (o LookupProjectResultOutput) DataDelivery() ProjectDataDeliveryObjectPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *ProjectDataDeliveryObject { return v.DataDelivery }).(ProjectDataDeliveryObjectPtrOutput)
 }

@@ -33,10 +33,8 @@ class ExperimentTemplateArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the experiment template.
         :param pulumi.Input[Mapping[str, pulumi.Input['ExperimentTemplateTargetArgs']]] targets: The targets for the experiment.
         :param pulumi.Input[Mapping[str, pulumi.Input['ExperimentTemplateActionArgs']]] actions: The actions for the experiment.
-        :param pulumi.Input['ExperimentTemplateExperimentOptionsArgs'] experiment_options: Describes the experiment options for an experiment template.
-        :param pulumi.Input['ExperimentTemplateLogConfigurationArgs'] log_configuration: Specifies the configuration for experiment logging.
-               
-               For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+        :param pulumi.Input['ExperimentTemplateExperimentOptionsArgs'] experiment_options: The experiment options for an experiment template.
+        :param pulumi.Input['ExperimentTemplateLogConfigurationArgs'] log_configuration: The configuration for experiment logging.
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -126,7 +124,7 @@ class ExperimentTemplateArgs:
     @pulumi.getter(name="experimentOptions")
     def experiment_options(self) -> Optional[pulumi.Input['ExperimentTemplateExperimentOptionsArgs']]:
         """
-        Describes the experiment options for an experiment template.
+        The experiment options for an experiment template.
         """
         return pulumi.get(self, "experiment_options")
 
@@ -138,9 +136,7 @@ class ExperimentTemplateArgs:
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional[pulumi.Input['ExperimentTemplateLogConfigurationArgs']]:
         """
-        Specifies the configuration for experiment logging.
-
-        For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+        The configuration for experiment logging.
         """
         return pulumi.get(self, "log_configuration")
 
@@ -236,10 +232,8 @@ class ExperimentTemplate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ExperimentTemplateActionArgs']]]] actions: The actions for the experiment.
         :param pulumi.Input[str] description: The description for the experiment template.
-        :param pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentOptionsArgs']] experiment_options: Describes the experiment options for an experiment template.
-        :param pulumi.Input[pulumi.InputType['ExperimentTemplateLogConfigurationArgs']] log_configuration: Specifies the configuration for experiment logging.
-               
-               For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+        :param pulumi.Input[pulumi.InputType['ExperimentTemplateExperimentOptionsArgs']] experiment_options: The experiment options for an experiment template.
+        :param pulumi.Input[pulumi.InputType['ExperimentTemplateLogConfigurationArgs']] log_configuration: The configuration for experiment logging.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTemplateStopConditionArgs']]]] stop_conditions: The stop conditions for the experiment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags for the experiment template.
@@ -434,7 +428,7 @@ class ExperimentTemplate(pulumi.CustomResource):
     @pulumi.getter(name="experimentOptions")
     def experiment_options(self) -> pulumi.Output[Optional['outputs.ExperimentTemplateExperimentOptions']]:
         """
-        Describes the experiment options for an experiment template.
+        The experiment options for an experiment template.
         """
         return pulumi.get(self, "experiment_options")
 
@@ -442,9 +436,7 @@ class ExperimentTemplate(pulumi.CustomResource):
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> pulumi.Output[Optional['outputs.ExperimentTemplateLogConfiguration']]:
         """
-        Specifies the configuration for experiment logging.
-
-        For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+        The configuration for experiment logging.
         """
         return pulumi.get(self, "log_configuration")
 

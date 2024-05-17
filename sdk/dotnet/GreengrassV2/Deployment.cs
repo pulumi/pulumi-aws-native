@@ -34,13 +34,13 @@ namespace Pulumi.AwsNative.GreengrassV2
         public Output<string?> DeploymentName { get; private set; } = null!;
 
         /// <summary>
-        /// Contains information about policies that define how a deployment updates components and handles failure.
+        /// The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.
         /// </summary>
         [Output("deploymentPolicies")]
         public Output<Outputs.DeploymentPolicies?> DeploymentPolicies { get; private set; } = null!;
 
         /// <summary>
-        /// Contains information about an AWS IoT job configuration.
+        /// The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
         /// </summary>
         [Output("iotJobConfiguration")]
         public Output<Outputs.DeploymentIoTJobConfiguration?> IotJobConfiguration { get; private set; } = null!;
@@ -143,13 +143,13 @@ namespace Pulumi.AwsNative.GreengrassV2
         public Input<string>? DeploymentName { get; set; }
 
         /// <summary>
-        /// Contains information about policies that define how a deployment updates components and handles failure.
+        /// The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.
         /// </summary>
         [Input("deploymentPolicies")]
         public Input<Inputs.DeploymentPoliciesArgs>? DeploymentPolicies { get; set; }
 
         /// <summary>
-        /// Contains information about an AWS IoT job configuration.
+        /// The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
         /// </summary>
         [Input("iotJobConfiguration")]
         public Input<Inputs.DeploymentIoTJobConfigurationArgs>? IotJobConfiguration { get; set; }

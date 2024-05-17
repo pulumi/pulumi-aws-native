@@ -28,7 +28,9 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.CleanRooms.CollaborationMemberAbility> MemberAbilities;
         /// <summary>
-        /// An object representing the collaboration member's payment responsibilities set by the collaboration creator.
+        /// The collaboration member's payment responsibilities set by the collaboration creator.
+        /// 
+        /// If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.
         /// </summary>
         public readonly Outputs.CollaborationPaymentConfiguration? PaymentConfiguration;
 

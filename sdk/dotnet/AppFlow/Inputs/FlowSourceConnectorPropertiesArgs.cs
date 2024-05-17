@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     public sealed class FlowSourceConnectorPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The properties that are applied when Amplitude is being used as a source.
+        /// Specifies the information that is required for querying Amplitude.
         /// </summary>
         [Input("amplitude")]
         public Input<Inputs.FlowAmplitudeSourcePropertiesArgs>? Amplitude { get; set; }
@@ -28,49 +28,49 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public Input<Inputs.FlowCustomConnectorSourcePropertiesArgs>? CustomConnector { get; set; }
 
         /// <summary>
-        /// The properties that are applied when Datadog is being used as a source.
+        /// Specifies the information that is required for querying Datadog.
         /// </summary>
         [Input("datadog")]
         public Input<Inputs.FlowDatadogSourcePropertiesArgs>? Datadog { get; set; }
 
         /// <summary>
-        /// The properties that are applied when Dynatrace is being used as a source.
+        /// Specifies the information that is required for querying Dynatrace.
         /// </summary>
         [Input("dynatrace")]
         public Input<Inputs.FlowDynatraceSourcePropertiesArgs>? Dynatrace { get; set; }
 
         /// <summary>
-        /// The properties that are applied when Google Analytics is being used as a source.
+        /// Specifies the information that is required for querying Google Analytics.
         /// </summary>
         [Input("googleAnalytics")]
         public Input<Inputs.FlowGoogleAnalyticsSourcePropertiesArgs>? GoogleAnalytics { get; set; }
 
         /// <summary>
-        /// The properties that are applied when Infor Nexus is being used as a source.
+        /// Specifies the information that is required for querying Infor Nexus.
         /// </summary>
         [Input("inforNexus")]
         public Input<Inputs.FlowInforNexusSourcePropertiesArgs>? InforNexus { get; set; }
 
         /// <summary>
-        /// The properties that are applied when Marketo is being used as a source.
+        /// Specifies the information that is required for querying Marketo.
         /// </summary>
         [Input("marketo")]
         public Input<Inputs.FlowMarketoSourcePropertiesArgs>? Marketo { get; set; }
 
         /// <summary>
-        /// The properties that are applied when Salesforce Pardot is being used as a source.
+        /// Specifies the information that is required for querying Salesforce Pardot.
         /// </summary>
         [Input("pardot")]
         public Input<Inputs.FlowPardotSourcePropertiesArgs>? Pardot { get; set; }
 
         /// <summary>
-        /// The properties that are applied when Amazon S3 is being used as the flow source.
+        /// Specifies the information that is required for querying Amazon S3.
         /// </summary>
         [Input("s3")]
         public Input<Inputs.FlowS3SourcePropertiesArgs>? S3 { get; set; }
 
         /// <summary>
-        /// The properties that are applied when Salesforce is being used as a source.
+        /// Specifies the information that is required for querying Salesforce.
         /// </summary>
         [Input("salesforce")]
         public Input<Inputs.FlowSalesforceSourcePropertiesArgs>? Salesforce { get; set; }
@@ -82,37 +82,37 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public Input<Inputs.FlowSapoDataSourcePropertiesArgs>? SapoData { get; set; }
 
         /// <summary>
-        /// The properties that are applied when ServiceNow is being used as a source.
+        /// Specifies the information that is required for querying ServiceNow.
         /// </summary>
         [Input("serviceNow")]
         public Input<Inputs.FlowServiceNowSourcePropertiesArgs>? ServiceNow { get; set; }
 
         /// <summary>
-        /// The properties that are applied when Singular is being used as a source.
+        /// Specifies the information that is required for querying Singular.
         /// </summary>
         [Input("singular")]
         public Input<Inputs.FlowSingularSourcePropertiesArgs>? Singular { get; set; }
 
         /// <summary>
-        /// The properties that are applied when Slack is being used as a source.
+        /// Specifies the information that is required for querying Slack.
         /// </summary>
         [Input("slack")]
         public Input<Inputs.FlowSlackSourcePropertiesArgs>? Slack { get; set; }
 
         /// <summary>
-        /// The properties that are applied when using Trend Micro as a flow source.
+        /// Specifies the information that is required for querying Trend Micro.
         /// </summary>
         [Input("trendmicro")]
         public Input<Inputs.FlowTrendmicroSourcePropertiesArgs>? Trendmicro { get; set; }
 
         /// <summary>
-        /// The properties that are applied when using Veeva as a flow source.
+        /// Specifies the information that is required for querying Veeva.
         /// </summary>
         [Input("veeva")]
         public Input<Inputs.FlowVeevaSourcePropertiesArgs>? Veeva { get; set; }
 
         /// <summary>
-        /// The properties that are applied when using Zendesk as a flow source.
+        /// Specifies the information that is required for querying Zendesk.
         /// </summary>
         [Input("zendesk")]
         public Input<Inputs.FlowZendeskSourcePropertiesArgs>? Zendesk { get; set; }

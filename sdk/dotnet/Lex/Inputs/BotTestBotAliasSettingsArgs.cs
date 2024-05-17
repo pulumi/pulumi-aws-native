@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
         }
 
         /// <summary>
-        /// Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+        /// Specifies settings for conversation logs that save audio, text, and metadata information for conversations with your users.
         /// </summary>
         [Input("conversationLogSettings")]
         public Input<Inputs.BotConversationLogSettingsArgs>? ConversationLogSettings { get; set; }

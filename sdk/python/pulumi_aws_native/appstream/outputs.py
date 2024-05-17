@@ -211,7 +211,7 @@ class AppBlockScriptDetails(dict):
                  executable_parameters: Optional[str] = None):
         """
         :param str executable_path: The run path for the script.
-        :param 'AppBlockS3Location' script_s3_location: The S3 location of the app block.
+        :param 'AppBlockS3Location' script_s3_location: The S3 object location of the script.
         :param int timeout_in_seconds: The run timeout, in seconds, for the script.
         :param str executable_parameters: The parameters used in the run path for the script.
         """
@@ -233,7 +233,7 @@ class AppBlockScriptDetails(dict):
     @pulumi.getter(name="scriptS3Location")
     def script_s3_location(self) -> 'outputs.AppBlockS3Location':
         """
-        The S3 location of the app block.
+        The S3 object location of the script.
         """
         return pulumi.get(self, "script_s3_location")
 

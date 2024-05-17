@@ -30,11 +30,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.AnalysisKpiConditionalFormatting? ConditionalFormatting;
         /// <summary>
-        /// The subtitle label options for a visual.
+        /// The subtitle that is displayed on the visual.
         /// </summary>
         public readonly Outputs.AnalysisVisualSubtitleLabelOptions? Subtitle;
         /// <summary>
-        /// The title label options for a visual.
+        /// The title that is displayed on the visual.
         /// </summary>
         public readonly Outputs.AnalysisVisualTitleLabelOptions? Title;
         /// <summary>

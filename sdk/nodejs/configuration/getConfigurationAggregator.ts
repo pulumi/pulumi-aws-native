@@ -27,7 +27,7 @@ export interface GetConfigurationAggregatorArgs {
 
 export interface GetConfigurationAggregatorResult {
     /**
-     * A collection of accounts and regions.
+     * Provides a list of source accounts and regions to be aggregated.
      */
     readonly accountAggregationSources?: outputs.configuration.ConfigurationAggregatorAccountAggregationSource[];
     /**
@@ -35,7 +35,7 @@ export interface GetConfigurationAggregatorResult {
      */
     readonly configurationAggregatorArn?: string;
     /**
-     * This object contains regions to set up the aggregator and an IAM role to retrieve organization details.
+     * Provides an organization and list of regions to be aggregated.
      */
     readonly organizationAggregationSource?: outputs.configuration.ConfigurationAggregatorOrganizationAggregationSource;
     /**

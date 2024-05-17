@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.S3
         public Output<Pulumi.AwsNative.S3.AccessGrantS3PrefixType?> S3PrefixType { get; private set; } = null!;
 
         /// <summary>
-        /// A container of a key value name pair.
+        /// The AWS resource tags that you are adding to the access grant. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.AwsNative.S3
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
 
         /// <summary>
-        /// A container of a key value name pair.
+        /// The AWS resource tags that you are adding to the access grant. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {

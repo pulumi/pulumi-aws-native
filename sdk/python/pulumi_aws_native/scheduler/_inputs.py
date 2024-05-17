@@ -187,7 +187,7 @@ class ScheduleEcsParametersArgs:
         :param pulumi.Input[bool] enable_execute_command: Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
         :param pulumi.Input[str] group: Specifies an ECS task group for the task. The maximum length is 255 characters.
         :param pulumi.Input['ScheduleLaunchType'] launch_type: Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The `FARGATE` value is supported only in the Regions where Fargate with Amazon ECS is supported. For more information, see [AWS Fargate on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html) in the *Amazon ECS Developer Guide* .
-        :param pulumi.Input['ScheduleNetworkConfigurationArgs'] network_configuration: Specifies the network configuration for an ECS task.
+        :param pulumi.Input['ScheduleNetworkConfigurationArgs'] network_configuration: This structure specifies the network configuration for an ECS task.
         :param pulumi.Input[Sequence[pulumi.Input['SchedulePlacementConstraintArgs']]] placement_constraints: An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime).
         :param pulumi.Input[Sequence[pulumi.Input['SchedulePlacementStrategyArgs']]] placement_strategy: The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
         :param pulumi.Input[str] platform_version: Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0.
@@ -300,7 +300,7 @@ class ScheduleEcsParametersArgs:
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['ScheduleNetworkConfigurationArgs']]:
         """
-        Specifies the network configuration for an ECS task.
+        This structure specifies the network configuration for an ECS task.
         """
         return pulumi.get(self, "network_configuration")
 
@@ -503,7 +503,7 @@ class ScheduleNetworkConfigurationArgs:
                  awsvpc_configuration: Optional[pulumi.Input['ScheduleAwsVpcConfigurationArgs']] = None):
         """
         This structure specifies the network configuration for an ECS task.
-        :param pulumi.Input['ScheduleAwsVpcConfigurationArgs'] awsvpc_configuration: This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.
+        :param pulumi.Input['ScheduleAwsVpcConfigurationArgs'] awsvpc_configuration: Specifies the Amazon VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.
         """
         if awsvpc_configuration is not None:
             pulumi.set(__self__, "awsvpc_configuration", awsvpc_configuration)
@@ -512,7 +512,7 @@ class ScheduleNetworkConfigurationArgs:
     @pulumi.getter(name="awsvpcConfiguration")
     def awsvpc_configuration(self) -> Optional[pulumi.Input['ScheduleAwsVpcConfigurationArgs']]:
         """
-        This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.
+        Specifies the Amazon VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.
         """
         return pulumi.get(self, "awsvpc_configuration")
 

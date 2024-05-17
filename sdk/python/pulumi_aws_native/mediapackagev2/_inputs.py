@@ -126,8 +126,8 @@ class OriginEndpointEncryptionArgs:
                  key_rotation_interval_seconds: Optional[pulumi.Input[int]] = None):
         """
         <p>The parameters for encrypting content.</p>
-        :param pulumi.Input['OriginEndpointEncryptionMethodArgs'] encryption_method: The encryption method associated with the origin endpoint.
-        :param pulumi.Input['OriginEndpointSpekeKeyProviderArgs'] speke_key_provider: The parameters for the SPEKE key provider.
+        :param pulumi.Input['OriginEndpointEncryptionMethodArgs'] encryption_method: The encryption method to use.
+        :param pulumi.Input['OriginEndpointSpekeKeyProviderArgs'] speke_key_provider: The SPEKE key provider to use for encryption.
         :param pulumi.Input[str] constant_initialization_vector: <p>A 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting content. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).</p>
         :param pulumi.Input[int] key_rotation_interval_seconds: <p>The frequency (in seconds) of key changes for live workflows, in which content is streamed real time. The service retrieves content keys before the live content begins streaming, and then retrieves them as needed over the lifetime of the workflow. By default, key rotation is set to 300 seconds (5 minutes), the minimum rotation interval, which is equivalent to setting it to 300. If you don't enter an interval, content keys aren't rotated.</p>
                         <p>The following example setting causes the service to rotate keys every thirty minutes: <code>1800</code>
@@ -144,7 +144,7 @@ class OriginEndpointEncryptionArgs:
     @pulumi.getter(name="encryptionMethod")
     def encryption_method(self) -> pulumi.Input['OriginEndpointEncryptionMethodArgs']:
         """
-        The encryption method associated with the origin endpoint.
+        The encryption method to use.
         """
         return pulumi.get(self, "encryption_method")
 
@@ -156,7 +156,7 @@ class OriginEndpointEncryptionArgs:
     @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> pulumi.Input['OriginEndpointSpekeKeyProviderArgs']:
         """
-        The parameters for the SPEKE key provider.
+        The SPEKE key provider to use for encryption.
         """
         return pulumi.get(self, "speke_key_provider")
 
@@ -283,7 +283,7 @@ class OriginEndpointHlsManifestConfigurationArgs:
                         The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player. 
                         ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
                         <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
-        :param pulumi.Input['OriginEndpointScteHlsArgs'] scte_hls: The SCTE-35 HLS configuration associated with the origin endpoint.
+        :param pulumi.Input['OriginEndpointScteHlsArgs'] scte_hls: THE SCTE-35 HLS configuration associated with the HLS manifest configuration.
         :param pulumi.Input[str] url: <p>The egress domain URL for stream delivery from MediaPackage.</p>
         """
         pulumi.set(__self__, "manifest_name", manifest_name)
@@ -365,7 +365,7 @@ class OriginEndpointHlsManifestConfigurationArgs:
     @pulumi.getter(name="scteHls")
     def scte_hls(self) -> Optional[pulumi.Input['OriginEndpointScteHlsArgs']]:
         """
-        The SCTE-35 HLS configuration associated with the origin endpoint.
+        THE SCTE-35 HLS configuration associated with the HLS manifest configuration.
         """
         return pulumi.get(self, "scte_hls")
 
@@ -406,7 +406,7 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
                         The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player. 
                         ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
                         <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
-        :param pulumi.Input['OriginEndpointScteHlsArgs'] scte_hls: The SCTE-35 HLS configuration associated with the origin endpoint.
+        :param pulumi.Input['OriginEndpointScteHlsArgs'] scte_hls: The SCTE-35 HLS configuration associated with the low-latency HLS (LL-HLS) manifest configuration of the origin endpoint.
         :param pulumi.Input[str] url: <p>The egress domain URL for stream delivery from MediaPackage.</p>
         """
         pulumi.set(__self__, "manifest_name", manifest_name)
@@ -488,7 +488,7 @@ class OriginEndpointLowLatencyHlsManifestConfigurationArgs:
     @pulumi.getter(name="scteHls")
     def scte_hls(self) -> Optional[pulumi.Input['OriginEndpointScteHlsArgs']]:
         """
-        The SCTE-35 HLS configuration associated with the origin endpoint.
+        The SCTE-35 HLS configuration associated with the low-latency HLS (LL-HLS) manifest configuration of the origin endpoint.
         """
         return pulumi.get(self, "scte_hls")
 
@@ -569,22 +569,9 @@ class OriginEndpointSegmentArgs:
                  ts_use_audio_rendition_group: Optional[pulumi.Input[bool]] = None):
         """
         <p>The segment configuration, including the segment name, duration, and other configuration values.</p>
-        :param pulumi.Input['OriginEndpointEncryptionArgs'] encryption: A collection of video encryption presets.
-               
-               Value description:
-               
-               - `PRESET-VIDEO-1` - Use one content key to encrypt all of the video tracks in your stream.
-               - `PRESET-VIDEO-2` - Use one content key to encrypt all of the SD video tracks and one content key for all HD and higher resolutions video tracks.
-               - `PRESET-VIDEO-3` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks and one content key for all UHD video tracks.
-               - `PRESET-VIDEO-4` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
-               - `PRESET-VIDEO-5` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
-               - `PRESET-VIDEO-6` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
-               - `PRESET-VIDEO-7` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
-               - `PRESET-VIDEO-8` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
-               - `SHARED` - Use the same content key for all of the video and audio tracks in your stream.
-               - `UNENCRYPTED` - Don't encrypt any of the video tracks in your stream.
+        :param pulumi.Input['OriginEndpointEncryptionArgs'] encryption: Whether to use encryption for the segment.
         :param pulumi.Input[bool] include_iframe_only_streams: <p>When selected, the stream set includes an additional I-frame only stream, along with the other tracks. If false, this extra stream is not included. MediaPackage generates an I-frame only stream from the first rendition in the manifest. The service inserts EXT-I-FRAMES-ONLY tags in the output manifest, and then generates and includes an I-frames only playlist in the stream. This playlist permits player functionality like fast forward and rewind.</p>
-        :param pulumi.Input['OriginEndpointScteArgs'] scte: The SCTE-35 configuration associated with the origin endpoint.
+        :param pulumi.Input['OriginEndpointScteArgs'] scte: The SCTE-35 configuration associated with the segment.
         :param pulumi.Input[int] segment_duration_seconds: <p>The duration (in seconds) of each segment. Enter a value equal to, or a multiple of, the input segment duration. If the value that you enter is different from the input segment duration, MediaPackage rounds segments to the nearest multiple of the input segment duration.</p>
         :param pulumi.Input[str] segment_name: <p>The name that describes the segment. The name is the base name of the segment used in all content manifests inside of the endpoint. You can't use spaces in the name.</p>
         :param pulumi.Input[bool] ts_include_dvb_subtitles: <p>By default, MediaPackage excludes all digital video broadcasting (DVB) subtitles from the output. When selected, MediaPackage passes through DVB subtitles into the output.</p>
@@ -609,20 +596,7 @@ class OriginEndpointSegmentArgs:
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['OriginEndpointEncryptionArgs']]:
         """
-        A collection of video encryption presets.
-
-        Value description:
-
-        - `PRESET-VIDEO-1` - Use one content key to encrypt all of the video tracks in your stream.
-        - `PRESET-VIDEO-2` - Use one content key to encrypt all of the SD video tracks and one content key for all HD and higher resolutions video tracks.
-        - `PRESET-VIDEO-3` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks and one content key for all UHD video tracks.
-        - `PRESET-VIDEO-4` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
-        - `PRESET-VIDEO-5` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
-        - `PRESET-VIDEO-6` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
-        - `PRESET-VIDEO-7` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
-        - `PRESET-VIDEO-8` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
-        - `SHARED` - Use the same content key for all of the video and audio tracks in your stream.
-        - `UNENCRYPTED` - Don't encrypt any of the video tracks in your stream.
+        Whether to use encryption for the segment.
         """
         return pulumi.get(self, "encryption")
 
@@ -646,7 +620,7 @@ class OriginEndpointSegmentArgs:
     @pulumi.getter
     def scte(self) -> Optional[pulumi.Input['OriginEndpointScteArgs']]:
         """
-        The SCTE-35 configuration associated with the origin endpoint.
+        The SCTE-35 configuration associated with the segment.
         """
         return pulumi.get(self, "scte")
 
@@ -714,7 +688,7 @@ class OriginEndpointSpekeKeyProviderArgs:
         """
         <p>The parameters for the SPEKE key provider.</p>
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointDrmSystem']]] drm_systems: <p>The DRM solution provider you're using to protect your content during distribution.</p>
-        :param pulumi.Input['OriginEndpointEncryptionContractConfigurationArgs'] encryption_contract_configuration: Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.
+        :param pulumi.Input['OriginEndpointEncryptionContractConfigurationArgs'] encryption_contract_configuration: The encryption contract configuration associated with the SPEKE key provider.
         :param pulumi.Input[str] resource_id: <p>The unique identifier for the content. The service sends this to the key server to identify the current endpoint. How unique you make this depends on how fine-grained you want access controls to be. The service does not permit you to use the same ID for two simultaneous encryption processes. The resource ID is also known as the content ID.</p>
                         <p>The following example shows a resource ID: <code>MovieNight20171126093045</code>
                         </p>
@@ -747,7 +721,7 @@ class OriginEndpointSpekeKeyProviderArgs:
     @pulumi.getter(name="encryptionContractConfiguration")
     def encryption_contract_configuration(self) -> pulumi.Input['OriginEndpointEncryptionContractConfigurationArgs']:
         """
-        Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.
+        The encryption contract configuration associated with the SPEKE key provider.
         """
         return pulumi.get(self, "encryption_contract_configuration")
 

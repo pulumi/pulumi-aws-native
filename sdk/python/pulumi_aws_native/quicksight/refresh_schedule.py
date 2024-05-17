@@ -24,7 +24,7 @@ class RefreshScheduleArgs:
         The set of arguments for constructing a RefreshSchedule resource.
         :param pulumi.Input[str] aws_account_id: The AWS account ID of the account that you are creating a schedule in.
         :param pulumi.Input[str] data_set_id: The ID of the dataset that you are creating a refresh schedule for.
-        :param pulumi.Input['RefreshScheduleMapArgs'] schedule: A summary of a configured refresh schedule for a dataset.
+        :param pulumi.Input['RefreshScheduleMapArgs'] schedule: The refresh schedule of a dataset.
         """
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
@@ -61,7 +61,7 @@ class RefreshScheduleArgs:
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['RefreshScheduleMapArgs']]:
         """
-        A summary of a configured refresh schedule for a dataset.
+        The refresh schedule of a dataset.
         """
         return pulumi.get(self, "schedule")
 
@@ -86,7 +86,7 @@ class RefreshSchedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_account_id: The AWS account ID of the account that you are creating a schedule in.
         :param pulumi.Input[str] data_set_id: The ID of the dataset that you are creating a refresh schedule for.
-        :param pulumi.Input[pulumi.InputType['RefreshScheduleMapArgs']] schedule: A summary of a configured refresh schedule for a dataset.
+        :param pulumi.Input[pulumi.InputType['RefreshScheduleMapArgs']] schedule: The refresh schedule of a dataset.
         """
         ...
     @overload
@@ -186,7 +186,7 @@ class RefreshSchedule(pulumi.CustomResource):
     @pulumi.getter
     def schedule(self) -> pulumi.Output[Optional['outputs.RefreshScheduleMap']]:
         """
-        A summary of a configured refresh schedule for a dataset.
+        The refresh schedule of a dataset.
         """
         return pulumi.get(self, "schedule")
 

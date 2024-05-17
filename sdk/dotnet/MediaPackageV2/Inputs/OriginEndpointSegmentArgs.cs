@@ -16,20 +16,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
     public sealed class OriginEndpointSegmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A collection of video encryption presets.
-        /// 
-        /// Value description:
-        /// 
-        /// - `PRESET-VIDEO-1` - Use one content key to encrypt all of the video tracks in your stream.
-        /// - `PRESET-VIDEO-2` - Use one content key to encrypt all of the SD video tracks and one content key for all HD and higher resolutions video tracks.
-        /// - `PRESET-VIDEO-3` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks and one content key for all UHD video tracks.
-        /// - `PRESET-VIDEO-4` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
-        /// - `PRESET-VIDEO-5` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
-        /// - `PRESET-VIDEO-6` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
-        /// - `PRESET-VIDEO-7` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
-        /// - `PRESET-VIDEO-8` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
-        /// - `SHARED` - Use the same content key for all of the video and audio tracks in your stream.
-        /// - `UNENCRYPTED` - Don't encrypt any of the video tracks in your stream.
+        /// Whether to use encryption for the segment.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.OriginEndpointEncryptionArgs>? Encryption { get; set; }
@@ -41,7 +28,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         public Input<bool>? IncludeIframeOnlyStreams { get; set; }
 
         /// <summary>
-        /// The SCTE-35 configuration associated with the origin endpoint.
+        /// The SCTE-35 configuration associated with the segment.
         /// </summary>
         [Input("scte")]
         public Input<Inputs.OriginEndpointScteArgs>? Scte { get; set; }

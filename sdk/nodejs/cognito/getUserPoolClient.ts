@@ -65,9 +65,9 @@ export interface GetUserPoolClientResult {
      */
     readonly allowedOAuthScopes?: string[];
     /**
-     * The Amazon Pinpoint analytics configuration necessary to collect metrics for a user pool.
+     * The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.
      *
-     * > In Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.
+     * > In AWS Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in AWS Region us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.
      */
     readonly analyticsConfiguration?: outputs.cognito.UserPoolClientAnalyticsConfiguration;
     /**
@@ -178,7 +178,7 @@ export interface GetUserPoolClientResult {
      */
     readonly supportedIdentityProviders?: string[];
     /**
-     * The time units you use when you set the duration of ID, access, and refresh tokens. The default unit for RefreshToken is days, and the default for ID and access tokens is hours.
+     * The units in which the validity times are represented. The default unit for RefreshToken is days, and default for ID and access tokens are hours.
      */
     readonly tokenValidityUnits?: outputs.cognito.UserPoolClientTokenValidityUnits;
     /**

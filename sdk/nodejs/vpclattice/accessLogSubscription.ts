@@ -62,7 +62,7 @@ export class AccessLogSubscription extends pulumi.CustomResource {
      */
     public readonly resourceIdentifier!: pulumi.Output<string | undefined>;
     /**
-     * Specifies a tag for an access log subscription.
+     * The tags for the access log subscription.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -116,7 +116,7 @@ export interface AccessLogSubscriptionArgs {
      */
     resourceIdentifier?: pulumi.Input<string>;
     /**
-     * Specifies a tag for an access log subscription.
+     * The tags for the access log subscription.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -38,7 +38,7 @@ export class Connector extends pulumi.CustomResource {
     }
 
     /**
-     * Information about the capacity of the connector, whether it is auto scaled or provisioned.
+     * The connector's compute capacity settings.
      */
     public readonly capacity!: pulumi.Output<outputs.kafkaconnect.ConnectorCapacity>;
     /**
@@ -62,7 +62,7 @@ export class Connector extends pulumi.CustomResource {
      */
     public readonly kafkaCluster!: pulumi.Output<outputs.kafkaconnect.ConnectorKafkaCluster>;
     /**
-     * The client authentication information used in order to authenticate with the Apache Kafka cluster.
+     * The type of client authentication used to connect to the Apache Kafka cluster. The value is NONE when no client authentication is used.
      */
     public readonly kafkaClusterClientAuthentication!: pulumi.Output<outputs.kafkaconnect.ConnectorKafkaClusterClientAuthentication>;
     /**
@@ -74,7 +74,7 @@ export class Connector extends pulumi.CustomResource {
      */
     public readonly kafkaConnectVersion!: pulumi.Output<string>;
     /**
-     * Details about log delivery.
+     * The settings for delivering connector logs to Amazon CloudWatch Logs.
      */
     public readonly logDelivery!: pulumi.Output<outputs.kafkaconnect.ConnectorLogDelivery | undefined>;
     /**
@@ -90,7 +90,7 @@ export class Connector extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * The configuration of the workers, which are the processes that run the connector logic.
+     * The worker configurations that are in use with the connector.
      */
     public readonly workerConfiguration!: pulumi.Output<outputs.kafkaconnect.ConnectorWorkerConfiguration | undefined>;
 
@@ -171,7 +171,7 @@ export class Connector extends pulumi.CustomResource {
  */
 export interface ConnectorArgs {
     /**
-     * Information about the capacity of the connector, whether it is auto scaled or provisioned.
+     * The connector's compute capacity settings.
      */
     capacity: pulumi.Input<inputs.kafkaconnect.ConnectorCapacityArgs>;
     /**
@@ -191,7 +191,7 @@ export interface ConnectorArgs {
      */
     kafkaCluster: pulumi.Input<inputs.kafkaconnect.ConnectorKafkaClusterArgs>;
     /**
-     * The client authentication information used in order to authenticate with the Apache Kafka cluster.
+     * The type of client authentication used to connect to the Apache Kafka cluster. The value is NONE when no client authentication is used.
      */
     kafkaClusterClientAuthentication: pulumi.Input<inputs.kafkaconnect.ConnectorKafkaClusterClientAuthenticationArgs>;
     /**
@@ -203,7 +203,7 @@ export interface ConnectorArgs {
      */
     kafkaConnectVersion: pulumi.Input<string>;
     /**
-     * Details about log delivery.
+     * The settings for delivering connector logs to Amazon CloudWatch Logs.
      */
     logDelivery?: pulumi.Input<inputs.kafkaconnect.ConnectorLogDeliveryArgs>;
     /**
@@ -219,7 +219,7 @@ export interface ConnectorArgs {
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
-     * The configuration of the workers, which are the processes that run the connector logic.
+     * The worker configurations that are in use with the connector.
      */
     workerConfiguration?: pulumi.Input<inputs.kafkaconnect.ConnectorWorkerConfigurationArgs>;
 }

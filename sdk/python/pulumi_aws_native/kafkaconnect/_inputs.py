@@ -41,7 +41,7 @@ class ConnectorApacheKafkaClusterArgs:
         """
         Details of how to connect to an Apache Kafka cluster.
         :param pulumi.Input[str] bootstrap_servers: The bootstrap servers string of the Apache Kafka cluster.
-        :param pulumi.Input['ConnectorVpcArgs'] vpc: Information about the VPC in which the connector resides.
+        :param pulumi.Input['ConnectorVpcArgs'] vpc: Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
         """
         pulumi.set(__self__, "bootstrap_servers", bootstrap_servers)
         pulumi.set(__self__, "vpc", vpc)
@@ -62,7 +62,7 @@ class ConnectorApacheKafkaClusterArgs:
     @pulumi.getter
     def vpc(self) -> pulumi.Input['ConnectorVpcArgs']:
         """
-        Information about the VPC in which the connector resides.
+        Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
         """
         return pulumi.get(self, "vpc")
 
@@ -84,8 +84,8 @@ class ConnectorAutoScalingArgs:
         :param pulumi.Input[int] max_worker_count: The maximum number of workers for a connector.
         :param pulumi.Input[int] mcu_count: Specifies how many MSK Connect Units (MCU) as the minimum scaling unit.
         :param pulumi.Input[int] min_worker_count: The minimum number of workers for a connector.
-        :param pulumi.Input['ConnectorScaleInPolicyArgs'] scale_in_policy: The scale-in policy for the connector.
-        :param pulumi.Input['ConnectorScaleOutPolicyArgs'] scale_out_policy: The scale-out policy for the connector.
+        :param pulumi.Input['ConnectorScaleInPolicyArgs'] scale_in_policy: The sacle-in policy for the connector.
+        :param pulumi.Input['ConnectorScaleOutPolicyArgs'] scale_out_policy: The sacle-out policy for the connector.
         """
         pulumi.set(__self__, "max_worker_count", max_worker_count)
         pulumi.set(__self__, "mcu_count", mcu_count)
@@ -133,7 +133,7 @@ class ConnectorAutoScalingArgs:
     @pulumi.getter(name="scaleInPolicy")
     def scale_in_policy(self) -> pulumi.Input['ConnectorScaleInPolicyArgs']:
         """
-        The scale-in policy for the connector.
+        The sacle-in policy for the connector.
         """
         return pulumi.get(self, "scale_in_policy")
 
@@ -145,7 +145,7 @@ class ConnectorAutoScalingArgs:
     @pulumi.getter(name="scaleOutPolicy")
     def scale_out_policy(self) -> pulumi.Input['ConnectorScaleOutPolicyArgs']:
         """
-        The scale-out policy for the connector.
+        The sacle-out policy for the connector.
         """
         return pulumi.get(self, "scale_out_policy")
 
@@ -161,8 +161,8 @@ class ConnectorCapacityArgs:
                  provisioned_capacity: Optional[pulumi.Input['ConnectorProvisionedCapacityArgs']] = None):
         """
         Information about the capacity allocated to the connector.
-        :param pulumi.Input['ConnectorAutoScalingArgs'] auto_scaling: Specifies how the connector scales.
-        :param pulumi.Input['ConnectorProvisionedCapacityArgs'] provisioned_capacity: Details about a connector's provisioned capacity.
+        :param pulumi.Input['ConnectorAutoScalingArgs'] auto_scaling: Information about the auto scaling parameters for the connector.
+        :param pulumi.Input['ConnectorProvisionedCapacityArgs'] provisioned_capacity: Details about a fixed capacity allocated to a connector.
         """
         if auto_scaling is not None:
             pulumi.set(__self__, "auto_scaling", auto_scaling)
@@ -173,7 +173,7 @@ class ConnectorCapacityArgs:
     @pulumi.getter(name="autoScaling")
     def auto_scaling(self) -> Optional[pulumi.Input['ConnectorAutoScalingArgs']]:
         """
-        Specifies how the connector scales.
+        Information about the auto scaling parameters for the connector.
         """
         return pulumi.get(self, "auto_scaling")
 
@@ -185,7 +185,7 @@ class ConnectorCapacityArgs:
     @pulumi.getter(name="provisionedCapacity")
     def provisioned_capacity(self) -> Optional[pulumi.Input['ConnectorProvisionedCapacityArgs']]:
         """
-        Details about a connector's provisioned capacity.
+        Details about a fixed capacity allocated to a connector.
         """
         return pulumi.get(self, "provisioned_capacity")
 
@@ -362,7 +362,7 @@ class ConnectorKafkaClusterArgs:
                  apache_kafka_cluster: pulumi.Input['ConnectorApacheKafkaClusterArgs']):
         """
         Details of how to connect to the Kafka cluster.
-        :param pulumi.Input['ConnectorApacheKafkaClusterArgs'] apache_kafka_cluster: The details of the Apache Kafka cluster to which the connector is connected.
+        :param pulumi.Input['ConnectorApacheKafkaClusterArgs'] apache_kafka_cluster: The Apache Kafka cluster to which the connector is connected.
         """
         pulumi.set(__self__, "apache_kafka_cluster", apache_kafka_cluster)
 
@@ -370,7 +370,7 @@ class ConnectorKafkaClusterArgs:
     @pulumi.getter(name="apacheKafkaCluster")
     def apache_kafka_cluster(self) -> pulumi.Input['ConnectorApacheKafkaClusterArgs']:
         """
-        The details of the Apache Kafka cluster to which the connector is connected.
+        The Apache Kafka cluster to which the connector is connected.
         """
         return pulumi.get(self, "apache_kafka_cluster")
 
@@ -385,7 +385,7 @@ class ConnectorLogDeliveryArgs:
                  worker_log_delivery: pulumi.Input['ConnectorWorkerLogDeliveryArgs']):
         """
         Details of what logs are delivered and where they are delivered.
-        :param pulumi.Input['ConnectorWorkerLogDeliveryArgs'] worker_log_delivery: Workers can send worker logs to different destination types. This configuration specifies the details of these destinations.
+        :param pulumi.Input['ConnectorWorkerLogDeliveryArgs'] worker_log_delivery: The workers can send worker logs to different destination types. This configuration specifies the details of these destinations.
         """
         pulumi.set(__self__, "worker_log_delivery", worker_log_delivery)
 
@@ -393,7 +393,7 @@ class ConnectorLogDeliveryArgs:
     @pulumi.getter(name="workerLogDelivery")
     def worker_log_delivery(self) -> pulumi.Input['ConnectorWorkerLogDeliveryArgs']:
         """
-        Workers can send worker logs to different destination types. This configuration specifies the details of these destinations.
+        The workers can send worker logs to different destination types. This configuration specifies the details of these destinations.
         """
         return pulumi.get(self, "worker_log_delivery")
 
@@ -408,7 +408,7 @@ class ConnectorPluginArgs:
                  custom_plugin: pulumi.Input['ConnectorCustomPluginArgs']):
         """
         Details about a Kafka Connect plugin which will be used with the connector.
-        :param pulumi.Input['ConnectorCustomPluginArgs'] custom_plugin: A plugin is an AWS resource that contains the code that defines a connector's logic.
+        :param pulumi.Input['ConnectorCustomPluginArgs'] custom_plugin: Details about a custom plugin.
         """
         pulumi.set(__self__, "custom_plugin", custom_plugin)
 
@@ -416,7 +416,7 @@ class ConnectorPluginArgs:
     @pulumi.getter(name="customPlugin")
     def custom_plugin(self) -> pulumi.Input['ConnectorCustomPluginArgs']:
         """
-        A plugin is an AWS resource that contains the code that defines a connector's logic.
+        Details about a custom plugin.
         """
         return pulumi.get(self, "custom_plugin")
 
@@ -649,8 +649,8 @@ class ConnectorWorkerLogDeliveryArgs:
                  s3: Optional[pulumi.Input['ConnectorS3LogDeliveryArgs']] = None):
         """
         Specifies where worker logs are delivered.
-        :param pulumi.Input['ConnectorCloudWatchLogsLogDeliveryArgs'] cloud_watch_logs: The settings for delivering connector logs to Amazon CloudWatch Logs.
-        :param pulumi.Input['ConnectorFirehoseLogDeliveryArgs'] firehose: The settings for delivering logs to Amazon Kinesis Data Firehose.
+        :param pulumi.Input['ConnectorCloudWatchLogsLogDeliveryArgs'] cloud_watch_logs: Details about delivering logs to Amazon CloudWatch Logs.
+        :param pulumi.Input['ConnectorFirehoseLogDeliveryArgs'] firehose: Details about delivering logs to Amazon Kinesis Data Firehose.
         :param pulumi.Input['ConnectorS3LogDeliveryArgs'] s3: Details about delivering logs to Amazon S3.
         """
         if cloud_watch_logs is not None:
@@ -664,7 +664,7 @@ class ConnectorWorkerLogDeliveryArgs:
     @pulumi.getter(name="cloudWatchLogs")
     def cloud_watch_logs(self) -> Optional[pulumi.Input['ConnectorCloudWatchLogsLogDeliveryArgs']]:
         """
-        The settings for delivering connector logs to Amazon CloudWatch Logs.
+        Details about delivering logs to Amazon CloudWatch Logs.
         """
         return pulumi.get(self, "cloud_watch_logs")
 
@@ -676,7 +676,7 @@ class ConnectorWorkerLogDeliveryArgs:
     @pulumi.getter
     def firehose(self) -> Optional[pulumi.Input['ConnectorFirehoseLogDeliveryArgs']]:
         """
-        The settings for delivering logs to Amazon Kinesis Data Firehose.
+        Details about delivering logs to Amazon Kinesis Data Firehose.
         """
         return pulumi.get(self, "firehose")
 
@@ -703,7 +703,7 @@ class CustomPluginLocationArgs:
                  s3_location: pulumi.Input['CustomPluginS3LocationArgs']):
         """
         Information about the location of a custom plugin.
-        :param pulumi.Input['CustomPluginS3LocationArgs'] s3_location: The location of an object in Amazon S3.
+        :param pulumi.Input['CustomPluginS3LocationArgs'] s3_location: The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.
         """
         pulumi.set(__self__, "s3_location", s3_location)
 
@@ -711,7 +711,7 @@ class CustomPluginLocationArgs:
     @pulumi.getter(name="s3Location")
     def s3_location(self) -> pulumi.Input['CustomPluginS3LocationArgs']:
         """
-        The location of an object in Amazon S3.
+        The S3 bucket Amazon Resource Name (ARN), file key, and object version of the plugin file stored in Amazon S3.
         """
         return pulumi.get(self, "s3_location")
 

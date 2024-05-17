@@ -123,7 +123,9 @@ export class Alarm extends pulumi.CustomResource {
      */
     public readonly statistic!: pulumi.Output<string | undefined>;
     /**
-     * One of the key-value pairs associated with the alarm. Tags can help you organize and categorize your resources.
+     * A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm. To be able to associate tags with the alarm when you create the alarm, you must have the `cloudwatch:TagResource` permission.
+     *
+     * Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -301,7 +303,9 @@ export interface AlarmArgs {
      */
     statistic?: pulumi.Input<string>;
     /**
-     * One of the key-value pairs associated with the alarm. Tags can help you organize and categorize your resources.
+     * A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm. To be able to associate tags with the alarm when you create the alarm, you must have the `cloudwatch:TagResource` permission.
+     *
+     * Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

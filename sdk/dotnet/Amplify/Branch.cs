@@ -28,15 +28,15 @@ namespace Pulumi.AwsNative.Amplify
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the backend associated with an Amplify `Branch` .
+        /// The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
         /// 
-        /// This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
+        /// This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
         /// </summary>
         [Output("backend")]
         public Output<Outputs.BranchBackend?> Backend { get; private set; } = null!;
 
         /// <summary>
-        /// Use the BasicAuthConfig property type to set password protection for a specific branch.
+        /// The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
         /// </summary>
         [Output("basicAuthConfig")]
         public Output<Outputs.BranchBasicAuthConfig?> BasicAuthConfig { get; private set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.Amplify
         public Output<bool?> EnablePullRequestPreview { get; private set; } = null!;
 
         /// <summary>
-        /// The EnvironmentVariable property type sets environment variables for a specific branch. Environment variables are key-value pairs that are available at build time.
+        /// The environment variables for the branch.
         /// </summary>
         [Output("environmentVariables")]
         public Output<ImmutableArray<Outputs.BranchEnvironmentVariable>> EnvironmentVariables { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.AwsNative.Amplify
         public Output<Pulumi.AwsNative.Amplify.BranchStage?> Stage { get; private set; } = null!;
 
         /// <summary>
-        /// The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::Branch` resource.
+        /// The tag for the branch.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -176,15 +176,15 @@ namespace Pulumi.AwsNative.Amplify
         public Input<string> AppId { get; set; } = null!;
 
         /// <summary>
-        /// Describes the backend associated with an Amplify `Branch` .
+        /// The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
         /// 
-        /// This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
+        /// This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
         /// </summary>
         [Input("backend")]
         public Input<Inputs.BranchBackendArgs>? Backend { get; set; }
 
         /// <summary>
-        /// Use the BasicAuthConfig property type to set password protection for a specific branch.
+        /// The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
         /// </summary>
         [Input("basicAuthConfig")]
         public Input<Inputs.BranchBasicAuthConfigArgs>? BasicAuthConfig { get; set; }
@@ -235,7 +235,7 @@ namespace Pulumi.AwsNative.Amplify
         private InputList<Inputs.BranchEnvironmentVariableArgs>? _environmentVariables;
 
         /// <summary>
-        /// The EnvironmentVariable property type sets environment variables for a specific branch. Environment variables are key-value pairs that are available at build time.
+        /// The environment variables for the branch.
         /// </summary>
         public InputList<Inputs.BranchEnvironmentVariableArgs> EnvironmentVariables
         {
@@ -271,7 +271,7 @@ namespace Pulumi.AwsNative.Amplify
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::Branch` resource.
+        /// The tag for the branch.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

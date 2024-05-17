@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.TemplateReferenceLineDataConfiguration DataConfiguration;
         /// <summary>
-        /// The label configuration of a reference line.
+        /// The label configuration of the reference line.
         /// </summary>
         public readonly Outputs.TemplateReferenceLineLabelConfiguration? LabelConfiguration;
         /// <summary>

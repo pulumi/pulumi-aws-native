@@ -62,7 +62,7 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
     /**
-     * The S3 location of the application icon.
+     * The icon S3 location of the application.
      */
     public readonly iconS3Location!: pulumi.Output<outputs.appstream.ApplicationS3Location>;
     /**
@@ -92,7 +92,7 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly platforms!: pulumi.Output<string[]>;
     /**
-     * The tag of the application.
+     * The tags of the application.
      */
     public readonly tags!: pulumi.Output<(outputs.appstream.ApplicationTag0Properties | outputs.appstream.ApplicationTag1Properties)[] | undefined>;
     /**
@@ -184,7 +184,7 @@ export interface ApplicationArgs {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * The S3 location of the application icon.
+     * The icon S3 location of the application.
      */
     iconS3Location: pulumi.Input<inputs.appstream.ApplicationS3LocationArgs>;
     /**
@@ -214,7 +214,7 @@ export interface ApplicationArgs {
      */
     platforms: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The tag of the application.
+     * The tags of the application.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.appstream.ApplicationTag0PropertiesArgs | inputs.appstream.ApplicationTag1PropertiesArgs>[]>;
     /**

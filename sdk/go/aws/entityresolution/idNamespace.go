@@ -21,13 +21,13 @@ type IdNamespace struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The description of the ID namespace.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// An object containing `IdMappingType` and `ProviderProperties` .
+	// Determines the properties of `IdMappingWorflow` where this `IdNamespace` can be used as a `Source` or a `Target` .
 	IdMappingWorkflowProperties IdNamespaceIdMappingWorkflowPropertiesArrayOutput `pulumi:"idMappingWorkflowProperties"`
 	// The arn associated with the IdNamespace
 	IdNamespaceArn pulumi.StringOutput `pulumi:"idNamespaceArn"`
 	// The name of the ID namespace.
 	IdNamespaceName pulumi.StringOutput `pulumi:"idNamespaceName"`
-	// An object containing `InputSourceARN` and `SchemaName` .
+	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig IdNamespaceInputSourceArrayOutput `pulumi:"inputSourceConfig"`
 	// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to access the resources defined in this `IdNamespace` on your behalf as part of the workflow run.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
@@ -92,11 +92,11 @@ func (IdNamespaceState) ElementType() reflect.Type {
 type idNamespaceArgs struct {
 	// The description of the ID namespace.
 	Description *string `pulumi:"description"`
-	// An object containing `IdMappingType` and `ProviderProperties` .
+	// Determines the properties of `IdMappingWorflow` where this `IdNamespace` can be used as a `Source` or a `Target` .
 	IdMappingWorkflowProperties []IdNamespaceIdMappingWorkflowProperties `pulumi:"idMappingWorkflowProperties"`
 	// The name of the ID namespace.
 	IdNamespaceName *string `pulumi:"idNamespaceName"`
-	// An object containing `InputSourceARN` and `SchemaName` .
+	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig []IdNamespaceInputSource `pulumi:"inputSourceConfig"`
 	// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to access the resources defined in this `IdNamespace` on your behalf as part of the workflow run.
 	RoleArn *string `pulumi:"roleArn"`
@@ -114,11 +114,11 @@ type idNamespaceArgs struct {
 type IdNamespaceArgs struct {
 	// The description of the ID namespace.
 	Description pulumi.StringPtrInput
-	// An object containing `IdMappingType` and `ProviderProperties` .
+	// Determines the properties of `IdMappingWorflow` where this `IdNamespace` can be used as a `Source` or a `Target` .
 	IdMappingWorkflowProperties IdNamespaceIdMappingWorkflowPropertiesArrayInput
 	// The name of the ID namespace.
 	IdNamespaceName pulumi.StringPtrInput
-	// An object containing `InputSourceARN` and `SchemaName` .
+	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig IdNamespaceInputSourceArrayInput
 	// The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to access the resources defined in this `IdNamespace` on your behalf as part of the workflow run.
 	RoleArn pulumi.StringPtrInput
@@ -179,7 +179,7 @@ func (o IdNamespaceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdNamespace) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// An object containing `IdMappingType` and `ProviderProperties` .
+// Determines the properties of `IdMappingWorflow` where this `IdNamespace` can be used as a `Source` or a `Target` .
 func (o IdNamespaceOutput) IdMappingWorkflowProperties() IdNamespaceIdMappingWorkflowPropertiesArrayOutput {
 	return o.ApplyT(func(v *IdNamespace) IdNamespaceIdMappingWorkflowPropertiesArrayOutput {
 		return v.IdMappingWorkflowProperties
@@ -196,7 +196,7 @@ func (o IdNamespaceOutput) IdNamespaceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdNamespace) pulumi.StringOutput { return v.IdNamespaceName }).(pulumi.StringOutput)
 }
 
-// An object containing `InputSourceARN` and `SchemaName` .
+// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 func (o IdNamespaceOutput) InputSourceConfig() IdNamespaceInputSourceArrayOutput {
 	return o.ApplyT(func(v *IdNamespace) IdNamespaceInputSourceArrayOutput { return v.InputSourceConfig }).(IdNamespaceInputSourceArrayOutput)
 }

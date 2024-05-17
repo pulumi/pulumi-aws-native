@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         public Input<Pulumi.AwsNative.Bedrock.KnowledgeBaseType> Type { get; set; } = null!;
 
         /// <summary>
-        /// Contains details about the model used to create vector embeddings for the knowledge base.
+        /// Contains details about the embeddings model that'sused to convert the data source.
         /// </summary>
         [Input("vectorKnowledgeBaseConfiguration", required: true)]
         public Input<Inputs.KnowledgeBaseVectorKnowledgeBaseConfigurationArgs> VectorKnowledgeBaseConfiguration { get; set; } = null!;

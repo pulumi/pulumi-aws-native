@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.EntityResolution.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.EntityResolution.IdNamespaceIdMappingWorkflowPropertiesIdMappingType IdMappingType;
         /// <summary>
-        /// An object containing `ProviderConfiguration` and `ProviderServiceArn` .
+        /// An object which defines any additional configurations required by the provider service.
         /// </summary>
         public readonly Outputs.IdNamespaceNamespaceProviderProperties? ProviderProperties;
 

@@ -189,13 +189,13 @@ func (o InAppTemplateBodyConfigPtrOutput) TextColor() pulumi.StringPtrOutput {
 }
 
 type InAppTemplateButtonConfig struct {
-	// Specifies the configuration of a button with settings that are specific to a certain device type.
+	// Optional button configuration to use for in-app messages sent to Android devices. This button configuration overrides the default button configuration.
 	Android *InAppTemplateOverrideButtonConfiguration `pulumi:"android"`
 	// Specifies the default behavior of a button that appears in an in-app message. You can optionally add button configurations that specifically apply to iOS, Android, or web browser users.
 	DefaultConfig *InAppTemplateDefaultButtonConfiguration `pulumi:"defaultConfig"`
-	// Specifies the configuration of a button with settings that are specific to a certain device type.
+	// Optional button configuration to use for in-app messages sent to iOS devices. This button configuration overrides the default button configuration.
 	Ios *InAppTemplateOverrideButtonConfiguration `pulumi:"ios"`
-	// Specifies the configuration of a button with settings that are specific to a certain device type.
+	// Optional button configuration to use for in-app messages sent to web applications. This button configuration overrides the default button configuration.
 	Web *InAppTemplateOverrideButtonConfiguration `pulumi:"web"`
 }
 
@@ -211,13 +211,13 @@ type InAppTemplateButtonConfigInput interface {
 }
 
 type InAppTemplateButtonConfigArgs struct {
-	// Specifies the configuration of a button with settings that are specific to a certain device type.
+	// Optional button configuration to use for in-app messages sent to Android devices. This button configuration overrides the default button configuration.
 	Android InAppTemplateOverrideButtonConfigurationPtrInput `pulumi:"android"`
 	// Specifies the default behavior of a button that appears in an in-app message. You can optionally add button configurations that specifically apply to iOS, Android, or web browser users.
 	DefaultConfig InAppTemplateDefaultButtonConfigurationPtrInput `pulumi:"defaultConfig"`
-	// Specifies the configuration of a button with settings that are specific to a certain device type.
+	// Optional button configuration to use for in-app messages sent to iOS devices. This button configuration overrides the default button configuration.
 	Ios InAppTemplateOverrideButtonConfigurationPtrInput `pulumi:"ios"`
-	// Specifies the configuration of a button with settings that are specific to a certain device type.
+	// Optional button configuration to use for in-app messages sent to web applications. This button configuration overrides the default button configuration.
 	Web InAppTemplateOverrideButtonConfigurationPtrInput `pulumi:"web"`
 }
 
@@ -298,7 +298,7 @@ func (o InAppTemplateButtonConfigOutput) ToInAppTemplateButtonConfigPtrOutputWit
 	}).(InAppTemplateButtonConfigPtrOutput)
 }
 
-// Specifies the configuration of a button with settings that are specific to a certain device type.
+// Optional button configuration to use for in-app messages sent to Android devices. This button configuration overrides the default button configuration.
 func (o InAppTemplateButtonConfigOutput) Android() InAppTemplateOverrideButtonConfigurationPtrOutput {
 	return o.ApplyT(func(v InAppTemplateButtonConfig) *InAppTemplateOverrideButtonConfiguration { return v.Android }).(InAppTemplateOverrideButtonConfigurationPtrOutput)
 }
@@ -308,12 +308,12 @@ func (o InAppTemplateButtonConfigOutput) DefaultConfig() InAppTemplateDefaultBut
 	return o.ApplyT(func(v InAppTemplateButtonConfig) *InAppTemplateDefaultButtonConfiguration { return v.DefaultConfig }).(InAppTemplateDefaultButtonConfigurationPtrOutput)
 }
 
-// Specifies the configuration of a button with settings that are specific to a certain device type.
+// Optional button configuration to use for in-app messages sent to iOS devices. This button configuration overrides the default button configuration.
 func (o InAppTemplateButtonConfigOutput) Ios() InAppTemplateOverrideButtonConfigurationPtrOutput {
 	return o.ApplyT(func(v InAppTemplateButtonConfig) *InAppTemplateOverrideButtonConfiguration { return v.Ios }).(InAppTemplateOverrideButtonConfigurationPtrOutput)
 }
 
-// Specifies the configuration of a button with settings that are specific to a certain device type.
+// Optional button configuration to use for in-app messages sent to web applications. This button configuration overrides the default button configuration.
 func (o InAppTemplateButtonConfigOutput) Web() InAppTemplateOverrideButtonConfigurationPtrOutput {
 	return o.ApplyT(func(v InAppTemplateButtonConfig) *InAppTemplateOverrideButtonConfiguration { return v.Web }).(InAppTemplateOverrideButtonConfigurationPtrOutput)
 }
@@ -342,7 +342,7 @@ func (o InAppTemplateButtonConfigPtrOutput) Elem() InAppTemplateButtonConfigOutp
 	}).(InAppTemplateButtonConfigOutput)
 }
 
-// Specifies the configuration of a button with settings that are specific to a certain device type.
+// Optional button configuration to use for in-app messages sent to Android devices. This button configuration overrides the default button configuration.
 func (o InAppTemplateButtonConfigPtrOutput) Android() InAppTemplateOverrideButtonConfigurationPtrOutput {
 	return o.ApplyT(func(v *InAppTemplateButtonConfig) *InAppTemplateOverrideButtonConfiguration {
 		if v == nil {
@@ -362,7 +362,7 @@ func (o InAppTemplateButtonConfigPtrOutput) DefaultConfig() InAppTemplateDefault
 	}).(InAppTemplateDefaultButtonConfigurationPtrOutput)
 }
 
-// Specifies the configuration of a button with settings that are specific to a certain device type.
+// Optional button configuration to use for in-app messages sent to iOS devices. This button configuration overrides the default button configuration.
 func (o InAppTemplateButtonConfigPtrOutput) Ios() InAppTemplateOverrideButtonConfigurationPtrOutput {
 	return o.ApplyT(func(v *InAppTemplateButtonConfig) *InAppTemplateOverrideButtonConfiguration {
 		if v == nil {
@@ -372,7 +372,7 @@ func (o InAppTemplateButtonConfigPtrOutput) Ios() InAppTemplateOverrideButtonCon
 	}).(InAppTemplateOverrideButtonConfigurationPtrOutput)
 }
 
-// Specifies the configuration of a button with settings that are specific to a certain device type.
+// Optional button configuration to use for in-app messages sent to web applications. This button configuration overrides the default button configuration.
 func (o InAppTemplateButtonConfigPtrOutput) Web() InAppTemplateOverrideButtonConfigurationPtrOutput {
 	return o.ApplyT(func(v *InAppTemplateButtonConfig) *InAppTemplateOverrideButtonConfiguration {
 		if v == nil {
@@ -808,15 +808,15 @@ func (o InAppTemplateHeaderConfigPtrOutput) TextColor() pulumi.StringPtrOutput {
 type InAppTemplateInAppMessageContent struct {
 	// The background color for an in-app message banner, expressed as a hex color code (such as #000000 for black).
 	BackgroundColor *string `pulumi:"backgroundColor"`
-	// Specifies the configuration of the main body text of the in-app message.
+	// An object that contains configuration information about the header or title text of the in-app message.
 	BodyConfig *InAppTemplateBodyConfig `pulumi:"bodyConfig"`
-	// Specifies the configuration and content of the header or title text of the in-app message.
+	// An object that contains configuration information about the header or title text of the in-app message.
 	HeaderConfig *InAppTemplateHeaderConfig `pulumi:"headerConfig"`
 	// The URL of the image that appears on an in-app message banner.
 	ImageUrl *string `pulumi:"imageUrl"`
-	// Specifies the behavior of buttons that appear in an in-app message template.
+	// An object that contains configuration information about the primary button in an in-app message.
 	PrimaryBtn *InAppTemplateButtonConfig `pulumi:"primaryBtn"`
-	// Specifies the behavior of buttons that appear in an in-app message template.
+	// An object that contains configuration information about the secondary button in an in-app message.
 	SecondaryBtn *InAppTemplateButtonConfig `pulumi:"secondaryBtn"`
 }
 
@@ -834,15 +834,15 @@ type InAppTemplateInAppMessageContentInput interface {
 type InAppTemplateInAppMessageContentArgs struct {
 	// The background color for an in-app message banner, expressed as a hex color code (such as #000000 for black).
 	BackgroundColor pulumi.StringPtrInput `pulumi:"backgroundColor"`
-	// Specifies the configuration of the main body text of the in-app message.
+	// An object that contains configuration information about the header or title text of the in-app message.
 	BodyConfig InAppTemplateBodyConfigPtrInput `pulumi:"bodyConfig"`
-	// Specifies the configuration and content of the header or title text of the in-app message.
+	// An object that contains configuration information about the header or title text of the in-app message.
 	HeaderConfig InAppTemplateHeaderConfigPtrInput `pulumi:"headerConfig"`
 	// The URL of the image that appears on an in-app message banner.
 	ImageUrl pulumi.StringPtrInput `pulumi:"imageUrl"`
-	// Specifies the behavior of buttons that appear in an in-app message template.
+	// An object that contains configuration information about the primary button in an in-app message.
 	PrimaryBtn InAppTemplateButtonConfigPtrInput `pulumi:"primaryBtn"`
-	// Specifies the behavior of buttons that appear in an in-app message template.
+	// An object that contains configuration information about the secondary button in an in-app message.
 	SecondaryBtn InAppTemplateButtonConfigPtrInput `pulumi:"secondaryBtn"`
 }
 
@@ -902,12 +902,12 @@ func (o InAppTemplateInAppMessageContentOutput) BackgroundColor() pulumi.StringP
 	return o.ApplyT(func(v InAppTemplateInAppMessageContent) *string { return v.BackgroundColor }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the configuration of the main body text of the in-app message.
+// An object that contains configuration information about the header or title text of the in-app message.
 func (o InAppTemplateInAppMessageContentOutput) BodyConfig() InAppTemplateBodyConfigPtrOutput {
 	return o.ApplyT(func(v InAppTemplateInAppMessageContent) *InAppTemplateBodyConfig { return v.BodyConfig }).(InAppTemplateBodyConfigPtrOutput)
 }
 
-// Specifies the configuration and content of the header or title text of the in-app message.
+// An object that contains configuration information about the header or title text of the in-app message.
 func (o InAppTemplateInAppMessageContentOutput) HeaderConfig() InAppTemplateHeaderConfigPtrOutput {
 	return o.ApplyT(func(v InAppTemplateInAppMessageContent) *InAppTemplateHeaderConfig { return v.HeaderConfig }).(InAppTemplateHeaderConfigPtrOutput)
 }
@@ -917,12 +917,12 @@ func (o InAppTemplateInAppMessageContentOutput) ImageUrl() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v InAppTemplateInAppMessageContent) *string { return v.ImageUrl }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the behavior of buttons that appear in an in-app message template.
+// An object that contains configuration information about the primary button in an in-app message.
 func (o InAppTemplateInAppMessageContentOutput) PrimaryBtn() InAppTemplateButtonConfigPtrOutput {
 	return o.ApplyT(func(v InAppTemplateInAppMessageContent) *InAppTemplateButtonConfig { return v.PrimaryBtn }).(InAppTemplateButtonConfigPtrOutput)
 }
 
-// Specifies the behavior of buttons that appear in an in-app message template.
+// An object that contains configuration information about the secondary button in an in-app message.
 func (o InAppTemplateInAppMessageContentOutput) SecondaryBtn() InAppTemplateButtonConfigPtrOutput {
 	return o.ApplyT(func(v InAppTemplateInAppMessageContent) *InAppTemplateButtonConfig { return v.SecondaryBtn }).(InAppTemplateButtonConfigPtrOutput)
 }

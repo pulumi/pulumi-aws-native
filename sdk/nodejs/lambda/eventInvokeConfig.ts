@@ -38,7 +38,12 @@ export class EventInvokeConfig extends pulumi.CustomResource {
     }
 
     /**
-     * A configuration object that specifies the destination of an event after Lambda processes it.
+     * A destination for events after they have been sent to a function for processing.
+     *
+     * **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
+     * - *Queue* - The ARN of a standard SQS queue.
+     * - *Topic* - The ARN of a standard SNS topic.
+     * - *Event Bus* - The ARN of an Amazon EventBridge event bus.
      */
     public readonly destinationConfig!: pulumi.Output<outputs.lambda.EventInvokeConfigDestinationConfig | undefined>;
     /**
@@ -99,7 +104,12 @@ export class EventInvokeConfig extends pulumi.CustomResource {
  */
 export interface EventInvokeConfigArgs {
     /**
-     * A configuration object that specifies the destination of an event after Lambda processes it.
+     * A destination for events after they have been sent to a function for processing.
+     *
+     * **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
+     * - *Queue* - The ARN of a standard SQS queue.
+     * - *Topic* - The ARN of a standard SNS topic.
+     * - *Event Bus* - The ARN of an Amazon EventBridge event bus.
      */
     destinationConfig?: pulumi.Input<inputs.lambda.EventInvokeConfigDestinationConfigArgs>;
     /**

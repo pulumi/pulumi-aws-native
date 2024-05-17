@@ -36,6 +36,9 @@ type LookupGroupResult struct {
 	// The case-sensitive name of the new group. Names must be unique.
 	GroupName *string `pulumi:"groupName"`
 	// The structure containing configurations related to insights.
+	//
+	// - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
+	// - The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
 	InsightsConfiguration *GroupInsightsConfiguration `pulumi:"insightsConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -93,6 +96,9 @@ func (o LookupGroupResultOutput) GroupName() pulumi.StringPtrOutput {
 }
 
 // The structure containing configurations related to insights.
+//
+// - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
+// - The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
 func (o LookupGroupResultOutput) InsightsConfiguration() GroupInsightsConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupGroupResult) *GroupInsightsConfiguration { return v.InsightsConfiguration }).(GroupInsightsConfigurationPtrOutput)
 }

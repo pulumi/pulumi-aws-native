@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardCascadingControlConfiguration? CascadingControlConfiguration;
         /// <summary>
-        /// The display options of a control.
+        /// The display options of the `FilterDropDownControl` .
         /// </summary>
         public readonly Outputs.DashboardDropDownControlDisplayOptions? DisplayOptions;
         /// <summary>

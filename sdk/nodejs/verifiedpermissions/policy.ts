@@ -94,9 +94,7 @@ export class Policy extends pulumi.CustomResource {
     }
 
     /**
-     * A structure that defines a Cedar policy. It includes the policy type, a description, and a policy body. This is a top level data type used to create a policy.
-     *
-     * This data type is used as a request parameter for the [CreatePolicy](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html) operation. This structure must always have either an `Static` or a `TemplateLinked` element.
+     * Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
      */
     public readonly definition!: pulumi.Output<outputs.verifiedpermissions.PolicyDefinition0Properties | outputs.verifiedpermissions.PolicyDefinition1Properties>;
     /**
@@ -154,9 +152,7 @@ export class Policy extends pulumi.CustomResource {
  */
 export interface PolicyArgs {
     /**
-     * A structure that defines a Cedar policy. It includes the policy type, a description, and a policy body. This is a top level data type used to create a policy.
-     *
-     * This data type is used as a request parameter for the [CreatePolicy](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html) operation. This structure must always have either an `Static` or a `TemplateLinked` element.
+     * Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
      */
     definition: pulumi.Input<inputs.verifiedpermissions.PolicyDefinition0PropertiesArgs | inputs.verifiedpermissions.PolicyDefinition1PropertiesArgs>;
     /**

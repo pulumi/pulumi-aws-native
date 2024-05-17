@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.InspectorV2
         public Output<string?> ScanName { get; private set; } = null!;
 
         /// <summary>
-        /// The schedule the CIS scan configuration runs on. Each CIS scan configuration has exactly one type of schedule.
+        /// The CIS scan configuration's schedule.
         /// </summary>
         [Output("schedule")]
         public Output<Outputs.CisScanConfigurationSchedule?> Schedule { get; private set; } = null!;
@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.InspectorV2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The CIS targets.
+        /// The CIS scan configuration's targets.
         /// </summary>
         [Output("targets")]
         public Output<Outputs.CisScanConfigurationCisTargets?> Targets { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.InspectorV2
         public Input<string>? ScanName { get; set; }
 
         /// <summary>
-        /// The schedule the CIS scan configuration runs on. Each CIS scan configuration has exactly one type of schedule.
+        /// The CIS scan configuration's schedule.
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.CisScanConfigurationScheduleArgs>? Schedule { get; set; }
@@ -127,7 +127,7 @@ namespace Pulumi.AwsNative.InspectorV2
         }
 
         /// <summary>
-        /// The CIS targets.
+        /// The CIS scan configuration's targets.
         /// </summary>
         [Input("targets")]
         public Input<Inputs.CisScanConfigurationCisTargetsArgs>? Targets { get; set; }

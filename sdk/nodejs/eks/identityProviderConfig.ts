@@ -50,7 +50,7 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
      */
     public readonly identityProviderConfigName!: pulumi.Output<string | undefined>;
     /**
-     * An object representing the configuration for an OpenID Connect (OIDC) identity provider.
+     * An object representing an OpenID Connect (OIDC) identity provider configuration.
      */
     public readonly oidc!: pulumi.Output<outputs.eks.IdentityProviderConfigOidcIdentityProviderConfig | undefined>;
     /**
@@ -113,7 +113,7 @@ export interface IdentityProviderConfigArgs {
      */
     identityProviderConfigName?: pulumi.Input<string>;
     /**
-     * An object representing the configuration for an OpenID Connect (OIDC) identity provider.
+     * An object representing an OpenID Connect (OIDC) identity provider configuration.
      */
     oidc?: pulumi.Input<inputs.eks.IdentityProviderConfigOidcIdentityProviderConfigArgs>;
     /**

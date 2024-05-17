@@ -31,7 +31,9 @@ type LookupInstanceArgs struct {
 type LookupInstanceResult struct {
 	// An array of objects representing the add-ons to enable for the new instance.
 	AddOns []InstanceAddOn `pulumi:"addOns"`
-	// `Hardware` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+	// The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+	//
+	// > The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
 	Hardware *InstanceHardware `pulumi:"hardware"`
 	// The Amazon Resource Name (ARN) of the instance (for example, `arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
 	InstanceArn *string `pulumi:"instanceArn"`
@@ -39,9 +41,11 @@ type LookupInstanceResult struct {
 	IsStaticIp *bool `pulumi:"isStaticIp"`
 	// The name of your key pair.
 	KeyPairName *string `pulumi:"keyPairName"`
-	// `Location` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the location for an instance.
+	// The location for the instance, such as the AWS Region and Availability Zone.
+	//
+	// > The `Location` property is read-only and should not be specified in a create instance or update instance request.
 	Location *InstanceLocation `pulumi:"location"`
-	// `Networking` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the public ports and the monthly amount of data transfer allocated for the instance.
+	// The public ports and the monthly amount of data transfer allocated for the instance.
 	Networking *InstanceNetworking `pulumi:"networking"`
 	// Private IP Address of the Instance
 	PrivateIpAddress *string `pulumi:"privateIpAddress"`
@@ -51,7 +55,9 @@ type LookupInstanceResult struct {
 	ResourceType *string `pulumi:"resourceType"`
 	// SSH Key Name of the  Lightsail instance.
 	SshKeyName *string `pulumi:"sshKeyName"`
-	// `State` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the status code and the state (for example, `running` ) of an instance.
+	// The status code and the state (for example, `running` ) of the instance.
+	//
+	// > The `State` property is read-only and should not be specified in a create instance or update instance request.
 	State *InstanceStateType `pulumi:"state"`
 	// Support code to help identify any issues
 	SupportCode *string `pulumi:"supportCode"`
@@ -102,7 +108,9 @@ func (o LookupInstanceResultOutput) AddOns() InstanceAddOnArrayOutput {
 	return o.ApplyT(func(v LookupInstanceResult) []InstanceAddOn { return v.AddOns }).(InstanceAddOnArrayOutput)
 }
 
-// `Hardware` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+// The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+//
+// > The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
 func (o LookupInstanceResultOutput) Hardware() InstanceHardwarePtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *InstanceHardware { return v.Hardware }).(InstanceHardwarePtrOutput)
 }
@@ -122,12 +130,14 @@ func (o LookupInstanceResultOutput) KeyPairName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *string { return v.KeyPairName }).(pulumi.StringPtrOutput)
 }
 
-// `Location` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the location for an instance.
+// The location for the instance, such as the AWS Region and Availability Zone.
+//
+// > The `Location` property is read-only and should not be specified in a create instance or update instance request.
 func (o LookupInstanceResultOutput) Location() InstanceLocationPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *InstanceLocation { return v.Location }).(InstanceLocationPtrOutput)
 }
 
-// `Networking` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the public ports and the monthly amount of data transfer allocated for the instance.
+// The public ports and the monthly amount of data transfer allocated for the instance.
 func (o LookupInstanceResultOutput) Networking() InstanceNetworkingPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *InstanceNetworking { return v.Networking }).(InstanceNetworkingPtrOutput)
 }
@@ -152,7 +162,9 @@ func (o LookupInstanceResultOutput) SshKeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *string { return v.SshKeyName }).(pulumi.StringPtrOutput)
 }
 
-// `State` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the status code and the state (for example, `running` ) of an instance.
+// The status code and the state (for example, `running` ) of the instance.
+//
+// > The `State` property is read-only and should not be specified in a create instance or update instance request.
 func (o LookupInstanceResultOutput) State() InstanceStateTypePtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *InstanceStateType { return v.State }).(InstanceStateTypePtrOutput)
 }

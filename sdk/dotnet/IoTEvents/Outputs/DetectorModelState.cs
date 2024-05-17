@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTEvents.Outputs
         /// </summary>
         public readonly Outputs.DetectorModelOnExit? OnExit;
         /// <summary>
-        /// Specifies the actions performed when the `condition` evaluates to TRUE.
+        /// When an input is received and the `condition` is TRUE, perform the specified `actions` .
         /// </summary>
         public readonly Outputs.DetectorModelOnInput? OnInput;
         /// <summary>

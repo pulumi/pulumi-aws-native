@@ -66,11 +66,17 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// A set of key/value pairs that are used to manage the resource.
+        /// Metadata which can be used to manage the topic rule.
+        /// 
+        /// &gt; For URI Request parameters use format: ...key1=value1&amp;key2=value2...
+        /// &gt; 
+        /// &gt; For the CLI command-line parameter use format: --tags "key1=value1&amp;key2=value2..."
+        /// &gt; 
+        /// &gt; For the cli-input-json file use format: "tags": "key1=value1&amp;key2=value2..."
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
-        /// Describes a rule.
+        /// The rule payload.
         /// </summary>
         public readonly Outputs.TopicRulePayload? TopicRulePayload;
 

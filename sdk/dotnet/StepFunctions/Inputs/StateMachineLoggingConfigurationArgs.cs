@@ -16,9 +16,7 @@ namespace Pulumi.AwsNative.StepFunctions.Inputs
         private InputList<Inputs.StateMachineLogDestinationArgs>? _destinations;
 
         /// <summary>
-        /// Defines a destination for `LoggingConfiguration` .
-        /// 
-        /// &gt; For more information on logging with `EXPRESS` workflows, see [Logging Express Workflows Using CloudWatch Logs](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) .
+        /// An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to `OFF` .
         /// </summary>
         public InputList<Inputs.StateMachineLogDestinationArgs> Destinations
         {

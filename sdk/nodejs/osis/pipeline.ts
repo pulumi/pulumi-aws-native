@@ -50,7 +50,7 @@ export class Pipeline extends pulumi.CustomResource {
      */
     public /*out*/ readonly ingestEndpointUrls!: pulumi.Output<string[]>;
     /**
-     * Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
+     * Key-value pairs that represent log publishing settings.
      */
     public readonly logPublishingOptions!: pulumi.Output<outputs.osis.PipelineLogPublishingOptions | undefined>;
     /**
@@ -152,7 +152,7 @@ export interface PipelineArgs {
      */
     encryptionAtRestOptions?: pulumi.Input<inputs.osis.PipelineEncryptionAtRestOptionsArgs>;
     /**
-     * Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
+     * Key-value pairs that represent log publishing settings.
      */
     logPublishingOptions?: pulumi.Input<inputs.osis.PipelineLogPublishingOptionsArgs>;
     /**

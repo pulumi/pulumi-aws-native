@@ -35,7 +35,7 @@ type AccessGrant struct {
 	Permission AccessGrantPermissionOutput `pulumi:"permission"`
 	// The type of S3SubPrefix.
 	S3PrefixType AccessGrantS3PrefixTypePtrOutput `pulumi:"s3PrefixType"`
-	// A container of a key value name pair.
+	// The AWS resource tags that you are adding to the access grant. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
@@ -105,7 +105,7 @@ type accessGrantArgs struct {
 	Permission AccessGrantPermission `pulumi:"permission"`
 	// The type of S3SubPrefix.
 	S3PrefixType *AccessGrantS3PrefixType `pulumi:"s3PrefixType"`
-	// A container of a key value name pair.
+	// The AWS resource tags that you are adding to the access grant. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
@@ -123,7 +123,7 @@ type AccessGrantArgs struct {
 	Permission AccessGrantPermissionInput
 	// The type of S3SubPrefix.
 	S3PrefixType AccessGrantS3PrefixTypePtrInput
-	// A container of a key value name pair.
+	// The AWS resource tags that you are adding to the access grant. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
 	Tags aws.CreateOnlyTagArrayInput
 }
 
@@ -211,7 +211,7 @@ func (o AccessGrantOutput) S3PrefixType() AccessGrantS3PrefixTypePtrOutput {
 	return o.ApplyT(func(v *AccessGrant) AccessGrantS3PrefixTypePtrOutput { return v.S3PrefixType }).(AccessGrantS3PrefixTypePtrOutput)
 }
 
-// A container of a key value name pair.
+// The AWS resource tags that you are adding to the access grant. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
 func (o AccessGrantOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *AccessGrant) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }

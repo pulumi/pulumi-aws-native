@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     public sealed class FirewallPolicyStatefulRuleGroupReference
     {
         /// <summary>
-        /// The setting that allows the policy owner to change the behavior of the rule group within a policy.
+        /// The action that allows the policy owner to override the behavior of the rule group within a policy.
         /// </summary>
         public readonly Outputs.FirewallPolicyStatefulRuleGroupOverride? Override;
         /// <summary>

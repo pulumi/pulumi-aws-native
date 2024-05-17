@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
     public sealed class PipelineActivityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An activity that adds other attributes based on existing attributes in the message.
+        /// Adds other attributes based on existing attributes in the message.
         /// </summary>
         [Input("addAttributes")]
         public Input<Inputs.PipelineAddAttributesArgs>? AddAttributes { get; set; }
@@ -25,43 +25,43 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public Input<Inputs.PipelineChannelArgs>? Channel { get; set; }
 
         /// <summary>
-        /// The datastore activity that specifies where to store the processed data.
+        /// Specifies where to store the processed message data.
         /// </summary>
         [Input("datastore")]
         public Input<Inputs.PipelineDatastoreArgs>? Datastore { get; set; }
 
         /// <summary>
-        /// An activity that adds data from the AWS IoT device registry to your message.
+        /// Adds data from the AWS IoT device registry to your message.
         /// </summary>
         [Input("deviceRegistryEnrich")]
         public Input<Inputs.PipelineDeviceRegistryEnrichArgs>? DeviceRegistryEnrich { get; set; }
 
         /// <summary>
-        /// An activity that adds information from the AWS IoT Device Shadows service to a message.
+        /// Adds information from the AWS IoT Device Shadows service to a message.
         /// </summary>
         [Input("deviceShadowEnrich")]
         public Input<Inputs.PipelineDeviceShadowEnrichArgs>? DeviceShadowEnrich { get; set; }
 
         /// <summary>
-        /// An activity that filters a message based on its attributes.
+        /// Filters a message based on its attributes.
         /// </summary>
         [Input("filter")]
         public Input<Inputs.PipelineFilterArgs>? Filter { get; set; }
 
         /// <summary>
-        /// An activity that runs a Lambda function to modify the message.
+        /// Runs a Lambda function to modify the message.
         /// </summary>
         [Input("lambda")]
         public Input<Inputs.PipelineLambdaArgs>? Lambda { get; set; }
 
         /// <summary>
-        /// An activity that computes an arithmetic expression using the message's attributes.
+        /// Computes an arithmetic expression using the message's attributes and adds it to the message.
         /// </summary>
         [Input("math")]
         public Input<Inputs.PipelineMathArgs>? Math { get; set; }
 
         /// <summary>
-        /// An activity that removes attributes from a message.
+        /// Removes attributes from a message.
         /// </summary>
         [Input("removeAttributes")]
         public Input<Inputs.PipelineRemoveAttributesArgs>? RemoveAttributes { get; set; }

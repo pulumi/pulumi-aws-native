@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
-        /// The DNS information.
+        /// The DNS information of the service.
         /// </summary>
         public readonly Outputs.ServiceNetworkServiceAssociationDnsEntry? DnsEntry;
         /// <summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public readonly Pulumi.AwsNative.VpcLattice.ServiceNetworkServiceAssociationStatus? Status;
         /// <summary>
-        /// Specifies a tag for a service association.
+        /// The tags for the association.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

@@ -31,7 +31,7 @@ type LookupPermissionSetArgs struct {
 }
 
 type LookupPermissionSetResult struct {
-	// Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
+	// Specifies the names and paths of the customer managed policies that you have attached to your permission set.
 	CustomerManagedPolicyReferences []PermissionSetCustomerManagedPolicyReference `pulumi:"customerManagedPolicyReferences"`
 	// The permission set description.
 	Description *string `pulumi:"description"`
@@ -51,7 +51,7 @@ type LookupPermissionSetResult struct {
 	RelayStateType *string `pulumi:"relayStateType"`
 	// The length of time that a user can be signed in to an AWS account.
 	SessionDuration *string `pulumi:"sessionDuration"`
-	// A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+	// The tags to attach to the new `PermissionSet` .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -93,7 +93,7 @@ func (o LookupPermissionSetResultOutput) ToLookupPermissionSetResultOutputWithCo
 	return o
 }
 
-// Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
+// Specifies the names and paths of the customer managed policies that you have attached to your permission set.
 func (o LookupPermissionSetResultOutput) CustomerManagedPolicyReferences() PermissionSetCustomerManagedPolicyReferenceArrayOutput {
 	return o.ApplyT(func(v LookupPermissionSetResult) []PermissionSetCustomerManagedPolicyReference {
 		return v.CustomerManagedPolicyReferences
@@ -139,7 +139,7 @@ func (o LookupPermissionSetResultOutput) SessionDuration() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupPermissionSetResult) *string { return v.SessionDuration }).(pulumi.StringPtrOutput)
 }
 
-// A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+// The tags to attach to the new `PermissionSet` .
 func (o LookupPermissionSetResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupPermissionSetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
     public sealed class ServiceImageRepository
     {
         /// <summary>
-        /// Describes the configuration that AWS App Runner uses to run an App Runner service using an image pulled from a source image repository.
+        /// Configuration for running the identified image.
         /// </summary>
         public readonly Outputs.ServiceImageConfiguration? ImageConfiguration;
         /// <summary>

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
     public sealed class TargetGroupConfig
     {
         /// <summary>
-        /// Describes the health check configuration of a target group. Health check configurations aren't used for target groups of type `LAMBDA` or `ALB` .
+        /// The health check configuration. Not supported if the target group type is `LAMBDA` or `ALB` .
         /// </summary>
         public readonly Outputs.TargetGroupHealthCheckConfig? HealthCheck;
         /// <summary>

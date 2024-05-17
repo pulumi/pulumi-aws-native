@@ -84,7 +84,7 @@ export class Application extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<enums.qbusiness.ApplicationStatus>;
     /**
-     * A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+     * A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -172,7 +172,7 @@ export interface ApplicationArgs {
      */
     roleArn?: pulumi.Input<string>;
     /**
-     * A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+     * A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

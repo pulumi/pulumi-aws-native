@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<bool>? EnableNetworkIsolation { get; set; }
 
         /// <summary>
-        /// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+        /// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. For more information, see [Protect Endpoints by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html) and [Protect Training Jobs by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html) .
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.MonitoringScheduleVpcConfigArgs>? VpcConfig { get; set; }

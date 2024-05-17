@@ -38,7 +38,7 @@ export class UserPoolRiskConfigurationAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.
+     * The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
      */
     public readonly accountTakeoverRiskConfiguration!: pulumi.Output<outputs.cognito.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType | undefined>;
     /**
@@ -46,11 +46,11 @@ export class UserPoolRiskConfigurationAttachment extends pulumi.CustomResource {
      */
     public readonly clientId!: pulumi.Output<string>;
     /**
-     * The compromised credentials risk configuration type.
+     * The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
      */
     public readonly compromisedCredentialsRiskConfiguration!: pulumi.Output<outputs.cognito.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType | undefined>;
     /**
-     * The type of the configuration to override the risk decision.
+     * The configuration to override the risk decision.
      */
     public readonly riskExceptionConfiguration!: pulumi.Output<outputs.cognito.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType | undefined>;
     /**
@@ -99,7 +99,7 @@ export class UserPoolRiskConfigurationAttachment extends pulumi.CustomResource {
  */
 export interface UserPoolRiskConfigurationAttachmentArgs {
     /**
-     * Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.
+     * The account takeover risk configuration object, including the `NotifyConfiguration` object and `Actions` to take if there is an account takeover.
      */
     accountTakeoverRiskConfiguration?: pulumi.Input<inputs.cognito.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs>;
     /**
@@ -107,11 +107,11 @@ export interface UserPoolRiskConfigurationAttachmentArgs {
      */
     clientId: pulumi.Input<string>;
     /**
-     * The compromised credentials risk configuration type.
+     * The compromised credentials risk configuration object, including the `EventFilter` and the `EventAction` .
      */
     compromisedCredentialsRiskConfiguration?: pulumi.Input<inputs.cognito.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs>;
     /**
-     * The type of the configuration to override the risk decision.
+     * The configuration to override the risk decision.
      */
     riskExceptionConfiguration?: pulumi.Input<inputs.cognito.UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationTypeArgs>;
     /**

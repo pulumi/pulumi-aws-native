@@ -59,11 +59,11 @@ export class ModelQualityJobDefinition extends pulumi.CustomResource {
      */
     public readonly modelQualityAppSpecification!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionModelQualityAppSpecification>;
     /**
-     * Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
+     * Specifies the constraints and baselines for the monitoring job.
      */
     public readonly modelQualityBaselineConfig!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionModelQualityBaselineConfig | undefined>;
     /**
-     * The input for the model quality monitoring job. Currently endpoints are supported for input for model quality monitoring jobs.
+     * A list of the inputs that are monitored. Currently endpoints are supported.
      */
     public readonly modelQualityJobInput!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionModelQualityJobInput>;
     /**
@@ -71,7 +71,7 @@ export class ModelQualityJobDefinition extends pulumi.CustomResource {
      */
     public readonly modelQualityJobOutputConfig!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionMonitoringOutputConfig>;
     /**
-     * Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+     * Specifies the network configuration for the monitoring job.
      */
     public readonly networkConfig!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionNetworkConfig | undefined>;
     /**
@@ -79,13 +79,7 @@ export class ModelQualityJobDefinition extends pulumi.CustomResource {
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
-     * Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
-     *
-     * To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-     *
-     * The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
-     *
-     * > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+     * A time limit for how long the monitoring job is allowed to run before stopping.
      */
     public readonly stoppingCondition!: pulumi.Output<outputs.sagemaker.ModelQualityJobDefinitionStoppingCondition | undefined>;
     /**
@@ -172,11 +166,11 @@ export interface ModelQualityJobDefinitionArgs {
      */
     modelQualityAppSpecification: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionModelQualityAppSpecificationArgs>;
     /**
-     * Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
+     * Specifies the constraints and baselines for the monitoring job.
      */
     modelQualityBaselineConfig?: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionModelQualityBaselineConfigArgs>;
     /**
-     * The input for the model quality monitoring job. Currently endpoints are supported for input for model quality monitoring jobs.
+     * A list of the inputs that are monitored. Currently endpoints are supported.
      */
     modelQualityJobInput: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionModelQualityJobInputArgs>;
     /**
@@ -184,7 +178,7 @@ export interface ModelQualityJobDefinitionArgs {
      */
     modelQualityJobOutputConfig: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionMonitoringOutputConfigArgs>;
     /**
-     * Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+     * Specifies the network configuration for the monitoring job.
      */
     networkConfig?: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionNetworkConfigArgs>;
     /**
@@ -192,13 +186,7 @@ export interface ModelQualityJobDefinitionArgs {
      */
     roleArn: pulumi.Input<string>;
     /**
-     * Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
-     *
-     * To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-     *
-     * The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
-     *
-     * > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+     * A time limit for how long the monitoring job is allowed to run before stopping.
      */
     stoppingCondition?: pulumi.Input<inputs.sagemaker.ModelQualityJobDefinitionStoppingConditionArgs>;
     /**

@@ -18,7 +18,9 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Command;
         /// <summary>
-        /// The Environment property type specifies environment variables to use in a job definition.
+        /// The environment variables to pass to a container. This parameter maps to `Env` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+        /// 
+        /// &gt; We don't recommend using plaintext environment variables for sensitive information, such as credential data. &gt; Environment variables cannot start with " `AWS_BATCH` ". This naming convention is reserved for variables that AWS Batch sets.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionEnvironment> Environment;
         /// <summary>
@@ -30,7 +32,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// </summary>
         public readonly string? ExecutionRoleArn;
         /// <summary>
-        /// The platform configuration for jobs that are running on Fargate resources. Jobs that run on Amazon EC2 resources must not specify this parameter.
+        /// The platform configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
         /// </summary>
         public readonly Outputs.JobDefinitionFargatePlatformConfiguration? FargatePlatformConfiguration;
         /// <summary>
@@ -60,7 +62,15 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// </summary>
         public readonly Outputs.JobDefinitionLinuxParameters? LinuxParameters;
         /// <summary>
-        /// Log configuration options to send to a custom log driver for the container.
+        /// The log configuration specification for the container.
+        /// 
+        /// This parameter maps to `LogConfig` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--log-driver` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . By default, containers use the same logging driver that the Docker daemon uses. However the container might use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information on the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the Docker documentation.
+        /// 
+        /// &gt; AWS Batch currently supports a subset of the logging drivers available to the Docker daemon (shown in the [LogConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-logconfiguration.html) data type). 
+        /// 
+        /// This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
+        /// 
+        /// &gt; The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the `ECS_AVAILABLE_LOGGING_DRIVERS` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide* .
         /// </summary>
         public readonly Outputs.JobDefinitionLogConfiguration? LogConfiguration;
         /// <summary>
@@ -68,7 +78,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// </summary>
         public readonly int? Memory;
         /// <summary>
-        /// Details for a Docker volume mount point that's used in a job's container properties. This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.43/#tag/Container/operation/ContainerCreate) section of the *Docker Remote API* and the `--volume` option to docker run.
+        /// The mount points for data volumes in your container. This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--volume` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionMountPoints> MountPoints;
         /// <summary>
@@ -86,11 +96,11 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// </summary>
         public readonly bool? ReadonlyRootFilesystem;
         /// <summary>
-        /// The repository credentials for private registry authentication.
+        /// The private repository authentication credentials to use.
         /// </summary>
         public readonly Outputs.JobDefinitionRepositoryCredentials? RepositoryCredentials;
         /// <summary>
-        /// The type and amount of a resource to assign to a container. The supported resources include `GPU` , `MEMORY` , and `VCPU` .
+        /// The type and amount of resources to assign to a container. The supported resources include `GPU` , `MEMORY` , and `VCPU` .
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionResourceRequirement> ResourceRequirements;
         /// <summary>
@@ -102,9 +112,9 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionSecret> Secrets;
         /// <summary>
-        /// The `ulimit` settings to pass to the container. For more information, see [Ulimit](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Ulimit.html) .
+        /// A list of `ulimits` to set in the container. This parameter maps to `Ulimits` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--ulimit` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
         /// 
-        /// &gt; This object isn't applicable to jobs that are running on Fargate resources.
+        /// &gt; This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionUlimit> Ulimits;
         /// <summary>
@@ -118,7 +128,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// </summary>
         public readonly int? Vcpus;
         /// <summary>
-        /// A list of volumes that are associated with the job.
+        /// A list of data volumes used in a job.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionVolumes> Volumes;
 

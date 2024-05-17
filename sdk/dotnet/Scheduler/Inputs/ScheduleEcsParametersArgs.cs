@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.Scheduler.Inputs
         public Input<Pulumi.AwsNative.Scheduler.ScheduleLaunchType>? LaunchType { get; set; }
 
         /// <summary>
-        /// Specifies the network configuration for an ECS task.
+        /// This structure specifies the network configuration for an ECS task.
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.ScheduleNetworkConfigurationArgs>? NetworkConfiguration { get; set; }

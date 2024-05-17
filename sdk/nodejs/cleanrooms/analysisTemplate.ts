@@ -87,12 +87,9 @@ export class AnalysisTemplate extends pulumi.CustomResource {
      * The name of the analysis template.
      */
     public readonly name!: pulumi.Output<string>;
-    /**
-     * A relation within an analysis.
-     */
     public /*out*/ readonly schema!: pulumi.Output<outputs.cleanrooms.AnalysisTemplateAnalysisSchema>;
     /**
-     * The structure that defines the body of the analysis template.
+     * The source of the analysis template.
      */
     public readonly source!: pulumi.Output<outputs.cleanrooms.AnalysisTemplateAnalysisSource>;
     /**
@@ -180,7 +177,7 @@ export interface AnalysisTemplateArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The structure that defines the body of the analysis template.
+     * The source of the analysis template.
      */
     source: pulumi.Input<inputs.cleanrooms.AnalysisTemplateAnalysisSourceArgs>;
     /**

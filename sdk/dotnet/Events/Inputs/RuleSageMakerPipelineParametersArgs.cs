@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Events.Inputs
         private InputList<Inputs.RuleSageMakerPipelineParameterArgs>? _pipelineParameterList;
 
         /// <summary>
-        /// Name/Value pair of a parameter to start execution of a SageMaker Model Building Pipeline.
+        /// List of Parameter names and values for SageMaker Model Building Pipeline execution.
         /// </summary>
         public InputList<Inputs.RuleSageMakerPipelineParameterArgs> PipelineParameterList
         {

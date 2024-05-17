@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string> FieldId { get; set; } = null!;
 
         /// <summary>
-        /// The conditional formatting for the text.
+        /// The text format of the cell for conditional formatting.
         /// </summary>
         [Input("textFormat")]
         public Input<Inputs.TemplateTextConditionalFormatArgs>? TextFormat { get; set; }

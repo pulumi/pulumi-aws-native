@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     public sealed class DataQualityJobDefinitionMonitoringResources
     {
         /// <summary>
-        /// The configuration for the cluster of resources used to run the processing job.
+        /// The configuration for the cluster resources used to run the processing job.
         /// </summary>
         public readonly Outputs.DataQualityJobDefinitionClusterConfig ClusterConfig;
 

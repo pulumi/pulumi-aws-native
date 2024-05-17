@@ -120,7 +120,7 @@ class GetServiceNetworkVpcAssociationResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        Specifies a tag for a VPC association.
+        The tags for the association.
         """
         return pulumi.get(self, "tags")
 

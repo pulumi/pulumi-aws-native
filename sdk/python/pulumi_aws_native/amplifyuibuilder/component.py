@@ -35,7 +35,7 @@ class ComponentArgs:
         The set of arguments for constructing a Component resource.
         :param pulumi.Input[str] app_id: The unique ID of the Amplify app associated with the component.
         :param pulumi.Input[Mapping[str, pulumi.Input['ComponentBindingPropertiesValueArgs']]] binding_properties: The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties` .
-        :param pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]] children: The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
+        :param pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]] children: A list of the component's `ComponentChild` instances.
         :param pulumi.Input[Mapping[str, pulumi.Input['ComponentDataConfigurationArgs']]] collection_properties: The data binding configuration for the component's properties. Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
         :param pulumi.Input[str] component_type: The type of the component. This can be an Amplify custom UI component or another custom component.
         :param pulumi.Input[str] environment_name: The name of the backend environment that is a part of the Amplify app.
@@ -46,7 +46,7 @@ class ComponentArgs:
         :param pulumi.Input[str] schema_version: The schema version of the component when it was imported.
         :param pulumi.Input[str] source_id: The unique ID of the component in its original source system, such as Figma.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: One or more key-value pairs to use when tagging the component.
-        :param pulumi.Input[Sequence[pulumi.Input['ComponentVariantArgs']]] variants: The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
+        :param pulumi.Input[Sequence[pulumi.Input['ComponentVariantArgs']]] variants: A list of the component's variants. A variant is a unique style configuration of a main component.
         """
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
@@ -105,7 +105,7 @@ class ComponentArgs:
     @pulumi.getter
     def children(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentChildArgs']]]]:
         """
-        The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
+        A list of the component's `ComponentChild` instances.
         """
         return pulumi.get(self, "children")
 
@@ -237,7 +237,7 @@ class ComponentArgs:
     @pulumi.getter
     def variants(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComponentVariantArgs']]]]:
         """
-        The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
+        A list of the component's variants. A variant is a unique style configuration of a main component.
         """
         return pulumi.get(self, "variants")
 
@@ -273,7 +273,7 @@ class Component(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The unique ID of the Amplify app associated with the component.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentBindingPropertiesValueArgs']]]] binding_properties: The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties` .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ComponentChildArgs']]]] children: The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ComponentChildArgs']]]] children: A list of the component's `ComponentChild` instances.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ComponentDataConfigurationArgs']]]] collection_properties: The data binding configuration for the component's properties. Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
         :param pulumi.Input[str] component_type: The type of the component. This can be an Amplify custom UI component or another custom component.
         :param pulumi.Input[str] environment_name: The name of the backend environment that is a part of the Amplify app.
@@ -284,7 +284,7 @@ class Component(pulumi.CustomResource):
         :param pulumi.Input[str] schema_version: The schema version of the component when it was imported.
         :param pulumi.Input[str] source_id: The unique ID of the component in its original source system, such as Figma.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: One or more key-value pairs to use when tagging the component.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ComponentVariantArgs']]]] variants: The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ComponentVariantArgs']]]] variants: A list of the component's variants. A variant is a unique style configuration of a main component.
         """
         ...
     @overload
@@ -421,7 +421,7 @@ class Component(pulumi.CustomResource):
     @pulumi.getter
     def children(self) -> pulumi.Output[Optional[Sequence['outputs.ComponentChild']]]:
         """
-        The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
+        A list of the component's `ComponentChild` instances.
         """
         return pulumi.get(self, "children")
 
@@ -525,7 +525,7 @@ class Component(pulumi.CustomResource):
     @pulumi.getter
     def variants(self) -> pulumi.Output[Optional[Sequence['outputs.ComponentVariant']]]:
         """
-        The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
+        A list of the component's variants. A variant is a unique style configuration of a main component.
         """
         return pulumi.get(self, "variants")
 

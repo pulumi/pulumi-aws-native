@@ -19,7 +19,7 @@ type Index struct {
 
 	// The identifier of the Amazon Q Business application using the index.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
-	// Provides information about index capacity configuration.
+	// The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
 	CapacityConfiguration IndexCapacityConfigurationPtrOutput `pulumi:"capacityConfiguration"`
 	// The Unix timestamp when the index was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
@@ -34,12 +34,11 @@ type Index struct {
 	// The Amazon Resource Name (ARN) of an Amazon Q Business index.
 	IndexArn pulumi.StringOutput `pulumi:"indexArn"`
 	// The identifier for the index.
-	IndexId pulumi.StringOutput `pulumi:"indexId"`
-	// Provides information about the number of documents in an index.
+	IndexId         pulumi.StringOutput   `pulumi:"indexId"`
 	IndexStatistics IndexStatisticsOutput `pulumi:"indexStatistics"`
 	// The current status of the index. When the status is `ACTIVE` , the index is ready.
 	Status IndexStatusOutput `pulumi:"status"`
-	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	// A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The index type that's suitable for your needs. For more information on what's included in each type of index, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#index-tiers) .
 	Type IndexTypePtrOutput `pulumi:"type"`
@@ -100,7 +99,7 @@ func (IndexState) ElementType() reflect.Type {
 type indexArgs struct {
 	// The identifier of the Amazon Q Business application using the index.
 	ApplicationId string `pulumi:"applicationId"`
-	// Provides information about index capacity configuration.
+	// The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
 	CapacityConfiguration *IndexCapacityConfiguration `pulumi:"capacityConfiguration"`
 	// A description for the Amazon Q Business index.
 	Description *string `pulumi:"description"`
@@ -110,7 +109,7 @@ type indexArgs struct {
 	//
 	// For more information, see [Understanding document attributes](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes.html) .
 	DocumentAttributeConfigurations []IndexDocumentAttributeConfiguration `pulumi:"documentAttributeConfigurations"`
-	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	// A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The index type that's suitable for your needs. For more information on what's included in each type of index, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#index-tiers) .
 	Type *IndexType `pulumi:"type"`
@@ -120,7 +119,7 @@ type indexArgs struct {
 type IndexArgs struct {
 	// The identifier of the Amazon Q Business application using the index.
 	ApplicationId pulumi.StringInput
-	// Provides information about index capacity configuration.
+	// The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
 	CapacityConfiguration IndexCapacityConfigurationPtrInput
 	// A description for the Amazon Q Business index.
 	Description pulumi.StringPtrInput
@@ -130,7 +129,7 @@ type IndexArgs struct {
 	//
 	// For more information, see [Understanding document attributes](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/doc-attributes.html) .
 	DocumentAttributeConfigurations IndexDocumentAttributeConfigurationArrayInput
-	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	// A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 	Tags aws.TagArrayInput
 	// The index type that's suitable for your needs. For more information on what's included in each type of index, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#index-tiers) .
 	Type IndexTypePtrInput
@@ -178,7 +177,7 @@ func (o IndexOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
-// Provides information about index capacity configuration.
+// The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
 func (o IndexOutput) CapacityConfiguration() IndexCapacityConfigurationPtrOutput {
 	return o.ApplyT(func(v *Index) IndexCapacityConfigurationPtrOutput { return v.CapacityConfiguration }).(IndexCapacityConfigurationPtrOutput)
 }
@@ -217,7 +216,6 @@ func (o IndexOutput) IndexId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Index) pulumi.StringOutput { return v.IndexId }).(pulumi.StringOutput)
 }
 
-// Provides information about the number of documents in an index.
 func (o IndexOutput) IndexStatistics() IndexStatisticsOutput {
 	return o.ApplyT(func(v *Index) IndexStatisticsOutput { return v.IndexStatistics }).(IndexStatisticsOutput)
 }
@@ -227,7 +225,7 @@ func (o IndexOutput) Status() IndexStatusOutput {
 	return o.ApplyT(func(v *Index) IndexStatusOutput { return v.Status }).(IndexStatusOutput)
 }
 
-// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+// A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 func (o IndexOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Index) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -66,7 +66,7 @@ class GetExperimentTemplateResult:
     @pulumi.getter(name="experimentOptions")
     def experiment_options(self) -> Optional['outputs.ExperimentTemplateExperimentOptions']:
         """
-        Describes the experiment options for an experiment template.
+        The experiment options for an experiment template.
         """
         return pulumi.get(self, "experiment_options")
 
@@ -82,9 +82,7 @@ class GetExperimentTemplateResult:
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional['outputs.ExperimentTemplateLogConfiguration']:
         """
-        Specifies the configuration for experiment logging.
-
-        For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+        The configuration for experiment logging.
         """
         return pulumi.get(self, "log_configuration")
 

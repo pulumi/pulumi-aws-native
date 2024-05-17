@@ -41,24 +41,16 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
 
         /// <summary>
         /// The criteria for inspecting account creation requests, used by the ACFP rule group to validate and track account creation attempts.
-        /// 
-        /// This is part of the `AWSManagedRulesACFPRuleSet` configuration in `ManagedRuleGroupConfig` .
-        /// 
-        /// In these settings, you specify how your application accepts account creation attempts by providing the request payload type and the names of the fields within the request body where the username, password, email, and primary address and phone number fields are provided.
         /// </summary>
         [Input("requestInspection", required: true)]
         public Input<Inputs.WebAclRequestInspectionAcfpArgs> RequestInspection { get; set; } = null!;
 
         /// <summary>
-        /// The criteria for inspecting responses to login requests and account creation requests, used by the ATP and ACFP rule groups to track login and account creation success and failure rates.
+        /// The criteria for inspecting responses to account creation requests, used by the ACFP rule group to track account creation success rates.
         /// 
         /// &gt; Response inspection is available only in web ACLs that protect Amazon CloudFront distributions. 
         /// 
-        /// The rule groups evaluates the responses that your protected resources send back to client login and account creation attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses with too much suspicious activity in a short amount of time.
-        /// 
-        /// This is part of the `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` configurations in `ManagedRuleGroupConfig` .
-        /// 
-        /// Enable response inspection by configuring exactly one component of the response to inspect, for example, `Header` or `StatusCode` . You can't configure more than one component for inspection. If you don't configure any of the response inspection options, response inspection is disabled.
+        /// The ACFP rule group evaluates the responses that your protected resources send back to client account creation attempts, keeping count of successful and failed attempts from each IP address and client session. Using this information, the rule group labels and mitigates requests from client sessions and IP addresses that have had too many successful account creation attempts in a short amount of time.
         /// </summary>
         [Input("responseInspection")]
         public Input<Inputs.WebAclResponseInspectionArgs>? ResponseInspection { get; set; }

@@ -41,7 +41,7 @@ type Application struct {
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// The status of the Amazon Q Business application. The application is ready to use when the status is `ACTIVE` .
 	Status ApplicationStatusOutput `pulumi:"status"`
-	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	// A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The Unix timestamp when the Amazon Q Business application was last updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
@@ -108,7 +108,7 @@ type applicationArgs struct {
 	IdentityCenterInstanceArn *string `pulumi:"identityCenterInstanceArn"`
 	// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
 	RoleArn *string `pulumi:"roleArn"`
-	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	// A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -128,7 +128,7 @@ type ApplicationArgs struct {
 	IdentityCenterInstanceArn pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics.
 	RoleArn pulumi.StringPtrInput
-	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	// A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 	Tags aws.TagArrayInput
 }
 
@@ -226,7 +226,7 @@ func (o ApplicationOutput) Status() ApplicationStatusOutput {
 	return o.ApplyT(func(v *Application) ApplicationStatusOutput { return v.Status }).(ApplicationStatusOutput)
 }
 
-// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+// A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 func (o ApplicationOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Application) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

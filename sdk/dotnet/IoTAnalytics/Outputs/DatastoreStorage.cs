@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     public sealed class DatastoreStorage
     {
         /// <summary>
-        /// S3-customer-managed; When you choose customer-managed storage, the `retentionPeriod` parameter is ignored. You can't change the choice of Amazon S3 storage after your data store is created.
+        /// Use this to store data store data in an S3 bucket that you manage. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
         /// </summary>
         public readonly Outputs.DatastoreCustomerManagedS3? CustomerManagedS3;
         /// <summary>
-        /// Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
+        /// Use this to store data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
         /// </summary>
         public readonly Outputs.DatastoreIotSiteWiseMultiLayerStorage? IotSiteWiseMultiLayerStorage;
         /// <summary>

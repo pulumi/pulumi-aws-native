@@ -16,7 +16,6 @@ import (
 type AccessPoint struct {
 	pulumi.CustomResourceState
 
-	// The alias of an Object Lambda Access Point. For more information, see [How to use a bucket-style alias for your S3 bucket Object Lambda Access Point](https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-use.html#ol-access-points-alias) .
 	Alias AccessPointAliasOutput `pulumi:"alias"`
 	// Specifies the ARN for the Object Lambda Access Point.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -129,7 +128,6 @@ func (o AccessPointOutput) ToAccessPointOutputWithContext(ctx context.Context) A
 	return o
 }
 
-// The alias of an Object Lambda Access Point. For more information, see [How to use a bucket-style alias for your S3 bucket Object Lambda Access Point](https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-use.html#ol-access-points-alias) .
 func (o AccessPointOutput) Alias() AccessPointAliasOutput {
 	return o.ApplyT(func(v *AccessPoint) AccessPointAliasOutput { return v.Alias }).(AccessPointAliasOutput)
 }

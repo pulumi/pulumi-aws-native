@@ -448,7 +448,7 @@ func (o DataSetGeoSpatialColumnGroupPtrOutput) Name() pulumi.StringPtrOutput {
 
 // <p>The incremental refresh configuration for a dataset.</p>
 type DataSetIncrementalRefresh struct {
-	// The lookback window setup of an incremental refresh configuration.
+	// The lookback window setup for an incremental refresh configuration.
 	LookbackWindow DataSetLookbackWindow `pulumi:"lookbackWindow"`
 }
 
@@ -465,7 +465,7 @@ type DataSetIncrementalRefreshInput interface {
 
 // <p>The incremental refresh configuration for a dataset.</p>
 type DataSetIncrementalRefreshArgs struct {
-	// The lookback window setup of an incremental refresh configuration.
+	// The lookback window setup for an incremental refresh configuration.
 	LookbackWindow DataSetLookbackWindowInput `pulumi:"lookbackWindow"`
 }
 
@@ -547,7 +547,7 @@ func (o DataSetIncrementalRefreshOutput) ToDataSetIncrementalRefreshPtrOutputWit
 	}).(DataSetIncrementalRefreshPtrOutput)
 }
 
-// The lookback window setup of an incremental refresh configuration.
+// The lookback window setup for an incremental refresh configuration.
 func (o DataSetIncrementalRefreshOutput) LookbackWindow() DataSetLookbackWindowOutput {
 	return o.ApplyT(func(v DataSetIncrementalRefresh) DataSetLookbackWindow { return v.LookbackWindow }).(DataSetLookbackWindowOutput)
 }
@@ -576,7 +576,7 @@ func (o DataSetIncrementalRefreshPtrOutput) Elem() DataSetIncrementalRefreshOutp
 	}).(DataSetIncrementalRefreshOutput)
 }
 
-// The lookback window setup of an incremental refresh configuration.
+// The lookback window setup for an incremental refresh configuration.
 func (o DataSetIncrementalRefreshPtrOutput) LookbackWindow() DataSetLookbackWindowPtrOutput {
 	return o.ApplyT(func(v *DataSetIncrementalRefresh) *DataSetLookbackWindow {
 		if v == nil {
@@ -1216,13 +1216,13 @@ func (o DataSetIntegerDatasetParameterDefaultValuesPtrOutput) StaticValues() pul
 
 // <p>The instructions associated with a join. </p>
 type DataSetJoinInstruction struct {
-	// Properties associated with the columns participating in a join.
+	// Join key properties of the left operand.
 	LeftJoinKeyProperties *DataSetJoinKeyProperties `pulumi:"leftJoinKeyProperties"`
 	// <p>The operand on the left side of a join.</p>
 	LeftOperand string `pulumi:"leftOperand"`
 	// <p>The join instructions provided in the <code>ON</code> clause of a join.</p>
 	OnClause string `pulumi:"onClause"`
-	// Properties associated with the columns participating in a join.
+	// Join key properties of the right operand.
 	RightJoinKeyProperties *DataSetJoinKeyProperties `pulumi:"rightJoinKeyProperties"`
 	// <p>The operand on the right side of a join.</p>
 	RightOperand string `pulumi:"rightOperand"`
@@ -1243,13 +1243,13 @@ type DataSetJoinInstructionInput interface {
 
 // <p>The instructions associated with a join. </p>
 type DataSetJoinInstructionArgs struct {
-	// Properties associated with the columns participating in a join.
+	// Join key properties of the left operand.
 	LeftJoinKeyProperties DataSetJoinKeyPropertiesPtrInput `pulumi:"leftJoinKeyProperties"`
 	// <p>The operand on the left side of a join.</p>
 	LeftOperand pulumi.StringInput `pulumi:"leftOperand"`
 	// <p>The join instructions provided in the <code>ON</code> clause of a join.</p>
 	OnClause pulumi.StringInput `pulumi:"onClause"`
-	// Properties associated with the columns participating in a join.
+	// Join key properties of the right operand.
 	RightJoinKeyProperties DataSetJoinKeyPropertiesPtrInput `pulumi:"rightJoinKeyProperties"`
 	// <p>The operand on the right side of a join.</p>
 	RightOperand pulumi.StringInput `pulumi:"rightOperand"`
@@ -1335,7 +1335,7 @@ func (o DataSetJoinInstructionOutput) ToDataSetJoinInstructionPtrOutputWithConte
 	}).(DataSetJoinInstructionPtrOutput)
 }
 
-// Properties associated with the columns participating in a join.
+// Join key properties of the left operand.
 func (o DataSetJoinInstructionOutput) LeftJoinKeyProperties() DataSetJoinKeyPropertiesPtrOutput {
 	return o.ApplyT(func(v DataSetJoinInstruction) *DataSetJoinKeyProperties { return v.LeftJoinKeyProperties }).(DataSetJoinKeyPropertiesPtrOutput)
 }
@@ -1350,7 +1350,7 @@ func (o DataSetJoinInstructionOutput) OnClause() pulumi.StringOutput {
 	return o.ApplyT(func(v DataSetJoinInstruction) string { return v.OnClause }).(pulumi.StringOutput)
 }
 
-// Properties associated with the columns participating in a join.
+// Join key properties of the right operand.
 func (o DataSetJoinInstructionOutput) RightJoinKeyProperties() DataSetJoinKeyPropertiesPtrOutput {
 	return o.ApplyT(func(v DataSetJoinInstruction) *DataSetJoinKeyProperties { return v.RightJoinKeyProperties }).(DataSetJoinKeyPropertiesPtrOutput)
 }
@@ -1389,7 +1389,7 @@ func (o DataSetJoinInstructionPtrOutput) Elem() DataSetJoinInstructionOutput {
 	}).(DataSetJoinInstructionOutput)
 }
 
-// Properties associated with the columns participating in a join.
+// Join key properties of the left operand.
 func (o DataSetJoinInstructionPtrOutput) LeftJoinKeyProperties() DataSetJoinKeyPropertiesPtrOutput {
 	return o.ApplyT(func(v *DataSetJoinInstruction) *DataSetJoinKeyProperties {
 		if v == nil {
@@ -1419,7 +1419,7 @@ func (o DataSetJoinInstructionPtrOutput) OnClause() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties associated with the columns participating in a join.
+// Join key properties of the right operand.
 func (o DataSetJoinInstructionPtrOutput) RightJoinKeyProperties() DataSetJoinKeyPropertiesPtrOutput {
 	return o.ApplyT(func(v *DataSetJoinInstruction) *DataSetJoinKeyProperties {
 		if v == nil {
@@ -1605,7 +1605,7 @@ type DataSetLogicalTable struct {
 	Alias string `pulumi:"alias"`
 	// <p>Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. </p>
 	DataTransforms []DataSetTransformOperation `pulumi:"dataTransforms"`
-	// Information about the source of a logical table. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+	// Source of this logical table.
 	Source DataSetLogicalTableSource `pulumi:"source"`
 }
 
@@ -1630,7 +1630,7 @@ type DataSetLogicalTableArgs struct {
 	Alias pulumi.StringInput `pulumi:"alias"`
 	// <p>Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. </p>
 	DataTransforms DataSetTransformOperationArrayInput `pulumi:"dataTransforms"`
-	// Information about the source of a logical table. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+	// Source of this logical table.
 	Source DataSetLogicalTableSourceInput `pulumi:"source"`
 }
 
@@ -1700,7 +1700,7 @@ func (o DataSetLogicalTableOutput) DataTransforms() DataSetTransformOperationArr
 	return o.ApplyT(func(v DataSetLogicalTable) []DataSetTransformOperation { return v.DataTransforms }).(DataSetTransformOperationArrayOutput)
 }
 
-// Information about the source of a logical table. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+// Source of this logical table.
 func (o DataSetLogicalTableOutput) Source() DataSetLogicalTableSourceOutput {
 	return o.ApplyT(func(v DataSetLogicalTable) DataSetLogicalTableSource { return v.Source }).(DataSetLogicalTableSourceOutput)
 }
@@ -1731,7 +1731,7 @@ func (o DataSetLogicalTableMapOutput) MapIndex(k pulumi.StringInput) DataSetLogi
 type DataSetLogicalTableSource struct {
 	// <p>The Amazon Resource Number (ARN) of the parent dataset.</p>
 	DataSetArn *string `pulumi:"dataSetArn"`
-	// The instructions associated with a join.
+	// Specifies the result of a join of two logical tables.
 	JoinInstruction *DataSetJoinInstruction `pulumi:"joinInstruction"`
 	// <p>Physical table ID.</p>
 	PhysicalTableId *string `pulumi:"physicalTableId"`
@@ -1754,7 +1754,7 @@ type DataSetLogicalTableSourceInput interface {
 type DataSetLogicalTableSourceArgs struct {
 	// <p>The Amazon Resource Number (ARN) of the parent dataset.</p>
 	DataSetArn pulumi.StringPtrInput `pulumi:"dataSetArn"`
-	// The instructions associated with a join.
+	// Specifies the result of a join of two logical tables.
 	JoinInstruction DataSetJoinInstructionPtrInput `pulumi:"joinInstruction"`
 	// <p>Physical table ID.</p>
 	PhysicalTableId pulumi.StringPtrInput `pulumi:"physicalTableId"`
@@ -1794,7 +1794,7 @@ func (o DataSetLogicalTableSourceOutput) DataSetArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSetLogicalTableSource) *string { return v.DataSetArn }).(pulumi.StringPtrOutput)
 }
 
-// The instructions associated with a join.
+// Specifies the result of a join of two logical tables.
 func (o DataSetLogicalTableSourceOutput) JoinInstruction() DataSetJoinInstructionPtrOutput {
 	return o.ApplyT(func(v DataSetLogicalTableSource) *DataSetJoinInstruction { return v.JoinInstruction }).(DataSetJoinInstructionPtrOutput)
 }
@@ -2433,7 +2433,7 @@ type DataSetPhysicalTable struct {
 	CustomSql *DataSetCustomSql `pulumi:"customSql"`
 	// A physical table type for relational data sources.
 	RelationalTable *DataSetRelationalTable `pulumi:"relationalTable"`
-	// A physical table type for an S3 data source.
+	// A physical table type for as S3 data source.
 	S3Source *DataSetS3Source `pulumi:"s3Source"`
 }
 
@@ -2457,7 +2457,7 @@ type DataSetPhysicalTableArgs struct {
 	CustomSql DataSetCustomSqlPtrInput `pulumi:"customSql"`
 	// A physical table type for relational data sources.
 	RelationalTable DataSetRelationalTablePtrInput `pulumi:"relationalTable"`
-	// A physical table type for an S3 data source.
+	// A physical table type for as S3 data source.
 	S3Source DataSetS3SourcePtrInput `pulumi:"s3Source"`
 }
 
@@ -2526,7 +2526,7 @@ func (o DataSetPhysicalTableOutput) RelationalTable() DataSetRelationalTablePtrO
 	return o.ApplyT(func(v DataSetPhysicalTable) *DataSetRelationalTable { return v.RelationalTable }).(DataSetRelationalTablePtrOutput)
 }
 
-// A physical table type for an S3 data source.
+// A physical table type for as S3 data source.
 func (o DataSetPhysicalTableOutput) S3Source() DataSetS3SourcePtrOutput {
 	return o.ApplyT(func(v DataSetPhysicalTable) *DataSetS3Source { return v.S3Source }).(DataSetS3SourcePtrOutput)
 }
@@ -2699,7 +2699,7 @@ func (o DataSetProjectOperationPtrOutput) ProjectedColumns() pulumi.StringArrayO
 
 // <p>The refresh configuration of a dataset.</p>
 type DataSetRefreshConfiguration struct {
-	// The incremental refresh configuration for a dataset.
+	// The incremental refresh for the dataset.
 	IncrementalRefresh DataSetIncrementalRefresh `pulumi:"incrementalRefresh"`
 }
 
@@ -2716,7 +2716,7 @@ type DataSetRefreshConfigurationInput interface {
 
 // <p>The refresh configuration of a dataset.</p>
 type DataSetRefreshConfigurationArgs struct {
-	// The incremental refresh configuration for a dataset.
+	// The incremental refresh for the dataset.
 	IncrementalRefresh DataSetIncrementalRefreshInput `pulumi:"incrementalRefresh"`
 }
 
@@ -2798,7 +2798,7 @@ func (o DataSetRefreshConfigurationOutput) ToDataSetRefreshConfigurationPtrOutpu
 	}).(DataSetRefreshConfigurationPtrOutput)
 }
 
-// The incremental refresh configuration for a dataset.
+// The incremental refresh for the dataset.
 func (o DataSetRefreshConfigurationOutput) IncrementalRefresh() DataSetIncrementalRefreshOutput {
 	return o.ApplyT(func(v DataSetRefreshConfiguration) DataSetIncrementalRefresh { return v.IncrementalRefresh }).(DataSetIncrementalRefreshOutput)
 }
@@ -2827,7 +2827,7 @@ func (o DataSetRefreshConfigurationPtrOutput) Elem() DataSetRefreshConfiguration
 	}).(DataSetRefreshConfigurationOutput)
 }
 
-// The incremental refresh configuration for a dataset.
+// The incremental refresh for the dataset.
 func (o DataSetRefreshConfigurationPtrOutput) IncrementalRefresh() DataSetIncrementalRefreshPtrOutput {
 	return o.ApplyT(func(v *DataSetRefreshConfiguration) *DataSetIncrementalRefresh {
 		if v == nil {
@@ -2839,7 +2839,7 @@ func (o DataSetRefreshConfigurationPtrOutput) IncrementalRefresh() DataSetIncrem
 
 // <p>The refresh properties of a dataset.</p>
 type DataSetRefreshProperties struct {
-	// The refresh configuration of a dataset.
+	// The refresh configuration for a dataset.
 	RefreshConfiguration DataSetRefreshConfiguration `pulumi:"refreshConfiguration"`
 }
 
@@ -2856,7 +2856,7 @@ type DataSetRefreshPropertiesInput interface {
 
 // <p>The refresh properties of a dataset.</p>
 type DataSetRefreshPropertiesArgs struct {
-	// The refresh configuration of a dataset.
+	// The refresh configuration for a dataset.
 	RefreshConfiguration DataSetRefreshConfigurationInput `pulumi:"refreshConfiguration"`
 }
 
@@ -2938,7 +2938,7 @@ func (o DataSetRefreshPropertiesOutput) ToDataSetRefreshPropertiesPtrOutputWithC
 	}).(DataSetRefreshPropertiesPtrOutput)
 }
 
-// The refresh configuration of a dataset.
+// The refresh configuration for a dataset.
 func (o DataSetRefreshPropertiesOutput) RefreshConfiguration() DataSetRefreshConfigurationOutput {
 	return o.ApplyT(func(v DataSetRefreshProperties) DataSetRefreshConfiguration { return v.RefreshConfiguration }).(DataSetRefreshConfigurationOutput)
 }
@@ -2967,7 +2967,7 @@ func (o DataSetRefreshPropertiesPtrOutput) Elem() DataSetRefreshPropertiesOutput
 	}).(DataSetRefreshPropertiesOutput)
 }
 
-// The refresh configuration of a dataset.
+// The refresh configuration for a dataset.
 func (o DataSetRefreshPropertiesPtrOutput) RefreshConfiguration() DataSetRefreshConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSetRefreshProperties) *DataSetRefreshConfiguration {
 		if v == nil {
@@ -4064,7 +4064,7 @@ type DataSetS3Source struct {
 	//             <p>For files that aren't JSON, only <code>STRING</code> data types are supported in input columns.</p>
 	//          </note>
 	InputColumns []DataSetInputColumn `pulumi:"inputColumns"`
-	// Information about the format for a source file or files.
+	// Information about the format for the S3 source file or files.
 	UploadSettings *DataSetUploadSettings `pulumi:"uploadSettings"`
 }
 
@@ -4088,7 +4088,7 @@ type DataSetS3SourceArgs struct {
 	//             <p>For files that aren't JSON, only <code>STRING</code> data types are supported in input columns.</p>
 	//          </note>
 	InputColumns DataSetInputColumnArrayInput `pulumi:"inputColumns"`
-	// Information about the format for a source file or files.
+	// Information about the format for the S3 source file or files.
 	UploadSettings DataSetUploadSettingsPtrInput `pulumi:"uploadSettings"`
 }
 
@@ -4184,7 +4184,7 @@ func (o DataSetS3SourceOutput) InputColumns() DataSetInputColumnArrayOutput {
 	return o.ApplyT(func(v DataSetS3Source) []DataSetInputColumn { return v.InputColumns }).(DataSetInputColumnArrayOutput)
 }
 
-// Information about the format for a source file or files.
+// Information about the format for the S3 source file or files.
 func (o DataSetS3SourceOutput) UploadSettings() DataSetUploadSettingsPtrOutput {
 	return o.ApplyT(func(v DataSetS3Source) *DataSetUploadSettings { return v.UploadSettings }).(DataSetUploadSettingsPtrOutput)
 }
@@ -4237,7 +4237,7 @@ func (o DataSetS3SourcePtrOutput) InputColumns() DataSetInputColumnArrayOutput {
 	}).(DataSetInputColumnArrayOutput)
 }
 
-// Information about the format for a source file or files.
+// Information about the format for the S3 source file or files.
 func (o DataSetS3SourcePtrOutput) UploadSettings() DataSetUploadSettingsPtrOutput {
 	return o.ApplyT(func(v *DataSetS3Source) *DataSetUploadSettings {
 		if v == nil {
@@ -4775,19 +4775,17 @@ func (o DataSetTagColumnOperationPtrOutput) Tags() DataSetColumnTagArrayOutput {
 type DataSetTransformOperation struct {
 	// A transform operation that casts a column to a different type.
 	CastColumnTypeOperation *DataSetCastColumnTypeOperation `pulumi:"castColumnTypeOperation"`
-	// A transform operation that creates calculated columns. Columns created in one such operation form a lexical closure.
+	// An operation that creates calculated columns. Columns created in one such operation form a lexical closure.
 	CreateColumnsOperation *DataSetCreateColumnsOperation `pulumi:"createColumnsOperation"`
-	// A transform operation that filters rows based on a condition.
-	FilterOperation *DataSetFilterOperation `pulumi:"filterOperation"`
-	// A transform operation that overrides the dataset parameter values that are defined in another dataset.
+	// An operation that filters rows based on some condition.
+	FilterOperation                   *DataSetFilterOperation                   `pulumi:"filterOperation"`
 	OverrideDatasetParameterOperation *DataSetOverrideDatasetParameterOperation `pulumi:"overrideDatasetParameterOperation"`
-	// A transform operation that projects columns. Operations that come after a projection can only refer to projected columns.
+	// An operation that projects columns. Operations that come after a projection can only refer to projected columns.
 	ProjectOperation *DataSetProjectOperation `pulumi:"projectOperation"`
-	// A transform operation that renames a column.
+	// An operation that renames a column.
 	RenameColumnOperation *DataSetRenameColumnOperation `pulumi:"renameColumnOperation"`
-	// A transform operation that tags a column with additional information.
-	TagColumnOperation *DataSetTagColumnOperation `pulumi:"tagColumnOperation"`
-	// A transform operation that removes tags associated with a column.
+	// An operation that tags a column with additional information.
+	TagColumnOperation   *DataSetTagColumnOperation   `pulumi:"tagColumnOperation"`
 	UntagColumnOperation *DataSetUntagColumnOperation `pulumi:"untagColumnOperation"`
 }
 
@@ -4808,19 +4806,17 @@ type DataSetTransformOperationInput interface {
 type DataSetTransformOperationArgs struct {
 	// A transform operation that casts a column to a different type.
 	CastColumnTypeOperation DataSetCastColumnTypeOperationPtrInput `pulumi:"castColumnTypeOperation"`
-	// A transform operation that creates calculated columns. Columns created in one such operation form a lexical closure.
+	// An operation that creates calculated columns. Columns created in one such operation form a lexical closure.
 	CreateColumnsOperation DataSetCreateColumnsOperationPtrInput `pulumi:"createColumnsOperation"`
-	// A transform operation that filters rows based on a condition.
-	FilterOperation DataSetFilterOperationPtrInput `pulumi:"filterOperation"`
-	// A transform operation that overrides the dataset parameter values that are defined in another dataset.
+	// An operation that filters rows based on some condition.
+	FilterOperation                   DataSetFilterOperationPtrInput                   `pulumi:"filterOperation"`
 	OverrideDatasetParameterOperation DataSetOverrideDatasetParameterOperationPtrInput `pulumi:"overrideDatasetParameterOperation"`
-	// A transform operation that projects columns. Operations that come after a projection can only refer to projected columns.
+	// An operation that projects columns. Operations that come after a projection can only refer to projected columns.
 	ProjectOperation DataSetProjectOperationPtrInput `pulumi:"projectOperation"`
-	// A transform operation that renames a column.
+	// An operation that renames a column.
 	RenameColumnOperation DataSetRenameColumnOperationPtrInput `pulumi:"renameColumnOperation"`
-	// A transform operation that tags a column with additional information.
-	TagColumnOperation DataSetTagColumnOperationPtrInput `pulumi:"tagColumnOperation"`
-	// A transform operation that removes tags associated with a column.
+	// An operation that tags a column with additional information.
+	TagColumnOperation   DataSetTagColumnOperationPtrInput   `pulumi:"tagColumnOperation"`
 	UntagColumnOperation DataSetUntagColumnOperationPtrInput `pulumi:"untagColumnOperation"`
 }
 
@@ -4883,39 +4879,37 @@ func (o DataSetTransformOperationOutput) CastColumnTypeOperation() DataSetCastCo
 	return o.ApplyT(func(v DataSetTransformOperation) *DataSetCastColumnTypeOperation { return v.CastColumnTypeOperation }).(DataSetCastColumnTypeOperationPtrOutput)
 }
 
-// A transform operation that creates calculated columns. Columns created in one such operation form a lexical closure.
+// An operation that creates calculated columns. Columns created in one such operation form a lexical closure.
 func (o DataSetTransformOperationOutput) CreateColumnsOperation() DataSetCreateColumnsOperationPtrOutput {
 	return o.ApplyT(func(v DataSetTransformOperation) *DataSetCreateColumnsOperation { return v.CreateColumnsOperation }).(DataSetCreateColumnsOperationPtrOutput)
 }
 
-// A transform operation that filters rows based on a condition.
+// An operation that filters rows based on some condition.
 func (o DataSetTransformOperationOutput) FilterOperation() DataSetFilterOperationPtrOutput {
 	return o.ApplyT(func(v DataSetTransformOperation) *DataSetFilterOperation { return v.FilterOperation }).(DataSetFilterOperationPtrOutput)
 }
 
-// A transform operation that overrides the dataset parameter values that are defined in another dataset.
 func (o DataSetTransformOperationOutput) OverrideDatasetParameterOperation() DataSetOverrideDatasetParameterOperationPtrOutput {
 	return o.ApplyT(func(v DataSetTransformOperation) *DataSetOverrideDatasetParameterOperation {
 		return v.OverrideDatasetParameterOperation
 	}).(DataSetOverrideDatasetParameterOperationPtrOutput)
 }
 
-// A transform operation that projects columns. Operations that come after a projection can only refer to projected columns.
+// An operation that projects columns. Operations that come after a projection can only refer to projected columns.
 func (o DataSetTransformOperationOutput) ProjectOperation() DataSetProjectOperationPtrOutput {
 	return o.ApplyT(func(v DataSetTransformOperation) *DataSetProjectOperation { return v.ProjectOperation }).(DataSetProjectOperationPtrOutput)
 }
 
-// A transform operation that renames a column.
+// An operation that renames a column.
 func (o DataSetTransformOperationOutput) RenameColumnOperation() DataSetRenameColumnOperationPtrOutput {
 	return o.ApplyT(func(v DataSetTransformOperation) *DataSetRenameColumnOperation { return v.RenameColumnOperation }).(DataSetRenameColumnOperationPtrOutput)
 }
 
-// A transform operation that tags a column with additional information.
+// An operation that tags a column with additional information.
 func (o DataSetTransformOperationOutput) TagColumnOperation() DataSetTagColumnOperationPtrOutput {
 	return o.ApplyT(func(v DataSetTransformOperation) *DataSetTagColumnOperation { return v.TagColumnOperation }).(DataSetTagColumnOperationPtrOutput)
 }
 
-// A transform operation that removes tags associated with a column.
 func (o DataSetTransformOperationOutput) UntagColumnOperation() DataSetUntagColumnOperationPtrOutput {
 	return o.ApplyT(func(v DataSetTransformOperation) *DataSetUntagColumnOperation { return v.UntagColumnOperation }).(DataSetUntagColumnOperationPtrOutput)
 }
@@ -6490,7 +6484,7 @@ type DataSourceCredentials struct {
 	//             data source in the ARN is used as the credentials for the
 	//             <code>DataSourceCredentials</code> structure.</p>
 	CopySourceArn *string `pulumi:"copySourceArn"`
-	// The combination of user name and password that are used as credentials.
+	// Credential pair. For more information, see `[CredentialPair](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html)` .
 	CredentialPair *DataSourceCredentialPair `pulumi:"credentialPair"`
 	// <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
 	SecretArn *string `pulumi:"secretArn"`
@@ -6516,7 +6510,7 @@ type DataSourceCredentialsArgs struct {
 	//             data source in the ARN is used as the credentials for the
 	//             <code>DataSourceCredentials</code> structure.</p>
 	CopySourceArn pulumi.StringPtrInput `pulumi:"copySourceArn"`
-	// The combination of user name and password that are used as credentials.
+	// Credential pair. For more information, see `[CredentialPair](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html)` .
 	CredentialPair DataSourceCredentialPairPtrInput `pulumi:"credentialPair"`
 	// <p>The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.</p>
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
@@ -6611,7 +6605,7 @@ func (o DataSourceCredentialsOutput) CopySourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceCredentials) *string { return v.CopySourceArn }).(pulumi.StringPtrOutput)
 }
 
-// The combination of user name and password that are used as credentials.
+// Credential pair. For more information, see `[CredentialPair](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html)` .
 func (o DataSourceCredentialsOutput) CredentialPair() DataSourceCredentialPairPtrOutput {
 	return o.ApplyT(func(v DataSourceCredentials) *DataSourceCredentialPair { return v.CredentialPair }).(DataSourceCredentialPairPtrOutput)
 }
@@ -6659,7 +6653,7 @@ func (o DataSourceCredentialsPtrOutput) CopySourceArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The combination of user name and password that are used as credentials.
+// Credential pair. For more information, see `[CredentialPair](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CredentialPair.html)` .
 func (o DataSourceCredentialsPtrOutput) CredentialPair() DataSourceCredentialPairPtrOutput {
 	return o.ApplyT(func(v *DataSourceCredentials) *DataSourceCredentialPair {
 		if v == nil {
@@ -7858,11 +7852,11 @@ type DataSourceParameters struct {
 	AmazonElasticsearchParameters *DataSourceAmazonElasticsearchParameters `pulumi:"amazonElasticsearchParameters"`
 	// The parameters for OpenSearch.
 	AmazonOpenSearchParameters *DataSourceAmazonOpenSearchParameters `pulumi:"amazonOpenSearchParameters"`
-	// Parameters for Amazon Athena.
+	// The parameters for Amazon Athena.
 	AthenaParameters *DataSourceAthenaParameters `pulumi:"athenaParameters"`
-	// Parameters for Amazon Aurora.
+	// The parameters for Amazon Aurora MySQL.
 	AuroraParameters *DataSourceAuroraParameters `pulumi:"auroraParameters"`
-	// Parameters for Amazon Aurora PostgreSQL-Compatible Edition.
+	// The parameters for Amazon Aurora.
 	AuroraPostgreSqlParameters *DataSourceAuroraPostgreSqlParameters `pulumi:"auroraPostgreSqlParameters"`
 	// The required parameters that are needed to connect to a Databricks data source.
 	DatabricksParameters *DataSourceDatabricksParameters `pulumi:"databricksParameters"`
@@ -7878,7 +7872,7 @@ type DataSourceParameters struct {
 	PrestoParameters *DataSourcePrestoParameters `pulumi:"prestoParameters"`
 	// The parameters for Amazon RDS.
 	RdsParameters *DataSourceRdsParameters `pulumi:"rdsParameters"`
-	// The parameters for Amazon Redshift. The `ClusterId` field can be blank if `Host` and `Port` are both set. The `Host` and `Port` fields can be blank if the `ClusterId` field is set.
+	// The parameters for Amazon Redshift.
 	RedshiftParameters *DataSourceRedshiftParameters `pulumi:"redshiftParameters"`
 	// The parameters for S3.
 	S3Parameters *DataSourceS3Parameters `pulumi:"s3Parameters"`
@@ -7916,11 +7910,11 @@ type DataSourceParametersArgs struct {
 	AmazonElasticsearchParameters DataSourceAmazonElasticsearchParametersPtrInput `pulumi:"amazonElasticsearchParameters"`
 	// The parameters for OpenSearch.
 	AmazonOpenSearchParameters DataSourceAmazonOpenSearchParametersPtrInput `pulumi:"amazonOpenSearchParameters"`
-	// Parameters for Amazon Athena.
+	// The parameters for Amazon Athena.
 	AthenaParameters DataSourceAthenaParametersPtrInput `pulumi:"athenaParameters"`
-	// Parameters for Amazon Aurora.
+	// The parameters for Amazon Aurora MySQL.
 	AuroraParameters DataSourceAuroraParametersPtrInput `pulumi:"auroraParameters"`
-	// Parameters for Amazon Aurora PostgreSQL-Compatible Edition.
+	// The parameters for Amazon Aurora.
 	AuroraPostgreSqlParameters DataSourceAuroraPostgreSqlParametersPtrInput `pulumi:"auroraPostgreSqlParameters"`
 	// The required parameters that are needed to connect to a Databricks data source.
 	DatabricksParameters DataSourceDatabricksParametersPtrInput `pulumi:"databricksParameters"`
@@ -7936,7 +7930,7 @@ type DataSourceParametersArgs struct {
 	PrestoParameters DataSourcePrestoParametersPtrInput `pulumi:"prestoParameters"`
 	// The parameters for Amazon RDS.
 	RdsParameters DataSourceRdsParametersPtrInput `pulumi:"rdsParameters"`
-	// The parameters for Amazon Redshift. The `ClusterId` field can be blank if `Host` and `Port` are both set. The `Host` and `Port` fields can be blank if the `ClusterId` field is set.
+	// The parameters for Amazon Redshift.
 	RedshiftParameters DataSourceRedshiftParametersPtrInput `pulumi:"redshiftParameters"`
 	// The parameters for S3.
 	S3Parameters DataSourceS3ParametersPtrInput `pulumi:"s3Parameters"`
@@ -8074,17 +8068,17 @@ func (o DataSourceParametersOutput) AmazonOpenSearchParameters() DataSourceAmazo
 	}).(DataSourceAmazonOpenSearchParametersPtrOutput)
 }
 
-// Parameters for Amazon Athena.
+// The parameters for Amazon Athena.
 func (o DataSourceParametersOutput) AthenaParameters() DataSourceAthenaParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceAthenaParameters { return v.AthenaParameters }).(DataSourceAthenaParametersPtrOutput)
 }
 
-// Parameters for Amazon Aurora.
+// The parameters for Amazon Aurora MySQL.
 func (o DataSourceParametersOutput) AuroraParameters() DataSourceAuroraParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceAuroraParameters { return v.AuroraParameters }).(DataSourceAuroraParametersPtrOutput)
 }
 
-// Parameters for Amazon Aurora PostgreSQL-Compatible Edition.
+// The parameters for Amazon Aurora.
 func (o DataSourceParametersOutput) AuroraPostgreSqlParameters() DataSourceAuroraPostgreSqlParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceAuroraPostgreSqlParameters {
 		return v.AuroraPostgreSqlParameters
@@ -8126,7 +8120,7 @@ func (o DataSourceParametersOutput) RdsParameters() DataSourceRdsParametersPtrOu
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceRdsParameters { return v.RdsParameters }).(DataSourceRdsParametersPtrOutput)
 }
 
-// The parameters for Amazon Redshift. The `ClusterId` field can be blank if `Host` and `Port` are both set. The `Host` and `Port` fields can be blank if the `ClusterId` field is set.
+// The parameters for Amazon Redshift.
 func (o DataSourceParametersOutput) RedshiftParameters() DataSourceRedshiftParametersPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceRedshiftParameters { return v.RedshiftParameters }).(DataSourceRedshiftParametersPtrOutput)
 }
@@ -8210,7 +8204,7 @@ func (o DataSourceParametersPtrOutput) AmazonOpenSearchParameters() DataSourceAm
 	}).(DataSourceAmazonOpenSearchParametersPtrOutput)
 }
 
-// Parameters for Amazon Athena.
+// The parameters for Amazon Athena.
 func (o DataSourceParametersPtrOutput) AthenaParameters() DataSourceAthenaParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceAthenaParameters {
 		if v == nil {
@@ -8220,7 +8214,7 @@ func (o DataSourceParametersPtrOutput) AthenaParameters() DataSourceAthenaParame
 	}).(DataSourceAthenaParametersPtrOutput)
 }
 
-// Parameters for Amazon Aurora.
+// The parameters for Amazon Aurora MySQL.
 func (o DataSourceParametersPtrOutput) AuroraParameters() DataSourceAuroraParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceAuroraParameters {
 		if v == nil {
@@ -8230,7 +8224,7 @@ func (o DataSourceParametersPtrOutput) AuroraParameters() DataSourceAuroraParame
 	}).(DataSourceAuroraParametersPtrOutput)
 }
 
-// Parameters for Amazon Aurora PostgreSQL-Compatible Edition.
+// The parameters for Amazon Aurora.
 func (o DataSourceParametersPtrOutput) AuroraPostgreSqlParameters() DataSourceAuroraPostgreSqlParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceAuroraPostgreSqlParameters {
 		if v == nil {
@@ -8310,7 +8304,7 @@ func (o DataSourceParametersPtrOutput) RdsParameters() DataSourceRdsParametersPt
 	}).(DataSourceRdsParametersPtrOutput)
 }
 
-// The parameters for Amazon Redshift. The `ClusterId` field can be blank if `Host` and `Port` are both set. The `Host` and `Port` fields can be blank if the `ClusterId` field is set.
+// The parameters for Amazon Redshift.
 func (o DataSourceParametersPtrOutput) RedshiftParameters() DataSourceRedshiftParametersPtrOutput {
 	return o.ApplyT(func(v *DataSourceParameters) *DataSourceRedshiftParameters {
 		if v == nil {
@@ -8936,7 +8930,9 @@ type DataSourceRedshiftParameters struct {
 	Database string `pulumi:"database"`
 	// <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
 	Host *string `pulumi:"host"`
-	// The parameters for an IAM Identity Center configuration.
+	// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
+	//
+	// This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
 	IdentityCenterConfiguration *DataSourceIdentityCenterConfiguration `pulumi:"identityCenterConfiguration"`
 	// <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
 	Port *float64 `pulumi:"port"`
@@ -8964,7 +8960,9 @@ type DataSourceRedshiftParametersArgs struct {
 	Database pulumi.StringInput `pulumi:"database"`
 	// <p>Host. This field can be blank if <code>ClusterId</code> is provided.</p>
 	Host pulumi.StringPtrInput `pulumi:"host"`
-	// The parameters for an IAM Identity Center configuration.
+	// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
+	//
+	// This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
 	IdentityCenterConfiguration DataSourceIdentityCenterConfigurationPtrInput `pulumi:"identityCenterConfiguration"`
 	// <p>Port. This field can be blank if the <code>ClusterId</code> is provided.</p>
 	Port pulumi.Float64PtrInput `pulumi:"port"`
@@ -9067,7 +9065,9 @@ func (o DataSourceRedshiftParametersOutput) Host() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceRedshiftParameters) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
-// The parameters for an IAM Identity Center configuration.
+// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
+//
+// This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
 func (o DataSourceRedshiftParametersOutput) IdentityCenterConfiguration() DataSourceIdentityCenterConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceRedshiftParameters) *DataSourceIdentityCenterConfiguration {
 		return v.IdentityCenterConfiguration
@@ -9135,7 +9135,9 @@ func (o DataSourceRedshiftParametersPtrOutput) Host() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The parameters for an IAM Identity Center configuration.
+// An optional parameter that configures IAM Identity Center authentication to grant Amazon QuickSight access to your cluster.
+//
+// This parameter can only be specified if your Amazon QuickSight account is configured with IAM Identity Center.
 func (o DataSourceRedshiftParametersPtrOutput) IdentityCenterConfiguration() DataSourceIdentityCenterConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceRedshiftParameters) *DataSourceIdentityCenterConfiguration {
 		if v == nil {
@@ -9315,7 +9317,7 @@ func (o DataSourceResourcePermissionArrayOutput) Index(i pulumi.IntInput) DataSo
 
 // <p>The parameters for S3.</p>
 type DataSourceS3Parameters struct {
-	// Amazon S3 manifest file location.
+	// Location of the Amazon S3 manifest file. This is NULL if the manifest file was uploaded into Amazon QuickSight.
 	ManifestFileLocation DataSourceManifestFileLocation `pulumi:"manifestFileLocation"`
 	// <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.</p>
 	RoleArn *string `pulumi:"roleArn"`
@@ -9334,7 +9336,7 @@ type DataSourceS3ParametersInput interface {
 
 // <p>The parameters for S3.</p>
 type DataSourceS3ParametersArgs struct {
-	// Amazon S3 manifest file location.
+	// Location of the Amazon S3 manifest file. This is NULL if the manifest file was uploaded into Amazon QuickSight.
 	ManifestFileLocation DataSourceManifestFileLocationInput `pulumi:"manifestFileLocation"`
 	// <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific S3 data source. For example, say an account administrator has turned off all S3 access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow S3 access for the single S3 data source that is specified in the structure, even if the account-wide role forbidding S3 access is still active.</p>
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
@@ -9418,7 +9420,7 @@ func (o DataSourceS3ParametersOutput) ToDataSourceS3ParametersPtrOutputWithConte
 	}).(DataSourceS3ParametersPtrOutput)
 }
 
-// Amazon S3 manifest file location.
+// Location of the Amazon S3 manifest file. This is NULL if the manifest file was uploaded into Amazon QuickSight.
 func (o DataSourceS3ParametersOutput) ManifestFileLocation() DataSourceManifestFileLocationOutput {
 	return o.ApplyT(func(v DataSourceS3Parameters) DataSourceManifestFileLocation { return v.ManifestFileLocation }).(DataSourceManifestFileLocationOutput)
 }
@@ -9452,7 +9454,7 @@ func (o DataSourceS3ParametersPtrOutput) Elem() DataSourceS3ParametersOutput {
 	}).(DataSourceS3ParametersOutput)
 }
 
-// Amazon S3 manifest file location.
+// Location of the Amazon S3 manifest file. This is NULL if the manifest file was uploaded into Amazon QuickSight.
 func (o DataSourceS3ParametersPtrOutput) ManifestFileLocation() DataSourceManifestFileLocationPtrOutput {
 	return o.ApplyT(func(v *DataSourceS3Parameters) *DataSourceManifestFileLocation {
 		if v == nil {
@@ -11639,11 +11641,9 @@ func (o TemplateAggregationFunctionPtrOutput) NumericalAggregationFunction() Tem
 }
 
 type TemplateAggregationSortConfiguration struct {
-	// An aggregation function aggregates values from a dimension or measure.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The function that aggregates the values in `Column` .
 	AggregationFunction *TemplateAggregationFunction `pulumi:"aggregationFunction"`
-	// A column of a data set.
+	// The column that determines the sort order of aggregated values.
 	Column TemplateColumnIdentifier `pulumi:"column"`
 	// The sort direction of values.
 	//
@@ -11664,11 +11664,9 @@ type TemplateAggregationSortConfigurationInput interface {
 }
 
 type TemplateAggregationSortConfigurationArgs struct {
-	// An aggregation function aggregates values from a dimension or measure.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The function that aggregates the values in `Column` .
 	AggregationFunction TemplateAggregationFunctionPtrInput `pulumi:"aggregationFunction"`
-	// A column of a data set.
+	// The column that determines the sort order of aggregated values.
 	Column TemplateColumnIdentifierInput `pulumi:"column"`
 	// The sort direction of values.
 	//
@@ -11728,16 +11726,14 @@ func (o TemplateAggregationSortConfigurationOutput) ToTemplateAggregationSortCon
 	return o
 }
 
-// An aggregation function aggregates values from a dimension or measure.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The function that aggregates the values in `Column` .
 func (o TemplateAggregationSortConfigurationOutput) AggregationFunction() TemplateAggregationFunctionPtrOutput {
 	return o.ApplyT(func(v TemplateAggregationSortConfiguration) *TemplateAggregationFunction {
 		return v.AggregationFunction
 	}).(TemplateAggregationFunctionPtrOutput)
 }
 
-// A column of a data set.
+// The column that determines the sort order of aggregated values.
 func (o TemplateAggregationSortConfigurationOutput) Column() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateAggregationSortConfiguration) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
 }
@@ -13119,7 +13115,7 @@ func (o TemplateAttributeAggregationFunctionPtrOutput) ValueForMultipleValues() 
 }
 
 type TemplateAxisDataOptions struct {
-	// The options that determine how a date axis is displayed.
+	// The options for an axis with a date field.
 	DateAxisOptions *TemplateDateAxisOptions `pulumi:"dateAxisOptions"`
 	// The options for an axis with a numeric field.
 	NumericAxisOptions *TemplateNumericAxisOptions `pulumi:"numericAxisOptions"`
@@ -13137,7 +13133,7 @@ type TemplateAxisDataOptionsInput interface {
 }
 
 type TemplateAxisDataOptionsArgs struct {
-	// The options that determine how a date axis is displayed.
+	// The options for an axis with a date field.
 	DateAxisOptions TemplateDateAxisOptionsPtrInput `pulumi:"dateAxisOptions"`
 	// The options for an axis with a numeric field.
 	NumericAxisOptions TemplateNumericAxisOptionsPtrInput `pulumi:"numericAxisOptions"`
@@ -13220,7 +13216,7 @@ func (o TemplateAxisDataOptionsOutput) ToTemplateAxisDataOptionsPtrOutputWithCon
 	}).(TemplateAxisDataOptionsPtrOutput)
 }
 
-// The options that determine how a date axis is displayed.
+// The options for an axis with a date field.
 func (o TemplateAxisDataOptionsOutput) DateAxisOptions() TemplateDateAxisOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateAxisDataOptions) *TemplateDateAxisOptions { return v.DateAxisOptions }).(TemplateDateAxisOptionsPtrOutput)
 }
@@ -13254,7 +13250,7 @@ func (o TemplateAxisDataOptionsPtrOutput) Elem() TemplateAxisDataOptionsOutput {
 	}).(TemplateAxisDataOptionsOutput)
 }
 
-// The options that determine how a date axis is displayed.
+// The options for an axis with a date field.
 func (o TemplateAxisDataOptionsPtrOutput) DateAxisOptions() TemplateDateAxisOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateAxisDataOptions) *TemplateDateAxisOptions {
 		if v == nil {
@@ -13554,12 +13550,10 @@ type TemplateAxisDisplayOptions struct {
 	// String based length that is composed of value and unit in px
 	AxisOffset *string `pulumi:"axisOffset"`
 	// The data options for an axis.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	DataOptions *TemplateAxisDataOptions `pulumi:"dataOptions"`
 	// Determines whether or not the grid line is visible.
 	GridLineVisibility *TemplateVisibility `pulumi:"gridLineVisibility"`
-	// The visual display options for a data zoom scroll bar.
+	// The scroll bar options for an axis.
 	ScrollbarOptions *TemplateScrollBarOptions `pulumi:"scrollbarOptions"`
 	// The tick label options of an axis.
 	TickLabelOptions *TemplateAxisTickLabelOptions `pulumi:"tickLabelOptions"`
@@ -13582,12 +13576,10 @@ type TemplateAxisDisplayOptionsArgs struct {
 	// String based length that is composed of value and unit in px
 	AxisOffset pulumi.StringPtrInput `pulumi:"axisOffset"`
 	// The data options for an axis.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	DataOptions TemplateAxisDataOptionsPtrInput `pulumi:"dataOptions"`
 	// Determines whether or not the grid line is visible.
 	GridLineVisibility TemplateVisibilityPtrInput `pulumi:"gridLineVisibility"`
-	// The visual display options for a data zoom scroll bar.
+	// The scroll bar options for an axis.
 	ScrollbarOptions TemplateScrollBarOptionsPtrInput `pulumi:"scrollbarOptions"`
 	// The tick label options of an axis.
 	TickLabelOptions TemplateAxisTickLabelOptionsPtrInput `pulumi:"tickLabelOptions"`
@@ -13681,8 +13673,6 @@ func (o TemplateAxisDisplayOptionsOutput) AxisOffset() pulumi.StringPtrOutput {
 }
 
 // The data options for an axis.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateAxisDisplayOptionsOutput) DataOptions() TemplateAxisDataOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateAxisDisplayOptions) *TemplateAxisDataOptions { return v.DataOptions }).(TemplateAxisDataOptionsPtrOutput)
 }
@@ -13692,7 +13682,7 @@ func (o TemplateAxisDisplayOptionsOutput) GridLineVisibility() TemplateVisibilit
 	return o.ApplyT(func(v TemplateAxisDisplayOptions) *TemplateVisibility { return v.GridLineVisibility }).(TemplateVisibilityPtrOutput)
 }
 
-// The visual display options for a data zoom scroll bar.
+// The scroll bar options for an axis.
 func (o TemplateAxisDisplayOptionsOutput) ScrollbarOptions() TemplateScrollBarOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateAxisDisplayOptions) *TemplateScrollBarOptions { return v.ScrollbarOptions }).(TemplateScrollBarOptionsPtrOutput)
 }
@@ -13747,8 +13737,6 @@ func (o TemplateAxisDisplayOptionsPtrOutput) AxisOffset() pulumi.StringPtrOutput
 }
 
 // The data options for an axis.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateAxisDisplayOptionsPtrOutput) DataOptions() TemplateAxisDataOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateAxisDisplayOptions) *TemplateAxisDataOptions {
 		if v == nil {
@@ -13768,7 +13756,7 @@ func (o TemplateAxisDisplayOptionsPtrOutput) GridLineVisibility() TemplateVisibi
 	}).(TemplateVisibilityPtrOutput)
 }
 
-// The visual display options for a data zoom scroll bar.
+// The scroll bar options for an axis.
 func (o TemplateAxisDisplayOptionsPtrOutput) ScrollbarOptions() TemplateScrollBarOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateAxisDisplayOptions) *TemplateScrollBarOptions {
 		if v == nil {
@@ -13791,7 +13779,7 @@ func (o TemplateAxisDisplayOptionsPtrOutput) TickLabelOptions() TemplateAxisTick
 type TemplateAxisDisplayRange struct {
 	// The data-driven setup of an axis display range.
 	DataDriven *TemplateAxisDisplayDataDrivenRange `pulumi:"dataDriven"`
-	// The minimum and maximum setup for an axis display range.
+	// The minimum and maximum setup of an axis display range.
 	MinMax *TemplateAxisDisplayMinMaxRange `pulumi:"minMax"`
 }
 
@@ -13809,7 +13797,7 @@ type TemplateAxisDisplayRangeInput interface {
 type TemplateAxisDisplayRangeArgs struct {
 	// The data-driven setup of an axis display range.
 	DataDriven TemplateAxisDisplayDataDrivenRangePtrInput `pulumi:"dataDriven"`
-	// The minimum and maximum setup for an axis display range.
+	// The minimum and maximum setup of an axis display range.
 	MinMax TemplateAxisDisplayMinMaxRangePtrInput `pulumi:"minMax"`
 }
 
@@ -13895,7 +13883,7 @@ func (o TemplateAxisDisplayRangeOutput) DataDriven() TemplateAxisDisplayDataDriv
 	return o.ApplyT(func(v TemplateAxisDisplayRange) *TemplateAxisDisplayDataDrivenRange { return v.DataDriven }).(TemplateAxisDisplayDataDrivenRangePtrOutput)
 }
 
-// The minimum and maximum setup for an axis display range.
+// The minimum and maximum setup of an axis display range.
 func (o TemplateAxisDisplayRangeOutput) MinMax() TemplateAxisDisplayMinMaxRangePtrOutput {
 	return o.ApplyT(func(v TemplateAxisDisplayRange) *TemplateAxisDisplayMinMaxRange { return v.MinMax }).(TemplateAxisDisplayMinMaxRangePtrOutput)
 }
@@ -13934,7 +13922,7 @@ func (o TemplateAxisDisplayRangePtrOutput) DataDriven() TemplateAxisDisplayDataD
 	}).(TemplateAxisDisplayDataDrivenRangePtrOutput)
 }
 
-// The minimum and maximum setup for an axis display range.
+// The minimum and maximum setup of an axis display range.
 func (o TemplateAxisDisplayRangePtrOutput) MinMax() TemplateAxisDisplayMinMaxRangePtrOutput {
 	return o.ApplyT(func(v *TemplateAxisDisplayRange) *TemplateAxisDisplayMinMaxRange {
 		if v == nil {
@@ -13945,11 +13933,11 @@ func (o TemplateAxisDisplayRangePtrOutput) MinMax() TemplateAxisDisplayMinMaxRan
 }
 
 type TemplateAxisLabelOptions struct {
-	// The reference that specifies where the axis label is applied to.
+	// The options that indicate which field the label belongs to.
 	ApplyTo *TemplateAxisLabelReferenceOptions `pulumi:"applyTo"`
 	// The text for the axis label.
 	CustomLabel *string `pulumi:"customLabel"`
-	// Configures the display properties of the given text.
+	// The font configuration of the axis label.
 	FontConfiguration *TemplateFontConfiguration `pulumi:"fontConfiguration"`
 }
 
@@ -13965,11 +13953,11 @@ type TemplateAxisLabelOptionsInput interface {
 }
 
 type TemplateAxisLabelOptionsArgs struct {
-	// The reference that specifies where the axis label is applied to.
+	// The options that indicate which field the label belongs to.
 	ApplyTo TemplateAxisLabelReferenceOptionsPtrInput `pulumi:"applyTo"`
 	// The text for the axis label.
 	CustomLabel pulumi.StringPtrInput `pulumi:"customLabel"`
-	// Configures the display properties of the given text.
+	// The font configuration of the axis label.
 	FontConfiguration TemplateFontConfigurationPtrInput `pulumi:"fontConfiguration"`
 }
 
@@ -14024,7 +14012,7 @@ func (o TemplateAxisLabelOptionsOutput) ToTemplateAxisLabelOptionsOutputWithCont
 	return o
 }
 
-// The reference that specifies where the axis label is applied to.
+// The options that indicate which field the label belongs to.
 func (o TemplateAxisLabelOptionsOutput) ApplyTo() TemplateAxisLabelReferenceOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateAxisLabelOptions) *TemplateAxisLabelReferenceOptions { return v.ApplyTo }).(TemplateAxisLabelReferenceOptionsPtrOutput)
 }
@@ -14034,7 +14022,7 @@ func (o TemplateAxisLabelOptionsOutput) CustomLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateAxisLabelOptions) *string { return v.CustomLabel }).(pulumi.StringPtrOutput)
 }
 
-// Configures the display properties of the given text.
+// The font configuration of the axis label.
 func (o TemplateAxisLabelOptionsOutput) FontConfiguration() TemplateFontConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateAxisLabelOptions) *TemplateFontConfiguration { return v.FontConfiguration }).(TemplateFontConfigurationPtrOutput)
 }
@@ -14060,7 +14048,7 @@ func (o TemplateAxisLabelOptionsArrayOutput) Index(i pulumi.IntInput) TemplateAx
 }
 
 type TemplateAxisLabelReferenceOptions struct {
-	// A column of a data set.
+	// The column that the axis label is targeted to.
 	Column TemplateColumnIdentifier `pulumi:"column"`
 	// The field that the axis label is targeted to.
 	FieldId string `pulumi:"fieldId"`
@@ -14078,7 +14066,7 @@ type TemplateAxisLabelReferenceOptionsInput interface {
 }
 
 type TemplateAxisLabelReferenceOptionsArgs struct {
-	// A column of a data set.
+	// The column that the axis label is targeted to.
 	Column TemplateColumnIdentifierInput `pulumi:"column"`
 	// The field that the axis label is targeted to.
 	FieldId pulumi.StringInput `pulumi:"fieldId"`
@@ -14161,7 +14149,7 @@ func (o TemplateAxisLabelReferenceOptionsOutput) ToTemplateAxisLabelReferenceOpt
 	}).(TemplateAxisLabelReferenceOptionsPtrOutput)
 }
 
-// A column of a data set.
+// The column that the axis label is targeted to.
 func (o TemplateAxisLabelReferenceOptionsOutput) Column() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateAxisLabelReferenceOptions) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
 }
@@ -14195,7 +14183,7 @@ func (o TemplateAxisLabelReferenceOptionsPtrOutput) Elem() TemplateAxisLabelRefe
 	}).(TemplateAxisLabelReferenceOptionsOutput)
 }
 
-// A column of a data set.
+// The column that the axis label is targeted to.
 func (o TemplateAxisLabelReferenceOptionsPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateAxisLabelReferenceOptions) *TemplateColumnIdentifier {
 		if v == nil {
@@ -14509,9 +14497,7 @@ func (o TemplateAxisLogarithmicScalePtrOutput) Base() pulumi.Float64PtrOutput {
 }
 
 type TemplateAxisScale struct {
-	// The liner axis scale setup.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The linear axis scale setup.
 	Linear *TemplateAxisLinearScale `pulumi:"linear"`
 	// The logarithmic axis scale setup.
 	Logarithmic *TemplateAxisLogarithmicScale `pulumi:"logarithmic"`
@@ -14529,9 +14515,7 @@ type TemplateAxisScaleInput interface {
 }
 
 type TemplateAxisScaleArgs struct {
-	// The liner axis scale setup.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The linear axis scale setup.
 	Linear TemplateAxisLinearScalePtrInput `pulumi:"linear"`
 	// The logarithmic axis scale setup.
 	Logarithmic TemplateAxisLogarithmicScalePtrInput `pulumi:"logarithmic"`
@@ -14614,9 +14598,7 @@ func (o TemplateAxisScaleOutput) ToTemplateAxisScalePtrOutputWithContext(ctx con
 	}).(TemplateAxisScalePtrOutput)
 }
 
-// The liner axis scale setup.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The linear axis scale setup.
 func (o TemplateAxisScaleOutput) Linear() TemplateAxisLinearScalePtrOutput {
 	return o.ApplyT(func(v TemplateAxisScale) *TemplateAxisLinearScale { return v.Linear }).(TemplateAxisLinearScalePtrOutput)
 }
@@ -14650,9 +14632,7 @@ func (o TemplateAxisScalePtrOutput) Elem() TemplateAxisScaleOutput {
 	}).(TemplateAxisScaleOutput)
 }
 
-// The liner axis scale setup.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The linear axis scale setup.
 func (o TemplateAxisScalePtrOutput) Linear() TemplateAxisLinearScalePtrOutput {
 	return o.ApplyT(func(v *TemplateAxisScale) *TemplateAxisLinearScale {
 		if v == nil {
@@ -14673,7 +14653,7 @@ func (o TemplateAxisScalePtrOutput) Logarithmic() TemplateAxisLogarithmicScalePt
 }
 
 type TemplateAxisTickLabelOptions struct {
-	// The share label options for the labels.
+	// Determines whether or not the axis ticks are visible.
 	LabelOptions *TemplateLabelOptions `pulumi:"labelOptions"`
 	// The rotation angle of the axis tick labels.
 	RotationAngle *float64 `pulumi:"rotationAngle"`
@@ -14691,7 +14671,7 @@ type TemplateAxisTickLabelOptionsInput interface {
 }
 
 type TemplateAxisTickLabelOptionsArgs struct {
-	// The share label options for the labels.
+	// Determines whether or not the axis ticks are visible.
 	LabelOptions TemplateLabelOptionsPtrInput `pulumi:"labelOptions"`
 	// The rotation angle of the axis tick labels.
 	RotationAngle pulumi.Float64PtrInput `pulumi:"rotationAngle"`
@@ -14774,7 +14754,7 @@ func (o TemplateAxisTickLabelOptionsOutput) ToTemplateAxisTickLabelOptionsPtrOut
 	}).(TemplateAxisTickLabelOptionsPtrOutput)
 }
 
-// The share label options for the labels.
+// Determines whether or not the axis ticks are visible.
 func (o TemplateAxisTickLabelOptionsOutput) LabelOptions() TemplateLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateAxisTickLabelOptions) *TemplateLabelOptions { return v.LabelOptions }).(TemplateLabelOptionsPtrOutput)
 }
@@ -14808,7 +14788,7 @@ func (o TemplateAxisTickLabelOptionsPtrOutput) Elem() TemplateAxisTickLabelOptio
 	}).(TemplateAxisTickLabelOptionsOutput)
 }
 
-// The share label options for the labels.
+// Determines whether or not the axis ticks are visible.
 func (o TemplateAxisTickLabelOptionsPtrOutput) LabelOptions() TemplateLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateAxisTickLabelOptions) *TemplateLabelOptions {
 		if v == nil {
@@ -14829,13 +14809,13 @@ func (o TemplateAxisTickLabelOptionsPtrOutput) RotationAngle() pulumi.Float64Ptr
 }
 
 type TemplateBarChartAggregatedFieldWells struct {
-	// The dimension type field.
+	// The category (y-axis) field well of a bar chart.
 	Category []TemplateDimensionField `pulumi:"category"`
 	// The color (group/color) field well of a bar chart.
 	Colors []TemplateDimensionField `pulumi:"colors"`
 	// The small multiples field well of a bar chart.
 	SmallMultiples []TemplateDimensionField `pulumi:"smallMultiples"`
-	// The measure (metric) type field.
+	// The value field wells of a bar chart. Values are aggregated by category.
 	Values []TemplateMeasureField `pulumi:"values"`
 }
 
@@ -14851,13 +14831,13 @@ type TemplateBarChartAggregatedFieldWellsInput interface {
 }
 
 type TemplateBarChartAggregatedFieldWellsArgs struct {
-	// The dimension type field.
+	// The category (y-axis) field well of a bar chart.
 	Category TemplateDimensionFieldArrayInput `pulumi:"category"`
 	// The color (group/color) field well of a bar chart.
 	Colors TemplateDimensionFieldArrayInput `pulumi:"colors"`
 	// The small multiples field well of a bar chart.
 	SmallMultiples TemplateDimensionFieldArrayInput `pulumi:"smallMultiples"`
-	// The measure (metric) type field.
+	// The value field wells of a bar chart. Values are aggregated by category.
 	Values TemplateMeasureFieldArrayInput `pulumi:"values"`
 }
 
@@ -14938,7 +14918,7 @@ func (o TemplateBarChartAggregatedFieldWellsOutput) ToTemplateBarChartAggregated
 	}).(TemplateBarChartAggregatedFieldWellsPtrOutput)
 }
 
-// The dimension type field.
+// The category (y-axis) field well of a bar chart.
 func (o TemplateBarChartAggregatedFieldWellsOutput) Category() TemplateDimensionFieldArrayOutput {
 	return o.ApplyT(func(v TemplateBarChartAggregatedFieldWells) []TemplateDimensionField { return v.Category }).(TemplateDimensionFieldArrayOutput)
 }
@@ -14953,7 +14933,7 @@ func (o TemplateBarChartAggregatedFieldWellsOutput) SmallMultiples() TemplateDim
 	return o.ApplyT(func(v TemplateBarChartAggregatedFieldWells) []TemplateDimensionField { return v.SmallMultiples }).(TemplateDimensionFieldArrayOutput)
 }
 
-// The measure (metric) type field.
+// The value field wells of a bar chart. Values are aggregated by category.
 func (o TemplateBarChartAggregatedFieldWellsOutput) Values() TemplateMeasureFieldArrayOutput {
 	return o.ApplyT(func(v TemplateBarChartAggregatedFieldWells) []TemplateMeasureField { return v.Values }).(TemplateMeasureFieldArrayOutput)
 }
@@ -14982,7 +14962,7 @@ func (o TemplateBarChartAggregatedFieldWellsPtrOutput) Elem() TemplateBarChartAg
 	}).(TemplateBarChartAggregatedFieldWellsOutput)
 }
 
-// The dimension type field.
+// The category (y-axis) field well of a bar chart.
 func (o TemplateBarChartAggregatedFieldWellsPtrOutput) Category() TemplateDimensionFieldArrayOutput {
 	return o.ApplyT(func(v *TemplateBarChartAggregatedFieldWells) []TemplateDimensionField {
 		if v == nil {
@@ -15012,7 +14992,7 @@ func (o TemplateBarChartAggregatedFieldWellsPtrOutput) SmallMultiples() Template
 	}).(TemplateDimensionFieldArrayOutput)
 }
 
-// The measure (metric) type field.
+// The value field wells of a bar chart. Values are aggregated by category.
 func (o TemplateBarChartAggregatedFieldWellsPtrOutput) Values() TemplateMeasureFieldArrayOutput {
 	return o.ApplyT(func(v *TemplateBarChartAggregatedFieldWells) []TemplateMeasureField {
 		if v == nil {
@@ -15025,40 +15005,38 @@ func (o TemplateBarChartAggregatedFieldWellsPtrOutput) Values() TemplateMeasureF
 type TemplateBarChartConfiguration struct {
 	// Determines the arrangement of the bars. The orientation and arrangement of bars determine the type of bar that is used in the visual.
 	BarsArrangement *TemplateBarsArrangement `pulumi:"barsArrangement"`
-	// The display options for the axis label.
+	// The label display options (grid line, range, scale, axis step) for bar chart category.
 	CategoryAxis *TemplateAxisDisplayOptions `pulumi:"categoryAxis"`
-	// The label options for an axis on a chart.
+	// The label options (label text, label visibility and sort icon visibility) for a bar chart.
 	CategoryLabelOptions *TemplateChartAxisLabelOptions `pulumi:"categoryLabelOptions"`
-	// The label options for an axis on a chart.
+	// The label options (label text, label visibility and sort icon visibility) for a color that is used in a bar chart.
 	ColorLabelOptions *TemplateChartAxisLabelOptions `pulumi:"colorLabelOptions"`
-	// The contribution analysis visual display for a line, pie, or bar chart.
+	// The contribution analysis (anomaly configuration) setup of the visual.
 	ContributionAnalysisDefaults []TemplateContributionAnalysisDefault `pulumi:"contributionAnalysisDefaults"`
-	// The options that determine the presentation of the data labels.
+	// The options that determine if visual data labels are displayed.
 	DataLabels *TemplateDataLabelOptions `pulumi:"dataLabels"`
-	// The field wells of a `BarChartVisual` .
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The field wells of the visual.
 	FieldWells *TemplateBarChartFieldWells `pulumi:"fieldWells"`
-	// The options for the legend setup of a visual.
+	// The legend display setup of the visual.
 	Legend *TemplateLegendOptions `pulumi:"legend"`
 	// The orientation of the bars in a bar chart visual. There are two valid values in this structure:
 	//
 	// - `HORIZONTAL` : Used for charts that have horizontal bars. Visuals that use this value are horizontal bar charts, horizontal stacked bar charts, and horizontal stacked 100% bar charts.
 	// - `VERTICAL` : Used for charts that have vertical bars. Visuals that use this value are vertical bar charts, vertical stacked bar charts, and vertical stacked 100% bar charts.
 	Orientation *TemplateBarChartOrientation `pulumi:"orientation"`
-	// The reference line visual display options.
+	// The reference line setup of the visual.
 	ReferenceLines []TemplateReferenceLine `pulumi:"referenceLines"`
-	// Options that determine the layout and display options of a chart's small multiples.
+	// The small multiples setup for the visual.
 	SmallMultiplesOptions *TemplateSmallMultiplesOptions `pulumi:"smallMultiplesOptions"`
-	// sort-configuration-description
+	// The sort configuration of a `BarChartVisual` .
 	SortConfiguration *TemplateBarChartSortConfiguration `pulumi:"sortConfiguration"`
-	// The display options for the visual tooltip.
+	// The tooltip display setup of the visual.
 	Tooltip *TemplateTooltipOptions `pulumi:"tooltip"`
-	// The display options for the axis label.
+	// The label display options (grid line, range, scale, axis step) for a bar chart value.
 	ValueAxis *TemplateAxisDisplayOptions `pulumi:"valueAxis"`
-	// The label options for an axis on a chart.
+	// The label options (label text, label visibility and sort icon visibility) for a bar chart value.
 	ValueLabelOptions *TemplateChartAxisLabelOptions `pulumi:"valueLabelOptions"`
-	// The visual display options for the visual palette.
+	// The palette (chart color) display setup of the visual.
 	VisualPalette *TemplateVisualPalette `pulumi:"visualPalette"`
 }
 
@@ -15076,40 +15054,38 @@ type TemplateBarChartConfigurationInput interface {
 type TemplateBarChartConfigurationArgs struct {
 	// Determines the arrangement of the bars. The orientation and arrangement of bars determine the type of bar that is used in the visual.
 	BarsArrangement TemplateBarsArrangementPtrInput `pulumi:"barsArrangement"`
-	// The display options for the axis label.
+	// The label display options (grid line, range, scale, axis step) for bar chart category.
 	CategoryAxis TemplateAxisDisplayOptionsPtrInput `pulumi:"categoryAxis"`
-	// The label options for an axis on a chart.
+	// The label options (label text, label visibility and sort icon visibility) for a bar chart.
 	CategoryLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"categoryLabelOptions"`
-	// The label options for an axis on a chart.
+	// The label options (label text, label visibility and sort icon visibility) for a color that is used in a bar chart.
 	ColorLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"colorLabelOptions"`
-	// The contribution analysis visual display for a line, pie, or bar chart.
+	// The contribution analysis (anomaly configuration) setup of the visual.
 	ContributionAnalysisDefaults TemplateContributionAnalysisDefaultArrayInput `pulumi:"contributionAnalysisDefaults"`
-	// The options that determine the presentation of the data labels.
+	// The options that determine if visual data labels are displayed.
 	DataLabels TemplateDataLabelOptionsPtrInput `pulumi:"dataLabels"`
-	// The field wells of a `BarChartVisual` .
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The field wells of the visual.
 	FieldWells TemplateBarChartFieldWellsPtrInput `pulumi:"fieldWells"`
-	// The options for the legend setup of a visual.
+	// The legend display setup of the visual.
 	Legend TemplateLegendOptionsPtrInput `pulumi:"legend"`
 	// The orientation of the bars in a bar chart visual. There are two valid values in this structure:
 	//
 	// - `HORIZONTAL` : Used for charts that have horizontal bars. Visuals that use this value are horizontal bar charts, horizontal stacked bar charts, and horizontal stacked 100% bar charts.
 	// - `VERTICAL` : Used for charts that have vertical bars. Visuals that use this value are vertical bar charts, vertical stacked bar charts, and vertical stacked 100% bar charts.
 	Orientation TemplateBarChartOrientationPtrInput `pulumi:"orientation"`
-	// The reference line visual display options.
+	// The reference line setup of the visual.
 	ReferenceLines TemplateReferenceLineArrayInput `pulumi:"referenceLines"`
-	// Options that determine the layout and display options of a chart's small multiples.
+	// The small multiples setup for the visual.
 	SmallMultiplesOptions TemplateSmallMultiplesOptionsPtrInput `pulumi:"smallMultiplesOptions"`
-	// sort-configuration-description
+	// The sort configuration of a `BarChartVisual` .
 	SortConfiguration TemplateBarChartSortConfigurationPtrInput `pulumi:"sortConfiguration"`
-	// The display options for the visual tooltip.
+	// The tooltip display setup of the visual.
 	Tooltip TemplateTooltipOptionsPtrInput `pulumi:"tooltip"`
-	// The display options for the axis label.
+	// The label display options (grid line, range, scale, axis step) for a bar chart value.
 	ValueAxis TemplateAxisDisplayOptionsPtrInput `pulumi:"valueAxis"`
-	// The label options for an axis on a chart.
+	// The label options (label text, label visibility and sort icon visibility) for a bar chart value.
 	ValueLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"valueLabelOptions"`
-	// The visual display options for the visual palette.
+	// The palette (chart color) display setup of the visual.
 	VisualPalette TemplateVisualPalettePtrInput `pulumi:"visualPalette"`
 }
 
@@ -15195,41 +15171,39 @@ func (o TemplateBarChartConfigurationOutput) BarsArrangement() TemplateBarsArran
 	return o.ApplyT(func(v TemplateBarChartConfiguration) *TemplateBarsArrangement { return v.BarsArrangement }).(TemplateBarsArrangementPtrOutput)
 }
 
-// The display options for the axis label.
+// The label display options (grid line, range, scale, axis step) for bar chart category.
 func (o TemplateBarChartConfigurationOutput) CategoryAxis() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateBarChartConfiguration) *TemplateAxisDisplayOptions { return v.CategoryAxis }).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options (label text, label visibility and sort icon visibility) for a bar chart.
 func (o TemplateBarChartConfigurationOutput) CategoryLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateBarChartConfiguration) *TemplateChartAxisLabelOptions { return v.CategoryLabelOptions }).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options (label text, label visibility and sort icon visibility) for a color that is used in a bar chart.
 func (o TemplateBarChartConfigurationOutput) ColorLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateBarChartConfiguration) *TemplateChartAxisLabelOptions { return v.ColorLabelOptions }).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The contribution analysis visual display for a line, pie, or bar chart.
+// The contribution analysis (anomaly configuration) setup of the visual.
 func (o TemplateBarChartConfigurationOutput) ContributionAnalysisDefaults() TemplateContributionAnalysisDefaultArrayOutput {
 	return o.ApplyT(func(v TemplateBarChartConfiguration) []TemplateContributionAnalysisDefault {
 		return v.ContributionAnalysisDefaults
 	}).(TemplateContributionAnalysisDefaultArrayOutput)
 }
 
-// The options that determine the presentation of the data labels.
+// The options that determine if visual data labels are displayed.
 func (o TemplateBarChartConfigurationOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateBarChartConfiguration) *TemplateDataLabelOptions { return v.DataLabels }).(TemplateDataLabelOptionsPtrOutput)
 }
 
-// The field wells of a `BarChartVisual` .
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The field wells of the visual.
 func (o TemplateBarChartConfigurationOutput) FieldWells() TemplateBarChartFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplateBarChartConfiguration) *TemplateBarChartFieldWells { return v.FieldWells }).(TemplateBarChartFieldWellsPtrOutput)
 }
 
-// The options for the legend setup of a visual.
+// The legend display setup of the visual.
 func (o TemplateBarChartConfigurationOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateBarChartConfiguration) *TemplateLegendOptions { return v.Legend }).(TemplateLegendOptionsPtrOutput)
 }
@@ -15242,37 +15216,37 @@ func (o TemplateBarChartConfigurationOutput) Orientation() TemplateBarChartOrien
 	return o.ApplyT(func(v TemplateBarChartConfiguration) *TemplateBarChartOrientation { return v.Orientation }).(TemplateBarChartOrientationPtrOutput)
 }
 
-// The reference line visual display options.
+// The reference line setup of the visual.
 func (o TemplateBarChartConfigurationOutput) ReferenceLines() TemplateReferenceLineArrayOutput {
 	return o.ApplyT(func(v TemplateBarChartConfiguration) []TemplateReferenceLine { return v.ReferenceLines }).(TemplateReferenceLineArrayOutput)
 }
 
-// Options that determine the layout and display options of a chart's small multiples.
+// The small multiples setup for the visual.
 func (o TemplateBarChartConfigurationOutput) SmallMultiplesOptions() TemplateSmallMultiplesOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateBarChartConfiguration) *TemplateSmallMultiplesOptions { return v.SmallMultiplesOptions }).(TemplateSmallMultiplesOptionsPtrOutput)
 }
 
-// sort-configuration-description
+// The sort configuration of a `BarChartVisual` .
 func (o TemplateBarChartConfigurationOutput) SortConfiguration() TemplateBarChartSortConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateBarChartConfiguration) *TemplateBarChartSortConfiguration { return v.SortConfiguration }).(TemplateBarChartSortConfigurationPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The tooltip display setup of the visual.
 func (o TemplateBarChartConfigurationOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateBarChartConfiguration) *TemplateTooltipOptions { return v.Tooltip }).(TemplateTooltipOptionsPtrOutput)
 }
 
-// The display options for the axis label.
+// The label display options (grid line, range, scale, axis step) for a bar chart value.
 func (o TemplateBarChartConfigurationOutput) ValueAxis() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateBarChartConfiguration) *TemplateAxisDisplayOptions { return v.ValueAxis }).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options (label text, label visibility and sort icon visibility) for a bar chart value.
 func (o TemplateBarChartConfigurationOutput) ValueLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateBarChartConfiguration) *TemplateChartAxisLabelOptions { return v.ValueLabelOptions }).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The visual display options for the visual palette.
+// The palette (chart color) display setup of the visual.
 func (o TemplateBarChartConfigurationOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v TemplateBarChartConfiguration) *TemplateVisualPalette { return v.VisualPalette }).(TemplateVisualPalettePtrOutput)
 }
@@ -15311,7 +15285,7 @@ func (o TemplateBarChartConfigurationPtrOutput) BarsArrangement() TemplateBarsAr
 	}).(TemplateBarsArrangementPtrOutput)
 }
 
-// The display options for the axis label.
+// The label display options (grid line, range, scale, axis step) for bar chart category.
 func (o TemplateBarChartConfigurationPtrOutput) CategoryAxis() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateBarChartConfiguration) *TemplateAxisDisplayOptions {
 		if v == nil {
@@ -15321,7 +15295,7 @@ func (o TemplateBarChartConfigurationPtrOutput) CategoryAxis() TemplateAxisDispl
 	}).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options (label text, label visibility and sort icon visibility) for a bar chart.
 func (o TemplateBarChartConfigurationPtrOutput) CategoryLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateBarChartConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -15331,7 +15305,7 @@ func (o TemplateBarChartConfigurationPtrOutput) CategoryLabelOptions() TemplateC
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options (label text, label visibility and sort icon visibility) for a color that is used in a bar chart.
 func (o TemplateBarChartConfigurationPtrOutput) ColorLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateBarChartConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -15341,7 +15315,7 @@ func (o TemplateBarChartConfigurationPtrOutput) ColorLabelOptions() TemplateChar
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The contribution analysis visual display for a line, pie, or bar chart.
+// The contribution analysis (anomaly configuration) setup of the visual.
 func (o TemplateBarChartConfigurationPtrOutput) ContributionAnalysisDefaults() TemplateContributionAnalysisDefaultArrayOutput {
 	return o.ApplyT(func(v *TemplateBarChartConfiguration) []TemplateContributionAnalysisDefault {
 		if v == nil {
@@ -15351,7 +15325,7 @@ func (o TemplateBarChartConfigurationPtrOutput) ContributionAnalysisDefaults() T
 	}).(TemplateContributionAnalysisDefaultArrayOutput)
 }
 
-// The options that determine the presentation of the data labels.
+// The options that determine if visual data labels are displayed.
 func (o TemplateBarChartConfigurationPtrOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateBarChartConfiguration) *TemplateDataLabelOptions {
 		if v == nil {
@@ -15361,9 +15335,7 @@ func (o TemplateBarChartConfigurationPtrOutput) DataLabels() TemplateDataLabelOp
 	}).(TemplateDataLabelOptionsPtrOutput)
 }
 
-// The field wells of a `BarChartVisual` .
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The field wells of the visual.
 func (o TemplateBarChartConfigurationPtrOutput) FieldWells() TemplateBarChartFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplateBarChartConfiguration) *TemplateBarChartFieldWells {
 		if v == nil {
@@ -15373,7 +15345,7 @@ func (o TemplateBarChartConfigurationPtrOutput) FieldWells() TemplateBarChartFie
 	}).(TemplateBarChartFieldWellsPtrOutput)
 }
 
-// The options for the legend setup of a visual.
+// The legend display setup of the visual.
 func (o TemplateBarChartConfigurationPtrOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateBarChartConfiguration) *TemplateLegendOptions {
 		if v == nil {
@@ -15396,7 +15368,7 @@ func (o TemplateBarChartConfigurationPtrOutput) Orientation() TemplateBarChartOr
 	}).(TemplateBarChartOrientationPtrOutput)
 }
 
-// The reference line visual display options.
+// The reference line setup of the visual.
 func (o TemplateBarChartConfigurationPtrOutput) ReferenceLines() TemplateReferenceLineArrayOutput {
 	return o.ApplyT(func(v *TemplateBarChartConfiguration) []TemplateReferenceLine {
 		if v == nil {
@@ -15406,7 +15378,7 @@ func (o TemplateBarChartConfigurationPtrOutput) ReferenceLines() TemplateReferen
 	}).(TemplateReferenceLineArrayOutput)
 }
 
-// Options that determine the layout and display options of a chart's small multiples.
+// The small multiples setup for the visual.
 func (o TemplateBarChartConfigurationPtrOutput) SmallMultiplesOptions() TemplateSmallMultiplesOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateBarChartConfiguration) *TemplateSmallMultiplesOptions {
 		if v == nil {
@@ -15416,7 +15388,7 @@ func (o TemplateBarChartConfigurationPtrOutput) SmallMultiplesOptions() Template
 	}).(TemplateSmallMultiplesOptionsPtrOutput)
 }
 
-// sort-configuration-description
+// The sort configuration of a `BarChartVisual` .
 func (o TemplateBarChartConfigurationPtrOutput) SortConfiguration() TemplateBarChartSortConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateBarChartConfiguration) *TemplateBarChartSortConfiguration {
 		if v == nil {
@@ -15426,7 +15398,7 @@ func (o TemplateBarChartConfigurationPtrOutput) SortConfiguration() TemplateBarC
 	}).(TemplateBarChartSortConfigurationPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The tooltip display setup of the visual.
 func (o TemplateBarChartConfigurationPtrOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateBarChartConfiguration) *TemplateTooltipOptions {
 		if v == nil {
@@ -15436,7 +15408,7 @@ func (o TemplateBarChartConfigurationPtrOutput) Tooltip() TemplateTooltipOptions
 	}).(TemplateTooltipOptionsPtrOutput)
 }
 
-// The display options for the axis label.
+// The label display options (grid line, range, scale, axis step) for a bar chart value.
 func (o TemplateBarChartConfigurationPtrOutput) ValueAxis() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateBarChartConfiguration) *TemplateAxisDisplayOptions {
 		if v == nil {
@@ -15446,7 +15418,7 @@ func (o TemplateBarChartConfigurationPtrOutput) ValueAxis() TemplateAxisDisplayO
 	}).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options (label text, label visibility and sort icon visibility) for a bar chart value.
 func (o TemplateBarChartConfigurationPtrOutput) ValueLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateBarChartConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -15456,7 +15428,7 @@ func (o TemplateBarChartConfigurationPtrOutput) ValueLabelOptions() TemplateChar
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The visual display options for the visual palette.
+// The palette (chart color) display setup of the visual.
 func (o TemplateBarChartConfigurationPtrOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v *TemplateBarChartConfiguration) *TemplateVisualPalette {
 		if v == nil {
@@ -15606,15 +15578,15 @@ func (o TemplateBarChartFieldWellsPtrOutput) BarChartAggregatedFieldWells() Temp
 }
 
 type TemplateBarChartSortConfiguration struct {
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of categories displayed in a bar chart.
 	CategoryItemsLimit *TemplateItemsLimitConfiguration `pulumi:"categoryItemsLimit"`
-	// The field sort options in a chart configuration.
+	// The sort configuration of category fields.
 	CategorySort []TemplateFieldSortOptions `pulumi:"categorySort"`
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of values displayed in a bar chart.
 	ColorItemsLimit *TemplateItemsLimitConfiguration `pulumi:"colorItemsLimit"`
 	// The sort configuration of color fields in a bar chart.
 	ColorSort []TemplateFieldSortOptions `pulumi:"colorSort"`
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of small multiples panels that are displayed.
 	SmallMultiplesLimitConfiguration *TemplateItemsLimitConfiguration `pulumi:"smallMultiplesLimitConfiguration"`
 	// The sort configuration of the small multiples field.
 	SmallMultiplesSort []TemplateFieldSortOptions `pulumi:"smallMultiplesSort"`
@@ -15632,15 +15604,15 @@ type TemplateBarChartSortConfigurationInput interface {
 }
 
 type TemplateBarChartSortConfigurationArgs struct {
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of categories displayed in a bar chart.
 	CategoryItemsLimit TemplateItemsLimitConfigurationPtrInput `pulumi:"categoryItemsLimit"`
-	// The field sort options in a chart configuration.
+	// The sort configuration of category fields.
 	CategorySort TemplateFieldSortOptionsArrayInput `pulumi:"categorySort"`
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of values displayed in a bar chart.
 	ColorItemsLimit TemplateItemsLimitConfigurationPtrInput `pulumi:"colorItemsLimit"`
 	// The sort configuration of color fields in a bar chart.
 	ColorSort TemplateFieldSortOptionsArrayInput `pulumi:"colorSort"`
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of small multiples panels that are displayed.
 	SmallMultiplesLimitConfiguration TemplateItemsLimitConfigurationPtrInput `pulumi:"smallMultiplesLimitConfiguration"`
 	// The sort configuration of the small multiples field.
 	SmallMultiplesSort TemplateFieldSortOptionsArrayInput `pulumi:"smallMultiplesSort"`
@@ -15723,19 +15695,19 @@ func (o TemplateBarChartSortConfigurationOutput) ToTemplateBarChartSortConfigura
 	}).(TemplateBarChartSortConfigurationPtrOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of categories displayed in a bar chart.
 func (o TemplateBarChartSortConfigurationOutput) CategoryItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateBarChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		return v.CategoryItemsLimit
 	}).(TemplateItemsLimitConfigurationPtrOutput)
 }
 
-// The field sort options in a chart configuration.
+// The sort configuration of category fields.
 func (o TemplateBarChartSortConfigurationOutput) CategorySort() TemplateFieldSortOptionsArrayOutput {
 	return o.ApplyT(func(v TemplateBarChartSortConfiguration) []TemplateFieldSortOptions { return v.CategorySort }).(TemplateFieldSortOptionsArrayOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of values displayed in a bar chart.
 func (o TemplateBarChartSortConfigurationOutput) ColorItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateBarChartSortConfiguration) *TemplateItemsLimitConfiguration { return v.ColorItemsLimit }).(TemplateItemsLimitConfigurationPtrOutput)
 }
@@ -15745,7 +15717,7 @@ func (o TemplateBarChartSortConfigurationOutput) ColorSort() TemplateFieldSortOp
 	return o.ApplyT(func(v TemplateBarChartSortConfiguration) []TemplateFieldSortOptions { return v.ColorSort }).(TemplateFieldSortOptionsArrayOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of small multiples panels that are displayed.
 func (o TemplateBarChartSortConfigurationOutput) SmallMultiplesLimitConfiguration() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateBarChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		return v.SmallMultiplesLimitConfiguration
@@ -15781,7 +15753,7 @@ func (o TemplateBarChartSortConfigurationPtrOutput) Elem() TemplateBarChartSortC
 	}).(TemplateBarChartSortConfigurationOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of categories displayed in a bar chart.
 func (o TemplateBarChartSortConfigurationPtrOutput) CategoryItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateBarChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		if v == nil {
@@ -15791,7 +15763,7 @@ func (o TemplateBarChartSortConfigurationPtrOutput) CategoryItemsLimit() Templat
 	}).(TemplateItemsLimitConfigurationPtrOutput)
 }
 
-// The field sort options in a chart configuration.
+// The sort configuration of category fields.
 func (o TemplateBarChartSortConfigurationPtrOutput) CategorySort() TemplateFieldSortOptionsArrayOutput {
 	return o.ApplyT(func(v *TemplateBarChartSortConfiguration) []TemplateFieldSortOptions {
 		if v == nil {
@@ -15801,7 +15773,7 @@ func (o TemplateBarChartSortConfigurationPtrOutput) CategorySort() TemplateField
 	}).(TemplateFieldSortOptionsArrayOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of values displayed in a bar chart.
 func (o TemplateBarChartSortConfigurationPtrOutput) ColorItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateBarChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		if v == nil {
@@ -15821,7 +15793,7 @@ func (o TemplateBarChartSortConfigurationPtrOutput) ColorSort() TemplateFieldSor
 	}).(TemplateFieldSortOptionsArrayOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of small multiples panels that are displayed.
 func (o TemplateBarChartSortConfigurationPtrOutput) SmallMultiplesLimitConfiguration() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateBarChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		if v == nil {
@@ -15842,15 +15814,15 @@ func (o TemplateBarChartSortConfigurationPtrOutput) SmallMultiplesSort() Templat
 }
 
 type TemplateBarChartVisual struct {
-	// A custom action defined on a visual.
+	// The list of custom actions that are configured for a visual.
 	Actions []TemplateVisualCustomAction `pulumi:"actions"`
-	// The configuration of a `BarChartVisual` .
+	// The configuration settings of the visual.
 	ChartConfiguration *TemplateBarChartConfiguration `pulumi:"chartConfiguration"`
-	// The option that determines the hierarchy of the fields for a visual element.
+	// The column hierarchy that is used during drill-downs and drill-ups.
 	ColumnHierarchies []TemplateColumnHierarchy `pulumi:"columnHierarchies"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
@@ -15868,15 +15840,15 @@ type TemplateBarChartVisualInput interface {
 }
 
 type TemplateBarChartVisualArgs struct {
-	// A custom action defined on a visual.
+	// The list of custom actions that are configured for a visual.
 	Actions TemplateVisualCustomActionArrayInput `pulumi:"actions"`
-	// The configuration of a `BarChartVisual` .
+	// The configuration settings of the visual.
 	ChartConfiguration TemplateBarChartConfigurationPtrInput `pulumi:"chartConfiguration"`
-	// The option that determines the hierarchy of the fields for a visual element.
+	// The column hierarchy that is used during drill-downs and drill-ups.
 	ColumnHierarchies TemplateColumnHierarchyArrayInput `pulumi:"columnHierarchies"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
@@ -15959,27 +15931,27 @@ func (o TemplateBarChartVisualOutput) ToTemplateBarChartVisualPtrOutputWithConte
 	}).(TemplateBarChartVisualPtrOutput)
 }
 
-// A custom action defined on a visual.
+// The list of custom actions that are configured for a visual.
 func (o TemplateBarChartVisualOutput) Actions() TemplateVisualCustomActionArrayOutput {
 	return o.ApplyT(func(v TemplateBarChartVisual) []TemplateVisualCustomAction { return v.Actions }).(TemplateVisualCustomActionArrayOutput)
 }
 
-// The configuration of a `BarChartVisual` .
+// The configuration settings of the visual.
 func (o TemplateBarChartVisualOutput) ChartConfiguration() TemplateBarChartConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateBarChartVisual) *TemplateBarChartConfiguration { return v.ChartConfiguration }).(TemplateBarChartConfigurationPtrOutput)
 }
 
-// The option that determines the hierarchy of the fields for a visual element.
+// The column hierarchy that is used during drill-downs and drill-ups.
 func (o TemplateBarChartVisualOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
 	return o.ApplyT(func(v TemplateBarChartVisual) []TemplateColumnHierarchy { return v.ColumnHierarchies }).(TemplateColumnHierarchyArrayOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateBarChartVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateBarChartVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateBarChartVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateBarChartVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
@@ -16013,7 +15985,7 @@ func (o TemplateBarChartVisualPtrOutput) Elem() TemplateBarChartVisualOutput {
 	}).(TemplateBarChartVisualOutput)
 }
 
-// A custom action defined on a visual.
+// The list of custom actions that are configured for a visual.
 func (o TemplateBarChartVisualPtrOutput) Actions() TemplateVisualCustomActionArrayOutput {
 	return o.ApplyT(func(v *TemplateBarChartVisual) []TemplateVisualCustomAction {
 		if v == nil {
@@ -16023,7 +15995,7 @@ func (o TemplateBarChartVisualPtrOutput) Actions() TemplateVisualCustomActionArr
 	}).(TemplateVisualCustomActionArrayOutput)
 }
 
-// The configuration of a `BarChartVisual` .
+// The configuration settings of the visual.
 func (o TemplateBarChartVisualPtrOutput) ChartConfiguration() TemplateBarChartConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateBarChartVisual) *TemplateBarChartConfiguration {
 		if v == nil {
@@ -16033,7 +16005,7 @@ func (o TemplateBarChartVisualPtrOutput) ChartConfiguration() TemplateBarChartCo
 	}).(TemplateBarChartConfigurationPtrOutput)
 }
 
-// The option that determines the hierarchy of the fields for a visual element.
+// The column hierarchy that is used during drill-downs and drill-ups.
 func (o TemplateBarChartVisualPtrOutput) ColumnHierarchies() TemplateColumnHierarchyArrayOutput {
 	return o.ApplyT(func(v *TemplateBarChartVisual) []TemplateColumnHierarchy {
 		if v == nil {
@@ -16043,7 +16015,7 @@ func (o TemplateBarChartVisualPtrOutput) ColumnHierarchies() TemplateColumnHiera
 	}).(TemplateColumnHierarchyArrayOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateBarChartVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateBarChartVisual) *TemplateVisualSubtitleLabelOptions {
 		if v == nil {
@@ -16053,7 +16025,7 @@ func (o TemplateBarChartVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelO
 	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateBarChartVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateBarChartVisual) *TemplateVisualTitleLabelOptions {
 		if v == nil {
@@ -16373,7 +16345,7 @@ type TemplateBodySectionConfiguration struct {
 	PageBreakConfiguration *TemplateSectionPageBreakConfiguration `pulumi:"pageBreakConfiguration"`
 	// The unique identifier of a body section.
 	SectionId string `pulumi:"sectionId"`
-	// The options that style a section.
+	// The style options of a body section.
 	Style *TemplateSectionStyle `pulumi:"style"`
 }
 
@@ -16395,7 +16367,7 @@ type TemplateBodySectionConfigurationArgs struct {
 	PageBreakConfiguration TemplateSectionPageBreakConfigurationPtrInput `pulumi:"pageBreakConfiguration"`
 	// The unique identifier of a body section.
 	SectionId pulumi.StringInput `pulumi:"sectionId"`
-	// The options that style a section.
+	// The style options of a body section.
 	Style TemplateSectionStylePtrInput `pulumi:"style"`
 }
 
@@ -16467,7 +16439,7 @@ func (o TemplateBodySectionConfigurationOutput) SectionId() pulumi.StringOutput 
 	return o.ApplyT(func(v TemplateBodySectionConfiguration) string { return v.SectionId }).(pulumi.StringOutput)
 }
 
-// The options that style a section.
+// The style options of a body section.
 func (o TemplateBodySectionConfigurationOutput) Style() TemplateSectionStylePtrOutput {
 	return o.ApplyT(func(v TemplateBodySectionConfiguration) *TemplateSectionStyle { return v.Style }).(TemplateSectionStylePtrOutput)
 }
@@ -16493,7 +16465,7 @@ func (o TemplateBodySectionConfigurationArrayOutput) Index(i pulumi.IntInput) Te
 }
 
 type TemplateBodySectionContent struct {
-	// The layout configuration of a section.
+	// The layout configuration of a body section.
 	Layout *TemplateSectionLayoutConfiguration `pulumi:"layout"`
 }
 
@@ -16509,7 +16481,7 @@ type TemplateBodySectionContentInput interface {
 }
 
 type TemplateBodySectionContentArgs struct {
-	// The layout configuration of a section.
+	// The layout configuration of a body section.
 	Layout TemplateSectionLayoutConfigurationPtrInput `pulumi:"layout"`
 }
 
@@ -16539,7 +16511,7 @@ func (o TemplateBodySectionContentOutput) ToTemplateBodySectionContentOutputWith
 	return o
 }
 
-// The layout configuration of a section.
+// The layout configuration of a body section.
 func (o TemplateBodySectionContentOutput) Layout() TemplateSectionLayoutConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateBodySectionContent) *TemplateSectionLayoutConfiguration { return v.Layout }).(TemplateSectionLayoutConfigurationPtrOutput)
 }
@@ -16701,29 +16673,26 @@ func (o TemplateBoxPlotAggregatedFieldWellsPtrOutput) Values() TemplateMeasureFi
 }
 
 type TemplateBoxPlotChartConfiguration struct {
-	// The options of a box plot visual.
+	// The box plot chart options for a box plot visual
 	BoxPlotOptions *TemplateBoxPlotOptions `pulumi:"boxPlotOptions"`
-	// The display options for the axis label.
+	// The label display options (grid line, range, scale, axis step) of a box plot category.
 	CategoryAxis *TemplateAxisDisplayOptions `pulumi:"categoryAxis"`
-	// The label options for an axis on a chart.
+	// The label options (label text, label visibility and sort Icon visibility) of a box plot category.
 	CategoryLabelOptions *TemplateChartAxisLabelOptions `pulumi:"categoryLabelOptions"`
-	// The field wells of a `BoxPlotVisual` .
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The field wells of the visual.
 	FieldWells *TemplateBoxPlotFieldWells `pulumi:"fieldWells"`
-	// The options for the legend setup of a visual.
-	Legend *TemplateLegendOptions `pulumi:"legend"`
-	// The display options for the axis label.
+	Legend     *TemplateLegendOptions     `pulumi:"legend"`
+	// The label display options (grid line, range, scale, axis step) of a box plot category.
 	PrimaryYAxisDisplayOptions *TemplateAxisDisplayOptions `pulumi:"primaryYAxisDisplayOptions"`
-	// The label options for an axis on a chart.
+	// The label options (label text, label visibility and sort icon visibility) of a box plot value.
 	PrimaryYAxisLabelOptions *TemplateChartAxisLabelOptions `pulumi:"primaryYAxisLabelOptions"`
 	// The reference line setup of the visual.
 	ReferenceLines []TemplateReferenceLine `pulumi:"referenceLines"`
 	// The sort configuration of a `BoxPlotVisual` .
 	SortConfiguration *TemplateBoxPlotSortConfiguration `pulumi:"sortConfiguration"`
-	// The display options for the visual tooltip.
+	// The tooltip display setup of the visual.
 	Tooltip *TemplateTooltipOptions `pulumi:"tooltip"`
-	// The visual display options for the visual palette.
+	// The palette (chart color) display setup of the visual.
 	VisualPalette *TemplateVisualPalette `pulumi:"visualPalette"`
 }
 
@@ -16739,29 +16708,26 @@ type TemplateBoxPlotChartConfigurationInput interface {
 }
 
 type TemplateBoxPlotChartConfigurationArgs struct {
-	// The options of a box plot visual.
+	// The box plot chart options for a box plot visual
 	BoxPlotOptions TemplateBoxPlotOptionsPtrInput `pulumi:"boxPlotOptions"`
-	// The display options for the axis label.
+	// The label display options (grid line, range, scale, axis step) of a box plot category.
 	CategoryAxis TemplateAxisDisplayOptionsPtrInput `pulumi:"categoryAxis"`
-	// The label options for an axis on a chart.
+	// The label options (label text, label visibility and sort Icon visibility) of a box plot category.
 	CategoryLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"categoryLabelOptions"`
-	// The field wells of a `BoxPlotVisual` .
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The field wells of the visual.
 	FieldWells TemplateBoxPlotFieldWellsPtrInput `pulumi:"fieldWells"`
-	// The options for the legend setup of a visual.
-	Legend TemplateLegendOptionsPtrInput `pulumi:"legend"`
-	// The display options for the axis label.
+	Legend     TemplateLegendOptionsPtrInput     `pulumi:"legend"`
+	// The label display options (grid line, range, scale, axis step) of a box plot category.
 	PrimaryYAxisDisplayOptions TemplateAxisDisplayOptionsPtrInput `pulumi:"primaryYAxisDisplayOptions"`
-	// The label options for an axis on a chart.
+	// The label options (label text, label visibility and sort icon visibility) of a box plot value.
 	PrimaryYAxisLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"primaryYAxisLabelOptions"`
 	// The reference line setup of the visual.
 	ReferenceLines TemplateReferenceLineArrayInput `pulumi:"referenceLines"`
 	// The sort configuration of a `BoxPlotVisual` .
 	SortConfiguration TemplateBoxPlotSortConfigurationPtrInput `pulumi:"sortConfiguration"`
-	// The display options for the visual tooltip.
+	// The tooltip display setup of the visual.
 	Tooltip TemplateTooltipOptionsPtrInput `pulumi:"tooltip"`
-	// The visual display options for the visual palette.
+	// The palette (chart color) display setup of the visual.
 	VisualPalette TemplateVisualPalettePtrInput `pulumi:"visualPalette"`
 }
 
@@ -16842,43 +16808,40 @@ func (o TemplateBoxPlotChartConfigurationOutput) ToTemplateBoxPlotChartConfigura
 	}).(TemplateBoxPlotChartConfigurationPtrOutput)
 }
 
-// The options of a box plot visual.
+// The box plot chart options for a box plot visual
 func (o TemplateBoxPlotChartConfigurationOutput) BoxPlotOptions() TemplateBoxPlotOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateBoxPlotChartConfiguration) *TemplateBoxPlotOptions { return v.BoxPlotOptions }).(TemplateBoxPlotOptionsPtrOutput)
 }
 
-// The display options for the axis label.
+// The label display options (grid line, range, scale, axis step) of a box plot category.
 func (o TemplateBoxPlotChartConfigurationOutput) CategoryAxis() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateBoxPlotChartConfiguration) *TemplateAxisDisplayOptions { return v.CategoryAxis }).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options (label text, label visibility and sort Icon visibility) of a box plot category.
 func (o TemplateBoxPlotChartConfigurationOutput) CategoryLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateBoxPlotChartConfiguration) *TemplateChartAxisLabelOptions {
 		return v.CategoryLabelOptions
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The field wells of a `BoxPlotVisual` .
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The field wells of the visual.
 func (o TemplateBoxPlotChartConfigurationOutput) FieldWells() TemplateBoxPlotFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplateBoxPlotChartConfiguration) *TemplateBoxPlotFieldWells { return v.FieldWells }).(TemplateBoxPlotFieldWellsPtrOutput)
 }
 
-// The options for the legend setup of a visual.
 func (o TemplateBoxPlotChartConfigurationOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateBoxPlotChartConfiguration) *TemplateLegendOptions { return v.Legend }).(TemplateLegendOptionsPtrOutput)
 }
 
-// The display options for the axis label.
+// The label display options (grid line, range, scale, axis step) of a box plot category.
 func (o TemplateBoxPlotChartConfigurationOutput) PrimaryYAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateBoxPlotChartConfiguration) *TemplateAxisDisplayOptions {
 		return v.PrimaryYAxisDisplayOptions
 	}).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options (label text, label visibility and sort icon visibility) of a box plot value.
 func (o TemplateBoxPlotChartConfigurationOutput) PrimaryYAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateBoxPlotChartConfiguration) *TemplateChartAxisLabelOptions {
 		return v.PrimaryYAxisLabelOptions
@@ -16897,12 +16860,12 @@ func (o TemplateBoxPlotChartConfigurationOutput) SortConfiguration() TemplateBox
 	}).(TemplateBoxPlotSortConfigurationPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The tooltip display setup of the visual.
 func (o TemplateBoxPlotChartConfigurationOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateBoxPlotChartConfiguration) *TemplateTooltipOptions { return v.Tooltip }).(TemplateTooltipOptionsPtrOutput)
 }
 
-// The visual display options for the visual palette.
+// The palette (chart color) display setup of the visual.
 func (o TemplateBoxPlotChartConfigurationOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v TemplateBoxPlotChartConfiguration) *TemplateVisualPalette { return v.VisualPalette }).(TemplateVisualPalettePtrOutput)
 }
@@ -16931,7 +16894,7 @@ func (o TemplateBoxPlotChartConfigurationPtrOutput) Elem() TemplateBoxPlotChartC
 	}).(TemplateBoxPlotChartConfigurationOutput)
 }
 
-// The options of a box plot visual.
+// The box plot chart options for a box plot visual
 func (o TemplateBoxPlotChartConfigurationPtrOutput) BoxPlotOptions() TemplateBoxPlotOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateBoxPlotChartConfiguration) *TemplateBoxPlotOptions {
 		if v == nil {
@@ -16941,7 +16904,7 @@ func (o TemplateBoxPlotChartConfigurationPtrOutput) BoxPlotOptions() TemplateBox
 	}).(TemplateBoxPlotOptionsPtrOutput)
 }
 
-// The display options for the axis label.
+// The label display options (grid line, range, scale, axis step) of a box plot category.
 func (o TemplateBoxPlotChartConfigurationPtrOutput) CategoryAxis() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateBoxPlotChartConfiguration) *TemplateAxisDisplayOptions {
 		if v == nil {
@@ -16951,7 +16914,7 @@ func (o TemplateBoxPlotChartConfigurationPtrOutput) CategoryAxis() TemplateAxisD
 	}).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options (label text, label visibility and sort Icon visibility) of a box plot category.
 func (o TemplateBoxPlotChartConfigurationPtrOutput) CategoryLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateBoxPlotChartConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -16961,9 +16924,7 @@ func (o TemplateBoxPlotChartConfigurationPtrOutput) CategoryLabelOptions() Templ
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The field wells of a `BoxPlotVisual` .
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The field wells of the visual.
 func (o TemplateBoxPlotChartConfigurationPtrOutput) FieldWells() TemplateBoxPlotFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplateBoxPlotChartConfiguration) *TemplateBoxPlotFieldWells {
 		if v == nil {
@@ -16973,7 +16934,6 @@ func (o TemplateBoxPlotChartConfigurationPtrOutput) FieldWells() TemplateBoxPlot
 	}).(TemplateBoxPlotFieldWellsPtrOutput)
 }
 
-// The options for the legend setup of a visual.
 func (o TemplateBoxPlotChartConfigurationPtrOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateBoxPlotChartConfiguration) *TemplateLegendOptions {
 		if v == nil {
@@ -16983,7 +16943,7 @@ func (o TemplateBoxPlotChartConfigurationPtrOutput) Legend() TemplateLegendOptio
 	}).(TemplateLegendOptionsPtrOutput)
 }
 
-// The display options for the axis label.
+// The label display options (grid line, range, scale, axis step) of a box plot category.
 func (o TemplateBoxPlotChartConfigurationPtrOutput) PrimaryYAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateBoxPlotChartConfiguration) *TemplateAxisDisplayOptions {
 		if v == nil {
@@ -16993,7 +16953,7 @@ func (o TemplateBoxPlotChartConfigurationPtrOutput) PrimaryYAxisDisplayOptions()
 	}).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options (label text, label visibility and sort icon visibility) of a box plot value.
 func (o TemplateBoxPlotChartConfigurationPtrOutput) PrimaryYAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateBoxPlotChartConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -17023,7 +16983,7 @@ func (o TemplateBoxPlotChartConfigurationPtrOutput) SortConfiguration() Template
 	}).(TemplateBoxPlotSortConfigurationPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The tooltip display setup of the visual.
 func (o TemplateBoxPlotChartConfigurationPtrOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateBoxPlotChartConfiguration) *TemplateTooltipOptions {
 		if v == nil {
@@ -17033,7 +16993,7 @@ func (o TemplateBoxPlotChartConfigurationPtrOutput) Tooltip() TemplateTooltipOpt
 	}).(TemplateTooltipOptionsPtrOutput)
 }
 
-// The visual display options for the visual palette.
+// The palette (chart color) display setup of the visual.
 func (o TemplateBoxPlotChartConfigurationPtrOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v *TemplateBoxPlotChartConfiguration) *TemplateVisualPalette {
 		if v == nil {
@@ -17044,7 +17004,7 @@ func (o TemplateBoxPlotChartConfigurationPtrOutput) VisualPalette() TemplateVisu
 }
 
 type TemplateBoxPlotFieldWells struct {
-	// The aggregated field well for a box plot.
+	// The aggregated field wells of a box plot.
 	BoxPlotAggregatedFieldWells *TemplateBoxPlotAggregatedFieldWells `pulumi:"boxPlotAggregatedFieldWells"`
 }
 
@@ -17060,7 +17020,7 @@ type TemplateBoxPlotFieldWellsInput interface {
 }
 
 type TemplateBoxPlotFieldWellsArgs struct {
-	// The aggregated field well for a box plot.
+	// The aggregated field wells of a box plot.
 	BoxPlotAggregatedFieldWells TemplateBoxPlotAggregatedFieldWellsPtrInput `pulumi:"boxPlotAggregatedFieldWells"`
 }
 
@@ -17141,7 +17101,7 @@ func (o TemplateBoxPlotFieldWellsOutput) ToTemplateBoxPlotFieldWellsPtrOutputWit
 	}).(TemplateBoxPlotFieldWellsPtrOutput)
 }
 
-// The aggregated field well for a box plot.
+// The aggregated field wells of a box plot.
 func (o TemplateBoxPlotFieldWellsOutput) BoxPlotAggregatedFieldWells() TemplateBoxPlotAggregatedFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplateBoxPlotFieldWells) *TemplateBoxPlotAggregatedFieldWells {
 		return v.BoxPlotAggregatedFieldWells
@@ -17172,7 +17132,7 @@ func (o TemplateBoxPlotFieldWellsPtrOutput) Elem() TemplateBoxPlotFieldWellsOutp
 	}).(TemplateBoxPlotFieldWellsOutput)
 }
 
-// The aggregated field well for a box plot.
+// The aggregated field wells of a box plot.
 func (o TemplateBoxPlotFieldWellsPtrOutput) BoxPlotAggregatedFieldWells() TemplateBoxPlotAggregatedFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplateBoxPlotFieldWells) *TemplateBoxPlotAggregatedFieldWells {
 		if v == nil {
@@ -17360,7 +17320,7 @@ func (o TemplateBoxPlotOptionsPtrOutput) StyleOptions() TemplateBoxPlotStyleOpti
 type TemplateBoxPlotSortConfiguration struct {
 	// The sort configuration of a group by fields.
 	CategorySort []TemplateFieldSortOptions `pulumi:"categorySort"`
-	// The pagination configuration for a table visual or boxplot.
+	// The pagination configuration of a table visual or box plot.
 	PaginationConfiguration *TemplatePaginationConfiguration `pulumi:"paginationConfiguration"`
 }
 
@@ -17378,7 +17338,7 @@ type TemplateBoxPlotSortConfigurationInput interface {
 type TemplateBoxPlotSortConfigurationArgs struct {
 	// The sort configuration of a group by fields.
 	CategorySort TemplateFieldSortOptionsArrayInput `pulumi:"categorySort"`
-	// The pagination configuration for a table visual or boxplot.
+	// The pagination configuration of a table visual or box plot.
 	PaginationConfiguration TemplatePaginationConfigurationPtrInput `pulumi:"paginationConfiguration"`
 }
 
@@ -17464,7 +17424,7 @@ func (o TemplateBoxPlotSortConfigurationOutput) CategorySort() TemplateFieldSort
 	return o.ApplyT(func(v TemplateBoxPlotSortConfiguration) []TemplateFieldSortOptions { return v.CategorySort }).(TemplateFieldSortOptionsArrayOutput)
 }
 
-// The pagination configuration for a table visual or boxplot.
+// The pagination configuration of a table visual or box plot.
 func (o TemplateBoxPlotSortConfigurationOutput) PaginationConfiguration() TemplatePaginationConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateBoxPlotSortConfiguration) *TemplatePaginationConfiguration {
 		return v.PaginationConfiguration
@@ -17505,7 +17465,7 @@ func (o TemplateBoxPlotSortConfigurationPtrOutput) CategorySort() TemplateFieldS
 	}).(TemplateFieldSortOptionsArrayOutput)
 }
 
-// The pagination configuration for a table visual or boxplot.
+// The pagination configuration of a table visual or box plot.
 func (o TemplateBoxPlotSortConfigurationPtrOutput) PaginationConfiguration() TemplatePaginationConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateBoxPlotSortConfiguration) *TemplatePaginationConfiguration {
 		if v == nil {
@@ -17655,13 +17615,13 @@ func (o TemplateBoxPlotStyleOptionsPtrOutput) FillStyle() TemplateBoxPlotFillSty
 type TemplateBoxPlotVisual struct {
 	// The list of custom actions that are configured for a visual.
 	Actions []TemplateVisualCustomAction `pulumi:"actions"`
-	// The configuration of a `BoxPlotVisual` .
+	// The configuration settings of the visual.
 	ChartConfiguration *TemplateBoxPlotChartConfiguration `pulumi:"chartConfiguration"`
 	// The column hierarchy that is used during drill-downs and drill-ups.
 	ColumnHierarchies []TemplateColumnHierarchy `pulumi:"columnHierarchies"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId string `pulumi:"visualId"`
@@ -17681,13 +17641,13 @@ type TemplateBoxPlotVisualInput interface {
 type TemplateBoxPlotVisualArgs struct {
 	// The list of custom actions that are configured for a visual.
 	Actions TemplateVisualCustomActionArrayInput `pulumi:"actions"`
-	// The configuration of a `BoxPlotVisual` .
+	// The configuration settings of the visual.
 	ChartConfiguration TemplateBoxPlotChartConfigurationPtrInput `pulumi:"chartConfiguration"`
 	// The column hierarchy that is used during drill-downs and drill-ups.
 	ColumnHierarchies TemplateColumnHierarchyArrayInput `pulumi:"columnHierarchies"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId pulumi.StringInput `pulumi:"visualId"`
@@ -17775,7 +17735,7 @@ func (o TemplateBoxPlotVisualOutput) Actions() TemplateVisualCustomActionArrayOu
 	return o.ApplyT(func(v TemplateBoxPlotVisual) []TemplateVisualCustomAction { return v.Actions }).(TemplateVisualCustomActionArrayOutput)
 }
 
-// The configuration of a `BoxPlotVisual` .
+// The configuration settings of the visual.
 func (o TemplateBoxPlotVisualOutput) ChartConfiguration() TemplateBoxPlotChartConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateBoxPlotVisual) *TemplateBoxPlotChartConfiguration { return v.ChartConfiguration }).(TemplateBoxPlotChartConfigurationPtrOutput)
 }
@@ -17785,12 +17745,12 @@ func (o TemplateBoxPlotVisualOutput) ColumnHierarchies() TemplateColumnHierarchy
 	return o.ApplyT(func(v TemplateBoxPlotVisual) []TemplateColumnHierarchy { return v.ColumnHierarchies }).(TemplateColumnHierarchyArrayOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateBoxPlotVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateBoxPlotVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateBoxPlotVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateBoxPlotVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
@@ -17834,7 +17794,7 @@ func (o TemplateBoxPlotVisualPtrOutput) Actions() TemplateVisualCustomActionArra
 	}).(TemplateVisualCustomActionArrayOutput)
 }
 
-// The configuration of a `BoxPlotVisual` .
+// The configuration settings of the visual.
 func (o TemplateBoxPlotVisualPtrOutput) ChartConfiguration() TemplateBoxPlotChartConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateBoxPlotVisual) *TemplateBoxPlotChartConfiguration {
 		if v == nil {
@@ -17854,7 +17814,7 @@ func (o TemplateBoxPlotVisualPtrOutput) ColumnHierarchies() TemplateColumnHierar
 	}).(TemplateColumnHierarchyArrayOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateBoxPlotVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateBoxPlotVisual) *TemplateVisualSubtitleLabelOptions {
 		if v == nil {
@@ -17864,7 +17824,7 @@ func (o TemplateBoxPlotVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOp
 	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateBoxPlotVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateBoxPlotVisual) *TemplateVisualTitleLabelOptions {
 		if v == nil {
@@ -18156,7 +18116,7 @@ func (o TemplateCalculatedMeasureFieldPtrOutput) FieldId() pulumi.StringPtrOutpu
 }
 
 type TemplateCascadingControlConfiguration struct {
-	// The source controls that are used in a `CascadingControlConfiguration` .
+	// A list of source controls that determine the values that are used in the current control.
 	SourceControls []TemplateCascadingControlSource `pulumi:"sourceControls"`
 }
 
@@ -18172,7 +18132,7 @@ type TemplateCascadingControlConfigurationInput interface {
 }
 
 type TemplateCascadingControlConfigurationArgs struct {
-	// The source controls that are used in a `CascadingControlConfiguration` .
+	// A list of source controls that determine the values that are used in the current control.
 	SourceControls TemplateCascadingControlSourceArrayInput `pulumi:"sourceControls"`
 }
 
@@ -18253,7 +18213,7 @@ func (o TemplateCascadingControlConfigurationOutput) ToTemplateCascadingControlC
 	}).(TemplateCascadingControlConfigurationPtrOutput)
 }
 
-// The source controls that are used in a `CascadingControlConfiguration` .
+// A list of source controls that determine the values that are used in the current control.
 func (o TemplateCascadingControlConfigurationOutput) SourceControls() TemplateCascadingControlSourceArrayOutput {
 	return o.ApplyT(func(v TemplateCascadingControlConfiguration) []TemplateCascadingControlSource {
 		return v.SourceControls
@@ -18284,7 +18244,7 @@ func (o TemplateCascadingControlConfigurationPtrOutput) Elem() TemplateCascading
 	}).(TemplateCascadingControlConfigurationOutput)
 }
 
-// The source controls that are used in a `CascadingControlConfiguration` .
+// A list of source controls that determine the values that are used in the current control.
 func (o TemplateCascadingControlConfigurationPtrOutput) SourceControls() TemplateCascadingControlSourceArrayOutput {
 	return o.ApplyT(func(v *TemplateCascadingControlConfiguration) []TemplateCascadingControlSource {
 		if v == nil {
@@ -18295,7 +18255,7 @@ func (o TemplateCascadingControlConfigurationPtrOutput) SourceControls() Templat
 }
 
 type TemplateCascadingControlSource struct {
-	// A column of a data set.
+	// The column identifier that determines which column to look up for the source sheet control.
 	ColumnToMatch *TemplateColumnIdentifier `pulumi:"columnToMatch"`
 	// The source sheet control ID of a `CascadingControlSource` .
 	SourceSheetControlId *string `pulumi:"sourceSheetControlId"`
@@ -18313,7 +18273,7 @@ type TemplateCascadingControlSourceInput interface {
 }
 
 type TemplateCascadingControlSourceArgs struct {
-	// A column of a data set.
+	// The column identifier that determines which column to look up for the source sheet control.
 	ColumnToMatch TemplateColumnIdentifierPtrInput `pulumi:"columnToMatch"`
 	// The source sheet control ID of a `CascadingControlSource` .
 	SourceSheetControlId pulumi.StringPtrInput `pulumi:"sourceSheetControlId"`
@@ -18370,7 +18330,7 @@ func (o TemplateCascadingControlSourceOutput) ToTemplateCascadingControlSourceOu
 	return o
 }
 
-// A column of a data set.
+// The column identifier that determines which column to look up for the source sheet control.
 func (o TemplateCascadingControlSourceOutput) ColumnToMatch() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v TemplateCascadingControlSource) *TemplateColumnIdentifier { return v.ColumnToMatch }).(TemplateColumnIdentifierPtrOutput)
 }
@@ -18401,11 +18361,11 @@ func (o TemplateCascadingControlSourceArrayOutput) Index(i pulumi.IntInput) Temp
 }
 
 type TemplateCategoricalDimensionField struct {
-	// A column of a data set.
+	// The column that is used in the `CategoricalDimensionField` .
 	Column TemplateColumnIdentifier `pulumi:"column"`
 	// The custom field ID.
 	FieldId string `pulumi:"fieldId"`
-	// Formatting configuration for string fields.
+	// The format configuration of the field.
 	FormatConfiguration *TemplateStringFormatConfiguration `pulumi:"formatConfiguration"`
 	// The custom hierarchy ID.
 	HierarchyId *string `pulumi:"hierarchyId"`
@@ -18423,11 +18383,11 @@ type TemplateCategoricalDimensionFieldInput interface {
 }
 
 type TemplateCategoricalDimensionFieldArgs struct {
-	// A column of a data set.
+	// The column that is used in the `CategoricalDimensionField` .
 	Column TemplateColumnIdentifierInput `pulumi:"column"`
 	// The custom field ID.
 	FieldId pulumi.StringInput `pulumi:"fieldId"`
-	// Formatting configuration for string fields.
+	// The format configuration of the field.
 	FormatConfiguration TemplateStringFormatConfigurationPtrInput `pulumi:"formatConfiguration"`
 	// The custom hierarchy ID.
 	HierarchyId pulumi.StringPtrInput `pulumi:"hierarchyId"`
@@ -18510,7 +18470,7 @@ func (o TemplateCategoricalDimensionFieldOutput) ToTemplateCategoricalDimensionF
 	}).(TemplateCategoricalDimensionFieldPtrOutput)
 }
 
-// A column of a data set.
+// The column that is used in the `CategoricalDimensionField` .
 func (o TemplateCategoricalDimensionFieldOutput) Column() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateCategoricalDimensionField) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
 }
@@ -18520,7 +18480,7 @@ func (o TemplateCategoricalDimensionFieldOutput) FieldId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateCategoricalDimensionField) string { return v.FieldId }).(pulumi.StringOutput)
 }
 
-// Formatting configuration for string fields.
+// The format configuration of the field.
 func (o TemplateCategoricalDimensionFieldOutput) FormatConfiguration() TemplateStringFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateCategoricalDimensionField) *TemplateStringFormatConfiguration {
 		return v.FormatConfiguration
@@ -18556,7 +18516,7 @@ func (o TemplateCategoricalDimensionFieldPtrOutput) Elem() TemplateCategoricalDi
 	}).(TemplateCategoricalDimensionFieldOutput)
 }
 
-// A column of a data set.
+// The column that is used in the `CategoricalDimensionField` .
 func (o TemplateCategoricalDimensionFieldPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateCategoricalDimensionField) *TemplateColumnIdentifier {
 		if v == nil {
@@ -18576,7 +18536,7 @@ func (o TemplateCategoricalDimensionFieldPtrOutput) FieldId() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Formatting configuration for string fields.
+// The format configuration of the field.
 func (o TemplateCategoricalDimensionFieldPtrOutput) FormatConfiguration() TemplateStringFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateCategoricalDimensionField) *TemplateStringFormatConfiguration {
 		if v == nil {
@@ -18599,11 +18559,11 @@ func (o TemplateCategoricalDimensionFieldPtrOutput) HierarchyId() pulumi.StringP
 type TemplateCategoricalMeasureField struct {
 	// The aggregation function of the measure field.
 	AggregationFunction *TemplateCategoricalAggregationFunction `pulumi:"aggregationFunction"`
-	// A column of a data set.
+	// The column that is used in the `CategoricalMeasureField` .
 	Column TemplateColumnIdentifier `pulumi:"column"`
 	// The custom field ID.
 	FieldId string `pulumi:"fieldId"`
-	// Formatting configuration for string fields.
+	// The format configuration of the field.
 	FormatConfiguration *TemplateStringFormatConfiguration `pulumi:"formatConfiguration"`
 }
 
@@ -18621,11 +18581,11 @@ type TemplateCategoricalMeasureFieldInput interface {
 type TemplateCategoricalMeasureFieldArgs struct {
 	// The aggregation function of the measure field.
 	AggregationFunction TemplateCategoricalAggregationFunctionPtrInput `pulumi:"aggregationFunction"`
-	// A column of a data set.
+	// The column that is used in the `CategoricalMeasureField` .
 	Column TemplateColumnIdentifierInput `pulumi:"column"`
 	// The custom field ID.
 	FieldId pulumi.StringInput `pulumi:"fieldId"`
-	// Formatting configuration for string fields.
+	// The format configuration of the field.
 	FormatConfiguration TemplateStringFormatConfigurationPtrInput `pulumi:"formatConfiguration"`
 }
 
@@ -18713,7 +18673,7 @@ func (o TemplateCategoricalMeasureFieldOutput) AggregationFunction() TemplateCat
 	}).(TemplateCategoricalAggregationFunctionPtrOutput)
 }
 
-// A column of a data set.
+// The column that is used in the `CategoricalMeasureField` .
 func (o TemplateCategoricalMeasureFieldOutput) Column() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateCategoricalMeasureField) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
 }
@@ -18723,7 +18683,7 @@ func (o TemplateCategoricalMeasureFieldOutput) FieldId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateCategoricalMeasureField) string { return v.FieldId }).(pulumi.StringOutput)
 }
 
-// Formatting configuration for string fields.
+// The format configuration of the field.
 func (o TemplateCategoricalMeasureFieldOutput) FormatConfiguration() TemplateStringFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateCategoricalMeasureField) *TemplateStringFormatConfiguration {
 		return v.FormatConfiguration
@@ -18764,7 +18724,7 @@ func (o TemplateCategoricalMeasureFieldPtrOutput) AggregationFunction() Template
 	}).(TemplateCategoricalAggregationFunctionPtrOutput)
 }
 
-// A column of a data set.
+// The column that is used in the `CategoricalMeasureField` .
 func (o TemplateCategoricalMeasureFieldPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateCategoricalMeasureField) *TemplateColumnIdentifier {
 		if v == nil {
@@ -18784,7 +18744,7 @@ func (o TemplateCategoricalMeasureFieldPtrOutput) FieldId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Formatting configuration for string fields.
+// The format configuration of the field.
 func (o TemplateCategoricalMeasureFieldPtrOutput) FormatConfiguration() TemplateStringFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateCategoricalMeasureField) *TemplateStringFormatConfiguration {
 		if v == nil {
@@ -18797,7 +18757,7 @@ func (o TemplateCategoricalMeasureFieldPtrOutput) FormatConfiguration() Template
 type TemplateCategoryDrillDownFilter struct {
 	// A list of the string inputs that are the values of the category drill down filter.
 	CategoryValues []string `pulumi:"categoryValues"`
-	// A column of a data set.
+	// The column that the filter is applied to.
 	Column TemplateColumnIdentifier `pulumi:"column"`
 }
 
@@ -18815,7 +18775,7 @@ type TemplateCategoryDrillDownFilterInput interface {
 type TemplateCategoryDrillDownFilterArgs struct {
 	// A list of the string inputs that are the values of the category drill down filter.
 	CategoryValues pulumi.StringArrayInput `pulumi:"categoryValues"`
-	// A column of a data set.
+	// The column that the filter is applied to.
 	Column TemplateColumnIdentifierInput `pulumi:"column"`
 }
 
@@ -18901,7 +18861,7 @@ func (o TemplateCategoryDrillDownFilterOutput) CategoryValues() pulumi.StringArr
 	return o.ApplyT(func(v TemplateCategoryDrillDownFilter) []string { return v.CategoryValues }).(pulumi.StringArrayOutput)
 }
 
-// A column of a data set.
+// The column that the filter is applied to.
 func (o TemplateCategoryDrillDownFilterOutput) Column() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateCategoryDrillDownFilter) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
 }
@@ -18940,7 +18900,7 @@ func (o TemplateCategoryDrillDownFilterPtrOutput) CategoryValues() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
-// A column of a data set.
+// The column that the filter is applied to.
 func (o TemplateCategoryDrillDownFilterPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateCategoryDrillDownFilter) *TemplateColumnIdentifier {
 		if v == nil {
@@ -18951,13 +18911,11 @@ func (o TemplateCategoryDrillDownFilterPtrOutput) Column() TemplateColumnIdentif
 }
 
 type TemplateCategoryFilter struct {
-	// A column of a data set.
+	// The column that the filter is applied to.
 	Column TemplateColumnIdentifier `pulumi:"column"`
 	// The configuration for a `CategoryFilter` .
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	Configuration TemplateCategoryFilterConfiguration `pulumi:"configuration"`
-	// The default configuration for all dependent controls of the filter.
+	// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
 	DefaultFilterControlConfiguration *TemplateDefaultFilterControlConfiguration `pulumi:"defaultFilterControlConfiguration"`
 	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
 	FilterId string `pulumi:"filterId"`
@@ -18975,13 +18933,11 @@ type TemplateCategoryFilterInput interface {
 }
 
 type TemplateCategoryFilterArgs struct {
-	// A column of a data set.
+	// The column that the filter is applied to.
 	Column TemplateColumnIdentifierInput `pulumi:"column"`
 	// The configuration for a `CategoryFilter` .
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	Configuration TemplateCategoryFilterConfigurationInput `pulumi:"configuration"`
-	// The default configuration for all dependent controls of the filter.
+	// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
 	DefaultFilterControlConfiguration TemplateDefaultFilterControlConfigurationPtrInput `pulumi:"defaultFilterControlConfiguration"`
 	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
 	FilterId pulumi.StringInput `pulumi:"filterId"`
@@ -19064,19 +19020,17 @@ func (o TemplateCategoryFilterOutput) ToTemplateCategoryFilterPtrOutputWithConte
 	}).(TemplateCategoryFilterPtrOutput)
 }
 
-// A column of a data set.
+// The column that the filter is applied to.
 func (o TemplateCategoryFilterOutput) Column() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateCategoryFilter) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
 }
 
 // The configuration for a `CategoryFilter` .
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateCategoryFilterOutput) Configuration() TemplateCategoryFilterConfigurationOutput {
 	return o.ApplyT(func(v TemplateCategoryFilter) TemplateCategoryFilterConfiguration { return v.Configuration }).(TemplateCategoryFilterConfigurationOutput)
 }
 
-// The default configuration for all dependent controls of the filter.
+// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
 func (o TemplateCategoryFilterOutput) DefaultFilterControlConfiguration() TemplateDefaultFilterControlConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateCategoryFilter) *TemplateDefaultFilterControlConfiguration {
 		return v.DefaultFilterControlConfiguration
@@ -19112,7 +19066,7 @@ func (o TemplateCategoryFilterPtrOutput) Elem() TemplateCategoryFilterOutput {
 	}).(TemplateCategoryFilterOutput)
 }
 
-// A column of a data set.
+// The column that the filter is applied to.
 func (o TemplateCategoryFilterPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateCategoryFilter) *TemplateColumnIdentifier {
 		if v == nil {
@@ -19123,8 +19077,6 @@ func (o TemplateCategoryFilterPtrOutput) Column() TemplateColumnIdentifierPtrOut
 }
 
 // The configuration for a `CategoryFilter` .
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateCategoryFilterPtrOutput) Configuration() TemplateCategoryFilterConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateCategoryFilter) *TemplateCategoryFilterConfiguration {
 		if v == nil {
@@ -19134,7 +19086,7 @@ func (o TemplateCategoryFilterPtrOutput) Configuration() TemplateCategoryFilterC
 	}).(TemplateCategoryFilterConfigurationPtrOutput)
 }
 
-// The default configuration for all dependent controls of the filter.
+// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
 func (o TemplateCategoryFilterPtrOutput) DefaultFilterControlConfiguration() TemplateDefaultFilterControlConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateCategoryFilter) *TemplateDefaultFilterControlConfiguration {
 		if v == nil {
@@ -19157,9 +19109,9 @@ func (o TemplateCategoryFilterPtrOutput) FilterId() pulumi.StringPtrOutput {
 type TemplateCategoryFilterConfiguration struct {
 	// A custom filter that filters based on a single value. This filter can be partially matched.
 	CustomFilterConfiguration *TemplateCustomFilterConfiguration `pulumi:"customFilterConfiguration"`
-	// A list of custom filter values.
+	// A list of custom filter values. In the Amazon QuickSight console, this filter type is called a custom filter list.
 	CustomFilterListConfiguration *TemplateCustomFilterListConfiguration `pulumi:"customFilterListConfiguration"`
-	// A list of filter configurations.
+	// A list of filter configurations. In the Amazon QuickSight console, this filter type is called a filter list.
 	FilterListConfiguration *TemplateFilterListConfiguration `pulumi:"filterListConfiguration"`
 }
 
@@ -19177,9 +19129,9 @@ type TemplateCategoryFilterConfigurationInput interface {
 type TemplateCategoryFilterConfigurationArgs struct {
 	// A custom filter that filters based on a single value. This filter can be partially matched.
 	CustomFilterConfiguration TemplateCustomFilterConfigurationPtrInput `pulumi:"customFilterConfiguration"`
-	// A list of custom filter values.
+	// A list of custom filter values. In the Amazon QuickSight console, this filter type is called a custom filter list.
 	CustomFilterListConfiguration TemplateCustomFilterListConfigurationPtrInput `pulumi:"customFilterListConfiguration"`
-	// A list of filter configurations.
+	// A list of filter configurations. In the Amazon QuickSight console, this filter type is called a filter list.
 	FilterListConfiguration TemplateFilterListConfigurationPtrInput `pulumi:"filterListConfiguration"`
 }
 
@@ -19267,14 +19219,14 @@ func (o TemplateCategoryFilterConfigurationOutput) CustomFilterConfiguration() T
 	}).(TemplateCustomFilterConfigurationPtrOutput)
 }
 
-// A list of custom filter values.
+// A list of custom filter values. In the Amazon QuickSight console, this filter type is called a custom filter list.
 func (o TemplateCategoryFilterConfigurationOutput) CustomFilterListConfiguration() TemplateCustomFilterListConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateCategoryFilterConfiguration) *TemplateCustomFilterListConfiguration {
 		return v.CustomFilterListConfiguration
 	}).(TemplateCustomFilterListConfigurationPtrOutput)
 }
 
-// A list of filter configurations.
+// A list of filter configurations. In the Amazon QuickSight console, this filter type is called a filter list.
 func (o TemplateCategoryFilterConfigurationOutput) FilterListConfiguration() TemplateFilterListConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateCategoryFilterConfiguration) *TemplateFilterListConfiguration {
 		return v.FilterListConfiguration
@@ -19315,7 +19267,7 @@ func (o TemplateCategoryFilterConfigurationPtrOutput) CustomFilterConfiguration(
 	}).(TemplateCustomFilterConfigurationPtrOutput)
 }
 
-// A list of custom filter values.
+// A list of custom filter values. In the Amazon QuickSight console, this filter type is called a custom filter list.
 func (o TemplateCategoryFilterConfigurationPtrOutput) CustomFilterListConfiguration() TemplateCustomFilterListConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateCategoryFilterConfiguration) *TemplateCustomFilterListConfiguration {
 		if v == nil {
@@ -19325,7 +19277,7 @@ func (o TemplateCategoryFilterConfigurationPtrOutput) CustomFilterListConfigurat
 	}).(TemplateCustomFilterListConfigurationPtrOutput)
 }
 
-// A list of filter configurations.
+// A list of filter configurations. In the Amazon QuickSight console, this filter type is called a filter list.
 func (o TemplateCategoryFilterConfigurationPtrOutput) FilterListConfiguration() TemplateFilterListConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateCategoryFilterConfiguration) *TemplateFilterListConfiguration {
 		if v == nil {
@@ -19336,7 +19288,7 @@ func (o TemplateCategoryFilterConfigurationPtrOutput) FilterListConfiguration() 
 }
 
 type TemplateChartAxisLabelOptions struct {
-	// The label options for a chart axis. You must specify the field that the label is targeted to.
+	// The label options for a chart axis.
 	AxisLabelOptions []TemplateAxisLabelOptions `pulumi:"axisLabelOptions"`
 	// The visibility configuration of the sort icon on a chart's axis label.
 	SortIconVisibility *TemplateVisibility `pulumi:"sortIconVisibility"`
@@ -19359,7 +19311,7 @@ type TemplateChartAxisLabelOptionsInput interface {
 }
 
 type TemplateChartAxisLabelOptionsArgs struct {
-	// The label options for a chart axis. You must specify the field that the label is targeted to.
+	// The label options for a chart axis.
 	AxisLabelOptions TemplateAxisLabelOptionsArrayInput `pulumi:"axisLabelOptions"`
 	// The visibility configuration of the sort icon on a chart's axis label.
 	SortIconVisibility TemplateVisibilityPtrInput `pulumi:"sortIconVisibility"`
@@ -19447,7 +19399,7 @@ func (o TemplateChartAxisLabelOptionsOutput) ToTemplateChartAxisLabelOptionsPtrO
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The label options for a chart axis. You must specify the field that the label is targeted to.
+// The label options for a chart axis.
 func (o TemplateChartAxisLabelOptionsOutput) AxisLabelOptions() TemplateAxisLabelOptionsArrayOutput {
 	return o.ApplyT(func(v TemplateChartAxisLabelOptions) []TemplateAxisLabelOptions { return v.AxisLabelOptions }).(TemplateAxisLabelOptionsArrayOutput)
 }
@@ -19489,7 +19441,7 @@ func (o TemplateChartAxisLabelOptionsPtrOutput) Elem() TemplateChartAxisLabelOpt
 	}).(TemplateChartAxisLabelOptionsOutput)
 }
 
-// The label options for a chart axis. You must specify the field that the label is targeted to.
+// The label options for a chart axis.
 func (o TemplateChartAxisLabelOptionsPtrOutput) AxisLabelOptions() TemplateAxisLabelOptionsArrayOutput {
 	return o.ApplyT(func(v *TemplateChartAxisLabelOptions) []TemplateAxisLabelOptions {
 		if v == nil {
@@ -19799,9 +19751,9 @@ func (o TemplateClusterMarkerConfigurationPtrOutput) ClusterMarker() TemplateClu
 type TemplateColorScale struct {
 	// Determines the color fill type.
 	ColorFillType TemplateColorFillType `pulumi:"colorFillType"`
-	// Determines the color that is applied to a particular data value.
+	// Determines the list of colors that are applied to the visual.
 	Colors []TemplateDataColor `pulumi:"colors"`
-	// Determines the color that is applied to a particular data value.
+	// Determines the color that is applied to null values.
 	NullValueColor *TemplateDataColor `pulumi:"nullValueColor"`
 }
 
@@ -19819,9 +19771,9 @@ type TemplateColorScaleInput interface {
 type TemplateColorScaleArgs struct {
 	// Determines the color fill type.
 	ColorFillType TemplateColorFillTypeInput `pulumi:"colorFillType"`
-	// Determines the color that is applied to a particular data value.
+	// Determines the list of colors that are applied to the visual.
 	Colors TemplateDataColorArrayInput `pulumi:"colors"`
-	// Determines the color that is applied to a particular data value.
+	// Determines the color that is applied to null values.
 	NullValueColor TemplateDataColorPtrInput `pulumi:"nullValueColor"`
 }
 
@@ -19907,12 +19859,12 @@ func (o TemplateColorScaleOutput) ColorFillType() TemplateColorFillTypeOutput {
 	return o.ApplyT(func(v TemplateColorScale) TemplateColorFillType { return v.ColorFillType }).(TemplateColorFillTypeOutput)
 }
 
-// Determines the color that is applied to a particular data value.
+// Determines the list of colors that are applied to the visual.
 func (o TemplateColorScaleOutput) Colors() TemplateDataColorArrayOutput {
 	return o.ApplyT(func(v TemplateColorScale) []TemplateDataColor { return v.Colors }).(TemplateDataColorArrayOutput)
 }
 
-// Determines the color that is applied to a particular data value.
+// Determines the color that is applied to null values.
 func (o TemplateColorScaleOutput) NullValueColor() TemplateDataColorPtrOutput {
 	return o.ApplyT(func(v TemplateColorScale) *TemplateDataColor { return v.NullValueColor }).(TemplateDataColorPtrOutput)
 }
@@ -19951,7 +19903,7 @@ func (o TemplateColorScalePtrOutput) ColorFillType() TemplateColorFillTypePtrOut
 	}).(TemplateColorFillTypePtrOutput)
 }
 
-// Determines the color that is applied to a particular data value.
+// Determines the list of colors that are applied to the visual.
 func (o TemplateColorScalePtrOutput) Colors() TemplateDataColorArrayOutput {
 	return o.ApplyT(func(v *TemplateColorScale) []TemplateDataColor {
 		if v == nil {
@@ -19961,7 +19913,7 @@ func (o TemplateColorScalePtrOutput) Colors() TemplateDataColorArrayOutput {
 	}).(TemplateDataColorArrayOutput)
 }
 
-// Determines the color that is applied to a particular data value.
+// Determines the color that is applied to null values.
 func (o TemplateColorScalePtrOutput) NullValueColor() TemplateDataColorPtrOutput {
 	return o.ApplyT(func(v *TemplateColorScale) *TemplateDataColor {
 		if v == nil {
@@ -19972,7 +19924,7 @@ func (o TemplateColorScalePtrOutput) NullValueColor() TemplateDataColorPtrOutput
 }
 
 type TemplateColorsConfiguration struct {
-	// Determines the color that's applied to a particular data value in a column.
+	// A list of up to 50 custom colors.
 	CustomColors []TemplateCustomColor `pulumi:"customColors"`
 }
 
@@ -19988,7 +19940,7 @@ type TemplateColorsConfigurationInput interface {
 }
 
 type TemplateColorsConfigurationArgs struct {
-	// Determines the color that's applied to a particular data value in a column.
+	// A list of up to 50 custom colors.
 	CustomColors TemplateCustomColorArrayInput `pulumi:"customColors"`
 }
 
@@ -20069,7 +20021,7 @@ func (o TemplateColorsConfigurationOutput) ToTemplateColorsConfigurationPtrOutpu
 	}).(TemplateColorsConfigurationPtrOutput)
 }
 
-// Determines the color that's applied to a particular data value in a column.
+// A list of up to 50 custom colors.
 func (o TemplateColorsConfigurationOutput) CustomColors() TemplateCustomColorArrayOutput {
 	return o.ApplyT(func(v TemplateColorsConfiguration) []TemplateCustomColor { return v.CustomColors }).(TemplateCustomColorArrayOutput)
 }
@@ -20098,7 +20050,7 @@ func (o TemplateColorsConfigurationPtrOutput) Elem() TemplateColorsConfiguration
 	}).(TemplateColorsConfigurationOutput)
 }
 
-// Determines the color that's applied to a particular data value in a column.
+// A list of up to 50 custom colors.
 func (o TemplateColorsConfigurationPtrOutput) CustomColors() TemplateCustomColorArrayOutput {
 	return o.ApplyT(func(v *TemplateColorsConfiguration) []TemplateCustomColor {
 		if v == nil {
@@ -20109,11 +20061,11 @@ func (o TemplateColorsConfigurationPtrOutput) CustomColors() TemplateCustomColor
 }
 
 type TemplateColumnConfiguration struct {
-	// The color configurations for a column.
+	// The color configurations of the column.
 	ColorsConfiguration *TemplateColorsConfiguration `pulumi:"colorsConfiguration"`
-	// A column of a data set.
+	// The column.
 	Column TemplateColumnIdentifier `pulumi:"column"`
-	// The formatting configuration for all types of field.
+	// The format configuration of a column.
 	FormatConfiguration *TemplateFormatConfiguration `pulumi:"formatConfiguration"`
 	// The role of the column.
 	Role *TemplateColumnRole `pulumi:"role"`
@@ -20131,11 +20083,11 @@ type TemplateColumnConfigurationInput interface {
 }
 
 type TemplateColumnConfigurationArgs struct {
-	// The color configurations for a column.
+	// The color configurations of the column.
 	ColorsConfiguration TemplateColorsConfigurationPtrInput `pulumi:"colorsConfiguration"`
-	// A column of a data set.
+	// The column.
 	Column TemplateColumnIdentifierInput `pulumi:"column"`
-	// The formatting configuration for all types of field.
+	// The format configuration of a column.
 	FormatConfiguration TemplateFormatConfigurationPtrInput `pulumi:"formatConfiguration"`
 	// The role of the column.
 	Role TemplateColumnRolePtrInput `pulumi:"role"`
@@ -20192,17 +20144,17 @@ func (o TemplateColumnConfigurationOutput) ToTemplateColumnConfigurationOutputWi
 	return o
 }
 
-// The color configurations for a column.
+// The color configurations of the column.
 func (o TemplateColumnConfigurationOutput) ColorsConfiguration() TemplateColorsConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateColumnConfiguration) *TemplateColorsConfiguration { return v.ColorsConfiguration }).(TemplateColorsConfigurationPtrOutput)
 }
 
-// A column of a data set.
+// The column.
 func (o TemplateColumnConfigurationOutput) Column() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateColumnConfiguration) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
 }
 
-// The formatting configuration for all types of field.
+// The format configuration of a column.
 func (o TemplateColumnConfigurationOutput) FormatConfiguration() TemplateFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateColumnConfiguration) *TemplateFormatConfiguration { return v.FormatConfiguration }).(TemplateFormatConfigurationPtrOutput)
 }
@@ -20878,14 +20830,11 @@ func (o TemplateColumnSchemaArrayOutput) Index(i pulumi.IntInput) TemplateColumn
 }
 
 type TemplateColumnSort struct {
-	// An aggregation function aggregates values from a dimension or measure.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The aggregation function that is defined in the column sort.
 	AggregationFunction *TemplateAggregationFunction `pulumi:"aggregationFunction"`
 	// The sort direction.
-	Direction TemplateSortDirection `pulumi:"direction"`
-	// A column of a data set.
-	SortBy TemplateColumnIdentifier `pulumi:"sortBy"`
+	Direction TemplateSortDirection    `pulumi:"direction"`
+	SortBy    TemplateColumnIdentifier `pulumi:"sortBy"`
 }
 
 // TemplateColumnSortInput is an input type that accepts TemplateColumnSortArgs and TemplateColumnSortOutput values.
@@ -20900,14 +20849,11 @@ type TemplateColumnSortInput interface {
 }
 
 type TemplateColumnSortArgs struct {
-	// An aggregation function aggregates values from a dimension or measure.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The aggregation function that is defined in the column sort.
 	AggregationFunction TemplateAggregationFunctionPtrInput `pulumi:"aggregationFunction"`
 	// The sort direction.
-	Direction TemplateSortDirectionInput `pulumi:"direction"`
-	// A column of a data set.
-	SortBy TemplateColumnIdentifierInput `pulumi:"sortBy"`
+	Direction TemplateSortDirectionInput    `pulumi:"direction"`
+	SortBy    TemplateColumnIdentifierInput `pulumi:"sortBy"`
 }
 
 func (TemplateColumnSortArgs) ElementType() reflect.Type {
@@ -20987,9 +20933,7 @@ func (o TemplateColumnSortOutput) ToTemplateColumnSortPtrOutputWithContext(ctx c
 	}).(TemplateColumnSortPtrOutput)
 }
 
-// An aggregation function aggregates values from a dimension or measure.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The aggregation function that is defined in the column sort.
 func (o TemplateColumnSortOutput) AggregationFunction() TemplateAggregationFunctionPtrOutput {
 	return o.ApplyT(func(v TemplateColumnSort) *TemplateAggregationFunction { return v.AggregationFunction }).(TemplateAggregationFunctionPtrOutput)
 }
@@ -20999,7 +20943,6 @@ func (o TemplateColumnSortOutput) Direction() TemplateSortDirectionOutput {
 	return o.ApplyT(func(v TemplateColumnSort) TemplateSortDirection { return v.Direction }).(TemplateSortDirectionOutput)
 }
 
-// A column of a data set.
 func (o TemplateColumnSortOutput) SortBy() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateColumnSort) TemplateColumnIdentifier { return v.SortBy }).(TemplateColumnIdentifierOutput)
 }
@@ -21028,9 +20971,7 @@ func (o TemplateColumnSortPtrOutput) Elem() TemplateColumnSortOutput {
 	}).(TemplateColumnSortOutput)
 }
 
-// An aggregation function aggregates values from a dimension or measure.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The aggregation function that is defined in the column sort.
 func (o TemplateColumnSortPtrOutput) AggregationFunction() TemplateAggregationFunctionPtrOutput {
 	return o.ApplyT(func(v *TemplateColumnSort) *TemplateAggregationFunction {
 		if v == nil {
@@ -21050,7 +20991,6 @@ func (o TemplateColumnSortPtrOutput) Direction() TemplateSortDirectionPtrOutput 
 	}).(TemplateSortDirectionPtrOutput)
 }
 
-// A column of a data set.
 func (o TemplateColumnSortPtrOutput) SortBy() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateColumnSort) *TemplateColumnIdentifier {
 		if v == nil {
@@ -21061,11 +21001,9 @@ func (o TemplateColumnSortPtrOutput) SortBy() TemplateColumnIdentifierPtrOutput 
 }
 
 type TemplateColumnTooltipItem struct {
-	// An aggregation function aggregates values from a dimension or measure.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The aggregation function of the column tooltip item.
 	Aggregation *TemplateAggregationFunction `pulumi:"aggregation"`
-	// A column of a data set.
+	// The target column of the tooltip item.
 	Column TemplateColumnIdentifier `pulumi:"column"`
 	// The label of the tooltip item.
 	Label *string `pulumi:"label"`
@@ -21085,11 +21023,9 @@ type TemplateColumnTooltipItemInput interface {
 }
 
 type TemplateColumnTooltipItemArgs struct {
-	// An aggregation function aggregates values from a dimension or measure.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The aggregation function of the column tooltip item.
 	Aggregation TemplateAggregationFunctionPtrInput `pulumi:"aggregation"`
-	// A column of a data set.
+	// The target column of the tooltip item.
 	Column TemplateColumnIdentifierInput `pulumi:"column"`
 	// The label of the tooltip item.
 	Label pulumi.StringPtrInput `pulumi:"label"`
@@ -21174,14 +21110,12 @@ func (o TemplateColumnTooltipItemOutput) ToTemplateColumnTooltipItemPtrOutputWit
 	}).(TemplateColumnTooltipItemPtrOutput)
 }
 
-// An aggregation function aggregates values from a dimension or measure.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The aggregation function of the column tooltip item.
 func (o TemplateColumnTooltipItemOutput) Aggregation() TemplateAggregationFunctionPtrOutput {
 	return o.ApplyT(func(v TemplateColumnTooltipItem) *TemplateAggregationFunction { return v.Aggregation }).(TemplateAggregationFunctionPtrOutput)
 }
 
-// A column of a data set.
+// The target column of the tooltip item.
 func (o TemplateColumnTooltipItemOutput) Column() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateColumnTooltipItem) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
 }
@@ -21220,9 +21154,7 @@ func (o TemplateColumnTooltipItemPtrOutput) Elem() TemplateColumnTooltipItemOutp
 	}).(TemplateColumnTooltipItemOutput)
 }
 
-// An aggregation function aggregates values from a dimension or measure.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The aggregation function of the column tooltip item.
 func (o TemplateColumnTooltipItemPtrOutput) Aggregation() TemplateAggregationFunctionPtrOutput {
 	return o.ApplyT(func(v *TemplateColumnTooltipItem) *TemplateAggregationFunction {
 		if v == nil {
@@ -21232,7 +21164,7 @@ func (o TemplateColumnTooltipItemPtrOutput) Aggregation() TemplateAggregationFun
 	}).(TemplateAggregationFunctionPtrOutput)
 }
 
-// A column of a data set.
+// The target column of the tooltip item.
 func (o TemplateColumnTooltipItemPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateColumnTooltipItem) *TemplateColumnIdentifier {
 		if v == nil {
@@ -21457,7 +21389,9 @@ func (o TemplateComboChartAggregatedFieldWellsPtrOutput) LineValues() TemplateMe
 }
 
 type TemplateComboChartConfiguration struct {
-	// The options that determine the presentation of the data labels.
+	// The options that determine if visual data labels are displayed.
+	//
+	// The data label options for a bar in a combo chart.
 	BarDataLabels *TemplateDataLabelOptions `pulumi:"barDataLabels"`
 	// Determines the bar arrangement in a combo chart. The following are valid values in this structure:
 	//
@@ -21465,35 +21399,35 @@ type TemplateComboChartConfiguration struct {
 	// - `STACKED` : For stacked bar combo charts.
 	// - `STACKED_PERCENT` : Do not use. If you use this value, the operation returns a validation error.
 	BarsArrangement *TemplateBarsArrangement `pulumi:"barsArrangement"`
-	// The display options for the axis label.
+	// The category axis of a combo chart.
 	CategoryAxis *TemplateAxisDisplayOptions `pulumi:"categoryAxis"`
-	// The label options for an axis on a chart.
+	// The label options (label text, label visibility, and sort icon visibility) of a combo chart category (group/color) field well.
 	CategoryLabelOptions *TemplateChartAxisLabelOptions `pulumi:"categoryLabelOptions"`
-	// The label options for an axis on a chart.
+	// The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
 	ColorLabelOptions *TemplateChartAxisLabelOptions `pulumi:"colorLabelOptions"`
 	// The field wells of the visual.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	FieldWells *TemplateComboChartFieldWells `pulumi:"fieldWells"`
-	// The options for the legend setup of a visual.
+	// The legend display setup of the visual.
 	Legend *TemplateLegendOptions `pulumi:"legend"`
-	// The options that determine the presentation of the data labels.
+	// The options that determine if visual data labels are displayed.
+	//
+	// The data label options for a line in a combo chart.
 	LineDataLabels *TemplateDataLabelOptions `pulumi:"lineDataLabels"`
-	// The display options for the axis label.
+	// The label display options (grid line, range, scale, and axis step) of a combo chart's primary y-axis (bar) field well.
 	PrimaryYAxisDisplayOptions *TemplateAxisDisplayOptions `pulumi:"primaryYAxisDisplayOptions"`
-	// The label options for an axis on a chart.
+	// The label options (label text, label visibility, and sort icon visibility) of a combo chart's primary y-axis (bar) field well.
 	PrimaryYAxisLabelOptions *TemplateChartAxisLabelOptions `pulumi:"primaryYAxisLabelOptions"`
 	// The reference line setup of the visual.
 	ReferenceLines []TemplateReferenceLine `pulumi:"referenceLines"`
-	// The display options for the axis label.
+	// The label display options (grid line, range, scale, axis step) of a combo chart's secondary y-axis (line) field well.
 	SecondaryYAxisDisplayOptions *TemplateAxisDisplayOptions `pulumi:"secondaryYAxisDisplayOptions"`
-	// The label options for an axis on a chart.
+	// The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.
 	SecondaryYAxisLabelOptions *TemplateChartAxisLabelOptions `pulumi:"secondaryYAxisLabelOptions"`
 	// The sort configuration of a `ComboChartVisual` .
 	SortConfiguration *TemplateComboChartSortConfiguration `pulumi:"sortConfiguration"`
-	// The display options for the visual tooltip.
+	// The legend display setup of the visual.
 	Tooltip *TemplateTooltipOptions `pulumi:"tooltip"`
-	// The visual display options for the visual palette.
+	// The palette (chart color) display setup of the visual.
 	VisualPalette *TemplateVisualPalette `pulumi:"visualPalette"`
 }
 
@@ -21509,7 +21443,9 @@ type TemplateComboChartConfigurationInput interface {
 }
 
 type TemplateComboChartConfigurationArgs struct {
-	// The options that determine the presentation of the data labels.
+	// The options that determine if visual data labels are displayed.
+	//
+	// The data label options for a bar in a combo chart.
 	BarDataLabels TemplateDataLabelOptionsPtrInput `pulumi:"barDataLabels"`
 	// Determines the bar arrangement in a combo chart. The following are valid values in this structure:
 	//
@@ -21517,35 +21453,35 @@ type TemplateComboChartConfigurationArgs struct {
 	// - `STACKED` : For stacked bar combo charts.
 	// - `STACKED_PERCENT` : Do not use. If you use this value, the operation returns a validation error.
 	BarsArrangement TemplateBarsArrangementPtrInput `pulumi:"barsArrangement"`
-	// The display options for the axis label.
+	// The category axis of a combo chart.
 	CategoryAxis TemplateAxisDisplayOptionsPtrInput `pulumi:"categoryAxis"`
-	// The label options for an axis on a chart.
+	// The label options (label text, label visibility, and sort icon visibility) of a combo chart category (group/color) field well.
 	CategoryLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"categoryLabelOptions"`
-	// The label options for an axis on a chart.
+	// The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
 	ColorLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"colorLabelOptions"`
 	// The field wells of the visual.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	FieldWells TemplateComboChartFieldWellsPtrInput `pulumi:"fieldWells"`
-	// The options for the legend setup of a visual.
+	// The legend display setup of the visual.
 	Legend TemplateLegendOptionsPtrInput `pulumi:"legend"`
-	// The options that determine the presentation of the data labels.
+	// The options that determine if visual data labels are displayed.
+	//
+	// The data label options for a line in a combo chart.
 	LineDataLabels TemplateDataLabelOptionsPtrInput `pulumi:"lineDataLabels"`
-	// The display options for the axis label.
+	// The label display options (grid line, range, scale, and axis step) of a combo chart's primary y-axis (bar) field well.
 	PrimaryYAxisDisplayOptions TemplateAxisDisplayOptionsPtrInput `pulumi:"primaryYAxisDisplayOptions"`
-	// The label options for an axis on a chart.
+	// The label options (label text, label visibility, and sort icon visibility) of a combo chart's primary y-axis (bar) field well.
 	PrimaryYAxisLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"primaryYAxisLabelOptions"`
 	// The reference line setup of the visual.
 	ReferenceLines TemplateReferenceLineArrayInput `pulumi:"referenceLines"`
-	// The display options for the axis label.
+	// The label display options (grid line, range, scale, axis step) of a combo chart's secondary y-axis (line) field well.
 	SecondaryYAxisDisplayOptions TemplateAxisDisplayOptionsPtrInput `pulumi:"secondaryYAxisDisplayOptions"`
-	// The label options for an axis on a chart.
+	// The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.
 	SecondaryYAxisLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"secondaryYAxisLabelOptions"`
 	// The sort configuration of a `ComboChartVisual` .
 	SortConfiguration TemplateComboChartSortConfigurationPtrInput `pulumi:"sortConfiguration"`
-	// The display options for the visual tooltip.
+	// The legend display setup of the visual.
 	Tooltip TemplateTooltipOptionsPtrInput `pulumi:"tooltip"`
-	// The visual display options for the visual palette.
+	// The palette (chart color) display setup of the visual.
 	VisualPalette TemplateVisualPalettePtrInput `pulumi:"visualPalette"`
 }
 
@@ -21626,7 +21562,9 @@ func (o TemplateComboChartConfigurationOutput) ToTemplateComboChartConfiguration
 	}).(TemplateComboChartConfigurationPtrOutput)
 }
 
-// The options that determine the presentation of the data labels.
+// The options that determine if visual data labels are displayed.
+//
+// The data label options for a bar in a combo chart.
 func (o TemplateComboChartConfigurationOutput) BarDataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateComboChartConfiguration) *TemplateDataLabelOptions { return v.BarDataLabels }).(TemplateDataLabelOptionsPtrOutput)
 }
@@ -21640,46 +21578,46 @@ func (o TemplateComboChartConfigurationOutput) BarsArrangement() TemplateBarsArr
 	return o.ApplyT(func(v TemplateComboChartConfiguration) *TemplateBarsArrangement { return v.BarsArrangement }).(TemplateBarsArrangementPtrOutput)
 }
 
-// The display options for the axis label.
+// The category axis of a combo chart.
 func (o TemplateComboChartConfigurationOutput) CategoryAxis() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateComboChartConfiguration) *TemplateAxisDisplayOptions { return v.CategoryAxis }).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options (label text, label visibility, and sort icon visibility) of a combo chart category (group/color) field well.
 func (o TemplateComboChartConfigurationOutput) CategoryLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateComboChartConfiguration) *TemplateChartAxisLabelOptions { return v.CategoryLabelOptions }).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
 func (o TemplateComboChartConfigurationOutput) ColorLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateComboChartConfiguration) *TemplateChartAxisLabelOptions { return v.ColorLabelOptions }).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
 // The field wells of the visual.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateComboChartConfigurationOutput) FieldWells() TemplateComboChartFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplateComboChartConfiguration) *TemplateComboChartFieldWells { return v.FieldWells }).(TemplateComboChartFieldWellsPtrOutput)
 }
 
-// The options for the legend setup of a visual.
+// The legend display setup of the visual.
 func (o TemplateComboChartConfigurationOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateComboChartConfiguration) *TemplateLegendOptions { return v.Legend }).(TemplateLegendOptionsPtrOutput)
 }
 
-// The options that determine the presentation of the data labels.
+// The options that determine if visual data labels are displayed.
+//
+// The data label options for a line in a combo chart.
 func (o TemplateComboChartConfigurationOutput) LineDataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateComboChartConfiguration) *TemplateDataLabelOptions { return v.LineDataLabels }).(TemplateDataLabelOptionsPtrOutput)
 }
 
-// The display options for the axis label.
+// The label display options (grid line, range, scale, and axis step) of a combo chart's primary y-axis (bar) field well.
 func (o TemplateComboChartConfigurationOutput) PrimaryYAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateComboChartConfiguration) *TemplateAxisDisplayOptions {
 		return v.PrimaryYAxisDisplayOptions
 	}).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options (label text, label visibility, and sort icon visibility) of a combo chart's primary y-axis (bar) field well.
 func (o TemplateComboChartConfigurationOutput) PrimaryYAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateComboChartConfiguration) *TemplateChartAxisLabelOptions {
 		return v.PrimaryYAxisLabelOptions
@@ -21691,14 +21629,14 @@ func (o TemplateComboChartConfigurationOutput) ReferenceLines() TemplateReferenc
 	return o.ApplyT(func(v TemplateComboChartConfiguration) []TemplateReferenceLine { return v.ReferenceLines }).(TemplateReferenceLineArrayOutput)
 }
 
-// The display options for the axis label.
+// The label display options (grid line, range, scale, axis step) of a combo chart's secondary y-axis (line) field well.
 func (o TemplateComboChartConfigurationOutput) SecondaryYAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateComboChartConfiguration) *TemplateAxisDisplayOptions {
 		return v.SecondaryYAxisDisplayOptions
 	}).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.
 func (o TemplateComboChartConfigurationOutput) SecondaryYAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateComboChartConfiguration) *TemplateChartAxisLabelOptions {
 		return v.SecondaryYAxisLabelOptions
@@ -21712,12 +21650,12 @@ func (o TemplateComboChartConfigurationOutput) SortConfiguration() TemplateCombo
 	}).(TemplateComboChartSortConfigurationPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The legend display setup of the visual.
 func (o TemplateComboChartConfigurationOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateComboChartConfiguration) *TemplateTooltipOptions { return v.Tooltip }).(TemplateTooltipOptionsPtrOutput)
 }
 
-// The visual display options for the visual palette.
+// The palette (chart color) display setup of the visual.
 func (o TemplateComboChartConfigurationOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v TemplateComboChartConfiguration) *TemplateVisualPalette { return v.VisualPalette }).(TemplateVisualPalettePtrOutput)
 }
@@ -21746,7 +21684,9 @@ func (o TemplateComboChartConfigurationPtrOutput) Elem() TemplateComboChartConfi
 	}).(TemplateComboChartConfigurationOutput)
 }
 
-// The options that determine the presentation of the data labels.
+// The options that determine if visual data labels are displayed.
+//
+// The data label options for a bar in a combo chart.
 func (o TemplateComboChartConfigurationPtrOutput) BarDataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateComboChartConfiguration) *TemplateDataLabelOptions {
 		if v == nil {
@@ -21770,7 +21710,7 @@ func (o TemplateComboChartConfigurationPtrOutput) BarsArrangement() TemplateBars
 	}).(TemplateBarsArrangementPtrOutput)
 }
 
-// The display options for the axis label.
+// The category axis of a combo chart.
 func (o TemplateComboChartConfigurationPtrOutput) CategoryAxis() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateComboChartConfiguration) *TemplateAxisDisplayOptions {
 		if v == nil {
@@ -21780,7 +21720,7 @@ func (o TemplateComboChartConfigurationPtrOutput) CategoryAxis() TemplateAxisDis
 	}).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options (label text, label visibility, and sort icon visibility) of a combo chart category (group/color) field well.
 func (o TemplateComboChartConfigurationPtrOutput) CategoryLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateComboChartConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -21790,7 +21730,7 @@ func (o TemplateComboChartConfigurationPtrOutput) CategoryLabelOptions() Templat
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
 func (o TemplateComboChartConfigurationPtrOutput) ColorLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateComboChartConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -21801,8 +21741,6 @@ func (o TemplateComboChartConfigurationPtrOutput) ColorLabelOptions() TemplateCh
 }
 
 // The field wells of the visual.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateComboChartConfigurationPtrOutput) FieldWells() TemplateComboChartFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplateComboChartConfiguration) *TemplateComboChartFieldWells {
 		if v == nil {
@@ -21812,7 +21750,7 @@ func (o TemplateComboChartConfigurationPtrOutput) FieldWells() TemplateComboChar
 	}).(TemplateComboChartFieldWellsPtrOutput)
 }
 
-// The options for the legend setup of a visual.
+// The legend display setup of the visual.
 func (o TemplateComboChartConfigurationPtrOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateComboChartConfiguration) *TemplateLegendOptions {
 		if v == nil {
@@ -21822,7 +21760,9 @@ func (o TemplateComboChartConfigurationPtrOutput) Legend() TemplateLegendOptions
 	}).(TemplateLegendOptionsPtrOutput)
 }
 
-// The options that determine the presentation of the data labels.
+// The options that determine if visual data labels are displayed.
+//
+// The data label options for a line in a combo chart.
 func (o TemplateComboChartConfigurationPtrOutput) LineDataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateComboChartConfiguration) *TemplateDataLabelOptions {
 		if v == nil {
@@ -21832,7 +21772,7 @@ func (o TemplateComboChartConfigurationPtrOutput) LineDataLabels() TemplateDataL
 	}).(TemplateDataLabelOptionsPtrOutput)
 }
 
-// The display options for the axis label.
+// The label display options (grid line, range, scale, and axis step) of a combo chart's primary y-axis (bar) field well.
 func (o TemplateComboChartConfigurationPtrOutput) PrimaryYAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateComboChartConfiguration) *TemplateAxisDisplayOptions {
 		if v == nil {
@@ -21842,7 +21782,7 @@ func (o TemplateComboChartConfigurationPtrOutput) PrimaryYAxisDisplayOptions() T
 	}).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options (label text, label visibility, and sort icon visibility) of a combo chart's primary y-axis (bar) field well.
 func (o TemplateComboChartConfigurationPtrOutput) PrimaryYAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateComboChartConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -21862,7 +21802,7 @@ func (o TemplateComboChartConfigurationPtrOutput) ReferenceLines() TemplateRefer
 	}).(TemplateReferenceLineArrayOutput)
 }
 
-// The display options for the axis label.
+// The label display options (grid line, range, scale, axis step) of a combo chart's secondary y-axis (line) field well.
 func (o TemplateComboChartConfigurationPtrOutput) SecondaryYAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateComboChartConfiguration) *TemplateAxisDisplayOptions {
 		if v == nil {
@@ -21872,7 +21812,7 @@ func (o TemplateComboChartConfigurationPtrOutput) SecondaryYAxisDisplayOptions()
 	}).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.
 func (o TemplateComboChartConfigurationPtrOutput) SecondaryYAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateComboChartConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -21892,7 +21832,7 @@ func (o TemplateComboChartConfigurationPtrOutput) SortConfiguration() TemplateCo
 	}).(TemplateComboChartSortConfigurationPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The legend display setup of the visual.
 func (o TemplateComboChartConfigurationPtrOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateComboChartConfiguration) *TemplateTooltipOptions {
 		if v == nil {
@@ -21902,7 +21842,7 @@ func (o TemplateComboChartConfigurationPtrOutput) Tooltip() TemplateTooltipOptio
 	}).(TemplateTooltipOptionsPtrOutput)
 }
 
-// The visual display options for the visual palette.
+// The palette (chart color) display setup of the visual.
 func (o TemplateComboChartConfigurationPtrOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v *TemplateComboChartConfiguration) *TemplateVisualPalette {
 		if v == nil {
@@ -21913,7 +21853,7 @@ func (o TemplateComboChartConfigurationPtrOutput) VisualPalette() TemplateVisual
 }
 
 type TemplateComboChartFieldWells struct {
-	// The aggregated field wells of a combo chart.
+	// The aggregated field wells of a combo chart. Combo charts only have aggregated field wells. Columns in a combo chart are aggregated by category.
 	ComboChartAggregatedFieldWells *TemplateComboChartAggregatedFieldWells `pulumi:"comboChartAggregatedFieldWells"`
 }
 
@@ -21929,7 +21869,7 @@ type TemplateComboChartFieldWellsInput interface {
 }
 
 type TemplateComboChartFieldWellsArgs struct {
-	// The aggregated field wells of a combo chart.
+	// The aggregated field wells of a combo chart. Combo charts only have aggregated field wells. Columns in a combo chart are aggregated by category.
 	ComboChartAggregatedFieldWells TemplateComboChartAggregatedFieldWellsPtrInput `pulumi:"comboChartAggregatedFieldWells"`
 }
 
@@ -22010,7 +21950,7 @@ func (o TemplateComboChartFieldWellsOutput) ToTemplateComboChartFieldWellsPtrOut
 	}).(TemplateComboChartFieldWellsPtrOutput)
 }
 
-// The aggregated field wells of a combo chart.
+// The aggregated field wells of a combo chart. Combo charts only have aggregated field wells. Columns in a combo chart are aggregated by category.
 func (o TemplateComboChartFieldWellsOutput) ComboChartAggregatedFieldWells() TemplateComboChartAggregatedFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplateComboChartFieldWells) *TemplateComboChartAggregatedFieldWells {
 		return v.ComboChartAggregatedFieldWells
@@ -22041,7 +21981,7 @@ func (o TemplateComboChartFieldWellsPtrOutput) Elem() TemplateComboChartFieldWel
 	}).(TemplateComboChartFieldWellsOutput)
 }
 
-// The aggregated field wells of a combo chart.
+// The aggregated field wells of a combo chart. Combo charts only have aggregated field wells. Columns in a combo chart are aggregated by category.
 func (o TemplateComboChartFieldWellsPtrOutput) ComboChartAggregatedFieldWells() TemplateComboChartAggregatedFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplateComboChartFieldWells) *TemplateComboChartAggregatedFieldWells {
 		if v == nil {
@@ -22052,11 +21992,11 @@ func (o TemplateComboChartFieldWellsPtrOutput) ComboChartAggregatedFieldWells() 
 }
 
 type TemplateComboChartSortConfiguration struct {
-	// The limit configuration of the visual display for an axis.
+	// The item limit configuration for the category field well of a combo chart.
 	CategoryItemsLimit *TemplateItemsLimitConfiguration `pulumi:"categoryItemsLimit"`
 	// The sort configuration of the category field well in a combo chart.
 	CategorySort []TemplateFieldSortOptions `pulumi:"categorySort"`
-	// The limit configuration of the visual display for an axis.
+	// The item limit configuration of the color field well in a combo chart.
 	ColorItemsLimit *TemplateItemsLimitConfiguration `pulumi:"colorItemsLimit"`
 	// The sort configuration of the color field well in a combo chart.
 	ColorSort []TemplateFieldSortOptions `pulumi:"colorSort"`
@@ -22074,11 +22014,11 @@ type TemplateComboChartSortConfigurationInput interface {
 }
 
 type TemplateComboChartSortConfigurationArgs struct {
-	// The limit configuration of the visual display for an axis.
+	// The item limit configuration for the category field well of a combo chart.
 	CategoryItemsLimit TemplateItemsLimitConfigurationPtrInput `pulumi:"categoryItemsLimit"`
 	// The sort configuration of the category field well in a combo chart.
 	CategorySort TemplateFieldSortOptionsArrayInput `pulumi:"categorySort"`
-	// The limit configuration of the visual display for an axis.
+	// The item limit configuration of the color field well in a combo chart.
 	ColorItemsLimit TemplateItemsLimitConfigurationPtrInput `pulumi:"colorItemsLimit"`
 	// The sort configuration of the color field well in a combo chart.
 	ColorSort TemplateFieldSortOptionsArrayInput `pulumi:"colorSort"`
@@ -22161,7 +22101,7 @@ func (o TemplateComboChartSortConfigurationOutput) ToTemplateComboChartSortConfi
 	}).(TemplateComboChartSortConfigurationPtrOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The item limit configuration for the category field well of a combo chart.
 func (o TemplateComboChartSortConfigurationOutput) CategoryItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateComboChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		return v.CategoryItemsLimit
@@ -22173,7 +22113,7 @@ func (o TemplateComboChartSortConfigurationOutput) CategorySort() TemplateFieldS
 	return o.ApplyT(func(v TemplateComboChartSortConfiguration) []TemplateFieldSortOptions { return v.CategorySort }).(TemplateFieldSortOptionsArrayOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The item limit configuration of the color field well in a combo chart.
 func (o TemplateComboChartSortConfigurationOutput) ColorItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateComboChartSortConfiguration) *TemplateItemsLimitConfiguration { return v.ColorItemsLimit }).(TemplateItemsLimitConfigurationPtrOutput)
 }
@@ -22207,7 +22147,7 @@ func (o TemplateComboChartSortConfigurationPtrOutput) Elem() TemplateComboChartS
 	}).(TemplateComboChartSortConfigurationOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The item limit configuration for the category field well of a combo chart.
 func (o TemplateComboChartSortConfigurationPtrOutput) CategoryItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateComboChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		if v == nil {
@@ -22227,7 +22167,7 @@ func (o TemplateComboChartSortConfigurationPtrOutput) CategorySort() TemplateFie
 	}).(TemplateFieldSortOptionsArrayOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The item limit configuration of the color field well in a combo chart.
 func (o TemplateComboChartSortConfigurationPtrOutput) ColorItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateComboChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		if v == nil {
@@ -22250,13 +22190,13 @@ func (o TemplateComboChartSortConfigurationPtrOutput) ColorSort() TemplateFieldS
 type TemplateComboChartVisual struct {
 	// The list of custom actions that are configured for a visual.
 	Actions []TemplateVisualCustomAction `pulumi:"actions"`
-	// The configuration of a `ComboChartVisual` .
+	// The configuration settings of the visual.
 	ChartConfiguration *TemplateComboChartConfiguration `pulumi:"chartConfiguration"`
 	// The column hierarchy that is used during drill-downs and drill-ups.
 	ColumnHierarchies []TemplateColumnHierarchy `pulumi:"columnHierarchies"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
@@ -22276,13 +22216,13 @@ type TemplateComboChartVisualInput interface {
 type TemplateComboChartVisualArgs struct {
 	// The list of custom actions that are configured for a visual.
 	Actions TemplateVisualCustomActionArrayInput `pulumi:"actions"`
-	// The configuration of a `ComboChartVisual` .
+	// The configuration settings of the visual.
 	ChartConfiguration TemplateComboChartConfigurationPtrInput `pulumi:"chartConfiguration"`
 	// The column hierarchy that is used during drill-downs and drill-ups.
 	ColumnHierarchies TemplateColumnHierarchyArrayInput `pulumi:"columnHierarchies"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
@@ -22370,7 +22310,7 @@ func (o TemplateComboChartVisualOutput) Actions() TemplateVisualCustomActionArra
 	return o.ApplyT(func(v TemplateComboChartVisual) []TemplateVisualCustomAction { return v.Actions }).(TemplateVisualCustomActionArrayOutput)
 }
 
-// The configuration of a `ComboChartVisual` .
+// The configuration settings of the visual.
 func (o TemplateComboChartVisualOutput) ChartConfiguration() TemplateComboChartConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateComboChartVisual) *TemplateComboChartConfiguration { return v.ChartConfiguration }).(TemplateComboChartConfigurationPtrOutput)
 }
@@ -22380,12 +22320,12 @@ func (o TemplateComboChartVisualOutput) ColumnHierarchies() TemplateColumnHierar
 	return o.ApplyT(func(v TemplateComboChartVisual) []TemplateColumnHierarchy { return v.ColumnHierarchies }).(TemplateColumnHierarchyArrayOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateComboChartVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateComboChartVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateComboChartVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateComboChartVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
@@ -22429,7 +22369,7 @@ func (o TemplateComboChartVisualPtrOutput) Actions() TemplateVisualCustomActionA
 	}).(TemplateVisualCustomActionArrayOutput)
 }
 
-// The configuration of a `ComboChartVisual` .
+// The configuration settings of the visual.
 func (o TemplateComboChartVisualPtrOutput) ChartConfiguration() TemplateComboChartConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateComboChartVisual) *TemplateComboChartConfiguration {
 		if v == nil {
@@ -22449,7 +22389,7 @@ func (o TemplateComboChartVisualPtrOutput) ColumnHierarchies() TemplateColumnHie
 	}).(TemplateColumnHierarchyArrayOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateComboChartVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateComboChartVisual) *TemplateVisualSubtitleLabelOptions {
 		if v == nil {
@@ -22459,7 +22399,7 @@ func (o TemplateComboChartVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabe
 	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateComboChartVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateComboChartVisual) *TemplateVisualTitleLabelOptions {
 		if v == nil {
@@ -22481,8 +22421,6 @@ func (o TemplateComboChartVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 
 type TemplateComparisonConfiguration struct {
 	// The format of the comparison.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	ComparisonFormat *TemplateComparisonFormatConfiguration `pulumi:"comparisonFormat"`
 	// The method of the comparison. Choose from the following options:
 	//
@@ -22505,8 +22443,6 @@ type TemplateComparisonConfigurationInput interface {
 
 type TemplateComparisonConfigurationArgs struct {
 	// The format of the comparison.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	ComparisonFormat TemplateComparisonFormatConfigurationPtrInput `pulumi:"comparisonFormat"`
 	// The method of the comparison. Choose from the following options:
 	//
@@ -22594,8 +22530,6 @@ func (o TemplateComparisonConfigurationOutput) ToTemplateComparisonConfiguration
 }
 
 // The format of the comparison.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateComparisonConfigurationOutput) ComparisonFormat() TemplateComparisonFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateComparisonConfiguration) *TemplateComparisonFormatConfiguration {
 		return v.ComparisonFormat
@@ -22636,8 +22570,6 @@ func (o TemplateComparisonConfigurationPtrOutput) Elem() TemplateComparisonConfi
 }
 
 // The format of the comparison.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateComparisonConfigurationPtrOutput) ComparisonFormat() TemplateComparisonFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateComparisonConfiguration) *TemplateComparisonFormatConfiguration {
 		if v == nil {
@@ -22662,9 +22594,9 @@ func (o TemplateComparisonConfigurationPtrOutput) ComparisonMethod() TemplateCom
 }
 
 type TemplateComparisonFormatConfiguration struct {
-	// The options that determine the number display format configuration.
+	// The number display format.
 	NumberDisplayFormatConfiguration *TemplateNumberDisplayFormatConfiguration `pulumi:"numberDisplayFormatConfiguration"`
-	// The options that determine the percentage display format configuration.
+	// The percentage display format.
 	PercentageDisplayFormatConfiguration *TemplatePercentageDisplayFormatConfiguration `pulumi:"percentageDisplayFormatConfiguration"`
 }
 
@@ -22680,9 +22612,9 @@ type TemplateComparisonFormatConfigurationInput interface {
 }
 
 type TemplateComparisonFormatConfigurationArgs struct {
-	// The options that determine the number display format configuration.
+	// The number display format.
 	NumberDisplayFormatConfiguration TemplateNumberDisplayFormatConfigurationPtrInput `pulumi:"numberDisplayFormatConfiguration"`
-	// The options that determine the percentage display format configuration.
+	// The percentage display format.
 	PercentageDisplayFormatConfiguration TemplatePercentageDisplayFormatConfigurationPtrInput `pulumi:"percentageDisplayFormatConfiguration"`
 }
 
@@ -22763,14 +22695,14 @@ func (o TemplateComparisonFormatConfigurationOutput) ToTemplateComparisonFormatC
 	}).(TemplateComparisonFormatConfigurationPtrOutput)
 }
 
-// The options that determine the number display format configuration.
+// The number display format.
 func (o TemplateComparisonFormatConfigurationOutput) NumberDisplayFormatConfiguration() TemplateNumberDisplayFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateComparisonFormatConfiguration) *TemplateNumberDisplayFormatConfiguration {
 		return v.NumberDisplayFormatConfiguration
 	}).(TemplateNumberDisplayFormatConfigurationPtrOutput)
 }
 
-// The options that determine the percentage display format configuration.
+// The percentage display format.
 func (o TemplateComparisonFormatConfigurationOutput) PercentageDisplayFormatConfiguration() TemplatePercentageDisplayFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateComparisonFormatConfiguration) *TemplatePercentageDisplayFormatConfiguration {
 		return v.PercentageDisplayFormatConfiguration
@@ -22801,7 +22733,7 @@ func (o TemplateComparisonFormatConfigurationPtrOutput) Elem() TemplateCompariso
 	}).(TemplateComparisonFormatConfigurationOutput)
 }
 
-// The options that determine the number display format configuration.
+// The number display format.
 func (o TemplateComparisonFormatConfigurationPtrOutput) NumberDisplayFormatConfiguration() TemplateNumberDisplayFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateComparisonFormatConfiguration) *TemplateNumberDisplayFormatConfiguration {
 		if v == nil {
@@ -22811,7 +22743,7 @@ func (o TemplateComparisonFormatConfigurationPtrOutput) NumberDisplayFormatConfi
 	}).(TemplateNumberDisplayFormatConfigurationPtrOutput)
 }
 
-// The options that determine the percentage display format configuration.
+// The percentage display format.
 func (o TemplateComparisonFormatConfigurationPtrOutput) PercentageDisplayFormatConfiguration() TemplatePercentageDisplayFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateComparisonFormatConfiguration) *TemplatePercentageDisplayFormatConfiguration {
 		if v == nil {
@@ -22832,9 +22764,9 @@ type TemplateComputation struct {
 	MetricComparison *TemplateMetricComparisonComputation `pulumi:"metricComparison"`
 	// The period over period computation configuration.
 	PeriodOverPeriod *TemplatePeriodOverPeriodComputation `pulumi:"periodOverPeriod"`
-	// The period to date computation configuration.
+	// The period to `DataSetIdentifier` computation configuration.
 	PeriodToDate *TemplatePeriodToDateComputation `pulumi:"periodToDate"`
-	// The top movers and bottom movers computation setup.
+	// The top movers and bottom movers computation configuration.
 	TopBottomMovers *TemplateTopBottomMoversComputation `pulumi:"topBottomMovers"`
 	// The top ranked and bottom ranked computation configuration.
 	TopBottomRanked *TemplateTopBottomRankedComputation `pulumi:"topBottomRanked"`
@@ -22866,9 +22798,9 @@ type TemplateComputationArgs struct {
 	MetricComparison TemplateMetricComparisonComputationPtrInput `pulumi:"metricComparison"`
 	// The period over period computation configuration.
 	PeriodOverPeriod TemplatePeriodOverPeriodComputationPtrInput `pulumi:"periodOverPeriod"`
-	// The period to date computation configuration.
+	// The period to `DataSetIdentifier` computation configuration.
 	PeriodToDate TemplatePeriodToDateComputationPtrInput `pulumi:"periodToDate"`
-	// The top movers and bottom movers computation setup.
+	// The top movers and bottom movers computation configuration.
 	TopBottomMovers TemplateTopBottomMoversComputationPtrInput `pulumi:"topBottomMovers"`
 	// The top ranked and bottom ranked computation configuration.
 	TopBottomRanked TemplateTopBottomRankedComputationPtrInput `pulumi:"topBottomRanked"`
@@ -22954,12 +22886,12 @@ func (o TemplateComputationOutput) PeriodOverPeriod() TemplatePeriodOverPeriodCo
 	return o.ApplyT(func(v TemplateComputation) *TemplatePeriodOverPeriodComputation { return v.PeriodOverPeriod }).(TemplatePeriodOverPeriodComputationPtrOutput)
 }
 
-// The period to date computation configuration.
+// The period to `DataSetIdentifier` computation configuration.
 func (o TemplateComputationOutput) PeriodToDate() TemplatePeriodToDateComputationPtrOutput {
 	return o.ApplyT(func(v TemplateComputation) *TemplatePeriodToDateComputation { return v.PeriodToDate }).(TemplatePeriodToDateComputationPtrOutput)
 }
 
-// The top movers and bottom movers computation setup.
+// The top movers and bottom movers computation configuration.
 func (o TemplateComputationOutput) TopBottomMovers() TemplateTopBottomMoversComputationPtrOutput {
 	return o.ApplyT(func(v TemplateComputation) *TemplateTopBottomMoversComputation { return v.TopBottomMovers }).(TemplateTopBottomMoversComputationPtrOutput)
 }
@@ -23512,7 +23444,7 @@ func (o TemplateConditionalFormattingCustomIconOptionsPtrOutput) UnicodeIcon() p
 }
 
 type TemplateConditionalFormattingGradientColor struct {
-	// Determines the gradient color settings.
+	// Determines the color.
 	Color TemplateGradientColor `pulumi:"color"`
 	// The expression that determines the formatting configuration for gradient color.
 	Expression string `pulumi:"expression"`
@@ -23530,7 +23462,7 @@ type TemplateConditionalFormattingGradientColorInput interface {
 }
 
 type TemplateConditionalFormattingGradientColorArgs struct {
-	// Determines the gradient color settings.
+	// Determines the color.
 	Color TemplateGradientColorInput `pulumi:"color"`
 	// The expression that determines the formatting configuration for gradient color.
 	Expression pulumi.StringInput `pulumi:"expression"`
@@ -23613,7 +23545,7 @@ func (o TemplateConditionalFormattingGradientColorOutput) ToTemplateConditionalF
 	}).(TemplateConditionalFormattingGradientColorPtrOutput)
 }
 
-// Determines the gradient color settings.
+// Determines the color.
 func (o TemplateConditionalFormattingGradientColorOutput) Color() TemplateGradientColorOutput {
 	return o.ApplyT(func(v TemplateConditionalFormattingGradientColor) TemplateGradientColor { return v.Color }).(TemplateGradientColorOutput)
 }
@@ -23647,7 +23579,7 @@ func (o TemplateConditionalFormattingGradientColorPtrOutput) Elem() TemplateCond
 	}).(TemplateConditionalFormattingGradientColorOutput)
 }
 
-// Determines the gradient color settings.
+// Determines the color.
 func (o TemplateConditionalFormattingGradientColorPtrOutput) Color() TemplateGradientColorPtrOutput {
 	return o.ApplyT(func(v *TemplateConditionalFormattingGradientColor) *TemplateGradientColor {
 		if v == nil {
@@ -24663,13 +24595,9 @@ func (o TemplateCurrencyDisplayFormatConfigurationPtrOutput) Symbol() pulumi.Str
 }
 
 type TemplateCustomActionFilterOperation struct {
-	// The configuration of selected fields in the `CustomActionFilterOperation` .
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The configuration that chooses the fields to be filtered.
 	SelectedFieldsConfiguration TemplateFilterOperationSelectedFieldsConfiguration `pulumi:"selectedFieldsConfiguration"`
-	// The configuration of target visuals that you want to be filtered.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The configuration that chooses the target visuals to be filtered.
 	TargetVisualsConfiguration TemplateFilterOperationTargetVisualsConfiguration `pulumi:"targetVisualsConfiguration"`
 }
 
@@ -24685,13 +24613,9 @@ type TemplateCustomActionFilterOperationInput interface {
 }
 
 type TemplateCustomActionFilterOperationArgs struct {
-	// The configuration of selected fields in the `CustomActionFilterOperation` .
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The configuration that chooses the fields to be filtered.
 	SelectedFieldsConfiguration TemplateFilterOperationSelectedFieldsConfigurationInput `pulumi:"selectedFieldsConfiguration"`
-	// The configuration of target visuals that you want to be filtered.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The configuration that chooses the target visuals to be filtered.
 	TargetVisualsConfiguration TemplateFilterOperationTargetVisualsConfigurationInput `pulumi:"targetVisualsConfiguration"`
 }
 
@@ -24772,18 +24696,14 @@ func (o TemplateCustomActionFilterOperationOutput) ToTemplateCustomActionFilterO
 	}).(TemplateCustomActionFilterOperationPtrOutput)
 }
 
-// The configuration of selected fields in the `CustomActionFilterOperation` .
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The configuration that chooses the fields to be filtered.
 func (o TemplateCustomActionFilterOperationOutput) SelectedFieldsConfiguration() TemplateFilterOperationSelectedFieldsConfigurationOutput {
 	return o.ApplyT(func(v TemplateCustomActionFilterOperation) TemplateFilterOperationSelectedFieldsConfiguration {
 		return v.SelectedFieldsConfiguration
 	}).(TemplateFilterOperationSelectedFieldsConfigurationOutput)
 }
 
-// The configuration of target visuals that you want to be filtered.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The configuration that chooses the target visuals to be filtered.
 func (o TemplateCustomActionFilterOperationOutput) TargetVisualsConfiguration() TemplateFilterOperationTargetVisualsConfigurationOutput {
 	return o.ApplyT(func(v TemplateCustomActionFilterOperation) TemplateFilterOperationTargetVisualsConfiguration {
 		return v.TargetVisualsConfiguration
@@ -24814,9 +24734,7 @@ func (o TemplateCustomActionFilterOperationPtrOutput) Elem() TemplateCustomActio
 	}).(TemplateCustomActionFilterOperationOutput)
 }
 
-// The configuration of selected fields in the `CustomActionFilterOperation` .
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The configuration that chooses the fields to be filtered.
 func (o TemplateCustomActionFilterOperationPtrOutput) SelectedFieldsConfiguration() TemplateFilterOperationSelectedFieldsConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateCustomActionFilterOperation) *TemplateFilterOperationSelectedFieldsConfiguration {
 		if v == nil {
@@ -24826,9 +24744,7 @@ func (o TemplateCustomActionFilterOperationPtrOutput) SelectedFieldsConfiguratio
 	}).(TemplateFilterOperationSelectedFieldsConfigurationPtrOutput)
 }
 
-// The configuration of target visuals that you want to be filtered.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The configuration that chooses the target visuals to be filtered.
 func (o TemplateCustomActionFilterOperationPtrOutput) TargetVisualsConfiguration() TemplateFilterOperationTargetVisualsConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateCustomActionFilterOperation) *TemplateFilterOperationTargetVisualsConfiguration {
 		if v == nil {
@@ -24839,7 +24755,7 @@ func (o TemplateCustomActionFilterOperationPtrOutput) TargetVisualsConfiguration
 }
 
 type TemplateCustomActionNavigationOperation struct {
-	// The navigation configuration for `CustomActionNavigationOperation` .
+	// The configuration that chooses the navigation target.
 	LocalNavigationConfiguration *TemplateLocalNavigationConfiguration `pulumi:"localNavigationConfiguration"`
 }
 
@@ -24855,7 +24771,7 @@ type TemplateCustomActionNavigationOperationInput interface {
 }
 
 type TemplateCustomActionNavigationOperationArgs struct {
-	// The navigation configuration for `CustomActionNavigationOperation` .
+	// The configuration that chooses the navigation target.
 	LocalNavigationConfiguration TemplateLocalNavigationConfigurationPtrInput `pulumi:"localNavigationConfiguration"`
 }
 
@@ -24936,7 +24852,7 @@ func (o TemplateCustomActionNavigationOperationOutput) ToTemplateCustomActionNav
 	}).(TemplateCustomActionNavigationOperationPtrOutput)
 }
 
-// The navigation configuration for `CustomActionNavigationOperation` .
+// The configuration that chooses the navigation target.
 func (o TemplateCustomActionNavigationOperationOutput) LocalNavigationConfiguration() TemplateLocalNavigationConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateCustomActionNavigationOperation) *TemplateLocalNavigationConfiguration {
 		return v.LocalNavigationConfiguration
@@ -24967,7 +24883,7 @@ func (o TemplateCustomActionNavigationOperationPtrOutput) Elem() TemplateCustomA
 	}).(TemplateCustomActionNavigationOperationOutput)
 }
 
-// The navigation configuration for `CustomActionNavigationOperation` .
+// The configuration that chooses the navigation target.
 func (o TemplateCustomActionNavigationOperationPtrOutput) LocalNavigationConfiguration() TemplateLocalNavigationConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateCustomActionNavigationOperation) *TemplateLocalNavigationConfiguration {
 		if v == nil {
@@ -24978,7 +24894,7 @@ func (o TemplateCustomActionNavigationOperationPtrOutput) LocalNavigationConfigu
 }
 
 type TemplateCustomActionSetParametersOperation struct {
-	// The configuration of adding parameters in action.
+	// The parameter that determines the value configuration.
 	ParameterValueConfigurations []TemplateSetParameterValueConfiguration `pulumi:"parameterValueConfigurations"`
 }
 
@@ -24994,7 +24910,7 @@ type TemplateCustomActionSetParametersOperationInput interface {
 }
 
 type TemplateCustomActionSetParametersOperationArgs struct {
-	// The configuration of adding parameters in action.
+	// The parameter that determines the value configuration.
 	ParameterValueConfigurations TemplateSetParameterValueConfigurationArrayInput `pulumi:"parameterValueConfigurations"`
 }
 
@@ -25075,7 +24991,7 @@ func (o TemplateCustomActionSetParametersOperationOutput) ToTemplateCustomAction
 	}).(TemplateCustomActionSetParametersOperationPtrOutput)
 }
 
-// The configuration of adding parameters in action.
+// The parameter that determines the value configuration.
 func (o TemplateCustomActionSetParametersOperationOutput) ParameterValueConfigurations() TemplateSetParameterValueConfigurationArrayOutput {
 	return o.ApplyT(func(v TemplateCustomActionSetParametersOperation) []TemplateSetParameterValueConfiguration {
 		return v.ParameterValueConfigurations
@@ -25106,7 +25022,7 @@ func (o TemplateCustomActionSetParametersOperationPtrOutput) Elem() TemplateCust
 	}).(TemplateCustomActionSetParametersOperationOutput)
 }
 
-// The configuration of adding parameters in action.
+// The parameter that determines the value configuration.
 func (o TemplateCustomActionSetParametersOperationPtrOutput) ParameterValueConfigurations() TemplateSetParameterValueConfigurationArrayOutput {
 	return o.ApplyT(func(v *TemplateCustomActionSetParametersOperation) []TemplateSetParameterValueConfiguration {
 		if v == nil {
@@ -25595,9 +25511,9 @@ type TemplateCustomContentVisual struct {
 	ChartConfiguration *TemplateCustomContentConfiguration `pulumi:"chartConfiguration"`
 	// The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
 	DataSetIdentifier string `pulumi:"dataSetIdentifier"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
@@ -25621,9 +25537,9 @@ type TemplateCustomContentVisualArgs struct {
 	ChartConfiguration TemplateCustomContentConfigurationPtrInput `pulumi:"chartConfiguration"`
 	// The dataset that is used to create the custom content visual. You can't create a visual without a dataset.
 	DataSetIdentifier pulumi.StringInput `pulumi:"dataSetIdentifier"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
@@ -25721,12 +25637,12 @@ func (o TemplateCustomContentVisualOutput) DataSetIdentifier() pulumi.StringOutp
 	return o.ApplyT(func(v TemplateCustomContentVisual) string { return v.DataSetIdentifier }).(pulumi.StringOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateCustomContentVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateCustomContentVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateCustomContentVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateCustomContentVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
@@ -25790,7 +25706,7 @@ func (o TemplateCustomContentVisualPtrOutput) DataSetIdentifier() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateCustomContentVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateCustomContentVisual) *TemplateVisualSubtitleLabelOptions {
 		if v == nil {
@@ -25800,7 +25716,7 @@ func (o TemplateCustomContentVisualPtrOutput) Subtitle() TemplateVisualSubtitleL
 	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateCustomContentVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateCustomContentVisual) *TemplateVisualTitleLabelOptions {
 		if v == nil {
@@ -26629,9 +26545,6 @@ func (o TemplateCustomParameterValuesPtrOutput) StringValues() pulumi.StringArra
 }
 
 type TemplateCustomValuesConfiguration struct {
-	// The customized parameter values.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	CustomValues TemplateCustomParameterValues `pulumi:"customValues"`
 	// Includes the null value in custom action parameter values.
 	IncludeNullValue *bool `pulumi:"includeNullValue"`
@@ -26649,9 +26562,6 @@ type TemplateCustomValuesConfigurationInput interface {
 }
 
 type TemplateCustomValuesConfigurationArgs struct {
-	// The customized parameter values.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	CustomValues TemplateCustomParameterValuesInput `pulumi:"customValues"`
 	// Includes the null value in custom action parameter values.
 	IncludeNullValue pulumi.BoolPtrInput `pulumi:"includeNullValue"`
@@ -26734,9 +26644,6 @@ func (o TemplateCustomValuesConfigurationOutput) ToTemplateCustomValuesConfigura
 	}).(TemplateCustomValuesConfigurationPtrOutput)
 }
 
-// The customized parameter values.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateCustomValuesConfigurationOutput) CustomValues() TemplateCustomParameterValuesOutput {
 	return o.ApplyT(func(v TemplateCustomValuesConfiguration) TemplateCustomParameterValues { return v.CustomValues }).(TemplateCustomParameterValuesOutput)
 }
@@ -26770,9 +26677,6 @@ func (o TemplateCustomValuesConfigurationPtrOutput) Elem() TemplateCustomValuesC
 	}).(TemplateCustomValuesConfigurationOutput)
 }
 
-// The customized parameter values.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateCustomValuesConfigurationPtrOutput) CustomValues() TemplateCustomParameterValuesPtrOutput {
 	return o.ApplyT(func(v *TemplateCustomValuesConfiguration) *TemplateCustomParameterValues {
 		if v == nil {
@@ -27175,7 +27079,7 @@ type TemplateDataFieldSeriesItem struct {
 	FieldId string `pulumi:"fieldId"`
 	// The field value of the field that you are setting the axis binding to.
 	FieldValue *string `pulumi:"fieldValue"`
-	// The options that determine the presentation of a line series in the visual
+	// The options that determine the presentation of line series associated to the field.
 	Settings *TemplateLineChartSeriesSettings `pulumi:"settings"`
 }
 
@@ -27197,7 +27101,7 @@ type TemplateDataFieldSeriesItemArgs struct {
 	FieldId pulumi.StringInput `pulumi:"fieldId"`
 	// The field value of the field that you are setting the axis binding to.
 	FieldValue pulumi.StringPtrInput `pulumi:"fieldValue"`
-	// The options that determine the presentation of a line series in the visual
+	// The options that determine the presentation of line series associated to the field.
 	Settings TemplateLineChartSeriesSettingsPtrInput `pulumi:"settings"`
 }
 
@@ -27293,7 +27197,7 @@ func (o TemplateDataFieldSeriesItemOutput) FieldValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateDataFieldSeriesItem) *string { return v.FieldValue }).(pulumi.StringPtrOutput)
 }
 
-// The options that determine the presentation of a line series in the visual
+// The options that determine the presentation of line series associated to the field.
 func (o TemplateDataFieldSeriesItemOutput) Settings() TemplateLineChartSeriesSettingsPtrOutput {
 	return o.ApplyT(func(v TemplateDataFieldSeriesItem) *TemplateLineChartSeriesSettings { return v.Settings }).(TemplateLineChartSeriesSettingsPtrOutput)
 }
@@ -27352,7 +27256,7 @@ func (o TemplateDataFieldSeriesItemPtrOutput) FieldValue() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The options that determine the presentation of a line series in the visual
+// The options that determine the presentation of line series associated to the field.
 func (o TemplateDataFieldSeriesItemPtrOutput) Settings() TemplateLineChartSeriesSettingsPtrOutput {
 	return o.ApplyT(func(v *TemplateDataFieldSeriesItem) *TemplateLineChartSeriesSettings {
 		if v == nil {
@@ -27366,14 +27270,12 @@ type TemplateDataLabelOptions struct {
 	// Determines the visibility of the category field labels.
 	CategoryLabelVisibility *TemplateVisibility `pulumi:"categoryLabelVisibility"`
 	// The option that determines the data label type.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	DataLabelTypes []TemplateDataLabelType `pulumi:"dataLabelTypes"`
 	// Determines the color of the data labels.
 	LabelColor *string `pulumi:"labelColor"`
 	// Determines the content of the data labels.
 	LabelContent *TemplateDataLabelContent `pulumi:"labelContent"`
-	// Configures the display properties of the given text.
+	// Determines the font configuration of the data labels.
 	LabelFontConfiguration *TemplateFontConfiguration `pulumi:"labelFontConfiguration"`
 	// Determines the visibility of the measure field labels.
 	MeasureLabelVisibility *TemplateVisibility `pulumi:"measureLabelVisibility"`
@@ -27402,14 +27304,12 @@ type TemplateDataLabelOptionsArgs struct {
 	// Determines the visibility of the category field labels.
 	CategoryLabelVisibility TemplateVisibilityPtrInput `pulumi:"categoryLabelVisibility"`
 	// The option that determines the data label type.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	DataLabelTypes TemplateDataLabelTypeArrayInput `pulumi:"dataLabelTypes"`
 	// Determines the color of the data labels.
 	LabelColor pulumi.StringPtrInput `pulumi:"labelColor"`
 	// Determines the content of the data labels.
 	LabelContent TemplateDataLabelContentPtrInput `pulumi:"labelContent"`
-	// Configures the display properties of the given text.
+	// Determines the font configuration of the data labels.
 	LabelFontConfiguration TemplateFontConfigurationPtrInput `pulumi:"labelFontConfiguration"`
 	// Determines the visibility of the measure field labels.
 	MeasureLabelVisibility TemplateVisibilityPtrInput `pulumi:"measureLabelVisibility"`
@@ -27506,8 +27406,6 @@ func (o TemplateDataLabelOptionsOutput) CategoryLabelVisibility() TemplateVisibi
 }
 
 // The option that determines the data label type.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateDataLabelOptionsOutput) DataLabelTypes() TemplateDataLabelTypeArrayOutput {
 	return o.ApplyT(func(v TemplateDataLabelOptions) []TemplateDataLabelType { return v.DataLabelTypes }).(TemplateDataLabelTypeArrayOutput)
 }
@@ -27522,7 +27420,7 @@ func (o TemplateDataLabelOptionsOutput) LabelContent() TemplateDataLabelContentP
 	return o.ApplyT(func(v TemplateDataLabelOptions) *TemplateDataLabelContent { return v.LabelContent }).(TemplateDataLabelContentPtrOutput)
 }
 
-// Configures the display properties of the given text.
+// Determines the font configuration of the data labels.
 func (o TemplateDataLabelOptionsOutput) LabelFontConfiguration() TemplateFontConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateDataLabelOptions) *TemplateFontConfiguration { return v.LabelFontConfiguration }).(TemplateFontConfigurationPtrOutput)
 }
@@ -27587,8 +27485,6 @@ func (o TemplateDataLabelOptionsPtrOutput) CategoryLabelVisibility() TemplateVis
 }
 
 // The option that determines the data label type.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateDataLabelOptionsPtrOutput) DataLabelTypes() TemplateDataLabelTypeArrayOutput {
 	return o.ApplyT(func(v *TemplateDataLabelOptions) []TemplateDataLabelType {
 		if v == nil {
@@ -27618,7 +27514,7 @@ func (o TemplateDataLabelOptionsPtrOutput) LabelContent() TemplateDataLabelConte
 	}).(TemplateDataLabelContentPtrOutput)
 }
 
-// Configures the display properties of the given text.
+// Determines the font configuration of the data labels.
 func (o TemplateDataLabelOptionsPtrOutput) LabelFontConfiguration() TemplateFontConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateDataLabelOptions) *TemplateFontConfiguration {
 		if v == nil {
@@ -27681,13 +27577,13 @@ func (o TemplateDataLabelOptionsPtrOutput) Visibility() TemplateVisibilityPtrOut
 type TemplateDataLabelType struct {
 	// The option that specifies individual data values for labels.
 	DataPathLabelType *TemplateDataPathLabelType `pulumi:"dataPathLabelType"`
-	// The field label type.
+	// Determines the label configuration for the entire field.
 	FieldLabelType *TemplateFieldLabelType `pulumi:"fieldLabelType"`
-	// The maximum label of a data path label.
+	// Determines the label configuration for the maximum value in a visual.
 	MaximumLabelType *TemplateMaximumLabelType `pulumi:"maximumLabelType"`
-	// The minimum label of a data path label.
+	// Determines the label configuration for the minimum value in a visual.
 	MinimumLabelType *TemplateMinimumLabelType `pulumi:"minimumLabelType"`
-	// The range ends label type of a data path label.
+	// Determines the label configuration for range end value in a visual.
 	RangeEndsLabelType *TemplateRangeEndsLabelType `pulumi:"rangeEndsLabelType"`
 }
 
@@ -27705,13 +27601,13 @@ type TemplateDataLabelTypeInput interface {
 type TemplateDataLabelTypeArgs struct {
 	// The option that specifies individual data values for labels.
 	DataPathLabelType TemplateDataPathLabelTypePtrInput `pulumi:"dataPathLabelType"`
-	// The field label type.
+	// Determines the label configuration for the entire field.
 	FieldLabelType TemplateFieldLabelTypePtrInput `pulumi:"fieldLabelType"`
-	// The maximum label of a data path label.
+	// Determines the label configuration for the maximum value in a visual.
 	MaximumLabelType TemplateMaximumLabelTypePtrInput `pulumi:"maximumLabelType"`
-	// The minimum label of a data path label.
+	// Determines the label configuration for the minimum value in a visual.
 	MinimumLabelType TemplateMinimumLabelTypePtrInput `pulumi:"minimumLabelType"`
-	// The range ends label type of a data path label.
+	// Determines the label configuration for range end value in a visual.
 	RangeEndsLabelType TemplateRangeEndsLabelTypePtrInput `pulumi:"rangeEndsLabelType"`
 }
 
@@ -27771,22 +27667,22 @@ func (o TemplateDataLabelTypeOutput) DataPathLabelType() TemplateDataPathLabelTy
 	return o.ApplyT(func(v TemplateDataLabelType) *TemplateDataPathLabelType { return v.DataPathLabelType }).(TemplateDataPathLabelTypePtrOutput)
 }
 
-// The field label type.
+// Determines the label configuration for the entire field.
 func (o TemplateDataLabelTypeOutput) FieldLabelType() TemplateFieldLabelTypePtrOutput {
 	return o.ApplyT(func(v TemplateDataLabelType) *TemplateFieldLabelType { return v.FieldLabelType }).(TemplateFieldLabelTypePtrOutput)
 }
 
-// The maximum label of a data path label.
+// Determines the label configuration for the maximum value in a visual.
 func (o TemplateDataLabelTypeOutput) MaximumLabelType() TemplateMaximumLabelTypePtrOutput {
 	return o.ApplyT(func(v TemplateDataLabelType) *TemplateMaximumLabelType { return v.MaximumLabelType }).(TemplateMaximumLabelTypePtrOutput)
 }
 
-// The minimum label of a data path label.
+// Determines the label configuration for the minimum value in a visual.
 func (o TemplateDataLabelTypeOutput) MinimumLabelType() TemplateMinimumLabelTypePtrOutput {
 	return o.ApplyT(func(v TemplateDataLabelType) *TemplateMinimumLabelType { return v.MinimumLabelType }).(TemplateMinimumLabelTypePtrOutput)
 }
 
-// The range ends label type of a data path label.
+// Determines the label configuration for range end value in a visual.
 func (o TemplateDataLabelTypeOutput) RangeEndsLabelType() TemplateRangeEndsLabelTypePtrOutput {
 	return o.ApplyT(func(v TemplateDataLabelType) *TemplateRangeEndsLabelType { return v.RangeEndsLabelType }).(TemplateRangeEndsLabelTypePtrOutput)
 }
@@ -27814,7 +27710,7 @@ func (o TemplateDataLabelTypeArrayOutput) Index(i pulumi.IntInput) TemplateDataL
 type TemplateDataPathColor struct {
 	// The color that needs to be applied to the element.
 	Color string `pulumi:"color"`
-	// The data path that needs to be sorted.
+	// The element that the color needs to be applied to.
 	Element TemplateDataPathValue `pulumi:"element"`
 	// The time granularity of the field that the color needs to be applied to.
 	TimeGranularity *TemplateTimeGranularity `pulumi:"timeGranularity"`
@@ -27834,7 +27730,7 @@ type TemplateDataPathColorInput interface {
 type TemplateDataPathColorArgs struct {
 	// The color that needs to be applied to the element.
 	Color pulumi.StringInput `pulumi:"color"`
-	// The data path that needs to be sorted.
+	// The element that the color needs to be applied to.
 	Element TemplateDataPathValueInput `pulumi:"element"`
 	// The time granularity of the field that the color needs to be applied to.
 	TimeGranularity TemplateTimeGranularityPtrInput `pulumi:"timeGranularity"`
@@ -27896,7 +27792,7 @@ func (o TemplateDataPathColorOutput) Color() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateDataPathColor) string { return v.Color }).(pulumi.StringOutput)
 }
 
-// The data path that needs to be sorted.
+// The element that the color needs to be applied to.
 func (o TemplateDataPathColorOutput) Element() TemplateDataPathValueOutput {
 	return o.ApplyT(func(v TemplateDataPathColor) TemplateDataPathValue { return v.Element }).(TemplateDataPathValueOutput)
 }
@@ -28415,7 +28311,7 @@ func (o TemplateDataPathTypePtrOutput) PivotTableDataPathType() TemplatePivotTab
 }
 
 type TemplateDataPathValue struct {
-	// The type of the data path value.
+	// The type configuration of the field.
 	DataPathType *TemplateDataPathType `pulumi:"dataPathType"`
 	// The field ID of the field that needs to be sorted.
 	FieldId *string `pulumi:"fieldId"`
@@ -28435,7 +28331,7 @@ type TemplateDataPathValueInput interface {
 }
 
 type TemplateDataPathValueArgs struct {
-	// The type of the data path value.
+	// The type configuration of the field.
 	DataPathType TemplateDataPathTypePtrInput `pulumi:"dataPathType"`
 	// The field ID of the field that needs to be sorted.
 	FieldId pulumi.StringPtrInput `pulumi:"fieldId"`
@@ -28494,7 +28390,7 @@ func (o TemplateDataPathValueOutput) ToTemplateDataPathValueOutputWithContext(ct
 	return o
 }
 
-// The type of the data path value.
+// The type configuration of the field.
 func (o TemplateDataPathValueOutput) DataPathType() TemplateDataPathTypePtrOutput {
 	return o.ApplyT(func(v TemplateDataPathValue) *TemplateDataPathType { return v.DataPathType }).(TemplateDataPathTypePtrOutput)
 }
@@ -29034,7 +28930,7 @@ func (o TemplateDateAxisOptionsPtrOutput) MissingDateVisibility() TemplateVisibi
 }
 
 type TemplateDateDimensionField struct {
-	// A column of a data set.
+	// The column that is used in the `DateDimensionField` .
 	Column TemplateColumnIdentifier `pulumi:"column"`
 	// The date granularity of the `DateDimensionField` . Choose one of the following options:
 	//
@@ -29050,7 +28946,7 @@ type TemplateDateDimensionField struct {
 	DateGranularity *TemplateTimeGranularity `pulumi:"dateGranularity"`
 	// The custom field ID.
 	FieldId string `pulumi:"fieldId"`
-	// Formatting configuration for `DateTime` fields.
+	// The format configuration of the field.
 	FormatConfiguration *TemplateDateTimeFormatConfiguration `pulumi:"formatConfiguration"`
 	// The custom hierarchy ID.
 	HierarchyId *string `pulumi:"hierarchyId"`
@@ -29068,7 +28964,7 @@ type TemplateDateDimensionFieldInput interface {
 }
 
 type TemplateDateDimensionFieldArgs struct {
-	// A column of a data set.
+	// The column that is used in the `DateDimensionField` .
 	Column TemplateColumnIdentifierInput `pulumi:"column"`
 	// The date granularity of the `DateDimensionField` . Choose one of the following options:
 	//
@@ -29084,7 +28980,7 @@ type TemplateDateDimensionFieldArgs struct {
 	DateGranularity TemplateTimeGranularityPtrInput `pulumi:"dateGranularity"`
 	// The custom field ID.
 	FieldId pulumi.StringInput `pulumi:"fieldId"`
-	// Formatting configuration for `DateTime` fields.
+	// The format configuration of the field.
 	FormatConfiguration TemplateDateTimeFormatConfigurationPtrInput `pulumi:"formatConfiguration"`
 	// The custom hierarchy ID.
 	HierarchyId pulumi.StringPtrInput `pulumi:"hierarchyId"`
@@ -29167,7 +29063,7 @@ func (o TemplateDateDimensionFieldOutput) ToTemplateDateDimensionFieldPtrOutputW
 	}).(TemplateDateDimensionFieldPtrOutput)
 }
 
-// A column of a data set.
+// The column that is used in the `DateDimensionField` .
 func (o TemplateDateDimensionFieldOutput) Column() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateDateDimensionField) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
 }
@@ -29192,7 +29088,7 @@ func (o TemplateDateDimensionFieldOutput) FieldId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateDateDimensionField) string { return v.FieldId }).(pulumi.StringOutput)
 }
 
-// Formatting configuration for `DateTime` fields.
+// The format configuration of the field.
 func (o TemplateDateDimensionFieldOutput) FormatConfiguration() TemplateDateTimeFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateDateDimensionField) *TemplateDateTimeFormatConfiguration { return v.FormatConfiguration }).(TemplateDateTimeFormatConfigurationPtrOutput)
 }
@@ -29226,7 +29122,7 @@ func (o TemplateDateDimensionFieldPtrOutput) Elem() TemplateDateDimensionFieldOu
 	}).(TemplateDateDimensionFieldOutput)
 }
 
-// A column of a data set.
+// The column that is used in the `DateDimensionField` .
 func (o TemplateDateDimensionFieldPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateDateDimensionField) *TemplateColumnIdentifier {
 		if v == nil {
@@ -29266,7 +29162,7 @@ func (o TemplateDateDimensionFieldPtrOutput) FieldId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Formatting configuration for `DateTime` fields.
+// The format configuration of the field.
 func (o TemplateDateDimensionFieldPtrOutput) FormatConfiguration() TemplateDateTimeFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateDateDimensionField) *TemplateDateTimeFormatConfiguration {
 		if v == nil {
@@ -29289,11 +29185,11 @@ func (o TemplateDateDimensionFieldPtrOutput) HierarchyId() pulumi.StringPtrOutpu
 type TemplateDateMeasureField struct {
 	// The aggregation function of the measure field.
 	AggregationFunction *TemplateDateAggregationFunction `pulumi:"aggregationFunction"`
-	// A column of a data set.
+	// The column that is used in the `DateMeasureField` .
 	Column TemplateColumnIdentifier `pulumi:"column"`
 	// The custom field ID.
 	FieldId string `pulumi:"fieldId"`
-	// Formatting configuration for `DateTime` fields.
+	// The format configuration of the field.
 	FormatConfiguration *TemplateDateTimeFormatConfiguration `pulumi:"formatConfiguration"`
 }
 
@@ -29311,11 +29207,11 @@ type TemplateDateMeasureFieldInput interface {
 type TemplateDateMeasureFieldArgs struct {
 	// The aggregation function of the measure field.
 	AggregationFunction TemplateDateAggregationFunctionPtrInput `pulumi:"aggregationFunction"`
-	// A column of a data set.
+	// The column that is used in the `DateMeasureField` .
 	Column TemplateColumnIdentifierInput `pulumi:"column"`
 	// The custom field ID.
 	FieldId pulumi.StringInput `pulumi:"fieldId"`
-	// Formatting configuration for `DateTime` fields.
+	// The format configuration of the field.
 	FormatConfiguration TemplateDateTimeFormatConfigurationPtrInput `pulumi:"formatConfiguration"`
 }
 
@@ -29401,7 +29297,7 @@ func (o TemplateDateMeasureFieldOutput) AggregationFunction() TemplateDateAggreg
 	return o.ApplyT(func(v TemplateDateMeasureField) *TemplateDateAggregationFunction { return v.AggregationFunction }).(TemplateDateAggregationFunctionPtrOutput)
 }
 
-// A column of a data set.
+// The column that is used in the `DateMeasureField` .
 func (o TemplateDateMeasureFieldOutput) Column() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateDateMeasureField) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
 }
@@ -29411,7 +29307,7 @@ func (o TemplateDateMeasureFieldOutput) FieldId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateDateMeasureField) string { return v.FieldId }).(pulumi.StringOutput)
 }
 
-// Formatting configuration for `DateTime` fields.
+// The format configuration of the field.
 func (o TemplateDateMeasureFieldOutput) FormatConfiguration() TemplateDateTimeFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateDateMeasureField) *TemplateDateTimeFormatConfiguration { return v.FormatConfiguration }).(TemplateDateTimeFormatConfigurationPtrOutput)
 }
@@ -29450,7 +29346,7 @@ func (o TemplateDateMeasureFieldPtrOutput) AggregationFunction() TemplateDateAgg
 	}).(TemplateDateAggregationFunctionPtrOutput)
 }
 
-// A column of a data set.
+// The column that is used in the `DateMeasureField` .
 func (o TemplateDateMeasureFieldPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateDateMeasureField) *TemplateColumnIdentifier {
 		if v == nil {
@@ -29470,7 +29366,7 @@ func (o TemplateDateMeasureFieldPtrOutput) FieldId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Formatting configuration for `DateTime` fields.
+// The format configuration of the field.
 func (o TemplateDateMeasureFieldPtrOutput) FormatConfiguration() TemplateDateTimeFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateDateMeasureField) *TemplateDateTimeFormatConfiguration {
 		if v == nil {
@@ -29481,9 +29377,9 @@ func (o TemplateDateMeasureFieldPtrOutput) FormatConfiguration() TemplateDateTim
 }
 
 type TemplateDateTimeDefaultValues struct {
-	// Defines different defaults to the users or groups based on mapping.
+	// The dynamic value of the `DataTimeDefaultValues` . Different defaults are displayed according to users, groups, and values mapping.
 	DynamicValue *TemplateDynamicDefaultValue `pulumi:"dynamicValue"`
-	// The rolling date configuration of a date time filter.
+	// The rolling date of the `DataTimeDefaultValues` . The date is determined from the dataset based on input expression.
 	RollingDate *TemplateRollingDateConfiguration `pulumi:"rollingDate"`
 	// The static values of the `DataTimeDefaultValues` .
 	StaticValues []string `pulumi:"staticValues"`
@@ -29501,9 +29397,9 @@ type TemplateDateTimeDefaultValuesInput interface {
 }
 
 type TemplateDateTimeDefaultValuesArgs struct {
-	// Defines different defaults to the users or groups based on mapping.
+	// The dynamic value of the `DataTimeDefaultValues` . Different defaults are displayed according to users, groups, and values mapping.
 	DynamicValue TemplateDynamicDefaultValuePtrInput `pulumi:"dynamicValue"`
-	// The rolling date configuration of a date time filter.
+	// The rolling date of the `DataTimeDefaultValues` . The date is determined from the dataset based on input expression.
 	RollingDate TemplateRollingDateConfigurationPtrInput `pulumi:"rollingDate"`
 	// The static values of the `DataTimeDefaultValues` .
 	StaticValues pulumi.StringArrayInput `pulumi:"staticValues"`
@@ -29586,12 +29482,12 @@ func (o TemplateDateTimeDefaultValuesOutput) ToTemplateDateTimeDefaultValuesPtrO
 	}).(TemplateDateTimeDefaultValuesPtrOutput)
 }
 
-// Defines different defaults to the users or groups based on mapping.
+// The dynamic value of the `DataTimeDefaultValues` . Different defaults are displayed according to users, groups, and values mapping.
 func (o TemplateDateTimeDefaultValuesOutput) DynamicValue() TemplateDynamicDefaultValuePtrOutput {
 	return o.ApplyT(func(v TemplateDateTimeDefaultValues) *TemplateDynamicDefaultValue { return v.DynamicValue }).(TemplateDynamicDefaultValuePtrOutput)
 }
 
-// The rolling date configuration of a date time filter.
+// The rolling date of the `DataTimeDefaultValues` . The date is determined from the dataset based on input expression.
 func (o TemplateDateTimeDefaultValuesOutput) RollingDate() TemplateRollingDateConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateDateTimeDefaultValues) *TemplateRollingDateConfiguration { return v.RollingDate }).(TemplateRollingDateConfigurationPtrOutput)
 }
@@ -29625,7 +29521,7 @@ func (o TemplateDateTimeDefaultValuesPtrOutput) Elem() TemplateDateTimeDefaultVa
 	}).(TemplateDateTimeDefaultValuesOutput)
 }
 
-// Defines different defaults to the users or groups based on mapping.
+// The dynamic value of the `DataTimeDefaultValues` . Different defaults are displayed according to users, groups, and values mapping.
 func (o TemplateDateTimeDefaultValuesPtrOutput) DynamicValue() TemplateDynamicDefaultValuePtrOutput {
 	return o.ApplyT(func(v *TemplateDateTimeDefaultValues) *TemplateDynamicDefaultValue {
 		if v == nil {
@@ -29635,7 +29531,7 @@ func (o TemplateDateTimeDefaultValuesPtrOutput) DynamicValue() TemplateDynamicDe
 	}).(TemplateDynamicDefaultValuePtrOutput)
 }
 
-// The rolling date configuration of a date time filter.
+// The rolling date of the `DataTimeDefaultValues` . The date is determined from the dataset based on input expression.
 func (o TemplateDateTimeDefaultValuesPtrOutput) RollingDate() TemplateRollingDateConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateDateTimeDefaultValues) *TemplateRollingDateConfiguration {
 		if v == nil {
@@ -29660,9 +29556,7 @@ type TemplateDateTimeFormatConfiguration struct {
 	DateTimeFormat *string `pulumi:"dateTimeFormat"`
 	// The options that determine the null value format configuration.
 	NullValueFormatConfiguration *TemplateNullValueFormatConfiguration `pulumi:"nullValueFormatConfiguration"`
-	// The options that determine the numeric format configuration.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The formatting configuration for numeric `DateTime` fields.
 	NumericFormatConfiguration *TemplateNumericFormatConfiguration `pulumi:"numericFormatConfiguration"`
 }
 
@@ -29682,9 +29576,7 @@ type TemplateDateTimeFormatConfigurationArgs struct {
 	DateTimeFormat pulumi.StringPtrInput `pulumi:"dateTimeFormat"`
 	// The options that determine the null value format configuration.
 	NullValueFormatConfiguration TemplateNullValueFormatConfigurationPtrInput `pulumi:"nullValueFormatConfiguration"`
-	// The options that determine the numeric format configuration.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The formatting configuration for numeric `DateTime` fields.
 	NumericFormatConfiguration TemplateNumericFormatConfigurationPtrInput `pulumi:"numericFormatConfiguration"`
 }
 
@@ -29777,9 +29669,7 @@ func (o TemplateDateTimeFormatConfigurationOutput) NullValueFormatConfiguration(
 	}).(TemplateNullValueFormatConfigurationPtrOutput)
 }
 
-// The options that determine the numeric format configuration.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The formatting configuration for numeric `DateTime` fields.
 func (o TemplateDateTimeFormatConfigurationOutput) NumericFormatConfiguration() TemplateNumericFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateDateTimeFormatConfiguration) *TemplateNumericFormatConfiguration {
 		return v.NumericFormatConfiguration
@@ -29830,9 +29720,7 @@ func (o TemplateDateTimeFormatConfigurationPtrOutput) NullValueFormatConfigurati
 	}).(TemplateNullValueFormatConfigurationPtrOutput)
 }
 
-// The options that determine the numeric format configuration.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The formatting configuration for numeric `DateTime` fields.
 func (o TemplateDateTimeFormatConfigurationPtrOutput) NumericFormatConfiguration() TemplateNumericFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateDateTimeFormatConfiguration) *TemplateNumericFormatConfiguration {
 		if v == nil {
@@ -29843,9 +29731,7 @@ func (o TemplateDateTimeFormatConfigurationPtrOutput) NumericFormatConfiguration
 }
 
 type TemplateDateTimeHierarchy struct {
-	// The drill down filter for the column hierarchies.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The option that determines the drill down filters for the `DateTime` hierarchy.
 	DrillDownFilters []TemplateDrillDownFilter `pulumi:"drillDownFilters"`
 	// The hierarchy ID of the `DateTime` hierarchy.
 	HierarchyId string `pulumi:"hierarchyId"`
@@ -29863,9 +29749,7 @@ type TemplateDateTimeHierarchyInput interface {
 }
 
 type TemplateDateTimeHierarchyArgs struct {
-	// The drill down filter for the column hierarchies.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The option that determines the drill down filters for the `DateTime` hierarchy.
 	DrillDownFilters TemplateDrillDownFilterArrayInput `pulumi:"drillDownFilters"`
 	// The hierarchy ID of the `DateTime` hierarchy.
 	HierarchyId pulumi.StringInput `pulumi:"hierarchyId"`
@@ -29948,9 +29832,7 @@ func (o TemplateDateTimeHierarchyOutput) ToTemplateDateTimeHierarchyPtrOutputWit
 	}).(TemplateDateTimeHierarchyPtrOutput)
 }
 
-// The drill down filter for the column hierarchies.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The option that determines the drill down filters for the `DateTime` hierarchy.
 func (o TemplateDateTimeHierarchyOutput) DrillDownFilters() TemplateDrillDownFilterArrayOutput {
 	return o.ApplyT(func(v TemplateDateTimeHierarchy) []TemplateDrillDownFilter { return v.DrillDownFilters }).(TemplateDrillDownFilterArrayOutput)
 }
@@ -29984,9 +29866,7 @@ func (o TemplateDateTimeHierarchyPtrOutput) Elem() TemplateDateTimeHierarchyOutp
 	}).(TemplateDateTimeHierarchyOutput)
 }
 
-// The drill down filter for the column hierarchies.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The option that determines the drill down filters for the `DateTime` hierarchy.
 func (o TemplateDateTimeHierarchyPtrOutput) DrillDownFilters() TemplateDrillDownFilterArrayOutput {
 	return o.ApplyT(func(v *TemplateDateTimeHierarchy) []TemplateDrillDownFilter {
 		if v == nil {
@@ -30007,9 +29887,8 @@ func (o TemplateDateTimeHierarchyPtrOutput) HierarchyId() pulumi.StringPtrOutput
 }
 
 type TemplateDateTimeParameterDeclaration struct {
-	// The default values of the `DateTimeParameterDeclaration` .
-	DefaultValues *TemplateDateTimeDefaultValues `pulumi:"defaultValues"`
-	// A dataset parameter that is mapped to an analysis parameter.
+	// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
+	DefaultValues           *TemplateDateTimeDefaultValues   `pulumi:"defaultValues"`
 	MappedDataSetParameters []TemplateMappedDataSetParameter `pulumi:"mappedDataSetParameters"`
 	// The name of the parameter that is being declared.
 	Name string `pulumi:"name"`
@@ -30031,9 +29910,8 @@ type TemplateDateTimeParameterDeclarationInput interface {
 }
 
 type TemplateDateTimeParameterDeclarationArgs struct {
-	// The default values of the `DateTimeParameterDeclaration` .
-	DefaultValues TemplateDateTimeDefaultValuesPtrInput `pulumi:"defaultValues"`
-	// A dataset parameter that is mapped to an analysis parameter.
+	// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
+	DefaultValues           TemplateDateTimeDefaultValuesPtrInput    `pulumi:"defaultValues"`
 	MappedDataSetParameters TemplateMappedDataSetParameterArrayInput `pulumi:"mappedDataSetParameters"`
 	// The name of the parameter that is being declared.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -30120,12 +29998,11 @@ func (o TemplateDateTimeParameterDeclarationOutput) ToTemplateDateTimeParameterD
 	}).(TemplateDateTimeParameterDeclarationPtrOutput)
 }
 
-// The default values of the `DateTimeParameterDeclaration` .
+// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
 func (o TemplateDateTimeParameterDeclarationOutput) DefaultValues() TemplateDateTimeDefaultValuesPtrOutput {
 	return o.ApplyT(func(v TemplateDateTimeParameterDeclaration) *TemplateDateTimeDefaultValues { return v.DefaultValues }).(TemplateDateTimeDefaultValuesPtrOutput)
 }
 
-// A dataset parameter that is mapped to an analysis parameter.
 func (o TemplateDateTimeParameterDeclarationOutput) MappedDataSetParameters() TemplateMappedDataSetParameterArrayOutput {
 	return o.ApplyT(func(v TemplateDateTimeParameterDeclaration) []TemplateMappedDataSetParameter {
 		return v.MappedDataSetParameters
@@ -30173,7 +30050,7 @@ func (o TemplateDateTimeParameterDeclarationPtrOutput) Elem() TemplateDateTimePa
 	}).(TemplateDateTimeParameterDeclarationOutput)
 }
 
-// The default values of the `DateTimeParameterDeclaration` .
+// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
 func (o TemplateDateTimeParameterDeclarationPtrOutput) DefaultValues() TemplateDateTimeDefaultValuesPtrOutput {
 	return o.ApplyT(func(v *TemplateDateTimeParameterDeclaration) *TemplateDateTimeDefaultValues {
 		if v == nil {
@@ -30183,7 +30060,6 @@ func (o TemplateDateTimeParameterDeclarationPtrOutput) DefaultValues() TemplateD
 	}).(TemplateDateTimeDefaultValuesPtrOutput)
 }
 
-// A dataset parameter that is mapped to an analysis parameter.
 func (o TemplateDateTimeParameterDeclarationPtrOutput) MappedDataSetParameters() TemplateMappedDataSetParameterArrayOutput {
 	return o.ApplyT(func(v *TemplateDateTimeParameterDeclaration) []TemplateMappedDataSetParameter {
 		if v == nil {
@@ -30226,9 +30102,9 @@ func (o TemplateDateTimeParameterDeclarationPtrOutput) ValueWhenUnset() Template
 type TemplateDateTimePickerControlDisplayOptions struct {
 	// Customize how dates are formatted in controls.
 	DateTimeFormat *string `pulumi:"dateTimeFormat"`
-	// A control to display info icons for filters and parameters.
+	// The configuration of info icon label options.
 	InfoIconLabelOptions *TemplateSheetControlInfoIconLabelOptions `pulumi:"infoIconLabelOptions"`
-	// The share label options for the labels.
+	// The options to configure the title visibility, name, and font size.
 	TitleOptions *TemplateLabelOptions `pulumi:"titleOptions"`
 }
 
@@ -30246,9 +30122,9 @@ type TemplateDateTimePickerControlDisplayOptionsInput interface {
 type TemplateDateTimePickerControlDisplayOptionsArgs struct {
 	// Customize how dates are formatted in controls.
 	DateTimeFormat pulumi.StringPtrInput `pulumi:"dateTimeFormat"`
-	// A control to display info icons for filters and parameters.
+	// The configuration of info icon label options.
 	InfoIconLabelOptions TemplateSheetControlInfoIconLabelOptionsPtrInput `pulumi:"infoIconLabelOptions"`
-	// The share label options for the labels.
+	// The options to configure the title visibility, name, and font size.
 	TitleOptions TemplateLabelOptionsPtrInput `pulumi:"titleOptions"`
 }
 
@@ -30334,14 +30210,14 @@ func (o TemplateDateTimePickerControlDisplayOptionsOutput) DateTimeFormat() pulu
 	return o.ApplyT(func(v TemplateDateTimePickerControlDisplayOptions) *string { return v.DateTimeFormat }).(pulumi.StringPtrOutput)
 }
 
-// A control to display info icons for filters and parameters.
+// The configuration of info icon label options.
 func (o TemplateDateTimePickerControlDisplayOptionsOutput) InfoIconLabelOptions() TemplateSheetControlInfoIconLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateDateTimePickerControlDisplayOptions) *TemplateSheetControlInfoIconLabelOptions {
 		return v.InfoIconLabelOptions
 	}).(TemplateSheetControlInfoIconLabelOptionsPtrOutput)
 }
 
-// The share label options for the labels.
+// The options to configure the title visibility, name, and font size.
 func (o TemplateDateTimePickerControlDisplayOptionsOutput) TitleOptions() TemplateLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateDateTimePickerControlDisplayOptions) *TemplateLabelOptions { return v.TitleOptions }).(TemplateLabelOptionsPtrOutput)
 }
@@ -30380,7 +30256,7 @@ func (o TemplateDateTimePickerControlDisplayOptionsPtrOutput) DateTimeFormat() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// A control to display info icons for filters and parameters.
+// The configuration of info icon label options.
 func (o TemplateDateTimePickerControlDisplayOptionsPtrOutput) InfoIconLabelOptions() TemplateSheetControlInfoIconLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateDateTimePickerControlDisplayOptions) *TemplateSheetControlInfoIconLabelOptions {
 		if v == nil {
@@ -30390,7 +30266,7 @@ func (o TemplateDateTimePickerControlDisplayOptionsPtrOutput) InfoIconLabelOptio
 	}).(TemplateSheetControlInfoIconLabelOptionsPtrOutput)
 }
 
-// The share label options for the labels.
+// The options to configure the title visibility, name, and font size.
 func (o TemplateDateTimePickerControlDisplayOptionsPtrOutput) TitleOptions() TemplateLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateDateTimePickerControlDisplayOptions) *TemplateLabelOptions {
 		if v == nil {
@@ -30571,7 +30447,7 @@ func (o TemplateDateTimeValueWhenUnsetConfigurationPtrOutput) ValueWhenUnsetOpti
 }
 
 type TemplateDecimalDefaultValues struct {
-	// Defines different defaults to the users or groups based on mapping.
+	// The dynamic value of the `DecimalDefaultValues` . Different defaults are displayed according to users, groups, and values mapping.
 	DynamicValue *TemplateDynamicDefaultValue `pulumi:"dynamicValue"`
 	// The static values of the `DecimalDefaultValues` .
 	StaticValues []float64 `pulumi:"staticValues"`
@@ -30589,7 +30465,7 @@ type TemplateDecimalDefaultValuesInput interface {
 }
 
 type TemplateDecimalDefaultValuesArgs struct {
-	// Defines different defaults to the users or groups based on mapping.
+	// The dynamic value of the `DecimalDefaultValues` . Different defaults are displayed according to users, groups, and values mapping.
 	DynamicValue TemplateDynamicDefaultValuePtrInput `pulumi:"dynamicValue"`
 	// The static values of the `DecimalDefaultValues` .
 	StaticValues pulumi.Float64ArrayInput `pulumi:"staticValues"`
@@ -30672,7 +30548,7 @@ func (o TemplateDecimalDefaultValuesOutput) ToTemplateDecimalDefaultValuesPtrOut
 	}).(TemplateDecimalDefaultValuesPtrOutput)
 }
 
-// Defines different defaults to the users or groups based on mapping.
+// The dynamic value of the `DecimalDefaultValues` . Different defaults are displayed according to users, groups, and values mapping.
 func (o TemplateDecimalDefaultValuesOutput) DynamicValue() TemplateDynamicDefaultValuePtrOutput {
 	return o.ApplyT(func(v TemplateDecimalDefaultValues) *TemplateDynamicDefaultValue { return v.DynamicValue }).(TemplateDynamicDefaultValuePtrOutput)
 }
@@ -30706,7 +30582,7 @@ func (o TemplateDecimalDefaultValuesPtrOutput) Elem() TemplateDecimalDefaultValu
 	}).(TemplateDecimalDefaultValuesOutput)
 }
 
-// Defines different defaults to the users or groups based on mapping.
+// The dynamic value of the `DecimalDefaultValues` . Different defaults are displayed according to users, groups, and values mapping.
 func (o TemplateDecimalDefaultValuesPtrOutput) DynamicValue() TemplateDynamicDefaultValuePtrOutput {
 	return o.ApplyT(func(v *TemplateDecimalDefaultValues) *TemplateDynamicDefaultValue {
 		if v == nil {
@@ -30727,7 +30603,7 @@ func (o TemplateDecimalDefaultValuesPtrOutput) StaticValues() pulumi.Float64Arra
 }
 
 type TemplateDecimalParameterDeclaration struct {
-	// The default values of the `DecimalParameterDeclaration` .
+	// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
 	DefaultValues           *TemplateDecimalDefaultValues    `pulumi:"defaultValues"`
 	MappedDataSetParameters []TemplateMappedDataSetParameter `pulumi:"mappedDataSetParameters"`
 	// The name of the parameter that is being declared.
@@ -30750,7 +30626,7 @@ type TemplateDecimalParameterDeclarationInput interface {
 }
 
 type TemplateDecimalParameterDeclarationArgs struct {
-	// The default values of the `DecimalParameterDeclaration` .
+	// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
 	DefaultValues           TemplateDecimalDefaultValuesPtrInput     `pulumi:"defaultValues"`
 	MappedDataSetParameters TemplateMappedDataSetParameterArrayInput `pulumi:"mappedDataSetParameters"`
 	// The name of the parameter that is being declared.
@@ -30838,7 +30714,7 @@ func (o TemplateDecimalParameterDeclarationOutput) ToTemplateDecimalParameterDec
 	}).(TemplateDecimalParameterDeclarationPtrOutput)
 }
 
-// The default values of the `DecimalParameterDeclaration` .
+// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
 func (o TemplateDecimalParameterDeclarationOutput) DefaultValues() TemplateDecimalDefaultValuesPtrOutput {
 	return o.ApplyT(func(v TemplateDecimalParameterDeclaration) *TemplateDecimalDefaultValues { return v.DefaultValues }).(TemplateDecimalDefaultValuesPtrOutput)
 }
@@ -30890,7 +30766,7 @@ func (o TemplateDecimalParameterDeclarationPtrOutput) Elem() TemplateDecimalPara
 	}).(TemplateDecimalParameterDeclarationOutput)
 }
 
-// The default values of the `DecimalParameterDeclaration` .
+// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
 func (o TemplateDecimalParameterDeclarationPtrOutput) DefaultValues() TemplateDecimalDefaultValuesPtrOutput {
 	return o.ApplyT(func(v *TemplateDecimalParameterDeclaration) *TemplateDecimalDefaultValues {
 		if v == nil {
@@ -31419,7 +31295,7 @@ func (o TemplateDefaultDateTimePickerControlOptionsPtrOutput) Type() TemplateShe
 }
 
 type TemplateDefaultFilterControlConfiguration struct {
-	// The option that corresponds to the control type of the filter.
+	// The control option for the `DefaultFilterControlConfiguration` .
 	ControlOptions TemplateDefaultFilterControlOptions `pulumi:"controlOptions"`
 	// The title of the `DefaultFilterControlConfiguration` . This title is shared by all controls that are tied to this filter.
 	Title string `pulumi:"title"`
@@ -31437,7 +31313,7 @@ type TemplateDefaultFilterControlConfigurationInput interface {
 }
 
 type TemplateDefaultFilterControlConfigurationArgs struct {
-	// The option that corresponds to the control type of the filter.
+	// The control option for the `DefaultFilterControlConfiguration` .
 	ControlOptions TemplateDefaultFilterControlOptionsInput `pulumi:"controlOptions"`
 	// The title of the `DefaultFilterControlConfiguration` . This title is shared by all controls that are tied to this filter.
 	Title pulumi.StringInput `pulumi:"title"`
@@ -31520,7 +31396,7 @@ func (o TemplateDefaultFilterControlConfigurationOutput) ToTemplateDefaultFilter
 	}).(TemplateDefaultFilterControlConfigurationPtrOutput)
 }
 
-// The option that corresponds to the control type of the filter.
+// The control option for the `DefaultFilterControlConfiguration` .
 func (o TemplateDefaultFilterControlConfigurationOutput) ControlOptions() TemplateDefaultFilterControlOptionsOutput {
 	return o.ApplyT(func(v TemplateDefaultFilterControlConfiguration) TemplateDefaultFilterControlOptions {
 		return v.ControlOptions
@@ -31556,7 +31432,7 @@ func (o TemplateDefaultFilterControlConfigurationPtrOutput) Elem() TemplateDefau
 	}).(TemplateDefaultFilterControlConfigurationOutput)
 }
 
-// The option that corresponds to the control type of the filter.
+// The control option for the `DefaultFilterControlConfiguration` .
 func (o TemplateDefaultFilterControlConfigurationPtrOutput) ControlOptions() TemplateDefaultFilterControlOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateDefaultFilterControlConfiguration) *TemplateDefaultFilterControlOptions {
 		if v == nil {
@@ -32224,7 +32100,7 @@ func (o TemplateDefaultFilterListControlOptionsPtrOutput) Type() TemplateSheetCo
 }
 
 type TemplateDefaultFreeFormLayoutConfiguration struct {
-	// Configuration options for the canvas of a free-form layout.
+	// Determines the screen canvas size options for a free-form layout.
 	CanvasSizeOptions TemplateFreeFormLayoutCanvasSizeOptions `pulumi:"canvasSizeOptions"`
 }
 
@@ -32240,7 +32116,7 @@ type TemplateDefaultFreeFormLayoutConfigurationInput interface {
 }
 
 type TemplateDefaultFreeFormLayoutConfigurationArgs struct {
-	// Configuration options for the canvas of a free-form layout.
+	// Determines the screen canvas size options for a free-form layout.
 	CanvasSizeOptions TemplateFreeFormLayoutCanvasSizeOptionsInput `pulumi:"canvasSizeOptions"`
 }
 
@@ -32321,7 +32197,7 @@ func (o TemplateDefaultFreeFormLayoutConfigurationOutput) ToTemplateDefaultFreeF
 	}).(TemplateDefaultFreeFormLayoutConfigurationPtrOutput)
 }
 
-// Configuration options for the canvas of a free-form layout.
+// Determines the screen canvas size options for a free-form layout.
 func (o TemplateDefaultFreeFormLayoutConfigurationOutput) CanvasSizeOptions() TemplateFreeFormLayoutCanvasSizeOptionsOutput {
 	return o.ApplyT(func(v TemplateDefaultFreeFormLayoutConfiguration) TemplateFreeFormLayoutCanvasSizeOptions {
 		return v.CanvasSizeOptions
@@ -32352,7 +32228,7 @@ func (o TemplateDefaultFreeFormLayoutConfigurationPtrOutput) Elem() TemplateDefa
 	}).(TemplateDefaultFreeFormLayoutConfigurationOutput)
 }
 
-// Configuration options for the canvas of a free-form layout.
+// Determines the screen canvas size options for a free-form layout.
 func (o TemplateDefaultFreeFormLayoutConfigurationPtrOutput) CanvasSizeOptions() TemplateFreeFormLayoutCanvasSizeOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateDefaultFreeFormLayoutConfiguration) *TemplateFreeFormLayoutCanvasSizeOptions {
 		if v == nil {
@@ -32363,7 +32239,7 @@ func (o TemplateDefaultFreeFormLayoutConfigurationPtrOutput) CanvasSizeOptions()
 }
 
 type TemplateDefaultGridLayoutConfiguration struct {
-	// Configuration options for the canvas of a grid layout.
+	// Determines the screen canvas size options for a grid layout.
 	CanvasSizeOptions TemplateGridLayoutCanvasSizeOptions `pulumi:"canvasSizeOptions"`
 }
 
@@ -32379,7 +32255,7 @@ type TemplateDefaultGridLayoutConfigurationInput interface {
 }
 
 type TemplateDefaultGridLayoutConfigurationArgs struct {
-	// Configuration options for the canvas of a grid layout.
+	// Determines the screen canvas size options for a grid layout.
 	CanvasSizeOptions TemplateGridLayoutCanvasSizeOptionsInput `pulumi:"canvasSizeOptions"`
 }
 
@@ -32460,7 +32336,7 @@ func (o TemplateDefaultGridLayoutConfigurationOutput) ToTemplateDefaultGridLayou
 	}).(TemplateDefaultGridLayoutConfigurationPtrOutput)
 }
 
-// Configuration options for the canvas of a grid layout.
+// Determines the screen canvas size options for a grid layout.
 func (o TemplateDefaultGridLayoutConfigurationOutput) CanvasSizeOptions() TemplateGridLayoutCanvasSizeOptionsOutput {
 	return o.ApplyT(func(v TemplateDefaultGridLayoutConfiguration) TemplateGridLayoutCanvasSizeOptions {
 		return v.CanvasSizeOptions
@@ -32491,7 +32367,7 @@ func (o TemplateDefaultGridLayoutConfigurationPtrOutput) Elem() TemplateDefaultG
 	}).(TemplateDefaultGridLayoutConfigurationOutput)
 }
 
-// Configuration options for the canvas of a grid layout.
+// Determines the screen canvas size options for a grid layout.
 func (o TemplateDefaultGridLayoutConfigurationPtrOutput) CanvasSizeOptions() TemplateGridLayoutCanvasSizeOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateDefaultGridLayoutConfiguration) *TemplateGridLayoutCanvasSizeOptions {
 		if v == nil {
@@ -33119,7 +32995,7 @@ func (o TemplateDefaultRelativeDateTimeControlOptionsPtrOutput) DisplayOptions()
 }
 
 type TemplateDefaultSectionBasedLayoutConfiguration struct {
-	// The options for the canvas of a section-based layout.
+	// Determines the screen canvas size options for a section-based layout.
 	CanvasSizeOptions TemplateSectionBasedLayoutCanvasSizeOptions `pulumi:"canvasSizeOptions"`
 }
 
@@ -33135,7 +33011,7 @@ type TemplateDefaultSectionBasedLayoutConfigurationInput interface {
 }
 
 type TemplateDefaultSectionBasedLayoutConfigurationArgs struct {
-	// The options for the canvas of a section-based layout.
+	// Determines the screen canvas size options for a section-based layout.
 	CanvasSizeOptions TemplateSectionBasedLayoutCanvasSizeOptionsInput `pulumi:"canvasSizeOptions"`
 }
 
@@ -33216,7 +33092,7 @@ func (o TemplateDefaultSectionBasedLayoutConfigurationOutput) ToTemplateDefaultS
 	}).(TemplateDefaultSectionBasedLayoutConfigurationPtrOutput)
 }
 
-// The options for the canvas of a section-based layout.
+// Determines the screen canvas size options for a section-based layout.
 func (o TemplateDefaultSectionBasedLayoutConfigurationOutput) CanvasSizeOptions() TemplateSectionBasedLayoutCanvasSizeOptionsOutput {
 	return o.ApplyT(func(v TemplateDefaultSectionBasedLayoutConfiguration) TemplateSectionBasedLayoutCanvasSizeOptions {
 		return v.CanvasSizeOptions
@@ -33247,7 +33123,7 @@ func (o TemplateDefaultSectionBasedLayoutConfigurationPtrOutput) Elem() Template
 	}).(TemplateDefaultSectionBasedLayoutConfigurationOutput)
 }
 
-// The options for the canvas of a section-based layout.
+// Determines the screen canvas size options for a section-based layout.
 func (o TemplateDefaultSectionBasedLayoutConfigurationPtrOutput) CanvasSizeOptions() TemplateSectionBasedLayoutCanvasSizeOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateDefaultSectionBasedLayoutConfiguration) *TemplateSectionBasedLayoutCanvasSizeOptions {
 		if v == nil {
@@ -33782,12 +33658,11 @@ func (o TemplateDefaultTextFieldControlOptionsPtrOutput) DisplayOptions() Templa
 }
 
 type TemplateDestinationParameterValueConfiguration struct {
-	// The configuration of custom values for the destination parameter in `DestinationParameterValueConfiguration` .
+	// The configuration of custom values for destination parameter in `DestinationParameterValueConfiguration` .
 	CustomValuesConfiguration *TemplateCustomValuesConfiguration `pulumi:"customValuesConfiguration"`
 	// The configuration that selects all options.
 	SelectAllValueOptions *TemplateSelectAllValueOptions `pulumi:"selectAllValueOptions"`
-	// A column of a data set.
-	SourceColumn *TemplateColumnIdentifier `pulumi:"sourceColumn"`
+	SourceColumn          *TemplateColumnIdentifier      `pulumi:"sourceColumn"`
 	// The source field ID of the destination parameter.
 	SourceField *string `pulumi:"sourceField"`
 	// The source parameter name of the destination parameter.
@@ -33806,12 +33681,11 @@ type TemplateDestinationParameterValueConfigurationInput interface {
 }
 
 type TemplateDestinationParameterValueConfigurationArgs struct {
-	// The configuration of custom values for the destination parameter in `DestinationParameterValueConfiguration` .
+	// The configuration of custom values for destination parameter in `DestinationParameterValueConfiguration` .
 	CustomValuesConfiguration TemplateCustomValuesConfigurationPtrInput `pulumi:"customValuesConfiguration"`
 	// The configuration that selects all options.
 	SelectAllValueOptions TemplateSelectAllValueOptionsPtrInput `pulumi:"selectAllValueOptions"`
-	// A column of a data set.
-	SourceColumn TemplateColumnIdentifierPtrInput `pulumi:"sourceColumn"`
+	SourceColumn          TemplateColumnIdentifierPtrInput      `pulumi:"sourceColumn"`
 	// The source field ID of the destination parameter.
 	SourceField pulumi.StringPtrInput `pulumi:"sourceField"`
 	// The source parameter name of the destination parameter.
@@ -33844,7 +33718,7 @@ func (o TemplateDestinationParameterValueConfigurationOutput) ToTemplateDestinat
 	return o
 }
 
-// The configuration of custom values for the destination parameter in `DestinationParameterValueConfiguration` .
+// The configuration of custom values for destination parameter in `DestinationParameterValueConfiguration` .
 func (o TemplateDestinationParameterValueConfigurationOutput) CustomValuesConfiguration() TemplateCustomValuesConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateDestinationParameterValueConfiguration) *TemplateCustomValuesConfiguration {
 		return v.CustomValuesConfiguration
@@ -33858,7 +33732,6 @@ func (o TemplateDestinationParameterValueConfigurationOutput) SelectAllValueOpti
 	}).(TemplateSelectAllValueOptionsPtrOutput)
 }
 
-// A column of a data set.
 func (o TemplateDestinationParameterValueConfigurationOutput) SourceColumn() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v TemplateDestinationParameterValueConfiguration) *TemplateColumnIdentifier {
 		return v.SourceColumn
@@ -33876,7 +33749,7 @@ func (o TemplateDestinationParameterValueConfigurationOutput) SourceParameterNam
 }
 
 type TemplateDimensionField struct {
-	// The dimension type field with categorical type columns..
+	// The dimension type field with categorical type columns.
 	CategoricalDimensionField *TemplateCategoricalDimensionField `pulumi:"categoricalDimensionField"`
 	// The dimension type field with date type columns.
 	DateDimensionField *TemplateDateDimensionField `pulumi:"dateDimensionField"`
@@ -33896,7 +33769,7 @@ type TemplateDimensionFieldInput interface {
 }
 
 type TemplateDimensionFieldArgs struct {
-	// The dimension type field with categorical type columns..
+	// The dimension type field with categorical type columns.
 	CategoricalDimensionField TemplateCategoricalDimensionFieldPtrInput `pulumi:"categoricalDimensionField"`
 	// The dimension type field with date type columns.
 	DateDimensionField TemplateDateDimensionFieldPtrInput `pulumi:"dateDimensionField"`
@@ -34006,7 +33879,7 @@ func (o TemplateDimensionFieldOutput) ToTemplateDimensionFieldPtrOutputWithConte
 	}).(TemplateDimensionFieldPtrOutput)
 }
 
-// The dimension type field with categorical type columns..
+// The dimension type field with categorical type columns.
 func (o TemplateDimensionFieldOutput) CategoricalDimensionField() TemplateCategoricalDimensionFieldPtrOutput {
 	return o.ApplyT(func(v TemplateDimensionField) *TemplateCategoricalDimensionField { return v.CategoricalDimensionField }).(TemplateCategoricalDimensionFieldPtrOutput)
 }
@@ -34045,7 +33918,7 @@ func (o TemplateDimensionFieldPtrOutput) Elem() TemplateDimensionFieldOutput {
 	}).(TemplateDimensionFieldOutput)
 }
 
-// The dimension type field with categorical type columns..
+// The dimension type field with categorical type columns.
 func (o TemplateDimensionFieldPtrOutput) CategoricalDimensionField() TemplateCategoricalDimensionFieldPtrOutput {
 	return o.ApplyT(func(v *TemplateDimensionField) *TemplateCategoricalDimensionField {
 		if v == nil {
@@ -34233,7 +34106,12 @@ func (o TemplateDonutCenterOptionsPtrOutput) LabelVisibility() TemplateVisibilit
 }
 
 type TemplateDonutOptions struct {
-	// The options that determine the arc thickness of a `GaugeChartVisual` .
+	// The option for define the arc of the chart shape. Valid values are as follows:
+	//
+	// - `WHOLE` - A pie chart
+	// - `SMALL` - A small-sized donut chart
+	// - `MEDIUM` - A medium-sized donut chart
+	// - `LARGE` - A large-sized donut chart
 	ArcOptions *TemplateArcOptions `pulumi:"arcOptions"`
 	// The label options of the label that is displayed in the center of a donut chart. This option isn't available for pie charts.
 	DonutCenterOptions *TemplateDonutCenterOptions `pulumi:"donutCenterOptions"`
@@ -34251,7 +34129,12 @@ type TemplateDonutOptionsInput interface {
 }
 
 type TemplateDonutOptionsArgs struct {
-	// The options that determine the arc thickness of a `GaugeChartVisual` .
+	// The option for define the arc of the chart shape. Valid values are as follows:
+	//
+	// - `WHOLE` - A pie chart
+	// - `SMALL` - A small-sized donut chart
+	// - `MEDIUM` - A medium-sized donut chart
+	// - `LARGE` - A large-sized donut chart
 	ArcOptions TemplateArcOptionsPtrInput `pulumi:"arcOptions"`
 	// The label options of the label that is displayed in the center of a donut chart. This option isn't available for pie charts.
 	DonutCenterOptions TemplateDonutCenterOptionsPtrInput `pulumi:"donutCenterOptions"`
@@ -34334,7 +34217,12 @@ func (o TemplateDonutOptionsOutput) ToTemplateDonutOptionsPtrOutputWithContext(c
 	}).(TemplateDonutOptionsPtrOutput)
 }
 
-// The options that determine the arc thickness of a `GaugeChartVisual` .
+// The option for define the arc of the chart shape. Valid values are as follows:
+//
+// - `WHOLE` - A pie chart
+// - `SMALL` - A small-sized donut chart
+// - `MEDIUM` - A medium-sized donut chart
+// - `LARGE` - A large-sized donut chart
 func (o TemplateDonutOptionsOutput) ArcOptions() TemplateArcOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateDonutOptions) *TemplateArcOptions { return v.ArcOptions }).(TemplateArcOptionsPtrOutput)
 }
@@ -34368,7 +34256,12 @@ func (o TemplateDonutOptionsPtrOutput) Elem() TemplateDonutOptionsOutput {
 	}).(TemplateDonutOptionsOutput)
 }
 
-// The options that determine the arc thickness of a `GaugeChartVisual` .
+// The option for define the arc of the chart shape. Valid values are as follows:
+//
+// - `WHOLE` - A pie chart
+// - `SMALL` - A small-sized donut chart
+// - `MEDIUM` - A medium-sized donut chart
+// - `LARGE` - A large-sized donut chart
 func (o TemplateDonutOptionsPtrOutput) ArcOptions() TemplateArcOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateDonutOptions) *TemplateArcOptions {
 		if v == nil {
@@ -34389,11 +34282,11 @@ func (o TemplateDonutOptionsPtrOutput) DonutCenterOptions() TemplateDonutCenterO
 }
 
 type TemplateDrillDownFilter struct {
-	// The category drill down filter.
+	// The category type drill down filter. This filter is used for string type columns.
 	CategoryFilter *TemplateCategoryDrillDownFilter `pulumi:"categoryFilter"`
-	// The numeric equality type drill down filter.
+	// The numeric equality type drill down filter. This filter is used for number type columns.
 	NumericEqualityFilter *TemplateNumericEqualityDrillDownFilter `pulumi:"numericEqualityFilter"`
-	// The time range drill down filter.
+	// The time range drill down filter. This filter is used for date time columns.
 	TimeRangeFilter *TemplateTimeRangeDrillDownFilter `pulumi:"timeRangeFilter"`
 }
 
@@ -34409,11 +34302,11 @@ type TemplateDrillDownFilterInput interface {
 }
 
 type TemplateDrillDownFilterArgs struct {
-	// The category drill down filter.
+	// The category type drill down filter. This filter is used for string type columns.
 	CategoryFilter TemplateCategoryDrillDownFilterPtrInput `pulumi:"categoryFilter"`
-	// The numeric equality type drill down filter.
+	// The numeric equality type drill down filter. This filter is used for number type columns.
 	NumericEqualityFilter TemplateNumericEqualityDrillDownFilterPtrInput `pulumi:"numericEqualityFilter"`
-	// The time range drill down filter.
+	// The time range drill down filter. This filter is used for date time columns.
 	TimeRangeFilter TemplateTimeRangeDrillDownFilterPtrInput `pulumi:"timeRangeFilter"`
 }
 
@@ -34468,19 +34361,19 @@ func (o TemplateDrillDownFilterOutput) ToTemplateDrillDownFilterOutputWithContex
 	return o
 }
 
-// The category drill down filter.
+// The category type drill down filter. This filter is used for string type columns.
 func (o TemplateDrillDownFilterOutput) CategoryFilter() TemplateCategoryDrillDownFilterPtrOutput {
 	return o.ApplyT(func(v TemplateDrillDownFilter) *TemplateCategoryDrillDownFilter { return v.CategoryFilter }).(TemplateCategoryDrillDownFilterPtrOutput)
 }
 
-// The numeric equality type drill down filter.
+// The numeric equality type drill down filter. This filter is used for number type columns.
 func (o TemplateDrillDownFilterOutput) NumericEqualityFilter() TemplateNumericEqualityDrillDownFilterPtrOutput {
 	return o.ApplyT(func(v TemplateDrillDownFilter) *TemplateNumericEqualityDrillDownFilter {
 		return v.NumericEqualityFilter
 	}).(TemplateNumericEqualityDrillDownFilterPtrOutput)
 }
 
-// The time range drill down filter.
+// The time range drill down filter. This filter is used for date time columns.
 func (o TemplateDrillDownFilterOutput) TimeRangeFilter() TemplateTimeRangeDrillDownFilterPtrOutput {
 	return o.ApplyT(func(v TemplateDrillDownFilter) *TemplateTimeRangeDrillDownFilter { return v.TimeRangeFilter }).(TemplateTimeRangeDrillDownFilterPtrOutput)
 }
@@ -34506,11 +34399,11 @@ func (o TemplateDrillDownFilterArrayOutput) Index(i pulumi.IntInput) TemplateDri
 }
 
 type TemplateDropDownControlDisplayOptions struct {
-	// A control to display info icons for filters and parameters.
+	// The configuration of info icon label options.
 	InfoIconLabelOptions *TemplateSheetControlInfoIconLabelOptions `pulumi:"infoIconLabelOptions"`
-	// The configuration of the `Select all` options in a list control.
+	// The configuration of the `Select all` options in a dropdown control.
 	SelectAllOptions *TemplateListControlSelectAllOptions `pulumi:"selectAllOptions"`
-	// The share label options for the labels.
+	// The options to configure the title visibility, name, and font size.
 	TitleOptions *TemplateLabelOptions `pulumi:"titleOptions"`
 }
 
@@ -34526,11 +34419,11 @@ type TemplateDropDownControlDisplayOptionsInput interface {
 }
 
 type TemplateDropDownControlDisplayOptionsArgs struct {
-	// A control to display info icons for filters and parameters.
+	// The configuration of info icon label options.
 	InfoIconLabelOptions TemplateSheetControlInfoIconLabelOptionsPtrInput `pulumi:"infoIconLabelOptions"`
-	// The configuration of the `Select all` options in a list control.
+	// The configuration of the `Select all` options in a dropdown control.
 	SelectAllOptions TemplateListControlSelectAllOptionsPtrInput `pulumi:"selectAllOptions"`
-	// The share label options for the labels.
+	// The options to configure the title visibility, name, and font size.
 	TitleOptions TemplateLabelOptionsPtrInput `pulumi:"titleOptions"`
 }
 
@@ -34611,21 +34504,21 @@ func (o TemplateDropDownControlDisplayOptionsOutput) ToTemplateDropDownControlDi
 	}).(TemplateDropDownControlDisplayOptionsPtrOutput)
 }
 
-// A control to display info icons for filters and parameters.
+// The configuration of info icon label options.
 func (o TemplateDropDownControlDisplayOptionsOutput) InfoIconLabelOptions() TemplateSheetControlInfoIconLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateDropDownControlDisplayOptions) *TemplateSheetControlInfoIconLabelOptions {
 		return v.InfoIconLabelOptions
 	}).(TemplateSheetControlInfoIconLabelOptionsPtrOutput)
 }
 
-// The configuration of the `Select all` options in a list control.
+// The configuration of the `Select all` options in a dropdown control.
 func (o TemplateDropDownControlDisplayOptionsOutput) SelectAllOptions() TemplateListControlSelectAllOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateDropDownControlDisplayOptions) *TemplateListControlSelectAllOptions {
 		return v.SelectAllOptions
 	}).(TemplateListControlSelectAllOptionsPtrOutput)
 }
 
-// The share label options for the labels.
+// The options to configure the title visibility, name, and font size.
 func (o TemplateDropDownControlDisplayOptionsOutput) TitleOptions() TemplateLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateDropDownControlDisplayOptions) *TemplateLabelOptions { return v.TitleOptions }).(TemplateLabelOptionsPtrOutput)
 }
@@ -34654,7 +34547,7 @@ func (o TemplateDropDownControlDisplayOptionsPtrOutput) Elem() TemplateDropDownC
 	}).(TemplateDropDownControlDisplayOptionsOutput)
 }
 
-// A control to display info icons for filters and parameters.
+// The configuration of info icon label options.
 func (o TemplateDropDownControlDisplayOptionsPtrOutput) InfoIconLabelOptions() TemplateSheetControlInfoIconLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateDropDownControlDisplayOptions) *TemplateSheetControlInfoIconLabelOptions {
 		if v == nil {
@@ -34664,7 +34557,7 @@ func (o TemplateDropDownControlDisplayOptionsPtrOutput) InfoIconLabelOptions() T
 	}).(TemplateSheetControlInfoIconLabelOptionsPtrOutput)
 }
 
-// The configuration of the `Select all` options in a list control.
+// The configuration of the `Select all` options in a dropdown control.
 func (o TemplateDropDownControlDisplayOptionsPtrOutput) SelectAllOptions() TemplateListControlSelectAllOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateDropDownControlDisplayOptions) *TemplateListControlSelectAllOptions {
 		if v == nil {
@@ -34674,7 +34567,7 @@ func (o TemplateDropDownControlDisplayOptionsPtrOutput) SelectAllOptions() Templ
 	}).(TemplateListControlSelectAllOptionsPtrOutput)
 }
 
-// The share label options for the labels.
+// The options to configure the title visibility, name, and font size.
 func (o TemplateDropDownControlDisplayOptionsPtrOutput) TitleOptions() TemplateLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateDropDownControlDisplayOptions) *TemplateLabelOptions {
 		if v == nil {
@@ -34685,11 +34578,11 @@ func (o TemplateDropDownControlDisplayOptionsPtrOutput) TitleOptions() TemplateL
 }
 
 type TemplateDynamicDefaultValue struct {
-	// A column of a data set.
+	// The column that contains the default value of each user or group.
 	DefaultValueColumn TemplateColumnIdentifier `pulumi:"defaultValueColumn"`
-	// A column of a data set.
+	// The column that contains the group name.
 	GroupNameColumn *TemplateColumnIdentifier `pulumi:"groupNameColumn"`
-	// A column of a data set.
+	// The column that contains the username.
 	UserNameColumn *TemplateColumnIdentifier `pulumi:"userNameColumn"`
 }
 
@@ -34705,11 +34598,11 @@ type TemplateDynamicDefaultValueInput interface {
 }
 
 type TemplateDynamicDefaultValueArgs struct {
-	// A column of a data set.
+	// The column that contains the default value of each user or group.
 	DefaultValueColumn TemplateColumnIdentifierInput `pulumi:"defaultValueColumn"`
-	// A column of a data set.
+	// The column that contains the group name.
 	GroupNameColumn TemplateColumnIdentifierPtrInput `pulumi:"groupNameColumn"`
-	// A column of a data set.
+	// The column that contains the username.
 	UserNameColumn TemplateColumnIdentifierPtrInput `pulumi:"userNameColumn"`
 }
 
@@ -34790,17 +34683,17 @@ func (o TemplateDynamicDefaultValueOutput) ToTemplateDynamicDefaultValuePtrOutpu
 	}).(TemplateDynamicDefaultValuePtrOutput)
 }
 
-// A column of a data set.
+// The column that contains the default value of each user or group.
 func (o TemplateDynamicDefaultValueOutput) DefaultValueColumn() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateDynamicDefaultValue) TemplateColumnIdentifier { return v.DefaultValueColumn }).(TemplateColumnIdentifierOutput)
 }
 
-// A column of a data set.
+// The column that contains the group name.
 func (o TemplateDynamicDefaultValueOutput) GroupNameColumn() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v TemplateDynamicDefaultValue) *TemplateColumnIdentifier { return v.GroupNameColumn }).(TemplateColumnIdentifierPtrOutput)
 }
 
-// A column of a data set.
+// The column that contains the username.
 func (o TemplateDynamicDefaultValueOutput) UserNameColumn() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v TemplateDynamicDefaultValue) *TemplateColumnIdentifier { return v.UserNameColumn }).(TemplateColumnIdentifierPtrOutput)
 }
@@ -34829,7 +34722,7 @@ func (o TemplateDynamicDefaultValuePtrOutput) Elem() TemplateDynamicDefaultValue
 	}).(TemplateDynamicDefaultValueOutput)
 }
 
-// A column of a data set.
+// The column that contains the default value of each user or group.
 func (o TemplateDynamicDefaultValuePtrOutput) DefaultValueColumn() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateDynamicDefaultValue) *TemplateColumnIdentifier {
 		if v == nil {
@@ -34839,7 +34732,7 @@ func (o TemplateDynamicDefaultValuePtrOutput) DefaultValueColumn() TemplateColum
 	}).(TemplateColumnIdentifierPtrOutput)
 }
 
-// A column of a data set.
+// The column that contains the group name.
 func (o TemplateDynamicDefaultValuePtrOutput) GroupNameColumn() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateDynamicDefaultValue) *TemplateColumnIdentifier {
 		if v == nil {
@@ -34849,7 +34742,7 @@ func (o TemplateDynamicDefaultValuePtrOutput) GroupNameColumn() TemplateColumnId
 	}).(TemplateColumnIdentifierPtrOutput)
 }
 
-// A column of a data set.
+// The column that contains the username.
 func (o TemplateDynamicDefaultValuePtrOutput) UserNameColumn() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateDynamicDefaultValue) *TemplateColumnIdentifier {
 		if v == nil {
@@ -35503,9 +35396,7 @@ func (o TemplateExplicitHierarchyPtrOutput) HierarchyId() pulumi.StringPtrOutput
 type TemplateFieldBasedTooltip struct {
 	// The visibility of `Show aggregations` .
 	AggregationVisibility *TemplateVisibility `pulumi:"aggregationVisibility"`
-	// The tooltip.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The fields configuration in the tooltip.
 	TooltipFields []TemplateTooltipItem `pulumi:"tooltipFields"`
 	// The type for the >tooltip title. Choose one of the following options:
 	//
@@ -35528,9 +35419,7 @@ type TemplateFieldBasedTooltipInput interface {
 type TemplateFieldBasedTooltipArgs struct {
 	// The visibility of `Show aggregations` .
 	AggregationVisibility TemplateVisibilityPtrInput `pulumi:"aggregationVisibility"`
-	// The tooltip.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The fields configuration in the tooltip.
 	TooltipFields TemplateTooltipItemArrayInput `pulumi:"tooltipFields"`
 	// The type for the >tooltip title. Choose one of the following options:
 	//
@@ -35621,9 +35510,7 @@ func (o TemplateFieldBasedTooltipOutput) AggregationVisibility() TemplateVisibil
 	return o.ApplyT(func(v TemplateFieldBasedTooltip) *TemplateVisibility { return v.AggregationVisibility }).(TemplateVisibilityPtrOutput)
 }
 
-// The tooltip.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The fields configuration in the tooltip.
 func (o TemplateFieldBasedTooltipOutput) TooltipFields() TemplateTooltipItemArrayOutput {
 	return o.ApplyT(func(v TemplateFieldBasedTooltip) []TemplateTooltipItem { return v.TooltipFields }).(TemplateTooltipItemArrayOutput)
 }
@@ -35670,9 +35557,7 @@ func (o TemplateFieldBasedTooltipPtrOutput) AggregationVisibility() TemplateVisi
 	}).(TemplateVisibilityPtrOutput)
 }
 
-// The tooltip.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The fields configuration in the tooltip.
 func (o TemplateFieldBasedTooltipPtrOutput) TooltipFields() TemplateTooltipItemArrayOutput {
 	return o.ApplyT(func(v *TemplateFieldBasedTooltip) []TemplateTooltipItem {
 		if v == nil {
@@ -35856,7 +35741,7 @@ type TemplateFieldSeriesItem struct {
 	AxisBinding TemplateAxisBinding `pulumi:"axisBinding"`
 	// The field ID of the field for which you are setting the axis binding.
 	FieldId string `pulumi:"fieldId"`
-	// The options that determine the presentation of a line series in the visual
+	// The options that determine the presentation of line series associated to the field.
 	Settings *TemplateLineChartSeriesSettings `pulumi:"settings"`
 }
 
@@ -35876,7 +35761,7 @@ type TemplateFieldSeriesItemArgs struct {
 	AxisBinding TemplateAxisBindingInput `pulumi:"axisBinding"`
 	// The field ID of the field for which you are setting the axis binding.
 	FieldId pulumi.StringInput `pulumi:"fieldId"`
-	// The options that determine the presentation of a line series in the visual
+	// The options that determine the presentation of line series associated to the field.
 	Settings TemplateLineChartSeriesSettingsPtrInput `pulumi:"settings"`
 }
 
@@ -35967,7 +35852,7 @@ func (o TemplateFieldSeriesItemOutput) FieldId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateFieldSeriesItem) string { return v.FieldId }).(pulumi.StringOutput)
 }
 
-// The options that determine the presentation of a line series in the visual
+// The options that determine the presentation of line series associated to the field.
 func (o TemplateFieldSeriesItemOutput) Settings() TemplateLineChartSeriesSettingsPtrOutput {
 	return o.ApplyT(func(v TemplateFieldSeriesItem) *TemplateLineChartSeriesSettings { return v.Settings }).(TemplateLineChartSeriesSettingsPtrOutput)
 }
@@ -36016,7 +35901,7 @@ func (o TemplateFieldSeriesItemPtrOutput) FieldId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The options that determine the presentation of a line series in the visual
+// The options that determine the presentation of line series associated to the field.
 func (o TemplateFieldSeriesItemPtrOutput) Settings() TemplateLineChartSeriesSettingsPtrOutput {
 	return o.ApplyT(func(v *TemplateFieldSeriesItem) *TemplateLineChartSeriesSettings {
 		if v == nil {
@@ -36870,19 +36755,17 @@ func (o TemplateFilledMapConditionalFormattingOptionArrayOutput) Index(i pulumi.
 }
 
 type TemplateFilledMapConfiguration struct {
-	// The field wells of a `FilledMapVisual` .
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The field wells of the visual.
 	FieldWells *TemplateFilledMapFieldWells `pulumi:"fieldWells"`
-	// The options for the legend setup of a visual.
+	// The legend display setup of the visual.
 	Legend *TemplateLegendOptions `pulumi:"legend"`
-	// The map style options of the geospatial map.
+	// The map style options of the filled map visual.
 	MapStyleOptions *TemplateGeospatialMapStyleOptions `pulumi:"mapStyleOptions"`
 	// The sort configuration of a `FilledMapVisual` .
 	SortConfiguration *TemplateFilledMapSortConfiguration `pulumi:"sortConfiguration"`
-	// The display options for the visual tooltip.
+	// The tooltip display setup of the visual.
 	Tooltip *TemplateTooltipOptions `pulumi:"tooltip"`
-	// The window options of the geospatial map visual.
+	// The window options of the filled map visual.
 	WindowOptions *TemplateGeospatialWindowOptions `pulumi:"windowOptions"`
 }
 
@@ -36898,19 +36781,17 @@ type TemplateFilledMapConfigurationInput interface {
 }
 
 type TemplateFilledMapConfigurationArgs struct {
-	// The field wells of a `FilledMapVisual` .
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The field wells of the visual.
 	FieldWells TemplateFilledMapFieldWellsPtrInput `pulumi:"fieldWells"`
-	// The options for the legend setup of a visual.
+	// The legend display setup of the visual.
 	Legend TemplateLegendOptionsPtrInput `pulumi:"legend"`
-	// The map style options of the geospatial map.
+	// The map style options of the filled map visual.
 	MapStyleOptions TemplateGeospatialMapStyleOptionsPtrInput `pulumi:"mapStyleOptions"`
 	// The sort configuration of a `FilledMapVisual` .
 	SortConfiguration TemplateFilledMapSortConfigurationPtrInput `pulumi:"sortConfiguration"`
-	// The display options for the visual tooltip.
+	// The tooltip display setup of the visual.
 	Tooltip TemplateTooltipOptionsPtrInput `pulumi:"tooltip"`
-	// The window options of the geospatial map visual.
+	// The window options of the filled map visual.
 	WindowOptions TemplateGeospatialWindowOptionsPtrInput `pulumi:"windowOptions"`
 }
 
@@ -36991,19 +36872,17 @@ func (o TemplateFilledMapConfigurationOutput) ToTemplateFilledMapConfigurationPt
 	}).(TemplateFilledMapConfigurationPtrOutput)
 }
 
-// The field wells of a `FilledMapVisual` .
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The field wells of the visual.
 func (o TemplateFilledMapConfigurationOutput) FieldWells() TemplateFilledMapFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplateFilledMapConfiguration) *TemplateFilledMapFieldWells { return v.FieldWells }).(TemplateFilledMapFieldWellsPtrOutput)
 }
 
-// The options for the legend setup of a visual.
+// The legend display setup of the visual.
 func (o TemplateFilledMapConfigurationOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateFilledMapConfiguration) *TemplateLegendOptions { return v.Legend }).(TemplateLegendOptionsPtrOutput)
 }
 
-// The map style options of the geospatial map.
+// The map style options of the filled map visual.
 func (o TemplateFilledMapConfigurationOutput) MapStyleOptions() TemplateGeospatialMapStyleOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateFilledMapConfiguration) *TemplateGeospatialMapStyleOptions { return v.MapStyleOptions }).(TemplateGeospatialMapStyleOptionsPtrOutput)
 }
@@ -37013,12 +36892,12 @@ func (o TemplateFilledMapConfigurationOutput) SortConfiguration() TemplateFilled
 	return o.ApplyT(func(v TemplateFilledMapConfiguration) *TemplateFilledMapSortConfiguration { return v.SortConfiguration }).(TemplateFilledMapSortConfigurationPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The tooltip display setup of the visual.
 func (o TemplateFilledMapConfigurationOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateFilledMapConfiguration) *TemplateTooltipOptions { return v.Tooltip }).(TemplateTooltipOptionsPtrOutput)
 }
 
-// The window options of the geospatial map visual.
+// The window options of the filled map visual.
 func (o TemplateFilledMapConfigurationOutput) WindowOptions() TemplateGeospatialWindowOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateFilledMapConfiguration) *TemplateGeospatialWindowOptions { return v.WindowOptions }).(TemplateGeospatialWindowOptionsPtrOutput)
 }
@@ -37047,9 +36926,7 @@ func (o TemplateFilledMapConfigurationPtrOutput) Elem() TemplateFilledMapConfigu
 	}).(TemplateFilledMapConfigurationOutput)
 }
 
-// The field wells of a `FilledMapVisual` .
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The field wells of the visual.
 func (o TemplateFilledMapConfigurationPtrOutput) FieldWells() TemplateFilledMapFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplateFilledMapConfiguration) *TemplateFilledMapFieldWells {
 		if v == nil {
@@ -37059,7 +36936,7 @@ func (o TemplateFilledMapConfigurationPtrOutput) FieldWells() TemplateFilledMapF
 	}).(TemplateFilledMapFieldWellsPtrOutput)
 }
 
-// The options for the legend setup of a visual.
+// The legend display setup of the visual.
 func (o TemplateFilledMapConfigurationPtrOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateFilledMapConfiguration) *TemplateLegendOptions {
 		if v == nil {
@@ -37069,7 +36946,7 @@ func (o TemplateFilledMapConfigurationPtrOutput) Legend() TemplateLegendOptionsP
 	}).(TemplateLegendOptionsPtrOutput)
 }
 
-// The map style options of the geospatial map.
+// The map style options of the filled map visual.
 func (o TemplateFilledMapConfigurationPtrOutput) MapStyleOptions() TemplateGeospatialMapStyleOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateFilledMapConfiguration) *TemplateGeospatialMapStyleOptions {
 		if v == nil {
@@ -37089,7 +36966,7 @@ func (o TemplateFilledMapConfigurationPtrOutput) SortConfiguration() TemplateFil
 	}).(TemplateFilledMapSortConfigurationPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The tooltip display setup of the visual.
 func (o TemplateFilledMapConfigurationPtrOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateFilledMapConfiguration) *TemplateTooltipOptions {
 		if v == nil {
@@ -37099,7 +36976,7 @@ func (o TemplateFilledMapConfigurationPtrOutput) Tooltip() TemplateTooltipOption
 	}).(TemplateTooltipOptionsPtrOutput)
 }
 
-// The window options of the geospatial map visual.
+// The window options of the filled map visual.
 func (o TemplateFilledMapConfigurationPtrOutput) WindowOptions() TemplateGeospatialWindowOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateFilledMapConfiguration) *TemplateGeospatialWindowOptions {
 		if v == nil {
@@ -37251,7 +37128,7 @@ func (o TemplateFilledMapFieldWellsPtrOutput) FilledMapAggregatedFieldWells() Te
 type TemplateFilledMapShapeConditionalFormatting struct {
 	// The field ID of the filled map shape.
 	FieldId string `pulumi:"fieldId"`
-	// The shape conditional formatting of a filled map visual.
+	// The conditional formatting that determines the background color of a filled map's shape.
 	Format *TemplateShapeConditionalFormat `pulumi:"format"`
 }
 
@@ -37269,7 +37146,7 @@ type TemplateFilledMapShapeConditionalFormattingInput interface {
 type TemplateFilledMapShapeConditionalFormattingArgs struct {
 	// The field ID of the filled map shape.
 	FieldId pulumi.StringInput `pulumi:"fieldId"`
-	// The shape conditional formatting of a filled map visual.
+	// The conditional formatting that determines the background color of a filled map's shape.
 	Format TemplateShapeConditionalFormatPtrInput `pulumi:"format"`
 }
 
@@ -37304,7 +37181,7 @@ func (o TemplateFilledMapShapeConditionalFormattingOutput) FieldId() pulumi.Stri
 	return o.ApplyT(func(v TemplateFilledMapShapeConditionalFormatting) string { return v.FieldId }).(pulumi.StringOutput)
 }
 
-// The shape conditional formatting of a filled map visual.
+// The conditional formatting that determines the background color of a filled map's shape.
 func (o TemplateFilledMapShapeConditionalFormattingOutput) Format() TemplateShapeConditionalFormatPtrOutput {
 	return o.ApplyT(func(v TemplateFilledMapShapeConditionalFormatting) *TemplateShapeConditionalFormat { return v.Format }).(TemplateShapeConditionalFormatPtrOutput)
 }
@@ -37449,15 +37326,15 @@ func (o TemplateFilledMapSortConfigurationPtrOutput) CategorySort() TemplateFiel
 type TemplateFilledMapVisual struct {
 	// The list of custom actions that are configured for a visual.
 	Actions []TemplateVisualCustomAction `pulumi:"actions"`
-	// The configuration for a `FilledMapVisual` .
+	// The configuration settings of the visual.
 	ChartConfiguration *TemplateFilledMapConfiguration `pulumi:"chartConfiguration"`
 	// The column hierarchy that is used during drill-downs and drill-ups.
 	ColumnHierarchies []TemplateColumnHierarchy `pulumi:"columnHierarchies"`
 	// The conditional formatting of a `FilledMapVisual` .
 	ConditionalFormatting *TemplateFilledMapConditionalFormatting `pulumi:"conditionalFormatting"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId string `pulumi:"visualId"`
@@ -37477,15 +37354,15 @@ type TemplateFilledMapVisualInput interface {
 type TemplateFilledMapVisualArgs struct {
 	// The list of custom actions that are configured for a visual.
 	Actions TemplateVisualCustomActionArrayInput `pulumi:"actions"`
-	// The configuration for a `FilledMapVisual` .
+	// The configuration settings of the visual.
 	ChartConfiguration TemplateFilledMapConfigurationPtrInput `pulumi:"chartConfiguration"`
 	// The column hierarchy that is used during drill-downs and drill-ups.
 	ColumnHierarchies TemplateColumnHierarchyArrayInput `pulumi:"columnHierarchies"`
 	// The conditional formatting of a `FilledMapVisual` .
 	ConditionalFormatting TemplateFilledMapConditionalFormattingPtrInput `pulumi:"conditionalFormatting"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId pulumi.StringInput `pulumi:"visualId"`
@@ -37573,7 +37450,7 @@ func (o TemplateFilledMapVisualOutput) Actions() TemplateVisualCustomActionArray
 	return o.ApplyT(func(v TemplateFilledMapVisual) []TemplateVisualCustomAction { return v.Actions }).(TemplateVisualCustomActionArrayOutput)
 }
 
-// The configuration for a `FilledMapVisual` .
+// The configuration settings of the visual.
 func (o TemplateFilledMapVisualOutput) ChartConfiguration() TemplateFilledMapConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateFilledMapVisual) *TemplateFilledMapConfiguration { return v.ChartConfiguration }).(TemplateFilledMapConfigurationPtrOutput)
 }
@@ -37590,12 +37467,12 @@ func (o TemplateFilledMapVisualOutput) ConditionalFormatting() TemplateFilledMap
 	}).(TemplateFilledMapConditionalFormattingPtrOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateFilledMapVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateFilledMapVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateFilledMapVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateFilledMapVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
@@ -37639,7 +37516,7 @@ func (o TemplateFilledMapVisualPtrOutput) Actions() TemplateVisualCustomActionAr
 	}).(TemplateVisualCustomActionArrayOutput)
 }
 
-// The configuration for a `FilledMapVisual` .
+// The configuration settings of the visual.
 func (o TemplateFilledMapVisualPtrOutput) ChartConfiguration() TemplateFilledMapConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateFilledMapVisual) *TemplateFilledMapConfiguration {
 		if v == nil {
@@ -37669,7 +37546,7 @@ func (o TemplateFilledMapVisualPtrOutput) ConditionalFormatting() TemplateFilled
 	}).(TemplateFilledMapConditionalFormattingPtrOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateFilledMapVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateFilledMapVisual) *TemplateVisualSubtitleLabelOptions {
 		if v == nil {
@@ -37679,7 +37556,7 @@ func (o TemplateFilledMapVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabel
 	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateFilledMapVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateFilledMapVisual) *TemplateVisualTitleLabelOptions {
 		if v == nil {
@@ -37704,17 +37581,17 @@ type TemplateFilter struct {
 	//
 	// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon QuickSight User Guide* .
 	CategoryFilter *TemplateCategoryFilter `pulumi:"categoryFilter"`
-	// A `NumericEqualityFilter` filters values that are equal to the specified value.
+	// A `NumericEqualityFilter` filters numeric values that equal or do not equal a given numeric value.
 	NumericEqualityFilter *TemplateNumericEqualityFilter `pulumi:"numericEqualityFilter"`
-	// A `NumericRangeFilter` filters values that are within the value range.
+	// A `NumericRangeFilter` filters numeric values that are either inside or outside a given numeric range.
 	NumericRangeFilter *TemplateNumericRangeFilter `pulumi:"numericRangeFilter"`
-	// A `RelativeDatesFilter` filters relative dates values.
+	// A `RelativeDatesFilter` filters date values that are relative to a given date.
 	RelativeDatesFilter *TemplateRelativeDatesFilter `pulumi:"relativeDatesFilter"`
-	// A `TimeEqualityFilter` filters values that are equal to a given value.
+	// A `TimeEqualityFilter` filters date-time values that equal or do not equal a given date/time value.
 	TimeEqualityFilter *TemplateTimeEqualityFilter `pulumi:"timeEqualityFilter"`
-	// A `TimeRangeFilter` filters values that are between two specified values.
+	// A `TimeRangeFilter` filters date-time values that are either inside or outside a given date/time range.
 	TimeRangeFilter *TemplateTimeRangeFilter `pulumi:"timeRangeFilter"`
-	// A `TopBottomFilter` filters values that are at the top or the bottom.
+	// A `TopBottomFilter` filters data to the top or bottom values for a given column.
 	TopBottomFilter *TemplateTopBottomFilter `pulumi:"topBottomFilter"`
 }
 
@@ -37734,17 +37611,17 @@ type TemplateFilterArgs struct {
 	//
 	// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon QuickSight User Guide* .
 	CategoryFilter TemplateCategoryFilterPtrInput `pulumi:"categoryFilter"`
-	// A `NumericEqualityFilter` filters values that are equal to the specified value.
+	// A `NumericEqualityFilter` filters numeric values that equal or do not equal a given numeric value.
 	NumericEqualityFilter TemplateNumericEqualityFilterPtrInput `pulumi:"numericEqualityFilter"`
-	// A `NumericRangeFilter` filters values that are within the value range.
+	// A `NumericRangeFilter` filters numeric values that are either inside or outside a given numeric range.
 	NumericRangeFilter TemplateNumericRangeFilterPtrInput `pulumi:"numericRangeFilter"`
-	// A `RelativeDatesFilter` filters relative dates values.
+	// A `RelativeDatesFilter` filters date values that are relative to a given date.
 	RelativeDatesFilter TemplateRelativeDatesFilterPtrInput `pulumi:"relativeDatesFilter"`
-	// A `TimeEqualityFilter` filters values that are equal to a given value.
+	// A `TimeEqualityFilter` filters date-time values that equal or do not equal a given date/time value.
 	TimeEqualityFilter TemplateTimeEqualityFilterPtrInput `pulumi:"timeEqualityFilter"`
-	// A `TimeRangeFilter` filters values that are between two specified values.
+	// A `TimeRangeFilter` filters date-time values that are either inside or outside a given date/time range.
 	TimeRangeFilter TemplateTimeRangeFilterPtrInput `pulumi:"timeRangeFilter"`
-	// A `TopBottomFilter` filters values that are at the top or the bottom.
+	// A `TopBottomFilter` filters data to the top or bottom values for a given column.
 	TopBottomFilter TemplateTopBottomFilterPtrInput `pulumi:"topBottomFilter"`
 }
 
@@ -37806,32 +37683,32 @@ func (o TemplateFilterOutput) CategoryFilter() TemplateCategoryFilterPtrOutput {
 	return o.ApplyT(func(v TemplateFilter) *TemplateCategoryFilter { return v.CategoryFilter }).(TemplateCategoryFilterPtrOutput)
 }
 
-// A `NumericEqualityFilter` filters values that are equal to the specified value.
+// A `NumericEqualityFilter` filters numeric values that equal or do not equal a given numeric value.
 func (o TemplateFilterOutput) NumericEqualityFilter() TemplateNumericEqualityFilterPtrOutput {
 	return o.ApplyT(func(v TemplateFilter) *TemplateNumericEqualityFilter { return v.NumericEqualityFilter }).(TemplateNumericEqualityFilterPtrOutput)
 }
 
-// A `NumericRangeFilter` filters values that are within the value range.
+// A `NumericRangeFilter` filters numeric values that are either inside or outside a given numeric range.
 func (o TemplateFilterOutput) NumericRangeFilter() TemplateNumericRangeFilterPtrOutput {
 	return o.ApplyT(func(v TemplateFilter) *TemplateNumericRangeFilter { return v.NumericRangeFilter }).(TemplateNumericRangeFilterPtrOutput)
 }
 
-// A `RelativeDatesFilter` filters relative dates values.
+// A `RelativeDatesFilter` filters date values that are relative to a given date.
 func (o TemplateFilterOutput) RelativeDatesFilter() TemplateRelativeDatesFilterPtrOutput {
 	return o.ApplyT(func(v TemplateFilter) *TemplateRelativeDatesFilter { return v.RelativeDatesFilter }).(TemplateRelativeDatesFilterPtrOutput)
 }
 
-// A `TimeEqualityFilter` filters values that are equal to a given value.
+// A `TimeEqualityFilter` filters date-time values that equal or do not equal a given date/time value.
 func (o TemplateFilterOutput) TimeEqualityFilter() TemplateTimeEqualityFilterPtrOutput {
 	return o.ApplyT(func(v TemplateFilter) *TemplateTimeEqualityFilter { return v.TimeEqualityFilter }).(TemplateTimeEqualityFilterPtrOutput)
 }
 
-// A `TimeRangeFilter` filters values that are between two specified values.
+// A `TimeRangeFilter` filters date-time values that are either inside or outside a given date/time range.
 func (o TemplateFilterOutput) TimeRangeFilter() TemplateTimeRangeFilterPtrOutput {
 	return o.ApplyT(func(v TemplateFilter) *TemplateTimeRangeFilter { return v.TimeRangeFilter }).(TemplateTimeRangeFilterPtrOutput)
 }
 
-// A `TopBottomFilter` filters values that are at the top or the bottom.
+// A `TopBottomFilter` filters data to the top or bottom values for a given column.
 func (o TemplateFilterOutput) TopBottomFilter() TemplateTopBottomFilterPtrOutput {
 	return o.ApplyT(func(v TemplateFilter) *TemplateTopBottomFilter { return v.TopBottomFilter }).(TemplateTopBottomFilterPtrOutput)
 }
@@ -38423,7 +38300,7 @@ func (o TemplateFilterDateTimePickerControlPtrOutput) Type() TemplateSheetContro
 type TemplateFilterDropDownControl struct {
 	// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
 	CascadingControlConfiguration *TemplateCascadingControlConfiguration `pulumi:"cascadingControlConfiguration"`
-	// The display options of a control.
+	// The display options of the `FilterDropDownControl` .
 	DisplayOptions *TemplateDropDownControlDisplayOptions `pulumi:"displayOptions"`
 	// The ID of the `FilterDropDownControl` .
 	FilterControlId string `pulumi:"filterControlId"`
@@ -38454,7 +38331,7 @@ type TemplateFilterDropDownControlInput interface {
 type TemplateFilterDropDownControlArgs struct {
 	// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
 	CascadingControlConfiguration TemplateCascadingControlConfigurationPtrInput `pulumi:"cascadingControlConfiguration"`
-	// The display options of a control.
+	// The display options of the `FilterDropDownControl` .
 	DisplayOptions TemplateDropDownControlDisplayOptionsPtrInput `pulumi:"displayOptions"`
 	// The ID of the `FilterDropDownControl` .
 	FilterControlId pulumi.StringInput `pulumi:"filterControlId"`
@@ -38555,7 +38432,7 @@ func (o TemplateFilterDropDownControlOutput) CascadingControlConfiguration() Tem
 	}).(TemplateCascadingControlConfigurationPtrOutput)
 }
 
-// The display options of a control.
+// The display options of the `FilterDropDownControl` .
 func (o TemplateFilterDropDownControlOutput) DisplayOptions() TemplateDropDownControlDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateFilterDropDownControl) *TemplateDropDownControlDisplayOptions { return v.DisplayOptions }).(TemplateDropDownControlDisplayOptionsPtrOutput)
 }
@@ -38622,7 +38499,7 @@ func (o TemplateFilterDropDownControlPtrOutput) CascadingControlConfiguration() 
 	}).(TemplateCascadingControlConfigurationPtrOutput)
 }
 
-// The display options of a control.
+// The display options of the `FilterDropDownControl` .
 func (o TemplateFilterDropDownControlPtrOutput) DisplayOptions() TemplateDropDownControlDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateFilterDropDownControl) *TemplateDropDownControlDisplayOptions {
 		if v == nil {
@@ -38693,11 +38570,9 @@ type TemplateFilterGroup struct {
 	CrossDataset TemplateCrossDatasetTypes `pulumi:"crossDataset"`
 	// The value that uniquely identifies a `FilterGroup` within a dashboard, template, or analysis.
 	FilterGroupId string `pulumi:"filterGroupId"`
-	// With a `Filter` , you can remove portions of data from a particular visual or view.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The list of filters that are present in a `FilterGroup` .
 	Filters []TemplateFilter `pulumi:"filters"`
-	// The scope configuration for a `FilterGroup` .
+	// The configuration that specifies what scope to apply to a `FilterGroup` .
 	//
 	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	ScopeConfiguration TemplateFilterScopeConfiguration `pulumi:"scopeConfiguration"`
@@ -38724,11 +38599,9 @@ type TemplateFilterGroupArgs struct {
 	CrossDataset TemplateCrossDatasetTypesInput `pulumi:"crossDataset"`
 	// The value that uniquely identifies a `FilterGroup` within a dashboard, template, or analysis.
 	FilterGroupId pulumi.StringInput `pulumi:"filterGroupId"`
-	// With a `Filter` , you can remove portions of data from a particular visual or view.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The list of filters that are present in a `FilterGroup` .
 	Filters TemplateFilterArrayInput `pulumi:"filters"`
-	// The scope configuration for a `FilterGroup` .
+	// The configuration that specifies what scope to apply to a `FilterGroup` .
 	//
 	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	ScopeConfiguration TemplateFilterScopeConfigurationInput `pulumi:"scopeConfiguration"`
@@ -38800,14 +38673,12 @@ func (o TemplateFilterGroupOutput) FilterGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateFilterGroup) string { return v.FilterGroupId }).(pulumi.StringOutput)
 }
 
-// With a `Filter` , you can remove portions of data from a particular visual or view.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The list of filters that are present in a `FilterGroup` .
 func (o TemplateFilterGroupOutput) Filters() TemplateFilterArrayOutput {
 	return o.ApplyT(func(v TemplateFilterGroup) []TemplateFilter { return v.Filters }).(TemplateFilterArrayOutput)
 }
 
-// The scope configuration for a `FilterGroup` .
+// The configuration that specifies what scope to apply to a `FilterGroup` .
 //
 // This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateFilterGroupOutput) ScopeConfiguration() TemplateFilterScopeConfigurationOutput {
@@ -39521,8 +39392,6 @@ func (o TemplateFilterOperationSelectedFieldsConfigurationPtrOutput) SelectedFie
 
 type TemplateFilterOperationTargetVisualsConfiguration struct {
 	// The configuration of the same-sheet target visuals that you want to be filtered.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	SameSheetTargetVisualConfiguration *TemplateSameSheetTargetVisualConfiguration `pulumi:"sameSheetTargetVisualConfiguration"`
 }
 
@@ -39539,8 +39408,6 @@ type TemplateFilterOperationTargetVisualsConfigurationInput interface {
 
 type TemplateFilterOperationTargetVisualsConfigurationArgs struct {
 	// The configuration of the same-sheet target visuals that you want to be filtered.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	SameSheetTargetVisualConfiguration TemplateSameSheetTargetVisualConfigurationPtrInput `pulumi:"sameSheetTargetVisualConfiguration"`
 }
 
@@ -39622,8 +39489,6 @@ func (o TemplateFilterOperationTargetVisualsConfigurationOutput) ToTemplateFilte
 }
 
 // The configuration of the same-sheet target visuals that you want to be filtered.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateFilterOperationTargetVisualsConfigurationOutput) SameSheetTargetVisualConfiguration() TemplateSameSheetTargetVisualConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateFilterOperationTargetVisualsConfiguration) *TemplateSameSheetTargetVisualConfiguration {
 		return v.SameSheetTargetVisualConfiguration
@@ -39655,8 +39520,6 @@ func (o TemplateFilterOperationTargetVisualsConfigurationPtrOutput) Elem() Templ
 }
 
 // The configuration of the same-sheet target visuals that you want to be filtered.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateFilterOperationTargetVisualsConfigurationPtrOutput) SameSheetTargetVisualConfiguration() TemplateSameSheetTargetVisualConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateFilterOperationTargetVisualsConfiguration) *TemplateSameSheetTargetVisualConfiguration {
 		if v == nil {
@@ -39865,9 +39728,7 @@ func (o TemplateFilterRelativeDateTimeControlPtrOutput) Title() pulumi.StringPtr
 type TemplateFilterScopeConfiguration struct {
 	// The configuration that applies a filter to all sheets. When you choose `AllSheets` as the value for a `FilterScopeConfiguration` , this filter is applied to all visuals of all sheets in an Analysis, Dashboard, or Template. The `AllSheetsFilterScopeConfiguration` is chosen.
 	AllSheets *TemplateAllSheetsFilterScopeConfiguration `pulumi:"allSheets"`
-	// The configuration for applying a filter to specific sheets or visuals. You can apply this filter to multiple visuals that are on one sheet or to all visuals on a sheet.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The configuration for applying a filter to specific sheets.
 	SelectedSheets *TemplateSelectedSheetsFilterScopeConfiguration `pulumi:"selectedSheets"`
 }
 
@@ -39885,9 +39746,7 @@ type TemplateFilterScopeConfigurationInput interface {
 type TemplateFilterScopeConfigurationArgs struct {
 	// The configuration that applies a filter to all sheets. When you choose `AllSheets` as the value for a `FilterScopeConfiguration` , this filter is applied to all visuals of all sheets in an Analysis, Dashboard, or Template. The `AllSheetsFilterScopeConfiguration` is chosen.
 	AllSheets TemplateAllSheetsFilterScopeConfigurationPtrInput `pulumi:"allSheets"`
-	// The configuration for applying a filter to specific sheets or visuals. You can apply this filter to multiple visuals that are on one sheet or to all visuals on a sheet.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The configuration for applying a filter to specific sheets.
 	SelectedSheets TemplateSelectedSheetsFilterScopeConfigurationPtrInput `pulumi:"selectedSheets"`
 }
 
@@ -39924,9 +39783,7 @@ func (o TemplateFilterScopeConfigurationOutput) AllSheets() TemplateAllSheetsFil
 	}).(TemplateAllSheetsFilterScopeConfigurationPtrOutput)
 }
 
-// The configuration for applying a filter to specific sheets or visuals. You can apply this filter to multiple visuals that are on one sheet or to all visuals on a sheet.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The configuration for applying a filter to specific sheets.
 func (o TemplateFilterScopeConfigurationOutput) SelectedSheets() TemplateSelectedSheetsFilterScopeConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateFilterScopeConfiguration) *TemplateSelectedSheetsFilterScopeConfiguration {
 		return v.SelectedSheets
@@ -41268,11 +41125,11 @@ type TemplateForecastComputation struct {
 	// - `AUTOMATIC`
 	// - `CUSTOM` : Checks the custom seasonality value.
 	Seasonality *TemplateForecastComputationSeasonality `pulumi:"seasonality"`
-	// The dimension type field.
+	// The time field that is used in a computation.
 	Time *TemplateDimensionField `pulumi:"time"`
 	// The upper boundary setup of a forecast computation.
 	UpperBoundary *float64 `pulumi:"upperBoundary"`
-	// The measure (metric) type field.
+	// The value field that is used in a computation.
 	Value *TemplateMeasureField `pulumi:"value"`
 }
 
@@ -41307,11 +41164,11 @@ type TemplateForecastComputationArgs struct {
 	// - `AUTOMATIC`
 	// - `CUSTOM` : Checks the custom seasonality value.
 	Seasonality TemplateForecastComputationSeasonalityPtrInput `pulumi:"seasonality"`
-	// The dimension type field.
+	// The time field that is used in a computation.
 	Time TemplateDimensionFieldPtrInput `pulumi:"time"`
 	// The upper boundary setup of a forecast computation.
 	UpperBoundary pulumi.Float64PtrInput `pulumi:"upperBoundary"`
-	// The measure (metric) type field.
+	// The value field that is used in a computation.
 	Value TemplateMeasureFieldPtrInput `pulumi:"value"`
 }
 
@@ -41435,7 +41292,7 @@ func (o TemplateForecastComputationOutput) Seasonality() TemplateForecastComputa
 	return o.ApplyT(func(v TemplateForecastComputation) *TemplateForecastComputationSeasonality { return v.Seasonality }).(TemplateForecastComputationSeasonalityPtrOutput)
 }
 
-// The dimension type field.
+// The time field that is used in a computation.
 func (o TemplateForecastComputationOutput) Time() TemplateDimensionFieldPtrOutput {
 	return o.ApplyT(func(v TemplateForecastComputation) *TemplateDimensionField { return v.Time }).(TemplateDimensionFieldPtrOutput)
 }
@@ -41445,7 +41302,7 @@ func (o TemplateForecastComputationOutput) UpperBoundary() pulumi.Float64PtrOutp
 	return o.ApplyT(func(v TemplateForecastComputation) *float64 { return v.UpperBoundary }).(pulumi.Float64PtrOutput)
 }
 
-// The measure (metric) type field.
+// The value field that is used in a computation.
 func (o TemplateForecastComputationOutput) Value() TemplateMeasureFieldPtrOutput {
 	return o.ApplyT(func(v TemplateForecastComputation) *TemplateMeasureField { return v.Value }).(TemplateMeasureFieldPtrOutput)
 }
@@ -41557,7 +41414,7 @@ func (o TemplateForecastComputationPtrOutput) Seasonality() TemplateForecastComp
 	}).(TemplateForecastComputationSeasonalityPtrOutput)
 }
 
-// The dimension type field.
+// The time field that is used in a computation.
 func (o TemplateForecastComputationPtrOutput) Time() TemplateDimensionFieldPtrOutput {
 	return o.ApplyT(func(v *TemplateForecastComputation) *TemplateDimensionField {
 		if v == nil {
@@ -41577,7 +41434,7 @@ func (o TemplateForecastComputationPtrOutput) UpperBoundary() pulumi.Float64PtrO
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The measure (metric) type field.
+// The value field that is used in a computation.
 func (o TemplateForecastComputationPtrOutput) Value() TemplateMeasureFieldPtrOutput {
 	return o.ApplyT(func(v *TemplateForecastComputation) *TemplateMeasureField {
 		if v == nil {
@@ -41696,9 +41553,9 @@ func (o TemplateForecastConfigurationArrayOutput) Index(i pulumi.IntInput) Templ
 }
 
 type TemplateForecastScenario struct {
-	// Provides the forecast to meet the target for a particular date.
+	// The what-if analysis forecast setup with the target date.
 	WhatIfPointScenario *TemplateWhatIfPointScenario `pulumi:"whatIfPointScenario"`
-	// Provides the forecast to meet the target for a particular date range.
+	// The what-if analysis forecast setup with the date range.
 	WhatIfRangeScenario *TemplateWhatIfRangeScenario `pulumi:"whatIfRangeScenario"`
 }
 
@@ -41714,9 +41571,9 @@ type TemplateForecastScenarioInput interface {
 }
 
 type TemplateForecastScenarioArgs struct {
-	// Provides the forecast to meet the target for a particular date.
+	// The what-if analysis forecast setup with the target date.
 	WhatIfPointScenario TemplateWhatIfPointScenarioPtrInput `pulumi:"whatIfPointScenario"`
-	// Provides the forecast to meet the target for a particular date range.
+	// The what-if analysis forecast setup with the date range.
 	WhatIfRangeScenario TemplateWhatIfRangeScenarioPtrInput `pulumi:"whatIfRangeScenario"`
 }
 
@@ -41797,12 +41654,12 @@ func (o TemplateForecastScenarioOutput) ToTemplateForecastScenarioPtrOutputWithC
 	}).(TemplateForecastScenarioPtrOutput)
 }
 
-// Provides the forecast to meet the target for a particular date.
+// The what-if analysis forecast setup with the target date.
 func (o TemplateForecastScenarioOutput) WhatIfPointScenario() TemplateWhatIfPointScenarioPtrOutput {
 	return o.ApplyT(func(v TemplateForecastScenario) *TemplateWhatIfPointScenario { return v.WhatIfPointScenario }).(TemplateWhatIfPointScenarioPtrOutput)
 }
 
-// Provides the forecast to meet the target for a particular date range.
+// The what-if analysis forecast setup with the date range.
 func (o TemplateForecastScenarioOutput) WhatIfRangeScenario() TemplateWhatIfRangeScenarioPtrOutput {
 	return o.ApplyT(func(v TemplateForecastScenario) *TemplateWhatIfRangeScenario { return v.WhatIfRangeScenario }).(TemplateWhatIfRangeScenarioPtrOutput)
 }
@@ -41831,7 +41688,7 @@ func (o TemplateForecastScenarioPtrOutput) Elem() TemplateForecastScenarioOutput
 	}).(TemplateForecastScenarioOutput)
 }
 
-// Provides the forecast to meet the target for a particular date.
+// The what-if analysis forecast setup with the target date.
 func (o TemplateForecastScenarioPtrOutput) WhatIfPointScenario() TemplateWhatIfPointScenarioPtrOutput {
 	return o.ApplyT(func(v *TemplateForecastScenario) *TemplateWhatIfPointScenario {
 		if v == nil {
@@ -41841,7 +41698,7 @@ func (o TemplateForecastScenarioPtrOutput) WhatIfPointScenario() TemplateWhatIfP
 	}).(TemplateWhatIfPointScenarioPtrOutput)
 }
 
-// Provides the forecast to meet the target for a particular date range.
+// The what-if analysis forecast setup with the date range.
 func (o TemplateForecastScenarioPtrOutput) WhatIfRangeScenario() TemplateWhatIfRangeScenarioPtrOutput {
 	return o.ApplyT(func(v *TemplateForecastScenario) *TemplateWhatIfRangeScenario {
 		if v == nil {
@@ -42172,9 +42029,8 @@ func (o TemplateFreeFormLayoutCanvasSizeOptionsPtrOutput) ScreenCanvasSizeOption
 }
 
 type TemplateFreeFormLayoutConfiguration struct {
-	// Configuration options for the canvas of a free-form layout.
 	CanvasSizeOptions *TemplateFreeFormLayoutCanvasSizeOptions `pulumi:"canvasSizeOptions"`
-	// An element within a free-form layout.
+	// The elements that are included in a free-form layout.
 	Elements []TemplateFreeFormLayoutElement `pulumi:"elements"`
 }
 
@@ -42190,9 +42046,8 @@ type TemplateFreeFormLayoutConfigurationInput interface {
 }
 
 type TemplateFreeFormLayoutConfigurationArgs struct {
-	// Configuration options for the canvas of a free-form layout.
 	CanvasSizeOptions TemplateFreeFormLayoutCanvasSizeOptionsPtrInput `pulumi:"canvasSizeOptions"`
-	// An element within a free-form layout.
+	// The elements that are included in a free-form layout.
 	Elements TemplateFreeFormLayoutElementArrayInput `pulumi:"elements"`
 }
 
@@ -42273,14 +42128,13 @@ func (o TemplateFreeFormLayoutConfigurationOutput) ToTemplateFreeFormLayoutConfi
 	}).(TemplateFreeFormLayoutConfigurationPtrOutput)
 }
 
-// Configuration options for the canvas of a free-form layout.
 func (o TemplateFreeFormLayoutConfigurationOutput) CanvasSizeOptions() TemplateFreeFormLayoutCanvasSizeOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateFreeFormLayoutConfiguration) *TemplateFreeFormLayoutCanvasSizeOptions {
 		return v.CanvasSizeOptions
 	}).(TemplateFreeFormLayoutCanvasSizeOptionsPtrOutput)
 }
 
-// An element within a free-form layout.
+// The elements that are included in a free-form layout.
 func (o TemplateFreeFormLayoutConfigurationOutput) Elements() TemplateFreeFormLayoutElementArrayOutput {
 	return o.ApplyT(func(v TemplateFreeFormLayoutConfiguration) []TemplateFreeFormLayoutElement { return v.Elements }).(TemplateFreeFormLayoutElementArrayOutput)
 }
@@ -42309,7 +42163,6 @@ func (o TemplateFreeFormLayoutConfigurationPtrOutput) Elem() TemplateFreeFormLay
 	}).(TemplateFreeFormLayoutConfigurationOutput)
 }
 
-// Configuration options for the canvas of a free-form layout.
 func (o TemplateFreeFormLayoutConfigurationPtrOutput) CanvasSizeOptions() TemplateFreeFormLayoutCanvasSizeOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateFreeFormLayoutConfiguration) *TemplateFreeFormLayoutCanvasSizeOptions {
 		if v == nil {
@@ -42319,7 +42172,7 @@ func (o TemplateFreeFormLayoutConfigurationPtrOutput) CanvasSizeOptions() Templa
 	}).(TemplateFreeFormLayoutCanvasSizeOptionsPtrOutput)
 }
 
-// An element within a free-form layout.
+// The elements that are included in a free-form layout.
 func (o TemplateFreeFormLayoutConfigurationPtrOutput) Elements() TemplateFreeFormLayoutElementArrayOutput {
 	return o.ApplyT(func(v *TemplateFreeFormLayoutConfiguration) []TemplateFreeFormLayoutElement {
 		if v == nil {
@@ -42332,7 +42185,7 @@ func (o TemplateFreeFormLayoutConfigurationPtrOutput) Elements() TemplateFreeFor
 type TemplateFreeFormLayoutElement struct {
 	// The background style configuration of a free-form layout element.
 	BackgroundStyle *TemplateFreeFormLayoutElementBackgroundStyle `pulumi:"backgroundStyle"`
-	// The background style configuration of a free-form layout element.
+	// The border style configuration of a free-form layout element.
 	BorderStyle *TemplateFreeFormLayoutElementBorderStyle `pulumi:"borderStyle"`
 	// A unique identifier for an element within a free-form layout.
 	ElementId string `pulumi:"elementId"`
@@ -42340,11 +42193,11 @@ type TemplateFreeFormLayoutElement struct {
 	ElementType_ TemplateLayoutElementType `pulumi:"elementType"`
 	// String based length that is composed of value and unit in px
 	Height string `pulumi:"height"`
-	// The configuration of loading animation in free-form layout.
+	// The loading animation configuration of a free-form layout element.
 	LoadingAnimation *TemplateLoadingAnimation `pulumi:"loadingAnimation"`
-	// The rendering rules of a sheet that uses a free-form layout.
+	// The rendering rules that determine when an element should be displayed within a free-form layout.
 	RenderingRules []TemplateSheetElementRenderingRule `pulumi:"renderingRules"`
-	// The background style configuration of a free-form layout element.
+	// The border style configuration of a free-form layout element. This border style is used when the element is selected.
 	SelectedBorderStyle *TemplateFreeFormLayoutElementBorderStyle `pulumi:"selectedBorderStyle"`
 	// The visibility of an element within a free-form layout.
 	Visibility *TemplateVisibility `pulumi:"visibility"`
@@ -42370,7 +42223,7 @@ type TemplateFreeFormLayoutElementInput interface {
 type TemplateFreeFormLayoutElementArgs struct {
 	// The background style configuration of a free-form layout element.
 	BackgroundStyle TemplateFreeFormLayoutElementBackgroundStylePtrInput `pulumi:"backgroundStyle"`
-	// The background style configuration of a free-form layout element.
+	// The border style configuration of a free-form layout element.
 	BorderStyle TemplateFreeFormLayoutElementBorderStylePtrInput `pulumi:"borderStyle"`
 	// A unique identifier for an element within a free-form layout.
 	ElementId pulumi.StringInput `pulumi:"elementId"`
@@ -42378,11 +42231,11 @@ type TemplateFreeFormLayoutElementArgs struct {
 	ElementType_ TemplateLayoutElementTypeInput `pulumi:"elementType"`
 	// String based length that is composed of value and unit in px
 	Height pulumi.StringInput `pulumi:"height"`
-	// The configuration of loading animation in free-form layout.
+	// The loading animation configuration of a free-form layout element.
 	LoadingAnimation TemplateLoadingAnimationPtrInput `pulumi:"loadingAnimation"`
-	// The rendering rules of a sheet that uses a free-form layout.
+	// The rendering rules that determine when an element should be displayed within a free-form layout.
 	RenderingRules TemplateSheetElementRenderingRuleArrayInput `pulumi:"renderingRules"`
-	// The background style configuration of a free-form layout element.
+	// The border style configuration of a free-form layout element. This border style is used when the element is selected.
 	SelectedBorderStyle TemplateFreeFormLayoutElementBorderStylePtrInput `pulumi:"selectedBorderStyle"`
 	// The visibility of an element within a free-form layout.
 	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
@@ -42452,7 +42305,7 @@ func (o TemplateFreeFormLayoutElementOutput) BackgroundStyle() TemplateFreeFormL
 	}).(TemplateFreeFormLayoutElementBackgroundStylePtrOutput)
 }
 
-// The background style configuration of a free-form layout element.
+// The border style configuration of a free-form layout element.
 func (o TemplateFreeFormLayoutElementOutput) BorderStyle() TemplateFreeFormLayoutElementBorderStylePtrOutput {
 	return o.ApplyT(func(v TemplateFreeFormLayoutElement) *TemplateFreeFormLayoutElementBorderStyle { return v.BorderStyle }).(TemplateFreeFormLayoutElementBorderStylePtrOutput)
 }
@@ -42472,17 +42325,17 @@ func (o TemplateFreeFormLayoutElementOutput) Height() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateFreeFormLayoutElement) string { return v.Height }).(pulumi.StringOutput)
 }
 
-// The configuration of loading animation in free-form layout.
+// The loading animation configuration of a free-form layout element.
 func (o TemplateFreeFormLayoutElementOutput) LoadingAnimation() TemplateLoadingAnimationPtrOutput {
 	return o.ApplyT(func(v TemplateFreeFormLayoutElement) *TemplateLoadingAnimation { return v.LoadingAnimation }).(TemplateLoadingAnimationPtrOutput)
 }
 
-// The rendering rules of a sheet that uses a free-form layout.
+// The rendering rules that determine when an element should be displayed within a free-form layout.
 func (o TemplateFreeFormLayoutElementOutput) RenderingRules() TemplateSheetElementRenderingRuleArrayOutput {
 	return o.ApplyT(func(v TemplateFreeFormLayoutElement) []TemplateSheetElementRenderingRule { return v.RenderingRules }).(TemplateSheetElementRenderingRuleArrayOutput)
 }
 
-// The background style configuration of a free-form layout element.
+// The border style configuration of a free-form layout element. This border style is used when the element is selected.
 func (o TemplateFreeFormLayoutElementOutput) SelectedBorderStyle() TemplateFreeFormLayoutElementBorderStylePtrOutput {
 	return o.ApplyT(func(v TemplateFreeFormLayoutElement) *TemplateFreeFormLayoutElementBorderStyle {
 		return v.SelectedBorderStyle
@@ -43272,21 +43125,19 @@ func (o TemplateFunnelChartAggregatedFieldWellsPtrOutput) Values() TemplateMeasu
 }
 
 type TemplateFunnelChartConfiguration struct {
-	// The label options for an axis on a chart.
+	// The label options of the categories that are displayed in a `FunnelChartVisual` .
 	CategoryLabelOptions *TemplateChartAxisLabelOptions `pulumi:"categoryLabelOptions"`
 	// The options that determine the presentation of the data labels.
 	DataLabelOptions *TemplateFunnelChartDataLabelOptions `pulumi:"dataLabelOptions"`
 	// The field well configuration of a `FunnelChartVisual` .
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	FieldWells *TemplateFunnelChartFieldWells `pulumi:"fieldWells"`
 	// The sort configuration of a `FunnelChartVisual` .
 	SortConfiguration *TemplateFunnelChartSortConfiguration `pulumi:"sortConfiguration"`
-	// The display options for the visual tooltip.
+	// The tooltip configuration of a `FunnelChartVisual` .
 	Tooltip *TemplateTooltipOptions `pulumi:"tooltip"`
-	// The label options for an axis on a chart.
+	// The label options for the values that are displayed in a `FunnelChartVisual` .
 	ValueLabelOptions *TemplateChartAxisLabelOptions `pulumi:"valueLabelOptions"`
-	// The visual display options for the visual palette.
+	// The visual palette configuration of a `FunnelChartVisual` .
 	VisualPalette *TemplateVisualPalette `pulumi:"visualPalette"`
 }
 
@@ -43302,21 +43153,19 @@ type TemplateFunnelChartConfigurationInput interface {
 }
 
 type TemplateFunnelChartConfigurationArgs struct {
-	// The label options for an axis on a chart.
+	// The label options of the categories that are displayed in a `FunnelChartVisual` .
 	CategoryLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"categoryLabelOptions"`
 	// The options that determine the presentation of the data labels.
 	DataLabelOptions TemplateFunnelChartDataLabelOptionsPtrInput `pulumi:"dataLabelOptions"`
 	// The field well configuration of a `FunnelChartVisual` .
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	FieldWells TemplateFunnelChartFieldWellsPtrInput `pulumi:"fieldWells"`
 	// The sort configuration of a `FunnelChartVisual` .
 	SortConfiguration TemplateFunnelChartSortConfigurationPtrInput `pulumi:"sortConfiguration"`
-	// The display options for the visual tooltip.
+	// The tooltip configuration of a `FunnelChartVisual` .
 	Tooltip TemplateTooltipOptionsPtrInput `pulumi:"tooltip"`
-	// The label options for an axis on a chart.
+	// The label options for the values that are displayed in a `FunnelChartVisual` .
 	ValueLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"valueLabelOptions"`
-	// The visual display options for the visual palette.
+	// The visual palette configuration of a `FunnelChartVisual` .
 	VisualPalette TemplateVisualPalettePtrInput `pulumi:"visualPalette"`
 }
 
@@ -43397,7 +43246,7 @@ func (o TemplateFunnelChartConfigurationOutput) ToTemplateFunnelChartConfigurati
 	}).(TemplateFunnelChartConfigurationPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options of the categories that are displayed in a `FunnelChartVisual` .
 func (o TemplateFunnelChartConfigurationOutput) CategoryLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateFunnelChartConfiguration) *TemplateChartAxisLabelOptions { return v.CategoryLabelOptions }).(TemplateChartAxisLabelOptionsPtrOutput)
 }
@@ -43410,8 +43259,6 @@ func (o TemplateFunnelChartConfigurationOutput) DataLabelOptions() TemplateFunne
 }
 
 // The field well configuration of a `FunnelChartVisual` .
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateFunnelChartConfigurationOutput) FieldWells() TemplateFunnelChartFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplateFunnelChartConfiguration) *TemplateFunnelChartFieldWells { return v.FieldWells }).(TemplateFunnelChartFieldWellsPtrOutput)
 }
@@ -43423,17 +43270,17 @@ func (o TemplateFunnelChartConfigurationOutput) SortConfiguration() TemplateFunn
 	}).(TemplateFunnelChartSortConfigurationPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The tooltip configuration of a `FunnelChartVisual` .
 func (o TemplateFunnelChartConfigurationOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateFunnelChartConfiguration) *TemplateTooltipOptions { return v.Tooltip }).(TemplateTooltipOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options for the values that are displayed in a `FunnelChartVisual` .
 func (o TemplateFunnelChartConfigurationOutput) ValueLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateFunnelChartConfiguration) *TemplateChartAxisLabelOptions { return v.ValueLabelOptions }).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The visual display options for the visual palette.
+// The visual palette configuration of a `FunnelChartVisual` .
 func (o TemplateFunnelChartConfigurationOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v TemplateFunnelChartConfiguration) *TemplateVisualPalette { return v.VisualPalette }).(TemplateVisualPalettePtrOutput)
 }
@@ -43462,7 +43309,7 @@ func (o TemplateFunnelChartConfigurationPtrOutput) Elem() TemplateFunnelChartCon
 	}).(TemplateFunnelChartConfigurationOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options of the categories that are displayed in a `FunnelChartVisual` .
 func (o TemplateFunnelChartConfigurationPtrOutput) CategoryLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateFunnelChartConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -43483,8 +43330,6 @@ func (o TemplateFunnelChartConfigurationPtrOutput) DataLabelOptions() TemplateFu
 }
 
 // The field well configuration of a `FunnelChartVisual` .
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateFunnelChartConfigurationPtrOutput) FieldWells() TemplateFunnelChartFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplateFunnelChartConfiguration) *TemplateFunnelChartFieldWells {
 		if v == nil {
@@ -43504,7 +43349,7 @@ func (o TemplateFunnelChartConfigurationPtrOutput) SortConfiguration() TemplateF
 	}).(TemplateFunnelChartSortConfigurationPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The tooltip configuration of a `FunnelChartVisual` .
 func (o TemplateFunnelChartConfigurationPtrOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateFunnelChartConfiguration) *TemplateTooltipOptions {
 		if v == nil {
@@ -43514,7 +43359,7 @@ func (o TemplateFunnelChartConfigurationPtrOutput) Tooltip() TemplateTooltipOpti
 	}).(TemplateTooltipOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options for the values that are displayed in a `FunnelChartVisual` .
 func (o TemplateFunnelChartConfigurationPtrOutput) ValueLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateFunnelChartConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -43524,7 +43369,7 @@ func (o TemplateFunnelChartConfigurationPtrOutput) ValueLabelOptions() TemplateC
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The visual display options for the visual palette.
+// The visual palette configuration of a `FunnelChartVisual` .
 func (o TemplateFunnelChartConfigurationPtrOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v *TemplateFunnelChartConfiguration) *TemplateVisualPalette {
 		if v == nil {
@@ -43539,7 +43384,9 @@ type TemplateFunnelChartDataLabelOptions struct {
 	CategoryLabelVisibility *TemplateVisibility `pulumi:"categoryLabelVisibility"`
 	// The color of the data label text.
 	LabelColor *string `pulumi:"labelColor"`
-	// Configures the display properties of the given text.
+	// The font configuration for the data labels.
+	//
+	// Only the `FontSize` attribute of the font configuration is used for data labels.
 	LabelFontConfiguration *TemplateFontConfiguration `pulumi:"labelFontConfiguration"`
 	// Determines the style of the metric labels.
 	MeasureDataLabelStyle *TemplateFunnelChartMeasureDataLabelStyle `pulumi:"measureDataLabelStyle"`
@@ -43567,7 +43414,9 @@ type TemplateFunnelChartDataLabelOptionsArgs struct {
 	CategoryLabelVisibility TemplateVisibilityPtrInput `pulumi:"categoryLabelVisibility"`
 	// The color of the data label text.
 	LabelColor pulumi.StringPtrInput `pulumi:"labelColor"`
-	// Configures the display properties of the given text.
+	// The font configuration for the data labels.
+	//
+	// Only the `FontSize` attribute of the font configuration is used for data labels.
 	LabelFontConfiguration TemplateFontConfigurationPtrInput `pulumi:"labelFontConfiguration"`
 	// Determines the style of the metric labels.
 	MeasureDataLabelStyle TemplateFunnelChartMeasureDataLabelStylePtrInput `pulumi:"measureDataLabelStyle"`
@@ -43666,7 +43515,9 @@ func (o TemplateFunnelChartDataLabelOptionsOutput) LabelColor() pulumi.StringPtr
 	return o.ApplyT(func(v TemplateFunnelChartDataLabelOptions) *string { return v.LabelColor }).(pulumi.StringPtrOutput)
 }
 
-// Configures the display properties of the given text.
+// The font configuration for the data labels.
+//
+// Only the `FontSize` attribute of the font configuration is used for data labels.
 func (o TemplateFunnelChartDataLabelOptionsOutput) LabelFontConfiguration() TemplateFontConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateFunnelChartDataLabelOptions) *TemplateFontConfiguration {
 		return v.LabelFontConfiguration
@@ -43739,7 +43590,9 @@ func (o TemplateFunnelChartDataLabelOptionsPtrOutput) LabelColor() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configures the display properties of the given text.
+// The font configuration for the data labels.
+//
+// Only the `FontSize` attribute of the font configuration is used for data labels.
 func (o TemplateFunnelChartDataLabelOptionsPtrOutput) LabelFontConfiguration() TemplateFontConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateFunnelChartDataLabelOptions) *TemplateFontConfiguration {
 		if v == nil {
@@ -43929,7 +43782,7 @@ func (o TemplateFunnelChartFieldWellsPtrOutput) FunnelChartAggregatedFieldWells(
 }
 
 type TemplateFunnelChartSortConfiguration struct {
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of categories displayed.
 	CategoryItemsLimit *TemplateItemsLimitConfiguration `pulumi:"categoryItemsLimit"`
 	// The sort configuration of the category fields.
 	CategorySort []TemplateFieldSortOptions `pulumi:"categorySort"`
@@ -43947,7 +43800,7 @@ type TemplateFunnelChartSortConfigurationInput interface {
 }
 
 type TemplateFunnelChartSortConfigurationArgs struct {
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of categories displayed.
 	CategoryItemsLimit TemplateItemsLimitConfigurationPtrInput `pulumi:"categoryItemsLimit"`
 	// The sort configuration of the category fields.
 	CategorySort TemplateFieldSortOptionsArrayInput `pulumi:"categorySort"`
@@ -44030,7 +43883,7 @@ func (o TemplateFunnelChartSortConfigurationOutput) ToTemplateFunnelChartSortCon
 	}).(TemplateFunnelChartSortConfigurationPtrOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of categories displayed.
 func (o TemplateFunnelChartSortConfigurationOutput) CategoryItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateFunnelChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		return v.CategoryItemsLimit
@@ -44066,7 +43919,7 @@ func (o TemplateFunnelChartSortConfigurationPtrOutput) Elem() TemplateFunnelChar
 	}).(TemplateFunnelChartSortConfigurationOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of categories displayed.
 func (o TemplateFunnelChartSortConfigurationPtrOutput) CategoryItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateFunnelChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		if v == nil {
@@ -44093,9 +43946,9 @@ type TemplateFunnelChartVisual struct {
 	ChartConfiguration *TemplateFunnelChartConfiguration `pulumi:"chartConfiguration"`
 	// The column hierarchy that is used during drill-downs and drill-ups.
 	ColumnHierarchies []TemplateColumnHierarchy `pulumi:"columnHierarchies"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId string `pulumi:"visualId"`
@@ -44119,9 +43972,9 @@ type TemplateFunnelChartVisualArgs struct {
 	ChartConfiguration TemplateFunnelChartConfigurationPtrInput `pulumi:"chartConfiguration"`
 	// The column hierarchy that is used during drill-downs and drill-ups.
 	ColumnHierarchies TemplateColumnHierarchyArrayInput `pulumi:"columnHierarchies"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId pulumi.StringInput `pulumi:"visualId"`
@@ -44219,12 +44072,12 @@ func (o TemplateFunnelChartVisualOutput) ColumnHierarchies() TemplateColumnHiera
 	return o.ApplyT(func(v TemplateFunnelChartVisual) []TemplateColumnHierarchy { return v.ColumnHierarchies }).(TemplateColumnHierarchyArrayOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateFunnelChartVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateFunnelChartVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateFunnelChartVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateFunnelChartVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
@@ -44288,7 +44141,7 @@ func (o TemplateFunnelChartVisualPtrOutput) ColumnHierarchies() TemplateColumnHi
 	}).(TemplateColumnHierarchyArrayOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateFunnelChartVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateFunnelChartVisual) *TemplateVisualSubtitleLabelOptions {
 		if v == nil {
@@ -44298,7 +44151,7 @@ func (o TemplateFunnelChartVisualPtrOutput) Subtitle() TemplateVisualSubtitleLab
 	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateFunnelChartVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateFunnelChartVisual) *TemplateVisualTitleLabelOptions {
 		if v == nil {
@@ -44319,7 +44172,7 @@ func (o TemplateFunnelChartVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 }
 
 type TemplateGaugeChartArcConditionalFormatting struct {
-	// The formatting configuration for the color.
+	// The conditional formatting of the arc foreground color.
 	ForegroundColor *TemplateConditionalFormattingColor `pulumi:"foregroundColor"`
 }
 
@@ -44335,7 +44188,7 @@ type TemplateGaugeChartArcConditionalFormattingInput interface {
 }
 
 type TemplateGaugeChartArcConditionalFormattingArgs struct {
-	// The formatting configuration for the color.
+	// The conditional formatting of the arc foreground color.
 	ForegroundColor TemplateConditionalFormattingColorPtrInput `pulumi:"foregroundColor"`
 }
 
@@ -44416,7 +44269,7 @@ func (o TemplateGaugeChartArcConditionalFormattingOutput) ToTemplateGaugeChartAr
 	}).(TemplateGaugeChartArcConditionalFormattingPtrOutput)
 }
 
-// The formatting configuration for the color.
+// The conditional formatting of the arc foreground color.
 func (o TemplateGaugeChartArcConditionalFormattingOutput) ForegroundColor() TemplateConditionalFormattingColorPtrOutput {
 	return o.ApplyT(func(v TemplateGaugeChartArcConditionalFormatting) *TemplateConditionalFormattingColor {
 		return v.ForegroundColor
@@ -44447,7 +44300,7 @@ func (o TemplateGaugeChartArcConditionalFormattingPtrOutput) Elem() TemplateGaug
 	}).(TemplateGaugeChartArcConditionalFormattingOutput)
 }
 
-// The formatting configuration for the color.
+// The conditional formatting of the arc foreground color.
 func (o TemplateGaugeChartArcConditionalFormattingPtrOutput) ForegroundColor() TemplateConditionalFormattingColorPtrOutput {
 	return o.ApplyT(func(v *TemplateGaugeChartArcConditionalFormatting) *TemplateConditionalFormattingColor {
 		if v == nil {
@@ -44707,15 +44560,15 @@ func (o TemplateGaugeChartConditionalFormattingOptionArrayOutput) Index(i pulumi
 }
 
 type TemplateGaugeChartConfiguration struct {
-	// The options that determine the presentation of the data labels.
+	// The data label configuration of a `GaugeChartVisual` .
 	DataLabels *TemplateDataLabelOptions `pulumi:"dataLabels"`
 	// The field well configuration of a `GaugeChartVisual` .
 	FieldWells *TemplateGaugeChartFieldWells `pulumi:"fieldWells"`
 	// The options that determine the presentation of the `GaugeChartVisual` .
 	GaugeChartOptions *TemplateGaugeChartOptions `pulumi:"gaugeChartOptions"`
-	// The display options for the visual tooltip.
+	// The tooltip configuration of a `GaugeChartVisual` .
 	TooltipOptions *TemplateTooltipOptions `pulumi:"tooltipOptions"`
-	// The visual display options for the visual palette.
+	// The visual palette configuration of a `GaugeChartVisual` .
 	VisualPalette *TemplateVisualPalette `pulumi:"visualPalette"`
 }
 
@@ -44731,15 +44584,15 @@ type TemplateGaugeChartConfigurationInput interface {
 }
 
 type TemplateGaugeChartConfigurationArgs struct {
-	// The options that determine the presentation of the data labels.
+	// The data label configuration of a `GaugeChartVisual` .
 	DataLabels TemplateDataLabelOptionsPtrInput `pulumi:"dataLabels"`
 	// The field well configuration of a `GaugeChartVisual` .
 	FieldWells TemplateGaugeChartFieldWellsPtrInput `pulumi:"fieldWells"`
 	// The options that determine the presentation of the `GaugeChartVisual` .
 	GaugeChartOptions TemplateGaugeChartOptionsPtrInput `pulumi:"gaugeChartOptions"`
-	// The display options for the visual tooltip.
+	// The tooltip configuration of a `GaugeChartVisual` .
 	TooltipOptions TemplateTooltipOptionsPtrInput `pulumi:"tooltipOptions"`
-	// The visual display options for the visual palette.
+	// The visual palette configuration of a `GaugeChartVisual` .
 	VisualPalette TemplateVisualPalettePtrInput `pulumi:"visualPalette"`
 }
 
@@ -44820,7 +44673,7 @@ func (o TemplateGaugeChartConfigurationOutput) ToTemplateGaugeChartConfiguration
 	}).(TemplateGaugeChartConfigurationPtrOutput)
 }
 
-// The options that determine the presentation of the data labels.
+// The data label configuration of a `GaugeChartVisual` .
 func (o TemplateGaugeChartConfigurationOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateGaugeChartConfiguration) *TemplateDataLabelOptions { return v.DataLabels }).(TemplateDataLabelOptionsPtrOutput)
 }
@@ -44835,12 +44688,12 @@ func (o TemplateGaugeChartConfigurationOutput) GaugeChartOptions() TemplateGauge
 	return o.ApplyT(func(v TemplateGaugeChartConfiguration) *TemplateGaugeChartOptions { return v.GaugeChartOptions }).(TemplateGaugeChartOptionsPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The tooltip configuration of a `GaugeChartVisual` .
 func (o TemplateGaugeChartConfigurationOutput) TooltipOptions() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateGaugeChartConfiguration) *TemplateTooltipOptions { return v.TooltipOptions }).(TemplateTooltipOptionsPtrOutput)
 }
 
-// The visual display options for the visual palette.
+// The visual palette configuration of a `GaugeChartVisual` .
 func (o TemplateGaugeChartConfigurationOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v TemplateGaugeChartConfiguration) *TemplateVisualPalette { return v.VisualPalette }).(TemplateVisualPalettePtrOutput)
 }
@@ -44869,7 +44722,7 @@ func (o TemplateGaugeChartConfigurationPtrOutput) Elem() TemplateGaugeChartConfi
 	}).(TemplateGaugeChartConfigurationOutput)
 }
 
-// The options that determine the presentation of the data labels.
+// The data label configuration of a `GaugeChartVisual` .
 func (o TemplateGaugeChartConfigurationPtrOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateGaugeChartConfiguration) *TemplateDataLabelOptions {
 		if v == nil {
@@ -44899,7 +44752,7 @@ func (o TemplateGaugeChartConfigurationPtrOutput) GaugeChartOptions() TemplateGa
 	}).(TemplateGaugeChartOptionsPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The tooltip configuration of a `GaugeChartVisual` .
 func (o TemplateGaugeChartConfigurationPtrOutput) TooltipOptions() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateGaugeChartConfiguration) *TemplateTooltipOptions {
 		if v == nil {
@@ -44909,7 +44762,7 @@ func (o TemplateGaugeChartConfigurationPtrOutput) TooltipOptions() TemplateToolt
 	}).(TemplateTooltipOptionsPtrOutput)
 }
 
-// The visual display options for the visual palette.
+// The visual palette configuration of a `GaugeChartVisual` .
 func (o TemplateGaugeChartConfigurationPtrOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v *TemplateGaugeChartConfiguration) *TemplateVisualPalette {
 		if v == nil {
@@ -45080,11 +44933,11 @@ type TemplateGaugeChartOptions struct {
 	Arc *TemplateArcConfiguration `pulumi:"arc"`
 	// The arc axis configuration of a `GaugeChartVisual` .
 	ArcAxis *TemplateArcAxisConfiguration `pulumi:"arcAxis"`
-	// The comparison display configuration of a KPI or gauge chart.
+	// The comparison configuration of a `GaugeChartVisual` .
 	Comparison *TemplateComparisonConfiguration `pulumi:"comparison"`
 	// The options that determine the primary value display type.
 	PrimaryValueDisplayType *TemplatePrimaryValueDisplayType `pulumi:"primaryValueDisplayType"`
-	// Configures the display properties of the given text.
+	// The options that determine the primary value font configuration.
 	PrimaryValueFontConfiguration *TemplateFontConfiguration `pulumi:"primaryValueFontConfiguration"`
 }
 
@@ -45104,11 +44957,11 @@ type TemplateGaugeChartOptionsArgs struct {
 	Arc TemplateArcConfigurationPtrInput `pulumi:"arc"`
 	// The arc axis configuration of a `GaugeChartVisual` .
 	ArcAxis TemplateArcAxisConfigurationPtrInput `pulumi:"arcAxis"`
-	// The comparison display configuration of a KPI or gauge chart.
+	// The comparison configuration of a `GaugeChartVisual` .
 	Comparison TemplateComparisonConfigurationPtrInput `pulumi:"comparison"`
 	// The options that determine the primary value display type.
 	PrimaryValueDisplayType TemplatePrimaryValueDisplayTypePtrInput `pulumi:"primaryValueDisplayType"`
-	// Configures the display properties of the given text.
+	// The options that determine the primary value font configuration.
 	PrimaryValueFontConfiguration TemplateFontConfigurationPtrInput `pulumi:"primaryValueFontConfiguration"`
 }
 
@@ -45199,7 +45052,7 @@ func (o TemplateGaugeChartOptionsOutput) ArcAxis() TemplateArcAxisConfigurationP
 	return o.ApplyT(func(v TemplateGaugeChartOptions) *TemplateArcAxisConfiguration { return v.ArcAxis }).(TemplateArcAxisConfigurationPtrOutput)
 }
 
-// The comparison display configuration of a KPI or gauge chart.
+// The comparison configuration of a `GaugeChartVisual` .
 func (o TemplateGaugeChartOptionsOutput) Comparison() TemplateComparisonConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateGaugeChartOptions) *TemplateComparisonConfiguration { return v.Comparison }).(TemplateComparisonConfigurationPtrOutput)
 }
@@ -45209,7 +45062,7 @@ func (o TemplateGaugeChartOptionsOutput) PrimaryValueDisplayType() TemplatePrima
 	return o.ApplyT(func(v TemplateGaugeChartOptions) *TemplatePrimaryValueDisplayType { return v.PrimaryValueDisplayType }).(TemplatePrimaryValueDisplayTypePtrOutput)
 }
 
-// Configures the display properties of the given text.
+// The options that determine the primary value font configuration.
 func (o TemplateGaugeChartOptionsOutput) PrimaryValueFontConfiguration() TemplateFontConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateGaugeChartOptions) *TemplateFontConfiguration { return v.PrimaryValueFontConfiguration }).(TemplateFontConfigurationPtrOutput)
 }
@@ -45258,7 +45111,7 @@ func (o TemplateGaugeChartOptionsPtrOutput) ArcAxis() TemplateArcAxisConfigurati
 	}).(TemplateArcAxisConfigurationPtrOutput)
 }
 
-// The comparison display configuration of a KPI or gauge chart.
+// The comparison configuration of a `GaugeChartVisual` .
 func (o TemplateGaugeChartOptionsPtrOutput) Comparison() TemplateComparisonConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateGaugeChartOptions) *TemplateComparisonConfiguration {
 		if v == nil {
@@ -45278,7 +45131,7 @@ func (o TemplateGaugeChartOptionsPtrOutput) PrimaryValueDisplayType() TemplatePr
 	}).(TemplatePrimaryValueDisplayTypePtrOutput)
 }
 
-// Configures the display properties of the given text.
+// The options that determine the primary value font configuration.
 func (o TemplateGaugeChartOptionsPtrOutput) PrimaryValueFontConfiguration() TemplateFontConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateGaugeChartOptions) *TemplateFontConfiguration {
 		if v == nil {
@@ -45289,9 +45142,9 @@ func (o TemplateGaugeChartOptionsPtrOutput) PrimaryValueFontConfiguration() Temp
 }
 
 type TemplateGaugeChartPrimaryValueConditionalFormatting struct {
-	// The formatting configuration for the icon.
+	// The conditional formatting of the primary value icon.
 	Icon *TemplateConditionalFormattingIcon `pulumi:"icon"`
-	// The formatting configuration for the color.
+	// The conditional formatting of the primary value text color.
 	TextColor *TemplateConditionalFormattingColor `pulumi:"textColor"`
 }
 
@@ -45307,9 +45160,9 @@ type TemplateGaugeChartPrimaryValueConditionalFormattingInput interface {
 }
 
 type TemplateGaugeChartPrimaryValueConditionalFormattingArgs struct {
-	// The formatting configuration for the icon.
+	// The conditional formatting of the primary value icon.
 	Icon TemplateConditionalFormattingIconPtrInput `pulumi:"icon"`
-	// The formatting configuration for the color.
+	// The conditional formatting of the primary value text color.
 	TextColor TemplateConditionalFormattingColorPtrInput `pulumi:"textColor"`
 }
 
@@ -45390,14 +45243,14 @@ func (o TemplateGaugeChartPrimaryValueConditionalFormattingOutput) ToTemplateGau
 	}).(TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput)
 }
 
-// The formatting configuration for the icon.
+// The conditional formatting of the primary value icon.
 func (o TemplateGaugeChartPrimaryValueConditionalFormattingOutput) Icon() TemplateConditionalFormattingIconPtrOutput {
 	return o.ApplyT(func(v TemplateGaugeChartPrimaryValueConditionalFormatting) *TemplateConditionalFormattingIcon {
 		return v.Icon
 	}).(TemplateConditionalFormattingIconPtrOutput)
 }
 
-// The formatting configuration for the color.
+// The conditional formatting of the primary value text color.
 func (o TemplateGaugeChartPrimaryValueConditionalFormattingOutput) TextColor() TemplateConditionalFormattingColorPtrOutput {
 	return o.ApplyT(func(v TemplateGaugeChartPrimaryValueConditionalFormatting) *TemplateConditionalFormattingColor {
 		return v.TextColor
@@ -45428,7 +45281,7 @@ func (o TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput) Elem() Tem
 	}).(TemplateGaugeChartPrimaryValueConditionalFormattingOutput)
 }
 
-// The formatting configuration for the icon.
+// The conditional formatting of the primary value icon.
 func (o TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput) Icon() TemplateConditionalFormattingIconPtrOutput {
 	return o.ApplyT(func(v *TemplateGaugeChartPrimaryValueConditionalFormatting) *TemplateConditionalFormattingIcon {
 		if v == nil {
@@ -45438,7 +45291,7 @@ func (o TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput) Icon() Tem
 	}).(TemplateConditionalFormattingIconPtrOutput)
 }
 
-// The formatting configuration for the color.
+// The conditional formatting of the primary value text color.
 func (o TemplateGaugeChartPrimaryValueConditionalFormattingPtrOutput) TextColor() TemplateConditionalFormattingColorPtrOutput {
 	return o.ApplyT(func(v *TemplateGaugeChartPrimaryValueConditionalFormatting) *TemplateConditionalFormattingColor {
 		if v == nil {
@@ -45455,9 +45308,9 @@ type TemplateGaugeChartVisual struct {
 	ChartConfiguration *TemplateGaugeChartConfiguration `pulumi:"chartConfiguration"`
 	// The conditional formatting of a `GaugeChartVisual` .
 	ConditionalFormatting *TemplateGaugeChartConditionalFormatting `pulumi:"conditionalFormatting"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
@@ -45481,9 +45334,9 @@ type TemplateGaugeChartVisualArgs struct {
 	ChartConfiguration TemplateGaugeChartConfigurationPtrInput `pulumi:"chartConfiguration"`
 	// The conditional formatting of a `GaugeChartVisual` .
 	ConditionalFormatting TemplateGaugeChartConditionalFormattingPtrInput `pulumi:"conditionalFormatting"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
@@ -45583,12 +45436,12 @@ func (o TemplateGaugeChartVisualOutput) ConditionalFormatting() TemplateGaugeCha
 	}).(TemplateGaugeChartConditionalFormattingPtrOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateGaugeChartVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateGaugeChartVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateGaugeChartVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateGaugeChartVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
@@ -45652,7 +45505,7 @@ func (o TemplateGaugeChartVisualPtrOutput) ConditionalFormatting() TemplateGauge
 	}).(TemplateGaugeChartConditionalFormattingPtrOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateGaugeChartVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateGaugeChartVisual) *TemplateVisualSubtitleLabelOptions {
 		if v == nil {
@@ -45662,7 +45515,7 @@ func (o TemplateGaugeChartVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabe
 	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateGaugeChartVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateGaugeChartVisual) *TemplateVisualTitleLabelOptions {
 		if v == nil {
@@ -45877,7 +45730,7 @@ func (o TemplateGeospatialCoordinateBoundsPtrOutput) West() pulumi.Float64PtrOut
 }
 
 type TemplateGeospatialHeatmapColorScale struct {
-	// The color to be used in the heatmap point style.
+	// The list of colors to be used in heatmap point style.
 	Colors []TemplateGeospatialHeatmapDataColor `pulumi:"colors"`
 }
 
@@ -45893,7 +45746,7 @@ type TemplateGeospatialHeatmapColorScaleInput interface {
 }
 
 type TemplateGeospatialHeatmapColorScaleArgs struct {
-	// The color to be used in the heatmap point style.
+	// The list of colors to be used in heatmap point style.
 	Colors TemplateGeospatialHeatmapDataColorArrayInput `pulumi:"colors"`
 }
 
@@ -45974,7 +45827,7 @@ func (o TemplateGeospatialHeatmapColorScaleOutput) ToTemplateGeospatialHeatmapCo
 	}).(TemplateGeospatialHeatmapColorScalePtrOutput)
 }
 
-// The color to be used in the heatmap point style.
+// The list of colors to be used in heatmap point style.
 func (o TemplateGeospatialHeatmapColorScaleOutput) Colors() TemplateGeospatialHeatmapDataColorArrayOutput {
 	return o.ApplyT(func(v TemplateGeospatialHeatmapColorScale) []TemplateGeospatialHeatmapDataColor { return v.Colors }).(TemplateGeospatialHeatmapDataColorArrayOutput)
 }
@@ -46003,7 +45856,7 @@ func (o TemplateGeospatialHeatmapColorScalePtrOutput) Elem() TemplateGeospatialH
 	}).(TemplateGeospatialHeatmapColorScaleOutput)
 }
 
-// The color to be used in the heatmap point style.
+// The list of colors to be used in heatmap point style.
 func (o TemplateGeospatialHeatmapColorScalePtrOutput) Colors() TemplateGeospatialHeatmapDataColorArrayOutput {
 	return o.ApplyT(func(v *TemplateGeospatialHeatmapColorScale) []TemplateGeospatialHeatmapDataColor {
 		if v == nil {
@@ -46425,21 +46278,18 @@ func (o TemplateGeospatialMapAggregatedFieldWellsPtrOutput) Values() TemplateMea
 }
 
 type TemplateGeospatialMapConfiguration struct {
-	// The field wells of a `GeospatialMapVisual` .
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The field wells of the visual.
 	FieldWells *TemplateGeospatialMapFieldWells `pulumi:"fieldWells"`
-	// The options for the legend setup of a visual.
+	// The legend display setup of the visual.
 	Legend *TemplateLegendOptions `pulumi:"legend"`
 	// The map style options of the geospatial map.
 	MapStyleOptions *TemplateGeospatialMapStyleOptions `pulumi:"mapStyleOptions"`
-	// The point style of the geospatial map.
+	// The point style options of the geospatial map.
 	PointStyleOptions *TemplateGeospatialPointStyleOptions `pulumi:"pointStyleOptions"`
-	// The display options for the visual tooltip.
-	Tooltip *TemplateTooltipOptions `pulumi:"tooltip"`
-	// The visual display options for the visual palette.
-	VisualPalette *TemplateVisualPalette `pulumi:"visualPalette"`
-	// The window options of the geospatial map visual.
+	// The tooltip display setup of the visual.
+	Tooltip       *TemplateTooltipOptions `pulumi:"tooltip"`
+	VisualPalette *TemplateVisualPalette  `pulumi:"visualPalette"`
+	// The window options of the geospatial map.
 	WindowOptions *TemplateGeospatialWindowOptions `pulumi:"windowOptions"`
 }
 
@@ -46455,21 +46305,18 @@ type TemplateGeospatialMapConfigurationInput interface {
 }
 
 type TemplateGeospatialMapConfigurationArgs struct {
-	// The field wells of a `GeospatialMapVisual` .
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The field wells of the visual.
 	FieldWells TemplateGeospatialMapFieldWellsPtrInput `pulumi:"fieldWells"`
-	// The options for the legend setup of a visual.
+	// The legend display setup of the visual.
 	Legend TemplateLegendOptionsPtrInput `pulumi:"legend"`
 	// The map style options of the geospatial map.
 	MapStyleOptions TemplateGeospatialMapStyleOptionsPtrInput `pulumi:"mapStyleOptions"`
-	// The point style of the geospatial map.
+	// The point style options of the geospatial map.
 	PointStyleOptions TemplateGeospatialPointStyleOptionsPtrInput `pulumi:"pointStyleOptions"`
-	// The display options for the visual tooltip.
-	Tooltip TemplateTooltipOptionsPtrInput `pulumi:"tooltip"`
-	// The visual display options for the visual palette.
-	VisualPalette TemplateVisualPalettePtrInput `pulumi:"visualPalette"`
-	// The window options of the geospatial map visual.
+	// The tooltip display setup of the visual.
+	Tooltip       TemplateTooltipOptionsPtrInput `pulumi:"tooltip"`
+	VisualPalette TemplateVisualPalettePtrInput  `pulumi:"visualPalette"`
+	// The window options of the geospatial map.
 	WindowOptions TemplateGeospatialWindowOptionsPtrInput `pulumi:"windowOptions"`
 }
 
@@ -46550,14 +46397,12 @@ func (o TemplateGeospatialMapConfigurationOutput) ToTemplateGeospatialMapConfigu
 	}).(TemplateGeospatialMapConfigurationPtrOutput)
 }
 
-// The field wells of a `GeospatialMapVisual` .
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The field wells of the visual.
 func (o TemplateGeospatialMapConfigurationOutput) FieldWells() TemplateGeospatialMapFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplateGeospatialMapConfiguration) *TemplateGeospatialMapFieldWells { return v.FieldWells }).(TemplateGeospatialMapFieldWellsPtrOutput)
 }
 
-// The options for the legend setup of a visual.
+// The legend display setup of the visual.
 func (o TemplateGeospatialMapConfigurationOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateGeospatialMapConfiguration) *TemplateLegendOptions { return v.Legend }).(TemplateLegendOptionsPtrOutput)
 }
@@ -46569,24 +46414,23 @@ func (o TemplateGeospatialMapConfigurationOutput) MapStyleOptions() TemplateGeos
 	}).(TemplateGeospatialMapStyleOptionsPtrOutput)
 }
 
-// The point style of the geospatial map.
+// The point style options of the geospatial map.
 func (o TemplateGeospatialMapConfigurationOutput) PointStyleOptions() TemplateGeospatialPointStyleOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateGeospatialMapConfiguration) *TemplateGeospatialPointStyleOptions {
 		return v.PointStyleOptions
 	}).(TemplateGeospatialPointStyleOptionsPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The tooltip display setup of the visual.
 func (o TemplateGeospatialMapConfigurationOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateGeospatialMapConfiguration) *TemplateTooltipOptions { return v.Tooltip }).(TemplateTooltipOptionsPtrOutput)
 }
 
-// The visual display options for the visual palette.
 func (o TemplateGeospatialMapConfigurationOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v TemplateGeospatialMapConfiguration) *TemplateVisualPalette { return v.VisualPalette }).(TemplateVisualPalettePtrOutput)
 }
 
-// The window options of the geospatial map visual.
+// The window options of the geospatial map.
 func (o TemplateGeospatialMapConfigurationOutput) WindowOptions() TemplateGeospatialWindowOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateGeospatialMapConfiguration) *TemplateGeospatialWindowOptions { return v.WindowOptions }).(TemplateGeospatialWindowOptionsPtrOutput)
 }
@@ -46615,9 +46459,7 @@ func (o TemplateGeospatialMapConfigurationPtrOutput) Elem() TemplateGeospatialMa
 	}).(TemplateGeospatialMapConfigurationOutput)
 }
 
-// The field wells of a `GeospatialMapVisual` .
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The field wells of the visual.
 func (o TemplateGeospatialMapConfigurationPtrOutput) FieldWells() TemplateGeospatialMapFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplateGeospatialMapConfiguration) *TemplateGeospatialMapFieldWells {
 		if v == nil {
@@ -46627,7 +46469,7 @@ func (o TemplateGeospatialMapConfigurationPtrOutput) FieldWells() TemplateGeospa
 	}).(TemplateGeospatialMapFieldWellsPtrOutput)
 }
 
-// The options for the legend setup of a visual.
+// The legend display setup of the visual.
 func (o TemplateGeospatialMapConfigurationPtrOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateGeospatialMapConfiguration) *TemplateLegendOptions {
 		if v == nil {
@@ -46647,7 +46489,7 @@ func (o TemplateGeospatialMapConfigurationPtrOutput) MapStyleOptions() TemplateG
 	}).(TemplateGeospatialMapStyleOptionsPtrOutput)
 }
 
-// The point style of the geospatial map.
+// The point style options of the geospatial map.
 func (o TemplateGeospatialMapConfigurationPtrOutput) PointStyleOptions() TemplateGeospatialPointStyleOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateGeospatialMapConfiguration) *TemplateGeospatialPointStyleOptions {
 		if v == nil {
@@ -46657,7 +46499,7 @@ func (o TemplateGeospatialMapConfigurationPtrOutput) PointStyleOptions() Templat
 	}).(TemplateGeospatialPointStyleOptionsPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The tooltip display setup of the visual.
 func (o TemplateGeospatialMapConfigurationPtrOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateGeospatialMapConfiguration) *TemplateTooltipOptions {
 		if v == nil {
@@ -46667,7 +46509,6 @@ func (o TemplateGeospatialMapConfigurationPtrOutput) Tooltip() TemplateTooltipOp
 	}).(TemplateTooltipOptionsPtrOutput)
 }
 
-// The visual display options for the visual palette.
 func (o TemplateGeospatialMapConfigurationPtrOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v *TemplateGeospatialMapConfiguration) *TemplateVisualPalette {
 		if v == nil {
@@ -46677,7 +46518,7 @@ func (o TemplateGeospatialMapConfigurationPtrOutput) VisualPalette() TemplateVis
 	}).(TemplateVisualPalettePtrOutput)
 }
 
-// The window options of the geospatial map visual.
+// The window options of the geospatial map.
 func (o TemplateGeospatialMapConfigurationPtrOutput) WindowOptions() TemplateGeospatialWindowOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateGeospatialMapConfiguration) *TemplateGeospatialWindowOptions {
 		if v == nil {
@@ -46688,7 +46529,7 @@ func (o TemplateGeospatialMapConfigurationPtrOutput) WindowOptions() TemplateGeo
 }
 
 type TemplateGeospatialMapFieldWells struct {
-	// The aggregated field wells for a geospatial map.
+	// The aggregated field well for a geospatial map.
 	GeospatialMapAggregatedFieldWells *TemplateGeospatialMapAggregatedFieldWells `pulumi:"geospatialMapAggregatedFieldWells"`
 }
 
@@ -46704,7 +46545,7 @@ type TemplateGeospatialMapFieldWellsInput interface {
 }
 
 type TemplateGeospatialMapFieldWellsArgs struct {
-	// The aggregated field wells for a geospatial map.
+	// The aggregated field well for a geospatial map.
 	GeospatialMapAggregatedFieldWells TemplateGeospatialMapAggregatedFieldWellsPtrInput `pulumi:"geospatialMapAggregatedFieldWells"`
 }
 
@@ -46785,7 +46626,7 @@ func (o TemplateGeospatialMapFieldWellsOutput) ToTemplateGeospatialMapFieldWells
 	}).(TemplateGeospatialMapFieldWellsPtrOutput)
 }
 
-// The aggregated field wells for a geospatial map.
+// The aggregated field well for a geospatial map.
 func (o TemplateGeospatialMapFieldWellsOutput) GeospatialMapAggregatedFieldWells() TemplateGeospatialMapAggregatedFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplateGeospatialMapFieldWells) *TemplateGeospatialMapAggregatedFieldWells {
 		return v.GeospatialMapAggregatedFieldWells
@@ -46816,7 +46657,7 @@ func (o TemplateGeospatialMapFieldWellsPtrOutput) Elem() TemplateGeospatialMapFi
 	}).(TemplateGeospatialMapFieldWellsOutput)
 }
 
-// The aggregated field wells for a geospatial map.
+// The aggregated field well for a geospatial map.
 func (o TemplateGeospatialMapFieldWellsPtrOutput) GeospatialMapAggregatedFieldWells() TemplateGeospatialMapAggregatedFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplateGeospatialMapFieldWells) *TemplateGeospatialMapAggregatedFieldWells {
 		if v == nil {
@@ -46966,13 +46807,13 @@ func (o TemplateGeospatialMapStyleOptionsPtrOutput) BaseMapStyle() TemplateBaseM
 type TemplateGeospatialMapVisual struct {
 	// The list of custom actions that are configured for a visual.
 	Actions []TemplateVisualCustomAction `pulumi:"actions"`
-	// The configuration of a `GeospatialMapVisual` .
+	// The configuration settings of the visual.
 	ChartConfiguration *TemplateGeospatialMapConfiguration `pulumi:"chartConfiguration"`
 	// The column hierarchy that is used during drill-downs and drill-ups.
 	ColumnHierarchies []TemplateColumnHierarchy `pulumi:"columnHierarchies"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId string `pulumi:"visualId"`
@@ -46992,13 +46833,13 @@ type TemplateGeospatialMapVisualInput interface {
 type TemplateGeospatialMapVisualArgs struct {
 	// The list of custom actions that are configured for a visual.
 	Actions TemplateVisualCustomActionArrayInput `pulumi:"actions"`
-	// The configuration of a `GeospatialMapVisual` .
+	// The configuration settings of the visual.
 	ChartConfiguration TemplateGeospatialMapConfigurationPtrInput `pulumi:"chartConfiguration"`
 	// The column hierarchy that is used during drill-downs and drill-ups.
 	ColumnHierarchies TemplateColumnHierarchyArrayInput `pulumi:"columnHierarchies"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId pulumi.StringInput `pulumi:"visualId"`
@@ -47086,7 +46927,7 @@ func (o TemplateGeospatialMapVisualOutput) Actions() TemplateVisualCustomActionA
 	return o.ApplyT(func(v TemplateGeospatialMapVisual) []TemplateVisualCustomAction { return v.Actions }).(TemplateVisualCustomActionArrayOutput)
 }
 
-// The configuration of a `GeospatialMapVisual` .
+// The configuration settings of the visual.
 func (o TemplateGeospatialMapVisualOutput) ChartConfiguration() TemplateGeospatialMapConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateGeospatialMapVisual) *TemplateGeospatialMapConfiguration { return v.ChartConfiguration }).(TemplateGeospatialMapConfigurationPtrOutput)
 }
@@ -47096,12 +46937,12 @@ func (o TemplateGeospatialMapVisualOutput) ColumnHierarchies() TemplateColumnHie
 	return o.ApplyT(func(v TemplateGeospatialMapVisual) []TemplateColumnHierarchy { return v.ColumnHierarchies }).(TemplateColumnHierarchyArrayOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateGeospatialMapVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateGeospatialMapVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateGeospatialMapVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateGeospatialMapVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
@@ -47145,7 +46986,7 @@ func (o TemplateGeospatialMapVisualPtrOutput) Actions() TemplateVisualCustomActi
 	}).(TemplateVisualCustomActionArrayOutput)
 }
 
-// The configuration of a `GeospatialMapVisual` .
+// The configuration settings of the visual.
 func (o TemplateGeospatialMapVisualPtrOutput) ChartConfiguration() TemplateGeospatialMapConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateGeospatialMapVisual) *TemplateGeospatialMapConfiguration {
 		if v == nil {
@@ -47165,7 +47006,7 @@ func (o TemplateGeospatialMapVisualPtrOutput) ColumnHierarchies() TemplateColumn
 	}).(TemplateColumnHierarchyArrayOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateGeospatialMapVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateGeospatialMapVisual) *TemplateVisualSubtitleLabelOptions {
 		if v == nil {
@@ -47175,7 +47016,7 @@ func (o TemplateGeospatialMapVisualPtrOutput) Subtitle() TemplateVisualSubtitleL
 	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateGeospatialMapVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateGeospatialMapVisual) *TemplateVisualTitleLabelOptions {
 		if v == nil {
@@ -47196,7 +47037,7 @@ func (o TemplateGeospatialMapVisualPtrOutput) VisualId() pulumi.StringPtrOutput 
 }
 
 type TemplateGeospatialPointStyleOptions struct {
-	// The cluster marker configuration of the geospatial map selected point style.
+	// The cluster marker configuration of the geospatial point style.
 	ClusterMarkerConfiguration *TemplateClusterMarkerConfiguration `pulumi:"clusterMarkerConfiguration"`
 	// The heatmap configuration of the geospatial point style.
 	HeatmapConfiguration *TemplateGeospatialHeatmapConfiguration `pulumi:"heatmapConfiguration"`
@@ -47216,7 +47057,7 @@ type TemplateGeospatialPointStyleOptionsInput interface {
 }
 
 type TemplateGeospatialPointStyleOptionsArgs struct {
-	// The cluster marker configuration of the geospatial map selected point style.
+	// The cluster marker configuration of the geospatial point style.
 	ClusterMarkerConfiguration TemplateClusterMarkerConfigurationPtrInput `pulumi:"clusterMarkerConfiguration"`
 	// The heatmap configuration of the geospatial point style.
 	HeatmapConfiguration TemplateGeospatialHeatmapConfigurationPtrInput `pulumi:"heatmapConfiguration"`
@@ -47301,7 +47142,7 @@ func (o TemplateGeospatialPointStyleOptionsOutput) ToTemplateGeospatialPointStyl
 	}).(TemplateGeospatialPointStyleOptionsPtrOutput)
 }
 
-// The cluster marker configuration of the geospatial map selected point style.
+// The cluster marker configuration of the geospatial point style.
 func (o TemplateGeospatialPointStyleOptionsOutput) ClusterMarkerConfiguration() TemplateClusterMarkerConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateGeospatialPointStyleOptions) *TemplateClusterMarkerConfiguration {
 		return v.ClusterMarkerConfiguration
@@ -47346,7 +47187,7 @@ func (o TemplateGeospatialPointStyleOptionsPtrOutput) Elem() TemplateGeospatialP
 	}).(TemplateGeospatialPointStyleOptionsOutput)
 }
 
-// The cluster marker configuration of the geospatial map selected point style.
+// The cluster marker configuration of the geospatial point style.
 func (o TemplateGeospatialPointStyleOptionsPtrOutput) ClusterMarkerConfiguration() TemplateClusterMarkerConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateGeospatialPointStyleOptions) *TemplateClusterMarkerConfiguration {
 		if v == nil {
@@ -47377,7 +47218,7 @@ func (o TemplateGeospatialPointStyleOptionsPtrOutput) SelectedPointStyle() Templ
 }
 
 type TemplateGeospatialWindowOptions struct {
-	// The bound options (north, south, west, east) of the geospatial window options.
+	// The bounds options (north, south, west, east) of the geospatial window options.
 	Bounds *TemplateGeospatialCoordinateBounds `pulumi:"bounds"`
 	// The map zoom modes (manual, auto) of the geospatial window options.
 	MapZoomMode *TemplateMapZoomMode `pulumi:"mapZoomMode"`
@@ -47395,7 +47236,7 @@ type TemplateGeospatialWindowOptionsInput interface {
 }
 
 type TemplateGeospatialWindowOptionsArgs struct {
-	// The bound options (north, south, west, east) of the geospatial window options.
+	// The bounds options (north, south, west, east) of the geospatial window options.
 	Bounds TemplateGeospatialCoordinateBoundsPtrInput `pulumi:"bounds"`
 	// The map zoom modes (manual, auto) of the geospatial window options.
 	MapZoomMode TemplateMapZoomModePtrInput `pulumi:"mapZoomMode"`
@@ -47478,7 +47319,7 @@ func (o TemplateGeospatialWindowOptionsOutput) ToTemplateGeospatialWindowOptions
 	}).(TemplateGeospatialWindowOptionsPtrOutput)
 }
 
-// The bound options (north, south, west, east) of the geospatial window options.
+// The bounds options (north, south, west, east) of the geospatial window options.
 func (o TemplateGeospatialWindowOptionsOutput) Bounds() TemplateGeospatialCoordinateBoundsPtrOutput {
 	return o.ApplyT(func(v TemplateGeospatialWindowOptions) *TemplateGeospatialCoordinateBounds { return v.Bounds }).(TemplateGeospatialCoordinateBoundsPtrOutput)
 }
@@ -47512,7 +47353,7 @@ func (o TemplateGeospatialWindowOptionsPtrOutput) Elem() TemplateGeospatialWindo
 	}).(TemplateGeospatialWindowOptionsOutput)
 }
 
-// The bound options (north, south, west, east) of the geospatial window options.
+// The bounds options (north, south, west, east) of the geospatial window options.
 func (o TemplateGeospatialWindowOptionsPtrOutput) Bounds() TemplateGeospatialCoordinateBoundsPtrOutput {
 	return o.ApplyT(func(v *TemplateGeospatialWindowOptions) *TemplateGeospatialCoordinateBounds {
 		if v == nil {
@@ -47533,9 +47374,9 @@ func (o TemplateGeospatialWindowOptionsPtrOutput) MapZoomMode() TemplateMapZoomM
 }
 
 type TemplateGlobalTableBorderOptions struct {
-	// The side border options for a table.
+	// Determines the options for side specific border.
 	SideSpecificBorder *TemplateTableSideBorderOptions `pulumi:"sideSpecificBorder"`
-	// The border options for a table border.
+	// Determines the options for uniform border.
 	UniformBorder *TemplateTableBorderOptions `pulumi:"uniformBorder"`
 }
 
@@ -47551,9 +47392,9 @@ type TemplateGlobalTableBorderOptionsInput interface {
 }
 
 type TemplateGlobalTableBorderOptionsArgs struct {
-	// The side border options for a table.
+	// Determines the options for side specific border.
 	SideSpecificBorder TemplateTableSideBorderOptionsPtrInput `pulumi:"sideSpecificBorder"`
-	// The border options for a table border.
+	// Determines the options for uniform border.
 	UniformBorder TemplateTableBorderOptionsPtrInput `pulumi:"uniformBorder"`
 }
 
@@ -47634,12 +47475,12 @@ func (o TemplateGlobalTableBorderOptionsOutput) ToTemplateGlobalTableBorderOptio
 	}).(TemplateGlobalTableBorderOptionsPtrOutput)
 }
 
-// The side border options for a table.
+// Determines the options for side specific border.
 func (o TemplateGlobalTableBorderOptionsOutput) SideSpecificBorder() TemplateTableSideBorderOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateGlobalTableBorderOptions) *TemplateTableSideBorderOptions { return v.SideSpecificBorder }).(TemplateTableSideBorderOptionsPtrOutput)
 }
 
-// The border options for a table border.
+// Determines the options for uniform border.
 func (o TemplateGlobalTableBorderOptionsOutput) UniformBorder() TemplateTableBorderOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateGlobalTableBorderOptions) *TemplateTableBorderOptions { return v.UniformBorder }).(TemplateTableBorderOptionsPtrOutput)
 }
@@ -47668,7 +47509,7 @@ func (o TemplateGlobalTableBorderOptionsPtrOutput) Elem() TemplateGlobalTableBor
 	}).(TemplateGlobalTableBorderOptionsOutput)
 }
 
-// The side border options for a table.
+// Determines the options for side specific border.
 func (o TemplateGlobalTableBorderOptionsPtrOutput) SideSpecificBorder() TemplateTableSideBorderOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateGlobalTableBorderOptions) *TemplateTableSideBorderOptions {
 		if v == nil {
@@ -47678,7 +47519,7 @@ func (o TemplateGlobalTableBorderOptionsPtrOutput) SideSpecificBorder() Template
 	}).(TemplateTableSideBorderOptionsPtrOutput)
 }
 
-// The border options for a table border.
+// Determines the options for uniform border.
 func (o TemplateGlobalTableBorderOptionsPtrOutput) UniformBorder() TemplateTableBorderOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateGlobalTableBorderOptions) *TemplateTableBorderOptions {
 		if v == nil {
@@ -47689,7 +47530,7 @@ func (o TemplateGlobalTableBorderOptionsPtrOutput) UniformBorder() TemplateTable
 }
 
 type TemplateGradientColor struct {
-	// Determines the gradient stop configuration.
+	// The list of gradient color stops.
 	Stops []TemplateGradientStop `pulumi:"stops"`
 }
 
@@ -47705,7 +47546,7 @@ type TemplateGradientColorInput interface {
 }
 
 type TemplateGradientColorArgs struct {
-	// Determines the gradient stop configuration.
+	// The list of gradient color stops.
 	Stops TemplateGradientStopArrayInput `pulumi:"stops"`
 }
 
@@ -47786,7 +47627,7 @@ func (o TemplateGradientColorOutput) ToTemplateGradientColorPtrOutputWithContext
 	}).(TemplateGradientColorPtrOutput)
 }
 
-// Determines the gradient stop configuration.
+// The list of gradient color stops.
 func (o TemplateGradientColorOutput) Stops() TemplateGradientStopArrayOutput {
 	return o.ApplyT(func(v TemplateGradientColor) []TemplateGradientStop { return v.Stops }).(TemplateGradientStopArrayOutput)
 }
@@ -47815,7 +47656,7 @@ func (o TemplateGradientColorPtrOutput) Elem() TemplateGradientColorOutput {
 	}).(TemplateGradientColorOutput)
 }
 
-// Determines the gradient stop configuration.
+// The list of gradient color stops.
 func (o TemplateGradientColorPtrOutput) Stops() TemplateGradientStopArrayOutput {
 	return o.ApplyT(func(v *TemplateGradientColor) []TemplateGradientStop {
 		if v == nil {
@@ -48080,9 +47921,8 @@ func (o TemplateGridLayoutCanvasSizeOptionsPtrOutput) ScreenCanvasSizeOptions() 
 }
 
 type TemplateGridLayoutConfiguration struct {
-	// Configuration options for the canvas of a grid layout.
 	CanvasSizeOptions *TemplateGridLayoutCanvasSizeOptions `pulumi:"canvasSizeOptions"`
-	// An element within a grid layout.
+	// The elements that are included in a grid layout.
 	Elements []TemplateGridLayoutElement `pulumi:"elements"`
 }
 
@@ -48098,9 +47938,8 @@ type TemplateGridLayoutConfigurationInput interface {
 }
 
 type TemplateGridLayoutConfigurationArgs struct {
-	// Configuration options for the canvas of a grid layout.
 	CanvasSizeOptions TemplateGridLayoutCanvasSizeOptionsPtrInput `pulumi:"canvasSizeOptions"`
-	// An element within a grid layout.
+	// The elements that are included in a grid layout.
 	Elements TemplateGridLayoutElementArrayInput `pulumi:"elements"`
 }
 
@@ -48181,14 +48020,13 @@ func (o TemplateGridLayoutConfigurationOutput) ToTemplateGridLayoutConfiguration
 	}).(TemplateGridLayoutConfigurationPtrOutput)
 }
 
-// Configuration options for the canvas of a grid layout.
 func (o TemplateGridLayoutConfigurationOutput) CanvasSizeOptions() TemplateGridLayoutCanvasSizeOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateGridLayoutConfiguration) *TemplateGridLayoutCanvasSizeOptions {
 		return v.CanvasSizeOptions
 	}).(TemplateGridLayoutCanvasSizeOptionsPtrOutput)
 }
 
-// An element within a grid layout.
+// The elements that are included in a grid layout.
 func (o TemplateGridLayoutConfigurationOutput) Elements() TemplateGridLayoutElementArrayOutput {
 	return o.ApplyT(func(v TemplateGridLayoutConfiguration) []TemplateGridLayoutElement { return v.Elements }).(TemplateGridLayoutElementArrayOutput)
 }
@@ -48217,7 +48055,6 @@ func (o TemplateGridLayoutConfigurationPtrOutput) Elem() TemplateGridLayoutConfi
 	}).(TemplateGridLayoutConfigurationOutput)
 }
 
-// Configuration options for the canvas of a grid layout.
 func (o TemplateGridLayoutConfigurationPtrOutput) CanvasSizeOptions() TemplateGridLayoutCanvasSizeOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateGridLayoutConfiguration) *TemplateGridLayoutCanvasSizeOptions {
 		if v == nil {
@@ -48227,7 +48064,7 @@ func (o TemplateGridLayoutConfigurationPtrOutput) CanvasSizeOptions() TemplateGr
 	}).(TemplateGridLayoutCanvasSizeOptionsPtrOutput)
 }
 
-// An element within a grid layout.
+// The elements that are included in a grid layout.
 func (o TemplateGridLayoutConfigurationPtrOutput) Elements() TemplateGridLayoutElementArrayOutput {
 	return o.ApplyT(func(v *TemplateGridLayoutConfiguration) []TemplateGridLayoutElement {
 		if v == nil {
@@ -48554,9 +48391,9 @@ type TemplateGrowthRateComputation struct {
 	Name *string `pulumi:"name"`
 	// The period size setup of a growth rate computation.
 	PeriodSize *float64 `pulumi:"periodSize"`
-	// The dimension type field.
+	// The time field that is used in a computation.
 	Time *TemplateDimensionField `pulumi:"time"`
-	// The measure (metric) type field.
+	// The value field that is used in a computation.
 	Value *TemplateMeasureField `pulumi:"value"`
 }
 
@@ -48578,9 +48415,9 @@ type TemplateGrowthRateComputationArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The period size setup of a growth rate computation.
 	PeriodSize pulumi.Float64PtrInput `pulumi:"periodSize"`
-	// The dimension type field.
+	// The time field that is used in a computation.
 	Time TemplateDimensionFieldPtrInput `pulumi:"time"`
-	// The measure (metric) type field.
+	// The value field that is used in a computation.
 	Value TemplateMeasureFieldPtrInput `pulumi:"value"`
 }
 
@@ -48676,12 +48513,12 @@ func (o TemplateGrowthRateComputationOutput) PeriodSize() pulumi.Float64PtrOutpu
 	return o.ApplyT(func(v TemplateGrowthRateComputation) *float64 { return v.PeriodSize }).(pulumi.Float64PtrOutput)
 }
 
-// The dimension type field.
+// The time field that is used in a computation.
 func (o TemplateGrowthRateComputationOutput) Time() TemplateDimensionFieldPtrOutput {
 	return o.ApplyT(func(v TemplateGrowthRateComputation) *TemplateDimensionField { return v.Time }).(TemplateDimensionFieldPtrOutput)
 }
 
-// The measure (metric) type field.
+// The value field that is used in a computation.
 func (o TemplateGrowthRateComputationOutput) Value() TemplateMeasureFieldPtrOutput {
 	return o.ApplyT(func(v TemplateGrowthRateComputation) *TemplateMeasureField { return v.Value }).(TemplateMeasureFieldPtrOutput)
 }
@@ -48740,7 +48577,7 @@ func (o TemplateGrowthRateComputationPtrOutput) PeriodSize() pulumi.Float64PtrOu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The dimension type field.
+// The time field that is used in a computation.
 func (o TemplateGrowthRateComputationPtrOutput) Time() TemplateDimensionFieldPtrOutput {
 	return o.ApplyT(func(v *TemplateGrowthRateComputation) *TemplateDimensionField {
 		if v == nil {
@@ -48750,7 +48587,7 @@ func (o TemplateGrowthRateComputationPtrOutput) Time() TemplateDimensionFieldPtr
 	}).(TemplateDimensionFieldPtrOutput)
 }
 
-// The measure (metric) type field.
+// The value field that is used in a computation.
 func (o TemplateGrowthRateComputationPtrOutput) Value() TemplateMeasureFieldPtrOutput {
 	return o.ApplyT(func(v *TemplateGrowthRateComputation) *TemplateMeasureField {
 		if v == nil {
@@ -48761,11 +48598,11 @@ func (o TemplateGrowthRateComputationPtrOutput) Value() TemplateMeasureFieldPtrO
 }
 
 type TemplateHeaderFooterSectionConfiguration struct {
-	// The layout configuration of a section.
+	// The layout configuration of the header or footer section.
 	Layout TemplateSectionLayoutConfiguration `pulumi:"layout"`
 	// The unique identifier of the header or footer section.
 	SectionId string `pulumi:"sectionId"`
-	// The options that style a section.
+	// The style options of a header or footer section.
 	Style *TemplateSectionStyle `pulumi:"style"`
 }
 
@@ -48781,11 +48618,11 @@ type TemplateHeaderFooterSectionConfigurationInput interface {
 }
 
 type TemplateHeaderFooterSectionConfigurationArgs struct {
-	// The layout configuration of a section.
+	// The layout configuration of the header or footer section.
 	Layout TemplateSectionLayoutConfigurationInput `pulumi:"layout"`
 	// The unique identifier of the header or footer section.
 	SectionId pulumi.StringInput `pulumi:"sectionId"`
-	// The options that style a section.
+	// The style options of a header or footer section.
 	Style TemplateSectionStylePtrInput `pulumi:"style"`
 }
 
@@ -48840,7 +48677,7 @@ func (o TemplateHeaderFooterSectionConfigurationOutput) ToTemplateHeaderFooterSe
 	return o
 }
 
-// The layout configuration of a section.
+// The layout configuration of the header or footer section.
 func (o TemplateHeaderFooterSectionConfigurationOutput) Layout() TemplateSectionLayoutConfigurationOutput {
 	return o.ApplyT(func(v TemplateHeaderFooterSectionConfiguration) TemplateSectionLayoutConfiguration { return v.Layout }).(TemplateSectionLayoutConfigurationOutput)
 }
@@ -48850,7 +48687,7 @@ func (o TemplateHeaderFooterSectionConfigurationOutput) SectionId() pulumi.Strin
 	return o.ApplyT(func(v TemplateHeaderFooterSectionConfiguration) string { return v.SectionId }).(pulumi.StringOutput)
 }
 
-// The options that style a section.
+// The style options of a header or footer section.
 func (o TemplateHeaderFooterSectionConfigurationOutput) Style() TemplateSectionStylePtrOutput {
 	return o.ApplyT(func(v TemplateHeaderFooterSectionConfiguration) *TemplateSectionStyle { return v.Style }).(TemplateSectionStylePtrOutput)
 }
@@ -49051,23 +48888,21 @@ func (o TemplateHeatMapAggregatedFieldWellsPtrOutput) Values() TemplateMeasureFi
 }
 
 type TemplateHeatMapConfiguration struct {
-	// Determines the color scale that is applied to the visual.
+	// The color options (gradient color, point of divergence) in a heat map.
 	ColorScale *TemplateColorScale `pulumi:"colorScale"`
-	// The label options for an axis on a chart.
+	// The label options of the column that is displayed in a heat map.
 	ColumnLabelOptions *TemplateChartAxisLabelOptions `pulumi:"columnLabelOptions"`
-	// The options that determine the presentation of the data labels.
+	// The options that determine if visual data labels are displayed.
 	DataLabels *TemplateDataLabelOptions `pulumi:"dataLabels"`
-	// The field well configuration of a heat map.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The field wells of the visual.
 	FieldWells *TemplateHeatMapFieldWells `pulumi:"fieldWells"`
-	// The options for the legend setup of a visual.
+	// The legend display setup of the visual.
 	Legend *TemplateLegendOptions `pulumi:"legend"`
-	// The label options for an axis on a chart.
+	// The label options of the row that is displayed in a `heat map` .
 	RowLabelOptions *TemplateChartAxisLabelOptions `pulumi:"rowLabelOptions"`
 	// The sort configuration of a heat map.
 	SortConfiguration *TemplateHeatMapSortConfiguration `pulumi:"sortConfiguration"`
-	// The display options for the visual tooltip.
+	// The tooltip display setup of the visual.
 	Tooltip *TemplateTooltipOptions `pulumi:"tooltip"`
 }
 
@@ -49083,23 +48918,21 @@ type TemplateHeatMapConfigurationInput interface {
 }
 
 type TemplateHeatMapConfigurationArgs struct {
-	// Determines the color scale that is applied to the visual.
+	// The color options (gradient color, point of divergence) in a heat map.
 	ColorScale TemplateColorScalePtrInput `pulumi:"colorScale"`
-	// The label options for an axis on a chart.
+	// The label options of the column that is displayed in a heat map.
 	ColumnLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"columnLabelOptions"`
-	// The options that determine the presentation of the data labels.
+	// The options that determine if visual data labels are displayed.
 	DataLabels TemplateDataLabelOptionsPtrInput `pulumi:"dataLabels"`
-	// The field well configuration of a heat map.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The field wells of the visual.
 	FieldWells TemplateHeatMapFieldWellsPtrInput `pulumi:"fieldWells"`
-	// The options for the legend setup of a visual.
+	// The legend display setup of the visual.
 	Legend TemplateLegendOptionsPtrInput `pulumi:"legend"`
-	// The label options for an axis on a chart.
+	// The label options of the row that is displayed in a `heat map` .
 	RowLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"rowLabelOptions"`
 	// The sort configuration of a heat map.
 	SortConfiguration TemplateHeatMapSortConfigurationPtrInput `pulumi:"sortConfiguration"`
-	// The display options for the visual tooltip.
+	// The tooltip display setup of the visual.
 	Tooltip TemplateTooltipOptionsPtrInput `pulumi:"tooltip"`
 }
 
@@ -49180,34 +49013,32 @@ func (o TemplateHeatMapConfigurationOutput) ToTemplateHeatMapConfigurationPtrOut
 	}).(TemplateHeatMapConfigurationPtrOutput)
 }
 
-// Determines the color scale that is applied to the visual.
+// The color options (gradient color, point of divergence) in a heat map.
 func (o TemplateHeatMapConfigurationOutput) ColorScale() TemplateColorScalePtrOutput {
 	return o.ApplyT(func(v TemplateHeatMapConfiguration) *TemplateColorScale { return v.ColorScale }).(TemplateColorScalePtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options of the column that is displayed in a heat map.
 func (o TemplateHeatMapConfigurationOutput) ColumnLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateHeatMapConfiguration) *TemplateChartAxisLabelOptions { return v.ColumnLabelOptions }).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The options that determine the presentation of the data labels.
+// The options that determine if visual data labels are displayed.
 func (o TemplateHeatMapConfigurationOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateHeatMapConfiguration) *TemplateDataLabelOptions { return v.DataLabels }).(TemplateDataLabelOptionsPtrOutput)
 }
 
-// The field well configuration of a heat map.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The field wells of the visual.
 func (o TemplateHeatMapConfigurationOutput) FieldWells() TemplateHeatMapFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplateHeatMapConfiguration) *TemplateHeatMapFieldWells { return v.FieldWells }).(TemplateHeatMapFieldWellsPtrOutput)
 }
 
-// The options for the legend setup of a visual.
+// The legend display setup of the visual.
 func (o TemplateHeatMapConfigurationOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateHeatMapConfiguration) *TemplateLegendOptions { return v.Legend }).(TemplateLegendOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options of the row that is displayed in a `heat map` .
 func (o TemplateHeatMapConfigurationOutput) RowLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateHeatMapConfiguration) *TemplateChartAxisLabelOptions { return v.RowLabelOptions }).(TemplateChartAxisLabelOptionsPtrOutput)
 }
@@ -49217,7 +49048,7 @@ func (o TemplateHeatMapConfigurationOutput) SortConfiguration() TemplateHeatMapS
 	return o.ApplyT(func(v TemplateHeatMapConfiguration) *TemplateHeatMapSortConfiguration { return v.SortConfiguration }).(TemplateHeatMapSortConfigurationPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The tooltip display setup of the visual.
 func (o TemplateHeatMapConfigurationOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateHeatMapConfiguration) *TemplateTooltipOptions { return v.Tooltip }).(TemplateTooltipOptionsPtrOutput)
 }
@@ -49246,7 +49077,7 @@ func (o TemplateHeatMapConfigurationPtrOutput) Elem() TemplateHeatMapConfigurati
 	}).(TemplateHeatMapConfigurationOutput)
 }
 
-// Determines the color scale that is applied to the visual.
+// The color options (gradient color, point of divergence) in a heat map.
 func (o TemplateHeatMapConfigurationPtrOutput) ColorScale() TemplateColorScalePtrOutput {
 	return o.ApplyT(func(v *TemplateHeatMapConfiguration) *TemplateColorScale {
 		if v == nil {
@@ -49256,7 +49087,7 @@ func (o TemplateHeatMapConfigurationPtrOutput) ColorScale() TemplateColorScalePt
 	}).(TemplateColorScalePtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options of the column that is displayed in a heat map.
 func (o TemplateHeatMapConfigurationPtrOutput) ColumnLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateHeatMapConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -49266,7 +49097,7 @@ func (o TemplateHeatMapConfigurationPtrOutput) ColumnLabelOptions() TemplateChar
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The options that determine the presentation of the data labels.
+// The options that determine if visual data labels are displayed.
 func (o TemplateHeatMapConfigurationPtrOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateHeatMapConfiguration) *TemplateDataLabelOptions {
 		if v == nil {
@@ -49276,9 +49107,7 @@ func (o TemplateHeatMapConfigurationPtrOutput) DataLabels() TemplateDataLabelOpt
 	}).(TemplateDataLabelOptionsPtrOutput)
 }
 
-// The field well configuration of a heat map.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The field wells of the visual.
 func (o TemplateHeatMapConfigurationPtrOutput) FieldWells() TemplateHeatMapFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplateHeatMapConfiguration) *TemplateHeatMapFieldWells {
 		if v == nil {
@@ -49288,7 +49117,7 @@ func (o TemplateHeatMapConfigurationPtrOutput) FieldWells() TemplateHeatMapField
 	}).(TemplateHeatMapFieldWellsPtrOutput)
 }
 
-// The options for the legend setup of a visual.
+// The legend display setup of the visual.
 func (o TemplateHeatMapConfigurationPtrOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateHeatMapConfiguration) *TemplateLegendOptions {
 		if v == nil {
@@ -49298,7 +49127,7 @@ func (o TemplateHeatMapConfigurationPtrOutput) Legend() TemplateLegendOptionsPtr
 	}).(TemplateLegendOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options of the row that is displayed in a `heat map` .
 func (o TemplateHeatMapConfigurationPtrOutput) RowLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateHeatMapConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -49318,7 +49147,7 @@ func (o TemplateHeatMapConfigurationPtrOutput) SortConfiguration() TemplateHeatM
 	}).(TemplateHeatMapSortConfigurationPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The tooltip display setup of the visual.
 func (o TemplateHeatMapConfigurationPtrOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateHeatMapConfiguration) *TemplateTooltipOptions {
 		if v == nil {
@@ -49468,11 +49297,11 @@ func (o TemplateHeatMapFieldWellsPtrOutput) HeatMapAggregatedFieldWells() Templa
 }
 
 type TemplateHeatMapSortConfiguration struct {
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of columns that are displayed in a heat map.
 	HeatMapColumnItemsLimitConfiguration *TemplateItemsLimitConfiguration `pulumi:"heatMapColumnItemsLimitConfiguration"`
 	// The column sort configuration for heat map for columns that aren't a part of a field well.
 	HeatMapColumnSort []TemplateFieldSortOptions `pulumi:"heatMapColumnSort"`
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of rows that are displayed in a heat map.
 	HeatMapRowItemsLimitConfiguration *TemplateItemsLimitConfiguration `pulumi:"heatMapRowItemsLimitConfiguration"`
 	// The field sort configuration of the rows fields.
 	HeatMapRowSort []TemplateFieldSortOptions `pulumi:"heatMapRowSort"`
@@ -49490,11 +49319,11 @@ type TemplateHeatMapSortConfigurationInput interface {
 }
 
 type TemplateHeatMapSortConfigurationArgs struct {
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of columns that are displayed in a heat map.
 	HeatMapColumnItemsLimitConfiguration TemplateItemsLimitConfigurationPtrInput `pulumi:"heatMapColumnItemsLimitConfiguration"`
 	// The column sort configuration for heat map for columns that aren't a part of a field well.
 	HeatMapColumnSort TemplateFieldSortOptionsArrayInput `pulumi:"heatMapColumnSort"`
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of rows that are displayed in a heat map.
 	HeatMapRowItemsLimitConfiguration TemplateItemsLimitConfigurationPtrInput `pulumi:"heatMapRowItemsLimitConfiguration"`
 	// The field sort configuration of the rows fields.
 	HeatMapRowSort TemplateFieldSortOptionsArrayInput `pulumi:"heatMapRowSort"`
@@ -49577,7 +49406,7 @@ func (o TemplateHeatMapSortConfigurationOutput) ToTemplateHeatMapSortConfigurati
 	}).(TemplateHeatMapSortConfigurationPtrOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of columns that are displayed in a heat map.
 func (o TemplateHeatMapSortConfigurationOutput) HeatMapColumnItemsLimitConfiguration() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateHeatMapSortConfiguration) *TemplateItemsLimitConfiguration {
 		return v.HeatMapColumnItemsLimitConfiguration
@@ -49589,7 +49418,7 @@ func (o TemplateHeatMapSortConfigurationOutput) HeatMapColumnSort() TemplateFiel
 	return o.ApplyT(func(v TemplateHeatMapSortConfiguration) []TemplateFieldSortOptions { return v.HeatMapColumnSort }).(TemplateFieldSortOptionsArrayOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of rows that are displayed in a heat map.
 func (o TemplateHeatMapSortConfigurationOutput) HeatMapRowItemsLimitConfiguration() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateHeatMapSortConfiguration) *TemplateItemsLimitConfiguration {
 		return v.HeatMapRowItemsLimitConfiguration
@@ -49625,7 +49454,7 @@ func (o TemplateHeatMapSortConfigurationPtrOutput) Elem() TemplateHeatMapSortCon
 	}).(TemplateHeatMapSortConfigurationOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of columns that are displayed in a heat map.
 func (o TemplateHeatMapSortConfigurationPtrOutput) HeatMapColumnItemsLimitConfiguration() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateHeatMapSortConfiguration) *TemplateItemsLimitConfiguration {
 		if v == nil {
@@ -49645,7 +49474,7 @@ func (o TemplateHeatMapSortConfigurationPtrOutput) HeatMapColumnSort() TemplateF
 	}).(TemplateFieldSortOptionsArrayOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of rows that are displayed in a heat map.
 func (o TemplateHeatMapSortConfigurationPtrOutput) HeatMapRowItemsLimitConfiguration() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateHeatMapSortConfiguration) *TemplateItemsLimitConfiguration {
 		if v == nil {
@@ -49672,9 +49501,9 @@ type TemplateHeatMapVisual struct {
 	ChartConfiguration *TemplateHeatMapConfiguration `pulumi:"chartConfiguration"`
 	// The column hierarchy that is used during drill-downs and drill-ups.
 	ColumnHierarchies []TemplateColumnHierarchy `pulumi:"columnHierarchies"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
@@ -49698,9 +49527,9 @@ type TemplateHeatMapVisualArgs struct {
 	ChartConfiguration TemplateHeatMapConfigurationPtrInput `pulumi:"chartConfiguration"`
 	// The column hierarchy that is used during drill-downs and drill-ups.
 	ColumnHierarchies TemplateColumnHierarchyArrayInput `pulumi:"columnHierarchies"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
@@ -49798,12 +49627,12 @@ func (o TemplateHeatMapVisualOutput) ColumnHierarchies() TemplateColumnHierarchy
 	return o.ApplyT(func(v TemplateHeatMapVisual) []TemplateColumnHierarchy { return v.ColumnHierarchies }).(TemplateColumnHierarchyArrayOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateHeatMapVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateHeatMapVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateHeatMapVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateHeatMapVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
@@ -49867,7 +49696,7 @@ func (o TemplateHeatMapVisualPtrOutput) ColumnHierarchies() TemplateColumnHierar
 	}).(TemplateColumnHierarchyArrayOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateHeatMapVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateHeatMapVisual) *TemplateVisualSubtitleLabelOptions {
 		if v == nil {
@@ -49877,7 +49706,7 @@ func (o TemplateHeatMapVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOp
 	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateHeatMapVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateHeatMapVisual) *TemplateVisualTitleLabelOptions {
 		if v == nil {
@@ -50231,19 +50060,19 @@ func (o TemplateHistogramBinOptionsPtrOutput) StartValue() pulumi.Float64PtrOutp
 type TemplateHistogramConfiguration struct {
 	// The options that determine the presentation of histogram bins.
 	BinOptions *TemplateHistogramBinOptions `pulumi:"binOptions"`
-	// The options that determine the presentation of the data labels.
+	// The data label configuration of a histogram.
 	DataLabels *TemplateDataLabelOptions `pulumi:"dataLabels"`
 	// The field well configuration of a histogram.
 	FieldWells *TemplateHistogramFieldWells `pulumi:"fieldWells"`
-	// The display options for the visual tooltip.
+	// The tooltip configuration of a histogram.
 	Tooltip *TemplateTooltipOptions `pulumi:"tooltip"`
-	// The visual display options for the visual palette.
+	// The visual palette configuration of a histogram.
 	VisualPalette *TemplateVisualPalette `pulumi:"visualPalette"`
-	// The display options for the axis label.
+	// The options that determine the presentation of the x-axis.
 	XAxisDisplayOptions *TemplateAxisDisplayOptions `pulumi:"xAxisDisplayOptions"`
-	// The label options for an axis on a chart.
+	// The options that determine the presentation of the x-axis label.
 	XAxisLabelOptions *TemplateChartAxisLabelOptions `pulumi:"xAxisLabelOptions"`
-	// The display options for the axis label.
+	// The options that determine the presentation of the y-axis.
 	YAxisDisplayOptions *TemplateAxisDisplayOptions `pulumi:"yAxisDisplayOptions"`
 }
 
@@ -50261,19 +50090,19 @@ type TemplateHistogramConfigurationInput interface {
 type TemplateHistogramConfigurationArgs struct {
 	// The options that determine the presentation of histogram bins.
 	BinOptions TemplateHistogramBinOptionsPtrInput `pulumi:"binOptions"`
-	// The options that determine the presentation of the data labels.
+	// The data label configuration of a histogram.
 	DataLabels TemplateDataLabelOptionsPtrInput `pulumi:"dataLabels"`
 	// The field well configuration of a histogram.
 	FieldWells TemplateHistogramFieldWellsPtrInput `pulumi:"fieldWells"`
-	// The display options for the visual tooltip.
+	// The tooltip configuration of a histogram.
 	Tooltip TemplateTooltipOptionsPtrInput `pulumi:"tooltip"`
-	// The visual display options for the visual palette.
+	// The visual palette configuration of a histogram.
 	VisualPalette TemplateVisualPalettePtrInput `pulumi:"visualPalette"`
-	// The display options for the axis label.
+	// The options that determine the presentation of the x-axis.
 	XAxisDisplayOptions TemplateAxisDisplayOptionsPtrInput `pulumi:"xAxisDisplayOptions"`
-	// The label options for an axis on a chart.
+	// The options that determine the presentation of the x-axis label.
 	XAxisLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"xAxisLabelOptions"`
-	// The display options for the axis label.
+	// The options that determine the presentation of the y-axis.
 	YAxisDisplayOptions TemplateAxisDisplayOptionsPtrInput `pulumi:"yAxisDisplayOptions"`
 }
 
@@ -50359,7 +50188,7 @@ func (o TemplateHistogramConfigurationOutput) BinOptions() TemplateHistogramBinO
 	return o.ApplyT(func(v TemplateHistogramConfiguration) *TemplateHistogramBinOptions { return v.BinOptions }).(TemplateHistogramBinOptionsPtrOutput)
 }
 
-// The options that determine the presentation of the data labels.
+// The data label configuration of a histogram.
 func (o TemplateHistogramConfigurationOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateHistogramConfiguration) *TemplateDataLabelOptions { return v.DataLabels }).(TemplateDataLabelOptionsPtrOutput)
 }
@@ -50369,27 +50198,27 @@ func (o TemplateHistogramConfigurationOutput) FieldWells() TemplateHistogramFiel
 	return o.ApplyT(func(v TemplateHistogramConfiguration) *TemplateHistogramFieldWells { return v.FieldWells }).(TemplateHistogramFieldWellsPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The tooltip configuration of a histogram.
 func (o TemplateHistogramConfigurationOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateHistogramConfiguration) *TemplateTooltipOptions { return v.Tooltip }).(TemplateTooltipOptionsPtrOutput)
 }
 
-// The visual display options for the visual palette.
+// The visual palette configuration of a histogram.
 func (o TemplateHistogramConfigurationOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v TemplateHistogramConfiguration) *TemplateVisualPalette { return v.VisualPalette }).(TemplateVisualPalettePtrOutput)
 }
 
-// The display options for the axis label.
+// The options that determine the presentation of the x-axis.
 func (o TemplateHistogramConfigurationOutput) XAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateHistogramConfiguration) *TemplateAxisDisplayOptions { return v.XAxisDisplayOptions }).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The options that determine the presentation of the x-axis label.
 func (o TemplateHistogramConfigurationOutput) XAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateHistogramConfiguration) *TemplateChartAxisLabelOptions { return v.XAxisLabelOptions }).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The display options for the axis label.
+// The options that determine the presentation of the y-axis.
 func (o TemplateHistogramConfigurationOutput) YAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateHistogramConfiguration) *TemplateAxisDisplayOptions { return v.YAxisDisplayOptions }).(TemplateAxisDisplayOptionsPtrOutput)
 }
@@ -50428,7 +50257,7 @@ func (o TemplateHistogramConfigurationPtrOutput) BinOptions() TemplateHistogramB
 	}).(TemplateHistogramBinOptionsPtrOutput)
 }
 
-// The options that determine the presentation of the data labels.
+// The data label configuration of a histogram.
 func (o TemplateHistogramConfigurationPtrOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateHistogramConfiguration) *TemplateDataLabelOptions {
 		if v == nil {
@@ -50448,7 +50277,7 @@ func (o TemplateHistogramConfigurationPtrOutput) FieldWells() TemplateHistogramF
 	}).(TemplateHistogramFieldWellsPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The tooltip configuration of a histogram.
 func (o TemplateHistogramConfigurationPtrOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateHistogramConfiguration) *TemplateTooltipOptions {
 		if v == nil {
@@ -50458,7 +50287,7 @@ func (o TemplateHistogramConfigurationPtrOutput) Tooltip() TemplateTooltipOption
 	}).(TemplateTooltipOptionsPtrOutput)
 }
 
-// The visual display options for the visual palette.
+// The visual palette configuration of a histogram.
 func (o TemplateHistogramConfigurationPtrOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v *TemplateHistogramConfiguration) *TemplateVisualPalette {
 		if v == nil {
@@ -50468,7 +50297,7 @@ func (o TemplateHistogramConfigurationPtrOutput) VisualPalette() TemplateVisualP
 	}).(TemplateVisualPalettePtrOutput)
 }
 
-// The display options for the axis label.
+// The options that determine the presentation of the x-axis.
 func (o TemplateHistogramConfigurationPtrOutput) XAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateHistogramConfiguration) *TemplateAxisDisplayOptions {
 		if v == nil {
@@ -50478,7 +50307,7 @@ func (o TemplateHistogramConfigurationPtrOutput) XAxisDisplayOptions() TemplateA
 	}).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The options that determine the presentation of the x-axis label.
 func (o TemplateHistogramConfigurationPtrOutput) XAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateHistogramConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -50488,7 +50317,7 @@ func (o TemplateHistogramConfigurationPtrOutput) XAxisLabelOptions() TemplateCha
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The display options for the axis label.
+// The options that determine the presentation of the y-axis.
 func (o TemplateHistogramConfigurationPtrOutput) YAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateHistogramConfiguration) *TemplateAxisDisplayOptions {
 		if v == nil {
@@ -50642,9 +50471,9 @@ type TemplateHistogramVisual struct {
 	Actions []TemplateVisualCustomAction `pulumi:"actions"`
 	// The configuration for a `HistogramVisual` .
 	ChartConfiguration *TemplateHistogramConfiguration `pulumi:"chartConfiguration"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
@@ -50666,9 +50495,9 @@ type TemplateHistogramVisualArgs struct {
 	Actions TemplateVisualCustomActionArrayInput `pulumi:"actions"`
 	// The configuration for a `HistogramVisual` .
 	ChartConfiguration TemplateHistogramConfigurationPtrInput `pulumi:"chartConfiguration"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
@@ -50761,12 +50590,12 @@ func (o TemplateHistogramVisualOutput) ChartConfiguration() TemplateHistogramCon
 	return o.ApplyT(func(v TemplateHistogramVisual) *TemplateHistogramConfiguration { return v.ChartConfiguration }).(TemplateHistogramConfigurationPtrOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateHistogramVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateHistogramVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateHistogramVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateHistogramVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
@@ -50820,7 +50649,7 @@ func (o TemplateHistogramVisualPtrOutput) ChartConfiguration() TemplateHistogram
 	}).(TemplateHistogramConfigurationPtrOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateHistogramVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateHistogramVisual) *TemplateVisualSubtitleLabelOptions {
 		if v == nil {
@@ -50830,7 +50659,7 @@ func (o TemplateHistogramVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabel
 	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateHistogramVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateHistogramVisual) *TemplateVisualTitleLabelOptions {
 		if v == nil {
@@ -50851,11 +50680,9 @@ func (o TemplateHistogramVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 }
 
 type TemplateInsightConfiguration struct {
-	// The computation union that is used in an insight visual.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The computations configurations of the insight visual
 	Computations []TemplateComputation `pulumi:"computations"`
-	// The custom narrative options.
+	// The custom narrative of the insight visual.
 	CustomNarrative *TemplateCustomNarrativeOptions `pulumi:"customNarrative"`
 }
 
@@ -50871,11 +50698,9 @@ type TemplateInsightConfigurationInput interface {
 }
 
 type TemplateInsightConfigurationArgs struct {
-	// The computation union that is used in an insight visual.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The computations configurations of the insight visual
 	Computations TemplateComputationArrayInput `pulumi:"computations"`
-	// The custom narrative options.
+	// The custom narrative of the insight visual.
 	CustomNarrative TemplateCustomNarrativeOptionsPtrInput `pulumi:"customNarrative"`
 }
 
@@ -50956,14 +50781,12 @@ func (o TemplateInsightConfigurationOutput) ToTemplateInsightConfigurationPtrOut
 	}).(TemplateInsightConfigurationPtrOutput)
 }
 
-// The computation union that is used in an insight visual.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The computations configurations of the insight visual
 func (o TemplateInsightConfigurationOutput) Computations() TemplateComputationArrayOutput {
 	return o.ApplyT(func(v TemplateInsightConfiguration) []TemplateComputation { return v.Computations }).(TemplateComputationArrayOutput)
 }
 
-// The custom narrative options.
+// The custom narrative of the insight visual.
 func (o TemplateInsightConfigurationOutput) CustomNarrative() TemplateCustomNarrativeOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateInsightConfiguration) *TemplateCustomNarrativeOptions { return v.CustomNarrative }).(TemplateCustomNarrativeOptionsPtrOutput)
 }
@@ -50992,9 +50815,7 @@ func (o TemplateInsightConfigurationPtrOutput) Elem() TemplateInsightConfigurati
 	}).(TemplateInsightConfigurationOutput)
 }
 
-// The computation union that is used in an insight visual.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The computations configurations of the insight visual
 func (o TemplateInsightConfigurationPtrOutput) Computations() TemplateComputationArrayOutput {
 	return o.ApplyT(func(v *TemplateInsightConfiguration) []TemplateComputation {
 		if v == nil {
@@ -51004,7 +50825,7 @@ func (o TemplateInsightConfigurationPtrOutput) Computations() TemplateComputatio
 	}).(TemplateComputationArrayOutput)
 }
 
-// The custom narrative options.
+// The custom narrative of the insight visual.
 func (o TemplateInsightConfigurationPtrOutput) CustomNarrative() TemplateCustomNarrativeOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateInsightConfiguration) *TemplateCustomNarrativeOptions {
 		if v == nil {
@@ -51021,9 +50842,9 @@ type TemplateInsightVisual struct {
 	DataSetIdentifier string `pulumi:"dataSetIdentifier"`
 	// The configuration of an insight visual.
 	InsightConfiguration *TemplateInsightConfiguration `pulumi:"insightConfiguration"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
@@ -51047,9 +50868,9 @@ type TemplateInsightVisualArgs struct {
 	DataSetIdentifier pulumi.StringInput `pulumi:"dataSetIdentifier"`
 	// The configuration of an insight visual.
 	InsightConfiguration TemplateInsightConfigurationPtrInput `pulumi:"insightConfiguration"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
@@ -51147,12 +50968,12 @@ func (o TemplateInsightVisualOutput) InsightConfiguration() TemplateInsightConfi
 	return o.ApplyT(func(v TemplateInsightVisual) *TemplateInsightConfiguration { return v.InsightConfiguration }).(TemplateInsightConfigurationPtrOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateInsightVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateInsightVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateInsightVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateInsightVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
@@ -51216,7 +51037,7 @@ func (o TemplateInsightVisualPtrOutput) InsightConfiguration() TemplateInsightCo
 	}).(TemplateInsightConfigurationPtrOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateInsightVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateInsightVisual) *TemplateVisualSubtitleLabelOptions {
 		if v == nil {
@@ -51226,7 +51047,7 @@ func (o TemplateInsightVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOp
 	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateInsightVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateInsightVisual) *TemplateVisualTitleLabelOptions {
 		if v == nil {
@@ -51247,7 +51068,7 @@ func (o TemplateInsightVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 }
 
 type TemplateIntegerDefaultValues struct {
-	// Defines different defaults to the users or groups based on mapping.
+	// The dynamic value of the `IntegerDefaultValues` . Different defaults are displayed according to users, groups, and values mapping.
 	DynamicValue *TemplateDynamicDefaultValue `pulumi:"dynamicValue"`
 	// The static values of the `IntegerDefaultValues` .
 	StaticValues []float64 `pulumi:"staticValues"`
@@ -51265,7 +51086,7 @@ type TemplateIntegerDefaultValuesInput interface {
 }
 
 type TemplateIntegerDefaultValuesArgs struct {
-	// Defines different defaults to the users or groups based on mapping.
+	// The dynamic value of the `IntegerDefaultValues` . Different defaults are displayed according to users, groups, and values mapping.
 	DynamicValue TemplateDynamicDefaultValuePtrInput `pulumi:"dynamicValue"`
 	// The static values of the `IntegerDefaultValues` .
 	StaticValues pulumi.Float64ArrayInput `pulumi:"staticValues"`
@@ -51348,7 +51169,7 @@ func (o TemplateIntegerDefaultValuesOutput) ToTemplateIntegerDefaultValuesPtrOut
 	}).(TemplateIntegerDefaultValuesPtrOutput)
 }
 
-// Defines different defaults to the users or groups based on mapping.
+// The dynamic value of the `IntegerDefaultValues` . Different defaults are displayed according to users, groups, and values mapping.
 func (o TemplateIntegerDefaultValuesOutput) DynamicValue() TemplateDynamicDefaultValuePtrOutput {
 	return o.ApplyT(func(v TemplateIntegerDefaultValues) *TemplateDynamicDefaultValue { return v.DynamicValue }).(TemplateDynamicDefaultValuePtrOutput)
 }
@@ -51382,7 +51203,7 @@ func (o TemplateIntegerDefaultValuesPtrOutput) Elem() TemplateIntegerDefaultValu
 	}).(TemplateIntegerDefaultValuesOutput)
 }
 
-// Defines different defaults to the users or groups based on mapping.
+// The dynamic value of the `IntegerDefaultValues` . Different defaults are displayed according to users, groups, and values mapping.
 func (o TemplateIntegerDefaultValuesPtrOutput) DynamicValue() TemplateDynamicDefaultValuePtrOutput {
 	return o.ApplyT(func(v *TemplateIntegerDefaultValues) *TemplateDynamicDefaultValue {
 		if v == nil {
@@ -51403,7 +51224,7 @@ func (o TemplateIntegerDefaultValuesPtrOutput) StaticValues() pulumi.Float64Arra
 }
 
 type TemplateIntegerParameterDeclaration struct {
-	// The default values of the `IntegerParameterDeclaration` .
+	// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
 	DefaultValues           *TemplateIntegerDefaultValues    `pulumi:"defaultValues"`
 	MappedDataSetParameters []TemplateMappedDataSetParameter `pulumi:"mappedDataSetParameters"`
 	// The name of the parameter that is being declared.
@@ -51411,8 +51232,6 @@ type TemplateIntegerParameterDeclaration struct {
 	// The value type determines whether the parameter is a single-value or multi-value parameter.
 	ParameterValueType TemplateParameterValueType `pulumi:"parameterValueType"`
 	// A parameter declaration for the `Integer` data type.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	ValueWhenUnset *TemplateIntegerValueWhenUnsetConfiguration `pulumi:"valueWhenUnset"`
 }
 
@@ -51428,7 +51247,7 @@ type TemplateIntegerParameterDeclarationInput interface {
 }
 
 type TemplateIntegerParameterDeclarationArgs struct {
-	// The default values of the `IntegerParameterDeclaration` .
+	// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
 	DefaultValues           TemplateIntegerDefaultValuesPtrInput     `pulumi:"defaultValues"`
 	MappedDataSetParameters TemplateMappedDataSetParameterArrayInput `pulumi:"mappedDataSetParameters"`
 	// The name of the parameter that is being declared.
@@ -51436,8 +51255,6 @@ type TemplateIntegerParameterDeclarationArgs struct {
 	// The value type determines whether the parameter is a single-value or multi-value parameter.
 	ParameterValueType TemplateParameterValueTypeInput `pulumi:"parameterValueType"`
 	// A parameter declaration for the `Integer` data type.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	ValueWhenUnset TemplateIntegerValueWhenUnsetConfigurationPtrInput `pulumi:"valueWhenUnset"`
 }
 
@@ -51518,7 +51335,7 @@ func (o TemplateIntegerParameterDeclarationOutput) ToTemplateIntegerParameterDec
 	}).(TemplateIntegerParameterDeclarationPtrOutput)
 }
 
-// The default values of the `IntegerParameterDeclaration` .
+// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
 func (o TemplateIntegerParameterDeclarationOutput) DefaultValues() TemplateIntegerDefaultValuesPtrOutput {
 	return o.ApplyT(func(v TemplateIntegerParameterDeclaration) *TemplateIntegerDefaultValues { return v.DefaultValues }).(TemplateIntegerDefaultValuesPtrOutput)
 }
@@ -51540,8 +51357,6 @@ func (o TemplateIntegerParameterDeclarationOutput) ParameterValueType() Template
 }
 
 // A parameter declaration for the `Integer` data type.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateIntegerParameterDeclarationOutput) ValueWhenUnset() TemplateIntegerValueWhenUnsetConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateIntegerParameterDeclaration) *TemplateIntegerValueWhenUnsetConfiguration {
 		return v.ValueWhenUnset
@@ -51572,7 +51387,7 @@ func (o TemplateIntegerParameterDeclarationPtrOutput) Elem() TemplateIntegerPara
 	}).(TemplateIntegerParameterDeclarationOutput)
 }
 
-// The default values of the `IntegerParameterDeclaration` .
+// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
 func (o TemplateIntegerParameterDeclarationPtrOutput) DefaultValues() TemplateIntegerDefaultValuesPtrOutput {
 	return o.ApplyT(func(v *TemplateIntegerParameterDeclaration) *TemplateIntegerDefaultValues {
 		if v == nil {
@@ -51612,8 +51427,6 @@ func (o TemplateIntegerParameterDeclarationPtrOutput) ParameterValueType() Templ
 }
 
 // A parameter declaration for the `Integer` data type.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateIntegerParameterDeclarationPtrOutput) ValueWhenUnset() TemplateIntegerValueWhenUnsetConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateIntegerParameterDeclaration) *TemplateIntegerValueWhenUnsetConfiguration {
 		if v == nil {
@@ -51962,9 +51775,9 @@ func (o TemplateItemsLimitConfigurationPtrOutput) OtherCategories() TemplateOthe
 }
 
 type TemplateKpiActualValueConditionalFormatting struct {
-	// The formatting configuration for the icon.
+	// The conditional formatting of the actual value's icon.
 	Icon *TemplateConditionalFormattingIcon `pulumi:"icon"`
-	// The formatting configuration for the color.
+	// The conditional formatting of the actual value's text color.
 	TextColor *TemplateConditionalFormattingColor `pulumi:"textColor"`
 }
 
@@ -51980,9 +51793,9 @@ type TemplateKpiActualValueConditionalFormattingInput interface {
 }
 
 type TemplateKpiActualValueConditionalFormattingArgs struct {
-	// The formatting configuration for the icon.
+	// The conditional formatting of the actual value's icon.
 	Icon TemplateConditionalFormattingIconPtrInput `pulumi:"icon"`
-	// The formatting configuration for the color.
+	// The conditional formatting of the actual value's text color.
 	TextColor TemplateConditionalFormattingColorPtrInput `pulumi:"textColor"`
 }
 
@@ -52063,12 +51876,12 @@ func (o TemplateKpiActualValueConditionalFormattingOutput) ToTemplateKpiActualVa
 	}).(TemplateKpiActualValueConditionalFormattingPtrOutput)
 }
 
-// The formatting configuration for the icon.
+// The conditional formatting of the actual value's icon.
 func (o TemplateKpiActualValueConditionalFormattingOutput) Icon() TemplateConditionalFormattingIconPtrOutput {
 	return o.ApplyT(func(v TemplateKpiActualValueConditionalFormatting) *TemplateConditionalFormattingIcon { return v.Icon }).(TemplateConditionalFormattingIconPtrOutput)
 }
 
-// The formatting configuration for the color.
+// The conditional formatting of the actual value's text color.
 func (o TemplateKpiActualValueConditionalFormattingOutput) TextColor() TemplateConditionalFormattingColorPtrOutput {
 	return o.ApplyT(func(v TemplateKpiActualValueConditionalFormatting) *TemplateConditionalFormattingColor {
 		return v.TextColor
@@ -52099,7 +51912,7 @@ func (o TemplateKpiActualValueConditionalFormattingPtrOutput) Elem() TemplateKpi
 	}).(TemplateKpiActualValueConditionalFormattingOutput)
 }
 
-// The formatting configuration for the icon.
+// The conditional formatting of the actual value's icon.
 func (o TemplateKpiActualValueConditionalFormattingPtrOutput) Icon() TemplateConditionalFormattingIconPtrOutput {
 	return o.ApplyT(func(v *TemplateKpiActualValueConditionalFormatting) *TemplateConditionalFormattingIcon {
 		if v == nil {
@@ -52109,7 +51922,7 @@ func (o TemplateKpiActualValueConditionalFormattingPtrOutput) Icon() TemplateCon
 	}).(TemplateConditionalFormattingIconPtrOutput)
 }
 
-// The formatting configuration for the color.
+// The conditional formatting of the actual value's text color.
 func (o TemplateKpiActualValueConditionalFormattingPtrOutput) TextColor() TemplateConditionalFormattingColorPtrOutput {
 	return o.ApplyT(func(v *TemplateKpiActualValueConditionalFormatting) *TemplateConditionalFormattingColor {
 		if v == nil {
@@ -52120,9 +51933,9 @@ func (o TemplateKpiActualValueConditionalFormattingPtrOutput) TextColor() Templa
 }
 
 type TemplateKpiComparisonValueConditionalFormatting struct {
-	// The formatting configuration for the icon.
+	// The conditional formatting of the comparison value's icon.
 	Icon *TemplateConditionalFormattingIcon `pulumi:"icon"`
-	// The formatting configuration for the color.
+	// The conditional formatting of the comparison value's text color.
 	TextColor *TemplateConditionalFormattingColor `pulumi:"textColor"`
 }
 
@@ -52138,9 +51951,9 @@ type TemplateKpiComparisonValueConditionalFormattingInput interface {
 }
 
 type TemplateKpiComparisonValueConditionalFormattingArgs struct {
-	// The formatting configuration for the icon.
+	// The conditional formatting of the comparison value's icon.
 	Icon TemplateConditionalFormattingIconPtrInput `pulumi:"icon"`
-	// The formatting configuration for the color.
+	// The conditional formatting of the comparison value's text color.
 	TextColor TemplateConditionalFormattingColorPtrInput `pulumi:"textColor"`
 }
 
@@ -52221,14 +52034,14 @@ func (o TemplateKpiComparisonValueConditionalFormattingOutput) ToTemplateKpiComp
 	}).(TemplateKpiComparisonValueConditionalFormattingPtrOutput)
 }
 
-// The formatting configuration for the icon.
+// The conditional formatting of the comparison value's icon.
 func (o TemplateKpiComparisonValueConditionalFormattingOutput) Icon() TemplateConditionalFormattingIconPtrOutput {
 	return o.ApplyT(func(v TemplateKpiComparisonValueConditionalFormatting) *TemplateConditionalFormattingIcon {
 		return v.Icon
 	}).(TemplateConditionalFormattingIconPtrOutput)
 }
 
-// The formatting configuration for the color.
+// The conditional formatting of the comparison value's text color.
 func (o TemplateKpiComparisonValueConditionalFormattingOutput) TextColor() TemplateConditionalFormattingColorPtrOutput {
 	return o.ApplyT(func(v TemplateKpiComparisonValueConditionalFormatting) *TemplateConditionalFormattingColor {
 		return v.TextColor
@@ -52259,7 +52072,7 @@ func (o TemplateKpiComparisonValueConditionalFormattingPtrOutput) Elem() Templat
 	}).(TemplateKpiComparisonValueConditionalFormattingOutput)
 }
 
-// The formatting configuration for the icon.
+// The conditional formatting of the comparison value's icon.
 func (o TemplateKpiComparisonValueConditionalFormattingPtrOutput) Icon() TemplateConditionalFormattingIconPtrOutput {
 	return o.ApplyT(func(v *TemplateKpiComparisonValueConditionalFormatting) *TemplateConditionalFormattingIcon {
 		if v == nil {
@@ -52269,7 +52082,7 @@ func (o TemplateKpiComparisonValueConditionalFormattingPtrOutput) Icon() Templat
 	}).(TemplateConditionalFormattingIconPtrOutput)
 }
 
-// The formatting configuration for the color.
+// The conditional formatting of the comparison value's text color.
 func (o TemplateKpiComparisonValueConditionalFormattingPtrOutput) TextColor() TemplateConditionalFormattingColorPtrOutput {
 	return o.ApplyT(func(v *TemplateKpiComparisonValueConditionalFormatting) *TemplateConditionalFormattingColor {
 		if v == nil {
@@ -52901,17 +52714,17 @@ func (o TemplateKpiFieldWellsPtrOutput) Values() TemplateMeasureFieldArrayOutput
 }
 
 type TemplateKpiOptions struct {
-	// The comparison display configuration of a KPI or gauge chart.
+	// The comparison configuration of a KPI visual.
 	Comparison *TemplateComparisonConfiguration `pulumi:"comparison"`
 	// The options that determine the primary value display type.
 	PrimaryValueDisplayType *TemplatePrimaryValueDisplayType `pulumi:"primaryValueDisplayType"`
-	// Configures the display properties of the given text.
+	// The options that determine the primary value font configuration.
 	PrimaryValueFontConfiguration *TemplateFontConfiguration `pulumi:"primaryValueFontConfiguration"`
 	// The options that determine the presentation of the progress bar of a KPI visual.
 	ProgressBar *TemplateProgressBarOptions `pulumi:"progressBar"`
 	// The options that determine the presentation of the secondary value of a KPI visual.
 	SecondaryValue *TemplateSecondaryValueOptions `pulumi:"secondaryValue"`
-	// Configures the display properties of the given text.
+	// The options that determine the secondary value font configuration.
 	SecondaryValueFontConfiguration *TemplateFontConfiguration `pulumi:"secondaryValueFontConfiguration"`
 	// The options that determine the visibility, color, type, and tooltip visibility of the sparkline of a KPI visual.
 	Sparkline *TemplateKpiSparklineOptions `pulumi:"sparkline"`
@@ -52933,17 +52746,17 @@ type TemplateKpiOptionsInput interface {
 }
 
 type TemplateKpiOptionsArgs struct {
-	// The comparison display configuration of a KPI or gauge chart.
+	// The comparison configuration of a KPI visual.
 	Comparison TemplateComparisonConfigurationPtrInput `pulumi:"comparison"`
 	// The options that determine the primary value display type.
 	PrimaryValueDisplayType TemplatePrimaryValueDisplayTypePtrInput `pulumi:"primaryValueDisplayType"`
-	// Configures the display properties of the given text.
+	// The options that determine the primary value font configuration.
 	PrimaryValueFontConfiguration TemplateFontConfigurationPtrInput `pulumi:"primaryValueFontConfiguration"`
 	// The options that determine the presentation of the progress bar of a KPI visual.
 	ProgressBar TemplateProgressBarOptionsPtrInput `pulumi:"progressBar"`
 	// The options that determine the presentation of the secondary value of a KPI visual.
 	SecondaryValue TemplateSecondaryValueOptionsPtrInput `pulumi:"secondaryValue"`
-	// Configures the display properties of the given text.
+	// The options that determine the secondary value font configuration.
 	SecondaryValueFontConfiguration TemplateFontConfigurationPtrInput `pulumi:"secondaryValueFontConfiguration"`
 	// The options that determine the visibility, color, type, and tooltip visibility of the sparkline of a KPI visual.
 	Sparkline TemplateKpiSparklineOptionsPtrInput `pulumi:"sparkline"`
@@ -53030,7 +52843,7 @@ func (o TemplateKpiOptionsOutput) ToTemplateKpiOptionsPtrOutputWithContext(ctx c
 	}).(TemplateKpiOptionsPtrOutput)
 }
 
-// The comparison display configuration of a KPI or gauge chart.
+// The comparison configuration of a KPI visual.
 func (o TemplateKpiOptionsOutput) Comparison() TemplateComparisonConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateKpiOptions) *TemplateComparisonConfiguration { return v.Comparison }).(TemplateComparisonConfigurationPtrOutput)
 }
@@ -53040,7 +52853,7 @@ func (o TemplateKpiOptionsOutput) PrimaryValueDisplayType() TemplatePrimaryValue
 	return o.ApplyT(func(v TemplateKpiOptions) *TemplatePrimaryValueDisplayType { return v.PrimaryValueDisplayType }).(TemplatePrimaryValueDisplayTypePtrOutput)
 }
 
-// Configures the display properties of the given text.
+// The options that determine the primary value font configuration.
 func (o TemplateKpiOptionsOutput) PrimaryValueFontConfiguration() TemplateFontConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateKpiOptions) *TemplateFontConfiguration { return v.PrimaryValueFontConfiguration }).(TemplateFontConfigurationPtrOutput)
 }
@@ -53055,7 +52868,7 @@ func (o TemplateKpiOptionsOutput) SecondaryValue() TemplateSecondaryValueOptions
 	return o.ApplyT(func(v TemplateKpiOptions) *TemplateSecondaryValueOptions { return v.SecondaryValue }).(TemplateSecondaryValueOptionsPtrOutput)
 }
 
-// Configures the display properties of the given text.
+// The options that determine the secondary value font configuration.
 func (o TemplateKpiOptionsOutput) SecondaryValueFontConfiguration() TemplateFontConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateKpiOptions) *TemplateFontConfiguration { return v.SecondaryValueFontConfiguration }).(TemplateFontConfigurationPtrOutput)
 }
@@ -53099,7 +52912,7 @@ func (o TemplateKpiOptionsPtrOutput) Elem() TemplateKpiOptionsOutput {
 	}).(TemplateKpiOptionsOutput)
 }
 
-// The comparison display configuration of a KPI or gauge chart.
+// The comparison configuration of a KPI visual.
 func (o TemplateKpiOptionsPtrOutput) Comparison() TemplateComparisonConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateKpiOptions) *TemplateComparisonConfiguration {
 		if v == nil {
@@ -53119,7 +52932,7 @@ func (o TemplateKpiOptionsPtrOutput) PrimaryValueDisplayType() TemplatePrimaryVa
 	}).(TemplatePrimaryValueDisplayTypePtrOutput)
 }
 
-// Configures the display properties of the given text.
+// The options that determine the primary value font configuration.
 func (o TemplateKpiOptionsPtrOutput) PrimaryValueFontConfiguration() TemplateFontConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateKpiOptions) *TemplateFontConfiguration {
 		if v == nil {
@@ -53149,7 +52962,7 @@ func (o TemplateKpiOptionsPtrOutput) SecondaryValue() TemplateSecondaryValueOpti
 	}).(TemplateSecondaryValueOptionsPtrOutput)
 }
 
-// Configures the display properties of the given text.
+// The options that determine the secondary value font configuration.
 func (o TemplateKpiOptionsPtrOutput) SecondaryValueFontConfiguration() TemplateFontConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateKpiOptions) *TemplateFontConfiguration {
 		if v == nil {
@@ -53190,9 +53003,9 @@ func (o TemplateKpiOptionsPtrOutput) VisualLayoutOptions() TemplateKpiVisualLayo
 }
 
 type TemplateKpiPrimaryValueConditionalFormatting struct {
-	// The formatting configuration for the icon.
+	// The conditional formatting of the primary value's icon.
 	Icon *TemplateConditionalFormattingIcon `pulumi:"icon"`
-	// The formatting configuration for the color.
+	// The conditional formatting of the primary value's text color.
 	TextColor *TemplateConditionalFormattingColor `pulumi:"textColor"`
 }
 
@@ -53208,9 +53021,9 @@ type TemplateKpiPrimaryValueConditionalFormattingInput interface {
 }
 
 type TemplateKpiPrimaryValueConditionalFormattingArgs struct {
-	// The formatting configuration for the icon.
+	// The conditional formatting of the primary value's icon.
 	Icon TemplateConditionalFormattingIconPtrInput `pulumi:"icon"`
-	// The formatting configuration for the color.
+	// The conditional formatting of the primary value's text color.
 	TextColor TemplateConditionalFormattingColorPtrInput `pulumi:"textColor"`
 }
 
@@ -53291,12 +53104,12 @@ func (o TemplateKpiPrimaryValueConditionalFormattingOutput) ToTemplateKpiPrimary
 	}).(TemplateKpiPrimaryValueConditionalFormattingPtrOutput)
 }
 
-// The formatting configuration for the icon.
+// The conditional formatting of the primary value's icon.
 func (o TemplateKpiPrimaryValueConditionalFormattingOutput) Icon() TemplateConditionalFormattingIconPtrOutput {
 	return o.ApplyT(func(v TemplateKpiPrimaryValueConditionalFormatting) *TemplateConditionalFormattingIcon { return v.Icon }).(TemplateConditionalFormattingIconPtrOutput)
 }
 
-// The formatting configuration for the color.
+// The conditional formatting of the primary value's text color.
 func (o TemplateKpiPrimaryValueConditionalFormattingOutput) TextColor() TemplateConditionalFormattingColorPtrOutput {
 	return o.ApplyT(func(v TemplateKpiPrimaryValueConditionalFormatting) *TemplateConditionalFormattingColor {
 		return v.TextColor
@@ -53327,7 +53140,7 @@ func (o TemplateKpiPrimaryValueConditionalFormattingPtrOutput) Elem() TemplateKp
 	}).(TemplateKpiPrimaryValueConditionalFormattingOutput)
 }
 
-// The formatting configuration for the icon.
+// The conditional formatting of the primary value's icon.
 func (o TemplateKpiPrimaryValueConditionalFormattingPtrOutput) Icon() TemplateConditionalFormattingIconPtrOutput {
 	return o.ApplyT(func(v *TemplateKpiPrimaryValueConditionalFormatting) *TemplateConditionalFormattingIcon {
 		if v == nil {
@@ -53337,7 +53150,7 @@ func (o TemplateKpiPrimaryValueConditionalFormattingPtrOutput) Icon() TemplateCo
 	}).(TemplateConditionalFormattingIconPtrOutput)
 }
 
-// The formatting configuration for the color.
+// The conditional formatting of the primary value's text color.
 func (o TemplateKpiPrimaryValueConditionalFormattingPtrOutput) TextColor() TemplateConditionalFormattingColorPtrOutput {
 	return o.ApplyT(func(v *TemplateKpiPrimaryValueConditionalFormatting) *TemplateConditionalFormattingColor {
 		if v == nil {
@@ -53348,7 +53161,7 @@ func (o TemplateKpiPrimaryValueConditionalFormattingPtrOutput) TextColor() Templ
 }
 
 type TemplateKpiProgressBarConditionalFormatting struct {
-	// The formatting configuration for the color.
+	// The conditional formatting of the progress bar's foreground color.
 	ForegroundColor *TemplateConditionalFormattingColor `pulumi:"foregroundColor"`
 }
 
@@ -53364,7 +53177,7 @@ type TemplateKpiProgressBarConditionalFormattingInput interface {
 }
 
 type TemplateKpiProgressBarConditionalFormattingArgs struct {
-	// The formatting configuration for the color.
+	// The conditional formatting of the progress bar's foreground color.
 	ForegroundColor TemplateConditionalFormattingColorPtrInput `pulumi:"foregroundColor"`
 }
 
@@ -53445,7 +53258,7 @@ func (o TemplateKpiProgressBarConditionalFormattingOutput) ToTemplateKpiProgress
 	}).(TemplateKpiProgressBarConditionalFormattingPtrOutput)
 }
 
-// The formatting configuration for the color.
+// The conditional formatting of the progress bar's foreground color.
 func (o TemplateKpiProgressBarConditionalFormattingOutput) ForegroundColor() TemplateConditionalFormattingColorPtrOutput {
 	return o.ApplyT(func(v TemplateKpiProgressBarConditionalFormatting) *TemplateConditionalFormattingColor {
 		return v.ForegroundColor
@@ -53476,7 +53289,7 @@ func (o TemplateKpiProgressBarConditionalFormattingPtrOutput) Elem() TemplateKpi
 	}).(TemplateKpiProgressBarConditionalFormattingOutput)
 }
 
-// The formatting configuration for the color.
+// The conditional formatting of the progress bar's foreground color.
 func (o TemplateKpiProgressBarConditionalFormattingPtrOutput) ForegroundColor() TemplateConditionalFormattingColorPtrOutput {
 	return o.ApplyT(func(v *TemplateKpiProgressBarConditionalFormatting) *TemplateConditionalFormattingColor {
 		if v == nil {
@@ -53826,9 +53639,9 @@ type TemplateKpiVisual struct {
 	ColumnHierarchies []TemplateColumnHierarchy `pulumi:"columnHierarchies"`
 	// The conditional formatting of a KPI visual.
 	ConditionalFormatting *TemplateKpiConditionalFormatting `pulumi:"conditionalFormatting"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
@@ -53854,9 +53667,9 @@ type TemplateKpiVisualArgs struct {
 	ColumnHierarchies TemplateColumnHierarchyArrayInput `pulumi:"columnHierarchies"`
 	// The conditional formatting of a KPI visual.
 	ConditionalFormatting TemplateKpiConditionalFormattingPtrInput `pulumi:"conditionalFormatting"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
@@ -53959,12 +53772,12 @@ func (o TemplateKpiVisualOutput) ConditionalFormatting() TemplateKpiConditionalF
 	return o.ApplyT(func(v TemplateKpiVisual) *TemplateKpiConditionalFormatting { return v.ConditionalFormatting }).(TemplateKpiConditionalFormattingPtrOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateKpiVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateKpiVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateKpiVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateKpiVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
@@ -54038,7 +53851,7 @@ func (o TemplateKpiVisualPtrOutput) ConditionalFormatting() TemplateKpiCondition
 	}).(TemplateKpiConditionalFormattingPtrOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateKpiVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateKpiVisual) *TemplateVisualSubtitleLabelOptions {
 		if v == nil {
@@ -54048,7 +53861,7 @@ func (o TemplateKpiVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOption
 	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateKpiVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateKpiVisual) *TemplateVisualTitleLabelOptions {
 		if v == nil {
@@ -54345,7 +54158,7 @@ func (o TemplateKpiVisualStandardLayoutPtrOutput) Type() TemplateKpiVisualStanda
 type TemplateLabelOptions struct {
 	// The text for the label.
 	CustomLabel *string `pulumi:"customLabel"`
-	// Configures the display properties of the given text.
+	// The font configuration of the label.
 	FontConfiguration *TemplateFontConfiguration `pulumi:"fontConfiguration"`
 	// Determines whether or not the label is visible.
 	Visibility *TemplateVisibility `pulumi:"visibility"`
@@ -54365,7 +54178,7 @@ type TemplateLabelOptionsInput interface {
 type TemplateLabelOptionsArgs struct {
 	// The text for the label.
 	CustomLabel pulumi.StringPtrInput `pulumi:"customLabel"`
-	// Configures the display properties of the given text.
+	// The font configuration of the label.
 	FontConfiguration TemplateFontConfigurationPtrInput `pulumi:"fontConfiguration"`
 	// Determines whether or not the label is visible.
 	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
@@ -54453,7 +54266,7 @@ func (o TemplateLabelOptionsOutput) CustomLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateLabelOptions) *string { return v.CustomLabel }).(pulumi.StringPtrOutput)
 }
 
-// Configures the display properties of the given text.
+// The font configuration of the label.
 func (o TemplateLabelOptionsOutput) FontConfiguration() TemplateFontConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateLabelOptions) *TemplateFontConfiguration { return v.FontConfiguration }).(TemplateFontConfigurationPtrOutput)
 }
@@ -54497,7 +54310,7 @@ func (o TemplateLabelOptionsPtrOutput) CustomLabel() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configures the display properties of the given text.
+// The font configuration of the label.
 func (o TemplateLabelOptionsPtrOutput) FontConfiguration() TemplateFontConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateLabelOptions) *TemplateFontConfiguration {
 		if v == nil {
@@ -54518,9 +54331,7 @@ func (o TemplateLabelOptionsPtrOutput) Visibility() TemplateVisibilityPtrOutput 
 }
 
 type TemplateLayout struct {
-	// The configuration that determines what the type of layout will be used on a sheet.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The configuration that determines what the type of layout for a sheet.
 	Configuration TemplateLayoutConfiguration `pulumi:"configuration"`
 }
 
@@ -54536,9 +54347,7 @@ type TemplateLayoutInput interface {
 }
 
 type TemplateLayoutArgs struct {
-	// The configuration that determines what the type of layout will be used on a sheet.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The configuration that determines what the type of layout for a sheet.
 	Configuration TemplateLayoutConfigurationInput `pulumi:"configuration"`
 }
 
@@ -54593,9 +54402,7 @@ func (o TemplateLayoutOutput) ToTemplateLayoutOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The configuration that determines what the type of layout will be used on a sheet.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The configuration that determines what the type of layout for a sheet.
 func (o TemplateLayoutOutput) Configuration() TemplateLayoutConfigurationOutput {
 	return o.ApplyT(func(v TemplateLayout) TemplateLayoutConfiguration { return v.Configuration }).(TemplateLayoutConfigurationOutput)
 }
@@ -54621,13 +54428,11 @@ func (o TemplateLayoutArrayOutput) Index(i pulumi.IntInput) TemplateLayoutOutput
 }
 
 type TemplateLayoutConfiguration struct {
-	// The configuration of a free-form layout.
+	// A free-form is optimized for a fixed width and has more control over the exact placement of layout elements.
 	FreeFormLayout *TemplateFreeFormLayoutConfiguration `pulumi:"freeFormLayout"`
-	// The configuration for a grid layout. Also called a tiled layout.
-	//
-	// Visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size.
+	// A type of layout that can be used on a sheet. In a grid layout, visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size. A grid layout can be configured to behave in one of two ways when the viewport is resized: `FIXED` or `RESPONSIVE` .
 	GridLayout *TemplateGridLayoutConfiguration `pulumi:"gridLayout"`
-	// The configuration for a section-based layout.
+	// A section based layout organizes visuals into multiple sections and has customized header, footer and page break.
 	SectionBasedLayout *TemplateSectionBasedLayoutConfiguration `pulumi:"sectionBasedLayout"`
 }
 
@@ -54643,13 +54448,11 @@ type TemplateLayoutConfigurationInput interface {
 }
 
 type TemplateLayoutConfigurationArgs struct {
-	// The configuration of a free-form layout.
+	// A free-form is optimized for a fixed width and has more control over the exact placement of layout elements.
 	FreeFormLayout TemplateFreeFormLayoutConfigurationPtrInput `pulumi:"freeFormLayout"`
-	// The configuration for a grid layout. Also called a tiled layout.
-	//
-	// Visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size.
+	// A type of layout that can be used on a sheet. In a grid layout, visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size. A grid layout can be configured to behave in one of two ways when the viewport is resized: `FIXED` or `RESPONSIVE` .
 	GridLayout TemplateGridLayoutConfigurationPtrInput `pulumi:"gridLayout"`
-	// The configuration for a section-based layout.
+	// A section based layout organizes visuals into multiple sections and has customized header, footer and page break.
 	SectionBasedLayout TemplateSectionBasedLayoutConfigurationPtrInput `pulumi:"sectionBasedLayout"`
 }
 
@@ -54679,19 +54482,17 @@ func (o TemplateLayoutConfigurationOutput) ToTemplateLayoutConfigurationOutputWi
 	return o
 }
 
-// The configuration of a free-form layout.
+// A free-form is optimized for a fixed width and has more control over the exact placement of layout elements.
 func (o TemplateLayoutConfigurationOutput) FreeFormLayout() TemplateFreeFormLayoutConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateLayoutConfiguration) *TemplateFreeFormLayoutConfiguration { return v.FreeFormLayout }).(TemplateFreeFormLayoutConfigurationPtrOutput)
 }
 
-// The configuration for a grid layout. Also called a tiled layout.
-//
-// Visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size.
+// A type of layout that can be used on a sheet. In a grid layout, visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size. A grid layout can be configured to behave in one of two ways when the viewport is resized: `FIXED` or `RESPONSIVE` .
 func (o TemplateLayoutConfigurationOutput) GridLayout() TemplateGridLayoutConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateLayoutConfiguration) *TemplateGridLayoutConfiguration { return v.GridLayout }).(TemplateGridLayoutConfigurationPtrOutput)
 }
 
-// The configuration for a section-based layout.
+// A section based layout organizes visuals into multiple sections and has customized header, footer and page break.
 func (o TemplateLayoutConfigurationOutput) SectionBasedLayout() TemplateSectionBasedLayoutConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateLayoutConfiguration) *TemplateSectionBasedLayoutConfiguration {
 		return v.SectionBasedLayout
@@ -54708,7 +54509,7 @@ type TemplateLegendOptions struct {
 	// - `BOTTOM`
 	// - `LEFT`
 	Position *TemplateLegendPosition `pulumi:"position"`
-	// The share label options for the labels.
+	// The custom title for the legend.
 	Title *TemplateLabelOptions `pulumi:"title"`
 	// Determines whether or not the legend is visible.
 	Visibility *TemplateVisibility `pulumi:"visibility"`
@@ -54737,7 +54538,7 @@ type TemplateLegendOptionsArgs struct {
 	// - `BOTTOM`
 	// - `LEFT`
 	Position TemplateLegendPositionPtrInput `pulumi:"position"`
-	// The share label options for the labels.
+	// The custom title for the legend.
 	Title TemplateLabelOptionsPtrInput `pulumi:"title"`
 	// Determines whether or not the legend is visible.
 	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
@@ -54837,7 +54638,7 @@ func (o TemplateLegendOptionsOutput) Position() TemplateLegendPositionPtrOutput 
 	return o.ApplyT(func(v TemplateLegendOptions) *TemplateLegendPosition { return v.Position }).(TemplateLegendPositionPtrOutput)
 }
 
-// The share label options for the labels.
+// The custom title for the legend.
 func (o TemplateLegendOptionsOutput) Title() TemplateLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateLegendOptions) *TemplateLabelOptions { return v.Title }).(TemplateLabelOptionsPtrOutput)
 }
@@ -54901,7 +54702,7 @@ func (o TemplateLegendOptionsPtrOutput) Position() TemplateLegendPositionPtrOutp
 	}).(TemplateLegendPositionPtrOutput)
 }
 
-// The share label options for the labels.
+// The custom title for the legend.
 func (o TemplateLegendOptionsPtrOutput) Title() TemplateLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateLegendOptions) *TemplateLabelOptions {
 		if v == nil {
@@ -55128,43 +54929,41 @@ func (o TemplateLineChartAggregatedFieldWellsPtrOutput) Values() TemplateMeasure
 type TemplateLineChartConfiguration struct {
 	// The default configuration of a line chart's contribution analysis.
 	ContributionAnalysisDefaults []TemplateContributionAnalysisDefault `pulumi:"contributionAnalysisDefaults"`
-	// The options that determine the presentation of the data labels.
+	// The data label configuration of a line chart.
 	DataLabels *TemplateDataLabelOptions `pulumi:"dataLabels"`
 	// The options that determine the default presentation of all line series in `LineChartVisual` .
 	DefaultSeriesSettings *TemplateLineChartDefaultSeriesSettings `pulumi:"defaultSeriesSettings"`
 	// The field well configuration of a line chart.
 	FieldWells *TemplateLineChartFieldWells `pulumi:"fieldWells"`
-	// The forecast configuration that is used in a line chart's display properties.
+	// The forecast configuration of a line chart.
 	ForecastConfigurations []TemplateForecastConfiguration `pulumi:"forecastConfigurations"`
-	// The options for the legend setup of a visual.
+	// The legend configuration of a line chart.
 	Legend *TemplateLegendOptions `pulumi:"legend"`
 	// The series axis configuration of a line chart.
 	PrimaryYAxisDisplayOptions *TemplateLineSeriesAxisDisplayOptions `pulumi:"primaryYAxisDisplayOptions"`
-	// The label options for an axis on a chart.
+	// The options that determine the presentation of the y-axis label.
 	PrimaryYAxisLabelOptions *TemplateChartAxisLabelOptions `pulumi:"primaryYAxisLabelOptions"`
 	// The reference lines configuration of a line chart.
 	ReferenceLines []TemplateReferenceLine `pulumi:"referenceLines"`
 	// The series axis configuration of a line chart.
 	SecondaryYAxisDisplayOptions *TemplateLineSeriesAxisDisplayOptions `pulumi:"secondaryYAxisDisplayOptions"`
-	// The label options for an axis on a chart.
+	// The options that determine the presentation of the secondary y-axis label.
 	SecondaryYAxisLabelOptions *TemplateChartAxisLabelOptions `pulumi:"secondaryYAxisLabelOptions"`
 	// The series item configuration of a line chart.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	Series []TemplateSeriesItem `pulumi:"series"`
-	// Options that determine the layout and display options of a chart's small multiples.
+	// The small multiples setup for the visual.
 	SmallMultiplesOptions *TemplateSmallMultiplesOptions `pulumi:"smallMultiplesOptions"`
 	// The sort configuration of a line chart.
 	SortConfiguration *TemplateLineChartSortConfiguration `pulumi:"sortConfiguration"`
-	// The display options for the visual tooltip.
+	// The tooltip configuration of a line chart.
 	Tooltip *TemplateTooltipOptions `pulumi:"tooltip"`
 	// Determines the type of the line chart.
 	Type *TemplateLineChartType `pulumi:"type"`
-	// The visual display options for the visual palette.
+	// The visual palette configuration of a line chart.
 	VisualPalette *TemplateVisualPalette `pulumi:"visualPalette"`
-	// The display options for the axis label.
+	// The options that determine the presentation of the x-axis.
 	XAxisDisplayOptions *TemplateAxisDisplayOptions `pulumi:"xAxisDisplayOptions"`
-	// The label options for an axis on a chart.
+	// The options that determine the presentation of the x-axis label.
 	XAxisLabelOptions *TemplateChartAxisLabelOptions `pulumi:"xAxisLabelOptions"`
 }
 
@@ -55182,43 +54981,41 @@ type TemplateLineChartConfigurationInput interface {
 type TemplateLineChartConfigurationArgs struct {
 	// The default configuration of a line chart's contribution analysis.
 	ContributionAnalysisDefaults TemplateContributionAnalysisDefaultArrayInput `pulumi:"contributionAnalysisDefaults"`
-	// The options that determine the presentation of the data labels.
+	// The data label configuration of a line chart.
 	DataLabels TemplateDataLabelOptionsPtrInput `pulumi:"dataLabels"`
 	// The options that determine the default presentation of all line series in `LineChartVisual` .
 	DefaultSeriesSettings TemplateLineChartDefaultSeriesSettingsPtrInput `pulumi:"defaultSeriesSettings"`
 	// The field well configuration of a line chart.
 	FieldWells TemplateLineChartFieldWellsPtrInput `pulumi:"fieldWells"`
-	// The forecast configuration that is used in a line chart's display properties.
+	// The forecast configuration of a line chart.
 	ForecastConfigurations TemplateForecastConfigurationArrayInput `pulumi:"forecastConfigurations"`
-	// The options for the legend setup of a visual.
+	// The legend configuration of a line chart.
 	Legend TemplateLegendOptionsPtrInput `pulumi:"legend"`
 	// The series axis configuration of a line chart.
 	PrimaryYAxisDisplayOptions TemplateLineSeriesAxisDisplayOptionsPtrInput `pulumi:"primaryYAxisDisplayOptions"`
-	// The label options for an axis on a chart.
+	// The options that determine the presentation of the y-axis label.
 	PrimaryYAxisLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"primaryYAxisLabelOptions"`
 	// The reference lines configuration of a line chart.
 	ReferenceLines TemplateReferenceLineArrayInput `pulumi:"referenceLines"`
 	// The series axis configuration of a line chart.
 	SecondaryYAxisDisplayOptions TemplateLineSeriesAxisDisplayOptionsPtrInput `pulumi:"secondaryYAxisDisplayOptions"`
-	// The label options for an axis on a chart.
+	// The options that determine the presentation of the secondary y-axis label.
 	SecondaryYAxisLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"secondaryYAxisLabelOptions"`
 	// The series item configuration of a line chart.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	Series TemplateSeriesItemArrayInput `pulumi:"series"`
-	// Options that determine the layout and display options of a chart's small multiples.
+	// The small multiples setup for the visual.
 	SmallMultiplesOptions TemplateSmallMultiplesOptionsPtrInput `pulumi:"smallMultiplesOptions"`
 	// The sort configuration of a line chart.
 	SortConfiguration TemplateLineChartSortConfigurationPtrInput `pulumi:"sortConfiguration"`
-	// The display options for the visual tooltip.
+	// The tooltip configuration of a line chart.
 	Tooltip TemplateTooltipOptionsPtrInput `pulumi:"tooltip"`
 	// Determines the type of the line chart.
 	Type TemplateLineChartTypePtrInput `pulumi:"type"`
-	// The visual display options for the visual palette.
+	// The visual palette configuration of a line chart.
 	VisualPalette TemplateVisualPalettePtrInput `pulumi:"visualPalette"`
-	// The display options for the axis label.
+	// The options that determine the presentation of the x-axis.
 	XAxisDisplayOptions TemplateAxisDisplayOptionsPtrInput `pulumi:"xAxisDisplayOptions"`
-	// The label options for an axis on a chart.
+	// The options that determine the presentation of the x-axis label.
 	XAxisLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"xAxisLabelOptions"`
 }
 
@@ -55306,7 +55103,7 @@ func (o TemplateLineChartConfigurationOutput) ContributionAnalysisDefaults() Tem
 	}).(TemplateContributionAnalysisDefaultArrayOutput)
 }
 
-// The options that determine the presentation of the data labels.
+// The data label configuration of a line chart.
 func (o TemplateLineChartConfigurationOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateLineChartConfiguration) *TemplateDataLabelOptions { return v.DataLabels }).(TemplateDataLabelOptionsPtrOutput)
 }
@@ -55323,14 +55120,14 @@ func (o TemplateLineChartConfigurationOutput) FieldWells() TemplateLineChartFiel
 	return o.ApplyT(func(v TemplateLineChartConfiguration) *TemplateLineChartFieldWells { return v.FieldWells }).(TemplateLineChartFieldWellsPtrOutput)
 }
 
-// The forecast configuration that is used in a line chart's display properties.
+// The forecast configuration of a line chart.
 func (o TemplateLineChartConfigurationOutput) ForecastConfigurations() TemplateForecastConfigurationArrayOutput {
 	return o.ApplyT(func(v TemplateLineChartConfiguration) []TemplateForecastConfiguration {
 		return v.ForecastConfigurations
 	}).(TemplateForecastConfigurationArrayOutput)
 }
 
-// The options for the legend setup of a visual.
+// The legend configuration of a line chart.
 func (o TemplateLineChartConfigurationOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateLineChartConfiguration) *TemplateLegendOptions { return v.Legend }).(TemplateLegendOptionsPtrOutput)
 }
@@ -55342,7 +55139,7 @@ func (o TemplateLineChartConfigurationOutput) PrimaryYAxisDisplayOptions() Templ
 	}).(TemplateLineSeriesAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The options that determine the presentation of the y-axis label.
 func (o TemplateLineChartConfigurationOutput) PrimaryYAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateLineChartConfiguration) *TemplateChartAxisLabelOptions {
 		return v.PrimaryYAxisLabelOptions
@@ -55361,7 +55158,7 @@ func (o TemplateLineChartConfigurationOutput) SecondaryYAxisDisplayOptions() Tem
 	}).(TemplateLineSeriesAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The options that determine the presentation of the secondary y-axis label.
 func (o TemplateLineChartConfigurationOutput) SecondaryYAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateLineChartConfiguration) *TemplateChartAxisLabelOptions {
 		return v.SecondaryYAxisLabelOptions
@@ -55369,13 +55166,11 @@ func (o TemplateLineChartConfigurationOutput) SecondaryYAxisLabelOptions() Templ
 }
 
 // The series item configuration of a line chart.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateLineChartConfigurationOutput) Series() TemplateSeriesItemArrayOutput {
 	return o.ApplyT(func(v TemplateLineChartConfiguration) []TemplateSeriesItem { return v.Series }).(TemplateSeriesItemArrayOutput)
 }
 
-// Options that determine the layout and display options of a chart's small multiples.
+// The small multiples setup for the visual.
 func (o TemplateLineChartConfigurationOutput) SmallMultiplesOptions() TemplateSmallMultiplesOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateLineChartConfiguration) *TemplateSmallMultiplesOptions { return v.SmallMultiplesOptions }).(TemplateSmallMultiplesOptionsPtrOutput)
 }
@@ -55385,7 +55180,7 @@ func (o TemplateLineChartConfigurationOutput) SortConfiguration() TemplateLineCh
 	return o.ApplyT(func(v TemplateLineChartConfiguration) *TemplateLineChartSortConfiguration { return v.SortConfiguration }).(TemplateLineChartSortConfigurationPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The tooltip configuration of a line chart.
 func (o TemplateLineChartConfigurationOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateLineChartConfiguration) *TemplateTooltipOptions { return v.Tooltip }).(TemplateTooltipOptionsPtrOutput)
 }
@@ -55395,17 +55190,17 @@ func (o TemplateLineChartConfigurationOutput) Type() TemplateLineChartTypePtrOut
 	return o.ApplyT(func(v TemplateLineChartConfiguration) *TemplateLineChartType { return v.Type }).(TemplateLineChartTypePtrOutput)
 }
 
-// The visual display options for the visual palette.
+// The visual palette configuration of a line chart.
 func (o TemplateLineChartConfigurationOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v TemplateLineChartConfiguration) *TemplateVisualPalette { return v.VisualPalette }).(TemplateVisualPalettePtrOutput)
 }
 
-// The display options for the axis label.
+// The options that determine the presentation of the x-axis.
 func (o TemplateLineChartConfigurationOutput) XAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateLineChartConfiguration) *TemplateAxisDisplayOptions { return v.XAxisDisplayOptions }).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The options that determine the presentation of the x-axis label.
 func (o TemplateLineChartConfigurationOutput) XAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateLineChartConfiguration) *TemplateChartAxisLabelOptions { return v.XAxisLabelOptions }).(TemplateChartAxisLabelOptionsPtrOutput)
 }
@@ -55444,7 +55239,7 @@ func (o TemplateLineChartConfigurationPtrOutput) ContributionAnalysisDefaults() 
 	}).(TemplateContributionAnalysisDefaultArrayOutput)
 }
 
-// The options that determine the presentation of the data labels.
+// The data label configuration of a line chart.
 func (o TemplateLineChartConfigurationPtrOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateLineChartConfiguration) *TemplateDataLabelOptions {
 		if v == nil {
@@ -55474,7 +55269,7 @@ func (o TemplateLineChartConfigurationPtrOutput) FieldWells() TemplateLineChartF
 	}).(TemplateLineChartFieldWellsPtrOutput)
 }
 
-// The forecast configuration that is used in a line chart's display properties.
+// The forecast configuration of a line chart.
 func (o TemplateLineChartConfigurationPtrOutput) ForecastConfigurations() TemplateForecastConfigurationArrayOutput {
 	return o.ApplyT(func(v *TemplateLineChartConfiguration) []TemplateForecastConfiguration {
 		if v == nil {
@@ -55484,7 +55279,7 @@ func (o TemplateLineChartConfigurationPtrOutput) ForecastConfigurations() Templa
 	}).(TemplateForecastConfigurationArrayOutput)
 }
 
-// The options for the legend setup of a visual.
+// The legend configuration of a line chart.
 func (o TemplateLineChartConfigurationPtrOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateLineChartConfiguration) *TemplateLegendOptions {
 		if v == nil {
@@ -55504,7 +55299,7 @@ func (o TemplateLineChartConfigurationPtrOutput) PrimaryYAxisDisplayOptions() Te
 	}).(TemplateLineSeriesAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The options that determine the presentation of the y-axis label.
 func (o TemplateLineChartConfigurationPtrOutput) PrimaryYAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateLineChartConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -55534,7 +55329,7 @@ func (o TemplateLineChartConfigurationPtrOutput) SecondaryYAxisDisplayOptions() 
 	}).(TemplateLineSeriesAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The options that determine the presentation of the secondary y-axis label.
 func (o TemplateLineChartConfigurationPtrOutput) SecondaryYAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateLineChartConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -55545,8 +55340,6 @@ func (o TemplateLineChartConfigurationPtrOutput) SecondaryYAxisLabelOptions() Te
 }
 
 // The series item configuration of a line chart.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateLineChartConfigurationPtrOutput) Series() TemplateSeriesItemArrayOutput {
 	return o.ApplyT(func(v *TemplateLineChartConfiguration) []TemplateSeriesItem {
 		if v == nil {
@@ -55556,7 +55349,7 @@ func (o TemplateLineChartConfigurationPtrOutput) Series() TemplateSeriesItemArra
 	}).(TemplateSeriesItemArrayOutput)
 }
 
-// Options that determine the layout and display options of a chart's small multiples.
+// The small multiples setup for the visual.
 func (o TemplateLineChartConfigurationPtrOutput) SmallMultiplesOptions() TemplateSmallMultiplesOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateLineChartConfiguration) *TemplateSmallMultiplesOptions {
 		if v == nil {
@@ -55576,7 +55369,7 @@ func (o TemplateLineChartConfigurationPtrOutput) SortConfiguration() TemplateLin
 	}).(TemplateLineChartSortConfigurationPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The tooltip configuration of a line chart.
 func (o TemplateLineChartConfigurationPtrOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateLineChartConfiguration) *TemplateTooltipOptions {
 		if v == nil {
@@ -55596,7 +55389,7 @@ func (o TemplateLineChartConfigurationPtrOutput) Type() TemplateLineChartTypePtr
 	}).(TemplateLineChartTypePtrOutput)
 }
 
-// The visual display options for the visual palette.
+// The visual palette configuration of a line chart.
 func (o TemplateLineChartConfigurationPtrOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v *TemplateLineChartConfiguration) *TemplateVisualPalette {
 		if v == nil {
@@ -55606,7 +55399,7 @@ func (o TemplateLineChartConfigurationPtrOutput) VisualPalette() TemplateVisualP
 	}).(TemplateVisualPalettePtrOutput)
 }
 
-// The display options for the axis label.
+// The options that determine the presentation of the x-axis.
 func (o TemplateLineChartConfigurationPtrOutput) XAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateLineChartConfiguration) *TemplateAxisDisplayOptions {
 		if v == nil {
@@ -55616,7 +55409,7 @@ func (o TemplateLineChartConfigurationPtrOutput) XAxisDisplayOptions() TemplateA
 	}).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The options that determine the presentation of the x-axis label.
 func (o TemplateLineChartConfigurationPtrOutput) XAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateLineChartConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -55629,9 +55422,9 @@ func (o TemplateLineChartConfigurationPtrOutput) XAxisLabelOptions() TemplateCha
 type TemplateLineChartDefaultSeriesSettings struct {
 	// The axis to which you are binding all line series to.
 	AxisBinding *TemplateAxisBinding `pulumi:"axisBinding"`
-	// Line styles options for a line series in `LineChartVisual` .
+	// Line styles options for all line series in the visual.
 	LineStyleSettings *TemplateLineChartLineStyleSettings `pulumi:"lineStyleSettings"`
-	// Marker styles options for a line series in `LineChartVisual` .
+	// Marker styles options for all line series in the visual.
 	MarkerStyleSettings *TemplateLineChartMarkerStyleSettings `pulumi:"markerStyleSettings"`
 }
 
@@ -55649,9 +55442,9 @@ type TemplateLineChartDefaultSeriesSettingsInput interface {
 type TemplateLineChartDefaultSeriesSettingsArgs struct {
 	// The axis to which you are binding all line series to.
 	AxisBinding TemplateAxisBindingPtrInput `pulumi:"axisBinding"`
-	// Line styles options for a line series in `LineChartVisual` .
+	// Line styles options for all line series in the visual.
 	LineStyleSettings TemplateLineChartLineStyleSettingsPtrInput `pulumi:"lineStyleSettings"`
-	// Marker styles options for a line series in `LineChartVisual` .
+	// Marker styles options for all line series in the visual.
 	MarkerStyleSettings TemplateLineChartMarkerStyleSettingsPtrInput `pulumi:"markerStyleSettings"`
 }
 
@@ -55737,14 +55530,14 @@ func (o TemplateLineChartDefaultSeriesSettingsOutput) AxisBinding() TemplateAxis
 	return o.ApplyT(func(v TemplateLineChartDefaultSeriesSettings) *TemplateAxisBinding { return v.AxisBinding }).(TemplateAxisBindingPtrOutput)
 }
 
-// Line styles options for a line series in `LineChartVisual` .
+// Line styles options for all line series in the visual.
 func (o TemplateLineChartDefaultSeriesSettingsOutput) LineStyleSettings() TemplateLineChartLineStyleSettingsPtrOutput {
 	return o.ApplyT(func(v TemplateLineChartDefaultSeriesSettings) *TemplateLineChartLineStyleSettings {
 		return v.LineStyleSettings
 	}).(TemplateLineChartLineStyleSettingsPtrOutput)
 }
 
-// Marker styles options for a line series in `LineChartVisual` .
+// Marker styles options for all line series in the visual.
 func (o TemplateLineChartDefaultSeriesSettingsOutput) MarkerStyleSettings() TemplateLineChartMarkerStyleSettingsPtrOutput {
 	return o.ApplyT(func(v TemplateLineChartDefaultSeriesSettings) *TemplateLineChartMarkerStyleSettings {
 		return v.MarkerStyleSettings
@@ -55785,7 +55578,7 @@ func (o TemplateLineChartDefaultSeriesSettingsPtrOutput) AxisBinding() TemplateA
 	}).(TemplateAxisBindingPtrOutput)
 }
 
-// Line styles options for a line series in `LineChartVisual` .
+// Line styles options for all line series in the visual.
 func (o TemplateLineChartDefaultSeriesSettingsPtrOutput) LineStyleSettings() TemplateLineChartLineStyleSettingsPtrOutput {
 	return o.ApplyT(func(v *TemplateLineChartDefaultSeriesSettings) *TemplateLineChartLineStyleSettings {
 		if v == nil {
@@ -55795,7 +55588,7 @@ func (o TemplateLineChartDefaultSeriesSettingsPtrOutput) LineStyleSettings() Tem
 	}).(TemplateLineChartLineStyleSettingsPtrOutput)
 }
 
-// Marker styles options for a line series in `LineChartVisual` .
+// Marker styles options for all line series in the visual.
 func (o TemplateLineChartDefaultSeriesSettingsPtrOutput) MarkerStyleSettings() TemplateLineChartMarkerStyleSettingsPtrOutput {
 	return o.ApplyT(func(v *TemplateLineChartDefaultSeriesSettings) *TemplateLineChartMarkerStyleSettings {
 		if v == nil {
@@ -56549,13 +56342,13 @@ func (o TemplateLineChartSeriesSettingsPtrOutput) MarkerStyleSettings() Template
 }
 
 type TemplateLineChartSortConfiguration struct {
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of categories that are displayed in a line chart.
 	CategoryItemsLimitConfiguration *TemplateItemsLimitConfiguration `pulumi:"categoryItemsLimitConfiguration"`
 	// The sort configuration of the category fields.
 	CategorySort []TemplateFieldSortOptions `pulumi:"categorySort"`
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of lines that are displayed in a line chart.
 	ColorItemsLimitConfiguration *TemplateItemsLimitConfiguration `pulumi:"colorItemsLimitConfiguration"`
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of small multiples panels that are displayed.
 	SmallMultiplesLimitConfiguration *TemplateItemsLimitConfiguration `pulumi:"smallMultiplesLimitConfiguration"`
 	// The sort configuration of the small multiples field.
 	SmallMultiplesSort []TemplateFieldSortOptions `pulumi:"smallMultiplesSort"`
@@ -56573,13 +56366,13 @@ type TemplateLineChartSortConfigurationInput interface {
 }
 
 type TemplateLineChartSortConfigurationArgs struct {
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of categories that are displayed in a line chart.
 	CategoryItemsLimitConfiguration TemplateItemsLimitConfigurationPtrInput `pulumi:"categoryItemsLimitConfiguration"`
 	// The sort configuration of the category fields.
 	CategorySort TemplateFieldSortOptionsArrayInput `pulumi:"categorySort"`
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of lines that are displayed in a line chart.
 	ColorItemsLimitConfiguration TemplateItemsLimitConfigurationPtrInput `pulumi:"colorItemsLimitConfiguration"`
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of small multiples panels that are displayed.
 	SmallMultiplesLimitConfiguration TemplateItemsLimitConfigurationPtrInput `pulumi:"smallMultiplesLimitConfiguration"`
 	// The sort configuration of the small multiples field.
 	SmallMultiplesSort TemplateFieldSortOptionsArrayInput `pulumi:"smallMultiplesSort"`
@@ -56662,7 +56455,7 @@ func (o TemplateLineChartSortConfigurationOutput) ToTemplateLineChartSortConfigu
 	}).(TemplateLineChartSortConfigurationPtrOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of categories that are displayed in a line chart.
 func (o TemplateLineChartSortConfigurationOutput) CategoryItemsLimitConfiguration() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateLineChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		return v.CategoryItemsLimitConfiguration
@@ -56674,14 +56467,14 @@ func (o TemplateLineChartSortConfigurationOutput) CategorySort() TemplateFieldSo
 	return o.ApplyT(func(v TemplateLineChartSortConfiguration) []TemplateFieldSortOptions { return v.CategorySort }).(TemplateFieldSortOptionsArrayOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of lines that are displayed in a line chart.
 func (o TemplateLineChartSortConfigurationOutput) ColorItemsLimitConfiguration() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateLineChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		return v.ColorItemsLimitConfiguration
 	}).(TemplateItemsLimitConfigurationPtrOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of small multiples panels that are displayed.
 func (o TemplateLineChartSortConfigurationOutput) SmallMultiplesLimitConfiguration() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateLineChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		return v.SmallMultiplesLimitConfiguration
@@ -56717,7 +56510,7 @@ func (o TemplateLineChartSortConfigurationPtrOutput) Elem() TemplateLineChartSor
 	}).(TemplateLineChartSortConfigurationOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of categories that are displayed in a line chart.
 func (o TemplateLineChartSortConfigurationPtrOutput) CategoryItemsLimitConfiguration() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateLineChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		if v == nil {
@@ -56737,7 +56530,7 @@ func (o TemplateLineChartSortConfigurationPtrOutput) CategorySort() TemplateFiel
 	}).(TemplateFieldSortOptionsArrayOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of lines that are displayed in a line chart.
 func (o TemplateLineChartSortConfigurationPtrOutput) ColorItemsLimitConfiguration() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateLineChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		if v == nil {
@@ -56747,7 +56540,7 @@ func (o TemplateLineChartSortConfigurationPtrOutput) ColorItemsLimitConfiguratio
 	}).(TemplateItemsLimitConfigurationPtrOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of small multiples panels that are displayed.
 func (o TemplateLineChartSortConfigurationPtrOutput) SmallMultiplesLimitConfiguration() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateLineChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		if v == nil {
@@ -56774,9 +56567,9 @@ type TemplateLineChartVisual struct {
 	ChartConfiguration *TemplateLineChartConfiguration `pulumi:"chartConfiguration"`
 	// The column hierarchy that is used during drill-downs and drill-ups.
 	ColumnHierarchies []TemplateColumnHierarchy `pulumi:"columnHierarchies"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
@@ -56800,9 +56593,9 @@ type TemplateLineChartVisualArgs struct {
 	ChartConfiguration TemplateLineChartConfigurationPtrInput `pulumi:"chartConfiguration"`
 	// The column hierarchy that is used during drill-downs and drill-ups.
 	ColumnHierarchies TemplateColumnHierarchyArrayInput `pulumi:"columnHierarchies"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
@@ -56900,12 +56693,12 @@ func (o TemplateLineChartVisualOutput) ColumnHierarchies() TemplateColumnHierarc
 	return o.ApplyT(func(v TemplateLineChartVisual) []TemplateColumnHierarchy { return v.ColumnHierarchies }).(TemplateColumnHierarchyArrayOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateLineChartVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateLineChartVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateLineChartVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateLineChartVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
@@ -56969,7 +56762,7 @@ func (o TemplateLineChartVisualPtrOutput) ColumnHierarchies() TemplateColumnHier
 	}).(TemplateColumnHierarchyArrayOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateLineChartVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateLineChartVisual) *TemplateVisualSubtitleLabelOptions {
 		if v == nil {
@@ -56979,7 +56772,7 @@ func (o TemplateLineChartVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabel
 	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateLineChartVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateLineChartVisual) *TemplateVisualTitleLabelOptions {
 		if v == nil {
@@ -57000,7 +56793,7 @@ func (o TemplateLineChartVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 }
 
 type TemplateLineSeriesAxisDisplayOptions struct {
-	// The display options for the axis label.
+	// The options that determine the presentation of the line series axis.
 	AxisOptions *TemplateAxisDisplayOptions `pulumi:"axisOptions"`
 	// The configuration options that determine how missing data is treated during the rendering of a line chart.
 	MissingDataConfigurations []TemplateMissingDataConfiguration `pulumi:"missingDataConfigurations"`
@@ -57018,7 +56811,7 @@ type TemplateLineSeriesAxisDisplayOptionsInput interface {
 }
 
 type TemplateLineSeriesAxisDisplayOptionsArgs struct {
-	// The display options for the axis label.
+	// The options that determine the presentation of the line series axis.
 	AxisOptions TemplateAxisDisplayOptionsPtrInput `pulumi:"axisOptions"`
 	// The configuration options that determine how missing data is treated during the rendering of a line chart.
 	MissingDataConfigurations TemplateMissingDataConfigurationArrayInput `pulumi:"missingDataConfigurations"`
@@ -57101,7 +56894,7 @@ func (o TemplateLineSeriesAxisDisplayOptionsOutput) ToTemplateLineSeriesAxisDisp
 	}).(TemplateLineSeriesAxisDisplayOptionsPtrOutput)
 }
 
-// The display options for the axis label.
+// The options that determine the presentation of the line series axis.
 func (o TemplateLineSeriesAxisDisplayOptionsOutput) AxisOptions() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateLineSeriesAxisDisplayOptions) *TemplateAxisDisplayOptions { return v.AxisOptions }).(TemplateAxisDisplayOptionsPtrOutput)
 }
@@ -57137,7 +56930,7 @@ func (o TemplateLineSeriesAxisDisplayOptionsPtrOutput) Elem() TemplateLineSeries
 	}).(TemplateLineSeriesAxisDisplayOptionsOutput)
 }
 
-// The display options for the axis label.
+// The options that determine the presentation of the line series axis.
 func (o TemplateLineSeriesAxisDisplayOptionsPtrOutput) AxisOptions() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateLineSeriesAxisDisplayOptions) *TemplateAxisDisplayOptions {
 		if v == nil {
@@ -57158,13 +56951,13 @@ func (o TemplateLineSeriesAxisDisplayOptionsPtrOutput) MissingDataConfigurations
 }
 
 type TemplateListControlDisplayOptions struct {
-	// A control to display info icons for filters and parameters.
+	// The configuration of info icon label options.
 	InfoIconLabelOptions *TemplateSheetControlInfoIconLabelOptions `pulumi:"infoIconLabelOptions"`
 	// The configuration of the search options in a list control.
 	SearchOptions *TemplateListControlSearchOptions `pulumi:"searchOptions"`
 	// The configuration of the `Select all` options in a list control.
 	SelectAllOptions *TemplateListControlSelectAllOptions `pulumi:"selectAllOptions"`
-	// The share label options for the labels.
+	// The options to configure the title visibility, name, and font size.
 	TitleOptions *TemplateLabelOptions `pulumi:"titleOptions"`
 }
 
@@ -57180,13 +56973,13 @@ type TemplateListControlDisplayOptionsInput interface {
 }
 
 type TemplateListControlDisplayOptionsArgs struct {
-	// A control to display info icons for filters and parameters.
+	// The configuration of info icon label options.
 	InfoIconLabelOptions TemplateSheetControlInfoIconLabelOptionsPtrInput `pulumi:"infoIconLabelOptions"`
 	// The configuration of the search options in a list control.
 	SearchOptions TemplateListControlSearchOptionsPtrInput `pulumi:"searchOptions"`
 	// The configuration of the `Select all` options in a list control.
 	SelectAllOptions TemplateListControlSelectAllOptionsPtrInput `pulumi:"selectAllOptions"`
-	// The share label options for the labels.
+	// The options to configure the title visibility, name, and font size.
 	TitleOptions TemplateLabelOptionsPtrInput `pulumi:"titleOptions"`
 }
 
@@ -57267,7 +57060,7 @@ func (o TemplateListControlDisplayOptionsOutput) ToTemplateListControlDisplayOpt
 	}).(TemplateListControlDisplayOptionsPtrOutput)
 }
 
-// A control to display info icons for filters and parameters.
+// The configuration of info icon label options.
 func (o TemplateListControlDisplayOptionsOutput) InfoIconLabelOptions() TemplateSheetControlInfoIconLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateListControlDisplayOptions) *TemplateSheetControlInfoIconLabelOptions {
 		return v.InfoIconLabelOptions
@@ -57286,7 +57079,7 @@ func (o TemplateListControlDisplayOptionsOutput) SelectAllOptions() TemplateList
 	}).(TemplateListControlSelectAllOptionsPtrOutput)
 }
 
-// The share label options for the labels.
+// The options to configure the title visibility, name, and font size.
 func (o TemplateListControlDisplayOptionsOutput) TitleOptions() TemplateLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateListControlDisplayOptions) *TemplateLabelOptions { return v.TitleOptions }).(TemplateLabelOptionsPtrOutput)
 }
@@ -57315,7 +57108,7 @@ func (o TemplateListControlDisplayOptionsPtrOutput) Elem() TemplateListControlDi
 	}).(TemplateListControlDisplayOptionsOutput)
 }
 
-// A control to display info icons for filters and parameters.
+// The configuration of info icon label options.
 func (o TemplateListControlDisplayOptionsPtrOutput) InfoIconLabelOptions() TemplateSheetControlInfoIconLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateListControlDisplayOptions) *TemplateSheetControlInfoIconLabelOptions {
 		if v == nil {
@@ -57345,7 +57138,7 @@ func (o TemplateListControlDisplayOptionsPtrOutput) SelectAllOptions() TemplateL
 	}).(TemplateListControlSelectAllOptionsPtrOutput)
 }
 
-// The share label options for the labels.
+// The options to configure the title visibility, name, and font size.
 func (o TemplateListControlDisplayOptionsPtrOutput) TitleOptions() TemplateLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateListControlDisplayOptions) *TemplateLabelOptions {
 		if v == nil {
@@ -58307,14 +58100,14 @@ type TemplateMaximumMinimumComputation struct {
 	ComputationId string `pulumi:"computationId"`
 	// The name of a computation.
 	Name *string `pulumi:"name"`
-	// The dimension type field.
+	// The time field that is used in a computation.
 	Time *TemplateDimensionField `pulumi:"time"`
 	// The type of computation. Choose one of the following options:
 	//
 	// - MAXIMUM: A maximum computation.
 	// - MINIMUM: A minimum computation.
 	Type TemplateMaximumMinimumComputationType `pulumi:"type"`
-	// The measure (metric) type field.
+	// The value field that is used in a computation.
 	Value *TemplateMeasureField `pulumi:"value"`
 }
 
@@ -58334,14 +58127,14 @@ type TemplateMaximumMinimumComputationArgs struct {
 	ComputationId pulumi.StringInput `pulumi:"computationId"`
 	// The name of a computation.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The dimension type field.
+	// The time field that is used in a computation.
 	Time TemplateDimensionFieldPtrInput `pulumi:"time"`
 	// The type of computation. Choose one of the following options:
 	//
 	// - MAXIMUM: A maximum computation.
 	// - MINIMUM: A minimum computation.
 	Type TemplateMaximumMinimumComputationTypeInput `pulumi:"type"`
-	// The measure (metric) type field.
+	// The value field that is used in a computation.
 	Value TemplateMeasureFieldPtrInput `pulumi:"value"`
 }
 
@@ -58432,7 +58225,7 @@ func (o TemplateMaximumMinimumComputationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateMaximumMinimumComputation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The dimension type field.
+// The time field that is used in a computation.
 func (o TemplateMaximumMinimumComputationOutput) Time() TemplateDimensionFieldPtrOutput {
 	return o.ApplyT(func(v TemplateMaximumMinimumComputation) *TemplateDimensionField { return v.Time }).(TemplateDimensionFieldPtrOutput)
 }
@@ -58445,7 +58238,7 @@ func (o TemplateMaximumMinimumComputationOutput) Type() TemplateMaximumMinimumCo
 	return o.ApplyT(func(v TemplateMaximumMinimumComputation) TemplateMaximumMinimumComputationType { return v.Type }).(TemplateMaximumMinimumComputationTypeOutput)
 }
 
-// The measure (metric) type field.
+// The value field that is used in a computation.
 func (o TemplateMaximumMinimumComputationOutput) Value() TemplateMeasureFieldPtrOutput {
 	return o.ApplyT(func(v TemplateMaximumMinimumComputation) *TemplateMeasureField { return v.Value }).(TemplateMeasureFieldPtrOutput)
 }
@@ -58494,7 +58287,7 @@ func (o TemplateMaximumMinimumComputationPtrOutput) Name() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The dimension type field.
+// The time field that is used in a computation.
 func (o TemplateMaximumMinimumComputationPtrOutput) Time() TemplateDimensionFieldPtrOutput {
 	return o.ApplyT(func(v *TemplateMaximumMinimumComputation) *TemplateDimensionField {
 		if v == nil {
@@ -58517,7 +58310,7 @@ func (o TemplateMaximumMinimumComputationPtrOutput) Type() TemplateMaximumMinimu
 	}).(TemplateMaximumMinimumComputationTypePtrOutput)
 }
 
-// The measure (metric) type field.
+// The value field that is used in a computation.
 func (o TemplateMaximumMinimumComputationPtrOutput) Value() TemplateMeasureFieldPtrOutput {
 	return o.ApplyT(func(v *TemplateMaximumMinimumComputation) *TemplateMeasureField {
 		if v == nil {
@@ -58528,7 +58321,7 @@ func (o TemplateMaximumMinimumComputationPtrOutput) Value() TemplateMeasureField
 }
 
 type TemplateMeasureField struct {
-	// The table calculation measure field for pivot tables.
+	// The calculated measure field only used in pivot tables.
 	CalculatedMeasureField *TemplateCalculatedMeasureField `pulumi:"calculatedMeasureField"`
 	// The measure type field with categorical type columns.
 	CategoricalMeasureField *TemplateCategoricalMeasureField `pulumi:"categoricalMeasureField"`
@@ -58550,7 +58343,7 @@ type TemplateMeasureFieldInput interface {
 }
 
 type TemplateMeasureFieldArgs struct {
-	// The table calculation measure field for pivot tables.
+	// The calculated measure field only used in pivot tables.
 	CalculatedMeasureField TemplateCalculatedMeasureFieldPtrInput `pulumi:"calculatedMeasureField"`
 	// The measure type field with categorical type columns.
 	CategoricalMeasureField TemplateCategoricalMeasureFieldPtrInput `pulumi:"categoricalMeasureField"`
@@ -58662,7 +58455,7 @@ func (o TemplateMeasureFieldOutput) ToTemplateMeasureFieldPtrOutputWithContext(c
 	}).(TemplateMeasureFieldPtrOutput)
 }
 
-// The table calculation measure field for pivot tables.
+// The calculated measure field only used in pivot tables.
 func (o TemplateMeasureFieldOutput) CalculatedMeasureField() TemplateCalculatedMeasureFieldPtrOutput {
 	return o.ApplyT(func(v TemplateMeasureField) *TemplateCalculatedMeasureField { return v.CalculatedMeasureField }).(TemplateCalculatedMeasureFieldPtrOutput)
 }
@@ -58706,7 +58499,7 @@ func (o TemplateMeasureFieldPtrOutput) Elem() TemplateMeasureFieldOutput {
 	}).(TemplateMeasureFieldOutput)
 }
 
-// The table calculation measure field for pivot tables.
+// The calculated measure field only used in pivot tables.
 func (o TemplateMeasureFieldPtrOutput) CalculatedMeasureField() TemplateCalculatedMeasureFieldPtrOutput {
 	return o.ApplyT(func(v *TemplateMeasureField) *TemplateCalculatedMeasureField {
 		if v == nil {
@@ -58769,13 +58562,13 @@ func (o TemplateMeasureFieldArrayOutput) Index(i pulumi.IntInput) TemplateMeasur
 type TemplateMetricComparisonComputation struct {
 	// The ID for a computation.
 	ComputationId string `pulumi:"computationId"`
-	// The measure (metric) type field.
+	// The field that is used in a metric comparison from value setup.
 	FromValue *TemplateMeasureField `pulumi:"fromValue"`
 	// The name of a computation.
 	Name *string `pulumi:"name"`
-	// The measure (metric) type field.
+	// The field that is used in a metric comparison to value setup.
 	TargetValue *TemplateMeasureField `pulumi:"targetValue"`
-	// The dimension type field.
+	// The time field that is used in a computation.
 	Time *TemplateDimensionField `pulumi:"time"`
 }
 
@@ -58793,13 +58586,13 @@ type TemplateMetricComparisonComputationInput interface {
 type TemplateMetricComparisonComputationArgs struct {
 	// The ID for a computation.
 	ComputationId pulumi.StringInput `pulumi:"computationId"`
-	// The measure (metric) type field.
+	// The field that is used in a metric comparison from value setup.
 	FromValue TemplateMeasureFieldPtrInput `pulumi:"fromValue"`
 	// The name of a computation.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The measure (metric) type field.
+	// The field that is used in a metric comparison to value setup.
 	TargetValue TemplateMeasureFieldPtrInput `pulumi:"targetValue"`
-	// The dimension type field.
+	// The time field that is used in a computation.
 	Time TemplateDimensionFieldPtrInput `pulumi:"time"`
 }
 
@@ -58885,7 +58678,7 @@ func (o TemplateMetricComparisonComputationOutput) ComputationId() pulumi.String
 	return o.ApplyT(func(v TemplateMetricComparisonComputation) string { return v.ComputationId }).(pulumi.StringOutput)
 }
 
-// The measure (metric) type field.
+// The field that is used in a metric comparison from value setup.
 func (o TemplateMetricComparisonComputationOutput) FromValue() TemplateMeasureFieldPtrOutput {
 	return o.ApplyT(func(v TemplateMetricComparisonComputation) *TemplateMeasureField { return v.FromValue }).(TemplateMeasureFieldPtrOutput)
 }
@@ -58895,12 +58688,12 @@ func (o TemplateMetricComparisonComputationOutput) Name() pulumi.StringPtrOutput
 	return o.ApplyT(func(v TemplateMetricComparisonComputation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The measure (metric) type field.
+// The field that is used in a metric comparison to value setup.
 func (o TemplateMetricComparisonComputationOutput) TargetValue() TemplateMeasureFieldPtrOutput {
 	return o.ApplyT(func(v TemplateMetricComparisonComputation) *TemplateMeasureField { return v.TargetValue }).(TemplateMeasureFieldPtrOutput)
 }
 
-// The dimension type field.
+// The time field that is used in a computation.
 func (o TemplateMetricComparisonComputationOutput) Time() TemplateDimensionFieldPtrOutput {
 	return o.ApplyT(func(v TemplateMetricComparisonComputation) *TemplateDimensionField { return v.Time }).(TemplateDimensionFieldPtrOutput)
 }
@@ -58939,7 +58732,7 @@ func (o TemplateMetricComparisonComputationPtrOutput) ComputationId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// The measure (metric) type field.
+// The field that is used in a metric comparison from value setup.
 func (o TemplateMetricComparisonComputationPtrOutput) FromValue() TemplateMeasureFieldPtrOutput {
 	return o.ApplyT(func(v *TemplateMetricComparisonComputation) *TemplateMeasureField {
 		if v == nil {
@@ -58959,7 +58752,7 @@ func (o TemplateMetricComparisonComputationPtrOutput) Name() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The measure (metric) type field.
+// The field that is used in a metric comparison to value setup.
 func (o TemplateMetricComparisonComputationPtrOutput) TargetValue() TemplateMeasureFieldPtrOutput {
 	return o.ApplyT(func(v *TemplateMetricComparisonComputation) *TemplateMeasureField {
 		if v == nil {
@@ -58969,7 +58762,7 @@ func (o TemplateMetricComparisonComputationPtrOutput) TargetValue() TemplateMeas
 	}).(TemplateMeasureFieldPtrOutput)
 }
 
-// The dimension type field.
+// The time field that is used in a computation.
 func (o TemplateMetricComparisonComputationPtrOutput) Time() TemplateDimensionFieldPtrOutput {
 	return o.ApplyT(func(v *TemplateMetricComparisonComputation) *TemplateDimensionField {
 		if v == nil {
@@ -59760,8 +59553,6 @@ func (o TemplateNumberDisplayFormatConfigurationPtrOutput) Suffix() pulumi.Strin
 
 type TemplateNumberFormatConfiguration struct {
 	// The options that determine the numeric format configuration.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	FormatConfiguration *TemplateNumericFormatConfiguration `pulumi:"formatConfiguration"`
 }
 
@@ -59778,8 +59569,6 @@ type TemplateNumberFormatConfigurationInput interface {
 
 type TemplateNumberFormatConfigurationArgs struct {
 	// The options that determine the numeric format configuration.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	FormatConfiguration TemplateNumericFormatConfigurationPtrInput `pulumi:"formatConfiguration"`
 }
 
@@ -59861,8 +59650,6 @@ func (o TemplateNumberFormatConfigurationOutput) ToTemplateNumberFormatConfigura
 }
 
 // The options that determine the numeric format configuration.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateNumberFormatConfigurationOutput) FormatConfiguration() TemplateNumericFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateNumberFormatConfiguration) *TemplateNumericFormatConfiguration {
 		return v.FormatConfiguration
@@ -59894,8 +59681,6 @@ func (o TemplateNumberFormatConfigurationPtrOutput) Elem() TemplateNumberFormatC
 }
 
 // The options that determine the numeric format configuration.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateNumberFormatConfigurationPtrOutput) FormatConfiguration() TemplateNumericFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateNumberFormatConfiguration) *TemplateNumericFormatConfiguration {
 		if v == nil {
@@ -59906,13 +59691,9 @@ func (o TemplateNumberFormatConfigurationPtrOutput) FormatConfiguration() Templa
 }
 
 type TemplateNumericAxisOptions struct {
-	// The range setup of a numeric axis display range.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The range setup of a numeric axis.
 	Range *TemplateAxisDisplayRange `pulumi:"range"`
-	// The scale setup options for a numeric axis display.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The scale setup of a numeric axis.
 	Scale *TemplateAxisScale `pulumi:"scale"`
 }
 
@@ -59928,13 +59709,9 @@ type TemplateNumericAxisOptionsInput interface {
 }
 
 type TemplateNumericAxisOptionsArgs struct {
-	// The range setup of a numeric axis display range.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The range setup of a numeric axis.
 	Range TemplateAxisDisplayRangePtrInput `pulumi:"range"`
-	// The scale setup options for a numeric axis display.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The scale setup of a numeric axis.
 	Scale TemplateAxisScalePtrInput `pulumi:"scale"`
 }
 
@@ -60015,16 +59792,12 @@ func (o TemplateNumericAxisOptionsOutput) ToTemplateNumericAxisOptionsPtrOutputW
 	}).(TemplateNumericAxisOptionsPtrOutput)
 }
 
-// The range setup of a numeric axis display range.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The range setup of a numeric axis.
 func (o TemplateNumericAxisOptionsOutput) Range() TemplateAxisDisplayRangePtrOutput {
 	return o.ApplyT(func(v TemplateNumericAxisOptions) *TemplateAxisDisplayRange { return v.Range }).(TemplateAxisDisplayRangePtrOutput)
 }
 
-// The scale setup options for a numeric axis display.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The scale setup of a numeric axis.
 func (o TemplateNumericAxisOptionsOutput) Scale() TemplateAxisScalePtrOutput {
 	return o.ApplyT(func(v TemplateNumericAxisOptions) *TemplateAxisScale { return v.Scale }).(TemplateAxisScalePtrOutput)
 }
@@ -60053,9 +59826,7 @@ func (o TemplateNumericAxisOptionsPtrOutput) Elem() TemplateNumericAxisOptionsOu
 	}).(TemplateNumericAxisOptionsOutput)
 }
 
-// The range setup of a numeric axis display range.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The range setup of a numeric axis.
 func (o TemplateNumericAxisOptionsPtrOutput) Range() TemplateAxisDisplayRangePtrOutput {
 	return o.ApplyT(func(v *TemplateNumericAxisOptions) *TemplateAxisDisplayRange {
 		if v == nil {
@@ -60065,9 +59836,7 @@ func (o TemplateNumericAxisOptionsPtrOutput) Range() TemplateAxisDisplayRangePtr
 	}).(TemplateAxisDisplayRangePtrOutput)
 }
 
-// The scale setup options for a numeric axis display.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The scale setup of a numeric axis.
 func (o TemplateNumericAxisOptionsPtrOutput) Scale() TemplateAxisScalePtrOutput {
 	return o.ApplyT(func(v *TemplateNumericAxisOptions) *TemplateAxisScale {
 		if v == nil {
@@ -60078,7 +59847,7 @@ func (o TemplateNumericAxisOptionsPtrOutput) Scale() TemplateAxisScalePtrOutput 
 }
 
 type TemplateNumericEqualityDrillDownFilter struct {
-	// A column of a data set.
+	// The column that the filter is applied to.
 	Column TemplateColumnIdentifier `pulumi:"column"`
 	// The value of the double input numeric drill down filter.
 	Value float64 `pulumi:"value"`
@@ -60096,7 +59865,7 @@ type TemplateNumericEqualityDrillDownFilterInput interface {
 }
 
 type TemplateNumericEqualityDrillDownFilterArgs struct {
-	// A column of a data set.
+	// The column that the filter is applied to.
 	Column TemplateColumnIdentifierInput `pulumi:"column"`
 	// The value of the double input numeric drill down filter.
 	Value pulumi.Float64Input `pulumi:"value"`
@@ -60179,7 +59948,7 @@ func (o TemplateNumericEqualityDrillDownFilterOutput) ToTemplateNumericEqualityD
 	}).(TemplateNumericEqualityDrillDownFilterPtrOutput)
 }
 
-// A column of a data set.
+// The column that the filter is applied to.
 func (o TemplateNumericEqualityDrillDownFilterOutput) Column() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateNumericEqualityDrillDownFilter) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
 }
@@ -60213,7 +59982,7 @@ func (o TemplateNumericEqualityDrillDownFilterPtrOutput) Elem() TemplateNumericE
 	}).(TemplateNumericEqualityDrillDownFilterOutput)
 }
 
-// A column of a data set.
+// The column that the filter is applied to.
 func (o TemplateNumericEqualityDrillDownFilterPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateNumericEqualityDrillDownFilter) *TemplateColumnIdentifier {
 		if v == nil {
@@ -60234,13 +60003,11 @@ func (o TemplateNumericEqualityDrillDownFilterPtrOutput) Value() pulumi.Float64P
 }
 
 type TemplateNumericEqualityFilter struct {
-	// An aggregation function aggregates values from a dimension or measure.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The aggregation function of the filter.
 	AggregationFunction *TemplateAggregationFunction `pulumi:"aggregationFunction"`
-	// A column of a data set.
+	// The column that the filter is applied to.
 	Column TemplateColumnIdentifier `pulumi:"column"`
-	// The default configuration for all dependent controls of the filter.
+	// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
 	DefaultFilterControlConfiguration *TemplateDefaultFilterControlConfiguration `pulumi:"defaultFilterControlConfiguration"`
 	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
 	FilterId string `pulumi:"filterId"`
@@ -60274,13 +60041,11 @@ type TemplateNumericEqualityFilterInput interface {
 }
 
 type TemplateNumericEqualityFilterArgs struct {
-	// An aggregation function aggregates values from a dimension or measure.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The aggregation function of the filter.
 	AggregationFunction TemplateAggregationFunctionPtrInput `pulumi:"aggregationFunction"`
-	// A column of a data set.
+	// The column that the filter is applied to.
 	Column TemplateColumnIdentifierInput `pulumi:"column"`
-	// The default configuration for all dependent controls of the filter.
+	// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
 	DefaultFilterControlConfiguration TemplateDefaultFilterControlConfigurationPtrInput `pulumi:"defaultFilterControlConfiguration"`
 	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
 	FilterId pulumi.StringInput `pulumi:"filterId"`
@@ -60379,19 +60144,17 @@ func (o TemplateNumericEqualityFilterOutput) ToTemplateNumericEqualityFilterPtrO
 	}).(TemplateNumericEqualityFilterPtrOutput)
 }
 
-// An aggregation function aggregates values from a dimension or measure.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The aggregation function of the filter.
 func (o TemplateNumericEqualityFilterOutput) AggregationFunction() TemplateAggregationFunctionPtrOutput {
 	return o.ApplyT(func(v TemplateNumericEqualityFilter) *TemplateAggregationFunction { return v.AggregationFunction }).(TemplateAggregationFunctionPtrOutput)
 }
 
-// A column of a data set.
+// The column that the filter is applied to.
 func (o TemplateNumericEqualityFilterOutput) Column() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateNumericEqualityFilter) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
 }
 
-// The default configuration for all dependent controls of the filter.
+// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
 func (o TemplateNumericEqualityFilterOutput) DefaultFilterControlConfiguration() TemplateDefaultFilterControlConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateNumericEqualityFilter) *TemplateDefaultFilterControlConfiguration {
 		return v.DefaultFilterControlConfiguration
@@ -60460,9 +60223,7 @@ func (o TemplateNumericEqualityFilterPtrOutput) Elem() TemplateNumericEqualityFi
 	}).(TemplateNumericEqualityFilterOutput)
 }
 
-// An aggregation function aggregates values from a dimension or measure.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The aggregation function of the filter.
 func (o TemplateNumericEqualityFilterPtrOutput) AggregationFunction() TemplateAggregationFunctionPtrOutput {
 	return o.ApplyT(func(v *TemplateNumericEqualityFilter) *TemplateAggregationFunction {
 		if v == nil {
@@ -60472,7 +60233,7 @@ func (o TemplateNumericEqualityFilterPtrOutput) AggregationFunction() TemplateAg
 	}).(TemplateAggregationFunctionPtrOutput)
 }
 
-// A column of a data set.
+// The column that the filter is applied to.
 func (o TemplateNumericEqualityFilterPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateNumericEqualityFilter) *TemplateColumnIdentifier {
 		if v == nil {
@@ -60482,7 +60243,7 @@ func (o TemplateNumericEqualityFilterPtrOutput) Column() TemplateColumnIdentifie
 	}).(TemplateColumnIdentifierPtrOutput)
 }
 
-// The default configuration for all dependent controls of the filter.
+// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
 func (o TemplateNumericEqualityFilterPtrOutput) DefaultFilterControlConfiguration() TemplateDefaultFilterControlConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateNumericEqualityFilter) *TemplateDefaultFilterControlConfiguration {
 		if v == nil {
@@ -60740,13 +60501,11 @@ func (o TemplateNumericFormatConfigurationPtrOutput) PercentageDisplayFormatConf
 }
 
 type TemplateNumericRangeFilter struct {
-	// An aggregation function aggregates values from a dimension or measure.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The aggregation function of the filter.
 	AggregationFunction *TemplateAggregationFunction `pulumi:"aggregationFunction"`
-	// A column of a data set.
+	// The column that the filter is applied to.
 	Column TemplateColumnIdentifier `pulumi:"column"`
-	// The default configuration for all dependent controls of the filter.
+	// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
 	DefaultFilterControlConfiguration *TemplateDefaultFilterControlConfiguration `pulumi:"defaultFilterControlConfiguration"`
 	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
 	FilterId string `pulumi:"filterId"`
@@ -60760,9 +60519,9 @@ type TemplateNumericRangeFilter struct {
 	// - `NULLS_ONLY` : Only include null values in filtered results.
 	// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
 	NullOption TemplateFilterNullOption `pulumi:"nullOption"`
-	// The value input pf the numeric range filter.
+	// The maximum value for the filter value range.
 	RangeMaximum *TemplateNumericRangeFilterValue `pulumi:"rangeMaximum"`
-	// The value input pf the numeric range filter.
+	// The minimum value for the filter value range.
 	RangeMinimum *TemplateNumericRangeFilterValue `pulumi:"rangeMinimum"`
 	// Select all of the values. Null is not the assigned value of select all.
 	//
@@ -60782,13 +60541,11 @@ type TemplateNumericRangeFilterInput interface {
 }
 
 type TemplateNumericRangeFilterArgs struct {
-	// An aggregation function aggregates values from a dimension or measure.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The aggregation function of the filter.
 	AggregationFunction TemplateAggregationFunctionPtrInput `pulumi:"aggregationFunction"`
-	// A column of a data set.
+	// The column that the filter is applied to.
 	Column TemplateColumnIdentifierInput `pulumi:"column"`
-	// The default configuration for all dependent controls of the filter.
+	// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
 	DefaultFilterControlConfiguration TemplateDefaultFilterControlConfigurationPtrInput `pulumi:"defaultFilterControlConfiguration"`
 	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
 	FilterId pulumi.StringInput `pulumi:"filterId"`
@@ -60802,9 +60559,9 @@ type TemplateNumericRangeFilterArgs struct {
 	// - `NULLS_ONLY` : Only include null values in filtered results.
 	// - `NON_NULLS_ONLY` : Exclude null values from filtered results.
 	NullOption TemplateFilterNullOptionInput `pulumi:"nullOption"`
-	// The value input pf the numeric range filter.
+	// The maximum value for the filter value range.
 	RangeMaximum TemplateNumericRangeFilterValuePtrInput `pulumi:"rangeMaximum"`
-	// The value input pf the numeric range filter.
+	// The minimum value for the filter value range.
 	RangeMinimum TemplateNumericRangeFilterValuePtrInput `pulumi:"rangeMinimum"`
 	// Select all of the values. Null is not the assigned value of select all.
 	//
@@ -60889,19 +60646,17 @@ func (o TemplateNumericRangeFilterOutput) ToTemplateNumericRangeFilterPtrOutputW
 	}).(TemplateNumericRangeFilterPtrOutput)
 }
 
-// An aggregation function aggregates values from a dimension or measure.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The aggregation function of the filter.
 func (o TemplateNumericRangeFilterOutput) AggregationFunction() TemplateAggregationFunctionPtrOutput {
 	return o.ApplyT(func(v TemplateNumericRangeFilter) *TemplateAggregationFunction { return v.AggregationFunction }).(TemplateAggregationFunctionPtrOutput)
 }
 
-// A column of a data set.
+// The column that the filter is applied to.
 func (o TemplateNumericRangeFilterOutput) Column() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateNumericRangeFilter) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
 }
 
-// The default configuration for all dependent controls of the filter.
+// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
 func (o TemplateNumericRangeFilterOutput) DefaultFilterControlConfiguration() TemplateDefaultFilterControlConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateNumericRangeFilter) *TemplateDefaultFilterControlConfiguration {
 		return v.DefaultFilterControlConfiguration
@@ -60932,12 +60687,12 @@ func (o TemplateNumericRangeFilterOutput) NullOption() TemplateFilterNullOptionO
 	return o.ApplyT(func(v TemplateNumericRangeFilter) TemplateFilterNullOption { return v.NullOption }).(TemplateFilterNullOptionOutput)
 }
 
-// The value input pf the numeric range filter.
+// The maximum value for the filter value range.
 func (o TemplateNumericRangeFilterOutput) RangeMaximum() TemplateNumericRangeFilterValuePtrOutput {
 	return o.ApplyT(func(v TemplateNumericRangeFilter) *TemplateNumericRangeFilterValue { return v.RangeMaximum }).(TemplateNumericRangeFilterValuePtrOutput)
 }
 
-// The value input pf the numeric range filter.
+// The minimum value for the filter value range.
 func (o TemplateNumericRangeFilterOutput) RangeMinimum() TemplateNumericRangeFilterValuePtrOutput {
 	return o.ApplyT(func(v TemplateNumericRangeFilter) *TemplateNumericRangeFilterValue { return v.RangeMinimum }).(TemplateNumericRangeFilterValuePtrOutput)
 }
@@ -60973,9 +60728,7 @@ func (o TemplateNumericRangeFilterPtrOutput) Elem() TemplateNumericRangeFilterOu
 	}).(TemplateNumericRangeFilterOutput)
 }
 
-// An aggregation function aggregates values from a dimension or measure.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The aggregation function of the filter.
 func (o TemplateNumericRangeFilterPtrOutput) AggregationFunction() TemplateAggregationFunctionPtrOutput {
 	return o.ApplyT(func(v *TemplateNumericRangeFilter) *TemplateAggregationFunction {
 		if v == nil {
@@ -60985,7 +60738,7 @@ func (o TemplateNumericRangeFilterPtrOutput) AggregationFunction() TemplateAggre
 	}).(TemplateAggregationFunctionPtrOutput)
 }
 
-// A column of a data set.
+// The column that the filter is applied to.
 func (o TemplateNumericRangeFilterPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateNumericRangeFilter) *TemplateColumnIdentifier {
 		if v == nil {
@@ -60995,7 +60748,7 @@ func (o TemplateNumericRangeFilterPtrOutput) Column() TemplateColumnIdentifierPt
 	}).(TemplateColumnIdentifierPtrOutput)
 }
 
-// The default configuration for all dependent controls of the filter.
+// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
 func (o TemplateNumericRangeFilterPtrOutput) DefaultFilterControlConfiguration() TemplateDefaultFilterControlConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateNumericRangeFilter) *TemplateDefaultFilterControlConfiguration {
 		if v == nil {
@@ -61049,7 +60802,7 @@ func (o TemplateNumericRangeFilterPtrOutput) NullOption() TemplateFilterNullOpti
 	}).(TemplateFilterNullOptionPtrOutput)
 }
 
-// The value input pf the numeric range filter.
+// The maximum value for the filter value range.
 func (o TemplateNumericRangeFilterPtrOutput) RangeMaximum() TemplateNumericRangeFilterValuePtrOutput {
 	return o.ApplyT(func(v *TemplateNumericRangeFilter) *TemplateNumericRangeFilterValue {
 		if v == nil {
@@ -61059,7 +60812,7 @@ func (o TemplateNumericRangeFilterPtrOutput) RangeMaximum() TemplateNumericRange
 	}).(TemplateNumericRangeFilterValuePtrOutput)
 }
 
-// The value input pf the numeric range filter.
+// The minimum value for the filter value range.
 func (o TemplateNumericRangeFilterPtrOutput) RangeMinimum() TemplateNumericRangeFilterValuePtrOutput {
 	return o.ApplyT(func(v *TemplateNumericRangeFilter) *TemplateNumericRangeFilterValue {
 		if v == nil {
@@ -61606,11 +61359,11 @@ func (o TemplateNumericalAggregationFunctionPtrOutput) SimpleNumericalAggregatio
 }
 
 type TemplateNumericalDimensionField struct {
-	// A column of a data set.
+	// The column that is used in the `NumericalDimensionField` .
 	Column TemplateColumnIdentifier `pulumi:"column"`
 	// The custom field ID.
 	FieldId string `pulumi:"fieldId"`
-	// Formatting configuration for number fields.
+	// The format configuration of the field.
 	FormatConfiguration *TemplateNumberFormatConfiguration `pulumi:"formatConfiguration"`
 	// The custom hierarchy ID.
 	HierarchyId *string `pulumi:"hierarchyId"`
@@ -61628,11 +61381,11 @@ type TemplateNumericalDimensionFieldInput interface {
 }
 
 type TemplateNumericalDimensionFieldArgs struct {
-	// A column of a data set.
+	// The column that is used in the `NumericalDimensionField` .
 	Column TemplateColumnIdentifierInput `pulumi:"column"`
 	// The custom field ID.
 	FieldId pulumi.StringInput `pulumi:"fieldId"`
-	// Formatting configuration for number fields.
+	// The format configuration of the field.
 	FormatConfiguration TemplateNumberFormatConfigurationPtrInput `pulumi:"formatConfiguration"`
 	// The custom hierarchy ID.
 	HierarchyId pulumi.StringPtrInput `pulumi:"hierarchyId"`
@@ -61715,7 +61468,7 @@ func (o TemplateNumericalDimensionFieldOutput) ToTemplateNumericalDimensionField
 	}).(TemplateNumericalDimensionFieldPtrOutput)
 }
 
-// A column of a data set.
+// The column that is used in the `NumericalDimensionField` .
 func (o TemplateNumericalDimensionFieldOutput) Column() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateNumericalDimensionField) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
 }
@@ -61725,7 +61478,7 @@ func (o TemplateNumericalDimensionFieldOutput) FieldId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateNumericalDimensionField) string { return v.FieldId }).(pulumi.StringOutput)
 }
 
-// Formatting configuration for number fields.
+// The format configuration of the field.
 func (o TemplateNumericalDimensionFieldOutput) FormatConfiguration() TemplateNumberFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateNumericalDimensionField) *TemplateNumberFormatConfiguration {
 		return v.FormatConfiguration
@@ -61761,7 +61514,7 @@ func (o TemplateNumericalDimensionFieldPtrOutput) Elem() TemplateNumericalDimens
 	}).(TemplateNumericalDimensionFieldOutput)
 }
 
-// A column of a data set.
+// The column that is used in the `NumericalDimensionField` .
 func (o TemplateNumericalDimensionFieldPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateNumericalDimensionField) *TemplateColumnIdentifier {
 		if v == nil {
@@ -61781,7 +61534,7 @@ func (o TemplateNumericalDimensionFieldPtrOutput) FieldId() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Formatting configuration for number fields.
+// The format configuration of the field.
 func (o TemplateNumericalDimensionFieldPtrOutput) FormatConfiguration() TemplateNumberFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateNumericalDimensionField) *TemplateNumberFormatConfiguration {
 		if v == nil {
@@ -61802,13 +61555,13 @@ func (o TemplateNumericalDimensionFieldPtrOutput) HierarchyId() pulumi.StringPtr
 }
 
 type TemplateNumericalMeasureField struct {
-	// Aggregation for numerical values.
+	// The aggregation function of the measure field.
 	AggregationFunction *TemplateNumericalAggregationFunction `pulumi:"aggregationFunction"`
-	// A column of a data set.
+	// The column that is used in the `NumericalMeasureField` .
 	Column TemplateColumnIdentifier `pulumi:"column"`
 	// The custom field ID.
 	FieldId string `pulumi:"fieldId"`
-	// Formatting configuration for number fields.
+	// The format configuration of the field.
 	FormatConfiguration *TemplateNumberFormatConfiguration `pulumi:"formatConfiguration"`
 }
 
@@ -61824,13 +61577,13 @@ type TemplateNumericalMeasureFieldInput interface {
 }
 
 type TemplateNumericalMeasureFieldArgs struct {
-	// Aggregation for numerical values.
+	// The aggregation function of the measure field.
 	AggregationFunction TemplateNumericalAggregationFunctionPtrInput `pulumi:"aggregationFunction"`
-	// A column of a data set.
+	// The column that is used in the `NumericalMeasureField` .
 	Column TemplateColumnIdentifierInput `pulumi:"column"`
 	// The custom field ID.
 	FieldId pulumi.StringInput `pulumi:"fieldId"`
-	// Formatting configuration for number fields.
+	// The format configuration of the field.
 	FormatConfiguration TemplateNumberFormatConfigurationPtrInput `pulumi:"formatConfiguration"`
 }
 
@@ -61911,14 +61664,14 @@ func (o TemplateNumericalMeasureFieldOutput) ToTemplateNumericalMeasureFieldPtrO
 	}).(TemplateNumericalMeasureFieldPtrOutput)
 }
 
-// Aggregation for numerical values.
+// The aggregation function of the measure field.
 func (o TemplateNumericalMeasureFieldOutput) AggregationFunction() TemplateNumericalAggregationFunctionPtrOutput {
 	return o.ApplyT(func(v TemplateNumericalMeasureField) *TemplateNumericalAggregationFunction {
 		return v.AggregationFunction
 	}).(TemplateNumericalAggregationFunctionPtrOutput)
 }
 
-// A column of a data set.
+// The column that is used in the `NumericalMeasureField` .
 func (o TemplateNumericalMeasureFieldOutput) Column() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateNumericalMeasureField) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
 }
@@ -61928,7 +61681,7 @@ func (o TemplateNumericalMeasureFieldOutput) FieldId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateNumericalMeasureField) string { return v.FieldId }).(pulumi.StringOutput)
 }
 
-// Formatting configuration for number fields.
+// The format configuration of the field.
 func (o TemplateNumericalMeasureFieldOutput) FormatConfiguration() TemplateNumberFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateNumericalMeasureField) *TemplateNumberFormatConfiguration { return v.FormatConfiguration }).(TemplateNumberFormatConfigurationPtrOutput)
 }
@@ -61957,7 +61710,7 @@ func (o TemplateNumericalMeasureFieldPtrOutput) Elem() TemplateNumericalMeasureF
 	}).(TemplateNumericalMeasureFieldOutput)
 }
 
-// Aggregation for numerical values.
+// The aggregation function of the measure field.
 func (o TemplateNumericalMeasureFieldPtrOutput) AggregationFunction() TemplateNumericalAggregationFunctionPtrOutput {
 	return o.ApplyT(func(v *TemplateNumericalMeasureField) *TemplateNumericalAggregationFunction {
 		if v == nil {
@@ -61967,7 +61720,7 @@ func (o TemplateNumericalMeasureFieldPtrOutput) AggregationFunction() TemplateNu
 	}).(TemplateNumericalAggregationFunctionPtrOutput)
 }
 
-// A column of a data set.
+// The column that is used in the `NumericalMeasureField` .
 func (o TemplateNumericalMeasureFieldPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateNumericalMeasureField) *TemplateColumnIdentifier {
 		if v == nil {
@@ -61987,7 +61740,7 @@ func (o TemplateNumericalMeasureFieldPtrOutput) FieldId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Formatting configuration for number fields.
+// The format configuration of the field.
 func (o TemplateNumericalMeasureFieldPtrOutput) FormatConfiguration() TemplateNumberFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateNumericalMeasureField) *TemplateNumberFormatConfiguration {
 		if v == nil {
@@ -62170,7 +61923,7 @@ type TemplatePanelConfiguration struct {
 	GutterSpacing *string `pulumi:"gutterSpacing"`
 	// Determines whether or not negative space between sibling panels is rendered.
 	GutterVisibility *TemplateVisibility `pulumi:"gutterVisibility"`
-	// The options that determine the title styles for each small multiples panel.
+	// Configures the title display within each small multiples panel.
 	Title *TemplatePanelTitleOptions `pulumi:"title"`
 }
 
@@ -62202,7 +61955,7 @@ type TemplatePanelConfigurationArgs struct {
 	GutterSpacing pulumi.StringPtrInput `pulumi:"gutterSpacing"`
 	// Determines whether or not negative space between sibling panels is rendered.
 	GutterVisibility TemplateVisibilityPtrInput `pulumi:"gutterVisibility"`
-	// The options that determine the title styles for each small multiples panel.
+	// Configures the title display within each small multiples panel.
 	Title TemplatePanelTitleOptionsPtrInput `pulumi:"title"`
 }
 
@@ -62323,7 +62076,7 @@ func (o TemplatePanelConfigurationOutput) GutterVisibility() TemplateVisibilityP
 	return o.ApplyT(func(v TemplatePanelConfiguration) *TemplateVisibility { return v.GutterVisibility }).(TemplateVisibilityPtrOutput)
 }
 
-// The options that determine the title styles for each small multiples panel.
+// Configures the title display within each small multiples panel.
 func (o TemplatePanelConfigurationOutput) Title() TemplatePanelTitleOptionsPtrOutput {
 	return o.ApplyT(func(v TemplatePanelConfiguration) *TemplatePanelTitleOptions { return v.Title }).(TemplatePanelTitleOptionsPtrOutput)
 }
@@ -62432,7 +62185,7 @@ func (o TemplatePanelConfigurationPtrOutput) GutterVisibility() TemplateVisibili
 	}).(TemplateVisibilityPtrOutput)
 }
 
-// The options that determine the title styles for each small multiples panel.
+// Configures the title display within each small multiples panel.
 func (o TemplatePanelConfigurationPtrOutput) Title() TemplatePanelTitleOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplatePanelConfiguration) *TemplatePanelTitleOptions {
 		if v == nil {
@@ -62443,7 +62196,6 @@ func (o TemplatePanelConfigurationPtrOutput) Title() TemplatePanelTitleOptionsPt
 }
 
 type TemplatePanelTitleOptions struct {
-	// Configures the display properties of the given text.
 	FontConfiguration *TemplateFontConfiguration `pulumi:"fontConfiguration"`
 	// Sets the horizontal text alignment of the title within each panel.
 	HorizontalTextAlignment *TemplateHorizontalTextAlignment `pulumi:"horizontalTextAlignment"`
@@ -62463,7 +62215,6 @@ type TemplatePanelTitleOptionsInput interface {
 }
 
 type TemplatePanelTitleOptionsArgs struct {
-	// Configures the display properties of the given text.
 	FontConfiguration TemplateFontConfigurationPtrInput `pulumi:"fontConfiguration"`
 	// Sets the horizontal text alignment of the title within each panel.
 	HorizontalTextAlignment TemplateHorizontalTextAlignmentPtrInput `pulumi:"horizontalTextAlignment"`
@@ -62548,7 +62299,6 @@ func (o TemplatePanelTitleOptionsOutput) ToTemplatePanelTitleOptionsPtrOutputWit
 	}).(TemplatePanelTitleOptionsPtrOutput)
 }
 
-// Configures the display properties of the given text.
 func (o TemplatePanelTitleOptionsOutput) FontConfiguration() TemplateFontConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplatePanelTitleOptions) *TemplateFontConfiguration { return v.FontConfiguration }).(TemplateFontConfigurationPtrOutput)
 }
@@ -62587,7 +62337,6 @@ func (o TemplatePanelTitleOptionsPtrOutput) Elem() TemplatePanelTitleOptionsOutp
 	}).(TemplatePanelTitleOptionsOutput)
 }
 
-// Configures the display properties of the given text.
 func (o TemplatePanelTitleOptionsPtrOutput) FontConfiguration() TemplateFontConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplatePanelTitleOptions) *TemplateFontConfiguration {
 		if v == nil {
@@ -63596,7 +63345,7 @@ func (o TemplateParameterListControlPtrOutput) Type() TemplateSheetControlListTy
 }
 
 type TemplateParameterSelectableValues struct {
-	// A column of a data set.
+	// The column identifier that fetches values from the data set.
 	LinkToDataSetColumn *TemplateColumnIdentifier `pulumi:"linkToDataSetColumn"`
 	// The values that are used in `ParameterSelectableValues` .
 	Values []string `pulumi:"values"`
@@ -63614,7 +63363,7 @@ type TemplateParameterSelectableValuesInput interface {
 }
 
 type TemplateParameterSelectableValuesArgs struct {
-	// A column of a data set.
+	// The column identifier that fetches values from the data set.
 	LinkToDataSetColumn TemplateColumnIdentifierPtrInput `pulumi:"linkToDataSetColumn"`
 	// The values that are used in `ParameterSelectableValues` .
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -63697,7 +63446,7 @@ func (o TemplateParameterSelectableValuesOutput) ToTemplateParameterSelectableVa
 	}).(TemplateParameterSelectableValuesPtrOutput)
 }
 
-// A column of a data set.
+// The column identifier that fetches values from the data set.
 func (o TemplateParameterSelectableValuesOutput) LinkToDataSetColumn() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v TemplateParameterSelectableValues) *TemplateColumnIdentifier { return v.LinkToDataSetColumn }).(TemplateColumnIdentifierPtrOutput)
 }
@@ -63731,7 +63480,7 @@ func (o TemplateParameterSelectableValuesPtrOutput) Elem() TemplateParameterSele
 	}).(TemplateParameterSelectableValuesOutput)
 }
 
-// A column of a data set.
+// The column identifier that fetches values from the data set.
 func (o TemplateParameterSelectableValuesPtrOutput) LinkToDataSetColumn() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateParameterSelectableValues) *TemplateColumnIdentifier {
 		if v == nil {
@@ -64951,9 +64700,9 @@ type TemplatePeriodOverPeriodComputation struct {
 	ComputationId string `pulumi:"computationId"`
 	// The name of a computation.
 	Name *string `pulumi:"name"`
-	// The dimension type field.
+	// The time field that is used in a computation.
 	Time *TemplateDimensionField `pulumi:"time"`
-	// The measure (metric) type field.
+	// The value field that is used in a computation.
 	Value *TemplateMeasureField `pulumi:"value"`
 }
 
@@ -64973,9 +64722,9 @@ type TemplatePeriodOverPeriodComputationArgs struct {
 	ComputationId pulumi.StringInput `pulumi:"computationId"`
 	// The name of a computation.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The dimension type field.
+	// The time field that is used in a computation.
 	Time TemplateDimensionFieldPtrInput `pulumi:"time"`
-	// The measure (metric) type field.
+	// The value field that is used in a computation.
 	Value TemplateMeasureFieldPtrInput `pulumi:"value"`
 }
 
@@ -65066,12 +64815,12 @@ func (o TemplatePeriodOverPeriodComputationOutput) Name() pulumi.StringPtrOutput
 	return o.ApplyT(func(v TemplatePeriodOverPeriodComputation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The dimension type field.
+// The time field that is used in a computation.
 func (o TemplatePeriodOverPeriodComputationOutput) Time() TemplateDimensionFieldPtrOutput {
 	return o.ApplyT(func(v TemplatePeriodOverPeriodComputation) *TemplateDimensionField { return v.Time }).(TemplateDimensionFieldPtrOutput)
 }
 
-// The measure (metric) type field.
+// The value field that is used in a computation.
 func (o TemplatePeriodOverPeriodComputationOutput) Value() TemplateMeasureFieldPtrOutput {
 	return o.ApplyT(func(v TemplatePeriodOverPeriodComputation) *TemplateMeasureField { return v.Value }).(TemplateMeasureFieldPtrOutput)
 }
@@ -65120,7 +64869,7 @@ func (o TemplatePeriodOverPeriodComputationPtrOutput) Name() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The dimension type field.
+// The time field that is used in a computation.
 func (o TemplatePeriodOverPeriodComputationPtrOutput) Time() TemplateDimensionFieldPtrOutput {
 	return o.ApplyT(func(v *TemplatePeriodOverPeriodComputation) *TemplateDimensionField {
 		if v == nil {
@@ -65130,7 +64879,7 @@ func (o TemplatePeriodOverPeriodComputationPtrOutput) Time() TemplateDimensionFi
 	}).(TemplateDimensionFieldPtrOutput)
 }
 
-// The measure (metric) type field.
+// The value field that is used in a computation.
 func (o TemplatePeriodOverPeriodComputationPtrOutput) Value() TemplateMeasureFieldPtrOutput {
 	return o.ApplyT(func(v *TemplatePeriodOverPeriodComputation) *TemplateMeasureField {
 		if v == nil {
@@ -65150,9 +64899,9 @@ type TemplatePeriodToDateComputation struct {
 	// - YEAR: Year to date.
 	// - MONTH: Month to date.
 	PeriodTimeGranularity *TemplateTimeGranularity `pulumi:"periodTimeGranularity"`
-	// The dimension type field.
+	// The time field that is used in a computation.
 	Time *TemplateDimensionField `pulumi:"time"`
-	// The measure (metric) type field.
+	// The value field that is used in a computation.
 	Value *TemplateMeasureField `pulumi:"value"`
 }
 
@@ -65177,9 +64926,9 @@ type TemplatePeriodToDateComputationArgs struct {
 	// - YEAR: Year to date.
 	// - MONTH: Month to date.
 	PeriodTimeGranularity TemplateTimeGranularityPtrInput `pulumi:"periodTimeGranularity"`
-	// The dimension type field.
+	// The time field that is used in a computation.
 	Time TemplateDimensionFieldPtrInput `pulumi:"time"`
-	// The measure (metric) type field.
+	// The value field that is used in a computation.
 	Value TemplateMeasureFieldPtrInput `pulumi:"value"`
 }
 
@@ -65278,12 +65027,12 @@ func (o TemplatePeriodToDateComputationOutput) PeriodTimeGranularity() TemplateT
 	return o.ApplyT(func(v TemplatePeriodToDateComputation) *TemplateTimeGranularity { return v.PeriodTimeGranularity }).(TemplateTimeGranularityPtrOutput)
 }
 
-// The dimension type field.
+// The time field that is used in a computation.
 func (o TemplatePeriodToDateComputationOutput) Time() TemplateDimensionFieldPtrOutput {
 	return o.ApplyT(func(v TemplatePeriodToDateComputation) *TemplateDimensionField { return v.Time }).(TemplateDimensionFieldPtrOutput)
 }
 
-// The measure (metric) type field.
+// The value field that is used in a computation.
 func (o TemplatePeriodToDateComputationOutput) Value() TemplateMeasureFieldPtrOutput {
 	return o.ApplyT(func(v TemplatePeriodToDateComputation) *TemplateMeasureField { return v.Value }).(TemplateMeasureFieldPtrOutput)
 }
@@ -65345,7 +65094,7 @@ func (o TemplatePeriodToDateComputationPtrOutput) PeriodTimeGranularity() Templa
 	}).(TemplateTimeGranularityPtrOutput)
 }
 
-// The dimension type field.
+// The time field that is used in a computation.
 func (o TemplatePeriodToDateComputationPtrOutput) Time() TemplateDimensionFieldPtrOutput {
 	return o.ApplyT(func(v *TemplatePeriodToDateComputation) *TemplateDimensionField {
 		if v == nil {
@@ -65355,7 +65104,7 @@ func (o TemplatePeriodToDateComputationPtrOutput) Time() TemplateDimensionFieldP
 	}).(TemplateDimensionFieldPtrOutput)
 }
 
-// The measure (metric) type field.
+// The value field that is used in a computation.
 func (o TemplatePeriodToDateComputationPtrOutput) Value() TemplateMeasureFieldPtrOutput {
 	return o.ApplyT(func(v *TemplatePeriodToDateComputation) *TemplateMeasureField {
 		if v == nil {
@@ -65541,29 +65290,27 @@ func (o TemplatePieChartAggregatedFieldWellsPtrOutput) Values() TemplateMeasureF
 }
 
 type TemplatePieChartConfiguration struct {
-	// The label options for an axis on a chart.
+	// The label options of the group/color that is displayed in a pie chart.
 	CategoryLabelOptions *TemplateChartAxisLabelOptions `pulumi:"categoryLabelOptions"`
 	// The contribution analysis (anomaly configuration) setup of the visual.
 	ContributionAnalysisDefaults []TemplateContributionAnalysisDefault `pulumi:"contributionAnalysisDefaults"`
-	// The options that determine the presentation of the data labels.
+	// The options that determine if visual data labels are displayed.
 	DataLabels *TemplateDataLabelOptions `pulumi:"dataLabels"`
-	// The options for configuring a donut chart or pie chart.
+	// The options that determine the shape of the chart. This option determines whether the chart is a pie chart or a donut chart.
 	DonutOptions *TemplateDonutOptions `pulumi:"donutOptions"`
-	// The field well configuration of a pie chart.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The field wells of the visual.
 	FieldWells *TemplatePieChartFieldWells `pulumi:"fieldWells"`
-	// The options for the legend setup of a visual.
+	// The legend display setup of the visual.
 	Legend *TemplateLegendOptions `pulumi:"legend"`
-	// Options that determine the layout and display options of a chart's small multiples.
+	// The small multiples setup for the visual.
 	SmallMultiplesOptions *TemplateSmallMultiplesOptions `pulumi:"smallMultiplesOptions"`
 	// The sort configuration of a pie chart.
 	SortConfiguration *TemplatePieChartSortConfiguration `pulumi:"sortConfiguration"`
-	// The display options for the visual tooltip.
+	// The tooltip display setup of the visual.
 	Tooltip *TemplateTooltipOptions `pulumi:"tooltip"`
-	// The label options for an axis on a chart.
+	// The label options for the value that is displayed in a pie chart.
 	ValueLabelOptions *TemplateChartAxisLabelOptions `pulumi:"valueLabelOptions"`
-	// The visual display options for the visual palette.
+	// The palette (chart color) display setup of the visual.
 	VisualPalette *TemplateVisualPalette `pulumi:"visualPalette"`
 }
 
@@ -65579,29 +65326,27 @@ type TemplatePieChartConfigurationInput interface {
 }
 
 type TemplatePieChartConfigurationArgs struct {
-	// The label options for an axis on a chart.
+	// The label options of the group/color that is displayed in a pie chart.
 	CategoryLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"categoryLabelOptions"`
 	// The contribution analysis (anomaly configuration) setup of the visual.
 	ContributionAnalysisDefaults TemplateContributionAnalysisDefaultArrayInput `pulumi:"contributionAnalysisDefaults"`
-	// The options that determine the presentation of the data labels.
+	// The options that determine if visual data labels are displayed.
 	DataLabels TemplateDataLabelOptionsPtrInput `pulumi:"dataLabels"`
-	// The options for configuring a donut chart or pie chart.
+	// The options that determine the shape of the chart. This option determines whether the chart is a pie chart or a donut chart.
 	DonutOptions TemplateDonutOptionsPtrInput `pulumi:"donutOptions"`
-	// The field well configuration of a pie chart.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The field wells of the visual.
 	FieldWells TemplatePieChartFieldWellsPtrInput `pulumi:"fieldWells"`
-	// The options for the legend setup of a visual.
+	// The legend display setup of the visual.
 	Legend TemplateLegendOptionsPtrInput `pulumi:"legend"`
-	// Options that determine the layout and display options of a chart's small multiples.
+	// The small multiples setup for the visual.
 	SmallMultiplesOptions TemplateSmallMultiplesOptionsPtrInput `pulumi:"smallMultiplesOptions"`
 	// The sort configuration of a pie chart.
 	SortConfiguration TemplatePieChartSortConfigurationPtrInput `pulumi:"sortConfiguration"`
-	// The display options for the visual tooltip.
+	// The tooltip display setup of the visual.
 	Tooltip TemplateTooltipOptionsPtrInput `pulumi:"tooltip"`
-	// The label options for an axis on a chart.
+	// The label options for the value that is displayed in a pie chart.
 	ValueLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"valueLabelOptions"`
-	// The visual display options for the visual palette.
+	// The palette (chart color) display setup of the visual.
 	VisualPalette TemplateVisualPalettePtrInput `pulumi:"visualPalette"`
 }
 
@@ -65682,7 +65427,7 @@ func (o TemplatePieChartConfigurationOutput) ToTemplatePieChartConfigurationPtrO
 	}).(TemplatePieChartConfigurationPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options of the group/color that is displayed in a pie chart.
 func (o TemplatePieChartConfigurationOutput) CategoryLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplatePieChartConfiguration) *TemplateChartAxisLabelOptions { return v.CategoryLabelOptions }).(TemplateChartAxisLabelOptionsPtrOutput)
 }
@@ -65694,29 +65439,27 @@ func (o TemplatePieChartConfigurationOutput) ContributionAnalysisDefaults() Temp
 	}).(TemplateContributionAnalysisDefaultArrayOutput)
 }
 
-// The options that determine the presentation of the data labels.
+// The options that determine if visual data labels are displayed.
 func (o TemplatePieChartConfigurationOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplatePieChartConfiguration) *TemplateDataLabelOptions { return v.DataLabels }).(TemplateDataLabelOptionsPtrOutput)
 }
 
-// The options for configuring a donut chart or pie chart.
+// The options that determine the shape of the chart. This option determines whether the chart is a pie chart or a donut chart.
 func (o TemplatePieChartConfigurationOutput) DonutOptions() TemplateDonutOptionsPtrOutput {
 	return o.ApplyT(func(v TemplatePieChartConfiguration) *TemplateDonutOptions { return v.DonutOptions }).(TemplateDonutOptionsPtrOutput)
 }
 
-// The field well configuration of a pie chart.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The field wells of the visual.
 func (o TemplatePieChartConfigurationOutput) FieldWells() TemplatePieChartFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplatePieChartConfiguration) *TemplatePieChartFieldWells { return v.FieldWells }).(TemplatePieChartFieldWellsPtrOutput)
 }
 
-// The options for the legend setup of a visual.
+// The legend display setup of the visual.
 func (o TemplatePieChartConfigurationOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v TemplatePieChartConfiguration) *TemplateLegendOptions { return v.Legend }).(TemplateLegendOptionsPtrOutput)
 }
 
-// Options that determine the layout and display options of a chart's small multiples.
+// The small multiples setup for the visual.
 func (o TemplatePieChartConfigurationOutput) SmallMultiplesOptions() TemplateSmallMultiplesOptionsPtrOutput {
 	return o.ApplyT(func(v TemplatePieChartConfiguration) *TemplateSmallMultiplesOptions { return v.SmallMultiplesOptions }).(TemplateSmallMultiplesOptionsPtrOutput)
 }
@@ -65726,17 +65469,17 @@ func (o TemplatePieChartConfigurationOutput) SortConfiguration() TemplatePieChar
 	return o.ApplyT(func(v TemplatePieChartConfiguration) *TemplatePieChartSortConfiguration { return v.SortConfiguration }).(TemplatePieChartSortConfigurationPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The tooltip display setup of the visual.
 func (o TemplatePieChartConfigurationOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v TemplatePieChartConfiguration) *TemplateTooltipOptions { return v.Tooltip }).(TemplateTooltipOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options for the value that is displayed in a pie chart.
 func (o TemplatePieChartConfigurationOutput) ValueLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplatePieChartConfiguration) *TemplateChartAxisLabelOptions { return v.ValueLabelOptions }).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The visual display options for the visual palette.
+// The palette (chart color) display setup of the visual.
 func (o TemplatePieChartConfigurationOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v TemplatePieChartConfiguration) *TemplateVisualPalette { return v.VisualPalette }).(TemplateVisualPalettePtrOutput)
 }
@@ -65765,7 +65508,7 @@ func (o TemplatePieChartConfigurationPtrOutput) Elem() TemplatePieChartConfigura
 	}).(TemplatePieChartConfigurationOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options of the group/color that is displayed in a pie chart.
 func (o TemplatePieChartConfigurationPtrOutput) CategoryLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplatePieChartConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -65785,7 +65528,7 @@ func (o TemplatePieChartConfigurationPtrOutput) ContributionAnalysisDefaults() T
 	}).(TemplateContributionAnalysisDefaultArrayOutput)
 }
 
-// The options that determine the presentation of the data labels.
+// The options that determine if visual data labels are displayed.
 func (o TemplatePieChartConfigurationPtrOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplatePieChartConfiguration) *TemplateDataLabelOptions {
 		if v == nil {
@@ -65795,7 +65538,7 @@ func (o TemplatePieChartConfigurationPtrOutput) DataLabels() TemplateDataLabelOp
 	}).(TemplateDataLabelOptionsPtrOutput)
 }
 
-// The options for configuring a donut chart or pie chart.
+// The options that determine the shape of the chart. This option determines whether the chart is a pie chart or a donut chart.
 func (o TemplatePieChartConfigurationPtrOutput) DonutOptions() TemplateDonutOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplatePieChartConfiguration) *TemplateDonutOptions {
 		if v == nil {
@@ -65805,9 +65548,7 @@ func (o TemplatePieChartConfigurationPtrOutput) DonutOptions() TemplateDonutOpti
 	}).(TemplateDonutOptionsPtrOutput)
 }
 
-// The field well configuration of a pie chart.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The field wells of the visual.
 func (o TemplatePieChartConfigurationPtrOutput) FieldWells() TemplatePieChartFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplatePieChartConfiguration) *TemplatePieChartFieldWells {
 		if v == nil {
@@ -65817,7 +65558,7 @@ func (o TemplatePieChartConfigurationPtrOutput) FieldWells() TemplatePieChartFie
 	}).(TemplatePieChartFieldWellsPtrOutput)
 }
 
-// The options for the legend setup of a visual.
+// The legend display setup of the visual.
 func (o TemplatePieChartConfigurationPtrOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplatePieChartConfiguration) *TemplateLegendOptions {
 		if v == nil {
@@ -65827,7 +65568,7 @@ func (o TemplatePieChartConfigurationPtrOutput) Legend() TemplateLegendOptionsPt
 	}).(TemplateLegendOptionsPtrOutput)
 }
 
-// Options that determine the layout and display options of a chart's small multiples.
+// The small multiples setup for the visual.
 func (o TemplatePieChartConfigurationPtrOutput) SmallMultiplesOptions() TemplateSmallMultiplesOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplatePieChartConfiguration) *TemplateSmallMultiplesOptions {
 		if v == nil {
@@ -65847,7 +65588,7 @@ func (o TemplatePieChartConfigurationPtrOutput) SortConfiguration() TemplatePieC
 	}).(TemplatePieChartSortConfigurationPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The tooltip display setup of the visual.
 func (o TemplatePieChartConfigurationPtrOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplatePieChartConfiguration) *TemplateTooltipOptions {
 		if v == nil {
@@ -65857,7 +65598,7 @@ func (o TemplatePieChartConfigurationPtrOutput) Tooltip() TemplateTooltipOptions
 	}).(TemplateTooltipOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options for the value that is displayed in a pie chart.
 func (o TemplatePieChartConfigurationPtrOutput) ValueLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplatePieChartConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -65867,7 +65608,7 @@ func (o TemplatePieChartConfigurationPtrOutput) ValueLabelOptions() TemplateChar
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The visual display options for the visual palette.
+// The palette (chart color) display setup of the visual.
 func (o TemplatePieChartConfigurationPtrOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v *TemplatePieChartConfiguration) *TemplateVisualPalette {
 		if v == nil {
@@ -66017,11 +65758,11 @@ func (o TemplatePieChartFieldWellsPtrOutput) PieChartAggregatedFieldWells() Temp
 }
 
 type TemplatePieChartSortConfiguration struct {
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of categories that are displayed in a pie chart.
 	CategoryItemsLimit *TemplateItemsLimitConfiguration `pulumi:"categoryItemsLimit"`
 	// The sort configuration of the category fields.
 	CategorySort []TemplateFieldSortOptions `pulumi:"categorySort"`
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of small multiples panels that are displayed.
 	SmallMultiplesLimitConfiguration *TemplateItemsLimitConfiguration `pulumi:"smallMultiplesLimitConfiguration"`
 	// The sort configuration of the small multiples field.
 	SmallMultiplesSort []TemplateFieldSortOptions `pulumi:"smallMultiplesSort"`
@@ -66039,11 +65780,11 @@ type TemplatePieChartSortConfigurationInput interface {
 }
 
 type TemplatePieChartSortConfigurationArgs struct {
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of categories that are displayed in a pie chart.
 	CategoryItemsLimit TemplateItemsLimitConfigurationPtrInput `pulumi:"categoryItemsLimit"`
 	// The sort configuration of the category fields.
 	CategorySort TemplateFieldSortOptionsArrayInput `pulumi:"categorySort"`
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of small multiples panels that are displayed.
 	SmallMultiplesLimitConfiguration TemplateItemsLimitConfigurationPtrInput `pulumi:"smallMultiplesLimitConfiguration"`
 	// The sort configuration of the small multiples field.
 	SmallMultiplesSort TemplateFieldSortOptionsArrayInput `pulumi:"smallMultiplesSort"`
@@ -66126,7 +65867,7 @@ func (o TemplatePieChartSortConfigurationOutput) ToTemplatePieChartSortConfigura
 	}).(TemplatePieChartSortConfigurationPtrOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of categories that are displayed in a pie chart.
 func (o TemplatePieChartSortConfigurationOutput) CategoryItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplatePieChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		return v.CategoryItemsLimit
@@ -66138,7 +65879,7 @@ func (o TemplatePieChartSortConfigurationOutput) CategorySort() TemplateFieldSor
 	return o.ApplyT(func(v TemplatePieChartSortConfiguration) []TemplateFieldSortOptions { return v.CategorySort }).(TemplateFieldSortOptionsArrayOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of small multiples panels that are displayed.
 func (o TemplatePieChartSortConfigurationOutput) SmallMultiplesLimitConfiguration() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplatePieChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		return v.SmallMultiplesLimitConfiguration
@@ -66174,7 +65915,7 @@ func (o TemplatePieChartSortConfigurationPtrOutput) Elem() TemplatePieChartSortC
 	}).(TemplatePieChartSortConfigurationOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of categories that are displayed in a pie chart.
 func (o TemplatePieChartSortConfigurationPtrOutput) CategoryItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplatePieChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		if v == nil {
@@ -66194,7 +65935,7 @@ func (o TemplatePieChartSortConfigurationPtrOutput) CategorySort() TemplateField
 	}).(TemplateFieldSortOptionsArrayOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of small multiples panels that are displayed.
 func (o TemplatePieChartSortConfigurationPtrOutput) SmallMultiplesLimitConfiguration() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplatePieChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		if v == nil {
@@ -66221,9 +65962,9 @@ type TemplatePieChartVisual struct {
 	ChartConfiguration *TemplatePieChartConfiguration `pulumi:"chartConfiguration"`
 	// The column hierarchy that is used during drill-downs and drill-ups.
 	ColumnHierarchies []TemplateColumnHierarchy `pulumi:"columnHierarchies"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
@@ -66247,9 +65988,9 @@ type TemplatePieChartVisualArgs struct {
 	ChartConfiguration TemplatePieChartConfigurationPtrInput `pulumi:"chartConfiguration"`
 	// The column hierarchy that is used during drill-downs and drill-ups.
 	ColumnHierarchies TemplateColumnHierarchyArrayInput `pulumi:"columnHierarchies"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
@@ -66347,12 +66088,12 @@ func (o TemplatePieChartVisualOutput) ColumnHierarchies() TemplateColumnHierarch
 	return o.ApplyT(func(v TemplatePieChartVisual) []TemplateColumnHierarchy { return v.ColumnHierarchies }).(TemplateColumnHierarchyArrayOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplatePieChartVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplatePieChartVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplatePieChartVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplatePieChartVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
@@ -66416,7 +66157,7 @@ func (o TemplatePieChartVisualPtrOutput) ColumnHierarchies() TemplateColumnHiera
 	}).(TemplateColumnHierarchyArrayOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplatePieChartVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplatePieChartVisual) *TemplateVisualSubtitleLabelOptions {
 		if v == nil {
@@ -66426,7 +66167,7 @@ func (o TemplatePieChartVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelO
 	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplatePieChartVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplatePieChartVisual) *TemplateVisualTitleLabelOptions {
 		if v == nil {
@@ -66732,9 +66473,9 @@ type TemplatePivotTableCellConditionalFormatting struct {
 	FieldId string `pulumi:"fieldId"`
 	// The scope of the cell for conditional formatting.
 	Scope *TemplatePivotTableConditionalFormattingScope `pulumi:"scope"`
-	// The scope of the cell for conditional formatting.
+	// A list of cell scopes for conditional formatting.
 	Scopes []TemplatePivotTableConditionalFormattingScope `pulumi:"scopes"`
-	// The conditional formatting for the text.
+	// The text format of the cell for conditional formatting.
 	TextFormat *TemplateTextConditionalFormat `pulumi:"textFormat"`
 }
 
@@ -66754,9 +66495,9 @@ type TemplatePivotTableCellConditionalFormattingArgs struct {
 	FieldId pulumi.StringInput `pulumi:"fieldId"`
 	// The scope of the cell for conditional formatting.
 	Scope TemplatePivotTableConditionalFormattingScopePtrInput `pulumi:"scope"`
-	// The scope of the cell for conditional formatting.
+	// A list of cell scopes for conditional formatting.
 	Scopes TemplatePivotTableConditionalFormattingScopeArrayInput `pulumi:"scopes"`
-	// The conditional formatting for the text.
+	// The text format of the cell for conditional formatting.
 	TextFormat TemplateTextConditionalFormatPtrInput `pulumi:"textFormat"`
 }
 
@@ -66849,14 +66590,14 @@ func (o TemplatePivotTableCellConditionalFormattingOutput) Scope() TemplatePivot
 	}).(TemplatePivotTableConditionalFormattingScopePtrOutput)
 }
 
-// The scope of the cell for conditional formatting.
+// A list of cell scopes for conditional formatting.
 func (o TemplatePivotTableCellConditionalFormattingOutput) Scopes() TemplatePivotTableConditionalFormattingScopeArrayOutput {
 	return o.ApplyT(func(v TemplatePivotTableCellConditionalFormatting) []TemplatePivotTableConditionalFormattingScope {
 		return v.Scopes
 	}).(TemplatePivotTableConditionalFormattingScopeArrayOutput)
 }
 
-// The conditional formatting for the text.
+// The text format of the cell for conditional formatting.
 func (o TemplatePivotTableCellConditionalFormattingOutput) TextFormat() TemplateTextConditionalFormatPtrOutput {
 	return o.ApplyT(func(v TemplatePivotTableCellConditionalFormatting) *TemplateTextConditionalFormat {
 		return v.TextFormat
@@ -66907,7 +66648,7 @@ func (o TemplatePivotTableCellConditionalFormattingPtrOutput) Scope() TemplatePi
 	}).(TemplatePivotTableConditionalFormattingScopePtrOutput)
 }
 
-// The scope of the cell for conditional formatting.
+// A list of cell scopes for conditional formatting.
 func (o TemplatePivotTableCellConditionalFormattingPtrOutput) Scopes() TemplatePivotTableConditionalFormattingScopeArrayOutput {
 	return o.ApplyT(func(v *TemplatePivotTableCellConditionalFormatting) []TemplatePivotTableConditionalFormattingScope {
 		if v == nil {
@@ -66917,7 +66658,7 @@ func (o TemplatePivotTableCellConditionalFormattingPtrOutput) Scopes() TemplateP
 	}).(TemplatePivotTableConditionalFormattingScopeArrayOutput)
 }
 
-// The conditional formatting for the text.
+// The text format of the cell for conditional formatting.
 func (o TemplatePivotTableCellConditionalFormattingPtrOutput) TextFormat() TemplateTextConditionalFormatPtrOutput {
 	return o.ApplyT(func(v *TemplatePivotTableCellConditionalFormatting) *TemplateTextConditionalFormat {
 		if v == nil {
@@ -67352,9 +67093,7 @@ func (o TemplatePivotTableConditionalFormattingScopeArrayOutput) Index(i pulumi.
 type TemplatePivotTableConfiguration struct {
 	// The field options for a pivot table visual.
 	FieldOptions *TemplatePivotTableFieldOptions `pulumi:"fieldOptions"`
-	// The field wells for a pivot table visual.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The field wells of the visual.
 	FieldWells *TemplatePivotTableFieldWells `pulumi:"fieldWells"`
 	// The paginated report options for a pivot table visual.
 	PaginatedReportOptions *TemplatePivotTablePaginatedReportOptions `pulumi:"paginatedReportOptions"`
@@ -67380,9 +67119,7 @@ type TemplatePivotTableConfigurationInput interface {
 type TemplatePivotTableConfigurationArgs struct {
 	// The field options for a pivot table visual.
 	FieldOptions TemplatePivotTableFieldOptionsPtrInput `pulumi:"fieldOptions"`
-	// The field wells for a pivot table visual.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The field wells of the visual.
 	FieldWells TemplatePivotTableFieldWellsPtrInput `pulumi:"fieldWells"`
 	// The paginated report options for a pivot table visual.
 	PaginatedReportOptions TemplatePivotTablePaginatedReportOptionsPtrInput `pulumi:"paginatedReportOptions"`
@@ -67476,9 +67213,7 @@ func (o TemplatePivotTableConfigurationOutput) FieldOptions() TemplatePivotTable
 	return o.ApplyT(func(v TemplatePivotTableConfiguration) *TemplatePivotTableFieldOptions { return v.FieldOptions }).(TemplatePivotTableFieldOptionsPtrOutput)
 }
 
-// The field wells for a pivot table visual.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The field wells of the visual.
 func (o TemplatePivotTableConfigurationOutput) FieldWells() TemplatePivotTableFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplatePivotTableConfiguration) *TemplatePivotTableFieldWells { return v.FieldWells }).(TemplatePivotTableFieldWellsPtrOutput)
 }
@@ -67541,9 +67276,7 @@ func (o TemplatePivotTableConfigurationPtrOutput) FieldOptions() TemplatePivotTa
 	}).(TemplatePivotTableFieldOptionsPtrOutput)
 }
 
-// The field wells for a pivot table visual.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The field wells of the visual.
 func (o TemplatePivotTableConfigurationPtrOutput) FieldWells() TemplatePivotTableFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplatePivotTableConfiguration) *TemplatePivotTableFieldWells {
 		if v == nil {
@@ -67705,7 +67438,7 @@ type TemplatePivotTableFieldCollapseStateOption struct {
 	// - `COLLAPSED`
 	// - `EXPANDED`
 	State *TemplatePivotTableFieldCollapseState `pulumi:"state"`
-	// The target of a pivot table field collapse state.
+	// A tagged-union object that sets the collapse state.
 	Target TemplatePivotTableFieldCollapseStateTarget `pulumi:"target"`
 }
 
@@ -67726,7 +67459,7 @@ type TemplatePivotTableFieldCollapseStateOptionArgs struct {
 	// - `COLLAPSED`
 	// - `EXPANDED`
 	State TemplatePivotTableFieldCollapseStatePtrInput `pulumi:"state"`
-	// The target of a pivot table field collapse state.
+	// A tagged-union object that sets the collapse state.
 	Target TemplatePivotTableFieldCollapseStateTargetInput `pulumi:"target"`
 }
 
@@ -67791,7 +67524,7 @@ func (o TemplatePivotTableFieldCollapseStateOptionOutput) State() TemplatePivotT
 	}).(TemplatePivotTableFieldCollapseStatePtrOutput)
 }
 
-// The target of a pivot table field collapse state.
+// A tagged-union object that sets the collapse state.
 func (o TemplatePivotTableFieldCollapseStateOptionOutput) Target() TemplatePivotTableFieldCollapseStateTargetOutput {
 	return o.ApplyT(func(v TemplatePivotTableFieldCollapseStateOption) TemplatePivotTableFieldCollapseStateTarget {
 		return v.Target
@@ -67819,7 +67552,7 @@ func (o TemplatePivotTableFieldCollapseStateOptionArrayOutput) Index(i pulumi.In
 }
 
 type TemplatePivotTableFieldCollapseStateTarget struct {
-	// The data path that needs to be sorted.
+	// The data path of the pivot table's header. Used to set the collapse state.
 	FieldDataPathValues []TemplateDataPathValue `pulumi:"fieldDataPathValues"`
 	// The field ID of the pivot table that the collapse state needs to be set to.
 	FieldId *string `pulumi:"fieldId"`
@@ -67837,7 +67570,7 @@ type TemplatePivotTableFieldCollapseStateTargetInput interface {
 }
 
 type TemplatePivotTableFieldCollapseStateTargetArgs struct {
-	// The data path that needs to be sorted.
+	// The data path of the pivot table's header. Used to set the collapse state.
 	FieldDataPathValues TemplateDataPathValueArrayInput `pulumi:"fieldDataPathValues"`
 	// The field ID of the pivot table that the collapse state needs to be set to.
 	FieldId pulumi.StringPtrInput `pulumi:"fieldId"`
@@ -67869,7 +67602,7 @@ func (o TemplatePivotTableFieldCollapseStateTargetOutput) ToTemplatePivotTableFi
 	return o
 }
 
-// The data path that needs to be sorted.
+// The data path of the pivot table's header. Used to set the collapse state.
 func (o TemplatePivotTableFieldCollapseStateTargetOutput) FieldDataPathValues() TemplateDataPathValueArrayOutput {
 	return o.ApplyT(func(v TemplatePivotTableFieldCollapseStateTarget) []TemplateDataPathValue {
 		return v.FieldDataPathValues
@@ -68410,11 +68143,11 @@ func (o TemplatePivotTableFieldWellsPtrOutput) PivotTableAggregatedFieldWells() 
 }
 
 type TemplatePivotTableOptions struct {
-	// The table cell style for a cell in pivot table or table visual.
+	// The table cell style of cells.
 	CellStyle *TemplateTableCellStyle `pulumi:"cellStyle"`
 	// The visibility setting of a pivot table's collapsed row dimension fields. If the value of this structure is `HIDDEN` , all collapsed columns in a pivot table are automatically hidden. The default value is `VISIBLE` .
 	CollapsedRowDimensionsVisibility *TemplateVisibility `pulumi:"collapsedRowDimensionsVisibility"`
-	// The table cell style for a cell in pivot table or table visual.
+	// The table cell style of the column header.
 	ColumnHeaderStyle *TemplateTableCellStyle `pulumi:"columnHeaderStyle"`
 	// The visibility of the column names.
 	ColumnNamesVisibility *TemplateVisibility `pulumi:"columnNamesVisibility"`
@@ -68422,13 +68155,13 @@ type TemplatePivotTableOptions struct {
 	DefaultCellWidth *string `pulumi:"defaultCellWidth"`
 	// The metric placement (row, column) options.
 	MetricPlacement *TemplatePivotTableMetricPlacement `pulumi:"metricPlacement"`
-	// Determines the row alternate color options.
+	// The row alternate color options (widget status, row alternate colors).
 	RowAlternateColorOptions *TemplateRowAlternateColorOptions `pulumi:"rowAlternateColorOptions"`
-	// The table cell style for a cell in pivot table or table visual.
+	// The table cell style of row field names.
 	RowFieldNamesStyle *TemplateTableCellStyle `pulumi:"rowFieldNamesStyle"`
-	// The table cell style for a cell in pivot table or table visual.
+	// The table cell style of the row headers.
 	RowHeaderStyle *TemplateTableCellStyle `pulumi:"rowHeaderStyle"`
-	// The options for the label thta is located above the row headers. This option is only applicable when `RowsLayout` is set to `HIERARCHY` .
+	// The options for the label that is located above the row headers. This option is only applicable when `RowsLayout` is set to `HIERARCHY` .
 	RowsLabelOptions *TemplatePivotTableRowsLabelOptions `pulumi:"rowsLabelOptions"`
 	// The layout for the row dimension headers of a pivot table. Choose one of the following options.
 	//
@@ -68453,11 +68186,11 @@ type TemplatePivotTableOptionsInput interface {
 }
 
 type TemplatePivotTableOptionsArgs struct {
-	// The table cell style for a cell in pivot table or table visual.
+	// The table cell style of cells.
 	CellStyle TemplateTableCellStylePtrInput `pulumi:"cellStyle"`
 	// The visibility setting of a pivot table's collapsed row dimension fields. If the value of this structure is `HIDDEN` , all collapsed columns in a pivot table are automatically hidden. The default value is `VISIBLE` .
 	CollapsedRowDimensionsVisibility TemplateVisibilityPtrInput `pulumi:"collapsedRowDimensionsVisibility"`
-	// The table cell style for a cell in pivot table or table visual.
+	// The table cell style of the column header.
 	ColumnHeaderStyle TemplateTableCellStylePtrInput `pulumi:"columnHeaderStyle"`
 	// The visibility of the column names.
 	ColumnNamesVisibility TemplateVisibilityPtrInput `pulumi:"columnNamesVisibility"`
@@ -68465,13 +68198,13 @@ type TemplatePivotTableOptionsArgs struct {
 	DefaultCellWidth pulumi.StringPtrInput `pulumi:"defaultCellWidth"`
 	// The metric placement (row, column) options.
 	MetricPlacement TemplatePivotTableMetricPlacementPtrInput `pulumi:"metricPlacement"`
-	// Determines the row alternate color options.
+	// The row alternate color options (widget status, row alternate colors).
 	RowAlternateColorOptions TemplateRowAlternateColorOptionsPtrInput `pulumi:"rowAlternateColorOptions"`
-	// The table cell style for a cell in pivot table or table visual.
+	// The table cell style of row field names.
 	RowFieldNamesStyle TemplateTableCellStylePtrInput `pulumi:"rowFieldNamesStyle"`
-	// The table cell style for a cell in pivot table or table visual.
+	// The table cell style of the row headers.
 	RowHeaderStyle TemplateTableCellStylePtrInput `pulumi:"rowHeaderStyle"`
-	// The options for the label thta is located above the row headers. This option is only applicable when `RowsLayout` is set to `HIERARCHY` .
+	// The options for the label that is located above the row headers. This option is only applicable when `RowsLayout` is set to `HIERARCHY` .
 	RowsLabelOptions TemplatePivotTableRowsLabelOptionsPtrInput `pulumi:"rowsLabelOptions"`
 	// The layout for the row dimension headers of a pivot table. Choose one of the following options.
 	//
@@ -68561,7 +68294,7 @@ func (o TemplatePivotTableOptionsOutput) ToTemplatePivotTableOptionsPtrOutputWit
 	}).(TemplatePivotTableOptionsPtrOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The table cell style of cells.
 func (o TemplatePivotTableOptionsOutput) CellStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v TemplatePivotTableOptions) *TemplateTableCellStyle { return v.CellStyle }).(TemplateTableCellStylePtrOutput)
 }
@@ -68571,7 +68304,7 @@ func (o TemplatePivotTableOptionsOutput) CollapsedRowDimensionsVisibility() Temp
 	return o.ApplyT(func(v TemplatePivotTableOptions) *TemplateVisibility { return v.CollapsedRowDimensionsVisibility }).(TemplateVisibilityPtrOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The table cell style of the column header.
 func (o TemplatePivotTableOptionsOutput) ColumnHeaderStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v TemplatePivotTableOptions) *TemplateTableCellStyle { return v.ColumnHeaderStyle }).(TemplateTableCellStylePtrOutput)
 }
@@ -68591,22 +68324,22 @@ func (o TemplatePivotTableOptionsOutput) MetricPlacement() TemplatePivotTableMet
 	return o.ApplyT(func(v TemplatePivotTableOptions) *TemplatePivotTableMetricPlacement { return v.MetricPlacement }).(TemplatePivotTableMetricPlacementPtrOutput)
 }
 
-// Determines the row alternate color options.
+// The row alternate color options (widget status, row alternate colors).
 func (o TemplatePivotTableOptionsOutput) RowAlternateColorOptions() TemplateRowAlternateColorOptionsPtrOutput {
 	return o.ApplyT(func(v TemplatePivotTableOptions) *TemplateRowAlternateColorOptions { return v.RowAlternateColorOptions }).(TemplateRowAlternateColorOptionsPtrOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The table cell style of row field names.
 func (o TemplatePivotTableOptionsOutput) RowFieldNamesStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v TemplatePivotTableOptions) *TemplateTableCellStyle { return v.RowFieldNamesStyle }).(TemplateTableCellStylePtrOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The table cell style of the row headers.
 func (o TemplatePivotTableOptionsOutput) RowHeaderStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v TemplatePivotTableOptions) *TemplateTableCellStyle { return v.RowHeaderStyle }).(TemplateTableCellStylePtrOutput)
 }
 
-// The options for the label thta is located above the row headers. This option is only applicable when `RowsLayout` is set to `HIERARCHY` .
+// The options for the label that is located above the row headers. This option is only applicable when `RowsLayout` is set to `HIERARCHY` .
 func (o TemplatePivotTableOptionsOutput) RowsLabelOptions() TemplatePivotTableRowsLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplatePivotTableOptions) *TemplatePivotTableRowsLabelOptions { return v.RowsLabelOptions }).(TemplatePivotTableRowsLabelOptionsPtrOutput)
 }
@@ -68653,7 +68386,7 @@ func (o TemplatePivotTableOptionsPtrOutput) Elem() TemplatePivotTableOptionsOutp
 	}).(TemplatePivotTableOptionsOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The table cell style of cells.
 func (o TemplatePivotTableOptionsPtrOutput) CellStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v *TemplatePivotTableOptions) *TemplateTableCellStyle {
 		if v == nil {
@@ -68673,7 +68406,7 @@ func (o TemplatePivotTableOptionsPtrOutput) CollapsedRowDimensionsVisibility() T
 	}).(TemplateVisibilityPtrOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The table cell style of the column header.
 func (o TemplatePivotTableOptionsPtrOutput) ColumnHeaderStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v *TemplatePivotTableOptions) *TemplateTableCellStyle {
 		if v == nil {
@@ -68713,7 +68446,7 @@ func (o TemplatePivotTableOptionsPtrOutput) MetricPlacement() TemplatePivotTable
 	}).(TemplatePivotTableMetricPlacementPtrOutput)
 }
 
-// Determines the row alternate color options.
+// The row alternate color options (widget status, row alternate colors).
 func (o TemplatePivotTableOptionsPtrOutput) RowAlternateColorOptions() TemplateRowAlternateColorOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplatePivotTableOptions) *TemplateRowAlternateColorOptions {
 		if v == nil {
@@ -68723,7 +68456,7 @@ func (o TemplatePivotTableOptionsPtrOutput) RowAlternateColorOptions() TemplateR
 	}).(TemplateRowAlternateColorOptionsPtrOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The table cell style of row field names.
 func (o TemplatePivotTableOptionsPtrOutput) RowFieldNamesStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v *TemplatePivotTableOptions) *TemplateTableCellStyle {
 		if v == nil {
@@ -68733,7 +68466,7 @@ func (o TemplatePivotTableOptionsPtrOutput) RowFieldNamesStyle() TemplateTableCe
 	}).(TemplateTableCellStylePtrOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The table cell style of the row headers.
 func (o TemplatePivotTableOptionsPtrOutput) RowHeaderStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v *TemplatePivotTableOptions) *TemplateTableCellStyle {
 		if v == nil {
@@ -68743,7 +68476,7 @@ func (o TemplatePivotTableOptionsPtrOutput) RowHeaderStyle() TemplateTableCellSt
 	}).(TemplateTableCellStylePtrOutput)
 }
 
-// The options for the label thta is located above the row headers. This option is only applicable when `RowsLayout` is set to `HIERARCHY` .
+// The options for the label that is located above the row headers. This option is only applicable when `RowsLayout` is set to `HIERARCHY` .
 func (o TemplatePivotTableOptionsPtrOutput) RowsLabelOptions() TemplatePivotTableRowsLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplatePivotTableOptions) *TemplatePivotTableRowsLabelOptions {
 		if v == nil {
@@ -69103,11 +68836,11 @@ func (o TemplatePivotTableRowsLabelOptionsPtrOutput) Visibility() TemplateVisibi
 }
 
 type TemplatePivotTableSortBy struct {
-	// The sort configuration for a column that is not used in a field well.
+	// The column sort (field id, direction) for the pivot table sort by options.
 	Column *TemplateColumnSort `pulumi:"column"`
-	// Allows data paths to be sorted by a specific data value.
+	// The data path sort (data path value, direction) for the pivot table sort by options.
 	DataPath *TemplateDataPathSort `pulumi:"dataPath"`
-	// The sort configuration for a field in a field well.
+	// The field sort (field id, direction) for the pivot table sort by options.
 	Field *TemplateFieldSort `pulumi:"field"`
 }
 
@@ -69123,11 +68856,11 @@ type TemplatePivotTableSortByInput interface {
 }
 
 type TemplatePivotTableSortByArgs struct {
-	// The sort configuration for a column that is not used in a field well.
+	// The column sort (field id, direction) for the pivot table sort by options.
 	Column TemplateColumnSortPtrInput `pulumi:"column"`
-	// Allows data paths to be sorted by a specific data value.
+	// The data path sort (data path value, direction) for the pivot table sort by options.
 	DataPath TemplateDataPathSortPtrInput `pulumi:"dataPath"`
-	// The sort configuration for a field in a field well.
+	// The field sort (field id, direction) for the pivot table sort by options.
 	Field TemplateFieldSortPtrInput `pulumi:"field"`
 }
 
@@ -69157,17 +68890,17 @@ func (o TemplatePivotTableSortByOutput) ToTemplatePivotTableSortByOutputWithCont
 	return o
 }
 
-// The sort configuration for a column that is not used in a field well.
+// The column sort (field id, direction) for the pivot table sort by options.
 func (o TemplatePivotTableSortByOutput) Column() TemplateColumnSortPtrOutput {
 	return o.ApplyT(func(v TemplatePivotTableSortBy) *TemplateColumnSort { return v.Column }).(TemplateColumnSortPtrOutput)
 }
 
-// Allows data paths to be sorted by a specific data value.
+// The data path sort (data path value, direction) for the pivot table sort by options.
 func (o TemplatePivotTableSortByOutput) DataPath() TemplateDataPathSortPtrOutput {
 	return o.ApplyT(func(v TemplatePivotTableSortBy) *TemplateDataPathSort { return v.DataPath }).(TemplateDataPathSortPtrOutput)
 }
 
-// The sort configuration for a field in a field well.
+// The field sort (field id, direction) for the pivot table sort by options.
 func (o TemplatePivotTableSortByOutput) Field() TemplateFieldSortPtrOutput {
 	return o.ApplyT(func(v TemplatePivotTableSortBy) *TemplateFieldSort { return v.Field }).(TemplateFieldSortPtrOutput)
 }
@@ -69310,13 +69043,13 @@ func (o TemplatePivotTableSortConfigurationPtrOutput) FieldSortOptions() Templat
 }
 
 type TemplatePivotTableTotalOptions struct {
-	// The subtotal options.
+	// The column subtotal options.
 	ColumnSubtotalOptions *TemplateSubtotalOptions `pulumi:"columnSubtotalOptions"`
-	// The optional configuration of totals cells in a `PivotTableVisual` .
+	// The column total options.
 	ColumnTotalOptions *TemplatePivotTotalOptions `pulumi:"columnTotalOptions"`
-	// The subtotal options.
+	// The row subtotal options.
 	RowSubtotalOptions *TemplateSubtotalOptions `pulumi:"rowSubtotalOptions"`
-	// The optional configuration of totals cells in a `PivotTableVisual` .
+	// The row total options.
 	RowTotalOptions *TemplatePivotTotalOptions `pulumi:"rowTotalOptions"`
 }
 
@@ -69332,13 +69065,13 @@ type TemplatePivotTableTotalOptionsInput interface {
 }
 
 type TemplatePivotTableTotalOptionsArgs struct {
-	// The subtotal options.
+	// The column subtotal options.
 	ColumnSubtotalOptions TemplateSubtotalOptionsPtrInput `pulumi:"columnSubtotalOptions"`
-	// The optional configuration of totals cells in a `PivotTableVisual` .
+	// The column total options.
 	ColumnTotalOptions TemplatePivotTotalOptionsPtrInput `pulumi:"columnTotalOptions"`
-	// The subtotal options.
+	// The row subtotal options.
 	RowSubtotalOptions TemplateSubtotalOptionsPtrInput `pulumi:"rowSubtotalOptions"`
-	// The optional configuration of totals cells in a `PivotTableVisual` .
+	// The row total options.
 	RowTotalOptions TemplatePivotTotalOptionsPtrInput `pulumi:"rowTotalOptions"`
 }
 
@@ -69419,22 +69152,22 @@ func (o TemplatePivotTableTotalOptionsOutput) ToTemplatePivotTableTotalOptionsPt
 	}).(TemplatePivotTableTotalOptionsPtrOutput)
 }
 
-// The subtotal options.
+// The column subtotal options.
 func (o TemplatePivotTableTotalOptionsOutput) ColumnSubtotalOptions() TemplateSubtotalOptionsPtrOutput {
 	return o.ApplyT(func(v TemplatePivotTableTotalOptions) *TemplateSubtotalOptions { return v.ColumnSubtotalOptions }).(TemplateSubtotalOptionsPtrOutput)
 }
 
-// The optional configuration of totals cells in a `PivotTableVisual` .
+// The column total options.
 func (o TemplatePivotTableTotalOptionsOutput) ColumnTotalOptions() TemplatePivotTotalOptionsPtrOutput {
 	return o.ApplyT(func(v TemplatePivotTableTotalOptions) *TemplatePivotTotalOptions { return v.ColumnTotalOptions }).(TemplatePivotTotalOptionsPtrOutput)
 }
 
-// The subtotal options.
+// The row subtotal options.
 func (o TemplatePivotTableTotalOptionsOutput) RowSubtotalOptions() TemplateSubtotalOptionsPtrOutput {
 	return o.ApplyT(func(v TemplatePivotTableTotalOptions) *TemplateSubtotalOptions { return v.RowSubtotalOptions }).(TemplateSubtotalOptionsPtrOutput)
 }
 
-// The optional configuration of totals cells in a `PivotTableVisual` .
+// The row total options.
 func (o TemplatePivotTableTotalOptionsOutput) RowTotalOptions() TemplatePivotTotalOptionsPtrOutput {
 	return o.ApplyT(func(v TemplatePivotTableTotalOptions) *TemplatePivotTotalOptions { return v.RowTotalOptions }).(TemplatePivotTotalOptionsPtrOutput)
 }
@@ -69463,7 +69196,7 @@ func (o TemplatePivotTableTotalOptionsPtrOutput) Elem() TemplatePivotTableTotalO
 	}).(TemplatePivotTableTotalOptionsOutput)
 }
 
-// The subtotal options.
+// The column subtotal options.
 func (o TemplatePivotTableTotalOptionsPtrOutput) ColumnSubtotalOptions() TemplateSubtotalOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplatePivotTableTotalOptions) *TemplateSubtotalOptions {
 		if v == nil {
@@ -69473,7 +69206,7 @@ func (o TemplatePivotTableTotalOptionsPtrOutput) ColumnSubtotalOptions() Templat
 	}).(TemplateSubtotalOptionsPtrOutput)
 }
 
-// The optional configuration of totals cells in a `PivotTableVisual` .
+// The column total options.
 func (o TemplatePivotTableTotalOptionsPtrOutput) ColumnTotalOptions() TemplatePivotTotalOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplatePivotTableTotalOptions) *TemplatePivotTotalOptions {
 		if v == nil {
@@ -69483,7 +69216,7 @@ func (o TemplatePivotTableTotalOptionsPtrOutput) ColumnTotalOptions() TemplatePi
 	}).(TemplatePivotTotalOptionsPtrOutput)
 }
 
-// The subtotal options.
+// The row subtotal options.
 func (o TemplatePivotTableTotalOptionsPtrOutput) RowSubtotalOptions() TemplateSubtotalOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplatePivotTableTotalOptions) *TemplateSubtotalOptions {
 		if v == nil {
@@ -69493,7 +69226,7 @@ func (o TemplatePivotTableTotalOptionsPtrOutput) RowSubtotalOptions() TemplateSu
 	}).(TemplateSubtotalOptionsPtrOutput)
 }
 
-// The optional configuration of totals cells in a `PivotTableVisual` .
+// The row total options.
 func (o TemplatePivotTableTotalOptionsPtrOutput) RowTotalOptions() TemplatePivotTotalOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplatePivotTableTotalOptions) *TemplatePivotTotalOptions {
 		if v == nil {
@@ -69506,13 +69239,13 @@ func (o TemplatePivotTableTotalOptionsPtrOutput) RowTotalOptions() TemplatePivot
 type TemplatePivotTableVisual struct {
 	// The list of custom actions that are configured for a visual.
 	Actions []TemplateVisualCustomAction `pulumi:"actions"`
-	// The configuration for a `PivotTableVisual` .
+	// The configuration settings of the visual.
 	ChartConfiguration *TemplatePivotTableConfiguration `pulumi:"chartConfiguration"`
 	// The conditional formatting for a `PivotTableVisual` .
 	ConditionalFormatting *TemplatePivotTableConditionalFormatting `pulumi:"conditionalFormatting"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId string `pulumi:"visualId"`
@@ -69532,13 +69265,13 @@ type TemplatePivotTableVisualInput interface {
 type TemplatePivotTableVisualArgs struct {
 	// The list of custom actions that are configured for a visual.
 	Actions TemplateVisualCustomActionArrayInput `pulumi:"actions"`
-	// The configuration for a `PivotTableVisual` .
+	// The configuration settings of the visual.
 	ChartConfiguration TemplatePivotTableConfigurationPtrInput `pulumi:"chartConfiguration"`
 	// The conditional formatting for a `PivotTableVisual` .
 	ConditionalFormatting TemplatePivotTableConditionalFormattingPtrInput `pulumi:"conditionalFormatting"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId pulumi.StringInput `pulumi:"visualId"`
@@ -69626,7 +69359,7 @@ func (o TemplatePivotTableVisualOutput) Actions() TemplateVisualCustomActionArra
 	return o.ApplyT(func(v TemplatePivotTableVisual) []TemplateVisualCustomAction { return v.Actions }).(TemplateVisualCustomActionArrayOutput)
 }
 
-// The configuration for a `PivotTableVisual` .
+// The configuration settings of the visual.
 func (o TemplatePivotTableVisualOutput) ChartConfiguration() TemplatePivotTableConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplatePivotTableVisual) *TemplatePivotTableConfiguration { return v.ChartConfiguration }).(TemplatePivotTableConfigurationPtrOutput)
 }
@@ -69638,12 +69371,12 @@ func (o TemplatePivotTableVisualOutput) ConditionalFormatting() TemplatePivotTab
 	}).(TemplatePivotTableConditionalFormattingPtrOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplatePivotTableVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplatePivotTableVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplatePivotTableVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplatePivotTableVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
@@ -69687,7 +69420,7 @@ func (o TemplatePivotTableVisualPtrOutput) Actions() TemplateVisualCustomActionA
 	}).(TemplateVisualCustomActionArrayOutput)
 }
 
-// The configuration for a `PivotTableVisual` .
+// The configuration settings of the visual.
 func (o TemplatePivotTableVisualPtrOutput) ChartConfiguration() TemplatePivotTableConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplatePivotTableVisual) *TemplatePivotTableConfiguration {
 		if v == nil {
@@ -69707,7 +69440,7 @@ func (o TemplatePivotTableVisualPtrOutput) ConditionalFormatting() TemplatePivot
 	}).(TemplatePivotTableConditionalFormattingPtrOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplatePivotTableVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplatePivotTableVisual) *TemplateVisualSubtitleLabelOptions {
 		if v == nil {
@@ -69717,7 +69450,7 @@ func (o TemplatePivotTableVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabe
 	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplatePivotTableVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplatePivotTableVisual) *TemplateVisualTitleLabelOptions {
 		if v == nil {
@@ -69740,19 +69473,19 @@ func (o TemplatePivotTableVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 type TemplatePivotTotalOptions struct {
 	// The custom label string for the total cells.
 	CustomLabel *string `pulumi:"customLabel"`
-	// The table cell style for a cell in pivot table or table visual.
+	// The cell styling options for the total of header cells.
 	MetricHeaderCellStyle *TemplateTableCellStyle `pulumi:"metricHeaderCellStyle"`
 	// The placement (start, end) for the total cells.
 	Placement *TemplateTableTotalsPlacement `pulumi:"placement"`
 	// The scroll status (pinned, scrolled) for the total cells.
 	ScrollStatus *TemplateTableTotalsScrollStatus `pulumi:"scrollStatus"`
-	// The total aggregation settings map of a field id.
+	// The total aggregation options for each value field.
 	TotalAggregationOptions []TemplateTotalAggregationOption `pulumi:"totalAggregationOptions"`
-	// The table cell style for a cell in pivot table or table visual.
+	// The cell styling options for the total cells.
 	TotalCellStyle *TemplateTableCellStyle `pulumi:"totalCellStyle"`
 	// The visibility configuration for the total cells.
 	TotalsVisibility *TemplateVisibility `pulumi:"totalsVisibility"`
-	// The table cell style for a cell in pivot table or table visual.
+	// The cell styling options for the totals of value cells.
 	ValueCellStyle *TemplateTableCellStyle `pulumi:"valueCellStyle"`
 }
 
@@ -69770,19 +69503,19 @@ type TemplatePivotTotalOptionsInput interface {
 type TemplatePivotTotalOptionsArgs struct {
 	// The custom label string for the total cells.
 	CustomLabel pulumi.StringPtrInput `pulumi:"customLabel"`
-	// The table cell style for a cell in pivot table or table visual.
+	// The cell styling options for the total of header cells.
 	MetricHeaderCellStyle TemplateTableCellStylePtrInput `pulumi:"metricHeaderCellStyle"`
 	// The placement (start, end) for the total cells.
 	Placement TemplateTableTotalsPlacementPtrInput `pulumi:"placement"`
 	// The scroll status (pinned, scrolled) for the total cells.
 	ScrollStatus TemplateTableTotalsScrollStatusPtrInput `pulumi:"scrollStatus"`
-	// The total aggregation settings map of a field id.
+	// The total aggregation options for each value field.
 	TotalAggregationOptions TemplateTotalAggregationOptionArrayInput `pulumi:"totalAggregationOptions"`
-	// The table cell style for a cell in pivot table or table visual.
+	// The cell styling options for the total cells.
 	TotalCellStyle TemplateTableCellStylePtrInput `pulumi:"totalCellStyle"`
 	// The visibility configuration for the total cells.
 	TotalsVisibility TemplateVisibilityPtrInput `pulumi:"totalsVisibility"`
-	// The table cell style for a cell in pivot table or table visual.
+	// The cell styling options for the totals of value cells.
 	ValueCellStyle TemplateTableCellStylePtrInput `pulumi:"valueCellStyle"`
 }
 
@@ -69868,7 +69601,7 @@ func (o TemplatePivotTotalOptionsOutput) CustomLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplatePivotTotalOptions) *string { return v.CustomLabel }).(pulumi.StringPtrOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The cell styling options for the total of header cells.
 func (o TemplatePivotTotalOptionsOutput) MetricHeaderCellStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v TemplatePivotTotalOptions) *TemplateTableCellStyle { return v.MetricHeaderCellStyle }).(TemplateTableCellStylePtrOutput)
 }
@@ -69883,12 +69616,12 @@ func (o TemplatePivotTotalOptionsOutput) ScrollStatus() TemplateTableTotalsScrol
 	return o.ApplyT(func(v TemplatePivotTotalOptions) *TemplateTableTotalsScrollStatus { return v.ScrollStatus }).(TemplateTableTotalsScrollStatusPtrOutput)
 }
 
-// The total aggregation settings map of a field id.
+// The total aggregation options for each value field.
 func (o TemplatePivotTotalOptionsOutput) TotalAggregationOptions() TemplateTotalAggregationOptionArrayOutput {
 	return o.ApplyT(func(v TemplatePivotTotalOptions) []TemplateTotalAggregationOption { return v.TotalAggregationOptions }).(TemplateTotalAggregationOptionArrayOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The cell styling options for the total cells.
 func (o TemplatePivotTotalOptionsOutput) TotalCellStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v TemplatePivotTotalOptions) *TemplateTableCellStyle { return v.TotalCellStyle }).(TemplateTableCellStylePtrOutput)
 }
@@ -69898,7 +69631,7 @@ func (o TemplatePivotTotalOptionsOutput) TotalsVisibility() TemplateVisibilityPt
 	return o.ApplyT(func(v TemplatePivotTotalOptions) *TemplateVisibility { return v.TotalsVisibility }).(TemplateVisibilityPtrOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The cell styling options for the totals of value cells.
 func (o TemplatePivotTotalOptionsOutput) ValueCellStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v TemplatePivotTotalOptions) *TemplateTableCellStyle { return v.ValueCellStyle }).(TemplateTableCellStylePtrOutput)
 }
@@ -69937,7 +69670,7 @@ func (o TemplatePivotTotalOptionsPtrOutput) CustomLabel() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The cell styling options for the total of header cells.
 func (o TemplatePivotTotalOptionsPtrOutput) MetricHeaderCellStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v *TemplatePivotTotalOptions) *TemplateTableCellStyle {
 		if v == nil {
@@ -69967,7 +69700,7 @@ func (o TemplatePivotTotalOptionsPtrOutput) ScrollStatus() TemplateTableTotalsSc
 	}).(TemplateTableTotalsScrollStatusPtrOutput)
 }
 
-// The total aggregation settings map of a field id.
+// The total aggregation options for each value field.
 func (o TemplatePivotTotalOptionsPtrOutput) TotalAggregationOptions() TemplateTotalAggregationOptionArrayOutput {
 	return o.ApplyT(func(v *TemplatePivotTotalOptions) []TemplateTotalAggregationOption {
 		if v == nil {
@@ -69977,7 +69710,7 @@ func (o TemplatePivotTotalOptionsPtrOutput) TotalAggregationOptions() TemplateTo
 	}).(TemplateTotalAggregationOptionArrayOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The cell styling options for the total cells.
 func (o TemplatePivotTotalOptionsPtrOutput) TotalCellStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v *TemplatePivotTotalOptions) *TemplateTableCellStyle {
 		if v == nil {
@@ -69997,7 +69730,7 @@ func (o TemplatePivotTotalOptionsPtrOutput) TotalsVisibility() TemplateVisibilit
 	}).(TemplateVisibilityPtrOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The cell styling options for the totals of value cells.
 func (o TemplatePivotTotalOptionsPtrOutput) ValueCellStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v *TemplatePivotTotalOptions) *TemplateTableCellStyle {
 		if v == nil {
@@ -70640,19 +70373,19 @@ type TemplateRadarChartConfiguration struct {
 	AlternateBandOddColor *string `pulumi:"alternateBandOddColor"`
 	// The axis behavior options of a radar chart.
 	AxesRangeScale *TemplateRadarChartAxesRangeScale `pulumi:"axesRangeScale"`
-	// The series settings of a radar chart.
+	// The base sreies settings of a radar chart.
 	BaseSeriesSettings *TemplateRadarChartSeriesSettings `pulumi:"baseSeriesSettings"`
-	// The display options for the axis label.
+	// The category axis of a radar chart.
 	CategoryAxis *TemplateAxisDisplayOptions `pulumi:"categoryAxis"`
-	// The label options for an axis on a chart.
+	// The category label options of a radar chart.
 	CategoryLabelOptions *TemplateChartAxisLabelOptions `pulumi:"categoryLabelOptions"`
-	// The display options for the axis label.
+	// The color axis of a radar chart.
 	ColorAxis *TemplateAxisDisplayOptions `pulumi:"colorAxis"`
-	// The label options for an axis on a chart.
+	// The color label options of a radar chart.
 	ColorLabelOptions *TemplateChartAxisLabelOptions `pulumi:"colorLabelOptions"`
-	// The field wells of a radar chart visual.
+	// The field well configuration of a `RadarChartVisual` .
 	FieldWells *TemplateRadarChartFieldWells `pulumi:"fieldWells"`
-	// The options for the legend setup of a visual.
+	// The legend display setup of the visual.
 	Legend *TemplateLegendOptions `pulumi:"legend"`
 	// The shape of the radar chart.
 	Shape *TemplateRadarChartShape `pulumi:"shape"`
@@ -70660,7 +70393,7 @@ type TemplateRadarChartConfiguration struct {
 	SortConfiguration *TemplateRadarChartSortConfiguration `pulumi:"sortConfiguration"`
 	// The start angle of a radar chart's axis.
 	StartAngle *float64 `pulumi:"startAngle"`
-	// The visual display options for the visual palette.
+	// The palette (chart color) display setup of the visual.
 	VisualPalette *TemplateVisualPalette `pulumi:"visualPalette"`
 }
 
@@ -70684,19 +70417,19 @@ type TemplateRadarChartConfigurationArgs struct {
 	AlternateBandOddColor pulumi.StringPtrInput `pulumi:"alternateBandOddColor"`
 	// The axis behavior options of a radar chart.
 	AxesRangeScale TemplateRadarChartAxesRangeScalePtrInput `pulumi:"axesRangeScale"`
-	// The series settings of a radar chart.
+	// The base sreies settings of a radar chart.
 	BaseSeriesSettings TemplateRadarChartSeriesSettingsPtrInput `pulumi:"baseSeriesSettings"`
-	// The display options for the axis label.
+	// The category axis of a radar chart.
 	CategoryAxis TemplateAxisDisplayOptionsPtrInput `pulumi:"categoryAxis"`
-	// The label options for an axis on a chart.
+	// The category label options of a radar chart.
 	CategoryLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"categoryLabelOptions"`
-	// The display options for the axis label.
+	// The color axis of a radar chart.
 	ColorAxis TemplateAxisDisplayOptionsPtrInput `pulumi:"colorAxis"`
-	// The label options for an axis on a chart.
+	// The color label options of a radar chart.
 	ColorLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"colorLabelOptions"`
-	// The field wells of a radar chart visual.
+	// The field well configuration of a `RadarChartVisual` .
 	FieldWells TemplateRadarChartFieldWellsPtrInput `pulumi:"fieldWells"`
-	// The options for the legend setup of a visual.
+	// The legend display setup of the visual.
 	Legend TemplateLegendOptionsPtrInput `pulumi:"legend"`
 	// The shape of the radar chart.
 	Shape TemplateRadarChartShapePtrInput `pulumi:"shape"`
@@ -70704,7 +70437,7 @@ type TemplateRadarChartConfigurationArgs struct {
 	SortConfiguration TemplateRadarChartSortConfigurationPtrInput `pulumi:"sortConfiguration"`
 	// The start angle of a radar chart's axis.
 	StartAngle pulumi.Float64PtrInput `pulumi:"startAngle"`
-	// The visual display options for the visual palette.
+	// The palette (chart color) display setup of the visual.
 	VisualPalette TemplateVisualPalettePtrInput `pulumi:"visualPalette"`
 }
 
@@ -70805,37 +70538,37 @@ func (o TemplateRadarChartConfigurationOutput) AxesRangeScale() TemplateRadarCha
 	return o.ApplyT(func(v TemplateRadarChartConfiguration) *TemplateRadarChartAxesRangeScale { return v.AxesRangeScale }).(TemplateRadarChartAxesRangeScalePtrOutput)
 }
 
-// The series settings of a radar chart.
+// The base sreies settings of a radar chart.
 func (o TemplateRadarChartConfigurationOutput) BaseSeriesSettings() TemplateRadarChartSeriesSettingsPtrOutput {
 	return o.ApplyT(func(v TemplateRadarChartConfiguration) *TemplateRadarChartSeriesSettings { return v.BaseSeriesSettings }).(TemplateRadarChartSeriesSettingsPtrOutput)
 }
 
-// The display options for the axis label.
+// The category axis of a radar chart.
 func (o TemplateRadarChartConfigurationOutput) CategoryAxis() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateRadarChartConfiguration) *TemplateAxisDisplayOptions { return v.CategoryAxis }).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The category label options of a radar chart.
 func (o TemplateRadarChartConfigurationOutput) CategoryLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateRadarChartConfiguration) *TemplateChartAxisLabelOptions { return v.CategoryLabelOptions }).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The display options for the axis label.
+// The color axis of a radar chart.
 func (o TemplateRadarChartConfigurationOutput) ColorAxis() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateRadarChartConfiguration) *TemplateAxisDisplayOptions { return v.ColorAxis }).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The color label options of a radar chart.
 func (o TemplateRadarChartConfigurationOutput) ColorLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateRadarChartConfiguration) *TemplateChartAxisLabelOptions { return v.ColorLabelOptions }).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The field wells of a radar chart visual.
+// The field well configuration of a `RadarChartVisual` .
 func (o TemplateRadarChartConfigurationOutput) FieldWells() TemplateRadarChartFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplateRadarChartConfiguration) *TemplateRadarChartFieldWells { return v.FieldWells }).(TemplateRadarChartFieldWellsPtrOutput)
 }
 
-// The options for the legend setup of a visual.
+// The legend display setup of the visual.
 func (o TemplateRadarChartConfigurationOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateRadarChartConfiguration) *TemplateLegendOptions { return v.Legend }).(TemplateLegendOptionsPtrOutput)
 }
@@ -70857,7 +70590,7 @@ func (o TemplateRadarChartConfigurationOutput) StartAngle() pulumi.Float64PtrOut
 	return o.ApplyT(func(v TemplateRadarChartConfiguration) *float64 { return v.StartAngle }).(pulumi.Float64PtrOutput)
 }
 
-// The visual display options for the visual palette.
+// The palette (chart color) display setup of the visual.
 func (o TemplateRadarChartConfigurationOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v TemplateRadarChartConfiguration) *TemplateVisualPalette { return v.VisualPalette }).(TemplateVisualPalettePtrOutput)
 }
@@ -70926,7 +70659,7 @@ func (o TemplateRadarChartConfigurationPtrOutput) AxesRangeScale() TemplateRadar
 	}).(TemplateRadarChartAxesRangeScalePtrOutput)
 }
 
-// The series settings of a radar chart.
+// The base sreies settings of a radar chart.
 func (o TemplateRadarChartConfigurationPtrOutput) BaseSeriesSettings() TemplateRadarChartSeriesSettingsPtrOutput {
 	return o.ApplyT(func(v *TemplateRadarChartConfiguration) *TemplateRadarChartSeriesSettings {
 		if v == nil {
@@ -70936,7 +70669,7 @@ func (o TemplateRadarChartConfigurationPtrOutput) BaseSeriesSettings() TemplateR
 	}).(TemplateRadarChartSeriesSettingsPtrOutput)
 }
 
-// The display options for the axis label.
+// The category axis of a radar chart.
 func (o TemplateRadarChartConfigurationPtrOutput) CategoryAxis() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateRadarChartConfiguration) *TemplateAxisDisplayOptions {
 		if v == nil {
@@ -70946,7 +70679,7 @@ func (o TemplateRadarChartConfigurationPtrOutput) CategoryAxis() TemplateAxisDis
 	}).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The category label options of a radar chart.
 func (o TemplateRadarChartConfigurationPtrOutput) CategoryLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateRadarChartConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -70956,7 +70689,7 @@ func (o TemplateRadarChartConfigurationPtrOutput) CategoryLabelOptions() Templat
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The display options for the axis label.
+// The color axis of a radar chart.
 func (o TemplateRadarChartConfigurationPtrOutput) ColorAxis() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateRadarChartConfiguration) *TemplateAxisDisplayOptions {
 		if v == nil {
@@ -70966,7 +70699,7 @@ func (o TemplateRadarChartConfigurationPtrOutput) ColorAxis() TemplateAxisDispla
 	}).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The color label options of a radar chart.
 func (o TemplateRadarChartConfigurationPtrOutput) ColorLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateRadarChartConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -70976,7 +70709,7 @@ func (o TemplateRadarChartConfigurationPtrOutput) ColorLabelOptions() TemplateCh
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The field wells of a radar chart visual.
+// The field well configuration of a `RadarChartVisual` .
 func (o TemplateRadarChartConfigurationPtrOutput) FieldWells() TemplateRadarChartFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplateRadarChartConfiguration) *TemplateRadarChartFieldWells {
 		if v == nil {
@@ -70986,7 +70719,7 @@ func (o TemplateRadarChartConfigurationPtrOutput) FieldWells() TemplateRadarChar
 	}).(TemplateRadarChartFieldWellsPtrOutput)
 }
 
-// The options for the legend setup of a visual.
+// The legend display setup of the visual.
 func (o TemplateRadarChartConfigurationPtrOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateRadarChartConfiguration) *TemplateLegendOptions {
 		if v == nil {
@@ -71026,7 +70759,7 @@ func (o TemplateRadarChartConfigurationPtrOutput) StartAngle() pulumi.Float64Ptr
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The visual display options for the visual palette.
+// The palette (chart color) display setup of the visual.
 func (o TemplateRadarChartConfigurationPtrOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v *TemplateRadarChartConfiguration) *TemplateVisualPalette {
 		if v == nil {
@@ -71037,7 +70770,7 @@ func (o TemplateRadarChartConfigurationPtrOutput) VisualPalette() TemplateVisual
 }
 
 type TemplateRadarChartFieldWells struct {
-	// The aggregated field well configuration of a `RadarChartVisual` .
+	// The aggregated field wells of a radar chart visual.
 	RadarChartAggregatedFieldWells *TemplateRadarChartAggregatedFieldWells `pulumi:"radarChartAggregatedFieldWells"`
 }
 
@@ -71053,7 +70786,7 @@ type TemplateRadarChartFieldWellsInput interface {
 }
 
 type TemplateRadarChartFieldWellsArgs struct {
-	// The aggregated field well configuration of a `RadarChartVisual` .
+	// The aggregated field wells of a radar chart visual.
 	RadarChartAggregatedFieldWells TemplateRadarChartAggregatedFieldWellsPtrInput `pulumi:"radarChartAggregatedFieldWells"`
 }
 
@@ -71134,7 +70867,7 @@ func (o TemplateRadarChartFieldWellsOutput) ToTemplateRadarChartFieldWellsPtrOut
 	}).(TemplateRadarChartFieldWellsPtrOutput)
 }
 
-// The aggregated field well configuration of a `RadarChartVisual` .
+// The aggregated field wells of a radar chart visual.
 func (o TemplateRadarChartFieldWellsOutput) RadarChartAggregatedFieldWells() TemplateRadarChartAggregatedFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplateRadarChartFieldWells) *TemplateRadarChartAggregatedFieldWells {
 		return v.RadarChartAggregatedFieldWells
@@ -71165,7 +70898,7 @@ func (o TemplateRadarChartFieldWellsPtrOutput) Elem() TemplateRadarChartFieldWel
 	}).(TemplateRadarChartFieldWellsOutput)
 }
 
-// The aggregated field well configuration of a `RadarChartVisual` .
+// The aggregated field wells of a radar chart visual.
 func (o TemplateRadarChartFieldWellsPtrOutput) RadarChartAggregatedFieldWells() TemplateRadarChartAggregatedFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplateRadarChartFieldWells) *TemplateRadarChartAggregatedFieldWells {
 		if v == nil {
@@ -71176,7 +70909,7 @@ func (o TemplateRadarChartFieldWellsPtrOutput) RadarChartAggregatedFieldWells() 
 }
 
 type TemplateRadarChartSeriesSettings struct {
-	// The configured style settings of a radar chart.
+	// The area style settings of a radar chart.
 	AreaStyleSettings *TemplateRadarChartAreaStyleSettings `pulumi:"areaStyleSettings"`
 }
 
@@ -71192,7 +70925,7 @@ type TemplateRadarChartSeriesSettingsInput interface {
 }
 
 type TemplateRadarChartSeriesSettingsArgs struct {
-	// The configured style settings of a radar chart.
+	// The area style settings of a radar chart.
 	AreaStyleSettings TemplateRadarChartAreaStyleSettingsPtrInput `pulumi:"areaStyleSettings"`
 }
 
@@ -71273,7 +71006,7 @@ func (o TemplateRadarChartSeriesSettingsOutput) ToTemplateRadarChartSeriesSettin
 	}).(TemplateRadarChartSeriesSettingsPtrOutput)
 }
 
-// The configured style settings of a radar chart.
+// The area style settings of a radar chart.
 func (o TemplateRadarChartSeriesSettingsOutput) AreaStyleSettings() TemplateRadarChartAreaStyleSettingsPtrOutput {
 	return o.ApplyT(func(v TemplateRadarChartSeriesSettings) *TemplateRadarChartAreaStyleSettings {
 		return v.AreaStyleSettings
@@ -71304,7 +71037,7 @@ func (o TemplateRadarChartSeriesSettingsPtrOutput) Elem() TemplateRadarChartSeri
 	}).(TemplateRadarChartSeriesSettingsOutput)
 }
 
-// The configured style settings of a radar chart.
+// The area style settings of a radar chart.
 func (o TemplateRadarChartSeriesSettingsPtrOutput) AreaStyleSettings() TemplateRadarChartAreaStyleSettingsPtrOutput {
 	return o.ApplyT(func(v *TemplateRadarChartSeriesSettings) *TemplateRadarChartAreaStyleSettings {
 		if v == nil {
@@ -71315,11 +71048,11 @@ func (o TemplateRadarChartSeriesSettingsPtrOutput) AreaStyleSettings() TemplateR
 }
 
 type TemplateRadarChartSortConfiguration struct {
-	// The limit configuration of the visual display for an axis.
+	// The category items limit for a radar chart.
 	CategoryItemsLimit *TemplateItemsLimitConfiguration `pulumi:"categoryItemsLimit"`
 	// The category sort options of a radar chart.
 	CategorySort []TemplateFieldSortOptions `pulumi:"categorySort"`
-	// The limit configuration of the visual display for an axis.
+	// The color items limit of a radar chart.
 	ColorItemsLimit *TemplateItemsLimitConfiguration `pulumi:"colorItemsLimit"`
 	// The color sort configuration of a radar chart.
 	ColorSort []TemplateFieldSortOptions `pulumi:"colorSort"`
@@ -71337,11 +71070,11 @@ type TemplateRadarChartSortConfigurationInput interface {
 }
 
 type TemplateRadarChartSortConfigurationArgs struct {
-	// The limit configuration of the visual display for an axis.
+	// The category items limit for a radar chart.
 	CategoryItemsLimit TemplateItemsLimitConfigurationPtrInput `pulumi:"categoryItemsLimit"`
 	// The category sort options of a radar chart.
 	CategorySort TemplateFieldSortOptionsArrayInput `pulumi:"categorySort"`
-	// The limit configuration of the visual display for an axis.
+	// The color items limit of a radar chart.
 	ColorItemsLimit TemplateItemsLimitConfigurationPtrInput `pulumi:"colorItemsLimit"`
 	// The color sort configuration of a radar chart.
 	ColorSort TemplateFieldSortOptionsArrayInput `pulumi:"colorSort"`
@@ -71424,7 +71157,7 @@ func (o TemplateRadarChartSortConfigurationOutput) ToTemplateRadarChartSortConfi
 	}).(TemplateRadarChartSortConfigurationPtrOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The category items limit for a radar chart.
 func (o TemplateRadarChartSortConfigurationOutput) CategoryItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateRadarChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		return v.CategoryItemsLimit
@@ -71436,7 +71169,7 @@ func (o TemplateRadarChartSortConfigurationOutput) CategorySort() TemplateFieldS
 	return o.ApplyT(func(v TemplateRadarChartSortConfiguration) []TemplateFieldSortOptions { return v.CategorySort }).(TemplateFieldSortOptionsArrayOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The color items limit of a radar chart.
 func (o TemplateRadarChartSortConfigurationOutput) ColorItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateRadarChartSortConfiguration) *TemplateItemsLimitConfiguration { return v.ColorItemsLimit }).(TemplateItemsLimitConfigurationPtrOutput)
 }
@@ -71470,7 +71203,7 @@ func (o TemplateRadarChartSortConfigurationPtrOutput) Elem() TemplateRadarChartS
 	}).(TemplateRadarChartSortConfigurationOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The category items limit for a radar chart.
 func (o TemplateRadarChartSortConfigurationPtrOutput) CategoryItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateRadarChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		if v == nil {
@@ -71490,7 +71223,7 @@ func (o TemplateRadarChartSortConfigurationPtrOutput) CategorySort() TemplateFie
 	}).(TemplateFieldSortOptionsArrayOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The color items limit of a radar chart.
 func (o TemplateRadarChartSortConfigurationPtrOutput) ColorItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateRadarChartSortConfiguration) *TemplateItemsLimitConfiguration {
 		if v == nil {
@@ -71513,13 +71246,13 @@ func (o TemplateRadarChartSortConfigurationPtrOutput) ColorSort() TemplateFieldS
 type TemplateRadarChartVisual struct {
 	// The list of custom actions that are configured for a visual.
 	Actions []TemplateVisualCustomAction `pulumi:"actions"`
-	// The configuration of a `RadarChartVisual` .
+	// The configuration settings of the visual.
 	ChartConfiguration *TemplateRadarChartConfiguration `pulumi:"chartConfiguration"`
 	// The column hierarchy that is used during drill-downs and drill-ups.
 	ColumnHierarchies []TemplateColumnHierarchy `pulumi:"columnHierarchies"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
@@ -71539,13 +71272,13 @@ type TemplateRadarChartVisualInput interface {
 type TemplateRadarChartVisualArgs struct {
 	// The list of custom actions that are configured for a visual.
 	Actions TemplateVisualCustomActionArrayInput `pulumi:"actions"`
-	// The configuration of a `RadarChartVisual` .
+	// The configuration settings of the visual.
 	ChartConfiguration TemplateRadarChartConfigurationPtrInput `pulumi:"chartConfiguration"`
 	// The column hierarchy that is used during drill-downs and drill-ups.
 	ColumnHierarchies TemplateColumnHierarchyArrayInput `pulumi:"columnHierarchies"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
@@ -71633,7 +71366,7 @@ func (o TemplateRadarChartVisualOutput) Actions() TemplateVisualCustomActionArra
 	return o.ApplyT(func(v TemplateRadarChartVisual) []TemplateVisualCustomAction { return v.Actions }).(TemplateVisualCustomActionArrayOutput)
 }
 
-// The configuration of a `RadarChartVisual` .
+// The configuration settings of the visual.
 func (o TemplateRadarChartVisualOutput) ChartConfiguration() TemplateRadarChartConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateRadarChartVisual) *TemplateRadarChartConfiguration { return v.ChartConfiguration }).(TemplateRadarChartConfigurationPtrOutput)
 }
@@ -71643,12 +71376,12 @@ func (o TemplateRadarChartVisualOutput) ColumnHierarchies() TemplateColumnHierar
 	return o.ApplyT(func(v TemplateRadarChartVisual) []TemplateColumnHierarchy { return v.ColumnHierarchies }).(TemplateColumnHierarchyArrayOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateRadarChartVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateRadarChartVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateRadarChartVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateRadarChartVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
@@ -71692,7 +71425,7 @@ func (o TemplateRadarChartVisualPtrOutput) Actions() TemplateVisualCustomActionA
 	}).(TemplateVisualCustomActionArrayOutput)
 }
 
-// The configuration of a `RadarChartVisual` .
+// The configuration settings of the visual.
 func (o TemplateRadarChartVisualPtrOutput) ChartConfiguration() TemplateRadarChartConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateRadarChartVisual) *TemplateRadarChartConfiguration {
 		if v == nil {
@@ -71712,7 +71445,7 @@ func (o TemplateRadarChartVisualPtrOutput) ColumnHierarchies() TemplateColumnHie
 	}).(TemplateColumnHierarchyArrayOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateRadarChartVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateRadarChartVisual) *TemplateVisualSubtitleLabelOptions {
 		if v == nil {
@@ -71722,7 +71455,7 @@ func (o TemplateRadarChartVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabe
 	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateRadarChartVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateRadarChartVisual) *TemplateVisualTitleLabelOptions {
 		if v == nil {
@@ -71882,7 +71615,7 @@ func (o TemplateRangeEndsLabelTypePtrOutput) Visibility() TemplateVisibilityPtrO
 type TemplateReferenceLine struct {
 	// The data configuration of the reference line.
 	DataConfiguration TemplateReferenceLineDataConfiguration `pulumi:"dataConfiguration"`
-	// The label configuration of a reference line.
+	// The label configuration of the reference line.
 	LabelConfiguration *TemplateReferenceLineLabelConfiguration `pulumi:"labelConfiguration"`
 	// The status of the reference line. Choose one of the following options:
 	//
@@ -71907,7 +71640,7 @@ type TemplateReferenceLineInput interface {
 type TemplateReferenceLineArgs struct {
 	// The data configuration of the reference line.
 	DataConfiguration TemplateReferenceLineDataConfigurationInput `pulumi:"dataConfiguration"`
-	// The label configuration of a reference line.
+	// The label configuration of the reference line.
 	LabelConfiguration TemplateReferenceLineLabelConfigurationPtrInput `pulumi:"labelConfiguration"`
 	// The status of the reference line. Choose one of the following options:
 	//
@@ -71974,7 +71707,7 @@ func (o TemplateReferenceLineOutput) DataConfiguration() TemplateReferenceLineDa
 	return o.ApplyT(func(v TemplateReferenceLine) TemplateReferenceLineDataConfiguration { return v.DataConfiguration }).(TemplateReferenceLineDataConfigurationOutput)
 }
 
-// The label configuration of a reference line.
+// The label configuration of the reference line.
 func (o TemplateReferenceLineOutput) LabelConfiguration() TemplateReferenceLineLabelConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateReferenceLine) *TemplateReferenceLineLabelConfiguration { return v.LabelConfiguration }).(TemplateReferenceLineLabelConfigurationPtrOutput)
 }
@@ -72251,13 +71984,11 @@ func (o TemplateReferenceLineDataConfigurationOutput) StaticConfiguration() Temp
 }
 
 type TemplateReferenceLineDynamicDataConfiguration struct {
-	// Aggregation for numerical values.
+	// The calculation that is used in the dynamic data.
 	Calculation TemplateNumericalAggregationFunction `pulumi:"calculation"`
-	// A column of a data set.
+	// The column that the dynamic data targets.
 	Column TemplateColumnIdentifier `pulumi:"column"`
-	// An aggregation function aggregates values from a dimension or measure.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The aggregation function that is used in the dynamic data.
 	MeasureAggregationFunction *TemplateAggregationFunction `pulumi:"measureAggregationFunction"`
 }
 
@@ -72273,13 +72004,11 @@ type TemplateReferenceLineDynamicDataConfigurationInput interface {
 }
 
 type TemplateReferenceLineDynamicDataConfigurationArgs struct {
-	// Aggregation for numerical values.
+	// The calculation that is used in the dynamic data.
 	Calculation TemplateNumericalAggregationFunctionInput `pulumi:"calculation"`
-	// A column of a data set.
+	// The column that the dynamic data targets.
 	Column TemplateColumnIdentifierInput `pulumi:"column"`
-	// An aggregation function aggregates values from a dimension or measure.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The aggregation function that is used in the dynamic data.
 	MeasureAggregationFunction TemplateAggregationFunctionPtrInput `pulumi:"measureAggregationFunction"`
 }
 
@@ -72360,21 +72089,19 @@ func (o TemplateReferenceLineDynamicDataConfigurationOutput) ToTemplateReference
 	}).(TemplateReferenceLineDynamicDataConfigurationPtrOutput)
 }
 
-// Aggregation for numerical values.
+// The calculation that is used in the dynamic data.
 func (o TemplateReferenceLineDynamicDataConfigurationOutput) Calculation() TemplateNumericalAggregationFunctionOutput {
 	return o.ApplyT(func(v TemplateReferenceLineDynamicDataConfiguration) TemplateNumericalAggregationFunction {
 		return v.Calculation
 	}).(TemplateNumericalAggregationFunctionOutput)
 }
 
-// A column of a data set.
+// The column that the dynamic data targets.
 func (o TemplateReferenceLineDynamicDataConfigurationOutput) Column() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateReferenceLineDynamicDataConfiguration) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
 }
 
-// An aggregation function aggregates values from a dimension or measure.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The aggregation function that is used in the dynamic data.
 func (o TemplateReferenceLineDynamicDataConfigurationOutput) MeasureAggregationFunction() TemplateAggregationFunctionPtrOutput {
 	return o.ApplyT(func(v TemplateReferenceLineDynamicDataConfiguration) *TemplateAggregationFunction {
 		return v.MeasureAggregationFunction
@@ -72405,7 +72132,7 @@ func (o TemplateReferenceLineDynamicDataConfigurationPtrOutput) Elem() TemplateR
 	}).(TemplateReferenceLineDynamicDataConfigurationOutput)
 }
 
-// Aggregation for numerical values.
+// The calculation that is used in the dynamic data.
 func (o TemplateReferenceLineDynamicDataConfigurationPtrOutput) Calculation() TemplateNumericalAggregationFunctionPtrOutput {
 	return o.ApplyT(func(v *TemplateReferenceLineDynamicDataConfiguration) *TemplateNumericalAggregationFunction {
 		if v == nil {
@@ -72415,7 +72142,7 @@ func (o TemplateReferenceLineDynamicDataConfigurationPtrOutput) Calculation() Te
 	}).(TemplateNumericalAggregationFunctionPtrOutput)
 }
 
-// A column of a data set.
+// The column that the dynamic data targets.
 func (o TemplateReferenceLineDynamicDataConfigurationPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateReferenceLineDynamicDataConfiguration) *TemplateColumnIdentifier {
 		if v == nil {
@@ -72425,9 +72152,7 @@ func (o TemplateReferenceLineDynamicDataConfigurationPtrOutput) Column() Templat
 	}).(TemplateColumnIdentifierPtrOutput)
 }
 
-// An aggregation function aggregates values from a dimension or measure.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The aggregation function that is used in the dynamic data.
 func (o TemplateReferenceLineDynamicDataConfigurationPtrOutput) MeasureAggregationFunction() TemplateAggregationFunctionPtrOutput {
 	return o.ApplyT(func(v *TemplateReferenceLineDynamicDataConfiguration) *TemplateAggregationFunction {
 		if v == nil {
@@ -72438,11 +72163,11 @@ func (o TemplateReferenceLineDynamicDataConfigurationPtrOutput) MeasureAggregati
 }
 
 type TemplateReferenceLineLabelConfiguration struct {
-	// The configuration for a custom label on a `ReferenceLine` .
+	// The custom label configuration of the label in a reference line.
 	CustomLabelConfiguration *TemplateReferenceLineCustomLabelConfiguration `pulumi:"customLabelConfiguration"`
 	// The font color configuration of the label in a reference line.
 	FontColor *string `pulumi:"fontColor"`
-	// Configures the display properties of the given text.
+	// The font configuration of the label in a reference line.
 	FontConfiguration *TemplateFontConfiguration `pulumi:"fontConfiguration"`
 	// The horizontal position configuration of the label in a reference line. Choose one of the following options:
 	//
@@ -72471,11 +72196,11 @@ type TemplateReferenceLineLabelConfigurationInput interface {
 }
 
 type TemplateReferenceLineLabelConfigurationArgs struct {
-	// The configuration for a custom label on a `ReferenceLine` .
+	// The custom label configuration of the label in a reference line.
 	CustomLabelConfiguration TemplateReferenceLineCustomLabelConfigurationPtrInput `pulumi:"customLabelConfiguration"`
 	// The font color configuration of the label in a reference line.
 	FontColor pulumi.StringPtrInput `pulumi:"fontColor"`
-	// Configures the display properties of the given text.
+	// The font configuration of the label in a reference line.
 	FontConfiguration TemplateFontConfigurationPtrInput `pulumi:"fontConfiguration"`
 	// The horizontal position configuration of the label in a reference line. Choose one of the following options:
 	//
@@ -72569,7 +72294,7 @@ func (o TemplateReferenceLineLabelConfigurationOutput) ToTemplateReferenceLineLa
 	}).(TemplateReferenceLineLabelConfigurationPtrOutput)
 }
 
-// The configuration for a custom label on a `ReferenceLine` .
+// The custom label configuration of the label in a reference line.
 func (o TemplateReferenceLineLabelConfigurationOutput) CustomLabelConfiguration() TemplateReferenceLineCustomLabelConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateReferenceLineLabelConfiguration) *TemplateReferenceLineCustomLabelConfiguration {
 		return v.CustomLabelConfiguration
@@ -72581,7 +72306,7 @@ func (o TemplateReferenceLineLabelConfigurationOutput) FontColor() pulumi.String
 	return o.ApplyT(func(v TemplateReferenceLineLabelConfiguration) *string { return v.FontColor }).(pulumi.StringPtrOutput)
 }
 
-// Configures the display properties of the given text.
+// The font configuration of the label in a reference line.
 func (o TemplateReferenceLineLabelConfigurationOutput) FontConfiguration() TemplateFontConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateReferenceLineLabelConfiguration) *TemplateFontConfiguration { return v.FontConfiguration }).(TemplateFontConfigurationPtrOutput)
 }
@@ -72638,7 +72363,7 @@ func (o TemplateReferenceLineLabelConfigurationPtrOutput) Elem() TemplateReferen
 	}).(TemplateReferenceLineLabelConfigurationOutput)
 }
 
-// The configuration for a custom label on a `ReferenceLine` .
+// The custom label configuration of the label in a reference line.
 func (o TemplateReferenceLineLabelConfigurationPtrOutput) CustomLabelConfiguration() TemplateReferenceLineCustomLabelConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateReferenceLineLabelConfiguration) *TemplateReferenceLineCustomLabelConfiguration {
 		if v == nil {
@@ -72658,7 +72383,7 @@ func (o TemplateReferenceLineLabelConfigurationPtrOutput) FontColor() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configures the display properties of the given text.
+// The font configuration of the label in a reference line.
 func (o TemplateReferenceLineLabelConfigurationPtrOutput) FontConfiguration() TemplateFontConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateReferenceLineLabelConfiguration) *TemplateFontConfiguration {
 		if v == nil {
@@ -73015,9 +72740,7 @@ func (o TemplateReferenceLineStyleConfigurationPtrOutput) Pattern() TemplateRefe
 }
 
 type TemplateReferenceLineValueLabelConfiguration struct {
-	// The options that determine the numeric format configuration.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The format configuration of the value label.
 	FormatConfiguration *TemplateNumericFormatConfiguration `pulumi:"formatConfiguration"`
 	// The relative position of the value label. Choose one of the following options:
 	//
@@ -73038,9 +72761,7 @@ type TemplateReferenceLineValueLabelConfigurationInput interface {
 }
 
 type TemplateReferenceLineValueLabelConfigurationArgs struct {
-	// The options that determine the numeric format configuration.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The format configuration of the value label.
 	FormatConfiguration TemplateNumericFormatConfigurationPtrInput `pulumi:"formatConfiguration"`
 	// The relative position of the value label. Choose one of the following options:
 	//
@@ -73126,9 +72847,7 @@ func (o TemplateReferenceLineValueLabelConfigurationOutput) ToTemplateReferenceL
 	}).(TemplateReferenceLineValueLabelConfigurationPtrOutput)
 }
 
-// The options that determine the numeric format configuration.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The format configuration of the value label.
 func (o TemplateReferenceLineValueLabelConfigurationOutput) FormatConfiguration() TemplateNumericFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateReferenceLineValueLabelConfiguration) *TemplateNumericFormatConfiguration {
 		return v.FormatConfiguration
@@ -73169,9 +72888,7 @@ func (o TemplateReferenceLineValueLabelConfigurationPtrOutput) Elem() TemplateRe
 	}).(TemplateReferenceLineValueLabelConfigurationOutput)
 }
 
-// The options that determine the numeric format configuration.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The format configuration of the value label.
 func (o TemplateReferenceLineValueLabelConfigurationPtrOutput) FormatConfiguration() TemplateNumericFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateReferenceLineValueLabelConfiguration) *TemplateNumericFormatConfiguration {
 		if v == nil {
@@ -73197,9 +72914,9 @@ func (o TemplateReferenceLineValueLabelConfigurationPtrOutput) RelativePosition(
 type TemplateRelativeDateTimeControlDisplayOptions struct {
 	// Customize how dates are formatted in controls.
 	DateTimeFormat *string `pulumi:"dateTimeFormat"`
-	// A control to display info icons for filters and parameters.
+	// The configuration of info icon label options.
 	InfoIconLabelOptions *TemplateSheetControlInfoIconLabelOptions `pulumi:"infoIconLabelOptions"`
-	// The share label options for the labels.
+	// The options to configure the title visibility, name, and font size.
 	TitleOptions *TemplateLabelOptions `pulumi:"titleOptions"`
 }
 
@@ -73217,9 +72934,9 @@ type TemplateRelativeDateTimeControlDisplayOptionsInput interface {
 type TemplateRelativeDateTimeControlDisplayOptionsArgs struct {
 	// Customize how dates are formatted in controls.
 	DateTimeFormat pulumi.StringPtrInput `pulumi:"dateTimeFormat"`
-	// A control to display info icons for filters and parameters.
+	// The configuration of info icon label options.
 	InfoIconLabelOptions TemplateSheetControlInfoIconLabelOptionsPtrInput `pulumi:"infoIconLabelOptions"`
-	// The share label options for the labels.
+	// The options to configure the title visibility, name, and font size.
 	TitleOptions TemplateLabelOptionsPtrInput `pulumi:"titleOptions"`
 }
 
@@ -73305,14 +73022,14 @@ func (o TemplateRelativeDateTimeControlDisplayOptionsOutput) DateTimeFormat() pu
 	return o.ApplyT(func(v TemplateRelativeDateTimeControlDisplayOptions) *string { return v.DateTimeFormat }).(pulumi.StringPtrOutput)
 }
 
-// A control to display info icons for filters and parameters.
+// The configuration of info icon label options.
 func (o TemplateRelativeDateTimeControlDisplayOptionsOutput) InfoIconLabelOptions() TemplateSheetControlInfoIconLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateRelativeDateTimeControlDisplayOptions) *TemplateSheetControlInfoIconLabelOptions {
 		return v.InfoIconLabelOptions
 	}).(TemplateSheetControlInfoIconLabelOptionsPtrOutput)
 }
 
-// The share label options for the labels.
+// The options to configure the title visibility, name, and font size.
 func (o TemplateRelativeDateTimeControlDisplayOptionsOutput) TitleOptions() TemplateLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateRelativeDateTimeControlDisplayOptions) *TemplateLabelOptions { return v.TitleOptions }).(TemplateLabelOptionsPtrOutput)
 }
@@ -73351,7 +73068,7 @@ func (o TemplateRelativeDateTimeControlDisplayOptionsPtrOutput) DateTimeFormat()
 	}).(pulumi.StringPtrOutput)
 }
 
-// A control to display info icons for filters and parameters.
+// The configuration of info icon label options.
 func (o TemplateRelativeDateTimeControlDisplayOptionsPtrOutput) InfoIconLabelOptions() TemplateSheetControlInfoIconLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateRelativeDateTimeControlDisplayOptions) *TemplateSheetControlInfoIconLabelOptions {
 		if v == nil {
@@ -73361,7 +73078,7 @@ func (o TemplateRelativeDateTimeControlDisplayOptionsPtrOutput) InfoIconLabelOpt
 	}).(TemplateSheetControlInfoIconLabelOptionsPtrOutput)
 }
 
-// The share label options for the labels.
+// The options to configure the title visibility, name, and font size.
 func (o TemplateRelativeDateTimeControlDisplayOptionsPtrOutput) TitleOptions() TemplateLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateRelativeDateTimeControlDisplayOptions) *TemplateLabelOptions {
 		if v == nil {
@@ -73374,11 +73091,11 @@ func (o TemplateRelativeDateTimeControlDisplayOptionsPtrOutput) TitleOptions() T
 type TemplateRelativeDatesFilter struct {
 	// The date configuration of the filter.
 	AnchorDateConfiguration TemplateAnchorDateConfiguration `pulumi:"anchorDateConfiguration"`
-	// A column of a data set.
+	// The column that the filter is applied to.
 	Column TemplateColumnIdentifier `pulumi:"column"`
-	// The default configuration for all dependent controls of the filter.
+	// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
 	DefaultFilterControlConfiguration *TemplateDefaultFilterControlConfiguration `pulumi:"defaultFilterControlConfiguration"`
-	// The exclude period of `TimeRangeFilter` or `RelativeDatesFilter` .
+	// The configuration for the exclude period of the filter.
 	ExcludePeriodConfiguration *TemplateExcludePeriodConfiguration `pulumi:"excludePeriodConfiguration"`
 	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
 	FilterId string `pulumi:"filterId"`
@@ -73420,11 +73137,11 @@ type TemplateRelativeDatesFilterInput interface {
 type TemplateRelativeDatesFilterArgs struct {
 	// The date configuration of the filter.
 	AnchorDateConfiguration TemplateAnchorDateConfigurationInput `pulumi:"anchorDateConfiguration"`
-	// A column of a data set.
+	// The column that the filter is applied to.
 	Column TemplateColumnIdentifierInput `pulumi:"column"`
-	// The default configuration for all dependent controls of the filter.
+	// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
 	DefaultFilterControlConfiguration TemplateDefaultFilterControlConfigurationPtrInput `pulumi:"defaultFilterControlConfiguration"`
-	// The exclude period of `TimeRangeFilter` or `RelativeDatesFilter` .
+	// The configuration for the exclude period of the filter.
 	ExcludePeriodConfiguration TemplateExcludePeriodConfigurationPtrInput `pulumi:"excludePeriodConfiguration"`
 	// An identifier that uniquely identifies a filter within a dashboard, analysis, or template.
 	FilterId pulumi.StringInput `pulumi:"filterId"`
@@ -73534,19 +73251,19 @@ func (o TemplateRelativeDatesFilterOutput) AnchorDateConfiguration() TemplateAnc
 	return o.ApplyT(func(v TemplateRelativeDatesFilter) TemplateAnchorDateConfiguration { return v.AnchorDateConfiguration }).(TemplateAnchorDateConfigurationOutput)
 }
 
-// A column of a data set.
+// The column that the filter is applied to.
 func (o TemplateRelativeDatesFilterOutput) Column() TemplateColumnIdentifierOutput {
 	return o.ApplyT(func(v TemplateRelativeDatesFilter) TemplateColumnIdentifier { return v.Column }).(TemplateColumnIdentifierOutput)
 }
 
-// The default configuration for all dependent controls of the filter.
+// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
 func (o TemplateRelativeDatesFilterOutput) DefaultFilterControlConfiguration() TemplateDefaultFilterControlConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateRelativeDatesFilter) *TemplateDefaultFilterControlConfiguration {
 		return v.DefaultFilterControlConfiguration
 	}).(TemplateDefaultFilterControlConfigurationPtrOutput)
 }
 
-// The exclude period of `TimeRangeFilter` or `RelativeDatesFilter` .
+// The configuration for the exclude period of the filter.
 func (o TemplateRelativeDatesFilterOutput) ExcludePeriodConfiguration() TemplateExcludePeriodConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateRelativeDatesFilter) *TemplateExcludePeriodConfiguration {
 		return v.ExcludePeriodConfiguration
@@ -73632,7 +73349,7 @@ func (o TemplateRelativeDatesFilterPtrOutput) AnchorDateConfiguration() Template
 	}).(TemplateAnchorDateConfigurationPtrOutput)
 }
 
-// A column of a data set.
+// The column that the filter is applied to.
 func (o TemplateRelativeDatesFilterPtrOutput) Column() TemplateColumnIdentifierPtrOutput {
 	return o.ApplyT(func(v *TemplateRelativeDatesFilter) *TemplateColumnIdentifier {
 		if v == nil {
@@ -73642,7 +73359,7 @@ func (o TemplateRelativeDatesFilterPtrOutput) Column() TemplateColumnIdentifierP
 	}).(TemplateColumnIdentifierPtrOutput)
 }
 
-// The default configuration for all dependent controls of the filter.
+// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
 func (o TemplateRelativeDatesFilterPtrOutput) DefaultFilterControlConfiguration() TemplateDefaultFilterControlConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateRelativeDatesFilter) *TemplateDefaultFilterControlConfiguration {
 		if v == nil {
@@ -73652,7 +73369,7 @@ func (o TemplateRelativeDatesFilterPtrOutput) DefaultFilterControlConfiguration(
 	}).(TemplateDefaultFilterControlConfigurationPtrOutput)
 }
 
-// The exclude period of `TimeRangeFilter` or `RelativeDatesFilter` .
+// The configuration for the exclude period of the filter.
 func (o TemplateRelativeDatesFilterPtrOutput) ExcludePeriodConfiguration() TemplateExcludePeriodConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateRelativeDatesFilter) *TemplateExcludePeriodConfiguration {
 		if v == nil {
@@ -74575,7 +74292,7 @@ func (o TemplateSankeyDiagramAggregatedFieldWellsPtrOutput) Weight() TemplateMea
 }
 
 type TemplateSankeyDiagramChartConfiguration struct {
-	// The options that determine the presentation of the data labels.
+	// The data label configuration of a sankey diagram.
 	DataLabels *TemplateDataLabelOptions `pulumi:"dataLabels"`
 	// The field well configuration of a sankey diagram.
 	FieldWells *TemplateSankeyDiagramFieldWells `pulumi:"fieldWells"`
@@ -74595,7 +74312,7 @@ type TemplateSankeyDiagramChartConfigurationInput interface {
 }
 
 type TemplateSankeyDiagramChartConfigurationArgs struct {
-	// The options that determine the presentation of the data labels.
+	// The data label configuration of a sankey diagram.
 	DataLabels TemplateDataLabelOptionsPtrInput `pulumi:"dataLabels"`
 	// The field well configuration of a sankey diagram.
 	FieldWells TemplateSankeyDiagramFieldWellsPtrInput `pulumi:"fieldWells"`
@@ -74680,7 +74397,7 @@ func (o TemplateSankeyDiagramChartConfigurationOutput) ToTemplateSankeyDiagramCh
 	}).(TemplateSankeyDiagramChartConfigurationPtrOutput)
 }
 
-// The options that determine the presentation of the data labels.
+// The data label configuration of a sankey diagram.
 func (o TemplateSankeyDiagramChartConfigurationOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateSankeyDiagramChartConfiguration) *TemplateDataLabelOptions { return v.DataLabels }).(TemplateDataLabelOptionsPtrOutput)
 }
@@ -74721,7 +74438,7 @@ func (o TemplateSankeyDiagramChartConfigurationPtrOutput) Elem() TemplateSankeyD
 	}).(TemplateSankeyDiagramChartConfigurationOutput)
 }
 
-// The options that determine the presentation of the data labels.
+// The data label configuration of a sankey diagram.
 func (o TemplateSankeyDiagramChartConfigurationPtrOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateSankeyDiagramChartConfiguration) *TemplateDataLabelOptions {
 		if v == nil {
@@ -74891,9 +74608,9 @@ func (o TemplateSankeyDiagramFieldWellsPtrOutput) SankeyDiagramAggregatedFieldWe
 }
 
 type TemplateSankeyDiagramSortConfiguration struct {
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of destination nodes that are displayed in a sankey diagram.
 	DestinationItemsLimit *TemplateItemsLimitConfiguration `pulumi:"destinationItemsLimit"`
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of source nodes that are displayed in a sankey diagram.
 	SourceItemsLimit *TemplateItemsLimitConfiguration `pulumi:"sourceItemsLimit"`
 	// The sort configuration of the weight fields.
 	WeightSort []TemplateFieldSortOptions `pulumi:"weightSort"`
@@ -74911,9 +74628,9 @@ type TemplateSankeyDiagramSortConfigurationInput interface {
 }
 
 type TemplateSankeyDiagramSortConfigurationArgs struct {
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of destination nodes that are displayed in a sankey diagram.
 	DestinationItemsLimit TemplateItemsLimitConfigurationPtrInput `pulumi:"destinationItemsLimit"`
-	// The limit configuration of the visual display for an axis.
+	// The limit on the number of source nodes that are displayed in a sankey diagram.
 	SourceItemsLimit TemplateItemsLimitConfigurationPtrInput `pulumi:"sourceItemsLimit"`
 	// The sort configuration of the weight fields.
 	WeightSort TemplateFieldSortOptionsArrayInput `pulumi:"weightSort"`
@@ -74996,14 +74713,14 @@ func (o TemplateSankeyDiagramSortConfigurationOutput) ToTemplateSankeyDiagramSor
 	}).(TemplateSankeyDiagramSortConfigurationPtrOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of destination nodes that are displayed in a sankey diagram.
 func (o TemplateSankeyDiagramSortConfigurationOutput) DestinationItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateSankeyDiagramSortConfiguration) *TemplateItemsLimitConfiguration {
 		return v.DestinationItemsLimit
 	}).(TemplateItemsLimitConfigurationPtrOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of source nodes that are displayed in a sankey diagram.
 func (o TemplateSankeyDiagramSortConfigurationOutput) SourceItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateSankeyDiagramSortConfiguration) *TemplateItemsLimitConfiguration {
 		return v.SourceItemsLimit
@@ -75039,7 +74756,7 @@ func (o TemplateSankeyDiagramSortConfigurationPtrOutput) Elem() TemplateSankeyDi
 	}).(TemplateSankeyDiagramSortConfigurationOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of destination nodes that are displayed in a sankey diagram.
 func (o TemplateSankeyDiagramSortConfigurationPtrOutput) DestinationItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateSankeyDiagramSortConfiguration) *TemplateItemsLimitConfiguration {
 		if v == nil {
@@ -75049,7 +74766,7 @@ func (o TemplateSankeyDiagramSortConfigurationPtrOutput) DestinationItemsLimit()
 	}).(TemplateItemsLimitConfigurationPtrOutput)
 }
 
-// The limit configuration of the visual display for an axis.
+// The limit on the number of source nodes that are displayed in a sankey diagram.
 func (o TemplateSankeyDiagramSortConfigurationPtrOutput) SourceItemsLimit() TemplateItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateSankeyDiagramSortConfiguration) *TemplateItemsLimitConfiguration {
 		if v == nil {
@@ -75074,9 +74791,9 @@ type TemplateSankeyDiagramVisual struct {
 	Actions []TemplateVisualCustomAction `pulumi:"actions"`
 	// The configuration of a sankey diagram.
 	ChartConfiguration *TemplateSankeyDiagramChartConfiguration `pulumi:"chartConfiguration"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
@@ -75098,9 +74815,9 @@ type TemplateSankeyDiagramVisualArgs struct {
 	Actions TemplateVisualCustomActionArrayInput `pulumi:"actions"`
 	// The configuration of a sankey diagram.
 	ChartConfiguration TemplateSankeyDiagramChartConfigurationPtrInput `pulumi:"chartConfiguration"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
@@ -75195,12 +74912,12 @@ func (o TemplateSankeyDiagramVisualOutput) ChartConfiguration() TemplateSankeyDi
 	}).(TemplateSankeyDiagramChartConfigurationPtrOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateSankeyDiagramVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateSankeyDiagramVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateSankeyDiagramVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateSankeyDiagramVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
@@ -75254,7 +74971,7 @@ func (o TemplateSankeyDiagramVisualPtrOutput) ChartConfiguration() TemplateSanke
 	}).(TemplateSankeyDiagramChartConfigurationPtrOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateSankeyDiagramVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateSankeyDiagramVisual) *TemplateVisualSubtitleLabelOptions {
 		if v == nil {
@@ -75264,7 +74981,7 @@ func (o TemplateSankeyDiagramVisualPtrOutput) Subtitle() TemplateVisualSubtitleL
 	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateSankeyDiagramVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateSankeyDiagramVisual) *TemplateVisualTitleLabelOptions {
 		if v == nil {
@@ -75516,25 +75233,23 @@ func (o TemplateScatterPlotCategoricallyAggregatedFieldWellsPtrOutput) YAxis() T
 }
 
 type TemplateScatterPlotConfiguration struct {
-	// The options that determine the presentation of the data labels.
+	// The options that determine if visual data labels are displayed.
 	DataLabels *TemplateDataLabelOptions `pulumi:"dataLabels"`
-	// The field well configuration of a scatter plot.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The field wells of the visual.
 	FieldWells *TemplateScatterPlotFieldWells `pulumi:"fieldWells"`
-	// The options for the legend setup of a visual.
+	// The legend display setup of the visual.
 	Legend *TemplateLegendOptions `pulumi:"legend"`
-	// The display options for the visual tooltip.
+	// The legend display setup of the visual.
 	Tooltip *TemplateTooltipOptions `pulumi:"tooltip"`
-	// The visual display options for the visual palette.
+	// The palette (chart color) display setup of the visual.
 	VisualPalette *TemplateVisualPalette `pulumi:"visualPalette"`
-	// The display options for the axis label.
+	// The label display options (grid line, range, scale, and axis step) of the scatter plot's x-axis.
 	XAxisDisplayOptions *TemplateAxisDisplayOptions `pulumi:"xAxisDisplayOptions"`
-	// The label options for an axis on a chart.
+	// The label options (label text, label visibility, and sort icon visibility) of the scatter plot's x-axis.
 	XAxisLabelOptions *TemplateChartAxisLabelOptions `pulumi:"xAxisLabelOptions"`
-	// The display options for the axis label.
+	// The label display options (grid line, range, scale, and axis step) of the scatter plot's y-axis.
 	YAxisDisplayOptions *TemplateAxisDisplayOptions `pulumi:"yAxisDisplayOptions"`
-	// The label options for an axis on a chart.
+	// The label options (label text, label visibility, and sort icon visibility) of the scatter plot's y-axis.
 	YAxisLabelOptions *TemplateChartAxisLabelOptions `pulumi:"yAxisLabelOptions"`
 }
 
@@ -75550,25 +75265,23 @@ type TemplateScatterPlotConfigurationInput interface {
 }
 
 type TemplateScatterPlotConfigurationArgs struct {
-	// The options that determine the presentation of the data labels.
+	// The options that determine if visual data labels are displayed.
 	DataLabels TemplateDataLabelOptionsPtrInput `pulumi:"dataLabels"`
-	// The field well configuration of a scatter plot.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The field wells of the visual.
 	FieldWells TemplateScatterPlotFieldWellsPtrInput `pulumi:"fieldWells"`
-	// The options for the legend setup of a visual.
+	// The legend display setup of the visual.
 	Legend TemplateLegendOptionsPtrInput `pulumi:"legend"`
-	// The display options for the visual tooltip.
+	// The legend display setup of the visual.
 	Tooltip TemplateTooltipOptionsPtrInput `pulumi:"tooltip"`
-	// The visual display options for the visual palette.
+	// The palette (chart color) display setup of the visual.
 	VisualPalette TemplateVisualPalettePtrInput `pulumi:"visualPalette"`
-	// The display options for the axis label.
+	// The label display options (grid line, range, scale, and axis step) of the scatter plot's x-axis.
 	XAxisDisplayOptions TemplateAxisDisplayOptionsPtrInput `pulumi:"xAxisDisplayOptions"`
-	// The label options for an axis on a chart.
+	// The label options (label text, label visibility, and sort icon visibility) of the scatter plot's x-axis.
 	XAxisLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"xAxisLabelOptions"`
-	// The display options for the axis label.
+	// The label display options (grid line, range, scale, and axis step) of the scatter plot's y-axis.
 	YAxisDisplayOptions TemplateAxisDisplayOptionsPtrInput `pulumi:"yAxisDisplayOptions"`
-	// The label options for an axis on a chart.
+	// The label options (label text, label visibility, and sort icon visibility) of the scatter plot's y-axis.
 	YAxisLabelOptions TemplateChartAxisLabelOptionsPtrInput `pulumi:"yAxisLabelOptions"`
 }
 
@@ -75649,49 +75362,47 @@ func (o TemplateScatterPlotConfigurationOutput) ToTemplateScatterPlotConfigurati
 	}).(TemplateScatterPlotConfigurationPtrOutput)
 }
 
-// The options that determine the presentation of the data labels.
+// The options that determine if visual data labels are displayed.
 func (o TemplateScatterPlotConfigurationOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateScatterPlotConfiguration) *TemplateDataLabelOptions { return v.DataLabels }).(TemplateDataLabelOptionsPtrOutput)
 }
 
-// The field well configuration of a scatter plot.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The field wells of the visual.
 func (o TemplateScatterPlotConfigurationOutput) FieldWells() TemplateScatterPlotFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplateScatterPlotConfiguration) *TemplateScatterPlotFieldWells { return v.FieldWells }).(TemplateScatterPlotFieldWellsPtrOutput)
 }
 
-// The options for the legend setup of a visual.
+// The legend display setup of the visual.
 func (o TemplateScatterPlotConfigurationOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateScatterPlotConfiguration) *TemplateLegendOptions { return v.Legend }).(TemplateLegendOptionsPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The legend display setup of the visual.
 func (o TemplateScatterPlotConfigurationOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateScatterPlotConfiguration) *TemplateTooltipOptions { return v.Tooltip }).(TemplateTooltipOptionsPtrOutput)
 }
 
-// The visual display options for the visual palette.
+// The palette (chart color) display setup of the visual.
 func (o TemplateScatterPlotConfigurationOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v TemplateScatterPlotConfiguration) *TemplateVisualPalette { return v.VisualPalette }).(TemplateVisualPalettePtrOutput)
 }
 
-// The display options for the axis label.
+// The label display options (grid line, range, scale, and axis step) of the scatter plot's x-axis.
 func (o TemplateScatterPlotConfigurationOutput) XAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateScatterPlotConfiguration) *TemplateAxisDisplayOptions { return v.XAxisDisplayOptions }).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options (label text, label visibility, and sort icon visibility) of the scatter plot's x-axis.
 func (o TemplateScatterPlotConfigurationOutput) XAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateScatterPlotConfiguration) *TemplateChartAxisLabelOptions { return v.XAxisLabelOptions }).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The display options for the axis label.
+// The label display options (grid line, range, scale, and axis step) of the scatter plot's y-axis.
 func (o TemplateScatterPlotConfigurationOutput) YAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateScatterPlotConfiguration) *TemplateAxisDisplayOptions { return v.YAxisDisplayOptions }).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options (label text, label visibility, and sort icon visibility) of the scatter plot's y-axis.
 func (o TemplateScatterPlotConfigurationOutput) YAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateScatterPlotConfiguration) *TemplateChartAxisLabelOptions { return v.YAxisLabelOptions }).(TemplateChartAxisLabelOptionsPtrOutput)
 }
@@ -75720,7 +75431,7 @@ func (o TemplateScatterPlotConfigurationPtrOutput) Elem() TemplateScatterPlotCon
 	}).(TemplateScatterPlotConfigurationOutput)
 }
 
-// The options that determine the presentation of the data labels.
+// The options that determine if visual data labels are displayed.
 func (o TemplateScatterPlotConfigurationPtrOutput) DataLabels() TemplateDataLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateScatterPlotConfiguration) *TemplateDataLabelOptions {
 		if v == nil {
@@ -75730,9 +75441,7 @@ func (o TemplateScatterPlotConfigurationPtrOutput) DataLabels() TemplateDataLabe
 	}).(TemplateDataLabelOptionsPtrOutput)
 }
 
-// The field well configuration of a scatter plot.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The field wells of the visual.
 func (o TemplateScatterPlotConfigurationPtrOutput) FieldWells() TemplateScatterPlotFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplateScatterPlotConfiguration) *TemplateScatterPlotFieldWells {
 		if v == nil {
@@ -75742,7 +75451,7 @@ func (o TemplateScatterPlotConfigurationPtrOutput) FieldWells() TemplateScatterP
 	}).(TemplateScatterPlotFieldWellsPtrOutput)
 }
 
-// The options for the legend setup of a visual.
+// The legend display setup of the visual.
 func (o TemplateScatterPlotConfigurationPtrOutput) Legend() TemplateLegendOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateScatterPlotConfiguration) *TemplateLegendOptions {
 		if v == nil {
@@ -75752,7 +75461,7 @@ func (o TemplateScatterPlotConfigurationPtrOutput) Legend() TemplateLegendOption
 	}).(TemplateLegendOptionsPtrOutput)
 }
 
-// The display options for the visual tooltip.
+// The legend display setup of the visual.
 func (o TemplateScatterPlotConfigurationPtrOutput) Tooltip() TemplateTooltipOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateScatterPlotConfiguration) *TemplateTooltipOptions {
 		if v == nil {
@@ -75762,7 +75471,7 @@ func (o TemplateScatterPlotConfigurationPtrOutput) Tooltip() TemplateTooltipOpti
 	}).(TemplateTooltipOptionsPtrOutput)
 }
 
-// The visual display options for the visual palette.
+// The palette (chart color) display setup of the visual.
 func (o TemplateScatterPlotConfigurationPtrOutput) VisualPalette() TemplateVisualPalettePtrOutput {
 	return o.ApplyT(func(v *TemplateScatterPlotConfiguration) *TemplateVisualPalette {
 		if v == nil {
@@ -75772,7 +75481,7 @@ func (o TemplateScatterPlotConfigurationPtrOutput) VisualPalette() TemplateVisua
 	}).(TemplateVisualPalettePtrOutput)
 }
 
-// The display options for the axis label.
+// The label display options (grid line, range, scale, and axis step) of the scatter plot's x-axis.
 func (o TemplateScatterPlotConfigurationPtrOutput) XAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateScatterPlotConfiguration) *TemplateAxisDisplayOptions {
 		if v == nil {
@@ -75782,7 +75491,7 @@ func (o TemplateScatterPlotConfigurationPtrOutput) XAxisDisplayOptions() Templat
 	}).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options (label text, label visibility, and sort icon visibility) of the scatter plot's x-axis.
 func (o TemplateScatterPlotConfigurationPtrOutput) XAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateScatterPlotConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -75792,7 +75501,7 @@ func (o TemplateScatterPlotConfigurationPtrOutput) XAxisLabelOptions() TemplateC
 	}).(TemplateChartAxisLabelOptionsPtrOutput)
 }
 
-// The display options for the axis label.
+// The label display options (grid line, range, scale, and axis step) of the scatter plot's y-axis.
 func (o TemplateScatterPlotConfigurationPtrOutput) YAxisDisplayOptions() TemplateAxisDisplayOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateScatterPlotConfiguration) *TemplateAxisDisplayOptions {
 		if v == nil {
@@ -75802,7 +75511,7 @@ func (o TemplateScatterPlotConfigurationPtrOutput) YAxisDisplayOptions() Templat
 	}).(TemplateAxisDisplayOptionsPtrOutput)
 }
 
-// The label options for an axis on a chart.
+// The label options (label text, label visibility, and sort icon visibility) of the scatter plot's y-axis.
 func (o TemplateScatterPlotConfigurationPtrOutput) YAxisLabelOptions() TemplateChartAxisLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateScatterPlotConfiguration) *TemplateChartAxisLabelOptions {
 		if v == nil {
@@ -75813,9 +75522,9 @@ func (o TemplateScatterPlotConfigurationPtrOutput) YAxisLabelOptions() TemplateC
 }
 
 type TemplateScatterPlotFieldWells struct {
-	// The aggregated field well of a scatter plot.
+	// The aggregated field wells of a scatter plot. The x and y-axes of scatter plots with aggregated field wells are aggregated by category, label, or both.
 	ScatterPlotCategoricallyAggregatedFieldWells *TemplateScatterPlotCategoricallyAggregatedFieldWells `pulumi:"scatterPlotCategoricallyAggregatedFieldWells"`
-	// The unaggregated field wells of a scatter plot.
+	// The unaggregated field wells of a scatter plot. The x and y-axes of these scatter plots are unaggregated.
 	ScatterPlotUnaggregatedFieldWells *TemplateScatterPlotUnaggregatedFieldWells `pulumi:"scatterPlotUnaggregatedFieldWells"`
 }
 
@@ -75831,9 +75540,9 @@ type TemplateScatterPlotFieldWellsInput interface {
 }
 
 type TemplateScatterPlotFieldWellsArgs struct {
-	// The aggregated field well of a scatter plot.
+	// The aggregated field wells of a scatter plot. The x and y-axes of scatter plots with aggregated field wells are aggregated by category, label, or both.
 	ScatterPlotCategoricallyAggregatedFieldWells TemplateScatterPlotCategoricallyAggregatedFieldWellsPtrInput `pulumi:"scatterPlotCategoricallyAggregatedFieldWells"`
-	// The unaggregated field wells of a scatter plot.
+	// The unaggregated field wells of a scatter plot. The x and y-axes of these scatter plots are unaggregated.
 	ScatterPlotUnaggregatedFieldWells TemplateScatterPlotUnaggregatedFieldWellsPtrInput `pulumi:"scatterPlotUnaggregatedFieldWells"`
 }
 
@@ -75914,14 +75623,14 @@ func (o TemplateScatterPlotFieldWellsOutput) ToTemplateScatterPlotFieldWellsPtrO
 	}).(TemplateScatterPlotFieldWellsPtrOutput)
 }
 
-// The aggregated field well of a scatter plot.
+// The aggregated field wells of a scatter plot. The x and y-axes of scatter plots with aggregated field wells are aggregated by category, label, or both.
 func (o TemplateScatterPlotFieldWellsOutput) ScatterPlotCategoricallyAggregatedFieldWells() TemplateScatterPlotCategoricallyAggregatedFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplateScatterPlotFieldWells) *TemplateScatterPlotCategoricallyAggregatedFieldWells {
 		return v.ScatterPlotCategoricallyAggregatedFieldWells
 	}).(TemplateScatterPlotCategoricallyAggregatedFieldWellsPtrOutput)
 }
 
-// The unaggregated field wells of a scatter plot.
+// The unaggregated field wells of a scatter plot. The x and y-axes of these scatter plots are unaggregated.
 func (o TemplateScatterPlotFieldWellsOutput) ScatterPlotUnaggregatedFieldWells() TemplateScatterPlotUnaggregatedFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplateScatterPlotFieldWells) *TemplateScatterPlotUnaggregatedFieldWells {
 		return v.ScatterPlotUnaggregatedFieldWells
@@ -75952,7 +75661,7 @@ func (o TemplateScatterPlotFieldWellsPtrOutput) Elem() TemplateScatterPlotFieldW
 	}).(TemplateScatterPlotFieldWellsOutput)
 }
 
-// The aggregated field well of a scatter plot.
+// The aggregated field wells of a scatter plot. The x and y-axes of scatter plots with aggregated field wells are aggregated by category, label, or both.
 func (o TemplateScatterPlotFieldWellsPtrOutput) ScatterPlotCategoricallyAggregatedFieldWells() TemplateScatterPlotCategoricallyAggregatedFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplateScatterPlotFieldWells) *TemplateScatterPlotCategoricallyAggregatedFieldWells {
 		if v == nil {
@@ -75962,7 +75671,7 @@ func (o TemplateScatterPlotFieldWellsPtrOutput) ScatterPlotCategoricallyAggregat
 	}).(TemplateScatterPlotCategoricallyAggregatedFieldWellsPtrOutput)
 }
 
-// The unaggregated field wells of a scatter plot.
+// The unaggregated field wells of a scatter plot. The x and y-axes of these scatter plots are unaggregated.
 func (o TemplateScatterPlotFieldWellsPtrOutput) ScatterPlotUnaggregatedFieldWells() TemplateScatterPlotUnaggregatedFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplateScatterPlotFieldWells) *TemplateScatterPlotUnaggregatedFieldWells {
 		if v == nil {
@@ -76204,13 +75913,13 @@ func (o TemplateScatterPlotUnaggregatedFieldWellsPtrOutput) YAxis() TemplateDime
 type TemplateScatterPlotVisual struct {
 	// The list of custom actions that are configured for a visual.
 	Actions []TemplateVisualCustomAction `pulumi:"actions"`
-	// The configuration of a scatter plot.
+	// The configuration settings of the visual.
 	ChartConfiguration *TemplateScatterPlotConfiguration `pulumi:"chartConfiguration"`
 	// The column hierarchy that is used during drill-downs and drill-ups.
 	ColumnHierarchies []TemplateColumnHierarchy `pulumi:"columnHierarchies"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
@@ -76230,13 +75939,13 @@ type TemplateScatterPlotVisualInput interface {
 type TemplateScatterPlotVisualArgs struct {
 	// The list of custom actions that are configured for a visual.
 	Actions TemplateVisualCustomActionArrayInput `pulumi:"actions"`
-	// The configuration of a scatter plot.
+	// The configuration settings of the visual.
 	ChartConfiguration TemplateScatterPlotConfigurationPtrInput `pulumi:"chartConfiguration"`
 	// The column hierarchy that is used during drill-downs and drill-ups.
 	ColumnHierarchies TemplateColumnHierarchyArrayInput `pulumi:"columnHierarchies"`
-	// The subtitle label options for a visual.
+	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	// The title label options for a visual.
+	// The title that is displayed on the visual.
 	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
@@ -76324,7 +76033,7 @@ func (o TemplateScatterPlotVisualOutput) Actions() TemplateVisualCustomActionArr
 	return o.ApplyT(func(v TemplateScatterPlotVisual) []TemplateVisualCustomAction { return v.Actions }).(TemplateVisualCustomActionArrayOutput)
 }
 
-// The configuration of a scatter plot.
+// The configuration settings of the visual.
 func (o TemplateScatterPlotVisualOutput) ChartConfiguration() TemplateScatterPlotConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateScatterPlotVisual) *TemplateScatterPlotConfiguration { return v.ChartConfiguration }).(TemplateScatterPlotConfigurationPtrOutput)
 }
@@ -76334,12 +76043,12 @@ func (o TemplateScatterPlotVisualOutput) ColumnHierarchies() TemplateColumnHiera
 	return o.ApplyT(func(v TemplateScatterPlotVisual) []TemplateColumnHierarchy { return v.ColumnHierarchies }).(TemplateColumnHierarchyArrayOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateScatterPlotVisualOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateScatterPlotVisual) *TemplateVisualSubtitleLabelOptions { return v.Subtitle }).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateScatterPlotVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateScatterPlotVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
@@ -76383,7 +76092,7 @@ func (o TemplateScatterPlotVisualPtrOutput) Actions() TemplateVisualCustomAction
 	}).(TemplateVisualCustomActionArrayOutput)
 }
 
-// The configuration of a scatter plot.
+// The configuration settings of the visual.
 func (o TemplateScatterPlotVisualPtrOutput) ChartConfiguration() TemplateScatterPlotConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateScatterPlotVisual) *TemplateScatterPlotConfiguration {
 		if v == nil {
@@ -76403,7 +76112,7 @@ func (o TemplateScatterPlotVisualPtrOutput) ColumnHierarchies() TemplateColumnHi
 	}).(TemplateColumnHierarchyArrayOutput)
 }
 
-// The subtitle label options for a visual.
+// The subtitle that is displayed on the visual.
 func (o TemplateScatterPlotVisualPtrOutput) Subtitle() TemplateVisualSubtitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateScatterPlotVisual) *TemplateVisualSubtitleLabelOptions {
 		if v == nil {
@@ -76413,7 +76122,7 @@ func (o TemplateScatterPlotVisualPtrOutput) Subtitle() TemplateVisualSubtitleLab
 	}).(TemplateVisualSubtitleLabelOptionsPtrOutput)
 }
 
-// The title label options for a visual.
+// The title that is displayed on the visual.
 func (o TemplateScatterPlotVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateScatterPlotVisual) *TemplateVisualTitleLabelOptions {
 		if v == nil {
@@ -76436,7 +76145,7 @@ func (o TemplateScatterPlotVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 type TemplateScrollBarOptions struct {
 	// The visibility of the data zoom scroll bar.
 	Visibility *TemplateVisibility `pulumi:"visibility"`
-	// The range options for the data zoom scroll bar.
+	// The visibility range for the data zoom scroll bar.
 	VisibleRange *TemplateVisibleRangeOptions `pulumi:"visibleRange"`
 }
 
@@ -76454,7 +76163,7 @@ type TemplateScrollBarOptionsInput interface {
 type TemplateScrollBarOptionsArgs struct {
 	// The visibility of the data zoom scroll bar.
 	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
-	// The range options for the data zoom scroll bar.
+	// The visibility range for the data zoom scroll bar.
 	VisibleRange TemplateVisibleRangeOptionsPtrInput `pulumi:"visibleRange"`
 }
 
@@ -76540,7 +76249,7 @@ func (o TemplateScrollBarOptionsOutput) Visibility() TemplateVisibilityPtrOutput
 	return o.ApplyT(func(v TemplateScrollBarOptions) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
 }
 
-// The range options for the data zoom scroll bar.
+// The visibility range for the data zoom scroll bar.
 func (o TemplateScrollBarOptionsOutput) VisibleRange() TemplateVisibleRangeOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateScrollBarOptions) *TemplateVisibleRangeOptions { return v.VisibleRange }).(TemplateVisibleRangeOptionsPtrOutput)
 }
@@ -76579,7 +76288,7 @@ func (o TemplateScrollBarOptionsPtrOutput) Visibility() TemplateVisibilityPtrOut
 	}).(TemplateVisibilityPtrOutput)
 }
 
-// The range options for the data zoom scroll bar.
+// The visibility range for the data zoom scroll bar.
 func (o TemplateScrollBarOptionsPtrOutput) VisibleRange() TemplateVisibleRangeOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateScrollBarOptions) *TemplateVisibleRangeOptions {
 		if v == nil {
@@ -77003,11 +76712,11 @@ func (o TemplateSectionBasedLayoutCanvasSizeOptionsPtrOutput) PaperCanvasSizeOpt
 }
 
 type TemplateSectionBasedLayoutConfiguration struct {
-	// The configuration of a body section.
+	// A list of body section configurations.
 	BodySections []TemplateBodySectionConfiguration `pulumi:"bodySections"`
 	// The options for the canvas of a section-based layout.
 	CanvasSizeOptions TemplateSectionBasedLayoutCanvasSizeOptions `pulumi:"canvasSizeOptions"`
-	// The configuration of a header or footer section.
+	// A list of footer section configurations.
 	FooterSections []TemplateHeaderFooterSectionConfiguration `pulumi:"footerSections"`
 	// A list of header section configurations.
 	HeaderSections []TemplateHeaderFooterSectionConfiguration `pulumi:"headerSections"`
@@ -77025,11 +76734,11 @@ type TemplateSectionBasedLayoutConfigurationInput interface {
 }
 
 type TemplateSectionBasedLayoutConfigurationArgs struct {
-	// The configuration of a body section.
+	// A list of body section configurations.
 	BodySections TemplateBodySectionConfigurationArrayInput `pulumi:"bodySections"`
 	// The options for the canvas of a section-based layout.
 	CanvasSizeOptions TemplateSectionBasedLayoutCanvasSizeOptionsInput `pulumi:"canvasSizeOptions"`
-	// The configuration of a header or footer section.
+	// A list of footer section configurations.
 	FooterSections TemplateHeaderFooterSectionConfigurationArrayInput `pulumi:"footerSections"`
 	// A list of header section configurations.
 	HeaderSections TemplateHeaderFooterSectionConfigurationArrayInput `pulumi:"headerSections"`
@@ -77112,7 +76821,7 @@ func (o TemplateSectionBasedLayoutConfigurationOutput) ToTemplateSectionBasedLay
 	}).(TemplateSectionBasedLayoutConfigurationPtrOutput)
 }
 
-// The configuration of a body section.
+// A list of body section configurations.
 func (o TemplateSectionBasedLayoutConfigurationOutput) BodySections() TemplateBodySectionConfigurationArrayOutput {
 	return o.ApplyT(func(v TemplateSectionBasedLayoutConfiguration) []TemplateBodySectionConfiguration {
 		return v.BodySections
@@ -77126,7 +76835,7 @@ func (o TemplateSectionBasedLayoutConfigurationOutput) CanvasSizeOptions() Templ
 	}).(TemplateSectionBasedLayoutCanvasSizeOptionsOutput)
 }
 
-// The configuration of a header or footer section.
+// A list of footer section configurations.
 func (o TemplateSectionBasedLayoutConfigurationOutput) FooterSections() TemplateHeaderFooterSectionConfigurationArrayOutput {
 	return o.ApplyT(func(v TemplateSectionBasedLayoutConfiguration) []TemplateHeaderFooterSectionConfiguration {
 		return v.FooterSections
@@ -77164,7 +76873,7 @@ func (o TemplateSectionBasedLayoutConfigurationPtrOutput) Elem() TemplateSection
 	}).(TemplateSectionBasedLayoutConfigurationOutput)
 }
 
-// The configuration of a body section.
+// A list of body section configurations.
 func (o TemplateSectionBasedLayoutConfigurationPtrOutput) BodySections() TemplateBodySectionConfigurationArrayOutput {
 	return o.ApplyT(func(v *TemplateSectionBasedLayoutConfiguration) []TemplateBodySectionConfiguration {
 		if v == nil {
@@ -77184,7 +76893,7 @@ func (o TemplateSectionBasedLayoutConfigurationPtrOutput) CanvasSizeOptions() Te
 	}).(TemplateSectionBasedLayoutCanvasSizeOptionsPtrOutput)
 }
 
-// The configuration of a header or footer section.
+// A list of footer section configurations.
 func (o TemplateSectionBasedLayoutConfigurationPtrOutput) FooterSections() TemplateHeaderFooterSectionConfigurationArrayOutput {
 	return o.ApplyT(func(v *TemplateSectionBasedLayoutConfiguration) []TemplateHeaderFooterSectionConfiguration {
 		if v == nil {
@@ -77205,7 +76914,7 @@ func (o TemplateSectionBasedLayoutConfigurationPtrOutput) HeaderSections() Templ
 }
 
 type TemplateSectionBasedLayoutPaperCanvasSizeOptions struct {
-	// The configuration of spacing (often a margin or padding).
+	// Defines the spacing between the canvas content and the top, bottom, left, and right edges.
 	PaperMargin *TemplateSpacing `pulumi:"paperMargin"`
 	// The paper orientation that is used to define canvas dimensions. Choose one of the following options:
 	//
@@ -77228,7 +76937,7 @@ type TemplateSectionBasedLayoutPaperCanvasSizeOptionsInput interface {
 }
 
 type TemplateSectionBasedLayoutPaperCanvasSizeOptionsArgs struct {
-	// The configuration of spacing (often a margin or padding).
+	// Defines the spacing between the canvas content and the top, bottom, left, and right edges.
 	PaperMargin TemplateSpacingPtrInput `pulumi:"paperMargin"`
 	// The paper orientation that is used to define canvas dimensions. Choose one of the following options:
 	//
@@ -77316,7 +77025,7 @@ func (o TemplateSectionBasedLayoutPaperCanvasSizeOptionsOutput) ToTemplateSectio
 	}).(TemplateSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput)
 }
 
-// The configuration of spacing (often a margin or padding).
+// Defines the spacing between the canvas content and the top, bottom, left, and right edges.
 func (o TemplateSectionBasedLayoutPaperCanvasSizeOptionsOutput) PaperMargin() TemplateSpacingPtrOutput {
 	return o.ApplyT(func(v TemplateSectionBasedLayoutPaperCanvasSizeOptions) *TemplateSpacing { return v.PaperMargin }).(TemplateSpacingPtrOutput)
 }
@@ -77360,7 +77069,7 @@ func (o TemplateSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput) Elem() Templa
 	}).(TemplateSectionBasedLayoutPaperCanvasSizeOptionsOutput)
 }
 
-// The configuration of spacing (often a margin or padding).
+// Defines the spacing between the canvas content and the top, bottom, left, and right edges.
 func (o TemplateSectionBasedLayoutPaperCanvasSizeOptionsPtrOutput) PaperMargin() TemplateSpacingPtrOutput {
 	return o.ApplyT(func(v *TemplateSectionBasedLayoutPaperCanvasSizeOptions) *TemplateSpacing {
 		if v == nil {
@@ -77672,7 +77381,9 @@ func (o TemplateSectionPageBreakConfigurationPtrOutput) After() TemplateSectionA
 type TemplateSectionStyle struct {
 	// String based length that is composed of value and unit in px
 	Height *string `pulumi:"height"`
-	// The configuration of spacing (often a margin or padding).
+	// The spacing between section content and its top, bottom, left, and right edges.
+	//
+	// There is no padding by default.
 	Padding *TemplateSpacing `pulumi:"padding"`
 }
 
@@ -77690,7 +77401,9 @@ type TemplateSectionStyleInput interface {
 type TemplateSectionStyleArgs struct {
 	// String based length that is composed of value and unit in px
 	Height pulumi.StringPtrInput `pulumi:"height"`
-	// The configuration of spacing (often a margin or padding).
+	// The spacing between section content and its top, bottom, left, and right edges.
+	//
+	// There is no padding by default.
 	Padding TemplateSpacingPtrInput `pulumi:"padding"`
 }
 
@@ -77776,7 +77489,9 @@ func (o TemplateSectionStyleOutput) Height() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateSectionStyle) *string { return v.Height }).(pulumi.StringPtrOutput)
 }
 
-// The configuration of spacing (often a margin or padding).
+// The spacing between section content and its top, bottom, left, and right edges.
+//
+// There is no padding by default.
 func (o TemplateSectionStyleOutput) Padding() TemplateSpacingPtrOutput {
 	return o.ApplyT(func(v TemplateSectionStyle) *TemplateSpacing { return v.Padding }).(TemplateSpacingPtrOutput)
 }
@@ -77815,7 +77530,9 @@ func (o TemplateSectionStylePtrOutput) Height() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration of spacing (often a margin or padding).
+// The spacing between section content and its top, bottom, left, and right edges.
+//
+// There is no padding by default.
 func (o TemplateSectionStylePtrOutput) Padding() TemplateSpacingPtrOutput {
 	return o.ApplyT(func(v *TemplateSectionStyle) *TemplateSpacing {
 		if v == nil {
@@ -77826,7 +77543,7 @@ func (o TemplateSectionStylePtrOutput) Padding() TemplateSpacingPtrOutput {
 }
 
 type TemplateSelectedSheetsFilterScopeConfiguration struct {
-	// The filter that is applied to the options.
+	// The sheet ID and visual IDs of the sheet and visuals that the filter is applied to.
 	SheetVisualScopingConfigurations []TemplateSheetVisualScopingConfiguration `pulumi:"sheetVisualScopingConfigurations"`
 }
 
@@ -77842,7 +77559,7 @@ type TemplateSelectedSheetsFilterScopeConfigurationInput interface {
 }
 
 type TemplateSelectedSheetsFilterScopeConfigurationArgs struct {
-	// The filter that is applied to the options.
+	// The sheet ID and visual IDs of the sheet and visuals that the filter is applied to.
 	SheetVisualScopingConfigurations TemplateSheetVisualScopingConfigurationArrayInput `pulumi:"sheetVisualScopingConfigurations"`
 }
 
@@ -77923,7 +77640,7 @@ func (o TemplateSelectedSheetsFilterScopeConfigurationOutput) ToTemplateSelected
 	}).(TemplateSelectedSheetsFilterScopeConfigurationPtrOutput)
 }
 
-// The filter that is applied to the options.
+// The sheet ID and visual IDs of the sheet and visuals that the filter is applied to.
 func (o TemplateSelectedSheetsFilterScopeConfigurationOutput) SheetVisualScopingConfigurations() TemplateSheetVisualScopingConfigurationArrayOutput {
 	return o.ApplyT(func(v TemplateSelectedSheetsFilterScopeConfiguration) []TemplateSheetVisualScopingConfiguration {
 		return v.SheetVisualScopingConfigurations
@@ -77954,7 +77671,7 @@ func (o TemplateSelectedSheetsFilterScopeConfigurationPtrOutput) Elem() Template
 	}).(TemplateSelectedSheetsFilterScopeConfigurationOutput)
 }
 
-// The filter that is applied to the options.
+// The sheet ID and visual IDs of the sheet and visuals that the filter is applied to.
 func (o TemplateSelectedSheetsFilterScopeConfigurationPtrOutput) SheetVisualScopingConfigurations() TemplateSheetVisualScopingConfigurationArrayOutput {
 	return o.ApplyT(func(v *TemplateSelectedSheetsFilterScopeConfiguration) []TemplateSheetVisualScopingConfiguration {
 		if v == nil {
@@ -78072,11 +77789,8 @@ func (o TemplateSeriesItemArrayOutput) Index(i pulumi.IntInput) TemplateSeriesIt
 
 type TemplateSetParameterValueConfiguration struct {
 	// The destination parameter name of the `SetParameterValueConfiguration` .
-	DestinationParameterName string `pulumi:"destinationParameterName"`
-	// The configuration of destination parameter values.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-	Value TemplateDestinationParameterValueConfiguration `pulumi:"value"`
+	DestinationParameterName string                                         `pulumi:"destinationParameterName"`
+	Value                    TemplateDestinationParameterValueConfiguration `pulumi:"value"`
 }
 
 // TemplateSetParameterValueConfigurationInput is an input type that accepts TemplateSetParameterValueConfigurationArgs and TemplateSetParameterValueConfigurationOutput values.
@@ -78092,11 +77806,8 @@ type TemplateSetParameterValueConfigurationInput interface {
 
 type TemplateSetParameterValueConfigurationArgs struct {
 	// The destination parameter name of the `SetParameterValueConfiguration` .
-	DestinationParameterName pulumi.StringInput `pulumi:"destinationParameterName"`
-	// The configuration of destination parameter values.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-	Value TemplateDestinationParameterValueConfigurationInput `pulumi:"value"`
+	DestinationParameterName pulumi.StringInput                                  `pulumi:"destinationParameterName"`
+	Value                    TemplateDestinationParameterValueConfigurationInput `pulumi:"value"`
 }
 
 func (TemplateSetParameterValueConfigurationArgs) ElementType() reflect.Type {
@@ -78155,9 +77866,6 @@ func (o TemplateSetParameterValueConfigurationOutput) DestinationParameterName()
 	return o.ApplyT(func(v TemplateSetParameterValueConfiguration) string { return v.DestinationParameterName }).(pulumi.StringOutput)
 }
 
-// The configuration of destination parameter values.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateSetParameterValueConfigurationOutput) Value() TemplateDestinationParameterValueConfigurationOutput {
 	return o.ApplyT(func(v TemplateSetParameterValueConfiguration) TemplateDestinationParameterValueConfiguration {
 		return v.Value
@@ -78185,7 +77893,7 @@ func (o TemplateSetParameterValueConfigurationArrayOutput) Index(i pulumi.IntInp
 }
 
 type TemplateShapeConditionalFormat struct {
-	// The formatting configuration for the color.
+	// The conditional formatting for the shape background color of a filled map visual.
 	BackgroundColor TemplateConditionalFormattingColor `pulumi:"backgroundColor"`
 }
 
@@ -78201,7 +77909,7 @@ type TemplateShapeConditionalFormatInput interface {
 }
 
 type TemplateShapeConditionalFormatArgs struct {
-	// The formatting configuration for the color.
+	// The conditional formatting for the shape background color of a filled map visual.
 	BackgroundColor TemplateConditionalFormattingColorInput `pulumi:"backgroundColor"`
 }
 
@@ -78282,7 +77990,7 @@ func (o TemplateShapeConditionalFormatOutput) ToTemplateShapeConditionalFormatPt
 	}).(TemplateShapeConditionalFormatPtrOutput)
 }
 
-// The formatting configuration for the color.
+// The conditional formatting for the shape background color of a filled map visual.
 func (o TemplateShapeConditionalFormatOutput) BackgroundColor() TemplateConditionalFormattingColorOutput {
 	return o.ApplyT(func(v TemplateShapeConditionalFormat) TemplateConditionalFormattingColor { return v.BackgroundColor }).(TemplateConditionalFormattingColorOutput)
 }
@@ -78311,7 +78019,7 @@ func (o TemplateShapeConditionalFormatPtrOutput) Elem() TemplateShapeConditional
 	}).(TemplateShapeConditionalFormatOutput)
 }
 
-// The formatting configuration for the color.
+// The conditional formatting for the shape background color of a filled map visual.
 func (o TemplateShapeConditionalFormatPtrOutput) BackgroundColor() TemplateConditionalFormattingColorPtrOutput {
 	return o.ApplyT(func(v *TemplateShapeConditionalFormat) *TemplateConditionalFormattingColor {
 		if v == nil {
@@ -78641,9 +78349,7 @@ func (o TemplateSheetControlLayoutArrayOutput) Index(i pulumi.IntInput) Template
 }
 
 type TemplateSheetControlLayoutConfiguration struct {
-	// The configuration for a grid layout. Also called a tiled layout.
-	//
-	// Visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size.
+	// The configuration that determines the elements and canvas size options of sheet control.
 	GridLayout *TemplateGridLayoutConfiguration `pulumi:"gridLayout"`
 }
 
@@ -78659,9 +78365,7 @@ type TemplateSheetControlLayoutConfigurationInput interface {
 }
 
 type TemplateSheetControlLayoutConfigurationArgs struct {
-	// The configuration for a grid layout. Also called a tiled layout.
-	//
-	// Visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size.
+	// The configuration that determines the elements and canvas size options of sheet control.
 	GridLayout TemplateGridLayoutConfigurationPtrInput `pulumi:"gridLayout"`
 }
 
@@ -78691,9 +78395,7 @@ func (o TemplateSheetControlLayoutConfigurationOutput) ToTemplateSheetControlLay
 	return o
 }
 
-// The configuration for a grid layout. Also called a tiled layout.
-//
-// Visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size.
+// The configuration that determines the elements and canvas size options of sheet control.
 func (o TemplateSheetControlLayoutConfigurationOutput) GridLayout() TemplateGridLayoutConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateSheetControlLayoutConfiguration) *TemplateGridLayoutConfiguration { return v.GridLayout }).(TemplateGridLayoutConfigurationPtrOutput)
 }
@@ -78706,33 +78408,29 @@ type TemplateSheetDefinition struct {
 	ContentType *TemplateSheetContentType `pulumi:"contentType"`
 	// A description of the sheet.
 	Description *string `pulumi:"description"`
-	// The control of a filter that is used to interact with a dashboard or an analysis.
+	// The list of filter controls that are on a sheet.
 	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon QuickSight User Guide* .
 	FilterControls []TemplateFilterControl `pulumi:"filterControls"`
-	// A `Layout` defines the placement of elements within a sheet.
+	// Layouts define how the components of a sheet are arranged.
 	//
 	// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon QuickSight User Guide* .
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	Layouts []TemplateLayout `pulumi:"layouts"`
 	// The name of the sheet. This name is displayed on the sheet's tab in the Amazon QuickSight console.
 	Name *string `pulumi:"name"`
-	// The control of a parameter that users can interact with in a dashboard or an analysis.
+	// The list of parameter controls that are on a sheet.
 	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// For more information, see [Using a Control with a Parameter in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html) in the *Amazon QuickSight User Guide* .
 	ParameterControls []TemplateParameterControl `pulumi:"parameterControls"`
-	// A grid layout to define the placement of sheet control.
+	// The control layouts of the sheet.
 	SheetControlLayouts []TemplateSheetControlLayout `pulumi:"sheetControlLayouts"`
 	// The unique identifier of a sheet.
 	SheetId string `pulumi:"sheetId"`
-	// A text box.
+	// The text boxes that are on a sheet.
 	TextBoxes []TemplateSheetTextBox `pulumi:"textBoxes"`
 	// The title of the sheet.
 	Title *string `pulumi:"title"`
-	// A visual displayed on a sheet in an analysis, dashboard, or template.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// A list of the visuals that are on a sheet. Visual placement is determined by the layout of the sheet.
 	Visuals []TemplateVisual `pulumi:"visuals"`
 }
 
@@ -78755,33 +78453,29 @@ type TemplateSheetDefinitionArgs struct {
 	ContentType TemplateSheetContentTypePtrInput `pulumi:"contentType"`
 	// A description of the sheet.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The control of a filter that is used to interact with a dashboard or an analysis.
+	// The list of filter controls that are on a sheet.
 	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon QuickSight User Guide* .
 	FilterControls TemplateFilterControlArrayInput `pulumi:"filterControls"`
-	// A `Layout` defines the placement of elements within a sheet.
+	// Layouts define how the components of a sheet are arranged.
 	//
 	// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon QuickSight User Guide* .
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	Layouts TemplateLayoutArrayInput `pulumi:"layouts"`
 	// The name of the sheet. This name is displayed on the sheet's tab in the Amazon QuickSight console.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The control of a parameter that users can interact with in a dashboard or an analysis.
+	// The list of parameter controls that are on a sheet.
 	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// For more information, see [Using a Control with a Parameter in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html) in the *Amazon QuickSight User Guide* .
 	ParameterControls TemplateParameterControlArrayInput `pulumi:"parameterControls"`
-	// A grid layout to define the placement of sheet control.
+	// The control layouts of the sheet.
 	SheetControlLayouts TemplateSheetControlLayoutArrayInput `pulumi:"sheetControlLayouts"`
 	// The unique identifier of a sheet.
 	SheetId pulumi.StringInput `pulumi:"sheetId"`
-	// A text box.
+	// The text boxes that are on a sheet.
 	TextBoxes TemplateSheetTextBoxArrayInput `pulumi:"textBoxes"`
 	// The title of the sheet.
 	Title pulumi.StringPtrInput `pulumi:"title"`
-	// A visual displayed on a sheet in an analysis, dashboard, or template.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// A list of the visuals that are on a sheet. Visual placement is determined by the layout of the sheet.
 	Visuals TemplateVisualArrayInput `pulumi:"visuals"`
 }
 
@@ -78849,18 +78543,16 @@ func (o TemplateSheetDefinitionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateSheetDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The control of a filter that is used to interact with a dashboard or an analysis.
+// The list of filter controls that are on a sheet.
 //
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateSheetDefinitionOutput) FilterControls() TemplateFilterControlArrayOutput {
 	return o.ApplyT(func(v TemplateSheetDefinition) []TemplateFilterControl { return v.FilterControls }).(TemplateFilterControlArrayOutput)
 }
 
-// A `Layout` defines the placement of elements within a sheet.
+// Layouts define how the components of a sheet are arranged.
 //
 // For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon QuickSight User Guide* .
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateSheetDefinitionOutput) Layouts() TemplateLayoutArrayOutput {
 	return o.ApplyT(func(v TemplateSheetDefinition) []TemplateLayout { return v.Layouts }).(TemplateLayoutArrayOutput)
 }
@@ -78870,14 +78562,14 @@ func (o TemplateSheetDefinitionOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateSheetDefinition) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The control of a parameter that users can interact with in a dashboard or an analysis.
+// The list of parameter controls that are on a sheet.
 //
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// For more information, see [Using a Control with a Parameter in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-controls.html) in the *Amazon QuickSight User Guide* .
 func (o TemplateSheetDefinitionOutput) ParameterControls() TemplateParameterControlArrayOutput {
 	return o.ApplyT(func(v TemplateSheetDefinition) []TemplateParameterControl { return v.ParameterControls }).(TemplateParameterControlArrayOutput)
 }
 
-// A grid layout to define the placement of sheet control.
+// The control layouts of the sheet.
 func (o TemplateSheetDefinitionOutput) SheetControlLayouts() TemplateSheetControlLayoutArrayOutput {
 	return o.ApplyT(func(v TemplateSheetDefinition) []TemplateSheetControlLayout { return v.SheetControlLayouts }).(TemplateSheetControlLayoutArrayOutput)
 }
@@ -78887,7 +78579,7 @@ func (o TemplateSheetDefinitionOutput) SheetId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateSheetDefinition) string { return v.SheetId }).(pulumi.StringOutput)
 }
 
-// A text box.
+// The text boxes that are on a sheet.
 func (o TemplateSheetDefinitionOutput) TextBoxes() TemplateSheetTextBoxArrayOutput {
 	return o.ApplyT(func(v TemplateSheetDefinition) []TemplateSheetTextBox { return v.TextBoxes }).(TemplateSheetTextBoxArrayOutput)
 }
@@ -78897,9 +78589,7 @@ func (o TemplateSheetDefinitionOutput) Title() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateSheetDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
 }
 
-// A visual displayed on a sheet in an analysis, dashboard, or template.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// A list of the visuals that are on a sheet. Visual placement is determined by the layout of the sheet.
 func (o TemplateSheetDefinitionOutput) Visuals() TemplateVisualArrayOutput {
 	return o.ApplyT(func(v TemplateSheetDefinition) []TemplateVisual { return v.Visuals }).(TemplateVisualArrayOutput)
 }
@@ -79617,9 +79307,9 @@ func (o TemplateSimpleClusterMarkerPtrOutput) Color() pulumi.StringPtrOutput {
 }
 
 type TemplateSliderControlDisplayOptions struct {
-	// A control to display info icons for filters and parameters.
+	// The configuration of info icon label options.
 	InfoIconLabelOptions *TemplateSheetControlInfoIconLabelOptions `pulumi:"infoIconLabelOptions"`
-	// The share label options for the labels.
+	// The options to configure the title visibility, name, and font size.
 	TitleOptions *TemplateLabelOptions `pulumi:"titleOptions"`
 }
 
@@ -79635,9 +79325,9 @@ type TemplateSliderControlDisplayOptionsInput interface {
 }
 
 type TemplateSliderControlDisplayOptionsArgs struct {
-	// A control to display info icons for filters and parameters.
+	// The configuration of info icon label options.
 	InfoIconLabelOptions TemplateSheetControlInfoIconLabelOptionsPtrInput `pulumi:"infoIconLabelOptions"`
-	// The share label options for the labels.
+	// The options to configure the title visibility, name, and font size.
 	TitleOptions TemplateLabelOptionsPtrInput `pulumi:"titleOptions"`
 }
 
@@ -79718,14 +79408,14 @@ func (o TemplateSliderControlDisplayOptionsOutput) ToTemplateSliderControlDispla
 	}).(TemplateSliderControlDisplayOptionsPtrOutput)
 }
 
-// A control to display info icons for filters and parameters.
+// The configuration of info icon label options.
 func (o TemplateSliderControlDisplayOptionsOutput) InfoIconLabelOptions() TemplateSheetControlInfoIconLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateSliderControlDisplayOptions) *TemplateSheetControlInfoIconLabelOptions {
 		return v.InfoIconLabelOptions
 	}).(TemplateSheetControlInfoIconLabelOptionsPtrOutput)
 }
 
-// The share label options for the labels.
+// The options to configure the title visibility, name, and font size.
 func (o TemplateSliderControlDisplayOptionsOutput) TitleOptions() TemplateLabelOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateSliderControlDisplayOptions) *TemplateLabelOptions { return v.TitleOptions }).(TemplateLabelOptionsPtrOutput)
 }
@@ -79754,7 +79444,7 @@ func (o TemplateSliderControlDisplayOptionsPtrOutput) Elem() TemplateSliderContr
 	}).(TemplateSliderControlDisplayOptionsOutput)
 }
 
-// A control to display info icons for filters and parameters.
+// The configuration of info icon label options.
 func (o TemplateSliderControlDisplayOptionsPtrOutput) InfoIconLabelOptions() TemplateSheetControlInfoIconLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateSliderControlDisplayOptions) *TemplateSheetControlInfoIconLabelOptions {
 		if v == nil {
@@ -79764,7 +79454,7 @@ func (o TemplateSliderControlDisplayOptionsPtrOutput) InfoIconLabelOptions() Tem
 	}).(TemplateSheetControlInfoIconLabelOptionsPtrOutput)
 }
 
-// The share label options for the labels.
+// The options to configure the title visibility, name, and font size.
 func (o TemplateSliderControlDisplayOptionsPtrOutput) TitleOptions() TemplateLabelOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateSliderControlDisplayOptions) *TemplateLabelOptions {
 		if v == nil {
@@ -79939,11 +79629,11 @@ type TemplateSmallMultiplesOptions struct {
 	//
 	// The default value is `Auto` , which automatically adjusts the rows in the grid to fit the overall layout and size of the given chart.
 	MaxVisibleRows *float64 `pulumi:"maxVisibleRows"`
-	// A collection of options that configure how each panel displays in a small multiples chart.
+	// Configures the display options for each small multiples panel.
 	PanelConfiguration *TemplatePanelConfiguration `pulumi:"panelConfiguration"`
-	// Configures the properties of a chart's axes that are used by small multiples panels.
+	// The properties of a small multiples X axis.
 	XAxis *TemplateSmallMultiplesAxisProperties `pulumi:"xAxis"`
-	// Configures the properties of a chart's axes that are used by small multiples panels.
+	// The properties of a small multiples Y axis.
 	YAxis *TemplateSmallMultiplesAxisProperties `pulumi:"yAxis"`
 }
 
@@ -79967,11 +79657,11 @@ type TemplateSmallMultiplesOptionsArgs struct {
 	//
 	// The default value is `Auto` , which automatically adjusts the rows in the grid to fit the overall layout and size of the given chart.
 	MaxVisibleRows pulumi.Float64PtrInput `pulumi:"maxVisibleRows"`
-	// A collection of options that configure how each panel displays in a small multiples chart.
+	// Configures the display options for each small multiples panel.
 	PanelConfiguration TemplatePanelConfigurationPtrInput `pulumi:"panelConfiguration"`
-	// Configures the properties of a chart's axes that are used by small multiples panels.
+	// The properties of a small multiples X axis.
 	XAxis TemplateSmallMultiplesAxisPropertiesPtrInput `pulumi:"xAxis"`
-	// Configures the properties of a chart's axes that are used by small multiples panels.
+	// The properties of a small multiples Y axis.
 	YAxis TemplateSmallMultiplesAxisPropertiesPtrInput `pulumi:"yAxis"`
 }
 
@@ -80066,17 +79756,17 @@ func (o TemplateSmallMultiplesOptionsOutput) MaxVisibleRows() pulumi.Float64PtrO
 	return o.ApplyT(func(v TemplateSmallMultiplesOptions) *float64 { return v.MaxVisibleRows }).(pulumi.Float64PtrOutput)
 }
 
-// A collection of options that configure how each panel displays in a small multiples chart.
+// Configures the display options for each small multiples panel.
 func (o TemplateSmallMultiplesOptionsOutput) PanelConfiguration() TemplatePanelConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateSmallMultiplesOptions) *TemplatePanelConfiguration { return v.PanelConfiguration }).(TemplatePanelConfigurationPtrOutput)
 }
 
-// Configures the properties of a chart's axes that are used by small multiples panels.
+// The properties of a small multiples X axis.
 func (o TemplateSmallMultiplesOptionsOutput) XAxis() TemplateSmallMultiplesAxisPropertiesPtrOutput {
 	return o.ApplyT(func(v TemplateSmallMultiplesOptions) *TemplateSmallMultiplesAxisProperties { return v.XAxis }).(TemplateSmallMultiplesAxisPropertiesPtrOutput)
 }
 
-// Configures the properties of a chart's axes that are used by small multiples panels.
+// The properties of a small multiples Y axis.
 func (o TemplateSmallMultiplesOptionsOutput) YAxis() TemplateSmallMultiplesAxisPropertiesPtrOutput {
 	return o.ApplyT(func(v TemplateSmallMultiplesOptions) *TemplateSmallMultiplesAxisProperties { return v.YAxis }).(TemplateSmallMultiplesAxisPropertiesPtrOutput)
 }
@@ -80129,7 +79819,7 @@ func (o TemplateSmallMultiplesOptionsPtrOutput) MaxVisibleRows() pulumi.Float64P
 	}).(pulumi.Float64PtrOutput)
 }
 
-// A collection of options that configure how each panel displays in a small multiples chart.
+// Configures the display options for each small multiples panel.
 func (o TemplateSmallMultiplesOptionsPtrOutput) PanelConfiguration() TemplatePanelConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateSmallMultiplesOptions) *TemplatePanelConfiguration {
 		if v == nil {
@@ -80139,7 +79829,7 @@ func (o TemplateSmallMultiplesOptionsPtrOutput) PanelConfiguration() TemplatePan
 	}).(TemplatePanelConfigurationPtrOutput)
 }
 
-// Configures the properties of a chart's axes that are used by small multiples panels.
+// The properties of a small multiples X axis.
 func (o TemplateSmallMultiplesOptionsPtrOutput) XAxis() TemplateSmallMultiplesAxisPropertiesPtrOutput {
 	return o.ApplyT(func(v *TemplateSmallMultiplesOptions) *TemplateSmallMultiplesAxisProperties {
 		if v == nil {
@@ -80149,7 +79839,7 @@ func (o TemplateSmallMultiplesOptionsPtrOutput) XAxis() TemplateSmallMultiplesAx
 	}).(TemplateSmallMultiplesAxisPropertiesPtrOutput)
 }
 
-// Configures the properties of a chart's axes that are used by small multiples panels.
+// The properties of a small multiples Y axis.
 func (o TemplateSmallMultiplesOptionsPtrOutput) YAxis() TemplateSmallMultiplesAxisPropertiesPtrOutput {
 	return o.ApplyT(func(v *TemplateSmallMultiplesOptions) *TemplateSmallMultiplesAxisProperties {
 		if v == nil {
@@ -80326,9 +80016,9 @@ func (o TemplateSourceAnalysisPtrOutput) DataSetReferences() TemplateDataSetRefe
 
 // <p>The source entity of the template.</p>
 type TemplateSourceEntity struct {
-	// The source analysis of the template.
+	// The source analysis, if it is based on an analysis.
 	SourceAnalysis *TemplateSourceAnalysis `pulumi:"sourceAnalysis"`
-	// The source template of the template.
+	// The source template, if it is based on an template.
 	SourceTemplate *TemplateSourceTemplate `pulumi:"sourceTemplate"`
 }
 
@@ -80345,9 +80035,9 @@ type TemplateSourceEntityInput interface {
 
 // <p>The source entity of the template.</p>
 type TemplateSourceEntityArgs struct {
-	// The source analysis of the template.
+	// The source analysis, if it is based on an analysis.
 	SourceAnalysis TemplateSourceAnalysisPtrInput `pulumi:"sourceAnalysis"`
-	// The source template of the template.
+	// The source template, if it is based on an template.
 	SourceTemplate TemplateSourceTemplatePtrInput `pulumi:"sourceTemplate"`
 }
 
@@ -80429,12 +80119,12 @@ func (o TemplateSourceEntityOutput) ToTemplateSourceEntityPtrOutputWithContext(c
 	}).(TemplateSourceEntityPtrOutput)
 }
 
-// The source analysis of the template.
+// The source analysis, if it is based on an analysis.
 func (o TemplateSourceEntityOutput) SourceAnalysis() TemplateSourceAnalysisPtrOutput {
 	return o.ApplyT(func(v TemplateSourceEntity) *TemplateSourceAnalysis { return v.SourceAnalysis }).(TemplateSourceAnalysisPtrOutput)
 }
 
-// The source template of the template.
+// The source template, if it is based on an template.
 func (o TemplateSourceEntityOutput) SourceTemplate() TemplateSourceTemplatePtrOutput {
 	return o.ApplyT(func(v TemplateSourceEntity) *TemplateSourceTemplate { return v.SourceTemplate }).(TemplateSourceTemplatePtrOutput)
 }
@@ -80463,7 +80153,7 @@ func (o TemplateSourceEntityPtrOutput) Elem() TemplateSourceEntityOutput {
 	}).(TemplateSourceEntityOutput)
 }
 
-// The source analysis of the template.
+// The source analysis, if it is based on an analysis.
 func (o TemplateSourceEntityPtrOutput) SourceAnalysis() TemplateSourceAnalysisPtrOutput {
 	return o.ApplyT(func(v *TemplateSourceEntity) *TemplateSourceAnalysis {
 		if v == nil {
@@ -80473,7 +80163,7 @@ func (o TemplateSourceEntityPtrOutput) SourceAnalysis() TemplateSourceAnalysisPt
 	}).(TemplateSourceAnalysisPtrOutput)
 }
 
-// The source template of the template.
+// The source template, if it is based on an template.
 func (o TemplateSourceEntityPtrOutput) SourceTemplate() TemplateSourceTemplatePtrOutput {
 	return o.ApplyT(func(v *TemplateSourceEntity) *TemplateSourceTemplate {
 		if v == nil {
@@ -80818,7 +80508,7 @@ func (o TemplateSpacingPtrOutput) Top() pulumi.StringPtrOutput {
 }
 
 type TemplateStringDefaultValues struct {
-	// Defines different defaults to the users or groups based on mapping.
+	// The dynamic value of the `StringDefaultValues` . Different defaults displayed according to users, groups, and values mapping.
 	DynamicValue *TemplateDynamicDefaultValue `pulumi:"dynamicValue"`
 	// The static values of the `DecimalDefaultValues` .
 	StaticValues []string `pulumi:"staticValues"`
@@ -80836,7 +80526,7 @@ type TemplateStringDefaultValuesInput interface {
 }
 
 type TemplateStringDefaultValuesArgs struct {
-	// Defines different defaults to the users or groups based on mapping.
+	// The dynamic value of the `StringDefaultValues` . Different defaults displayed according to users, groups, and values mapping.
 	DynamicValue TemplateDynamicDefaultValuePtrInput `pulumi:"dynamicValue"`
 	// The static values of the `DecimalDefaultValues` .
 	StaticValues pulumi.StringArrayInput `pulumi:"staticValues"`
@@ -80919,7 +80609,7 @@ func (o TemplateStringDefaultValuesOutput) ToTemplateStringDefaultValuesPtrOutpu
 	}).(TemplateStringDefaultValuesPtrOutput)
 }
 
-// Defines different defaults to the users or groups based on mapping.
+// The dynamic value of the `StringDefaultValues` . Different defaults displayed according to users, groups, and values mapping.
 func (o TemplateStringDefaultValuesOutput) DynamicValue() TemplateDynamicDefaultValuePtrOutput {
 	return o.ApplyT(func(v TemplateStringDefaultValues) *TemplateDynamicDefaultValue { return v.DynamicValue }).(TemplateDynamicDefaultValuePtrOutput)
 }
@@ -80953,7 +80643,7 @@ func (o TemplateStringDefaultValuesPtrOutput) Elem() TemplateStringDefaultValues
 	}).(TemplateStringDefaultValuesOutput)
 }
 
-// Defines different defaults to the users or groups based on mapping.
+// The dynamic value of the `StringDefaultValues` . Different defaults displayed according to users, groups, and values mapping.
 func (o TemplateStringDefaultValuesPtrOutput) DynamicValue() TemplateDynamicDefaultValuePtrOutput {
 	return o.ApplyT(func(v *TemplateStringDefaultValues) *TemplateDynamicDefaultValue {
 		if v == nil {
@@ -80976,9 +80666,7 @@ func (o TemplateStringDefaultValuesPtrOutput) StaticValues() pulumi.StringArrayO
 type TemplateStringFormatConfiguration struct {
 	// The options that determine the null value format configuration.
 	NullValueFormatConfiguration *TemplateNullValueFormatConfiguration `pulumi:"nullValueFormatConfiguration"`
-	// The options that determine the numeric format configuration.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The formatting configuration for numeric strings.
 	NumericFormatConfiguration *TemplateNumericFormatConfiguration `pulumi:"numericFormatConfiguration"`
 }
 
@@ -80996,9 +80684,7 @@ type TemplateStringFormatConfigurationInput interface {
 type TemplateStringFormatConfigurationArgs struct {
 	// The options that determine the null value format configuration.
 	NullValueFormatConfiguration TemplateNullValueFormatConfigurationPtrInput `pulumi:"nullValueFormatConfiguration"`
-	// The options that determine the numeric format configuration.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The formatting configuration for numeric strings.
 	NumericFormatConfiguration TemplateNumericFormatConfigurationPtrInput `pulumi:"numericFormatConfiguration"`
 }
 
@@ -81086,9 +80772,7 @@ func (o TemplateStringFormatConfigurationOutput) NullValueFormatConfiguration() 
 	}).(TemplateNullValueFormatConfigurationPtrOutput)
 }
 
-// The options that determine the numeric format configuration.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The formatting configuration for numeric strings.
 func (o TemplateStringFormatConfigurationOutput) NumericFormatConfiguration() TemplateNumericFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateStringFormatConfiguration) *TemplateNumericFormatConfiguration {
 		return v.NumericFormatConfiguration
@@ -81129,9 +80813,7 @@ func (o TemplateStringFormatConfigurationPtrOutput) NullValueFormatConfiguration
 	}).(TemplateNullValueFormatConfigurationPtrOutput)
 }
 
-// The options that determine the numeric format configuration.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The formatting configuration for numeric strings.
 func (o TemplateStringFormatConfigurationPtrOutput) NumericFormatConfiguration() TemplateNumericFormatConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateStringFormatConfiguration) *TemplateNumericFormatConfiguration {
 		if v == nil {
@@ -81142,7 +80824,7 @@ func (o TemplateStringFormatConfigurationPtrOutput) NumericFormatConfiguration()
 }
 
 type TemplateStringParameterDeclaration struct {
-	// The default values of the `StringParameterDeclaration` .
+	// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
 	DefaultValues           *TemplateStringDefaultValues     `pulumi:"defaultValues"`
 	MappedDataSetParameters []TemplateMappedDataSetParameter `pulumi:"mappedDataSetParameters"`
 	// The name of the parameter that is being declared.
@@ -81165,7 +80847,7 @@ type TemplateStringParameterDeclarationInput interface {
 }
 
 type TemplateStringParameterDeclarationArgs struct {
-	// The default values of the `StringParameterDeclaration` .
+	// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
 	DefaultValues           TemplateStringDefaultValuesPtrInput      `pulumi:"defaultValues"`
 	MappedDataSetParameters TemplateMappedDataSetParameterArrayInput `pulumi:"mappedDataSetParameters"`
 	// The name of the parameter that is being declared.
@@ -81253,7 +80935,7 @@ func (o TemplateStringParameterDeclarationOutput) ToTemplateStringParameterDecla
 	}).(TemplateStringParameterDeclarationPtrOutput)
 }
 
-// The default values of the `StringParameterDeclaration` .
+// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
 func (o TemplateStringParameterDeclarationOutput) DefaultValues() TemplateStringDefaultValuesPtrOutput {
 	return o.ApplyT(func(v TemplateStringParameterDeclaration) *TemplateStringDefaultValues { return v.DefaultValues }).(TemplateStringDefaultValuesPtrOutput)
 }
@@ -81305,7 +80987,7 @@ func (o TemplateStringParameterDeclarationPtrOutput) Elem() TemplateStringParame
 	}).(TemplateStringParameterDeclarationOutput)
 }
 
-// The default values of the `StringParameterDeclaration` .
+// The default values of a parameter. If the parameter is a single-value parameter, a maximum of one default value can be provided.
 func (o TemplateStringParameterDeclarationPtrOutput) DefaultValues() TemplateStringDefaultValuesPtrOutput {
 	return o.ApplyT(func(v *TemplateStringParameterDeclaration) *TemplateStringDefaultValues {
 		if v == nil {
@@ -81529,17 +81211,17 @@ type TemplateSubtotalOptions struct {
 	CustomLabel *string `pulumi:"customLabel"`
 	// The field level (all, custom, last) for the subtotal cells.
 	FieldLevel *TemplatePivotTableSubtotalLevel `pulumi:"fieldLevel"`
-	// The optional configuration of subtotals cells.
+	// The optional configuration of subtotal cells.
 	FieldLevelOptions []TemplatePivotTableFieldSubtotalOptions `pulumi:"fieldLevelOptions"`
-	// The table cell style for a cell in pivot table or table visual.
+	// The cell styling options for the subtotals of header cells.
 	MetricHeaderCellStyle *TemplateTableCellStyle `pulumi:"metricHeaderCellStyle"`
-	// The table style target.
+	// The style targets options for subtotals.
 	StyleTargets []TemplateTableStyleTarget `pulumi:"styleTargets"`
-	// The table cell style for a cell in pivot table or table visual.
+	// The cell styling options for the subtotal cells.
 	TotalCellStyle *TemplateTableCellStyle `pulumi:"totalCellStyle"`
 	// The visibility configuration for the subtotal cells.
 	TotalsVisibility *TemplateVisibility `pulumi:"totalsVisibility"`
-	// The table cell style for a cell in pivot table or table visual.
+	// The cell styling options for the subtotals of value cells.
 	ValueCellStyle *TemplateTableCellStyle `pulumi:"valueCellStyle"`
 }
 
@@ -81559,17 +81241,17 @@ type TemplateSubtotalOptionsArgs struct {
 	CustomLabel pulumi.StringPtrInput `pulumi:"customLabel"`
 	// The field level (all, custom, last) for the subtotal cells.
 	FieldLevel TemplatePivotTableSubtotalLevelPtrInput `pulumi:"fieldLevel"`
-	// The optional configuration of subtotals cells.
+	// The optional configuration of subtotal cells.
 	FieldLevelOptions TemplatePivotTableFieldSubtotalOptionsArrayInput `pulumi:"fieldLevelOptions"`
-	// The table cell style for a cell in pivot table or table visual.
+	// The cell styling options for the subtotals of header cells.
 	MetricHeaderCellStyle TemplateTableCellStylePtrInput `pulumi:"metricHeaderCellStyle"`
-	// The table style target.
+	// The style targets options for subtotals.
 	StyleTargets TemplateTableStyleTargetArrayInput `pulumi:"styleTargets"`
-	// The table cell style for a cell in pivot table or table visual.
+	// The cell styling options for the subtotal cells.
 	TotalCellStyle TemplateTableCellStylePtrInput `pulumi:"totalCellStyle"`
 	// The visibility configuration for the subtotal cells.
 	TotalsVisibility TemplateVisibilityPtrInput `pulumi:"totalsVisibility"`
-	// The table cell style for a cell in pivot table or table visual.
+	// The cell styling options for the subtotals of value cells.
 	ValueCellStyle TemplateTableCellStylePtrInput `pulumi:"valueCellStyle"`
 }
 
@@ -81660,22 +81342,22 @@ func (o TemplateSubtotalOptionsOutput) FieldLevel() TemplatePivotTableSubtotalLe
 	return o.ApplyT(func(v TemplateSubtotalOptions) *TemplatePivotTableSubtotalLevel { return v.FieldLevel }).(TemplatePivotTableSubtotalLevelPtrOutput)
 }
 
-// The optional configuration of subtotals cells.
+// The optional configuration of subtotal cells.
 func (o TemplateSubtotalOptionsOutput) FieldLevelOptions() TemplatePivotTableFieldSubtotalOptionsArrayOutput {
 	return o.ApplyT(func(v TemplateSubtotalOptions) []TemplatePivotTableFieldSubtotalOptions { return v.FieldLevelOptions }).(TemplatePivotTableFieldSubtotalOptionsArrayOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The cell styling options for the subtotals of header cells.
 func (o TemplateSubtotalOptionsOutput) MetricHeaderCellStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v TemplateSubtotalOptions) *TemplateTableCellStyle { return v.MetricHeaderCellStyle }).(TemplateTableCellStylePtrOutput)
 }
 
-// The table style target.
+// The style targets options for subtotals.
 func (o TemplateSubtotalOptionsOutput) StyleTargets() TemplateTableStyleTargetArrayOutput {
 	return o.ApplyT(func(v TemplateSubtotalOptions) []TemplateTableStyleTarget { return v.StyleTargets }).(TemplateTableStyleTargetArrayOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The cell styling options for the subtotal cells.
 func (o TemplateSubtotalOptionsOutput) TotalCellStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v TemplateSubtotalOptions) *TemplateTableCellStyle { return v.TotalCellStyle }).(TemplateTableCellStylePtrOutput)
 }
@@ -81685,7 +81367,7 @@ func (o TemplateSubtotalOptionsOutput) TotalsVisibility() TemplateVisibilityPtrO
 	return o.ApplyT(func(v TemplateSubtotalOptions) *TemplateVisibility { return v.TotalsVisibility }).(TemplateVisibilityPtrOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The cell styling options for the subtotals of value cells.
 func (o TemplateSubtotalOptionsOutput) ValueCellStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v TemplateSubtotalOptions) *TemplateTableCellStyle { return v.ValueCellStyle }).(TemplateTableCellStylePtrOutput)
 }
@@ -81734,7 +81416,7 @@ func (o TemplateSubtotalOptionsPtrOutput) FieldLevel() TemplatePivotTableSubtota
 	}).(TemplatePivotTableSubtotalLevelPtrOutput)
 }
 
-// The optional configuration of subtotals cells.
+// The optional configuration of subtotal cells.
 func (o TemplateSubtotalOptionsPtrOutput) FieldLevelOptions() TemplatePivotTableFieldSubtotalOptionsArrayOutput {
 	return o.ApplyT(func(v *TemplateSubtotalOptions) []TemplatePivotTableFieldSubtotalOptions {
 		if v == nil {
@@ -81744,7 +81426,7 @@ func (o TemplateSubtotalOptionsPtrOutput) FieldLevelOptions() TemplatePivotTable
 	}).(TemplatePivotTableFieldSubtotalOptionsArrayOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The cell styling options for the subtotals of header cells.
 func (o TemplateSubtotalOptionsPtrOutput) MetricHeaderCellStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v *TemplateSubtotalOptions) *TemplateTableCellStyle {
 		if v == nil {
@@ -81754,7 +81436,7 @@ func (o TemplateSubtotalOptionsPtrOutput) MetricHeaderCellStyle() TemplateTableC
 	}).(TemplateTableCellStylePtrOutput)
 }
 
-// The table style target.
+// The style targets options for subtotals.
 func (o TemplateSubtotalOptionsPtrOutput) StyleTargets() TemplateTableStyleTargetArrayOutput {
 	return o.ApplyT(func(v *TemplateSubtotalOptions) []TemplateTableStyleTarget {
 		if v == nil {
@@ -81764,7 +81446,7 @@ func (o TemplateSubtotalOptionsPtrOutput) StyleTargets() TemplateTableStyleTarge
 	}).(TemplateTableStyleTargetArrayOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The cell styling options for the subtotal cells.
 func (o TemplateSubtotalOptionsPtrOutput) TotalCellStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v *TemplateSubtotalOptions) *TemplateTableCellStyle {
 		if v == nil {
@@ -81784,7 +81466,7 @@ func (o TemplateSubtotalOptionsPtrOutput) TotalsVisibility() TemplateVisibilityP
 	}).(TemplateVisibilityPtrOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The cell styling options for the subtotals of value cells.
 func (o TemplateSubtotalOptionsPtrOutput) ValueCellStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v *TemplateSubtotalOptions) *TemplateTableCellStyle {
 		if v == nil {
@@ -82128,7 +81810,7 @@ func (o TemplateTableBorderOptionsPtrOutput) Thickness() pulumi.Float64PtrOutput
 type TemplateTableCellConditionalFormatting struct {
 	// The field ID of the cell for conditional formatting.
 	FieldId string `pulumi:"fieldId"`
-	// The conditional formatting for the text.
+	// The text format of the cell for conditional formatting.
 	TextFormat *TemplateTextConditionalFormat `pulumi:"textFormat"`
 }
 
@@ -82146,7 +81828,7 @@ type TemplateTableCellConditionalFormattingInput interface {
 type TemplateTableCellConditionalFormattingArgs struct {
 	// The field ID of the cell for conditional formatting.
 	FieldId pulumi.StringInput `pulumi:"fieldId"`
-	// The conditional formatting for the text.
+	// The text format of the cell for conditional formatting.
 	TextFormat TemplateTextConditionalFormatPtrInput `pulumi:"textFormat"`
 }
 
@@ -82232,7 +81914,7 @@ func (o TemplateTableCellConditionalFormattingOutput) FieldId() pulumi.StringOut
 	return o.ApplyT(func(v TemplateTableCellConditionalFormatting) string { return v.FieldId }).(pulumi.StringOutput)
 }
 
-// The conditional formatting for the text.
+// The text format of the cell for conditional formatting.
 func (o TemplateTableCellConditionalFormattingOutput) TextFormat() TemplateTextConditionalFormatPtrOutput {
 	return o.ApplyT(func(v TemplateTableCellConditionalFormatting) *TemplateTextConditionalFormat { return v.TextFormat }).(TemplateTextConditionalFormatPtrOutput)
 }
@@ -82271,7 +81953,7 @@ func (o TemplateTableCellConditionalFormattingPtrOutput) FieldId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The conditional formatting for the text.
+// The text format of the cell for conditional formatting.
 func (o TemplateTableCellConditionalFormattingPtrOutput) TextFormat() TemplateTextConditionalFormatPtrOutput {
 	return o.ApplyT(func(v *TemplateTableCellConditionalFormatting) *TemplateTextConditionalFormat {
 		if v == nil {
@@ -82423,9 +82105,9 @@ func (o TemplateTableCellImageSizingConfigurationPtrOutput) TableCellImageScalin
 type TemplateTableCellStyle struct {
 	// The background color for the table cells.
 	BackgroundColor *string `pulumi:"backgroundColor"`
-	// Determines the border options for a table visual.
+	// The borders for the table cells.
 	Border *TemplateGlobalTableBorderOptions `pulumi:"border"`
-	// Configures the display properties of the given text.
+	// The font configuration of the table cells.
 	FontConfiguration *TemplateFontConfiguration `pulumi:"fontConfiguration"`
 	// The height color for the table cells.
 	Height *float64 `pulumi:"height"`
@@ -82453,9 +82135,9 @@ type TemplateTableCellStyleInput interface {
 type TemplateTableCellStyleArgs struct {
 	// The background color for the table cells.
 	BackgroundColor pulumi.StringPtrInput `pulumi:"backgroundColor"`
-	// Determines the border options for a table visual.
+	// The borders for the table cells.
 	Border TemplateGlobalTableBorderOptionsPtrInput `pulumi:"border"`
-	// Configures the display properties of the given text.
+	// The font configuration of the table cells.
 	FontConfiguration TemplateFontConfigurationPtrInput `pulumi:"fontConfiguration"`
 	// The height color for the table cells.
 	Height pulumi.Float64PtrInput `pulumi:"height"`
@@ -82551,12 +82233,12 @@ func (o TemplateTableCellStyleOutput) BackgroundColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateTableCellStyle) *string { return v.BackgroundColor }).(pulumi.StringPtrOutput)
 }
 
-// Determines the border options for a table visual.
+// The borders for the table cells.
 func (o TemplateTableCellStyleOutput) Border() TemplateGlobalTableBorderOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTableCellStyle) *TemplateGlobalTableBorderOptions { return v.Border }).(TemplateGlobalTableBorderOptionsPtrOutput)
 }
 
-// Configures the display properties of the given text.
+// The font configuration of the table cells.
 func (o TemplateTableCellStyleOutput) FontConfiguration() TemplateFontConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateTableCellStyle) *TemplateFontConfiguration { return v.FontConfiguration }).(TemplateFontConfigurationPtrOutput)
 }
@@ -82620,7 +82302,7 @@ func (o TemplateTableCellStylePtrOutput) BackgroundColor() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines the border options for a table visual.
+// The borders for the table cells.
 func (o TemplateTableCellStylePtrOutput) Border() TemplateGlobalTableBorderOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTableCellStyle) *TemplateGlobalTableBorderOptions {
 		if v == nil {
@@ -82630,7 +82312,7 @@ func (o TemplateTableCellStylePtrOutput) Border() TemplateGlobalTableBorderOptio
 	}).(TemplateGlobalTableBorderOptionsPtrOutput)
 }
 
-// Configures the display properties of the given text.
+// The font configuration of the table cells.
 func (o TemplateTableCellStylePtrOutput) FontConfiguration() TemplateFontConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateTableCellStyle) *TemplateFontConfiguration {
 		if v == nil {
@@ -82832,7 +82514,7 @@ func (o TemplateTableConditionalFormattingPtrOutput) ConditionalFormattingOption
 type TemplateTableConditionalFormattingOption struct {
 	// The cell conditional formatting option for a table.
 	Cell *TemplateTableCellConditionalFormatting `pulumi:"cell"`
-	// The conditional formatting of a table row.
+	// The row conditional formatting option for a table.
 	Row *TemplateTableRowConditionalFormatting `pulumi:"row"`
 }
 
@@ -82850,7 +82532,7 @@ type TemplateTableConditionalFormattingOptionInput interface {
 type TemplateTableConditionalFormattingOptionArgs struct {
 	// The cell conditional formatting option for a table.
 	Cell TemplateTableCellConditionalFormattingPtrInput `pulumi:"cell"`
-	// The conditional formatting of a table row.
+	// The row conditional formatting option for a table.
 	Row TemplateTableRowConditionalFormattingPtrInput `pulumi:"row"`
 }
 
@@ -82912,7 +82594,7 @@ func (o TemplateTableConditionalFormattingOptionOutput) Cell() TemplateTableCell
 	}).(TemplateTableCellConditionalFormattingPtrOutput)
 }
 
-// The conditional formatting of a table row.
+// The row conditional formatting option for a table.
 func (o TemplateTableConditionalFormattingOptionOutput) Row() TemplateTableRowConditionalFormattingPtrOutput {
 	return o.ApplyT(func(v TemplateTableConditionalFormattingOption) *TemplateTableRowConditionalFormatting { return v.Row }).(TemplateTableRowConditionalFormattingPtrOutput)
 }
@@ -82938,17 +82620,15 @@ func (o TemplateTableConditionalFormattingOptionArrayOutput) Index(i pulumi.IntI
 }
 
 type TemplateTableConfiguration struct {
-	// The field options of a table visual.
+	// The field options for a table visual.
 	FieldOptions *TemplateTableFieldOptions `pulumi:"fieldOptions"`
-	// The field wells for a table visual.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The field wells of the visual.
 	FieldWells *TemplateTableFieldWells `pulumi:"fieldWells"`
 	// The paginated report options for a table visual.
 	PaginatedReportOptions *TemplateTablePaginatedReportOptions `pulumi:"paginatedReportOptions"`
 	// The sort configuration for a `TableVisual` .
 	SortConfiguration *TemplateTableSortConfiguration `pulumi:"sortConfiguration"`
-	// The inline visualization of a specific type to display within a chart.
+	// A collection of inline visualizations to display within a chart.
 	TableInlineVisualizations []TemplateTableInlineVisualization `pulumi:"tableInlineVisualizations"`
 	// The table options for a table visual.
 	TableOptions *TemplateTableOptions `pulumi:"tableOptions"`
@@ -82968,17 +82648,15 @@ type TemplateTableConfigurationInput interface {
 }
 
 type TemplateTableConfigurationArgs struct {
-	// The field options of a table visual.
+	// The field options for a table visual.
 	FieldOptions TemplateTableFieldOptionsPtrInput `pulumi:"fieldOptions"`
-	// The field wells for a table visual.
-	//
-	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+	// The field wells of the visual.
 	FieldWells TemplateTableFieldWellsPtrInput `pulumi:"fieldWells"`
 	// The paginated report options for a table visual.
 	PaginatedReportOptions TemplateTablePaginatedReportOptionsPtrInput `pulumi:"paginatedReportOptions"`
 	// The sort configuration for a `TableVisual` .
 	SortConfiguration TemplateTableSortConfigurationPtrInput `pulumi:"sortConfiguration"`
-	// The inline visualization of a specific type to display within a chart.
+	// A collection of inline visualizations to display within a chart.
 	TableInlineVisualizations TemplateTableInlineVisualizationArrayInput `pulumi:"tableInlineVisualizations"`
 	// The table options for a table visual.
 	TableOptions TemplateTableOptionsPtrInput `pulumi:"tableOptions"`
@@ -83063,14 +82741,12 @@ func (o TemplateTableConfigurationOutput) ToTemplateTableConfigurationPtrOutputW
 	}).(TemplateTableConfigurationPtrOutput)
 }
 
-// The field options of a table visual.
+// The field options for a table visual.
 func (o TemplateTableConfigurationOutput) FieldOptions() TemplateTableFieldOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTableConfiguration) *TemplateTableFieldOptions { return v.FieldOptions }).(TemplateTableFieldOptionsPtrOutput)
 }
 
-// The field wells for a table visual.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The field wells of the visual.
 func (o TemplateTableConfigurationOutput) FieldWells() TemplateTableFieldWellsPtrOutput {
 	return o.ApplyT(func(v TemplateTableConfiguration) *TemplateTableFieldWells { return v.FieldWells }).(TemplateTableFieldWellsPtrOutput)
 }
@@ -83087,7 +82763,7 @@ func (o TemplateTableConfigurationOutput) SortConfiguration() TemplateTableSortC
 	return o.ApplyT(func(v TemplateTableConfiguration) *TemplateTableSortConfiguration { return v.SortConfiguration }).(TemplateTableSortConfigurationPtrOutput)
 }
 
-// The inline visualization of a specific type to display within a chart.
+// A collection of inline visualizations to display within a chart.
 func (o TemplateTableConfigurationOutput) TableInlineVisualizations() TemplateTableInlineVisualizationArrayOutput {
 	return o.ApplyT(func(v TemplateTableConfiguration) []TemplateTableInlineVisualization {
 		return v.TableInlineVisualizations
@@ -83128,7 +82804,7 @@ func (o TemplateTableConfigurationPtrOutput) Elem() TemplateTableConfigurationOu
 	}).(TemplateTableConfigurationOutput)
 }
 
-// The field options of a table visual.
+// The field options for a table visual.
 func (o TemplateTableConfigurationPtrOutput) FieldOptions() TemplateTableFieldOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTableConfiguration) *TemplateTableFieldOptions {
 		if v == nil {
@@ -83138,9 +82814,7 @@ func (o TemplateTableConfigurationPtrOutput) FieldOptions() TemplateTableFieldOp
 	}).(TemplateTableFieldOptionsPtrOutput)
 }
 
-// The field wells for a table visual.
-//
-// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+// The field wells of the visual.
 func (o TemplateTableConfigurationPtrOutput) FieldWells() TemplateTableFieldWellsPtrOutput {
 	return o.ApplyT(func(v *TemplateTableConfiguration) *TemplateTableFieldWells {
 		if v == nil {
@@ -83170,7 +82844,7 @@ func (o TemplateTableConfigurationPtrOutput) SortConfiguration() TemplateTableSo
 	}).(TemplateTableSortConfigurationPtrOutput)
 }
 
-// The inline visualization of a specific type to display within a chart.
+// A collection of inline visualizations to display within a chart.
 func (o TemplateTableConfigurationPtrOutput) TableInlineVisualizations() TemplateTableInlineVisualizationArrayOutput {
 	return o.ApplyT(func(v *TemplateTableConfiguration) []TemplateTableInlineVisualization {
 		if v == nil {
@@ -83338,7 +83012,7 @@ func (o TemplateTableFieldCustomIconContentPtrOutput) Icon() TemplateTableFieldI
 }
 
 type TemplateTableFieldCustomTextContent struct {
-	// Configures the display properties of the given text.
+	// The font configuration of the custom text content for the table URL link content.
 	FontConfiguration TemplateFontConfiguration `pulumi:"fontConfiguration"`
 	// The string value of the custom text content for the table URL link content.
 	Value *string `pulumi:"value"`
@@ -83356,7 +83030,7 @@ type TemplateTableFieldCustomTextContentInput interface {
 }
 
 type TemplateTableFieldCustomTextContentArgs struct {
-	// Configures the display properties of the given text.
+	// The font configuration of the custom text content for the table URL link content.
 	FontConfiguration TemplateFontConfigurationInput `pulumi:"fontConfiguration"`
 	// The string value of the custom text content for the table URL link content.
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -83439,7 +83113,7 @@ func (o TemplateTableFieldCustomTextContentOutput) ToTemplateTableFieldCustomTex
 	}).(TemplateTableFieldCustomTextContentPtrOutput)
 }
 
-// Configures the display properties of the given text.
+// The font configuration of the custom text content for the table URL link content.
 func (o TemplateTableFieldCustomTextContentOutput) FontConfiguration() TemplateFontConfigurationOutput {
 	return o.ApplyT(func(v TemplateTableFieldCustomTextContent) TemplateFontConfiguration { return v.FontConfiguration }).(TemplateFontConfigurationOutput)
 }
@@ -83473,7 +83147,7 @@ func (o TemplateTableFieldCustomTextContentPtrOutput) Elem() TemplateTableFieldC
 	}).(TemplateTableFieldCustomTextContentOutput)
 }
 
-// Configures the display properties of the given text.
+// The font configuration of the custom text content for the table URL link content.
 func (o TemplateTableFieldCustomTextContentPtrOutput) FontConfiguration() TemplateFontConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateTableFieldCustomTextContent) *TemplateFontConfiguration {
 		if v == nil {
@@ -84088,7 +83762,7 @@ type TemplateTableFieldOptions struct {
 	Order []string `pulumi:"order"`
 	// The settings for the pinned columns of a table visual.
 	PinnedFieldOptions *TemplateTablePinnedFieldOptions `pulumi:"pinnedFieldOptions"`
-	// The options for a table field.
+	// The field options to be configured to a table.
 	SelectedFieldOptions []TemplateTableFieldOption `pulumi:"selectedFieldOptions"`
 }
 
@@ -84108,7 +83782,7 @@ type TemplateTableFieldOptionsArgs struct {
 	Order pulumi.StringArrayInput `pulumi:"order"`
 	// The settings for the pinned columns of a table visual.
 	PinnedFieldOptions TemplateTablePinnedFieldOptionsPtrInput `pulumi:"pinnedFieldOptions"`
-	// The options for a table field.
+	// The field options to be configured to a table.
 	SelectedFieldOptions TemplateTableFieldOptionArrayInput `pulumi:"selectedFieldOptions"`
 }
 
@@ -84199,7 +83873,7 @@ func (o TemplateTableFieldOptionsOutput) PinnedFieldOptions() TemplateTablePinne
 	return o.ApplyT(func(v TemplateTableFieldOptions) *TemplateTablePinnedFieldOptions { return v.PinnedFieldOptions }).(TemplateTablePinnedFieldOptionsPtrOutput)
 }
 
-// The options for a table field.
+// The field options to be configured to a table.
 func (o TemplateTableFieldOptionsOutput) SelectedFieldOptions() TemplateTableFieldOptionArrayOutput {
 	return o.ApplyT(func(v TemplateTableFieldOptions) []TemplateTableFieldOption { return v.SelectedFieldOptions }).(TemplateTableFieldOptionArrayOutput)
 }
@@ -84248,7 +83922,7 @@ func (o TemplateTableFieldOptionsPtrOutput) PinnedFieldOptions() TemplateTablePi
 	}).(TemplateTablePinnedFieldOptionsPtrOutput)
 }
 
-// The options for a table field.
+// The field options to be configured to a table.
 func (o TemplateTableFieldOptionsPtrOutput) SelectedFieldOptions() TemplateTableFieldOptionArrayOutput {
 	return o.ApplyT(func(v *TemplateTableFieldOptions) []TemplateTableFieldOption {
 		if v == nil {
@@ -84577,7 +84251,7 @@ func (o TemplateTableFieldWellsPtrOutput) TableUnaggregatedFieldWells() Template
 }
 
 type TemplateTableInlineVisualization struct {
-	// The options for data bars.
+	// The configuration of the inline visualization of the data bars within a chart.
 	DataBars *TemplateDataBarsOptions `pulumi:"dataBars"`
 }
 
@@ -84593,7 +84267,7 @@ type TemplateTableInlineVisualizationInput interface {
 }
 
 type TemplateTableInlineVisualizationArgs struct {
-	// The options for data bars.
+	// The configuration of the inline visualization of the data bars within a chart.
 	DataBars TemplateDataBarsOptionsPtrInput `pulumi:"dataBars"`
 }
 
@@ -84648,7 +84322,7 @@ func (o TemplateTableInlineVisualizationOutput) ToTemplateTableInlineVisualizati
 	return o
 }
 
-// The options for data bars.
+// The configuration of the inline visualization of the data bars within a chart.
 func (o TemplateTableInlineVisualizationOutput) DataBars() TemplateDataBarsOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTableInlineVisualization) *TemplateDataBarsOptions { return v.DataBars }).(TemplateDataBarsOptionsPtrOutput)
 }
@@ -84674,13 +84348,13 @@ func (o TemplateTableInlineVisualizationArrayOutput) Index(i pulumi.IntInput) Te
 }
 
 type TemplateTableOptions struct {
-	// The table cell style for a cell in pivot table or table visual.
+	// The table cell style of table cells.
 	CellStyle *TemplateTableCellStyle `pulumi:"cellStyle"`
-	// The table cell style for a cell in pivot table or table visual.
+	// The table cell style of a table header.
 	HeaderStyle *TemplateTableCellStyle `pulumi:"headerStyle"`
 	// The orientation (vertical, horizontal) for a table.
 	Orientation *TemplateTableOrientation `pulumi:"orientation"`
-	// Determines the row alternate color options.
+	// The row alternate color options (widget status, row alternate colors) for a table.
 	RowAlternateColorOptions *TemplateRowAlternateColorOptions `pulumi:"rowAlternateColorOptions"`
 }
 
@@ -84696,13 +84370,13 @@ type TemplateTableOptionsInput interface {
 }
 
 type TemplateTableOptionsArgs struct {
-	// The table cell style for a cell in pivot table or table visual.
+	// The table cell style of table cells.
 	CellStyle TemplateTableCellStylePtrInput `pulumi:"cellStyle"`
-	// The table cell style for a cell in pivot table or table visual.
+	// The table cell style of a table header.
 	HeaderStyle TemplateTableCellStylePtrInput `pulumi:"headerStyle"`
 	// The orientation (vertical, horizontal) for a table.
 	Orientation TemplateTableOrientationPtrInput `pulumi:"orientation"`
-	// Determines the row alternate color options.
+	// The row alternate color options (widget status, row alternate colors) for a table.
 	RowAlternateColorOptions TemplateRowAlternateColorOptionsPtrInput `pulumi:"rowAlternateColorOptions"`
 }
 
@@ -84783,12 +84457,12 @@ func (o TemplateTableOptionsOutput) ToTemplateTableOptionsPtrOutputWithContext(c
 	}).(TemplateTableOptionsPtrOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The table cell style of table cells.
 func (o TemplateTableOptionsOutput) CellStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v TemplateTableOptions) *TemplateTableCellStyle { return v.CellStyle }).(TemplateTableCellStylePtrOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The table cell style of a table header.
 func (o TemplateTableOptionsOutput) HeaderStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v TemplateTableOptions) *TemplateTableCellStyle { return v.HeaderStyle }).(TemplateTableCellStylePtrOutput)
 }
@@ -84798,7 +84472,7 @@ func (o TemplateTableOptionsOutput) Orientation() TemplateTableOrientationPtrOut
 	return o.ApplyT(func(v TemplateTableOptions) *TemplateTableOrientation { return v.Orientation }).(TemplateTableOrientationPtrOutput)
 }
 
-// Determines the row alternate color options.
+// The row alternate color options (widget status, row alternate colors) for a table.
 func (o TemplateTableOptionsOutput) RowAlternateColorOptions() TemplateRowAlternateColorOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTableOptions) *TemplateRowAlternateColorOptions { return v.RowAlternateColorOptions }).(TemplateRowAlternateColorOptionsPtrOutput)
 }
@@ -84827,7 +84501,7 @@ func (o TemplateTableOptionsPtrOutput) Elem() TemplateTableOptionsOutput {
 	}).(TemplateTableOptionsOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The table cell style of table cells.
 func (o TemplateTableOptionsPtrOutput) CellStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v *TemplateTableOptions) *TemplateTableCellStyle {
 		if v == nil {
@@ -84837,7 +84511,7 @@ func (o TemplateTableOptionsPtrOutput) CellStyle() TemplateTableCellStylePtrOutp
 	}).(TemplateTableCellStylePtrOutput)
 }
 
-// The table cell style for a cell in pivot table or table visual.
+// The table cell style of a table header.
 func (o TemplateTableOptionsPtrOutput) HeaderStyle() TemplateTableCellStylePtrOutput {
 	return o.ApplyT(func(v *TemplateTableOptions) *TemplateTableCellStyle {
 		if v == nil {
@@ -84857,7 +84531,7 @@ func (o TemplateTableOptionsPtrOutput) Orientation() TemplateTableOrientationPtr
 	}).(TemplateTableOrientationPtrOutput)
 }
 
-// Determines the row alternate color options.
+// The row alternate color options (widget status, row alternate colors) for a table.
 func (o TemplateTableOptionsPtrOutput) RowAlternateColorOptions() TemplateRowAlternateColorOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTableOptions) *TemplateRowAlternateColorOptions {
 		if v == nil {
@@ -85163,9 +84837,9 @@ func (o TemplateTablePinnedFieldOptionsPtrOutput) PinnedLeftFields() pulumi.Stri
 }
 
 type TemplateTableRowConditionalFormatting struct {
-	// The formatting configuration for the color.
+	// The conditional formatting color (solid, gradient) of the background for a table row.
 	BackgroundColor *TemplateConditionalFormattingColor `pulumi:"backgroundColor"`
-	// The formatting configuration for the color.
+	// The conditional formatting color (solid, gradient) of the text for a table row.
 	TextColor *TemplateConditionalFormattingColor `pulumi:"textColor"`
 }
 
@@ -85181,9 +84855,9 @@ type TemplateTableRowConditionalFormattingInput interface {
 }
 
 type TemplateTableRowConditionalFormattingArgs struct {
-	// The formatting configuration for the color.
+	// The conditional formatting color (solid, gradient) of the background for a table row.
 	BackgroundColor TemplateConditionalFormattingColorPtrInput `pulumi:"backgroundColor"`
-	// The formatting configuration for the color.
+	// The conditional formatting color (solid, gradient) of the text for a table row.
 	TextColor TemplateConditionalFormattingColorPtrInput `pulumi:"textColor"`
 }
 
@@ -85264,14 +84938,14 @@ func (o TemplateTableRowConditionalFormattingOutput) ToTemplateTableRowCondition
 	}).(TemplateTableRowConditionalFormattingPtrOutput)
 }
 
-// The formatting configuration for the color.
+// The conditional formatting color (solid, gradient) of the background for a table row.
 func (o TemplateTableRowConditionalFormattingOutput) BackgroundColor() TemplateConditionalFormattingColorPtrOutput {
 	return o.ApplyT(func(v TemplateTableRowConditionalFormatting) *TemplateConditionalFormattingColor {
 		return v.BackgroundColor
 	}).(TemplateConditionalFormattingColorPtrOutput)
 }
 
-// The formatting configuration for the color.
+// The conditional formatting color (solid, gradient) of the text for a table row.
 func (o TemplateTableRowConditionalFormattingOutput) TextColor() TemplateConditionalFormattingColorPtrOutput {
 	return o.ApplyT(func(v TemplateTableRowConditionalFormatting) *TemplateConditionalFormattingColor { return v.TextColor }).(TemplateConditionalFormattingColorPtrOutput)
 }
@@ -85300,7 +84974,7 @@ func (o TemplateTableRowConditionalFormattingPtrOutput) Elem() TemplateTableRowC
 	}).(TemplateTableRowConditionalFormattingOutput)
 }
 
-// The formatting configuration for the color.
+// The conditional formatting color (solid, gradient) of the background for a table row.
 func (o TemplateTableRowConditionalFormattingPtrOutput) BackgroundColor() TemplateConditionalFormattingColorPtrOutput {
 	return o.ApplyT(func(v *TemplateTableRowConditionalFormatting) *TemplateConditionalFormattingColor {
 		if v == nil {
@@ -85310,7 +84984,7 @@ func (o TemplateTableRowConditionalFormattingPtrOutput) BackgroundColor() Templa
 	}).(TemplateConditionalFormattingColorPtrOutput)
 }
 
-// The formatting configuration for the color.
+// The conditional formatting color (solid, gradient) of the text for a table row.
 func (o TemplateTableRowConditionalFormattingPtrOutput) TextColor() TemplateConditionalFormattingColorPtrOutput {
 	return o.ApplyT(func(v *TemplateTableRowConditionalFormatting) *TemplateConditionalFormattingColor {
 		if v == nil {
@@ -85321,17 +84995,17 @@ func (o TemplateTableRowConditionalFormattingPtrOutput) TextColor() TemplateCond
 }
 
 type TemplateTableSideBorderOptions struct {
-	// The border options for a table border.
+	// The table border options of the bottom border.
 	Bottom *TemplateTableBorderOptions `pulumi:"bottom"`
-	// The border options for a table border.
+	// The table border options of the inner horizontal border.
 	InnerHorizontal *TemplateTableBorderOptions `pulumi:"innerHorizontal"`
-	// The border options for a table border.
+	// The table border options of the inner vertical border.
 	InnerVertical *TemplateTableBorderOptions `pulumi:"innerVertical"`
-	// The border options for a table border.
+	// The table border options of the left border.
 	Left *TemplateTableBorderOptions `pulumi:"left"`
-	// The border options for a table border.
+	// The table border options of the right border.
 	Right *TemplateTableBorderOptions `pulumi:"right"`
-	// The border options for a table border.
+	// The table border options of the top border.
 	Top *TemplateTableBorderOptions `pulumi:"top"`
 }
 
@@ -85347,17 +85021,17 @@ type TemplateTableSideBorderOptionsInput interface {
 }
 
 type TemplateTableSideBorderOptionsArgs struct {
-	// The border options for a table border.
+	// The table border options of the bottom border.
 	Bottom TemplateTableBorderOptionsPtrInput `pulumi:"bottom"`
-	// The border options for a table border.
+	// The table border options of the inner horizontal border.
 	InnerHorizontal TemplateTableBorderOptionsPtrInput `pulumi:"innerHorizontal"`
-	// The border options for a table border.
+	// The table border options of the inner vertical border.
 	InnerVertical TemplateTableBorderOptionsPtrInput `pulumi:"innerVertical"`
-	// The border options for a table border.
+	// The table border options of the left border.
 	Left TemplateTableBorderOptionsPtrInput `pulumi:"left"`
-	// The border options for a table border.
+	// The table border options of the right border.
 	Right TemplateTableBorderOptionsPtrInput `pulumi:"right"`
-	// The border options for a table border.
+	// The table border options of the top border.
 	Top TemplateTableBorderOptionsPtrInput `pulumi:"top"`
 }
 
@@ -85438,32 +85112,32 @@ func (o TemplateTableSideBorderOptionsOutput) ToTemplateTableSideBorderOptionsPt
 	}).(TemplateTableSideBorderOptionsPtrOutput)
 }
 
-// The border options for a table border.
+// The table border options of the bottom border.
 func (o TemplateTableSideBorderOptionsOutput) Bottom() TemplateTableBorderOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTableSideBorderOptions) *TemplateTableBorderOptions { return v.Bottom }).(TemplateTableBorderOptionsPtrOutput)
 }
 
-// The border options for a table border.
+// The table border options of the inner horizontal border.
 func (o TemplateTableSideBorderOptionsOutput) InnerHorizontal() TemplateTableBorderOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTableSideBorderOptions) *TemplateTableBorderOptions { return v.InnerHorizontal }).(TemplateTableBorderOptionsPtrOutput)
 }
 
-// The border options for a table border.
+// The table border options of the inner vertical border.
 func (o TemplateTableSideBorderOptionsOutput) InnerVertical() TemplateTableBorderOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTableSideBorderOptions) *TemplateTableBorderOptions { return v.InnerVertical }).(TemplateTableBorderOptionsPtrOutput)
 }
 
-// The border options for a table border.
+// The table border options of the left border.
 func (o TemplateTableSideBorderOptionsOutput) Left() TemplateTableBorderOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTableSideBorderOptions) *TemplateTableBorderOptions { return v.Left }).(TemplateTableBorderOptionsPtrOutput)
 }
 
-// The border options for a table border.
+// The table border options of the right border.
 func (o TemplateTableSideBorderOptionsOutput) Right() TemplateTableBorderOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTableSideBorderOptions) *TemplateTableBorderOptions { return v.Right }).(TemplateTableBorderOptionsPtrOutput)
 }
 
-// The border options for a table border.
+// The table border options of the top border.
 func (o TemplateTableSideBorderOptionsOutput) Top() TemplateTableBorderOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateTableSideBorderOptions) *TemplateTableBorderOptions { return v.Top }).(TemplateTableBorderOptionsPtrOutput)
 }
@@ -85492,7 +85166,7 @@ func (o TemplateTableSideBorderOptionsPtrOutput) Elem() TemplateTableSideBorderO
 	}).(TemplateTableSideBorderOptionsOutput)
 }
 
-// The border options for a table border.
+// The table border options of the bottom border.
 func (o TemplateTableSideBorderOptionsPtrOutput) Bottom() TemplateTableBorderOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTableSideBorderOptions) *TemplateTableBorderOptions {
 		if v == nil {
@@ -85502,7 +85176,7 @@ func (o TemplateTableSideBorderOptionsPtrOutput) Bottom() TemplateTableBorderOpt
 	}).(TemplateTableBorderOptionsPtrOutput)
 }
 
-// The border options for a table border.
+// The table border options of the inner horizontal border.
 func (o TemplateTableSideBorderOptionsPtrOutput) InnerHorizontal() TemplateTableBorderOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTableSideBorderOptions) *TemplateTableBorderOptions {
 		if v == nil {
@@ -85512,7 +85186,7 @@ func (o TemplateTableSideBorderOptionsPtrOutput) InnerHorizontal() TemplateTable
 	}).(TemplateTableBorderOptionsPtrOutput)
 }
 
-// The border options for a table border.
+// The table border options of the inner vertical border.
 func (o TemplateTableSideBorderOptionsPtrOutput) InnerVertical() TemplateTableBorderOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTableSideBorderOptions) *TemplateTableBorderOptions {
 		if v == nil {
@@ -85522,7 +85196,7 @@ func (o TemplateTableSideBorderOptionsPtrOutput) InnerVertical() TemplateTableBo
 	}).(TemplateTableBorderOptionsPtrOutput)
 }
 
-// The border options for a table border.
+// The table border options of the left border.
 func (o TemplateTableSideBorderOptionsPtrOutput) Left() TemplateTableBorderOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTableSideBorderOptions) *TemplateTableBorderOptions {
 		if v == nil {
@@ -85532,7 +85206,7 @@ func (o TemplateTableSideBorderOptionsPtrOutput) Left() TemplateTableBorderOptio
 	}).(TemplateTableBorderOptionsPtrOutput)
 }
 
-// The border options for a table border.
+// The table border options of the right border.
 func (o TemplateTableSideBorderOptionsPtrOutput) Right() TemplateTableBorderOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTableSideBorderOptions) *TemplateTableBorderOptions {
 		if v == nil {
@@ -85542,7 +85216,7 @@ func (o TemplateTableSideBorderOptionsPtrOutput) Right() TemplateTableBorderOpti
 	}).(TemplateTableBorderOptionsPtrOutput)
 }
 
-// The border options for a table border.
+// The table border options of the top border.
 func (o TemplateTableSideBorderOptionsPtrOutput) Top() TemplateTableBorderOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplateTableSideBorderOptions) *TemplateTableBorderOptions {
 		if v == nil {
@@ -85553,7 +85227,7 @@ func (o TemplateTableSideBorderOptionsPtrOutput) Top() TemplateTableBorderOption
 }
 
 type TemplateTableSortConfiguration struct {
-	// The pagination configuration for a table visual or boxplot.
+	// The pagination configuration (page size, page number) for the table.
 	PaginationConfiguration *TemplatePaginationConfiguration `pulumi:"paginationConfiguration"`
 	// The field sort options for rows in the table.
 	RowSort []TemplateFieldSortOptions `pulumi:"rowSort"`
@@ -85571,7 +85245,7 @@ type TemplateTableSortConfigurationInput interface {
 }
 
 type TemplateTableSortConfigurationArgs struct {
-	// The pagination configuration for a table visual or boxplot.
+	// The pagination configuration (page size, page number) for the table.
 	PaginationConfiguration TemplatePaginationConfigurationPtrInput `pulumi:"paginationConfiguration"`
 	// The field sort options for rows in the table.
 	RowSort TemplateFieldSortOptionsArrayInput `pulumi:"rowSort"`
@@ -85654,7 +85328,7 @@ func (o TemplateTableSortConfigurationOutput) ToTemplateTableSortConfigurationPt
 	}).(TemplateTableSortConfigurationPtrOutput)
 }
 
-// The pagination configuration for a table visual or boxplot.
+// The pagination configuration (page size, page number) for the table.
 func (o TemplateTableSortConfigurationOutput) PaginationConfiguration() TemplatePaginationConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateTableSortConfiguration) *TemplatePaginationConfiguration {
 		return v.PaginationConfiguration
@@ -85690,7 +85364,7 @@ func (o TemplateTableSortConfigurationPtrOutput) Elem() TemplateTableSortConfigu
 	}).(TemplateTableSortConfigurationOutput)
 }
 
-// The pagination configuration for a table visual or boxplot.
+// The pagination configuration (page size, page number) for the table.
 func (o TemplateTableSortConfigurationPtrOutput) PaginationConfiguration() TemplatePaginationConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplateTableSortConfiguration) *TemplatePaginationConfiguration {
 		if v == nil {
@@ -85808,7 +85482,7 @@ func (o TemplateTableStyleTargetArrayOutput) Index(i pulumi.IntInput) TemplateTa
 }
 
 type TemplateTableUnaggregatedFieldWells struct {
-	// The unaggregated field for a table.
+	// The values field well for a pivot table. Values are unaggregated for an unaggregated table.
 	Values []TemplateUnaggregatedField `pulumi:"values"`
 }
 
@@ -85824,7 +85498,7 @@ type TemplateTableUnaggregatedFieldWellsInput interface {
 }
 
 type TemplateTableUnaggregatedFieldWellsArgs struct {
-	// The unaggregated field for a table.
+	// The values field well for a pivot table. Values are unaggregated for an unaggregated table.
 	Values TemplateUnaggregatedFieldArrayInput `pulumi:"values"`
 }
 
@@ -85905,7 +85579,7 @@ func (o TemplateTableUnaggregatedFieldWellsOutput) ToTemplateTableUnaggregatedFi
 	}).(TemplateTableUnaggregatedFieldWellsPtrOutput)
 }
 
-// The unaggregated field for a table.
+// The values field well for a pivot table. Values are unaggregated for an unaggregated table.
 func (o TemplateTableUnaggregatedFieldWellsOutput) Values() TemplateUnaggregatedFieldArrayOutput {
 	return o.ApplyT(func(v TemplateTableUnaggregatedFieldWells) []TemplateUnaggregatedField { return v.Values }).(TemplateUnaggregatedFieldArrayOutput)
 }
@@ -85934,7 +85608,7 @@ func (o TemplateTableUnaggregatedFieldWellsPtrOutput) Elem() TemplateTableUnaggr
 	}).(TemplateTableUnaggregatedFieldWellsOutput)
 }
 
-// The unaggregated field for a table.
+// The values field well for a pivot table. Values are unaggregated for an unaggregated table.
 func (o TemplateTableUnaggregatedFieldWellsPtrOutput) Values() TemplateUnaggregatedFieldArrayOutput {
 	return o.ApplyT(func(v *TemplateTableUnaggregatedFieldWells) []TemplateUnaggregatedField {
 		if v == nil {

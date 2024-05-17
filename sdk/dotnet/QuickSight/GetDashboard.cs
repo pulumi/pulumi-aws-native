@@ -94,16 +94,15 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Permission for the resource.
+        /// A structure that contains the permissions of the dashboard. You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
+        /// 
+        /// To specify no permissions, omit the permissions list.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardResourcePermission> Permissions;
         /// <summary>
         /// Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
-        /// <summary>
-        /// Dashboard version.
-        /// </summary>
         public readonly Outputs.DashboardVersion? Version;
 
         [OutputConstructor]

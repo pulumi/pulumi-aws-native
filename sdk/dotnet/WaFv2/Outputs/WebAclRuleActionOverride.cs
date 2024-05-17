@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     public sealed class WebAclRuleActionOverride
     {
         /// <summary>
-        /// The action that AWS WAF should take on a web request when it matches a rule's statement. Settings at the web ACL level can override the rule action setting.
+        /// The override action to use, in place of the configured action of the rule in the rule group.
         /// </summary>
         public readonly Outputs.WebAclRuleAction ActionToUse;
         /// <summary>

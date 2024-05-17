@@ -39,11 +39,10 @@ type LookupTemplateResult struct {
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// A display name for the template.
 	Name *string `pulumi:"name"`
-	// Permission for the resource.
+	// A list of resource permissions to be set on the template.
 	Permissions []TemplateResourcePermission `pulumi:"permissions"`
 	// Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
-	Tags []aws.Tag `pulumi:"tags"`
-	// A version of a template.
+	Tags    []aws.Tag        `pulumi:"tags"`
 	Version *TemplateVersion `pulumi:"version"`
 }
 
@@ -105,7 +104,7 @@ func (o LookupTemplateResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTemplateResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Permission for the resource.
+// A list of resource permissions to be set on the template.
 func (o LookupTemplateResultOutput) Permissions() TemplateResourcePermissionArrayOutput {
 	return o.ApplyT(func(v LookupTemplateResult) []TemplateResourcePermission { return v.Permissions }).(TemplateResourcePermissionArrayOutput)
 }
@@ -115,7 +114,6 @@ func (o LookupTemplateResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTemplateResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// A version of a template.
 func (o LookupTemplateResultOutput) Version() TemplateVersionPtrOutput {
 	return o.ApplyT(func(v LookupTemplateResult) *TemplateVersion { return v.Version }).(TemplateVersionPtrOutput)
 }

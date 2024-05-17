@@ -35,7 +35,7 @@ export interface GetServiceNetworkServiceAssociationResult {
      */
     readonly createdAt?: string;
     /**
-     * The DNS information.
+     * The DNS information of the service.
      */
     readonly dnsEntry?: outputs.vpclattice.ServiceNetworkServiceAssociationDnsEntry;
     /**
@@ -71,7 +71,7 @@ export interface GetServiceNetworkServiceAssociationResult {
      */
     readonly status?: enums.vpclattice.ServiceNetworkServiceAssociationStatus;
     /**
-     * Specifies a tag for a service association.
+     * The tags for the association.
      */
     readonly tags?: outputs.Tag[];
 }

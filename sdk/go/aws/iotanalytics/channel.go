@@ -151,11 +151,13 @@ type Channel struct {
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The name of the channel.
 	ChannelName pulumi.StringPtrOutput `pulumi:"channelName"`
-	// Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+	// Where channel data is stored.
 	ChannelStorage ChannelStoragePtrOutput `pulumi:"channelStorage"`
-	// How long, in days, message data is kept.
+	// How long, in days, message data is kept for the channel.
 	RetentionPeriod ChannelRetentionPeriodPtrOutput `pulumi:"retentionPeriod"`
-	// A set of key-value pairs that are used to manage the resource.
+	// Metadata which can be used to manage the channel.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -205,11 +207,13 @@ func (ChannelState) ElementType() reflect.Type {
 type channelArgs struct {
 	// The name of the channel.
 	ChannelName *string `pulumi:"channelName"`
-	// Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+	// Where channel data is stored.
 	ChannelStorage *ChannelStorage `pulumi:"channelStorage"`
-	// How long, in days, message data is kept.
+	// How long, in days, message data is kept for the channel.
 	RetentionPeriod *ChannelRetentionPeriod `pulumi:"retentionPeriod"`
-	// A set of key-value pairs that are used to manage the resource.
+	// Metadata which can be used to manage the channel.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -217,11 +221,13 @@ type channelArgs struct {
 type ChannelArgs struct {
 	// The name of the channel.
 	ChannelName pulumi.StringPtrInput
-	// Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+	// Where channel data is stored.
 	ChannelStorage ChannelStoragePtrInput
-	// How long, in days, message data is kept.
+	// How long, in days, message data is kept for the channel.
 	RetentionPeriod ChannelRetentionPeriodPtrInput
-	// A set of key-value pairs that are used to manage the resource.
+	// Metadata which can be used to manage the channel.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags aws.TagArrayInput
 }
 
@@ -271,17 +277,19 @@ func (o ChannelOutput) ChannelName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringPtrOutput { return v.ChannelName }).(pulumi.StringPtrOutput)
 }
 
-// Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+// Where channel data is stored.
 func (o ChannelOutput) ChannelStorage() ChannelStoragePtrOutput {
 	return o.ApplyT(func(v *Channel) ChannelStoragePtrOutput { return v.ChannelStorage }).(ChannelStoragePtrOutput)
 }
 
-// How long, in days, message data is kept.
+// How long, in days, message data is kept for the channel.
 func (o ChannelOutput) RetentionPeriod() ChannelRetentionPeriodPtrOutput {
 	return o.ApplyT(func(v *Channel) ChannelRetentionPeriodPtrOutput { return v.RetentionPeriod }).(ChannelRetentionPeriodPtrOutput)
 }
 
-// A set of key-value pairs that are used to manage the resource.
+// Metadata which can be used to manage the channel.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o ChannelOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Channel) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

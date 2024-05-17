@@ -21,12 +21,8 @@ class LinkConfigurationArgs:
                  log_group_configuration: Optional[pulumi.Input['LinkFilterArgs']] = None,
                  metric_configuration: Optional[pulumi.Input['LinkFilterArgs']] = None):
         """
-        :param pulumi.Input['LinkFilterArgs'] log_group_configuration: When used in `MetricConfiguration` this field specifies which metric namespaces are to be shared with the monitoring account
-               
-               When used in `LogGroupConfiguration` this field specifies which log groups are to share their log events with the monitoring account. Use the term `LogGroupName` and one or more of the following operands.
-        :param pulumi.Input['LinkFilterArgs'] metric_configuration: When used in `MetricConfiguration` this field specifies which metric namespaces are to be shared with the monitoring account
-               
-               When used in `LogGroupConfiguration` this field specifies which log groups are to share their log events with the monitoring account. Use the term `LogGroupName` and one or more of the following operands.
+        :param pulumi.Input['LinkFilterArgs'] log_group_configuration: Use this structure to filter which log groups are to share log events from this source account to the monitoring account.
+        :param pulumi.Input['LinkFilterArgs'] metric_configuration: Use this structure to filter which metric namespaces are to be shared from the source account to the monitoring account.
         """
         if log_group_configuration is not None:
             pulumi.set(__self__, "log_group_configuration", log_group_configuration)
@@ -37,9 +33,7 @@ class LinkConfigurationArgs:
     @pulumi.getter(name="logGroupConfiguration")
     def log_group_configuration(self) -> Optional[pulumi.Input['LinkFilterArgs']]:
         """
-        When used in `MetricConfiguration` this field specifies which metric namespaces are to be shared with the monitoring account
-
-        When used in `LogGroupConfiguration` this field specifies which log groups are to share their log events with the monitoring account. Use the term `LogGroupName` and one or more of the following operands.
+        Use this structure to filter which log groups are to share log events from this source account to the monitoring account.
         """
         return pulumi.get(self, "log_group_configuration")
 
@@ -51,9 +45,7 @@ class LinkConfigurationArgs:
     @pulumi.getter(name="metricConfiguration")
     def metric_configuration(self) -> Optional[pulumi.Input['LinkFilterArgs']]:
         """
-        When used in `MetricConfiguration` this field specifies which metric namespaces are to be shared with the monitoring account
-
-        When used in `LogGroupConfiguration` this field specifies which log groups are to share their log events with the monitoring account. Use the term `LogGroupName` and one or more of the following operands.
+        Use this structure to filter which metric namespaces are to be shared from the source account to the monitoring account.
         """
         return pulumi.get(self, "metric_configuration")
 

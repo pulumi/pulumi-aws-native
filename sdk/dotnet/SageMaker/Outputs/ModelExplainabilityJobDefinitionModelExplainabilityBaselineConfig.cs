@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly string? BaseliningJobName;
         /// <summary>
-        /// Input object for the endpoint
+        /// The constraints resource for a model explainability job.
         /// </summary>
         public readonly Outputs.ModelExplainabilityJobDefinitionConstraintsResource? ConstraintsResource;
 

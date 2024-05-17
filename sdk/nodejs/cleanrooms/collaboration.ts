@@ -72,7 +72,7 @@ export class Collaboration extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * Basic metadata used to construct a new member.
+     * A list of initial members, not including the creator. This list is immutable.
      */
     public readonly members!: pulumi.Output<outputs.cleanrooms.CollaborationMemberSpecification[]>;
     /**
@@ -172,7 +172,7 @@ export interface CollaborationArgs {
      */
     description: pulumi.Input<string>;
     /**
-     * Basic metadata used to construct a new member.
+     * A list of initial members, not including the creator. This list is immutable.
      */
     members: pulumi.Input<pulumi.Input<inputs.cleanrooms.CollaborationMemberSpecificationArgs>[]>;
     /**

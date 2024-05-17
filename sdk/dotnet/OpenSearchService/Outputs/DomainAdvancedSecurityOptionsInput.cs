@@ -31,8 +31,6 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
         public readonly bool? InternalUserDatabaseEnabled;
         /// <summary>
         /// Specifies information about the master user.
-        /// 
-        /// Required if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
         /// </summary>
         public readonly Outputs.DomainMasterUserOptions? MasterUserOptions;
         /// <summary>

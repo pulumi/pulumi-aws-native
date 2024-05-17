@@ -18,11 +18,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("destinationParameterName", required: true)]
         public Input<string> DestinationParameterName { get; set; } = null!;
 
-        /// <summary>
-        /// The configuration of destination parameter values.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-        /// </summary>
         [Input("value", required: true)]
         public Input<Inputs.TemplateDestinationParameterValueConfigurationArgs> Value { get; set; } = null!;
 

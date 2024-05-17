@@ -62,7 +62,7 @@ export class Theme extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+     * Describes the properties that can be overriden to customize a theme.
      */
     public readonly overrides!: pulumi.Output<outputs.amplifyuibuilder.ThemeValues[] | undefined>;
     /**
@@ -70,7 +70,7 @@ export class Theme extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+     * A list of key-value pairs that defines the properties of the theme.
      */
     public readonly values!: pulumi.Output<outputs.amplifyuibuilder.ThemeValues[] | undefined>;
 
@@ -129,7 +129,7 @@ export interface ThemeArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+     * Describes the properties that can be overriden to customize a theme.
      */
     overrides?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ThemeValuesArgs>[]>;
     /**
@@ -137,7 +137,7 @@ export interface ThemeArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+     * A list of key-value pairs that defines the properties of the theme.
      */
     values?: pulumi.Input<pulumi.Input<inputs.amplifyuibuilder.ThemeValuesArgs>[]>;
 }

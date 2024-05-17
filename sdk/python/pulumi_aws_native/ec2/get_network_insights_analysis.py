@@ -74,7 +74,7 @@ class GetNetworkInsightsAnalysisResult:
     @pulumi.getter(name="alternatePathHints")
     def alternate_path_hints(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisAlternatePathHint']]:
         """
-        Describes an potential intermediate component of a feasible path.
+        Potential intermediate components.
         """
         return pulumi.get(self, "alternate_path_hints")
 
@@ -82,7 +82,7 @@ class GetNetworkInsightsAnalysisResult:
     @pulumi.getter
     def explanations(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisExplanation']]:
         """
-        Describes an explanation code for an unreachable path. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
+        The explanations. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
         """
         return pulumi.get(self, "explanations")
 
@@ -90,7 +90,7 @@ class GetNetworkInsightsAnalysisResult:
     @pulumi.getter(name="forwardPathComponents")
     def forward_path_components(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisPathComponent']]:
         """
-        Describes a path component.
+        The components in the path from source to destination.
         """
         return pulumi.get(self, "forward_path_components")
 
@@ -122,7 +122,7 @@ class GetNetworkInsightsAnalysisResult:
     @pulumi.getter(name="returnPathComponents")
     def return_path_components(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisPathComponent']]:
         """
-        Describes a path component.
+        The components in the path from destination to source.
         """
         return pulumi.get(self, "return_path_components")
 
@@ -162,7 +162,7 @@ class GetNetworkInsightsAnalysisResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        The tags to apply.
         """
         return pulumi.get(self, "tags")
 

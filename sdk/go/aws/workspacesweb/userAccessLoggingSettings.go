@@ -21,7 +21,7 @@ type UserAccessLoggingSettings struct {
 	AssociatedPortalArns pulumi.StringArrayOutput `pulumi:"associatedPortalArns"`
 	// Kinesis stream ARN to which log events are published.
 	KinesisStreamArn pulumi.StringOutput `pulumi:"kinesisStreamArn"`
-	// The tag.
+	// The tags to add to the user access logging settings resource. A tag is a key-value pair.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ARN of the user access logging settings.
 	UserAccessLoggingSettingsArn pulumi.StringOutput `pulumi:"userAccessLoggingSettingsArn"`
@@ -72,7 +72,7 @@ func (UserAccessLoggingSettingsState) ElementType() reflect.Type {
 type userAccessLoggingSettingsArgs struct {
 	// Kinesis stream ARN to which log events are published.
 	KinesisStreamArn string `pulumi:"kinesisStreamArn"`
-	// The tag.
+	// The tags to add to the user access logging settings resource. A tag is a key-value pair.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -80,7 +80,7 @@ type userAccessLoggingSettingsArgs struct {
 type UserAccessLoggingSettingsArgs struct {
 	// Kinesis stream ARN to which log events are published.
 	KinesisStreamArn pulumi.StringInput
-	// The tag.
+	// The tags to add to the user access logging settings resource. A tag is a key-value pair.
 	Tags aws.TagArrayInput
 }
 
@@ -131,7 +131,7 @@ func (o UserAccessLoggingSettingsOutput) KinesisStreamArn() pulumi.StringOutput 
 	return o.ApplyT(func(v *UserAccessLoggingSettings) pulumi.StringOutput { return v.KinesisStreamArn }).(pulumi.StringOutput)
 }
 
-// The tag.
+// The tags to add to the user access logging settings resource. A tag is a key-value pair.
 func (o UserAccessLoggingSettingsOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *UserAccessLoggingSettings) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

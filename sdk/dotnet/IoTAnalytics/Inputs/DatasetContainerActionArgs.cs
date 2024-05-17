@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public Input<string> Image { get; set; } = null!;
 
         /// <summary>
-        /// The configuration of the resource used to execute the `containerAction` .
+        /// Configuration of the resource which executes the "containerAction".
         /// </summary>
         [Input("resourceConfiguration", required: true)]
         public Input<Inputs.DatasetResourceConfigurationArgs> ResourceConfiguration { get; set; } = null!;
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         private InputList<Inputs.DatasetVariableArgs>? _variables;
 
         /// <summary>
-        /// An instance of a variable to be passed to the `containerAction` execution. Each variable must have a name and a value given by one of `stringValue` , `datasetContentVersionValue` , or `outputFileUriValue` .
+        /// The values of variables used within the context of the execution of the containerized application (basically, parameters passed to the application). Each variable must have a name and a value given by one of "stringValue", "datasetContentVersionValue", or "outputFileUriValue".
         /// </summary>
         public InputList<Inputs.DatasetVariableArgs> Variables
         {

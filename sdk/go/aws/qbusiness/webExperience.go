@@ -31,7 +31,7 @@ type WebExperience struct {
 	Status WebExperienceStatusOutput `pulumi:"status"`
 	// A subtitle to personalize your Amazon Q Business web experience.
 	Subtitle pulumi.StringPtrOutput `pulumi:"subtitle"`
-	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	// A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The title for your Amazon Q Business web experience.
 	Title pulumi.StringPtrOutput `pulumi:"title"`
@@ -100,7 +100,7 @@ type webExperienceArgs struct {
 	SamplePromptsControlMode *WebExperienceSamplePromptsControlMode `pulumi:"samplePromptsControlMode"`
 	// A subtitle to personalize your Amazon Q Business web experience.
 	Subtitle *string `pulumi:"subtitle"`
-	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	// A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The title for your Amazon Q Business web experience.
 	Title *string `pulumi:"title"`
@@ -118,7 +118,7 @@ type WebExperienceArgs struct {
 	SamplePromptsControlMode WebExperienceSamplePromptsControlModePtrInput
 	// A subtitle to personalize your Amazon Q Business web experience.
 	Subtitle pulumi.StringPtrInput
-	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	// A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 	Tags aws.TagArrayInput
 	// The title for your Amazon Q Business web experience.
 	Title pulumi.StringPtrInput
@@ -200,7 +200,7 @@ func (o WebExperienceOutput) Subtitle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebExperience) pulumi.StringPtrOutput { return v.Subtitle }).(pulumi.StringPtrOutput)
 }
 
-// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+// A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 func (o WebExperienceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *WebExperience) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

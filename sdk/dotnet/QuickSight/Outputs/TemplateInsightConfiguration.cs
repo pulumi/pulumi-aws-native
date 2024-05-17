@@ -14,13 +14,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateInsightConfiguration
     {
         /// <summary>
-        /// The computation union that is used in an insight visual.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The computations configurations of the insight visual
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateComputation> Computations;
         /// <summary>
-        /// The custom narrative options.
+        /// The custom narrative of the insight visual.
         /// </summary>
         public readonly Outputs.TemplateCustomNarrativeOptions? CustomNarrative;
 

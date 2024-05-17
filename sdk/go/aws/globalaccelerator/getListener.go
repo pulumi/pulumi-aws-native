@@ -32,7 +32,7 @@ type LookupListenerResult struct {
 	ClientAffinity *ListenerClientAffinity `pulumi:"clientAffinity"`
 	// The Amazon Resource Name (ARN) of the listener.
 	ListenerArn *string `pulumi:"listenerArn"`
-	// A complex type for a range of ports for a listener.
+	// The list of port ranges for the connections from clients to the accelerator.
 	PortRanges []ListenerPortRange `pulumi:"portRanges"`
 	// The protocol for the listener.
 	Protocol *ListenerProtocol `pulumi:"protocol"`
@@ -84,7 +84,7 @@ func (o LookupListenerResultOutput) ListenerArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupListenerResult) *string { return v.ListenerArn }).(pulumi.StringPtrOutput)
 }
 
-// A complex type for a range of ports for a listener.
+// The list of port ranges for the connections from clients to the accelerator.
 func (o LookupListenerResultOutput) PortRanges() ListenerPortRangeArrayOutput {
 	return o.ApplyT(func(v LookupListenerResult) []ListenerPortRange { return v.PortRanges }).(ListenerPortRangeArrayOutput)
 }

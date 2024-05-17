@@ -69,11 +69,6 @@ namespace Pulumi.AwsNative.Amplify
         /// The required AWS Identity and Access Management (IAMlong) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
         /// </summary>
         public readonly string? AutoSubDomainIamRole;
-        /// <summary>
-        /// Describes the SSL/TLS certificate for the domain association. This can be your own custom certificate or the default certificate that Amplify provisions for you.
-        /// 
-        /// If you are updating your domain to use a different certificate, `Certificate` points to the new certificate that is being created instead of the current active certificate. Otherwise, `Certificate` points to the current active certificate.
-        /// </summary>
         public readonly Outputs.DomainCertificate? Certificate;
         /// <summary>
         /// DNS Record for certificate verification.
@@ -92,7 +87,7 @@ namespace Pulumi.AwsNative.Amplify
         /// </summary>
         public readonly string? StatusReason;
         /// <summary>
-        /// The SubDomainSetting property type enables you to connect a subdomain (for example, example.exampledomain.com) to a specific branch.
+        /// The setting for the subdomain.
         /// </summary>
         public readonly ImmutableArray<Outputs.DomainSubDomainSetting> SubDomainSettings;
         /// <summary>

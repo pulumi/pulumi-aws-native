@@ -46,7 +46,7 @@ export class StorageProfile extends pulumi.CustomResource {
      */
     public readonly farmId!: pulumi.Output<string | undefined>;
     /**
-     * The details of the file system location for the resource.
+     * Operating system specific file system path to the storage location.
      */
     public readonly fileSystemLocations!: pulumi.Output<outputs.deadline.StorageProfileFileSystemLocation[] | undefined>;
     /**
@@ -107,7 +107,7 @@ export interface StorageProfileArgs {
      */
     farmId?: pulumi.Input<string>;
     /**
-     * The details of the file system location for the resource.
+     * Operating system specific file system path to the storage location.
      */
     fileSystemLocations?: pulumi.Input<pulumi.Input<inputs.deadline.StorageProfileFileSystemLocationArgs>[]>;
     /**

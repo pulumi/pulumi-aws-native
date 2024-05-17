@@ -181,7 +181,7 @@ class ChannelRequestOutputItemArgs:
         <p>The output configuration for this channel.</p>
         :param pulumi.Input[str] manifest_name: <p>The name of the manifest for the channel. The name appears in the <code>PlaybackUrl</code>.</p>
         :param pulumi.Input[str] source_group: <p>A string used to match which <code>HttpPackageConfiguration</code> is used for each <code>VodSource</code>.</p>
-        :param pulumi.Input['ChannelDashPlaylistSettingsArgs'] dash_playlist_settings: Dash manifest configuration parameters.
+        :param pulumi.Input['ChannelDashPlaylistSettingsArgs'] dash_playlist_settings: DASH manifest configuration parameters.
         :param pulumi.Input['ChannelHlsPlaylistSettingsArgs'] hls_playlist_settings: HLS playlist configuration parameters.
         """
         pulumi.set(__self__, "manifest_name", manifest_name)
@@ -219,7 +219,7 @@ class ChannelRequestOutputItemArgs:
     @pulumi.getter(name="dashPlaylistSettings")
     def dash_playlist_settings(self) -> Optional[pulumi.Input['ChannelDashPlaylistSettingsArgs']]:
         """
-        Dash manifest configuration parameters.
+        DASH manifest configuration parameters.
         """
         return pulumi.get(self, "dash_playlist_settings")
 
@@ -661,7 +661,7 @@ class SourceLocationAccessConfigurationArgs:
                • The mediatailor.amazonaws.com service principal must have permissions to read all top level manifests referenced by the VodSource packaging configurations.
                
                • The caller of the API must have s3:GetObject IAM permissions to read all top level manifests referenced by your MediaTailor VodSource packaging configurations.
-        :param pulumi.Input['SourceLocationSecretsManagerAccessTokenConfigurationArgs'] secrets_manager_access_token_configuration: AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see [Working with AWS Secrets Manager access token authentication](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html) .
+        :param pulumi.Input['SourceLocationSecretsManagerAccessTokenConfigurationArgs'] secrets_manager_access_token_configuration: AWS Secrets Manager access token configuration parameters.
         """
         if access_type is not None:
             pulumi.set(__self__, "access_type", access_type)
@@ -694,7 +694,7 @@ class SourceLocationAccessConfigurationArgs:
     @pulumi.getter(name="secretsManagerAccessTokenConfiguration")
     def secrets_manager_access_token_configuration(self) -> Optional[pulumi.Input['SourceLocationSecretsManagerAccessTokenConfigurationArgs']]:
         """
-        AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see [Working with AWS Secrets Manager access token authentication](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html) .
+        AWS Secrets Manager access token configuration parameters.
         """
         return pulumi.get(self, "secrets_manager_access_token_configuration")
 

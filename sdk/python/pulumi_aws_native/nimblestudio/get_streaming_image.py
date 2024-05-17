@@ -54,9 +54,6 @@ class GetStreamingImageResult:
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> Optional['outputs.StreamingImageEncryptionConfiguration']:
-        """
-        Specifies how a streaming image is encrypted.
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @property

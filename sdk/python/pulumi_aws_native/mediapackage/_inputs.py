@@ -246,7 +246,7 @@ class OriginEndpointCmafEncryptionArgs:
                  key_rotation_interval_seconds: Optional[pulumi.Input[int]] = None):
         """
         A Common Media Application Format (CMAF) encryption configuration.
-        :param pulumi.Input['OriginEndpointSpekeKeyProviderArgs'] speke_key_provider: Key provider settings for DRM.
+        :param pulumi.Input['OriginEndpointSpekeKeyProviderArgs'] speke_key_provider: Parameters for the SPEKE key provider.
         :param pulumi.Input[str] constant_initialization_vector: An optional 128-bit, 16-byte hex value represented by a 32-character string, used in conjunction with the key for encrypting blocks. If you don't specify a value, then MediaPackage creates the constant initialization vector (IV).
         :param pulumi.Input['OriginEndpointCmafEncryptionEncryptionMethod'] encryption_method: The encryption method used
         :param pulumi.Input[int] key_rotation_interval_seconds: Time (in seconds) between each encryption key rotation.
@@ -263,7 +263,7 @@ class OriginEndpointCmafEncryptionArgs:
     @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> pulumi.Input['OriginEndpointSpekeKeyProviderArgs']:
         """
-        Key provider settings for DRM.
+        Parameters for the SPEKE key provider.
         """
         return pulumi.get(self, "speke_key_provider")
 
@@ -318,7 +318,7 @@ class OriginEndpointCmafPackageArgs:
                  stream_selection: Optional[pulumi.Input['OriginEndpointStreamSelectionArgs']] = None):
         """
         A Common Media Application Format (CMAF) packaging configuration.
-        :param pulumi.Input['OriginEndpointCmafEncryptionArgs'] encryption: Holds encryption information so that access to the content can be controlled by a DRM solution.
+        :param pulumi.Input['OriginEndpointCmafEncryptionArgs'] encryption: Parameters for encrypting content.
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsManifestArgs']]] hls_manifests: A list of HLS manifest configurations
         :param pulumi.Input[int] segment_duration_seconds: Duration (in seconds) of each segment. Actual segments will be rounded to the nearest multiple of the source segment duration.
         :param pulumi.Input[str] segment_prefix: An optional custom string that is prepended to the name of each segment. If not specified, it defaults to the ChannelId.
@@ -339,7 +339,7 @@ class OriginEndpointCmafPackageArgs:
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['OriginEndpointCmafEncryptionArgs']]:
         """
-        Holds encryption information so that access to the content can be controlled by a DRM solution.
+        Parameters for encrypting content.
         """
         return pulumi.get(self, "encryption")
 
@@ -403,7 +403,7 @@ class OriginEndpointDashEncryptionArgs:
                  key_rotation_interval_seconds: Optional[pulumi.Input[int]] = None):
         """
         A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
-        :param pulumi.Input['OriginEndpointSpekeKeyProviderArgs'] speke_key_provider: Key provider settings for DRM.
+        :param pulumi.Input['OriginEndpointSpekeKeyProviderArgs'] speke_key_provider: Parameters for the SPEKE key provider.
         :param pulumi.Input[int] key_rotation_interval_seconds: Time (in seconds) between each encryption key rotation.
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
@@ -414,7 +414,7 @@ class OriginEndpointDashEncryptionArgs:
     @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> pulumi.Input['OriginEndpointSpekeKeyProviderArgs']:
         """
-        Key provider settings for DRM.
+        Parameters for the SPEKE key provider.
         """
         return pulumi.get(self, "speke_key_provider")
 
@@ -458,7 +458,7 @@ class OriginEndpointDashPackageArgs:
         A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointDashPackageAdTriggersItem']]] ad_triggers: A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
         :param pulumi.Input['OriginEndpointAdsOnDeliveryRestrictions'] ads_on_delivery_restrictions: The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
-        :param pulumi.Input['OriginEndpointDashEncryptionArgs'] encryption: Holds encryption information so that access to the content can be controlled by a DRM solution.
+        :param pulumi.Input['OriginEndpointDashEncryptionArgs'] encryption: Parameters for encrypting content.
         :param pulumi.Input[bool] include_iframe_only_stream: When enabled, an I-Frame only stream will be included in the output.
         :param pulumi.Input['OriginEndpointDashPackageManifestLayout'] manifest_layout: Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
         :param pulumi.Input[int] manifest_window_seconds: Time window (in seconds) contained in each manifest.
@@ -534,7 +534,7 @@ class OriginEndpointDashPackageArgs:
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['OriginEndpointDashEncryptionArgs']]:
         """
-        Holds encryption information so that access to the content can be controlled by a DRM solution.
+        Parameters for encrypting content.
         """
         return pulumi.get(self, "encryption")
 
@@ -747,7 +747,7 @@ class OriginEndpointHlsEncryptionArgs:
                  repeat_ext_x_key: Optional[pulumi.Input[bool]] = None):
         """
         An HTTP Live Streaming (HLS) encryption configuration.
-        :param pulumi.Input['OriginEndpointSpekeKeyProviderArgs'] speke_key_provider: Key provider settings for DRM.
+        :param pulumi.Input['OriginEndpointSpekeKeyProviderArgs'] speke_key_provider: Parameters for the SPEKE key provider.
         :param pulumi.Input[str] constant_initialization_vector: A constant initialization vector for encryption (optional). When not specified the initialization vector will be periodically rotated.
         :param pulumi.Input['OriginEndpointHlsEncryptionEncryptionMethod'] encryption_method: The encryption method to use.
         :param pulumi.Input[int] key_rotation_interval_seconds: Interval (in seconds) between each encryption key rotation.
@@ -767,7 +767,7 @@ class OriginEndpointHlsEncryptionArgs:
     @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> pulumi.Input['OriginEndpointSpekeKeyProviderArgs']:
         """
-        Key provider settings for DRM.
+        Parameters for the SPEKE key provider.
         """
         return pulumi.get(self, "speke_key_provider")
 
@@ -1011,7 +1011,7 @@ class OriginEndpointHlsPackageArgs:
         :param pulumi.Input['OriginEndpointHlsPackageAdMarkers'] ad_markers: This setting controls how ad markers are included in the packaged OriginEndpoint. "NONE" will omit all SCTE-35 ad markers from the output. "PASSTHROUGH" causes the manifest to contain a copy of the SCTE-35 ad markers (comments) taken directly from the input HTTP Live Streaming (HLS) manifest. "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35 messages in the input source. "DATERANGE" inserts EXT-X-DATERANGE tags to signal ad and program transition events in HLS and CMAF manifests. For this option, you must set a programDateTimeIntervalSeconds value that is greater than 0.
         :param pulumi.Input[Sequence[pulumi.Input['OriginEndpointHlsPackageAdTriggersItem']]] ad_triggers: A list of SCTE-35 message types that are treated as ad markers in the output.  If empty, no ad markers are output.  Specify multiple items to create ad markers for all of the included message types.
         :param pulumi.Input['OriginEndpointAdsOnDeliveryRestrictions'] ads_on_delivery_restrictions: The flags on SCTE-35 segmentation descriptors that have to be present for AWS Elemental MediaPackage to insert ad markers in the output manifest. For information about SCTE-35 in AWS Elemental MediaPackage , see [SCTE-35 Message Options in AWS Elemental MediaPackage](https://docs.aws.amazon.com/mediapackage/latest/ug/scte.html) .
-        :param pulumi.Input['OriginEndpointHlsEncryptionArgs'] encryption: Holds encryption information so that access to the content can be controlled by a DRM solution.
+        :param pulumi.Input['OriginEndpointHlsEncryptionArgs'] encryption: Parameters for encrypting content.
         :param pulumi.Input[bool] include_dvb_subtitles: When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
         :param pulumi.Input[bool] include_iframe_only_stream: When enabled, an I-Frame only stream will be included in the output.
         :param pulumi.Input['OriginEndpointHlsPackagePlaylistType'] playlist_type: The HTTP Live Streaming (HLS) playlist type. When either "EVENT" or "VOD" is specified, a corresponding EXT-X-PLAYLIST-TYPE entry will be included in the media playlist.
@@ -1086,7 +1086,7 @@ class OriginEndpointHlsPackageArgs:
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['OriginEndpointHlsEncryptionArgs']]:
         """
-        Holds encryption information so that access to the content can be controlled by a DRM solution.
+        Parameters for encrypting content.
         """
         return pulumi.get(self, "encryption")
 
@@ -1197,7 +1197,7 @@ class OriginEndpointMssEncryptionArgs:
                  speke_key_provider: pulumi.Input['OriginEndpointSpekeKeyProviderArgs']):
         """
         A Microsoft Smooth Streaming (MSS) encryption configuration.
-        :param pulumi.Input['OriginEndpointSpekeKeyProviderArgs'] speke_key_provider: Key provider settings for DRM.
+        :param pulumi.Input['OriginEndpointSpekeKeyProviderArgs'] speke_key_provider: Parameters for the SPEKE key provider.
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
 
@@ -1205,7 +1205,7 @@ class OriginEndpointMssEncryptionArgs:
     @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> pulumi.Input['OriginEndpointSpekeKeyProviderArgs']:
         """
-        Key provider settings for DRM.
+        Parameters for the SPEKE key provider.
         """
         return pulumi.get(self, "speke_key_provider")
 
@@ -1223,7 +1223,7 @@ class OriginEndpointMssPackageArgs:
                  stream_selection: Optional[pulumi.Input['OriginEndpointStreamSelectionArgs']] = None):
         """
         A Microsoft Smooth Streaming (MSS) packaging configuration.
-        :param pulumi.Input['OriginEndpointMssEncryptionArgs'] encryption: Holds encryption information so that access to the content can be controlled by a DRM solution.
+        :param pulumi.Input['OriginEndpointMssEncryptionArgs'] encryption: Parameters for encrypting content.
         :param pulumi.Input[int] manifest_window_seconds: The time window (in seconds) contained in each manifest.
         :param pulumi.Input[int] segment_duration_seconds: The duration (in seconds) of each segment.
         :param pulumi.Input['OriginEndpointStreamSelectionArgs'] stream_selection: Limitations for outputs from the endpoint, based on the video bitrate.
@@ -1241,7 +1241,7 @@ class OriginEndpointMssPackageArgs:
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['OriginEndpointMssEncryptionArgs']]:
         """
-        Holds encryption information so that access to the content can be controlled by a DRM solution.
+        Parameters for encrypting content.
         """
         return pulumi.get(self, "encryption")
 
@@ -1302,13 +1302,7 @@ class OriginEndpointSpekeKeyProviderArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_ids: The system IDs to include in key requests.
         :param pulumi.Input[str] url: The URL of the external key provider service.
         :param pulumi.Input[str] certificate_arn: An Amazon Resource Name (ARN) of a Certificate Manager certificate that MediaPackage will use for enforcing secure end-to-end data transfer with the key provider service.
-        :param pulumi.Input['OriginEndpointEncryptionContractConfigurationArgs'] encryption_contract_configuration: Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines the content keys used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use. For more information about these presets, see [SPEKE Version 2.0 Presets](https://docs.aws.amazon.com/mediapackage/latest/ug/drm-content-speke-v2-presets.html) .
-               
-               Note the following considerations when using `encryptionContractConfiguration` :
-               
-               - You can use `encryptionContractConfiguration` for DASH endpoints that use SPEKE Version 2.0. SPEKE Version 2.0 relies on the CPIX Version 2.3 specification.
-               - You cannot combine an `UNENCRYPTED` preset with `UNENCRYPTED` or `SHARED` presets across `presetSpeke20Audio` and `presetSpeke20Video` .
-               - When you use a `SHARED` preset, you must use it for both `presetSpeke20Audio` and `presetSpeke20Video` .
+        :param pulumi.Input['OriginEndpointEncryptionContractConfigurationArgs'] encryption_contract_configuration: Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.
         """
         pulumi.set(__self__, "resource_id", resource_id)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -1383,13 +1377,7 @@ class OriginEndpointSpekeKeyProviderArgs:
     @pulumi.getter(name="encryptionContractConfiguration")
     def encryption_contract_configuration(self) -> Optional[pulumi.Input['OriginEndpointEncryptionContractConfigurationArgs']]:
         """
-        Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines the content keys used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use. For more information about these presets, see [SPEKE Version 2.0 Presets](https://docs.aws.amazon.com/mediapackage/latest/ug/drm-content-speke-v2-presets.html) .
-
-        Note the following considerations when using `encryptionContractConfiguration` :
-
-        - You can use `encryptionContractConfiguration` for DASH endpoints that use SPEKE Version 2.0. SPEKE Version 2.0 relies on the CPIX Version 2.3 specification.
-        - You cannot combine an `UNENCRYPTED` preset with `UNENCRYPTED` or `SHARED` presets across `presetSpeke20Audio` and `presetSpeke20Video` .
-        - When you use a `SHARED` preset, you must use it for both `presetSpeke20Audio` and `presetSpeke20Video` .
+        Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.
         """
         return pulumi.get(self, "encryption_contract_configuration")
 
@@ -1460,7 +1448,7 @@ class PackagingConfigurationCmafEncryptionArgs:
                  speke_key_provider: pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs']):
         """
         A CMAF encryption configuration.
-        :param pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs'] speke_key_provider: A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+        :param pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs'] speke_key_provider: Parameters for the SPEKE key provider.
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
 
@@ -1468,7 +1456,7 @@ class PackagingConfigurationCmafEncryptionArgs:
     @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs']:
         """
-        A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+        Parameters for the SPEKE key provider.
         """
         return pulumi.get(self, "speke_key_provider")
 
@@ -1487,7 +1475,7 @@ class PackagingConfigurationCmafPackageArgs:
         """
         A CMAF packaging configuration.
         :param pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationHlsManifestArgs']]] hls_manifests: A list of HLS manifest configurations.
-        :param pulumi.Input['PackagingConfigurationCmafEncryptionArgs'] encryption: Holds encryption information so that access to the content can be controlled by a DRM solution.
+        :param pulumi.Input['PackagingConfigurationCmafEncryptionArgs'] encryption: Parameters for encrypting content.
         :param pulumi.Input[bool] include_encoder_configuration_in_segments: When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
         :param pulumi.Input[int] segment_duration_seconds: Duration (in seconds) of each segment. Actual segments are rounded to the nearest multiple of the source fragment duration.
         """
@@ -1515,7 +1503,7 @@ class PackagingConfigurationCmafPackageArgs:
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['PackagingConfigurationCmafEncryptionArgs']]:
         """
-        Holds encryption information so that access to the content can be controlled by a DRM solution.
+        Parameters for encrypting content.
         """
         return pulumi.get(self, "encryption")
 
@@ -1554,7 +1542,7 @@ class PackagingConfigurationDashEncryptionArgs:
                  speke_key_provider: pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs']):
         """
         A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
-        :param pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs'] speke_key_provider: A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+        :param pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs'] speke_key_provider: Parameters for the SPEKE key provider.
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
 
@@ -1562,7 +1550,7 @@ class PackagingConfigurationDashEncryptionArgs:
     @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs']:
         """
-        A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+        Parameters for the SPEKE key provider.
         """
         return pulumi.get(self, "speke_key_provider")
 
@@ -1688,7 +1676,7 @@ class PackagingConfigurationDashPackageArgs:
         """
         A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
         :param pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationDashManifestArgs']]] dash_manifests: A list of DASH manifest configurations.
-        :param pulumi.Input['PackagingConfigurationDashEncryptionArgs'] encryption: Holds encryption information so that access to the content can be controlled by a DRM solution.
+        :param pulumi.Input['PackagingConfigurationDashEncryptionArgs'] encryption: Parameters for encrypting content.
         :param pulumi.Input[bool] include_encoder_configuration_in_segments: When includeEncoderConfigurationInSegments is set to true, MediaPackage places your encoder's Sequence Parameter Set (SPS), Picture Parameter Set (PPS), and Video Parameter Set (VPS) metadata in every video segment instead of in the init fragment. This lets you use different SPS/PPS/VPS settings for your assets during content playback.
         :param pulumi.Input[bool] include_iframe_only_stream: When enabled, an I-Frame only stream will be included in the output.
         :param pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationDashPackagePeriodTriggersItem']]] period_triggers: A list of triggers that controls when the outgoing Dynamic Adaptive Streaming over HTTP (DASH) Media Presentation Description (MPD) will be partitioned into multiple periods. If empty, the content will not be partitioned into more than one period. If the list contains "ADS", new periods will be created where the Asset contains SCTE-35 ad markers.
@@ -1725,7 +1713,7 @@ class PackagingConfigurationDashPackageArgs:
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['PackagingConfigurationDashEncryptionArgs']]:
         """
-        Holds encryption information so that access to the content can be controlled by a DRM solution.
+        Parameters for encrypting content.
         """
         return pulumi.get(self, "encryption")
 
@@ -1840,7 +1828,7 @@ class PackagingConfigurationHlsEncryptionArgs:
                  encryption_method: Optional[pulumi.Input['PackagingConfigurationHlsEncryptionEncryptionMethod']] = None):
         """
         An HTTP Live Streaming (HLS) encryption configuration.
-        :param pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs'] speke_key_provider: A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+        :param pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs'] speke_key_provider: Parameters for the SPEKE key provider.
         :param pulumi.Input[str] constant_initialization_vector: An HTTP Live Streaming (HLS) encryption configuration.
         :param pulumi.Input['PackagingConfigurationHlsEncryptionEncryptionMethod'] encryption_method: The encryption method to use.
         """
@@ -1854,7 +1842,7 @@ class PackagingConfigurationHlsEncryptionArgs:
     @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs']:
         """
-        A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+        Parameters for the SPEKE key provider.
         """
         return pulumi.get(self, "speke_key_provider")
 
@@ -1903,7 +1891,7 @@ class PackagingConfigurationHlsManifestArgs:
         :param pulumi.Input[str] manifest_name: A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
         :param pulumi.Input[int] program_date_time_interval_seconds: The interval (in seconds) between each EXT-X-PROGRAM-DATE-TIME tag inserted into manifests. Additionally, when an interval is specified ID3Timed Metadata messages will be generated every 5 seconds using the ingest time of the content. If the interval is not specified, or set to 0, then no EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and no ID3Timed Metadata messages will be generated. Note that irrespective of this parameter, if any ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input, it will be passed through to HLS output.
         :param pulumi.Input[bool] repeat_ext_x_key: When enabled, the EXT-X-KEY tag will be repeated in output manifests.
-        :param pulumi.Input['PackagingConfigurationStreamSelectionArgs'] stream_selection: Limitations for outputs from the endpoint, based on the video bitrate.
+        :param pulumi.Input['PackagingConfigurationStreamSelectionArgs'] stream_selection: Video bitrate limitations for outputs from this packaging configuration.
         """
         if ad_markers is not None:
             pulumi.set(__self__, "ad_markers", ad_markers)
@@ -1982,7 +1970,7 @@ class PackagingConfigurationHlsManifestArgs:
     @pulumi.getter(name="streamSelection")
     def stream_selection(self) -> Optional[pulumi.Input['PackagingConfigurationStreamSelectionArgs']]:
         """
-        Limitations for outputs from the endpoint, based on the video bitrate.
+        Video bitrate limitations for outputs from this packaging configuration.
         """
         return pulumi.get(self, "stream_selection")
 
@@ -2002,7 +1990,7 @@ class PackagingConfigurationHlsPackageArgs:
         """
         An HTTP Live Streaming (HLS) packaging configuration.
         :param pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationHlsManifestArgs']]] hls_manifests: A list of HLS manifest configurations.
-        :param pulumi.Input['PackagingConfigurationHlsEncryptionArgs'] encryption: Holds encryption information so that access to the content can be controlled by a DRM solution.
+        :param pulumi.Input['PackagingConfigurationHlsEncryptionArgs'] encryption: Parameters for encrypting content.
         :param pulumi.Input[bool] include_dvb_subtitles: When enabled, MediaPackage passes through digital video broadcasting (DVB) subtitles into the output.
         :param pulumi.Input[int] segment_duration_seconds: Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.
         :param pulumi.Input[bool] use_audio_rendition_group: When enabled, audio streams will be placed in rendition groups in the output.
@@ -2033,7 +2021,7 @@ class PackagingConfigurationHlsPackageArgs:
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['PackagingConfigurationHlsEncryptionArgs']]:
         """
-        Holds encryption information so that access to the content can be controlled by a DRM solution.
+        Parameters for encrypting content.
         """
         return pulumi.get(self, "encryption")
 
@@ -2084,7 +2072,7 @@ class PackagingConfigurationMssEncryptionArgs:
                  speke_key_provider: pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs']):
         """
         A CMAF encryption configuration.
-        :param pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs'] speke_key_provider: A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+        :param pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs'] speke_key_provider: Parameters for the SPEKE key provider.
         """
         pulumi.set(__self__, "speke_key_provider", speke_key_provider)
 
@@ -2092,7 +2080,7 @@ class PackagingConfigurationMssEncryptionArgs:
     @pulumi.getter(name="spekeKeyProvider")
     def speke_key_provider(self) -> pulumi.Input['PackagingConfigurationSpekeKeyProviderArgs']:
         """
-        A configuration for accessing an external Secure Packager and Encoder Key Exchange (SPEKE) service that provides encryption keys.
+        Parameters for the SPEKE key provider.
         """
         return pulumi.get(self, "speke_key_provider")
 
@@ -2109,7 +2097,7 @@ class PackagingConfigurationMssManifestArgs:
         """
         A Microsoft Smooth Streaming (MSS) manifest configuration.
         :param pulumi.Input[str] manifest_name: A short string that's appended to the end of the endpoint URL to create a unique path to this packaging configuration.
-        :param pulumi.Input['PackagingConfigurationStreamSelectionArgs'] stream_selection: Limitations for outputs from the endpoint, based on the video bitrate.
+        :param pulumi.Input['PackagingConfigurationStreamSelectionArgs'] stream_selection: Video bitrate limitations for outputs from this packaging configuration.
         """
         if manifest_name is not None:
             pulumi.set(__self__, "manifest_name", manifest_name)
@@ -2132,7 +2120,7 @@ class PackagingConfigurationMssManifestArgs:
     @pulumi.getter(name="streamSelection")
     def stream_selection(self) -> Optional[pulumi.Input['PackagingConfigurationStreamSelectionArgs']]:
         """
-        Limitations for outputs from the endpoint, based on the video bitrate.
+        Video bitrate limitations for outputs from this packaging configuration.
         """
         return pulumi.get(self, "stream_selection")
 
@@ -2150,7 +2138,7 @@ class PackagingConfigurationMssPackageArgs:
         """
         A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
         :param pulumi.Input[Sequence[pulumi.Input['PackagingConfigurationMssManifestArgs']]] mss_manifests: A list of MSS manifest configurations.
-        :param pulumi.Input['PackagingConfigurationMssEncryptionArgs'] encryption: Holds encryption information so that access to the content can be controlled by a DRM solution.
+        :param pulumi.Input['PackagingConfigurationMssEncryptionArgs'] encryption: Parameters for encrypting content.
         :param pulumi.Input[int] segment_duration_seconds: Duration (in seconds) of each fragment. Actual fragments are rounded to the nearest multiple of the source fragment duration.
         """
         pulumi.set(__self__, "mss_manifests", mss_manifests)
@@ -2175,7 +2163,7 @@ class PackagingConfigurationMssPackageArgs:
     @pulumi.getter
     def encryption(self) -> Optional[pulumi.Input['PackagingConfigurationMssEncryptionArgs']]:
         """
-        Holds encryption information so that access to the content can be controlled by a DRM solution.
+        Parameters for encrypting content.
         """
         return pulumi.get(self, "encryption")
 
@@ -2208,13 +2196,7 @@ class PackagingConfigurationSpekeKeyProviderArgs:
         :param pulumi.Input[str] role_arn: The ARN for the IAM role that's granted by the key provider to provide access to the key provider API. Valid format: arn:aws:iam::{accountID}:role/{name}
         :param pulumi.Input[Sequence[pulumi.Input[str]]] system_ids: The system IDs to include in key requests.
         :param pulumi.Input[str] url: The URL of the external key provider service.
-        :param pulumi.Input['PackagingConfigurationEncryptionContractConfigurationArgs'] encryption_contract_configuration: Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines the content keys used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use. For more information about these presets, see [SPEKE Version 2.0 Presets](https://docs.aws.amazon.com/mediapackage/latest/ug/drm-content-speke-v2-presets.html) .
-               
-               Note the following considerations when using `encryptionContractConfiguration` :
-               
-               - You can use `encryptionContractConfiguration` for DASH endpoints that use SPEKE Version 2.0. SPEKE Version 2.0 relies on the CPIX Version 2.3 specification.
-               - You cannot combine an `UNENCRYPTED` preset with `UNENCRYPTED` or `SHARED` presets across `presetSpeke20Audio` and `presetSpeke20Video` .
-               - When you use a `SHARED` preset, you must use it for both `presetSpeke20Audio` and `presetSpeke20Video` .
+        :param pulumi.Input['PackagingConfigurationEncryptionContractConfigurationArgs'] encryption_contract_configuration: Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "system_ids", system_ids)
@@ -2262,13 +2244,7 @@ class PackagingConfigurationSpekeKeyProviderArgs:
     @pulumi.getter(name="encryptionContractConfiguration")
     def encryption_contract_configuration(self) -> Optional[pulumi.Input['PackagingConfigurationEncryptionContractConfigurationArgs']]:
         """
-        Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines the content keys used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use. For more information about these presets, see [SPEKE Version 2.0 Presets](https://docs.aws.amazon.com/mediapackage/latest/ug/drm-content-speke-v2-presets.html) .
-
-        Note the following considerations when using `encryptionContractConfiguration` :
-
-        - You can use `encryptionContractConfiguration` for DASH endpoints that use SPEKE Version 2.0. SPEKE Version 2.0 relies on the CPIX Version 2.3 specification.
-        - You cannot combine an `UNENCRYPTED` preset with `UNENCRYPTED` or `SHARED` presets across `presetSpeke20Audio` and `presetSpeke20Video` .
-        - When you use a `SHARED` preset, you must use it for both `presetSpeke20Audio` and `presetSpeke20Video` .
+        Use `encryptionContractConfiguration` to configure one or more content encryption keys for your endpoints that use SPEKE Version 2.0. The encryption contract defines which content keys are used to encrypt the audio and video tracks in your stream. To configure the encryption contract, specify which audio and video encryption presets to use.
         """
         return pulumi.get(self, "encryption_contract_configuration")
 

@@ -24,7 +24,7 @@ type Connector struct {
 	DirectoryId pulumi.StringOutput `pulumi:"directoryId"`
 	// Metadata assigned to a connector consisting of a key-value pair.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Information about your VPC and security groups used with the connector.
+	// Information of the VPC and security group(s) used with the connector.
 	VpcInformation ConnectorVpcInformationOutput `pulumi:"vpcInformation"`
 }
 
@@ -89,7 +89,7 @@ type connectorArgs struct {
 	DirectoryId string `pulumi:"directoryId"`
 	// Metadata assigned to a connector consisting of a key-value pair.
 	Tags map[string]string `pulumi:"tags"`
-	// Information about your VPC and security groups used with the connector.
+	// Information of the VPC and security group(s) used with the connector.
 	VpcInformation ConnectorVpcInformation `pulumi:"vpcInformation"`
 }
 
@@ -101,7 +101,7 @@ type ConnectorArgs struct {
 	DirectoryId pulumi.StringInput
 	// Metadata assigned to a connector consisting of a key-value pair.
 	Tags pulumi.StringMapInput
-	// Information about your VPC and security groups used with the connector.
+	// Information of the VPC and security group(s) used with the connector.
 	VpcInformation ConnectorVpcInformationInput
 }
 
@@ -162,7 +162,7 @@ func (o ConnectorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Connector) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Information about your VPC and security groups used with the connector.
+// Information of the VPC and security group(s) used with the connector.
 func (o ConnectorOutput) VpcInformation() ConnectorVpcInformationOutput {
 	return o.ApplyT(func(v *Connector) ConnectorVpcInformationOutput { return v.VpcInformation }).(ConnectorVpcInformationOutput)
 }

@@ -135,7 +135,7 @@ class ResponsePlanAction(dict):
                  ssm_automation: Optional['outputs.ResponsePlanSsmAutomation'] = None):
         """
         The automation configuration to launch.
-        :param 'ResponsePlanSsmAutomation' ssm_automation: The `SsmAutomation` property type specifies details about the Systems Manager Automation runbook that will be used as the runbook during an incident.
+        :param 'ResponsePlanSsmAutomation' ssm_automation: Details about the Systems Manager automation document that will be used as a runbook during an incident.
         """
         if ssm_automation is not None:
             pulumi.set(__self__, "ssm_automation", ssm_automation)
@@ -144,7 +144,7 @@ class ResponsePlanAction(dict):
     @pulumi.getter(name="ssmAutomation")
     def ssm_automation(self) -> Optional['outputs.ResponsePlanSsmAutomation']:
         """
-        The `SsmAutomation` property type specifies details about the Systems Manager Automation runbook that will be used as the runbook during an incident.
+        Details about the Systems Manager automation document that will be used as a runbook during an incident.
         """
         return pulumi.get(self, "ssm_automation")
 
@@ -369,7 +369,7 @@ class ResponsePlanIntegration(dict):
     def __init__(__self__, *,
                  pager_duty_configuration: Optional['outputs.ResponsePlanPagerDutyConfiguration'] = None):
         """
-        :param 'ResponsePlanPagerDutyConfiguration' pager_duty_configuration: Details about the PagerDuty configuration for a response plan.
+        :param 'ResponsePlanPagerDutyConfiguration' pager_duty_configuration: Information about the PagerDuty service where the response plan creates an incident.
         """
         if pager_duty_configuration is not None:
             pulumi.set(__self__, "pager_duty_configuration", pager_duty_configuration)
@@ -378,7 +378,7 @@ class ResponsePlanIntegration(dict):
     @pulumi.getter(name="pagerDutyConfiguration")
     def pager_duty_configuration(self) -> Optional['outputs.ResponsePlanPagerDutyConfiguration']:
         """
-        Details about the PagerDuty configuration for a response plan.
+        Information about the PagerDuty service where the response plan creates an incident.
         """
         return pulumi.get(self, "pager_duty_configuration")
 
@@ -454,7 +454,7 @@ class ResponsePlanPagerDutyConfiguration(dict):
         """
         The pagerDuty configuration to use when starting the incident.
         :param str name: The name of the pagerDuty configuration.
-        :param 'ResponsePlanPagerDutyIncidentConfiguration' pager_duty_incident_configuration: Details about the PagerDuty service where the response plan creates an incident.
+        :param 'ResponsePlanPagerDutyIncidentConfiguration' pager_duty_incident_configuration: Details about the PagerDuty service associated with the configuration.
         :param str secret_id: The AWS secrets manager secretId storing the pagerDuty token.
         """
         pulumi.set(__self__, "name", name)
@@ -473,7 +473,7 @@ class ResponsePlanPagerDutyConfiguration(dict):
     @pulumi.getter(name="pagerDutyIncidentConfiguration")
     def pager_duty_incident_configuration(self) -> 'outputs.ResponsePlanPagerDutyIncidentConfiguration':
         """
-        Details about the PagerDuty service where the response plan creates an incident.
+        Details about the PagerDuty service associated with the configuration.
         """
         return pulumi.get(self, "pager_duty_incident_configuration")
 

@@ -25,7 +25,7 @@ class ReferenceStoreArgs:
         The set of arguments for constructing a ReferenceStore resource.
         :param pulumi.Input[str] description: A description for the store.
         :param pulumi.Input[str] name: A name for the store.
-        :param pulumi.Input['ReferenceStoreSseConfigArgs'] sse_config: Server-side encryption (SSE) settings for a store.
+        :param pulumi.Input['ReferenceStoreSseConfigArgs'] sse_config: Server-side encryption (SSE) settings for the store.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the store.
         """
         if description is not None:
@@ -65,7 +65,7 @@ class ReferenceStoreArgs:
     @pulumi.getter(name="sseConfig")
     def sse_config(self) -> Optional[pulumi.Input['ReferenceStoreSseConfigArgs']]:
         """
-        Server-side encryption (SSE) settings for a store.
+        Server-side encryption (SSE) settings for the store.
         """
         return pulumi.get(self, "sse_config")
 
@@ -103,7 +103,7 @@ class ReferenceStore(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the store.
         :param pulumi.Input[str] name: A name for the store.
-        :param pulumi.Input[pulumi.InputType['ReferenceStoreSseConfigArgs']] sse_config: Server-side encryption (SSE) settings for a store.
+        :param pulumi.Input[pulumi.InputType['ReferenceStoreSseConfigArgs']] sse_config: Server-side encryption (SSE) settings for the store.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags for the store.
         """
         ...
@@ -227,7 +227,7 @@ class ReferenceStore(pulumi.CustomResource):
     @pulumi.getter(name="sseConfig")
     def sse_config(self) -> pulumi.Output[Optional['outputs.ReferenceStoreSseConfig']]:
         """
-        Server-side encryption (SSE) settings for a store.
+        Server-side encryption (SSE) settings for the store.
         """
         return pulumi.get(self, "sse_config")
 

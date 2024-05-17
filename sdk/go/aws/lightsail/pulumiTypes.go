@@ -1707,7 +1707,7 @@ type DatabaseTag struct {
 type DiskAddOn struct {
 	// The add-on type
 	AddOnType string `pulumi:"addOnType"`
-	// `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html) property. It describes the automatic snapshot add-on for a disk.
+	// The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
 	AutoSnapshotAddOnRequest *DiskAutoSnapshotAddOn `pulumi:"autoSnapshotAddOnRequest"`
 	// Status of the Addon
 	Status *DiskAddOnStatus `pulumi:"status"`
@@ -1728,7 +1728,7 @@ type DiskAddOnInput interface {
 type DiskAddOnArgs struct {
 	// The add-on type
 	AddOnType pulumi.StringInput `pulumi:"addOnType"`
-	// `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html) property. It describes the automatic snapshot add-on for a disk.
+	// The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
 	AutoSnapshotAddOnRequest DiskAutoSnapshotAddOnPtrInput `pulumi:"autoSnapshotAddOnRequest"`
 	// Status of the Addon
 	Status DiskAddOnStatusPtrInput `pulumi:"status"`
@@ -1791,7 +1791,7 @@ func (o DiskAddOnOutput) AddOnType() pulumi.StringOutput {
 	return o.ApplyT(func(v DiskAddOn) string { return v.AddOnType }).(pulumi.StringOutput)
 }
 
-// `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html) property. It describes the automatic snapshot add-on for a disk.
+// The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
 func (o DiskAddOnOutput) AutoSnapshotAddOnRequest() DiskAutoSnapshotAddOnPtrOutput {
 	return o.ApplyT(func(v DiskAddOn) *DiskAutoSnapshotAddOn { return v.AutoSnapshotAddOnRequest }).(DiskAutoSnapshotAddOnPtrOutput)
 }
@@ -2132,7 +2132,7 @@ type DiskTag struct {
 type InstanceAddOn struct {
 	// The add-on type
 	AddOnType string `pulumi:"addOnType"`
-	// `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html) property. It describes the automatic snapshot add-on for an instance.
+	// The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
 	AutoSnapshotAddOnRequest *InstanceAutoSnapshotAddOn `pulumi:"autoSnapshotAddOnRequest"`
 	// Status of the Addon
 	Status *InstanceAddOnStatus `pulumi:"status"`
@@ -2153,7 +2153,7 @@ type InstanceAddOnInput interface {
 type InstanceAddOnArgs struct {
 	// The add-on type
 	AddOnType pulumi.StringInput `pulumi:"addOnType"`
-	// `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html) property. It describes the automatic snapshot add-on for an instance.
+	// The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
 	AutoSnapshotAddOnRequest InstanceAutoSnapshotAddOnPtrInput `pulumi:"autoSnapshotAddOnRequest"`
 	// Status of the Addon
 	Status InstanceAddOnStatusPtrInput `pulumi:"status"`
@@ -2216,7 +2216,7 @@ func (o InstanceAddOnOutput) AddOnType() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceAddOn) string { return v.AddOnType }).(pulumi.StringOutput)
 }
 
-// `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html) property. It describes the automatic snapshot add-on for an instance.
+// The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
 func (o InstanceAddOnOutput) AutoSnapshotAddOnRequest() InstanceAutoSnapshotAddOnPtrOutput {
 	return o.ApplyT(func(v InstanceAddOn) *InstanceAutoSnapshotAddOn { return v.AutoSnapshotAddOnRequest }).(InstanceAutoSnapshotAddOnPtrOutput)
 }
@@ -3019,7 +3019,7 @@ func (o InstanceMonthlyTransferPtrOutput) GbPerMonthAllocated() pulumi.StringPtr
 
 // Networking of the Instance.
 type InstanceNetworking struct {
-	// `MonthlyTransfer` is a property of the [Networking](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html) property. It describes the amount of allocated monthly data transfer (in GB) for an instance.
+	// The monthly amount of data transfer, in GB, allocated for the instance
 	MonthlyTransfer *InstanceMonthlyTransfer `pulumi:"monthlyTransfer"`
 	// Ports to the Instance.
 	Ports []InstancePort `pulumi:"ports"`
@@ -3038,7 +3038,7 @@ type InstanceNetworkingInput interface {
 
 // Networking of the Instance.
 type InstanceNetworkingArgs struct {
-	// `MonthlyTransfer` is a property of the [Networking](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html) property. It describes the amount of allocated monthly data transfer (in GB) for an instance.
+	// The monthly amount of data transfer, in GB, allocated for the instance
 	MonthlyTransfer InstanceMonthlyTransferPtrInput `pulumi:"monthlyTransfer"`
 	// Ports to the Instance.
 	Ports InstancePortArrayInput `pulumi:"ports"`
@@ -3122,7 +3122,7 @@ func (o InstanceNetworkingOutput) ToInstanceNetworkingPtrOutputWithContext(ctx c
 	}).(InstanceNetworkingPtrOutput)
 }
 
-// `MonthlyTransfer` is a property of the [Networking](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html) property. It describes the amount of allocated monthly data transfer (in GB) for an instance.
+// The monthly amount of data transfer, in GB, allocated for the instance
 func (o InstanceNetworkingOutput) MonthlyTransfer() InstanceMonthlyTransferPtrOutput {
 	return o.ApplyT(func(v InstanceNetworking) *InstanceMonthlyTransfer { return v.MonthlyTransfer }).(InstanceMonthlyTransferPtrOutput)
 }
@@ -3156,7 +3156,7 @@ func (o InstanceNetworkingPtrOutput) Elem() InstanceNetworkingOutput {
 	}).(InstanceNetworkingOutput)
 }
 
-// `MonthlyTransfer` is a property of the [Networking](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html) property. It describes the amount of allocated monthly data transfer (in GB) for an instance.
+// The monthly amount of data transfer, in GB, allocated for the instance
 func (o InstanceNetworkingPtrOutput) MonthlyTransfer() InstanceMonthlyTransferPtrOutput {
 	return o.ApplyT(func(v *InstanceNetworking) *InstanceMonthlyTransfer {
 		if v == nil {

@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.BackupGateway
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
-        /// A key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ : /.
+        /// The tags of the hypervisor configuration to import.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.AwsNative.BackupGateway
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
 
         /// <summary>
-        /// A key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ : /.
+        /// The tags of the hypervisor configuration to import.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateCascadingControlConfiguration
     {
         /// <summary>
-        /// The source controls that are used in a `CascadingControlConfiguration` .
+        /// A list of source controls that determine the values that are used in the current control.
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateCascadingControlSource> SourceControls;
 

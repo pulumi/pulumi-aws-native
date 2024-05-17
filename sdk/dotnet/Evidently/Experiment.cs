@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Evidently
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+        /// An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
         /// </summary>
         [Output("metricGoals")]
         public Output<ImmutableArray<Outputs.ExperimentMetricGoalObject>> MetricGoals { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AwsNative.Evidently
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
+        /// An array of structures that describe the configuration of each feature variation used in the experiment.
         /// </summary>
         [Output("treatments")]
         public Output<ImmutableArray<Outputs.ExperimentTreatmentObject>> Treatments { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.AwsNative.Evidently
         private InputList<Inputs.ExperimentMetricGoalObjectArgs>? _metricGoals;
 
         /// <summary>
-        /// Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+        /// An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
         /// </summary>
         public InputList<Inputs.ExperimentMetricGoalObjectArgs> MetricGoals
         {
@@ -233,7 +233,7 @@ namespace Pulumi.AwsNative.Evidently
         private InputList<Inputs.ExperimentTreatmentObjectArgs>? _treatments;
 
         /// <summary>
-        /// A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
+        /// An array of structures that describe the configuration of each feature variation used in the experiment.
         /// </summary>
         public InputList<Inputs.ExperimentTreatmentObjectArgs> Treatments
         {

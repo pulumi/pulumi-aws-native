@@ -59,7 +59,7 @@ export interface GetUserSettingsResult {
      */
     readonly printAllowed?: enums.workspacesweb.UserSettingsEnabledType;
     /**
-     * The tag.
+     * The tags to add to the user settings resource. A tag is a key-value pair.
      */
     readonly tags?: outputs.Tag[];
     /**

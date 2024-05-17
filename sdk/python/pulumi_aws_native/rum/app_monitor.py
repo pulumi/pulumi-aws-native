@@ -28,8 +28,10 @@ class AppMonitorArgs:
         """
         The set of arguments for constructing a AppMonitor resource.
         :param pulumi.Input[str] domain: The top-level internet domain name for which your application has administrative authority.
-        :param pulumi.Input['AppMonitorConfigurationArgs'] app_monitor_configuration: This structure contains much of the configuration data for the app monitor.
-        :param pulumi.Input['AppMonitorCustomEventsArgs'] custom_events: This structure specifies whether this app monitor allows the web client to define and send custom events.
+        :param pulumi.Input['AppMonitorConfigurationArgs'] app_monitor_configuration: A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
+               
+               If you omit this argument, the sample rate used for CloudWatch RUM is set to 10% of the user sessions.
+        :param pulumi.Input['AppMonitorCustomEventsArgs'] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED` .
         :param pulumi.Input[bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
         :param pulumi.Input[str] name: A name for the app monitor
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Assigns one or more tags (key-value pairs) to the app monitor.
@@ -70,7 +72,9 @@ class AppMonitorArgs:
     @pulumi.getter(name="appMonitorConfiguration")
     def app_monitor_configuration(self) -> Optional[pulumi.Input['AppMonitorConfigurationArgs']]:
         """
-        This structure contains much of the configuration data for the app monitor.
+        A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
+
+        If you omit this argument, the sample rate used for CloudWatch RUM is set to 10% of the user sessions.
         """
         return pulumi.get(self, "app_monitor_configuration")
 
@@ -82,7 +86,7 @@ class AppMonitorArgs:
     @pulumi.getter(name="customEvents")
     def custom_events(self) -> Optional[pulumi.Input['AppMonitorCustomEventsArgs']]:
         """
-        This structure specifies whether this app monitor allows the web client to define and send custom events.
+        Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED` .
         """
         return pulumi.get(self, "custom_events")
 
@@ -152,8 +156,10 @@ class AppMonitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AppMonitorConfigurationArgs']] app_monitor_configuration: This structure contains much of the configuration data for the app monitor.
-        :param pulumi.Input[pulumi.InputType['AppMonitorCustomEventsArgs']] custom_events: This structure specifies whether this app monitor allows the web client to define and send custom events.
+        :param pulumi.Input[pulumi.InputType['AppMonitorConfigurationArgs']] app_monitor_configuration: A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
+               
+               If you omit this argument, the sample rate used for CloudWatch RUM is set to 10% of the user sessions.
+        :param pulumi.Input[pulumi.InputType['AppMonitorCustomEventsArgs']] custom_events: Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED` .
         :param pulumi.Input[bool] cw_log_enabled: Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
         :param pulumi.Input[str] domain: The top-level internet domain name for which your application has administrative authority.
         :param pulumi.Input[str] name: A name for the app monitor
@@ -252,7 +258,9 @@ class AppMonitor(pulumi.CustomResource):
     @pulumi.getter(name="appMonitorConfiguration")
     def app_monitor_configuration(self) -> pulumi.Output[Optional['outputs.AppMonitorConfiguration']]:
         """
-        This structure contains much of the configuration data for the app monitor.
+        A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
+
+        If you omit this argument, the sample rate used for CloudWatch RUM is set to 10% of the user sessions.
         """
         return pulumi.get(self, "app_monitor_configuration")
 
@@ -268,7 +276,7 @@ class AppMonitor(pulumi.CustomResource):
     @pulumi.getter(name="customEvents")
     def custom_events(self) -> pulumi.Output[Optional['outputs.AppMonitorCustomEvents']]:
         """
-        This structure specifies whether this app monitor allows the web client to define and send custom events.
+        Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED` .
         """
         return pulumi.get(self, "custom_events")
 

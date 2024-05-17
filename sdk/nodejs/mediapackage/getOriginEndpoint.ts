@@ -31,7 +31,7 @@ export interface GetOriginEndpointResult {
      */
     readonly arn?: string;
     /**
-     * Parameters for enabling CDN authorization on the endpoint.
+     * Parameters for CDN authorization.
      */
     readonly authorization?: outputs.mediapackage.OriginEndpointAuthorization;
     /**

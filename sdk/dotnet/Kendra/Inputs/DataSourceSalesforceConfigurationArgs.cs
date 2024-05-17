@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     public sealed class DataSourceSalesforceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The configuration information for syncing a Salesforce chatter feed. The contents of the object comes from the Salesforce FeedItem table.
+        /// Configuration information for Salesforce chatter feeds.
         /// </summary>
         [Input("chatterFeedConfiguration")]
         public Input<Inputs.DataSourceSalesforceChatterFeedConfigurationArgs>? ChatterFeedConfiguration { get; set; }
@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         }
 
         /// <summary>
-        /// Provides the configuration information for the knowledge article types that Amazon Kendra indexes. Amazon Kendra indexes standard knowledge articles and the standard fields of knowledge articles, or the custom fields of custom knowledge articles, but not both
+        /// Configuration information for the knowledge article types that Amazon Kendra indexes. Amazon Kendra indexes standard knowledge articles and the standard fields of knowledge articles, or the custom fields of custom knowledge articles, but not both.
         /// </summary>
         [Input("knowledgeArticleConfiguration")]
         public Input<Inputs.DataSourceSalesforceKnowledgeArticleConfigurationArgs>? KnowledgeArticleConfiguration { get; set; }
@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public Input<string> ServerUrl { get; set; } = null!;
 
         /// <summary>
-        /// Provides the configuration information for processing attachments to Salesforce standard objects.
+        /// Configuration information for processing attachments to Salesforce standard objects.
         /// </summary>
         [Input("standardObjectAttachmentConfiguration")]
         public Input<Inputs.DataSourceSalesforceStandardObjectAttachmentConfigurationArgs>? StandardObjectAttachmentConfiguration { get; set; }

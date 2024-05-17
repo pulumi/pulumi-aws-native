@@ -27,7 +27,7 @@ export interface GetAnalyzerArgs {
 
 export interface GetAnalyzerResult {
     /**
-     * Contains information about an archive rule.
+     * Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
      */
     readonly archiveRules?: outputs.accessanalyzer.AnalyzerArchiveRule[];
     /**

@@ -44,7 +44,7 @@ export interface GetBudgetsActionResult {
      */
     readonly approvalModel?: enums.budgets.BudgetsActionApprovalModel;
     /**
-     * The definition is where you specify all of the type-specific parameters.
+     * Specifies all of the type-specific parameters.
      */
     readonly definition?: outputs.budgets.BudgetsActionDefinition;
     /**
@@ -56,16 +56,11 @@ export interface GetBudgetsActionResult {
      */
     readonly notificationType?: enums.budgets.BudgetsActionNotificationType;
     /**
-     * The tag structure that contains a tag key and value.
+     * An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
      */
     readonly resourceTags?: outputs.Tag[];
     /**
-     * The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
-     *
-     * For example, an email subscriber has the following parameters:
-     *
-     * - A `subscriptionType` of `EMAIL`
-     * - An `address` of `example@example.com`
+     * A list of subscribers.
      */
     readonly subscribers?: outputs.budgets.BudgetsActionSubscriber[];
 }

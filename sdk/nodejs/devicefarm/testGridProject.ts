@@ -50,11 +50,13 @@ export class TestGridProject extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * The VPC security groups and subnets attached to the `TestGrid` project.
+     * The VPC security groups and subnets that are attached to a project.
      */
     public readonly vpcConfig!: pulumi.Output<outputs.devicefarm.TestGridProjectVpcConfig | undefined>;
 
@@ -99,11 +101,13 @@ export interface TestGridProjectArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
-     * The VPC security groups and subnets attached to the `TestGrid` project.
+     * The VPC security groups and subnets that are attached to a project.
      */
     vpcConfig?: pulumi.Input<inputs.devicefarm.TestGridProjectVpcConfigArgs>;
 }

@@ -74,7 +74,7 @@ export class KnowledgeBase extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<enums.bedrock.KnowledgeBaseStatus>;
     /**
-     * Contains the storage configuration of the knowledge base.
+     * Contains details about the storage configuration of the knowledge base.
      */
     public readonly storageConfiguration!: pulumi.Output<outputs.bedrock.KnowledgeBaseStorageConfiguration>;
     /**
@@ -163,7 +163,7 @@ export interface KnowledgeBaseArgs {
      */
     roleArn: pulumi.Input<string>;
     /**
-     * Contains the storage configuration of the knowledge base.
+     * Contains details about the storage configuration of the knowledge base.
      */
     storageConfiguration: pulumi.Input<inputs.bedrock.KnowledgeBaseStorageConfigurationArgs>;
     /**

@@ -31,13 +31,11 @@ class RuleGroupInitArgs:
         :param pulumi.Input['RuleGroupTypeEnum'] type: Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
                stateless rules. If it is stateful, it contains stateful rules.
         :param pulumi.Input[str] description: A description of the rule group.
-        :param pulumi.Input['RuleGroupArgs'] rule_group: The object that defines the rules in a rule group.
-               
-               AWS Network Firewall uses a rule group to inspect and control network traffic. You define stateless rule groups to inspect individual packets and you define stateful rule groups to inspect packets in the context of their traffic flow.
-               
-               To use a rule group, you include it by reference in an Network Firewall firewall policy, then you use the policy in a firewall. You can reference a rule group from more than one firewall policy, and you can use a firewall policy in more than one firewall.
+        :param pulumi.Input['RuleGroupArgs'] rule_group: An object that defines the rule group rules.
         :param pulumi.Input[str] rule_group_name: The descriptive name of the rule group. You can't change the name of a rule group after you create it.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         pulumi.set(__self__, "capacity", capacity)
         pulumi.set(__self__, "type", type)
@@ -91,11 +89,7 @@ class RuleGroupInitArgs:
     @pulumi.getter(name="ruleGroup")
     def rule_group(self) -> Optional[pulumi.Input['RuleGroupArgs']]:
         """
-        The object that defines the rules in a rule group.
-
-        AWS Network Firewall uses a rule group to inspect and control network traffic. You define stateless rule groups to inspect individual packets and you define stateful rule groups to inspect packets in the context of their traffic flow.
-
-        To use a rule group, you include it by reference in an Network Firewall firewall policy, then you use the policy in a firewall. You can reference a rule group from more than one firewall policy, and you can use a firewall policy in more than one firewall.
+        An object that defines the rule group rules.
         """
         return pulumi.get(self, "rule_group")
 
@@ -119,7 +113,9 @@ class RuleGroupInitArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         return pulumi.get(self, "tags")
 
@@ -147,13 +143,11 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] capacity: The maximum operating resources that this rule group can use. You can't change a rule group's capacity setting after you create the rule group. When you update a rule group, you are limited to this capacity. When you reference a rule group from a firewall policy, Network Firewall reserves this capacity for the rule group.
         :param pulumi.Input[str] description: A description of the rule group.
-        :param pulumi.Input[pulumi.InputType['RuleGroupArgs']] rule_group: The object that defines the rules in a rule group.
-               
-               AWS Network Firewall uses a rule group to inspect and control network traffic. You define stateless rule groups to inspect individual packets and you define stateful rule groups to inspect packets in the context of their traffic flow.
-               
-               To use a rule group, you include it by reference in an Network Firewall firewall policy, then you use the policy in a firewall. You can reference a rule group from more than one firewall policy, and you can use a firewall policy in more than one firewall.
+        :param pulumi.Input[pulumi.InputType['RuleGroupArgs']] rule_group: An object that defines the rule group rules.
         :param pulumi.Input[str] rule_group_name: The descriptive name of the rule group. You can't change the name of a rule group after you create it.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         :param pulumi.Input['RuleGroupTypeEnum'] type: Indicates whether the rule group is stateless or stateful. If the rule group is stateless, it contains
                stateless rules. If it is stateful, it contains stateful rules.
         """
@@ -262,11 +256,7 @@ class RuleGroup(pulumi.CustomResource):
     @pulumi.getter(name="ruleGroup")
     def rule_group(self) -> pulumi.Output[Optional['outputs.RuleGroup']]:
         """
-        The object that defines the rules in a rule group.
-
-        AWS Network Firewall uses a rule group to inspect and control network traffic. You define stateless rule groups to inspect individual packets and you define stateful rule groups to inspect packets in the context of their traffic flow.
-
-        To use a rule group, you include it by reference in an Network Firewall firewall policy, then you use the policy in a firewall. You can reference a rule group from more than one firewall policy, and you can use a firewall policy in more than one firewall.
+        An object that defines the rule group rules.
         """
         return pulumi.get(self, "rule_group")
 
@@ -298,7 +288,9 @@ class RuleGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         return pulumi.get(self, "tags")
 

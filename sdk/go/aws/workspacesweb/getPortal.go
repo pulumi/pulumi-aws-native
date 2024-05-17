@@ -71,7 +71,7 @@ type LookupPortalResult struct {
 	ServiceProviderSamlMetadata *string `pulumi:"serviceProviderSamlMetadata"`
 	// A message that explains why the web portal is in its current status.
 	StatusReason *string `pulumi:"statusReason"`
-	// The tag.
+	// The tags to add to the web portal. A tag is a key-value pair.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN of the trust store that is associated with the web portal.
 	TrustStoreArn *string `pulumi:"trustStoreArn"`
@@ -204,7 +204,7 @@ func (o LookupPortalResultOutput) StatusReason() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPortalResult) *string { return v.StatusReason }).(pulumi.StringPtrOutput)
 }
 
-// The tag.
+// The tags to add to the web portal. A tag is a key-value pair.
 func (o LookupPortalResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupPortalResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

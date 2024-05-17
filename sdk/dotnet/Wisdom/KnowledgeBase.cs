@@ -52,19 +52,19 @@ namespace Pulumi.AwsNative.Wisdom
         public Output<Outputs.KnowledgeBaseRenderingConfiguration?> RenderingConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration information for the customer managed key used for encryption.
+        /// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
         /// </summary>
         [Output("serverSideEncryptionConfiguration")]
         public Output<Outputs.KnowledgeBaseServerSideEncryptionConfiguration?> ServerSideEncryptionConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration information about the external data source.
+        /// The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
         /// </summary>
         [Output("sourceConfiguration")]
         public Output<Outputs.KnowledgeBaseSourceConfiguration?> SourceConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata to assign to the Wisdom knowledge base. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+        /// The tags used to organize, track, or control access for this resource.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
@@ -148,13 +148,13 @@ namespace Pulumi.AwsNative.Wisdom
         public Input<Inputs.KnowledgeBaseRenderingConfigurationArgs>? RenderingConfiguration { get; set; }
 
         /// <summary>
-        /// The configuration information for the customer managed key used for encryption.
+        /// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
         /// </summary>
         [Input("serverSideEncryptionConfiguration")]
         public Input<Inputs.KnowledgeBaseServerSideEncryptionConfigurationArgs>? ServerSideEncryptionConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration information about the external data source.
+        /// The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
         /// </summary>
         [Input("sourceConfiguration")]
         public Input<Inputs.KnowledgeBaseSourceConfigurationArgs>? SourceConfiguration { get; set; }
@@ -163,7 +163,7 @@ namespace Pulumi.AwsNative.Wisdom
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
 
         /// <summary>
-        /// Metadata to assign to the Wisdom knowledge base. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+        /// The tags used to organize, track, or control access for this resource.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
         {

@@ -35,9 +35,6 @@ export interface GetStreamingImageResult {
      * <p>A human-readable description of the streaming image.</p>
      */
     readonly description?: string;
-    /**
-     * Specifies how a streaming image is encrypted.
-     */
     readonly encryptionConfiguration?: outputs.nimblestudio.StreamingImageEncryptionConfiguration;
     /**
      * <p>The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.</p>

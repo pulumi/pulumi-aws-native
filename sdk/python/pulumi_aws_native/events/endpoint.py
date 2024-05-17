@@ -31,7 +31,7 @@ class EndpointArgs:
         :param pulumi.Input['EndpointRoutingConfigArgs'] routing_config: The routing configuration of the endpoint.
         :param pulumi.Input[str] description: A description for the endpoint.
         :param pulumi.Input[str] name: The name of the endpoint.
-        :param pulumi.Input['EndpointReplicationConfigArgs'] replication_config: Endpoints can replicate all events to the secondary Region.
+        :param pulumi.Input['EndpointReplicationConfigArgs'] replication_config: Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
         :param pulumi.Input[str] role_arn: The ARN of the role used by event replication for the endpoint.
         """
         pulumi.set(__self__, "event_buses", event_buses)
@@ -99,7 +99,7 @@ class EndpointArgs:
     @pulumi.getter(name="replicationConfig")
     def replication_config(self) -> Optional[pulumi.Input['EndpointReplicationConfigArgs']]:
         """
-        Endpoints can replicate all events to the secondary Region.
+        Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
         """
         return pulumi.get(self, "replication_config")
 
@@ -209,7 +209,7 @@ class Endpoint(pulumi.CustomResource):
                
                *Exactly* : `2`
         :param pulumi.Input[str] name: The name of the endpoint.
-        :param pulumi.Input[pulumi.InputType['EndpointReplicationConfigArgs']] replication_config: Endpoints can replicate all events to the secondary Region.
+        :param pulumi.Input[pulumi.InputType['EndpointReplicationConfigArgs']] replication_config: Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
         :param pulumi.Input[str] role_arn: The ARN of the role used by event replication for the endpoint.
         :param pulumi.Input[pulumi.InputType['EndpointRoutingConfigArgs']] routing_config: The routing configuration of the endpoint.
         """
@@ -425,7 +425,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="replicationConfig")
     def replication_config(self) -> pulumi.Output[Optional['outputs.EndpointReplicationConfig']]:
         """
-        Endpoints can replicate all events to the secondary Region.
+        Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
         """
         return pulumi.get(self, "replication_config")
 

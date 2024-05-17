@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     public sealed class NetworkInsightsAnalysisExplanation
     {
         /// <summary>
-        /// Describes a path component.
+        /// The network ACL.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Acl;
         /// <summary>
-        /// Describes a network access control (ACL) rule.
+        /// The network ACL rule.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisAclRule? AclRule;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Addresses;
         /// <summary>
-        /// Describes a path component.
+        /// The resource to which the component is attached.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? AttachedTo;
         /// <summary>
@@ -42,11 +42,11 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Cidrs;
         /// <summary>
-        /// Describes a load balancer listener.
+        /// The listener for a Classic Load Balancer.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisLoadBalancerListener? ClassicLoadBalancerListener;
         /// <summary>
-        /// Describes a path component.
+        /// The component.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Component;
         /// <summary>
@@ -58,15 +58,15 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string? ComponentRegion;
         /// <summary>
-        /// Describes a path component.
+        /// The customer gateway.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? CustomerGateway;
         /// <summary>
-        /// Describes a path component.
+        /// The destination.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Destination;
         /// <summary>
-        /// Describes a path component.
+        /// The destination VPC.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? DestinationVpc;
         /// <summary>
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string? Direction;
         /// <summary>
-        /// Describes a path component.
+        /// The load balancer listener.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? ElasticLoadBalancerListener;
         /// <summary>
@@ -85,11 +85,11 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string? ExplanationCode;
         /// <summary>
-        /// Describes a path component.
+        /// The route table.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? IngressRouteTable;
         /// <summary>
-        /// Describes a path component.
+        /// The internet gateway.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? InternetGateway;
         /// <summary>
@@ -101,11 +101,11 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly int? LoadBalancerListenerPort;
         /// <summary>
-        /// Describes a load balancer target.
+        /// The target.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisLoadBalancerTarget? LoadBalancerTarget;
         /// <summary>
-        /// Describes a path component.
+        /// The target group.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? LoadBalancerTargetGroup;
         /// <summary>
@@ -121,11 +121,11 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string? MissingComponent;
         /// <summary>
-        /// Describes a path component.
+        /// The NAT gateway.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? NatGateway;
         /// <summary>
-        /// Describes a path component.
+        /// The network interface.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? NetworkInterface;
         /// <summary>
@@ -137,11 +137,11 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly int? Port;
         /// <summary>
-        /// Describes a range of ports.
+        /// The port ranges.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisPortRange> PortRanges;
         /// <summary>
-        /// Describes a path component.
+        /// The prefix list.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? PrefixList;
         /// <summary>
@@ -149,19 +149,19 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Protocols;
         /// <summary>
-        /// Describes a path component.
+        /// The route table.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? RouteTable;
         /// <summary>
-        /// Describes a route table route.
+        /// The route table route.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisRouteTableRoute? RouteTableRoute;
         /// <summary>
-        /// Describes a path component.
+        /// The security group.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? SecurityGroup;
         /// <summary>
-        /// Describes a security group rule.
+        /// The security group rule.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisSecurityGroupRule? SecurityGroupRule;
         /// <summary>
@@ -169,7 +169,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisAnalysisComponent> SecurityGroups;
         /// <summary>
-        /// Describes a path component.
+        /// The source VPC.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? SourceVpc;
         /// <summary>
@@ -177,47 +177,47 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string? State;
         /// <summary>
-        /// Describes a path component.
+        /// The subnet.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Subnet;
         /// <summary>
-        /// Describes a path component.
+        /// The route table for the subnet.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? SubnetRouteTable;
         /// <summary>
-        /// Describes a path component.
+        /// The transit gateway.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? TransitGateway;
         /// <summary>
-        /// Describes a path component.
+        /// The transit gateway attachment.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? TransitGatewayAttachment;
         /// <summary>
-        /// Describes a path component.
+        /// The transit gateway route table.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? TransitGatewayRouteTable;
         /// <summary>
-        /// Describes a route in a transit gateway route table.
+        /// The transit gateway route table route.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisTransitGatewayRouteTableRoute? TransitGatewayRouteTableRoute;
         /// <summary>
-        /// Describes a path component.
+        /// The component VPC.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Vpc;
         /// <summary>
-        /// Describes a path component.
+        /// The VPC endpoint.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? VpcEndpoint;
         /// <summary>
-        /// Describes a path component.
+        /// The VPC peering connection.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? VpcPeeringConnection;
         /// <summary>
-        /// Describes a path component.
+        /// The VPN connection.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? VpnConnection;
         /// <summary>
-        /// Describes a path component.
+        /// The VPN gateway.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? VpnGateway;
 

@@ -33,11 +33,11 @@ type LookupProvisioningTemplateResult struct {
 	Description *string `pulumi:"description"`
 	// True to enable the fleet provisioning template, otherwise false.
 	Enabled *bool `pulumi:"enabled"`
-	// Structure that contains payloadVersion and targetArn. Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
+	// Creates a pre-provisioning hook template.
 	PreProvisioningHook *ProvisioningTemplateProvisioningHook `pulumi:"preProvisioningHook"`
 	// The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
 	ProvisioningRoleArn *string `pulumi:"provisioningRoleArn"`
-	// A set of key/value pairs that are used to manage the resource.
+	// Metadata that can be used to manage the fleet provisioning template.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN that identifies the provisioning template.
 	TemplateArn *string `pulumi:"templateArn"`
@@ -91,7 +91,7 @@ func (o LookupProvisioningTemplateResultOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupProvisioningTemplateResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Structure that contains payloadVersion and targetArn. Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
+// Creates a pre-provisioning hook template.
 func (o LookupProvisioningTemplateResultOutput) PreProvisioningHook() ProvisioningTemplateProvisioningHookPtrOutput {
 	return o.ApplyT(func(v LookupProvisioningTemplateResult) *ProvisioningTemplateProvisioningHook {
 		return v.PreProvisioningHook
@@ -103,7 +103,7 @@ func (o LookupProvisioningTemplateResultOutput) ProvisioningRoleArn() pulumi.Str
 	return o.ApplyT(func(v LookupProvisioningTemplateResult) *string { return v.ProvisioningRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// A set of key/value pairs that are used to manage the resource.
+// Metadata that can be used to manage the fleet provisioning template.
 func (o LookupProvisioningTemplateResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupProvisioningTemplateResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

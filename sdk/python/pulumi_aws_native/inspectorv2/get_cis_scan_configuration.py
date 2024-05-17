@@ -60,7 +60,7 @@ class GetCisScanConfigurationResult:
     @pulumi.getter
     def schedule(self) -> Optional['outputs.CisScanConfigurationSchedule']:
         """
-        The schedule the CIS scan configuration runs on. Each CIS scan configuration has exactly one type of schedule.
+        The CIS scan configuration's schedule.
         """
         return pulumi.get(self, "schedule")
 
@@ -84,7 +84,7 @@ class GetCisScanConfigurationResult:
     @pulumi.getter
     def targets(self) -> Optional['outputs.CisScanConfigurationCisTargets']:
         """
-        The CIS targets.
+        The CIS scan configuration's targets.
         """
         return pulumi.get(self, "targets")
 

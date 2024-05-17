@@ -33,14 +33,12 @@ class StateMachineArgs:
         The set of arguments for constructing a StateMachine resource.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
         :param pulumi.Input['StateMachineDefinitionArgs'] definition: The Amazon States Language definition of the state machine. The state machine definition must be in JSON or YAML, and the format of the object must match the format of your CloudFormation template file. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
-        :param pulumi.Input['StateMachineS3LocationArgs'] definition_s3_location: Defines the S3 bucket location where a state machine definition is stored. The state machine definition must be a JSON or YAML file.
+        :param pulumi.Input['StateMachineS3LocationArgs'] definition_s3_location: The name of the S3 bucket where the state machine definition is stored. The state machine definition must be a JSON or YAML file.
         :param pulumi.Input[str] definition_string: The Amazon States Language definition of the state machine. The state machine definition must be in JSON. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
         :param pulumi.Input[Mapping[str, pulumi.Input[Union[str, int, bool]]]] definition_substitutions: A map (string to string) that specifies the mappings for placeholder variables in the state machine definition. This enables the customer to inject values obtained at runtime, for example from intrinsic functions, in the state machine definition. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map.
                
                Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
         :param pulumi.Input['StateMachineLoggingConfigurationArgs'] logging_configuration: Defines what execution history events are logged and where they are logged.
-               
-               Step Functions provides the log levels — `OFF` , `ALL` , `ERROR` , and `FATAL` . No event types log when set to `OFF` and all event types do when set to `ALL` .
                
                > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[str] state_machine_name: The name of the state machine.
@@ -55,8 +53,10 @@ class StateMachineArgs:
                
                > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         :param pulumi.Input['StateMachineType'] state_machine_type: Determines whether a `STANDARD` or `EXPRESS` state machine is created. The default is `STANDARD` . You cannot update the `type` of a state machine once it has been created. For more information on `STANDARD` and `EXPRESS` workflows, see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The `TagsEntry` property specifies *tags* to identify a state machine.
-        :param pulumi.Input['StateMachineTracingConfigurationArgs'] tracing_configuration: Selects whether or not the state machine's AWS X-Ray tracing is enabled. To configure your state machine to send trace data to X-Ray, set `Enabled` to `true` .
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The list of tags to add to a resource.
+               
+               Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
+        :param pulumi.Input['StateMachineTracingConfigurationArgs'] tracing_configuration: Selects whether or not the state machine's AWS X-Ray tracing is enabled.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         if definition is not None:
@@ -106,7 +106,7 @@ class StateMachineArgs:
     @pulumi.getter(name="definitionS3Location")
     def definition_s3_location(self) -> Optional[pulumi.Input['StateMachineS3LocationArgs']]:
         """
-        Defines the S3 bucket location where a state machine definition is stored. The state machine definition must be a JSON or YAML file.
+        The name of the S3 bucket where the state machine definition is stored. The state machine definition must be a JSON or YAML file.
         """
         return pulumi.get(self, "definition_s3_location")
 
@@ -145,8 +145,6 @@ class StateMachineArgs:
     def logging_configuration(self) -> Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']]:
         """
         Defines what execution history events are logged and where they are logged.
-
-        Step Functions provides the log levels — `OFF` , `ALL` , `ERROR` , and `FATAL` . No event types log when set to `OFF` and all event types do when set to `ALL` .
 
         > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         """
@@ -194,7 +192,9 @@ class StateMachineArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The `TagsEntry` property specifies *tags* to identify a state machine.
+        The list of tags to add to a resource.
+
+        Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
         """
         return pulumi.get(self, "tags")
 
@@ -206,7 +206,7 @@ class StateMachineArgs:
     @pulumi.getter(name="tracingConfiguration")
     def tracing_configuration(self) -> Optional[pulumi.Input['StateMachineTracingConfigurationArgs']]:
         """
-        Selects whether or not the state machine's AWS X-Ray tracing is enabled. To configure your state machine to send trace data to X-Ray, set `Enabled` to `true` .
+        Selects whether or not the state machine's AWS X-Ray tracing is enabled.
         """
         return pulumi.get(self, "tracing_configuration")
 
@@ -333,14 +333,12 @@ class StateMachine(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['StateMachineDefinitionArgs']] definition: The Amazon States Language definition of the state machine. The state machine definition must be in JSON or YAML, and the format of the object must match the format of your CloudFormation template file. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
-        :param pulumi.Input[pulumi.InputType['StateMachineS3LocationArgs']] definition_s3_location: Defines the S3 bucket location where a state machine definition is stored. The state machine definition must be a JSON or YAML file.
+        :param pulumi.Input[pulumi.InputType['StateMachineS3LocationArgs']] definition_s3_location: The name of the S3 bucket where the state machine definition is stored. The state machine definition must be a JSON or YAML file.
         :param pulumi.Input[str] definition_string: The Amazon States Language definition of the state machine. The state machine definition must be in JSON. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
         :param pulumi.Input[Mapping[str, pulumi.Input[Union[str, int, bool]]]] definition_substitutions: A map (string to string) that specifies the mappings for placeholder variables in the state machine definition. This enables the customer to inject values obtained at runtime, for example from intrinsic functions, in the state machine definition. Variables can be template parameter names, resource logical IDs, resource attributes, or a variable in a key-value map.
                
                Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
         :param pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArgs']] logging_configuration: Defines what execution history events are logged and where they are logged.
-               
-               Step Functions provides the log levels — `OFF` , `ALL` , `ERROR` , and `FATAL` . No event types log when set to `OFF` and all event types do when set to `ALL` .
                
                > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
@@ -356,8 +354,10 @@ class StateMachine(pulumi.CustomResource):
                
                > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         :param pulumi.Input['StateMachineType'] state_machine_type: Determines whether a `STANDARD` or `EXPRESS` state machine is created. The default is `STANDARD` . You cannot update the `type` of a state machine once it has been created. For more information on `STANDARD` and `EXPRESS` workflows, see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The `TagsEntry` property specifies *tags* to identify a state machine.
-        :param pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArgs']] tracing_configuration: Selects whether or not the state machine's AWS X-Ray tracing is enabled. To configure your state machine to send trace data to X-Ray, set `Enabled` to `true` .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The list of tags to add to a resource.
+               
+               Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
+        :param pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArgs']] tracing_configuration: Selects whether or not the state machine's AWS X-Ray tracing is enabled.
         """
         ...
     @overload
@@ -572,7 +572,7 @@ class StateMachine(pulumi.CustomResource):
     @pulumi.getter(name="definitionS3Location")
     def definition_s3_location(self) -> pulumi.Output[Optional['outputs.StateMachineS3Location']]:
         """
-        Defines the S3 bucket location where a state machine definition is stored. The state machine definition must be a JSON or YAML file.
+        The name of the S3 bucket where the state machine definition is stored. The state machine definition must be a JSON or YAML file.
         """
         return pulumi.get(self, "definition_s3_location")
 
@@ -599,8 +599,6 @@ class StateMachine(pulumi.CustomResource):
     def logging_configuration(self) -> pulumi.Output[Optional['outputs.StateMachineLoggingConfiguration']]:
         """
         Defines what execution history events are logged and where they are logged.
-
-        Step Functions provides the log levels — `OFF` , `ALL` , `ERROR` , and `FATAL` . No event types log when set to `OFF` and all event types do when set to `ALL` .
 
         > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         """
@@ -672,7 +670,9 @@ class StateMachine(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The `TagsEntry` property specifies *tags* to identify a state machine.
+        The list of tags to add to a resource.
+
+        Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
         """
         return pulumi.get(self, "tags")
 
@@ -680,7 +680,7 @@ class StateMachine(pulumi.CustomResource):
     @pulumi.getter(name="tracingConfiguration")
     def tracing_configuration(self) -> pulumi.Output[Optional['outputs.StateMachineTracingConfiguration']]:
         """
-        Selects whether or not the state machine's AWS X-Ray tracing is enabled. To configure your state machine to send trace data to X-Ray, set `Enabled` to `true` .
+        Selects whether or not the state machine's AWS X-Ray tracing is enabled.
         """
         return pulumi.get(self, "tracing_configuration")
 

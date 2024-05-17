@@ -42,7 +42,7 @@ export class ServerlessCache extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The usage limits for storage and ElastiCache Processing Units for the cache.
+     * The cache usage limit for the serverless cache.
      */
     public readonly cacheUsageLimits!: pulumi.Output<outputs.elasticache.ServerlessCacheCacheUsageLimits | undefined>;
     /**
@@ -186,7 +186,7 @@ export class ServerlessCache extends pulumi.CustomResource {
  */
 export interface ServerlessCacheArgs {
     /**
-     * The usage limits for storage and ElastiCache Processing Units for the cache.
+     * The cache usage limit for the serverless cache.
      */
     cacheUsageLimits?: pulumi.Input<inputs.elasticache.ServerlessCacheCacheUsageLimitsArgs>;
     /**

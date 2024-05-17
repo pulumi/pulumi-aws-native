@@ -61,19 +61,21 @@ namespace Pulumi.AwsNative.HealthLake
         public Output<Outputs.FhirDatastoreIdentityProviderConfiguration?> IdentityProviderConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Optional parameter to preload data upon creation of the data store. Currently, the only supported preloaded data is synthetic data generated from Synthea.
+        /// The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
         /// </summary>
         [Output("preloadDataConfig")]
         public Output<Outputs.FhirDatastorePreloadDataConfig?> PreloadDataConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The server-side encryption key configuration for a customer provided encryption key.
+        /// The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
         /// </summary>
         [Output("sseConfiguration")]
         public Output<Outputs.FhirDatastoreSseConfiguration?> SseConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// A tag is a label consisting of a user-defined key and value. The form for tags is {"Key", "Value"}
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -150,13 +152,13 @@ namespace Pulumi.AwsNative.HealthLake
         public Input<Inputs.FhirDatastoreIdentityProviderConfigurationArgs>? IdentityProviderConfiguration { get; set; }
 
         /// <summary>
-        /// Optional parameter to preload data upon creation of the data store. Currently, the only supported preloaded data is synthetic data generated from Synthea.
+        /// The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
         /// </summary>
         [Input("preloadDataConfig")]
         public Input<Inputs.FhirDatastorePreloadDataConfigArgs>? PreloadDataConfig { get; set; }
 
         /// <summary>
-        /// The server-side encryption key configuration for a customer provided encryption key.
+        /// The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
         /// </summary>
         [Input("sseConfiguration")]
         public Input<Inputs.FhirDatastoreSseConfigurationArgs>? SseConfiguration { get; set; }
@@ -165,7 +167,9 @@ namespace Pulumi.AwsNative.HealthLake
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A tag is a label consisting of a user-defined key and value. The form for tags is {"Key", "Value"}
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

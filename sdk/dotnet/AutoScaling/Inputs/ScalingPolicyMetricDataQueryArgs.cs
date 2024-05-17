@@ -33,11 +33,9 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public Input<string>? Label { get; set; }
 
         /// <summary>
-        /// `MetricStat` is a property of the [AWS::AutoScaling::ScalingPolicy MetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricdataquery.html) property type.
+        /// Information about the metric data to return.
         /// 
-        /// This structure defines the CloudWatch metric to return, along with the statistic and unit.
-        /// 
-        /// For more information about the CloudWatch terminology below, see [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html) in the *Amazon CloudWatch User Guide* .
+        /// Conditional: Within each `MetricDataQuery` object, you must specify either `Expression` or `MetricStat` , but not both.
         /// </summary>
         [Input("metricStat")]
         public Input<Inputs.ScalingPolicyMetricStatArgs>? MetricStat { get; set; }

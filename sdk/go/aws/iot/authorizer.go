@@ -31,7 +31,13 @@ type Authorizer struct {
 	//
 	// Valid values: `ACTIVE` | `INACTIVE`
 	Status AuthorizerStatusPtrOutput `pulumi:"status"`
-	// A set of key/value pairs that are used to manage the resource.
+	// Metadata which can be used to manage the custom authorizer.
+	//
+	// > For URI Request parameters use format: ...key1=value1&key2=value2...
+	// >
+	// > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+	// >
+	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The key used to extract the token from the HTTP headers.
 	TokenKeyName pulumi.StringPtrOutput `pulumi:"tokenKeyName"`
@@ -99,7 +105,13 @@ type authorizerArgs struct {
 	//
 	// Valid values: `ACTIVE` | `INACTIVE`
 	Status *AuthorizerStatus `pulumi:"status"`
-	// A set of key/value pairs that are used to manage the resource.
+	// Metadata which can be used to manage the custom authorizer.
+	//
+	// > For URI Request parameters use format: ...key1=value1&key2=value2...
+	// >
+	// > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+	// >
+	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
 	Tags []aws.Tag `pulumi:"tags"`
 	// The key used to extract the token from the HTTP headers.
 	TokenKeyName *string `pulumi:"tokenKeyName"`
@@ -121,7 +133,13 @@ type AuthorizerArgs struct {
 	//
 	// Valid values: `ACTIVE` | `INACTIVE`
 	Status AuthorizerStatusPtrInput
-	// A set of key/value pairs that are used to manage the resource.
+	// Metadata which can be used to manage the custom authorizer.
+	//
+	// > For URI Request parameters use format: ...key1=value1&key2=value2...
+	// >
+	// > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+	// >
+	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
 	Tags aws.TagArrayInput
 	// The key used to extract the token from the HTTP headers.
 	TokenKeyName pulumi.StringPtrInput
@@ -198,7 +216,13 @@ func (o AuthorizerOutput) Status() AuthorizerStatusPtrOutput {
 	return o.ApplyT(func(v *Authorizer) AuthorizerStatusPtrOutput { return v.Status }).(AuthorizerStatusPtrOutput)
 }
 
-// A set of key/value pairs that are used to manage the resource.
+// Metadata which can be used to manage the custom authorizer.
+//
+// > For URI Request parameters use format: ...key1=value1&key2=value2...
+// >
+// > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+// >
+// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
 func (o AuthorizerOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Authorizer) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

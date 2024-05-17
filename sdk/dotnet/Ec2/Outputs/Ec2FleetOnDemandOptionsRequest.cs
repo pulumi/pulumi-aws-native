@@ -24,11 +24,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string? AllocationStrategy;
         /// <summary>
-        /// Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
+        /// The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
         /// 
-        /// &gt; This strategy can only be used if the EC2 Fleet is of type `instant` . 
-        /// 
-        /// For more information about Capacity Reservations, see [On-Demand Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html) in the *Amazon EC2 User Guide* . For examples of using Capacity Reservations in an EC2 Fleet, see [EC2 Fleet example configurations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html) in the *Amazon EC2 User Guide* .
+        /// Supported only for fleets of type `instant` .
         /// </summary>
         public readonly Outputs.Ec2FleetCapacityReservationOptionsRequest? CapacityReservationOptions;
         /// <summary>

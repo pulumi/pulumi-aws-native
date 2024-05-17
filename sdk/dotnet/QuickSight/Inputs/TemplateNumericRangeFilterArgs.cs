@@ -13,21 +13,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateNumericRangeFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An aggregation function aggregates values from a dimension or measure.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The aggregation function of the filter.
         /// </summary>
         [Input("aggregationFunction")]
         public Input<Inputs.TemplateAggregationFunctionArgs>? AggregationFunction { get; set; }
 
         /// <summary>
-        /// A column of a data set.
+        /// The column that the filter is applied to.
         /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.TemplateColumnIdentifierArgs> Column { get; set; } = null!;
 
         /// <summary>
-        /// The default configuration for all dependent controls of the filter.
+        /// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
         /// </summary>
         [Input("defaultFilterControlConfiguration")]
         public Input<Inputs.TemplateDefaultFilterControlConfigurationArgs>? DefaultFilterControlConfiguration { get; set; }
@@ -61,13 +59,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.TemplateFilterNullOption> NullOption { get; set; } = null!;
 
         /// <summary>
-        /// The value input pf the numeric range filter.
+        /// The maximum value for the filter value range.
         /// </summary>
         [Input("rangeMaximum")]
         public Input<Inputs.TemplateNumericRangeFilterValueArgs>? RangeMaximum { get; set; }
 
         /// <summary>
-        /// The value input pf the numeric range filter.
+        /// The minimum value for the filter value range.
         /// </summary>
         [Input("rangeMinimum")]
         public Input<Inputs.TemplateNumericRangeFilterValueArgs>? RangeMinimum { get; set; }

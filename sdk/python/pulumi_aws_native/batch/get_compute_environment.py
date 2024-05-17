@@ -48,7 +48,7 @@ class GetComputeEnvironmentResult:
     @pulumi.getter(name="computeResources")
     def compute_resources(self) -> Optional['outputs.ComputeEnvironmentComputeResources']:
         """
-        Details about the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the *AWS Batch User Guide* .
+        The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
         """
         return pulumi.get(self, "compute_resources")
 

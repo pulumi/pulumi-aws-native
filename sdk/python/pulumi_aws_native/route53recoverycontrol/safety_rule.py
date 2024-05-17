@@ -33,7 +33,7 @@ class SafetyRuleArgs:
                
                For example, if you specify one gating routing control and you set the `Type` in the rule configuration to `OR` , that indicates that you must set the gating routing control to `On` for the rule to evaluate as true; that is, for the gating control switch to be On. When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.
         :param pulumi.Input[str] name: The name of the assertion rule. The name must be unique within a control panel. You can use any non-white space character in the name except the following: & > < ' (single quote) " (double quote) ; (semicolon)
-        :param pulumi.Input['SafetyRuleRuleConfigArgs'] rule_config: The rule configuration for an assertion rule. That is, the criteria that you set for specific assertion controls (routing controls) that specify how many controls must be enabled after a transaction completes.
+        :param pulumi.Input['SafetyRuleRuleConfigArgs'] rule_config: The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction. For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A collection of tags associated with a resource
         """
         if assertion_rule is not None:
@@ -103,7 +103,7 @@ class SafetyRuleArgs:
     @pulumi.getter(name="ruleConfig")
     def rule_config(self) -> Optional[pulumi.Input['SafetyRuleRuleConfigArgs']]:
         """
-        The rule configuration for an assertion rule. That is, the criteria that you set for specific assertion controls (routing controls) that specify how many controls must be enabled after a transaction completes.
+        The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction. For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
         """
         return pulumi.get(self, "rule_config")
 
@@ -147,7 +147,7 @@ class SafetyRule(pulumi.CustomResource):
                
                For example, if you specify one gating routing control and you set the `Type` in the rule configuration to `OR` , that indicates that you must set the gating routing control to `On` for the rule to evaluate as true; that is, for the gating control switch to be On. When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.
         :param pulumi.Input[str] name: The name of the assertion rule. The name must be unique within a control panel. You can use any non-white space character in the name except the following: & > < ' (single quote) " (double quote) ; (semicolon)
-        :param pulumi.Input[pulumi.InputType['SafetyRuleRuleConfigArgs']] rule_config: The rule configuration for an assertion rule. That is, the criteria that you set for specific assertion controls (routing controls) that specify how many controls must be enabled after a transaction completes.
+        :param pulumi.Input[pulumi.InputType['SafetyRuleRuleConfigArgs']] rule_config: The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction. For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: A collection of tags associated with a resource
         """
         ...
@@ -269,7 +269,7 @@ class SafetyRule(pulumi.CustomResource):
     @pulumi.getter(name="ruleConfig")
     def rule_config(self) -> pulumi.Output[Optional['outputs.SafetyRuleRuleConfig']]:
         """
-        The rule configuration for an assertion rule. That is, the criteria that you set for specific assertion controls (routing controls) that specify how many controls must be enabled after a transaction completes.
+        The criteria that you set for specific assertion controls (routing controls) that designate how many control states must be `ON` as the result of a transaction. For example, if you have three assertion controls, you might specify `ATLEAST 2` for your rule configuration. This means that at least two assertion controls must be `ON` , so that at least two AWS Regions have traffic flowing to them.
         """
         return pulumi.get(self, "rule_config")
 

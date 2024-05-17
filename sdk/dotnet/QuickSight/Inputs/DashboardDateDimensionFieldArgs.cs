@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardDateDimensionFieldArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A column of a data set.
+        /// The column that is used in the `DateDimensionField` .
         /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.DashboardColumnIdentifierArgs> Column { get; set; } = null!;
@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string> FieldId { get; set; } = null!;
 
         /// <summary>
-        /// Formatting configuration for `DateTime` fields.
+        /// The format configuration of the field.
         /// </summary>
         [Input("formatConfiguration")]
         public Input<Inputs.DashboardDateTimeFormatConfigurationArgs>? FormatConfiguration { get; set; }

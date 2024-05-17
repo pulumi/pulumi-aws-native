@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.GuardDuty
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
+        /// Describes which data sources will be enabled for the detector.
         /// </summary>
         [Output("dataSources")]
         public Output<Outputs.DetectorCfnDataSourceConfigurations?> DataSources { get; private set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.GuardDuty
         public Output<bool> Enable { get; private set; } = null!;
 
         /// <summary>
-        /// Information about the configuration of a feature in your account.
+        /// A list of features that will be configured for the detector.
         /// </summary>
         [Output("features")]
         public Output<ImmutableArray<Outputs.DetectorCfnFeatureConfiguration>> Features { get; private set; } = null!;
@@ -43,7 +43,11 @@ namespace Pulumi.AwsNative.GuardDuty
         public Output<string?> FindingPublishingFrequency { get; private set; } = null!;
 
         /// <summary>
-        /// Describes a tag.
+        /// Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
+        /// 
+        /// Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -94,7 +98,7 @@ namespace Pulumi.AwsNative.GuardDuty
     public sealed class DetectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
+        /// Describes which data sources will be enabled for the detector.
         /// </summary>
         [Input("dataSources")]
         public Input<Inputs.DetectorCfnDataSourceConfigurationsArgs>? DataSources { get; set; }
@@ -109,7 +113,7 @@ namespace Pulumi.AwsNative.GuardDuty
         private InputList<Inputs.DetectorCfnFeatureConfigurationArgs>? _features;
 
         /// <summary>
-        /// Information about the configuration of a feature in your account.
+        /// A list of features that will be configured for the detector.
         /// </summary>
         public InputList<Inputs.DetectorCfnFeatureConfigurationArgs> Features
         {
@@ -127,7 +131,11 @@ namespace Pulumi.AwsNative.GuardDuty
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// Describes a tag.
+        /// Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
+        /// 
+        /// Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

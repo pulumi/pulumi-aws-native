@@ -33,10 +33,10 @@ class ExperimentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Experiment resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ExperimentMetricGoalObjectArgs']]] metric_goals: Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+        :param pulumi.Input[Sequence[pulumi.Input['ExperimentMetricGoalObjectArgs']]] metric_goals: An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
         :param pulumi.Input['ExperimentOnlineAbConfigObjectArgs'] online_ab_config: A structure that contains the configuration of which variation to use as the "control" version. The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
         :param pulumi.Input[str] project: The name or the ARN of the project where this experiment is to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['ExperimentTreatmentObjectArgs']]] treatments: A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
+        :param pulumi.Input[Sequence[pulumi.Input['ExperimentTreatmentObjectArgs']]] treatments: An array of structures that describe the configuration of each feature variation used in the experiment.
         :param pulumi.Input[str] description: An optional description of the experiment.
         :param pulumi.Input[str] name: A name for the new experiment.
         :param pulumi.Input[str] randomization_salt: When Evidently assigns a particular user session to an experiment, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the experiment name as the `randomizationSalt` .
@@ -75,7 +75,7 @@ class ExperimentArgs:
     @pulumi.getter(name="metricGoals")
     def metric_goals(self) -> pulumi.Input[Sequence[pulumi.Input['ExperimentMetricGoalObjectArgs']]]:
         """
-        Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+        An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
         """
         return pulumi.get(self, "metric_goals")
 
@@ -111,7 +111,7 @@ class ExperimentArgs:
     @pulumi.getter
     def treatments(self) -> pulumi.Input[Sequence[pulumi.Input['ExperimentTreatmentObjectArgs']]]:
         """
-        A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
+        An array of structures that describe the configuration of each feature variation used in the experiment.
         """
         return pulumi.get(self, "treatments")
 
@@ -244,7 +244,7 @@ class Experiment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: An optional description of the experiment.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentMetricGoalObjectArgs']]]] metric_goals: Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentMetricGoalObjectArgs']]]] metric_goals: An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
         :param pulumi.Input[str] name: A name for the new experiment.
         :param pulumi.Input[pulumi.InputType['ExperimentOnlineAbConfigObjectArgs']] online_ab_config: A structure that contains the configuration of which variation to use as the "control" version. The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
         :param pulumi.Input[str] project: The name or the ARN of the project where this experiment is to be created.
@@ -258,7 +258,7 @@ class Experiment(pulumi.CustomResource):
                
                For more information, see [Segment rule pattern syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html#CloudWatch-Evidently-segments-syntax) .
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTreatmentObjectArgs']]]] treatments: A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExperimentTreatmentObjectArgs']]]] treatments: An array of structures that describe the configuration of each feature variation used in the experiment.
         """
         ...
     @overload
@@ -385,7 +385,7 @@ class Experiment(pulumi.CustomResource):
     @pulumi.getter(name="metricGoals")
     def metric_goals(self) -> pulumi.Output[Sequence['outputs.ExperimentMetricGoalObject']]:
         """
-        Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+        An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
         """
         return pulumi.get(self, "metric_goals")
 
@@ -469,7 +469,7 @@ class Experiment(pulumi.CustomResource):
     @pulumi.getter
     def treatments(self) -> pulumi.Output[Sequence['outputs.ExperimentTreatmentObject']]:
         """
-        A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
+        An array of structures that describe the configuration of each feature variation used in the experiment.
         """
         return pulumi.get(self, "treatments")
 

@@ -28,19 +28,19 @@ namespace Pulumi.AwsNative.RolesAnywhere
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Customizable notification settings that will be applied to notification events. IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge , and AWS Health Dashboard .
+        /// A list of notification settings to be associated to the trust anchor.
         /// </summary>
         [Output("notificationSettings")]
         public Output<ImmutableArray<Outputs.TrustAnchorNotificationSetting>> NotificationSettings { get; private set; } = null!;
 
         /// <summary>
-        /// Object representing the TrustAnchor type and its related certificate data.
+        /// The trust anchor type and its related certificate data.
         /// </summary>
         [Output("source")]
         public Output<Outputs.TrustAnchorSource> Source { get; private set; } = null!;
 
         /// <summary>
-        /// A label that consists of a key and value you define.
+        /// The tags to attach to the trust anchor.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
         private InputList<Inputs.TrustAnchorNotificationSettingArgs>? _notificationSettings;
 
         /// <summary>
-        /// Customizable notification settings that will be applied to notification events. IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge , and AWS Health Dashboard .
+        /// A list of notification settings to be associated to the trust anchor.
         /// </summary>
         public InputList<Inputs.TrustAnchorNotificationSettingArgs> NotificationSettings
         {
@@ -127,7 +127,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
         }
 
         /// <summary>
-        /// Object representing the TrustAnchor type and its related certificate data.
+        /// The trust anchor type and its related certificate data.
         /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.TrustAnchorSourceArgs> Source { get; set; } = null!;
@@ -136,7 +136,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A label that consists of a key and value you define.
+        /// The tags to attach to the trust anchor.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

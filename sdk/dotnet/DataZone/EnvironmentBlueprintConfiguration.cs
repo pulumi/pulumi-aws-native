@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.DataZone
         public Output<string?> ProvisioningRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The regional parameters in the environment blueprint.
+        /// The regional parameters of the environment blueprint.
         /// </summary>
         [Output("regionalParameters")]
         public Output<ImmutableArray<Outputs.EnvironmentBlueprintConfigurationRegionalParameter>> RegionalParameters { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.AwsNative.DataZone
         private InputList<Inputs.EnvironmentBlueprintConfigurationRegionalParameterArgs>? _regionalParameters;
 
         /// <summary>
-        /// The regional parameters in the environment blueprint.
+        /// The regional parameters of the environment blueprint.
         /// </summary>
         public InputList<Inputs.EnvironmentBlueprintConfigurationRegionalParameterArgs> RegionalParameters
         {

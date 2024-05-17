@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.ControlTower
         public Output<Pulumi.AwsNative.ControlTower.LandingZoneStatus> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Tags applied to the landing zone.
+        /// Tags to be applied to the landing zone.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.AwsNative.ControlTower
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// Tags applied to the landing zone.
+        /// Tags to be applied to the landing zone.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

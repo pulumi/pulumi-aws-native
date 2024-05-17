@@ -15,9 +15,9 @@ import (
 type VdmAttributes struct {
 	pulumi.CustomResourceState
 
-	// Settings for your VDM configuration as applicable to the Dashboard.
+	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 	DashboardAttributes VdmAttributesDashboardAttributesPtrOutput `pulumi:"dashboardAttributes"`
-	// Settings for your VDM configuration as applicable to the Guardian.
+	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
 	GuardianAttributes VdmAttributesGuardianAttributesPtrOutput `pulumi:"guardianAttributes"`
 	// Unique identifier for this resource
 	VdmAttributesResourceId pulumi.StringOutput `pulumi:"vdmAttributesResourceId"`
@@ -63,17 +63,17 @@ func (VdmAttributesState) ElementType() reflect.Type {
 }
 
 type vdmAttributesArgs struct {
-	// Settings for your VDM configuration as applicable to the Dashboard.
+	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 	DashboardAttributes *VdmAttributesDashboardAttributes `pulumi:"dashboardAttributes"`
-	// Settings for your VDM configuration as applicable to the Guardian.
+	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
 	GuardianAttributes *VdmAttributesGuardianAttributes `pulumi:"guardianAttributes"`
 }
 
 // The set of arguments for constructing a VdmAttributes resource.
 type VdmAttributesArgs struct {
-	// Settings for your VDM configuration as applicable to the Dashboard.
+	// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 	DashboardAttributes VdmAttributesDashboardAttributesPtrInput
-	// Settings for your VDM configuration as applicable to the Guardian.
+	// Specifies additional settings for your VDM configuration as applicable to the Guardian.
 	GuardianAttributes VdmAttributesGuardianAttributesPtrInput
 }
 
@@ -114,12 +114,12 @@ func (o VdmAttributesOutput) ToVdmAttributesOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Settings for your VDM configuration as applicable to the Dashboard.
+// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
 func (o VdmAttributesOutput) DashboardAttributes() VdmAttributesDashboardAttributesPtrOutput {
 	return o.ApplyT(func(v *VdmAttributes) VdmAttributesDashboardAttributesPtrOutput { return v.DashboardAttributes }).(VdmAttributesDashboardAttributesPtrOutput)
 }
 
-// Settings for your VDM configuration as applicable to the Guardian.
+// Specifies additional settings for your VDM configuration as applicable to the Guardian.
 func (o VdmAttributesOutput) GuardianAttributes() VdmAttributesGuardianAttributesPtrOutput {
 	return o.ApplyT(func(v *VdmAttributes) VdmAttributesGuardianAttributesPtrOutput { return v.GuardianAttributes }).(VdmAttributesGuardianAttributesPtrOutput)
 }

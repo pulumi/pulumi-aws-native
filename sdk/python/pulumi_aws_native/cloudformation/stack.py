@@ -95,7 +95,7 @@ class StackArgs:
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
         :param pulumi.Input[str] stack_policy_url: Location of a file containing the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same Region as the stack. You can specify either the `StackPolicyBody` or the `StackPolicyURL` parameter, but not both.
         :param pulumi.Input[str] stack_status_reason: Success/failure message associated with the stack status.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation stack.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
         :param Any template_body: Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to [Template anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) in the AWS CloudFormation User Guide.
                
                Conditional: You must specify either the `TemplateBody` or the `TemplateURL` parameter, but not both.
@@ -324,7 +324,7 @@ class StackArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation stack.
+        Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
         """
         return pulumi.get(self, "tags")
 
@@ -463,7 +463,7 @@ class Stack(pulumi.CustomResource):
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
         :param pulumi.Input[str] stack_policy_url: Location of a file containing the stack policy. The URL must point to a policy (maximum size: 16 KB) located in an S3 bucket in the same Region as the stack. You can specify either the `StackPolicyBody` or the `StackPolicyURL` parameter, but not both.
         :param pulumi.Input[str] stack_status_reason: Success/failure message associated with the stack status.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation stack.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
         :param Any template_body: Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information, go to [Template anatomy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html) in the AWS CloudFormation User Guide.
                
                Conditional: You must specify either the `TemplateBody` or the `TemplateURL` parameter, but not both.
@@ -701,7 +701,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter
     def outputs(self) -> pulumi.Output[Sequence['outputs.StackOutput']]:
         """
-        The Output data type.
+        A list of output structures.
         """
         return pulumi.get(self, "outputs")
 
@@ -805,7 +805,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation stack.
+        Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
         """
         return pulumi.get(self, "tags")
 

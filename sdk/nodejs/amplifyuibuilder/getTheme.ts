@@ -53,7 +53,7 @@ export interface GetThemeResult {
      */
     readonly name?: string;
     /**
-     * The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+     * Describes the properties that can be overriden to customize a theme.
      */
     readonly overrides?: outputs.amplifyuibuilder.ThemeValues[];
     /**
@@ -61,7 +61,7 @@ export interface GetThemeResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+     * A list of key-value pairs that defines the properties of the theme.
      */
     readonly values?: outputs.amplifyuibuilder.ThemeValues[];
 }

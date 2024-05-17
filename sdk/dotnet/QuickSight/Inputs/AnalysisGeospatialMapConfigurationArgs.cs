@@ -13,15 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class AnalysisGeospatialMapConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The field wells of a `GeospatialMapVisual` .
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The field wells of the visual.
         /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.AnalysisGeospatialMapFieldWellsArgs>? FieldWells { get; set; }
 
         /// <summary>
-        /// The options for the legend setup of a visual.
+        /// The legend display setup of the visual.
         /// </summary>
         [Input("legend")]
         public Input<Inputs.AnalysisLegendOptionsArgs>? Legend { get; set; }
@@ -33,25 +31,22 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.AnalysisGeospatialMapStyleOptionsArgs>? MapStyleOptions { get; set; }
 
         /// <summary>
-        /// The point style of the geospatial map.
+        /// The point style options of the geospatial map.
         /// </summary>
         [Input("pointStyleOptions")]
         public Input<Inputs.AnalysisGeospatialPointStyleOptionsArgs>? PointStyleOptions { get; set; }
 
         /// <summary>
-        /// The display options for the visual tooltip.
+        /// The tooltip display setup of the visual.
         /// </summary>
         [Input("tooltip")]
         public Input<Inputs.AnalysisTooltipOptionsArgs>? Tooltip { get; set; }
 
-        /// <summary>
-        /// The visual display options for the visual palette.
-        /// </summary>
         [Input("visualPalette")]
         public Input<Inputs.AnalysisVisualPaletteArgs>? VisualPalette { get; set; }
 
         /// <summary>
-        /// The window options of the geospatial map visual.
+        /// The window options of the geospatial map.
         /// </summary>
         [Input("windowOptions")]
         public Input<Inputs.AnalysisGeospatialWindowOptionsArgs>? WindowOptions { get; set; }

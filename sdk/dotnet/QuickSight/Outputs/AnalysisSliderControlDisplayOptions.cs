@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisSliderControlDisplayOptions
     {
         /// <summary>
-        /// A control to display info icons for filters and parameters.
+        /// The configuration of info icon label options.
         /// </summary>
         public readonly Outputs.AnalysisSheetControlInfoIconLabelOptions? InfoIconLabelOptions;
         /// <summary>
-        /// The share label options for the labels.
+        /// The options to configure the title visibility, name, and font size.
         /// </summary>
         public readonly Outputs.AnalysisLabelOptions? TitleOptions;
 

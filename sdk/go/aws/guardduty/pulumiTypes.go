@@ -14,11 +14,11 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DetectorCfnDataSourceConfigurations struct {
-	// Describes which Kubernetes protection data sources are enabled for the detector.
+	// Describes which Kubernetes data sources are enabled for a detector.
 	Kubernetes *DetectorCfnKubernetesConfiguration `pulumi:"kubernetes"`
 	// Describes whether Malware Protection will be enabled as a data source.
 	MalwareProtection *DetectorCfnMalwareProtectionConfiguration `pulumi:"malwareProtection"`
-	// Describes whether S3 data event logs will be enabled as a data source when the detector is created.
+	// Describes whether S3 data event logs are enabled as a data source.
 	S3Logs *DetectorCfns3LogsConfiguration `pulumi:"s3Logs"`
 }
 
@@ -34,11 +34,11 @@ type DetectorCfnDataSourceConfigurationsInput interface {
 }
 
 type DetectorCfnDataSourceConfigurationsArgs struct {
-	// Describes which Kubernetes protection data sources are enabled for the detector.
+	// Describes which Kubernetes data sources are enabled for a detector.
 	Kubernetes DetectorCfnKubernetesConfigurationPtrInput `pulumi:"kubernetes"`
 	// Describes whether Malware Protection will be enabled as a data source.
 	MalwareProtection DetectorCfnMalwareProtectionConfigurationPtrInput `pulumi:"malwareProtection"`
-	// Describes whether S3 data event logs will be enabled as a data source when the detector is created.
+	// Describes whether S3 data event logs are enabled as a data source.
 	S3Logs DetectorCfns3LogsConfigurationPtrInput `pulumi:"s3Logs"`
 }
 
@@ -119,7 +119,7 @@ func (o DetectorCfnDataSourceConfigurationsOutput) ToDetectorCfnDataSourceConfig
 	}).(DetectorCfnDataSourceConfigurationsPtrOutput)
 }
 
-// Describes which Kubernetes protection data sources are enabled for the detector.
+// Describes which Kubernetes data sources are enabled for a detector.
 func (o DetectorCfnDataSourceConfigurationsOutput) Kubernetes() DetectorCfnKubernetesConfigurationPtrOutput {
 	return o.ApplyT(func(v DetectorCfnDataSourceConfigurations) *DetectorCfnKubernetesConfiguration { return v.Kubernetes }).(DetectorCfnKubernetesConfigurationPtrOutput)
 }
@@ -131,7 +131,7 @@ func (o DetectorCfnDataSourceConfigurationsOutput) MalwareProtection() DetectorC
 	}).(DetectorCfnMalwareProtectionConfigurationPtrOutput)
 }
 
-// Describes whether S3 data event logs will be enabled as a data source when the detector is created.
+// Describes whether S3 data event logs are enabled as a data source.
 func (o DetectorCfnDataSourceConfigurationsOutput) S3Logs() DetectorCfns3LogsConfigurationPtrOutput {
 	return o.ApplyT(func(v DetectorCfnDataSourceConfigurations) *DetectorCfns3LogsConfiguration { return v.S3Logs }).(DetectorCfns3LogsConfigurationPtrOutput)
 }
@@ -160,7 +160,7 @@ func (o DetectorCfnDataSourceConfigurationsPtrOutput) Elem() DetectorCfnDataSour
 	}).(DetectorCfnDataSourceConfigurationsOutput)
 }
 
-// Describes which Kubernetes protection data sources are enabled for the detector.
+// Describes which Kubernetes data sources are enabled for a detector.
 func (o DetectorCfnDataSourceConfigurationsPtrOutput) Kubernetes() DetectorCfnKubernetesConfigurationPtrOutput {
 	return o.ApplyT(func(v *DetectorCfnDataSourceConfigurations) *DetectorCfnKubernetesConfiguration {
 		if v == nil {
@@ -180,7 +180,7 @@ func (o DetectorCfnDataSourceConfigurationsPtrOutput) MalwareProtection() Detect
 	}).(DetectorCfnMalwareProtectionConfigurationPtrOutput)
 }
 
-// Describes whether S3 data event logs will be enabled as a data source when the detector is created.
+// Describes whether S3 data event logs are enabled as a data source.
 func (o DetectorCfnDataSourceConfigurationsPtrOutput) S3Logs() DetectorCfns3LogsConfigurationPtrOutput {
 	return o.ApplyT(func(v *DetectorCfnDataSourceConfigurations) *DetectorCfns3LogsConfiguration {
 		if v == nil {
@@ -551,7 +551,7 @@ func (o DetectorCfnKubernetesAuditLogsConfigurationPtrOutput) Enable() pulumi.Bo
 }
 
 type DetectorCfnKubernetesConfiguration struct {
-	// Describes which optional data sources are enabled for a detector.
+	// Describes whether Kubernetes audit logs are enabled as a data source for the detector.
 	AuditLogs DetectorCfnKubernetesAuditLogsConfiguration `pulumi:"auditLogs"`
 }
 
@@ -567,7 +567,7 @@ type DetectorCfnKubernetesConfigurationInput interface {
 }
 
 type DetectorCfnKubernetesConfigurationArgs struct {
-	// Describes which optional data sources are enabled for a detector.
+	// Describes whether Kubernetes audit logs are enabled as a data source for the detector.
 	AuditLogs DetectorCfnKubernetesAuditLogsConfigurationInput `pulumi:"auditLogs"`
 }
 
@@ -648,7 +648,7 @@ func (o DetectorCfnKubernetesConfigurationOutput) ToDetectorCfnKubernetesConfigu
 	}).(DetectorCfnKubernetesConfigurationPtrOutput)
 }
 
-// Describes which optional data sources are enabled for a detector.
+// Describes whether Kubernetes audit logs are enabled as a data source for the detector.
 func (o DetectorCfnKubernetesConfigurationOutput) AuditLogs() DetectorCfnKubernetesAuditLogsConfigurationOutput {
 	return o.ApplyT(func(v DetectorCfnKubernetesConfiguration) DetectorCfnKubernetesAuditLogsConfiguration {
 		return v.AuditLogs
@@ -679,7 +679,7 @@ func (o DetectorCfnKubernetesConfigurationPtrOutput) Elem() DetectorCfnKubernete
 	}).(DetectorCfnKubernetesConfigurationOutput)
 }
 
-// Describes which optional data sources are enabled for a detector.
+// Describes whether Kubernetes audit logs are enabled as a data source for the detector.
 func (o DetectorCfnKubernetesConfigurationPtrOutput) AuditLogs() DetectorCfnKubernetesAuditLogsConfigurationPtrOutput {
 	return o.ApplyT(func(v *DetectorCfnKubernetesConfiguration) *DetectorCfnKubernetesAuditLogsConfiguration {
 		if v == nil {
@@ -690,7 +690,7 @@ func (o DetectorCfnKubernetesConfigurationPtrOutput) AuditLogs() DetectorCfnKube
 }
 
 type DetectorCfnMalwareProtectionConfiguration struct {
-	// Describes whether Malware Protection for EC2 instances with findings will be enabled as a data source.
+	// Describes the configuration of Malware Protection for EC2 instances with findings.
 	ScanEc2InstanceWithFindings *DetectorCfnScanEc2InstanceWithFindingsConfiguration `pulumi:"scanEc2InstanceWithFindings"`
 }
 
@@ -706,7 +706,7 @@ type DetectorCfnMalwareProtectionConfigurationInput interface {
 }
 
 type DetectorCfnMalwareProtectionConfigurationArgs struct {
-	// Describes whether Malware Protection for EC2 instances with findings will be enabled as a data source.
+	// Describes the configuration of Malware Protection for EC2 instances with findings.
 	ScanEc2InstanceWithFindings DetectorCfnScanEc2InstanceWithFindingsConfigurationPtrInput `pulumi:"scanEc2InstanceWithFindings"`
 }
 
@@ -787,7 +787,7 @@ func (o DetectorCfnMalwareProtectionConfigurationOutput) ToDetectorCfnMalwarePro
 	}).(DetectorCfnMalwareProtectionConfigurationPtrOutput)
 }
 
-// Describes whether Malware Protection for EC2 instances with findings will be enabled as a data source.
+// Describes the configuration of Malware Protection for EC2 instances with findings.
 func (o DetectorCfnMalwareProtectionConfigurationOutput) ScanEc2InstanceWithFindings() DetectorCfnScanEc2InstanceWithFindingsConfigurationPtrOutput {
 	return o.ApplyT(func(v DetectorCfnMalwareProtectionConfiguration) *DetectorCfnScanEc2InstanceWithFindingsConfiguration {
 		return v.ScanEc2InstanceWithFindings
@@ -818,7 +818,7 @@ func (o DetectorCfnMalwareProtectionConfigurationPtrOutput) Elem() DetectorCfnMa
 	}).(DetectorCfnMalwareProtectionConfigurationOutput)
 }
 
-// Describes whether Malware Protection for EC2 instances with findings will be enabled as a data source.
+// Describes the configuration of Malware Protection for EC2 instances with findings.
 func (o DetectorCfnMalwareProtectionConfigurationPtrOutput) ScanEc2InstanceWithFindings() DetectorCfnScanEc2InstanceWithFindingsConfigurationPtrOutput {
 	return o.ApplyT(func(v *DetectorCfnMalwareProtectionConfiguration) *DetectorCfnScanEc2InstanceWithFindingsConfiguration {
 		if v == nil {

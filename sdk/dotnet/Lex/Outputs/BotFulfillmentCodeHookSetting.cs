@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// </summary>
         public readonly bool Enabled;
         /// <summary>
-        /// Provides information for updating the user on the progress of fulfilling an intent.
+        /// Provides settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations.
         /// </summary>
         public readonly Outputs.BotFulfillmentUpdatesSpecification? FulfillmentUpdatesSpecification;
         /// <summary>
@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// </summary>
         public readonly bool? IsActive;
         /// <summary>
-        /// Provides a setting that determines whether the post-fulfillment response is sent to the user. For more information, see [](https://docs.aws.amazon.com/lexv2/latest/dg/streaming-progress.html#progress-complete)
+        /// Provides settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations.
         /// </summary>
         public readonly Outputs.BotPostFulfillmentStatusSpecification? PostFulfillmentStatusSpecification;
 

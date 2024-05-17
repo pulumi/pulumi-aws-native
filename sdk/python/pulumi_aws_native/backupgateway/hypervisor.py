@@ -30,7 +30,7 @@ class HypervisorArgs:
         :param pulumi.Input[str] log_group_arn: The Amazon Resource Name (ARN) of the group of gateways within the requested log.
         :param pulumi.Input[str] name: The name of the hypervisor.
         :param pulumi.Input[str] password: The password for the hypervisor.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ : /.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The tags of the hypervisor configuration to import.
         :param pulumi.Input[str] username: The username for the hypervisor.
         """
         if host is not None:
@@ -112,7 +112,7 @@ class HypervisorArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
-        A key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ : /.
+        The tags of the hypervisor configuration to import.
         """
         return pulumi.get(self, "tags")
 
@@ -156,7 +156,7 @@ class Hypervisor(pulumi.CustomResource):
         :param pulumi.Input[str] log_group_arn: The Amazon Resource Name (ARN) of the group of gateways within the requested log.
         :param pulumi.Input[str] name: The name of the hypervisor.
         :param pulumi.Input[str] password: The password for the hypervisor.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: A key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ : /.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: The tags of the hypervisor configuration to import.
         :param pulumi.Input[str] username: The username for the hypervisor.
         """
         ...
@@ -293,7 +293,7 @@ class Hypervisor(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
         """
-        A key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ : /.
+        The tags of the hypervisor configuration to import.
         """
         return pulumi.get(self, "tags")
 

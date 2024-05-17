@@ -14,23 +14,23 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardBarChartVisual
     {
         /// <summary>
-        /// A custom action defined on a visual.
+        /// The list of custom actions that are configured for a visual.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardVisualCustomAction> Actions;
         /// <summary>
-        /// The configuration of a `BarChartVisual` .
+        /// The configuration settings of the visual.
         /// </summary>
         public readonly Outputs.DashboardBarChartConfiguration? ChartConfiguration;
         /// <summary>
-        /// The option that determines the hierarchy of the fields for a visual element.
+        /// The column hierarchy that is used during drill-downs and drill-ups.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardColumnHierarchy> ColumnHierarchies;
         /// <summary>
-        /// The subtitle label options for a visual.
+        /// The subtitle that is displayed on the visual.
         /// </summary>
         public readonly Outputs.DashboardVisualSubtitleLabelOptions? Subtitle;
         /// <summary>
-        /// The title label options for a visual.
+        /// The title that is displayed on the visual.
         /// </summary>
         public readonly Outputs.DashboardVisualTitleLabelOptions? Title;
         /// <summary>

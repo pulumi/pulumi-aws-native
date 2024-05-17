@@ -17,9 +17,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     public sealed class ModelPackageValidationSpecification
     {
         /// <summary>
-        /// Contains data, such as the inputs and targeted instance types that are used in the process of validating the model package.
-        /// 
-        /// The data provided in the validation profile is made available to your buyers on AWS Marketplace.
+        /// An array of `ModelPackageValidationProfile` objects, each of which specifies a batch transform job that SageMaker runs to validate your model package.
         /// </summary>
         public readonly ImmutableArray<Outputs.ModelPackageValidationProfile> ValidationProfiles;
         /// <summary>

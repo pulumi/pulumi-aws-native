@@ -25,7 +25,6 @@ class PolicyArgs:
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
         :param pulumi.Input[str] policy_name: The policy name.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of key/value pairs that are used to manage the resource.
         """
         pulumi.set(__self__, "policy_document", policy_document)
         if policy_name is not None:
@@ -62,9 +61,6 @@ class PolicyArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
-        """
-        A set of key/value pairs that are used to manage the resource.
-        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -90,7 +86,6 @@ class Policy(pulumi.CustomResource):
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
         :param pulumi.Input[str] policy_name: The policy name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A set of key/value pairs that are used to manage the resource.
         """
         ...
     @overload
@@ -203,8 +198,5 @@ class Policy(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
-        """
-        A set of key/value pairs that are used to manage the resource.
-        """
         return pulumi.get(self, "tags")
 

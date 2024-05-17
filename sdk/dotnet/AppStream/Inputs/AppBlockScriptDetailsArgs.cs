@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppStream.Inputs
         public Input<string> ExecutablePath { get; set; } = null!;
 
         /// <summary>
-        /// The S3 location of the app block.
+        /// The S3 object location of the script.
         /// </summary>
         [Input("scriptS3Location", required: true)]
         public Input<Inputs.AppBlockS3LocationArgs> ScriptS3Location { get; set; } = null!;

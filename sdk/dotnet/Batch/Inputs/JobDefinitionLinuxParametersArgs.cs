@@ -16,9 +16,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
         private InputList<Inputs.JobDefinitionDeviceArgs>? _devices;
 
         /// <summary>
-        /// An object that represents a container instance host device.
+        /// Any of the host devices to expose to the container. This parameter maps to `Devices` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--device` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
         /// 
-        /// &gt; This object isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.
+        /// &gt; This parameter isn't applicable to jobs that are running on Fargate resources. Don't provide it for these jobs.
         /// </summary>
         public InputList<Inputs.JobDefinitionDeviceArgs> Devices
         {
@@ -70,9 +70,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
         private InputList<Inputs.JobDefinitionTmpfsArgs>? _tmpfs;
 
         /// <summary>
-        /// The container path, mount options, and size of the `tmpfs` mount.
+        /// The container path, mount options, and size (in MiB) of the `tmpfs` mount. This parameter maps to the `--tmpfs` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
         /// 
-        /// &gt; This object isn't applicable to jobs that are running on Fargate resources.
+        /// &gt; This parameter isn't applicable to jobs that are running on Fargate resources. Don't provide this parameter for this resource type.
         /// </summary>
         public InputList<Inputs.JobDefinitionTmpfsArgs> Tmpfs
         {

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardDefaultFilterControlConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The option that corresponds to the control type of the filter.
+        /// The control option for the `DefaultFilterControlConfiguration` .
         /// </summary>
         [Input("controlOptions", required: true)]
         public Input<Inputs.DashboardDefaultFilterControlOptionsArgs> ControlOptions { get; set; } = null!;

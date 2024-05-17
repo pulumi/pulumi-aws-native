@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Events.Outputs
         /// </summary>
         public readonly string AuthorizationEndpoint;
         /// <summary>
-        /// Contains the OAuth authorization parameters to use for the connection.
+        /// A `CreateConnectionOAuthClientRequestParameters` object that contains the client parameters for OAuth authorization.
         /// </summary>
         public readonly Outputs.ConnectionClientParameters ClientParameters;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.Events.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.Events.ConnectionOAuthParametersHttpMethod HttpMethod;
         /// <summary>
-        /// Contains additional parameters for the connection.
+        /// A `ConnectionHttpParameters` object that contains details about the additional parameters to use for the connection.
         /// </summary>
         public readonly Outputs.ConnectionHttpParameters? OAuthHttpParameters;
 

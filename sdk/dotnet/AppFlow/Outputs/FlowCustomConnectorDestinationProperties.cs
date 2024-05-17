@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// </summary>
         public readonly string EntityName;
         /// <summary>
-        /// The settings that determine how Amazon AppFlow handles an error when placing data in the destination. For example, this setting would determine if the flow should fail after one insertion error, or continue and attempt to insert every record regardless of the initial failure. `ErrorHandlingConfig` is a part of the destination connector details.
+        /// The settings that determine how Amazon AppFlow handles an error when placing data in the custom connector as destination.
         /// </summary>
         public readonly Outputs.FlowErrorHandlingConfig? ErrorHandlingConfig;
         /// <summary>

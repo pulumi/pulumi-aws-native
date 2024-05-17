@@ -55,7 +55,7 @@ type LookupDetectorResult struct {
 	//
 	// If you specifiy `ALL_MATCHED` , Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules.
 	RuleExecutionMode *DetectorRuleExecutionMode `pulumi:"ruleExecutionMode"`
-	// A rule.
+	// The rules to include in the detector version.
 	Rules []DetectorRule `pulumi:"rules"`
 	// Tags associated with this detector.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -150,7 +150,7 @@ func (o LookupDetectorResultOutput) RuleExecutionMode() DetectorRuleExecutionMod
 	return o.ApplyT(func(v LookupDetectorResult) *DetectorRuleExecutionMode { return v.RuleExecutionMode }).(DetectorRuleExecutionModePtrOutput)
 }
 
-// A rule.
+// The rules to include in the detector version.
 func (o LookupDetectorResultOutput) Rules() DetectorRuleArrayOutput {
 	return o.ApplyT(func(v LookupDetectorResult) []DetectorRule { return v.Rules }).(DetectorRuleArrayOutput)
 }

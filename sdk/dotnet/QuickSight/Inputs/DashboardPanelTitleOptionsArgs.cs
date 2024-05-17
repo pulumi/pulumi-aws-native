@@ -12,9 +12,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardPanelTitleOptionsArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Configures the display properties of the given text.
-        /// </summary>
         [Input("fontConfiguration")]
         public Input<Inputs.DashboardFontConfigurationArgs>? FontConfiguration { get; set; }
 

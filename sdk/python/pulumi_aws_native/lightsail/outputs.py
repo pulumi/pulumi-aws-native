@@ -788,7 +788,7 @@ class DiskAddOn(dict):
         """
         A addon associate with a resource.
         :param str add_on_type: The add-on type
-        :param 'DiskAutoSnapshotAddOn' auto_snapshot_add_on_request: `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html) property. It describes the automatic snapshot add-on for a disk.
+        :param 'DiskAutoSnapshotAddOn' auto_snapshot_add_on_request: The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
         :param 'DiskAddOnStatus' status: Status of the Addon
         """
         pulumi.set(__self__, "add_on_type", add_on_type)
@@ -809,7 +809,7 @@ class DiskAddOn(dict):
     @pulumi.getter(name="autoSnapshotAddOnRequest")
     def auto_snapshot_add_on_request(self) -> Optional['outputs.DiskAutoSnapshotAddOn']:
         """
-        `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-disk-addon.html) property. It describes the automatic snapshot add-on for a disk.
+        The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
         """
         return pulumi.get(self, "auto_snapshot_add_on_request")
 
@@ -947,7 +947,7 @@ class InstanceAddOn(dict):
         """
         A addon associate with a resource.
         :param str add_on_type: The add-on type
-        :param 'InstanceAutoSnapshotAddOn' auto_snapshot_add_on_request: `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html) property. It describes the automatic snapshot add-on for an instance.
+        :param 'InstanceAutoSnapshotAddOn' auto_snapshot_add_on_request: The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
         :param 'InstanceAddOnStatus' status: Status of the Addon
         """
         pulumi.set(__self__, "add_on_type", add_on_type)
@@ -968,7 +968,7 @@ class InstanceAddOn(dict):
     @pulumi.getter(name="autoSnapshotAddOnRequest")
     def auto_snapshot_add_on_request(self) -> Optional['outputs.InstanceAutoSnapshotAddOn']:
         """
-        `AutoSnapshotAddOn` is a property of the [AddOn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html) property. It describes the automatic snapshot add-on for an instance.
+        The parameters for the automatic snapshot add-on, such as the daily time when an automatic snapshot will be created.
         """
         return pulumi.get(self, "auto_snapshot_add_on_request")
 
@@ -1327,7 +1327,7 @@ class InstanceNetworking(dict):
         """
         Networking of the Instance.
         :param Sequence['InstancePort'] ports: Ports to the Instance.
-        :param 'InstanceMonthlyTransfer' monthly_transfer: `MonthlyTransfer` is a property of the [Networking](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html) property. It describes the amount of allocated monthly data transfer (in GB) for an instance.
+        :param 'InstanceMonthlyTransfer' monthly_transfer: The monthly amount of data transfer, in GB, allocated for the instance
         """
         pulumi.set(__self__, "ports", ports)
         if monthly_transfer is not None:
@@ -1345,7 +1345,7 @@ class InstanceNetworking(dict):
     @pulumi.getter(name="monthlyTransfer")
     def monthly_transfer(self) -> Optional['outputs.InstanceMonthlyTransfer']:
         """
-        `MonthlyTransfer` is a property of the [Networking](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html) property. It describes the amount of allocated monthly data transfer (in GB) for an instance.
+        The monthly amount of data transfer, in GB, allocated for the instance
         """
         return pulumi.get(self, "monthly_transfer")
 

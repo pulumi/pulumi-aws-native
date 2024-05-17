@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.CodeStarNotifications
         public Output<string?> TargetAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Information about the AWS Chatbot topics or AWS Chatbot clients associated with a notification rule.
+        /// A list of Amazon Resource Names (ARNs) of Amazon SNS topics and AWS Chatbot clients to associate with the notification rule.
         /// </summary>
         [Output("targets")]
         public Output<ImmutableArray<Outputs.NotificationRuleTarget>> Targets { get; private set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.AwsNative.CodeStarNotifications
         private InputList<Inputs.NotificationRuleTargetArgs>? _targets;
 
         /// <summary>
-        /// Information about the AWS Chatbot topics or AWS Chatbot clients associated with a notification rule.
+        /// A list of Amazon Resource Names (ARNs) of Amazon SNS topics and AWS Chatbot clients to associate with the notification rule.
         /// </summary>
         public InputList<Inputs.NotificationRuleTargetArgs> Targets
         {

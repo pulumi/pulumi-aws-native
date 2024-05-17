@@ -75,7 +75,7 @@ type Recipe struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Recipe name
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Represents a single step from a DataBrew recipe to be performed.
+	// A list of steps that are defined by the recipe.
 	Steps RecipeStepArrayOutput `pulumi:"steps"`
 	// Metadata tags that have been applied to the recipe.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
@@ -133,7 +133,7 @@ type recipeArgs struct {
 	Description *string `pulumi:"description"`
 	// Recipe name
 	Name *string `pulumi:"name"`
-	// Represents a single step from a DataBrew recipe to be performed.
+	// A list of steps that are defined by the recipe.
 	Steps []RecipeStep `pulumi:"steps"`
 	// Metadata tags that have been applied to the recipe.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
@@ -145,7 +145,7 @@ type RecipeArgs struct {
 	Description pulumi.StringPtrInput
 	// Recipe name
 	Name pulumi.StringPtrInput
-	// Represents a single step from a DataBrew recipe to be performed.
+	// A list of steps that are defined by the recipe.
 	Steps RecipeStepArrayInput
 	// Metadata tags that have been applied to the recipe.
 	Tags aws.CreateOnlyTagArrayInput
@@ -198,7 +198,7 @@ func (o RecipeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Recipe) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Represents a single step from a DataBrew recipe to be performed.
+// A list of steps that are defined by the recipe.
 func (o RecipeOutput) Steps() RecipeStepArrayOutput {
 	return o.ApplyT(func(v *Recipe) RecipeStepArrayOutput { return v.Steps }).(RecipeStepArrayOutput)
 }

@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// Any tags assigned to the resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

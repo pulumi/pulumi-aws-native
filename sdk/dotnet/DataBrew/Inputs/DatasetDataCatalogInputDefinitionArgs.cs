@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         public Input<string>? TableName { get; set; }
 
         /// <summary>
-        /// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+        /// An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
         /// </summary>
         [Input("tempDirectory")]
         public Input<Inputs.DatasetS3LocationArgs>? TempDirectory { get; set; }

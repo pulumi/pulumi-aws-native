@@ -31,7 +31,7 @@ class PermissionSetArgs:
         """
         The set of arguments for constructing a PermissionSet resource.
         :param pulumi.Input[str] instance_arn: The sso instance arn that the permission set is owned.
-        :param pulumi.Input[Sequence[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']]] customer_managed_policy_references: Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
+        :param pulumi.Input[Sequence[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']]] customer_managed_policy_references: Specifies the names and paths of the customer managed policies that you have attached to your permission set.
         :param pulumi.Input[str] description: The permission set description.
         :param Any inline_policy: The inline policy to put in permission set.
                
@@ -43,7 +43,7 @@ class PermissionSetArgs:
                > Policies used as permissions boundaries don't provide permissions. You must also attach an IAM policy to the role. To learn how the effective permissions for a role are evaluated, see [IAM JSON policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide* .
         :param pulumi.Input[str] relay_state_type: The relay state URL that redirect links to any service in the AWS Management Console.
         :param pulumi.Input[str] session_duration: The length of time that a user can be signed in to an AWS account.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to attach to the new `PermissionSet` .
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         if customer_managed_policy_references is not None:
@@ -81,7 +81,7 @@ class PermissionSetArgs:
     @pulumi.getter(name="customerManagedPolicyReferences")
     def customer_managed_policy_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PermissionSetCustomerManagedPolicyReferenceArgs']]]]:
         """
-        Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
+        Specifies the names and paths of the customer managed policies that you have attached to your permission set.
         """
         return pulumi.get(self, "customer_managed_policy_references")
 
@@ -181,7 +181,7 @@ class PermissionSetArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+        The tags to attach to the new `PermissionSet` .
         """
         return pulumi.get(self, "tags")
 
@@ -211,7 +211,7 @@ class PermissionSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PermissionSetCustomerManagedPolicyReferenceArgs']]]] customer_managed_policy_references: Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PermissionSetCustomerManagedPolicyReferenceArgs']]]] customer_managed_policy_references: Specifies the names and paths of the customer managed policies that you have attached to your permission set.
         :param pulumi.Input[str] description: The permission set description.
         :param Any inline_policy: The inline policy to put in permission set.
                
@@ -224,7 +224,7 @@ class PermissionSet(pulumi.CustomResource):
                > Policies used as permissions boundaries don't provide permissions. You must also attach an IAM policy to the role. To learn how the effective permissions for a role are evaluated, see [IAM JSON policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide* .
         :param pulumi.Input[str] relay_state_type: The relay state URL that redirect links to any service in the AWS Management Console.
         :param pulumi.Input[str] session_duration: The length of time that a user can be signed in to an AWS account.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to attach to the new `PermissionSet` .
         """
         ...
     @overload
@@ -323,7 +323,7 @@ class PermissionSet(pulumi.CustomResource):
     @pulumi.getter(name="customerManagedPolicyReferences")
     def customer_managed_policy_references(self) -> pulumi.Output[Optional[Sequence['outputs.PermissionSetCustomerManagedPolicyReference']]]:
         """
-        Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
+        Specifies the names and paths of the customer managed policies that you have attached to your permission set.
         """
         return pulumi.get(self, "customer_managed_policy_references")
 
@@ -407,7 +407,7 @@ class PermissionSet(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+        The tags to attach to the new `PermissionSet` .
         """
         return pulumi.get(self, "tags")
 

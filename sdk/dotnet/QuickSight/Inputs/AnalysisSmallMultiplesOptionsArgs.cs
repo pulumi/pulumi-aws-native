@@ -29,19 +29,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<double>? MaxVisibleRows { get; set; }
 
         /// <summary>
-        /// A collection of options that configure how each panel displays in a small multiples chart.
+        /// Configures the display options for each small multiples panel.
         /// </summary>
         [Input("panelConfiguration")]
         public Input<Inputs.AnalysisPanelConfigurationArgs>? PanelConfiguration { get; set; }
 
         /// <summary>
-        /// Configures the properties of a chart's axes that are used by small multiples panels.
+        /// The properties of a small multiples X axis.
         /// </summary>
         [Input("xAxis")]
         public Input<Inputs.AnalysisSmallMultiplesAxisPropertiesArgs>? XAxis { get; set; }
 
         /// <summary>
-        /// Configures the properties of a chart's axes that are used by small multiples panels.
+        /// The properties of a small multiples Y axis.
         /// </summary>
         [Input("yAxis")]
         public Input<Inputs.AnalysisSmallMultiplesAxisPropertiesArgs>? YAxis { get; set; }

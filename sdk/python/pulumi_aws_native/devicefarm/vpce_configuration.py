@@ -27,7 +27,9 @@ class VpceConfigurationArgs:
         :param pulumi.Input[str] vpce_service_name: The name of the VPC endpoint service that you want to access from Device Farm.
                
                The name follows the format `com.amazonaws.vpce.us-west-2.vpce-svc-id` .
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
         :param pulumi.Input[str] vpce_configuration_description: An optional description that provides details about your VPC endpoint configuration.
         :param pulumi.Input[str] vpce_configuration_name: The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
         """
@@ -70,7 +72,9 @@ class VpceConfigurationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
         """
         return pulumi.get(self, "tags")
 
@@ -120,7 +124,9 @@ class VpceConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] service_dns_name: The DNS name that Device Farm will use to map to the private service you want to access.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
         :param pulumi.Input[str] vpce_configuration_description: An optional description that provides details about your VPC endpoint configuration.
         :param pulumi.Input[str] vpce_configuration_name: The friendly name you give to your VPC endpoint configuration to manage your configurations more easily.
         :param pulumi.Input[str] vpce_service_name: The name of the VPC endpoint service that you want to access from Device Farm.
@@ -225,7 +231,9 @@ class VpceConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
         """
         return pulumi.get(self, "tags")
 

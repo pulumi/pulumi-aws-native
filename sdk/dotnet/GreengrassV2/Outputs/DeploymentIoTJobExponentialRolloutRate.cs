@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
         /// </summary>
         public readonly double IncrementFactor;
         /// <summary>
-        /// Contains information about criteria to meet before a job increases its rollout rate. Specify either `numberOfNotifiedThings` or `numberOfSucceededThings` .
+        /// The criteria to increase the rollout rate for the job.
         /// </summary>
         public readonly Outputs.DeploymentIoTJobRateIncreaseCriteria RateIncreaseCriteria;
 

@@ -55,9 +55,9 @@ type LookupUserPoolClientResult struct {
 	AllowedOAuthFlowsUserPoolClient *bool `pulumi:"allowedOAuthFlowsUserPoolClient"`
 	// The allowed OAuth scopes. Possible values provided by OAuth are `phone` , `email` , `openid` , and `profile` . Possible values provided by AWS are `aws.cognito.signin.user.admin` . Custom scopes created in Resource Servers are also supported.
 	AllowedOAuthScopes []string `pulumi:"allowedOAuthScopes"`
-	// The Amazon Pinpoint analytics configuration necessary to collect metrics for a user pool.
+	// The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.
 	//
-	// > In Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.
+	// > In AWS Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in AWS Region us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.
 	AnalyticsConfiguration *UserPoolClientAnalyticsConfiguration `pulumi:"analyticsConfiguration"`
 	// Amazon Cognito creates a session token for each API request in an authentication flow. `AuthSessionValidity` is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires.
 	AuthSessionValidity *int `pulumi:"authSessionValidity"`
@@ -138,7 +138,7 @@ type LookupUserPoolClientResult struct {
 	RefreshTokenValidity *int `pulumi:"refreshTokenValidity"`
 	// A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: `COGNITO` , `Facebook` , `Google` , `SignInWithApple` , and `LoginWithAmazon` . You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example `MySAMLIdP` or `MyOIDCIdP` .
 	SupportedIdentityProviders []string `pulumi:"supportedIdentityProviders"`
-	// The time units you use when you set the duration of ID, access, and refresh tokens. The default unit for RefreshToken is days, and the default for ID and access tokens is hours.
+	// The units in which the validity times are represented. The default unit for RefreshToken is days, and default for ID and access tokens are hours.
 	TokenValidityUnits *UserPoolClientTokenValidityUnits `pulumi:"tokenValidityUnits"`
 	// The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list. An example of this kind of activity is when you present your user with a form to update their profile information and they change their last name. Your app then makes an [UpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.html) API request and sets `family_name` to the new value.
 	//
@@ -223,9 +223,9 @@ func (o LookupUserPoolClientResultOutput) AllowedOAuthScopes() pulumi.StringArra
 	return o.ApplyT(func(v LookupUserPoolClientResult) []string { return v.AllowedOAuthScopes }).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Pinpoint analytics configuration necessary to collect metrics for a user pool.
+// The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.
 //
-// > In Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.
+// > In AWS Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in AWS Region us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.
 func (o LookupUserPoolClientResultOutput) AnalyticsConfiguration() UserPoolClientAnalyticsConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) *UserPoolClientAnalyticsConfiguration {
 		return v.AnalyticsConfiguration
@@ -359,7 +359,7 @@ func (o LookupUserPoolClientResultOutput) SupportedIdentityProviders() pulumi.St
 	return o.ApplyT(func(v LookupUserPoolClientResult) []string { return v.SupportedIdentityProviders }).(pulumi.StringArrayOutput)
 }
 
-// The time units you use when you set the duration of ID, access, and refresh tokens. The default unit for RefreshToken is days, and the default for ID and access tokens is hours.
+// The units in which the validity times are represented. The default unit for RefreshToken is days, and default for ID and access tokens are hours.
 func (o LookupUserPoolClientResultOutput) TokenValidityUnits() UserPoolClientTokenValidityUnitsPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) *UserPoolClientTokenValidityUnits { return v.TokenValidityUnits }).(UserPoolClientTokenValidityUnitsPtrOutput)
 }

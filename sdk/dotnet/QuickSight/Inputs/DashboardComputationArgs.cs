@@ -43,13 +43,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.DashboardPeriodOverPeriodComputationArgs>? PeriodOverPeriod { get; set; }
 
         /// <summary>
-        /// The period to date computation configuration.
+        /// The period to `DataSetIdentifier` computation configuration.
         /// </summary>
         [Input("periodToDate")]
         public Input<Inputs.DashboardPeriodToDateComputationArgs>? PeriodToDate { get; set; }
 
         /// <summary>
-        /// The top movers and bottom movers computation setup.
+        /// The top movers and bottom movers computation configuration.
         /// </summary>
         [Input("topBottomMovers")]
         public Input<Inputs.DashboardTopBottomMoversComputationArgs>? TopBottomMovers { get; set; }

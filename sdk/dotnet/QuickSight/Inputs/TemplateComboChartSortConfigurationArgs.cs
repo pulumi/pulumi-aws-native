@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateComboChartSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The item limit configuration for the category field well of a combo chart.
         /// </summary>
         [Input("categoryItemsLimit")]
         public Input<Inputs.TemplateItemsLimitConfigurationArgs>? CategoryItemsLimit { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The item limit configuration of the color field well in a combo chart.
         /// </summary>
         [Input("colorItemsLimit")]
         public Input<Inputs.TemplateItemsLimitConfigurationArgs>? ColorItemsLimit { get; set; }

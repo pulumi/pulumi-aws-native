@@ -16,19 +16,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         private InputList<Inputs.ScalingPolicyMetricDataQueryArgs>? _metricDataQueries;
 
         /// <summary>
-        /// The metric data to return. Also defines whether this call is returning data for one metric only, or whether it is performing a math expression on the values of returned metric statistics to create a new time series. A time series is a series of data points, each of which is associated with a timestamp.
-        /// 
-        /// `MetricDataQuery` is a property of the following property types:
-        /// 
-        /// - [AWS::AutoScaling::ScalingPolicy PredictiveScalingCustomizedScalingMetric](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedscalingmetric.html)
-        /// - [AWS::AutoScaling::ScalingPolicy PredictiveScalingCustomizedLoadMetric](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedloadmetric.html)
-        /// - [AWS::AutoScaling::ScalingPolicy PredictiveScalingCustomizedCapacityMetric](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedcapacitymetric.html)
-        /// 
-        /// Predictive scaling uses the time series data received from CloudWatch to understand how to schedule capacity based on your historical workload patterns.
-        /// 
-        /// You can call for a single metric or perform math expressions on multiple metrics. Any expressions used in a metric specification must eventually return a single time series.
-        /// 
-        /// For more information and examples, see [Advanced predictive scaling policy configurations using custom metrics](https://docs.aws.amazon.com/autoscaling/ec2/userguide/predictive-scaling-customized-metric-specification.html) in the *Amazon EC2 Auto Scaling User Guide* .
+        /// One or more metric data queries to provide the data points for a capacity metric. Use multiple metric data queries only if you are performing a math expression on returned data.
         /// </summary>
         public InputList<Inputs.ScalingPolicyMetricDataQueryArgs> MetricDataQueries
         {

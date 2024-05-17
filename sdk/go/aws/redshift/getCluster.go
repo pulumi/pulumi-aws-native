@@ -67,7 +67,7 @@ type LookupClusterResult struct {
 	ElasticIp *string `pulumi:"elasticIp"`
 	// If true, the data in the cluster is encrypted at rest.
 	Encrypted *bool `pulumi:"encrypted"`
-	// Describes a connection endpoint.
+	// The connection endpoint.
 	Endpoint *ClusterEndpoint `pulumi:"endpoint"`
 	// An option that specifies whether to create the cluster with enhanced VPC routing enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC. For more information, see Enhanced VPC Routing in the Amazon Redshift Cluster Management Guide.
 	//
@@ -258,7 +258,7 @@ func (o LookupClusterResultOutput) Encrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *bool { return v.Encrypted }).(pulumi.BoolPtrOutput)
 }
 
-// Describes a connection endpoint.
+// The connection endpoint.
 func (o LookupClusterResultOutput) Endpoint() ClusterEndpointPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterEndpoint { return v.Endpoint }).(ClusterEndpointPtrOutput)
 }

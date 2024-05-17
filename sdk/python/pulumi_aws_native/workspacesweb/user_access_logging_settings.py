@@ -21,7 +21,7 @@ class UserAccessLoggingSettingsArgs:
         """
         The set of arguments for constructing a UserAccessLoggingSettings resource.
         :param pulumi.Input[str] kinesis_stream_arn: Kinesis stream ARN to which log events are published.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tag.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the user access logging settings resource. A tag is a key-value pair.
         """
         pulumi.set(__self__, "kinesis_stream_arn", kinesis_stream_arn)
         if tags is not None:
@@ -43,7 +43,7 @@ class UserAccessLoggingSettingsArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The tag.
+        The tags to add to the user access logging settings resource. A tag is a key-value pair.
         """
         return pulumi.get(self, "tags")
 
@@ -66,7 +66,7 @@ class UserAccessLoggingSettings(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kinesis_stream_arn: Kinesis stream ARN to which log events are published.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tag.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to add to the user access logging settings resource. A tag is a key-value pair.
         """
         ...
     @overload
@@ -157,7 +157,7 @@ class UserAccessLoggingSettings(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The tag.
+        The tags to add to the user access logging settings resource. A tag is a key-value pair.
         """
         return pulumi.get(self, "tags")
 

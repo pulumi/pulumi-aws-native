@@ -20,8 +20,6 @@ class ResponseHeadersPolicyArgs:
         """
         The set of arguments for constructing a ResponseHeadersPolicy resource.
         :param pulumi.Input['ResponseHeadersPolicyConfigArgs'] response_headers_policy_config: A response headers policy configuration.
-               
-               A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
         """
         pulumi.set(__self__, "response_headers_policy_config", response_headers_policy_config)
 
@@ -30,8 +28,6 @@ class ResponseHeadersPolicyArgs:
     def response_headers_policy_config(self) -> pulumi.Input['ResponseHeadersPolicyConfigArgs']:
         """
         A response headers policy configuration.
-
-        A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
         """
         return pulumi.get(self, "response_headers_policy_config")
 
@@ -53,8 +49,6 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ResponseHeadersPolicyConfigArgs']] response_headers_policy_config: A response headers policy configuration.
-               
-               A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
         """
         ...
     @overload
@@ -143,8 +137,6 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
     def response_headers_policy_config(self) -> pulumi.Output['outputs.ResponseHeadersPolicyConfig']:
         """
         A response headers policy configuration.
-
-        A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
         """
         return pulumi.get(self, "response_headers_policy_config")
 

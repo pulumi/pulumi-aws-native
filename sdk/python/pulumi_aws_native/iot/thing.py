@@ -20,7 +20,7 @@ class ThingArgs:
                  thing_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Thing resource.
-        :param pulumi.Input['ThingAttributePayloadArgs'] attribute_payload: The AttributePayload property specifies up to three attributes for an AWS IoT as key-value pairs. AttributePayload is a property of the [AWS::IoT::Thing](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html) resource.
+        :param pulumi.Input['ThingAttributePayloadArgs'] attribute_payload: A string that contains up to three key value pairs. Maximum length of 800. Duplicates not allowed.
         :param pulumi.Input[str] thing_name: The name of the thing to update.
                
                You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
@@ -34,7 +34,7 @@ class ThingArgs:
     @pulumi.getter(name="attributePayload")
     def attribute_payload(self) -> Optional[pulumi.Input['ThingAttributePayloadArgs']]:
         """
-        The AttributePayload property specifies up to three attributes for an AWS IoT as key-value pairs. AttributePayload is a property of the [AWS::IoT::Thing](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html) resource.
+        A string that contains up to three key value pairs. Maximum length of 800. Duplicates not allowed.
         """
         return pulumi.get(self, "attribute_payload")
 
@@ -100,7 +100,7 @@ class Thing(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ThingAttributePayloadArgs']] attribute_payload: The AttributePayload property specifies up to three attributes for an AWS IoT as key-value pairs. AttributePayload is a property of the [AWS::IoT::Thing](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html) resource.
+        :param pulumi.Input[pulumi.InputType['ThingAttributePayloadArgs']] attribute_payload: A string that contains up to three key value pairs. Maximum length of 800. Duplicates not allowed.
         :param pulumi.Input[str] thing_name: The name of the thing to update.
                
                You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
@@ -216,7 +216,7 @@ class Thing(pulumi.CustomResource):
     @pulumi.getter(name="attributePayload")
     def attribute_payload(self) -> pulumi.Output[Optional['outputs.ThingAttributePayload']]:
         """
-        The AttributePayload property specifies up to three attributes for an AWS IoT as key-value pairs. AttributePayload is a property of the [AWS::IoT::Thing](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html) resource.
+        A string that contains up to three key value pairs. Maximum length of 800. Duplicates not allowed.
         """
         return pulumi.get(self, "attribute_payload")
 

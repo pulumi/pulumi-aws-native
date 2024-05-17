@@ -23,7 +23,7 @@ type LocationFSxOpenZfs struct {
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
 	// The URL of the FSx OpenZFS that was described.
 	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
-	// Represents the protocol that AWS DataSync uses to access your Amazon FSx for OpenZFS file system.
+	// The type of protocol that AWS DataSync uses to access your file system.
 	Protocol LocationFSxOpenZfsProtocolOutput `pulumi:"protocol"`
 	// The ARNs of the security groups that are to use to configure the FSx OpenZFS file system.
 	SecurityGroupArns pulumi.StringArrayOutput `pulumi:"securityGroupArns"`
@@ -88,7 +88,7 @@ func (LocationFSxOpenZfsState) ElementType() reflect.Type {
 type locationFSxOpenZfsArgs struct {
 	// The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
 	FsxFilesystemArn *string `pulumi:"fsxFilesystemArn"`
-	// Represents the protocol that AWS DataSync uses to access your Amazon FSx for OpenZFS file system.
+	// The type of protocol that AWS DataSync uses to access your file system.
 	Protocol LocationFSxOpenZfsProtocol `pulumi:"protocol"`
 	// The ARNs of the security groups that are to use to configure the FSx OpenZFS file system.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
@@ -102,7 +102,7 @@ type locationFSxOpenZfsArgs struct {
 type LocationFSxOpenZfsArgs struct {
 	// The Amazon Resource Name (ARN) for the FSx OpenZFS file system.
 	FsxFilesystemArn pulumi.StringPtrInput
-	// Represents the protocol that AWS DataSync uses to access your Amazon FSx for OpenZFS file system.
+	// The type of protocol that AWS DataSync uses to access your file system.
 	Protocol LocationFSxOpenZfsProtocolInput
 	// The ARNs of the security groups that are to use to configure the FSx OpenZFS file system.
 	SecurityGroupArns pulumi.StringArrayInput
@@ -164,7 +164,7 @@ func (o LocationFSxOpenZfsOutput) LocationUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationFSxOpenZfs) pulumi.StringOutput { return v.LocationUri }).(pulumi.StringOutput)
 }
 
-// Represents the protocol that AWS DataSync uses to access your Amazon FSx for OpenZFS file system.
+// The type of protocol that AWS DataSync uses to access your file system.
 func (o LocationFSxOpenZfsOutput) Protocol() LocationFSxOpenZfsProtocolOutput {
 	return o.ApplyT(func(v *LocationFSxOpenZfs) LocationFSxOpenZfsProtocolOutput { return v.Protocol }).(LocationFSxOpenZfsProtocolOutput)
 }

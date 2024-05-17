@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Structure that contains payloadVersion and targetArn. Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
+        /// Creates a pre-provisioning hook template.
         /// </summary>
         [Output("preProvisioningHook")]
         public Output<Outputs.ProvisioningTemplateProvisioningHook?> PreProvisioningHook { get; private set; } = null!;
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<string> ProvisioningRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// A set of key/value pairs that are used to manage the resource.
+        /// Metadata that can be used to manage the fleet provisioning template.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.AwsNative.IoT
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Structure that contains payloadVersion and targetArn. Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
+        /// Creates a pre-provisioning hook template.
         /// </summary>
         [Input("preProvisioningHook")]
         public Input<Inputs.ProvisioningTemplateProvisioningHookArgs>? PreProvisioningHook { get; set; }
@@ -147,7 +147,7 @@ namespace Pulumi.AwsNative.IoT
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A set of key/value pairs that are used to manage the resource.
+        /// Metadata that can be used to manage the fleet provisioning template.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

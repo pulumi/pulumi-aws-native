@@ -45,7 +45,7 @@ class JobTemplateArgs:
         :param pulumi.Input[str] job_arn: Optional for copying a JobTemplate from a pre-existing Job configuration.
         :param pulumi.Input['JobExecutionsRetryConfigPropertiesArgs'] job_executions_retry_config: Allows you to create the criteria to retry a job.
         :param pulumi.Input['JobExecutionsRolloutConfigPropertiesArgs'] job_executions_rollout_config: Allows you to create a staged rollout of a job.
-        :param pulumi.Input[Sequence[pulumi.Input['JobTemplateMaintenanceWindowArgs']]] maintenance_windows: An optional configuration within the `SchedulingConfig` to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+        :param pulumi.Input[Sequence[pulumi.Input['JobTemplateMaintenanceWindowArgs']]] maintenance_windows: An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
         :param pulumi.Input['PresignedUrlConfigPropertiesArgs'] presigned_url_config: Configuration for pre-signed S3 URLs.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: Metadata that can be used to manage the JobTemplate.
         :param pulumi.Input['TimeoutConfigPropertiesArgs'] timeout_config: Specifies the amount of time each device has to finish its execution of the job.
@@ -189,7 +189,7 @@ class JobTemplateArgs:
     @pulumi.getter(name="maintenanceWindows")
     def maintenance_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateMaintenanceWindowArgs']]]]:
         """
-        An optional configuration within the `SchedulingConfig` to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+        An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
         """
         return pulumi.get(self, "maintenance_windows")
 
@@ -269,7 +269,7 @@ class JobTemplate(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['JobExecutionsRetryConfigPropertiesArgs']] job_executions_retry_config: Allows you to create the criteria to retry a job.
         :param pulumi.Input[pulumi.InputType['JobExecutionsRolloutConfigPropertiesArgs']] job_executions_rollout_config: Allows you to create a staged rollout of a job.
         :param pulumi.Input[str] job_template_id: A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobTemplateMaintenanceWindowArgs']]]] maintenance_windows: An optional configuration within the `SchedulingConfig` to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['JobTemplateMaintenanceWindowArgs']]]] maintenance_windows: An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
         :param pulumi.Input[pulumi.InputType['PresignedUrlConfigPropertiesArgs']] presigned_url_config: Configuration for pre-signed S3 URLs.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: Metadata that can be used to manage the JobTemplate.
         :param pulumi.Input[pulumi.InputType['TimeoutConfigPropertiesArgs']] timeout_config: Specifies the amount of time each device has to finish its execution of the job.
@@ -464,7 +464,7 @@ class JobTemplate(pulumi.CustomResource):
     @pulumi.getter(name="maintenanceWindows")
     def maintenance_windows(self) -> pulumi.Output[Optional[Sequence['outputs.JobTemplateMaintenanceWindow']]]:
         """
-        An optional configuration within the `SchedulingConfig` to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+        An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
         """
         return pulumi.get(self, "maintenance_windows")
 

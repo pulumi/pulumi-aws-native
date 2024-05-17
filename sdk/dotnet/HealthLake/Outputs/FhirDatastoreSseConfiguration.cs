@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.HealthLake.Outputs
     public sealed class FhirDatastoreSseConfiguration
     {
         /// <summary>
-        /// The customer-managed-key(CMK) used when creating a Data Store. If a customer owned key is not specified, an Amazon owned key will be used for encryption.
+        /// The server-side encryption key configuration for a customer provided encryption key (CMK).
         /// </summary>
         public readonly Outputs.FhirDatastoreKmsEncryptionConfig KmsEncryptionConfig;
 

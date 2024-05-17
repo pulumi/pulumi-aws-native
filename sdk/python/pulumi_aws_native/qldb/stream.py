@@ -32,7 +32,7 @@ class StreamArgs:
                The `InclusiveStartTime` cannot be in the future and must be before `ExclusiveEndTime` .
                
                If you provide an `InclusiveStartTime` that is before the ledger's `CreationDateTime` , QLDB effectively defaults it to the ledger's `CreationDateTime` .
-        :param pulumi.Input['StreamKinesisConfigurationArgs'] kinesis_configuration: The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal stream.
+        :param pulumi.Input['StreamKinesisConfigurationArgs'] kinesis_configuration: The configuration settings of the Kinesis Data Streams destination for your stream request.
         :param pulumi.Input[str] ledger_name: The name of the ledger.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
                
@@ -76,7 +76,7 @@ class StreamArgs:
     @pulumi.getter(name="kinesisConfiguration")
     def kinesis_configuration(self) -> pulumi.Input['StreamKinesisConfigurationArgs']:
         """
-        The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal stream.
+        The configuration settings of the Kinesis Data Streams destination for your stream request.
         """
         return pulumi.get(self, "kinesis_configuration")
 
@@ -223,7 +223,7 @@ class Stream(pulumi.CustomResource):
                The `InclusiveStartTime` cannot be in the future and must be before `ExclusiveEndTime` .
                
                If you provide an `InclusiveStartTime` that is before the ledger's `CreationDateTime` , QLDB effectively defaults it to the ledger's `CreationDateTime` .
-        :param pulumi.Input[pulumi.InputType['StreamKinesisConfigurationArgs']] kinesis_configuration: The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal stream.
+        :param pulumi.Input[pulumi.InputType['StreamKinesisConfigurationArgs']] kinesis_configuration: The configuration settings of the Kinesis Data Streams destination for your stream request.
         :param pulumi.Input[str] ledger_name: The name of the ledger.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
                
@@ -413,7 +413,7 @@ class Stream(pulumi.CustomResource):
     @pulumi.getter(name="kinesisConfiguration")
     def kinesis_configuration(self) -> pulumi.Output['outputs.StreamKinesisConfiguration']:
         """
-        The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal stream.
+        The configuration settings of the Kinesis Data Streams destination for your stream request.
         """
         return pulumi.get(self, "kinesis_configuration")
 

@@ -71,7 +71,7 @@ export interface GetDetectorResult {
      */
     readonly ruleExecutionMode?: enums.frauddetector.DetectorRuleExecutionMode;
     /**
-     * A rule.
+     * The rules to include in the detector version.
      */
     readonly rules?: outputs.frauddetector.DetectorRule[];
     /**

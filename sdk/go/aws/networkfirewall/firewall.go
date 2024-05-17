@@ -37,9 +37,11 @@ type Firewall struct {
 	FirewallPolicyChangeProtection pulumi.BoolPtrOutput `pulumi:"firewallPolicyChangeProtection"`
 	// A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
 	SubnetChangeProtection pulumi.BoolPtrOutput `pulumi:"subnetChangeProtection"`
-	// The ID for a subnet that you want to associate with the firewall. AWS Network Firewall creates an instance of the associated firewall in each subnet that you specify, to filter traffic in the subnet's Availability Zone.
+	// The public subnets that Network Firewall is using for the firewall. Each subnet must belong to a different Availability Zone.
 	SubnetMappings FirewallSubnetMappingArrayOutput `pulumi:"subnetMappings"`
-	// A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -113,9 +115,11 @@ type firewallArgs struct {
 	FirewallPolicyChangeProtection *bool `pulumi:"firewallPolicyChangeProtection"`
 	// A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
 	SubnetChangeProtection *bool `pulumi:"subnetChangeProtection"`
-	// The ID for a subnet that you want to associate with the firewall. AWS Network Firewall creates an instance of the associated firewall in each subnet that you specify, to filter traffic in the subnet's Availability Zone.
+	// The public subnets that Network Firewall is using for the firewall. Each subnet must belong to a different Availability Zone.
 	SubnetMappings []FirewallSubnetMapping `pulumi:"subnetMappings"`
-	// A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags []aws.Tag `pulumi:"tags"`
 	// The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
 	VpcId string `pulumi:"vpcId"`
@@ -137,9 +141,11 @@ type FirewallArgs struct {
 	FirewallPolicyChangeProtection pulumi.BoolPtrInput
 	// A setting indicating whether the firewall is protected against changes to the subnet associations. Use this setting to protect against accidentally modifying the subnet associations for a firewall that is in use. When you create a firewall, the operation initializes this setting to `TRUE` .
 	SubnetChangeProtection pulumi.BoolPtrInput
-	// The ID for a subnet that you want to associate with the firewall. AWS Network Firewall creates an instance of the associated firewall in each subnet that you specify, to filter traffic in the subnet's Availability Zone.
+	// The public subnets that Network Firewall is using for the firewall. Each subnet must belong to a different Availability Zone.
 	SubnetMappings FirewallSubnetMappingArrayInput
-	// A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags aws.TagArrayInput
 	// The unique identifier of the VPC where the firewall is in use. You can't change the VPC of a firewall after you create the firewall.
 	VpcId pulumi.StringInput
@@ -229,12 +235,14 @@ func (o FirewallOutput) SubnetChangeProtection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.BoolPtrOutput { return v.SubnetChangeProtection }).(pulumi.BoolPtrOutput)
 }
 
-// The ID for a subnet that you want to associate with the firewall. AWS Network Firewall creates an instance of the associated firewall in each subnet that you specify, to filter traffic in the subnet's Availability Zone.
+// The public subnets that Network Firewall is using for the firewall. Each subnet must belong to a different Availability Zone.
 func (o FirewallOutput) SubnetMappings() FirewallSubnetMappingArrayOutput {
 	return o.ApplyT(func(v *Firewall) FirewallSubnetMappingArrayOutput { return v.SubnetMappings }).(FirewallSubnetMappingArrayOutput)
 }
 
-// A key:value pair associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o FirewallOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Firewall) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

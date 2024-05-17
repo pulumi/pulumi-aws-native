@@ -25,7 +25,7 @@ class MitigationActionArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MitigationAction resource.
-        :param pulumi.Input['MitigationActionActionParamsArgs'] action_params: Defines the type of action and the parameters for that action.
+        :param pulumi.Input['MitigationActionActionParamsArgs'] action_params: The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
         :param pulumi.Input[str] role_arn: The IAM role ARN used to apply this mitigation action.
         :param pulumi.Input[str] action_name: A unique identifier for the mitigation action.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -41,7 +41,7 @@ class MitigationActionArgs:
     @pulumi.getter(name="actionParams")
     def action_params(self) -> pulumi.Input['MitigationActionActionParamsArgs']:
         """
-        Defines the type of action and the parameters for that action.
+        The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
         """
         return pulumi.get(self, "action_params")
 
@@ -102,7 +102,7 @@ class MitigationAction(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action_name: A unique identifier for the mitigation action.
-        :param pulumi.Input[pulumi.InputType['MitigationActionActionParamsArgs']] action_params: Defines the type of action and the parameters for that action.
+        :param pulumi.Input[pulumi.InputType['MitigationActionActionParamsArgs']] action_params: The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
         :param pulumi.Input[str] role_arn: The IAM role ARN used to apply this mitigation action.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -197,7 +197,7 @@ class MitigationAction(pulumi.CustomResource):
     @pulumi.getter(name="actionParams")
     def action_params(self) -> pulumi.Output['outputs.MitigationActionActionParams']:
         """
-        Defines the type of action and the parameters for that action.
+        The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
         """
         return pulumi.get(self, "action_params")
 

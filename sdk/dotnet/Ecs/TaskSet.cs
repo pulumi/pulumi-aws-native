@@ -40,19 +40,13 @@ namespace Pulumi.AwsNative.Ecs
         public Output<Pulumi.AwsNative.Ecs.TaskSetLaunchType?> LaunchType { get; private set; } = null!;
 
         /// <summary>
-        /// The load balancer configuration to use with a service or task set.
-        /// 
-        /// When you add, update, or remove a load balancer configuration, Amazon ECS starts a new deployment with the updated Elastic Load Balancing configuration. This causes tasks to register to and deregister from load balancers.
-        /// 
-        /// We recommend that you verify this on a test environment before you update the Elastic Load Balancing configuration.
-        /// 
-        /// A service-linked role is required for services that use multiple target groups. For more information, see [Using service-linked roles](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
+        /// A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
         /// </summary>
         [Output("loadBalancers")]
         public Output<ImmutableArray<Outputs.TaskSetLoadBalancer>> LoadBalancers { get; private set; } = null!;
 
         /// <summary>
-        /// The network configuration for a task or service.
+        /// The network configuration for the task set.
         /// </summary>
         [Output("networkConfiguration")]
         public Output<Outputs.TaskSetNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
@@ -82,7 +76,7 @@ namespace Pulumi.AwsNative.Ecs
         public Output<ImmutableArray<Outputs.TaskSetServiceRegistry>> ServiceRegistries { get; private set; } = null!;
 
         /// <summary>
-        /// The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+        /// The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
         /// 
         /// The following basic restrictions apply to tags:
         /// 
@@ -182,13 +176,7 @@ namespace Pulumi.AwsNative.Ecs
         private InputList<Inputs.TaskSetLoadBalancerArgs>? _loadBalancers;
 
         /// <summary>
-        /// The load balancer configuration to use with a service or task set.
-        /// 
-        /// When you add, update, or remove a load balancer configuration, Amazon ECS starts a new deployment with the updated Elastic Load Balancing configuration. This causes tasks to register to and deregister from load balancers.
-        /// 
-        /// We recommend that you verify this on a test environment before you update the Elastic Load Balancing configuration.
-        /// 
-        /// A service-linked role is required for services that use multiple target groups. For more information, see [Using service-linked roles](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
+        /// A load balancer object representing the load balancer to use with the task set. The supported load balancer types are either an Application Load Balancer or a Network Load Balancer.
         /// </summary>
         public InputList<Inputs.TaskSetLoadBalancerArgs> LoadBalancers
         {
@@ -197,7 +185,7 @@ namespace Pulumi.AwsNative.Ecs
         }
 
         /// <summary>
-        /// The network configuration for a task or service.
+        /// The network configuration for the task set.
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.TaskSetNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
@@ -236,7 +224,7 @@ namespace Pulumi.AwsNative.Ecs
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+        /// The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
         /// 
         /// The following basic restrictions apply to tags:
         /// 

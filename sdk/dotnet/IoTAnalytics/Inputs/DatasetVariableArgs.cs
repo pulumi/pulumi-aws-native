@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
     public sealed class DatasetVariableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The dataset whose latest contents are used as input to the notebook or application.
+        /// The value of the variable as a structure that specifies a dataset content version.
         /// </summary>
         [Input("datasetContentVersionValue")]
         public Input<Inputs.DatasetContentVersionValueArgs>? DatasetContentVersionValue { get; set; }

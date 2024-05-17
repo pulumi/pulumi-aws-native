@@ -14,15 +14,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisTimeRangeFilter
     {
         /// <summary>
-        /// A column of a data set.
+        /// The column that the filter is applied to.
         /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier Column;
         /// <summary>
-        /// The default configuration for all dependent controls of the filter.
+        /// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
         /// </summary>
         public readonly Outputs.AnalysisDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
         /// <summary>
-        /// The exclude period of `TimeRangeFilter` or `RelativeDatesFilter` .
+        /// The exclude period of the time range filter.
         /// </summary>
         public readonly Outputs.AnalysisExcludePeriodConfiguration? ExcludePeriodConfiguration;
         /// <summary>
@@ -46,15 +46,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisFilterNullOption NullOption;
         /// <summary>
-        /// The value of a time range filter.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The maximum value for the filter value range.
         /// </summary>
         public readonly Outputs.AnalysisTimeRangeFilterValue? RangeMaximumValue;
         /// <summary>
-        /// The value of a time range filter.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The minimum value for the filter value range.
         /// </summary>
         public readonly Outputs.AnalysisTimeRangeFilterValue? RangeMinimumValue;
         /// <summary>

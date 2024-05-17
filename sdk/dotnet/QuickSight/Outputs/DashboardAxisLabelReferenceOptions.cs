@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardAxisLabelReferenceOptions
     {
         /// <summary>
-        /// A column of a data set.
+        /// The column that the axis label is targeted to.
         /// </summary>
         public readonly Outputs.DashboardColumnIdentifier Column;
         /// <summary>

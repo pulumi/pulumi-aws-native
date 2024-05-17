@@ -47,7 +47,7 @@ export interface GetAppResult {
      */
     readonly customHeaders?: string;
     /**
-     * The CustomRule property type allows you to specify redirects, rewrites, and reverse proxies. Redirects enable a web app to reroute navigation from one URL to another.
+     * The custom rewrite and redirect rules for an Amplify app.
      */
     readonly customRules?: outputs.amplify.AppCustomRule[];
     /**
@@ -63,7 +63,9 @@ export interface GetAppResult {
      */
     readonly enableBranchAutoDeletion?: boolean;
     /**
-     * Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+     * The environment variables for the Amplify app.
+     *
+     * For a list of the environment variables that are accessible to Amplify by default, see [Amplify Environment variables](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html) in the *Amplify Hosting User Guide* .
      */
     readonly environmentVariables?: outputs.amplify.AppEnvironmentVariable[];
     /**
@@ -83,7 +85,7 @@ export interface GetAppResult {
      */
     readonly repository?: string;
     /**
-     * The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::App` resource.
+     * The tag for an Amplify app.
      */
     readonly tags?: outputs.Tag[];
 }

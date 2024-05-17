@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     public sealed class ConfigAntennaUplinkConfig
     {
         /// <summary>
-        /// Defines a uplink spectrum.
+        /// Defines the spectrum configuration.
         /// </summary>
         public readonly Outputs.ConfigUplinkSpectrumConfig? SpectrumConfig;
         /// <summary>
-        /// Defines an equivalent isotropically radiated power (EIRP).
+        /// The equivalent isotropically radiated power (EIRP) to use for uplink transmissions. Valid values are between 20.0 to 50.0 dBW.
         /// </summary>
         public readonly Outputs.ConfigEirp? TargetEirp;
         /// <summary>

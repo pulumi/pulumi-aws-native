@@ -42,9 +42,9 @@ class GetProtectionResult:
     @pulumi.getter(name="applicationLayerAutomaticResponseConfiguration")
     def application_layer_automatic_response_configuration(self) -> Optional['outputs.ProtectionApplicationLayerAutomaticResponseConfiguration']:
         """
-        The automatic application layer DDoS mitigation settings for a `Protection` . This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
+        The automatic application layer DDoS mitigation settings for the protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
 
-        If you use AWS CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the guidance for the `AWS::WAFv2::WebACL` resource.
+        If you use AWS CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the additional guidance about web ACL management in the `AWS::WAFv2::WebACL` resource description.
         """
         return pulumi.get(self, "application_layer_automatic_response_configuration")
 

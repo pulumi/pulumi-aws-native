@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// </summary>
         public readonly bool Active;
         /// <summary>
-        /// Provides settings for a message that is sent to the user when a fulfillment Lambda function starts running.
+        /// Provides configuration information for the message sent to users when the fulfillment Lambda functions starts running.
         /// </summary>
         public readonly Outputs.BotFulfillmentStartResponseSpecification? StartResponse;
         /// <summary>
@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// </summary>
         public readonly int? TimeoutInSeconds;
         /// <summary>
-        /// Provides settings for a message that is sent periodically to the user while a fulfillment Lambda function is running.
+        /// Provides configuration information for messages sent periodically to the user while the fulfillment Lambda function is running.
         /// </summary>
         public readonly Outputs.BotFulfillmentUpdateResponseSpecification? UpdateResponse;
 

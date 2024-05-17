@@ -21,7 +21,7 @@ class AccessGrantsInstanceArgs:
         """
         The set of arguments for constructing a AccessGrantsInstance resource.
         :param pulumi.Input[str] identity_center_arn: The Amazon Resource Name (ARN) of the specified AWS Identity Center.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: A container of a key value name pair.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The AWS resource tags that you are adding to the S3 Access Grants instance. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
         """
         if identity_center_arn is not None:
             pulumi.set(__self__, "identity_center_arn", identity_center_arn)
@@ -44,7 +44,7 @@ class AccessGrantsInstanceArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
-        A container of a key value name pair.
+        The AWS resource tags that you are adding to the S3 Access Grants instance. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
         """
         return pulumi.get(self, "tags")
 
@@ -67,7 +67,7 @@ class AccessGrantsInstance(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] identity_center_arn: The Amazon Resource Name (ARN) of the specified AWS Identity Center.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: A container of a key value name pair.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: The AWS resource tags that you are adding to the S3 Access Grants instance. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
         """
         ...
     @overload
@@ -166,7 +166,7 @@ class AccessGrantsInstance(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
         """
-        A container of a key value name pair.
+        The AWS resource tags that you are adding to the S3 Access Grants instance. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
         """
         return pulumi.get(self, "tags")
 

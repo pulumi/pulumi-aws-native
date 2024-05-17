@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
         public Input<string>? BindingEvent { get; set; }
 
         /// <summary>
-        /// Represents the event action configuration for an element of a `Component` or `ComponentChild` . Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components. `ActionParameters` defines the action that is performed when an event occurs on the component.
+        /// Describes information about the action.
         /// </summary>
         [Input("parameters")]
         public Input<Inputs.ComponentActionParametersArgs>? Parameters { get; set; }

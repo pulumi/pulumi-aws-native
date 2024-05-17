@@ -499,7 +499,7 @@ class DistributionConfigurationAmiDistributionConfiguration(dict):
         :param Mapping[str, str] ami_tags: The tags to apply to AMIs distributed to this Region.
         :param str description: The description of the AMI distribution configuration.
         :param str kms_key_id: The KMS key identifier used to encrypt the distributed image.
-        :param 'DistributionConfigurationLaunchPermissionConfiguration' launch_permission_configuration: Describes the configuration for a launch permission. The launch permission modification request is sent to the [Amazon EC2 ModifyImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html) API on behalf of the user for each Region they have selected to distribute the AMI. To make an AMI public, set the launch permission authorized accounts to `all` . See the examples for making an AMI public at [Amazon EC2 ModifyImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html) .
+        :param 'DistributionConfigurationLaunchPermissionConfiguration' launch_permission_configuration: Launch permissions can be used to configure which AWS account s can use the AMI to launch instances.
         :param str name: The name of the AMI distribution configuration.
         :param Sequence[str] target_account_ids: The ID of accounts to which you want to distribute an image.
         """
@@ -544,7 +544,7 @@ class DistributionConfigurationAmiDistributionConfiguration(dict):
     @pulumi.getter(name="launchPermissionConfiguration")
     def launch_permission_configuration(self) -> Optional['outputs.DistributionConfigurationLaunchPermissionConfiguration']:
         """
-        Describes the configuration for a launch permission. The launch permission modification request is sent to the [Amazon EC2 ModifyImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html) API on behalf of the user for each Region they have selected to distribute the AMI. To make an AMI public, set the launch permission authorized accounts to `all` . See the examples for making an AMI public at [Amazon EC2 ModifyImageAttribute](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyImageAttribute.html) .
+        Launch permissions can be used to configure which AWS account s can use the AMI to launch instances.
         """
         return pulumi.get(self, "launch_permission_configuration")
 
@@ -671,8 +671,8 @@ class DistributionConfigurationDistribution(dict):
         """
         The distributions of the distribution configuration.
         :param str region: region
-        :param 'DistributionConfigurationAmiDistributionConfiguration' ami_distribution_configuration: Define and configure the output AMIs of the pipeline.
-        :param 'DistributionConfigurationContainerDistributionConfiguration' container_distribution_configuration: Container distribution settings for encryption, licensing, and sharing in a specific Region.
+        :param 'DistributionConfigurationAmiDistributionConfiguration' ami_distribution_configuration: The specific AMI settings, such as launch permissions and AMI tags. For details, see example schema below.
+        :param 'DistributionConfigurationContainerDistributionConfiguration' container_distribution_configuration: Container distribution settings for encryption, licensing, and sharing in a specific Region. For details, see example schema below.
         :param Sequence['DistributionConfigurationFastLaunchConfiguration'] fast_launch_configurations: The Windows faster-launching configurations to use for AMI distribution.
         :param Sequence['DistributionConfigurationLaunchTemplateConfiguration'] launch_template_configurations: A group of launchTemplateConfiguration settings that apply to image distribution.
         :param Sequence[str] license_configuration_arns: The License Manager Configuration to associate with the AMI in the specified Region.
@@ -701,7 +701,7 @@ class DistributionConfigurationDistribution(dict):
     @pulumi.getter(name="amiDistributionConfiguration")
     def ami_distribution_configuration(self) -> Optional['outputs.DistributionConfigurationAmiDistributionConfiguration']:
         """
-        Define and configure the output AMIs of the pipeline.
+        The specific AMI settings, such as launch permissions and AMI tags. For details, see example schema below.
         """
         return pulumi.get(self, "ami_distribution_configuration")
 
@@ -709,7 +709,7 @@ class DistributionConfigurationDistribution(dict):
     @pulumi.getter(name="containerDistributionConfiguration")
     def container_distribution_configuration(self) -> Optional['outputs.DistributionConfigurationContainerDistributionConfiguration']:
         """
-        Container distribution settings for encryption, licensing, and sharing in a specific Region.
+        Container distribution settings for encryption, licensing, and sharing in a specific Region. For details, see example schema below.
         """
         return pulumi.get(self, "container_distribution_configuration")
 
@@ -2221,7 +2221,7 @@ class InfrastructureConfigurationLogging(dict):
                  s3_logs: Optional['outputs.InfrastructureConfigurationS3Logs'] = None):
         """
         The logging configuration of the infrastructure configuration.
-        :param 'InfrastructureConfigurationS3Logs' s3_logs: Amazon S3 logging configuration.
+        :param 'InfrastructureConfigurationS3Logs' s3_logs: The Amazon S3 logging configuration.
         """
         if s3_logs is not None:
             pulumi.set(__self__, "s3_logs", s3_logs)
@@ -2230,7 +2230,7 @@ class InfrastructureConfigurationLogging(dict):
     @pulumi.getter(name="s3Logs")
     def s3_logs(self) -> Optional['outputs.InfrastructureConfigurationS3Logs']:
         """
-        Amazon S3 logging configuration.
+        The Amazon S3 logging configuration.
         """
         return pulumi.get(self, "s3_logs")
 
@@ -2317,7 +2317,7 @@ class LifecyclePolicyAction(dict):
         """
         The action of the policy detail.
         :param 'LifecyclePolicyActionType' type: The action type of the policy detail.
-        :param 'LifecyclePolicyIncludeResources' include_resources: Specifies how the lifecycle policy should apply actions to selected resources.
+        :param 'LifecyclePolicyIncludeResources' include_resources: Specifies the resources that the lifecycle policy applies to.
         """
         pulumi.set(__self__, "type", type)
         if include_resources is not None:
@@ -2335,7 +2335,7 @@ class LifecyclePolicyAction(dict):
     @pulumi.getter(name="includeResources")
     def include_resources(self) -> Optional['outputs.LifecyclePolicyIncludeResources']:
         """
-        Specifies how the lifecycle policy should apply actions to selected resources.
+        Specifies the resources that the lifecycle policy applies to.
         """
         return pulumi.get(self, "include_resources")
 
@@ -2461,7 +2461,7 @@ class LifecyclePolicyExclusionRules(dict):
                  tag_map: Optional[Mapping[str, str]] = None):
         """
         The exclusion rules to apply of the policy detail.
-        :param 'LifecyclePolicyAmiExclusionRules' amis: Defines criteria for AMIs that are excluded from lifecycle actions.
+        :param 'LifecyclePolicyAmiExclusionRules' amis: Lists configuration values that apply to AMIs that Image Builder should exclude from the lifecycle action.
         :param Mapping[str, str] tag_map: The Image Builder tags to filter on.
         """
         if amis is not None:
@@ -2473,7 +2473,7 @@ class LifecyclePolicyExclusionRules(dict):
     @pulumi.getter
     def amis(self) -> Optional['outputs.LifecyclePolicyAmiExclusionRules']:
         """
-        Defines criteria for AMIs that are excluded from lifecycle actions.
+        Lists configuration values that apply to AMIs that Image Builder should exclude from the lifecycle action.
         """
         return pulumi.get(self, "amis")
 
@@ -2668,9 +2668,9 @@ class LifecyclePolicyPolicyDetail(dict):
                  exclusion_rules: Optional['outputs.LifecyclePolicyExclusionRules'] = None):
         """
         The policy detail of the lifecycle policy.
-        :param 'LifecyclePolicyAction' action: Contains selection criteria for the lifecycle policy.
-        :param 'LifecyclePolicyFilter' filter: Defines filters that the lifecycle policy uses to determine impacted resource.
-        :param 'LifecyclePolicyExclusionRules' exclusion_rules: Specifies resources that lifecycle policy actions should not apply to.
+        :param 'LifecyclePolicyAction' action: Configuration details for the policy action.
+        :param 'LifecyclePolicyFilter' filter: Specifies the resources that the lifecycle policy applies to.
+        :param 'LifecyclePolicyExclusionRules' exclusion_rules: Additional rules to specify resources that should be exempt from policy actions.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "filter", filter)
@@ -2681,7 +2681,7 @@ class LifecyclePolicyPolicyDetail(dict):
     @pulumi.getter
     def action(self) -> 'outputs.LifecyclePolicyAction':
         """
-        Contains selection criteria for the lifecycle policy.
+        Configuration details for the policy action.
         """
         return pulumi.get(self, "action")
 
@@ -2689,7 +2689,7 @@ class LifecyclePolicyPolicyDetail(dict):
     @pulumi.getter
     def filter(self) -> 'outputs.LifecyclePolicyFilter':
         """
-        Defines filters that the lifecycle policy uses to determine impacted resource.
+        Specifies the resources that the lifecycle policy applies to.
         """
         return pulumi.get(self, "filter")
 
@@ -2697,7 +2697,7 @@ class LifecyclePolicyPolicyDetail(dict):
     @pulumi.getter(name="exclusionRules")
     def exclusion_rules(self) -> Optional['outputs.LifecyclePolicyExclusionRules']:
         """
-        Specifies resources that lifecycle policy actions should not apply to.
+        Additional rules to specify resources that should be exempt from policy actions.
         """
         return pulumi.get(self, "exclusion_rules")
 

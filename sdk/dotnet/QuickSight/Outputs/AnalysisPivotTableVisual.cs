@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisVisualCustomAction> Actions;
         /// <summary>
-        /// The configuration for a `PivotTableVisual` .
+        /// The configuration settings of the visual.
         /// </summary>
         public readonly Outputs.AnalysisPivotTableConfiguration? ChartConfiguration;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.AnalysisPivotTableConditionalFormatting? ConditionalFormatting;
         /// <summary>
-        /// The subtitle label options for a visual.
+        /// The subtitle that is displayed on the visual.
         /// </summary>
         public readonly Outputs.AnalysisVisualSubtitleLabelOptions? Subtitle;
         /// <summary>
-        /// The title label options for a visual.
+        /// The title that is displayed on the visual.
         /// </summary>
         public readonly Outputs.AnalysisVisualTitleLabelOptions? Title;
         /// <summary>

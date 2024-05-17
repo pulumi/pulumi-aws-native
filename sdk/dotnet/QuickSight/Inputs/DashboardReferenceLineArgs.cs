@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.DashboardReferenceLineDataConfigurationArgs> DataConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// The label configuration of a reference line.
+        /// The label configuration of the reference line.
         /// </summary>
         [Input("labelConfiguration")]
         public Input<Inputs.DashboardReferenceLineLabelConfigurationArgs>? LabelConfiguration { get; set; }

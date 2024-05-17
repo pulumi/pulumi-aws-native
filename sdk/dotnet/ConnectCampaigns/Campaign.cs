@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.ConnectCampaigns
         public Output<string> ConnectInstanceArn { get; private set; } = null!;
 
         /// <summary>
-        /// Contains dialer configuration for an outbound campaign.
+        /// Contains information about the dialer configuration.
         /// </summary>
         [Output("dialerConfig")]
         public Output<Outputs.CampaignDialerConfig> DialerConfig { get; private set; } = null!;
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.ConnectCampaigns
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Contains outbound call configuration for an outbound campaign.
+        /// Contains information about the outbound call configuration.
         /// </summary>
         [Output("outboundCallConfig")]
         public Output<Outputs.CampaignOutboundCallConfig> OutboundCallConfig { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.AwsNative.ConnectCampaigns
         public Input<string> ConnectInstanceArn { get; set; } = null!;
 
         /// <summary>
-        /// Contains dialer configuration for an outbound campaign.
+        /// Contains information about the dialer configuration.
         /// </summary>
         [Input("dialerConfig", required: true)]
         public Input<Inputs.CampaignDialerConfigArgs> DialerConfig { get; set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.AwsNative.ConnectCampaigns
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Contains outbound call configuration for an outbound campaign.
+        /// Contains information about the outbound call configuration.
         /// </summary>
         [Input("outboundCallConfig", required: true)]
         public Input<Inputs.CampaignOutboundCallConfigArgs> OutboundCallConfig { get; set; } = null!;

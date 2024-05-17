@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.KafkaConnect.Inputs
         public Input<string> BootstrapServers { get; set; } = null!;
 
         /// <summary>
-        /// Information about the VPC in which the connector resides.
+        /// Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
         /// </summary>
         [Input("vpc", required: true)]
         public Input<Inputs.ConnectorVpcArgs> Vpc { get; set; } = null!;

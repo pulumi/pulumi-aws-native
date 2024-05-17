@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.DashboardDataColorArgs>? _colors;
 
         /// <summary>
-        /// Determines the color that is applied to a particular data value.
+        /// Determines the list of colors that are applied to the visual.
         /// </summary>
         public InputList<Inputs.DashboardDataColorArgs> Colors
         {
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// Determines the color that is applied to a particular data value.
+        /// Determines the color that is applied to null values.
         /// </summary>
         [Input("nullValueColor")]
         public Input<Inputs.DashboardDataColorArgs>? NullValueColor { get; set; }

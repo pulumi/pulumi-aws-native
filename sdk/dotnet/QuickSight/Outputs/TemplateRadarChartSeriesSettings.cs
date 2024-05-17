@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateRadarChartSeriesSettings
     {
         /// <summary>
-        /// The configured style settings of a radar chart.
+        /// The area style settings of a radar chart.
         /// </summary>
         public readonly Outputs.TemplateRadarChartAreaStyleSettings? AreaStyleSettings;
 

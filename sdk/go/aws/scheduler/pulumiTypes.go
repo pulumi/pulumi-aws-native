@@ -461,7 +461,7 @@ type ScheduleEcsParameters struct {
 	Group *string `pulumi:"group"`
 	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The `FARGATE` value is supported only in the Regions where Fargate with Amazon ECS is supported. For more information, see [AWS Fargate on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html) in the *Amazon ECS Developer Guide* .
 	LaunchType *ScheduleLaunchType `pulumi:"launchType"`
-	// Specifies the network configuration for an ECS task.
+	// This structure specifies the network configuration for an ECS task.
 	NetworkConfiguration *ScheduleNetworkConfiguration `pulumi:"networkConfiguration"`
 	// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime).
 	PlacementConstraints []SchedulePlacementConstraint `pulumi:"placementConstraints"`
@@ -504,7 +504,7 @@ type ScheduleEcsParametersArgs struct {
 	Group pulumi.StringPtrInput `pulumi:"group"`
 	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The `FARGATE` value is supported only in the Regions where Fargate with Amazon ECS is supported. For more information, see [AWS Fargate on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html) in the *Amazon ECS Developer Guide* .
 	LaunchType ScheduleLaunchTypePtrInput `pulumi:"launchType"`
-	// Specifies the network configuration for an ECS task.
+	// This structure specifies the network configuration for an ECS task.
 	NetworkConfiguration ScheduleNetworkConfigurationPtrInput `pulumi:"networkConfiguration"`
 	// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime).
 	PlacementConstraints SchedulePlacementConstraintArrayInput `pulumi:"placementConstraints"`
@@ -629,7 +629,7 @@ func (o ScheduleEcsParametersOutput) LaunchType() ScheduleLaunchTypePtrOutput {
 	return o.ApplyT(func(v ScheduleEcsParameters) *ScheduleLaunchType { return v.LaunchType }).(ScheduleLaunchTypePtrOutput)
 }
 
-// Specifies the network configuration for an ECS task.
+// This structure specifies the network configuration for an ECS task.
 func (o ScheduleEcsParametersOutput) NetworkConfiguration() ScheduleNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v ScheduleEcsParameters) *ScheduleNetworkConfiguration { return v.NetworkConfiguration }).(ScheduleNetworkConfigurationPtrOutput)
 }
@@ -748,7 +748,7 @@ func (o ScheduleEcsParametersPtrOutput) LaunchType() ScheduleLaunchTypePtrOutput
 	}).(ScheduleLaunchTypePtrOutput)
 }
 
-// Specifies the network configuration for an ECS task.
+// This structure specifies the network configuration for an ECS task.
 func (o ScheduleEcsParametersPtrOutput) NetworkConfiguration() ScheduleNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v *ScheduleEcsParameters) *ScheduleNetworkConfiguration {
 		if v == nil {
@@ -1263,7 +1263,7 @@ func (o ScheduleKinesisParametersPtrOutput) PartitionKey() pulumi.StringPtrOutpu
 
 // This structure specifies the network configuration for an ECS task.
 type ScheduleNetworkConfiguration struct {
-	// This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.
+	// Specifies the Amazon VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.
 	AwsvpcConfiguration *ScheduleAwsVpcConfiguration `pulumi:"awsvpcConfiguration"`
 }
 
@@ -1280,7 +1280,7 @@ type ScheduleNetworkConfigurationInput interface {
 
 // This structure specifies the network configuration for an ECS task.
 type ScheduleNetworkConfigurationArgs struct {
-	// This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.
+	// Specifies the Amazon VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.
 	AwsvpcConfiguration ScheduleAwsVpcConfigurationPtrInput `pulumi:"awsvpcConfiguration"`
 }
 
@@ -1362,7 +1362,7 @@ func (o ScheduleNetworkConfigurationOutput) ToScheduleNetworkConfigurationPtrOut
 	}).(ScheduleNetworkConfigurationPtrOutput)
 }
 
-// This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.
+// Specifies the Amazon VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.
 func (o ScheduleNetworkConfigurationOutput) AwsvpcConfiguration() ScheduleAwsVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v ScheduleNetworkConfiguration) *ScheduleAwsVpcConfiguration { return v.AwsvpcConfiguration }).(ScheduleAwsVpcConfigurationPtrOutput)
 }
@@ -1391,7 +1391,7 @@ func (o ScheduleNetworkConfigurationPtrOutput) Elem() ScheduleNetworkConfigurati
 	}).(ScheduleNetworkConfigurationOutput)
 }
 
-// This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.
+// Specifies the Amazon VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.
 func (o ScheduleNetworkConfigurationPtrOutput) AwsvpcConfiguration() ScheduleAwsVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *ScheduleNetworkConfiguration) *ScheduleAwsVpcConfiguration {
 		if v == nil {

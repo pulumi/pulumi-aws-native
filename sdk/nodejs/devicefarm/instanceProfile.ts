@@ -64,7 +64,9 @@ export class InstanceProfile extends pulumi.CustomResource {
      */
     public readonly rebootAfterUse!: pulumi.Output<boolean | undefined>;
     /**
-     * The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -127,7 +129,9 @@ export interface InstanceProfileArgs {
      */
     rebootAfterUse?: pulumi.Input<boolean>;
     /**
-     * The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

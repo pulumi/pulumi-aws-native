@@ -23,14 +23,11 @@ type Domain struct {
 	// Sets the branch patterns for automatic subdomain creation.
 	AutoSubDomainCreationPatterns pulumi.StringArrayOutput `pulumi:"autoSubDomainCreationPatterns"`
 	// The required AWS Identity and Access Management (IAMlong) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
-	AutoSubDomainIamRole pulumi.StringPtrOutput `pulumi:"autoSubDomainIamRole"`
-	// Describes the SSL/TLS certificate for the domain association. This can be your own custom certificate or the default certificate that Amplify provisions for you.
-	//
-	// If you are updating your domain to use a different certificate, `Certificate` points to the new certificate that is being created instead of the current active certificate. Otherwise, `Certificate` points to the current active certificate.
-	Certificate DomainCertificateOutput `pulumi:"certificate"`
+	AutoSubDomainIamRole pulumi.StringPtrOutput  `pulumi:"autoSubDomainIamRole"`
+	Certificate          DomainCertificateOutput `pulumi:"certificate"`
 	// DNS Record for certificate verification.
 	CertificateRecord pulumi.StringOutput `pulumi:"certificateRecord"`
-	// The type of SSL/TLS certificate to use for your custom domain. If a certificate type isn't specified, Amplify uses the default `AMPLIFY_MANAGED` certificate.
+	// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
 	CertificateSettings DomainCertificateSettingsPtrOutput `pulumi:"certificateSettings"`
 	// The domain name for the domain association.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
@@ -40,7 +37,7 @@ type Domain struct {
 	EnableAutoSubDomain pulumi.BoolPtrOutput `pulumi:"enableAutoSubDomain"`
 	// Reason for the current status of the domain.
 	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
-	// The SubDomainSetting property type enables you to connect a subdomain (for example, example.exampledomain.com) to a specific branch.
+	// The setting for the subdomain.
 	SubDomainSettings DomainSubDomainSettingArrayOutput `pulumi:"subDomainSettings"`
 	// The status of the domain update operation that is currently in progress. The following list describes the valid update states.
 	//
@@ -111,13 +108,13 @@ type domainArgs struct {
 	AutoSubDomainCreationPatterns []string `pulumi:"autoSubDomainCreationPatterns"`
 	// The required AWS Identity and Access Management (IAMlong) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
 	AutoSubDomainIamRole *string `pulumi:"autoSubDomainIamRole"`
-	// The type of SSL/TLS certificate to use for your custom domain. If a certificate type isn't specified, Amplify uses the default `AMPLIFY_MANAGED` certificate.
+	// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
 	CertificateSettings *DomainCertificateSettings `pulumi:"certificateSettings"`
 	// The domain name for the domain association.
 	DomainName *string `pulumi:"domainName"`
 	// Enables the automated creation of subdomains for branches.
 	EnableAutoSubDomain *bool `pulumi:"enableAutoSubDomain"`
-	// The SubDomainSetting property type enables you to connect a subdomain (for example, example.exampledomain.com) to a specific branch.
+	// The setting for the subdomain.
 	SubDomainSettings []DomainSubDomainSetting `pulumi:"subDomainSettings"`
 }
 
@@ -129,13 +126,13 @@ type DomainArgs struct {
 	AutoSubDomainCreationPatterns pulumi.StringArrayInput
 	// The required AWS Identity and Access Management (IAMlong) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
 	AutoSubDomainIamRole pulumi.StringPtrInput
-	// The type of SSL/TLS certificate to use for your custom domain. If a certificate type isn't specified, Amplify uses the default `AMPLIFY_MANAGED` certificate.
+	// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
 	CertificateSettings DomainCertificateSettingsPtrInput
 	// The domain name for the domain association.
 	DomainName pulumi.StringPtrInput
 	// Enables the automated creation of subdomains for branches.
 	EnableAutoSubDomain pulumi.BoolPtrInput
-	// The SubDomainSetting property type enables you to connect a subdomain (for example, example.exampledomain.com) to a specific branch.
+	// The setting for the subdomain.
 	SubDomainSettings DomainSubDomainSettingArrayInput
 }
 
@@ -196,9 +193,6 @@ func (o DomainOutput) AutoSubDomainIamRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringPtrOutput { return v.AutoSubDomainIamRole }).(pulumi.StringPtrOutput)
 }
 
-// Describes the SSL/TLS certificate for the domain association. This can be your own custom certificate or the default certificate that Amplify provisions for you.
-//
-// If you are updating your domain to use a different certificate, `Certificate` points to the new certificate that is being created instead of the current active certificate. Otherwise, `Certificate` points to the current active certificate.
 func (o DomainOutput) Certificate() DomainCertificateOutput {
 	return o.ApplyT(func(v *Domain) DomainCertificateOutput { return v.Certificate }).(DomainCertificateOutput)
 }
@@ -208,7 +202,7 @@ func (o DomainOutput) CertificateRecord() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.CertificateRecord }).(pulumi.StringOutput)
 }
 
-// The type of SSL/TLS certificate to use for your custom domain. If a certificate type isn't specified, Amplify uses the default `AMPLIFY_MANAGED` certificate.
+// The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
 func (o DomainOutput) CertificateSettings() DomainCertificateSettingsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainCertificateSettingsPtrOutput { return v.CertificateSettings }).(DomainCertificateSettingsPtrOutput)
 }
@@ -233,7 +227,7 @@ func (o DomainOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.StatusReason }).(pulumi.StringOutput)
 }
 
-// The SubDomainSetting property type enables you to connect a subdomain (for example, example.exampledomain.com) to a specific branch.
+// The setting for the subdomain.
 func (o DomainOutput) SubDomainSettings() DomainSubDomainSettingArrayOutput {
 	return o.ApplyT(func(v *Domain) DomainSubDomainSettingArrayOutput { return v.SubDomainSettings }).(DomainSubDomainSettingArrayOutput)
 }

@@ -23,7 +23,7 @@ type Application struct {
 	ApplicationType ApplicationTypeOutput `pulumi:"applicationType"`
 	// The ARN of the Helix application
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The credentials of your SAP application.
+	// The credentials of the SAP application.
 	Credentials ApplicationCredentialArrayOutput `pulumi:"credentials"`
 	// The Amazon EC2 instances on which your SAP application is running.
 	Instances pulumi.StringArrayOutput `pulumi:"instances"`
@@ -92,7 +92,7 @@ type applicationArgs struct {
 	ApplicationId string `pulumi:"applicationId"`
 	// The type of the application.
 	ApplicationType ApplicationType `pulumi:"applicationType"`
-	// The credentials of your SAP application.
+	// The credentials of the SAP application.
 	Credentials []ApplicationCredential `pulumi:"credentials"`
 	// The Amazon EC2 instances on which your SAP application is running.
 	Instances []string `pulumi:"instances"`
@@ -110,7 +110,7 @@ type ApplicationArgs struct {
 	ApplicationId pulumi.StringInput
 	// The type of the application.
 	ApplicationType ApplicationTypeInput
-	// The credentials of your SAP application.
+	// The credentials of the SAP application.
 	Credentials ApplicationCredentialArrayInput
 	// The Amazon EC2 instances on which your SAP application is running.
 	Instances pulumi.StringArrayInput
@@ -174,7 +174,7 @@ func (o ApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The credentials of your SAP application.
+// The credentials of the SAP application.
 func (o ApplicationOutput) Credentials() ApplicationCredentialArrayOutput {
 	return o.ApplyT(func(v *Application) ApplicationCredentialArrayOutput { return v.Credentials }).(ApplicationCredentialArrayOutput)
 }

@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardNumericalMeasureFieldArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Aggregation for numerical values.
+        /// The aggregation function of the measure field.
         /// </summary>
         [Input("aggregationFunction")]
         public Input<Inputs.DashboardNumericalAggregationFunctionArgs>? AggregationFunction { get; set; }
 
         /// <summary>
-        /// A column of a data set.
+        /// The column that is used in the `NumericalMeasureField` .
         /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.DashboardColumnIdentifierArgs> Column { get; set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string> FieldId { get; set; } = null!;
 
         /// <summary>
-        /// Formatting configuration for number fields.
+        /// The format configuration of the field.
         /// </summary>
         [Input("formatConfiguration")]
         public Input<Inputs.DashboardNumberFormatConfigurationArgs>? FormatConfiguration { get; set; }

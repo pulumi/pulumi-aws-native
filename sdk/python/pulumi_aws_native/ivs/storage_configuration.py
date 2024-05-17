@@ -23,7 +23,7 @@ class StorageConfigurationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a StorageConfiguration resource.
-        :param pulumi.Input['StorageConfigurationS3StorageConfigurationArgs'] s3: The S3StorageConfiguration property type describes an S3 location where recorded videos will be stored.
+        :param pulumi.Input['StorageConfigurationS3StorageConfigurationArgs'] s3: An S3 storage configuration contains information about where recorded video will be stored. See the [S3StorageConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-storageconfiguration-s3storageconfiguration.html) property type for more information.
         :param pulumi.Input[str] name: Storage Configuration Name.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that contain metadata for the asset model.
         """
@@ -37,7 +37,7 @@ class StorageConfigurationArgs:
     @pulumi.getter
     def s3(self) -> pulumi.Input['StorageConfigurationS3StorageConfigurationArgs']:
         """
-        The S3StorageConfiguration property type describes an S3 location where recorded videos will be stored.
+        An S3 storage configuration contains information about where recorded video will be stored. See the [S3StorageConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-storageconfiguration-s3storageconfiguration.html) property type for more information.
         """
         return pulumi.get(self, "s3")
 
@@ -85,7 +85,7 @@ class StorageConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Storage Configuration Name.
-        :param pulumi.Input[pulumi.InputType['StorageConfigurationS3StorageConfigurationArgs']] s3: The S3StorageConfiguration property type describes an S3 location where recorded videos will be stored.
+        :param pulumi.Input[pulumi.InputType['StorageConfigurationS3StorageConfigurationArgs']] s3: An S3 storage configuration contains information about where recorded video will be stored. See the [S3StorageConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-storageconfiguration-s3storageconfiguration.html) property type for more information.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that contain metadata for the asset model.
         """
         ...
@@ -180,7 +180,7 @@ class StorageConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def s3(self) -> pulumi.Output['outputs.StorageConfigurationS3StorageConfiguration']:
         """
-        The S3StorageConfiguration property type describes an S3 location where recorded videos will be stored.
+        An S3 storage configuration contains information about where recorded video will be stored. See the [S3StorageConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-storageconfiguration-s3storageconfiguration.html) property type for more information.
         """
         return pulumi.get(self, "s3")
 

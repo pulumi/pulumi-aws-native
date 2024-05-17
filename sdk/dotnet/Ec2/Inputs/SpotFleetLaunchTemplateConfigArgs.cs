@@ -13,18 +13,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
     public sealed class SpotFleetLaunchTemplateConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the launch template to be used by the Spot Fleet request for configuring Amazon EC2 instances.
-        /// 
-        /// You must specify the following:
-        /// 
-        /// - The ID or the name of the launch template, but not both.
-        /// - The version of the launch template.
-        /// 
-        /// `FleetLaunchTemplateSpecification` is a property of the [AWS::EC2::SpotFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html) resource.
-        /// 
-        /// For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) in the *Amazon EC2 User Guide* .
-        /// 
-        /// For examples of launch templates, see [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) .
+        /// The launch template to use. Make sure that the launch template does not contain the `NetworkInterfaceId` parameter because you can't specify a network interface ID in a Spot Fleet.
         /// </summary>
         [Input("launchTemplateSpecification")]
         public Input<Inputs.SpotFleetFleetLaunchTemplateSpecificationArgs>? LaunchTemplateSpecification { get; set; }
@@ -33,7 +22,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         private InputList<Inputs.SpotFleetLaunchTemplateOverridesArgs>? _overrides;
 
         /// <summary>
-        /// Specifies overrides for a launch template.
+        /// Any parameters that you specify override the same parameters in the launch template.
         /// </summary>
         public InputList<Inputs.SpotFleetLaunchTemplateOverridesArgs> Overrides
         {

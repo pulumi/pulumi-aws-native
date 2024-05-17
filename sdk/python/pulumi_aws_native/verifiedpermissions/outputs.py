@@ -93,8 +93,6 @@ class IdentitySourceCognitoUserPoolConfiguration(dict):
                
                Example: `"ClientIds": ["&ExampleCogClientId;"]`
         :param 'IdentitySourceCognitoGroupConfiguration' group_configuration: The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source.
-               
-               This data type is part of a [CognitoUserPoolConfiguration](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfiguration.html) structure and is a request parameter in [CreateIdentitySource](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html) .
         """
         pulumi.set(__self__, "user_pool_arn", user_pool_arn)
         if client_ids is not None:
@@ -125,8 +123,6 @@ class IdentitySourceCognitoUserPoolConfiguration(dict):
     def group_configuration(self) -> Optional['outputs.IdentitySourceCognitoGroupConfiguration']:
         """
         The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source.
-
-        This data type is part of a [CognitoUserPoolConfiguration](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfiguration.html) structure and is a request parameter in [CreateIdentitySource](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html) .
         """
         return pulumi.get(self, "group_configuration")
 

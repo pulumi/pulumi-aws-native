@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// </summary>
         public readonly Outputs.DeliveryStreamOrcSerDe? OrcSerDe;
         /// <summary>
-        /// A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/docs/) .
+        /// A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/documentation/latest/) .
         /// </summary>
         public readonly Outputs.DeliveryStreamParquetSerDe? ParquetSerDe;
 

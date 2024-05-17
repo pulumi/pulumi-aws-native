@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardTooltipOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The setup for the detailed tooltip.
+        /// The setup for the detailed tooltip. The tooltip setup is always saved. The display type is decided based on the tooltip type.
         /// </summary>
         [Input("fieldBasedTooltip")]
         public Input<Inputs.DashboardFieldBasedTooltipArgs>? FieldBasedTooltip { get; set; }

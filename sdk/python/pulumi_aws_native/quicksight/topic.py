@@ -26,7 +26,7 @@ class TopicArgs:
         """
         The set of arguments for constructing a Topic resource.
         :param pulumi.Input[str] aws_account_id: The ID of the AWS account that you want to create a topic in.
-        :param pulumi.Input[Sequence[pulumi.Input['TopicDatasetMetadataArgs']]] data_sets: A structure that represents a dataset.
+        :param pulumi.Input[Sequence[pulumi.Input['TopicDatasetMetadataArgs']]] data_sets: The data sets that the topic is associated with.
         :param pulumi.Input[str] description: The description of the topic.
         :param pulumi.Input[str] name: The name of the topic.
         :param pulumi.Input[str] topic_id: The ID for the topic. This ID is unique per AWS Region for each AWS account.
@@ -61,7 +61,7 @@ class TopicArgs:
     @pulumi.getter(name="dataSets")
     def data_sets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicDatasetMetadataArgs']]]]:
         """
-        A structure that represents a dataset.
+        The data sets that the topic is associated with.
         """
         return pulumi.get(self, "data_sets")
 
@@ -136,7 +136,7 @@ class Topic(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_account_id: The ID of the AWS account that you want to create a topic in.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicDatasetMetadataArgs']]]] data_sets: A structure that represents a dataset.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TopicDatasetMetadataArgs']]]] data_sets: The data sets that the topic is associated with.
         :param pulumi.Input[str] description: The description of the topic.
         :param pulumi.Input[str] name: The name of the topic.
         :param pulumi.Input[str] topic_id: The ID for the topic. This ID is unique per AWS Region for each AWS account.
@@ -241,7 +241,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter(name="dataSets")
     def data_sets(self) -> pulumi.Output[Optional[Sequence['outputs.TopicDatasetMetadata']]]:
         """
-        A structure that represents a dataset.
+        The data sets that the topic is associated with.
         """
         return pulumi.get(self, "data_sets")
 

@@ -79,7 +79,7 @@ export class Recipe extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Represents a single step from a DataBrew recipe to be performed.
+     * A list of steps that are defined by the recipe.
      */
     public readonly steps!: pulumi.Output<outputs.databrew.RecipeStep[]>;
     /**
@@ -131,7 +131,7 @@ export interface RecipeArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Represents a single step from a DataBrew recipe to be performed.
+     * A list of steps that are defined by the recipe.
      */
     steps: pulumi.Input<pulumi.Input<inputs.databrew.RecipeStepArgs>[]>;
     /**

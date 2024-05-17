@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateRadarChartSortConfiguration
     {
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The category items limit for a radar chart.
         /// </summary>
         public readonly Outputs.TemplateItemsLimitConfiguration? CategoryItemsLimit;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateFieldSortOptions> CategorySort;
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The color items limit of a radar chart.
         /// </summary>
         public readonly Outputs.TemplateItemsLimitConfiguration? ColorItemsLimit;
         /// <summary>

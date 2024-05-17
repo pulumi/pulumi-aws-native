@@ -13,11 +13,6 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardCustomValuesConfiguration
     {
-        /// <summary>
-        /// The customized parameter values.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-        /// </summary>
         public readonly Outputs.DashboardCustomParameterValues CustomValues;
         /// <summary>
         /// Includes the null value in custom action parameter values.

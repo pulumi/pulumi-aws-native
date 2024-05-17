@@ -27,7 +27,7 @@ export interface GetResourceDataSyncArgs {
 
 export interface GetResourceDataSyncResult {
     /**
-     * Information about the source of the data included in the resource data sync.
+     * Information about the source where the data was synchronized.
      */
     readonly syncSource?: outputs.ssm.ResourceDataSyncSyncSource;
 }

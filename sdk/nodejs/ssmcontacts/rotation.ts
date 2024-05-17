@@ -50,7 +50,7 @@ export class Rotation extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Information about when an on-call rotation is in effect and how long the rotation period lasts.
+     * Information about the rule that specifies when shift team members rotate.
      */
     public readonly recurrence!: pulumi.Output<outputs.ssmcontacts.RotationRecurrenceSettings>;
     /**
@@ -58,7 +58,7 @@ export class Rotation extends pulumi.CustomResource {
      */
     public readonly startTime!: pulumi.Output<string>;
     /**
-     * A container of a key-value name pair.
+     * Optional metadata to assign to the rotation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see [Tagging Incident Manager resources](https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html) in the *Incident Manager User Guide* .
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -123,7 +123,7 @@ export interface RotationArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Information about when an on-call rotation is in effect and how long the rotation period lasts.
+     * Information about the rule that specifies when shift team members rotate.
      */
     recurrence: pulumi.Input<inputs.ssmcontacts.RotationRecurrenceSettingsArgs>;
     /**
@@ -131,7 +131,7 @@ export interface RotationArgs {
      */
     startTime: pulumi.Input<string>;
     /**
-     * A container of a key-value name pair.
+     * Optional metadata to assign to the rotation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see [Tagging Incident Manager resources](https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html) in the *Incident Manager User Guide* .
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

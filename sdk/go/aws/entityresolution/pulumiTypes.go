@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 type IdMappingWorkflowIdMappingTechniques struct {
 	// The type of ID mapping.
 	IdMappingType *IdMappingWorkflowIdMappingTechniquesIdMappingType `pulumi:"idMappingType"`
-	// An object containing the `providerServiceARN` , `intermediateSourceConfiguration` , and `providerConfiguration` .
+	// An object which defines any additional configurations required by the provider service.
 	ProviderProperties *IdMappingWorkflowProviderProperties `pulumi:"providerProperties"`
 }
 
@@ -34,7 +34,7 @@ type IdMappingWorkflowIdMappingTechniquesInput interface {
 type IdMappingWorkflowIdMappingTechniquesArgs struct {
 	// The type of ID mapping.
 	IdMappingType IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrInput `pulumi:"idMappingType"`
-	// An object containing the `providerServiceARN` , `intermediateSourceConfiguration` , and `providerConfiguration` .
+	// An object which defines any additional configurations required by the provider service.
 	ProviderProperties IdMappingWorkflowProviderPropertiesPtrInput `pulumi:"providerProperties"`
 }
 
@@ -71,7 +71,7 @@ func (o IdMappingWorkflowIdMappingTechniquesOutput) IdMappingType() IdMappingWor
 	}).(IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput)
 }
 
-// An object containing the `providerServiceARN` , `intermediateSourceConfiguration` , and `providerConfiguration` .
+// An object which defines any additional configurations required by the provider service.
 func (o IdMappingWorkflowIdMappingTechniquesOutput) ProviderProperties() IdMappingWorkflowProviderPropertiesPtrOutput {
 	return o.ApplyT(func(v IdMappingWorkflowIdMappingTechniques) *IdMappingWorkflowProviderProperties {
 		return v.ProviderProperties
@@ -112,7 +112,7 @@ func (o IdMappingWorkflowIdMappingTechniquesPtrOutput) IdMappingType() IdMapping
 	}).(IdMappingWorkflowIdMappingTechniquesIdMappingTypePtrOutput)
 }
 
-// An object containing the `providerServiceARN` , `intermediateSourceConfiguration` , and `providerConfiguration` .
+// An object which defines any additional configurations required by the provider service.
 func (o IdMappingWorkflowIdMappingTechniquesPtrOutput) ProviderProperties() IdMappingWorkflowProviderPropertiesPtrOutput {
 	return o.ApplyT(func(v *IdMappingWorkflowIdMappingTechniques) *IdMappingWorkflowProviderProperties {
 		if v == nil {
@@ -680,7 +680,7 @@ type IdMappingWorkflowTag struct {
 type IdNamespaceIdMappingWorkflowProperties struct {
 	// The type of ID mapping.
 	IdMappingType IdNamespaceIdMappingWorkflowPropertiesIdMappingType `pulumi:"idMappingType"`
-	// An object containing `ProviderConfiguration` and `ProviderServiceArn` .
+	// An object which defines any additional configurations required by the provider service.
 	ProviderProperties *IdNamespaceNamespaceProviderProperties `pulumi:"providerProperties"`
 }
 
@@ -698,7 +698,7 @@ type IdNamespaceIdMappingWorkflowPropertiesInput interface {
 type IdNamespaceIdMappingWorkflowPropertiesArgs struct {
 	// The type of ID mapping.
 	IdMappingType IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeInput `pulumi:"idMappingType"`
-	// An object containing `ProviderConfiguration` and `ProviderServiceArn` .
+	// An object which defines any additional configurations required by the provider service.
 	ProviderProperties IdNamespaceNamespaceProviderPropertiesPtrInput `pulumi:"providerProperties"`
 }
 
@@ -760,7 +760,7 @@ func (o IdNamespaceIdMappingWorkflowPropertiesOutput) IdMappingType() IdNamespac
 	}).(IdNamespaceIdMappingWorkflowPropertiesIdMappingTypeOutput)
 }
 
-// An object containing `ProviderConfiguration` and `ProviderServiceArn` .
+// An object which defines any additional configurations required by the provider service.
 func (o IdNamespaceIdMappingWorkflowPropertiesOutput) ProviderProperties() IdNamespaceNamespaceProviderPropertiesPtrOutput {
 	return o.ApplyT(func(v IdNamespaceIdMappingWorkflowProperties) *IdNamespaceNamespaceProviderProperties {
 		return v.ProviderProperties
@@ -1717,7 +1717,7 @@ func (o MatchingWorkflowProviderPropertiesPtrOutput) ProviderServiceArn() pulumi
 }
 
 type MatchingWorkflowResolutionTechniques struct {
-	// An object containing the `providerServiceARN` , `intermediateSourceConfiguration` , and `providerConfiguration` .
+	// The properties of the provider service.
 	ProviderProperties *MatchingWorkflowProviderProperties `pulumi:"providerProperties"`
 	// The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
 	ResolutionType *MatchingWorkflowResolutionTechniquesResolutionType `pulumi:"resolutionType"`
@@ -1737,7 +1737,7 @@ type MatchingWorkflowResolutionTechniquesInput interface {
 }
 
 type MatchingWorkflowResolutionTechniquesArgs struct {
-	// An object containing the `providerServiceARN` , `intermediateSourceConfiguration` , and `providerConfiguration` .
+	// The properties of the provider service.
 	ProviderProperties MatchingWorkflowProviderPropertiesPtrInput `pulumi:"providerProperties"`
 	// The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
 	ResolutionType MatchingWorkflowResolutionTechniquesResolutionTypePtrInput `pulumi:"resolutionType"`
@@ -1771,7 +1771,7 @@ func (o MatchingWorkflowResolutionTechniquesOutput) ToMatchingWorkflowResolution
 	return o
 }
 
-// An object containing the `providerServiceARN` , `intermediateSourceConfiguration` , and `providerConfiguration` .
+// The properties of the provider service.
 func (o MatchingWorkflowResolutionTechniquesOutput) ProviderProperties() MatchingWorkflowProviderPropertiesPtrOutput {
 	return o.ApplyT(func(v MatchingWorkflowResolutionTechniques) *MatchingWorkflowProviderProperties {
 		return v.ProviderProperties
@@ -1816,7 +1816,7 @@ func (o MatchingWorkflowResolutionTechniquesPtrOutput) Elem() MatchingWorkflowRe
 	}).(MatchingWorkflowResolutionTechniquesOutput)
 }
 
-// An object containing the `providerServiceARN` , `intermediateSourceConfiguration` , and `providerConfiguration` .
+// The properties of the provider service.
 func (o MatchingWorkflowResolutionTechniquesPtrOutput) ProviderProperties() MatchingWorkflowProviderPropertiesPtrOutput {
 	return o.ApplyT(func(v *MatchingWorkflowResolutionTechniques) *MatchingWorkflowProviderProperties {
 		if v == nil {
@@ -1955,7 +1955,7 @@ func (o MatchingWorkflowRuleArrayOutput) Index(i pulumi.IntInput) MatchingWorkfl
 type MatchingWorkflowRuleBasedProperties struct {
 	// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
 	AttributeMatchingModel MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel `pulumi:"attributeMatchingModel"`
-	// An object containing `RuleName` , and `MatchingKeys` .
+	// A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
 	Rules []MatchingWorkflowRule `pulumi:"rules"`
 }
 
@@ -1973,7 +1973,7 @@ type MatchingWorkflowRuleBasedPropertiesInput interface {
 type MatchingWorkflowRuleBasedPropertiesArgs struct {
 	// The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
 	AttributeMatchingModel MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelInput `pulumi:"attributeMatchingModel"`
-	// An object containing `RuleName` , and `MatchingKeys` .
+	// A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
 	Rules MatchingWorkflowRuleArrayInput `pulumi:"rules"`
 }
 
@@ -2061,7 +2061,7 @@ func (o MatchingWorkflowRuleBasedPropertiesOutput) AttributeMatchingModel() Matc
 	}).(MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelOutput)
 }
 
-// An object containing `RuleName` , and `MatchingKeys` .
+// A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
 func (o MatchingWorkflowRuleBasedPropertiesOutput) Rules() MatchingWorkflowRuleArrayOutput {
 	return o.ApplyT(func(v MatchingWorkflowRuleBasedProperties) []MatchingWorkflowRule { return v.Rules }).(MatchingWorkflowRuleArrayOutput)
 }
@@ -2100,7 +2100,7 @@ func (o MatchingWorkflowRuleBasedPropertiesPtrOutput) AttributeMatchingModel() M
 	}).(MatchingWorkflowRuleBasedPropertiesAttributeMatchingModelPtrOutput)
 }
 
-// An object containing `RuleName` , and `MatchingKeys` .
+// A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
 func (o MatchingWorkflowRuleBasedPropertiesPtrOutput) Rules() MatchingWorkflowRuleArrayOutput {
 	return o.ApplyT(func(v *MatchingWorkflowRuleBasedProperties) []MatchingWorkflowRule {
 		if v == nil {

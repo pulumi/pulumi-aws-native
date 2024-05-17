@@ -39,11 +39,11 @@ export interface GetLaunchResult {
      */
     readonly executionStatus?: outputs.evidently.LaunchExecutionStatusObject;
     /**
-     * A structure that defines one launch group in a launch. A launch group is a variation of the feature that you are including in the launch.
+     * An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
      */
     readonly groups?: outputs.evidently.LaunchGroupObject[];
     /**
-     * This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
+     * An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
      */
     readonly metricMonitors?: outputs.evidently.LaunchMetricDefinitionObject[];
     /**
@@ -51,7 +51,7 @@ export interface GetLaunchResult {
      */
     readonly randomizationSalt?: string;
     /**
-     * A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
+     * An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
      */
     readonly scheduledSplitsConfig?: outputs.evidently.LaunchStepConfig[];
     /**

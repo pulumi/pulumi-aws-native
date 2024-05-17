@@ -54,11 +54,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     public partial class IdentitySource : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A structure that contains configuration information used when creating or updating a new identity source.
-        /// 
-        /// &gt; At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
-        /// &gt; 
-        /// &gt; You must specify a `userPoolArn` , and optionally, a `ClientId` .
+        /// Contains configuration information about an identity source.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.IdentitySourceConfiguration> Configuration { get; private set; } = null!;
@@ -134,11 +130,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     public sealed class IdentitySourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A structure that contains configuration information used when creating or updating a new identity source.
-        /// 
-        /// &gt; At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
-        /// &gt; 
-        /// &gt; You must specify a `userPoolArn` , and optionally, a `ClientId` .
+        /// Contains configuration information about an identity source.
         /// </summary>
         [Input("configuration", required: true)]
         public Input<Inputs.IdentitySourceConfigurationArgs> Configuration { get; set; } = null!;

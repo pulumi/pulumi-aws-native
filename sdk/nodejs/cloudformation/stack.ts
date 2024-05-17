@@ -107,7 +107,7 @@ export class Stack extends pulumi.CustomResource {
      */
     public readonly notificationArns!: pulumi.Output<string[] | undefined>;
     /**
-     * The Output data type.
+     * A list of output structures.
      */
     public /*out*/ readonly outputs!: pulumi.Output<outputs.cloudformation.StackOutput[]>;
     /**
@@ -167,7 +167,7 @@ export class Stack extends pulumi.CustomResource {
      */
     public readonly stackStatusReason!: pulumi.Output<string | undefined>;
     /**
-     * The Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation stack.
+     * Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -355,7 +355,7 @@ export interface StackArgs {
      */
     stackStatusReason?: pulumi.Input<string>;
     /**
-     * The Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation stack.
+     * Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

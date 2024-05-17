@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisSankeyDiagramChartConfiguration
     {
         /// <summary>
-        /// The options that determine the presentation of the data labels.
+        /// The data label configuration of a sankey diagram.
         /// </summary>
         public readonly Outputs.AnalysisDataLabelOptions? DataLabels;
         /// <summary>

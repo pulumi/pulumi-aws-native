@@ -31,7 +31,7 @@ type LookupTransformerArgs struct {
 type LookupTransformerResult struct {
 	// Returns a timestamp indicating when the transformer was created. For example, `2023-07-20T19:58:44.624Z` .
 	CreatedAt *string `pulumi:"createdAt"`
-	// Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+	// Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
 	EdiType *TransformerEdiTypeProperties `pulumi:"ediType"`
 	// Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
 	FileFormat *TransformerFileFormat `pulumi:"fileFormat"`
@@ -94,7 +94,7 @@ func (o LookupTransformerResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTransformerResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+// Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
 func (o LookupTransformerResultOutput) EdiType() TransformerEdiTypePropertiesPtrOutput {
 	return o.ApplyT(func(v LookupTransformerResult) *TransformerEdiTypeProperties { return v.EdiType }).(TransformerEdiTypePropertiesPtrOutput)
 }

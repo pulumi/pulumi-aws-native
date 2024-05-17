@@ -13,21 +13,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class AnalysisCategoryFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A column of a data set.
+        /// The column that the filter is applied to.
         /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.AnalysisColumnIdentifierArgs> Column { get; set; } = null!;
 
         /// <summary>
         /// The configuration for a `CategoryFilter` .
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
         /// </summary>
         [Input("configuration", required: true)]
         public Input<Inputs.AnalysisCategoryFilterConfigurationArgs> Configuration { get; set; } = null!;
 
         /// <summary>
-        /// The default configuration for all dependent controls of the filter.
+        /// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
         /// </summary>
         [Input("defaultFilterControlConfiguration")]
         public Input<Inputs.AnalysisDefaultFilterControlConfigurationArgs>? DefaultFilterControlConfiguration { get; set; }

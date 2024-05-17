@@ -34,7 +34,7 @@ type Profile struct {
 	// Returns an Amazon Resource Name (ARN) for the profile.
 	ProfileArn pulumi.StringOutput `pulumi:"profileArn"`
 	ProfileId  pulumi.StringOutput `pulumi:"profileId"`
-	// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+	// A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -99,7 +99,7 @@ type profileArgs struct {
 	// Returns the display name for profile.
 	Name  *string `pulumi:"name"`
 	Phone string  `pulumi:"phone"`
-	// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+	// A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -113,7 +113,7 @@ type ProfileArgs struct {
 	// Returns the display name for profile.
 	Name  pulumi.StringPtrInput
 	Phone pulumi.StringInput
-	// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+	// A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
 	Tags aws.TagArrayInput
 }
 
@@ -201,7 +201,7 @@ func (o ProfileOutput) ProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringOutput { return v.ProfileId }).(pulumi.StringOutput)
 }
 
-// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+// A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
 func (o ProfileOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Profile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

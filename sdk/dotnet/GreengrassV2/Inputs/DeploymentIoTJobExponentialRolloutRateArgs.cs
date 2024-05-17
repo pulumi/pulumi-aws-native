@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
         public Input<double> IncrementFactor { get; set; } = null!;
 
         /// <summary>
-        /// Contains information about criteria to meet before a job increases its rollout rate. Specify either `numberOfNotifiedThings` or `numberOfSucceededThings` .
+        /// The criteria to increase the rollout rate for the job.
         /// </summary>
         [Input("rateIncreaseCriteria", required: true)]
         public Input<Inputs.DeploymentIoTJobRateIncreaseCriteriaArgs> RateIncreaseCriteria { get; set; } = null!;

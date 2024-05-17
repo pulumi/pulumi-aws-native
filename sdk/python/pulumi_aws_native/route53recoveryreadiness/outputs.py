@@ -227,7 +227,7 @@ class ResourceSetResource(dict):
         """
         The resource element of a ResourceSet
         :param str component_id: The component identifier of the resource, generated when DNS target resource is used.
-        :param 'ResourceSetDnsTargetResource' dns_target_resource: A component for DNS/routing control readiness checks and architecture checks.
+        :param 'ResourceSetDnsTargetResource' dns_target_resource: A component for DNS/routing control readiness checks. This is a required setting when `ResourceSet` `ResourceSetType` is set to `AWS::Route53RecoveryReadiness::DNSTargetResource` . Do not set it for any other `ResourceSetType` setting.
         :param Sequence[str] readiness_scopes: A list of recovery group Amazon Resource Names (ARNs) and cell ARNs that this resource is contained within.
         :param str resource_arn: The Amazon Resource Name (ARN) of the AWS resource.
         """
@@ -252,7 +252,7 @@ class ResourceSetResource(dict):
     @pulumi.getter(name="dnsTargetResource")
     def dns_target_resource(self) -> Optional['outputs.ResourceSetDnsTargetResource']:
         """
-        A component for DNS/routing control readiness checks and architecture checks.
+        A component for DNS/routing control readiness checks. This is a required setting when `ResourceSet` `ResourceSetType` is set to `AWS::Route53RecoveryReadiness::DNSTargetResource` . Do not set it for any other `ResourceSetType` setting.
         """
         return pulumi.get(self, "dns_target_resource")
 
@@ -303,7 +303,7 @@ class ResourceSetTargetResource(dict):
         """
         The target resource that the Route 53 record points to.
         :param 'ResourceSetNlbResource' nlb_resource: The Network Load Balancer resource that a DNS target resource points to.
-        :param 'ResourceSetR53ResourceRecord' r53_resource: The Amazon Route 53 resource that a DNS target resource record points to.
+        :param 'ResourceSetR53ResourceRecord' r53_resource: The Route 53 resource that a DNS target resource record points to.
         """
         if nlb_resource is not None:
             pulumi.set(__self__, "nlb_resource", nlb_resource)
@@ -322,7 +322,7 @@ class ResourceSetTargetResource(dict):
     @pulumi.getter(name="r53Resource")
     def r53_resource(self) -> Optional['outputs.ResourceSetR53ResourceRecord']:
         """
-        The Amazon Route 53 resource that a DNS target resource record points to.
+        The Route 53 resource that a DNS target resource record points to.
         """
         return pulumi.get(self, "r53_resource")
 

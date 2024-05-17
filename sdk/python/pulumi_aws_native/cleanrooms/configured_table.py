@@ -30,8 +30,8 @@ class ConfiguredTableArgs:
         The set of arguments for constructing a ConfiguredTable resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_columns: The columns within the underlying AWS Glue table that can be utilized within collaborations.
         :param pulumi.Input['ConfiguredTableAnalysisMethod'] analysis_method: The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
-        :param pulumi.Input['ConfiguredTableTableReferenceArgs'] table_reference: A pointer to the dataset that underlies this table. Currently, this can only be an AWS Glue table.
-        :param pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAnalysisRuleArgs']]] analysis_rules: A specification about how data from the configured table can be used in a query.
+        :param pulumi.Input['ConfiguredTableTableReferenceArgs'] table_reference: The AWS Glue table that this configured table represents.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAnalysisRuleArgs']]] analysis_rules: The entire created analysis rule.
         :param pulumi.Input[str] description: A description for the configured table.
         :param pulumi.Input[str] name: A name for the configured table.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
@@ -76,7 +76,7 @@ class ConfiguredTableArgs:
     @pulumi.getter(name="tableReference")
     def table_reference(self) -> pulumi.Input['ConfiguredTableTableReferenceArgs']:
         """
-        A pointer to the dataset that underlies this table. Currently, this can only be an AWS Glue table.
+        The AWS Glue table that this configured table represents.
         """
         return pulumi.get(self, "table_reference")
 
@@ -88,7 +88,7 @@ class ConfiguredTableArgs:
     @pulumi.getter(name="analysisRules")
     def analysis_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAnalysisRuleArgs']]]]:
         """
-        A specification about how data from the configured table can be used in a query.
+        The entire created analysis rule.
         """
         return pulumi.get(self, "analysis_rules")
 
@@ -153,10 +153,10 @@ class ConfiguredTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_columns: The columns within the underlying AWS Glue table that can be utilized within collaborations.
         :param pulumi.Input['ConfiguredTableAnalysisMethod'] analysis_method: The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfiguredTableAnalysisRuleArgs']]]] analysis_rules: A specification about how data from the configured table can be used in a query.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfiguredTableAnalysisRuleArgs']]]] analysis_rules: The entire created analysis rule.
         :param pulumi.Input[str] description: A description for the configured table.
         :param pulumi.Input[str] name: A name for the configured table.
-        :param pulumi.Input[pulumi.InputType['ConfiguredTableTableReferenceArgs']] table_reference: A pointer to the dataset that underlies this table. Currently, this can only be an AWS Glue table.
+        :param pulumi.Input[pulumi.InputType['ConfiguredTableTableReferenceArgs']] table_reference: The AWS Glue table that this configured table represents.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         """
         ...
@@ -269,7 +269,7 @@ class ConfiguredTable(pulumi.CustomResource):
     @pulumi.getter(name="analysisRules")
     def analysis_rules(self) -> pulumi.Output[Optional[Sequence['outputs.ConfiguredTableAnalysisRule']]]:
         """
-        A specification about how data from the configured table can be used in a query.
+        The entire created analysis rule.
         """
         return pulumi.get(self, "analysis_rules")
 
@@ -313,7 +313,7 @@ class ConfiguredTable(pulumi.CustomResource):
     @pulumi.getter(name="tableReference")
     def table_reference(self) -> pulumi.Output['outputs.ConfiguredTableTableReference']:
         """
-        A pointer to the dataset that underlies this table. Currently, this can only be an AWS Glue table.
+        The AWS Glue table that this configured table represents.
         """
         return pulumi.get(self, "table_reference")
 

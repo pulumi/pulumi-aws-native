@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         public Input<int>? BatchSize { get; set; }
 
         /// <summary>
-        /// A `DeadLetterConfig` object that contains information about a dead-letter queue configuration.
+        /// Define the target queue to send dead-letter queue events to.
         /// </summary>
         [Input("deadLetterConfig")]
         public Input<Inputs.PipeDeadLetterConfigArgs>? DeadLetterConfig { get; set; }

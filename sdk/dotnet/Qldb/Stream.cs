@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.Qldb
         public Output<string> InclusiveStartTime { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal stream.
+        /// The configuration settings of the Kinesis Data Streams destination for your stream request.
         /// </summary>
         [Output("kinesisConfiguration")]
         public Output<Outputs.StreamKinesisConfiguration> KinesisConfiguration { get; private set; } = null!;
@@ -224,7 +224,7 @@ namespace Pulumi.AwsNative.Qldb
         public Input<string> InclusiveStartTime { get; set; } = null!;
 
         /// <summary>
-        /// The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal stream.
+        /// The configuration settings of the Kinesis Data Streams destination for your stream request.
         /// </summary>
         [Input("kinesisConfiguration", required: true)]
         public Input<Inputs.StreamKinesisConfigurationArgs> KinesisConfiguration { get; set; } = null!;

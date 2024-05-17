@@ -14,11 +14,9 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     public sealed class DataSourceHookConfiguration
     {
         /// <summary>
-        /// The condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. You use this with [DocumentAttributeTarget to apply the condition](https://docs.aws.amazon.com/kendra/latest/dg/API_DocumentAttributeTarget.html) .
+        /// The condition used for when a Lambda function should be invoked.
         /// 
-        /// For example, you can create the 'Department' target field and have it prefill department names associated with the documents based on information in the 'Source_URI' field. Set the condition that if the 'Source_URI' field contains 'financial' in its URI value, then prefill the target field 'Department' with the target value 'Finance' for the document.
-        /// 
-        /// Amazon Kendra cannot create a target field if it has not already been created as an index field. After you create your index field, you can create a document metadata field using `DocumentAttributeTarget` . Amazon Kendra then will map your newly created metadata field to your index field.
+        /// For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time.
         /// </summary>
         public readonly Outputs.DataSourceDocumentAttributeCondition? InvocationCondition;
         /// <summary>

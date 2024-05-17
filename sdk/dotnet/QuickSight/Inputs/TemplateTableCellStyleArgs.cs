@@ -19,13 +19,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string>? BackgroundColor { get; set; }
 
         /// <summary>
-        /// Determines the border options for a table visual.
+        /// The borders for the table cells.
         /// </summary>
         [Input("border")]
         public Input<Inputs.TemplateGlobalTableBorderOptionsArgs>? Border { get; set; }
 
         /// <summary>
-        /// Configures the display properties of the given text.
+        /// The font configuration of the table cells.
         /// </summary>
         [Input("fontConfiguration")]
         public Input<Inputs.TemplateFontConfigurationArgs>? FontConfiguration { get; set; }

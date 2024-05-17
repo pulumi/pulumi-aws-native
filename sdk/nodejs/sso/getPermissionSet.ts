@@ -32,7 +32,7 @@ export interface GetPermissionSetArgs {
 
 export interface GetPermissionSetResult {
     /**
-     * Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
+     * Specifies the names and paths of the customer managed policies that you have attached to your permission set.
      */
     readonly customerManagedPolicyReferences?: outputs.sso.PermissionSetCustomerManagedPolicyReference[];
     /**
@@ -68,7 +68,7 @@ export interface GetPermissionSetResult {
      */
     readonly sessionDuration?: string;
     /**
-     * A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+     * The tags to attach to the new `PermissionSet` .
      */
     readonly tags?: outputs.Tag[];
 }

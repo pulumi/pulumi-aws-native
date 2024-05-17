@@ -152,11 +152,11 @@ func (o BackupPlanAdvancedBackupSettingResourceTypeArrayOutput) Index(i pulumi.I
 type BackupPlanBackupRuleResourceType struct {
 	// A value in minutes after a backup job is successfully started before it must be completed or it is canceled by AWS Backup .
 	CompletionWindowMinutes *float64 `pulumi:"completionWindowMinutes"`
-	// Copies backups created by a backup rule to another vault.
+	// An array of CopyAction objects, which contains the details of the copy operation.
 	CopyActions []BackupPlanCopyActionResourceType `pulumi:"copyActions"`
 	// Enables continuous backup and point-in-time restores (PITR).
 	EnableContinuousBackup *bool `pulumi:"enableContinuousBackup"`
-	// Specifies an object containing an array of `Transition` objects that determine how long in days before a recovery point transitions to cold storage or is deleted.
+	// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define.
 	Lifecycle *BackupPlanLifecycleResourceType `pulumi:"lifecycle"`
 	// The tags to assign to the resources.
 	RecoveryPointTags map[string]string `pulumi:"recoveryPointTags"`
@@ -188,11 +188,11 @@ type BackupPlanBackupRuleResourceTypeInput interface {
 type BackupPlanBackupRuleResourceTypeArgs struct {
 	// A value in minutes after a backup job is successfully started before it must be completed or it is canceled by AWS Backup .
 	CompletionWindowMinutes pulumi.Float64PtrInput `pulumi:"completionWindowMinutes"`
-	// Copies backups created by a backup rule to another vault.
+	// An array of CopyAction objects, which contains the details of the copy operation.
 	CopyActions BackupPlanCopyActionResourceTypeArrayInput `pulumi:"copyActions"`
 	// Enables continuous backup and point-in-time restores (PITR).
 	EnableContinuousBackup pulumi.BoolPtrInput `pulumi:"enableContinuousBackup"`
-	// Specifies an object containing an array of `Transition` objects that determine how long in days before a recovery point transitions to cold storage or is deleted.
+	// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define.
 	Lifecycle BackupPlanLifecycleResourceTypePtrInput `pulumi:"lifecycle"`
 	// The tags to assign to the resources.
 	RecoveryPointTags pulumi.StringMapInput `pulumi:"recoveryPointTags"`
@@ -266,7 +266,7 @@ func (o BackupPlanBackupRuleResourceTypeOutput) CompletionWindowMinutes() pulumi
 	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) *float64 { return v.CompletionWindowMinutes }).(pulumi.Float64PtrOutput)
 }
 
-// Copies backups created by a backup rule to another vault.
+// An array of CopyAction objects, which contains the details of the copy operation.
 func (o BackupPlanBackupRuleResourceTypeOutput) CopyActions() BackupPlanCopyActionResourceTypeArrayOutput {
 	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) []BackupPlanCopyActionResourceType { return v.CopyActions }).(BackupPlanCopyActionResourceTypeArrayOutput)
 }
@@ -276,7 +276,7 @@ func (o BackupPlanBackupRuleResourceTypeOutput) EnableContinuousBackup() pulumi.
 	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) *bool { return v.EnableContinuousBackup }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an object containing an array of `Transition` objects that determine how long in days before a recovery point transitions to cold storage or is deleted.
+// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define.
 func (o BackupPlanBackupRuleResourceTypeOutput) Lifecycle() BackupPlanLifecycleResourceTypePtrOutput {
 	return o.ApplyT(func(v BackupPlanBackupRuleResourceType) *BackupPlanLifecycleResourceType { return v.Lifecycle }).(BackupPlanLifecycleResourceTypePtrOutput)
 }
@@ -336,7 +336,9 @@ func (o BackupPlanBackupRuleResourceTypeArrayOutput) Index(i pulumi.IntInput) Ba
 type BackupPlanCopyActionResourceType struct {
 	// An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup. For example, `arn:aws:backup:us-east-1:123456789012:vault:aBackupVault.`
 	DestinationBackupVaultArn string `pulumi:"destinationBackupVaultArn"`
-	// Specifies an object containing an array of `Transition` objects that determine how long in days before a recovery point transitions to cold storage or is deleted.
+	// Defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define. If you do not specify a lifecycle, AWS Backup applies the lifecycle policy of the source backup to the destination backup.
+	//
+	// Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.
 	Lifecycle *BackupPlanLifecycleResourceType `pulumi:"lifecycle"`
 }
 
@@ -354,7 +356,9 @@ type BackupPlanCopyActionResourceTypeInput interface {
 type BackupPlanCopyActionResourceTypeArgs struct {
 	// An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup. For example, `arn:aws:backup:us-east-1:123456789012:vault:aBackupVault.`
 	DestinationBackupVaultArn pulumi.StringInput `pulumi:"destinationBackupVaultArn"`
-	// Specifies an object containing an array of `Transition` objects that determine how long in days before a recovery point transitions to cold storage or is deleted.
+	// Defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define. If you do not specify a lifecycle, AWS Backup applies the lifecycle policy of the source backup to the destination backup.
+	//
+	// Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.
 	Lifecycle BackupPlanLifecycleResourceTypePtrInput `pulumi:"lifecycle"`
 }
 
@@ -414,7 +418,9 @@ func (o BackupPlanCopyActionResourceTypeOutput) DestinationBackupVaultArn() pulu
 	return o.ApplyT(func(v BackupPlanCopyActionResourceType) string { return v.DestinationBackupVaultArn }).(pulumi.StringOutput)
 }
 
-// Specifies an object containing an array of `Transition` objects that determine how long in days before a recovery point transitions to cold storage or is deleted.
+// Defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define. If you do not specify a lifecycle, AWS Backup applies the lifecycle policy of the source backup to the destination backup.
+//
+// Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.
 func (o BackupPlanCopyActionResourceTypeOutput) Lifecycle() BackupPlanLifecycleResourceTypePtrOutput {
 	return o.ApplyT(func(v BackupPlanCopyActionResourceType) *BackupPlanLifecycleResourceType { return v.Lifecycle }).(BackupPlanLifecycleResourceTypePtrOutput)
 }
@@ -615,11 +621,11 @@ func (o BackupPlanLifecycleResourceTypePtrOutput) OptInToArchiveForSupportedReso
 }
 
 type BackupPlanResourceType struct {
-	// Specifies an object containing resource type and backup options. This is only supported for Windows VSS backups.
+	// A list of backup options for each resource type.
 	AdvancedBackupSettings []BackupPlanAdvancedBackupSettingResourceType `pulumi:"advancedBackupSettings"`
 	// The display name of a backup plan.
 	BackupPlanName string `pulumi:"backupPlanName"`
-	// Specifies an object containing properties used to schedule a task to back up a selection of resources.
+	// An array of `BackupRule` objects, each of which specifies a scheduled task that is used to back up a selection of resources.
 	BackupPlanRule []BackupPlanBackupRuleResourceType `pulumi:"backupPlanRule"`
 }
 
@@ -635,11 +641,11 @@ type BackupPlanResourceTypeInput interface {
 }
 
 type BackupPlanResourceTypeArgs struct {
-	// Specifies an object containing resource type and backup options. This is only supported for Windows VSS backups.
+	// A list of backup options for each resource type.
 	AdvancedBackupSettings BackupPlanAdvancedBackupSettingResourceTypeArrayInput `pulumi:"advancedBackupSettings"`
 	// The display name of a backup plan.
 	BackupPlanName pulumi.StringInput `pulumi:"backupPlanName"`
-	// Specifies an object containing properties used to schedule a task to back up a selection of resources.
+	// An array of `BackupRule` objects, each of which specifies a scheduled task that is used to back up a selection of resources.
 	BackupPlanRule BackupPlanBackupRuleResourceTypeArrayInput `pulumi:"backupPlanRule"`
 }
 
@@ -669,7 +675,7 @@ func (o BackupPlanResourceTypeOutput) ToBackupPlanResourceTypeOutputWithContext(
 	return o
 }
 
-// Specifies an object containing resource type and backup options. This is only supported for Windows VSS backups.
+// A list of backup options for each resource type.
 func (o BackupPlanResourceTypeOutput) AdvancedBackupSettings() BackupPlanAdvancedBackupSettingResourceTypeArrayOutput {
 	return o.ApplyT(func(v BackupPlanResourceType) []BackupPlanAdvancedBackupSettingResourceType {
 		return v.AdvancedBackupSettings
@@ -681,7 +687,7 @@ func (o BackupPlanResourceTypeOutput) BackupPlanName() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupPlanResourceType) string { return v.BackupPlanName }).(pulumi.StringOutput)
 }
 
-// Specifies an object containing properties used to schedule a task to back up a selection of resources.
+// An array of `BackupRule` objects, each of which specifies a scheduled task that is used to back up a selection of resources.
 func (o BackupPlanResourceTypeOutput) BackupPlanRule() BackupPlanBackupRuleResourceTypeArrayOutput {
 	return o.ApplyT(func(v BackupPlanResourceType) []BackupPlanBackupRuleResourceType { return v.BackupPlanRule }).(BackupPlanBackupRuleResourceTypeArrayOutput)
 }
@@ -710,7 +716,7 @@ func (o BackupPlanResourceTypePtrOutput) Elem() BackupPlanResourceTypeOutput {
 	}).(BackupPlanResourceTypeOutput)
 }
 
-// Specifies an object containing resource type and backup options. This is only supported for Windows VSS backups.
+// A list of backup options for each resource type.
 func (o BackupPlanResourceTypePtrOutput) AdvancedBackupSettings() BackupPlanAdvancedBackupSettingResourceTypeArrayOutput {
 	return o.ApplyT(func(v *BackupPlanResourceType) []BackupPlanAdvancedBackupSettingResourceType {
 		if v == nil {
@@ -730,7 +736,7 @@ func (o BackupPlanResourceTypePtrOutput) BackupPlanName() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies an object containing properties used to schedule a task to back up a selection of resources.
+// An array of `BackupRule` objects, each of which specifies a scheduled task that is used to back up a selection of resources.
 func (o BackupPlanResourceTypePtrOutput) BackupPlanRule() BackupPlanBackupRuleResourceTypeArrayOutput {
 	return o.ApplyT(func(v *BackupPlanResourceType) []BackupPlanBackupRuleResourceType {
 		if v == nil {
@@ -971,7 +977,12 @@ type BackupSelectionResourceType struct {
 	Conditions *BackupSelectionResourceTypeConditionsProperties `pulumi:"conditions"`
 	// The ARN of the IAM role that AWS Backup uses to authenticate when backing up the target resource; for example, `arn:aws:iam::123456789012:role/S3Access` .
 	IamRoleArn string `pulumi:"iamRoleArn"`
-	// Specifies an object that contains an array of triplets made up of a condition type (such as `STRINGEQUALS` ), a key, and a value. Conditions are used to filter resources in a selection that is assigned to a backup plan.
+	// A list of conditions that you define to assign resources to your backup plans using tags. For example, `"StringEquals": { "ConditionKey": "aws:ResourceTag/CreatedByCryo", "ConditionValue": "true" },` . Condition operators are case sensitive.
+	//
+	// `ListOfTags` differs from `Conditions` as follows:
+	//
+	// - When you specify more than one condition, you assign all resources that match AT LEAST ONE condition (using OR logic).
+	// - `ListOfTags` only supports `StringEquals` . `Conditions` supports `StringEquals` , `StringLike` , `StringNotEquals` , and `StringNotLike` .
 	ListOfTags []BackupSelectionConditionResourceType `pulumi:"listOfTags"`
 	// A list of Amazon Resource Names (ARNs) to exclude from a backup plan. The maximum number of ARNs is 500 without wildcards, or 30 ARNs with wildcards.
 	//
@@ -1004,7 +1015,12 @@ type BackupSelectionResourceTypeArgs struct {
 	Conditions BackupSelectionResourceTypeConditionsPropertiesPtrInput `pulumi:"conditions"`
 	// The ARN of the IAM role that AWS Backup uses to authenticate when backing up the target resource; for example, `arn:aws:iam::123456789012:role/S3Access` .
 	IamRoleArn pulumi.StringInput `pulumi:"iamRoleArn"`
-	// Specifies an object that contains an array of triplets made up of a condition type (such as `STRINGEQUALS` ), a key, and a value. Conditions are used to filter resources in a selection that is assigned to a backup plan.
+	// A list of conditions that you define to assign resources to your backup plans using tags. For example, `"StringEquals": { "ConditionKey": "aws:ResourceTag/CreatedByCryo", "ConditionValue": "true" },` . Condition operators are case sensitive.
+	//
+	// `ListOfTags` differs from `Conditions` as follows:
+	//
+	// - When you specify more than one condition, you assign all resources that match AT LEAST ONE condition (using OR logic).
+	// - `ListOfTags` only supports `StringEquals` . `Conditions` supports `StringEquals` , `StringLike` , `StringNotEquals` , and `StringNotLike` .
 	ListOfTags BackupSelectionConditionResourceTypeArrayInput `pulumi:"listOfTags"`
 	// A list of Amazon Resource Names (ARNs) to exclude from a backup plan. The maximum number of ARNs is 500 without wildcards, or 30 ARNs with wildcards.
 	//
@@ -1059,7 +1075,12 @@ func (o BackupSelectionResourceTypeOutput) IamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupSelectionResourceType) string { return v.IamRoleArn }).(pulumi.StringOutput)
 }
 
-// Specifies an object that contains an array of triplets made up of a condition type (such as `STRINGEQUALS` ), a key, and a value. Conditions are used to filter resources in a selection that is assigned to a backup plan.
+// A list of conditions that you define to assign resources to your backup plans using tags. For example, `"StringEquals": { "ConditionKey": "aws:ResourceTag/CreatedByCryo", "ConditionValue": "true" },` . Condition operators are case sensitive.
+//
+// `ListOfTags` differs from `Conditions` as follows:
+//
+// - When you specify more than one condition, you assign all resources that match AT LEAST ONE condition (using OR logic).
+// - `ListOfTags` only supports `StringEquals` . `Conditions` supports `StringEquals` , `StringLike` , `StringNotEquals` , and `StringNotLike` .
 func (o BackupSelectionResourceTypeOutput) ListOfTags() BackupSelectionConditionResourceTypeArrayOutput {
 	return o.ApplyT(func(v BackupSelectionResourceType) []BackupSelectionConditionResourceType { return v.ListOfTags }).(BackupSelectionConditionResourceTypeArrayOutput)
 }
@@ -1088,9 +1109,6 @@ func (o BackupSelectionResourceTypeOutput) SelectionName() pulumi.StringOutput {
 // - When you specify more than one condition, you only assign the resources that match ALL conditions (using AND logic).
 // - `Conditions` supports `StringEquals` , `StringLike` , `StringNotEquals` , and `StringNotLike` . `ListOfTags` only supports `StringEquals` .
 type BackupSelectionResourceTypeConditionsProperties struct {
-	// Includes information about tags you define to assign tagged resources to a backup plan.
-	//
-	// Include the prefix `aws:ResourceTag` in your tags. For example, `"aws:ResourceTag/TagKey1": "Value1"` .
 	StringEquals    []BackupSelectionConditionParameter `pulumi:"stringEquals"`
 	StringLike      []BackupSelectionConditionParameter `pulumi:"stringLike"`
 	StringNotEquals []BackupSelectionConditionParameter `pulumi:"stringNotEquals"`
@@ -1115,9 +1133,6 @@ type BackupSelectionResourceTypeConditionsPropertiesInput interface {
 // - When you specify more than one condition, you only assign the resources that match ALL conditions (using AND logic).
 // - `Conditions` supports `StringEquals` , `StringLike` , `StringNotEquals` , and `StringNotLike` . `ListOfTags` only supports `StringEquals` .
 type BackupSelectionResourceTypeConditionsPropertiesArgs struct {
-	// Includes information about tags you define to assign tagged resources to a backup plan.
-	//
-	// Include the prefix `aws:ResourceTag` in your tags. For example, `"aws:ResourceTag/TagKey1": "Value1"` .
 	StringEquals    BackupSelectionConditionParameterArrayInput `pulumi:"stringEquals"`
 	StringLike      BackupSelectionConditionParameterArrayInput `pulumi:"stringLike"`
 	StringNotEquals BackupSelectionConditionParameterArrayInput `pulumi:"stringNotEquals"`
@@ -1207,9 +1222,6 @@ func (o BackupSelectionResourceTypeConditionsPropertiesOutput) ToBackupSelection
 	}).(BackupSelectionResourceTypeConditionsPropertiesPtrOutput)
 }
 
-// Includes information about tags you define to assign tagged resources to a backup plan.
-//
-// Include the prefix `aws:ResourceTag` in your tags. For example, `"aws:ResourceTag/TagKey1": "Value1"` .
 func (o BackupSelectionResourceTypeConditionsPropertiesOutput) StringEquals() BackupSelectionConditionParameterArrayOutput {
 	return o.ApplyT(func(v BackupSelectionResourceTypeConditionsProperties) []BackupSelectionConditionParameter {
 		return v.StringEquals
@@ -1258,9 +1270,6 @@ func (o BackupSelectionResourceTypeConditionsPropertiesPtrOutput) Elem() BackupS
 	}).(BackupSelectionResourceTypeConditionsPropertiesOutput)
 }
 
-// Includes information about tags you define to assign tagged resources to a backup plan.
-//
-// Include the prefix `aws:ResourceTag` in your tags. For example, `"aws:ResourceTag/TagKey1": "Value1"` .
 func (o BackupSelectionResourceTypeConditionsPropertiesPtrOutput) StringEquals() BackupSelectionConditionParameterArrayOutput {
 	return o.ApplyT(func(v *BackupSelectionResourceTypeConditionsProperties) []BackupSelectionConditionParameter {
 		if v == nil {
@@ -2780,7 +2789,7 @@ func (o RestoreTestingSelectionKeyValueArrayOutput) Index(i pulumi.IntInput) Res
 }
 
 type RestoreTestingSelectionProtectedResourceConditions struct {
-	// Pair of two related strings. Allowed characters are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`
+	// Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching."
 	StringEquals []RestoreTestingSelectionKeyValue `pulumi:"stringEquals"`
 	// Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching."
 	StringNotEquals []RestoreTestingSelectionKeyValue `pulumi:"stringNotEquals"`
@@ -2798,7 +2807,7 @@ type RestoreTestingSelectionProtectedResourceConditionsInput interface {
 }
 
 type RestoreTestingSelectionProtectedResourceConditionsArgs struct {
-	// Pair of two related strings. Allowed characters are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`
+	// Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching."
 	StringEquals RestoreTestingSelectionKeyValueArrayInput `pulumi:"stringEquals"`
 	// Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching."
 	StringNotEquals RestoreTestingSelectionKeyValueArrayInput `pulumi:"stringNotEquals"`
@@ -2881,7 +2890,7 @@ func (o RestoreTestingSelectionProtectedResourceConditionsOutput) ToRestoreTesti
 	}).(RestoreTestingSelectionProtectedResourceConditionsPtrOutput)
 }
 
-// Pair of two related strings. Allowed characters are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`
+// Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching."
 func (o RestoreTestingSelectionProtectedResourceConditionsOutput) StringEquals() RestoreTestingSelectionKeyValueArrayOutput {
 	return o.ApplyT(func(v RestoreTestingSelectionProtectedResourceConditions) []RestoreTestingSelectionKeyValue {
 		return v.StringEquals
@@ -2919,7 +2928,7 @@ func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) Elem() Rest
 	}).(RestoreTestingSelectionProtectedResourceConditionsOutput)
 }
 
-// Pair of two related strings. Allowed characters are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`
+// Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching."
 func (o RestoreTestingSelectionProtectedResourceConditionsPtrOutput) StringEquals() RestoreTestingSelectionKeyValueArrayOutput {
 	return o.ApplyT(func(v *RestoreTestingSelectionProtectedResourceConditions) []RestoreTestingSelectionKeyValue {
 		if v == nil {

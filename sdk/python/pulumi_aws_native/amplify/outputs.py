@@ -73,7 +73,7 @@ class AppAutoBranchCreationConfig(dict):
                  stage: Optional['AppAutoBranchCreationConfigStage'] = None):
         """
         :param Sequence[str] auto_branch_creation_patterns: Automated branch creation glob patterns for the Amplify app.
-        :param 'AppBasicAuthConfig' basic_auth_config: Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
+        :param 'AppBasicAuthConfig' basic_auth_config: Sets password protection for your auto created branch.
         :param str build_spec: The build specification (build spec) for the autocreated branch.
         :param bool enable_auto_branch_creation: Enables automated branch creation for the Amplify app.
         :param bool enable_auto_build: Enables auto building for the auto created branch.
@@ -85,7 +85,7 @@ class AppAutoBranchCreationConfig(dict):
                To provide backend support for your preview, Amplify Hosting automatically provisions a temporary backend environment that it deletes when the pull request is closed. If you want to specify a dedicated backend environment for your previews, use the `PullRequestEnvironmentName` property.
                
                For more information, see [Web Previews](https://docs.aws.amazon.com/amplify/latest/userguide/pr-previews.html) in the *AWS Amplify Hosting User Guide* .
-        :param Sequence['AppEnvironmentVariable'] environment_variables: Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+        :param Sequence['AppEnvironmentVariable'] environment_variables: The environment variables for the autocreated branch.
         :param str framework: The framework for the autocreated branch.
         :param str pull_request_environment_name: If pull request previews are enabled, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI.
                
@@ -131,7 +131,7 @@ class AppAutoBranchCreationConfig(dict):
     @pulumi.getter(name="basicAuthConfig")
     def basic_auth_config(self) -> Optional['outputs.AppBasicAuthConfig']:
         """
-        Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
+        Sets password protection for your auto created branch.
         """
         return pulumi.get(self, "basic_auth_config")
 
@@ -185,7 +185,7 @@ class AppAutoBranchCreationConfig(dict):
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[Sequence['outputs.AppEnvironmentVariable']]:
         """
-        Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+        The environment variables for the autocreated branch.
         """
         return pulumi.get(self, "environment_variables")
 

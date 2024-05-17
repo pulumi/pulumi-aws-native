@@ -16,7 +16,9 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         private InputList<Inputs.PipeCapacityProviderStrategyItemArgs>? _capacityProviderStrategy;
 
         /// <summary>
-        /// The details of a capacity provider strategy. To learn more, see [CapacityProviderStrategyItem](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CapacityProviderStrategyItem.html) in the Amazon ECS API Reference.
+        /// The capacity provider strategy to use for the task.
+        /// 
+        /// If a `capacityProviderStrategy` is specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or launchType is specified, the `defaultCapacityProviderStrategy` for the cluster is used.
         /// </summary>
         public InputList<Inputs.PipeCapacityProviderStrategyItemArgs> CapacityProviderStrategy
         {
@@ -49,7 +51,9 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         public Input<Pulumi.AwsNative.Pipes.PipeLaunchType>? LaunchType { get; set; }
 
         /// <summary>
-        /// This structure specifies the network configuration for an Amazon ECS task.
+        /// Use this structure if the Amazon ECS task uses the `awsvpc` network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if `LaunchType` is `FARGATE` because the `awsvpc` mode is required for Fargate tasks.
+        /// 
+        /// If you specify `NetworkConfiguration` when the target ECS task does not use the `awsvpc` network mode, the task fails.
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.PipeNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
@@ -64,7 +68,7 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         private InputList<Inputs.PipePlacementConstraintArgs>? _placementConstraints;
 
         /// <summary>
-        /// An object representing a constraint on task placement. To learn more, see [Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the Amazon Elastic Container Service Developer Guide.
+        /// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime).
         /// </summary>
         public InputList<Inputs.PipePlacementConstraintArgs> PlacementConstraints
         {
@@ -76,7 +80,7 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         private InputList<Inputs.PipePlacementStrategyArgs>? _placementStrategy;
 
         /// <summary>
-        /// The task placement strategy for a task or service. To learn more, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the Amazon Elastic Container Service Service Developer Guide.
+        /// The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
         /// </summary>
         public InputList<Inputs.PipePlacementStrategyArgs> PlacementStrategy
         {

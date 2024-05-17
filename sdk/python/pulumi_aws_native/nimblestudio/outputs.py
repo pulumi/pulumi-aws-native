@@ -116,9 +116,9 @@ class LaunchProfileStreamConfiguration(dict):
                            If the time that a session stays in the <code>READY</code> state exceeds the
                                <code>maxSessionLengthInMinutes</code> value, the session will automatically be
                            stopped (instead of terminated).</p>
-        :param 'LaunchProfileStreamConfigurationSessionBackup' session_backup: Configures how streaming sessions are backed up when launched from this launch profile.
+        :param 'LaunchProfileStreamConfigurationSessionBackup' session_backup: Information about the streaming session backup.
         :param 'LaunchProfileSessionPersistenceMode' session_persistence_mode: Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
-        :param 'LaunchProfileStreamConfigurationSessionStorage' session_storage: The configuration for a streaming session’s upload storage.
+        :param 'LaunchProfileStreamConfigurationSessionStorage' session_storage: The upload storage for a streaming session.
         :param 'LaunchProfileVolumeConfiguration' volume_configuration: Custom volume configuration for the root volumes that are attached to streaming sessions.
                
                This parameter is only allowed when `sessionPersistenceMode` is `ACTIVATED` .
@@ -218,7 +218,7 @@ class LaunchProfileStreamConfiguration(dict):
     @pulumi.getter(name="sessionBackup")
     def session_backup(self) -> Optional['outputs.LaunchProfileStreamConfigurationSessionBackup']:
         """
-        Configures how streaming sessions are backed up when launched from this launch profile.
+        Information about the streaming session backup.
         """
         return pulumi.get(self, "session_backup")
 
@@ -234,7 +234,7 @@ class LaunchProfileStreamConfiguration(dict):
     @pulumi.getter(name="sessionStorage")
     def session_storage(self) -> Optional['outputs.LaunchProfileStreamConfigurationSessionStorage']:
         """
-        The configuration for a streaming session’s upload storage.
+        The upload storage for a streaming session.
         """
         return pulumi.get(self, "session_storage")
 
@@ -321,7 +321,7 @@ class LaunchProfileStreamConfigurationSessionStorage(dict):
         <p>The configuration for a streaming session’s upload storage.</p>
         :param Sequence['LaunchProfileStreamingSessionStorageMode'] mode: <p>Allows artists to upload files to their workstations. The only valid option is
                                <code>UPLOAD</code>.</p>
-        :param 'LaunchProfileStreamingSessionStorageRoot' root: The upload storage root location (folder) on streaming workstations where files are uploaded.
+        :param 'LaunchProfileStreamingSessionStorageRoot' root: The configuration for the upload storage root of the streaming session.
         """
         pulumi.set(__self__, "mode", mode)
         if root is not None:
@@ -340,7 +340,7 @@ class LaunchProfileStreamConfigurationSessionStorage(dict):
     @pulumi.getter
     def root(self) -> Optional['outputs.LaunchProfileStreamingSessionStorageRoot']:
         """
-        The upload storage root location (folder) on streaming workstations where files are uploaded.
+        The configuration for the upload storage root of the streaming session.
         """
         return pulumi.get(self, "root")
 

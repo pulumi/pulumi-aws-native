@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardTableRowConditionalFormatting
     {
         /// <summary>
-        /// The formatting configuration for the color.
+        /// The conditional formatting color (solid, gradient) of the background for a table row.
         /// </summary>
         public readonly Outputs.DashboardConditionalFormattingColor? BackgroundColor;
         /// <summary>
-        /// The formatting configuration for the color.
+        /// The conditional formatting color (solid, gradient) of the text for a table row.
         /// </summary>
         public readonly Outputs.DashboardConditionalFormattingColor? TextColor;
 

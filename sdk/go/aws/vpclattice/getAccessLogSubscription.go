@@ -39,7 +39,7 @@ type LookupAccessLogSubscriptionResult struct {
 	ResourceArn *string `pulumi:"resourceArn"`
 	// The ID of the service network or service.
 	ResourceId *string `pulumi:"resourceId"`
-	// Specifies a tag for an access log subscription.
+	// The tags for the access log subscription.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -104,7 +104,7 @@ func (o LookupAccessLogSubscriptionResultOutput) ResourceId() pulumi.StringPtrOu
 	return o.ApplyT(func(v LookupAccessLogSubscriptionResult) *string { return v.ResourceId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a tag for an access log subscription.
+// The tags for the access log subscription.
 func (o LookupAccessLogSubscriptionResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupAccessLogSubscriptionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

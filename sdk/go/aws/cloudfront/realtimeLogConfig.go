@@ -18,7 +18,7 @@ type RealtimeLogConfig struct {
 
 	// The Amazon Resource Name (ARN) of the real-time log configuration. For example: `arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig` .
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+	// Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
 	EndPoints RealtimeLogConfigEndPointArrayOutput `pulumi:"endPoints"`
 	// A list of fields that are included in each real-time log record. In an API response, the fields are provided in the same order in which they are sent to the Amazon Kinesis data stream.
 	//
@@ -83,7 +83,7 @@ func (RealtimeLogConfigState) ElementType() reflect.Type {
 }
 
 type realtimeLogConfigArgs struct {
-	// Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+	// Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
 	EndPoints []RealtimeLogConfigEndPoint `pulumi:"endPoints"`
 	// A list of fields that are included in each real-time log record. In an API response, the fields are provided in the same order in which they are sent to the Amazon Kinesis data stream.
 	//
@@ -97,7 +97,7 @@ type realtimeLogConfigArgs struct {
 
 // The set of arguments for constructing a RealtimeLogConfig resource.
 type RealtimeLogConfigArgs struct {
-	// Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+	// Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
 	EndPoints RealtimeLogConfigEndPointArrayInput
 	// A list of fields that are included in each real-time log record. In an API response, the fields are provided in the same order in which they are sent to the Amazon Kinesis data stream.
 	//
@@ -151,7 +151,7 @@ func (o RealtimeLogConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RealtimeLogConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+// Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
 func (o RealtimeLogConfigOutput) EndPoints() RealtimeLogConfigEndPointArrayOutput {
 	return o.ApplyT(func(v *RealtimeLogConfig) RealtimeLogConfigEndPointArrayOutput { return v.EndPoints }).(RealtimeLogConfigEndPointArrayOutput)
 }

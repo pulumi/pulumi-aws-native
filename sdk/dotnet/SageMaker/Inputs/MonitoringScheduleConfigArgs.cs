@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<Pulumi.AwsNative.SageMaker.MonitoringScheduleMonitoringType>? MonitoringType { get; set; }
 
         /// <summary>
-        /// Configuration details about the monitoring schedule.
+        /// Configures the monitoring schedule.
         /// </summary>
         [Input("scheduleConfig")]
         public Input<Inputs.MonitoringScheduleScheduleConfigArgs>? ScheduleConfig { get; set; }

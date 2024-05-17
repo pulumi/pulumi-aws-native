@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.Msk.Inputs
         }
 
         /// <summary>
-        /// Broker access controls.
+        /// Information about the cluster's connectivity setting.
         /// </summary>
         [Input("connectivityInfo")]
         public Input<Inputs.ClusterConnectivityInfoArgs>? ConnectivityInfo { get; set; }

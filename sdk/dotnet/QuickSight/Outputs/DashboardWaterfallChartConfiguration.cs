@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardWaterfallChartConfiguration
     {
         /// <summary>
-        /// The display options for the axis label.
+        /// The options that determine the presentation of the category axis.
         /// </summary>
         public readonly Outputs.DashboardAxisDisplayOptions? CategoryAxisDisplayOptions;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The options that determine the presentation of the category axis label.
         /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? CategoryAxisLabelOptions;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardWaterfallChartColorConfiguration? ColorConfiguration;
         /// <summary>
-        /// The options that determine the presentation of the data labels.
+        /// The data label configuration of a waterfall visual.
         /// </summary>
         public readonly Outputs.DashboardDataLabelOptions? DataLabels;
         /// <summary>
@@ -34,15 +34,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardWaterfallChartFieldWells? FieldWells;
         /// <summary>
-        /// The options for the legend setup of a visual.
+        /// The legend configuration of a waterfall visual.
         /// </summary>
         public readonly Outputs.DashboardLegendOptions? Legend;
         /// <summary>
-        /// The display options for the axis label.
+        /// The options that determine the presentation of the y-axis.
         /// </summary>
         public readonly Outputs.DashboardAxisDisplayOptions? PrimaryYAxisDisplayOptions;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The options that determine the presentation of the y-axis label.
         /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? PrimaryYAxisLabelOptions;
         /// <summary>
@@ -50,7 +50,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardWaterfallChartSortConfiguration? SortConfiguration;
         /// <summary>
-        /// The visual display options for the visual palette.
+        /// The visual palette configuration of a waterfall visual.
         /// </summary>
         public readonly Outputs.DashboardVisualPalette? VisualPalette;
         /// <summary>

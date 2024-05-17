@@ -25,10 +25,10 @@ class CisScanConfigurationArgs:
         """
         The set of arguments for constructing a CisScanConfiguration resource.
         :param pulumi.Input[str] scan_name: Name of the scan
-        :param pulumi.Input['CisScanConfigurationScheduleArgs'] schedule: The schedule the CIS scan configuration runs on. Each CIS scan configuration has exactly one type of schedule.
+        :param pulumi.Input['CisScanConfigurationScheduleArgs'] schedule: The CIS scan configuration's schedule.
         :param pulumi.Input['CisScanConfigurationCisSecurityLevel'] security_level: The CIS scan configuration's CIS Benchmark level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The CIS scan configuration's tags.
-        :param pulumi.Input['CisScanConfigurationCisTargetsArgs'] targets: The CIS targets.
+        :param pulumi.Input['CisScanConfigurationCisTargetsArgs'] targets: The CIS scan configuration's targets.
         """
         if scan_name is not None:
             pulumi.set(__self__, "scan_name", scan_name)
@@ -57,7 +57,7 @@ class CisScanConfigurationArgs:
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['CisScanConfigurationScheduleArgs']]:
         """
-        The schedule the CIS scan configuration runs on. Each CIS scan configuration has exactly one type of schedule.
+        The CIS scan configuration's schedule.
         """
         return pulumi.get(self, "schedule")
 
@@ -93,7 +93,7 @@ class CisScanConfigurationArgs:
     @pulumi.getter
     def targets(self) -> Optional[pulumi.Input['CisScanConfigurationCisTargetsArgs']]:
         """
-        The CIS targets.
+        The CIS scan configuration's targets.
         """
         return pulumi.get(self, "targets")
 
@@ -119,10 +119,10 @@ class CisScanConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] scan_name: Name of the scan
-        :param pulumi.Input[pulumi.InputType['CisScanConfigurationScheduleArgs']] schedule: The schedule the CIS scan configuration runs on. Each CIS scan configuration has exactly one type of schedule.
+        :param pulumi.Input[pulumi.InputType['CisScanConfigurationScheduleArgs']] schedule: The CIS scan configuration's schedule.
         :param pulumi.Input['CisScanConfigurationCisSecurityLevel'] security_level: The CIS scan configuration's CIS Benchmark level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The CIS scan configuration's tags.
-        :param pulumi.Input[pulumi.InputType['CisScanConfigurationCisTargetsArgs']] targets: The CIS targets.
+        :param pulumi.Input[pulumi.InputType['CisScanConfigurationCisTargetsArgs']] targets: The CIS scan configuration's targets.
         """
         ...
     @overload
@@ -218,7 +218,7 @@ class CisScanConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def schedule(self) -> pulumi.Output[Optional['outputs.CisScanConfigurationSchedule']]:
         """
-        The schedule the CIS scan configuration runs on. Each CIS scan configuration has exactly one type of schedule.
+        The CIS scan configuration's schedule.
         """
         return pulumi.get(self, "schedule")
 
@@ -242,7 +242,7 @@ class CisScanConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def targets(self) -> pulumi.Output[Optional['outputs.CisScanConfigurationCisTargets']]:
         """
-        The CIS targets.
+        The CIS scan configuration's targets.
         """
         return pulumi.get(self, "targets")
 

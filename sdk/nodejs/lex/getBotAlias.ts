@@ -56,7 +56,7 @@ export interface GetBotAliasResult {
      */
     readonly botVersion?: string;
     /**
-     * Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+     * Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
      */
     readonly conversationLogSettings?: outputs.lex.BotAliasConversationLogSettings;
     /**

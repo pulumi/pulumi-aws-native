@@ -177,15 +177,15 @@ type DetectorEventType struct {
 	CreatedTime *string `pulumi:"createdTime"`
 	// The description of the event type.
 	Description *string `pulumi:"description"`
-	// The entity type details.
+	// The event type entity types.
 	EntityTypes []DetectorEntityType `pulumi:"entityTypes"`
-	// The event type variable for the detector.
+	// The event type event variables.
 	EventVariables []DetectorEventVariable `pulumi:"eventVariables"`
 	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 	//
 	// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
 	Inline *bool `pulumi:"inline"`
-	// The label details.
+	// The event type labels.
 	Labels []DetectorLabel `pulumi:"labels"`
 	// The time when the event type was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
@@ -213,15 +213,15 @@ type DetectorEventTypeArgs struct {
 	CreatedTime pulumi.StringPtrInput `pulumi:"createdTime"`
 	// The description of the event type.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The entity type details.
+	// The event type entity types.
 	EntityTypes DetectorEntityTypeArrayInput `pulumi:"entityTypes"`
-	// The event type variable for the detector.
+	// The event type event variables.
 	EventVariables DetectorEventVariableArrayInput `pulumi:"eventVariables"`
 	// Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
 	//
 	// For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
 	Inline pulumi.BoolPtrInput `pulumi:"inline"`
-	// The label details.
+	// The event type labels.
 	Labels DetectorLabelArrayInput `pulumi:"labels"`
 	// The time when the event type was last updated.
 	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
@@ -272,12 +272,12 @@ func (o DetectorEventTypeOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorEventType) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The entity type details.
+// The event type entity types.
 func (o DetectorEventTypeOutput) EntityTypes() DetectorEntityTypeArrayOutput {
 	return o.ApplyT(func(v DetectorEventType) []DetectorEntityType { return v.EntityTypes }).(DetectorEntityTypeArrayOutput)
 }
 
-// The event type variable for the detector.
+// The event type event variables.
 func (o DetectorEventTypeOutput) EventVariables() DetectorEventVariableArrayOutput {
 	return o.ApplyT(func(v DetectorEventType) []DetectorEventVariable { return v.EventVariables }).(DetectorEventVariableArrayOutput)
 }
@@ -289,7 +289,7 @@ func (o DetectorEventTypeOutput) Inline() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DetectorEventType) *bool { return v.Inline }).(pulumi.BoolPtrOutput)
 }
 
-// The label details.
+// The event type labels.
 func (o DetectorEventTypeOutput) Labels() DetectorLabelArrayOutput {
 	return o.ApplyT(func(v DetectorEventType) []DetectorLabel { return v.Labels }).(DetectorLabelArrayOutput)
 }
@@ -363,7 +363,7 @@ func (o DetectorEventTypePtrOutput) Description() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The entity type details.
+// The event type entity types.
 func (o DetectorEventTypePtrOutput) EntityTypes() DetectorEntityTypeArrayOutput {
 	return o.ApplyT(func(v *DetectorEventType) []DetectorEntityType {
 		if v == nil {
@@ -373,7 +373,7 @@ func (o DetectorEventTypePtrOutput) EntityTypes() DetectorEntityTypeArrayOutput 
 	}).(DetectorEntityTypeArrayOutput)
 }
 
-// The event type variable for the detector.
+// The event type event variables.
 func (o DetectorEventTypePtrOutput) EventVariables() DetectorEventVariableArrayOutput {
 	return o.ApplyT(func(v *DetectorEventType) []DetectorEventVariable {
 		if v == nil {
@@ -395,7 +395,7 @@ func (o DetectorEventTypePtrOutput) Inline() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The label details.
+// The event type labels.
 func (o DetectorEventTypePtrOutput) Labels() DetectorLabelArrayOutput {
 	return o.ApplyT(func(v *DetectorEventType) []DetectorLabel {
 		if v == nil {
@@ -1077,7 +1077,7 @@ type DetectorRule struct {
 	Language *DetectorRuleLanguage `pulumi:"language"`
 	// The time when the event type was last updated.
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
-	// The outcome.
+	// The rule outcome.
 	Outcomes []DetectorOutcome `pulumi:"outcomes"`
 	// The rule ID.
 	RuleId *string `pulumi:"ruleId"`
@@ -1115,7 +1115,7 @@ type DetectorRuleArgs struct {
 	Language DetectorRuleLanguagePtrInput `pulumi:"language"`
 	// The time when the event type was last updated.
 	LastUpdatedTime pulumi.StringPtrInput `pulumi:"lastUpdatedTime"`
-	// The outcome.
+	// The rule outcome.
 	Outcomes DetectorOutcomeArrayInput `pulumi:"outcomes"`
 	// The rule ID.
 	RuleId pulumi.StringPtrInput `pulumi:"ruleId"`
@@ -1213,7 +1213,7 @@ func (o DetectorRuleOutput) LastUpdatedTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DetectorRule) *string { return v.LastUpdatedTime }).(pulumi.StringPtrOutput)
 }
 
-// The outcome.
+// The rule outcome.
 func (o DetectorRuleOutput) Outcomes() DetectorOutcomeArrayOutput {
 	return o.ApplyT(func(v DetectorRule) []DetectorOutcome { return v.Outcomes }).(DetectorOutcomeArrayOutput)
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisIntegerDefaultValues
     {
         /// <summary>
-        /// Defines different defaults to the users or groups based on mapping.
+        /// The dynamic value of the `IntegerDefaultValues` . Different defaults are displayed according to users, groups, and values mapping.
         /// </summary>
         public readonly Outputs.AnalysisDynamicDefaultValue? DynamicValue;
         /// <summary>

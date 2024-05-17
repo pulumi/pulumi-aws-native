@@ -31,11 +31,11 @@ type LookupNetworkInsightsAnalysisArgs struct {
 type LookupNetworkInsightsAnalysisResult struct {
 	// The member accounts that contain resources that the path can traverse.
 	AdditionalAccounts []string `pulumi:"additionalAccounts"`
-	// Describes an potential intermediate component of a feasible path.
+	// Potential intermediate components.
 	AlternatePathHints []NetworkInsightsAnalysisAlternatePathHint `pulumi:"alternatePathHints"`
-	// Describes an explanation code for an unreachable path. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
+	// The explanations. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
 	Explanations []NetworkInsightsAnalysisExplanation `pulumi:"explanations"`
-	// Describes a path component.
+	// The components in the path from source to destination.
 	ForwardPathComponents []NetworkInsightsAnalysisPathComponent `pulumi:"forwardPathComponents"`
 	// The Amazon Resource Name (ARN) of the network insights analysis.
 	NetworkInsightsAnalysisArn *string `pulumi:"networkInsightsAnalysisArn"`
@@ -43,7 +43,7 @@ type LookupNetworkInsightsAnalysisResult struct {
 	NetworkInsightsAnalysisId *string `pulumi:"networkInsightsAnalysisId"`
 	// Indicates whether the destination is reachable from the source.
 	NetworkPathFound *bool `pulumi:"networkPathFound"`
-	// Describes a path component.
+	// The components in the path from destination to source.
 	ReturnPathComponents []NetworkInsightsAnalysisPathComponent `pulumi:"returnPathComponents"`
 	// The time the analysis started.
 	StartDate *string `pulumi:"startDate"`
@@ -53,7 +53,7 @@ type LookupNetworkInsightsAnalysisResult struct {
 	StatusMessage *string `pulumi:"statusMessage"`
 	// The IDs of potential intermediate accounts.
 	SuggestedAccounts []string `pulumi:"suggestedAccounts"`
-	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	// The tags to apply.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -98,21 +98,21 @@ func (o LookupNetworkInsightsAnalysisResultOutput) AdditionalAccounts() pulumi.S
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) []string { return v.AdditionalAccounts }).(pulumi.StringArrayOutput)
 }
 
-// Describes an potential intermediate component of a feasible path.
+// Potential intermediate components.
 func (o LookupNetworkInsightsAnalysisResultOutput) AlternatePathHints() NetworkInsightsAnalysisAlternatePathHintArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) []NetworkInsightsAnalysisAlternatePathHint {
 		return v.AlternatePathHints
 	}).(NetworkInsightsAnalysisAlternatePathHintArrayOutput)
 }
 
-// Describes an explanation code for an unreachable path. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
+// The explanations. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
 func (o LookupNetworkInsightsAnalysisResultOutput) Explanations() NetworkInsightsAnalysisExplanationArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) []NetworkInsightsAnalysisExplanation {
 		return v.Explanations
 	}).(NetworkInsightsAnalysisExplanationArrayOutput)
 }
 
-// Describes a path component.
+// The components in the path from source to destination.
 func (o LookupNetworkInsightsAnalysisResultOutput) ForwardPathComponents() NetworkInsightsAnalysisPathComponentArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) []NetworkInsightsAnalysisPathComponent {
 		return v.ForwardPathComponents
@@ -134,7 +134,7 @@ func (o LookupNetworkInsightsAnalysisResultOutput) NetworkPathFound() pulumi.Boo
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) *bool { return v.NetworkPathFound }).(pulumi.BoolPtrOutput)
 }
 
-// Describes a path component.
+// The components in the path from destination to source.
 func (o LookupNetworkInsightsAnalysisResultOutput) ReturnPathComponents() NetworkInsightsAnalysisPathComponentArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) []NetworkInsightsAnalysisPathComponent {
 		return v.ReturnPathComponents
@@ -161,7 +161,7 @@ func (o LookupNetworkInsightsAnalysisResultOutput) SuggestedAccounts() pulumi.St
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) []string { return v.SuggestedAccounts }).(pulumi.StringArrayOutput)
 }
 
-// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+// The tags to apply.
 func (o LookupNetworkInsightsAnalysisResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsAnalysisResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

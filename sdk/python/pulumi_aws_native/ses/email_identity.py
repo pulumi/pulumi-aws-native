@@ -26,16 +26,9 @@ class EmailIdentityArgs:
         The set of arguments for constructing a EmailIdentity resource.
         :param pulumi.Input[str] email_identity: The email address or domain to verify.
         :param pulumi.Input['EmailIdentityConfigurationSetAttributesArgs'] configuration_set_attributes: Used to associate a configuration set with an email identity.
-        :param pulumi.Input['EmailIdentityDkimAttributesArgs'] dkim_attributes: Used to enable or disable DKIM authentication for an email identity.
-        :param pulumi.Input['EmailIdentityDkimSigningAttributesArgs'] dkim_signing_attributes: Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:
-               
-               - Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).
-               - Update the key length that should be used for Easy DKIM.
-               - Change from using no DKIM authentication to using Easy DKIM.
-               - Change from using no DKIM authentication to using BYODKIM.
-               - Change from using Easy DKIM to using BYODKIM.
-               - Change from using BYODKIM to using Easy DKIM.
-        :param pulumi.Input['EmailIdentityFeedbackAttributesArgs'] feedback_attributes: Used to enable or disable feedback forwarding for an identity. This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.
+        :param pulumi.Input['EmailIdentityDkimAttributesArgs'] dkim_attributes: An object that contains information about the DKIM attributes for the identity.
+        :param pulumi.Input['EmailIdentityDkimSigningAttributesArgs'] dkim_signing_attributes: If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
+        :param pulumi.Input['EmailIdentityFeedbackAttributesArgs'] feedback_attributes: Used to enable or disable feedback forwarding for an identity.
         :param pulumi.Input['EmailIdentityMailFromAttributesArgs'] mail_from_attributes: Used to enable or disable the custom Mail-From domain configuration for an email identity.
         """
         pulumi.set(__self__, "email_identity", email_identity)
@@ -78,7 +71,7 @@ class EmailIdentityArgs:
     @pulumi.getter(name="dkimAttributes")
     def dkim_attributes(self) -> Optional[pulumi.Input['EmailIdentityDkimAttributesArgs']]:
         """
-        Used to enable or disable DKIM authentication for an email identity.
+        An object that contains information about the DKIM attributes for the identity.
         """
         return pulumi.get(self, "dkim_attributes")
 
@@ -90,14 +83,7 @@ class EmailIdentityArgs:
     @pulumi.getter(name="dkimSigningAttributes")
     def dkim_signing_attributes(self) -> Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArgs']]:
         """
-        Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:
-
-        - Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).
-        - Update the key length that should be used for Easy DKIM.
-        - Change from using no DKIM authentication to using Easy DKIM.
-        - Change from using no DKIM authentication to using BYODKIM.
-        - Change from using Easy DKIM to using BYODKIM.
-        - Change from using BYODKIM to using Easy DKIM.
+        If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
         """
         return pulumi.get(self, "dkim_signing_attributes")
 
@@ -109,7 +95,7 @@ class EmailIdentityArgs:
     @pulumi.getter(name="feedbackAttributes")
     def feedback_attributes(self) -> Optional[pulumi.Input['EmailIdentityFeedbackAttributesArgs']]:
         """
-        Used to enable or disable feedback forwarding for an identity. This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.
+        Used to enable or disable feedback forwarding for an identity.
         """
         return pulumi.get(self, "feedback_attributes")
 
@@ -148,17 +134,10 @@ class EmailIdentity(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['EmailIdentityConfigurationSetAttributesArgs']] configuration_set_attributes: Used to associate a configuration set with an email identity.
-        :param pulumi.Input[pulumi.InputType['EmailIdentityDkimAttributesArgs']] dkim_attributes: Used to enable or disable DKIM authentication for an email identity.
-        :param pulumi.Input[pulumi.InputType['EmailIdentityDkimSigningAttributesArgs']] dkim_signing_attributes: Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:
-               
-               - Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).
-               - Update the key length that should be used for Easy DKIM.
-               - Change from using no DKIM authentication to using Easy DKIM.
-               - Change from using no DKIM authentication to using BYODKIM.
-               - Change from using Easy DKIM to using BYODKIM.
-               - Change from using BYODKIM to using Easy DKIM.
+        :param pulumi.Input[pulumi.InputType['EmailIdentityDkimAttributesArgs']] dkim_attributes: An object that contains information about the DKIM attributes for the identity.
+        :param pulumi.Input[pulumi.InputType['EmailIdentityDkimSigningAttributesArgs']] dkim_signing_attributes: If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
         :param pulumi.Input[str] email_identity: The email address or domain to verify.
-        :param pulumi.Input[pulumi.InputType['EmailIdentityFeedbackAttributesArgs']] feedback_attributes: Used to enable or disable feedback forwarding for an identity. This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.
+        :param pulumi.Input[pulumi.InputType['EmailIdentityFeedbackAttributesArgs']] feedback_attributes: Used to enable or disable feedback forwarding for an identity.
         :param pulumi.Input[pulumi.InputType['EmailIdentityMailFromAttributesArgs']] mail_from_attributes: Used to enable or disable the custom Mail-From domain configuration for an email identity.
         """
         ...
@@ -264,7 +243,7 @@ class EmailIdentity(pulumi.CustomResource):
     @pulumi.getter(name="dkimAttributes")
     def dkim_attributes(self) -> pulumi.Output[Optional['outputs.EmailIdentityDkimAttributes']]:
         """
-        Used to enable or disable DKIM authentication for an email identity.
+        An object that contains information about the DKIM attributes for the identity.
         """
         return pulumi.get(self, "dkim_attributes")
 
@@ -320,14 +299,7 @@ class EmailIdentity(pulumi.CustomResource):
     @pulumi.getter(name="dkimSigningAttributes")
     def dkim_signing_attributes(self) -> pulumi.Output[Optional['outputs.EmailIdentityDkimSigningAttributes']]:
         """
-        Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:
-
-        - Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).
-        - Update the key length that should be used for Easy DKIM.
-        - Change from using no DKIM authentication to using Easy DKIM.
-        - Change from using no DKIM authentication to using BYODKIM.
-        - Change from using Easy DKIM to using BYODKIM.
-        - Change from using BYODKIM to using Easy DKIM.
+        If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
         """
         return pulumi.get(self, "dkim_signing_attributes")
 
@@ -343,7 +315,7 @@ class EmailIdentity(pulumi.CustomResource):
     @pulumi.getter(name="feedbackAttributes")
     def feedback_attributes(self) -> pulumi.Output[Optional['outputs.EmailIdentityFeedbackAttributes']]:
         """
-        Used to enable or disable feedback forwarding for an identity. This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.
+        Used to enable or disable feedback forwarding for an identity.
         """
         return pulumi.get(self, "feedback_attributes")
 

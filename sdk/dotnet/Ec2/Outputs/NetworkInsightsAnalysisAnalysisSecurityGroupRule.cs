@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string? Direction;
         /// <summary>
-        /// Describes a range of ports.
+        /// The port range.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisPortRange? PortRange;
         /// <summary>

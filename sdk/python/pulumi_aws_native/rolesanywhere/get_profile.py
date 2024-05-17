@@ -127,7 +127,7 @@ class GetProfileResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        A label that consists of a key and value you define.
+        A list of Tags.
         """
         return pulumi.get(self, "tags")
 

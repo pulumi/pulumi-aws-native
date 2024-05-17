@@ -29,11 +29,7 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         /// <summary>
         /// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name.
         /// 
-        /// &gt; If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all. 
-        /// 
-        /// This configuration is used for `GeoMatchStatement` and `RateBasedStatement` . For `IPSetReferenceStatement` , use `IPSetForwardedIPConfig` instead.
-        /// 
-        /// AWS WAF only evaluates the first IP address found in the specified HTTP header.
+        /// &gt; If the specified header isn't present in the request, AWS WAF doesn't apply the rule to the web request at all.
         /// </summary>
         [Input("forwardedIpConfig")]
         public Input<Inputs.WebAclForwardedIpConfigurationArgs>? ForwardedIpConfig { get; set; }

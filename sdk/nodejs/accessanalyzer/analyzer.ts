@@ -83,7 +83,7 @@ export class Analyzer extends pulumi.CustomResource {
      */
     public readonly analyzerName!: pulumi.Output<string | undefined>;
     /**
-     * Contains information about an archive rule.
+     * Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
      */
     public readonly archiveRules!: pulumi.Output<outputs.accessanalyzer.AnalyzerArchiveRule[] | undefined>;
     /**
@@ -147,7 +147,7 @@ export interface AnalyzerArgs {
      */
     analyzerName?: pulumi.Input<string>;
     /**
-     * Contains information about an archive rule.
+     * Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
      */
     archiveRules?: pulumi.Input<pulumi.Input<inputs.accessanalyzer.AnalyzerArchiveRuleArgs>[]>;
     /**

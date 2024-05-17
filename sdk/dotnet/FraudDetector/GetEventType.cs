@@ -70,15 +70,15 @@ namespace Pulumi.AwsNative.FraudDetector
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The entity type details.
+        /// The event type entity types.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventTypeEntityType> EntityTypes;
         /// <summary>
-        /// The variables associated with this event type.
+        /// The event type event variables.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventTypeEventVariable> EventVariables;
         /// <summary>
-        /// The label associated with the event type.
+        /// The event type labels.
         /// </summary>
         public readonly ImmutableArray<Outputs.EventTypeLabel> Labels;
         /// <summary>

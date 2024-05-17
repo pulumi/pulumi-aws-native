@@ -100,7 +100,9 @@ export class Activity extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The `TagsEntry` property specifies *tags* to identify an activity.
+     * The list of tags to add to a resource.
+     *
+     * Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -149,7 +151,9 @@ export interface ActivityArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The `TagsEntry` property specifies *tags* to identify an activity.
+     * The list of tags to add to a resource.
+     *
+     * Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

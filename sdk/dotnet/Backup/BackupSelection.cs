@@ -28,7 +28,9 @@ namespace Pulumi.AwsNative.Backup
         public Output<string> BackupPlanId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies an object containing properties used to assign a set of resources to a backup plan.
+        /// Specifies the body of a request to assign a set of resources to a backup plan.
+        /// 
+        /// It includes an array of resources, an optional array of patterns to exclude resources, an optional role to provide access to the AWS service the resource belongs to, and an optional array of tags used to identify a set of resources.
         /// </summary>
         [Output("backupSelection")]
         public Output<Outputs.BackupSelectionResourceType> BackupSelectionValue { get; private set; } = null!;
@@ -96,7 +98,9 @@ namespace Pulumi.AwsNative.Backup
         public Input<string> BackupPlanId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies an object containing properties used to assign a set of resources to a backup plan.
+        /// Specifies the body of a request to assign a set of resources to a backup plan.
+        /// 
+        /// It includes an array of resources, an optional array of patterns to exclude resources, an optional role to provide access to the AWS service the resource belongs to, and an optional array of tags used to identify a set of resources.
         /// </summary>
         [Input("backupSelection", required: true)]
         public Input<Inputs.BackupSelectionResourceTypeArgs> BackupSelectionValue { get; set; } = null!;

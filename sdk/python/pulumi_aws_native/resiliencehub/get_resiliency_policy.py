@@ -55,7 +55,7 @@ class GetResiliencyPolicyResult:
     @pulumi.getter
     def policy(self) -> Optional['outputs.ResiliencyPolicyPolicyMap']:
         """
-        The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds.
+        The resiliency policy.
         """
         return pulumi.get(self, "policy")
 

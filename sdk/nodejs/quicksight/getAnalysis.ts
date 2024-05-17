@@ -56,7 +56,9 @@ export interface GetAnalysisResult {
      */
     readonly name?: string;
     /**
-     * Permission for the resource.
+     * A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+     *
+     * To specify no permissions, omit `Permissions` .
      */
     readonly permissions?: outputs.quicksight.AnalysisResourcePermission[];
     /**

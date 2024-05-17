@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DataSetRelationalTable? RelationalTable;
         /// <summary>
-        /// A physical table type for an S3 data source.
+        /// A physical table type for as S3 data source.
         /// </summary>
         public readonly Outputs.DataSetS3Source? S3Source;
 

@@ -22,7 +22,21 @@ namespace Pulumi.AwsNative.StepFunctions
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Enables gradual state machine deployments. CloudFormation automatically shifts traffic from the version the alias currently points to, to a new state machine version that you specify.
+        /// The settings that enable gradual state machine deployments. These settings include [Alarms](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-alarms) , [Interval](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-interval) , [Percentage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-percentage) , [StateMachineVersionArn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-statemachineversionarn) , and [Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-type) .
+        /// 
+        /// CloudFormation automatically shifts traffic from the version an alias currently points to, to a new state machine version that you specify.
+        /// 
+        /// &gt; `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties. 
+        /// 
+        /// Based on the type of deployment you want to perform, you can specify one of the following settings:
+        /// 
+        /// - `LINEAR` - Shifts traffic to the new version in equal increments with an equal number of minutes between each increment.
+        /// 
+        /// For example, if you specify the increment percent as `20` with an interval of `600` minutes, this deployment increases traffic by 20 percent every 600 minutes until the new version receives 100 percent of the traffic. This deployment immediately rolls back the new version if any Amazon CloudWatch alarms are triggered.
+        /// - `ALL_AT_ONCE` - Shifts 100 percent of traffic to the new version immediately. CloudFormation monitors the new version and rolls it back automatically to the previous version if any CloudWatch alarms are triggered.
+        /// - `CANARY` - Shifts traffic in two increments.
+        /// 
+        /// In the first increment, a small percentage of traffic, for example, 10 percent is shifted to the new version. In the second increment, before a specified time interval in seconds gets over, the remaining traffic is shifted to the new version. The shift to the new version for the remaining traffic takes place only if no CloudWatch alarms are triggered during the specified time interval.
         /// </summary>
         [Output("deploymentPreference")]
         public Output<Outputs.StateMachineAliasDeploymentPreference?> DeploymentPreference { get; private set; } = null!;
@@ -99,7 +113,21 @@ namespace Pulumi.AwsNative.StepFunctions
     public sealed class StateMachineAliasArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enables gradual state machine deployments. CloudFormation automatically shifts traffic from the version the alias currently points to, to a new state machine version that you specify.
+        /// The settings that enable gradual state machine deployments. These settings include [Alarms](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-alarms) , [Interval](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-interval) , [Percentage](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-percentage) , [StateMachineVersionArn](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-statemachineversionarn) , and [Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html#cfn-stepfunctions-statemachinealias-deploymentpreference-type) .
+        /// 
+        /// CloudFormation automatically shifts traffic from the version an alias currently points to, to a new state machine version that you specify.
+        /// 
+        /// &gt; `RoutingConfiguration` and `DeploymentPreference` are mutually exclusive properties. You must define only one of these properties. 
+        /// 
+        /// Based on the type of deployment you want to perform, you can specify one of the following settings:
+        /// 
+        /// - `LINEAR` - Shifts traffic to the new version in equal increments with an equal number of minutes between each increment.
+        /// 
+        /// For example, if you specify the increment percent as `20` with an interval of `600` minutes, this deployment increases traffic by 20 percent every 600 minutes until the new version receives 100 percent of the traffic. This deployment immediately rolls back the new version if any Amazon CloudWatch alarms are triggered.
+        /// - `ALL_AT_ONCE` - Shifts 100 percent of traffic to the new version immediately. CloudFormation monitors the new version and rolls it back automatically to the previous version if any CloudWatch alarms are triggered.
+        /// - `CANARY` - Shifts traffic in two increments.
+        /// 
+        /// In the first increment, a small percentage of traffic, for example, 10 percent is shifted to the new version. In the second increment, before a specified time interval in seconds gets over, the remaining traffic is shifted to the new version. The shift to the new version for the remaining traffic takes place only if no CloudWatch alarms are triggered during the specified time interval.
         /// </summary>
         [Input("deploymentPreference")]
         public Input<Inputs.StateMachineAliasDeploymentPreferenceArgs>? DeploymentPreference { get; set; }

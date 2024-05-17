@@ -69,7 +69,7 @@ class GetDataflowEndpointGroupResult:
     @pulumi.getter(name="endpointDetails")
     def endpoint_details(self) -> Optional[Sequence['outputs.DataflowEndpointGroupEndpointDetails']]:
         """
-        The security details and endpoint information.
+        List of Endpoint Details, containing address and port for each endpoint.
         """
         return pulumi.get(self, "endpoint_details")
 

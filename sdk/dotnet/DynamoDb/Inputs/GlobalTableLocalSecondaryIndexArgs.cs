@@ -22,11 +22,14 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
         private InputList<Inputs.GlobalTableKeySchemaArgs>? _keySchema;
 
         /// <summary>
-        /// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
+        /// The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:
         /// 
-        /// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
+        /// - `HASH` - partition key
+        /// - `RANGE` - sort key
         /// 
-        /// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+        /// &gt; The partition key of an item is also known as its *hash attribute* . The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.
+        /// &gt; 
+        /// &gt; The sort key of an item is also known as its *range attribute* . The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.
         /// </summary>
         public InputList<Inputs.GlobalTableKeySchemaArgs> KeySchema
         {
@@ -35,7 +38,7 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
         }
 
         /// <summary>
-        /// Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
+        /// Represents attributes that are copied (projected) from the table into the local secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
         /// </summary>
         [Input("projection", required: true)]
         public Input<Inputs.GlobalTableProjectionArgs> Projection { get; set; } = null!;

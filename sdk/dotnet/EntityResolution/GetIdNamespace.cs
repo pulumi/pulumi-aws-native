@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.EntityResolution
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// An object containing `IdMappingType` and `ProviderProperties` .
+        /// Determines the properties of `IdMappingWorflow` where this `IdNamespace` can be used as a `Source` or a `Target` .
         /// </summary>
         public readonly ImmutableArray<Outputs.IdNamespaceIdMappingWorkflowProperties> IdMappingWorkflowProperties;
         /// <summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.EntityResolution
         /// </summary>
         public readonly string? IdNamespaceArn;
         /// <summary>
-        /// An object containing `InputSourceARN` and `SchemaName` .
+        /// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
         /// </summary>
         public readonly ImmutableArray<Outputs.IdNamespaceInputSource> InputSourceConfig;
         /// <summary>

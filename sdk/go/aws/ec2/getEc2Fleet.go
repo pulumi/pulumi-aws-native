@@ -36,9 +36,7 @@ type LookupEc2FleetResult struct {
 	ExcessCapacityTerminationPolicy *Ec2FleetExcessCapacityTerminationPolicy `pulumi:"excessCapacityTerminationPolicy"`
 	// The ID of the EC2 Fleet.
 	FleetId *string `pulumi:"fleetId"`
-	// Specifies the number of units to request for an EC2 Fleet. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of `0` and add capacity later.
-	//
-	// `TargetCapacitySpecificationRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+	// The number of units to request.
 	TargetCapacitySpecification *Ec2FleetTargetCapacitySpecificationRequest `pulumi:"targetCapacitySpecification"`
 }
 
@@ -97,9 +95,7 @@ func (o LookupEc2FleetResultOutput) FleetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEc2FleetResult) *string { return v.FleetId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the number of units to request for an EC2 Fleet. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of `0` and add capacity later.
-//
-// `TargetCapacitySpecificationRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+// The number of units to request.
 func (o LookupEc2FleetResultOutput) TargetCapacitySpecification() Ec2FleetTargetCapacitySpecificationRequestPtrOutput {
 	return o.ApplyT(func(v LookupEc2FleetResult) *Ec2FleetTargetCapacitySpecificationRequest {
 		return v.TargetCapacitySpecification

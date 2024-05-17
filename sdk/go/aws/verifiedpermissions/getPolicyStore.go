@@ -34,9 +34,13 @@ type LookupPolicyStoreResult struct {
 	Description *string `pulumi:"description"`
 	// The unique ID of the new or updated policy store.
 	PolicyStoreId *string `pulumi:"policyStoreId"`
-	// Contains a list of principal types, resource types, and actions that can be specified in policies stored in the same policy store. If the validation mode for the policy store is set to `STRICT` , then policies that can't be validated by this schema are rejected by Verified Permissions and can't be stored in the policy store.
+	// Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
 	Schema *PolicyStoreSchemaDefinition `pulumi:"schema"`
-	// A structure that contains Cedar policy validation settings for the policy store. The validation mode determines which validation failures that Cedar considers serious enough to block acceptance of a new or edited static policy or policy template.
+	// Specifies the validation setting for this policy store.
+	//
+	// Currently, the only valid and required value is `Mode` .
+	//
+	// > We recommend that you turn on `STRICT` mode only after you define a schema. If a schema doesn't exist, then `STRICT` mode causes any policy to fail validation, and Verified Permissions rejects the policy. You can turn off validation by using the [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) . Then, when you have a schema defined, use [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) again to turn validation back on.
 	ValidationSettings *PolicyStoreValidationSettings `pulumi:"validationSettings"`
 }
 
@@ -91,12 +95,16 @@ func (o LookupPolicyStoreResultOutput) PolicyStoreId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPolicyStoreResult) *string { return v.PolicyStoreId }).(pulumi.StringPtrOutput)
 }
 
-// Contains a list of principal types, resource types, and actions that can be specified in policies stored in the same policy store. If the validation mode for the policy store is set to `STRICT` , then policies that can't be validated by this schema are rejected by Verified Permissions and can't be stored in the policy store.
+// Creates or updates the policy schema in a policy store. Cedar can use the schema to validate any Cedar policies and policy templates submitted to the policy store. Any changes to the schema validate only policies and templates submitted after the schema change. Existing policies and templates are not re-evaluated against the changed schema. If you later update a policy, then it is evaluated against the new schema at that time.
 func (o LookupPolicyStoreResultOutput) Schema() PolicyStoreSchemaDefinitionPtrOutput {
 	return o.ApplyT(func(v LookupPolicyStoreResult) *PolicyStoreSchemaDefinition { return v.Schema }).(PolicyStoreSchemaDefinitionPtrOutput)
 }
 
-// A structure that contains Cedar policy validation settings for the policy store. The validation mode determines which validation failures that Cedar considers serious enough to block acceptance of a new or edited static policy or policy template.
+// Specifies the validation setting for this policy store.
+//
+// Currently, the only valid and required value is `Mode` .
+//
+// > We recommend that you turn on `STRICT` mode only after you define a schema. If a schema doesn't exist, then `STRICT` mode causes any policy to fail validation, and Verified Permissions rejects the policy. You can turn off validation by using the [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) . Then, when you have a schema defined, use [UpdatePolicyStore](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyStore) again to turn validation back on.
 func (o LookupPolicyStoreResultOutput) ValidationSettings() PolicyStoreValidationSettingsPtrOutput {
 	return o.ApplyT(func(v LookupPolicyStoreResult) *PolicyStoreValidationSettings { return v.ValidationSettings }).(PolicyStoreValidationSettingsPtrOutput)
 }

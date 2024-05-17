@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AppSync.Outputs
         /// </summary>
         public readonly string? ConflictHandler;
         /// <summary>
-        /// The `LambdaConflictHandlerConfig` object when configuring `LAMBDA` as the Conflict Handler.
+        /// The `LambdaConflictHandlerConfig` when configuring `LAMBDA` as the Conflict Handler.
         /// </summary>
         public readonly Outputs.FunctionConfigurationLambdaConflictHandlerConfig? LambdaConflictHandlerConfig;
 

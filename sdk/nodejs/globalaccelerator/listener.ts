@@ -50,7 +50,7 @@ export class Listener extends pulumi.CustomResource {
      */
     public /*out*/ readonly listenerArn!: pulumi.Output<string>;
     /**
-     * A complex type for a range of ports for a listener.
+     * The list of port ranges for the connections from clients to the accelerator.
      */
     public readonly portRanges!: pulumi.Output<outputs.globalaccelerator.ListenerPortRange[]>;
     /**
@@ -110,7 +110,7 @@ export interface ListenerArgs {
      */
     clientAffinity?: pulumi.Input<enums.globalaccelerator.ListenerClientAffinity>;
     /**
-     * A complex type for a range of ports for a listener.
+     * The list of port ranges for the connections from clients to the accelerator.
      */
     portRanges: pulumi.Input<pulumi.Input<inputs.globalaccelerator.ListenerPortRangeArgs>[]>;
     /**

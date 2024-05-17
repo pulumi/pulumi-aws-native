@@ -45,7 +45,7 @@ export interface GetCaCertificateResult {
      */
     readonly id?: string;
     /**
-     * The registration configuration.
+     * Information about the registration configuration.
      */
     readonly registrationConfig?: outputs.iot.CaCertificateRegistrationConfig;
     /**

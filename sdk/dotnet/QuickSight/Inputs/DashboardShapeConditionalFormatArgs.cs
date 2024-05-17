@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardShapeConditionalFormatArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The formatting configuration for the color.
+        /// The conditional formatting for the shape background color of a filled map visual.
         /// </summary>
         [Input("backgroundColor", required: true)]
         public Input<Inputs.DashboardConditionalFormattingColorArgs> BackgroundColor { get; set; } = null!;

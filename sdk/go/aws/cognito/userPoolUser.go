@@ -37,7 +37,7 @@ type UserPoolUser struct {
 	ForceAliasCreation pulumi.BoolPtrOutput `pulumi:"forceAliasCreation"`
 	// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. You can specify only one value.
 	MessageAction pulumi.StringPtrOutput `pulumi:"messageAction"`
-	// Specifies whether the attribute is standard or custom.
+	// An array of name-value pairs that contain user attributes and attribute values.
 	UserAttributes UserPoolUserAttributeTypeArrayOutput `pulumi:"userAttributes"`
 	// The user pool ID for the user pool where the user will be created.
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
@@ -47,7 +47,11 @@ type UserPoolUser struct {
 	// - You can't change the value of a username after you create it.
 	// - You can only provide a value if usernames are a valid sign-in attribute for your user pool. If your user pool only supports phone numbers or email addresses as sign-in attributes, Amazon Cognito automatically generates a username value. For more information, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
 	Username pulumi.StringPtrOutput `pulumi:"username"`
-	// Specifies whether the attribute is standard or custom.
+	// Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger. This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.
+	//
+	// Your Lambda function can analyze this additional data and act on it. Your function might perform external API operations like logging user attributes and validation data to Amazon CloudWatch Logs. Validation data might also affect the response that your function returns to Amazon Cognito, like automatically confirming the user if they sign up from within your network.
+	//
+	// For more information about the pre sign-up Lambda trigger, see [Pre sign-up Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html) .
 	ValidationData UserPoolUserAttributeTypeArrayOutput `pulumi:"validationData"`
 }
 
@@ -126,7 +130,7 @@ type userPoolUserArgs struct {
 	ForceAliasCreation *bool `pulumi:"forceAliasCreation"`
 	// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. You can specify only one value.
 	MessageAction *string `pulumi:"messageAction"`
-	// Specifies whether the attribute is standard or custom.
+	// An array of name-value pairs that contain user attributes and attribute values.
 	UserAttributes []UserPoolUserAttributeType `pulumi:"userAttributes"`
 	// The user pool ID for the user pool where the user will be created.
 	UserPoolId string `pulumi:"userPoolId"`
@@ -136,7 +140,11 @@ type userPoolUserArgs struct {
 	// - You can't change the value of a username after you create it.
 	// - You can only provide a value if usernames are a valid sign-in attribute for your user pool. If your user pool only supports phone numbers or email addresses as sign-in attributes, Amazon Cognito automatically generates a username value. For more information, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
 	Username *string `pulumi:"username"`
-	// Specifies whether the attribute is standard or custom.
+	// Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger. This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.
+	//
+	// Your Lambda function can analyze this additional data and act on it. Your function might perform external API operations like logging user attributes and validation data to Amazon CloudWatch Logs. Validation data might also affect the response that your function returns to Amazon Cognito, like automatically confirming the user if they sign up from within your network.
+	//
+	// For more information about the pre sign-up Lambda trigger, see [Pre sign-up Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html) .
 	ValidationData []UserPoolUserAttributeType `pulumi:"validationData"`
 }
 
@@ -163,7 +171,7 @@ type UserPoolUserArgs struct {
 	ForceAliasCreation pulumi.BoolPtrInput
 	// Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. You can specify only one value.
 	MessageAction pulumi.StringPtrInput
-	// Specifies whether the attribute is standard or custom.
+	// An array of name-value pairs that contain user attributes and attribute values.
 	UserAttributes UserPoolUserAttributeTypeArrayInput
 	// The user pool ID for the user pool where the user will be created.
 	UserPoolId pulumi.StringInput
@@ -173,7 +181,11 @@ type UserPoolUserArgs struct {
 	// - You can't change the value of a username after you create it.
 	// - You can only provide a value if usernames are a valid sign-in attribute for your user pool. If your user pool only supports phone numbers or email addresses as sign-in attributes, Amazon Cognito automatically generates a username value. For more information, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
 	Username pulumi.StringPtrInput
-	// Specifies whether the attribute is standard or custom.
+	// Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger. This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.
+	//
+	// Your Lambda function can analyze this additional data and act on it. Your function might perform external API operations like logging user attributes and validation data to Amazon CloudWatch Logs. Validation data might also affect the response that your function returns to Amazon Cognito, like automatically confirming the user if they sign up from within your network.
+	//
+	// For more information about the pre sign-up Lambda trigger, see [Pre sign-up Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html) .
 	ValidationData UserPoolUserAttributeTypeArrayInput
 }
 
@@ -247,7 +259,7 @@ func (o UserPoolUserOutput) MessageAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolUser) pulumi.StringPtrOutput { return v.MessageAction }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the attribute is standard or custom.
+// An array of name-value pairs that contain user attributes and attribute values.
 func (o UserPoolUserOutput) UserAttributes() UserPoolUserAttributeTypeArrayOutput {
 	return o.ApplyT(func(v *UserPoolUser) UserPoolUserAttributeTypeArrayOutput { return v.UserAttributes }).(UserPoolUserAttributeTypeArrayOutput)
 }
@@ -266,7 +278,11 @@ func (o UserPoolUserOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolUser) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the attribute is standard or custom.
+// Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger. This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.
+//
+// Your Lambda function can analyze this additional data and act on it. Your function might perform external API operations like logging user attributes and validation data to Amazon CloudWatch Logs. Validation data might also affect the response that your function returns to Amazon Cognito, like automatically confirming the user if they sign up from within your network.
+//
+// For more information about the pre sign-up Lambda trigger, see [Pre sign-up Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html) .
 func (o UserPoolUserOutput) ValidationData() UserPoolUserAttributeTypeArrayOutput {
 	return o.ApplyT(func(v *UserPoolUser) UserPoolUserAttributeTypeArrayOutput { return v.ValidationData }).(UserPoolUserAttributeTypeArrayOutput)
 }

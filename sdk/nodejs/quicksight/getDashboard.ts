@@ -56,16 +56,15 @@ export interface GetDashboardResult {
      */
     readonly name?: string;
     /**
-     * Permission for the resource.
+     * A structure that contains the permissions of the dashboard. You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
+     *
+     * To specify no permissions, omit the permissions list.
      */
     readonly permissions?: outputs.quicksight.DashboardResourcePermission[];
     /**
      * Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
      */
     readonly tags?: outputs.Tag[];
-    /**
-     * Dashboard version.
-     */
     readonly version?: outputs.quicksight.DashboardVersion;
 }
 /**

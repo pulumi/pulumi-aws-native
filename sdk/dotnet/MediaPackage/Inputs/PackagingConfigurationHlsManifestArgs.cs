@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public Input<bool>? RepeatExtXKey { get; set; }
 
         /// <summary>
-        /// Limitations for outputs from the endpoint, based on the video bitrate.
+        /// Video bitrate limitations for outputs from this packaging configuration.
         /// </summary>
         [Input("streamSelection")]
         public Input<Inputs.PackagingConfigurationStreamSelectionArgs>? StreamSelection { get; set; }

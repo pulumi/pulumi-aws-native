@@ -277,7 +277,7 @@ func (o UserSettingsCookieSpecificationArrayOutput) Index(i pulumi.IntInput) Use
 }
 
 type UserSettingsCookieSynchronizationConfiguration struct {
-	// Specifies a single cookie or set of cookies in an end user's browser.
+	// The list of cookie specifications that are allowed to be synchronized to the remote browser.
 	Allowlist []UserSettingsCookieSpecification `pulumi:"allowlist"`
 	// The list of cookie specifications that are blocked from being synchronized to the remote browser.
 	Blocklist []UserSettingsCookieSpecification `pulumi:"blocklist"`
@@ -295,7 +295,7 @@ type UserSettingsCookieSynchronizationConfigurationInput interface {
 }
 
 type UserSettingsCookieSynchronizationConfigurationArgs struct {
-	// Specifies a single cookie or set of cookies in an end user's browser.
+	// The list of cookie specifications that are allowed to be synchronized to the remote browser.
 	Allowlist UserSettingsCookieSpecificationArrayInput `pulumi:"allowlist"`
 	// The list of cookie specifications that are blocked from being synchronized to the remote browser.
 	Blocklist UserSettingsCookieSpecificationArrayInput `pulumi:"blocklist"`
@@ -378,7 +378,7 @@ func (o UserSettingsCookieSynchronizationConfigurationOutput) ToUserSettingsCook
 	}).(UserSettingsCookieSynchronizationConfigurationPtrOutput)
 }
 
-// Specifies a single cookie or set of cookies in an end user's browser.
+// The list of cookie specifications that are allowed to be synchronized to the remote browser.
 func (o UserSettingsCookieSynchronizationConfigurationOutput) Allowlist() UserSettingsCookieSpecificationArrayOutput {
 	return o.ApplyT(func(v UserSettingsCookieSynchronizationConfiguration) []UserSettingsCookieSpecification {
 		return v.Allowlist
@@ -416,7 +416,7 @@ func (o UserSettingsCookieSynchronizationConfigurationPtrOutput) Elem() UserSett
 	}).(UserSettingsCookieSynchronizationConfigurationOutput)
 }
 
-// Specifies a single cookie or set of cookies in an end user's browser.
+// The list of cookie specifications that are allowed to be synchronized to the remote browser.
 func (o UserSettingsCookieSynchronizationConfigurationPtrOutput) Allowlist() UserSettingsCookieSpecificationArrayOutput {
 	return o.ApplyT(func(v *UserSettingsCookieSynchronizationConfiguration) []UserSettingsCookieSpecification {
 		if v == nil {

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisBarChartAggregatedFieldWells
     {
         /// <summary>
-        /// The dimension type field.
+        /// The category (y-axis) field well of a bar chart.
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDimensionField> Category;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDimensionField> SmallMultiples;
         /// <summary>
-        /// The measure (metric) type field.
+        /// The value field wells of a bar chart. Values are aggregated by category.
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisMeasureField> Values;
 

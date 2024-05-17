@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
         public Output<string> OriginEndpointName { get; private set; } = null!;
 
         /// <summary>
-        /// The segment configuration, including the segment name, duration, and other configuration values.
+        /// The segment associated with the origin endpoint.
         /// </summary>
         [Output("segment")]
         public Output<Outputs.OriginEndpointSegment?> Segment { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
         public Input<string>? OriginEndpointName { get; set; }
 
         /// <summary>
-        /// The segment configuration, including the segment name, duration, and other configuration values.
+        /// The segment associated with the origin endpoint.
         /// </summary>
         [Input("segment")]
         public Input<Inputs.OriginEndpointSegmentArgs>? Segment { get; set; }

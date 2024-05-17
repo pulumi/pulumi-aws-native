@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisGaugeChartPrimaryValueConditionalFormatting
     {
         /// <summary>
-        /// The formatting configuration for the icon.
+        /// The conditional formatting of the primary value icon.
         /// </summary>
         public readonly Outputs.AnalysisConditionalFormattingIcon? Icon;
         /// <summary>
-        /// The formatting configuration for the color.
+        /// The conditional formatting of the primary value text color.
         /// </summary>
         public readonly Outputs.AnalysisConditionalFormattingColor? TextColor;
 

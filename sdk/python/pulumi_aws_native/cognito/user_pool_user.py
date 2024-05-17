@@ -45,13 +45,17 @@ class UserPoolUserArgs:
                
                If this parameter is set to `False` , the API throws an `AliasExistsException` error if the alias already exists. The default value is `False` .
         :param pulumi.Input[str] message_action: Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. You can specify only one value.
-        :param pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]] user_attributes: Specifies whether the attribute is standard or custom.
+        :param pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]] user_attributes: An array of name-value pairs that contain user attributes and attribute values.
         :param pulumi.Input[str] username: The value that you want to set as the username sign-in attribute. The following conditions apply to the username parameter.
                
                - The username can't be a duplicate of another username in the same user pool.
                - You can't change the value of a username after you create it.
                - You can only provide a value if usernames are a valid sign-in attribute for your user pool. If your user pool only supports phone numbers or email addresses as sign-in attributes, Amazon Cognito automatically generates a username value. For more information, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
-        :param pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]] validation_data: Specifies whether the attribute is standard or custom.
+        :param pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]] validation_data: Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger. This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.
+               
+               Your Lambda function can analyze this additional data and act on it. Your function might perform external API operations like logging user attributes and validation data to Amazon CloudWatch Logs. Validation data might also affect the response that your function returns to Amazon Cognito, like automatically confirming the user if they sign up from within your network.
+               
+               For more information about the pre sign-up Lambda trigger, see [Pre sign-up Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html) .
         """
         pulumi.set(__self__, "user_pool_id", user_pool_id)
         if client_metadata is not None:
@@ -147,7 +151,7 @@ class UserPoolUserArgs:
     @pulumi.getter(name="userAttributes")
     def user_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]]:
         """
-        Specifies whether the attribute is standard or custom.
+        An array of name-value pairs that contain user attributes and attribute values.
         """
         return pulumi.get(self, "user_attributes")
 
@@ -175,7 +179,11 @@ class UserPoolUserArgs:
     @pulumi.getter(name="validationData")
     def validation_data(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolUserAttributeTypeArgs']]]]:
         """
-        Specifies whether the attribute is standard or custom.
+        Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger. This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.
+
+        Your Lambda function can analyze this additional data and act on it. Your function might perform external API operations like logging user attributes and validation data to Amazon CloudWatch Logs. Validation data might also affect the response that your function returns to Amazon Cognito, like automatically confirming the user if they sign up from within your network.
+
+        For more information about the pre sign-up Lambda trigger, see [Pre sign-up Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html) .
         """
         return pulumi.get(self, "validation_data")
 
@@ -221,14 +229,18 @@ class UserPoolUser(pulumi.CustomResource):
                
                If this parameter is set to `False` , the API throws an `AliasExistsException` error if the alias already exists. The default value is `False` .
         :param pulumi.Input[str] message_action: Set to `RESEND` to resend the invitation message to a user that already exists and reset the expiration limit on the user's account. Set to `SUPPRESS` to suppress sending the message. You can specify only one value.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPoolUserAttributeTypeArgs']]]] user_attributes: Specifies whether the attribute is standard or custom.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPoolUserAttributeTypeArgs']]]] user_attributes: An array of name-value pairs that contain user attributes and attribute values.
         :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool where the user will be created.
         :param pulumi.Input[str] username: The value that you want to set as the username sign-in attribute. The following conditions apply to the username parameter.
                
                - The username can't be a duplicate of another username in the same user pool.
                - You can't change the value of a username after you create it.
                - You can only provide a value if usernames are a valid sign-in attribute for your user pool. If your user pool only supports phone numbers or email addresses as sign-in attributes, Amazon Cognito automatically generates a username value. For more information, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPoolUserAttributeTypeArgs']]]] validation_data: Specifies whether the attribute is standard or custom.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserPoolUserAttributeTypeArgs']]]] validation_data: Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger. This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.
+               
+               Your Lambda function can analyze this additional data and act on it. Your function might perform external API operations like logging user attributes and validation data to Amazon CloudWatch Logs. Validation data might also affect the response that your function returns to Amazon Cognito, like automatically confirming the user if they sign up from within your network.
+               
+               For more information about the pre sign-up Lambda trigger, see [Pre sign-up Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html) .
         """
         ...
     @overload
@@ -365,7 +377,7 @@ class UserPoolUser(pulumi.CustomResource):
     @pulumi.getter(name="userAttributes")
     def user_attributes(self) -> pulumi.Output[Optional[Sequence['outputs.UserPoolUserAttributeType']]]:
         """
-        Specifies whether the attribute is standard or custom.
+        An array of name-value pairs that contain user attributes and attribute values.
         """
         return pulumi.get(self, "user_attributes")
 
@@ -393,7 +405,11 @@ class UserPoolUser(pulumi.CustomResource):
     @pulumi.getter(name="validationData")
     def validation_data(self) -> pulumi.Output[Optional[Sequence['outputs.UserPoolUserAttributeType']]]:
         """
-        Specifies whether the attribute is standard or custom.
+        Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger. This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.
+
+        Your Lambda function can analyze this additional data and act on it. Your function might perform external API operations like logging user attributes and validation data to Amazon CloudWatch Logs. Validation data might also affect the response that your function returns to Amazon Cognito, like automatically confirming the user if they sign up from within your network.
+
+        For more information about the pre sign-up Lambda trigger, see [Pre sign-up Lambda trigger](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html) .
         """
         return pulumi.get(self, "validation_data")
 

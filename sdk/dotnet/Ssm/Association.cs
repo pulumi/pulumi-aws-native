@@ -292,9 +292,7 @@ namespace Pulumi.AwsNative.Ssm
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// `InstanceAssociationOutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
-        /// 
-        /// For the minimal permissions required to enable Amazon S3 output for an association, see [Creating associations](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc.html) in the *Systems Manager User Guide* .
+        /// An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
         /// </summary>
         [Output("outputLocation")]
         public Output<Outputs.AssociationInstanceAssociationOutputLocation?> OutputLocation { get; private set; } = null!;
@@ -457,9 +455,7 @@ namespace Pulumi.AwsNative.Ssm
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// `InstanceAssociationOutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
-        /// 
-        /// For the minimal permissions required to enable Amazon S3 output for an association, see [Creating associations](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc.html) in the *Systems Manager User Guide* .
+        /// An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
         /// </summary>
         [Input("outputLocation")]
         public Input<Inputs.AssociationInstanceAssociationOutputLocationArgs>? OutputLocation { get; set; }

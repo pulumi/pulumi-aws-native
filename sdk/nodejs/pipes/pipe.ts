@@ -102,7 +102,7 @@ export class Pipe extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
     /**
-     * Represents the configuration settings for the logs to which this pipe should report events.
+     * The logging configuration settings for the pipe.
      */
     public readonly logConfiguration!: pulumi.Output<outputs.pipes.PipeLogConfiguration | undefined>;
     /**
@@ -224,7 +224,7 @@ export interface PipeArgs {
      */
     enrichmentParameters?: pulumi.Input<inputs.pipes.PipeEnrichmentParametersArgs>;
     /**
-     * Represents the configuration settings for the logs to which this pipe should report events.
+     * The logging configuration settings for the pipe.
      */
     logConfiguration?: pulumi.Input<inputs.pipes.PipeLogConfigurationArgs>;
     /**

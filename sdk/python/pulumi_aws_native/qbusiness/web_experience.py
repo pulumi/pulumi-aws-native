@@ -30,7 +30,7 @@ class WebExperienceArgs:
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the service role attached to your web experience.
         :param pulumi.Input['WebExperienceSamplePromptsControlMode'] sample_prompts_control_mode: Determines whether sample prompts are enabled in the web experience for an end user.
         :param pulumi.Input[str] subtitle: A subtitle to personalize your Amazon Q Business web experience.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         :param pulumi.Input[str] title: The title for your Amazon Q Business web experience.
         :param pulumi.Input[str] welcome_message: A message in an Amazon Q Business web experience.
         """
@@ -100,7 +100,7 @@ class WebExperienceArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         """
         return pulumi.get(self, "tags")
 
@@ -155,7 +155,7 @@ class WebExperience(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the service role attached to your web experience.
         :param pulumi.Input['WebExperienceSamplePromptsControlMode'] sample_prompts_control_mode: Determines whether sample prompts are enabled in the web experience for an end user.
         :param pulumi.Input[str] subtitle: A subtitle to personalize your Amazon Q Business web experience.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         :param pulumi.Input[str] title: The title for your Amazon Q Business web experience.
         :param pulumi.Input[str] welcome_message: A message in an Amazon Q Business web experience.
         """
@@ -313,7 +313,7 @@ class WebExperience(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         """
         return pulumi.get(self, "tags")
 

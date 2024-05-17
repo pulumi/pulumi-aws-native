@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateDefaultGridLayoutConfiguration
     {
         /// <summary>
-        /// Configuration options for the canvas of a grid layout.
+        /// Determines the screen canvas size options for a grid layout.
         /// </summary>
         public readonly Outputs.TemplateGridLayoutCanvasSizeOptions CanvasSizeOptions;
 

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
     public sealed class ConfiguredTableAnalysisRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Controls on the query specifications that can be run on a configured table.
+        /// A policy that describes the associated data usage limitations.
         /// </summary>
         [Input("policy", required: true)]
         public Input<Inputs.ConfiguredTableAnalysisRulePolicyArgs> Policy { get; set; } = null!;

@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     public sealed class InferenceComponentSpecification
     {
         /// <summary>
-        /// Defines the compute resources to allocate to run a model that you assign to an inference component. These resources include CPU cores, accelerators, and memory.
+        /// The compute resources allocated to run the model assigned to the inference component.
         /// </summary>
         public readonly Outputs.InferenceComponentComputeResourceRequirements ComputeResourceRequirements;
         /// <summary>

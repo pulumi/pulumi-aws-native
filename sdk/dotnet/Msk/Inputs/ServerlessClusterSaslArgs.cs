@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Msk.Inputs
     public sealed class ServerlessClusterSaslArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Details for SASL/IAM client authentication.
+        /// Details for ClientAuthentication using IAM.
         /// </summary>
         [Input("iam", required: true)]
         public Input<Inputs.ServerlessClusterIamArgs> Iam { get; set; } = null!;

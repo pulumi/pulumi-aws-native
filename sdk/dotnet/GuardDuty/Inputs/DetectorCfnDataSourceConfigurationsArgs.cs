@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GuardDuty.Inputs
     public sealed class DetectorCfnDataSourceConfigurationsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes which Kubernetes protection data sources are enabled for the detector.
+        /// Describes which Kubernetes data sources are enabled for a detector.
         /// </summary>
         [Input("kubernetes")]
         public Input<Inputs.DetectorCfnKubernetesConfigurationArgs>? Kubernetes { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.GuardDuty.Inputs
         public Input<Inputs.DetectorCfnMalwareProtectionConfigurationArgs>? MalwareProtection { get; set; }
 
         /// <summary>
-        /// Describes whether S3 data event logs will be enabled as a data source when the detector is created.
+        /// Describes whether S3 data event logs are enabled as a data source.
         /// </summary>
         [Input("s3Logs")]
         public Input<Inputs.DetectorCfns3LogsConfigurationArgs>? S3Logs { get; set; }

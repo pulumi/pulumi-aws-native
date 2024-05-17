@@ -29,7 +29,7 @@ class MissionProfileArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MissionProfile resource.
-        :param pulumi.Input[Sequence[pulumi.Input['MissionProfileDataflowEdgeArgs']]] dataflow_edges: A dataflow edge defines from where and to where data will flow during a contact.
+        :param pulumi.Input[Sequence[pulumi.Input['MissionProfileDataflowEdgeArgs']]] dataflow_edges: A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
         :param pulumi.Input[int] minimum_viable_contact_duration_seconds: Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
         :param pulumi.Input[str] tracking_config_arn: The ARN of a tracking config objects that defines how to track the satellite through the sky during a contact.
         :param pulumi.Input[int] contact_post_pass_duration_seconds: Post-pass time needed after the contact.
@@ -59,7 +59,7 @@ class MissionProfileArgs:
     @pulumi.getter(name="dataflowEdges")
     def dataflow_edges(self) -> pulumi.Input[Sequence[pulumi.Input['MissionProfileDataflowEdgeArgs']]]:
         """
-        A dataflow edge defines from where and to where data will flow during a contact.
+        A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
         """
         return pulumi.get(self, "dataflow_edges")
 
@@ -236,7 +236,7 @@ class MissionProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] contact_post_pass_duration_seconds: Post-pass time needed after the contact.
         :param pulumi.Input[int] contact_pre_pass_duration_seconds: Pre-pass time needed before the contact.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MissionProfileDataflowEdgeArgs']]]] dataflow_edges: A dataflow edge defines from where and to where data will flow during a contact.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MissionProfileDataflowEdgeArgs']]]] dataflow_edges: A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
         :param pulumi.Input[int] minimum_viable_contact_duration_seconds: Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
         :param pulumi.Input[str] name: A name used to identify a mission profile.
         :param pulumi.Input[pulumi.InputType['MissionProfileStreamsKmsKeyArgs']] streams_kms_key: The ARN of a KMS Key used for encrypting data during transmission from the source to destination locations.
@@ -426,7 +426,7 @@ class MissionProfile(pulumi.CustomResource):
     @pulumi.getter(name="dataflowEdges")
     def dataflow_edges(self) -> pulumi.Output[Sequence['outputs.MissionProfileDataflowEdge']]:
         """
-        A dataflow edge defines from where and to where data will flow during a contact.
+        A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
         """
         return pulumi.get(self, "dataflow_edges")
 

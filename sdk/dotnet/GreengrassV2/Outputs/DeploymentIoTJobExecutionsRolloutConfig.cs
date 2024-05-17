@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
     public sealed class DeploymentIoTJobExecutionsRolloutConfig
     {
         /// <summary>
-        /// Contains information about an exponential rollout rate for a configuration deployment job.
+        /// The exponential rate to increase the job rollout rate.
         /// </summary>
         public readonly Outputs.DeploymentIoTJobExponentialRolloutRate? ExponentialRate;
         /// <summary>

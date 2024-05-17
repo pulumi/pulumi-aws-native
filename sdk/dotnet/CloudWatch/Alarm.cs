@@ -137,7 +137,9 @@ namespace Pulumi.AwsNative.CloudWatch
         public Output<string?> Statistic { get; private set; } = null!;
 
         /// <summary>
-        /// One of the key-value pairs associated with the alarm. Tags can help you organize and categorize your resources.
+        /// A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm. To be able to associate tags with the alarm when you create the alarm, you must have the `cloudwatch:TagResource` permission.
+        /// 
+        /// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -364,7 +366,9 @@ namespace Pulumi.AwsNative.CloudWatch
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// One of the key-value pairs associated with the alarm. Tags can help you organize and categorize your resources.
+        /// A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm. To be able to associate tags with the alarm when you create the alarm, you must have the `cloudwatch:TagResource` permission.
+        /// 
+        /// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

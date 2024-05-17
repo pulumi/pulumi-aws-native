@@ -511,7 +511,7 @@ func (o ChannelLogConfigurationForChannelPtrOutput) LogTypes() ChannelLogTypeArr
 
 // <p>The output configuration for this channel.</p>
 type ChannelRequestOutputItem struct {
-	// Dash manifest configuration parameters.
+	// DASH manifest configuration parameters.
 	DashPlaylistSettings *ChannelDashPlaylistSettings `pulumi:"dashPlaylistSettings"`
 	// HLS playlist configuration parameters.
 	HlsPlaylistSettings *ChannelHlsPlaylistSettings `pulumi:"hlsPlaylistSettings"`
@@ -534,7 +534,7 @@ type ChannelRequestOutputItemInput interface {
 
 // <p>The output configuration for this channel.</p>
 type ChannelRequestOutputItemArgs struct {
-	// Dash manifest configuration parameters.
+	// DASH manifest configuration parameters.
 	DashPlaylistSettings ChannelDashPlaylistSettingsPtrInput `pulumi:"dashPlaylistSettings"`
 	// HLS playlist configuration parameters.
 	HlsPlaylistSettings ChannelHlsPlaylistSettingsPtrInput `pulumi:"hlsPlaylistSettings"`
@@ -596,7 +596,7 @@ func (o ChannelRequestOutputItemOutput) ToChannelRequestOutputItemOutputWithCont
 	return o
 }
 
-// Dash manifest configuration parameters.
+// DASH manifest configuration parameters.
 func (o ChannelRequestOutputItemOutput) DashPlaylistSettings() ChannelDashPlaylistSettingsPtrOutput {
 	return o.ApplyT(func(v ChannelRequestOutputItem) *ChannelDashPlaylistSettings { return v.DashPlaylistSettings }).(ChannelDashPlaylistSettingsPtrOutput)
 }
@@ -2319,7 +2319,7 @@ type SourceLocationAccessConfiguration struct {
 	//
 	// • The caller of the API must have s3:GetObject IAM permissions to read all top level manifests referenced by your MediaTailor VodSource packaging configurations.
 	AccessType *SourceLocationAccessType `pulumi:"accessType"`
-	// AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see [Working with AWS Secrets Manager access token authentication](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html) .
+	// AWS Secrets Manager access token configuration parameters.
 	SecretsManagerAccessTokenConfiguration *SourceLocationSecretsManagerAccessTokenConfiguration `pulumi:"secretsManagerAccessTokenConfiguration"`
 }
 
@@ -2348,7 +2348,7 @@ type SourceLocationAccessConfigurationArgs struct {
 	//
 	// • The caller of the API must have s3:GetObject IAM permissions to read all top level manifests referenced by your MediaTailor VodSource packaging configurations.
 	AccessType SourceLocationAccessTypePtrInput `pulumi:"accessType"`
-	// AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see [Working with AWS Secrets Manager access token authentication](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html) .
+	// AWS Secrets Manager access token configuration parameters.
 	SecretsManagerAccessTokenConfiguration SourceLocationSecretsManagerAccessTokenConfigurationPtrInput `pulumi:"secretsManagerAccessTokenConfiguration"`
 }
 
@@ -2445,7 +2445,7 @@ func (o SourceLocationAccessConfigurationOutput) AccessType() SourceLocationAcce
 	return o.ApplyT(func(v SourceLocationAccessConfiguration) *SourceLocationAccessType { return v.AccessType }).(SourceLocationAccessTypePtrOutput)
 }
 
-// AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see [Working with AWS Secrets Manager access token authentication](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html) .
+// AWS Secrets Manager access token configuration parameters.
 func (o SourceLocationAccessConfigurationOutput) SecretsManagerAccessTokenConfiguration() SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput {
 	return o.ApplyT(func(v SourceLocationAccessConfiguration) *SourceLocationSecretsManagerAccessTokenConfiguration {
 		return v.SecretsManagerAccessTokenConfiguration
@@ -2496,7 +2496,7 @@ func (o SourceLocationAccessConfigurationPtrOutput) AccessType() SourceLocationA
 	}).(SourceLocationAccessTypePtrOutput)
 }
 
-// AWS Secrets Manager access token configuration parameters. For information about Secrets Manager access token authentication, see [Working with AWS Secrets Manager access token authentication](https://docs.aws.amazon.com/mediatailor/latest/ug/channel-assembly-access-configuration-access-token.html) .
+// AWS Secrets Manager access token configuration parameters.
 func (o SourceLocationAccessConfigurationPtrOutput) SecretsManagerAccessTokenConfiguration() SourceLocationSecretsManagerAccessTokenConfigurationPtrOutput {
 	return o.ApplyT(func(v *SourceLocationAccessConfiguration) *SourceLocationSecretsManagerAccessTokenConfiguration {
 		if v == nil {

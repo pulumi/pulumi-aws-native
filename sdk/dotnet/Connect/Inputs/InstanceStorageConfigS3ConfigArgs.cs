@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public Input<string> BucketPrefix { get; set; } = null!;
 
         /// <summary>
-        /// The encryption configuration.
+        /// The Amazon S3 encryption configuration.
         /// </summary>
         [Input("encryptionConfig")]
         public Input<Inputs.InstanceStorageConfigEncryptionConfigArgs>? EncryptionConfig { get; set; }

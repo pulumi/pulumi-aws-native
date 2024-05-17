@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// </summary>
         public readonly int Priority;
         /// <summary>
-        /// Contains the channel and queue identifier for a routing profile.
+        /// Contains information about a queue resource.
         /// </summary>
         public readonly Outputs.RoutingProfileQueueReference QueueReference;
 

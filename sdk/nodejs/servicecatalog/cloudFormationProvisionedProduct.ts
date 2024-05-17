@@ -100,19 +100,11 @@ export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
      */
     public readonly provisioningArtifactName!: pulumi.Output<string | undefined>;
     /**
-     * Information about a parameter used to provision a product.
+     * Parameters specified by the administrator that are required for provisioning the product.
      */
     public readonly provisioningParameters!: pulumi.Output<outputs.servicecatalog.CloudFormationProvisionedProductProvisioningParameter[] | undefined>;
     /**
-     * The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product type
-     *
-     * One or more AWS accounts that will have access to the provisioned product.
-     *
-     * Applicable only to a `CFN_STACKSET` provisioned product type.
-     *
-     * The AWS accounts specified should be within the list of accounts in the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
-     *
-     * If no values are specified, the default value is all accounts from the `STACKSET` constraint.
+     * StackSet preferences that are required for provisioning the product or updating a provisioned product.
      */
     public readonly provisioningPreferences!: pulumi.Output<outputs.servicecatalog.CloudFormationProvisionedProductProvisioningPreferences | undefined>;
     /**
@@ -120,7 +112,9 @@ export class CloudFormationProvisionedProduct extends pulumi.CustomResource {
      */
     public /*out*/ readonly recordId!: pulumi.Output<string>;
     /**
-     * Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
+     * One or more tags.
+     *
+     * > Requires the provisioned product to have an [ResourceUpdateConstraint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html) resource with `TagUpdatesOnProvisionedProduct` set to `ALLOWED` to allow tag updates. If `RESOURCE_UPDATE` constraint is not present, tags updates are ignored.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -234,23 +228,17 @@ export interface CloudFormationProvisionedProductArgs {
      */
     provisioningArtifactName?: pulumi.Input<string>;
     /**
-     * Information about a parameter used to provision a product.
+     * Parameters specified by the administrator that are required for provisioning the product.
      */
     provisioningParameters?: pulumi.Input<pulumi.Input<inputs.servicecatalog.CloudFormationProvisionedProductProvisioningParameterArgs>[]>;
     /**
-     * The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product type
-     *
-     * One or more AWS accounts that will have access to the provisioned product.
-     *
-     * Applicable only to a `CFN_STACKSET` provisioned product type.
-     *
-     * The AWS accounts specified should be within the list of accounts in the `STACKSET` constraint. To get the list of accounts in the `STACKSET` constraint, use the `DescribeProvisioningParameters` operation.
-     *
-     * If no values are specified, the default value is all accounts from the `STACKSET` constraint.
+     * StackSet preferences that are required for provisioning the product or updating a provisioned product.
      */
     provisioningPreferences?: pulumi.Input<inputs.servicecatalog.CloudFormationProvisionedProductProvisioningPreferencesArgs>;
     /**
-     * Information about a tag. A tag is a key-value pair. Tags are propagated to the resources created when provisioning a product.
+     * One or more tags.
+     *
+     * > Requires the provisioned product to have an [ResourceUpdateConstraint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-resourceupdateconstraint.html) resource with `TagUpdatesOnProvisionedProduct` set to `ALLOWED` to allow tag updates. If `RESOURCE_UPDATE` constraint is not present, tags updates are ignored.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

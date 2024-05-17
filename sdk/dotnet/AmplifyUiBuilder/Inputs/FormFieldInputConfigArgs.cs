@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
         public Input<string>? DescriptiveText { get; set; }
 
         /// <summary>
-        /// Describes the configuration for the file uploader field.
+        /// The configuration for the file uploader field.
         /// </summary>
         [Input("fileUploaderConfig")]
         public Input<Inputs.FormFileUploaderFieldConfigArgs>? FileUploaderConfig { get; set; }
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
         public Input<string>? Value { get; set; }
 
         /// <summary>
-        /// The `ValueMappings` property specifies the data binding configuration for a value map.
+        /// The information to use to customize the input fields with data at runtime.
         /// </summary>
         [Input("valueMappings")]
         public Input<Inputs.FormValueMappingsArgs>? ValueMappings { get; set; }

@@ -39,7 +39,7 @@ export interface GetPipelineResult {
      */
     readonly ingestEndpointUrls?: string[];
     /**
-     * Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
+     * Key-value pairs that represent log publishing settings.
      */
     readonly logPublishingOptions?: outputs.osis.PipelineLogPublishingOptions;
     /**

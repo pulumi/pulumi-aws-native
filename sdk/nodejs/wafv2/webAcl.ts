@@ -66,7 +66,7 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public readonly captchaConfig!: pulumi.Output<outputs.wafv2.WebAclCaptchaConfig | undefined>;
     /**
-     * Specifies how AWS WAF should handle `Challenge` evaluations. This is available at the web ACL level and in each rule.
+     * Specifies how AWS WAF should handle challenge evaluations for rules that don't have their own `ChallengeConfig` settings. If you don't specify this, AWS WAF uses its default settings for `ChallengeConfig` .
      */
     public readonly challengeConfig!: pulumi.Output<outputs.wafv2.WebAclChallengeConfig | undefined>;
     /**
@@ -78,7 +78,7 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public readonly customResponseBodies!: pulumi.Output<{[key: string]: outputs.wafv2.WebAclCustomResponseBody} | undefined>;
     /**
-     * In a `WebACL` , this is the action that you want AWS WAF to perform when a web request doesn't match any of the rules in the `WebACL` . The default action must be a terminating action.
+     * The action to perform if none of the `Rules` contained in the `WebACL` match.
      */
     public readonly defaultAction!: pulumi.Output<outputs.wafv2.WebAclDefaultAction>;
     /**
@@ -110,9 +110,9 @@ export class WebAcl extends pulumi.CustomResource {
      */
     public readonly scope!: pulumi.Output<enums.wafv2.WebAclScope>;
     /**
-     * A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+     * Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
      *
-     * You can tag the AWS resources that you manage through AWS WAF : web ACLs, rule groups, IP sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console.
+     * > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -204,7 +204,7 @@ export interface WebAclArgs {
      */
     captchaConfig?: pulumi.Input<inputs.wafv2.WebAclCaptchaConfigArgs>;
     /**
-     * Specifies how AWS WAF should handle `Challenge` evaluations. This is available at the web ACL level and in each rule.
+     * Specifies how AWS WAF should handle challenge evaluations for rules that don't have their own `ChallengeConfig` settings. If you don't specify this, AWS WAF uses its default settings for `ChallengeConfig` .
      */
     challengeConfig?: pulumi.Input<inputs.wafv2.WebAclChallengeConfigArgs>;
     /**
@@ -216,7 +216,7 @@ export interface WebAclArgs {
      */
     customResponseBodies?: pulumi.Input<{[key: string]: pulumi.Input<inputs.wafv2.WebAclCustomResponseBodyArgs>}>;
     /**
-     * In a `WebACL` , this is the action that you want AWS WAF to perform when a web request doesn't match any of the rules in the `WebACL` . The default action must be a terminating action.
+     * The action to perform if none of the `Rules` contained in the `WebACL` match.
      */
     defaultAction: pulumi.Input<inputs.wafv2.WebAclDefaultActionArgs>;
     /**
@@ -240,9 +240,9 @@ export interface WebAclArgs {
      */
     scope: pulumi.Input<enums.wafv2.WebAclScope>;
     /**
-     * A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+     * Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
      *
-     * You can tag the AWS resources that you manage through AWS WAF : web ACLs, rule groups, IP sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console.
+     * > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

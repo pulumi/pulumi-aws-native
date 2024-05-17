@@ -29,9 +29,11 @@ type LookupAppMonitorArgs struct {
 }
 
 type LookupAppMonitorResult struct {
-	// This structure contains much of the configuration data for the app monitor.
+	// A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
+	//
+	// If you omit this argument, the sample rate used for CloudWatch RUM is set to 10% of the user sessions.
 	AppMonitorConfiguration *AppMonitorConfiguration `pulumi:"appMonitorConfiguration"`
-	// This structure specifies whether this app monitor allows the web client to define and send custom events.
+	// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED` .
 	CustomEvents *AppMonitorCustomEvents `pulumi:"customEvents"`
 	// Data collected by RUM is kept by RUM for 30 days and then deleted. This parameter specifies whether RUM sends a copy of this telemetry data to CWLlong in your account. This enables you to keep the telemetry data for more than 30 days, but it does incur CWLlong charges. If you omit this parameter, the default is false
 	CwLogEnabled *bool `pulumi:"cwLogEnabled"`
@@ -87,12 +89,14 @@ func (o LookupAppMonitorResultOutput) ToLookupAppMonitorResultOutputWithContext(
 	return o
 }
 
-// This structure contains much of the configuration data for the app monitor.
+// A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
+//
+// If you omit this argument, the sample rate used for CloudWatch RUM is set to 10% of the user sessions.
 func (o LookupAppMonitorResultOutput) AppMonitorConfiguration() AppMonitorConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupAppMonitorResult) *AppMonitorConfiguration { return v.AppMonitorConfiguration }).(AppMonitorConfigurationPtrOutput)
 }
 
-// This structure specifies whether this app monitor allows the web client to define and send custom events.
+// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED` .
 func (o LookupAppMonitorResultOutput) CustomEvents() AppMonitorCustomEventsPtrOutput {
 	return o.ApplyT(func(v LookupAppMonitorResult) *AppMonitorCustomEvents { return v.CustomEvents }).(AppMonitorCustomEventsPtrOutput)
 }

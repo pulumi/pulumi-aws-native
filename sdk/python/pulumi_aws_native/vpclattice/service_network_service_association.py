@@ -25,10 +25,10 @@ class ServiceNetworkServiceAssociationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceNetworkServiceAssociation resource.
-        :param pulumi.Input['ServiceNetworkServiceAssociationDnsEntryArgs'] dns_entry: The DNS information.
+        :param pulumi.Input['ServiceNetworkServiceAssociationDnsEntryArgs'] dns_entry: The DNS information of the service.
         :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Name (ARN) of the service.
         :param pulumi.Input[str] service_network_identifier: The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Specifies a tag for a service association.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the association.
         """
         if dns_entry is not None:
             pulumi.set(__self__, "dns_entry", dns_entry)
@@ -43,7 +43,7 @@ class ServiceNetworkServiceAssociationArgs:
     @pulumi.getter(name="dnsEntry")
     def dns_entry(self) -> Optional[pulumi.Input['ServiceNetworkServiceAssociationDnsEntryArgs']]:
         """
-        The DNS information.
+        The DNS information of the service.
         """
         return pulumi.get(self, "dns_entry")
 
@@ -79,7 +79,7 @@ class ServiceNetworkServiceAssociationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        Specifies a tag for a service association.
+        The tags for the association.
         """
         return pulumi.get(self, "tags")
 
@@ -103,10 +103,10 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceNetworkServiceAssociationDnsEntryArgs']] dns_entry: The DNS information.
+        :param pulumi.Input[pulumi.InputType['ServiceNetworkServiceAssociationDnsEntryArgs']] dns_entry: The DNS information of the service.
         :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Name (ARN) of the service.
         :param pulumi.Input[str] service_network_identifier: The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies a tag for a service association.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the association.
         """
         ...
     @overload
@@ -227,7 +227,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
     @pulumi.getter(name="dnsEntry")
     def dns_entry(self) -> pulumi.Output[Optional['outputs.ServiceNetworkServiceAssociationDnsEntry']]:
         """
-        The DNS information.
+        The DNS information of the service.
         """
         return pulumi.get(self, "dns_entry")
 
@@ -307,7 +307,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        Specifies a tag for a service association.
+        The tags for the association.
         """
         return pulumi.get(self, "tags")
 

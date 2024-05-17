@@ -37,11 +37,13 @@ type LookupDataSourceResult struct {
 	//
 	// `arn:aws:kendra:us-west-2:111122223333:index/335c3741-41df-46a6-b5d3-61f85b787884/data-source/b8cae438-6787-4091-8897-684a652bbb0a`
 	Arn *string `pulumi:"arn"`
-	// Provides the configuration information for altering document metadata and content during the document ingestion process.
-	//
-	// For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
+	// Configuration information for altering document metadata and content during the document ingestion process.
 	CustomDocumentEnrichmentConfiguration *DataSourceCustomDocumentEnrichmentConfiguration `pulumi:"customDocumentEnrichmentConfiguration"`
-	// Provides the configuration information for an Amazon Kendra data source.
+	// Configuration information for an Amazon Kendra data source. The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration.
+	//
+	// You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM` .
+	//
+	// The `Configuration` parameter is required for all other data sources.
 	DataSourceConfiguration *DataSourceConfiguration `pulumi:"dataSourceConfiguration"`
 	// A description for the data source connector.
 	Description *string `pulumi:"description"`
@@ -114,16 +116,18 @@ func (o LookupDataSourceResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// Provides the configuration information for altering document metadata and content during the document ingestion process.
-//
-// For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
+// Configuration information for altering document metadata and content during the document ingestion process.
 func (o LookupDataSourceResultOutput) CustomDocumentEnrichmentConfiguration() DataSourceCustomDocumentEnrichmentConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceCustomDocumentEnrichmentConfiguration {
 		return v.CustomDocumentEnrichmentConfiguration
 	}).(DataSourceCustomDocumentEnrichmentConfigurationPtrOutput)
 }
 
-// Provides the configuration information for an Amazon Kendra data source.
+// Configuration information for an Amazon Kendra data source. The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration.
+//
+// You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM` .
+//
+// The `Configuration` parameter is required for all other data sources.
 func (o LookupDataSourceResultOutput) DataSourceConfiguration() DataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceConfiguration { return v.DataSourceConfiguration }).(DataSourceConfigurationPtrOutput)
 }

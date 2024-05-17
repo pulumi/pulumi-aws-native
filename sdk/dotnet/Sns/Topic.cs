@@ -46,7 +46,15 @@ namespace Pulumi.AwsNative.Sns
         public Output<object?> DataProtectionPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The `LoggingConfig` property type specifies the `Delivery` status logging configuration for an [`AWS::SNS::Topic`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html) .
+        /// The `DeliveryStatusLogging` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
+        /// 
+        /// - HTTP
+        /// - Amazon Kinesis Data Firehose
+        /// - AWS Lambda
+        /// - Platform application endpoint
+        /// - Amazon Simple Queue Service
+        /// 
+        /// Once configured, log entries are sent to Amazon CloudWatch Logs.
         /// </summary>
         [Output("deliveryStatusLogging")]
         public Output<ImmutableArray<Outputs.TopicLoggingConfig>> DeliveryStatusLogging { get; private set; } = null!;
@@ -192,7 +200,15 @@ namespace Pulumi.AwsNative.Sns
         private InputList<Inputs.TopicLoggingConfigArgs>? _deliveryStatusLogging;
 
         /// <summary>
-        /// The `LoggingConfig` property type specifies the `Delivery` status logging configuration for an [`AWS::SNS::Topic`](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html) .
+        /// The `DeliveryStatusLogging` configuration enables you to log the delivery status of messages sent from your Amazon SNS topic to subscribed endpoints with the following supported delivery protocols:
+        /// 
+        /// - HTTP
+        /// - Amazon Kinesis Data Firehose
+        /// - AWS Lambda
+        /// - Platform application endpoint
+        /// - Amazon Simple Queue Service
+        /// 
+        /// Once configured, log entries are sent to Amazon CloudWatch Logs.
         /// </summary>
         public InputList<Inputs.TopicLoggingConfigArgs> DeliveryStatusLogging
         {

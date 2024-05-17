@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardBarChartSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of categories displayed in a bar chart.
         /// </summary>
         [Input("categoryItemsLimit")]
         public Input<Inputs.DashboardItemsLimitConfigurationArgs>? CategoryItemsLimit { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.DashboardFieldSortOptionsArgs>? _categorySort;
 
         /// <summary>
-        /// The field sort options in a chart configuration.
+        /// The sort configuration of category fields.
         /// </summary>
         public InputList<Inputs.DashboardFieldSortOptionsArgs> CategorySort
         {
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of values displayed in a bar chart.
         /// </summary>
         [Input("colorItemsLimit")]
         public Input<Inputs.DashboardItemsLimitConfigurationArgs>? ColorItemsLimit { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of small multiples panels that are displayed.
         /// </summary>
         [Input("smallMultiplesLimitConfiguration")]
         public Input<Inputs.DashboardItemsLimitConfigurationArgs>? SmallMultiplesLimitConfiguration { get; set; }

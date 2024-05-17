@@ -18,7 +18,7 @@ type GlobalTable struct {
 
 	// The Amazon Resource Name (ARN) of the DynamoDB table, such as `arn:aws:dynamodb:us-east-2:123456789012:table/myDynamoDBTable` . The ARN returned is that of the replica in the region the stack is deployed to.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Represents an attribute for describing the schema for the table and indexes.
+	// A list of attributes that describe the key schema for the global table and indexes.
 	AttributeDefinitions GlobalTableAttributeDefinitionArrayOutput `pulumi:"attributeDefinitions"`
 	// Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
 	//
@@ -27,27 +27,29 @@ type GlobalTable struct {
 	//
 	// All replicas in your global table will have the same billing mode. If you use `PROVISIONED` billing mode, you must provide an auto scaling configuration via the `WriteProvisionedThroughputSettings` property. The default value of this property is `PROVISIONED` .
 	BillingMode pulumi.StringPtrOutput `pulumi:"billingMode"`
-	// Allows you to specify a global secondary index for the global table. The index will be defined on all replicas.
+	// Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
+	//
+	// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
 	GlobalSecondaryIndexes GlobalTableGlobalSecondaryIndexArrayOutput `pulumi:"globalSecondaryIndexes"`
-	// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
-	//
-	// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
-	//
-	// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+	// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
 	KeySchema GlobalTableKeySchemaArrayOutput `pulumi:"keySchema"`
-	// Represents the properties of a local secondary index. A local secondary index can only be created when its parent table is created.
+	// Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
 	LocalSecondaryIndexes GlobalTableLocalSecondaryIndexArrayOutput `pulumi:"localSecondaryIndexes"`
-	// Defines settings specific to a single replica of a global table.
+	// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
+	//
+	// > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
+	// >
+	// > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica.
+	//
+	// You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
 	Replicas GlobalTableReplicaSpecificationArrayOutput `pulumi:"replicas"`
-	// Represents the settings used to enable server-side encryption.
+	// Specifies the settings to enable server-side encryption. These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
 	SseSpecification GlobalTableSseSpecificationPtrOutput `pulumi:"sseSpecification"`
 	// The ARN of the DynamoDB stream, such as `arn:aws:dynamodb:us-east-1:123456789012:table/testddbstack-myDynamoDBTable-012A1SL7SMP5Q/stream/2015-11-30T20:10:00.000` . The `StreamArn` returned is that of the replica in the region the stack is deployed to.
 	//
 	// > You must specify the `StreamSpecification` property to use this attribute.
 	StreamArn pulumi.StringOutput `pulumi:"streamArn"`
-	// Represents the DynamoDB Streams configuration for a table in DynamoDB.
-	//
-	// You can only modify this value if your `AWS::DynamoDB::GlobalTable` contains only one entry in `Replicas` . You must specify a value for this property if your `AWS::DynamoDB::GlobalTable` contains more than one replica.
+	// Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
 	StreamSpecification GlobalTableStreamSpecificationPtrOutput `pulumi:"streamSpecification"`
 	// Unique identifier for the table, such as `a123b456-01ab-23cd-123a-111222aaabbb` . The `TableId` returned is that of the replica in the region the stack is deployed to.
 	TableId pulumi.StringOutput `pulumi:"tableId"`
@@ -55,7 +57,7 @@ type GlobalTable struct {
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	TableName pulumi.StringPtrOutput `pulumi:"tableName"`
-	// Represents the settings used to enable or disable Time to Live (TTL) for the specified table. All replicas will have the same time to live configuration.
+	// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
 	TimeToLiveSpecification GlobalTableTimeToLiveSpecificationPtrOutput `pulumi:"timeToLiveSpecification"`
 	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 	WriteOnDemandThroughputSettings GlobalTableWriteOnDemandThroughputSettingsPtrOutput `pulumi:"writeOnDemandThroughputSettings"`
@@ -118,7 +120,7 @@ func (GlobalTableState) ElementType() reflect.Type {
 }
 
 type globalTableArgs struct {
-	// Represents an attribute for describing the schema for the table and indexes.
+	// A list of attributes that describe the key schema for the global table and indexes.
 	AttributeDefinitions []GlobalTableAttributeDefinition `pulumi:"attributeDefinitions"`
 	// Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
 	//
@@ -127,29 +129,31 @@ type globalTableArgs struct {
 	//
 	// All replicas in your global table will have the same billing mode. If you use `PROVISIONED` billing mode, you must provide an auto scaling configuration via the `WriteProvisionedThroughputSettings` property. The default value of this property is `PROVISIONED` .
 	BillingMode *string `pulumi:"billingMode"`
-	// Allows you to specify a global secondary index for the global table. The index will be defined on all replicas.
+	// Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
+	//
+	// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
 	GlobalSecondaryIndexes []GlobalTableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
-	// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
-	//
-	// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
-	//
-	// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+	// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
 	KeySchema []GlobalTableKeySchema `pulumi:"keySchema"`
-	// Represents the properties of a local secondary index. A local secondary index can only be created when its parent table is created.
+	// Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
 	LocalSecondaryIndexes []GlobalTableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
-	// Defines settings specific to a single replica of a global table.
-	Replicas []GlobalTableReplicaSpecification `pulumi:"replicas"`
-	// Represents the settings used to enable server-side encryption.
-	SseSpecification *GlobalTableSseSpecification `pulumi:"sseSpecification"`
-	// Represents the DynamoDB Streams configuration for a table in DynamoDB.
+	// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
 	//
-	// You can only modify this value if your `AWS::DynamoDB::GlobalTable` contains only one entry in `Replicas` . You must specify a value for this property if your `AWS::DynamoDB::GlobalTable` contains more than one replica.
+	// > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
+	// >
+	// > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica.
+	//
+	// You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
+	Replicas []GlobalTableReplicaSpecification `pulumi:"replicas"`
+	// Specifies the settings to enable server-side encryption. These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
+	SseSpecification *GlobalTableSseSpecification `pulumi:"sseSpecification"`
+	// Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
 	StreamSpecification *GlobalTableStreamSpecification `pulumi:"streamSpecification"`
 	// A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	TableName *string `pulumi:"tableName"`
-	// Represents the settings used to enable or disable Time to Live (TTL) for the specified table. All replicas will have the same time to live configuration.
+	// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
 	TimeToLiveSpecification *GlobalTableTimeToLiveSpecification `pulumi:"timeToLiveSpecification"`
 	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 	WriteOnDemandThroughputSettings *GlobalTableWriteOnDemandThroughputSettings `pulumi:"writeOnDemandThroughputSettings"`
@@ -159,7 +163,7 @@ type globalTableArgs struct {
 
 // The set of arguments for constructing a GlobalTable resource.
 type GlobalTableArgs struct {
-	// Represents an attribute for describing the schema for the table and indexes.
+	// A list of attributes that describe the key schema for the global table and indexes.
 	AttributeDefinitions GlobalTableAttributeDefinitionArrayInput
 	// Specifies how you are charged for read and write throughput and how you manage capacity. Valid values are:
 	//
@@ -168,29 +172,31 @@ type GlobalTableArgs struct {
 	//
 	// All replicas in your global table will have the same billing mode. If you use `PROVISIONED` billing mode, you must provide an auto scaling configuration via the `WriteProvisionedThroughputSettings` property. The default value of this property is `PROVISIONED` .
 	BillingMode pulumi.StringPtrInput
-	// Allows you to specify a global secondary index for the global table. The index will be defined on all replicas.
+	// Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
+	//
+	// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
 	GlobalSecondaryIndexes GlobalTableGlobalSecondaryIndexArrayInput
-	// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
-	//
-	// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
-	//
-	// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+	// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
 	KeySchema GlobalTableKeySchemaArrayInput
-	// Represents the properties of a local secondary index. A local secondary index can only be created when its parent table is created.
+	// Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
 	LocalSecondaryIndexes GlobalTableLocalSecondaryIndexArrayInput
-	// Defines settings specific to a single replica of a global table.
-	Replicas GlobalTableReplicaSpecificationArrayInput
-	// Represents the settings used to enable server-side encryption.
-	SseSpecification GlobalTableSseSpecificationPtrInput
-	// Represents the DynamoDB Streams configuration for a table in DynamoDB.
+	// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
 	//
-	// You can only modify this value if your `AWS::DynamoDB::GlobalTable` contains only one entry in `Replicas` . You must specify a value for this property if your `AWS::DynamoDB::GlobalTable` contains more than one replica.
+	// > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
+	// >
+	// > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica.
+	//
+	// You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
+	Replicas GlobalTableReplicaSpecificationArrayInput
+	// Specifies the settings to enable server-side encryption. These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
+	SseSpecification GlobalTableSseSpecificationPtrInput
+	// Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
 	StreamSpecification GlobalTableStreamSpecificationPtrInput
 	// A name for the global table. If you don't specify a name, AWS CloudFormation generates a unique ID and uses that ID as the table name. For more information, see [Name type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
 	//
 	// > If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	TableName pulumi.StringPtrInput
-	// Represents the settings used to enable or disable Time to Live (TTL) for the specified table. All replicas will have the same time to live configuration.
+	// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
 	TimeToLiveSpecification GlobalTableTimeToLiveSpecificationPtrInput
 	// Sets the write request settings for a global table or a global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
 	WriteOnDemandThroughputSettings GlobalTableWriteOnDemandThroughputSettingsPtrInput
@@ -240,7 +246,7 @@ func (o GlobalTableOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalTable) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Represents an attribute for describing the schema for the table and indexes.
+// A list of attributes that describe the key schema for the global table and indexes.
 func (o GlobalTableOutput) AttributeDefinitions() GlobalTableAttributeDefinitionArrayOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableAttributeDefinitionArrayOutput { return v.AttributeDefinitions }).(GlobalTableAttributeDefinitionArrayOutput)
 }
@@ -255,31 +261,35 @@ func (o GlobalTableOutput) BillingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalTable) pulumi.StringPtrOutput { return v.BillingMode }).(pulumi.StringPtrOutput)
 }
 
-// Allows you to specify a global secondary index for the global table. The index will be defined on all replicas.
+// Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
+//
+// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
 func (o GlobalTableOutput) GlobalSecondaryIndexes() GlobalTableGlobalSecondaryIndexArrayOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableGlobalSecondaryIndexArrayOutput { return v.GlobalSecondaryIndexes }).(GlobalTableGlobalSecondaryIndexArrayOutput)
 }
 
-// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
-//
-// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
-//
-// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
 func (o GlobalTableOutput) KeySchema() GlobalTableKeySchemaArrayOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableKeySchemaArrayOutput { return v.KeySchema }).(GlobalTableKeySchemaArrayOutput)
 }
 
-// Represents the properties of a local secondary index. A local secondary index can only be created when its parent table is created.
+// Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
 func (o GlobalTableOutput) LocalSecondaryIndexes() GlobalTableLocalSecondaryIndexArrayOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableLocalSecondaryIndexArrayOutput { return v.LocalSecondaryIndexes }).(GlobalTableLocalSecondaryIndexArrayOutput)
 }
 
-// Defines settings specific to a single replica of a global table.
+// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
+//
+// > Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
+// >
+// > If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica.
+//
+// You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
 func (o GlobalTableOutput) Replicas() GlobalTableReplicaSpecificationArrayOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableReplicaSpecificationArrayOutput { return v.Replicas }).(GlobalTableReplicaSpecificationArrayOutput)
 }
 
-// Represents the settings used to enable server-side encryption.
+// Specifies the settings to enable server-side encryption. These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
 func (o GlobalTableOutput) SseSpecification() GlobalTableSseSpecificationPtrOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableSseSpecificationPtrOutput { return v.SseSpecification }).(GlobalTableSseSpecificationPtrOutput)
 }
@@ -291,9 +301,7 @@ func (o GlobalTableOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalTable) pulumi.StringOutput { return v.StreamArn }).(pulumi.StringOutput)
 }
 
-// Represents the DynamoDB Streams configuration for a table in DynamoDB.
-//
-// You can only modify this value if your `AWS::DynamoDB::GlobalTable` contains only one entry in `Replicas` . You must specify a value for this property if your `AWS::DynamoDB::GlobalTable` contains more than one replica.
+// Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
 func (o GlobalTableOutput) StreamSpecification() GlobalTableStreamSpecificationPtrOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableStreamSpecificationPtrOutput { return v.StreamSpecification }).(GlobalTableStreamSpecificationPtrOutput)
 }
@@ -310,7 +318,7 @@ func (o GlobalTableOutput) TableName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalTable) pulumi.StringPtrOutput { return v.TableName }).(pulumi.StringPtrOutput)
 }
 
-// Represents the settings used to enable or disable Time to Live (TTL) for the specified table. All replicas will have the same time to live configuration.
+// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
 func (o GlobalTableOutput) TimeToLiveSpecification() GlobalTableTimeToLiveSpecificationPtrOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTableTimeToLiveSpecificationPtrOutput { return v.TimeToLiveSpecification }).(GlobalTableTimeToLiveSpecificationPtrOutput)
 }

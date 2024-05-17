@@ -42,7 +42,7 @@ export class VpcIngressConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly domainName!: pulumi.Output<string>;
     /**
-     * Specifications for the customer’s VPC and related PrivateLink VPC endpoint that are used to associate with the VPC Ingress Connection resource.
+     * Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource.
      */
     public readonly ingressVpcConfiguration!: pulumi.Output<outputs.apprunner.VpcIngressConnectionIngressVpcConfiguration>;
     /**
@@ -54,7 +54,7 @@ export class VpcIngressConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<enums.apprunner.VpcIngressConnectionStatus>;
     /**
-     * Describes a tag that is applied to an AWS App Runner resource. A tag is a metadata item consisting of a key-value pair.
+     * An optional list of metadata items that you can associate with the VPC Ingress Connection resource. A tag is a key-value pair.
      */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
@@ -111,7 +111,7 @@ export class VpcIngressConnection extends pulumi.CustomResource {
  */
 export interface VpcIngressConnectionArgs {
     /**
-     * Specifications for the customer’s VPC and related PrivateLink VPC endpoint that are used to associate with the VPC Ingress Connection resource.
+     * Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource.
      */
     ingressVpcConfiguration: pulumi.Input<inputs.apprunner.VpcIngressConnectionIngressVpcConfigurationArgs>;
     /**
@@ -119,7 +119,7 @@ export interface VpcIngressConnectionArgs {
      */
     serviceArn: pulumi.Input<string>;
     /**
-     * Describes a tag that is applied to an AWS App Runner resource. A tag is a metadata item consisting of a key-value pair.
+     * An optional list of metadata items that you can associate with the VPC Ingress Connection resource. A tag is a key-value pair.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
     /**

@@ -14,10 +14,7 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
     public sealed class TableClusteringKeyColumn
     {
         /// <summary>
-        /// The name and data type of an individual column in a table. In addition to the data type, you can also use the following two keywords:
-        /// 
-        /// - `STATIC` if the table has a clustering column. Static columns store values that are shared by all rows in the same partition.
-        /// - `FROZEN` for collection data types. In frozen collections the values of the collection are serialized into a single immutable value, and Amazon Keyspaces treats them like a `BLOB` .
+        /// The name and data type of this clustering key column.
         /// </summary>
         public readonly Outputs.TableColumn Column;
         /// <summary>

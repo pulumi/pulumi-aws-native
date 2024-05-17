@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Cognito
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A resource server scope.
+        /// A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
         /// </summary>
         [Output("scopes")]
         public Output<ImmutableArray<Outputs.UserPoolResourceServerResourceServerScopeType>> Scopes { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.AwsNative.Cognito
         private InputList<Inputs.UserPoolResourceServerResourceServerScopeTypeArgs>? _scopes;
 
         /// <summary>
-        /// A resource server scope.
+        /// A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
         /// </summary>
         public InputList<Inputs.UserPoolResourceServerResourceServerScopeTypeArgs> Scopes
         {

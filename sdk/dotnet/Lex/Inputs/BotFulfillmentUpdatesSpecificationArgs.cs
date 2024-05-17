@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public Input<bool> Active { get; set; } = null!;
 
         /// <summary>
-        /// Provides settings for a message that is sent to the user when a fulfillment Lambda function starts running.
+        /// Provides configuration information for the message sent to users when the fulfillment Lambda functions starts running.
         /// </summary>
         [Input("startResponse")]
         public Input<Inputs.BotFulfillmentStartResponseSpecificationArgs>? StartResponse { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public Input<int>? TimeoutInSeconds { get; set; }
 
         /// <summary>
-        /// Provides settings for a message that is sent periodically to the user while a fulfillment Lambda function is running.
+        /// Provides configuration information for messages sent periodically to the user while the fulfillment Lambda function is running.
         /// </summary>
         [Input("updateResponse")]
         public Input<Inputs.BotFulfillmentUpdateResponseSpecificationArgs>? UpdateResponse { get; set; }

@@ -531,9 +531,9 @@ func (o LocationFSxOntapNfsMountOptionsPtrOutput) Version() LocationFSxOntapNfsM
 
 // Configuration settings for NFS or SMB protocol.
 type LocationFSxOntapProtocol struct {
-	// Specifies the Network File System (NFS) protocol configuration that AWS DataSync uses to access a storage virtual machine (SVM) on your Amazon FSx for NetApp ONTAP file system. For more information, see [Accessing FSx for ONTAP file systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access) .
+	// Specifies the Network File System (NFS) protocol configuration that DataSync uses to access your FSx for ONTAP file system's storage virtual machine (SVM).
 	Nfs *LocationFSxOntapNfs `pulumi:"nfs"`
-	// Specifies the Server Message Block (SMB) protocol configuration that AWS DataSync uses to access a storage virtual machine (SVM) on your Amazon FSx for NetApp ONTAP file system. For more information, see [Accessing FSx for ONTAP file systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access) .
+	// Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your FSx for ONTAP file system's SVM.
 	Smb *LocationFSxOntapSmb `pulumi:"smb"`
 }
 
@@ -550,9 +550,9 @@ type LocationFSxOntapProtocolInput interface {
 
 // Configuration settings for NFS or SMB protocol.
 type LocationFSxOntapProtocolArgs struct {
-	// Specifies the Network File System (NFS) protocol configuration that AWS DataSync uses to access a storage virtual machine (SVM) on your Amazon FSx for NetApp ONTAP file system. For more information, see [Accessing FSx for ONTAP file systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access) .
+	// Specifies the Network File System (NFS) protocol configuration that DataSync uses to access your FSx for ONTAP file system's storage virtual machine (SVM).
 	Nfs LocationFSxOntapNfsPtrInput `pulumi:"nfs"`
-	// Specifies the Server Message Block (SMB) protocol configuration that AWS DataSync uses to access a storage virtual machine (SVM) on your Amazon FSx for NetApp ONTAP file system. For more information, see [Accessing FSx for ONTAP file systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access) .
+	// Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your FSx for ONTAP file system's SVM.
 	Smb LocationFSxOntapSmbPtrInput `pulumi:"smb"`
 }
 
@@ -634,12 +634,12 @@ func (o LocationFSxOntapProtocolOutput) ToLocationFSxOntapProtocolPtrOutputWithC
 	}).(LocationFSxOntapProtocolPtrOutput)
 }
 
-// Specifies the Network File System (NFS) protocol configuration that AWS DataSync uses to access a storage virtual machine (SVM) on your Amazon FSx for NetApp ONTAP file system. For more information, see [Accessing FSx for ONTAP file systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access) .
+// Specifies the Network File System (NFS) protocol configuration that DataSync uses to access your FSx for ONTAP file system's storage virtual machine (SVM).
 func (o LocationFSxOntapProtocolOutput) Nfs() LocationFSxOntapNfsPtrOutput {
 	return o.ApplyT(func(v LocationFSxOntapProtocol) *LocationFSxOntapNfs { return v.Nfs }).(LocationFSxOntapNfsPtrOutput)
 }
 
-// Specifies the Server Message Block (SMB) protocol configuration that AWS DataSync uses to access a storage virtual machine (SVM) on your Amazon FSx for NetApp ONTAP file system. For more information, see [Accessing FSx for ONTAP file systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access) .
+// Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your FSx for ONTAP file system's SVM.
 func (o LocationFSxOntapProtocolOutput) Smb() LocationFSxOntapSmbPtrOutput {
 	return o.ApplyT(func(v LocationFSxOntapProtocol) *LocationFSxOntapSmb { return v.Smb }).(LocationFSxOntapSmbPtrOutput)
 }
@@ -668,7 +668,7 @@ func (o LocationFSxOntapProtocolPtrOutput) Elem() LocationFSxOntapProtocolOutput
 	}).(LocationFSxOntapProtocolOutput)
 }
 
-// Specifies the Network File System (NFS) protocol configuration that AWS DataSync uses to access a storage virtual machine (SVM) on your Amazon FSx for NetApp ONTAP file system. For more information, see [Accessing FSx for ONTAP file systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access) .
+// Specifies the Network File System (NFS) protocol configuration that DataSync uses to access your FSx for ONTAP file system's storage virtual machine (SVM).
 func (o LocationFSxOntapProtocolPtrOutput) Nfs() LocationFSxOntapNfsPtrOutput {
 	return o.ApplyT(func(v *LocationFSxOntapProtocol) *LocationFSxOntapNfs {
 		if v == nil {
@@ -678,7 +678,7 @@ func (o LocationFSxOntapProtocolPtrOutput) Nfs() LocationFSxOntapNfsPtrOutput {
 	}).(LocationFSxOntapNfsPtrOutput)
 }
 
-// Specifies the Server Message Block (SMB) protocol configuration that AWS DataSync uses to access a storage virtual machine (SVM) on your Amazon FSx for NetApp ONTAP file system. For more information, see [Accessing FSx for ONTAP file systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access) .
+// Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your FSx for ONTAP file system's SVM.
 func (o LocationFSxOntapProtocolPtrOutput) Smb() LocationFSxOntapSmbPtrOutput {
 	return o.ApplyT(func(v *LocationFSxOntapProtocol) *LocationFSxOntapSmb {
 		if v == nil {
@@ -692,7 +692,7 @@ func (o LocationFSxOntapProtocolPtrOutput) Smb() LocationFSxOntapSmbPtrOutput {
 type LocationFSxOntapSmb struct {
 	// The name of the Windows domain that the SMB server belongs to.
 	Domain *string `pulumi:"domain"`
-	// Specifies the version of the Server Message Block (SMB) protocol that AWS DataSync uses to access an SMB file server.
+	// Specifies how DataSync can access a location using the SMB protocol.
 	MountOptions LocationFSxOntapSmbMountOptions `pulumi:"mountOptions"`
 	// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
 	Password string `pulumi:"password"`
@@ -715,7 +715,7 @@ type LocationFSxOntapSmbInput interface {
 type LocationFSxOntapSmbArgs struct {
 	// The name of the Windows domain that the SMB server belongs to.
 	Domain pulumi.StringPtrInput `pulumi:"domain"`
-	// Specifies the version of the Server Message Block (SMB) protocol that AWS DataSync uses to access an SMB file server.
+	// Specifies how DataSync can access a location using the SMB protocol.
 	MountOptions LocationFSxOntapSmbMountOptionsInput `pulumi:"mountOptions"`
 	// The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
 	Password pulumi.StringInput `pulumi:"password"`
@@ -806,7 +806,7 @@ func (o LocationFSxOntapSmbOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LocationFSxOntapSmb) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the version of the Server Message Block (SMB) protocol that AWS DataSync uses to access an SMB file server.
+// Specifies how DataSync can access a location using the SMB protocol.
 func (o LocationFSxOntapSmbOutput) MountOptions() LocationFSxOntapSmbMountOptionsOutput {
 	return o.ApplyT(func(v LocationFSxOntapSmb) LocationFSxOntapSmbMountOptions { return v.MountOptions }).(LocationFSxOntapSmbMountOptionsOutput)
 }
@@ -855,7 +855,7 @@ func (o LocationFSxOntapSmbPtrOutput) Domain() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the version of the Server Message Block (SMB) protocol that AWS DataSync uses to access an SMB file server.
+// Specifies how DataSync can access a location using the SMB protocol.
 func (o LocationFSxOntapSmbPtrOutput) MountOptions() LocationFSxOntapSmbMountOptionsPtrOutput {
 	return o.ApplyT(func(v *LocationFSxOntapSmb) *LocationFSxOntapSmbMountOptions {
 		if v == nil {
@@ -1175,7 +1175,7 @@ func (o LocationFSxOpenZfsMountOptionsPtrOutput) Version() LocationFSxOpenZfsMou
 
 // FSx OpenZFS file system NFS protocol information
 type LocationFSxOpenZfsNfs struct {
-	// Represents the mount options that are available for DataSync to access a Network File System (NFS) location.
+	// Represents the mount options that are available for DataSync to access an NFS location.
 	MountOptions LocationFSxOpenZfsMountOptions `pulumi:"mountOptions"`
 }
 
@@ -1192,7 +1192,7 @@ type LocationFSxOpenZfsNfsInput interface {
 
 // FSx OpenZFS file system NFS protocol information
 type LocationFSxOpenZfsNfsArgs struct {
-	// Represents the mount options that are available for DataSync to access a Network File System (NFS) location.
+	// Represents the mount options that are available for DataSync to access an NFS location.
 	MountOptions LocationFSxOpenZfsMountOptionsInput `pulumi:"mountOptions"`
 }
 
@@ -1274,7 +1274,7 @@ func (o LocationFSxOpenZfsNfsOutput) ToLocationFSxOpenZfsNfsPtrOutputWithContext
 	}).(LocationFSxOpenZfsNfsPtrOutput)
 }
 
-// Represents the mount options that are available for DataSync to access a Network File System (NFS) location.
+// Represents the mount options that are available for DataSync to access an NFS location.
 func (o LocationFSxOpenZfsNfsOutput) MountOptions() LocationFSxOpenZfsMountOptionsOutput {
 	return o.ApplyT(func(v LocationFSxOpenZfsNfs) LocationFSxOpenZfsMountOptions { return v.MountOptions }).(LocationFSxOpenZfsMountOptionsOutput)
 }
@@ -1303,7 +1303,7 @@ func (o LocationFSxOpenZfsNfsPtrOutput) Elem() LocationFSxOpenZfsNfsOutput {
 	}).(LocationFSxOpenZfsNfsOutput)
 }
 
-// Represents the mount options that are available for DataSync to access a Network File System (NFS) location.
+// Represents the mount options that are available for DataSync to access an NFS location.
 func (o LocationFSxOpenZfsNfsPtrOutput) MountOptions() LocationFSxOpenZfsMountOptionsPtrOutput {
 	return o.ApplyT(func(v *LocationFSxOpenZfsNfs) *LocationFSxOpenZfsMountOptions {
 		if v == nil {
@@ -1315,7 +1315,7 @@ func (o LocationFSxOpenZfsNfsPtrOutput) MountOptions() LocationFSxOpenZfsMountOp
 
 // Configuration settings for an NFS or SMB protocol, currently only support NFS
 type LocationFSxOpenZfsProtocol struct {
-	// Represents the Network File System (NFS) protocol that AWS DataSync uses to access your Amazon FSx for OpenZFS file system.
+	// Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system.
 	Nfs *LocationFSxOpenZfsNfs `pulumi:"nfs"`
 }
 
@@ -1332,7 +1332,7 @@ type LocationFSxOpenZfsProtocolInput interface {
 
 // Configuration settings for an NFS or SMB protocol, currently only support NFS
 type LocationFSxOpenZfsProtocolArgs struct {
-	// Represents the Network File System (NFS) protocol that AWS DataSync uses to access your Amazon FSx for OpenZFS file system.
+	// Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system.
 	Nfs LocationFSxOpenZfsNfsPtrInput `pulumi:"nfs"`
 }
 
@@ -1363,7 +1363,7 @@ func (o LocationFSxOpenZfsProtocolOutput) ToLocationFSxOpenZfsProtocolOutputWith
 	return o
 }
 
-// Represents the Network File System (NFS) protocol that AWS DataSync uses to access your Amazon FSx for OpenZFS file system.
+// Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system.
 func (o LocationFSxOpenZfsProtocolOutput) Nfs() LocationFSxOpenZfsNfsPtrOutput {
 	return o.ApplyT(func(v LocationFSxOpenZfsProtocol) *LocationFSxOpenZfsNfs { return v.Nfs }).(LocationFSxOpenZfsNfsPtrOutput)
 }
@@ -2684,7 +2684,6 @@ func (o TaskManifestConfigPtrOutput) Source() TaskManifestConfigSourceProperties
 
 // Specifies the manifest that you want DataSync to use and where it's hosted.
 type TaskManifestConfigSourceProperties struct {
-	// Specifies the S3 bucket where you're hosting the manifest that you want AWS DataSync to use. For more information and configuration examples, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
 	S3 *TaskManifestConfigSourceS3 `pulumi:"s3"`
 }
 
@@ -2701,7 +2700,6 @@ type TaskManifestConfigSourcePropertiesInput interface {
 
 // Specifies the manifest that you want DataSync to use and where it's hosted.
 type TaskManifestConfigSourcePropertiesArgs struct {
-	// Specifies the S3 bucket where you're hosting the manifest that you want AWS DataSync to use. For more information and configuration examples, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
 	S3 TaskManifestConfigSourceS3PtrInput `pulumi:"s3"`
 }
 
@@ -2783,7 +2781,6 @@ func (o TaskManifestConfigSourcePropertiesOutput) ToTaskManifestConfigSourceProp
 	}).(TaskManifestConfigSourcePropertiesPtrOutput)
 }
 
-// Specifies the S3 bucket where you're hosting the manifest that you want AWS DataSync to use. For more information and configuration examples, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
 func (o TaskManifestConfigSourcePropertiesOutput) S3() TaskManifestConfigSourceS3PtrOutput {
 	return o.ApplyT(func(v TaskManifestConfigSourceProperties) *TaskManifestConfigSourceS3 { return v.S3 }).(TaskManifestConfigSourceS3PtrOutput)
 }
@@ -2812,7 +2809,6 @@ func (o TaskManifestConfigSourcePropertiesPtrOutput) Elem() TaskManifestConfigSo
 	}).(TaskManifestConfigSourcePropertiesOutput)
 }
 
-// Specifies the S3 bucket where you're hosting the manifest that you want AWS DataSync to use. For more information and configuration examples, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
 func (o TaskManifestConfigSourcePropertiesPtrOutput) S3() TaskManifestConfigSourceS3PtrOutput {
 	return o.ApplyT(func(v *TaskManifestConfigSourceProperties) *TaskManifestConfigSourceS3 {
 		if v == nil {
@@ -3643,7 +3639,6 @@ func (o TaskReportConfigPtrOutput) ReportLevel() TaskReportConfigReportLevelPtrO
 
 // Specifies where DataSync uploads your task report.
 type TaskReportConfigDestinationProperties struct {
-	// Specifies the Amazon S3 bucket where DataSync uploads your [task report](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
 	S3 *TaskReportConfigDestinationS3 `pulumi:"s3"`
 }
 
@@ -3660,7 +3655,6 @@ type TaskReportConfigDestinationPropertiesInput interface {
 
 // Specifies where DataSync uploads your task report.
 type TaskReportConfigDestinationPropertiesArgs struct {
-	// Specifies the Amazon S3 bucket where DataSync uploads your [task report](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
 	S3 TaskReportConfigDestinationS3PtrInput `pulumi:"s3"`
 }
 
@@ -3742,7 +3736,6 @@ func (o TaskReportConfigDestinationPropertiesOutput) ToTaskReportConfigDestinati
 	}).(TaskReportConfigDestinationPropertiesPtrOutput)
 }
 
-// Specifies the Amazon S3 bucket where DataSync uploads your [task report](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
 func (o TaskReportConfigDestinationPropertiesOutput) S3() TaskReportConfigDestinationS3PtrOutput {
 	return o.ApplyT(func(v TaskReportConfigDestinationProperties) *TaskReportConfigDestinationS3 { return v.S3 }).(TaskReportConfigDestinationS3PtrOutput)
 }
@@ -3771,7 +3764,6 @@ func (o TaskReportConfigDestinationPropertiesPtrOutput) Elem() TaskReportConfigD
 	}).(TaskReportConfigDestinationPropertiesOutput)
 }
 
-// Specifies the Amazon S3 bucket where DataSync uploads your [task report](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
 func (o TaskReportConfigDestinationPropertiesPtrOutput) S3() TaskReportConfigDestinationS3PtrOutput {
 	return o.ApplyT(func(v *TaskReportConfigDestinationProperties) *TaskReportConfigDestinationS3 {
 		if v == nil {

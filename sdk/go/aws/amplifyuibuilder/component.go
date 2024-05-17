@@ -21,7 +21,7 @@ type Component struct {
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties` .
 	BindingProperties ComponentBindingPropertiesValueMapOutput `pulumi:"bindingProperties"`
-	// The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
+	// A list of the component's `ComponentChild` instances.
 	Children ComponentChildArrayOutput `pulumi:"children"`
 	// The data binding configuration for the component's properties. Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
 	CollectionProperties ComponentDataConfigurationMapOutput `pulumi:"collectionProperties"`
@@ -47,7 +47,7 @@ type Component struct {
 	SourceId pulumi.StringPtrOutput `pulumi:"sourceId"`
 	// One or more key-value pairs to use when tagging the component.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
+	// A list of the component's variants. A variant is a unique style configuration of a main component.
 	Variants ComponentVariantArrayOutput `pulumi:"variants"`
 }
 
@@ -100,7 +100,7 @@ type componentArgs struct {
 	AppId *string `pulumi:"appId"`
 	// The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties` .
 	BindingProperties map[string]ComponentBindingPropertiesValue `pulumi:"bindingProperties"`
-	// The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
+	// A list of the component's `ComponentChild` instances.
 	Children []ComponentChild `pulumi:"children"`
 	// The data binding configuration for the component's properties. Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
 	CollectionProperties map[string]ComponentDataConfiguration `pulumi:"collectionProperties"`
@@ -122,7 +122,7 @@ type componentArgs struct {
 	SourceId *string `pulumi:"sourceId"`
 	// One or more key-value pairs to use when tagging the component.
 	Tags map[string]string `pulumi:"tags"`
-	// The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
+	// A list of the component's variants. A variant is a unique style configuration of a main component.
 	Variants []ComponentVariant `pulumi:"variants"`
 }
 
@@ -132,7 +132,7 @@ type ComponentArgs struct {
 	AppId pulumi.StringPtrInput
 	// The information to connect a component's properties to data at runtime. You can't specify `tags` as a valid property for `bindingProperties` .
 	BindingProperties ComponentBindingPropertiesValueMapInput
-	// The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
+	// A list of the component's `ComponentChild` instances.
 	Children ComponentChildArrayInput
 	// The data binding configuration for the component's properties. Use this for a collection component. You can't specify `tags` as a valid property for `collectionProperties` .
 	CollectionProperties ComponentDataConfigurationMapInput
@@ -154,7 +154,7 @@ type ComponentArgs struct {
 	SourceId pulumi.StringPtrInput
 	// One or more key-value pairs to use when tagging the component.
 	Tags pulumi.StringMapInput
-	// The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
+	// A list of the component's variants. A variant is a unique style configuration of a main component.
 	Variants ComponentVariantArrayInput
 }
 
@@ -210,7 +210,7 @@ func (o ComponentOutput) BindingProperties() ComponentBindingPropertiesValueMapO
 	return o.ApplyT(func(v *Component) ComponentBindingPropertiesValueMapOutput { return v.BindingProperties }).(ComponentBindingPropertiesValueMapOutput)
 }
 
-// The `ComponentChild` property specifies a nested UI configuration within a parent `Component` .
+// A list of the component's `ComponentChild` instances.
 func (o ComponentOutput) Children() ComponentChildArrayOutput {
 	return o.ApplyT(func(v *Component) ComponentChildArrayOutput { return v.Children }).(ComponentChildArrayOutput)
 }
@@ -275,7 +275,7 @@ func (o ComponentOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The `ComponentVariant` property specifies the style configuration of a unique variation of a main component.
+// A list of the component's variants. A variant is a unique style configuration of a main component.
 func (o ComponentOutput) Variants() ComponentVariantArrayOutput {
 	return o.ApplyT(func(v *Component) ComponentVariantArrayOutput { return v.Variants }).(ComponentVariantArrayOutput)
 }

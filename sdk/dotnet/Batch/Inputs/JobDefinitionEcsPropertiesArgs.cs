@@ -16,7 +16,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
         private InputList<Inputs.JobDefinitionEcsTaskPropertiesArgs>? _taskProperties;
 
         /// <summary>
-        /// The properties for a task definition that describes the container and volume definitions of an Amazon ECS task. You can specify which Docker images to use, the required resources, and other configurations related to launching the task definition through an Amazon ECS service or task.
+        /// An object that contains the properties for the Amazon ECS task definition of a job.
+        /// 
+        /// &gt; This object is currently limited to one element.
         /// </summary>
         public InputList<Inputs.JobDefinitionEcsTaskPropertiesArgs> TaskProperties
         {

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardDimensionField
     {
         /// <summary>
-        /// The dimension type field with categorical type columns..
+        /// The dimension type field with categorical type columns.
         /// </summary>
         public readonly Outputs.DashboardCategoricalDimensionField? CategoricalDimensionField;
         /// <summary>

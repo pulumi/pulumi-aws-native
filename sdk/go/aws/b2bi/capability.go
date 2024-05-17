@@ -21,17 +21,17 @@ type Capability struct {
 	CapabilityArn pulumi.StringOutput `pulumi:"capabilityArn"`
 	// Returns a system-assigned unique identifier for the capability.
 	CapabilityId pulumi.StringOutput `pulumi:"capabilityId"`
-	// A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
+	// Specifies a structure that contains the details for a capability.
 	Configuration CapabilityConfigurationPropertiesOutput `pulumi:"configuration"`
 	// Returns a timestamp for creation date and time of the capability.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
+	// Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
 	InstructionsDocuments CapabilityS3LocationArrayOutput `pulumi:"instructionsDocuments"`
 	// Returns a timestamp that identifies the most recent date and time that the capability was modified.
 	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
 	// The display name of the capability.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
+	// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Returns the type of the capability. Currently, only `edi` is supported.
 	Type CapabilityTypeOutput `pulumi:"type"`
@@ -87,13 +87,13 @@ func (CapabilityState) ElementType() reflect.Type {
 }
 
 type capabilityArgs struct {
-	// A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
+	// Specifies a structure that contains the details for a capability.
 	Configuration CapabilityConfigurationProperties `pulumi:"configuration"`
-	// Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
+	// Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
 	InstructionsDocuments []CapabilityS3Location `pulumi:"instructionsDocuments"`
 	// The display name of the capability.
 	Name *string `pulumi:"name"`
-	// A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
+	// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Returns the type of the capability. Currently, only `edi` is supported.
 	Type CapabilityType `pulumi:"type"`
@@ -101,13 +101,13 @@ type capabilityArgs struct {
 
 // The set of arguments for constructing a Capability resource.
 type CapabilityArgs struct {
-	// A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
+	// Specifies a structure that contains the details for a capability.
 	Configuration CapabilityConfigurationPropertiesInput
-	// Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
+	// Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
 	InstructionsDocuments CapabilityS3LocationArrayInput
 	// The display name of the capability.
 	Name pulumi.StringPtrInput
-	// A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
+	// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
 	Tags aws.TagArrayInput
 	// Returns the type of the capability. Currently, only `edi` is supported.
 	Type CapabilityTypeInput
@@ -160,7 +160,7 @@ func (o CapabilityOutput) CapabilityId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Capability) pulumi.StringOutput { return v.CapabilityId }).(pulumi.StringOutput)
 }
 
-// A capability object. Currently, only EDI (electronic data interchange) capabilities are supported. A trading capability contains the information required to transform incoming EDI documents into JSON or XML outputs.
+// Specifies a structure that contains the details for a capability.
 func (o CapabilityOutput) Configuration() CapabilityConfigurationPropertiesOutput {
 	return o.ApplyT(func(v *Capability) CapabilityConfigurationPropertiesOutput { return v.Configuration }).(CapabilityConfigurationPropertiesOutput)
 }
@@ -170,7 +170,7 @@ func (o CapabilityOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Capability) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Specifies the details for the Amazon S3 file location that is being used with AWS B2BI Data Interchange. File locations in Amazon S3 are identified using a combination of the bucket and key.
+// Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
 func (o CapabilityOutput) InstructionsDocuments() CapabilityS3LocationArrayOutput {
 	return o.ApplyT(func(v *Capability) CapabilityS3LocationArrayOutput { return v.InstructionsDocuments }).(CapabilityS3LocationArrayOutput)
 }
@@ -185,7 +185,7 @@ func (o CapabilityOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Capability) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A key-value pair for a specific capability. Tags are metadata that you can use to search for and group capabilities for various purposes.
+// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
 func (o CapabilityOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Capability) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

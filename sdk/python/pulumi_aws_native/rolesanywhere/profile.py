@@ -33,7 +33,7 @@ class ProfileArgs:
         :param pulumi.Input[str] name: The customer specified name of the resource.
         :param pulumi.Input[bool] require_instance_properties: Specifies whether instance properties are required in CreateSession requests with this profile.
         :param pulumi.Input[str] session_policy: A session policy that will applied to the trust boundary of the vended session credentials.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A label that consists of a key and value you define.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of Tags.
         """
         pulumi.set(__self__, "role_arns", role_arns)
         if duration_seconds is not None:
@@ -139,7 +139,7 @@ class ProfileArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A label that consists of a key and value you define.
+        A list of Tags.
         """
         return pulumi.get(self, "tags")
 
@@ -174,7 +174,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[bool] require_instance_properties: Specifies whether instance properties are required in CreateSession requests with this profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] role_arns: A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
         :param pulumi.Input[str] session_policy: A session policy that will applied to the trust boundary of the vended session credentials.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A label that consists of a key and value you define.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of Tags.
         """
         ...
     @overload
@@ -339,7 +339,7 @@ class Profile(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A label that consists of a key and value you define.
+        A list of Tags.
         """
         return pulumi.get(self, "tags")
 

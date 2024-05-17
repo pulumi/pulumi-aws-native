@@ -38,8 +38,8 @@ class ChannelArgs:
                `LOOP` - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: <p>The list of audiences defined in channel.</p>
         :param pulumi.Input[str] channel_name: The name of the channel.
-        :param pulumi.Input['ChannelSlateSourceArgs'] filler_slate: Slate VOD source configuration.
-        :param pulumi.Input['ChannelLogConfigurationForChannelArgs'] log_configuration: The log configuration for the channel.
+        :param pulumi.Input['ChannelSlateSourceArgs'] filler_slate: The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
+        :param pulumi.Input['ChannelLogConfigurationForChannelArgs'] log_configuration: The log configuration.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to assign to the channel.
         :param pulumi.Input['ChannelTier'] tier: The tier for this channel. STANDARD tier channels can contain live programs.
         :param pulumi.Input['ChannelTimeShiftConfigurationArgs'] time_shift_configuration: The configuration for time-shifted viewing.
@@ -117,7 +117,7 @@ class ChannelArgs:
     @pulumi.getter(name="fillerSlate")
     def filler_slate(self) -> Optional[pulumi.Input['ChannelSlateSourceArgs']]:
         """
-        Slate VOD source configuration.
+        The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
         """
         return pulumi.get(self, "filler_slate")
 
@@ -129,7 +129,7 @@ class ChannelArgs:
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> Optional[pulumi.Input['ChannelLogConfigurationForChannelArgs']]:
         """
-        The log configuration for the channel.
+        The log configuration.
         """
         return pulumi.get(self, "log_configuration")
 
@@ -196,8 +196,8 @@ class Channel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: <p>The list of audiences defined in channel.</p>
         :param pulumi.Input[str] channel_name: The name of the channel.
-        :param pulumi.Input[pulumi.InputType['ChannelSlateSourceArgs']] filler_slate: Slate VOD source configuration.
-        :param pulumi.Input[pulumi.InputType['ChannelLogConfigurationForChannelArgs']] log_configuration: The log configuration for the channel.
+        :param pulumi.Input[pulumi.InputType['ChannelSlateSourceArgs']] filler_slate: The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
+        :param pulumi.Input[pulumi.InputType['ChannelLogConfigurationForChannelArgs']] log_configuration: The log configuration.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelRequestOutputItemArgs']]]] outputs: <p>The channel's output properties.</p>
         :param pulumi.Input['ChannelPlaybackMode'] playback_mode: The type of playback mode for this channel.
                
@@ -328,7 +328,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter(name="fillerSlate")
     def filler_slate(self) -> pulumi.Output[Optional['outputs.ChannelSlateSource']]:
         """
-        Slate VOD source configuration.
+        The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
         """
         return pulumi.get(self, "filler_slate")
 
@@ -336,7 +336,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter(name="logConfiguration")
     def log_configuration(self) -> pulumi.Output[Optional['outputs.ChannelLogConfigurationForChannel']]:
         """
-        The log configuration for the channel.
+        The log configuration.
         """
         return pulumi.get(self, "log_configuration")
 

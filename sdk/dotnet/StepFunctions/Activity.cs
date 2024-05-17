@@ -102,7 +102,9 @@ namespace Pulumi.AwsNative.StepFunctions
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The `TagsEntry` property specifies *tags* to identify an activity.
+        /// The list of tags to add to a resource.
+        /// 
+        /// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -176,7 +178,9 @@ namespace Pulumi.AwsNative.StepFunctions
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// The `TagsEntry` property specifies *tags* to identify an activity.
+        /// The list of tags to add to a resource.
+        /// 
+        /// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

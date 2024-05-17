@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.IoT.Inputs
         private InputList<Inputs.TopicRulePutAssetPropertyValueEntryArgs>? _putAssetPropertyValueEntries;
 
         /// <summary>
-        /// An asset property value entry containing the following information.
+        /// A list of asset property value entries.
         /// </summary>
         public InputList<Inputs.TopicRulePutAssetPropertyValueEntryArgs> PutAssetPropertyValueEntries
         {

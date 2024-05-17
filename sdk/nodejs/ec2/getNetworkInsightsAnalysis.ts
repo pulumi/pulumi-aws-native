@@ -31,15 +31,15 @@ export interface GetNetworkInsightsAnalysisResult {
      */
     readonly additionalAccounts?: string[];
     /**
-     * Describes an potential intermediate component of a feasible path.
+     * Potential intermediate components.
      */
     readonly alternatePathHints?: outputs.ec2.NetworkInsightsAnalysisAlternatePathHint[];
     /**
-     * Describes an explanation code for an unreachable path. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
+     * The explanations. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
      */
     readonly explanations?: outputs.ec2.NetworkInsightsAnalysisExplanation[];
     /**
-     * Describes a path component.
+     * The components in the path from source to destination.
      */
     readonly forwardPathComponents?: outputs.ec2.NetworkInsightsAnalysisPathComponent[];
     /**
@@ -55,7 +55,7 @@ export interface GetNetworkInsightsAnalysisResult {
      */
     readonly networkPathFound?: boolean;
     /**
-     * Describes a path component.
+     * The components in the path from destination to source.
      */
     readonly returnPathComponents?: outputs.ec2.NetworkInsightsAnalysisPathComponent[];
     /**
@@ -75,7 +75,7 @@ export interface GetNetworkInsightsAnalysisResult {
      */
     readonly suggestedAccounts?: string[];
     /**
-     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     * The tags to apply.
      */
     readonly tags?: outputs.Tag[];
 }

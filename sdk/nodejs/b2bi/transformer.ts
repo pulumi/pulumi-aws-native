@@ -42,7 +42,7 @@ export class Transformer extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
-     * Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+     * Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
      */
     public readonly ediType!: pulumi.Output<outputs.b2bi.TransformerEdiTypeProperties>;
     /**
@@ -139,7 +139,7 @@ export class Transformer extends pulumi.CustomResource {
  */
 export interface TransformerArgs {
     /**
-     * Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+     * Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
      */
     ediType: pulumi.Input<inputs.b2bi.TransformerEdiTypePropertiesArgs>;
     /**

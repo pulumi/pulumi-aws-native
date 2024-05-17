@@ -26,9 +26,6 @@ export interface GetAccessPointArgs {
 }
 
 export interface GetAccessPointResult {
-    /**
-     * The alias of an Object Lambda Access Point. For more information, see [How to use a bucket-style alias for your S3 bucket Object Lambda Access Point](https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-use.html#ol-access-points-alias) .
-     */
     readonly alias?: outputs.s3objectlambda.AccessPointAlias;
     /**
      * Specifies the ARN for the Object Lambda Access Point.

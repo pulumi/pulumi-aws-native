@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         public readonly string? SecretsManagerArn;
         /// <summary>
-        /// The network settings that DataSync Discovery uses to connect with your on-premises storage system's management interface.
+        /// Specifies the server name and network port required to connect with the management interface of your on-premises storage system.
         /// </summary>
         public readonly Outputs.StorageSystemServerConfiguration? ServerConfiguration;
         /// <summary>

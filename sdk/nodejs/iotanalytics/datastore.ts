@@ -129,11 +129,13 @@ export class Datastore extends pulumi.CustomResource {
      */
     public readonly fileFormatConfiguration!: pulumi.Output<outputs.iotanalytics.DatastoreFileFormatConfiguration | undefined>;
     /**
-     * How long, in days, message data is kept.
+     * How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
      */
     public readonly retentionPeriod!: pulumi.Output<outputs.iotanalytics.DatastoreRetentionPeriod | undefined>;
     /**
-     * A set of key-value pairs that are used to manage the resource.
+     * Metadata which can be used to manage the data store.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -196,11 +198,13 @@ export interface DatastoreArgs {
      */
     fileFormatConfiguration?: pulumi.Input<inputs.iotanalytics.DatastoreFileFormatConfigurationArgs>;
     /**
-     * How long, in days, message data is kept.
+     * How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
      */
     retentionPeriod?: pulumi.Input<inputs.iotanalytics.DatastoreRetentionPeriodArgs>;
     /**
-     * A set of key-value pairs that are used to manage the resource.
+     * Metadata which can be used to manage the data store.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

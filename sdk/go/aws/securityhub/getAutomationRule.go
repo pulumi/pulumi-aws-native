@@ -28,7 +28,7 @@ type LookupAutomationRuleArgs struct {
 }
 
 type LookupAutomationRuleResult struct {
-	// One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+	// One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
 	Actions []AutomationRulesAction `pulumi:"actions"`
 	// A timestamp that indicates when the rule was created.
 	//
@@ -94,7 +94,7 @@ func (o LookupAutomationRuleResultOutput) ToLookupAutomationRuleResultOutputWith
 	return o
 }
 
-// One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+// One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
 func (o LookupAutomationRuleResultOutput) Actions() AutomationRulesActionArrayOutput {
 	return o.ApplyT(func(v LookupAutomationRuleResult) []AutomationRulesAction { return v.Actions }).(AutomationRulesActionArrayOutput)
 }

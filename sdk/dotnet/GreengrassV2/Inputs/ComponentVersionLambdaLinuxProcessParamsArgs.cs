@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
     public sealed class ComponentVersionLambdaLinuxProcessParamsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains information about a container in which AWS Lambda functions run on AWS IoT Greengrass core devices.
+        /// The parameters for the container in which the Lambda function runs.
         /// </summary>
         [Input("containerParams")]
         public Input<Inputs.ComponentVersionLambdaContainerParamsArgs>? ContainerParams { get; set; }

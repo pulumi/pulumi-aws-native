@@ -73,9 +73,6 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// &lt;p&gt;A human-readable description of the streaming image.&lt;/p&gt;
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// Specifies how a streaming image is encrypted.
-        /// </summary>
         public readonly Outputs.StreamingImageEncryptionConfiguration? EncryptionConfiguration;
         /// <summary>
         /// &lt;p&gt;The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.&lt;/p&gt;

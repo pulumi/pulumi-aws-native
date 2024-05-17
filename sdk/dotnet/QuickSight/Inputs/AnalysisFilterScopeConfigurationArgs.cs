@@ -19,9 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.AnalysisAllSheetsFilterScopeConfigurationArgs>? AllSheets { get; set; }
 
         /// <summary>
-        /// The configuration for applying a filter to specific sheets or visuals. You can apply this filter to multiple visuals that are on one sheet or to all visuals on a sheet.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The configuration for applying a filter to specific sheets.
         /// </summary>
         [Input("selectedSheets")]
         public Input<Inputs.AnalysisSelectedSheetsFilterScopeConfigurationArgs>? SelectedSheets { get; set; }

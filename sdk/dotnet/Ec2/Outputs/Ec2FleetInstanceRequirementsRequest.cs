@@ -14,7 +14,11 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     public sealed class Ec2FleetInstanceRequirementsRequest
     {
         /// <summary>
-        /// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance. To exclude accelerator-enabled instance types, set `Max` to `0` .
+        /// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
+        /// 
+        /// To exclude accelerator-enabled instance types, set `Max` to `0` .
+        /// 
+        /// Default: No minimum or maximum limits
         /// </summary>
         public readonly Outputs.Ec2FleetAcceleratorCountRequest? AcceleratorCount;
         /// <summary>
@@ -50,6 +54,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         public readonly ImmutableArray<Pulumi.AwsNative.Ec2.Ec2FleetInstanceRequirementsRequestAcceleratorNamesItem> AcceleratorNames;
         /// <summary>
         /// The minimum and maximum amount of total accelerator memory, in MiB.
+        /// 
+        /// Default: No minimum or maximum limits
         /// </summary>
         public readonly Outputs.Ec2FleetAcceleratorTotalMemoryMiBRequest? AcceleratorTotalMemoryMiB;
         /// <summary>
@@ -86,6 +92,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         public readonly Pulumi.AwsNative.Ec2.Ec2FleetInstanceRequirementsRequestBareMetal? BareMetal;
         /// <summary>
         /// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
+        /// 
+        /// Default: No minimum or maximum limits
         /// </summary>
         public readonly Outputs.Ec2FleetBaselineEbsBandwidthMbpsRequest? BaselineEbsBandwidthMbps;
         /// <summary>
@@ -163,6 +171,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         public readonly int? MaxSpotPriceAsPercentageOfOptimalOnDemandPrice;
         /// <summary>
         /// The minimum and maximum amount of memory per vCPU, in GiB.
+        /// 
+        /// Default: No minimum or maximum limits
         /// </summary>
         public readonly Outputs.Ec2FleetMemoryGiBPerVCpuRequest? MemoryGiBPerVCpu;
         /// <summary>
@@ -170,13 +180,15 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly Outputs.Ec2FleetMemoryMiBRequest? MemoryMiB;
         /// <summary>
-        /// The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+        /// The minimum and maximum amount of baseline network bandwidth, in gigabits per second (Gbps). For more information, see [Amazon EC2 instance network bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html) in the *Amazon EC2 User Guide* .
         /// 
-        /// &gt; Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see [Available instance bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth) in the *Amazon EC2 User Guide* .
+        /// Default: No minimum or maximum limits
         /// </summary>
         public readonly Outputs.Ec2FleetNetworkBandwidthGbpsRequest? NetworkBandwidthGbps;
         /// <summary>
         /// The minimum and maximum number of network interfaces.
+        /// 
+        /// Default: No minimum or maximum limits
         /// </summary>
         public readonly Outputs.Ec2FleetNetworkInterfaceCountRequest? NetworkInterfaceCount;
         /// <summary>
@@ -217,6 +229,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         public readonly int? SpotMaxPricePercentageOverLowestPrice;
         /// <summary>
         /// The minimum and maximum amount of total local storage, in GB.
+        /// 
+        /// Default: No minimum or maximum limits
         /// </summary>
         public readonly Outputs.Ec2FleetTotalLocalStorageGbRequest? TotalLocalStorageGb;
         /// <summary>

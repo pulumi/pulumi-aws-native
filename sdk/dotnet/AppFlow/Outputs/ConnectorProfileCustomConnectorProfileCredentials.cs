@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     public sealed class ConnectorProfileCustomConnectorProfileCredentials
     {
         /// <summary>
-        /// The API key credentials required for API key authentication.
+        /// The API keys required for the authentication of the user.
         /// </summary>
         public readonly Outputs.ConnectorProfileApiKeyCredentials? ApiKey;
         /// <summary>
@@ -22,15 +22,15 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.AppFlow.ConnectorProfileAuthenticationType AuthenticationType;
         /// <summary>
-        /// The basic auth credentials required for basic authentication.
+        /// The basic credentials that are required for the authentication of the user.
         /// </summary>
         public readonly Outputs.ConnectorProfileBasicAuthCredentials? Basic;
         /// <summary>
-        /// The custom credentials required for custom authentication.
+        /// If the connector uses the custom authentication mechanism, this holds the required credentials.
         /// </summary>
         public readonly Outputs.ConnectorProfileCustomAuthCredentials? Custom;
         /// <summary>
-        /// The OAuth 2.0 credentials required for OAuth 2.0 authentication.
+        /// The OAuth 2.0 credentials required for the authentication of the user.
         /// </summary>
         public readonly Outputs.ConnectorProfileOAuth2Credentials? Oauth2;
 

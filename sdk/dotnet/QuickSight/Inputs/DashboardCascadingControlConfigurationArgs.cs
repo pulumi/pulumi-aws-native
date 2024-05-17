@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.DashboardCascadingControlSourceArgs>? _sourceControls;
 
         /// <summary>
-        /// The source controls that are used in a `CascadingControlConfiguration` .
+        /// A list of source controls that determine the values that are used in the current control.
         /// </summary>
         public InputList<Inputs.DashboardCascadingControlSourceArgs> SourceControls
         {

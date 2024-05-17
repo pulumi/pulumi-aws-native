@@ -28,19 +28,19 @@ namespace Pulumi.AwsNative.Connect
         public Output<string> InstanceArn { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration information of a Kinesis Data Firehose delivery stream.
+        /// The configuration of the Kinesis Firehose delivery stream.
         /// </summary>
         [Output("kinesisFirehoseConfig")]
         public Output<Outputs.InstanceStorageConfigKinesisFirehoseConfig?> KinesisFirehoseConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration information of a Kinesis data stream.
+        /// The configuration of the Kinesis data stream.
         /// </summary>
         [Output("kinesisStreamConfig")]
         public Output<Outputs.InstanceStorageConfigKinesisStreamConfig?> KinesisStreamConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration information of a Kinesis video stream.
+        /// The configuration of the Kinesis video stream.
         /// </summary>
         [Output("kinesisVideoStreamConfig")]
         public Output<Outputs.InstanceStorageConfigKinesisVideoStreamConfig?> KinesisVideoStreamConfig { get; private set; } = null!;
@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.Connect
         public Output<Pulumi.AwsNative.Connect.InstanceStorageConfigInstanceStorageResourceType> ResourceType { get; private set; } = null!;
 
         /// <summary>
-        /// Information about the Amazon Simple Storage Service (Amazon S3) storage type.
+        /// The S3 bucket configuration.
         /// </summary>
         [Output("s3Config")]
         public Output<Outputs.InstanceStorageConfigS3Config?> S3Config { get; private set; } = null!;
@@ -120,19 +120,19 @@ namespace Pulumi.AwsNative.Connect
         public Input<string> InstanceArn { get; set; } = null!;
 
         /// <summary>
-        /// Configuration information of a Kinesis Data Firehose delivery stream.
+        /// The configuration of the Kinesis Firehose delivery stream.
         /// </summary>
         [Input("kinesisFirehoseConfig")]
         public Input<Inputs.InstanceStorageConfigKinesisFirehoseConfigArgs>? KinesisFirehoseConfig { get; set; }
 
         /// <summary>
-        /// Configuration information of a Kinesis data stream.
+        /// The configuration of the Kinesis data stream.
         /// </summary>
         [Input("kinesisStreamConfig")]
         public Input<Inputs.InstanceStorageConfigKinesisStreamConfigArgs>? KinesisStreamConfig { get; set; }
 
         /// <summary>
-        /// Configuration information of a Kinesis video stream.
+        /// The configuration of the Kinesis video stream.
         /// </summary>
         [Input("kinesisVideoStreamConfig")]
         public Input<Inputs.InstanceStorageConfigKinesisVideoStreamConfigArgs>? KinesisVideoStreamConfig { get; set; }
@@ -144,7 +144,7 @@ namespace Pulumi.AwsNative.Connect
         public Input<Pulumi.AwsNative.Connect.InstanceStorageConfigInstanceStorageResourceType> ResourceType { get; set; } = null!;
 
         /// <summary>
-        /// Information about the Amazon Simple Storage Service (Amazon S3) storage type.
+        /// The S3 bucket configuration.
         /// </summary>
         [Input("s3Config")]
         public Input<Inputs.InstanceStorageConfigS3ConfigArgs>? S3Config { get; set; }

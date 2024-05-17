@@ -62,9 +62,9 @@ namespace Pulumi.AwsNative.Amplify
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// Describes the backend associated with an Amplify `Branch` .
+        /// The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
         /// 
-        /// This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
+        /// This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
         /// </summary>
         public readonly Outputs.BranchBackend? Backend;
         /// <summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AwsNative.Amplify
         /// </summary>
         public readonly bool? EnablePullRequestPreview;
         /// <summary>
-        /// The EnvironmentVariable property type sets environment variables for a specific branch. Environment variables are key-value pairs that are available at build time.
+        /// The environment variables for the branch.
         /// </summary>
         public readonly ImmutableArray<Outputs.BranchEnvironmentVariable> EnvironmentVariables;
         /// <summary>
@@ -116,7 +116,7 @@ namespace Pulumi.AwsNative.Amplify
         /// </summary>
         public readonly Pulumi.AwsNative.Amplify.BranchStage? Stage;
         /// <summary>
-        /// The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::Branch` resource.
+        /// The tag for the branch.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

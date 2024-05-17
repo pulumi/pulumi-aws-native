@@ -18,15 +18,19 @@ type Detector struct {
 	pulumi.CustomResourceState
 
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
-	// Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
+	// Describes which data sources will be enabled for the detector.
 	DataSources DetectorCfnDataSourceConfigurationsPtrOutput `pulumi:"dataSources"`
 	// Specifies whether the detector is to be enabled on creation.
 	Enable pulumi.BoolOutput `pulumi:"enable"`
-	// Information about the configuration of a feature in your account.
+	// A list of features that will be configured for the detector.
 	Features DetectorCfnFeatureConfigurationArrayOutput `pulumi:"features"`
 	// Specifies how frequently updated findings are exported.
 	FindingPublishingFrequency pulumi.StringPtrOutput `pulumi:"findingPublishingFrequency"`
-	// Describes a tag.
+	// Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
+	//
+	// Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -73,29 +77,37 @@ func (DetectorState) ElementType() reflect.Type {
 }
 
 type detectorArgs struct {
-	// Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
+	// Describes which data sources will be enabled for the detector.
 	DataSources *DetectorCfnDataSourceConfigurations `pulumi:"dataSources"`
 	// Specifies whether the detector is to be enabled on creation.
 	Enable bool `pulumi:"enable"`
-	// Information about the configuration of a feature in your account.
+	// A list of features that will be configured for the detector.
 	Features []DetectorCfnFeatureConfiguration `pulumi:"features"`
 	// Specifies how frequently updated findings are exported.
 	FindingPublishingFrequency *string `pulumi:"findingPublishingFrequency"`
-	// Describes a tag.
+	// Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
+	//
+	// Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Detector resource.
 type DetectorArgs struct {
-	// Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
+	// Describes which data sources will be enabled for the detector.
 	DataSources DetectorCfnDataSourceConfigurationsPtrInput
 	// Specifies whether the detector is to be enabled on creation.
 	Enable pulumi.BoolInput
-	// Information about the configuration of a feature in your account.
+	// A list of features that will be configured for the detector.
 	Features DetectorCfnFeatureConfigurationArrayInput
 	// Specifies how frequently updated findings are exported.
 	FindingPublishingFrequency pulumi.StringPtrInput
-	// Describes a tag.
+	// Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
+	//
+	// Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags aws.TagArrayInput
 }
 
@@ -140,7 +152,7 @@ func (o DetectorOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Detector) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
-// Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
+// Describes which data sources will be enabled for the detector.
 func (o DetectorOutput) DataSources() DetectorCfnDataSourceConfigurationsPtrOutput {
 	return o.ApplyT(func(v *Detector) DetectorCfnDataSourceConfigurationsPtrOutput { return v.DataSources }).(DetectorCfnDataSourceConfigurationsPtrOutput)
 }
@@ -150,7 +162,7 @@ func (o DetectorOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Detector) pulumi.BoolOutput { return v.Enable }).(pulumi.BoolOutput)
 }
 
-// Information about the configuration of a feature in your account.
+// A list of features that will be configured for the detector.
 func (o DetectorOutput) Features() DetectorCfnFeatureConfigurationArrayOutput {
 	return o.ApplyT(func(v *Detector) DetectorCfnFeatureConfigurationArrayOutput { return v.Features }).(DetectorCfnFeatureConfigurationArrayOutput)
 }
@@ -160,7 +172,11 @@ func (o DetectorOutput) FindingPublishingFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Detector) pulumi.StringPtrOutput { return v.FindingPublishingFrequency }).(pulumi.StringPtrOutput)
 }
 
-// Describes a tag.
+// Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
+//
+// Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o DetectorOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Detector) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

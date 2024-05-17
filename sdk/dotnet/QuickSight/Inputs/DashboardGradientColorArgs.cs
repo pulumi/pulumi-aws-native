@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.DashboardGradientStopArgs>? _stops;
 
         /// <summary>
-        /// Determines the gradient stop configuration.
+        /// The list of gradient color stops.
         /// </summary>
         public InputList<Inputs.DashboardGradientStopArgs> Stops
         {

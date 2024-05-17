@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<bool>? EnableOnlineStore { get; set; }
 
         /// <summary>
-        /// The security configuration for `OnlineStore` .
+        /// Use to specify KMS Key ID ( `KMSKeyId` ) for at-rest encryption of your `OnlineStore` .
         /// </summary>
         [Input("securityConfig")]
         public Input<Inputs.FeatureGroupOnlineStoreSecurityConfigArgs>? SecurityConfig { get; set; }

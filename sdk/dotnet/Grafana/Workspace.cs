@@ -82,17 +82,7 @@ namespace Pulumi.AwsNative.Grafana
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration settings for in-bound network access to your workspace.
-        /// 
-        /// When this is configured, only listed IP addresses and VPC endpoints will be able to access your workspace. Standard Grafana authentication and authorization are still required.
-        /// 
-        /// Access is granted to a caller that is in either the IP address list or the VPC endpoint list - they do not need to be in both.
-        /// 
-        /// If this is not configured, or is removed, then all IP addresses and VPC endpoints are allowed. Standard Grafana authentication and authorization are still required.
-        /// 
-        /// &gt; While both `prefixListIds` and `vpceIds` are required, you can pass in an empty array of strings for either parameter if you do not want to allow any of that type.
-        /// &gt; 
-        /// &gt; If both are passed as empty arrays, no traffic is allowed to the workspace, because only *explicitly* allowed connections are accepted.
+        /// The configuration settings for network access to your workspace.
         /// </summary>
         [Output("networkAccessControl")]
         public Output<Outputs.WorkspaceNetworkAccessControl?> NetworkAccessControl { get; private set; } = null!;
@@ -140,7 +130,7 @@ namespace Pulumi.AwsNative.Grafana
         public Output<string?> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// A structure containing information about how this workspace works with SAML.
+        /// If the workspace uses SAML, use this structure to map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the `Admin` and `Editor` roles in the workspace.
         /// </summary>
         [Output("samlConfiguration")]
         public Output<Outputs.WorkspaceSamlConfiguration?> SamlConfiguration { get; private set; } = null!;
@@ -180,8 +170,6 @@ namespace Pulumi.AwsNative.Grafana
         /// <summary>
         /// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
         /// 
-        /// &gt; Provided `securityGroupIds` and `subnetIds` must be part of the same VPC.
-        /// &gt; 
         /// &gt; Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
         /// </summary>
         [Output("vpcConfiguration")]
@@ -291,17 +279,7 @@ namespace Pulumi.AwsNative.Grafana
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The configuration settings for in-bound network access to your workspace.
-        /// 
-        /// When this is configured, only listed IP addresses and VPC endpoints will be able to access your workspace. Standard Grafana authentication and authorization are still required.
-        /// 
-        /// Access is granted to a caller that is in either the IP address list or the VPC endpoint list - they do not need to be in both.
-        /// 
-        /// If this is not configured, or is removed, then all IP addresses and VPC endpoints are allowed. Standard Grafana authentication and authorization are still required.
-        /// 
-        /// &gt; While both `prefixListIds` and `vpceIds` are required, you can pass in an empty array of strings for either parameter if you do not want to allow any of that type.
-        /// &gt; 
-        /// &gt; If both are passed as empty arrays, no traffic is allowed to the workspace, because only *explicitly* allowed connections are accepted.
+        /// The configuration settings for network access to your workspace.
         /// </summary>
         [Input("networkAccessControl")]
         public Input<Inputs.WorkspaceNetworkAccessControlArgs>? NetworkAccessControl { get; set; }
@@ -361,7 +339,7 @@ namespace Pulumi.AwsNative.Grafana
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// A structure containing information about how this workspace works with SAML.
+        /// If the workspace uses SAML, use this structure to map SAML assertion attributes to workspace user information and define which groups in the assertion attribute are to have the `Admin` and `Editor` roles in the workspace.
         /// </summary>
         [Input("samlConfiguration")]
         public Input<Inputs.WorkspaceSamlConfigurationArgs>? SamlConfiguration { get; set; }
@@ -375,8 +353,6 @@ namespace Pulumi.AwsNative.Grafana
         /// <summary>
         /// The configuration settings for an Amazon VPC that contains data sources for your Grafana workspace to connect to.
         /// 
-        /// &gt; Provided `securityGroupIds` and `subnetIds` must be part of the same VPC.
-        /// &gt; 
         /// &gt; Connecting to a private VPC is not yet available in the Asia Pacific (Seoul) Region (ap-northeast-2).
         /// </summary>
         [Input("vpcConfiguration")]

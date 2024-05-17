@@ -64,9 +64,9 @@ class FleetArgs:
         :param pulumi.Input['FleetType'] fleet_type: Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
         :param pulumi.Input[str] instance_role_arn: A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
         :param pulumi.Input['FleetInstanceRoleCredentialsProvider'] instance_role_credentials_provider: Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
-        :param pulumi.Input[Sequence[pulumi.Input['FleetLocationConfigurationArgs']]] locations: *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+        :param pulumi.Input[Sequence[pulumi.Input['FleetLocationConfigurationArgs']]] locations: A set of remote locations to deploy additional instances to and manage as part of the fleet. This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any Amazon GameLift-supported AWS Region as a remote location, in the form of an AWS Region code, such as `us-west-2` or Local Zone code. To create a fleet with instances in the home Region only, don't set this parameter.
                
-               A remote location where a multi-location fleet can deploy game servers for game hosting.
+               When using this parameter, Amazon GameLift requires you to include your home location in the request.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_paths: This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
         :param pulumi.Input[int] max_size: [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_groups: The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
@@ -307,9 +307,9 @@ class FleetArgs:
     @pulumi.getter
     def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetLocationConfigurationArgs']]]]:
         """
-        *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+        A set of remote locations to deploy additional instances to and manage as part of the fleet. This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any Amazon GameLift-supported AWS Region as a remote location, in the form of an AWS Region code, such as `us-west-2` or Local Zone code. To create a fleet with instances in the home Region only, don't set this parameter.
 
-        A remote location where a multi-location fleet can deploy game servers for game hosting.
+        When using this parameter, Amazon GameLift requires you to include your home location in the request.
         """
         return pulumi.get(self, "locations")
 
@@ -546,9 +546,9 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input['FleetType'] fleet_type: Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
         :param pulumi.Input[str] instance_role_arn: A unique identifier for an AWS IAM role that manages access to your AWS services. With an instance role ARN set, any application that runs on an instance in this fleet can assume the role, including install scripts, server processes, and daemons (background processes). Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
         :param pulumi.Input['FleetInstanceRoleCredentialsProvider'] instance_role_credentials_provider: Credentials provider implementation that loads credentials from the Amazon EC2 Instance Metadata Service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetLocationConfigurationArgs']]]] locations: *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetLocationConfigurationArgs']]]] locations: A set of remote locations to deploy additional instances to and manage as part of the fleet. This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any Amazon GameLift-supported AWS Region as a remote location, in the form of an AWS Region code, such as `us-west-2` or Local Zone code. To create a fleet with instances in the home Region only, don't set this parameter.
                
-               A remote location where a multi-location fleet can deploy game servers for game hosting.
+               When using this parameter, Amazon GameLift requires you to include your home location in the request.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_paths: This parameter is no longer used. When hosting a custom game build, specify where Amazon GameLift should store log files using the Amazon GameLift server API call ProcessReady()
         :param pulumi.Input[int] max_size: [DEPRECATED] The maximum value that is allowed for the fleet's instance count. When creating a new fleet, GameLift automatically sets this value to "1". Once the fleet is active, you can change this value.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_groups: The name of an Amazon CloudWatch metric group. A metric group aggregates the metrics for all fleets in the group. Specify a string containing the metric group name. You can use an existing name or use a new name to create a new metric group. Currently, this parameter can have only one string.
@@ -833,9 +833,9 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter
     def locations(self) -> pulumi.Output[Optional[Sequence['outputs.FleetLocationConfiguration']]]:
         """
-        *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+        A set of remote locations to deploy additional instances to and manage as part of the fleet. This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any Amazon GameLift-supported AWS Region as a remote location, in the form of an AWS Region code, such as `us-west-2` or Local Zone code. To create a fleet with instances in the home Region only, don't set this parameter.
 
-        A remote location where a multi-location fleet can deploy game servers for game hosting.
+        When using this parameter, Amazon GameLift requires you to include your home location in the request.
         """
         return pulumi.get(self, "locations")
 

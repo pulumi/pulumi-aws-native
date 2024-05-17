@@ -74,9 +74,9 @@ namespace Pulumi.AwsNative.CodeBuild
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A tag, consisting of a key and a value.
+        /// A list of tag key and value pairs associated with this compute fleet.
         /// 
-        /// This tag is available for use by AWS services that support tags in AWS CodeBuild .
+        /// These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -182,9 +182,9 @@ namespace Pulumi.AwsNative.CodeBuild
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A tag, consisting of a key and a value.
+        /// A list of tag key and value pairs associated with this compute fleet.
         /// 
-        /// This tag is available for use by AWS services that support tags in AWS CodeBuild .
+        /// These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

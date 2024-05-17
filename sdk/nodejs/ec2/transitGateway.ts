@@ -78,7 +78,7 @@ export class TransitGateway extends pulumi.CustomResource {
      */
     public readonly propagationDefaultRouteTableId!: pulumi.Output<string | undefined>;
     /**
-     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     * The tags for the transit gateway.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     public /*out*/ readonly transitGatewayArn!: pulumi.Output<string>;
@@ -180,7 +180,7 @@ export interface TransitGatewayArgs {
      */
     propagationDefaultRouteTableId?: pulumi.Input<string>;
     /**
-     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     * The tags for the transit gateway.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

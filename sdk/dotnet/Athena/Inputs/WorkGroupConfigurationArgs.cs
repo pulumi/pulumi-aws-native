@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.Athena.Inputs
         public Input<int>? BytesScannedCutoffPerQuery { get; set; }
 
         /// <summary>
-        /// Specifies the customer managed KMS key that is used to encrypt the user's data stores in Athena. When an AWS managed key is used, this value is null. This setting does not apply to Athena SQL workgroups.
+        /// Specifies the KMS key that is used to encrypt the user's data stores in Athena. This setting does not apply to Athena SQL workgroups.
         /// </summary>
         [Input("customerContentEncryptionConfiguration")]
         public Input<Inputs.WorkGroupCustomerContentEncryptionConfigurationArgs>? CustomerContentEncryptionConfiguration { get; set; }
@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.Athena.Inputs
         public Input<bool>? EnforceWorkGroupConfiguration { get; set; }
 
         /// <summary>
-        /// The Athena engine version for running queries, or the PySpark engine version for running sessions.
+        /// The engine version that all queries running on the workgroup use.
         /// </summary>
         [Input("engineVersion")]
         public Input<Inputs.WorkGroupEngineVersionArgs>? EngineVersion { get; set; }
@@ -63,7 +63,7 @@ namespace Pulumi.AwsNative.Athena.Inputs
         public Input<bool>? RequesterPaysEnabled { get; set; }
 
         /// <summary>
-        /// The location in Amazon S3 where query and calculation results are stored and the encryption option, if any, used for query and calculation results. These are known as "client-side settings". If workgroup settings override client-side settings, then the query uses the workgroup settings.
+        /// Specifies the location in Amazon S3 where query results are stored and the encryption option, if any, used for query results. For more information, see [Working with Query Results, Output Files, and Query History](https://docs.aws.amazon.com/athena/latest/ug/querying.html) .
         /// </summary>
         [Input("resultConfiguration")]
         public Input<Inputs.WorkGroupResultConfigurationArgs>? ResultConfiguration { get; set; }

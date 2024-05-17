@@ -355,7 +355,7 @@ class WorkflowS3FileLocation(dict):
                  s3_file_location: Optional['outputs.WorkflowS3InputFileLocation'] = None):
         """
         Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.
-        :param 'WorkflowS3InputFileLocation' s3_file_location: Specifies the details for the Amazon S3 location for an input file to a workflow.
+        :param 'WorkflowS3InputFileLocation' s3_file_location: Specifies the details for the file location for the file that's being used in the workflow. Only applicable if you are using Amazon S3 storage.
         """
         if s3_file_location is not None:
             pulumi.set(__self__, "s3_file_location", s3_file_location)
@@ -364,7 +364,7 @@ class WorkflowS3FileLocation(dict):
     @pulumi.getter(name="s3FileLocation")
     def s3_file_location(self) -> Optional['outputs.WorkflowS3InputFileLocation']:
         """
-        Specifies the details for the Amazon S3 location for an input file to a workflow.
+        Specifies the details for the file location for the file that's being used in the workflow. Only applicable if you are using Amazon S3 storage.
         """
         return pulumi.get(self, "s3_file_location")
 
@@ -574,7 +574,6 @@ class WorkflowStepCopyStepDetailsProperties(dict):
                  source_file_location: Optional[str] = None):
         """
         Details for a step that performs a file copy.
-        :param 'WorkflowS3FileLocation' destination_file_location: Specifies the S3 details for the file being used, such as bucket, ETag, and so forth.
         :param str name: The name of the step, used as an identifier.
         :param 'WorkflowStepCopyStepDetailsPropertiesOverwriteExisting' overwrite_existing: A flag that indicates whether or not to overwrite an existing file of the same name. The default is FALSE.
         :param str source_file_location: Specifies which file to use as input to the workflow step.
@@ -591,9 +590,6 @@ class WorkflowStepCopyStepDetailsProperties(dict):
     @property
     @pulumi.getter(name="destinationFileLocation")
     def destination_file_location(self) -> Optional['outputs.WorkflowS3FileLocation']:
-        """
-        Specifies the S3 details for the file being used, such as bucket, ETag, and so forth.
-        """
         return pulumi.get(self, "destination_file_location")
 
     @property

@@ -45,7 +45,7 @@ class VirtualClusterContainerProviderArgs:
                  type: pulumi.Input[str]):
         """
         :param pulumi.Input[str] id: The ID of the container cluster
-        :param pulumi.Input['VirtualClusterContainerInfoArgs'] info: The information about the container used for a job run or a managed endpoint.
+        :param pulumi.Input['VirtualClusterContainerInfoArgs'] info: The information about the container cluster.
         :param pulumi.Input[str] type: The type of the container provider
         """
         pulumi.set(__self__, "id", id)
@@ -68,7 +68,7 @@ class VirtualClusterContainerProviderArgs:
     @pulumi.getter
     def info(self) -> pulumi.Input['VirtualClusterContainerInfoArgs']:
         """
-        The information about the container used for a job run or a managed endpoint.
+        The information about the container cluster.
         """
         return pulumi.get(self, "info")
 

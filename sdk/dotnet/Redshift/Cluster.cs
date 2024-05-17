@@ -158,7 +158,7 @@ namespace Pulumi.AwsNative.Redshift
         public Output<bool?> Encrypted { get; private set; } = null!;
 
         /// <summary>
-        /// Describes a connection endpoint.
+        /// The connection endpoint.
         /// </summary>
         [Output("endpoint")]
         public Output<Outputs.ClusterEndpoint?> Endpoint { get; private set; } = null!;
@@ -553,7 +553,7 @@ namespace Pulumi.AwsNative.Redshift
         public Input<bool>? Encrypted { get; set; }
 
         /// <summary>
-        /// Describes a connection endpoint.
+        /// The connection endpoint.
         /// </summary>
         [Input("endpoint")]
         public Input<Inputs.ClusterEndpointArgs>? Endpoint { get; set; }

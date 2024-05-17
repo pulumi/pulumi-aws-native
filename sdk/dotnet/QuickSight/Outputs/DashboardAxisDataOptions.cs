@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardAxisDataOptions
     {
         /// <summary>
-        /// The options that determine how a date axis is displayed.
+        /// The options for an axis with a date field.
         /// </summary>
         public readonly Outputs.DashboardDateAxisOptions? DateAxisOptions;
         /// <summary>

@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.SsmIncidents
         /// </summary>
         public readonly ImmutableArray<string> Engagements;
         /// <summary>
-        /// The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
+        /// Details used to create an incident when using this response plan.
         /// </summary>
         public readonly Outputs.ResponsePlanIncidentTemplate? IncidentTemplate;
         /// <summary>

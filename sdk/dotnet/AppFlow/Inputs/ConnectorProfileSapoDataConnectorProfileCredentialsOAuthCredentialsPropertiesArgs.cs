@@ -24,9 +24,6 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         [Input("clientSecret")]
         public Input<string>? ClientSecret { get; set; }
 
-        /// <summary>
-        /// Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
-        /// </summary>
         [Input("connectorOAuthRequest")]
         public Input<Inputs.ConnectorProfileConnectorOAuthRequestArgs>? ConnectorOAuthRequest { get; set; }
 

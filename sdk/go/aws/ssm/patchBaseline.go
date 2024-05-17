@@ -224,9 +224,7 @@ import (
 type PatchBaseline struct {
 	pulumi.CustomResourceState
 
-	// The `RuleGroup` property type specifies a set of rules that define the approval rules for an AWS Systems Manager patch baseline.
-	//
-	// `RuleGroup` is the property type for the `ApprovalRules` property of the [AWS::SSM::PatchBaseline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html) resource.
+	// A set of rules used to include patches in the baseline.
 	ApprovalRules PatchBaselineRuleGroupPtrOutput `pulumi:"approvalRules"`
 	// A list of explicitly approved patches for the baseline.
 	ApprovedPatches pulumi.StringArrayOutput `pulumi:"approvedPatches"`
@@ -302,9 +300,7 @@ func (PatchBaselineState) ElementType() reflect.Type {
 }
 
 type patchBaselineArgs struct {
-	// The `RuleGroup` property type specifies a set of rules that define the approval rules for an AWS Systems Manager patch baseline.
-	//
-	// `RuleGroup` is the property type for the `ApprovalRules` property of the [AWS::SSM::PatchBaseline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html) resource.
+	// A set of rules used to include patches in the baseline.
 	ApprovalRules *PatchBaselineRuleGroup `pulumi:"approvalRules"`
 	// A list of explicitly approved patches for the baseline.
 	ApprovedPatches []string `pulumi:"approvedPatches"`
@@ -336,9 +332,7 @@ type patchBaselineArgs struct {
 
 // The set of arguments for constructing a PatchBaseline resource.
 type PatchBaselineArgs struct {
-	// The `RuleGroup` property type specifies a set of rules that define the approval rules for an AWS Systems Manager patch baseline.
-	//
-	// `RuleGroup` is the property type for the `ApprovalRules` property of the [AWS::SSM::PatchBaseline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html) resource.
+	// A set of rules used to include patches in the baseline.
 	ApprovalRules PatchBaselineRuleGroupPtrInput
 	// A list of explicitly approved patches for the baseline.
 	ApprovedPatches pulumi.StringArrayInput
@@ -405,9 +399,7 @@ func (o PatchBaselineOutput) ToPatchBaselineOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The `RuleGroup` property type specifies a set of rules that define the approval rules for an AWS Systems Manager patch baseline.
-//
-// `RuleGroup` is the property type for the `ApprovalRules` property of the [AWS::SSM::PatchBaseline](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html) resource.
+// A set of rules used to include patches in the baseline.
 func (o PatchBaselineOutput) ApprovalRules() PatchBaselineRuleGroupPtrOutput {
 	return o.ApplyT(func(v *PatchBaseline) PatchBaselineRuleGroupPtrOutput { return v.ApprovalRules }).(PatchBaselineRuleGroupPtrOutput)
 }

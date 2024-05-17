@@ -13,19 +13,19 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
     public sealed class ConfigAntennaDownlinkDemodDecodeConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines decoding settings.
+        /// Defines how the RF signal will be decoded.
         /// </summary>
         [Input("decodeConfig")]
         public Input<Inputs.ConfigDecodeConfigArgs>? DecodeConfig { get; set; }
 
         /// <summary>
-        /// Defines demodulation settings.
+        /// Defines how the RF signal will be demodulated.
         /// </summary>
         [Input("demodulationConfig")]
         public Input<Inputs.ConfigDemodulationConfigArgs>? DemodulationConfig { get; set; }
 
         /// <summary>
-        /// Defines a spectrum.
+        /// Defines the spectrum configuration.
         /// </summary>
         [Input("spectrumConfig")]
         public Input<Inputs.ConfigSpectrumConfigArgs>? SpectrumConfig { get; set; }

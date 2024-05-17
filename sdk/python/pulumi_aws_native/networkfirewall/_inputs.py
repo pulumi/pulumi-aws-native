@@ -63,6 +63,8 @@ class FirewallPolicyActionDefinitionArgs:
                  publish_metric_action: Optional[pulumi.Input['FirewallPolicyPublishMetricActionArgs']] = None):
         """
         :param pulumi.Input['FirewallPolicyPublishMetricActionArgs'] publish_metric_action: Stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. This setting defines a CloudWatch dimension value to be published.
+               
+               You can pair this custom action with any of the standard stateless rule actions. For example, you could pair this in a rule action with the standard action that forwards the packet for stateful inspection. Then, when a packet matches the rule, Network Firewall publishes metrics for the packet and forwards it.
         """
         if publish_metric_action is not None:
             pulumi.set(__self__, "publish_metric_action", publish_metric_action)
@@ -72,6 +74,8 @@ class FirewallPolicyActionDefinitionArgs:
     def publish_metric_action(self) -> Optional[pulumi.Input['FirewallPolicyPublishMetricActionArgs']]:
         """
         Stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. This setting defines a CloudWatch dimension value to be published.
+
+        You can pair this custom action with any of the standard stateless rule actions. For example, you could pair this in a rule action with the standard action that forwards the packet for stateful inspection. Then, when a packet matches the rule, Network Firewall publishes metrics for the packet and forwards it.
         """
         return pulumi.get(self, "publish_metric_action")
 
@@ -86,7 +90,7 @@ class FirewallPolicyCustomActionArgs:
                  action_definition: pulumi.Input['FirewallPolicyActionDefinitionArgs'],
                  action_name: pulumi.Input[str]):
         """
-        :param pulumi.Input['FirewallPolicyActionDefinitionArgs'] action_definition: A custom action to use in stateless rule actions settings.
+        :param pulumi.Input['FirewallPolicyActionDefinitionArgs'] action_definition: The custom action associated with the action name.
         :param pulumi.Input[str] action_name: The descriptive name of the custom action. You can't change the name of a custom action after you create it.
         """
         pulumi.set(__self__, "action_definition", action_definition)
@@ -96,7 +100,7 @@ class FirewallPolicyCustomActionArgs:
     @pulumi.getter(name="actionDefinition")
     def action_definition(self) -> pulumi.Input['FirewallPolicyActionDefinitionArgs']:
         """
-        A custom action to use in stateless rule actions settings.
+        The custom action associated with the action name.
         """
         return pulumi.get(self, "action_definition")
 
@@ -186,25 +190,11 @@ class FirewallPolicyPolicyVariablesPropertiesArgs:
 class FirewallPolicyPublishMetricActionArgs:
     def __init__(__self__, *,
                  dimensions: pulumi.Input[Sequence[pulumi.Input['FirewallPolicyDimensionArgs']]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyDimensionArgs']]] dimensions: The value to use in an Amazon CloudWatch custom metric dimension. This is used in the `PublishMetrics` custom action. A CloudWatch custom metric dimension is a name/value pair that's part of the identity of a metric.
-               
-               AWS Network Firewall sets the dimension name to `CustomAction` and you provide the dimension value.
-               
-               For more information about CloudWatch custom metric dimensions, see [Publishing Custom Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html#usingDimensions) in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) .
-        """
         pulumi.set(__self__, "dimensions", dimensions)
 
     @property
     @pulumi.getter
     def dimensions(self) -> pulumi.Input[Sequence[pulumi.Input['FirewallPolicyDimensionArgs']]]:
-        """
-        The value to use in an Amazon CloudWatch custom metric dimension. This is used in the `PublishMetrics` custom action. A CloudWatch custom metric dimension is a name/value pair that's part of the identity of a metric.
-
-        AWS Network Firewall sets the dimension name to `CustomAction` and you provide the dimension value.
-
-        For more information about CloudWatch custom metric dimensions, see [Publishing Custom Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html#usingDimensions) in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) .
-        """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
@@ -290,7 +280,7 @@ class FirewallPolicyStatefulRuleGroupReferenceArgs:
                  priority: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the stateful rule group.
-        :param pulumi.Input['FirewallPolicyStatefulRuleGroupOverrideArgs'] override: The setting that allows the policy owner to change the behavior of the rule group within a policy.
+        :param pulumi.Input['FirewallPolicyStatefulRuleGroupOverrideArgs'] override: The action that allows the policy owner to override the behavior of the rule group within a policy.
         :param pulumi.Input[int] priority: An integer setting that indicates the order in which to run the stateful rule groups in a single `FirewallPolicy` . This setting only applies to firewall policies that specify the `STRICT_ORDER` rule order in the stateful engine options settings.
                
                Network Firewall evalutes each stateful rule group against a packet starting with the group that has the lowest priority setting. You must ensure that the priority settings are unique within each policy.
@@ -319,7 +309,7 @@ class FirewallPolicyStatefulRuleGroupReferenceArgs:
     @pulumi.getter
     def override(self) -> Optional[pulumi.Input['FirewallPolicyStatefulRuleGroupOverrideArgs']]:
         """
-        The setting that allows the policy owner to change the behavior of the rule group within a policy.
+        The action that allows the policy owner to override the behavior of the rule group within a policy.
         """
         return pulumi.get(self, "override")
 
@@ -415,17 +405,10 @@ class FirewallPolicyArgs:
                - aws:alert_established
                
                For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the *AWS Network Firewall Developer Guide* .
-        :param pulumi.Input['FirewallPolicyStatefulEngineOptionsArgs'] stateful_engine_options: Configuration settings for the handling of the stateful rule groups in a firewall policy.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatefulRuleGroupReferenceArgs']]] stateful_rule_group_references: Identifier for a single stateful rule group, used in a firewall policy to refer to a rule group.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomActionArgs']]] stateless_custom_actions: An optional, non-standard action to use for stateless packet handling. You can define this in addition to the standard action that you must specify.
-               
-               You define and name the custom actions that you want to be able to use, and then you reference them by name in your actions settings.
-               
-               You can use custom actions in the following places:
-               
-               - In an `RuleGroup.StatelessRulesAndCustomActions` . The custom actions are available for use by name inside the `StatelessRulesAndCustomActions` where you define them. You can use them for your stateless rule actions to specify what to do with a packet that matches the rule's match attributes.
-               - In an `FirewallPolicy` specification, in `StatelessCustomActions` . The custom actions are available for use inside the policy where you define them. You can use them for the policy's default stateless actions settings to specify what to do with packets that don't match any of the policy's stateless rules.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]] stateless_rule_group_references: Identifier for a single stateless rule group, used in a firewall policy to refer to the rule group.
+        :param pulumi.Input['FirewallPolicyStatefulEngineOptionsArgs'] stateful_engine_options: Additional options governing how Network Firewall handles stateful rules. The stateful rule groups that you use in your policy must have stateful rule options settings that are compatible with these settings.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatefulRuleGroupReferenceArgs']]] stateful_rule_group_references: References to the stateful rule groups that are used in the policy. These define the inspection criteria in stateful rules.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomActionArgs']]] stateless_custom_actions: The custom action definitions that are available for use in the firewall policy's `StatelessDefaultActions` setting. You name each custom action that you define, and then you can use it by name in your default actions specifications.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]] stateless_rule_group_references: References to the stateless rule groups that are used in the policy. These define the matching criteria in stateless rules.
         :param pulumi.Input[str] tls_inspection_configuration_arn: The Amazon Resource Name (ARN) of the TLS inspection configuration.
         """
         pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
@@ -514,7 +497,7 @@ class FirewallPolicyArgs:
     @pulumi.getter(name="statefulEngineOptions")
     def stateful_engine_options(self) -> Optional[pulumi.Input['FirewallPolicyStatefulEngineOptionsArgs']]:
         """
-        Configuration settings for the handling of the stateful rule groups in a firewall policy.
+        Additional options governing how Network Firewall handles stateful rules. The stateful rule groups that you use in your policy must have stateful rule options settings that are compatible with these settings.
         """
         return pulumi.get(self, "stateful_engine_options")
 
@@ -526,7 +509,7 @@ class FirewallPolicyArgs:
     @pulumi.getter(name="statefulRuleGroupReferences")
     def stateful_rule_group_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatefulRuleGroupReferenceArgs']]]]:
         """
-        Identifier for a single stateful rule group, used in a firewall policy to refer to a rule group.
+        References to the stateful rule groups that are used in the policy. These define the inspection criteria in stateful rules.
         """
         return pulumi.get(self, "stateful_rule_group_references")
 
@@ -538,14 +521,7 @@ class FirewallPolicyArgs:
     @pulumi.getter(name="statelessCustomActions")
     def stateless_custom_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomActionArgs']]]]:
         """
-        An optional, non-standard action to use for stateless packet handling. You can define this in addition to the standard action that you must specify.
-
-        You define and name the custom actions that you want to be able to use, and then you reference them by name in your actions settings.
-
-        You can use custom actions in the following places:
-
-        - In an `RuleGroup.StatelessRulesAndCustomActions` . The custom actions are available for use by name inside the `StatelessRulesAndCustomActions` where you define them. You can use them for your stateless rule actions to specify what to do with a packet that matches the rule's match attributes.
-        - In an `FirewallPolicy` specification, in `StatelessCustomActions` . The custom actions are available for use inside the policy where you define them. You can use them for the policy's default stateless actions settings to specify what to do with packets that don't match any of the policy's stateless rules.
+        The custom action definitions that are available for use in the firewall policy's `StatelessDefaultActions` setting. You name each custom action that you define, and then you can use it by name in your default actions specifications.
         """
         return pulumi.get(self, "stateless_custom_actions")
 
@@ -557,7 +533,7 @@ class FirewallPolicyArgs:
     @pulumi.getter(name="statelessRuleGroupReferences")
     def stateless_rule_group_references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyStatelessRuleGroupReferenceArgs']]]]:
         """
-        Identifier for a single stateless rule group, used in a firewall policy to refer to the rule group.
+        References to the stateless rule groups that are used in the policy. These define the matching criteria in stateless rules.
         """
         return pulumi.get(self, "stateless_rule_group_references")
 
@@ -673,9 +649,7 @@ class LoggingConfigurationArgs:
     def __init__(__self__, *,
                  log_destination_configs: pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationLogDestinationConfigArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationLogDestinationConfigArgs']]] log_destination_configs: Defines where AWS Network Firewall sends logs for the firewall for one log type. This is used in `LoggingConfiguration` . You can send each type of log to an Amazon S3 bucket, a CloudWatch log group, or a Kinesis Data Firehose delivery stream.
-               
-               Network Firewall generates logs for stateful rule groups. You can save alert and flow log types. The stateful rules engine records flow logs for all network traffic that it receives. It records alert logs for traffic that matches stateful rules that have the rule action set to `DROP` or `ALERT` .
+        :param pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationLogDestinationConfigArgs']]] log_destination_configs: Defines the logging destinations for the logs for a firewall. Network Firewall generates logs for stateful rule groups.
         """
         pulumi.set(__self__, "log_destination_configs", log_destination_configs)
 
@@ -683,9 +657,7 @@ class LoggingConfigurationArgs:
     @pulumi.getter(name="logDestinationConfigs")
     def log_destination_configs(self) -> pulumi.Input[Sequence[pulumi.Input['LoggingConfigurationLogDestinationConfigArgs']]]:
         """
-        Defines where AWS Network Firewall sends logs for the firewall for one log type. This is used in `LoggingConfiguration` . You can send each type of log to an Amazon S3 bucket, a CloudWatch log group, or a Kinesis Data Firehose delivery stream.
-
-        Network Firewall generates logs for stateful rule groups. You can save alert and flow log types. The stateful rules engine records flow logs for all network traffic that it receives. It records alert logs for traffic that matches stateful rules that have the rule action set to `DROP` or `ALERT` .
+        Defines the logging destinations for the logs for a firewall. Network Firewall generates logs for stateful rule groups.
         """
         return pulumi.get(self, "log_destination_configs")
 
@@ -700,6 +672,8 @@ class RuleGroupActionDefinitionArgs:
                  publish_metric_action: Optional[pulumi.Input['RuleGroupPublishMetricActionArgs']] = None):
         """
         :param pulumi.Input['RuleGroupPublishMetricActionArgs'] publish_metric_action: Stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. This setting defines a CloudWatch dimension value to be published.
+               
+               You can pair this custom action with any of the standard stateless rule actions. For example, you could pair this in a rule action with the standard action that forwards the packet for stateful inspection. Then, when a packet matches the rule, Network Firewall publishes metrics for the packet and forwards it.
         """
         if publish_metric_action is not None:
             pulumi.set(__self__, "publish_metric_action", publish_metric_action)
@@ -709,6 +683,8 @@ class RuleGroupActionDefinitionArgs:
     def publish_metric_action(self) -> Optional[pulumi.Input['RuleGroupPublishMetricActionArgs']]:
         """
         Stateless inspection criteria that publishes the specified metrics to Amazon CloudWatch for the matching packet. This setting defines a CloudWatch dimension value to be published.
+
+        You can pair this custom action with any of the standard stateless rule actions. For example, you could pair this in a rule action with the standard action that forwards the packet for stateful inspection. Then, when a packet matches the rule, Network Firewall publishes metrics for the packet and forwards it.
         """
         return pulumi.get(self, "publish_metric_action")
 
@@ -763,7 +739,7 @@ class RuleGroupCustomActionArgs:
                  action_definition: pulumi.Input['RuleGroupActionDefinitionArgs'],
                  action_name: pulumi.Input[str]):
         """
-        :param pulumi.Input['RuleGroupActionDefinitionArgs'] action_definition: A custom action to use in stateless rule actions settings.
+        :param pulumi.Input['RuleGroupActionDefinitionArgs'] action_definition: The custom action associated with the action name.
         :param pulumi.Input[str] action_name: The descriptive name of the custom action. You can't change the name of a custom action after you create it.
         """
         pulumi.set(__self__, "action_definition", action_definition)
@@ -773,7 +749,7 @@ class RuleGroupCustomActionArgs:
     @pulumi.getter(name="actionDefinition")
     def action_definition(self) -> pulumi.Input['RuleGroupActionDefinitionArgs']:
         """
-        A custom action to use in stateless rule actions settings.
+        The custom action associated with the action name.
         """
         return pulumi.get(self, "action_definition")
 
@@ -1001,18 +977,16 @@ class RuleGroupMatchAttributesArgs:
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupAddressArgs']]]] = None,
                  tcp_flags: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlagFieldArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupPortRangeArgs']]] destination_ports: A single port range specification. This is used for source and destination port ranges in the stateless `RuleGroup.MatchAttributes` .
-        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupAddressArgs']]] destinations: A single IP address specification. This is used in the `RuleGroup.MatchAttributes` source and destination specifications.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupPortRangeArgs']]] destination_ports: The destination ports to inspect for. If not specified, this matches with any destination port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+               
+               You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupAddressArgs']]] destinations: The destination IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] protocols: The protocols to inspect for, specified using each protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupPortRangeArgs']]] source_ports: The source ports to inspect for. If not specified, this matches with any source port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
                
                You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupAddressArgs']]] sources: The source IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlagFieldArgs']]] tcp_flags: TCP flags and masks to inspect packets for. This is used in the `RuleGroup.MatchAttributes` specification.
-               
-               For example:
-               
-               `"TCPFlags": [ { "Flags": [ "ECE", "SYN" ], "Masks": [ "SYN", "ECE" ] } ]`
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlagFieldArgs']]] tcp_flags: The TCP flags and masks to inspect for. If not specified, this matches with any settings. This setting is only used for protocol 6 (TCP).
         """
         if destination_ports is not None:
             pulumi.set(__self__, "destination_ports", destination_ports)
@@ -1031,7 +1005,9 @@ class RuleGroupMatchAttributesArgs:
     @pulumi.getter(name="destinationPorts")
     def destination_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupPortRangeArgs']]]]:
         """
-        A single port range specification. This is used for source and destination port ranges in the stateless `RuleGroup.MatchAttributes` .
+        The destination ports to inspect for. If not specified, this matches with any destination port. This setting is only used for protocols 6 (TCP) and 17 (UDP).
+
+        You can specify individual ports, for example `1994` and you can specify port ranges, for example `1990:1994` .
         """
         return pulumi.get(self, "destination_ports")
 
@@ -1043,7 +1019,7 @@ class RuleGroupMatchAttributesArgs:
     @pulumi.getter
     def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupAddressArgs']]]]:
         """
-        A single IP address specification. This is used in the `RuleGroup.MatchAttributes` source and destination specifications.
+        The destination IP addresses and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address.
         """
         return pulumi.get(self, "destinations")
 
@@ -1093,11 +1069,7 @@ class RuleGroupMatchAttributesArgs:
     @pulumi.getter(name="tcpFlags")
     def tcp_flags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupTcpFlagFieldArgs']]]]:
         """
-        TCP flags and masks to inspect packets for. This is used in the `RuleGroup.MatchAttributes` specification.
-
-        For example:
-
-        `"TCPFlags": [ { "Flags": [ "ECE", "SYN" ], "Masks": [ "SYN", "ECE" ] } ]`
+        The TCP flags and masks to inspect for. If not specified, this matches with any settings. This setting is only used for protocol 6 (TCP).
         """
         return pulumi.get(self, "tcp_flags")
 
@@ -1164,25 +1136,11 @@ class RuleGroupPortSetArgs:
 class RuleGroupPublishMetricActionArgs:
     def __init__(__self__, *,
                  dimensions: pulumi.Input[Sequence[pulumi.Input['RuleGroupDimensionArgs']]]):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupDimensionArgs']]] dimensions: The value to use in an Amazon CloudWatch custom metric dimension. This is used in the `PublishMetrics` custom action. A CloudWatch custom metric dimension is a name/value pair that's part of the identity of a metric.
-               
-               AWS Network Firewall sets the dimension name to `CustomAction` and you provide the dimension value.
-               
-               For more information about CloudWatch custom metric dimensions, see [Publishing Custom Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html#usingDimensions) in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) .
-        """
         pulumi.set(__self__, "dimensions", dimensions)
 
     @property
     @pulumi.getter
     def dimensions(self) -> pulumi.Input[Sequence[pulumi.Input['RuleGroupDimensionArgs']]]:
-        """
-        The value to use in an Amazon CloudWatch custom metric dimension. This is used in the `PublishMetrics` custom action. A CloudWatch custom metric dimension is a name/value pair that's part of the identity of a metric.
-
-        AWS Network Firewall sets the dimension name to `CustomAction` and you provide the dimension value.
-
-        For more information about CloudWatch custom metric dimensions, see [Publishing Custom Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html#usingDimensions) in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) .
-        """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
@@ -1418,17 +1376,13 @@ class RuleGroupRulesSourceArgs:
                  stateless_rules_and_custom_actions: Optional[pulumi.Input['RuleGroupStatelessRulesAndCustomActionsArgs']] = None):
         """
         :param pulumi.Input['RuleGroupRulesSourceListArgs'] rules_source_list: Stateful inspection criteria for a domain list rule group.
-               
-               For HTTPS traffic, domain filtering is SNI-based. It uses the server name indicator extension of the TLS handshake.
-               
-               By default, Network Firewall domain list inspection only includes traffic coming from the VPC where you deploy the firewall. To inspect traffic from IP addresses outside of the deployment VPC, you set the `HOME_NET` rule variable to include the CIDR range of the deployment VPC plus the other CIDR ranges. For more information, see `RuleGroup.RuleVariables` in this guide and [Stateful domain list rule groups in AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/stateful-rule-groups-domain-names.html) in the *Network Firewall Developer Guide*
         :param pulumi.Input[str] rules_string: Stateful inspection criteria, provided in Suricata compatible rules. Suricata is an open-source threat detection framework that includes a standard rule-based language for network traffic inspection.
                
                These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn't have a separate action setting.
                
                > You can't use the `priority` keyword if the `RuleOrder` option in `StatefulRuleOptions` is set to `STRICT_ORDER` .
-        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupStatefulRuleArgs']]] stateful_rules: A single Suricata rules specification, for use in a stateful rule group. Use this option to specify a simple Suricata rule with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html) .
-        :param pulumi.Input['RuleGroupStatelessRulesAndCustomActionsArgs'] stateless_rules_and_custom_actions: Stateless inspection criteria. Each stateless rule group uses exactly one of these data types to define its stateless rules.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupStatefulRuleArgs']]] stateful_rules: An array of individual stateful rules inspection criteria to be used together in a stateful rule group. Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html) .
+        :param pulumi.Input['RuleGroupStatelessRulesAndCustomActionsArgs'] stateless_rules_and_custom_actions: Stateless inspection criteria to be used in a stateless rule group.
         """
         if rules_source_list is not None:
             pulumi.set(__self__, "rules_source_list", rules_source_list)
@@ -1444,10 +1398,6 @@ class RuleGroupRulesSourceArgs:
     def rules_source_list(self) -> Optional[pulumi.Input['RuleGroupRulesSourceListArgs']]:
         """
         Stateful inspection criteria for a domain list rule group.
-
-        For HTTPS traffic, domain filtering is SNI-based. It uses the server name indicator extension of the TLS handshake.
-
-        By default, Network Firewall domain list inspection only includes traffic coming from the VPC where you deploy the firewall. To inspect traffic from IP addresses outside of the deployment VPC, you set the `HOME_NET` rule variable to include the CIDR range of the deployment VPC plus the other CIDR ranges. For more information, see `RuleGroup.RuleVariables` in this guide and [Stateful domain list rule groups in AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/stateful-rule-groups-domain-names.html) in the *Network Firewall Developer Guide*
         """
         return pulumi.get(self, "rules_source_list")
 
@@ -1475,7 +1425,7 @@ class RuleGroupRulesSourceArgs:
     @pulumi.getter(name="statefulRules")
     def stateful_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupStatefulRuleArgs']]]]:
         """
-        A single Suricata rules specification, for use in a stateful rule group. Use this option to specify a simple Suricata rule with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html) .
+        An array of individual stateful rules inspection criteria to be used together in a stateful rule group. Use this option to specify simple Suricata rules with protocol, source and destination, ports, direction, and rule options. For information about the Suricata `Rules` format, see [Rules Format](https://docs.aws.amazon.com/https://suricata.readthedocs.io/en/suricata-6.0.9/rules/intro.html) .
         """
         return pulumi.get(self, "stateful_rules")
 
@@ -1487,7 +1437,7 @@ class RuleGroupRulesSourceArgs:
     @pulumi.getter(name="statelessRulesAndCustomActions")
     def stateless_rules_and_custom_actions(self) -> Optional[pulumi.Input['RuleGroupStatelessRulesAndCustomActionsArgs']]:
         """
-        Stateless inspection criteria. Each stateless rule group uses exactly one of these data types to define its stateless rules.
+        Stateless inspection criteria to be used in a stateless rule group.
         """
         return pulumi.get(self, "stateless_rules_and_custom_actions")
 
@@ -1539,8 +1489,8 @@ class RuleGroupStatefulRuleArgs:
                - *REJECT* - Drops TCP traffic that matches the conditions of the stateful rule, and sends a TCP reset packet back to sender of the packet. A TCP reset packet is a packet with no payload and a `RST` bit contained in the TCP header flags. Also sends an alert log mesage if alert logging is configured in the `Firewall` `LoggingConfiguration` .
                
                `REJECT` isn't currently available for use with IMAP and FTP protocols.
-        :param pulumi.Input['RuleGroupHeaderArgs'] header: The 5-tuple criteria for AWS Network Firewall to use to inspect packet headers in stateful traffic flow inspection. Traffic flows that match the criteria are a match for the corresponding stateful rule.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleOptionArgs']]] rule_options: Additional settings for a stateful rule.
+        :param pulumi.Input['RuleGroupHeaderArgs'] header: The stateful inspection criteria for this rule, used to inspect traffic flows.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleOptionArgs']]] rule_options: Additional settings for a stateful rule, provided as keywords and settings.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "header", header)
@@ -1574,7 +1524,7 @@ class RuleGroupStatefulRuleArgs:
     @pulumi.getter
     def header(self) -> pulumi.Input['RuleGroupHeaderArgs']:
         """
-        The 5-tuple criteria for AWS Network Firewall to use to inspect packet headers in stateful traffic flow inspection. Traffic flows that match the criteria are a match for the corresponding stateful rule.
+        The stateful inspection criteria for this rule, used to inspect traffic flows.
         """
         return pulumi.get(self, "header")
 
@@ -1586,7 +1536,7 @@ class RuleGroupStatefulRuleArgs:
     @pulumi.getter(name="ruleOptions")
     def rule_options(self) -> pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleOptionArgs']]]:
         """
-        Additional settings for a stateful rule.
+        Additional settings for a stateful rule, provided as keywords and settings.
         """
         return pulumi.get(self, "rule_options")
 
@@ -1601,15 +1551,8 @@ class RuleGroupStatelessRulesAndCustomActionsArgs:
                  stateless_rules: pulumi.Input[Sequence[pulumi.Input['RuleGroupStatelessRuleArgs']]],
                  custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomActionArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupStatelessRuleArgs']]] stateless_rules: A single stateless rule. This is used in `RuleGroup.StatelessRulesAndCustomActions` .
-        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomActionArgs']]] custom_actions: An optional, non-standard action to use for stateless packet handling. You can define this in addition to the standard action that you must specify.
-               
-               You define and name the custom actions that you want to be able to use, and then you reference them by name in your actions settings.
-               
-               You can use custom actions in the following places:
-               
-               - In an `RuleGroup.StatelessRulesAndCustomActions` . The custom actions are available for use by name inside the `StatelessRulesAndCustomActions` where you define them. You can use them for your stateless rule actions to specify what to do with a packet that matches the rule's match attributes.
-               - In an `FirewallPolicy` specification, in `StatelessCustomActions` . The custom actions are available for use inside the policy where you define them. You can use them for the policy's default stateless actions settings to specify what to do with packets that don't match any of the policy's stateless rules.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupStatelessRuleArgs']]] stateless_rules: Defines the set of stateless rules for use in a stateless rule group.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomActionArgs']]] custom_actions: Defines an array of individual custom action definitions that are available for use by the stateless rules in this `StatelessRulesAndCustomActions` specification. You name each custom action that you define, and then you can use it by name in your stateless rule `RuleGroup.RuleDefinition` `Actions` specification.
         """
         pulumi.set(__self__, "stateless_rules", stateless_rules)
         if custom_actions is not None:
@@ -1619,7 +1562,7 @@ class RuleGroupStatelessRulesAndCustomActionsArgs:
     @pulumi.getter(name="statelessRules")
     def stateless_rules(self) -> pulumi.Input[Sequence[pulumi.Input['RuleGroupStatelessRuleArgs']]]:
         """
-        A single stateless rule. This is used in `RuleGroup.StatelessRulesAndCustomActions` .
+        Defines the set of stateless rules for use in a stateless rule group.
         """
         return pulumi.get(self, "stateless_rules")
 
@@ -1631,14 +1574,7 @@ class RuleGroupStatelessRulesAndCustomActionsArgs:
     @pulumi.getter(name="customActions")
     def custom_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleGroupCustomActionArgs']]]]:
         """
-        An optional, non-standard action to use for stateless packet handling. You can define this in addition to the standard action that you must specify.
-
-        You define and name the custom actions that you want to be able to use, and then you reference them by name in your actions settings.
-
-        You can use custom actions in the following places:
-
-        - In an `RuleGroup.StatelessRulesAndCustomActions` . The custom actions are available for use by name inside the `StatelessRulesAndCustomActions` where you define them. You can use them for your stateless rule actions to specify what to do with a packet that matches the rule's match attributes.
-        - In an `FirewallPolicy` specification, in `StatelessCustomActions` . The custom actions are available for use inside the policy where you define them. You can use them for the policy's default stateless actions settings to specify what to do with packets that don't match any of the policy's stateless rules.
+        Defines an array of individual custom action definitions that are available for use by the stateless rules in this `StatelessRulesAndCustomActions` specification. You name each custom action that you define, and then you can use it by name in your stateless rule `RuleGroup.RuleDefinition` `Actions` specification.
         """
         return pulumi.get(self, "custom_actions")
 
@@ -1658,7 +1594,7 @@ class RuleGroupStatelessRuleArgs:
                Each stateless rule group uses exactly one `StatelessRulesAndCustomActions` object, and each `StatelessRulesAndCustomActions` contains exactly one `StatelessRules` object. To ensure unique priority settings for your rule groups, set unique priorities for the stateless rules that you define inside any single `StatelessRules` object.
                
                You can change the priority settings of your rules at any time. To make it easier to insert rules later, number them so there's a wide range in between, for example use 100, 200, and so on.
-        :param pulumi.Input['RuleGroupRuleDefinitionArgs'] rule_definition: The inspection criteria and action for a single stateless rule. AWS Network Firewall inspects each packet for the specified matching criteria. When a packet matches the criteria, Network Firewall performs the rule's actions on the packet.
+        :param pulumi.Input['RuleGroupRuleDefinitionArgs'] rule_definition: Defines the stateless 5-tuple packet inspection criteria and the action to take on a packet that matches the criteria.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "rule_definition", rule_definition)
@@ -1683,7 +1619,7 @@ class RuleGroupStatelessRuleArgs:
     @pulumi.getter(name="ruleDefinition")
     def rule_definition(self) -> pulumi.Input['RuleGroupRuleDefinitionArgs']:
         """
-        The inspection criteria and action for a single stateless rule. AWS Network Firewall inspects each packet for the specified matching criteria. When a packet matches the criteria, Network Firewall performs the rule's actions on the packet.
+        Defines the stateless 5-tuple packet inspection criteria and the action to take on a packet that matches the criteria.
         """
         return pulumi.get(self, "rule_definition")
 
@@ -1748,10 +1684,10 @@ class RuleGroupArgs:
                  rule_variables: Optional[pulumi.Input['RuleGroupRuleVariablesArgs']] = None,
                  stateful_rule_options: Optional[pulumi.Input['RuleGroupStatefulRuleOptionsArgs']] = None):
         """
-        :param pulumi.Input['RuleGroupRulesSourceArgs'] rules_source: The stateless or stateful rules definitions for use in a single rule group. Each rule group requires a single `RulesSource` . You can use an instance of this for either stateless rules or stateful rules.
-        :param pulumi.Input['RuleGroupReferenceSetsArgs'] reference_sets: Configures the `ReferenceSets` for a stateful rule group. For more information, see the [Using IP set references in Suricata compatible rule groups](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html) in the *Network Firewall User Guide* .
-        :param pulumi.Input['RuleGroupRuleVariablesArgs'] rule_variables: Settings that are available for use in the rules in the `RuleGroup` where this is defined.
-        :param pulumi.Input['RuleGroupStatefulRuleOptionsArgs'] stateful_rule_options: Additional options governing how Network Firewall handles the rule group. You can only use these for stateful rule groups.
+        :param pulumi.Input['RuleGroupRulesSourceArgs'] rules_source: The stateful rules or stateless rules for the rule group.
+        :param pulumi.Input['RuleGroupReferenceSetsArgs'] reference_sets: The reference sets for the stateful rule group.
+        :param pulumi.Input['RuleGroupRuleVariablesArgs'] rule_variables: Settings that are available for use in the rules in the rule group. You can only use these for stateful rule groups.
+        :param pulumi.Input['RuleGroupStatefulRuleOptionsArgs'] stateful_rule_options: Additional options governing how Network Firewall handles stateful rules. The policies where you use your stateful rule group must have stateful rule options settings that are compatible with these settings. Some limitations apply; for more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-limitations-caveats.html) in the *AWS Network Firewall Developer Guide* .
         """
         pulumi.set(__self__, "rules_source", rules_source)
         if reference_sets is not None:
@@ -1765,7 +1701,7 @@ class RuleGroupArgs:
     @pulumi.getter(name="rulesSource")
     def rules_source(self) -> pulumi.Input['RuleGroupRulesSourceArgs']:
         """
-        The stateless or stateful rules definitions for use in a single rule group. Each rule group requires a single `RulesSource` . You can use an instance of this for either stateless rules or stateful rules.
+        The stateful rules or stateless rules for the rule group.
         """
         return pulumi.get(self, "rules_source")
 
@@ -1777,7 +1713,7 @@ class RuleGroupArgs:
     @pulumi.getter(name="referenceSets")
     def reference_sets(self) -> Optional[pulumi.Input['RuleGroupReferenceSetsArgs']]:
         """
-        Configures the `ReferenceSets` for a stateful rule group. For more information, see the [Using IP set references in Suricata compatible rule groups](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html) in the *Network Firewall User Guide* .
+        The reference sets for the stateful rule group.
         """
         return pulumi.get(self, "reference_sets")
 
@@ -1789,7 +1725,7 @@ class RuleGroupArgs:
     @pulumi.getter(name="ruleVariables")
     def rule_variables(self) -> Optional[pulumi.Input['RuleGroupRuleVariablesArgs']]:
         """
-        Settings that are available for use in the rules in the `RuleGroup` where this is defined.
+        Settings that are available for use in the rules in the rule group. You can only use these for stateful rule groups.
         """
         return pulumi.get(self, "rule_variables")
 
@@ -1801,7 +1737,7 @@ class RuleGroupArgs:
     @pulumi.getter(name="statefulRuleOptions")
     def stateful_rule_options(self) -> Optional[pulumi.Input['RuleGroupStatefulRuleOptionsArgs']]:
         """
-        Additional options governing how Network Firewall handles the rule group. You can only use these for stateful rule groups.
+        Additional options governing how Network Firewall handles stateful rules. The policies where you use your stateful rule group must have stateful rule options settings that are compatible with these settings. Some limitations apply; for more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-limitations-caveats.html) in the *AWS Network Firewall Developer Guide* .
         """
         return pulumi.get(self, "stateful_rule_options")
 
@@ -1938,8 +1874,8 @@ class TlsInspectionConfigurationServerCertificateConfigurationArgs:
                
                For information about working with certificates in ACM, see [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide* .
         :param pulumi.Input['TlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusPropertiesArgs'] check_certificate_revocation_status: When enabled, Network Firewall checks if the server certificate presented by the server in the SSL/TLS connection has a revoked or unkown status. If the certificate has an unknown or revoked status, you must specify the actions that Network Firewall takes on outbound traffic. To check the certificate revocation status, you must also specify a `CertificateAuthorityArn` in [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-servercertificateconfiguration.html) .
-        :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateScopeArgs']]] scopes: Settings that define the Secure Sockets Layer/Transport Layer Security (SSL/TLS) traffic that Network Firewall should decrypt for inspection by the stateful rule engine.
-        :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateArgs']]] server_certificates: Any AWS Certificate Manager (ACM) Secure Sockets Layer/Transport Layer Security (SSL/TLS) server certificate that's associated with a [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificateconfiguration.html) . Used in a [TLSInspectionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-tlsinspectionconfiguration.html) for inspection of inbound traffic to your firewall. You must request or import a SSL/TLS certificate into ACM for each domain Network Firewall needs to decrypt and inspect. AWS Network Firewall uses the SSL/TLS certificates to decrypt specified inbound SSL/TLS traffic going to your firewall. For information about working with certificates in AWS Certificate Manager , see [Request a public certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html) or [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide* .
+        :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateScopeArgs']]] scopes: A list of scopes.
+        :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateArgs']]] server_certificates: The list of server certificates to use for inbound SSL/TLS inspection.
         """
         if certificate_authority_arn is not None:
             pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
@@ -1987,7 +1923,7 @@ class TlsInspectionConfigurationServerCertificateConfigurationArgs:
     @pulumi.getter
     def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateScopeArgs']]]]:
         """
-        Settings that define the Secure Sockets Layer/Transport Layer Security (SSL/TLS) traffic that Network Firewall should decrypt for inspection by the stateful rule engine.
+        A list of scopes.
         """
         return pulumi.get(self, "scopes")
 
@@ -1999,7 +1935,7 @@ class TlsInspectionConfigurationServerCertificateConfigurationArgs:
     @pulumi.getter(name="serverCertificates")
     def server_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateArgs']]]]:
         """
-        Any AWS Certificate Manager (ACM) Secure Sockets Layer/Transport Layer Security (SSL/TLS) server certificate that's associated with a [ServerCertificateConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificateconfiguration.html) . Used in a [TLSInspectionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-tlsinspectionconfiguration.html) for inspection of inbound traffic to your firewall. You must request or import a SSL/TLS certificate into ACM for each domain Network Firewall needs to decrypt and inspect. AWS Network Firewall uses the SSL/TLS certificates to decrypt specified inbound SSL/TLS traffic going to your firewall. For information about working with certificates in AWS Certificate Manager , see [Request a public certificate](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-request-public.html) or [Importing certificates](https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html) in the *AWS Certificate Manager User Guide* .
+        The list of server certificates to use for inbound SSL/TLS inspection.
         """
         return pulumi.get(self, "server_certificates")
 
@@ -2017,8 +1953,11 @@ class TlsInspectionConfigurationServerCertificateScopeArgs:
                  source_ports: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationPortRangeArgs']]]] = None,
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationAddressArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationPortRangeArgs']]] destination_ports: A single port range specification. This is used for source and destination port ranges in the stateless rule [MatchAttributes](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html) , `SourcePorts` , and `DestinationPorts` settings.
-        :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationAddressArgs']]] destinations: A single IP address specification. This is used in the [MatchAttributes](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html) source and destination settings.
+        :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationPortRangeArgs']]] destination_ports: The destination ports to decrypt for inspection, in Transmission Control Protocol (TCP) format. If not specified, this matches with any destination port.
+               
+               You can specify individual ports, for example `1994` , and you can specify port ranges, such as `1990:1994` .
+        :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationAddressArgs']]] destinations: The destination IP addresses and address ranges to decrypt for inspection, in CIDR notation. If not specified, this
+               matches with any destination address.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] protocols: The protocols to decrypt for inspection, specified using each protocol's assigned internet protocol number
                (IANA). Network Firewall currently supports only TCP.
         :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationPortRangeArgs']]] source_ports: The source ports to decrypt for inspection, in Transmission Control Protocol (TCP) format. If not specified, this matches with any source port.
@@ -2042,7 +1981,9 @@ class TlsInspectionConfigurationServerCertificateScopeArgs:
     @pulumi.getter(name="destinationPorts")
     def destination_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationPortRangeArgs']]]]:
         """
-        A single port range specification. This is used for source and destination port ranges in the stateless rule [MatchAttributes](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html) , `SourcePorts` , and `DestinationPorts` settings.
+        The destination ports to decrypt for inspection, in Transmission Control Protocol (TCP) format. If not specified, this matches with any destination port.
+
+        You can specify individual ports, for example `1994` , and you can specify port ranges, such as `1990:1994` .
         """
         return pulumi.get(self, "destination_ports")
 
@@ -2054,7 +1995,8 @@ class TlsInspectionConfigurationServerCertificateScopeArgs:
     @pulumi.getter
     def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationAddressArgs']]]]:
         """
-        A single IP address specification. This is used in the [MatchAttributes](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html) source and destination settings.
+        The destination IP addresses and address ranges to decrypt for inspection, in CIDR notation. If not specified, this
+        matches with any destination address.
         """
         return pulumi.get(self, "destinations")
 
@@ -2131,9 +2073,7 @@ class TlsInspectionConfigurationTlsInspectionConfigurationArgs:
     def __init__(__self__, *,
                  server_certificate_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateConfigurationArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateConfigurationArgs']]] server_certificate_configurations: Configures the AWS Certificate Manager certificates and scope that Network Firewall uses to decrypt and re-encrypt traffic using a [TLSInspectionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-tlsinspectionconfiguration.html) . You can configure `ServerCertificates` for inbound SSL/TLS inspection, a `CertificateAuthorityArn` for outbound SSL/TLS inspection, or both. For information about working with certificates for TLS inspection, see [Using SSL/TLS server certficiates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) in the *AWS Network Firewall Developer Guide* .
-               
-               > If a server certificate that's associated with your [TLSInspectionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-tlsinspectionconfiguration.html) is revoked, deleted, or expired it can result in client-side TLS errors.
+        :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateConfigurationArgs']]] server_certificate_configurations: Lists the server certificate configurations that are associated with the TLS configuration.
         """
         if server_certificate_configurations is not None:
             pulumi.set(__self__, "server_certificate_configurations", server_certificate_configurations)
@@ -2142,9 +2082,7 @@ class TlsInspectionConfigurationTlsInspectionConfigurationArgs:
     @pulumi.getter(name="serverCertificateConfigurations")
     def server_certificate_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationServerCertificateConfigurationArgs']]]]:
         """
-        Configures the AWS Certificate Manager certificates and scope that Network Firewall uses to decrypt and re-encrypt traffic using a [TLSInspectionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-tlsinspectionconfiguration.html) . You can configure `ServerCertificates` for inbound SSL/TLS inspection, a `CertificateAuthorityArn` for outbound SSL/TLS inspection, or both. For information about working with certificates for TLS inspection, see [Using SSL/TLS server certficiates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) in the *AWS Network Firewall Developer Guide* .
-
-        > If a server certificate that's associated with your [TLSInspectionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-tlsinspectionconfiguration.html) is revoked, deleted, or expired it can result in client-side TLS errors.
+        Lists the server certificate configurations that are associated with the TLS configuration.
         """
         return pulumi.get(self, "server_certificate_configurations")
 

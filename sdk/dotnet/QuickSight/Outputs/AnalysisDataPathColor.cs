@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string Color;
         /// <summary>
-        /// The data path that needs to be sorted.
+        /// The element that the color needs to be applied to.
         /// </summary>
         public readonly Outputs.AnalysisDataPathValue Element;
         /// <summary>

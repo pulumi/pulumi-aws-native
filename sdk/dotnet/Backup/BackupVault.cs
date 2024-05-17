@@ -50,13 +50,13 @@ namespace Pulumi.AwsNative.Backup
         public Output<string?> EncryptionKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+        /// Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
         /// </summary>
         [Output("lockConfiguration")]
         public Output<Outputs.BackupVaultLockConfigurationType?> LockConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies an object containing SNS event notification properties for the target backup vault.
+        /// The SNS event notifications for the specified backup vault.
         /// </summary>
         [Output("notifications")]
         public Output<Outputs.BackupVaultNotificationObjectType?> Notifications { get; private set; } = null!;
@@ -146,13 +146,13 @@ namespace Pulumi.AwsNative.Backup
         public Input<string>? EncryptionKeyArn { get; set; }
 
         /// <summary>
-        /// The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+        /// Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
         /// </summary>
         [Input("lockConfiguration")]
         public Input<Inputs.BackupVaultLockConfigurationTypeArgs>? LockConfiguration { get; set; }
 
         /// <summary>
-        /// Specifies an object containing SNS event notification properties for the target backup vault.
+        /// The SNS event notifications for the specified backup vault.
         /// </summary>
         [Input("notifications")]
         public Input<Inputs.BackupVaultNotificationObjectTypeArgs>? Notifications { get; set; }

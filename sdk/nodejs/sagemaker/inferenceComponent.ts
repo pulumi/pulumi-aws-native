@@ -66,13 +66,7 @@ export class InferenceComponent extends pulumi.CustomResource {
      * The time when the inference component was last updated.
      */
     public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
-    /**
-     * Runtime settings for a model that is deployed with an inference component.
-     */
     public readonly runtimeConfig!: pulumi.Output<outputs.sagemaker.InferenceComponentRuntimeConfig>;
-    /**
-     * Details about the resources to deploy with this inference component, including the model, container, and compute resources.
-     */
     public readonly specification!: pulumi.Output<outputs.sagemaker.InferenceComponentSpecification>;
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -150,13 +144,7 @@ export interface InferenceComponentArgs {
      * The name of the inference component.
      */
     inferenceComponentName?: pulumi.Input<string>;
-    /**
-     * Runtime settings for a model that is deployed with an inference component.
-     */
     runtimeConfig: pulumi.Input<inputs.sagemaker.InferenceComponentRuntimeConfigArgs>;
-    /**
-     * Details about the resources to deploy with this inference component, including the model, container, and compute resources.
-     */
     specification: pulumi.Input<inputs.sagemaker.InferenceComponentSpecificationArgs>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

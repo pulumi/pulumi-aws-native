@@ -31,7 +31,7 @@ export interface GetSchedulingPolicyResult {
      */
     readonly arn?: string;
     /**
-     * The fair share policy for a scheduling policy.
+     * The fair share policy of the scheduling policy.
      */
     readonly fairsharePolicy?: outputs.batch.SchedulingPolicyFairsharePolicy;
 }

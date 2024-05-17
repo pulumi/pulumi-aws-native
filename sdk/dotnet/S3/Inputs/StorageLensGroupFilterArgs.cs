@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.S3.Inputs
     public sealed class StorageLensGroupFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This resource is a logical operator that allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects must match all of the listed filter conditions that are joined by the `And` logical operator. Only one of each filter condition is allowed.
+        /// This property contains the `And` logical operator, which allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects must match all of the listed filter conditions that are joined by the `And` logical operator. Only one of each filter condition is allowed.
         /// </summary>
         [Input("and")]
         public Input<Inputs.StorageLensGroupAndArgs>? And { get; set; }
@@ -58,19 +58,19 @@ namespace Pulumi.AwsNative.S3.Inputs
         }
 
         /// <summary>
-        /// This resource contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+        /// This property contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
         /// </summary>
         [Input("matchObjectAge")]
         public Input<Inputs.StorageLensGroupMatchObjectAgeArgs>? MatchObjectAge { get; set; }
 
         /// <summary>
-        /// This resource filters objects that match the specified object size range.
+        /// This property contains `BytesGreaterThan` and `BytesLessThan` to define the object size range (minimum and maximum number of Bytes).
         /// </summary>
         [Input("matchObjectSize")]
         public Input<Inputs.StorageLensGroupMatchObjectSizeArgs>? MatchObjectSize { get; set; }
 
         /// <summary>
-        /// This resource contains the `Or` logical operator, which allows multiple filter conditions to be joined for more complex comparisons of Storage Lens group data. Objects can match any of the listed filter conditions that are joined by the `Or` logical operator. Only one of each filter condition is allowed.
+        /// This property contains the `Or` logical operator, which allows multiple filter conditions to be joined. Objects can match any of the listed filter conditions, which are joined by the `Or` logical operator. Only one of each filter condition is allowed.
         /// </summary>
         [Input("or")]
         public Input<Inputs.StorageLensGroupOrArgs>? Or { get; set; }

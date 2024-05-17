@@ -99,7 +99,7 @@ export interface GetAgentResult {
      */
     readonly preparedAt?: string;
     /**
-     * Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+     * Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
      */
     readonly promptOverrideConfiguration?: outputs.bedrock.AgentPromptOverrideConfiguration;
     /**

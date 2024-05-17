@@ -50,9 +50,7 @@ class AssociationArgs:
                
                Executions that are already running an association when `MaxErrors` is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set `MaxConcurrency` to 1 so that executions proceed one at a time.
         :param pulumi.Input[str] name: The name of the SSM document.
-        :param pulumi.Input['AssociationInstanceAssociationOutputLocationArgs'] output_location: `InstanceAssociationOutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
-               
-               For the minimal permissions required to enable Amazon S3 output for an association, see [Creating associations](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc.html) in the *Systems Manager User Guide* .
+        :param pulumi.Input['AssociationInstanceAssociationOutputLocationArgs'] output_location: An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] parameters: Parameter values that the SSM document uses at runtime.
         :param pulumi.Input[str] schedule_expression: A Cron or Rate expression that specifies when the association is applied to the target.
         :param pulumi.Input[int] schedule_offset: Number of days to wait after the scheduled day to run an association.
@@ -229,9 +227,7 @@ class AssociationArgs:
     @pulumi.getter(name="outputLocation")
     def output_location(self) -> Optional[pulumi.Input['AssociationInstanceAssociationOutputLocationArgs']]:
         """
-        `InstanceAssociationOutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
-
-        For the minimal permissions required to enable Amazon S3 output for an association, see [Creating associations](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc.html) in the *Systems Manager User Guide* .
+        An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
         """
         return pulumi.get(self, "output_location")
 
@@ -462,9 +458,7 @@ class Association(pulumi.CustomResource):
                
                Executions that are already running an association when `MaxErrors` is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set `MaxConcurrency` to 1 so that executions proceed one at a time.
         :param pulumi.Input[str] name: The name of the SSM document.
-        :param pulumi.Input[pulumi.InputType['AssociationInstanceAssociationOutputLocationArgs']] output_location: `InstanceAssociationOutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
-               
-               For the minimal permissions required to enable Amazon S3 output for an association, see [Creating associations](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc.html) in the *Systems Manager User Guide* .
+        :param pulumi.Input[pulumi.InputType['AssociationInstanceAssociationOutputLocationArgs']] output_location: An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] parameters: Parameter values that the SSM document uses at runtime.
         :param pulumi.Input[str] schedule_expression: A Cron or Rate expression that specifies when the association is applied to the target.
         :param pulumi.Input[int] schedule_offset: Number of days to wait after the scheduled day to run an association.
@@ -786,9 +780,7 @@ class Association(pulumi.CustomResource):
     @pulumi.getter(name="outputLocation")
     def output_location(self) -> pulumi.Output[Optional['outputs.AssociationInstanceAssociationOutputLocation']]:
         """
-        `InstanceAssociationOutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
-
-        For the minimal permissions required to enable Amazon S3 output for an association, see [Creating associations](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc.html) in the *Systems Manager User Guide* .
+        An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
         """
         return pulumi.get(self, "output_location")
 

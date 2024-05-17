@@ -40,7 +40,7 @@ class GetBackupPlanResult:
     @pulumi.getter(name="backupPlan")
     def backup_plan(self) -> Optional['outputs.BackupPlanResourceType']:
         """
-        Specifies an object containing properties used to create a backup plan.
+        Uniquely identifies the backup plan to be associated with the selection of resources.
         """
         return pulumi.get(self, "backup_plan")
 

@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Lex
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// Defines an Amazon S3 bucket location.
+        /// The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
         /// </summary>
         [Output("botFileS3Location")]
         public Output<Outputs.BotS3Location?> BotFileS3Location { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.AwsNative.Lex
         public Input<bool>? AutoBuildBotLocales { get; set; }
 
         /// <summary>
-        /// Defines an Amazon S3 bucket location.
+        /// The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
         /// </summary>
         [Input("botFileS3Location")]
         public Input<Inputs.BotS3LocationArgs>? BotFileS3Location { get; set; }

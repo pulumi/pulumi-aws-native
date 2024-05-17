@@ -35,7 +35,7 @@ export interface GetIdNamespaceResult {
      */
     readonly description?: string;
     /**
-     * An object containing `IdMappingType` and `ProviderProperties` .
+     * Determines the properties of `IdMappingWorflow` where this `IdNamespace` can be used as a `Source` or a `Target` .
      */
     readonly idMappingWorkflowProperties?: outputs.entityresolution.IdNamespaceIdMappingWorkflowProperties[];
     /**
@@ -43,7 +43,7 @@ export interface GetIdNamespaceResult {
      */
     readonly idNamespaceArn?: string;
     /**
-     * An object containing `InputSourceARN` and `SchemaName` .
+     * A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
      */
     readonly inputSourceConfig?: outputs.entityresolution.IdNamespaceInputSource[];
     /**

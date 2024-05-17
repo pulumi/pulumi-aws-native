@@ -164,7 +164,7 @@ func (o ExperimentMetricGoalObjectArrayOutput) Index(i pulumi.IntInput) Experime
 type ExperimentOnlineAbConfigObject struct {
 	// The name of the variation that is to be the default variation that the other variations are compared to.
 	ControlTreatmentName *string `pulumi:"controlTreatmentName"`
-	// This structure defines how much experiment traffic to allocate to one treatment used in the experiment.
+	// A set of key-value pairs. The keys are treatment names, and the values are the portion of experiment traffic to be assigned to that treatment. Specify the traffic portion in thousandths of a percent, so 20,000 for a variation would allocate 20% of the experiment traffic to that variation.
 	TreatmentWeights []ExperimentTreatmentToWeight `pulumi:"treatmentWeights"`
 }
 
@@ -182,7 +182,7 @@ type ExperimentOnlineAbConfigObjectInput interface {
 type ExperimentOnlineAbConfigObjectArgs struct {
 	// The name of the variation that is to be the default variation that the other variations are compared to.
 	ControlTreatmentName pulumi.StringPtrInput `pulumi:"controlTreatmentName"`
-	// This structure defines how much experiment traffic to allocate to one treatment used in the experiment.
+	// A set of key-value pairs. The keys are treatment names, and the values are the portion of experiment traffic to be assigned to that treatment. Specify the traffic portion in thousandths of a percent, so 20,000 for a variation would allocate 20% of the experiment traffic to that variation.
 	TreatmentWeights ExperimentTreatmentToWeightArrayInput `pulumi:"treatmentWeights"`
 }
 
@@ -217,7 +217,7 @@ func (o ExperimentOnlineAbConfigObjectOutput) ControlTreatmentName() pulumi.Stri
 	return o.ApplyT(func(v ExperimentOnlineAbConfigObject) *string { return v.ControlTreatmentName }).(pulumi.StringPtrOutput)
 }
 
-// This structure defines how much experiment traffic to allocate to one treatment used in the experiment.
+// A set of key-value pairs. The keys are treatment names, and the values are the portion of experiment traffic to be assigned to that treatment. Specify the traffic portion in thousandths of a percent, so 20,000 for a variation would allocate 20% of the experiment traffic to that variation.
 func (o ExperimentOnlineAbConfigObjectOutput) TreatmentWeights() ExperimentTreatmentToWeightArrayOutput {
 	return o.ApplyT(func(v ExperimentOnlineAbConfigObject) []ExperimentTreatmentToWeight { return v.TreatmentWeights }).(ExperimentTreatmentToWeightArrayOutput)
 }
@@ -256,7 +256,7 @@ func (o ExperimentOnlineAbConfigObjectPtrOutput) ControlTreatmentName() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// This structure defines how much experiment traffic to allocate to one treatment used in the experiment.
+// A set of key-value pairs. The keys are treatment names, and the values are the portion of experiment traffic to be assigned to that treatment. Specify the traffic portion in thousandths of a percent, so 20,000 for a variation would allocate 20% of the experiment traffic to that variation.
 func (o ExperimentOnlineAbConfigObjectPtrOutput) TreatmentWeights() ExperimentTreatmentToWeightArrayOutput {
 	return o.ApplyT(func(v *ExperimentOnlineAbConfigObject) []ExperimentTreatmentToWeight {
 		if v == nil {
@@ -1605,13 +1605,11 @@ func (o LaunchSegmentOverrideArrayOutput) Index(i pulumi.IntInput) LaunchSegment
 }
 
 type LaunchStepConfig struct {
-	// A structure containing the percentage of launch traffic to allocate to one launch group.
+	// An array of structures that define how much launch traffic to allocate to each launch group during this step of the launch.
 	GroupWeights []LaunchGroupToWeight `pulumi:"groupWeights"`
-	// Use this structure to specify different traffic splits for one or more audience *segments* . A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.
+	// An array of structures that you can use to specify different traffic splits for one or more audience *segments* . A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.
 	//
 	// For more information, see [Use segments to focus your audience](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html) .
-	//
-	// This sructure is an array of up to six segment override objects. Each of these objects specifies a segment that you have already created, and defines the traffic split for that segment.
 	SegmentOverrides []LaunchSegmentOverride `pulumi:"segmentOverrides"`
 	// The date and time to start this step of the launch. Use UTC format, `yyyy-MM-ddTHH:mm:ssZ` . For example, `2025-11-25T23:59:59Z`
 	StartTime string `pulumi:"startTime"`
@@ -1629,13 +1627,11 @@ type LaunchStepConfigInput interface {
 }
 
 type LaunchStepConfigArgs struct {
-	// A structure containing the percentage of launch traffic to allocate to one launch group.
+	// An array of structures that define how much launch traffic to allocate to each launch group during this step of the launch.
 	GroupWeights LaunchGroupToWeightArrayInput `pulumi:"groupWeights"`
-	// Use this structure to specify different traffic splits for one or more audience *segments* . A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.
+	// An array of structures that you can use to specify different traffic splits for one or more audience *segments* . A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.
 	//
 	// For more information, see [Use segments to focus your audience](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html) .
-	//
-	// This sructure is an array of up to six segment override objects. Each of these objects specifies a segment that you have already created, and defines the traffic split for that segment.
 	SegmentOverrides LaunchSegmentOverrideArrayInput `pulumi:"segmentOverrides"`
 	// The date and time to start this step of the launch. Use UTC format, `yyyy-MM-ddTHH:mm:ssZ` . For example, `2025-11-25T23:59:59Z`
 	StartTime pulumi.StringInput `pulumi:"startTime"`
@@ -1692,16 +1688,14 @@ func (o LaunchStepConfigOutput) ToLaunchStepConfigOutputWithContext(ctx context.
 	return o
 }
 
-// A structure containing the percentage of launch traffic to allocate to one launch group.
+// An array of structures that define how much launch traffic to allocate to each launch group during this step of the launch.
 func (o LaunchStepConfigOutput) GroupWeights() LaunchGroupToWeightArrayOutput {
 	return o.ApplyT(func(v LaunchStepConfig) []LaunchGroupToWeight { return v.GroupWeights }).(LaunchGroupToWeightArrayOutput)
 }
 
-// Use this structure to specify different traffic splits for one or more audience *segments* . A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.
+// An array of structures that you can use to specify different traffic splits for one or more audience *segments* . A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age.
 //
 // For more information, see [Use segments to focus your audience](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-segments.html) .
-//
-// This sructure is an array of up to six segment override objects. Each of these objects specifies a segment that you have already created, and defines the traffic split for that segment.
 func (o LaunchStepConfigOutput) SegmentOverrides() LaunchSegmentOverrideArrayOutput {
 	return o.ApplyT(func(v LaunchStepConfig) []LaunchSegmentOverride { return v.SegmentOverrides }).(LaunchSegmentOverrideArrayOutput)
 }

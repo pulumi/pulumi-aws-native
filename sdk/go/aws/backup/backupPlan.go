@@ -16,7 +16,7 @@ import (
 type BackupPlan struct {
 	pulumi.CustomResourceState
 
-	// Specifies an object containing properties used to create a backup plan.
+	// Uniquely identifies the backup plan to be associated with the selection of resources.
 	BackupPlan BackupPlanResourceTypeOutput `pulumi:"backupPlan"`
 	// An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example, `arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50` .
 	BackupPlanArn pulumi.StringOutput `pulumi:"backupPlanArn"`
@@ -71,7 +71,7 @@ func (BackupPlanState) ElementType() reflect.Type {
 }
 
 type backupPlanArgs struct {
-	// Specifies an object containing properties used to create a backup plan.
+	// Uniquely identifies the backup plan to be associated with the selection of resources.
 	BackupPlan BackupPlanResourceType `pulumi:"backupPlan"`
 	// The tags to assign to the backup plan.
 	BackupPlanTags map[string]string `pulumi:"backupPlanTags"`
@@ -79,7 +79,7 @@ type backupPlanArgs struct {
 
 // The set of arguments for constructing a BackupPlan resource.
 type BackupPlanArgs struct {
-	// Specifies an object containing properties used to create a backup plan.
+	// Uniquely identifies the backup plan to be associated with the selection of resources.
 	BackupPlan BackupPlanResourceTypeInput
 	// The tags to assign to the backup plan.
 	BackupPlanTags pulumi.StringMapInput
@@ -122,7 +122,7 @@ func (o BackupPlanOutput) ToBackupPlanOutputWithContext(ctx context.Context) Bac
 	return o
 }
 
-// Specifies an object containing properties used to create a backup plan.
+// Uniquely identifies the backup plan to be associated with the selection of resources.
 func (o BackupPlanOutput) BackupPlan() BackupPlanResourceTypeOutput {
 	return o.ApplyT(func(v *BackupPlan) BackupPlanResourceTypeOutput { return v.BackupPlan }).(BackupPlanResourceTypeOutput)
 }

@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.IoTEvents.Inputs
         public Input<Inputs.DetectorModelOnExitArgs>? OnExit { get; set; }
 
         /// <summary>
-        /// Specifies the actions performed when the `condition` evaluates to TRUE.
+        /// When an input is received and the `condition` is TRUE, perform the specified `actions` .
         /// </summary>
         [Input("onInput")]
         public Input<Inputs.DetectorModelOnInputArgs>? OnInput { get; set; }

@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public readonly string? ResourceId;
         /// <summary>
-        /// Specifies a tag for an access log subscription.
+        /// The tags for the access log subscription.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

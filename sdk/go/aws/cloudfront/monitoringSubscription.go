@@ -18,7 +18,7 @@ type MonitoringSubscription struct {
 
 	// The ID of the distribution that you are enabling metrics for.
 	DistributionId pulumi.StringOutput `pulumi:"distributionId"`
-	// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+	// A subscription configuration for additional CloudWatch metrics.
 	MonitoringSubscription MonitoringSubscriptionTypeOutput `pulumi:"monitoringSubscription"`
 }
 
@@ -74,7 +74,7 @@ func (MonitoringSubscriptionState) ElementType() reflect.Type {
 type monitoringSubscriptionArgs struct {
 	// The ID of the distribution that you are enabling metrics for.
 	DistributionId string `pulumi:"distributionId"`
-	// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+	// A subscription configuration for additional CloudWatch metrics.
 	MonitoringSubscription MonitoringSubscriptionType `pulumi:"monitoringSubscription"`
 }
 
@@ -82,7 +82,7 @@ type monitoringSubscriptionArgs struct {
 type MonitoringSubscriptionArgs struct {
 	// The ID of the distribution that you are enabling metrics for.
 	DistributionId pulumi.StringInput
-	// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+	// A subscription configuration for additional CloudWatch metrics.
 	MonitoringSubscription MonitoringSubscriptionTypeInput
 }
 
@@ -128,7 +128,7 @@ func (o MonitoringSubscriptionOutput) DistributionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *MonitoringSubscription) pulumi.StringOutput { return v.DistributionId }).(pulumi.StringOutput)
 }
 
-// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+// A subscription configuration for additional CloudWatch metrics.
 func (o MonitoringSubscriptionOutput) MonitoringSubscription() MonitoringSubscriptionTypeOutput {
 	return o.ApplyT(func(v *MonitoringSubscription) MonitoringSubscriptionTypeOutput { return v.MonitoringSubscription }).(MonitoringSubscriptionTypeOutput)
 }

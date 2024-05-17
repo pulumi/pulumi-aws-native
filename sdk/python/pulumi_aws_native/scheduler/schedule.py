@@ -32,7 +32,7 @@ class ScheduleArgs:
         The set of arguments for constructing a Schedule resource.
         :param pulumi.Input['ScheduleFlexibleTimeWindowArgs'] flexible_time_window: Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.
         :param pulumi.Input[str] schedule_expression: The scheduling expression.
-        :param pulumi.Input['ScheduleTargetArgs'] target: The schedule's target. EventBridge Scheduler supports templated target that invoke common API operations, as well as universal targets that you can customize to invoke over 6,000 API operations across more than 270 services. You can only specify one templated or universal target for a schedule.
+        :param pulumi.Input['ScheduleTargetArgs'] target: The schedule's target details.
         :param pulumi.Input[str] description: The description of the schedule.
         :param pulumi.Input[str] end_date: The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the EndDate you specify.
         :param pulumi.Input[str] group_name: The name of the schedule group to associate with this schedule. If you omit this, the default schedule group is used.
@@ -92,7 +92,7 @@ class ScheduleArgs:
     @pulumi.getter
     def target(self) -> pulumi.Input['ScheduleTargetArgs']:
         """
-        The schedule's target. EventBridge Scheduler supports templated target that invoke common API operations, as well as universal targets that you can customize to invoke over 6,000 API operations across more than 270 services. You can only specify one templated or universal target for a schedule.
+        The schedule's target details.
         """
         return pulumi.get(self, "target")
 
@@ -233,7 +233,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input['ScheduleState'] state: Specifies whether the schedule is enabled or disabled.
                
                *Allowed Values* : `ENABLED` | `DISABLED`
-        :param pulumi.Input[pulumi.InputType['ScheduleTargetArgs']] target: The schedule's target. EventBridge Scheduler supports templated target that invoke common API operations, as well as universal targets that you can customize to invoke over 6,000 API operations across more than 270 services. You can only specify one templated or universal target for a schedule.
+        :param pulumi.Input[pulumi.InputType['ScheduleTargetArgs']] target: The schedule's target details.
         """
         ...
     @overload
@@ -429,7 +429,7 @@ class Schedule(pulumi.CustomResource):
     @pulumi.getter
     def target(self) -> pulumi.Output['outputs.ScheduleTarget']:
         """
-        The schedule's target. EventBridge Scheduler supports templated target that invoke common API operations, as well as universal targets that you can customize to invoke over 6,000 API operations across more than 270 services. You can only specify one templated or universal target for a schedule.
+        The schedule's target details.
         """
         return pulumi.get(self, "target")
 

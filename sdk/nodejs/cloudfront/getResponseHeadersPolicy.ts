@@ -36,8 +36,6 @@ export interface GetResponseHeadersPolicyResult {
     readonly lastModifiedTime?: string;
     /**
      * A response headers policy configuration.
-     *
-     * A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
      */
     readonly responseHeadersPolicyConfig?: outputs.cloudfront.ResponseHeadersPolicyConfig;
 }

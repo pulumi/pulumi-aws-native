@@ -38,7 +38,7 @@ export class TemplateGroupAccessControlEntry extends pulumi.CustomResource {
     }
 
     /**
-     * Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a template.
+     * Permissions to allow or deny an Active Directory group to enroll or autoenroll certificates issued against a template.
      */
     public readonly accessRights!: pulumi.Output<outputs.pcaconnectorad.TemplateGroupAccessControlEntryAccessRights>;
     /**
@@ -93,7 +93,7 @@ export class TemplateGroupAccessControlEntry extends pulumi.CustomResource {
  */
 export interface TemplateGroupAccessControlEntryArgs {
     /**
-     * Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a template.
+     * Permissions to allow or deny an Active Directory group to enroll or autoenroll certificates issued against a template.
      */
     accessRights: pulumi.Input<inputs.pcaconnectorad.TemplateGroupAccessControlEntryAccessRightsArgs>;
     /**

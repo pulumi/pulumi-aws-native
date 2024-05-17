@@ -45,7 +45,13 @@ export interface GetAuthorizerResult {
      */
     readonly status?: enums.iot.AuthorizerStatus;
     /**
-     * A set of key/value pairs that are used to manage the resource.
+     * Metadata which can be used to manage the custom authorizer.
+     *
+     * > For URI Request parameters use format: ...key1=value1&key2=value2...
+     * > 
+     * > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+     * > 
+     * > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
      */
     readonly tags?: outputs.Tag[];
     /**

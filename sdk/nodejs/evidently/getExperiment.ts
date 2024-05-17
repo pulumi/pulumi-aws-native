@@ -35,7 +35,7 @@ export interface GetExperimentResult {
      */
     readonly description?: string;
     /**
-     * Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+     * An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
      */
     readonly metricGoals?: outputs.evidently.ExperimentMetricGoalObject[];
     /**
@@ -71,7 +71,7 @@ export interface GetExperimentResult {
      */
     readonly tags?: outputs.Tag[];
     /**
-     * A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
+     * An array of structures that describe the configuration of each feature variation used in the experiment.
      */
     readonly treatments?: outputs.evidently.ExperimentTreatmentObject[];
 }

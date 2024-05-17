@@ -85,14 +85,11 @@ namespace Pulumi.AwsNative.CleanRooms
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// A relation within an analysis.
-        /// </summary>
         [Output("schema")]
         public Output<Outputs.AnalysisTemplateAnalysisSchema> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// The structure that defines the body of the analysis template.
+        /// The source of the analysis template.
         /// </summary>
         [Output("source")]
         public Output<Outputs.AnalysisTemplateAnalysisSource> Source { get; private set; } = null!;
@@ -193,7 +190,7 @@ namespace Pulumi.AwsNative.CleanRooms
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The structure that defines the body of the analysis template.
+        /// The source of the analysis template.
         /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.AnalysisTemplateAnalysisSourceArgs> Source { get; set; } = null!;

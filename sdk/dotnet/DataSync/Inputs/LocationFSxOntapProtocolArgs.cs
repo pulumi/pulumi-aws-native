@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.DataSync.Inputs
     public sealed class LocationFSxOntapProtocolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the Network File System (NFS) protocol configuration that AWS DataSync uses to access a storage virtual machine (SVM) on your Amazon FSx for NetApp ONTAP file system. For more information, see [Accessing FSx for ONTAP file systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access) .
+        /// Specifies the Network File System (NFS) protocol configuration that DataSync uses to access your FSx for ONTAP file system's storage virtual machine (SVM).
         /// </summary>
         [Input("nfs")]
         public Input<Inputs.LocationFSxOntapNfsArgs>? Nfs { get; set; }
 
         /// <summary>
-        /// Specifies the Server Message Block (SMB) protocol configuration that AWS DataSync uses to access a storage virtual machine (SVM) on your Amazon FSx for NetApp ONTAP file system. For more information, see [Accessing FSx for ONTAP file systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access) .
+        /// Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your FSx for ONTAP file system's SVM.
         /// </summary>
         [Input("smb")]
         public Input<Inputs.LocationFSxOntapSmbArgs>? Smb { get; set; }

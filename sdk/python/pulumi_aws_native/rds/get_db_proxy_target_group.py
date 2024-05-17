@@ -37,7 +37,7 @@ class GetDbProxyTargetGroupResult:
     @pulumi.getter(name="connectionPoolConfigurationInfo")
     def connection_pool_configuration_info(self) -> Optional['outputs.DbProxyTargetGroupConnectionPoolConfigurationInfoFormat']:
         """
-        Specifies the settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+        Settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
         """
         return pulumi.get(self, "connection_pool_configuration_info")
 

@@ -22,11 +22,11 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.CustomerProfiles.IntegrationConnectorType ConnectorType;
         /// <summary>
-        /// Specifies the configuration used when importing incremental records from the source.
+        /// Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull.
         /// </summary>
         public readonly Outputs.IntegrationIncrementalPullConfig? IncrementalPullConfig;
         /// <summary>
-        /// Specifies the information that is required to query a particular Amazon AppFlow connector. Customer Profiles supports Salesforce, Zendesk, Marketo, ServiceNow and Amazon S3.
+        /// Specifies the information that is required to query a particular source connector.
         /// </summary>
         public readonly Outputs.IntegrationSourceConnectorProperties SourceConnectorProperties;
 

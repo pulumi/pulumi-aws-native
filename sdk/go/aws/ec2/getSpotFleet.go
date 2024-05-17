@@ -30,9 +30,7 @@ type LookupSpotFleetArgs struct {
 type LookupSpotFleetResult struct {
 	// The ID of the Spot Fleet.
 	Id *string `pulumi:"id"`
-	// Specifies the configuration of a Spot Fleet request. For more information, see [Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html) in the *Amazon EC2 User Guide* .
-	//
-	// You must specify either `LaunchSpecifications` or `LaunchTemplateConfigs` .
+	// Describes the configuration of a Spot Fleet request.
 	SpotFleetRequestConfigData *SpotFleetRequestConfigData `pulumi:"spotFleetRequestConfigData"`
 }
 
@@ -77,9 +75,7 @@ func (o LookupSpotFleetResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSpotFleetResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the configuration of a Spot Fleet request. For more information, see [Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html) in the *Amazon EC2 User Guide* .
-//
-// You must specify either `LaunchSpecifications` or `LaunchTemplateConfigs` .
+// Describes the configuration of a Spot Fleet request.
 func (o LookupSpotFleetResultOutput) SpotFleetRequestConfigData() SpotFleetRequestConfigDataPtrOutput {
 	return o.ApplyT(func(v LookupSpotFleetResult) *SpotFleetRequestConfigData { return v.SpotFleetRequestConfigData }).(SpotFleetRequestConfigDataPtrOutput)
 }

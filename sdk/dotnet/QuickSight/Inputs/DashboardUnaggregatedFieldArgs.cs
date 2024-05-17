@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardUnaggregatedFieldArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A column of a data set.
+        /// The column that is used in the `UnaggregatedField` .
         /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.DashboardColumnIdentifierArgs> Column { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string> FieldId { get; set; } = null!;
 
         /// <summary>
-        /// The formatting configuration for all types of field.
+        /// The format configuration of the field.
         /// </summary>
         [Input("formatConfiguration")]
         public Input<Inputs.DashboardFormatConfigurationArgs>? FormatConfiguration { get; set; }

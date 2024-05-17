@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Output<string?> CustomDomainName { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the DNS information of a service.
+        /// The DNS information of the service.
         /// </summary>
         [Output("dnsEntry")]
         public Output<Outputs.ServiceDnsEntry?> DnsEntry { get; private set; } = null!;
@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Output<Pulumi.AwsNative.VpcLattice.ServiceStatus> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a tag for a service.
+        /// The tags for the service.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Input<string>? CustomDomainName { get; set; }
 
         /// <summary>
-        /// Describes the DNS information of a service.
+        /// The DNS information of the service.
         /// </summary>
         [Input("dnsEntry")]
         public Input<Inputs.ServiceDnsEntryArgs>? DnsEntry { get; set; }
@@ -175,7 +175,7 @@ namespace Pulumi.AwsNative.VpcLattice
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// Specifies a tag for a service.
+        /// The tags for the service.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

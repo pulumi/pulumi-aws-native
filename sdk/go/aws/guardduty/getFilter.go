@@ -35,7 +35,7 @@ type LookupFilterResult struct {
 	Action *string `pulumi:"action"`
 	// The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
 	Description *string `pulumi:"description"`
-	// Represents a map of finding properties that match specified conditions and values when querying findings.
+	// Represents the criteria to be used in the filter for querying findings.
 	FindingCriteria *FilterFindingCriteria `pulumi:"findingCriteria"`
 	// Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
 	//
@@ -95,7 +95,7 @@ func (o LookupFilterResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFilterResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Represents a map of finding properties that match specified conditions and values when querying findings.
+// Represents the criteria to be used in the filter for querying findings.
 func (o LookupFilterResultOutput) FindingCriteria() FilterFindingCriteriaPtrOutput {
 	return o.ApplyT(func(v LookupFilterResult) *FilterFindingCriteria { return v.FindingCriteria }).(FilterFindingCriteriaPtrOutput)
 }

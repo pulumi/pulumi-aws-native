@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.VpcLattice.Inputs
     public sealed class RuleActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes an action that returns a custom HTTP response.
+        /// The fixed response action. The rule returns a custom HTTP response.
         /// </summary>
         [Input("fixedResponse")]
         public Input<Inputs.RuleFixedResponseArgs>? FixedResponse { get; set; }

@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
         public Output<string?> SessionPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// A label that consists of a key and value you define.
+        /// A list of Tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.AwsNative.RolesAnywhere
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A label that consists of a key and value you define.
+        /// A list of Tags.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

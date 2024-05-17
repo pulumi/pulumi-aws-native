@@ -50,11 +50,11 @@ export class Deployment extends pulumi.CustomResource {
      */
     public readonly deploymentName!: pulumi.Output<string | undefined>;
     /**
-     * Contains information about policies that define how a deployment updates components and handles failure.
+     * The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.
      */
     public readonly deploymentPolicies!: pulumi.Output<outputs.greengrassv2.DeploymentPolicies | undefined>;
     /**
-     * Contains information about an AWS IoT job configuration.
+     * The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
      */
     public readonly iotJobConfiguration!: pulumi.Output<outputs.greengrassv2.DeploymentIoTJobConfiguration | undefined>;
     /**
@@ -129,11 +129,11 @@ export interface DeploymentArgs {
      */
     deploymentName?: pulumi.Input<string>;
     /**
-     * Contains information about policies that define how a deployment updates components and handles failure.
+     * The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.
      */
     deploymentPolicies?: pulumi.Input<inputs.greengrassv2.DeploymentPoliciesArgs>;
     /**
-     * Contains information about an AWS IoT job configuration.
+     * The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
      */
     iotJobConfiguration?: pulumi.Input<inputs.greengrassv2.DeploymentIoTJobConfigurationArgs>;
     /**

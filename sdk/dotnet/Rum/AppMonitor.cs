@@ -16,7 +16,9 @@ namespace Pulumi.AwsNative.Rum
     public partial class AppMonitor : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// This structure contains much of the configuration data for the app monitor.
+        /// A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
+        /// 
+        /// If you omit this argument, the sample rate used for CloudWatch RUM is set to 10% of the user sessions.
         /// </summary>
         [Output("appMonitorConfiguration")]
         public Output<Outputs.AppMonitorConfiguration?> AppMonitorConfiguration { get; private set; } = null!;
@@ -28,7 +30,7 @@ namespace Pulumi.AwsNative.Rum
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// This structure specifies whether this app monitor allows the web client to define and send custom events.
+        /// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED` .
         /// </summary>
         [Output("customEvents")]
         public Output<Outputs.AppMonitorCustomEvents?> CustomEvents { get; private set; } = null!;
@@ -115,13 +117,15 @@ namespace Pulumi.AwsNative.Rum
     public sealed class AppMonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This structure contains much of the configuration data for the app monitor.
+        /// A structure that contains much of the configuration data for the app monitor. If you are using Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the Amazon Cognito identity pool to use for authorization. If you don't include `AppMonitorConfiguration` , you must set up your own authorization method. For more information, see [Authorize your application to send data to AWS](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html) .
+        /// 
+        /// If you omit this argument, the sample rate used for CloudWatch RUM is set to 10% of the user sessions.
         /// </summary>
         [Input("appMonitorConfiguration")]
         public Input<Inputs.AppMonitorConfigurationArgs>? AppMonitorConfiguration { get; set; }
 
         /// <summary>
-        /// This structure specifies whether this app monitor allows the web client to define and send custom events.
+        /// Specifies whether this app monitor allows the web client to define and send custom events. If you omit this parameter, custom events are `DISABLED` .
         /// </summary>
         [Input("customEvents")]
         public Input<Inputs.AppMonitorCustomEventsArgs>? CustomEvents { get; set; }

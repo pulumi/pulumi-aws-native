@@ -35,15 +35,15 @@ export interface GetTrustAnchorResult {
      */
     readonly name?: string;
     /**
-     * Customizable notification settings that will be applied to notification events. IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge , and AWS Health Dashboard .
+     * A list of notification settings to be associated to the trust anchor.
      */
     readonly notificationSettings?: outputs.rolesanywhere.TrustAnchorNotificationSetting[];
     /**
-     * Object representing the TrustAnchor type and its related certificate data.
+     * The trust anchor type and its related certificate data.
      */
     readonly source?: outputs.rolesanywhere.TrustAnchorSource;
     /**
-     * A label that consists of a key and value you define.
+     * The tags to attach to the trust anchor.
      */
     readonly tags?: outputs.Tag[];
     /**

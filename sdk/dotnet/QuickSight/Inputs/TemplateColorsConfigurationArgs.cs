@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.TemplateCustomColorArgs>? _customColors;
 
         /// <summary>
-        /// Determines the color that's applied to a particular data value in a column.
+        /// A list of up to 50 custom colors.
         /// </summary>
         public InputList<Inputs.TemplateCustomColorArgs> CustomColors
         {

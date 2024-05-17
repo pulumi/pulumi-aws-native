@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateTableOptions
     {
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The table cell style of table cells.
         /// </summary>
         public readonly Outputs.TemplateTableCellStyle? CellStyle;
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The table cell style of a table header.
         /// </summary>
         public readonly Outputs.TemplateTableCellStyle? HeaderStyle;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateTableOrientation? Orientation;
         /// <summary>
-        /// Determines the row alternate color options.
+        /// The row alternate color options (widget status, row alternate colors) for a table.
         /// </summary>
         public readonly Outputs.TemplateRowAlternateColorOptions? RowAlternateColorOptions;
 

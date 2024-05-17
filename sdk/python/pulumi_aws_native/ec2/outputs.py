@@ -361,7 +361,7 @@ class CapacityReservationFleetTagSpecification(dict):
         :param str resource_type: The type of resource to tag on creation. Specify `capacity-reservation-fleet` .
                
                To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html) .
-        :param Sequence['CapacityReservationFleetTag'] tags: Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        :param Sequence['CapacityReservationFleetTag'] tags: The tags to apply to the resource.
         """
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
@@ -382,7 +382,7 @@ class CapacityReservationFleetTagSpecification(dict):
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.CapacityReservationFleetTag']]:
         """
-        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        The tags to apply to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -448,7 +448,7 @@ class CapacityReservationTagSpecification(dict):
                  tags: Optional[Sequence['outputs.CapacityReservationTag']] = None):
         """
         :param str resource_type: The type of resource to tag. Specify `capacity-reservation` .
-        :param Sequence['CapacityReservationTag'] tags: Describes a tag.
+        :param Sequence['CapacityReservationTag'] tags: The tags to apply to the resource.
         """
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
@@ -467,7 +467,7 @@ class CapacityReservationTagSpecification(dict):
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.CapacityReservationTag']]:
         """
-        Describes a tag.
+        The tags to apply to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -869,21 +869,10 @@ class Ec2FleetFleetLaunchTemplateConfigRequest(dict):
                  launch_template_specification: Optional['outputs.Ec2FleetFleetLaunchTemplateSpecificationRequest'] = None,
                  overrides: Optional[Sequence['outputs.Ec2FleetFleetLaunchTemplateOverridesRequest']] = None):
         """
-        :param 'Ec2FleetFleetLaunchTemplateSpecificationRequest' launch_template_specification: Specifies the launch template to be used by the EC2 Fleet for configuring Amazon EC2 instances.
+        :param 'Ec2FleetFleetLaunchTemplateSpecificationRequest' launch_template_specification: The launch template to use. You must specify either the launch template ID or launch template name in the request.
+        :param Sequence['Ec2FleetFleetLaunchTemplateOverridesRequest'] overrides: Any parameters that you specify override the same parameters in the launch template.
                
-               You must specify the following:
-               
-               - The ID or the name of the launch template, but not both.
-               - The version of the launch template.
-               
-               `FleetLaunchTemplateSpecificationRequest` is a property of the [FleetLaunchTemplateConfigRequest](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html) property type.
-               
-               For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) in the *Amazon EC2 User Guide* .
-               
-               For examples of launch templates, see [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) .
-        :param Sequence['Ec2FleetFleetLaunchTemplateOverridesRequest'] overrides: Specifies overrides for a launch template for an EC2 Fleet.
-               
-               `FleetLaunchTemplateOverridesRequest` is a property of the [FleetLaunchTemplateConfigRequest](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html) property type.
+               For fleets of type `request` and `maintain` , a maximum of 300 items is allowed across all launch templates.
         """
         if launch_template_specification is not None:
             pulumi.set(__self__, "launch_template_specification", launch_template_specification)
@@ -894,18 +883,7 @@ class Ec2FleetFleetLaunchTemplateConfigRequest(dict):
     @pulumi.getter(name="launchTemplateSpecification")
     def launch_template_specification(self) -> Optional['outputs.Ec2FleetFleetLaunchTemplateSpecificationRequest']:
         """
-        Specifies the launch template to be used by the EC2 Fleet for configuring Amazon EC2 instances.
-
-        You must specify the following:
-
-        - The ID or the name of the launch template, but not both.
-        - The version of the launch template.
-
-        `FleetLaunchTemplateSpecificationRequest` is a property of the [FleetLaunchTemplateConfigRequest](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html) property type.
-
-        For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) in the *Amazon EC2 User Guide* .
-
-        For examples of launch templates, see [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) .
+        The launch template to use. You must specify either the launch template ID or launch template name in the request.
         """
         return pulumi.get(self, "launch_template_specification")
 
@@ -913,9 +891,9 @@ class Ec2FleetFleetLaunchTemplateConfigRequest(dict):
     @pulumi.getter
     def overrides(self) -> Optional[Sequence['outputs.Ec2FleetFleetLaunchTemplateOverridesRequest']]:
         """
-        Specifies overrides for a launch template for an EC2 Fleet.
+        Any parameters that you specify override the same parameters in the launch template.
 
-        `FleetLaunchTemplateOverridesRequest` is a property of the [FleetLaunchTemplateConfigRequest](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html) property type.
+        For fleets of type `request` and `maintain` , a maximum of 300 items is allowed across all launch templates.
         """
         return pulumi.get(self, "overrides")
 
@@ -960,22 +938,9 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
                  weighted_capacity: Optional[float] = None):
         """
         :param str availability_zone: The Availability Zone in which to launch the instances.
-        :param 'Ec2FleetInstanceRequirementsRequest' instance_requirements: The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
-               
-               You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
-               
-               When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
-               
-               To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
-               
-               - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
-               - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+        :param 'Ec2FleetInstanceRequirementsRequest' instance_requirements: The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
                
                > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
-               > 
-               > Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) , or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements` . 
-               
-               For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
         :param str instance_type: The instance type.
                
                `mac1.metal` is not supported as a launch template override.
@@ -984,7 +949,7 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
         :param str max_price: The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
                
                > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
-        :param 'Ec2FleetPlacement' placement: Describes the placement of an instance.
+        :param 'Ec2FleetPlacement' placement: The location where the instance launched, if applicable.
         :param float priority: The priority for the launch template override. The highest priority is launched first.
                
                If the On-Demand `AllocationStrategy` is set to `prioritized` , EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity.
@@ -1026,22 +991,9 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
     @pulumi.getter(name="instanceRequirements")
     def instance_requirements(self) -> Optional['outputs.Ec2FleetInstanceRequirementsRequest']:
         """
-        The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
-
-        You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
-
-        When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
-
-        To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
-
-        - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
-        - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+        The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
 
         > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
-        > 
-        > Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) , or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements` . 
-
-        For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
         """
         return pulumi.get(self, "instance_requirements")
 
@@ -1071,7 +1023,7 @@ class Ec2FleetFleetLaunchTemplateOverridesRequest(dict):
     @pulumi.getter
     def placement(self) -> Optional['outputs.Ec2FleetPlacement']:
         """
-        Describes the placement of an instance.
+        The location where the instance launched, if applicable.
         """
         return pulumi.get(self, "placement")
 
@@ -1276,7 +1228,11 @@ class Ec2FleetInstanceRequirementsRequest(dict):
                  total_local_storage_gb: Optional['outputs.Ec2FleetTotalLocalStorageGbRequest'] = None,
                  v_cpu_count: Optional['outputs.Ec2FleetVCpuCountRangeRequest'] = None):
         """
-        :param 'Ec2FleetAcceleratorCountRequest' accelerator_count: The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance. To exclude accelerator-enabled instance types, set `Max` to `0` .
+        :param 'Ec2FleetAcceleratorCountRequest' accelerator_count: The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
+               
+               To exclude accelerator-enabled instance types, set `Max` to `0` .
+               
+               Default: No minimum or maximum limits
         :param Sequence['Ec2FleetInstanceRequirementsRequestAcceleratorManufacturersItem'] accelerator_manufacturers: Indicates whether instance types must have accelerators by specific manufacturers.
                
                - For instance types with AWS devices, specify `amazon-web-services` .
@@ -1303,6 +1259,8 @@ class Ec2FleetInstanceRequirementsRequest(dict):
                
                Default: Any accelerator
         :param 'Ec2FleetAcceleratorTotalMemoryMiBRequest' accelerator_total_memory_mi_b: The minimum and maximum amount of total accelerator memory, in MiB.
+               
+               Default: No minimum or maximum limits
         :param Sequence['Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem'] accelerator_types: The accelerator types that must be on the instance type.
                
                - To include instance types with GPU hardware, specify `gpu` .
@@ -1327,6 +1285,8 @@ class Ec2FleetInstanceRequirementsRequest(dict):
                
                Default: `excluded`
         :param 'Ec2FleetBaselineEbsBandwidthMbpsRequest' baseline_ebs_bandwidth_mbps: The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
+               
+               Default: No minimum or maximum limits
         :param 'Ec2FleetInstanceRequirementsRequestBurstablePerformance' burstable_performance: Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
                
                - To include burstable performance instance types, specify `included` .
@@ -1380,11 +1340,15 @@ class Ec2FleetInstanceRequirementsRequest(dict):
                
                > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
         :param 'Ec2FleetMemoryGiBPerVCpuRequest' memory_gi_b_per_v_cpu: The minimum and maximum amount of memory per vCPU, in GiB.
-        :param 'Ec2FleetMemoryMiBRequest' memory_mi_b: The minimum and maximum amount of memory, in MiB.
-        :param 'Ec2FleetNetworkBandwidthGbpsRequest' network_bandwidth_gbps: The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
                
-               > Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see [Available instance bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth) in the *Amazon EC2 User Guide* .
+               Default: No minimum or maximum limits
+        :param 'Ec2FleetMemoryMiBRequest' memory_mi_b: The minimum and maximum amount of memory, in MiB.
+        :param 'Ec2FleetNetworkBandwidthGbpsRequest' network_bandwidth_gbps: The minimum and maximum amount of baseline network bandwidth, in gigabits per second (Gbps). For more information, see [Amazon EC2 instance network bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html) in the *Amazon EC2 User Guide* .
+               
+               Default: No minimum or maximum limits
         :param 'Ec2FleetNetworkInterfaceCountRequest' network_interface_count: The minimum and maximum number of network interfaces.
+               
+               Default: No minimum or maximum limits
         :param int on_demand_max_price_percentage_over_lowest_price: [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
                
                The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
@@ -1413,6 +1377,8 @@ class Ec2FleetInstanceRequirementsRequest(dict):
                
                Default: `100`
         :param 'Ec2FleetTotalLocalStorageGbRequest' total_local_storage_gb: The minimum and maximum amount of total local storage, in GB.
+               
+               Default: No minimum or maximum limits
         :param 'Ec2FleetVCpuCountRangeRequest' v_cpu_count: The minimum and maximum number of vCPUs.
         """
         if accelerator_count is not None:
@@ -1468,7 +1434,11 @@ class Ec2FleetInstanceRequirementsRequest(dict):
     @pulumi.getter(name="acceleratorCount")
     def accelerator_count(self) -> Optional['outputs.Ec2FleetAcceleratorCountRequest']:
         """
-        The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance. To exclude accelerator-enabled instance types, set `Max` to `0` .
+        The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
+
+        To exclude accelerator-enabled instance types, set `Max` to `0` .
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "accelerator_count")
 
@@ -1516,6 +1486,8 @@ class Ec2FleetInstanceRequirementsRequest(dict):
     def accelerator_total_memory_mi_b(self) -> Optional['outputs.Ec2FleetAcceleratorTotalMemoryMiBRequest']:
         """
         The minimum and maximum amount of total accelerator memory, in MiB.
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "accelerator_total_memory_mi_b")
 
@@ -1568,6 +1540,8 @@ class Ec2FleetInstanceRequirementsRequest(dict):
     def baseline_ebs_bandwidth_mbps(self) -> Optional['outputs.Ec2FleetBaselineEbsBandwidthMbpsRequest']:
         """
         The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "baseline_ebs_bandwidth_mbps")
 
@@ -1677,6 +1651,8 @@ class Ec2FleetInstanceRequirementsRequest(dict):
     def memory_gi_b_per_v_cpu(self) -> Optional['outputs.Ec2FleetMemoryGiBPerVCpuRequest']:
         """
         The minimum and maximum amount of memory per vCPU, in GiB.
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "memory_gi_b_per_v_cpu")
 
@@ -1692,9 +1668,9 @@ class Ec2FleetInstanceRequirementsRequest(dict):
     @pulumi.getter(name="networkBandwidthGbps")
     def network_bandwidth_gbps(self) -> Optional['outputs.Ec2FleetNetworkBandwidthGbpsRequest']:
         """
-        The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).
+        The minimum and maximum amount of baseline network bandwidth, in gigabits per second (Gbps). For more information, see [Amazon EC2 instance network bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html) in the *Amazon EC2 User Guide* .
 
-        > Setting the minimum bandwidth does not guarantee that your instance will achieve the minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum bandwidth, but the actual bandwidth of your instance might go below the specified minimum at times. For more information, see [Available instance bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth) in the *Amazon EC2 User Guide* .
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "network_bandwidth_gbps")
 
@@ -1703,6 +1679,8 @@ class Ec2FleetInstanceRequirementsRequest(dict):
     def network_interface_count(self) -> Optional['outputs.Ec2FleetNetworkInterfaceCountRequest']:
         """
         The minimum and maximum number of network interfaces.
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "network_interface_count")
 
@@ -1759,6 +1737,8 @@ class Ec2FleetInstanceRequirementsRequest(dict):
     def total_local_storage_gb(self) -> Optional['outputs.Ec2FleetTotalLocalStorageGbRequest']:
         """
         The minimum and maximum amount of total local storage, in GB.
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "total_local_storage_gb")
 
@@ -1793,7 +1773,7 @@ class Ec2FleetMaintenanceStrategies(dict):
     def __init__(__self__, *,
                  capacity_rebalance: Optional['outputs.Ec2FleetCapacityRebalance'] = None):
         """
-        :param 'Ec2FleetCapacityRebalance' capacity_rebalance: The Spot Instance replacement strategy to use when Amazon EC2 emits a rebalance notification signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide* .
+        :param 'Ec2FleetCapacityRebalance' capacity_rebalance: The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.
         """
         if capacity_rebalance is not None:
             pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
@@ -1802,7 +1782,7 @@ class Ec2FleetMaintenanceStrategies(dict):
     @pulumi.getter(name="capacityRebalance")
     def capacity_rebalance(self) -> Optional['outputs.Ec2FleetCapacityRebalance']:
         """
-        The Spot Instance replacement strategy to use when Amazon EC2 emits a rebalance notification signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see [Capacity rebalancing](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-capacity-rebalance.html) in the *Amazon EC2 User Guide* .
+        The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.
         """
         return pulumi.get(self, "capacity_rebalance")
 
@@ -1975,11 +1955,9 @@ class Ec2FleetOnDemandOptionsRequest(dict):
                `prioritized` - EC2 Fleet uses the priority that you assigned to each launch template override, launching the highest priority first.
                
                Default: `lowest-price`
-        :param 'Ec2FleetCapacityReservationOptionsRequest' capacity_reservation_options: Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
+        :param 'Ec2FleetCapacityReservationOptionsRequest' capacity_reservation_options: The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
                
-               > This strategy can only be used if the EC2 Fleet is of type `instant` . 
-               
-               For more information about Capacity Reservations, see [On-Demand Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html) in the *Amazon EC2 User Guide* . For examples of using Capacity Reservations in an EC2 Fleet, see [EC2 Fleet example configurations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html) in the *Amazon EC2 User Guide* .
+               Supported only for fleets of type `instant` .
         :param str max_total_price: The maximum amount per hour for On-Demand Instances that you're willing to pay.
                
                > If your fleet includes T instances that are configured as `unlimited` , and if their average CPU usage exceeds the baseline utilization, you will incur a charge for surplus credits. The `MaxTotalPrice` does not account for surplus credits, and, if you use surplus credits, your final cost might be higher than what you specified for `MaxTotalPrice` . For more information, see [Surplus credits can incur charges](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits) in the *EC2 User Guide* .
@@ -2026,11 +2004,9 @@ class Ec2FleetOnDemandOptionsRequest(dict):
     @pulumi.getter(name="capacityReservationOptions")
     def capacity_reservation_options(self) -> Optional['outputs.Ec2FleetCapacityReservationOptionsRequest']:
         """
-        Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
+        The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.
 
-        > This strategy can only be used if the EC2 Fleet is of type `instant` . 
-
-        For more information about Capacity Reservations, see [On-Demand Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html) in the *Amazon EC2 User Guide* . For examples of using Capacity Reservations in an EC2 Fleet, see [EC2 Fleet example configurations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html) in the *Amazon EC2 User Guide* .
+        Supported only for fleets of type `instant` .
         """
         return pulumi.get(self, "capacity_reservation_options")
 
@@ -2470,7 +2446,7 @@ class Ec2FleetTagSpecification(dict):
                  tags: Optional[Sequence['outputs.Ec2FleetTag']] = None):
         """
         :param 'Ec2FleetTagSpecificationResourceType' resource_type: The type of resource to tag.
-        :param Sequence['Ec2FleetTag'] tags: Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        :param Sequence['Ec2FleetTag'] tags: The tags to apply to the resource.
         """
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
@@ -2489,7 +2465,7 @@ class Ec2FleetTagSpecification(dict):
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.Ec2FleetTag']]:
         """
-        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        The tags to apply to the resource.
         """
         return pulumi.get(self, "tags")
 
@@ -7179,9 +7155,9 @@ class NetworkInsightsAccessScopeAccessScopePathRequest(dict):
                  source: Optional['outputs.NetworkInsightsAccessScopePathStatementRequest'] = None,
                  through_resources: Optional[Sequence['outputs.NetworkInsightsAccessScopeThroughResourcesStatementRequest']] = None):
         """
-        :param 'NetworkInsightsAccessScopePathStatementRequest' destination: Describes a path statement.
-        :param 'NetworkInsightsAccessScopePathStatementRequest' source: Describes a path statement.
-        :param Sequence['NetworkInsightsAccessScopeThroughResourcesStatementRequest'] through_resources: Describes a through resource statement.
+        :param 'NetworkInsightsAccessScopePathStatementRequest' destination: The destination.
+        :param 'NetworkInsightsAccessScopePathStatementRequest' source: The source.
+        :param Sequence['NetworkInsightsAccessScopeThroughResourcesStatementRequest'] through_resources: The through resources.
         """
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
@@ -7194,7 +7170,7 @@ class NetworkInsightsAccessScopeAccessScopePathRequest(dict):
     @pulumi.getter
     def destination(self) -> Optional['outputs.NetworkInsightsAccessScopePathStatementRequest']:
         """
-        Describes a path statement.
+        The destination.
         """
         return pulumi.get(self, "destination")
 
@@ -7202,7 +7178,7 @@ class NetworkInsightsAccessScopeAccessScopePathRequest(dict):
     @pulumi.getter
     def source(self) -> Optional['outputs.NetworkInsightsAccessScopePathStatementRequest']:
         """
-        Describes a path statement.
+        The source.
         """
         return pulumi.get(self, "source")
 
@@ -7210,7 +7186,7 @@ class NetworkInsightsAccessScopeAccessScopePathRequest(dict):
     @pulumi.getter(name="throughResources")
     def through_resources(self) -> Optional[Sequence['outputs.NetworkInsightsAccessScopeThroughResourcesStatementRequest']]:
         """
-        Describes a through resource statement.
+        The through resources.
         """
         return pulumi.get(self, "through_resources")
 
@@ -7358,8 +7334,8 @@ class NetworkInsightsAccessScopePathStatementRequest(dict):
                  packet_header_statement: Optional['outputs.NetworkInsightsAccessScopePacketHeaderStatementRequest'] = None,
                  resource_statement: Optional['outputs.NetworkInsightsAccessScopeResourceStatementRequest'] = None):
         """
-        :param 'NetworkInsightsAccessScopePacketHeaderStatementRequest' packet_header_statement: Describes a packet header statement.
-        :param 'NetworkInsightsAccessScopeResourceStatementRequest' resource_statement: Describes a resource statement.
+        :param 'NetworkInsightsAccessScopePacketHeaderStatementRequest' packet_header_statement: The packet header statement.
+        :param 'NetworkInsightsAccessScopeResourceStatementRequest' resource_statement: The resource statement.
         """
         if packet_header_statement is not None:
             pulumi.set(__self__, "packet_header_statement", packet_header_statement)
@@ -7370,7 +7346,7 @@ class NetworkInsightsAccessScopePathStatementRequest(dict):
     @pulumi.getter(name="packetHeaderStatement")
     def packet_header_statement(self) -> Optional['outputs.NetworkInsightsAccessScopePacketHeaderStatementRequest']:
         """
-        Describes a packet header statement.
+        The packet header statement.
         """
         return pulumi.get(self, "packet_header_statement")
 
@@ -7378,7 +7354,7 @@ class NetworkInsightsAccessScopePathStatementRequest(dict):
     @pulumi.getter(name="resourceStatement")
     def resource_statement(self) -> Optional['outputs.NetworkInsightsAccessScopeResourceStatementRequest']:
         """
-        Describes a resource statement.
+        The resource statement.
         """
         return pulumi.get(self, "resource_statement")
 
@@ -7453,7 +7429,7 @@ class NetworkInsightsAccessScopeThroughResourcesStatementRequest(dict):
     def __init__(__self__, *,
                  resource_statement: Optional['outputs.NetworkInsightsAccessScopeResourceStatementRequest'] = None):
         """
-        :param 'NetworkInsightsAccessScopeResourceStatementRequest' resource_statement: Describes a resource statement.
+        :param 'NetworkInsightsAccessScopeResourceStatementRequest' resource_statement: The resource statement.
         """
         if resource_statement is not None:
             pulumi.set(__self__, "resource_statement", resource_statement)
@@ -7462,7 +7438,7 @@ class NetworkInsightsAccessScopeThroughResourcesStatementRequest(dict):
     @pulumi.getter(name="resourceStatement")
     def resource_statement(self) -> Optional['outputs.NetworkInsightsAccessScopeResourceStatementRequest']:
         """
-        Describes a resource statement.
+        The resource statement.
         """
         return pulumi.get(self, "resource_statement")
 
@@ -7497,8 +7473,8 @@ class NetworkInsightsAnalysisAdditionalDetail(dict):
                  service_name: Optional[str] = None):
         """
         :param str additional_detail_type: The additional detail code.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' component: Describes a path component.
-        :param Sequence['NetworkInsightsAnalysisAnalysisComponent'] load_balancers: Describes a path component.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' component: The path component.
+        :param Sequence['NetworkInsightsAnalysisAnalysisComponent'] load_balancers: The load balancers.
         :param str service_name: The name of the VPC endpoint service.
         """
         if additional_detail_type is not None:
@@ -7522,7 +7498,7 @@ class NetworkInsightsAnalysisAdditionalDetail(dict):
     @pulumi.getter
     def component(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The path component.
         """
         return pulumi.get(self, "component")
 
@@ -7530,7 +7506,7 @@ class NetworkInsightsAnalysisAdditionalDetail(dict):
     @pulumi.getter(name="loadBalancers")
     def load_balancers(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisAnalysisComponent']]:
         """
-        Describes a path component.
+        The load balancers.
         """
         return pulumi.get(self, "load_balancers")
 
@@ -7626,7 +7602,7 @@ class NetworkInsightsAnalysisAnalysisAclRule(dict):
         """
         :param str cidr: The IPv4 address range, in CIDR notation.
         :param bool egress: Indicates whether the rule is an outbound rule.
-        :param 'NetworkInsightsAnalysisPortRange' port_range: Describes a range of ports.
+        :param 'NetworkInsightsAnalysisPortRange' port_range: The range of ports.
         :param str protocol: The protocol.
         :param str rule_action: Indicates whether to allow or deny traffic that matches the rule.
         :param int rule_number: The rule number.
@@ -7664,7 +7640,7 @@ class NetworkInsightsAnalysisAnalysisAclRule(dict):
     @pulumi.getter(name="portRange")
     def port_range(self) -> Optional['outputs.NetworkInsightsAnalysisPortRange']:
         """
-        Describes a range of ports.
+        The range of ports.
         """
         return pulumi.get(self, "port_range")
 
@@ -7801,7 +7777,7 @@ class NetworkInsightsAnalysisAnalysisLoadBalancerTarget(dict):
         """
         :param str address: The IP address.
         :param str availability_zone: The Availability Zone.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' instance: Describes a path component.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' instance: Information about the instance.
         :param int port: The port on which the target is listening.
         """
         if address is not None:
@@ -7833,7 +7809,7 @@ class NetworkInsightsAnalysisAnalysisLoadBalancerTarget(dict):
     @pulumi.getter
     def instance(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        Information about the instance.
         """
         return pulumi.get(self, "instance")
 
@@ -8158,7 +8134,7 @@ class NetworkInsightsAnalysisAnalysisSecurityGroupRule(dict):
                
                - egress
                - ingress
-        :param 'NetworkInsightsAnalysisPortRange' port_range: Describes a range of ports.
+        :param 'NetworkInsightsAnalysisPortRange' port_range: The port range.
         :param str prefix_list_id: The prefix list ID.
         :param str protocol: The protocol name.
         :param str security_group_id: The security group ID.
@@ -8199,7 +8175,7 @@ class NetworkInsightsAnalysisAnalysisSecurityGroupRule(dict):
     @pulumi.getter(name="portRange")
     def port_range(self) -> Optional['outputs.NetworkInsightsAnalysisPortRange']:
         """
-        Describes a range of ports.
+        The port range.
         """
         return pulumi.get(self, "port_range")
 
@@ -8376,60 +8352,60 @@ class NetworkInsightsAnalysisExplanation(dict):
                  vpn_connection: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None,
                  vpn_gateway: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None):
         """
-        :param 'NetworkInsightsAnalysisAnalysisComponent' acl: Describes a path component.
-        :param 'NetworkInsightsAnalysisAnalysisAclRule' acl_rule: Describes a network access control (ACL) rule.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' acl: The network ACL.
+        :param 'NetworkInsightsAnalysisAnalysisAclRule' acl_rule: The network ACL rule.
         :param str address: The IPv4 address, in CIDR notation.
         :param Sequence[str] addresses: The IPv4 addresses, in CIDR notation.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' attached_to: Describes a path component.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' attached_to: The resource to which the component is attached.
         :param Sequence[str] availability_zones: The Availability Zones.
         :param Sequence[str] cidrs: The CIDR ranges.
-        :param 'NetworkInsightsAnalysisAnalysisLoadBalancerListener' classic_load_balancer_listener: Describes a load balancer listener.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' component: Describes a path component.
+        :param 'NetworkInsightsAnalysisAnalysisLoadBalancerListener' classic_load_balancer_listener: The listener for a Classic Load Balancer.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' component: The component.
         :param str component_account: The AWS account for the component.
         :param str component_region: The Region for the component.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' customer_gateway: Describes a path component.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' destination: Describes a path component.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' destination_vpc: Describes a path component.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' customer_gateway: The customer gateway.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' destination: The destination.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' destination_vpc: The destination VPC.
         :param str direction: The direction. The following are the possible values:
                
                - egress
                - ingress
-        :param 'NetworkInsightsAnalysisAnalysisComponent' elastic_load_balancer_listener: Describes a path component.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' elastic_load_balancer_listener: The load balancer listener.
         :param str explanation_code: The explanation code.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' ingress_route_table: Describes a path component.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' internet_gateway: Describes a path component.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' ingress_route_table: The route table.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' internet_gateway: The internet gateway.
         :param str load_balancer_arn: The Amazon Resource Name (ARN) of the load balancer.
         :param int load_balancer_listener_port: The listener port of the load balancer.
-        :param 'NetworkInsightsAnalysisAnalysisLoadBalancerTarget' load_balancer_target: Describes a load balancer target.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' load_balancer_target_group: Describes a path component.
+        :param 'NetworkInsightsAnalysisAnalysisLoadBalancerTarget' load_balancer_target: The target.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' load_balancer_target_group: The target group.
         :param Sequence['NetworkInsightsAnalysisAnalysisComponent'] load_balancer_target_groups: The target groups.
         :param int load_balancer_target_port: The target port.
         :param str missing_component: The missing component.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' nat_gateway: Describes a path component.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' network_interface: Describes a path component.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' nat_gateway: The NAT gateway.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' network_interface: The network interface.
         :param str packet_field: The packet field.
         :param int port: The port.
-        :param Sequence['NetworkInsightsAnalysisPortRange'] port_ranges: Describes a range of ports.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' prefix_list: Describes a path component.
+        :param Sequence['NetworkInsightsAnalysisPortRange'] port_ranges: The port ranges.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' prefix_list: The prefix list.
         :param Sequence[str] protocols: The protocols.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' route_table: Describes a path component.
-        :param 'NetworkInsightsAnalysisAnalysisRouteTableRoute' route_table_route: Describes a route table route.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' security_group: Describes a path component.
-        :param 'NetworkInsightsAnalysisAnalysisSecurityGroupRule' security_group_rule: Describes a security group rule.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' route_table: The route table.
+        :param 'NetworkInsightsAnalysisAnalysisRouteTableRoute' route_table_route: The route table route.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' security_group: The security group.
+        :param 'NetworkInsightsAnalysisAnalysisSecurityGroupRule' security_group_rule: The security group rule.
         :param Sequence['NetworkInsightsAnalysisAnalysisComponent'] security_groups: The security groups.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' source_vpc: Describes a path component.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' source_vpc: The source VPC.
         :param str state: The state.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' subnet: Describes a path component.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' subnet_route_table: Describes a path component.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' transit_gateway: Describes a path component.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' transit_gateway_attachment: Describes a path component.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' transit_gateway_route_table: Describes a path component.
-        :param 'NetworkInsightsAnalysisTransitGatewayRouteTableRoute' transit_gateway_route_table_route: Describes a route in a transit gateway route table.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' vpc: Describes a path component.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' vpc_endpoint: Describes a path component.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' vpc_peering_connection: Describes a path component.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' vpn_connection: Describes a path component.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' vpn_gateway: Describes a path component.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' subnet: The subnet.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' subnet_route_table: The route table for the subnet.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' transit_gateway: The transit gateway.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' transit_gateway_attachment: The transit gateway attachment.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' transit_gateway_route_table: The transit gateway route table.
+        :param 'NetworkInsightsAnalysisTransitGatewayRouteTableRoute' transit_gateway_route_table_route: The transit gateway route table route.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' vpc: The component VPC.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' vpc_endpoint: The VPC endpoint.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' vpc_peering_connection: The VPC peering connection.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' vpn_connection: The VPN connection.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' vpn_gateway: The VPN gateway.
         """
         if acl is not None:
             pulumi.set(__self__, "acl", acl)
@@ -8538,7 +8514,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter
     def acl(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The network ACL.
         """
         return pulumi.get(self, "acl")
 
@@ -8546,7 +8522,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="aclRule")
     def acl_rule(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisAclRule']:
         """
-        Describes a network access control (ACL) rule.
+        The network ACL rule.
         """
         return pulumi.get(self, "acl_rule")
 
@@ -8570,7 +8546,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="attachedTo")
     def attached_to(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The resource to which the component is attached.
         """
         return pulumi.get(self, "attached_to")
 
@@ -8594,7 +8570,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="classicLoadBalancerListener")
     def classic_load_balancer_listener(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisLoadBalancerListener']:
         """
-        Describes a load balancer listener.
+        The listener for a Classic Load Balancer.
         """
         return pulumi.get(self, "classic_load_balancer_listener")
 
@@ -8602,7 +8578,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter
     def component(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The component.
         """
         return pulumi.get(self, "component")
 
@@ -8626,7 +8602,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="customerGateway")
     def customer_gateway(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The customer gateway.
         """
         return pulumi.get(self, "customer_gateway")
 
@@ -8634,7 +8610,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter
     def destination(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The destination.
         """
         return pulumi.get(self, "destination")
 
@@ -8642,7 +8618,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="destinationVpc")
     def destination_vpc(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The destination VPC.
         """
         return pulumi.get(self, "destination_vpc")
 
@@ -8661,7 +8637,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="elasticLoadBalancerListener")
     def elastic_load_balancer_listener(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The load balancer listener.
         """
         return pulumi.get(self, "elastic_load_balancer_listener")
 
@@ -8677,7 +8653,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="ingressRouteTable")
     def ingress_route_table(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The route table.
         """
         return pulumi.get(self, "ingress_route_table")
 
@@ -8685,7 +8661,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="internetGateway")
     def internet_gateway(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The internet gateway.
         """
         return pulumi.get(self, "internet_gateway")
 
@@ -8709,7 +8685,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="loadBalancerTarget")
     def load_balancer_target(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisLoadBalancerTarget']:
         """
-        Describes a load balancer target.
+        The target.
         """
         return pulumi.get(self, "load_balancer_target")
 
@@ -8717,7 +8693,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="loadBalancerTargetGroup")
     def load_balancer_target_group(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The target group.
         """
         return pulumi.get(self, "load_balancer_target_group")
 
@@ -8749,7 +8725,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="natGateway")
     def nat_gateway(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The NAT gateway.
         """
         return pulumi.get(self, "nat_gateway")
 
@@ -8757,7 +8733,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="networkInterface")
     def network_interface(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The network interface.
         """
         return pulumi.get(self, "network_interface")
 
@@ -8781,7 +8757,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisPortRange']]:
         """
-        Describes a range of ports.
+        The port ranges.
         """
         return pulumi.get(self, "port_ranges")
 
@@ -8789,7 +8765,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="prefixList")
     def prefix_list(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The prefix list.
         """
         return pulumi.get(self, "prefix_list")
 
@@ -8805,7 +8781,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="routeTable")
     def route_table(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The route table.
         """
         return pulumi.get(self, "route_table")
 
@@ -8813,7 +8789,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="routeTableRoute")
     def route_table_route(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisRouteTableRoute']:
         """
-        Describes a route table route.
+        The route table route.
         """
         return pulumi.get(self, "route_table_route")
 
@@ -8821,7 +8797,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="securityGroup")
     def security_group(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The security group.
         """
         return pulumi.get(self, "security_group")
 
@@ -8829,7 +8805,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="securityGroupRule")
     def security_group_rule(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisSecurityGroupRule']:
         """
-        Describes a security group rule.
+        The security group rule.
         """
         return pulumi.get(self, "security_group_rule")
 
@@ -8845,7 +8821,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="sourceVpc")
     def source_vpc(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The source VPC.
         """
         return pulumi.get(self, "source_vpc")
 
@@ -8861,7 +8837,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter
     def subnet(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The subnet.
         """
         return pulumi.get(self, "subnet")
 
@@ -8869,7 +8845,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="subnetRouteTable")
     def subnet_route_table(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The route table for the subnet.
         """
         return pulumi.get(self, "subnet_route_table")
 
@@ -8877,7 +8853,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="transitGateway")
     def transit_gateway(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The transit gateway.
         """
         return pulumi.get(self, "transit_gateway")
 
@@ -8885,7 +8861,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="transitGatewayAttachment")
     def transit_gateway_attachment(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The transit gateway attachment.
         """
         return pulumi.get(self, "transit_gateway_attachment")
 
@@ -8893,7 +8869,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="transitGatewayRouteTable")
     def transit_gateway_route_table(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The transit gateway route table.
         """
         return pulumi.get(self, "transit_gateway_route_table")
 
@@ -8901,7 +8877,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="transitGatewayRouteTableRoute")
     def transit_gateway_route_table_route(self) -> Optional['outputs.NetworkInsightsAnalysisTransitGatewayRouteTableRoute']:
         """
-        Describes a route in a transit gateway route table.
+        The transit gateway route table route.
         """
         return pulumi.get(self, "transit_gateway_route_table_route")
 
@@ -8909,7 +8885,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter
     def vpc(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The component VPC.
         """
         return pulumi.get(self, "vpc")
 
@@ -8917,7 +8893,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="vpcEndpoint")
     def vpc_endpoint(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The VPC endpoint.
         """
         return pulumi.get(self, "vpc_endpoint")
 
@@ -8925,7 +8901,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="vpcPeeringConnection")
     def vpc_peering_connection(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The VPC peering connection.
         """
         return pulumi.get(self, "vpc_peering_connection")
 
@@ -8933,7 +8909,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="vpnConnection")
     def vpn_connection(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The VPN connection.
         """
         return pulumi.get(self, "vpn_connection")
 
@@ -8941,7 +8917,7 @@ class NetworkInsightsAnalysisExplanation(dict):
     @pulumi.getter(name="vpnGateway")
     def vpn_gateway(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The VPN gateway.
         """
         return pulumi.get(self, "vpn_gateway")
 
@@ -9008,23 +8984,23 @@ class NetworkInsightsAnalysisPathComponent(dict):
                  transit_gateway_route_table_route: Optional['outputs.NetworkInsightsAnalysisTransitGatewayRouteTableRoute'] = None,
                  vpc: Optional['outputs.NetworkInsightsAnalysisAnalysisComponent'] = None):
         """
-        :param 'NetworkInsightsAnalysisAnalysisAclRule' acl_rule: Describes a network access control (ACL) rule.
-        :param Sequence['NetworkInsightsAnalysisAdditionalDetail'] additional_details: Describes an additional detail for a path analysis. For more information, see [Reachability Analyzer additional detail codes](https://docs.aws.amazon.com/vpc/latest/reachability/additional-detail-codes.html) .
-        :param 'NetworkInsightsAnalysisAnalysisComponent' component: Describes a path component.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' destination_vpc: Describes a path component.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' elastic_load_balancer_listener: Describes a path component.
-        :param Sequence['NetworkInsightsAnalysisExplanation'] explanations: Describes an explanation code for an unreachable path. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
-        :param 'NetworkInsightsAnalysisAnalysisPacketHeader' inbound_header: Describes a header. Reflects any changes made by a component as traffic passes through. The fields of an inbound header are null except for the first component of a path.
-        :param 'NetworkInsightsAnalysisAnalysisPacketHeader' outbound_header: Describes a header. Reflects any changes made by a component as traffic passes through. The fields of an inbound header are null except for the first component of a path.
-        :param 'NetworkInsightsAnalysisAnalysisRouteTableRoute' route_table_route: Describes a route table route.
-        :param 'NetworkInsightsAnalysisAnalysisSecurityGroupRule' security_group_rule: Describes a security group rule.
+        :param 'NetworkInsightsAnalysisAnalysisAclRule' acl_rule: The network ACL rule.
+        :param Sequence['NetworkInsightsAnalysisAdditionalDetail'] additional_details: The additional details.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' component: The component.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' destination_vpc: The destination VPC.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' elastic_load_balancer_listener: The load balancer listener.
+        :param Sequence['NetworkInsightsAnalysisExplanation'] explanations: The explanation codes.
+        :param 'NetworkInsightsAnalysisAnalysisPacketHeader' inbound_header: The inbound header.
+        :param 'NetworkInsightsAnalysisAnalysisPacketHeader' outbound_header: The outbound header.
+        :param 'NetworkInsightsAnalysisAnalysisRouteTableRoute' route_table_route: The route table route.
+        :param 'NetworkInsightsAnalysisAnalysisSecurityGroupRule' security_group_rule: The security group rule.
         :param int sequence_number: The sequence number.
         :param str service_name: The name of the VPC endpoint service.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' source_vpc: Describes a path component.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' subnet: Describes a path component.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' transit_gateway: Describes a path component.
-        :param 'NetworkInsightsAnalysisTransitGatewayRouteTableRoute' transit_gateway_route_table_route: Describes a route in a transit gateway route table.
-        :param 'NetworkInsightsAnalysisAnalysisComponent' vpc: Describes a path component.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' source_vpc: The source VPC.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' subnet: The subnet.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' transit_gateway: The transit gateway.
+        :param 'NetworkInsightsAnalysisTransitGatewayRouteTableRoute' transit_gateway_route_table_route: The route in a transit gateway route table.
+        :param 'NetworkInsightsAnalysisAnalysisComponent' vpc: The component VPC.
         """
         if acl_rule is not None:
             pulumi.set(__self__, "acl_rule", acl_rule)
@@ -9065,7 +9041,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
     @pulumi.getter(name="aclRule")
     def acl_rule(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisAclRule']:
         """
-        Describes a network access control (ACL) rule.
+        The network ACL rule.
         """
         return pulumi.get(self, "acl_rule")
 
@@ -9073,7 +9049,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
     @pulumi.getter(name="additionalDetails")
     def additional_details(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisAdditionalDetail']]:
         """
-        Describes an additional detail for a path analysis. For more information, see [Reachability Analyzer additional detail codes](https://docs.aws.amazon.com/vpc/latest/reachability/additional-detail-codes.html) .
+        The additional details.
         """
         return pulumi.get(self, "additional_details")
 
@@ -9081,7 +9057,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
     @pulumi.getter
     def component(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The component.
         """
         return pulumi.get(self, "component")
 
@@ -9089,7 +9065,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
     @pulumi.getter(name="destinationVpc")
     def destination_vpc(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The destination VPC.
         """
         return pulumi.get(self, "destination_vpc")
 
@@ -9097,7 +9073,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
     @pulumi.getter(name="elasticLoadBalancerListener")
     def elastic_load_balancer_listener(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The load balancer listener.
         """
         return pulumi.get(self, "elastic_load_balancer_listener")
 
@@ -9105,7 +9081,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
     @pulumi.getter
     def explanations(self) -> Optional[Sequence['outputs.NetworkInsightsAnalysisExplanation']]:
         """
-        Describes an explanation code for an unreachable path. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
+        The explanation codes.
         """
         return pulumi.get(self, "explanations")
 
@@ -9113,7 +9089,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
     @pulumi.getter(name="inboundHeader")
     def inbound_header(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisPacketHeader']:
         """
-        Describes a header. Reflects any changes made by a component as traffic passes through. The fields of an inbound header are null except for the first component of a path.
+        The inbound header.
         """
         return pulumi.get(self, "inbound_header")
 
@@ -9121,7 +9097,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
     @pulumi.getter(name="outboundHeader")
     def outbound_header(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisPacketHeader']:
         """
-        Describes a header. Reflects any changes made by a component as traffic passes through. The fields of an inbound header are null except for the first component of a path.
+        The outbound header.
         """
         return pulumi.get(self, "outbound_header")
 
@@ -9129,7 +9105,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
     @pulumi.getter(name="routeTableRoute")
     def route_table_route(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisRouteTableRoute']:
         """
-        Describes a route table route.
+        The route table route.
         """
         return pulumi.get(self, "route_table_route")
 
@@ -9137,7 +9113,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
     @pulumi.getter(name="securityGroupRule")
     def security_group_rule(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisSecurityGroupRule']:
         """
-        Describes a security group rule.
+        The security group rule.
         """
         return pulumi.get(self, "security_group_rule")
 
@@ -9161,7 +9137,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
     @pulumi.getter(name="sourceVpc")
     def source_vpc(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The source VPC.
         """
         return pulumi.get(self, "source_vpc")
 
@@ -9169,7 +9145,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
     @pulumi.getter
     def subnet(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The subnet.
         """
         return pulumi.get(self, "subnet")
 
@@ -9177,7 +9153,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
     @pulumi.getter(name="transitGateway")
     def transit_gateway(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The transit gateway.
         """
         return pulumi.get(self, "transit_gateway")
 
@@ -9185,7 +9161,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
     @pulumi.getter(name="transitGatewayRouteTableRoute")
     def transit_gateway_route_table_route(self) -> Optional['outputs.NetworkInsightsAnalysisTransitGatewayRouteTableRoute']:
         """
-        Describes a route in a transit gateway route table.
+        The route in a transit gateway route table.
         """
         return pulumi.get(self, "transit_gateway_route_table_route")
 
@@ -9193,7 +9169,7 @@ class NetworkInsightsAnalysisPathComponent(dict):
     @pulumi.getter
     def vpc(self) -> Optional['outputs.NetworkInsightsAnalysisAnalysisComponent']:
         """
-        Describes a path component.
+        The component VPC.
         """
         return pulumi.get(self, "vpc")
 
@@ -9452,9 +9428,9 @@ class NetworkInsightsPathPathFilter(dict):
                  source_port_range: Optional['outputs.NetworkInsightsPathFilterPortRange'] = None):
         """
         :param str destination_address: The destination IPv4 address.
-        :param 'NetworkInsightsPathFilterPortRange' destination_port_range: Describes a port range.
+        :param 'NetworkInsightsPathFilterPortRange' destination_port_range: The destination port range.
         :param str source_address: The source IPv4 address.
-        :param 'NetworkInsightsPathFilterPortRange' source_port_range: Describes a port range.
+        :param 'NetworkInsightsPathFilterPortRange' source_port_range: The source port range.
         """
         if destination_address is not None:
             pulumi.set(__self__, "destination_address", destination_address)
@@ -9477,7 +9453,7 @@ class NetworkInsightsPathPathFilter(dict):
     @pulumi.getter(name="destinationPortRange")
     def destination_port_range(self) -> Optional['outputs.NetworkInsightsPathFilterPortRange']:
         """
-        Describes a port range.
+        The destination port range.
         """
         return pulumi.get(self, "destination_port_range")
 
@@ -9493,7 +9469,7 @@ class NetworkInsightsPathPathFilter(dict):
     @pulumi.getter(name="sourcePortRange")
     def source_port_range(self) -> Optional['outputs.NetworkInsightsPathFilterPortRange']:
         """
-        Describes a port range.
+        The source port range.
         """
         return pulumi.get(self, "source_port_range")
 
@@ -10454,7 +10430,7 @@ class SpotFleetBlockDeviceMapping(dict):
                  virtual_name: Optional[str] = None):
         """
         :param str device_name: The device name (for example, `/dev/sdh` or `xvdh` ).
-        :param 'SpotFleetEbsBlockDevice' ebs: Describes a block device for an EBS volume.
+        :param 'SpotFleetEbsBlockDevice' ebs: Parameters used to automatically set up EBS volumes when the instance is launched.
         :param str no_device: To omit the device from the block device mapping, specify an empty string. When this property is specified, the device is removed from the block device mapping regardless of the assigned value.
         :param str virtual_name: The virtual device name ( `ephemeral` N). Instance store volumes are numbered starting from 0. An instance type with 2 available instance store volumes can specify mappings for `ephemeral0` and `ephemeral1` . The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.
                
@@ -10482,7 +10458,7 @@ class SpotFleetBlockDeviceMapping(dict):
     @pulumi.getter
     def ebs(self) -> Optional['outputs.SpotFleetEbsBlockDevice']:
         """
-        Describes a block device for an EBS volume.
+        Parameters used to automatically set up EBS volumes when the instance is launched.
         """
         return pulumi.get(self, "ebs")
 
@@ -10547,7 +10523,7 @@ class SpotFleetClassicLoadBalancersConfig(dict):
     def __init__(__self__, *,
                  classic_load_balancers: Sequence['outputs.SpotFleetClassicLoadBalancer']):
         """
-        :param Sequence['SpotFleetClassicLoadBalancer'] classic_load_balancers: Specifies a Classic Load Balancer.
+        :param Sequence['SpotFleetClassicLoadBalancer'] classic_load_balancers: One or more Classic Load Balancers.
         """
         pulumi.set(__self__, "classic_load_balancers", classic_load_balancers)
 
@@ -10555,7 +10531,7 @@ class SpotFleetClassicLoadBalancersConfig(dict):
     @pulumi.getter(name="classicLoadBalancers")
     def classic_load_balancers(self) -> Sequence['outputs.SpotFleetClassicLoadBalancer']:
         """
-        Specifies a Classic Load Balancer.
+        One or more Classic Load Balancers.
         """
         return pulumi.get(self, "classic_load_balancers")
 
@@ -10930,11 +10906,11 @@ class SpotFleetInstanceNetworkInterfaceSpecification(dict):
                If you specify a network interface when launching an instance, you must specify the device index.
         :param Sequence[str] groups: The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.
         :param int ipv6_address_count: A number of IPv6 addresses to assign to the network interface. Amazon EC2 chooses the IPv6 addresses from the range of the subnet. You cannot specify this option and the option to assign specific IPv6 addresses in the same request. You can specify this option if you've specified a minimum number of instances to launch.
-        :param Sequence['SpotFleetInstanceIpv6Address'] ipv6_addresses: Describes an IPv6 address.
+        :param Sequence['SpotFleetInstanceIpv6Address'] ipv6_addresses: The IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
         :param str network_interface_id: The ID of the network interface.
                
                If you are creating a Spot Fleet, omit this parameter because you can’t specify a network interface ID in a launch specification.
-        :param Sequence['SpotFleetPrivateIpAddressSpecification'] private_ip_addresses: Describes a secondary private IPv4 address for a network interface.
+        :param Sequence['SpotFleetPrivateIpAddressSpecification'] private_ip_addresses: The private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) request.
         :param int secondary_private_ip_address_count: The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) request.
         :param str subnet_id: The ID of the subnet associated with the network interface.
         """
@@ -11017,7 +10993,7 @@ class SpotFleetInstanceNetworkInterfaceSpecification(dict):
     @pulumi.getter(name="ipv6Addresses")
     def ipv6_addresses(self) -> Optional[Sequence['outputs.SpotFleetInstanceIpv6Address']]:
         """
-        Describes an IPv6 address.
+        The IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.
         """
         return pulumi.get(self, "ipv6_addresses")
 
@@ -11035,7 +11011,7 @@ class SpotFleetInstanceNetworkInterfaceSpecification(dict):
     @pulumi.getter(name="privateIpAddresses")
     def private_ip_addresses(self) -> Optional[Sequence['outputs.SpotFleetPrivateIpAddressSpecification']]:
         """
-        Describes a secondary private IPv4 address for a network interface.
+        The private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) request.
         """
         return pulumi.get(self, "private_ip_addresses")
 
@@ -11147,7 +11123,11 @@ class SpotFleetInstanceRequirementsRequest(dict):
                  total_local_storage_gb: Optional['outputs.SpotFleetTotalLocalStorageGbRequest'] = None,
                  v_cpu_count: Optional['outputs.SpotFleetVCpuCountRangeRequest'] = None):
         """
-        :param 'SpotFleetAcceleratorCountRequest' accelerator_count: The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance. To exclude accelerator-enabled instance types, set `Max` to `0` .
+        :param 'SpotFleetAcceleratorCountRequest' accelerator_count: The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
+               
+               To exclude accelerator-enabled instance types, set `Max` to `0` .
+               
+               Default: No minimum or maximum limits
         :param Sequence['SpotFleetInstanceRequirementsRequestAcceleratorManufacturersItem'] accelerator_manufacturers: Indicates whether instance types must have accelerators by specific manufacturers.
                
                - For instance types with AWS devices, specify `amazon-web-services` .
@@ -11174,6 +11154,8 @@ class SpotFleetInstanceRequirementsRequest(dict):
                
                Default: Any accelerator
         :param 'SpotFleetAcceleratorTotalMemoryMiBRequest' accelerator_total_memory_mi_b: The minimum and maximum amount of total accelerator memory, in MiB.
+               
+               Default: No minimum or maximum limits
         :param Sequence['SpotFleetInstanceRequirementsRequestAcceleratorTypesItem'] accelerator_types: The accelerator types that must be on the instance type.
                
                - To include instance types with GPU hardware, specify `gpu` .
@@ -11198,6 +11180,8 @@ class SpotFleetInstanceRequirementsRequest(dict):
                
                Default: `excluded`
         :param 'SpotFleetBaselineEbsBandwidthMbpsRequest' baseline_ebs_bandwidth_mbps: The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
+               
+               Default: No minimum or maximum limits
         :param 'SpotFleetInstanceRequirementsRequestBurstablePerformance' burstable_performance: Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
                
                - To include burstable performance instance types, specify `included` .
@@ -11251,11 +11235,15 @@ class SpotFleetInstanceRequirementsRequest(dict):
                
                > Only one of `SpotMaxPricePercentageOverLowestPrice` or `MaxSpotPriceAsPercentageOfOptimalOnDemandPrice` can be specified. If you don't specify either, Amazon EC2 will automatically apply optimal price protection to consistently select from a wide range of instance types. To indicate no price protection threshold for Spot Instances, meaning you want to consider all instance types that match your attributes, include one of these parameters and specify a high value, such as `999999` .
         :param 'SpotFleetMemoryGiBPerVCpuRequest' memory_gi_b_per_v_cpu: The minimum and maximum amount of memory per vCPU, in GiB.
+               
+               Default: No minimum or maximum limits
         :param 'SpotFleetMemoryMiBRequest' memory_mi_b: The minimum and maximum amount of memory, in MiB.
         :param 'SpotFleetNetworkBandwidthGbpsRequest' network_bandwidth_gbps: The minimum and maximum amount of baseline network bandwidth, in gigabits per second (Gbps). For more information, see [Amazon EC2 instance network bandwidth](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html) in the *Amazon EC2 User Guide* .
                
                Default: No minimum or maximum limits
         :param 'SpotFleetNetworkInterfaceCountRequest' network_interface_count: The minimum and maximum number of network interfaces.
+               
+               Default: No minimum or maximum limits
         :param int on_demand_max_price_percentage_over_lowest_price: [Price protection] The price protection threshold for On-Demand Instances, as a percentage higher than an identified On-Demand price. The identified On-Demand price is the price of the lowest priced current generation C, M, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it will exclude instance types whose price exceeds your specified threshold.
                
                The parameter accepts an integer, which Amazon EC2 interprets as a percentage.
@@ -11284,6 +11272,8 @@ class SpotFleetInstanceRequirementsRequest(dict):
                
                Default: `100`
         :param 'SpotFleetTotalLocalStorageGbRequest' total_local_storage_gb: The minimum and maximum amount of total local storage, in GB.
+               
+               Default: No minimum or maximum limits
         :param 'SpotFleetVCpuCountRangeRequest' v_cpu_count: The minimum and maximum number of vCPUs.
         """
         if accelerator_count is not None:
@@ -11339,7 +11329,11 @@ class SpotFleetInstanceRequirementsRequest(dict):
     @pulumi.getter(name="acceleratorCount")
     def accelerator_count(self) -> Optional['outputs.SpotFleetAcceleratorCountRequest']:
         """
-        The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance. To exclude accelerator-enabled instance types, set `Max` to `0` .
+        The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
+
+        To exclude accelerator-enabled instance types, set `Max` to `0` .
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "accelerator_count")
 
@@ -11387,6 +11381,8 @@ class SpotFleetInstanceRequirementsRequest(dict):
     def accelerator_total_memory_mi_b(self) -> Optional['outputs.SpotFleetAcceleratorTotalMemoryMiBRequest']:
         """
         The minimum and maximum amount of total accelerator memory, in MiB.
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "accelerator_total_memory_mi_b")
 
@@ -11439,6 +11435,8 @@ class SpotFleetInstanceRequirementsRequest(dict):
     def baseline_ebs_bandwidth_mbps(self) -> Optional['outputs.SpotFleetBaselineEbsBandwidthMbpsRequest']:
         """
         The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "baseline_ebs_bandwidth_mbps")
 
@@ -11548,6 +11546,8 @@ class SpotFleetInstanceRequirementsRequest(dict):
     def memory_gi_b_per_v_cpu(self) -> Optional['outputs.SpotFleetMemoryGiBPerVCpuRequest']:
         """
         The minimum and maximum amount of memory per vCPU, in GiB.
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "memory_gi_b_per_v_cpu")
 
@@ -11574,6 +11574,8 @@ class SpotFleetInstanceRequirementsRequest(dict):
     def network_interface_count(self) -> Optional['outputs.SpotFleetNetworkInterfaceCountRequest']:
         """
         The minimum and maximum number of network interfaces.
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "network_interface_count")
 
@@ -11630,6 +11632,8 @@ class SpotFleetInstanceRequirementsRequest(dict):
     def total_local_storage_gb(self) -> Optional['outputs.SpotFleetTotalLocalStorageGbRequest']:
         """
         The minimum and maximum amount of total local storage, in GB.
+
+        Default: No minimum or maximum limits
         """
         return pulumi.get(self, "total_local_storage_gb")
 
@@ -11712,44 +11716,31 @@ class SpotFleetLaunchSpecification(dict):
                  weighted_capacity: Optional[float] = None):
         """
         :param str image_id: The ID of the AMI.
-        :param Sequence['SpotFleetBlockDeviceMapping'] block_device_mappings: Specifies a block device mapping.
-               
-               You can specify `Ebs` or `VirtualName` , but not both.
+        :param Sequence['SpotFleetBlockDeviceMapping'] block_device_mappings: One or more block devices that are mapped to the Spot Instances. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
         :param bool ebs_optimized: Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
                
                Default: `false`
-        :param 'SpotFleetIamInstanceProfileSpecification' iam_instance_profile: Describes an IAM instance profile.
-        :param 'SpotFleetInstanceRequirementsRequest' instance_requirements: The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
-               
-               You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
-               
-               When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
-               
-               To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
-               
-               - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
-               - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+        :param 'SpotFleetIamInstanceProfileSpecification' iam_instance_profile: The IAM instance profile.
+        :param 'SpotFleetInstanceRequirementsRequest' instance_requirements: The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
                
                > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
-               > 
-               > Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) , or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements` . 
-               
-               For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
         :param str instance_type: The instance type.
         :param str kernel_id: The ID of the kernel.
         :param str key_name: The name of the key pair.
-        :param 'SpotFleetMonitoring' monitoring: Describes whether monitoring is enabled.
-        :param Sequence['SpotFleetInstanceNetworkInterfaceSpecification'] network_interfaces: Describes a network interface.
-        :param 'SpotFleetSpotPlacement' placement: Describes Spot Instance placement.
+        :param 'SpotFleetMonitoring' monitoring: Enable or disable monitoring for the instances.
+        :param Sequence['SpotFleetInstanceNetworkInterfaceSpecification'] network_interfaces: The network interfaces.
+        :param 'SpotFleetSpotPlacement' placement: The placement information.
         :param str ramdisk_id: The ID of the RAM disk. Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, refer to the AWS Resource Center and search for the kernel ID.
-        :param Sequence['SpotFleetGroupIdentifier'] security_groups: Describes a security group.
+        :param Sequence['SpotFleetGroupIdentifier'] security_groups: The security groups.
+               
+               If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
         :param str spot_price: The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.
                
                > If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.
         :param str subnet_id: The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".
                
                If you specify a network interface, you must specify any subnets as part of the network interface instead of using this parameter.
-        :param Sequence['SpotFleetTagSpecification'] tag_specifications: The tags for a Spot Fleet resource.
+        :param Sequence['SpotFleetTagSpecification'] tag_specifications: The tags to apply during creation.
         :param str user_data: The base64-encoded user data that instances use when starting up. User data is limited to 16 KB.
         :param float weighted_capacity: The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.
                
@@ -11803,9 +11794,7 @@ class SpotFleetLaunchSpecification(dict):
     @pulumi.getter(name="blockDeviceMappings")
     def block_device_mappings(self) -> Optional[Sequence['outputs.SpotFleetBlockDeviceMapping']]:
         """
-        Specifies a block device mapping.
-
-        You can specify `Ebs` or `VirtualName` , but not both.
+        One or more block devices that are mapped to the Spot Instances. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.
         """
         return pulumi.get(self, "block_device_mappings")
 
@@ -11823,7 +11812,7 @@ class SpotFleetLaunchSpecification(dict):
     @pulumi.getter(name="iamInstanceProfile")
     def iam_instance_profile(self) -> Optional['outputs.SpotFleetIamInstanceProfileSpecification']:
         """
-        Describes an IAM instance profile.
+        The IAM instance profile.
         """
         return pulumi.get(self, "iam_instance_profile")
 
@@ -11831,22 +11820,9 @@ class SpotFleetLaunchSpecification(dict):
     @pulumi.getter(name="instanceRequirements")
     def instance_requirements(self) -> Optional['outputs.SpotFleetInstanceRequirementsRequest']:
         """
-        The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
-
-        You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
-
-        When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
-
-        To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
-
-        - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
-        - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+        The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with those attributes.
 
         > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
-        > 
-        > Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) , or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements` . 
-
-        For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
         """
         return pulumi.get(self, "instance_requirements")
 
@@ -11878,7 +11854,7 @@ class SpotFleetLaunchSpecification(dict):
     @pulumi.getter
     def monitoring(self) -> Optional['outputs.SpotFleetMonitoring']:
         """
-        Describes whether monitoring is enabled.
+        Enable or disable monitoring for the instances.
         """
         return pulumi.get(self, "monitoring")
 
@@ -11886,7 +11862,7 @@ class SpotFleetLaunchSpecification(dict):
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> Optional[Sequence['outputs.SpotFleetInstanceNetworkInterfaceSpecification']]:
         """
-        Describes a network interface.
+        The network interfaces.
         """
         return pulumi.get(self, "network_interfaces")
 
@@ -11894,7 +11870,7 @@ class SpotFleetLaunchSpecification(dict):
     @pulumi.getter
     def placement(self) -> Optional['outputs.SpotFleetSpotPlacement']:
         """
-        Describes Spot Instance placement.
+        The placement information.
         """
         return pulumi.get(self, "placement")
 
@@ -11910,7 +11886,9 @@ class SpotFleetLaunchSpecification(dict):
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[Sequence['outputs.SpotFleetGroupIdentifier']]:
         """
-        Describes a security group.
+        The security groups.
+
+        If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
         """
         return pulumi.get(self, "security_groups")
 
@@ -11938,7 +11916,7 @@ class SpotFleetLaunchSpecification(dict):
     @pulumi.getter(name="tagSpecifications")
     def tag_specifications(self) -> Optional[Sequence['outputs.SpotFleetTagSpecification']]:
         """
-        The tags for a Spot Fleet resource.
+        The tags to apply during creation.
         """
         return pulumi.get(self, "tag_specifications")
 
@@ -11984,19 +11962,8 @@ class SpotFleetLaunchTemplateConfig(dict):
                  launch_template_specification: Optional['outputs.SpotFleetFleetLaunchTemplateSpecification'] = None,
                  overrides: Optional[Sequence['outputs.SpotFleetLaunchTemplateOverrides']] = None):
         """
-        :param 'SpotFleetFleetLaunchTemplateSpecification' launch_template_specification: Specifies the launch template to be used by the Spot Fleet request for configuring Amazon EC2 instances.
-               
-               You must specify the following:
-               
-               - The ID or the name of the launch template, but not both.
-               - The version of the launch template.
-               
-               `FleetLaunchTemplateSpecification` is a property of the [AWS::EC2::SpotFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html) resource.
-               
-               For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) in the *Amazon EC2 User Guide* .
-               
-               For examples of launch templates, see [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) .
-        :param Sequence['SpotFleetLaunchTemplateOverrides'] overrides: Specifies overrides for a launch template.
+        :param 'SpotFleetFleetLaunchTemplateSpecification' launch_template_specification: The launch template to use. Make sure that the launch template does not contain the `NetworkInterfaceId` parameter because you can't specify a network interface ID in a Spot Fleet.
+        :param Sequence['SpotFleetLaunchTemplateOverrides'] overrides: Any parameters that you specify override the same parameters in the launch template.
         """
         if launch_template_specification is not None:
             pulumi.set(__self__, "launch_template_specification", launch_template_specification)
@@ -12007,18 +11974,7 @@ class SpotFleetLaunchTemplateConfig(dict):
     @pulumi.getter(name="launchTemplateSpecification")
     def launch_template_specification(self) -> Optional['outputs.SpotFleetFleetLaunchTemplateSpecification']:
         """
-        Specifies the launch template to be used by the Spot Fleet request for configuring Amazon EC2 instances.
-
-        You must specify the following:
-
-        - The ID or the name of the launch template, but not both.
-        - The version of the launch template.
-
-        `FleetLaunchTemplateSpecification` is a property of the [AWS::EC2::SpotFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html) resource.
-
-        For information about creating a launch template, see [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html) and [Create a launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) in the *Amazon EC2 User Guide* .
-
-        For examples of launch templates, see [Examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#aws-resource-ec2-launchtemplate--examples) .
+        The launch template to use. Make sure that the launch template does not contain the `NetworkInterfaceId` parameter because you can't specify a network interface ID in a Spot Fleet.
         """
         return pulumi.get(self, "launch_template_specification")
 
@@ -12026,7 +11982,7 @@ class SpotFleetLaunchTemplateConfig(dict):
     @pulumi.getter
     def overrides(self) -> Optional[Sequence['outputs.SpotFleetLaunchTemplateOverrides']]:
         """
-        Specifies overrides for a launch template.
+        Any parameters that you specify override the same parameters in the launch template.
         """
         return pulumi.get(self, "overrides")
 
@@ -12070,22 +12026,9 @@ class SpotFleetLaunchTemplateOverrides(dict):
                  weighted_capacity: Optional[float] = None):
         """
         :param str availability_zone: The Availability Zone in which to launch the instances.
-        :param 'SpotFleetInstanceRequirementsRequest' instance_requirements: The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
-               
-               You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
-               
-               When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
-               
-               To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
-               
-               - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
-               - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+        :param 'SpotFleetInstanceRequirementsRequest' instance_requirements: The instance requirements. When you specify instance requirements, Amazon EC2 will identify instance types with the provided requirements, and then use your On-Demand and Spot allocation strategies to launch instances from these instance types, in the same way as when you specify a list of instance types.
                
                > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
-               > 
-               > Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) , or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements` . 
-               
-               For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
         :param str instance_type: The instance type.
         :param float priority: The priority for the launch template override. The highest priority is launched first.
                
@@ -12129,22 +12072,9 @@ class SpotFleetLaunchTemplateOverrides(dict):
     @pulumi.getter(name="instanceRequirements")
     def instance_requirements(self) -> Optional['outputs.SpotFleetInstanceRequirementsRequest']:
         """
-        The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance types with these attributes.
-
-        You must specify `VCpuCount` and `MemoryMiB` . All other attributes are optional. Any unspecified optional attribute is set to its default.
-
-        When you specify multiple attributes, you get instance types that satisfy all of the specified attributes. If you specify multiple values for an attribute, you get instance types that satisfy any of the specified values.
-
-        To limit the list of instance types from which Amazon EC2 can identify matching instance types, you can use one of the following parameters, but not both in the same request:
-
-        - `AllowedInstanceTypes` - The instance types to include in the list. All other instance types are ignored, even if they match your specified attributes.
-        - `ExcludedInstanceTypes` - The instance types to exclude from the list, even if they match your specified attributes.
+        The instance requirements. When you specify instance requirements, Amazon EC2 will identify instance types with the provided requirements, and then use your On-Demand and Spot allocation strategies to launch instances from these instance types, in the same way as when you specify a list of instance types.
 
         > If you specify `InstanceRequirements` , you can't specify `InstanceType` .
-        > 
-        > Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) , or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify `InstanceRequirements` . 
-
-        For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) , [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html) , and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide* .
         """
         return pulumi.get(self, "instance_requirements")
 
@@ -12224,8 +12154,8 @@ class SpotFleetLoadBalancersConfig(dict):
                  classic_load_balancers_config: Optional['outputs.SpotFleetClassicLoadBalancersConfig'] = None,
                  target_groups_config: Optional['outputs.SpotFleetTargetGroupsConfig'] = None):
         """
-        :param 'SpotFleetClassicLoadBalancersConfig' classic_load_balancers_config: Specifies the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these Classic Load Balancers.
-        :param 'SpotFleetTargetGroupsConfig' target_groups_config: Describes the target groups to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these target groups.
+        :param 'SpotFleetClassicLoadBalancersConfig' classic_load_balancers_config: The Classic Load Balancers.
+        :param 'SpotFleetTargetGroupsConfig' target_groups_config: The target groups.
         """
         if classic_load_balancers_config is not None:
             pulumi.set(__self__, "classic_load_balancers_config", classic_load_balancers_config)
@@ -12236,7 +12166,7 @@ class SpotFleetLoadBalancersConfig(dict):
     @pulumi.getter(name="classicLoadBalancersConfig")
     def classic_load_balancers_config(self) -> Optional['outputs.SpotFleetClassicLoadBalancersConfig']:
         """
-        Specifies the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these Classic Load Balancers.
+        The Classic Load Balancers.
         """
         return pulumi.get(self, "classic_load_balancers_config")
 
@@ -12244,7 +12174,7 @@ class SpotFleetLoadBalancersConfig(dict):
     @pulumi.getter(name="targetGroupsConfig")
     def target_groups_config(self) -> Optional['outputs.SpotFleetTargetGroupsConfig']:
         """
-        Describes the target groups to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these target groups.
+        The target groups.
         """
         return pulumi.get(self, "target_groups_config")
 
@@ -12547,9 +12477,11 @@ class SpotFleetRequestConfigData(dict):
         :param int instance_pools_to_use_count: The number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot *AllocationStrategy* is set to `lowest-price` . Spot Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.
                
                Note that Spot Fleet attempts to draw Spot Instances from the number of pools that you specify on a best effort basis. If a pool runs out of Spot capacity before fulfilling your target capacity, Spot Fleet will continue to fulfill your request by drawing from the next cheapest pool. To ensure that your target capacity is met, you might receive Spot Instances from more than the number of pools that you specified. Similarly, if most of the pools have no Spot capacity, you might receive your full target capacity from fewer than the number of pools that you specified.
-        :param Sequence['SpotFleetLaunchSpecification'] launch_specifications: Specifies the launch specification for one or more Spot Instances. If you include On-Demand capacity in your fleet request, you can't use `SpotFleetLaunchSpecification` ; you must use [LaunchTemplateConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html) .
-        :param Sequence['SpotFleetLaunchTemplateConfig'] launch_template_configs: Specifies a launch template and overrides.
-        :param 'SpotFleetLoadBalancersConfig' load_balancers_config: Specifies the Classic Load Balancers and target groups to attach to a Spot Fleet request.
+        :param Sequence['SpotFleetLaunchSpecification'] launch_specifications: The launch specifications for the Spot Fleet request. If you specify `LaunchSpecifications` , you can't specify `LaunchTemplateConfigs` .
+        :param Sequence['SpotFleetLaunchTemplateConfig'] launch_template_configs: The launch template and overrides. If you specify `LaunchTemplateConfigs` , you can't specify `LaunchSpecifications` .
+        :param 'SpotFleetLoadBalancersConfig' load_balancers_config: One or more Classic Load Balancers and target groups to attach to the Spot Fleet request. Spot Fleet registers the running Spot Instances with the specified Classic Load Balancers and target groups.
+               
+               With Network Load Balancers, Spot Fleet cannot register instances that have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1.
         :param str on_demand_allocation_strategy: The order of the launch template overrides to use in fulfilling On-Demand capacity. If you specify `lowestPrice` , Spot Fleet uses price to determine the order, launching the lowest price first. If you specify `prioritized` , Spot Fleet uses the priority that you assign to each Spot Fleet launch template override, launching the highest priority first. If you do not specify a value, Spot Fleet defaults to `lowestPrice` .
         :param str on_demand_max_total_price: The maximum amount per hour for On-Demand Instances that you're willing to pay. You can use the `onDemandMaxTotalPrice` parameter, the `spotMaxTotalPrice` parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.
                
@@ -12690,7 +12622,7 @@ class SpotFleetRequestConfigData(dict):
     @pulumi.getter(name="launchSpecifications")
     def launch_specifications(self) -> Optional[Sequence['outputs.SpotFleetLaunchSpecification']]:
         """
-        Specifies the launch specification for one or more Spot Instances. If you include On-Demand capacity in your fleet request, you can't use `SpotFleetLaunchSpecification` ; you must use [LaunchTemplateConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html) .
+        The launch specifications for the Spot Fleet request. If you specify `LaunchSpecifications` , you can't specify `LaunchTemplateConfigs` .
         """
         return pulumi.get(self, "launch_specifications")
 
@@ -12698,7 +12630,7 @@ class SpotFleetRequestConfigData(dict):
     @pulumi.getter(name="launchTemplateConfigs")
     def launch_template_configs(self) -> Optional[Sequence['outputs.SpotFleetLaunchTemplateConfig']]:
         """
-        Specifies a launch template and overrides.
+        The launch template and overrides. If you specify `LaunchTemplateConfigs` , you can't specify `LaunchSpecifications` .
         """
         return pulumi.get(self, "launch_template_configs")
 
@@ -12706,7 +12638,9 @@ class SpotFleetRequestConfigData(dict):
     @pulumi.getter(name="loadBalancersConfig")
     def load_balancers_config(self) -> Optional['outputs.SpotFleetLoadBalancersConfig']:
         """
-        Specifies the Classic Load Balancers and target groups to attach to a Spot Fleet request.
+        One or more Classic Load Balancers and target groups to attach to the Spot Fleet request. Spot Fleet registers the running Spot Instances with the specified Classic Load Balancers and target groups.
+
+        With Network Load Balancers, Spot Fleet cannot register instances that have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1.
         """
         return pulumi.get(self, "load_balancers_config")
 
@@ -13048,7 +12982,7 @@ class SpotFleetTagSpecification(dict):
                  tags: Optional[Sequence['outputs.SpotFleetTag']] = None):
         """
         :param 'SpotFleetTagSpecificationResourceType' resource_type: The type of resource. Currently, the only resource type that is supported is `instance` . To tag the Spot Fleet request on creation, use the `TagSpecifications` parameter in `[SpotFleetRequestConfigData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html)` .
-        :param Sequence['SpotFleetTag'] tags: Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        :param Sequence['SpotFleetTag'] tags: The tags.
         """
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
@@ -13067,7 +13001,7 @@ class SpotFleetTagSpecification(dict):
     @pulumi.getter
     def tags(self) -> Optional[Sequence['outputs.SpotFleetTag']]:
         """
-        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        The tags.
         """
         return pulumi.get(self, "tags")
 
@@ -13112,7 +13046,7 @@ class SpotFleetTargetGroupsConfig(dict):
     def __init__(__self__, *,
                  target_groups: Sequence['outputs.SpotFleetTargetGroup']):
         """
-        :param Sequence['SpotFleetTargetGroup'] target_groups: Describes a load balancer target group.
+        :param Sequence['SpotFleetTargetGroup'] target_groups: One or more target groups.
         """
         pulumi.set(__self__, "target_groups", target_groups)
 
@@ -13120,7 +13054,7 @@ class SpotFleetTargetGroupsConfig(dict):
     @pulumi.getter(name="targetGroups")
     def target_groups(self) -> Sequence['outputs.SpotFleetTargetGroup']:
         """
-        Describes a load balancer target group.
+        One or more target groups.
         """
         return pulumi.get(self, "target_groups")
 

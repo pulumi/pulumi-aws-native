@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.TemplateAxisDisplayDataDrivenRange? DataDriven;
         /// <summary>
-        /// The minimum and maximum setup for an axis display range.
+        /// The minimum and maximum setup of an axis display range.
         /// </summary>
         public readonly Outputs.TemplateAxisDisplayMinMaxRange? MinMax;
 

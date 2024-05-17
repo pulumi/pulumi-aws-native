@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.Eks.Outputs
         /// </summary>
         public readonly string IssuerUrl;
         /// <summary>
-        /// A key-value pair that describes a required claim in the identity token. If set, each claim is verified to be present in the token with a matching value.
+        /// The key-value pairs that describe required claims in the identity token. If set, each claim is verified to be present in the token with a matching value.
         /// </summary>
         public readonly ImmutableArray<Outputs.IdentityProviderConfigRequiredClaim> RequiredClaims;
         /// <summary>

@@ -20,15 +20,15 @@ type InstanceStorageConfig struct {
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
 	// Connect Instance ID with which the storage config will be associated
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
-	// Configuration information of a Kinesis Data Firehose delivery stream.
+	// The configuration of the Kinesis Firehose delivery stream.
 	KinesisFirehoseConfig InstanceStorageConfigKinesisFirehoseConfigPtrOutput `pulumi:"kinesisFirehoseConfig"`
-	// Configuration information of a Kinesis data stream.
+	// The configuration of the Kinesis data stream.
 	KinesisStreamConfig InstanceStorageConfigKinesisStreamConfigPtrOutput `pulumi:"kinesisStreamConfig"`
-	// Configuration information of a Kinesis video stream.
+	// The configuration of the Kinesis video stream.
 	KinesisVideoStreamConfig InstanceStorageConfigKinesisVideoStreamConfigPtrOutput `pulumi:"kinesisVideoStreamConfig"`
 	// A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
 	ResourceType InstanceStorageConfigInstanceStorageResourceTypeOutput `pulumi:"resourceType"`
-	// Information about the Amazon Simple Storage Service (Amazon S3) storage type.
+	// The S3 bucket configuration.
 	S3Config InstanceStorageConfigS3ConfigPtrOutput `pulumi:"s3Config"`
 	// A valid storage type.
 	StorageType InstanceStorageConfigStorageTypeOutput `pulumi:"storageType"`
@@ -90,15 +90,15 @@ func (InstanceStorageConfigState) ElementType() reflect.Type {
 type instanceStorageConfigArgs struct {
 	// Connect Instance ID with which the storage config will be associated
 	InstanceArn string `pulumi:"instanceArn"`
-	// Configuration information of a Kinesis Data Firehose delivery stream.
+	// The configuration of the Kinesis Firehose delivery stream.
 	KinesisFirehoseConfig *InstanceStorageConfigKinesisFirehoseConfig `pulumi:"kinesisFirehoseConfig"`
-	// Configuration information of a Kinesis data stream.
+	// The configuration of the Kinesis data stream.
 	KinesisStreamConfig *InstanceStorageConfigKinesisStreamConfig `pulumi:"kinesisStreamConfig"`
-	// Configuration information of a Kinesis video stream.
+	// The configuration of the Kinesis video stream.
 	KinesisVideoStreamConfig *InstanceStorageConfigKinesisVideoStreamConfig `pulumi:"kinesisVideoStreamConfig"`
 	// A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
 	ResourceType InstanceStorageConfigInstanceStorageResourceType `pulumi:"resourceType"`
-	// Information about the Amazon Simple Storage Service (Amazon S3) storage type.
+	// The S3 bucket configuration.
 	S3Config *InstanceStorageConfigS3Config `pulumi:"s3Config"`
 	// A valid storage type.
 	StorageType InstanceStorageConfigStorageType `pulumi:"storageType"`
@@ -108,15 +108,15 @@ type instanceStorageConfigArgs struct {
 type InstanceStorageConfigArgs struct {
 	// Connect Instance ID with which the storage config will be associated
 	InstanceArn pulumi.StringInput
-	// Configuration information of a Kinesis Data Firehose delivery stream.
+	// The configuration of the Kinesis Firehose delivery stream.
 	KinesisFirehoseConfig InstanceStorageConfigKinesisFirehoseConfigPtrInput
-	// Configuration information of a Kinesis data stream.
+	// The configuration of the Kinesis data stream.
 	KinesisStreamConfig InstanceStorageConfigKinesisStreamConfigPtrInput
-	// Configuration information of a Kinesis video stream.
+	// The configuration of the Kinesis video stream.
 	KinesisVideoStreamConfig InstanceStorageConfigKinesisVideoStreamConfigPtrInput
 	// A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
 	ResourceType InstanceStorageConfigInstanceStorageResourceTypeInput
-	// Information about the Amazon Simple Storage Service (Amazon S3) storage type.
+	// The S3 bucket configuration.
 	S3Config InstanceStorageConfigS3ConfigPtrInput
 	// A valid storage type.
 	StorageType InstanceStorageConfigStorageTypeInput
@@ -169,21 +169,21 @@ func (o InstanceStorageConfigOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceStorageConfig) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
-// Configuration information of a Kinesis Data Firehose delivery stream.
+// The configuration of the Kinesis Firehose delivery stream.
 func (o InstanceStorageConfigOutput) KinesisFirehoseConfig() InstanceStorageConfigKinesisFirehoseConfigPtrOutput {
 	return o.ApplyT(func(v *InstanceStorageConfig) InstanceStorageConfigKinesisFirehoseConfigPtrOutput {
 		return v.KinesisFirehoseConfig
 	}).(InstanceStorageConfigKinesisFirehoseConfigPtrOutput)
 }
 
-// Configuration information of a Kinesis data stream.
+// The configuration of the Kinesis data stream.
 func (o InstanceStorageConfigOutput) KinesisStreamConfig() InstanceStorageConfigKinesisStreamConfigPtrOutput {
 	return o.ApplyT(func(v *InstanceStorageConfig) InstanceStorageConfigKinesisStreamConfigPtrOutput {
 		return v.KinesisStreamConfig
 	}).(InstanceStorageConfigKinesisStreamConfigPtrOutput)
 }
 
-// Configuration information of a Kinesis video stream.
+// The configuration of the Kinesis video stream.
 func (o InstanceStorageConfigOutput) KinesisVideoStreamConfig() InstanceStorageConfigKinesisVideoStreamConfigPtrOutput {
 	return o.ApplyT(func(v *InstanceStorageConfig) InstanceStorageConfigKinesisVideoStreamConfigPtrOutput {
 		return v.KinesisVideoStreamConfig
@@ -197,7 +197,7 @@ func (o InstanceStorageConfigOutput) ResourceType() InstanceStorageConfigInstanc
 	}).(InstanceStorageConfigInstanceStorageResourceTypeOutput)
 }
 
-// Information about the Amazon Simple Storage Service (Amazon S3) storage type.
+// The S3 bucket configuration.
 func (o InstanceStorageConfigOutput) S3Config() InstanceStorageConfigS3ConfigPtrOutput {
 	return o.ApplyT(func(v *InstanceStorageConfig) InstanceStorageConfigS3ConfigPtrOutput { return v.S3Config }).(InstanceStorageConfigS3ConfigPtrOutput)
 }

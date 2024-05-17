@@ -36,7 +36,7 @@ export interface GetStorageProfileResult {
      */
     readonly displayName?: string;
     /**
-     * The details of the file system location for the resource.
+     * Operating system specific file system path to the storage location.
      */
     readonly fileSystemLocations?: outputs.deadline.StorageProfileFileSystemLocation[];
     /**

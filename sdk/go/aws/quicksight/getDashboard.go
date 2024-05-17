@@ -43,11 +43,12 @@ type LookupDashboardResult struct {
 	LinkEntities []string `pulumi:"linkEntities"`
 	// The display name of the dashboard.
 	Name *string `pulumi:"name"`
-	// Permission for the resource.
+	// A structure that contains the permissions of the dashboard. You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
+	//
+	// To specify no permissions, omit the permissions list.
 	Permissions []DashboardResourcePermission `pulumi:"permissions"`
 	// Contains a map of the key-value pairs for the resource tag or tags assigned to the dashboard.
-	Tags []aws.Tag `pulumi:"tags"`
-	// Dashboard version.
+	Tags    []aws.Tag         `pulumi:"tags"`
 	Version *DashboardVersion `pulumi:"version"`
 }
 
@@ -119,7 +120,9 @@ func (o LookupDashboardResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDashboardResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Permission for the resource.
+// A structure that contains the permissions of the dashboard. You can use this structure for granting permissions by providing a list of IAM action information for each principal ARN.
+//
+// To specify no permissions, omit the permissions list.
 func (o LookupDashboardResultOutput) Permissions() DashboardResourcePermissionArrayOutput {
 	return o.ApplyT(func(v LookupDashboardResult) []DashboardResourcePermission { return v.Permissions }).(DashboardResourcePermissionArrayOutput)
 }
@@ -129,7 +132,6 @@ func (o LookupDashboardResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDashboardResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// Dashboard version.
 func (o LookupDashboardResultOutput) Version() DashboardVersionPtrOutput {
 	return o.ApplyT(func(v LookupDashboardResult) *DashboardVersion { return v.Version }).(DashboardVersionPtrOutput)
 }

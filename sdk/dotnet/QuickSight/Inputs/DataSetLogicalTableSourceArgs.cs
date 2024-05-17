@@ -23,7 +23,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string>? DataSetArn { get; set; }
 
         /// <summary>
-        /// The instructions associated with a join.
+        /// Specifies the result of a join of two logical tables.
         /// </summary>
         [Input("joinInstruction")]
         public Input<Inputs.DataSetJoinInstructionArgs>? JoinInstruction { get; set; }

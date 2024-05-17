@@ -26,7 +26,7 @@ type Instance struct {
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 	// The status of the Identity Center (SSO) Instance, create_in_progress/delete_in_progress/active
 	Status InstanceStatusOutput `pulumi:"status"`
-	// A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+	// Specifies tags to be attached to the instance of IAM Identity Center.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -72,7 +72,7 @@ func (InstanceState) ElementType() reflect.Type {
 type instanceArgs struct {
 	// The name you want to assign to this Identity Center (SSO) Instance
 	Name *string `pulumi:"name"`
-	// A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+	// Specifies tags to be attached to the instance of IAM Identity Center.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -80,7 +80,7 @@ type instanceArgs struct {
 type InstanceArgs struct {
 	// The name you want to assign to this Identity Center (SSO) Instance
 	Name pulumi.StringPtrInput
-	// A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+	// Specifies tags to be attached to the instance of IAM Identity Center.
 	Tags aws.TagArrayInput
 }
 
@@ -146,7 +146,7 @@ func (o InstanceOutput) Status() InstanceStatusOutput {
 	return o.ApplyT(func(v *Instance) InstanceStatusOutput { return v.Status }).(InstanceStatusOutput)
 }
 
-// A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+// Specifies tags to be attached to the instance of IAM Identity Center.
 func (o InstanceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Instance) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

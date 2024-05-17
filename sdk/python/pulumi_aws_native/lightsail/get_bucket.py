@@ -61,7 +61,7 @@ class GetBucketResult:
     @pulumi.getter(name="accessRules")
     def access_rules(self) -> Optional['outputs.BucketAccessRules']:
         """
-        `AccessRules` is a property of the [AWS::Lightsail::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html) resource. It describes access rules for a bucket.
+        An object that describes the access rules for the bucket.
         """
         return pulumi.get(self, "access_rules")
 

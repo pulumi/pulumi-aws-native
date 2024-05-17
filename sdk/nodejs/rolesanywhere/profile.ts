@@ -74,7 +74,7 @@ export class Profile extends pulumi.CustomResource {
      */
     public readonly sessionPolicy!: pulumi.Output<string | undefined>;
     /**
-     * A label that consists of a key and value you define.
+     * A list of Tags.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -152,7 +152,7 @@ export interface ProfileArgs {
      */
     sessionPolicy?: pulumi.Input<string>;
     /**
-     * A label that consists of a key and value you define.
+     * A list of Tags.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

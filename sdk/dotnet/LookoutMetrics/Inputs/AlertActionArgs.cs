@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
     public sealed class AlertActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains information about a Lambda configuration.
+        /// A configuration for an AWS Lambda channel.
         /// </summary>
         [Input("lambdaConfiguration")]
         public Input<Inputs.AlertLambdaConfigurationArgs>? LambdaConfiguration { get; set; }
 
         /// <summary>
-        /// Contains information about the SNS topic to which you want to send your alerts and the IAM role that has access to that topic.
+        /// A configuration for an Amazon SNS channel.
         /// </summary>
         [Input("snsConfiguration")]
         public Input<Inputs.AlertSnsConfigurationArgs>? SnsConfiguration { get; set; }

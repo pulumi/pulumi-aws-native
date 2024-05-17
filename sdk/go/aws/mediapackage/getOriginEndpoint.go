@@ -31,7 +31,7 @@ type LookupOriginEndpointArgs struct {
 type LookupOriginEndpointResult struct {
 	// The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
 	Arn *string `pulumi:"arn"`
-	// Parameters for enabling CDN authorization on the endpoint.
+	// Parameters for CDN authorization.
 	Authorization *OriginEndpointAuthorization `pulumi:"authorization"`
 	// The ID of the Channel the OriginEndpoint is associated with.
 	ChannelId *string `pulumi:"channelId"`
@@ -102,7 +102,7 @@ func (o LookupOriginEndpointResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// Parameters for enabling CDN authorization on the endpoint.
+// Parameters for CDN authorization.
 func (o LookupOriginEndpointResultOutput) Authorization() OriginEndpointAuthorizationPtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) *OriginEndpointAuthorization { return v.Authorization }).(OriginEndpointAuthorizationPtrOutput)
 }

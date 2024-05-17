@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.TemplateHistogramBinOptionsArgs>? BinOptions { get; set; }
 
         /// <summary>
-        /// The options that determine the presentation of the data labels.
+        /// The data label configuration of a histogram.
         /// </summary>
         [Input("dataLabels")]
         public Input<Inputs.TemplateDataLabelOptionsArgs>? DataLabels { get; set; }
@@ -31,31 +31,31 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.TemplateHistogramFieldWellsArgs>? FieldWells { get; set; }
 
         /// <summary>
-        /// The display options for the visual tooltip.
+        /// The tooltip configuration of a histogram.
         /// </summary>
         [Input("tooltip")]
         public Input<Inputs.TemplateTooltipOptionsArgs>? Tooltip { get; set; }
 
         /// <summary>
-        /// The visual display options for the visual palette.
+        /// The visual palette configuration of a histogram.
         /// </summary>
         [Input("visualPalette")]
         public Input<Inputs.TemplateVisualPaletteArgs>? VisualPalette { get; set; }
 
         /// <summary>
-        /// The display options for the axis label.
+        /// The options that determine the presentation of the x-axis.
         /// </summary>
         [Input("xAxisDisplayOptions")]
         public Input<Inputs.TemplateAxisDisplayOptionsArgs>? XAxisDisplayOptions { get; set; }
 
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The options that determine the presentation of the x-axis label.
         /// </summary>
         [Input("xAxisLabelOptions")]
         public Input<Inputs.TemplateChartAxisLabelOptionsArgs>? XAxisLabelOptions { get; set; }
 
         /// <summary>
-        /// The display options for the axis label.
+        /// The options that determine the presentation of the y-axis.
         /// </summary>
         [Input("yAxisDisplayOptions")]
         public Input<Inputs.TemplateAxisDisplayOptionsArgs>? YAxisDisplayOptions { get; set; }

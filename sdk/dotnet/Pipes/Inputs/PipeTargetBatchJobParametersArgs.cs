@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         private InputList<Inputs.PipeBatchJobDependencyArgs>? _dependsOn;
 
         /// <summary>
-        /// An object that represents an AWS Batch job dependency.
+        /// A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a `SEQUENTIAL` type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an `N_TO_N` type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin.
         /// </summary>
         public InputList<Inputs.PipeBatchJobDependencyArgs> DependsOn
         {
@@ -61,7 +61,7 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         }
 
         /// <summary>
-        /// The retry strategy that's associated with a job. For more information, see [Automated job retries](https://docs.aws.amazon.com/batch/latest/userguide/job_retries.html) in the *AWS Batch User Guide* .
+        /// The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition.
         /// </summary>
         [Input("retryStrategy")]
         public Input<Inputs.PipeBatchRetryStrategyArgs>? RetryStrategy { get; set; }

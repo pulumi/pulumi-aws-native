@@ -116,11 +116,9 @@ type ExperimentTemplate struct {
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The description for the experiment template.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Describes the experiment options for an experiment template.
+	// The experiment options for an experiment template.
 	ExperimentOptions ExperimentTemplateExperimentOptionsPtrOutput `pulumi:"experimentOptions"`
-	// Specifies the configuration for experiment logging.
-	//
-	// For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+	// The configuration for experiment logging.
 	LogConfiguration ExperimentTemplateLogConfigurationPtrOutput `pulumi:"logConfiguration"`
 	// The Amazon Resource Name (ARN) of an IAM role.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -195,11 +193,9 @@ type experimentTemplateArgs struct {
 	Actions map[string]ExperimentTemplateAction `pulumi:"actions"`
 	// The description for the experiment template.
 	Description string `pulumi:"description"`
-	// Describes the experiment options for an experiment template.
+	// The experiment options for an experiment template.
 	ExperimentOptions *ExperimentTemplateExperimentOptions `pulumi:"experimentOptions"`
-	// Specifies the configuration for experiment logging.
-	//
-	// For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+	// The configuration for experiment logging.
 	LogConfiguration *ExperimentTemplateLogConfiguration `pulumi:"logConfiguration"`
 	// The Amazon Resource Name (ARN) of an IAM role.
 	RoleArn string `pulumi:"roleArn"`
@@ -217,11 +213,9 @@ type ExperimentTemplateArgs struct {
 	Actions ExperimentTemplateActionMapInput
 	// The description for the experiment template.
 	Description pulumi.StringInput
-	// Describes the experiment options for an experiment template.
+	// The experiment options for an experiment template.
 	ExperimentOptions ExperimentTemplateExperimentOptionsPtrInput
-	// Specifies the configuration for experiment logging.
-	//
-	// For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+	// The configuration for experiment logging.
 	LogConfiguration ExperimentTemplateLogConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of an IAM role.
 	RoleArn pulumi.StringInput
@@ -285,14 +279,12 @@ func (o ExperimentTemplateOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Describes the experiment options for an experiment template.
+// The experiment options for an experiment template.
 func (o ExperimentTemplateOutput) ExperimentOptions() ExperimentTemplateExperimentOptionsPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateExperimentOptionsPtrOutput { return v.ExperimentOptions }).(ExperimentTemplateExperimentOptionsPtrOutput)
 }
 
-// Specifies the configuration for experiment logging.
-//
-// For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+// The configuration for experiment logging.
 func (o ExperimentTemplateOutput) LogConfiguration() ExperimentTemplateLogConfigurationPtrOutput {
 	return o.ApplyT(func(v *ExperimentTemplate) ExperimentTemplateLogConfigurationPtrOutput { return v.LogConfiguration }).(ExperimentTemplateLogConfigurationPtrOutput)
 }

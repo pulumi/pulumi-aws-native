@@ -44,7 +44,7 @@ export class Map extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Specifies the map tile style selected from an available provider.
+     * Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
      */
     public readonly configuration!: pulumi.Output<outputs.location.MapConfiguration>;
     /**
@@ -132,7 +132,7 @@ export class Map extends pulumi.CustomResource {
  */
 export interface MapArgs {
     /**
-     * Specifies the map tile style selected from an available provider.
+     * Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
      */
     configuration: pulumi.Input<inputs.location.MapConfigurationArgs>;
     /**

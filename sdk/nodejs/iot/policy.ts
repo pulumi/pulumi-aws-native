@@ -55,9 +55,6 @@ export class Policy extends pulumi.CustomResource {
      * The policy name.
      */
     public readonly policyName!: pulumi.Output<string | undefined>;
-    /**
-     * A set of key/value pairs that are used to manage the resource.
-     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -107,8 +104,5 @@ export interface PolicyArgs {
      * The policy name.
      */
     policyName?: pulumi.Input<string>;
-    /**
-     * A set of key/value pairs that are used to manage the resource.
-     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

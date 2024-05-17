@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<Inputs.ModelPackageDriftCheckExplainabilityArgs>? Explainability { get; set; }
 
         /// <summary>
-        /// Represents the drift check data quality baselines that can be used when the model monitor is set using the model package.
+        /// Represents the drift check model data quality baselines that can be used when the model monitor is set using the model package.
         /// </summary>
         [Input("modelDataQuality")]
         public Input<Inputs.ModelPackageDriftCheckModelDataQualityArgs>? ModelDataQuality { get; set; }

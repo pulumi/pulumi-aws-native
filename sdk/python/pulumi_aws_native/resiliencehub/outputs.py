@@ -321,7 +321,7 @@ class AppResourceMapping(dict):
         """
         Resource mapping is used to map logical resources from template to physical resource
         :param str mapping_type: Specifies the type of resource mapping.
-        :param 'AppPhysicalResourceId' physical_resource_id: Defines a physical resource identifier.
+        :param 'AppPhysicalResourceId' physical_resource_id: Identifier of the physical resource.
         :param str eks_source_name: Name of the Amazon Elastic Kubernetes Service cluster and namespace that this resource is mapped to when the `mappingType` is `EKS` .
                
                > This parameter accepts values in "eks-cluster/namespace" format.
@@ -352,7 +352,7 @@ class AppResourceMapping(dict):
     @pulumi.getter(name="physicalResourceId")
     def physical_resource_id(self) -> 'outputs.AppPhysicalResourceId':
         """
-        Defines a physical resource identifier.
+        Identifier of the physical resource.
         """
         return pulumi.get(self, "physical_resource_id")
 
@@ -451,10 +451,10 @@ class ResiliencyPolicyPolicyMap(dict):
                  software: 'outputs.ResiliencyPolicyFailurePolicy',
                  region: Optional['outputs.ResiliencyPolicyFailurePolicy'] = None):
         """
-        :param 'ResiliencyPolicyFailurePolicy' az: Defines a failure policy.
-        :param 'ResiliencyPolicyFailurePolicy' hardware: Defines a failure policy.
-        :param 'ResiliencyPolicyFailurePolicy' software: Defines a failure policy.
-        :param 'ResiliencyPolicyFailurePolicy' region: Defines a failure policy.
+        :param 'ResiliencyPolicyFailurePolicy' az: Defines the RTO and RPO targets for Availability Zone disruption.
+        :param 'ResiliencyPolicyFailurePolicy' hardware: Defines the RTO and RPO targets for hardware disruption.
+        :param 'ResiliencyPolicyFailurePolicy' software: Defines the RTO and RPO targets for software disruption.
+        :param 'ResiliencyPolicyFailurePolicy' region: Defines the RTO and RPO targets for Regional disruption.
         """
         pulumi.set(__self__, "az", az)
         pulumi.set(__self__, "hardware", hardware)
@@ -466,7 +466,7 @@ class ResiliencyPolicyPolicyMap(dict):
     @pulumi.getter
     def az(self) -> 'outputs.ResiliencyPolicyFailurePolicy':
         """
-        Defines a failure policy.
+        Defines the RTO and RPO targets for Availability Zone disruption.
         """
         return pulumi.get(self, "az")
 
@@ -474,7 +474,7 @@ class ResiliencyPolicyPolicyMap(dict):
     @pulumi.getter
     def hardware(self) -> 'outputs.ResiliencyPolicyFailurePolicy':
         """
-        Defines a failure policy.
+        Defines the RTO and RPO targets for hardware disruption.
         """
         return pulumi.get(self, "hardware")
 
@@ -482,7 +482,7 @@ class ResiliencyPolicyPolicyMap(dict):
     @pulumi.getter
     def software(self) -> 'outputs.ResiliencyPolicyFailurePolicy':
         """
-        Defines a failure policy.
+        Defines the RTO and RPO targets for software disruption.
         """
         return pulumi.get(self, "software")
 
@@ -490,7 +490,7 @@ class ResiliencyPolicyPolicyMap(dict):
     @pulumi.getter
     def region(self) -> Optional['outputs.ResiliencyPolicyFailurePolicy']:
         """
-        Defines a failure policy.
+        Defines the RTO and RPO targets for Regional disruption.
         """
         return pulumi.get(self, "region")
 

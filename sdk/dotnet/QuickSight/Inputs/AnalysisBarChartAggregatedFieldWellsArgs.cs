@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.AnalysisDimensionFieldArgs>? _category;
 
         /// <summary>
-        /// The dimension type field.
+        /// The category (y-axis) field well of a bar chart.
         /// </summary>
         public InputList<Inputs.AnalysisDimensionFieldArgs> Category
         {
@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.AnalysisMeasureFieldArgs>? _values;
 
         /// <summary>
-        /// The measure (metric) type field.
+        /// The value field wells of a bar chart. Values are aggregated by category.
         /// </summary>
         public InputList<Inputs.AnalysisMeasureFieldArgs> Values
         {

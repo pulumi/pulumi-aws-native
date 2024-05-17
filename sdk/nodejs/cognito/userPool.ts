@@ -42,7 +42,7 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly accountRecoverySetting!: pulumi.Output<outputs.cognito.UserPoolAccountRecoverySetting | undefined>;
     /**
-     * The configuration for `AdminCreateUser` requests.
+     * The configuration for creating a new user profile.
      */
     public readonly adminCreateUserConfig!: pulumi.Output<outputs.cognito.UserPoolAdminCreateUserConfig | undefined>;
     /**
@@ -68,11 +68,9 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly deletionProtection!: pulumi.Output<string | undefined>;
     /**
-     * The device-remembering configuration for a user pool. A [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) request returns a null value for this object when the user pool isn't configured to remember devices. When device remembering is active, you can remember a user's device with a [ConfirmDevice](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html) API request. Additionally. when the property `DeviceOnlyRememberedOnUserPrompt` is `true` , you must follow `ConfirmDevice` with an [UpdateDeviceStatus](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html) API request that sets the user's device to `remembered` or `not_remembered` .
+     * The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.
      *
-     * To sign in with a remembered device, include `DEVICE_KEY` in the authentication parameters in your user's [InitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html) request. If your app doesn't include a `DEVICE_KEY` parameter, the [response](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html#API_InitiateAuth_ResponseSyntax) from Amazon Cognito includes newly-generated `DEVICE_KEY` and `DEVICE_GROUP_KEY` values under `NewDeviceMetadata` . Store these values to use in future device-authentication requests.
-     *
-     * > When you provide a value for any property of `DeviceConfiguration` , you activate the device remembering for the user pool.
+     * > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
      */
     public readonly deviceConfiguration!: pulumi.Output<outputs.cognito.UserPoolDeviceConfiguration | undefined>;
     /**
@@ -97,7 +95,13 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly enabledMfas!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies the configuration for AWS Lambda triggers.
+     * The Lambda trigger configuration information for the new user pool.
+     *
+     * > In a push model, event sources (such as Amazon S3 and custom applications) need permission to invoke a function. So you must make an extra call to add permission for these event sources to invoke your Lambda function.
+     * > 
+     * > For more information on using the Lambda API to add permission, see [AddPermission](https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html) .
+     * > 
+     * > For adding permission using the AWS CLI , see [add-permission](https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html) .
      */
     public readonly lambdaConfig!: pulumi.Output<outputs.cognito.UserPoolLambdaConfig | undefined>;
     /**
@@ -121,9 +125,9 @@ export class UserPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly providerUrl!: pulumi.Output<string>;
     /**
-     * A list of the user attributes and their properties in your user pool. The attribute schema contains standard attributes, custom attributes with a `custom:` prefix, and developer attributes with a `dev:` prefix. For more information, see [User pool attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html) .
+     * The schema attributes for the new user pool. These attributes can be standard or custom attributes.
      *
-     * Developer-only attributes are a legacy feature of user pools, are read-only to all app clients. You can create and update developer-only attributes only with IAM-authenticated API operations. Use app client read/write permissions instead.
+     * > During a user pool update, you can add new schema attributes but you cannot modify or delete an existing schema attribute.
      */
     public readonly schema!: pulumi.Output<outputs.cognito.UserPoolSchemaAttribute[] | undefined>;
     /**
@@ -131,7 +135,7 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly smsAuthenticationMessage!: pulumi.Output<string | undefined>;
     /**
-     * The SMS configuration type that includes the settings the Cognito User Pool needs to call for the Amazon SNS service to send an SMS message from your AWS account . The Cognito User Pool makes the request to the Amazon SNS Service by using an IAM role that you provide for your AWS account .
+     * The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account .
      */
     public readonly smsConfiguration!: pulumi.Output<outputs.cognito.UserPoolSmsConfiguration | undefined>;
     /**
@@ -169,11 +173,11 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly usernameAttributes!: pulumi.Output<string[] | undefined>;
     /**
-     * The `UsernameConfiguration` property type specifies case sensitivity on the username input for the selected sign-in option.
+     * You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to `False` , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set.
      */
     public readonly usernameConfiguration!: pulumi.Output<outputs.cognito.UserPoolUsernameConfiguration | undefined>;
     /**
-     * The template for verification messages.
+     * The template for the verification message that the user sees when the app requests permission to access the user's information.
      */
     public readonly verificationMessageTemplate!: pulumi.Output<outputs.cognito.UserPoolVerificationMessageTemplate | undefined>;
 
@@ -260,7 +264,7 @@ export interface UserPoolArgs {
      */
     accountRecoverySetting?: pulumi.Input<inputs.cognito.UserPoolAccountRecoverySettingArgs>;
     /**
-     * The configuration for `AdminCreateUser` requests.
+     * The configuration for creating a new user profile.
      */
     adminCreateUserConfig?: pulumi.Input<inputs.cognito.UserPoolAdminCreateUserConfigArgs>;
     /**
@@ -282,11 +286,9 @@ export interface UserPoolArgs {
      */
     deletionProtection?: pulumi.Input<string>;
     /**
-     * The device-remembering configuration for a user pool. A [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) request returns a null value for this object when the user pool isn't configured to remember devices. When device remembering is active, you can remember a user's device with a [ConfirmDevice](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html) API request. Additionally. when the property `DeviceOnlyRememberedOnUserPrompt` is `true` , you must follow `ConfirmDevice` with an [UpdateDeviceStatus](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html) API request that sets the user's device to `remembered` or `not_remembered` .
+     * The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.
      *
-     * To sign in with a remembered device, include `DEVICE_KEY` in the authentication parameters in your user's [InitiateAuth](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html) request. If your app doesn't include a `DEVICE_KEY` parameter, the [response](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html#API_InitiateAuth_ResponseSyntax) from Amazon Cognito includes newly-generated `DEVICE_KEY` and `DEVICE_GROUP_KEY` values under `NewDeviceMetadata` . Store these values to use in future device-authentication requests.
-     *
-     * > When you provide a value for any property of `DeviceConfiguration` , you activate the device remembering for the user pool.
+     * > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
      */
     deviceConfiguration?: pulumi.Input<inputs.cognito.UserPoolDeviceConfigurationArgs>;
     /**
@@ -311,7 +313,13 @@ export interface UserPoolArgs {
      */
     enabledMfas?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the configuration for AWS Lambda triggers.
+     * The Lambda trigger configuration information for the new user pool.
+     *
+     * > In a push model, event sources (such as Amazon S3 and custom applications) need permission to invoke a function. So you must make an extra call to add permission for these event sources to invoke your Lambda function.
+     * > 
+     * > For more information on using the Lambda API to add permission, see [AddPermission](https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html) .
+     * > 
+     * > For adding permission using the AWS CLI , see [add-permission](https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html) .
      */
     lambdaConfig?: pulumi.Input<inputs.cognito.UserPoolLambdaConfigArgs>;
     /**
@@ -327,9 +335,9 @@ export interface UserPoolArgs {
      */
     policies?: pulumi.Input<inputs.cognito.UserPoolPoliciesArgs>;
     /**
-     * A list of the user attributes and their properties in your user pool. The attribute schema contains standard attributes, custom attributes with a `custom:` prefix, and developer attributes with a `dev:` prefix. For more information, see [User pool attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html) .
+     * The schema attributes for the new user pool. These attributes can be standard or custom attributes.
      *
-     * Developer-only attributes are a legacy feature of user pools, are read-only to all app clients. You can create and update developer-only attributes only with IAM-authenticated API operations. Use app client read/write permissions instead.
+     * > During a user pool update, you can add new schema attributes but you cannot modify or delete an existing schema attribute.
      */
     schema?: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolSchemaAttributeArgs>[]>;
     /**
@@ -337,7 +345,7 @@ export interface UserPoolArgs {
      */
     smsAuthenticationMessage?: pulumi.Input<string>;
     /**
-     * The SMS configuration type that includes the settings the Cognito User Pool needs to call for the Amazon SNS service to send an SMS message from your AWS account . The Cognito User Pool makes the request to the Amazon SNS Service by using an IAM role that you provide for your AWS account .
+     * The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account .
      */
     smsConfiguration?: pulumi.Input<inputs.cognito.UserPoolSmsConfigurationArgs>;
     /**
@@ -371,11 +379,11 @@ export interface UserPoolArgs {
      */
     usernameAttributes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The `UsernameConfiguration` property type specifies case sensitivity on the username input for the selected sign-in option.
+     * You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to `False` , users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set.
      */
     usernameConfiguration?: pulumi.Input<inputs.cognito.UserPoolUsernameConfigurationArgs>;
     /**
-     * The template for verification messages.
+     * The template for the verification message that the user sees when the app requests permission to access the user's information.
      */
     verificationMessageTemplate?: pulumi.Input<inputs.cognito.UserPoolVerificationMessageTemplateArgs>;
 }

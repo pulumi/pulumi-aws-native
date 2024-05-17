@@ -96,7 +96,7 @@ export interface GetStackResult {
      */
     readonly notificationArns?: string[];
     /**
-     * The Output data type.
+     * A list of output structures.
      */
     readonly outputs?: outputs.cloudformation.StackOutput[];
     /**
@@ -146,7 +146,7 @@ export interface GetStackResult {
      */
     readonly stackStatusReason?: string;
     /**
-     * The Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation stack.
+     * Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
      */
     readonly tags?: outputs.Tag[];
     /**

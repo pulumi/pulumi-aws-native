@@ -19,19 +19,19 @@ type RecordingConfiguration struct {
 
 	// Recording Configuration ARN is automatically generated on creation and assigned as the unique identifier.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The DestinationConfiguration property type describes the location where recorded videos will be stored. Each member represents a type of destination configuration. For recording, you define one and only one type of destination configuration.
+	// A destination configuration describes an S3 bucket where recorded video will be stored. See the DestinationConfiguration property type for more information.
 	DestinationConfiguration RecordingConfigurationDestinationConfigurationOutput `pulumi:"destinationConfiguration"`
 	// Recording Configuration Name.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Recording Reconnect Window Seconds. (0 means disabled)
 	RecordingReconnectWindowSeconds pulumi.IntPtrOutput `pulumi:"recordingReconnectWindowSeconds"`
-	// The RenditionConfiguration property type describes which renditions should be recorded for a stream.
+	// A rendition configuration describes which renditions should be recorded for a stream. See the RenditionConfiguration property type for more information.
 	RenditionConfiguration RecordingConfigurationRenditionConfigurationPtrOutput `pulumi:"renditionConfiguration"`
 	// Recording Configuration State.
 	State RecordingConfigurationStateEnumOutput `pulumi:"state"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// The ThumbnailConfiguration property type describes a configuration of thumbnails for recorded video.
+	// A thumbnail configuration enables/disables the recording of thumbnails for a live session and controls the interval at which thumbnails are generated for the live session. See the ThumbnailConfiguration property type for more information.
 	ThumbnailConfiguration RecordingConfigurationThumbnailConfigurationPtrOutput `pulumi:"thumbnailConfiguration"`
 }
 
@@ -86,33 +86,33 @@ func (RecordingConfigurationState) ElementType() reflect.Type {
 }
 
 type recordingConfigurationArgs struct {
-	// The DestinationConfiguration property type describes the location where recorded videos will be stored. Each member represents a type of destination configuration. For recording, you define one and only one type of destination configuration.
+	// A destination configuration describes an S3 bucket where recorded video will be stored. See the DestinationConfiguration property type for more information.
 	DestinationConfiguration RecordingConfigurationDestinationConfiguration `pulumi:"destinationConfiguration"`
 	// Recording Configuration Name.
 	Name *string `pulumi:"name"`
 	// Recording Reconnect Window Seconds. (0 means disabled)
 	RecordingReconnectWindowSeconds *int `pulumi:"recordingReconnectWindowSeconds"`
-	// The RenditionConfiguration property type describes which renditions should be recorded for a stream.
+	// A rendition configuration describes which renditions should be recorded for a stream. See the RenditionConfiguration property type for more information.
 	RenditionConfiguration *RecordingConfigurationRenditionConfiguration `pulumi:"renditionConfiguration"`
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags []aws.Tag `pulumi:"tags"`
-	// The ThumbnailConfiguration property type describes a configuration of thumbnails for recorded video.
+	// A thumbnail configuration enables/disables the recording of thumbnails for a live session and controls the interval at which thumbnails are generated for the live session. See the ThumbnailConfiguration property type for more information.
 	ThumbnailConfiguration *RecordingConfigurationThumbnailConfiguration `pulumi:"thumbnailConfiguration"`
 }
 
 // The set of arguments for constructing a RecordingConfiguration resource.
 type RecordingConfigurationArgs struct {
-	// The DestinationConfiguration property type describes the location where recorded videos will be stored. Each member represents a type of destination configuration. For recording, you define one and only one type of destination configuration.
+	// A destination configuration describes an S3 bucket where recorded video will be stored. See the DestinationConfiguration property type for more information.
 	DestinationConfiguration RecordingConfigurationDestinationConfigurationInput
 	// Recording Configuration Name.
 	Name pulumi.StringPtrInput
 	// Recording Reconnect Window Seconds. (0 means disabled)
 	RecordingReconnectWindowSeconds pulumi.IntPtrInput
-	// The RenditionConfiguration property type describes which renditions should be recorded for a stream.
+	// A rendition configuration describes which renditions should be recorded for a stream. See the RenditionConfiguration property type for more information.
 	RenditionConfiguration RecordingConfigurationRenditionConfigurationPtrInput
 	// A list of key-value pairs that contain metadata for the asset model.
 	Tags aws.TagArrayInput
-	// The ThumbnailConfiguration property type describes a configuration of thumbnails for recorded video.
+	// A thumbnail configuration enables/disables the recording of thumbnails for a live session and controls the interval at which thumbnails are generated for the live session. See the ThumbnailConfiguration property type for more information.
 	ThumbnailConfiguration RecordingConfigurationThumbnailConfigurationPtrInput
 }
 
@@ -158,7 +158,7 @@ func (o RecordingConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RecordingConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The DestinationConfiguration property type describes the location where recorded videos will be stored. Each member represents a type of destination configuration. For recording, you define one and only one type of destination configuration.
+// A destination configuration describes an S3 bucket where recorded video will be stored. See the DestinationConfiguration property type for more information.
 func (o RecordingConfigurationOutput) DestinationConfiguration() RecordingConfigurationDestinationConfigurationOutput {
 	return o.ApplyT(func(v *RecordingConfiguration) RecordingConfigurationDestinationConfigurationOutput {
 		return v.DestinationConfiguration
@@ -175,7 +175,7 @@ func (o RecordingConfigurationOutput) RecordingReconnectWindowSeconds() pulumi.I
 	return o.ApplyT(func(v *RecordingConfiguration) pulumi.IntPtrOutput { return v.RecordingReconnectWindowSeconds }).(pulumi.IntPtrOutput)
 }
 
-// The RenditionConfiguration property type describes which renditions should be recorded for a stream.
+// A rendition configuration describes which renditions should be recorded for a stream. See the RenditionConfiguration property type for more information.
 func (o RecordingConfigurationOutput) RenditionConfiguration() RecordingConfigurationRenditionConfigurationPtrOutput {
 	return o.ApplyT(func(v *RecordingConfiguration) RecordingConfigurationRenditionConfigurationPtrOutput {
 		return v.RenditionConfiguration
@@ -192,7 +192,7 @@ func (o RecordingConfigurationOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *RecordingConfiguration) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// The ThumbnailConfiguration property type describes a configuration of thumbnails for recorded video.
+// A thumbnail configuration enables/disables the recording of thumbnails for a live session and controls the interval at which thumbnails are generated for the live session. See the ThumbnailConfiguration property type for more information.
 func (o RecordingConfigurationOutput) ThumbnailConfiguration() RecordingConfigurationThumbnailConfigurationPtrOutput {
 	return o.ApplyT(func(v *RecordingConfiguration) RecordingConfigurationThumbnailConfigurationPtrOutput {
 		return v.ThumbnailConfiguration

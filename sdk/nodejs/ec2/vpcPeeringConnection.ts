@@ -58,7 +58,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
      */
     public readonly peerVpcId!: pulumi.Output<string>;
     /**
-     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     * Any tags assigned to the resource.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -127,7 +127,7 @@ export interface VpcPeeringConnectionArgs {
      */
     peerVpcId: pulumi.Input<string>;
     /**
-     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     * Any tags assigned to the resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

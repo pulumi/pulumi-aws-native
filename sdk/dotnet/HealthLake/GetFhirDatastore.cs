@@ -75,7 +75,9 @@ namespace Pulumi.AwsNative.HealthLake
         /// </summary>
         public readonly Pulumi.AwsNative.HealthLake.FhirDatastoreDatastoreStatus? DatastoreStatus;
         /// <summary>
-        /// A tag is a label consisting of a user-defined key and value. The form for tags is {"Key", "Value"}
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

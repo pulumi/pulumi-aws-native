@@ -25,27 +25,27 @@ namespace Pulumi.AwsNative.Events.Inputs
         public Input<string> Arn { get; set; } = null!;
 
         /// <summary>
-        /// The custom parameters to be used when the target is an AWS Batch job.
+        /// If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For more information, see [Jobs](https://docs.aws.amazon.com/batch/latest/userguide/jobs.html) in the *AWS Batch User Guide* .
         /// </summary>
         [Input("batchParameters")]
         public Input<Inputs.RuleBatchParametersArgs>? BatchParameters { get; set; }
 
         /// <summary>
-        /// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ).
-        /// 
-        /// For more information, see [Event retry policy and using dead-letter queues](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-dlq.html) in the *EventBridge User Guide* .
+        /// The `DeadLetterConfig` that defines the target queue to send dead-letter queue events to.
         /// </summary>
         [Input("deadLetterConfig")]
         public Input<Inputs.RuleDeadLetterConfigArgs>? DeadLetterConfig { get; set; }
 
         /// <summary>
-        /// The custom parameters to be used when the target is an Amazon ECS task.
+        /// Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see [Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon EC2 Container Service Developer Guide* .
         /// </summary>
         [Input("ecsParameters")]
         public Input<Inputs.RuleEcsParametersArgs>? EcsParameters { get; set; }
 
         /// <summary>
-        /// These are custom parameter to be used when the target is an API Gateway APIs or EventBridge ApiDestinations. In the latter case, these are merged with any InvocationParameters specified on the Connection, with any values from the Connection taking precedence.
+        /// Contains the HTTP parameters to use when the target is a API Gateway endpoint or EventBridge ApiDestination.
+        /// 
+        /// If you specify an API Gateway API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence.
         /// </summary>
         [Input("httpParameters")]
         public Input<Inputs.RuleHttpParametersArgs>? HttpParameters { get; set; }
@@ -69,25 +69,27 @@ namespace Pulumi.AwsNative.Events.Inputs
         public Input<string>? InputPath { get; set; }
 
         /// <summary>
-        /// Contains the parameters needed for you to provide custom input to a target based on one or more pieces of data extracted from the event.
+        /// Settings to enable you to provide custom input to a target based on certain event data. You can extract one or more key-value pairs from the event and then use that data to send customized input to the target.
         /// </summary>
         [Input("inputTransformer")]
         public Input<Inputs.RuleInputTransformerArgs>? InputTransformer { get; set; }
 
         /// <summary>
-        /// This object enables you to specify a JSON path to extract from the event and use as the partition key for the Amazon Kinesis data stream, so that you can control the shard to which the event goes. If you do not include this parameter, the default is to use the `eventId` as the partition key.
+        /// The custom parameter you can use to control the shard assignment, when the target is a Kinesis data stream. If you do not include this parameter, the default is to use the `eventId` as the partition key.
         /// </summary>
         [Input("kinesisParameters")]
         public Input<Inputs.RuleKinesisParametersArgs>? KinesisParameters { get; set; }
 
         /// <summary>
-        /// These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
+        /// Contains the Amazon Redshift Data API parameters to use when the target is a Amazon Redshift cluster.
+        /// 
+        /// If you specify a Amazon Redshift Cluster as a Target, you can use this to specify parameters to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
         /// </summary>
         [Input("redshiftDataParameters")]
         public Input<Inputs.RuleRedshiftDataParametersArgs>? RedshiftDataParameters { get; set; }
 
         /// <summary>
-        /// A `RetryPolicy` object that includes information about the retry policy settings.
+        /// The `RetryPolicy` object that contains the retry policy configuration to use for the dead-letter queue.
         /// </summary>
         [Input("retryPolicy")]
         public Input<Inputs.RuleRetryPolicyArgs>? RetryPolicy { get; set; }
@@ -99,19 +101,23 @@ namespace Pulumi.AwsNative.Events.Inputs
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// This parameter contains the criteria (either InstanceIds or a tag) used to specify which EC2 instances are to be sent the command.
+        /// Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
         /// </summary>
         [Input("runCommandParameters")]
         public Input<Inputs.RuleRunCommandParametersArgs>? RunCommandParameters { get; set; }
 
         /// <summary>
-        /// These are custom parameters to use when the target is a SageMaker Model Building Pipeline that starts based on EventBridge events.
+        /// Contains the SageMaker Model Building Pipeline parameters to start execution of a SageMaker Model Building Pipeline.
+        /// 
+        /// If you specify a SageMaker Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
         /// </summary>
         [Input("sageMakerPipelineParameters")]
         public Input<Inputs.RuleSageMakerPipelineParametersArgs>? SageMakerPipelineParameters { get; set; }
 
         /// <summary>
-        /// This structure includes the custom parameter to be used when the target is an SQS FIFO queue.
+        /// Contains the message group ID to use when the target is a FIFO queue.
+        /// 
+        /// If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
         /// </summary>
         [Input("sqsParameters")]
         public Input<Inputs.RuleSqsParametersArgs>? SqsParameters { get; set; }

@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string? GroupingSeparator;
         /// <summary>
-        /// A structure that represents a negative format.
+        /// The negative format.
         /// </summary>
         public readonly Outputs.TopicNegativeFormat? NegativeFormat;
         /// <summary>

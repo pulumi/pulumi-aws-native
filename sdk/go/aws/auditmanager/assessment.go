@@ -20,9 +20,9 @@ type Assessment struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The unique identifier for the assessment.
 	AssessmentId pulumi.StringOutput `pulumi:"assessmentId"`
-	// The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+	// The destination that evidence reports are stored in for the assessment.
 	AssessmentReportsDestination AssessmentReportsDestinationPtrOutput `pulumi:"assessmentReportsDestination"`
-	// The `AWSAccount` property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
+	// The AWS account that's associated with the assessment.
 	AwsAccount AssessmentAwsAccountPtrOutput `pulumi:"awsAccount"`
 	// Specifies when the assessment was created.
 	CreationTime pulumi.Float64Output `pulumi:"creationTime"`
@@ -36,7 +36,7 @@ type Assessment struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The list of roles for the specified assessment.
 	Roles AssessmentRoleArrayOutput `pulumi:"roles"`
-	// The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+	// The wrapper of AWS accounts and services that are in scope for the assessment.
 	Scope AssessmentScopePtrOutput `pulumi:"scope"`
 	// The overall status of the assessment.
 	//
@@ -93,9 +93,9 @@ func (AssessmentState) ElementType() reflect.Type {
 }
 
 type assessmentArgs struct {
-	// The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+	// The destination that evidence reports are stored in for the assessment.
 	AssessmentReportsDestination *AssessmentReportsDestination `pulumi:"assessmentReportsDestination"`
-	// The `AWSAccount` property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
+	// The AWS account that's associated with the assessment.
 	AwsAccount *AssessmentAwsAccount `pulumi:"awsAccount"`
 	// The list of delegations.
 	Delegations []AssessmentDelegation `pulumi:"delegations"`
@@ -107,7 +107,7 @@ type assessmentArgs struct {
 	Name *string `pulumi:"name"`
 	// The list of roles for the specified assessment.
 	Roles []AssessmentRole `pulumi:"roles"`
-	// The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+	// The wrapper of AWS accounts and services that are in scope for the assessment.
 	Scope *AssessmentScope `pulumi:"scope"`
 	// The overall status of the assessment.
 	//
@@ -121,9 +121,9 @@ type assessmentArgs struct {
 
 // The set of arguments for constructing a Assessment resource.
 type AssessmentArgs struct {
-	// The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+	// The destination that evidence reports are stored in for the assessment.
 	AssessmentReportsDestination AssessmentReportsDestinationPtrInput
-	// The `AWSAccount` property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
+	// The AWS account that's associated with the assessment.
 	AwsAccount AssessmentAwsAccountPtrInput
 	// The list of delegations.
 	Delegations AssessmentDelegationArrayInput
@@ -135,7 +135,7 @@ type AssessmentArgs struct {
 	Name pulumi.StringPtrInput
 	// The list of roles for the specified assessment.
 	Roles AssessmentRoleArrayInput
-	// The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+	// The wrapper of AWS accounts and services that are in scope for the assessment.
 	Scope AssessmentScopePtrInput
 	// The overall status of the assessment.
 	//
@@ -194,12 +194,12 @@ func (o AssessmentOutput) AssessmentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.AssessmentId }).(pulumi.StringOutput)
 }
 
-// The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+// The destination that evidence reports are stored in for the assessment.
 func (o AssessmentOutput) AssessmentReportsDestination() AssessmentReportsDestinationPtrOutput {
 	return o.ApplyT(func(v *Assessment) AssessmentReportsDestinationPtrOutput { return v.AssessmentReportsDestination }).(AssessmentReportsDestinationPtrOutput)
 }
 
-// The `AWSAccount` property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
+// The AWS account that's associated with the assessment.
 func (o AssessmentOutput) AwsAccount() AssessmentAwsAccountPtrOutput {
 	return o.ApplyT(func(v *Assessment) AssessmentAwsAccountPtrOutput { return v.AwsAccount }).(AssessmentAwsAccountPtrOutput)
 }
@@ -234,7 +234,7 @@ func (o AssessmentOutput) Roles() AssessmentRoleArrayOutput {
 	return o.ApplyT(func(v *Assessment) AssessmentRoleArrayOutput { return v.Roles }).(AssessmentRoleArrayOutput)
 }
 
-// The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+// The wrapper of AWS accounts and services that are in scope for the assessment.
 func (o AssessmentOutput) Scope() AssessmentScopePtrOutput {
 	return o.ApplyT(func(v *Assessment) AssessmentScopePtrOutput { return v.Scope }).(AssessmentScopePtrOutput)
 }

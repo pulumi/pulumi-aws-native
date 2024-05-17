@@ -14,16 +14,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisDestinationParameterValueConfiguration
     {
         /// <summary>
-        /// The configuration of custom values for the destination parameter in `DestinationParameterValueConfiguration` .
+        /// The configuration of custom values for destination parameter in `DestinationParameterValueConfiguration` .
         /// </summary>
         public readonly Outputs.AnalysisCustomValuesConfiguration? CustomValuesConfiguration;
         /// <summary>
         /// The configuration that selects all options.
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisSelectAllValueOptions? SelectAllValueOptions;
-        /// <summary>
-        /// A column of a data set.
-        /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier? SourceColumn;
         /// <summary>
         /// The source field ID of the destination parameter.

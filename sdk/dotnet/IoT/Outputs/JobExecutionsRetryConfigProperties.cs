@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
     public sealed class JobExecutionsRetryConfigProperties
     {
         /// <summary>
-        /// The criteria that determines how many retries are allowed for each failure type for a job.
+        /// The list of criteria that determines how many retries are allowed for each failure type for a job.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobTemplateRetryCriteria> RetryCriteriaList;
 

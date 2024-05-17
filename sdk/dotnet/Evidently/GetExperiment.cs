@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.Evidently
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+        /// An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
         /// </summary>
         public readonly ImmutableArray<Outputs.ExperimentMetricGoalObject> MetricGoals;
         /// <summary>
@@ -102,7 +102,7 @@ namespace Pulumi.AwsNative.Evidently
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
-        /// A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
+        /// An array of structures that describe the configuration of each feature variation used in the experiment.
         /// </summary>
         public readonly ImmutableArray<Outputs.ExperimentTreatmentObject> Treatments;
 

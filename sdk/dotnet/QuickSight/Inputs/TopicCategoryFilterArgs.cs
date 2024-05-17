@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.TopicCategoryFilterType>? CategoryFilterType { get; set; }
 
         /// <summary>
-        /// A constant used in a category filter.
+        /// The constant used in a category filter.
         /// </summary>
         [Input("constant")]
         public Input<Inputs.TopicCategoryFilterConstantArgs>? Constant { get; set; }

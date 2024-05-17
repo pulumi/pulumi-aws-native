@@ -178,7 +178,7 @@ export class CapacityProvider extends pulumi.CustomResource {
     }
 
     /**
-     * The details of the Auto Scaling group for the capacity provider.
+     * The Auto Scaling group settings for the capacity provider.
      */
     public readonly autoScalingGroupProvider!: pulumi.Output<outputs.ecs.CapacityProviderAutoScalingGroupProvider>;
     /**
@@ -186,7 +186,7 @@ export class CapacityProvider extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+     * The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
      *
      * The following basic restrictions apply to tags:
      *
@@ -223,7 +223,7 @@ export class CapacityProvider extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["autoScalingGroupProvider.autoScalingGroupArn", "name"] };
+        const replaceOnChanges = { replaceOnChanges: ["name"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(CapacityProvider.__pulumiType, name, resourceInputs, opts);
     }
@@ -234,7 +234,7 @@ export class CapacityProvider extends pulumi.CustomResource {
  */
 export interface CapacityProviderArgs {
     /**
-     * The details of the Auto Scaling group for the capacity provider.
+     * The Auto Scaling group settings for the capacity provider.
      */
     autoScalingGroupProvider: pulumi.Input<inputs.ecs.CapacityProviderAutoScalingGroupProviderArgs>;
     /**
@@ -242,7 +242,7 @@ export interface CapacityProviderArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+     * The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
      *
      * The following basic restrictions apply to tags:
      *

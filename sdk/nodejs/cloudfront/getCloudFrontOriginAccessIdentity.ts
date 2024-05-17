@@ -27,7 +27,7 @@ export interface GetCloudFrontOriginAccessIdentityArgs {
 
 export interface GetCloudFrontOriginAccessIdentityResult {
     /**
-     * Origin access identity configuration. Send a `GET` request to the `/ *CloudFront API version* /CloudFront/identity ID/config` resource.
+     * The current configuration information for the identity.
      */
     readonly cloudFrontOriginAccessIdentityConfig?: outputs.cloudfront.CloudFrontOriginAccessIdentityConfig;
     /**

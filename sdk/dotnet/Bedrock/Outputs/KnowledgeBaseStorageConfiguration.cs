@@ -17,11 +17,11 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     public sealed class KnowledgeBaseStorageConfiguration
     {
         /// <summary>
-        /// Contains details about the storage configuration of the knowledge base in Amazon OpenSearch Service. For more information, see [Create a vector index in Amazon OpenSearch Service](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-oss.html) .
+        /// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
         /// </summary>
         public readonly Outputs.KnowledgeBaseOpenSearchServerlessConfiguration? OpensearchServerlessConfiguration;
         /// <summary>
-        /// Contains details about the storage configuration of the knowledge base in Pinecone. For more information, see [Create a vector index in Pinecone](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-pinecone.html) .
+        /// Contains the storage configuration of the knowledge base in Pinecone.
         /// </summary>
         public readonly Outputs.KnowledgeBasePineconeConfiguration? PineconeConfiguration;
         /// <summary>

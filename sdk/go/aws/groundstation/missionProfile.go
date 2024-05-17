@@ -105,7 +105,7 @@ type MissionProfile struct {
 	ContactPostPassDurationSeconds pulumi.IntPtrOutput `pulumi:"contactPostPassDurationSeconds"`
 	// Pre-pass time needed before the contact.
 	ContactPrePassDurationSeconds pulumi.IntPtrOutput `pulumi:"contactPrePassDurationSeconds"`
-	// A dataflow edge defines from where and to where data will flow during a contact.
+	// A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
 	DataflowEdges MissionProfileDataflowEdgeArrayOutput `pulumi:"dataflowEdges"`
 	// Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
 	MinimumViableContactDurationSeconds pulumi.IntOutput `pulumi:"minimumViableContactDurationSeconds"`
@@ -176,7 +176,7 @@ type missionProfileArgs struct {
 	ContactPostPassDurationSeconds *int `pulumi:"contactPostPassDurationSeconds"`
 	// Pre-pass time needed before the contact.
 	ContactPrePassDurationSeconds *int `pulumi:"contactPrePassDurationSeconds"`
-	// A dataflow edge defines from where and to where data will flow during a contact.
+	// A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
 	DataflowEdges []MissionProfileDataflowEdge `pulumi:"dataflowEdges"`
 	// Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
 	MinimumViableContactDurationSeconds int `pulumi:"minimumViableContactDurationSeconds"`
@@ -198,7 +198,7 @@ type MissionProfileArgs struct {
 	ContactPostPassDurationSeconds pulumi.IntPtrInput
 	// Pre-pass time needed before the contact.
 	ContactPrePassDurationSeconds pulumi.IntPtrInput
-	// A dataflow edge defines from where and to where data will flow during a contact.
+	// A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
 	DataflowEdges MissionProfileDataflowEdgeArrayInput
 	// Visibilities with shorter duration than the specified minimum viable contact duration will be ignored when searching for available contacts.
 	MinimumViableContactDurationSeconds pulumi.IntInput
@@ -271,7 +271,7 @@ func (o MissionProfileOutput) ContactPrePassDurationSeconds() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v *MissionProfile) pulumi.IntPtrOutput { return v.ContactPrePassDurationSeconds }).(pulumi.IntPtrOutput)
 }
 
-// A dataflow edge defines from where and to where data will flow during a contact.
+// A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
 func (o MissionProfileOutput) DataflowEdges() MissionProfileDataflowEdgeArrayOutput {
 	return o.ApplyT(func(v *MissionProfile) MissionProfileDataflowEdgeArrayOutput { return v.DataflowEdges }).(MissionProfileDataflowEdgeArrayOutput)
 }

@@ -33,7 +33,7 @@ type LookupExperimentResult struct {
 	Arn *string `pulumi:"arn"`
 	// An optional description of the experiment.
 	Description *string `pulumi:"description"`
-	// Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+	// An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
 	MetricGoals []ExperimentMetricGoalObject `pulumi:"metricGoals"`
 	// A structure that contains the configuration of which variation to use as the "control" version. The "control" version is used for comparison with other variations. This structure also specifies how much experiment traffic is allocated to each variation.
 	OnlineAbConfig *ExperimentOnlineAbConfigObject `pulumi:"onlineAbConfig"`
@@ -53,7 +53,7 @@ type LookupExperimentResult struct {
 	Segment *string `pulumi:"segment"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
-	// A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
+	// An array of structures that describe the configuration of each feature variation used in the experiment.
 	Treatments []ExperimentTreatmentObject `pulumi:"treatments"`
 }
 
@@ -103,7 +103,7 @@ func (o LookupExperimentResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExperimentResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+// An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
 func (o LookupExperimentResultOutput) MetricGoals() ExperimentMetricGoalObjectArrayOutput {
 	return o.ApplyT(func(v LookupExperimentResult) []ExperimentMetricGoalObject { return v.MetricGoals }).(ExperimentMetricGoalObjectArrayOutput)
 }
@@ -147,7 +147,7 @@ func (o LookupExperimentResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupExperimentResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
+// An array of structures that describe the configuration of each feature variation used in the experiment.
 func (o LookupExperimentResultOutput) Treatments() ExperimentTreatmentObjectArrayOutput {
 	return o.ApplyT(func(v LookupExperimentResult) []ExperimentTreatmentObject { return v.Treatments }).(ExperimentTreatmentObjectArrayOutput)
 }

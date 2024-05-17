@@ -127,7 +127,7 @@ type Endpoint struct {
 	EventBuses EndpointEventBusArrayOutput `pulumi:"eventBuses"`
 	// The name of the endpoint.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Endpoints can replicate all events to the secondary Region.
+	// Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
 	ReplicationConfig EndpointReplicationConfigPtrOutput `pulumi:"replicationConfig"`
 	// The ARN of the role used by event replication for the endpoint.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
@@ -197,7 +197,7 @@ type endpointArgs struct {
 	EventBuses []EndpointEventBus `pulumi:"eventBuses"`
 	// The name of the endpoint.
 	Name *string `pulumi:"name"`
-	// Endpoints can replicate all events to the secondary Region.
+	// Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
 	ReplicationConfig *EndpointReplicationConfig `pulumi:"replicationConfig"`
 	// The ARN of the role used by event replication for the endpoint.
 	RoleArn *string `pulumi:"roleArn"`
@@ -215,7 +215,7 @@ type EndpointArgs struct {
 	EventBuses EndpointEventBusArrayInput
 	// The name of the endpoint.
 	Name pulumi.StringPtrInput
-	// Endpoints can replicate all events to the secondary Region.
+	// Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
 	ReplicationConfig EndpointReplicationConfigPtrInput
 	// The ARN of the role used by event replication for the endpoint.
 	RoleArn pulumi.StringPtrInput
@@ -292,7 +292,7 @@ func (o EndpointOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Endpoints can replicate all events to the secondary Region.
+// Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
 func (o EndpointOutput) ReplicationConfig() EndpointReplicationConfigPtrOutput {
 	return o.ApplyT(func(v *Endpoint) EndpointReplicationConfigPtrOutput { return v.ReplicationConfig }).(EndpointReplicationConfigPtrOutput)
 }

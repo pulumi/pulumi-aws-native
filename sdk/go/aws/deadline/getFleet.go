@@ -29,10 +29,9 @@ type LookupFleetArgs struct {
 
 type LookupFleetResult struct {
 	// The Amazon Resource Name (ARN) assigned to the fleet.
-	Arn *string `pulumi:"arn"`
-	// The amounts and attributes of fleets.
+	Arn          *string            `pulumi:"arn"`
 	Capabilities *FleetCapabilities `pulumi:"capabilities"`
-	// Fleet configuration details.
+	// The configuration details for the fleet.
 	Configuration interface{} `pulumi:"configuration"`
 	// A description that helps identify what the fleet is used for.
 	Description *string `pulumi:"description"`
@@ -93,12 +92,11 @@ func (o LookupFleetResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// The amounts and attributes of fleets.
 func (o LookupFleetResultOutput) Capabilities() FleetCapabilitiesPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *FleetCapabilities { return v.Capabilities }).(FleetCapabilitiesPtrOutput)
 }
 
-// Fleet configuration details.
+// The configuration details for the fleet.
 func (o LookupFleetResultOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupFleetResult) interface{} { return v.Configuration }).(pulumi.AnyOutput)
 }

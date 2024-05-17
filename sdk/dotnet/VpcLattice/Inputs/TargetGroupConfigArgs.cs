@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.VpcLattice.Inputs
     public sealed class TargetGroupConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes the health check configuration of a target group. Health check configurations aren't used for target groups of type `LAMBDA` or `ALB` .
+        /// The health check configuration. Not supported if the target group type is `LAMBDA` or `ALB` .
         /// </summary>
         [Input("healthCheck")]
         public Input<Inputs.TargetGroupHealthCheckConfigArgs>? HealthCheck { get; set; }

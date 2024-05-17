@@ -24,9 +24,9 @@ type AnnotationStore struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the Annotation Store.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A genome reference.
+	// The genome reference for the store's annotations.
 	Reference AnnotationStoreReferenceItemPtrOutput `pulumi:"reference"`
-	// Server-side encryption (SSE) settings for a store.
+	// The store's server-side encryption (SSE) settings.
 	SseConfig AnnotationStoreSseConfigPtrOutput `pulumi:"sseConfig"`
 	// The store's status.
 	Status AnnotationStoreStoreStatusOutput `pulumi:"status"`
@@ -36,7 +36,7 @@ type AnnotationStore struct {
 	StoreArn pulumi.StringOutput `pulumi:"storeArn"`
 	// The annotation file format of the store.
 	StoreFormat AnnotationStoreStoreFormatOutput `pulumi:"storeFormat"`
-	// The store's file parsing options.
+	// File parsing options for the annotation store.
 	StoreOptions AnnotationStoreStoreOptionsPropertiesPtrOutput `pulumi:"storeOptions"`
 	// The store's size in bytes.
 	StoreSizeBytes pulumi.Float64Output `pulumi:"storeSizeBytes"`
@@ -102,13 +102,13 @@ type annotationStoreArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the Annotation Store.
 	Name *string `pulumi:"name"`
-	// A genome reference.
+	// The genome reference for the store's annotations.
 	Reference *AnnotationStoreReferenceItem `pulumi:"reference"`
-	// Server-side encryption (SSE) settings for a store.
+	// The store's server-side encryption (SSE) settings.
 	SseConfig *AnnotationStoreSseConfig `pulumi:"sseConfig"`
 	// The annotation file format of the store.
 	StoreFormat AnnotationStoreStoreFormat `pulumi:"storeFormat"`
-	// The store's file parsing options.
+	// File parsing options for the annotation store.
 	StoreOptions *AnnotationStoreStoreOptionsProperties `pulumi:"storeOptions"`
 	// Tags for the store.
 	Tags map[string]string `pulumi:"tags"`
@@ -120,13 +120,13 @@ type AnnotationStoreArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the Annotation Store.
 	Name pulumi.StringPtrInput
-	// A genome reference.
+	// The genome reference for the store's annotations.
 	Reference AnnotationStoreReferenceItemPtrInput
-	// Server-side encryption (SSE) settings for a store.
+	// The store's server-side encryption (SSE) settings.
 	SseConfig AnnotationStoreSseConfigPtrInput
 	// The annotation file format of the store.
 	StoreFormat AnnotationStoreStoreFormatInput
-	// The store's file parsing options.
+	// File parsing options for the annotation store.
 	StoreOptions AnnotationStoreStoreOptionsPropertiesPtrInput
 	// Tags for the store.
 	Tags pulumi.StringMapInput
@@ -189,12 +189,12 @@ func (o AnnotationStoreOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnnotationStore) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A genome reference.
+// The genome reference for the store's annotations.
 func (o AnnotationStoreOutput) Reference() AnnotationStoreReferenceItemPtrOutput {
 	return o.ApplyT(func(v *AnnotationStore) AnnotationStoreReferenceItemPtrOutput { return v.Reference }).(AnnotationStoreReferenceItemPtrOutput)
 }
 
-// Server-side encryption (SSE) settings for a store.
+// The store's server-side encryption (SSE) settings.
 func (o AnnotationStoreOutput) SseConfig() AnnotationStoreSseConfigPtrOutput {
 	return o.ApplyT(func(v *AnnotationStore) AnnotationStoreSseConfigPtrOutput { return v.SseConfig }).(AnnotationStoreSseConfigPtrOutput)
 }
@@ -219,7 +219,7 @@ func (o AnnotationStoreOutput) StoreFormat() AnnotationStoreStoreFormatOutput {
 	return o.ApplyT(func(v *AnnotationStore) AnnotationStoreStoreFormatOutput { return v.StoreFormat }).(AnnotationStoreStoreFormatOutput)
 }
 
-// The store's file parsing options.
+// File parsing options for the annotation store.
 func (o AnnotationStoreOutput) StoreOptions() AnnotationStoreStoreOptionsPropertiesPtrOutput {
 	return o.ApplyT(func(v *AnnotationStore) AnnotationStoreStoreOptionsPropertiesPtrOutput { return v.StoreOptions }).(AnnotationStoreStoreOptionsPropertiesPtrOutput)
 }

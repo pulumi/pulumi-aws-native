@@ -46,7 +46,7 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly awsAccountId!: pulumi.Output<string | undefined>;
     /**
-     * A structure that represents a dataset.
+     * The data sets that the topic is associated with.
      */
     public readonly dataSets!: pulumi.Output<outputs.quicksight.TopicDatasetMetadata[] | undefined>;
     /**
@@ -109,7 +109,7 @@ export interface TopicArgs {
      */
     awsAccountId?: pulumi.Input<string>;
     /**
-     * A structure that represents a dataset.
+     * The data sets that the topic is associated with.
      */
     dataSets?: pulumi.Input<pulumi.Input<inputs.quicksight.TopicDatasetMetadataArgs>[]>;
     /**

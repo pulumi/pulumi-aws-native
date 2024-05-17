@@ -24,7 +24,7 @@ export interface GetDetectorArgs {
 
 export interface GetDetectorResult {
     /**
-     * Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
+     * Describes which data sources will be enabled for the detector.
      */
     readonly dataSources?: outputs.guardduty.DetectorCfnDataSourceConfigurations;
     /**
@@ -32,7 +32,7 @@ export interface GetDetectorResult {
      */
     readonly enable?: boolean;
     /**
-     * Information about the configuration of a feature in your account.
+     * A list of features that will be configured for the detector.
      */
     readonly features?: outputs.guardduty.DetectorCfnFeatureConfiguration[];
     /**
@@ -41,7 +41,11 @@ export interface GetDetectorResult {
     readonly findingPublishingFrequency?: string;
     readonly id?: string;
     /**
-     * Describes a tag.
+     * Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
+     *
+     * Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     readonly tags?: outputs.Tag[];
 }

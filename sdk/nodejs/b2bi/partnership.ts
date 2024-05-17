@@ -68,7 +68,7 @@ export class Partnership extends pulumi.CustomResource {
      */
     public readonly profileId!: pulumi.Output<string>;
     /**
-     * Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+     * A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -143,7 +143,7 @@ export interface PartnershipArgs {
      */
     profileId: pulumi.Input<string>;
     /**
-     * Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+     * A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

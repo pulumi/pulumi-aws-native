@@ -30,7 +30,7 @@ class ApplicationArgs:
         The set of arguments for constructing a Application resource.
         :param pulumi.Input[str] application_id: The ID of the application.
         :param pulumi.Input['ApplicationType'] application_type: The type of the application.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationCredentialArgs']]] credentials: The credentials of your SAP application.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationCredentialArgs']]] credentials: The credentials of the SAP application.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instances: The Amazon EC2 instances on which your SAP application is running.
         :param pulumi.Input[str] sap_instance_number: The SAP instance number of the application.
         :param pulumi.Input[str] sid: The System ID of the application.
@@ -77,7 +77,7 @@ class ApplicationArgs:
     @pulumi.getter
     def credentials(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationCredentialArgs']]]]:
         """
-        The credentials of your SAP application.
+        The credentials of the SAP application.
         """
         return pulumi.get(self, "credentials")
 
@@ -154,7 +154,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: The ID of the application.
         :param pulumi.Input['ApplicationType'] application_type: The type of the application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCredentialArgs']]]] credentials: The credentials of your SAP application.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationCredentialArgs']]]] credentials: The credentials of the SAP application.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instances: The Amazon EC2 instances on which your SAP application is running.
         :param pulumi.Input[str] sap_instance_number: The SAP instance number of the application.
         :param pulumi.Input[str] sid: The System ID of the application.
@@ -274,7 +274,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter
     def credentials(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationCredential']]]:
         """
-        The credentials of your SAP application.
+        The credentials of the SAP application.
         """
         return pulumi.get(self, "credentials")
 

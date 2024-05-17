@@ -59,13 +59,13 @@ type LookupDataSourceResult struct {
 	//
 	// Specify a `cron-` format schedule string or an empty string to indicate that the index is updated on demand. You can't specify the `Schedule` parameter when the `Type` parameter is set to `CUSTOM` . If you do, you receive a `ValidationException` exception.
 	SyncSchedule *string `pulumi:"syncSchedule"`
-	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	// A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The type of the Amazon Q Business data source.
 	Type *string `pulumi:"type"`
 	// The Unix timestamp when the Amazon Q Business data source was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
-	// Provides configuration information needed to connect to an Amazon VPC (Virtual Private Cloud).
+	// Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source. For more information, see [Using Amazon VPC with Amazon Q Business connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connector-vpc.html) .
 	VpcConfiguration *DataSourceVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
@@ -167,7 +167,7 @@ func (o LookupDataSourceResultOutput) SyncSchedule() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.SyncSchedule }).(pulumi.StringPtrOutput)
 }
 
-// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+// A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 func (o LookupDataSourceResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
@@ -182,7 +182,7 @@ func (o LookupDataSourceResultOutput) UpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }
 
-// Provides configuration information needed to connect to an Amazon VPC (Virtual Private Cloud).
+// Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source. For more information, see [Using Amazon VPC with Amazon Q Business connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connector-vpc.html) .
 func (o LookupDataSourceResultOutput) VpcConfiguration() DataSourceVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceVpcConfiguration { return v.VpcConfiguration }).(DataSourceVpcConfigurationPtrOutput)
 }

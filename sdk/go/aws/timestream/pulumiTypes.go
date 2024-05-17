@@ -1102,7 +1102,7 @@ func (o ScheduledQueryDimensionMappingArrayOutput) Index(i pulumi.IntInput) Sche
 
 // Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
 type ScheduledQueryErrorReportConfiguration struct {
-	// Details on S3 location for error reports that result from running a query.
+	// The S3 configuration for the error reports.
 	S3Configuration ScheduledQueryS3Configuration `pulumi:"s3Configuration"`
 }
 
@@ -1119,7 +1119,7 @@ type ScheduledQueryErrorReportConfigurationInput interface {
 
 // Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
 type ScheduledQueryErrorReportConfigurationArgs struct {
-	// Details on S3 location for error reports that result from running a query.
+	// The S3 configuration for the error reports.
 	S3Configuration ScheduledQueryS3ConfigurationInput `pulumi:"s3Configuration"`
 }
 
@@ -1150,7 +1150,7 @@ func (o ScheduledQueryErrorReportConfigurationOutput) ToScheduledQueryErrorRepor
 	return o
 }
 
-// Details on S3 location for error reports that result from running a query.
+// The S3 configuration for the error reports.
 func (o ScheduledQueryErrorReportConfigurationOutput) S3Configuration() ScheduledQueryS3ConfigurationOutput {
 	return o.ApplyT(func(v ScheduledQueryErrorReportConfiguration) ScheduledQueryS3Configuration { return v.S3Configuration }).(ScheduledQueryS3ConfigurationOutput)
 }
@@ -1554,7 +1554,7 @@ func (o ScheduledQueryMultiMeasureMappingsPtrOutput) TargetMultiMeasureName() pu
 
 // Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
 type ScheduledQueryNotificationConfiguration struct {
-	// Details on SNS that are required to send the notification.
+	// Details on SNS configuration.
 	SnsConfiguration ScheduledQuerySnsConfiguration `pulumi:"snsConfiguration"`
 }
 
@@ -1571,7 +1571,7 @@ type ScheduledQueryNotificationConfigurationInput interface {
 
 // Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
 type ScheduledQueryNotificationConfigurationArgs struct {
-	// Details on SNS that are required to send the notification.
+	// Details on SNS configuration.
 	SnsConfiguration ScheduledQuerySnsConfigurationInput `pulumi:"snsConfiguration"`
 }
 
@@ -1602,7 +1602,7 @@ func (o ScheduledQueryNotificationConfigurationOutput) ToScheduledQueryNotificat
 	return o
 }
 
-// Details on SNS that are required to send the notification.
+// Details on SNS configuration.
 func (o ScheduledQueryNotificationConfigurationOutput) SnsConfiguration() ScheduledQuerySnsConfigurationOutput {
 	return o.ApplyT(func(v ScheduledQueryNotificationConfiguration) ScheduledQuerySnsConfiguration {
 		return v.SnsConfiguration
@@ -1800,7 +1800,7 @@ type ScheduledQueryTag struct {
 
 // Configuration of target store where scheduled query results are written to.
 type ScheduledQueryTargetConfiguration struct {
-	// Configuration to write data into Timestream database and table. This configuration allows the user to map the query result select columns into the destination table columns.
+	// Configuration needed to write data into the Timestream database and table.
 	TimestreamConfiguration ScheduledQueryTimestreamConfiguration `pulumi:"timestreamConfiguration"`
 }
 
@@ -1817,7 +1817,7 @@ type ScheduledQueryTargetConfigurationInput interface {
 
 // Configuration of target store where scheduled query results are written to.
 type ScheduledQueryTargetConfigurationArgs struct {
-	// Configuration to write data into Timestream database and table. This configuration allows the user to map the query result select columns into the destination table columns.
+	// Configuration needed to write data into the Timestream database and table.
 	TimestreamConfiguration ScheduledQueryTimestreamConfigurationInput `pulumi:"timestreamConfiguration"`
 }
 
@@ -1899,7 +1899,7 @@ func (o ScheduledQueryTargetConfigurationOutput) ToScheduledQueryTargetConfigura
 	}).(ScheduledQueryTargetConfigurationPtrOutput)
 }
 
-// Configuration to write data into Timestream database and table. This configuration allows the user to map the query result select columns into the destination table columns.
+// Configuration needed to write data into the Timestream database and table.
 func (o ScheduledQueryTargetConfigurationOutput) TimestreamConfiguration() ScheduledQueryTimestreamConfigurationOutput {
 	return o.ApplyT(func(v ScheduledQueryTargetConfiguration) ScheduledQueryTimestreamConfiguration {
 		return v.TimestreamConfiguration
@@ -1930,7 +1930,7 @@ func (o ScheduledQueryTargetConfigurationPtrOutput) Elem() ScheduledQueryTargetC
 	}).(ScheduledQueryTargetConfigurationOutput)
 }
 
-// Configuration to write data into Timestream database and table. This configuration allows the user to map the query result select columns into the destination table columns.
+// Configuration needed to write data into the Timestream database and table.
 func (o ScheduledQueryTargetConfigurationPtrOutput) TimestreamConfiguration() ScheduledQueryTimestreamConfigurationPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryTargetConfiguration) *ScheduledQueryTimestreamConfiguration {
 		if v == nil {
@@ -1950,7 +1950,7 @@ type ScheduledQueryTimestreamConfiguration struct {
 	MeasureNameColumn *string `pulumi:"measureNameColumn"`
 	// Specifies how to map measures to multi-measure records.
 	MixedMeasureMappings []ScheduledQueryMixedMeasureMapping `pulumi:"mixedMeasureMappings"`
-	// Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
+	// Multi-measure mappings.
 	MultiMeasureMappings *ScheduledQueryMultiMeasureMappings `pulumi:"multiMeasureMappings"`
 	// Name of Timestream table that the query result will be written to. The table should be within the same database that is provided in Timestream configuration.
 	TableName string `pulumi:"tableName"`
@@ -1979,7 +1979,7 @@ type ScheduledQueryTimestreamConfigurationArgs struct {
 	MeasureNameColumn pulumi.StringPtrInput `pulumi:"measureNameColumn"`
 	// Specifies how to map measures to multi-measure records.
 	MixedMeasureMappings ScheduledQueryMixedMeasureMappingArrayInput `pulumi:"mixedMeasureMappings"`
-	// Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
+	// Multi-measure mappings.
 	MultiMeasureMappings ScheduledQueryMultiMeasureMappingsPtrInput `pulumi:"multiMeasureMappings"`
 	// Name of Timestream table that the query result will be written to. The table should be within the same database that is provided in Timestream configuration.
 	TableName pulumi.StringInput `pulumi:"tableName"`
@@ -2089,7 +2089,7 @@ func (o ScheduledQueryTimestreamConfigurationOutput) MixedMeasureMappings() Sche
 	}).(ScheduledQueryMixedMeasureMappingArrayOutput)
 }
 
-// Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
+// Multi-measure mappings.
 func (o ScheduledQueryTimestreamConfigurationOutput) MultiMeasureMappings() ScheduledQueryMultiMeasureMappingsPtrOutput {
 	return o.ApplyT(func(v ScheduledQueryTimestreamConfiguration) *ScheduledQueryMultiMeasureMappings {
 		return v.MultiMeasureMappings
@@ -2170,7 +2170,7 @@ func (o ScheduledQueryTimestreamConfigurationPtrOutput) MixedMeasureMappings() S
 	}).(ScheduledQueryMixedMeasureMappingArrayOutput)
 }
 
-// Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
+// Multi-measure mappings.
 func (o ScheduledQueryTimestreamConfigurationPtrOutput) MultiMeasureMappings() ScheduledQueryMultiMeasureMappingsPtrOutput {
 	return o.ApplyT(func(v *ScheduledQueryTimestreamConfiguration) *ScheduledQueryMultiMeasureMappings {
 		if v == nil {

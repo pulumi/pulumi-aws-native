@@ -143,9 +143,9 @@ class GetUserPoolClientResult:
     @pulumi.getter(name="analyticsConfiguration")
     def analytics_configuration(self) -> Optional['outputs.UserPoolClientAnalyticsConfiguration']:
         """
-        The Amazon Pinpoint analytics configuration necessary to collect metrics for a user pool.
+        The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.
 
-        > In Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.
+        > In AWS Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in AWS Region us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.
         """
         return pulumi.get(self, "analytics_configuration")
 
@@ -324,7 +324,7 @@ class GetUserPoolClientResult:
     @pulumi.getter(name="tokenValidityUnits")
     def token_validity_units(self) -> Optional['outputs.UserPoolClientTokenValidityUnits']:
         """
-        The time units you use when you set the duration of ID, access, and refresh tokens. The default unit for RefreshToken is days, and the default for ID and access tokens is hours.
+        The units in which the validity times are represented. The default unit for RefreshToken is days, and default for ID and access tokens are hours.
         """
         return pulumi.get(self, "token_validity_units")
 

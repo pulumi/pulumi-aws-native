@@ -43,7 +43,7 @@ export interface GetDocumentClassifierResult {
      */
     readonly modelPolicy?: string;
     /**
-     * A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+     * Tags to associate with the document classifier. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
      */
     readonly tags?: outputs.Tag[];
 }

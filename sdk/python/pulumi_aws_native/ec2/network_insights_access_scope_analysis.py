@@ -22,7 +22,7 @@ class NetworkInsightsAccessScopeAnalysisArgs:
         """
         The set of arguments for constructing a NetworkInsightsAccessScopeAnalysis resource.
         :param pulumi.Input[str] network_insights_access_scope_id: The ID of the Network Access Scope.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags.
         """
         pulumi.set(__self__, "network_insights_access_scope_id", network_insights_access_scope_id)
         if tags is not None:
@@ -44,7 +44,7 @@ class NetworkInsightsAccessScopeAnalysisArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        The tags.
         """
         return pulumi.get(self, "tags")
 
@@ -67,7 +67,7 @@ class NetworkInsightsAccessScopeAnalysis(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] network_insights_access_scope_id: The ID of the Network Access Scope.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags.
         """
         ...
     @overload
@@ -228,7 +228,7 @@ class NetworkInsightsAccessScopeAnalysis(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        The tags.
         """
         return pulumi.get(self, "tags")
 

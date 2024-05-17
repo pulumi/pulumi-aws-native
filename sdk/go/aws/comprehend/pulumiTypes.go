@@ -528,7 +528,9 @@ func (o DocumentClassifierDocumentsPtrOutput) TestS3Uri() pulumi.StringPtrOutput
 }
 
 type DocumentClassifierInputDataConfig struct {
-	// An augmented manifest file that provides training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
+	// A list of augmented manifest files that provide training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
+	//
+	// This parameter is required if you set `DataFormat` to `AUGMENTED_MANIFEST` .
 	AugmentedManifests []DocumentClassifierAugmentedManifestsListItem `pulumi:"augmentedManifests"`
 	// The format of your training data:
 	//
@@ -538,22 +540,11 @@ type DocumentClassifierInputDataConfig struct {
 	// If you use this value, you must provide the `AugmentedManifests` parameter in your request.
 	//
 	// If you don't specify a value, Amazon Comprehend uses `COMPREHEND_CSV` as the default.
-	DataFormat *DocumentClassifierInputDataConfigDataFormat `pulumi:"dataFormat"`
-	// Provides configuration parameters to override the default actions for extracting text from PDF documents and image files.
-	//
-	// By default, Amazon Comprehend performs the following actions to extract text from files, based on the input file type:
-	//
-	// - *Word files* - Amazon Comprehend parser extracts the text.
-	// - *Digital PDF files* - Amazon Comprehend parser extracts the text.
-	// - *Image files and scanned PDF files* - Amazon Comprehend uses the Amazon Textract `DetectDocumentText` API to extract the text.
-	//
-	// `DocumentReaderConfig` does not apply to plain text files or Word files.
-	//
-	// For image files and PDF documents, you can override these default actions using the fields listed below. For more information, see [Setting text extraction options](https://docs.aws.amazon.com/comprehend/latest/dg/idp-set-textract-options.html) in the Comprehend Developer Guide.
-	DocumentReaderConfig *DocumentClassifierDocumentReaderConfig `pulumi:"documentReaderConfig"`
+	DataFormat           *DocumentClassifierInputDataConfigDataFormat `pulumi:"dataFormat"`
+	DocumentReaderConfig *DocumentClassifierDocumentReaderConfig      `pulumi:"documentReaderConfig"`
 	// The type of input documents for training the model. Provide plain-text documents to create a plain-text model, and provide semi-structured documents to create a native document model.
 	DocumentType *DocumentClassifierInputDataConfigDocumentType `pulumi:"documentType"`
-	// The location of the training documents. This parameter is required in a request to create a semi-structured document classification model.
+	// The S3 location of the training documents. This parameter is required in a request to create a native document model.
 	Documents *DocumentClassifierDocuments `pulumi:"documents"`
 	// Indicates the delimiter used to separate each label for training a multi-label classifier. The default delimiter between labels is a pipe (|). You can use a different character as a delimiter (if it's an allowed character) by specifying it under Delimiter for labels. If the training documents use a delimiter other than the default or the delimiter you specify, the labels on that line will be combined to make a single unique label, such as LABELLABELLABEL.
 	LabelDelimiter *string `pulumi:"labelDelimiter"`
@@ -579,7 +570,9 @@ type DocumentClassifierInputDataConfigInput interface {
 }
 
 type DocumentClassifierInputDataConfigArgs struct {
-	// An augmented manifest file that provides training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
+	// A list of augmented manifest files that provide training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
+	//
+	// This parameter is required if you set `DataFormat` to `AUGMENTED_MANIFEST` .
 	AugmentedManifests DocumentClassifierAugmentedManifestsListItemArrayInput `pulumi:"augmentedManifests"`
 	// The format of your training data:
 	//
@@ -589,22 +582,11 @@ type DocumentClassifierInputDataConfigArgs struct {
 	// If you use this value, you must provide the `AugmentedManifests` parameter in your request.
 	//
 	// If you don't specify a value, Amazon Comprehend uses `COMPREHEND_CSV` as the default.
-	DataFormat DocumentClassifierInputDataConfigDataFormatPtrInput `pulumi:"dataFormat"`
-	// Provides configuration parameters to override the default actions for extracting text from PDF documents and image files.
-	//
-	// By default, Amazon Comprehend performs the following actions to extract text from files, based on the input file type:
-	//
-	// - *Word files* - Amazon Comprehend parser extracts the text.
-	// - *Digital PDF files* - Amazon Comprehend parser extracts the text.
-	// - *Image files and scanned PDF files* - Amazon Comprehend uses the Amazon Textract `DetectDocumentText` API to extract the text.
-	//
-	// `DocumentReaderConfig` does not apply to plain text files or Word files.
-	//
-	// For image files and PDF documents, you can override these default actions using the fields listed below. For more information, see [Setting text extraction options](https://docs.aws.amazon.com/comprehend/latest/dg/idp-set-textract-options.html) in the Comprehend Developer Guide.
-	DocumentReaderConfig DocumentClassifierDocumentReaderConfigPtrInput `pulumi:"documentReaderConfig"`
+	DataFormat           DocumentClassifierInputDataConfigDataFormatPtrInput `pulumi:"dataFormat"`
+	DocumentReaderConfig DocumentClassifierDocumentReaderConfigPtrInput      `pulumi:"documentReaderConfig"`
 	// The type of input documents for training the model. Provide plain-text documents to create a plain-text model, and provide semi-structured documents to create a native document model.
 	DocumentType DocumentClassifierInputDataConfigDocumentTypePtrInput `pulumi:"documentType"`
-	// The location of the training documents. This parameter is required in a request to create a semi-structured document classification model.
+	// The S3 location of the training documents. This parameter is required in a request to create a native document model.
 	Documents DocumentClassifierDocumentsPtrInput `pulumi:"documents"`
 	// Indicates the delimiter used to separate each label for training a multi-label classifier. The default delimiter between labels is a pipe (|). You can use a different character as a delimiter (if it's an allowed character) by specifying it under Delimiter for labels. If the training documents use a delimiter other than the default or the delimiter you specify, the labels on that line will be combined to make a single unique label, such as LABELLABELLABEL.
 	LabelDelimiter pulumi.StringPtrInput `pulumi:"labelDelimiter"`
@@ -644,7 +626,9 @@ func (o DocumentClassifierInputDataConfigOutput) ToDocumentClassifierInputDataCo
 	return o
 }
 
-// An augmented manifest file that provides training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
+// A list of augmented manifest files that provide training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
+//
+// This parameter is required if you set `DataFormat` to `AUGMENTED_MANIFEST` .
 func (o DocumentClassifierInputDataConfigOutput) AugmentedManifests() DocumentClassifierAugmentedManifestsListItemArrayOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfig) []DocumentClassifierAugmentedManifestsListItem {
 		return v.AugmentedManifests
@@ -665,17 +649,6 @@ func (o DocumentClassifierInputDataConfigOutput) DataFormat() DocumentClassifier
 	}).(DocumentClassifierInputDataConfigDataFormatPtrOutput)
 }
 
-// Provides configuration parameters to override the default actions for extracting text from PDF documents and image files.
-//
-// By default, Amazon Comprehend performs the following actions to extract text from files, based on the input file type:
-//
-// - *Word files* - Amazon Comprehend parser extracts the text.
-// - *Digital PDF files* - Amazon Comprehend parser extracts the text.
-// - *Image files and scanned PDF files* - Amazon Comprehend uses the Amazon Textract `DetectDocumentText` API to extract the text.
-//
-// `DocumentReaderConfig` does not apply to plain text files or Word files.
-//
-// For image files and PDF documents, you can override these default actions using the fields listed below. For more information, see [Setting text extraction options](https://docs.aws.amazon.com/comprehend/latest/dg/idp-set-textract-options.html) in the Comprehend Developer Guide.
 func (o DocumentClassifierInputDataConfigOutput) DocumentReaderConfig() DocumentClassifierDocumentReaderConfigPtrOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfig) *DocumentClassifierDocumentReaderConfig {
 		return v.DocumentReaderConfig
@@ -689,7 +662,7 @@ func (o DocumentClassifierInputDataConfigOutput) DocumentType() DocumentClassifi
 	}).(DocumentClassifierInputDataConfigDocumentTypePtrOutput)
 }
 
-// The location of the training documents. This parameter is required in a request to create a semi-structured document classification model.
+// The S3 location of the training documents. This parameter is required in a request to create a native document model.
 func (o DocumentClassifierInputDataConfigOutput) Documents() DocumentClassifierDocumentsPtrOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfig) *DocumentClassifierDocuments { return v.Documents }).(DocumentClassifierDocumentsPtrOutput)
 }
@@ -1423,7 +1396,7 @@ func (o FlywheelDocumentClassificationConfigPtrOutput) Mode() FlywheelDocumentCl
 }
 
 type FlywheelEntityRecognitionConfig struct {
-	// An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
+	// Up to 25 entity types that the model is trained to recognize.
 	EntityTypes []FlywheelEntityTypesListItem `pulumi:"entityTypes"`
 }
 
@@ -1439,7 +1412,7 @@ type FlywheelEntityRecognitionConfigInput interface {
 }
 
 type FlywheelEntityRecognitionConfigArgs struct {
-	// An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
+	// Up to 25 entity types that the model is trained to recognize.
 	EntityTypes FlywheelEntityTypesListItemArrayInput `pulumi:"entityTypes"`
 }
 
@@ -1520,7 +1493,7 @@ func (o FlywheelEntityRecognitionConfigOutput) ToFlywheelEntityRecognitionConfig
 	}).(FlywheelEntityRecognitionConfigPtrOutput)
 }
 
-// An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
+// Up to 25 entity types that the model is trained to recognize.
 func (o FlywheelEntityRecognitionConfigOutput) EntityTypes() FlywheelEntityTypesListItemArrayOutput {
 	return o.ApplyT(func(v FlywheelEntityRecognitionConfig) []FlywheelEntityTypesListItem { return v.EntityTypes }).(FlywheelEntityTypesListItemArrayOutput)
 }
@@ -1549,7 +1522,7 @@ func (o FlywheelEntityRecognitionConfigPtrOutput) Elem() FlywheelEntityRecogniti
 	}).(FlywheelEntityRecognitionConfigOutput)
 }
 
-// An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
+// Up to 25 entity types that the model is trained to recognize.
 func (o FlywheelEntityRecognitionConfigPtrOutput) EntityTypes() FlywheelEntityTypesListItemArrayOutput {
 	return o.ApplyT(func(v *FlywheelEntityRecognitionConfig) []FlywheelEntityTypesListItem {
 		if v == nil {

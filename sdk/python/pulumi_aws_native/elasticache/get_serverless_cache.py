@@ -74,7 +74,7 @@ class GetServerlessCacheResult:
     @pulumi.getter(name="cacheUsageLimits")
     def cache_usage_limits(self) -> Optional['outputs.ServerlessCacheCacheUsageLimits']:
         """
-        The usage limits for storage and ElastiCache Processing Units for the cache.
+        The cache usage limit for the serverless cache.
         """
         return pulumi.get(self, "cache_usage_limits")
 

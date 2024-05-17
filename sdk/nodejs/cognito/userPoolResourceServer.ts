@@ -50,7 +50,7 @@ export class UserPoolResourceServer extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A resource server scope.
+     * A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
      */
     public readonly scopes!: pulumi.Output<outputs.cognito.UserPoolResourceServerResourceServerScopeType[] | undefined>;
     /**
@@ -107,7 +107,7 @@ export interface UserPoolResourceServerArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A resource server scope.
+     * A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
      */
     scopes?: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolResourceServerResourceServerScopeTypeArgs>[]>;
     /**

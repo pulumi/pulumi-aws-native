@@ -29,11 +29,11 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.StorageLensGroupTag> MatchAnyTag;
         /// <summary>
-        /// This resource contains `DaysGreaterThan` and `DaysLessThan` to define the object age range (minimum and maximum number of days).
+        /// This property filters objects that match the specified object age range.
         /// </summary>
         public readonly Outputs.StorageLensGroupMatchObjectAge? MatchObjectAge;
         /// <summary>
-        /// This resource filters objects that match the specified object size range.
+        /// This property contains the `BytesGreaterThan` and `BytesLessThan` values to define the object size range (minimum and maximum number of Bytes).
         /// </summary>
         public readonly Outputs.StorageLensGroupMatchObjectSize? MatchObjectSize;
 

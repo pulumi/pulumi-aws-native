@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisCategoricalAggregationFunction? AggregationFunction;
         /// <summary>
-        /// A column of a data set.
+        /// The column that is used in the `CategoricalMeasureField` .
         /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier Column;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string FieldId;
         /// <summary>
-        /// Formatting configuration for string fields.
+        /// The format configuration of the field.
         /// </summary>
         public readonly Outputs.AnalysisStringFormatConfiguration? FormatConfiguration;
 

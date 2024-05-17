@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         public Input<int>? BatchSize { get; set; }
 
         /// <summary>
-        /// The AWS Secrets Manager secret that stores your broker credentials.
+        /// The credentials needed to access the resource.
         /// </summary>
         [Input("credentials", required: true)]
         public Input<Inputs.PipeMqBrokerAccessCredentialsPropertiesArgs> Credentials { get; set; } = null!;

@@ -34,7 +34,7 @@ type LookupDataSourceResult struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// The data deletion policy for a data source.
 	DataDeletionPolicy *DataSourceDataDeletionPolicy `pulumi:"dataDeletionPolicy"`
-	// Contains details about how a data source is stored.
+	// Contains details about how the data source is stored.
 	DataSourceConfiguration *DataSourceConfiguration `pulumi:"dataSourceConfiguration"`
 	// Identifier for a resource.
 	DataSourceId *string `pulumi:"dataSourceId"`
@@ -49,7 +49,7 @@ type LookupDataSourceResult struct {
 	FailureReasons []string `pulumi:"failureReasons"`
 	// The name of the data source.
 	Name *string `pulumi:"name"`
-	// Contains the configuration for server-side encryption.
+	// Contains details about the configuration of the server-side encryption.
 	ServerSideEncryptionConfiguration *DataSourceServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	// The time at which the knowledge base was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
@@ -103,7 +103,7 @@ func (o LookupDataSourceResultOutput) DataDeletionPolicy() DataSourceDataDeletio
 	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceDataDeletionPolicy { return v.DataDeletionPolicy }).(DataSourceDataDeletionPolicyPtrOutput)
 }
 
-// Contains details about how a data source is stored.
+// Contains details about how the data source is stored.
 func (o LookupDataSourceResultOutput) DataSourceConfiguration() DataSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceConfiguration { return v.DataSourceConfiguration }).(DataSourceConfigurationPtrOutput)
 }
@@ -136,7 +136,7 @@ func (o LookupDataSourceResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Contains the configuration for server-side encryption.
+// Contains details about the configuration of the server-side encryption.
 func (o LookupDataSourceResultOutput) ServerSideEncryptionConfiguration() DataSourceServerSideEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceServerSideEncryptionConfiguration {
 		return v.ServerSideEncryptionConfiguration

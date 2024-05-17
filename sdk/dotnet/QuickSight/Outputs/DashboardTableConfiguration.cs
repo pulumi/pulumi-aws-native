@@ -14,13 +14,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardTableConfiguration
     {
         /// <summary>
-        /// The field options of a table visual.
+        /// The field options for a table visual.
         /// </summary>
         public readonly Outputs.DashboardTableFieldOptions? FieldOptions;
         /// <summary>
-        /// The field wells for a table visual.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The field wells of the visual.
         /// </summary>
         public readonly Outputs.DashboardTableFieldWells? FieldWells;
         /// <summary>
@@ -32,7 +30,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardTableSortConfiguration? SortConfiguration;
         /// <summary>
-        /// The inline visualization of a specific type to display within a chart.
+        /// A collection of inline visualizations to display within a chart.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardTableInlineVisualization> TableInlineVisualizations;
         /// <summary>

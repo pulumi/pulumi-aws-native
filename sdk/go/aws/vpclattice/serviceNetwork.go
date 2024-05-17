@@ -33,7 +33,7 @@ type ServiceNetwork struct {
 	//
 	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Specifies a tag for a service network.
+	// The tags for the service network.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -90,7 +90,7 @@ type serviceNetworkArgs struct {
 	//
 	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
 	Name *string `pulumi:"name"`
-	// Specifies a tag for a service network.
+	// The tags for the service network.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -105,7 +105,7 @@ type ServiceNetworkArgs struct {
 	//
 	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
 	Name pulumi.StringPtrInput
-	// Specifies a tag for a service network.
+	// The tags for the service network.
 	Tags aws.TagArrayInput
 }
 
@@ -181,7 +181,7 @@ func (o ServiceNetworkOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceNetwork) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a tag for a service network.
+// The tags for the service network.
 func (o ServiceNetworkOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ServiceNetwork) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

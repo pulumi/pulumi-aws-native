@@ -31,7 +31,9 @@ export interface GetInstanceResult {
      */
     readonly addOns?: outputs.lightsail.InstanceAddOn[];
     /**
-     * `Hardware` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+     * The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+     *
+     * > The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
      */
     readonly hardware?: outputs.lightsail.InstanceHardware;
     /**
@@ -47,11 +49,13 @@ export interface GetInstanceResult {
      */
     readonly keyPairName?: string;
     /**
-     * `Location` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the location for an instance.
+     * The location for the instance, such as the AWS Region and Availability Zone.
+     *
+     * > The `Location` property is read-only and should not be specified in a create instance or update instance request.
      */
     readonly location?: outputs.lightsail.InstanceLocation;
     /**
-     * `Networking` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the public ports and the monthly amount of data transfer allocated for the instance.
+     * The public ports and the monthly amount of data transfer allocated for the instance.
      */
     readonly networking?: outputs.lightsail.InstanceNetworking;
     /**
@@ -71,7 +75,9 @@ export interface GetInstanceResult {
      */
     readonly sshKeyName?: string;
     /**
-     * `State` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the status code and the state (for example, `running` ) of an instance.
+     * The status code and the state (for example, `running` ) of the instance.
+     *
+     * > The `State` property is read-only and should not be specified in a create instance or update instance request.
      */
     readonly state?: outputs.lightsail.InstanceState;
     /**

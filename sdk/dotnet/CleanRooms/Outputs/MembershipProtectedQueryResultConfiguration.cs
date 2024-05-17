@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     public sealed class MembershipProtectedQueryResultConfiguration
     {
         /// <summary>
-        /// Contains configurations for protected query results.
+        /// Configuration for protected query results.
         /// </summary>
         public readonly Outputs.MembershipProtectedQueryOutputConfiguration OutputConfiguration;
         /// <summary>

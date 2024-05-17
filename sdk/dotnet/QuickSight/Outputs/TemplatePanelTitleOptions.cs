@@ -13,9 +13,6 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplatePanelTitleOptions
     {
-        /// <summary>
-        /// Configures the display properties of the given text.
-        /// </summary>
         public readonly Outputs.TemplateFontConfiguration? FontConfiguration;
         /// <summary>
         /// Sets the horizontal text alignment of the title within each panel.

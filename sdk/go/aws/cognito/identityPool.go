@@ -25,9 +25,9 @@ type IdentityPool struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
 	CognitoEvents pulumi.AnyOutput `pulumi:"cognitoEvents"`
-	// `CognitoIdentityProvider` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that represents an Amazon Cognito user pool and its client ID.
+	// The Amazon Cognito user pools and their client IDs.
 	CognitoIdentityProviders IdentityPoolCognitoIdentityProviderArrayOutput `pulumi:"cognitoIdentityProviders"`
-	// `CognitoStreams` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines configuration options for Amazon Cognito streams.
+	// Configuration options for configuring Amazon Cognito streams.
 	CognitoStreams IdentityPoolCognitoStreamsPtrOutput `pulumi:"cognitoStreams"`
 	// The "domain" Amazon Cognito uses when referencing your users. This name acts as a placeholder that allows your backend and the Amazon Cognito service to communicate about the developer provider. For the `DeveloperProviderName` , you can use letters and periods (.), underscores (_), and dashes (-).
 	//
@@ -47,7 +47,7 @@ type IdentityPool struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Amazon Resource Names (ARNs) of the OpenID connect providers.
 	OpenIdConnectProviderArns pulumi.StringArrayOutput `pulumi:"openIdConnectProviderArns"`
-	// `PushSync` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines the configuration options to be applied to an Amazon Cognito identity pool.
+	// The configuration options to be applied to the identity pool.
 	PushSync IdentityPoolPushSyncPtrOutput `pulumi:"pushSync"`
 	// The Amazon Resource Names (ARNs) of the Security Assertion Markup Language (SAML) providers.
 	SamlProviderArns pulumi.StringArrayOutput `pulumi:"samlProviderArns"`
@@ -108,9 +108,9 @@ type identityPoolArgs struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
 	CognitoEvents interface{} `pulumi:"cognitoEvents"`
-	// `CognitoIdentityProvider` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that represents an Amazon Cognito user pool and its client ID.
+	// The Amazon Cognito user pools and their client IDs.
 	CognitoIdentityProviders []IdentityPoolCognitoIdentityProvider `pulumi:"cognitoIdentityProviders"`
-	// `CognitoStreams` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines configuration options for Amazon Cognito streams.
+	// Configuration options for configuring Amazon Cognito streams.
 	CognitoStreams *IdentityPoolCognitoStreams `pulumi:"cognitoStreams"`
 	// The "domain" Amazon Cognito uses when referencing your users. This name acts as a placeholder that allows your backend and the Amazon Cognito service to communicate about the developer provider. For the `DeveloperProviderName` , you can use letters and periods (.), underscores (_), and dashes (-).
 	//
@@ -128,7 +128,7 @@ type identityPoolArgs struct {
 	IdentityPoolName *string `pulumi:"identityPoolName"`
 	// The Amazon Resource Names (ARNs) of the OpenID connect providers.
 	OpenIdConnectProviderArns []string `pulumi:"openIdConnectProviderArns"`
-	// `PushSync` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines the configuration options to be applied to an Amazon Cognito identity pool.
+	// The configuration options to be applied to the identity pool.
 	PushSync *IdentityPoolPushSync `pulumi:"pushSync"`
 	// The Amazon Resource Names (ARNs) of the Security Assertion Markup Language (SAML) providers.
 	SamlProviderArns []string `pulumi:"samlProviderArns"`
@@ -148,9 +148,9 @@ type IdentityPoolArgs struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::IdentityPool` for more information about the expected schema for this property.
 	CognitoEvents pulumi.Input
-	// `CognitoIdentityProvider` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that represents an Amazon Cognito user pool and its client ID.
+	// The Amazon Cognito user pools and their client IDs.
 	CognitoIdentityProviders IdentityPoolCognitoIdentityProviderArrayInput
-	// `CognitoStreams` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines configuration options for Amazon Cognito streams.
+	// Configuration options for configuring Amazon Cognito streams.
 	CognitoStreams IdentityPoolCognitoStreamsPtrInput
 	// The "domain" Amazon Cognito uses when referencing your users. This name acts as a placeholder that allows your backend and the Amazon Cognito service to communicate about the developer provider. For the `DeveloperProviderName` , you can use letters and periods (.), underscores (_), and dashes (-).
 	//
@@ -168,7 +168,7 @@ type IdentityPoolArgs struct {
 	IdentityPoolName pulumi.StringPtrInput
 	// The Amazon Resource Names (ARNs) of the OpenID connect providers.
 	OpenIdConnectProviderArns pulumi.StringArrayInput
-	// `PushSync` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines the configuration options to be applied to an Amazon Cognito identity pool.
+	// The configuration options to be applied to the identity pool.
 	PushSync IdentityPoolPushSyncPtrInput
 	// The Amazon Resource Names (ARNs) of the Security Assertion Markup Language (SAML) providers.
 	SamlProviderArns pulumi.StringArrayInput
@@ -236,14 +236,14 @@ func (o IdentityPoolOutput) CognitoEvents() pulumi.AnyOutput {
 	return o.ApplyT(func(v *IdentityPool) pulumi.AnyOutput { return v.CognitoEvents }).(pulumi.AnyOutput)
 }
 
-// `CognitoIdentityProvider` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that represents an Amazon Cognito user pool and its client ID.
+// The Amazon Cognito user pools and their client IDs.
 func (o IdentityPoolOutput) CognitoIdentityProviders() IdentityPoolCognitoIdentityProviderArrayOutput {
 	return o.ApplyT(func(v *IdentityPool) IdentityPoolCognitoIdentityProviderArrayOutput {
 		return v.CognitoIdentityProviders
 	}).(IdentityPoolCognitoIdentityProviderArrayOutput)
 }
 
-// `CognitoStreams` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines configuration options for Amazon Cognito streams.
+// Configuration options for configuring Amazon Cognito streams.
 func (o IdentityPoolOutput) CognitoStreams() IdentityPoolCognitoStreamsPtrOutput {
 	return o.ApplyT(func(v *IdentityPool) IdentityPoolCognitoStreamsPtrOutput { return v.CognitoStreams }).(IdentityPoolCognitoStreamsPtrOutput)
 }
@@ -278,7 +278,7 @@ func (o IdentityPoolOutput) OpenIdConnectProviderArns() pulumi.StringArrayOutput
 	return o.ApplyT(func(v *IdentityPool) pulumi.StringArrayOutput { return v.OpenIdConnectProviderArns }).(pulumi.StringArrayOutput)
 }
 
-// `PushSync` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that defines the configuration options to be applied to an Amazon Cognito identity pool.
+// The configuration options to be applied to the identity pool.
 func (o IdentityPoolOutput) PushSync() IdentityPoolPushSyncPtrOutput {
 	return o.ApplyT(func(v *IdentityPool) IdentityPoolPushSyncPtrOutput { return v.PushSync }).(IdentityPoolPushSyncPtrOutput)
 }

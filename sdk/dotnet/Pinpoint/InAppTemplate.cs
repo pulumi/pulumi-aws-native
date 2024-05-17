@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Pinpoint
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the configuration of an in-app message, including its header, body, buttons, colors, and images.
+        /// An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
         /// </summary>
         [Output("content")]
         public Output<ImmutableArray<Outputs.InAppTemplateInAppMessageContent>> Content { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.AwsNative.Pinpoint
         private InputList<Inputs.InAppTemplateInAppMessageContentArgs>? _content;
 
         /// <summary>
-        /// Specifies the configuration of an in-app message, including its header, body, buttons, colors, and images.
+        /// An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
         /// </summary>
         public InputList<Inputs.InAppTemplateInAppMessageContentArgs> Content
         {

@@ -62,9 +62,6 @@ class GetCrlResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
-        """
-        A label that consists of a key and value you define.
-        """
         return pulumi.get(self, "tags")
 
     @property

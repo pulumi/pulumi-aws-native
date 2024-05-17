@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string>? CustomLabel { get; set; }
 
         /// <summary>
-        /// Configures the display properties of the given text.
+        /// The font configuration of the label.
         /// </summary>
         [Input("fontConfiguration")]
         public Input<Inputs.AnalysisFontConfigurationArgs>? FontConfiguration { get; set; }

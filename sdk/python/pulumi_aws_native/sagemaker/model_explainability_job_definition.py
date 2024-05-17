@@ -33,20 +33,14 @@ class ModelExplainabilityJobDefinitionArgs:
         """
         The set of arguments for constructing a ModelExplainabilityJobDefinition resource.
         :param pulumi.Input['ModelExplainabilityJobDefinitionMonitoringResourcesArgs'] job_resources: Identifies the resources to deploy for a monitoring job.
-        :param pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs'] model_explainability_app_specification: Docker container image configuration object for the model explainability job.
+        :param pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs'] model_explainability_app_specification: Configures the model explainability job to run a specified Docker container image.
         :param pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs'] model_explainability_job_input: Inputs for the model explainability job.
         :param pulumi.Input['ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs'] model_explainability_job_output_config: The output configuration for monitoring jobs.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
         :param pulumi.Input[str] job_definition_name: The name of the model explainability job definition. The name must be unique within an AWS Region in the AWS account.
-        :param pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs'] model_explainability_baseline_config: The configuration for a baseline model explainability job.
-        :param pulumi.Input['ModelExplainabilityJobDefinitionNetworkConfigArgs'] network_config: Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
-        :param pulumi.Input['ModelExplainabilityJobDefinitionStoppingConditionArgs'] stopping_condition: Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
-               
-               To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-               
-               The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
-               
-               > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+        :param pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs'] model_explainability_baseline_config: The baseline configuration for a model explainability job.
+        :param pulumi.Input['ModelExplainabilityJobDefinitionNetworkConfigArgs'] network_config: Networking options for a model explainability job.
+        :param pulumi.Input['ModelExplainabilityJobDefinitionStoppingConditionArgs'] stopping_condition: A time limit for how long the monitoring job is allowed to run before stopping.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "job_resources", job_resources)
@@ -83,7 +77,7 @@ class ModelExplainabilityJobDefinitionArgs:
     @pulumi.getter(name="modelExplainabilityAppSpecification")
     def model_explainability_app_specification(self) -> pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs']:
         """
-        Docker container image configuration object for the model explainability job.
+        Configures the model explainability job to run a specified Docker container image.
         """
         return pulumi.get(self, "model_explainability_app_specification")
 
@@ -152,7 +146,7 @@ class ModelExplainabilityJobDefinitionArgs:
     @pulumi.getter(name="modelExplainabilityBaselineConfig")
     def model_explainability_baseline_config(self) -> Optional[pulumi.Input['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs']]:
         """
-        The configuration for a baseline model explainability job.
+        The baseline configuration for a model explainability job.
         """
         return pulumi.get(self, "model_explainability_baseline_config")
 
@@ -164,7 +158,7 @@ class ModelExplainabilityJobDefinitionArgs:
     @pulumi.getter(name="networkConfig")
     def network_config(self) -> Optional[pulumi.Input['ModelExplainabilityJobDefinitionNetworkConfigArgs']]:
         """
-        Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        Networking options for a model explainability job.
         """
         return pulumi.get(self, "network_config")
 
@@ -176,13 +170,7 @@ class ModelExplainabilityJobDefinitionArgs:
     @pulumi.getter(name="stoppingCondition")
     def stopping_condition(self) -> Optional[pulumi.Input['ModelExplainabilityJobDefinitionStoppingConditionArgs']]:
         """
-        Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
-
-        To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-
-        The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
-
-        > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+        A time limit for how long the monitoring job is allowed to run before stopping.
         """
         return pulumi.get(self, "stopping_condition")
 
@@ -227,19 +215,13 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] job_definition_name: The name of the model explainability job definition. The name must be unique within an AWS Region in the AWS account.
         :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionMonitoringResourcesArgs']] job_resources: Identifies the resources to deploy for a monitoring job.
-        :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs']] model_explainability_app_specification: Docker container image configuration object for the model explainability job.
-        :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs']] model_explainability_baseline_config: The configuration for a baseline model explainability job.
+        :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationArgs']] model_explainability_app_specification: Configures the model explainability job to run a specified Docker container image.
+        :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs']] model_explainability_baseline_config: The baseline configuration for a model explainability job.
         :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionModelExplainabilityJobInputArgs']] model_explainability_job_input: Inputs for the model explainability job.
         :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionMonitoringOutputConfigArgs']] model_explainability_job_output_config: The output configuration for monitoring jobs.
-        :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionNetworkConfigArgs']] network_config: Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionNetworkConfigArgs']] network_config: Networking options for a model explainability job.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
-        :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionStoppingConditionArgs']] stopping_condition: Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
-               
-               To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-               
-               The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
-               
-               > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+        :param pulumi.Input[pulumi.InputType['ModelExplainabilityJobDefinitionStoppingConditionArgs']] stopping_condition: A time limit for how long the monitoring job is allowed to run before stopping.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -389,7 +371,7 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
     @pulumi.getter(name="modelExplainabilityAppSpecification")
     def model_explainability_app_specification(self) -> pulumi.Output['outputs.ModelExplainabilityJobDefinitionModelExplainabilityAppSpecification']:
         """
-        Docker container image configuration object for the model explainability job.
+        Configures the model explainability job to run a specified Docker container image.
         """
         return pulumi.get(self, "model_explainability_app_specification")
 
@@ -397,7 +379,7 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
     @pulumi.getter(name="modelExplainabilityBaselineConfig")
     def model_explainability_baseline_config(self) -> pulumi.Output[Optional['outputs.ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig']]:
         """
-        The configuration for a baseline model explainability job.
+        The baseline configuration for a model explainability job.
         """
         return pulumi.get(self, "model_explainability_baseline_config")
 
@@ -421,7 +403,7 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
     @pulumi.getter(name="networkConfig")
     def network_config(self) -> pulumi.Output[Optional['outputs.ModelExplainabilityJobDefinitionNetworkConfig']]:
         """
-        Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        Networking options for a model explainability job.
         """
         return pulumi.get(self, "network_config")
 
@@ -437,13 +419,7 @@ class ModelExplainabilityJobDefinition(pulumi.CustomResource):
     @pulumi.getter(name="stoppingCondition")
     def stopping_condition(self) -> pulumi.Output[Optional['outputs.ModelExplainabilityJobDefinitionStoppingCondition']]:
         """
-        Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
-
-        To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-
-        The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
-
-        > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+        A time limit for how long the monitoring job is allowed to run before stopping.
         """
         return pulumi.get(self, "stopping_condition")
 

@@ -32,9 +32,9 @@ type LookupAliasResult struct {
 	// The function version that the alias invokes.
 	FunctionVersion *string `pulumi:"functionVersion"`
 	Id              *string `pulumi:"id"`
-	// A provisioned concurrency configuration for a function's alias.
+	// Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
 	ProvisionedConcurrencyConfig *AliasProvisionedConcurrencyConfiguration `pulumi:"provisionedConcurrencyConfig"`
-	// The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+	// The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
 	RoutingConfig *AliasRoutingConfiguration `pulumi:"routingConfig"`
 }
 
@@ -87,14 +87,14 @@ func (o LookupAliasResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAliasResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// A provisioned concurrency configuration for a function's alias.
+// Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
 func (o LookupAliasResultOutput) ProvisionedConcurrencyConfig() AliasProvisionedConcurrencyConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupAliasResult) *AliasProvisionedConcurrencyConfiguration {
 		return v.ProvisionedConcurrencyConfig
 	}).(AliasProvisionedConcurrencyConfigurationPtrOutput)
 }
 
-// The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+// The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
 func (o LookupAliasResultOutput) RoutingConfig() AliasRoutingConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupAliasResult) *AliasRoutingConfiguration { return v.RoutingConfig }).(AliasRoutingConfigurationPtrOutput)
 }

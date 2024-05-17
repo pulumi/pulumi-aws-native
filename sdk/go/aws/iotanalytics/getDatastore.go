@@ -40,9 +40,11 @@ type LookupDatastoreResult struct {
 	// You can't change the file format after you create the data store.
 	FileFormatConfiguration *DatastoreFileFormatConfiguration `pulumi:"fileFormatConfiguration"`
 	Id                      *string                           `pulumi:"id"`
-	// How long, in days, message data is kept.
+	// How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
 	RetentionPeriod *DatastoreRetentionPeriod `pulumi:"retentionPeriod"`
-	// A set of key-value pairs that are used to manage the resource.
+	// Metadata which can be used to manage the data store.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -105,12 +107,14 @@ func (o LookupDatastoreResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDatastoreResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// How long, in days, message data is kept.
+// How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
 func (o LookupDatastoreResultOutput) RetentionPeriod() DatastoreRetentionPeriodPtrOutput {
 	return o.ApplyT(func(v LookupDatastoreResult) *DatastoreRetentionPeriod { return v.RetentionPeriod }).(DatastoreRetentionPeriodPtrOutput)
 }
 
-// A set of key-value pairs that are used to manage the resource.
+// Metadata which can be used to manage the data store.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o LookupDatastoreResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDatastoreResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

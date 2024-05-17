@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
     public sealed class ConnectorProfileSapoDataConnectorProfileCredentials
     {
         /// <summary>
-        /// The basic auth credentials required for basic authentication.
+        /// The SAPOData basic authentication credentials.
         /// </summary>
         public readonly Outputs.ConnectorProfileBasicAuthCredentials? BasicAuthCredentials;
         /// <summary>

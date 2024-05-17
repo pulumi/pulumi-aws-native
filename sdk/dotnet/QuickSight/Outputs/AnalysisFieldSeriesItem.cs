@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string FieldId;
         /// <summary>
-        /// The options that determine the presentation of a line series in the visual
+        /// The options that determine the presentation of line series associated to the field.
         /// </summary>
         public readonly Outputs.AnalysisLineChartSeriesSettings? Settings;
 

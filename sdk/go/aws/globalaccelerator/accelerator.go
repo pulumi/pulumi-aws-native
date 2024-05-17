@@ -34,7 +34,9 @@ type Accelerator struct {
 	Ipv6Addresses pulumi.StringArrayOutput `pulumi:"ipv6Addresses"`
 	// Name of accelerator.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A complex type that contains a `Tag` key and `Tag` value.
+	// Create tags for an accelerator.
+	//
+	// For more information, see [Tagging](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -86,7 +88,9 @@ type acceleratorArgs struct {
 	IpAddresses []string `pulumi:"ipAddresses"`
 	// Name of accelerator.
 	Name *string `pulumi:"name"`
-	// A complex type that contains a `Tag` key and `Tag` value.
+	// Create tags for an accelerator.
+	//
+	// For more information, see [Tagging](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -100,7 +104,9 @@ type AcceleratorArgs struct {
 	IpAddresses pulumi.StringArrayInput
 	// Name of accelerator.
 	Name pulumi.StringPtrInput
-	// A complex type that contains a `Tag` key and `Tag` value.
+	// Create tags for an accelerator.
+	//
+	// For more information, see [Tagging](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
 	Tags aws.TagArrayInput
 }
 
@@ -186,7 +192,9 @@ func (o AcceleratorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Accelerator) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A complex type that contains a `Tag` key and `Tag` value.
+// Create tags for an accelerator.
+//
+// For more information, see [Tagging](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
 func (o AcceleratorOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Accelerator) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

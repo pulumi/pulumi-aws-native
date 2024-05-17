@@ -46,7 +46,7 @@ export class IdNamespace extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * An object containing `IdMappingType` and `ProviderProperties` .
+     * Determines the properties of `IdMappingWorflow` where this `IdNamespace` can be used as a `Source` or a `Target` .
      */
     public readonly idMappingWorkflowProperties!: pulumi.Output<outputs.entityresolution.IdNamespaceIdMappingWorkflowProperties[] | undefined>;
     /**
@@ -58,7 +58,7 @@ export class IdNamespace extends pulumi.CustomResource {
      */
     public readonly idNamespaceName!: pulumi.Output<string>;
     /**
-     * An object containing `InputSourceARN` and `SchemaName` .
+     * A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
      */
     public readonly inputSourceConfig!: pulumi.Output<outputs.entityresolution.IdNamespaceInputSource[] | undefined>;
     /**
@@ -134,7 +134,7 @@ export interface IdNamespaceArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * An object containing `IdMappingType` and `ProviderProperties` .
+     * Determines the properties of `IdMappingWorflow` where this `IdNamespace` can be used as a `Source` or a `Target` .
      */
     idMappingWorkflowProperties?: pulumi.Input<pulumi.Input<inputs.entityresolution.IdNamespaceIdMappingWorkflowPropertiesArgs>[]>;
     /**
@@ -142,7 +142,7 @@ export interface IdNamespaceArgs {
      */
     idNamespaceName?: pulumi.Input<string>;
     /**
-     * An object containing `InputSourceARN` and `SchemaName` .
+     * A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
      */
     inputSourceConfig?: pulumi.Input<pulumi.Input<inputs.entityresolution.IdNamespaceInputSourceArgs>[]>;
     /**

@@ -53,7 +53,7 @@ type LookupWebAclResult struct {
 	Capacity *int `pulumi:"capacity"`
 	// Specifies how AWS WAF should handle `CAPTCHA` evaluations for rules that don't have their own `CaptchaConfig` settings. If you don't specify this, AWS WAF uses its default settings for `CaptchaConfig` .
 	CaptchaConfig *WebAclCaptchaConfig `pulumi:"captchaConfig"`
-	// Specifies how AWS WAF should handle `Challenge` evaluations. This is available at the web ACL level and in each rule.
+	// Specifies how AWS WAF should handle challenge evaluations for rules that don't have their own `ChallengeConfig` settings. If you don't specify this, AWS WAF uses its default settings for `ChallengeConfig` .
 	ChallengeConfig *WebAclChallengeConfig `pulumi:"challengeConfig"`
 	// A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the web ACL, and then use them in the rules and default actions that you define in the web ACL.
 	//
@@ -61,7 +61,7 @@ type LookupWebAclResult struct {
 	//
 	// For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
 	CustomResponseBodies map[string]WebAclCustomResponseBody `pulumi:"customResponseBodies"`
-	// In a `WebACL` , this is the action that you want AWS WAF to perform when a web request doesn't match any of the rules in the `WebACL` . The default action must be a terminating action.
+	// The action to perform if none of the `Rules` contained in the `WebACL` match.
 	DefaultAction *WebAclDefaultAction `pulumi:"defaultAction"`
 	// A description of the web ACL that helps with identification.
 	Description *string `pulumi:"description"`
@@ -75,9 +75,9 @@ type LookupWebAclResult struct {
 	LabelNamespace *string `pulumi:"labelNamespace"`
 	// Collection of Rules.
 	Rules []WebAclRule `pulumi:"rules"`
-	// A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+	// Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
 	//
-	// You can tag the AWS resources that you manage through AWS WAF : web ACLs, rule groups, IP sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console.
+	// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Specifies the domains that AWS WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When AWS WAF provides a token, it uses the domain of the AWS resource that the web ACL is protecting. If you don't specify a list of token domains, AWS WAF accepts tokens only for the domain of the protected resource. With a token domain list, AWS WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.
 	TokenDomains []string `pulumi:"tokenDomains"`
@@ -157,7 +157,7 @@ func (o LookupWebAclResultOutput) CaptchaConfig() WebAclCaptchaConfigPtrOutput {
 	return o.ApplyT(func(v LookupWebAclResult) *WebAclCaptchaConfig { return v.CaptchaConfig }).(WebAclCaptchaConfigPtrOutput)
 }
 
-// Specifies how AWS WAF should handle `Challenge` evaluations. This is available at the web ACL level and in each rule.
+// Specifies how AWS WAF should handle challenge evaluations for rules that don't have their own `ChallengeConfig` settings. If you don't specify this, AWS WAF uses its default settings for `ChallengeConfig` .
 func (o LookupWebAclResultOutput) ChallengeConfig() WebAclChallengeConfigPtrOutput {
 	return o.ApplyT(func(v LookupWebAclResult) *WebAclChallengeConfig { return v.ChallengeConfig }).(WebAclChallengeConfigPtrOutput)
 }
@@ -171,7 +171,7 @@ func (o LookupWebAclResultOutput) CustomResponseBodies() WebAclCustomResponseBod
 	return o.ApplyT(func(v LookupWebAclResult) map[string]WebAclCustomResponseBody { return v.CustomResponseBodies }).(WebAclCustomResponseBodyMapOutput)
 }
 
-// In a `WebACL` , this is the action that you want AWS WAF to perform when a web request doesn't match any of the rules in the `WebACL` . The default action must be a terminating action.
+// The action to perform if none of the `Rules` contained in the `WebACL` match.
 func (o LookupWebAclResultOutput) DefaultAction() WebAclDefaultActionPtrOutput {
 	return o.ApplyT(func(v LookupWebAclResult) *WebAclDefaultAction { return v.DefaultAction }).(WebAclDefaultActionPtrOutput)
 }
@@ -200,9 +200,9 @@ func (o LookupWebAclResultOutput) Rules() WebAclRuleArrayOutput {
 	return o.ApplyT(func(v LookupWebAclResult) []WebAclRule { return v.Rules }).(WebAclRuleArrayOutput)
 }
 
-// A tag associated with an AWS resource. Tags are key:value pairs that you can use to categorize and manage your resources, for purposes like billing or other management. Typically, the tag key represents a category, such as "environment", and the tag value represents a specific value within that category, such as "test," "development," or "production". Or you might set the tag key to "customer" and the value to the customer name or ID. You can specify one or more tags to add to each AWS resource, up to 50 tags for a resource.
+// Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
 //
-// You can tag the AWS resources that you manage through AWS WAF : web ACLs, rule groups, IP sets, and regex pattern sets. You can't manage or view tags through the AWS WAF console.
+// > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
 func (o LookupWebAclResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupWebAclResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

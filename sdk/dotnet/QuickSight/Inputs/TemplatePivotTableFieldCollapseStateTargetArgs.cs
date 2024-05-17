@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.TemplateDataPathValueArgs>? _fieldDataPathValues;
 
         /// <summary>
-        /// The data path that needs to be sorted.
+        /// The data path of the pivot table's header. Used to set the collapse state.
         /// </summary>
         public InputList<Inputs.TemplateDataPathValueArgs> FieldDataPathValues
         {

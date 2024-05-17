@@ -54,7 +54,7 @@ class GetEnabledBaselineResult:
     @pulumi.getter
     def parameters(self) -> Optional[Sequence['outputs.EnabledBaselineParameter']]:
         """
-        A key-value parameter to an `EnabledBaseline` resource.
+        Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
         """
         return pulumi.get(self, "parameters")
 
@@ -62,7 +62,7 @@ class GetEnabledBaselineResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        A key-value parameter to an `EnabledBaseline` resource.
+        Tags associated with input to `EnableBaseline` .
         """
         return pulumi.get(self, "tags")
 

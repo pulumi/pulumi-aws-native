@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     public sealed class DatasetVariable
     {
         /// <summary>
-        /// The dataset whose latest contents are used as input to the notebook or application.
+        /// The value of the variable as a structure that specifies a dataset content version.
         /// </summary>
         public readonly Outputs.DatasetContentVersionValue? DatasetContentVersionValue;
         /// <summary>

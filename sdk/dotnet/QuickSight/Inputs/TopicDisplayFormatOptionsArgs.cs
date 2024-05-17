@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string>? GroupingSeparator { get; set; }
 
         /// <summary>
-        /// A structure that represents a negative format.
+        /// The negative format.
         /// </summary>
         [Input("negativeFormat")]
         public Input<Inputs.TopicNegativeFormatArgs>? NegativeFormat { get; set; }

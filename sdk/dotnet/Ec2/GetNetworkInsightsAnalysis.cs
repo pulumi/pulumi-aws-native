@@ -62,15 +62,15 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly ImmutableArray<string> AdditionalAccounts;
         /// <summary>
-        /// Describes an potential intermediate component of a feasible path.
+        /// Potential intermediate components.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisAlternatePathHint> AlternatePathHints;
         /// <summary>
-        /// Describes an explanation code for an unreachable path. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
+        /// The explanations. For more information, see [Reachability Analyzer explanation codes](https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html) .
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisExplanation> Explanations;
         /// <summary>
-        /// Describes a path component.
+        /// The components in the path from source to destination.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisPathComponent> ForwardPathComponents;
         /// <summary>
@@ -86,7 +86,7 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly bool? NetworkPathFound;
         /// <summary>
-        /// Describes a path component.
+        /// The components in the path from destination to source.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisPathComponent> ReturnPathComponents;
         /// <summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly ImmutableArray<string> SuggestedAccounts;
         /// <summary>
-        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// The tags to apply.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

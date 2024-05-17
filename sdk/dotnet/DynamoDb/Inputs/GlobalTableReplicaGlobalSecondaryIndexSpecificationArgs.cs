@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
     public sealed class GlobalTableReplicaGlobalSecondaryIndexSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configures contributor insights settings for a replica or one of its indexes.
+        /// Updates the status for contributor insights for a specific table or index. CloudWatch Contributor Insights for DynamoDB graphs display the partition key and (if applicable) sort key of frequently accessed items and frequently throttled items in plaintext. If you require the use of AWS Key Management Service (KMS) to encrypt this table’s partition key and sort key data with an AWS managed key or customer managed key, you should not enable CloudWatch Contributor Insights for DynamoDB for this table.
         /// </summary>
         [Input("contributorInsightsSpecification")]
         public Input<Inputs.GlobalTableContributorInsightsSpecificationArgs>? ContributorInsightsSpecification { get; set; }
@@ -25,13 +25,13 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
         public Input<string> IndexName { get; set; } = null!;
 
         /// <summary>
-        /// Sets the read request settings for a replica table or a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
+        /// Sets the read request settings for a replica global secondary index. You must specify this setting if you set the `BillingMode` to `PAY_PER_REQUEST` .
         /// </summary>
         [Input("readOnDemandThroughputSettings")]
         public Input<Inputs.GlobalTableReadOnDemandThroughputSettingsArgs>? ReadOnDemandThroughputSettings { get; set; }
 
         /// <summary>
-        /// Allows you to specify the read capacity settings for a replica table or a replica global secondary index when the `BillingMode` is set to `PROVISIONED` . You must specify a value for either `ReadCapacityUnits` or `ReadCapacityAutoScalingSettings` , but not both. You can switch between fixed capacity and auto scaling.
+        /// Allows you to specify the read capacity settings for a replica global secondary index when the `BillingMode` is set to `PROVISIONED` .
         /// </summary>
         [Input("readProvisionedThroughputSettings")]
         public Input<Inputs.GlobalTableReadProvisionedThroughputSettingsArgs>? ReadProvisionedThroughputSettings { get; set; }

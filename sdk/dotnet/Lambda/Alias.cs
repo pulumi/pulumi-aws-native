@@ -49,13 +49,13 @@ namespace Pulumi.AwsNative.Lambda
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A provisioned concurrency configuration for a function's alias.
+        /// Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
         /// </summary>
         [Output("provisionedConcurrencyConfig")]
         public Output<Outputs.AliasProvisionedConcurrencyConfiguration?> ProvisionedConcurrencyConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+        /// The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
         /// </summary>
         [Output("routingConfig")]
         public Output<Outputs.AliasRoutingConfiguration?> RoutingConfig { get; private set; } = null!;
@@ -141,13 +141,13 @@ namespace Pulumi.AwsNative.Lambda
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A provisioned concurrency configuration for a function's alias.
+        /// Specifies a [provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) configuration for a function's alias.
         /// </summary>
         [Input("provisionedConcurrencyConfig")]
         public Input<Inputs.AliasProvisionedConcurrencyConfigurationArgs>? ProvisionedConcurrencyConfig { get; set; }
 
         /// <summary>
-        /// The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+        /// The [routing configuration](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) of the alias.
         /// </summary>
         [Input("routingConfig")]
         public Input<Inputs.AliasRoutingConfigurationArgs>? RoutingConfig { get; set; }

@@ -41,7 +41,7 @@ type LookupIpAccessSettingsResult struct {
 	IpAccessSettingsArn *string `pulumi:"ipAccessSettingsArn"`
 	// The IP rules of the IP access settings.
 	IpRules []IpAccessSettingsIpRule `pulumi:"ipRules"`
-	// The tag.
+	// The tags to add to the browser settings resource. A tag is a key-value pair.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -111,7 +111,7 @@ func (o LookupIpAccessSettingsResultOutput) IpRules() IpAccessSettingsIpRuleArra
 	return o.ApplyT(func(v LookupIpAccessSettingsResult) []IpAccessSettingsIpRule { return v.IpRules }).(IpAccessSettingsIpRuleArrayOutput)
 }
 
-// The tag.
+// The tags to add to the browser settings resource. A tag is a key-value pair.
 func (o LookupIpAccessSettingsResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupIpAccessSettingsResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness.Inputs
         public Input<Inputs.ResourceSetNlbResourceArgs>? NlbResource { get; set; }
 
         /// <summary>
-        /// The Amazon Route 53 resource that a DNS target resource record points to.
+        /// The Route 53 resource that a DNS target resource record points to.
         /// </summary>
         [Input("r53Resource")]
         public Input<Inputs.ResourceSetR53ResourceRecordArgs>? R53Resource { get; set; }

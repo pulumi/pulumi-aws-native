@@ -532,7 +532,7 @@ class FargateProfileSelectorArgs:
                  labels: Optional[pulumi.Input[Sequence[pulumi.Input['FargateProfileLabelArgs']]]] = None):
         """
         :param pulumi.Input[str] namespace: The Kubernetes `namespace` that the selector should match.
-        :param pulumi.Input[Sequence[pulumi.Input['FargateProfileLabelArgs']]] labels: A key-value pair.
+        :param pulumi.Input[Sequence[pulumi.Input['FargateProfileLabelArgs']]] labels: The Kubernetes labels that the selector should match. A pod must contain all of the labels that are specified in the selector for it to be considered a match.
         """
         pulumi.set(__self__, "namespace", namespace)
         if labels is not None:
@@ -554,7 +554,7 @@ class FargateProfileSelectorArgs:
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FargateProfileLabelArgs']]]]:
         """
-        A key-value pair.
+        The Kubernetes labels that the selector should match. A pod must contain all of the labels that are specified in the selector for it to be considered a match.
         """
         return pulumi.get(self, "labels")
 
@@ -579,7 +579,7 @@ class IdentityProviderConfigOidcIdentityProviderConfigArgs:
         :param pulumi.Input[str] issuer_url: The URL of the OpenID identity provider that allows the API server to discover public signing keys for verifying tokens.
         :param pulumi.Input[str] groups_claim: The JWT claim that the provider uses to return your groups.
         :param pulumi.Input[str] groups_prefix: The prefix that is prepended to group claims to prevent clashes with existing names (such as system: groups).
-        :param pulumi.Input[Sequence[pulumi.Input['IdentityProviderConfigRequiredClaimArgs']]] required_claims: A key-value pair that describes a required claim in the identity token. If set, each claim is verified to be present in the token with a matching value.
+        :param pulumi.Input[Sequence[pulumi.Input['IdentityProviderConfigRequiredClaimArgs']]] required_claims: The key-value pairs that describe required claims in the identity token. If set, each claim is verified to be present in the token with a matching value.
         :param pulumi.Input[str] username_claim: The JSON Web Token (JWT) claim to use as the username. The default is sub, which is expected to be a unique identifier of the end user. You can choose other claims, such as email or name, depending on the OpenID identity provider. Claims other than email are prefixed with the issuer URL to prevent naming clashes with other plug-ins.
         :param pulumi.Input[str] username_prefix: The prefix that is prepended to username claims to prevent clashes with existing names. If you do not provide this field, and username is a value other than email, the prefix defaults to issuerurl#. You can use the value - to disable all prefixing.
         """
@@ -648,7 +648,7 @@ class IdentityProviderConfigOidcIdentityProviderConfigArgs:
     @pulumi.getter(name="requiredClaims")
     def required_claims(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdentityProviderConfigRequiredClaimArgs']]]]:
         """
-        A key-value pair that describes a required claim in the identity token. If set, each claim is verified to be present in the token with a matching value.
+        The key-value pairs that describe required claims in the identity token. If set, each claim is verified to be present in the token with a matching value.
         """
         return pulumi.get(self, "required_claims")
 

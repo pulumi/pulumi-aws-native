@@ -63,7 +63,7 @@ export interface GetProfileResult {
      */
     readonly sessionPolicy?: string;
     /**
-     * A label that consists of a key and value you define.
+     * A list of Tags.
      */
     readonly tags?: outputs.Tag[];
 }

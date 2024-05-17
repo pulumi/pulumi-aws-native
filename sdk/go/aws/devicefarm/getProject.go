@@ -35,7 +35,7 @@ type LookupProjectResult struct {
 	DefaultJobTimeoutMinutes *int `pulumi:"defaultJobTimeoutMinutes"`
 	// The project's name.
 	Name *string `pulumi:"name"`
-	// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+	// The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The VPC security groups and subnets that are attached to a project.
 	VpcConfig *ProjectVpcConfig `pulumi:"vpcConfig"`
@@ -92,7 +92,7 @@ func (o LookupProjectResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProjectResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+// The tags to add to the resource. A tag is an array of key-value pairs. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
 func (o LookupProjectResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupProjectResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

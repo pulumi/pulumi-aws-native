@@ -26,11 +26,11 @@ class TrustAnchorArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TrustAnchor resource.
-        :param pulumi.Input['TrustAnchorSourceArgs'] source: Object representing the TrustAnchor type and its related certificate data.
+        :param pulumi.Input['TrustAnchorSourceArgs'] source: The trust anchor type and its related certificate data.
         :param pulumi.Input[bool] enabled: Indicates whether the trust anchor is enabled.
         :param pulumi.Input[str] name: The name of the trust anchor.
-        :param pulumi.Input[Sequence[pulumi.Input['TrustAnchorNotificationSettingArgs']]] notification_settings: Customizable notification settings that will be applied to notification events. IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge , and AWS Health Dashboard .
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A label that consists of a key and value you define.
+        :param pulumi.Input[Sequence[pulumi.Input['TrustAnchorNotificationSettingArgs']]] notification_settings: A list of notification settings to be associated to the trust anchor.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to attach to the trust anchor.
         """
         pulumi.set(__self__, "source", source)
         if enabled is not None:
@@ -46,7 +46,7 @@ class TrustAnchorArgs:
     @pulumi.getter
     def source(self) -> pulumi.Input['TrustAnchorSourceArgs']:
         """
-        Object representing the TrustAnchor type and its related certificate data.
+        The trust anchor type and its related certificate data.
         """
         return pulumi.get(self, "source")
 
@@ -82,7 +82,7 @@ class TrustAnchorArgs:
     @pulumi.getter(name="notificationSettings")
     def notification_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrustAnchorNotificationSettingArgs']]]]:
         """
-        Customizable notification settings that will be applied to notification events. IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge , and AWS Health Dashboard .
+        A list of notification settings to be associated to the trust anchor.
         """
         return pulumi.get(self, "notification_settings")
 
@@ -94,7 +94,7 @@ class TrustAnchorArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A label that consists of a key and value you define.
+        The tags to attach to the trust anchor.
         """
         return pulumi.get(self, "tags")
 
@@ -121,9 +121,9 @@ class TrustAnchor(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Indicates whether the trust anchor is enabled.
         :param pulumi.Input[str] name: The name of the trust anchor.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrustAnchorNotificationSettingArgs']]]] notification_settings: Customizable notification settings that will be applied to notification events. IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge , and AWS Health Dashboard .
-        :param pulumi.Input[pulumi.InputType['TrustAnchorSourceArgs']] source: Object representing the TrustAnchor type and its related certificate data.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A label that consists of a key and value you define.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrustAnchorNotificationSettingArgs']]]] notification_settings: A list of notification settings to be associated to the trust anchor.
+        :param pulumi.Input[pulumi.InputType['TrustAnchorSourceArgs']] source: The trust anchor type and its related certificate data.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to attach to the trust anchor.
         """
         ...
     @overload
@@ -223,7 +223,7 @@ class TrustAnchor(pulumi.CustomResource):
     @pulumi.getter(name="notificationSettings")
     def notification_settings(self) -> pulumi.Output[Optional[Sequence['outputs.TrustAnchorNotificationSetting']]]:
         """
-        Customizable notification settings that will be applied to notification events. IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge , and AWS Health Dashboard .
+        A list of notification settings to be associated to the trust anchor.
         """
         return pulumi.get(self, "notification_settings")
 
@@ -231,7 +231,7 @@ class TrustAnchor(pulumi.CustomResource):
     @pulumi.getter
     def source(self) -> pulumi.Output['outputs.TrustAnchorSource']:
         """
-        Object representing the TrustAnchor type and its related certificate data.
+        The trust anchor type and its related certificate data.
         """
         return pulumi.get(self, "source")
 
@@ -239,7 +239,7 @@ class TrustAnchor(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A label that consists of a key and value you define.
+        The tags to attach to the trust anchor.
         """
         return pulumi.get(self, "tags")
 

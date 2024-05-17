@@ -17,9 +17,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     public sealed class ModelPackageDataSource
     {
         /// <summary>
-        /// Describes the S3 data source.
-        /// 
-        /// Your input bucket must be in the same AWS region as your training job.
+        /// The S3 location of the data source that is associated with a channel.
         /// </summary>
         public readonly Outputs.ModelPackageS3DataSource S3DataSource;
 

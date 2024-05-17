@@ -42,11 +42,7 @@ export class OriginAccessControl extends pulumi.CustomResource {
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
-     * Creates a new origin access control in CloudFront. After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
-     *
-     * This makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.
-     *
-     * For more information about using a CloudFront origin access control, see [Restricting access to an AWS origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide* .
+     * The origin access control.
      */
     public readonly originAccessControlConfig!: pulumi.Output<outputs.cloudfront.OriginAccessControlConfig>;
 
@@ -80,11 +76,7 @@ export class OriginAccessControl extends pulumi.CustomResource {
  */
 export interface OriginAccessControlArgs {
     /**
-     * Creates a new origin access control in CloudFront. After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
-     *
-     * This makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.
-     *
-     * For more information about using a CloudFront origin access control, see [Restricting access to an AWS origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-origin.html) in the *Amazon CloudFront Developer Guide* .
+     * The origin access control.
      */
     originAccessControlConfig: pulumi.Input<inputs.cloudfront.OriginAccessControlConfigArgs>;
 }

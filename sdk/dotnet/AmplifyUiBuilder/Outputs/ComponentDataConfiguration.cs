@@ -22,11 +22,11 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
         /// </summary>
         public readonly string Model;
         /// <summary>
-        /// The `Predicate` property specifies information for generating Amplify DataStore queries. Use `Predicate` to retrieve a subset of the data in a collection.
+        /// Represents the conditional logic to use when binding data to a component. Use this property to retrieve only a subset of the data in a collection.
         /// </summary>
         public readonly Outputs.ComponentPredicate? Predicate;
         /// <summary>
-        /// The `SortProperty` property specifies how to sort the data that you bind to a component.
+        /// Describes how to sort the component's properties.
         /// </summary>
         public readonly ImmutableArray<Outputs.ComponentSortProperty> Sort;
 

@@ -180,12 +180,12 @@ class DetectorEventType(dict):
         :param str arn: The ARN of the event type.
         :param str created_time: The time when the event type was created.
         :param str description: The description of the event type.
-        :param Sequence['DetectorEntityType'] entity_types: The entity type details.
-        :param Sequence['DetectorEventVariable'] event_variables: The event type variable for the detector.
+        :param Sequence['DetectorEntityType'] entity_types: The event type entity types.
+        :param Sequence['DetectorEventVariable'] event_variables: The event type event variables.
         :param bool inline: Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
                
                For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
-        :param Sequence['DetectorLabel'] labels: The label details.
+        :param Sequence['DetectorLabel'] labels: The event type labels.
         :param str last_updated_time: The time when the event type was last updated.
         :param str name: The name for the event type
         :param Sequence['DetectorTag'] tags: Tags associated with this event type.
@@ -239,7 +239,7 @@ class DetectorEventType(dict):
     @pulumi.getter(name="entityTypes")
     def entity_types(self) -> Optional[Sequence['outputs.DetectorEntityType']]:
         """
-        The entity type details.
+        The event type entity types.
         """
         return pulumi.get(self, "entity_types")
 
@@ -247,7 +247,7 @@ class DetectorEventType(dict):
     @pulumi.getter(name="eventVariables")
     def event_variables(self) -> Optional[Sequence['outputs.DetectorEventVariable']]:
         """
-        The event type variable for the detector.
+        The event type event variables.
         """
         return pulumi.get(self, "event_variables")
 
@@ -265,7 +265,7 @@ class DetectorEventType(dict):
     @pulumi.getter
     def labels(self) -> Optional[Sequence['outputs.DetectorLabel']]:
         """
-        The label details.
+        The event type labels.
         """
         return pulumi.get(self, "labels")
 
@@ -776,7 +776,7 @@ class DetectorRule(dict):
                
                Valid Value: DETECTORPL
         :param str last_updated_time: The time when the event type was last updated.
-        :param Sequence['DetectorOutcome'] outcomes: The outcome.
+        :param Sequence['DetectorOutcome'] outcomes: The rule outcome.
         :param str rule_id: The rule ID.
         :param str rule_version: The rule version.
         :param Sequence['DetectorTag'] tags: Tags associated with this event type.
@@ -866,7 +866,7 @@ class DetectorRule(dict):
     @pulumi.getter
     def outcomes(self) -> Optional[Sequence['outputs.DetectorOutcome']]:
         """
-        The outcome.
+        The rule outcome.
         """
         return pulumi.get(self, "outcomes")
 

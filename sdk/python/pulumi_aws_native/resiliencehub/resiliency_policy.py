@@ -25,7 +25,7 @@ class ResiliencyPolicyArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ResiliencyPolicy resource.
-        :param pulumi.Input['ResiliencyPolicyPolicyMapArgs'] policy: The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds.
+        :param pulumi.Input['ResiliencyPolicyPolicyMapArgs'] policy: The resiliency policy.
         :param pulumi.Input['ResiliencyPolicyTier'] tier: Resiliency Policy Tier.
         :param pulumi.Input['ResiliencyPolicyDataLocationConstraint'] data_location_constraint: Data Location Constraint of the Policy.
         :param pulumi.Input[str] policy_description: Description of Resiliency Policy.
@@ -47,7 +47,7 @@ class ResiliencyPolicyArgs:
     @pulumi.getter
     def policy(self) -> pulumi.Input['ResiliencyPolicyPolicyMapArgs']:
         """
-        The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds.
+        The resiliency policy.
         """
         return pulumi.get(self, "policy")
 
@@ -134,7 +134,7 @@ class ResiliencyPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ResiliencyPolicyDataLocationConstraint'] data_location_constraint: Data Location Constraint of the Policy.
-        :param pulumi.Input[pulumi.InputType['ResiliencyPolicyPolicyMapArgs']] policy: The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds.
+        :param pulumi.Input[pulumi.InputType['ResiliencyPolicyPolicyMapArgs']] policy: The resiliency policy.
         :param pulumi.Input[str] policy_description: Description of Resiliency Policy.
         :param pulumi.Input[str] policy_name: Name of Resiliency Policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
@@ -233,7 +233,7 @@ class ResiliencyPolicy(pulumi.CustomResource):
     @pulumi.getter
     def policy(self) -> pulumi.Output['outputs.ResiliencyPolicyPolicyMap']:
         """
-        The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds.
+        The resiliency policy.
         """
         return pulumi.get(self, "policy")
 

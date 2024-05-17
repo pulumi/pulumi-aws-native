@@ -52,15 +52,11 @@ export class Ec2Fleet extends pulumi.CustomResource {
      */
     public /*out*/ readonly fleetId!: pulumi.Output<string>;
     /**
-     * Specifies a launch template and overrides for an EC2 Fleet.
-     *
-     * `FleetLaunchTemplateConfigRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+     * The configuration for the EC2 Fleet.
      */
     public readonly launchTemplateConfigs!: pulumi.Output<outputs.ec2.Ec2FleetFleetLaunchTemplateConfigRequest[]>;
     /**
-     * Specifies the allocation strategy of On-Demand Instances in an EC2 Fleet.
-     *
-     * `OnDemandOptionsRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+     * Describes the configuration of On-Demand Instances in an EC2 Fleet.
      */
     public readonly onDemandOptions!: pulumi.Output<outputs.ec2.Ec2FleetOnDemandOptionsRequest | undefined>;
     /**
@@ -68,21 +64,19 @@ export class Ec2Fleet extends pulumi.CustomResource {
      */
     public readonly replaceUnhealthyInstances!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the configuration of Spot Instances for an EC2 Fleet.
-     *
-     * `SpotOptionsRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+     * Describes the configuration of Spot Instances in an EC2 Fleet.
      */
     public readonly spotOptions!: pulumi.Output<outputs.ec2.Ec2FleetSpotOptionsRequest | undefined>;
     /**
-     * Specifies the tags to apply to a resource when the resource is being created for an EC2 Fleet.
+     * The key-value pair for tagging the EC2 Fleet request on creation. For more information, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
      *
-     * `TagSpecification` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+     * If the fleet type is `instant` , specify a resource type of `fleet` to tag the fleet or `instance` to tag the instances at launch.
+     *
+     * If the fleet type is `maintain` or `request` , specify a resource type of `fleet` to tag the fleet. You cannot specify a resource type of `instance` . To tag instances at launch, specify the tags in a [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) .
      */
     public readonly tagSpecifications!: pulumi.Output<outputs.ec2.Ec2FleetTagSpecification[] | undefined>;
     /**
-     * Specifies the number of units to request for an EC2 Fleet. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of `0` and add capacity later.
-     *
-     * `TargetCapacitySpecificationRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+     * The number of units to request.
      */
     public readonly targetCapacitySpecification!: pulumi.Output<outputs.ec2.Ec2FleetTargetCapacitySpecificationRequest>;
     /**
@@ -175,15 +169,11 @@ export interface Ec2FleetArgs {
      */
     excessCapacityTerminationPolicy?: pulumi.Input<enums.ec2.Ec2FleetExcessCapacityTerminationPolicy>;
     /**
-     * Specifies a launch template and overrides for an EC2 Fleet.
-     *
-     * `FleetLaunchTemplateConfigRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+     * The configuration for the EC2 Fleet.
      */
     launchTemplateConfigs: pulumi.Input<pulumi.Input<inputs.ec2.Ec2FleetFleetLaunchTemplateConfigRequestArgs>[]>;
     /**
-     * Specifies the allocation strategy of On-Demand Instances in an EC2 Fleet.
-     *
-     * `OnDemandOptionsRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+     * Describes the configuration of On-Demand Instances in an EC2 Fleet.
      */
     onDemandOptions?: pulumi.Input<inputs.ec2.Ec2FleetOnDemandOptionsRequestArgs>;
     /**
@@ -191,21 +181,19 @@ export interface Ec2FleetArgs {
      */
     replaceUnhealthyInstances?: pulumi.Input<boolean>;
     /**
-     * Specifies the configuration of Spot Instances for an EC2 Fleet.
-     *
-     * `SpotOptionsRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+     * Describes the configuration of Spot Instances in an EC2 Fleet.
      */
     spotOptions?: pulumi.Input<inputs.ec2.Ec2FleetSpotOptionsRequestArgs>;
     /**
-     * Specifies the tags to apply to a resource when the resource is being created for an EC2 Fleet.
+     * The key-value pair for tagging the EC2 Fleet request on creation. For more information, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
      *
-     * `TagSpecification` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+     * If the fleet type is `instant` , specify a resource type of `fleet` to tag the fleet or `instance` to tag the instances at launch.
+     *
+     * If the fleet type is `maintain` or `request` , specify a resource type of `fleet` to tag the fleet. You cannot specify a resource type of `instance` . To tag instances at launch, specify the tags in a [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) .
      */
     tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.Ec2FleetTagSpecificationArgs>[]>;
     /**
-     * Specifies the number of units to request for an EC2 Fleet. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of `0` and add capacity later.
-     *
-     * `TargetCapacitySpecificationRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+     * The number of units to request.
      */
     targetCapacitySpecification: pulumi.Input<inputs.ec2.Ec2FleetTargetCapacitySpecificationRequestArgs>;
     /**

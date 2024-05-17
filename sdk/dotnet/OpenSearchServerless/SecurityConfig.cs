@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
+        /// SAML options for the security configuration in the form of a key-value map.
         /// </summary>
         [Output("samlOptions")]
         public Output<Outputs.SecurityConfigSamlConfigOptions?> SamlOptions { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
+        /// SAML options for the security configuration in the form of a key-value map.
         /// </summary>
         [Input("samlOptions")]
         public Input<Inputs.SecurityConfigSamlConfigOptionsArgs>? SamlOptions { get; set; }

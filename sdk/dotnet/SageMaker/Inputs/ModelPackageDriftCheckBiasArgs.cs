@@ -16,19 +16,19 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     public sealed class ModelPackageDriftCheckBiasArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains details regarding the file source.
+        /// The bias config file for a model.
         /// </summary>
         [Input("configFile")]
         public Input<Inputs.ModelPackageFileSourceArgs>? ConfigFile { get; set; }
 
         /// <summary>
-        /// Details about the metrics source.
+        /// The post-training constraints.
         /// </summary>
         [Input("postTrainingConstraints")]
         public Input<Inputs.ModelPackageMetricsSourceArgs>? PostTrainingConstraints { get; set; }
 
         /// <summary>
-        /// Details about the metrics source.
+        /// The pre-training constraints.
         /// </summary>
         [Input("preTrainingConstraints")]
         public Input<Inputs.ModelPackageMetricsSourceArgs>? PreTrainingConstraints { get; set; }

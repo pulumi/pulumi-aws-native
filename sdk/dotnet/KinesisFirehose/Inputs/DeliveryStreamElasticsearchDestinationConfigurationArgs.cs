@@ -13,15 +13,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
     public sealed class DeliveryStreamElasticsearchDestinationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The `ElasticsearchBufferingHints` property type specifies how Amazon Kinesis Data Firehose (Kinesis Data Firehose) buffers incoming data while delivering it to the destination. The first buffer condition that is satisfied triggers Kinesis Data Firehose to deliver the data.
-        /// 
-        /// ElasticsearchBufferingHints is the property type for the `BufferingHints` property of the [Amazon Kinesis Data Firehose DeliveryStream ElasticsearchDestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html) property type.
+        /// Configures how Kinesis Data Firehose buffers incoming data while delivering it to the Amazon ES domain.
         /// </summary>
         [Input("bufferingHints")]
         public Input<Inputs.DeliveryStreamElasticsearchBufferingHintsArgs>? BufferingHints { get; set; }
 
         /// <summary>
-        /// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        /// The Amazon CloudWatch Logs logging options for the delivery stream.
         /// </summary>
         [Input("cloudWatchLoggingOptions")]
         public Input<Inputs.DeliveryStreamCloudWatchLoggingOptionsArgs>? CloudWatchLoggingOptions { get; set; }
@@ -59,13 +57,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod>? IndexRotationPeriod { get; set; }
 
         /// <summary>
-        /// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+        /// The data processing configuration for the Kinesis Data Firehose delivery stream.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.DeliveryStreamProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
 
         /// <summary>
-        /// The `ElasticsearchRetryOptions` property type configures the retry behavior for when Amazon Kinesis Data Firehose (Kinesis Data Firehose) can't deliver data to Amazon Elasticsearch Service (Amazon ES).
+        /// The retry behavior when Kinesis Data Firehose is unable to deliver data to Amazon ES.
         /// </summary>
         [Input("retryOptions")]
         public Input<Inputs.DeliveryStreamElasticsearchRetryOptionsArgs>? RetryOptions { get; set; }
@@ -83,7 +81,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamElasticsearchDestinationConfigurationS3BackupMode>? S3BackupMode { get; set; }
 
         /// <summary>
-        /// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        /// The S3 bucket where Kinesis Data Firehose backs up incoming data.
         /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.DeliveryStreamS3DestinationConfigurationArgs> S3Configuration { get; set; } = null!;

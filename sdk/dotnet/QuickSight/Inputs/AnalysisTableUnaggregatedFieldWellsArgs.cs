@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.AnalysisUnaggregatedFieldArgs>? _values;
 
         /// <summary>
-        /// The unaggregated field for a table.
+        /// The values field well for a pivot table. Values are unaggregated for an unaggregated table.
         /// </summary>
         public InputList<Inputs.AnalysisUnaggregatedFieldArgs> Values
         {

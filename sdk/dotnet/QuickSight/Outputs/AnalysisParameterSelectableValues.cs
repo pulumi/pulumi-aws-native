@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisParameterSelectableValues
     {
         /// <summary>
-        /// A column of a data set.
+        /// The column identifier that fetches values from the data set.
         /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier? LinkToDataSetColumn;
         /// <summary>

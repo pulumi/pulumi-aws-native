@@ -72,7 +72,7 @@ export class IpAccessSettings extends pulumi.CustomResource {
      */
     public readonly ipRules!: pulumi.Output<outputs.workspacesweb.IpAccessSettingsIpRule[]>;
     /**
-     * The tag.
+     * The tags to add to the browser settings resource. A tag is a key-value pair.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -144,7 +144,7 @@ export interface IpAccessSettingsArgs {
      */
     ipRules: pulumi.Input<pulumi.Input<inputs.workspacesweb.IpAccessSettingsIpRuleArgs>[]>;
     /**
-     * The tag.
+     * The tags to add to the browser settings resource. A tag is a key-value pair.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -91,7 +91,7 @@ class GetResponsePlanResult:
     @pulumi.getter(name="incidentTemplate")
     def incident_template(self) -> Optional['outputs.ResponsePlanIncidentTemplate']:
         """
-        The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
+        Details used to create an incident when using this response plan.
         """
         return pulumi.get(self, "incident_template")
 

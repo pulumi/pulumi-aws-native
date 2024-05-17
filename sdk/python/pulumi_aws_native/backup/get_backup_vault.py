@@ -66,7 +66,7 @@ class GetBackupVaultResult:
     @pulumi.getter(name="lockConfiguration")
     def lock_configuration(self) -> Optional['outputs.BackupVaultLockConfigurationType']:
         """
-        The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+        Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
         """
         return pulumi.get(self, "lock_configuration")
 
@@ -74,7 +74,7 @@ class GetBackupVaultResult:
     @pulumi.getter
     def notifications(self) -> Optional['outputs.BackupVaultNotificationObjectType']:
         """
-        Specifies an object containing SNS event notification properties for the target backup vault.
+        The SNS event notifications for the specified backup vault.
         """
         return pulumi.get(self, "notifications")
 

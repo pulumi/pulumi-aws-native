@@ -50,7 +50,7 @@ export class AccessGrantsInstance extends pulumi.CustomResource {
      */
     public readonly identityCenterArn!: pulumi.Output<string | undefined>;
     /**
-     * A container of a key value name pair.
+     * The AWS resource tags that you are adding to the S3 Access Grants instance. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
      */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
@@ -91,7 +91,7 @@ export interface AccessGrantsInstanceArgs {
      */
     identityCenterArn?: pulumi.Input<string>;
     /**
-     * A container of a key value name pair.
+     * The AWS resource tags that you are adding to the S3 Access Grants instance. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

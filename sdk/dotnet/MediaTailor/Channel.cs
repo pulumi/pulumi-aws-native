@@ -34,13 +34,13 @@ namespace Pulumi.AwsNative.MediaTailor
         public Output<string> ChannelName { get; private set; } = null!;
 
         /// <summary>
-        /// Slate VOD source configuration.
+        /// The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
         /// </summary>
         [Output("fillerSlate")]
         public Output<Outputs.ChannelSlateSource?> FillerSlate { get; private set; } = null!;
 
         /// <summary>
-        /// The log configuration for the channel.
+        /// The log configuration.
         /// </summary>
         [Output("logConfiguration")]
         public Output<Outputs.ChannelLogConfigurationForChannel?> LogConfiguration { get; private set; } = null!;
@@ -148,13 +148,13 @@ namespace Pulumi.AwsNative.MediaTailor
         public Input<string>? ChannelName { get; set; }
 
         /// <summary>
-        /// Slate VOD source configuration.
+        /// The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
         /// </summary>
         [Input("fillerSlate")]
         public Input<Inputs.ChannelSlateSourceArgs>? FillerSlate { get; set; }
 
         /// <summary>
-        /// The log configuration for the channel.
+        /// The log configuration.
         /// </summary>
         [Input("logConfiguration")]
         public Input<Inputs.ChannelLogConfigurationForChannelArgs>? LogConfiguration { get; set; }

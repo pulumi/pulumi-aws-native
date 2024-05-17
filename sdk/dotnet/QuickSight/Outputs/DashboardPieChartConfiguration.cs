@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardPieChartConfiguration
     {
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options of the group/color that is displayed in a pie chart.
         /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? CategoryLabelOptions;
         /// <summary>
@@ -22,25 +22,23 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardContributionAnalysisDefault> ContributionAnalysisDefaults;
         /// <summary>
-        /// The options that determine the presentation of the data labels.
+        /// The options that determine if visual data labels are displayed.
         /// </summary>
         public readonly Outputs.DashboardDataLabelOptions? DataLabels;
         /// <summary>
-        /// The options for configuring a donut chart or pie chart.
+        /// The options that determine the shape of the chart. This option determines whether the chart is a pie chart or a donut chart.
         /// </summary>
         public readonly Outputs.DashboardDonutOptions? DonutOptions;
         /// <summary>
-        /// The field well configuration of a pie chart.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The field wells of the visual.
         /// </summary>
         public readonly Outputs.DashboardPieChartFieldWells? FieldWells;
         /// <summary>
-        /// The options for the legend setup of a visual.
+        /// The legend display setup of the visual.
         /// </summary>
         public readonly Outputs.DashboardLegendOptions? Legend;
         /// <summary>
-        /// Options that determine the layout and display options of a chart's small multiples.
+        /// The small multiples setup for the visual.
         /// </summary>
         public readonly Outputs.DashboardSmallMultiplesOptions? SmallMultiplesOptions;
         /// <summary>
@@ -48,15 +46,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardPieChartSortConfiguration? SortConfiguration;
         /// <summary>
-        /// The display options for the visual tooltip.
+        /// The tooltip display setup of the visual.
         /// </summary>
         public readonly Outputs.DashboardTooltipOptions? Tooltip;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options for the value that is displayed in a pie chart.
         /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? ValueLabelOptions;
         /// <summary>
-        /// The visual display options for the visual palette.
+        /// The palette (chart color) display setup of the visual.
         /// </summary>
         public readonly Outputs.DashboardVisualPalette? VisualPalette;
 

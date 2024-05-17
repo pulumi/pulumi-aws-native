@@ -45,9 +45,6 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("dataSetArns")]
         public Output<ImmutableArray<string>> DataSetArns { get; private set; } = null!;
 
-        /// <summary>
-        /// The definition of an analysis.
-        /// </summary>
         [Output("definition")]
         public Output<Outputs.AnalysisDefinition?> Definition { get; private set; } = null!;
 
@@ -70,13 +67,15 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Amazon QuickSight parameters and the list's override values.
+        /// The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values.
         /// </summary>
         [Output("parameters")]
         public Output<Outputs.AnalysisParameters?> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// Permission for the resource.
+        /// A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+        /// 
+        /// To specify no permissions, omit `Permissions` .
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.AnalysisResourcePermission>> Permissions { get; private set; } = null!;
@@ -88,7 +87,9 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<ImmutableArray<Outputs.AnalysisSheet>> Sheets { get; private set; } = null!;
 
         /// <summary>
-        /// The source entity of an analysis.
+        /// A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.
+        /// 
+        /// Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
         /// </summary>
         [Output("sourceEntity")]
         public Output<Outputs.AnalysisSourceEntity?> SourceEntity { get; private set; } = null!;
@@ -179,9 +180,6 @@ namespace Pulumi.AwsNative.QuickSight
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
-        /// <summary>
-        /// The definition of an analysis.
-        /// </summary>
         [Input("definition")]
         public Input<Inputs.AnalysisDefinitionArgs>? Definition { get; set; }
 
@@ -204,7 +202,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A list of Amazon QuickSight parameters and the list's override values.
+        /// The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values.
         /// </summary>
         [Input("parameters")]
         public Input<Inputs.AnalysisParametersArgs>? Parameters { get; set; }
@@ -213,7 +211,9 @@ namespace Pulumi.AwsNative.QuickSight
         private InputList<Inputs.AnalysisResourcePermissionArgs>? _permissions;
 
         /// <summary>
-        /// Permission for the resource.
+        /// A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+        /// 
+        /// To specify no permissions, omit `Permissions` .
         /// </summary>
         public InputList<Inputs.AnalysisResourcePermissionArgs> Permissions
         {
@@ -234,7 +234,9 @@ namespace Pulumi.AwsNative.QuickSight
         }
 
         /// <summary>
-        /// The source entity of an analysis.
+        /// A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.
+        /// 
+        /// Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
         /// </summary>
         [Input("sourceEntity")]
         public Input<Inputs.AnalysisSourceEntityArgs>? SourceEntity { get; set; }

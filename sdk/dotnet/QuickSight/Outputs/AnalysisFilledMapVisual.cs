@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisVisualCustomAction> Actions;
         /// <summary>
-        /// The configuration for a `FilledMapVisual` .
+        /// The configuration settings of the visual.
         /// </summary>
         public readonly Outputs.AnalysisFilledMapConfiguration? ChartConfiguration;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.AnalysisFilledMapConditionalFormatting? ConditionalFormatting;
         /// <summary>
-        /// The subtitle label options for a visual.
+        /// The subtitle that is displayed on the visual.
         /// </summary>
         public readonly Outputs.AnalysisVisualSubtitleLabelOptions? Subtitle;
         /// <summary>
-        /// The title label options for a visual.
+        /// The title that is displayed on the visual.
         /// </summary>
         public readonly Outputs.AnalysisVisualTitleLabelOptions? Title;
         /// <summary>

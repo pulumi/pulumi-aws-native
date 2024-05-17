@@ -31,7 +31,7 @@ export interface GetConnectionAliasResult {
      */
     readonly aliasId?: string;
     /**
-     * Describes a connection alias association that is used for cross-Region redirection. For more information, see [Cross-Region Redirection for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html) .
+     * The association status of the connection alias.
      */
     readonly associations?: outputs.workspaces.ConnectionAliasAssociation[];
     /**

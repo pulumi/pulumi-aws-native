@@ -39,7 +39,7 @@ type LookupRoomResult struct {
 	MaximumMessageLength *int `pulumi:"maximumMessageLength"`
 	// The maximum number of messages per second that can be sent to the room.
 	MaximumMessageRatePerSecond *int `pulumi:"maximumMessageRatePerSecond"`
-	// The MessageReviewHandler property type specifies configuration information for optional message review.
+	// Configuration information for optional review of messages.
 	MessageReviewHandler *RoomMessageReviewHandler `pulumi:"messageReviewHandler"`
 	// The name of the room. The value does not need to be unique.
 	Name *string `pulumi:"name"`
@@ -108,7 +108,7 @@ func (o LookupRoomResultOutput) MaximumMessageRatePerSecond() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v LookupRoomResult) *int { return v.MaximumMessageRatePerSecond }).(pulumi.IntPtrOutput)
 }
 
-// The MessageReviewHandler property type specifies configuration information for optional message review.
+// Configuration information for optional review of messages.
 func (o LookupRoomResultOutput) MessageReviewHandler() RoomMessageReviewHandlerPtrOutput {
 	return o.ApplyT(func(v LookupRoomResult) *RoomMessageReviewHandler { return v.MessageReviewHandler }).(RoomMessageReviewHandlerPtrOutput)
 }

@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.Lambda.Inputs
     public sealed class EventInvokeConfigDestinationConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A destination for events that failed processing.
+        /// The destination configuration for failed invocations.
         /// </summary>
         [Input("onFailure")]
         public Input<Inputs.EventInvokeConfigOnFailureArgs>? OnFailure { get; set; }
 
         /// <summary>
-        /// A destination for events that were processed successfully.
+        /// The destination configuration for successful invocations.
         /// </summary>
         [Input("onSuccess")]
         public Input<Inputs.EventInvokeConfigOnSuccessArgs>? OnSuccess { get; set; }

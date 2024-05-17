@@ -29,12 +29,12 @@ class LaunchArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Launch resource.
-        :param pulumi.Input[Sequence[pulumi.Input['LaunchGroupObjectArgs']]] groups: A structure that defines one launch group in a launch. A launch group is a variation of the feature that you are including in the launch.
+        :param pulumi.Input[Sequence[pulumi.Input['LaunchGroupObjectArgs']]] groups: An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
         :param pulumi.Input[str] project: The name or ARN of the project that you want to create the launch in.
-        :param pulumi.Input[Sequence[pulumi.Input['LaunchStepConfigArgs']]] scheduled_splits_config: A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
+        :param pulumi.Input[Sequence[pulumi.Input['LaunchStepConfigArgs']]] scheduled_splits_config: An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
         :param pulumi.Input[str] description: An optional description for the launch.
         :param pulumi.Input['LaunchExecutionStatusObjectArgs'] execution_status: Start or Stop Launch Launch. Default is not started.
-        :param pulumi.Input[Sequence[pulumi.Input['LaunchMetricDefinitionObjectArgs']]] metric_monitors: This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
+        :param pulumi.Input[Sequence[pulumi.Input['LaunchMetricDefinitionObjectArgs']]] metric_monitors: An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
         :param pulumi.Input[str] name: The name for the launch. It can include up to 127 characters.
         :param pulumi.Input[str] randomization_salt: When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -59,7 +59,7 @@ class LaunchArgs:
     @pulumi.getter
     def groups(self) -> pulumi.Input[Sequence[pulumi.Input['LaunchGroupObjectArgs']]]:
         """
-        A structure that defines one launch group in a launch. A launch group is a variation of the feature that you are including in the launch.
+        An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
         """
         return pulumi.get(self, "groups")
 
@@ -83,7 +83,7 @@ class LaunchArgs:
     @pulumi.getter(name="scheduledSplitsConfig")
     def scheduled_splits_config(self) -> pulumi.Input[Sequence[pulumi.Input['LaunchStepConfigArgs']]]:
         """
-        A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
+        An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
         """
         return pulumi.get(self, "scheduled_splits_config")
 
@@ -119,7 +119,7 @@ class LaunchArgs:
     @pulumi.getter(name="metricMonitors")
     def metric_monitors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchMetricDefinitionObjectArgs']]]]:
         """
-        This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
+        An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
         """
         return pulumi.get(self, "metric_monitors")
 
@@ -186,12 +186,12 @@ class Launch(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: An optional description for the launch.
         :param pulumi.Input[pulumi.InputType['LaunchExecutionStatusObjectArgs']] execution_status: Start or Stop Launch Launch. Default is not started.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchGroupObjectArgs']]]] groups: A structure that defines one launch group in a launch. A launch group is a variation of the feature that you are including in the launch.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchMetricDefinitionObjectArgs']]]] metric_monitors: This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchGroupObjectArgs']]]] groups: An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchMetricDefinitionObjectArgs']]]] metric_monitors: An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
         :param pulumi.Input[str] name: The name for the launch. It can include up to 127 characters.
         :param pulumi.Input[str] project: The name or ARN of the project that you want to create the launch in.
         :param pulumi.Input[str] randomization_salt: When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchStepConfigArgs']]]] scheduled_splits_config: A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchStepConfigArgs']]]] scheduled_splits_config: An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -316,7 +316,7 @@ class Launch(pulumi.CustomResource):
     @pulumi.getter
     def groups(self) -> pulumi.Output[Sequence['outputs.LaunchGroupObject']]:
         """
-        A structure that defines one launch group in a launch. A launch group is a variation of the feature that you are including in the launch.
+        An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
         """
         return pulumi.get(self, "groups")
 
@@ -324,7 +324,7 @@ class Launch(pulumi.CustomResource):
     @pulumi.getter(name="metricMonitors")
     def metric_monitors(self) -> pulumi.Output[Optional[Sequence['outputs.LaunchMetricDefinitionObject']]]:
         """
-        This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
+        An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
         """
         return pulumi.get(self, "metric_monitors")
 
@@ -356,7 +356,7 @@ class Launch(pulumi.CustomResource):
     @pulumi.getter(name="scheduledSplitsConfig")
     def scheduled_splits_config(self) -> pulumi.Output[Sequence['outputs.LaunchStepConfig']]:
         """
-        A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
+        An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
         """
         return pulumi.get(self, "scheduled_splits_config")
 

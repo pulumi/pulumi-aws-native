@@ -35,7 +35,7 @@ class FlywheelArgs:
         :param pulumi.Input['FlywheelDataSecurityConfigArgs'] data_security_config: Data security configuration.
         :param pulumi.Input[str] flywheel_name: Name for the flywheel.
         :param pulumi.Input['FlywheelModelType'] model_type: Model type of the flywheel's model.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
         :param pulumi.Input['FlywheelTaskConfigArgs'] task_config: Configuration about the model associated with a flywheel.
         """
         pulumi.set(__self__, "data_access_role_arn", data_access_role_arn)
@@ -129,7 +129,7 @@ class FlywheelArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+        Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
         """
         return pulumi.get(self, "tags")
 
@@ -175,7 +175,7 @@ class Flywheel(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FlywheelDataSecurityConfigArgs']] data_security_config: Data security configuration.
         :param pulumi.Input[str] flywheel_name: Name for the flywheel.
         :param pulumi.Input['FlywheelModelType'] model_type: Model type of the flywheel's model.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
         :param pulumi.Input[pulumi.InputType['FlywheelTaskConfigArgs']] task_config: Configuration about the model associated with a flywheel.
         """
         ...
@@ -327,7 +327,7 @@ class Flywheel(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+        Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
         """
         return pulumi.get(self, "tags")
 

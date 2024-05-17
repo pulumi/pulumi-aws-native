@@ -38,7 +38,7 @@ class ServerlessCacheArgs:
         """
         The set of arguments for constructing a ServerlessCache resource.
         :param pulumi.Input[str] engine: The engine name of the Serverless Cache.
-        :param pulumi.Input['ServerlessCacheCacheUsageLimitsArgs'] cache_usage_limits: The usage limits for storage and ElastiCache Processing Units for the cache.
+        :param pulumi.Input['ServerlessCacheCacheUsageLimitsArgs'] cache_usage_limits: The cache usage limit for the serverless cache.
         :param pulumi.Input[str] daily_snapshot_time: The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.
         :param pulumi.Input[str] description: The description of the Serverless Cache.
         :param pulumi.Input['ServerlessCacheEndpointArgs'] endpoint: Represents the information required for client programs to connect to a cache node. This value is read-only.
@@ -102,7 +102,7 @@ class ServerlessCacheArgs:
     @pulumi.getter(name="cacheUsageLimits")
     def cache_usage_limits(self) -> Optional[pulumi.Input['ServerlessCacheCacheUsageLimitsArgs']]:
         """
-        The usage limits for storage and ElastiCache Processing Units for the cache.
+        The cache usage limit for the serverless cache.
         """
         return pulumi.get(self, "cache_usage_limits")
 
@@ -306,7 +306,7 @@ class ServerlessCache(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServerlessCacheCacheUsageLimitsArgs']] cache_usage_limits: The usage limits for storage and ElastiCache Processing Units for the cache.
+        :param pulumi.Input[pulumi.InputType['ServerlessCacheCacheUsageLimitsArgs']] cache_usage_limits: The cache usage limit for the serverless cache.
         :param pulumi.Input[str] daily_snapshot_time: The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.
         :param pulumi.Input[str] description: The description of the Serverless Cache.
         :param pulumi.Input[pulumi.InputType['ServerlessCacheEndpointArgs']] endpoint: Represents the information required for client programs to connect to a cache node. This value is read-only.
@@ -452,7 +452,7 @@ class ServerlessCache(pulumi.CustomResource):
     @pulumi.getter(name="cacheUsageLimits")
     def cache_usage_limits(self) -> pulumi.Output[Optional['outputs.ServerlessCacheCacheUsageLimits']]:
         """
-        The usage limits for storage and ElastiCache Processing Units for the cache.
+        The cache usage limit for the serverless cache.
         """
         return pulumi.get(self, "cache_usage_limits")
 

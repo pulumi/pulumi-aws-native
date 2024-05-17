@@ -35,7 +35,7 @@ type LookupBrowserSettingsResult struct {
 	BrowserPolicy *string `pulumi:"browserPolicy"`
 	// The ARN of the browser settings.
 	BrowserSettingsArn *string `pulumi:"browserSettingsArn"`
-	// The tag.
+	// The tags to add to the browser settings resource. A tag is a key-value pair.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -90,7 +90,7 @@ func (o LookupBrowserSettingsResultOutput) BrowserSettingsArn() pulumi.StringPtr
 	return o.ApplyT(func(v LookupBrowserSettingsResult) *string { return v.BrowserSettingsArn }).(pulumi.StringPtrOutput)
 }
 
-// The tag.
+// The tags to add to the browser settings resource. A tag is a key-value pair.
 func (o LookupBrowserSettingsResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupBrowserSettingsResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

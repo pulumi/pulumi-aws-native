@@ -53,7 +53,7 @@ export interface GetLandingZoneResult {
      */
     readonly status?: enums.controltower.LandingZoneStatus;
     /**
-     * Tags applied to the landing zone.
+     * Tags to be applied to the landing zone.
      */
     readonly tags?: outputs.Tag[];
     /**

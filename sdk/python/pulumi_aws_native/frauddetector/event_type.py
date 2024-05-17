@@ -27,9 +27,9 @@ class EventTypeArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EventType resource.
-        :param pulumi.Input[Sequence[pulumi.Input['EventTypeEntityTypeArgs']]] entity_types: The entity type details.
-        :param pulumi.Input[Sequence[pulumi.Input['EventTypeEventVariableArgs']]] event_variables: The variables associated with this event type.
-        :param pulumi.Input[Sequence[pulumi.Input['EventTypeLabelArgs']]] labels: The label associated with the event type.
+        :param pulumi.Input[Sequence[pulumi.Input['EventTypeEntityTypeArgs']]] entity_types: The event type entity types.
+        :param pulumi.Input[Sequence[pulumi.Input['EventTypeEventVariableArgs']]] event_variables: The event type event variables.
+        :param pulumi.Input[Sequence[pulumi.Input['EventTypeLabelArgs']]] labels: The event type labels.
         :param pulumi.Input[str] description: The description of the event type.
         :param pulumi.Input[str] name: The name for the event type
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags associated with this event type.
@@ -48,7 +48,7 @@ class EventTypeArgs:
     @pulumi.getter(name="entityTypes")
     def entity_types(self) -> pulumi.Input[Sequence[pulumi.Input['EventTypeEntityTypeArgs']]]:
         """
-        The entity type details.
+        The event type entity types.
         """
         return pulumi.get(self, "entity_types")
 
@@ -60,7 +60,7 @@ class EventTypeArgs:
     @pulumi.getter(name="eventVariables")
     def event_variables(self) -> pulumi.Input[Sequence[pulumi.Input['EventTypeEventVariableArgs']]]:
         """
-        The variables associated with this event type.
+        The event type event variables.
         """
         return pulumi.get(self, "event_variables")
 
@@ -72,7 +72,7 @@ class EventTypeArgs:
     @pulumi.getter
     def labels(self) -> pulumi.Input[Sequence[pulumi.Input['EventTypeLabelArgs']]]:
         """
-        The label associated with the event type.
+        The event type labels.
         """
         return pulumi.get(self, "labels")
 
@@ -135,9 +135,9 @@ class EventType(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the event type.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTypeEntityTypeArgs']]]] entity_types: The entity type details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTypeEventVariableArgs']]]] event_variables: The variables associated with this event type.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTypeLabelArgs']]]] labels: The label associated with the event type.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTypeEntityTypeArgs']]]] entity_types: The event type entity types.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTypeEventVariableArgs']]]] event_variables: The event type event variables.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventTypeLabelArgs']]]] labels: The event type labels.
         :param pulumi.Input[str] name: The name for the event type
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags associated with this event type.
         """
@@ -258,7 +258,7 @@ class EventType(pulumi.CustomResource):
     @pulumi.getter(name="entityTypes")
     def entity_types(self) -> pulumi.Output[Sequence['outputs.EventTypeEntityType']]:
         """
-        The entity type details.
+        The event type entity types.
         """
         return pulumi.get(self, "entity_types")
 
@@ -266,7 +266,7 @@ class EventType(pulumi.CustomResource):
     @pulumi.getter(name="eventVariables")
     def event_variables(self) -> pulumi.Output[Sequence['outputs.EventTypeEventVariable']]:
         """
-        The variables associated with this event type.
+        The event type event variables.
         """
         return pulumi.get(self, "event_variables")
 
@@ -274,7 +274,7 @@ class EventType(pulumi.CustomResource):
     @pulumi.getter
     def labels(self) -> pulumi.Output[Sequence['outputs.EventTypeLabel']]:
         """
-        The label associated with the event type.
+        The event type labels.
         """
         return pulumi.get(self, "labels")
 

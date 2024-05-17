@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         private InputList<Inputs.ModelPackageStatusItemArgs>? _validationStatuses;
 
         /// <summary>
-        /// Represents the overall status of a model package.
+        /// The validation status of the model package.
         /// </summary>
         public InputList<Inputs.ModelPackageStatusItemArgs> ValidationStatuses
         {

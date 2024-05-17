@@ -32,7 +32,7 @@ type LookupEntitlementArgs struct {
 type LookupEntitlementResult struct {
 	// Specifies whether to entitle all apps or only selected apps.
 	AppVisibility *string `pulumi:"appVisibility"`
-	// An attribute that belongs to an entitlement. Application entitlements work by matching a supported SAML 2.0 attribute name to a value when a user identity federates to an AppStream 2.0 SAML application.
+	// The attributes of the entitlement.
 	Attributes []EntitlementAttribute `pulumi:"attributes"`
 	// The time when the entitlement was created.
 	CreatedTime *string `pulumi:"createdTime"`
@@ -85,7 +85,7 @@ func (o LookupEntitlementResultOutput) AppVisibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEntitlementResult) *string { return v.AppVisibility }).(pulumi.StringPtrOutput)
 }
 
-// An attribute that belongs to an entitlement. Application entitlements work by matching a supported SAML 2.0 attribute name to a value when a user identity federates to an AppStream 2.0 SAML application.
+// The attributes of the entitlement.
 func (o LookupEntitlementResultOutput) Attributes() EntitlementAttributeArrayOutput {
 	return o.ApplyT(func(v LookupEntitlementResult) []EntitlementAttribute { return v.Attributes }).(EntitlementAttributeArrayOutput)
 }

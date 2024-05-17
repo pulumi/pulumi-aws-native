@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
     public sealed class DeliveryStreamRedshiftDestinationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        /// The CloudWatch logging options for your delivery stream.
         /// </summary>
         [Input("cloudWatchLoggingOptions")]
         public Input<Inputs.DeliveryStreamCloudWatchLoggingOptionsArgs>? CloudWatchLoggingOptions { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<string> ClusterJdbcurl { get; set; } = null!;
 
         /// <summary>
-        /// The `CopyCommand` property type configures the Amazon Redshift `COPY` command that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses to load data into an Amazon Redshift cluster from an Amazon S3 bucket.
+        /// Configures the Amazon Redshift `COPY` command that Kinesis Data Firehose uses to load data into the cluster from the Amazon S3 bucket.
         /// </summary>
         [Input("copyCommand", required: true)]
         public Input<Inputs.DeliveryStreamCopyCommandArgs> CopyCommand { get; set; } = null!;
@@ -37,13 +37,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<string> Password { get; set; } = null!;
 
         /// <summary>
-        /// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+        /// The data processing configuration for the Kinesis Data Firehose delivery stream.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.DeliveryStreamProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
 
         /// <summary>
-        /// Configures retry behavior in case Firehose is unable to deliver documents to Amazon Redshift.
+        /// The retry behavior in case Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
         /// </summary>
         [Input("retryOptions")]
         public Input<Inputs.DeliveryStreamRedshiftRetryOptionsArgs>? RetryOptions { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        /// The configuration for backup in Amazon S3.
         /// </summary>
         [Input("s3BackupConfiguration")]
         public Input<Inputs.DeliveryStreamS3DestinationConfigurationArgs>? S3BackupConfiguration { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamRedshiftDestinationConfigurationS3BackupMode>? S3BackupMode { get; set; }
 
         /// <summary>
-        /// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        /// The S3 bucket where Kinesis Data Firehose first delivers data. After the data is in the bucket, Kinesis Data Firehose uses the `COPY` command to load the data into the Amazon Redshift cluster. For the Amazon S3 bucket's compression format, don't specify `SNAPPY` or `ZIP` because the Amazon Redshift `COPY` command doesn't support them.
         /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.DeliveryStreamS3DestinationConfigurationArgs> S3Configuration { get; set; } = null!;

@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// </summary>
         public readonly bool? UseChangeLog;
         /// <summary>
-        /// Provides the configuration information to connect to an Amazon VPC.
+        /// Provides information for connecting to an Amazon VPC.
         /// </summary>
         public readonly Outputs.DataSourceVpcConfiguration? VpcConfiguration;
 

@@ -31,14 +31,14 @@ class AssessmentArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Assessment resource.
-        :param pulumi.Input['AssessmentReportsDestinationArgs'] assessment_reports_destination: The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
-        :param pulumi.Input['AssessmentAwsAccountArgs'] aws_account: The `AWSAccount` property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
+        :param pulumi.Input['AssessmentReportsDestinationArgs'] assessment_reports_destination: The destination that evidence reports are stored in for the assessment.
+        :param pulumi.Input['AssessmentAwsAccountArgs'] aws_account: The AWS account that's associated with the assessment.
         :param pulumi.Input[Sequence[pulumi.Input['AssessmentDelegationArgs']]] delegations: The list of delegations.
         :param pulumi.Input[str] description: The description of the assessment.
         :param pulumi.Input[str] framework_id: The unique identifier for the framework.
         :param pulumi.Input[str] name: The name of the assessment.
         :param pulumi.Input[Sequence[pulumi.Input['AssessmentRoleArgs']]] roles: The list of roles for the specified assessment.
-        :param pulumi.Input['AssessmentScopeArgs'] scope: The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+        :param pulumi.Input['AssessmentScopeArgs'] scope: The wrapper of AWS accounts and services that are in scope for the assessment.
         :param pulumi.Input['AssessmentStatus'] status: The overall status of the assessment.
                
                When you create a new assessment, the initial `Status` value is always `ACTIVE` . When you create an assessment, even if you specify the value as `INACTIVE` , the value overrides to `ACTIVE` .
@@ -71,7 +71,7 @@ class AssessmentArgs:
     @pulumi.getter(name="assessmentReportsDestination")
     def assessment_reports_destination(self) -> Optional[pulumi.Input['AssessmentReportsDestinationArgs']]:
         """
-        The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+        The destination that evidence reports are stored in for the assessment.
         """
         return pulumi.get(self, "assessment_reports_destination")
 
@@ -83,7 +83,7 @@ class AssessmentArgs:
     @pulumi.getter(name="awsAccount")
     def aws_account(self) -> Optional[pulumi.Input['AssessmentAwsAccountArgs']]:
         """
-        The `AWSAccount` property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
+        The AWS account that's associated with the assessment.
         """
         return pulumi.get(self, "aws_account")
 
@@ -155,7 +155,7 @@ class AssessmentArgs:
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input['AssessmentScopeArgs']]:
         """
-        The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+        The wrapper of AWS accounts and services that are in scope for the assessment.
         """
         return pulumi.get(self, "scope")
 
@@ -213,14 +213,14 @@ class Assessment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AssessmentReportsDestinationArgs']] assessment_reports_destination: The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
-        :param pulumi.Input[pulumi.InputType['AssessmentAwsAccountArgs']] aws_account: The `AWSAccount` property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
+        :param pulumi.Input[pulumi.InputType['AssessmentReportsDestinationArgs']] assessment_reports_destination: The destination that evidence reports are stored in for the assessment.
+        :param pulumi.Input[pulumi.InputType['AssessmentAwsAccountArgs']] aws_account: The AWS account that's associated with the assessment.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentDelegationArgs']]]] delegations: The list of delegations.
         :param pulumi.Input[str] description: The description of the assessment.
         :param pulumi.Input[str] framework_id: The unique identifier for the framework.
         :param pulumi.Input[str] name: The name of the assessment.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssessmentRoleArgs']]]] roles: The list of roles for the specified assessment.
-        :param pulumi.Input[pulumi.InputType['AssessmentScopeArgs']] scope: The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+        :param pulumi.Input[pulumi.InputType['AssessmentScopeArgs']] scope: The wrapper of AWS accounts and services that are in scope for the assessment.
         :param pulumi.Input['AssessmentStatus'] status: The overall status of the assessment.
                
                When you create a new assessment, the initial `Status` value is always `ACTIVE` . When you create an assessment, even if you specify the value as `INACTIVE` , the value overrides to `ACTIVE` .
@@ -343,7 +343,7 @@ class Assessment(pulumi.CustomResource):
     @pulumi.getter(name="assessmentReportsDestination")
     def assessment_reports_destination(self) -> pulumi.Output[Optional['outputs.AssessmentReportsDestination']]:
         """
-        The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+        The destination that evidence reports are stored in for the assessment.
         """
         return pulumi.get(self, "assessment_reports_destination")
 
@@ -351,7 +351,7 @@ class Assessment(pulumi.CustomResource):
     @pulumi.getter(name="awsAccount")
     def aws_account(self) -> pulumi.Output[Optional['outputs.AssessmentAwsAccount']]:
         """
-        The `AWSAccount` property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
+        The AWS account that's associated with the assessment.
         """
         return pulumi.get(self, "aws_account")
 
@@ -407,7 +407,7 @@ class Assessment(pulumi.CustomResource):
     @pulumi.getter
     def scope(self) -> pulumi.Output[Optional['outputs.AssessmentScope']]:
         """
-        The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+        The wrapper of AWS accounts and services that are in scope for the assessment.
         """
         return pulumi.get(self, "scope")
 

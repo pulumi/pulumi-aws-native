@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisHeatMapSortConfiguration
     {
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of columns that are displayed in a heat map.
         /// </summary>
         public readonly Outputs.AnalysisItemsLimitConfiguration? HeatMapColumnItemsLimitConfiguration;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisFieldSortOptions> HeatMapColumnSort;
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of rows that are displayed in a heat map.
         /// </summary>
         public readonly Outputs.AnalysisItemsLimitConfiguration? HeatMapRowItemsLimitConfiguration;
         /// <summary>

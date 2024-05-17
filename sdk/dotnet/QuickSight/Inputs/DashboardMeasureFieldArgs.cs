@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardMeasureFieldArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The table calculation measure field for pivot tables.
+        /// The calculated measure field only used in pivot tables.
         /// </summary>
         [Input("calculatedMeasureField")]
         public Input<Inputs.DashboardCalculatedMeasureFieldArgs>? CalculatedMeasureField { get; set; }

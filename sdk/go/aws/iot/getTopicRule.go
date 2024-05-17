@@ -33,9 +33,15 @@ type LookupTopicRuleArgs struct {
 type LookupTopicRuleResult struct {
 	// The Amazon Resource Name (ARN) of the AWS IoT rule, such as `arn:aws:iot:us-east-2:123456789012:rule/MyIoTRule` .
 	Arn *string `pulumi:"arn"`
-	// A set of key/value pairs that are used to manage the resource.
+	// Metadata which can be used to manage the topic rule.
+	//
+	// > For URI Request parameters use format: ...key1=value1&key2=value2...
+	// >
+	// > For the CLI command-line parameter use format: --tags "key1=value1&key2=value2..."
+	// >
+	// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
 	Tags []aws.Tag `pulumi:"tags"`
-	// Describes a rule.
+	// The rule payload.
 	TopicRulePayload *TopicRulePayload `pulumi:"topicRulePayload"`
 }
 
@@ -82,12 +88,18 @@ func (o LookupTopicRuleResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTopicRuleResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// A set of key/value pairs that are used to manage the resource.
+// Metadata which can be used to manage the topic rule.
+//
+// > For URI Request parameters use format: ...key1=value1&key2=value2...
+// >
+// > For the CLI command-line parameter use format: --tags "key1=value1&key2=value2..."
+// >
+// > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
 func (o LookupTopicRuleResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupTopicRuleResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// Describes a rule.
+// The rule payload.
 func (o LookupTopicRuleResultOutput) TopicRulePayload() TopicRulePayloadPtrOutput {
 	return o.ApplyT(func(v LookupTopicRuleResult) *TopicRulePayload { return v.TopicRulePayload }).(TopicRulePayloadPtrOutput)
 }

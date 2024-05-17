@@ -1007,7 +1007,6 @@ func (ctx *cfSchemaContext) augmentDocumentation(referenceName, propName string,
 		typeSchema, ok := ctx.resourceSpec.Definitions[schemaName]
 		if ok {
 			refName := fmt.Sprintf("%s.%s", ctx.cfTypeName, schemaName)
-			ctx.updateDesc(refName, "", spec)
 
 			if len(typeSchema.Type) == 1 {
 				if typeSchema.PatternProperties != nil && len(typeSchema.PatternProperties) == 1 {

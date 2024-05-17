@@ -29,14 +29,14 @@ class RuleArgs:
         """
         The set of arguments for constructing a Rule resource.
         :param pulumi.Input['RuleActionArgs'] action: Describes the action for a rule.
-        :param pulumi.Input['RuleMatchArgs'] match: Describes a rule match.
+        :param pulumi.Input['RuleMatchArgs'] match: The rule match.
         :param pulumi.Input[int] priority: The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
         :param pulumi.Input[str] listener_identifier: The ID or Amazon Resource Name (ARN) of the listener.
         :param pulumi.Input[str] name: The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
                
                If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
         :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Name (ARN) of the service.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Specifies a tag for a listener rule.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the rule.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match", match)
@@ -66,7 +66,7 @@ class RuleArgs:
     @pulumi.getter
     def match(self) -> pulumi.Input['RuleMatchArgs']:
         """
-        Describes a rule match.
+        The rule match.
         """
         return pulumi.get(self, "match")
 
@@ -128,7 +128,7 @@ class RuleArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        Specifies a tag for a listener rule.
+        The tags for the rule.
         """
         return pulumi.get(self, "tags")
 
@@ -157,13 +157,13 @@ class Rule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['RuleActionArgs']] action: Describes the action for a rule.
         :param pulumi.Input[str] listener_identifier: The ID or Amazon Resource Name (ARN) of the listener.
-        :param pulumi.Input[pulumi.InputType['RuleMatchArgs']] match: Describes a rule match.
+        :param pulumi.Input[pulumi.InputType['RuleMatchArgs']] match: The rule match.
         :param pulumi.Input[str] name: The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
                
                If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
         :param pulumi.Input[int] priority: The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
         :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Name (ARN) of the service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies a tag for a listener rule.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the rule.
         """
         ...
     @overload
@@ -291,7 +291,7 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter
     def match(self) -> pulumi.Output['outputs.RuleMatch']:
         """
-        Describes a rule match.
+        The rule match.
         """
         return pulumi.get(self, "match")
 
@@ -325,7 +325,7 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        Specifies a tag for a listener rule.
+        The tags for the rule.
         """
         return pulumi.get(self, "tags")
 

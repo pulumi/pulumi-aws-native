@@ -30,7 +30,7 @@ type LookupUserPoolDomainArgs struct {
 type LookupUserPoolDomainResult struct {
 	// The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
 	CloudFrontDistribution *string `pulumi:"cloudFrontDistribution"`
-	// The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+	// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
 	CustomDomainConfig *UserPoolDomainCustomDomainConfigType `pulumi:"customDomainConfig"`
 	// The resource ID.
 	Id *string `pulumi:"id"`
@@ -77,7 +77,7 @@ func (o LookupUserPoolDomainResultOutput) CloudFrontDistribution() pulumi.String
 	return o.ApplyT(func(v LookupUserPoolDomainResult) *string { return v.CloudFrontDistribution }).(pulumi.StringPtrOutput)
 }
 
-// The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
 func (o LookupUserPoolDomainResultOutput) CustomDomainConfig() UserPoolDomainCustomDomainConfigTypePtrOutput {
 	return o.ApplyT(func(v LookupUserPoolDomainResult) *UserPoolDomainCustomDomainConfigType { return v.CustomDomainConfig }).(UserPoolDomainCustomDomainConfigTypePtrOutput)
 }

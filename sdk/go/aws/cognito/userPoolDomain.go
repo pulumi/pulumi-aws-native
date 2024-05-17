@@ -20,7 +20,7 @@ type UserPoolDomain struct {
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
 	CloudFrontDistribution pulumi.StringOutput `pulumi:"cloudFrontDistribution"`
-	// The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+	// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
 	CustomDomainConfig UserPoolDomainCustomDomainConfigTypePtrOutput `pulumi:"customDomainConfig"`
 	// The domain name for the domain that hosts the sign-up and sign-in pages for your application. For example: `auth.example.com` . If you're using a prefix domain, this field denotes the first part of the domain before `.auth.[region].amazoncognito.com` .
 	//
@@ -81,7 +81,7 @@ func (UserPoolDomainState) ElementType() reflect.Type {
 }
 
 type userPoolDomainArgs struct {
-	// The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+	// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
 	CustomDomainConfig *UserPoolDomainCustomDomainConfigType `pulumi:"customDomainConfig"`
 	// The domain name for the domain that hosts the sign-up and sign-in pages for your application. For example: `auth.example.com` . If you're using a prefix domain, this field denotes the first part of the domain before `.auth.[region].amazoncognito.com` .
 	//
@@ -93,7 +93,7 @@ type userPoolDomainArgs struct {
 
 // The set of arguments for constructing a UserPoolDomain resource.
 type UserPoolDomainArgs struct {
-	// The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+	// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
 	CustomDomainConfig UserPoolDomainCustomDomainConfigTypePtrInput
 	// The domain name for the domain that hosts the sign-up and sign-in pages for your application. For example: `auth.example.com` . If you're using a prefix domain, this field denotes the first part of the domain before `.auth.[region].amazoncognito.com` .
 	//
@@ -150,7 +150,7 @@ func (o UserPoolDomainOutput) CloudFrontDistribution() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringOutput { return v.CloudFrontDistribution }).(pulumi.StringOutput)
 }
 
-// The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
 func (o UserPoolDomainOutput) CustomDomainConfig() UserPoolDomainCustomDomainConfigTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolDomain) UserPoolDomainCustomDomainConfigTypePtrOutput { return v.CustomDomainConfig }).(UserPoolDomainCustomDomainConfigTypePtrOutput)
 }

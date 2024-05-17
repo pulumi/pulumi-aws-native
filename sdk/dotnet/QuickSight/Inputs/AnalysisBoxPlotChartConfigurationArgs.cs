@@ -13,45 +13,40 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class AnalysisBoxPlotChartConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The options of a box plot visual.
+        /// The box plot chart options for a box plot visual
         /// </summary>
         [Input("boxPlotOptions")]
         public Input<Inputs.AnalysisBoxPlotOptionsArgs>? BoxPlotOptions { get; set; }
 
         /// <summary>
-        /// The display options for the axis label.
+        /// The label display options (grid line, range, scale, axis step) of a box plot category.
         /// </summary>
         [Input("categoryAxis")]
         public Input<Inputs.AnalysisAxisDisplayOptionsArgs>? CategoryAxis { get; set; }
 
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility and sort Icon visibility) of a box plot category.
         /// </summary>
         [Input("categoryLabelOptions")]
         public Input<Inputs.AnalysisChartAxisLabelOptionsArgs>? CategoryLabelOptions { get; set; }
 
         /// <summary>
-        /// The field wells of a `BoxPlotVisual` .
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The field wells of the visual.
         /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.AnalysisBoxPlotFieldWellsArgs>? FieldWells { get; set; }
 
-        /// <summary>
-        /// The options for the legend setup of a visual.
-        /// </summary>
         [Input("legend")]
         public Input<Inputs.AnalysisLegendOptionsArgs>? Legend { get; set; }
 
         /// <summary>
-        /// The display options for the axis label.
+        /// The label display options (grid line, range, scale, axis step) of a box plot category.
         /// </summary>
         [Input("primaryYAxisDisplayOptions")]
         public Input<Inputs.AnalysisAxisDisplayOptionsArgs>? PrimaryYAxisDisplayOptions { get; set; }
 
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility and sort icon visibility) of a box plot value.
         /// </summary>
         [Input("primaryYAxisLabelOptions")]
         public Input<Inputs.AnalysisChartAxisLabelOptionsArgs>? PrimaryYAxisLabelOptions { get; set; }
@@ -75,13 +70,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.AnalysisBoxPlotSortConfigurationArgs>? SortConfiguration { get; set; }
 
         /// <summary>
-        /// The display options for the visual tooltip.
+        /// The tooltip display setup of the visual.
         /// </summary>
         [Input("tooltip")]
         public Input<Inputs.AnalysisTooltipOptionsArgs>? Tooltip { get; set; }
 
         /// <summary>
-        /// The visual display options for the visual palette.
+        /// The palette (chart color) display setup of the visual.
         /// </summary>
         [Input("visualPalette")]
         public Input<Inputs.AnalysisVisualPaletteArgs>? VisualPalette { get; set; }

@@ -30,7 +30,12 @@ type LookupEventInvokeConfigArgs struct {
 }
 
 type LookupEventInvokeConfigResult struct {
-	// A configuration object that specifies the destination of an event after Lambda processes it.
+	// A destination for events after they have been sent to a function for processing.
+	//
+	// **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
+	// - *Queue* - The ARN of a standard SQS queue.
+	// - *Topic* - The ARN of a standard SNS topic.
+	// - *Event Bus* - The ARN of an Amazon EventBridge event bus.
 	DestinationConfig *EventInvokeConfigDestinationConfig `pulumi:"destinationConfig"`
 	// The maximum age of a request that Lambda sends to a function for processing.
 	MaximumEventAgeInSeconds *int `pulumi:"maximumEventAgeInSeconds"`
@@ -76,7 +81,12 @@ func (o LookupEventInvokeConfigResultOutput) ToLookupEventInvokeConfigResultOutp
 	return o
 }
 
-// A configuration object that specifies the destination of an event after Lambda processes it.
+// A destination for events after they have been sent to a function for processing.
+//
+// **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
+// - *Queue* - The ARN of a standard SQS queue.
+// - *Topic* - The ARN of a standard SNS topic.
+// - *Event Bus* - The ARN of an Amazon EventBridge event bus.
 func (o LookupEventInvokeConfigResultOutput) DestinationConfig() EventInvokeConfigDestinationConfigPtrOutput {
 	return o.ApplyT(func(v LookupEventInvokeConfigResult) *EventInvokeConfigDestinationConfig { return v.DestinationConfig }).(EventInvokeConfigDestinationConfigPtrOutput)
 }

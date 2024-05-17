@@ -33,7 +33,7 @@ type LookupServiceNetworkServiceAssociationResult struct {
 	Arn *string `pulumi:"arn"`
 	// The date and time that the association was created, specified in ISO-8601 format.
 	CreatedAt *string `pulumi:"createdAt"`
-	// The DNS information.
+	// The DNS information of the service.
 	DnsEntry *ServiceNetworkServiceAssociationDnsEntry `pulumi:"dnsEntry"`
 	// The ID of the of the association between the service network and the service.
 	Id *string `pulumi:"id"`
@@ -51,7 +51,7 @@ type LookupServiceNetworkServiceAssociationResult struct {
 	ServiceNetworkName *string `pulumi:"serviceNetworkName"`
 	// The status of the association between the service network and the service.
 	Status *ServiceNetworkServiceAssociationStatus `pulumi:"status"`
-	// Specifies a tag for a service association.
+	// The tags for the association.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -101,7 +101,7 @@ func (o LookupServiceNetworkServiceAssociationResultOutput) CreatedAt() pulumi.S
 	return o.ApplyT(func(v LookupServiceNetworkServiceAssociationResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// The DNS information.
+// The DNS information of the service.
 func (o LookupServiceNetworkServiceAssociationResultOutput) DnsEntry() ServiceNetworkServiceAssociationDnsEntryPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkServiceAssociationResult) *ServiceNetworkServiceAssociationDnsEntry {
 		return v.DnsEntry
@@ -150,7 +150,7 @@ func (o LookupServiceNetworkServiceAssociationResultOutput) Status() ServiceNetw
 	}).(ServiceNetworkServiceAssociationStatusPtrOutput)
 }
 
-// Specifies a tag for a service association.
+// The tags for the association.
 func (o LookupServiceNetworkServiceAssociationResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupServiceNetworkServiceAssociationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

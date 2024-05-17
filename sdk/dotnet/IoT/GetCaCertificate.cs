@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// The registration configuration.
+        /// Information about the registration configuration.
         /// </summary>
         public readonly Outputs.CaCertificateRegistrationConfig? RegistrationConfig;
         /// <summary>

@@ -28,13 +28,15 @@ class DevicePoolArgs:
         """
         The set of arguments for constructing a DevicePool resource.
         :param pulumi.Input[str] project_arn: The ARN of the project for the device pool.
-        :param pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArgs']]] rules: Represents a condition for a device pool.
+        :param pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArgs']]] rules: The device pool's rules.
         :param pulumi.Input[str] description: The device pool's description.
         :param pulumi.Input[int] max_devices: The number of devices that Device Farm can add to your device pool. Device Farm adds devices that are available and meet the criteria that you assign for the `rules` parameter. Depending on how many devices meet these constraints, your device pool might contain fewer devices than the value for this parameter.
                
                By specifying the maximum number of devices, you can control the costs that you incur by running tests.
         :param pulumi.Input[str] name: The device pool's name.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
         """
         pulumi.set(__self__, "project_arn", project_arn)
         pulumi.set(__self__, "rules", rules)
@@ -63,7 +65,7 @@ class DevicePoolArgs:
     @pulumi.getter
     def rules(self) -> pulumi.Input[Sequence[pulumi.Input['DevicePoolRuleArgs']]]:
         """
-        Represents a condition for a device pool.
+        The device pool's rules.
         """
         return pulumi.get(self, "rules")
 
@@ -113,7 +115,9 @@ class DevicePoolArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
         """
         return pulumi.get(self, "tags")
 
@@ -145,8 +149,10 @@ class DevicePool(pulumi.CustomResource):
                By specifying the maximum number of devices, you can control the costs that you incur by running tests.
         :param pulumi.Input[str] name: The device pool's name.
         :param pulumi.Input[str] project_arn: The ARN of the project for the device pool.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevicePoolRuleArgs']]]] rules: Represents a condition for a device pool.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevicePoolRuleArgs']]]] rules: The device pool's rules.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
         """
         ...
     @overload
@@ -277,7 +283,7 @@ class DevicePool(pulumi.CustomResource):
     @pulumi.getter
     def rules(self) -> pulumi.Output[Sequence['outputs.DevicePoolRule']]:
         """
-        Represents a condition for a device pool.
+        The device pool's rules.
         """
         return pulumi.get(self, "rules")
 
@@ -285,7 +291,9 @@ class DevicePool(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
         """
         return pulumi.get(self, "tags")
 

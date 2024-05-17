@@ -37,7 +37,7 @@ type OriginEndpoint struct {
 	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
 	// The name of the origin endpoint associated with the origin endpoint configuration.
 	OriginEndpointName pulumi.StringOutput `pulumi:"originEndpointName"`
-	// The segment configuration, including the segment name, duration, and other configuration values.
+	// The segment associated with the origin endpoint.
 	Segment OriginEndpointSegmentPtrOutput `pulumi:"segment"`
 	// <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
 	StartoverWindowSeconds pulumi.IntPtrOutput `pulumi:"startoverWindowSeconds"`
@@ -111,7 +111,7 @@ type originEndpointArgs struct {
 	LowLatencyHlsManifests []OriginEndpointLowLatencyHlsManifestConfiguration `pulumi:"lowLatencyHlsManifests"`
 	// The name of the origin endpoint associated with the origin endpoint configuration.
 	OriginEndpointName *string `pulumi:"originEndpointName"`
-	// The segment configuration, including the segment name, duration, and other configuration values.
+	// The segment associated with the origin endpoint.
 	Segment *OriginEndpointSegment `pulumi:"segment"`
 	// <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
 	StartoverWindowSeconds *int `pulumi:"startoverWindowSeconds"`
@@ -135,7 +135,7 @@ type OriginEndpointArgs struct {
 	LowLatencyHlsManifests OriginEndpointLowLatencyHlsManifestConfigurationArrayInput
 	// The name of the origin endpoint associated with the origin endpoint configuration.
 	OriginEndpointName pulumi.StringPtrInput
-	// The segment configuration, including the segment name, duration, and other configuration values.
+	// The segment associated with the origin endpoint.
 	Segment OriginEndpointSegmentPtrInput
 	// <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
 	StartoverWindowSeconds pulumi.IntPtrInput
@@ -232,7 +232,7 @@ func (o OriginEndpointOutput) OriginEndpointName() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringOutput { return v.OriginEndpointName }).(pulumi.StringOutput)
 }
 
-// The segment configuration, including the segment name, duration, and other configuration values.
+// The segment associated with the origin endpoint.
 func (o OriginEndpointOutput) Segment() OriginEndpointSegmentPtrOutput {
 	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointSegmentPtrOutput { return v.Segment }).(OriginEndpointSegmentPtrOutput)
 }

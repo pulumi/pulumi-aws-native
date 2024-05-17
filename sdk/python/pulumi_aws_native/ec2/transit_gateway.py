@@ -39,7 +39,7 @@ class TransitGatewayArgs:
         :param pulumi.Input[str] dns_support: Enable or disable DNS support. Enabled by default.
         :param pulumi.Input[str] multicast_support: Indicates whether multicast is enabled on the transit gateway
         :param pulumi.Input[str] propagation_default_route_table_id: The ID of the default propagation route table.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the transit gateway.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transit_gateway_cidr_blocks: The transit gateway CIDR blocks.
         :param pulumi.Input[str] vpn_ecmp_support: Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
         """
@@ -180,7 +180,7 @@ class TransitGatewayArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        The tags for the transit gateway.
         """
         return pulumi.get(self, "tags")
 
@@ -245,7 +245,7 @@ class TransitGateway(pulumi.CustomResource):
         :param pulumi.Input[str] dns_support: Enable or disable DNS support. Enabled by default.
         :param pulumi.Input[str] multicast_support: Indicates whether multicast is enabled on the transit gateway
         :param pulumi.Input[str] propagation_default_route_table_id: The ID of the default propagation route table.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the transit gateway.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transit_gateway_cidr_blocks: The transit gateway CIDR blocks.
         :param pulumi.Input[str] vpn_ecmp_support: Enable or disable Equal Cost Multipath Protocol support. Enabled by default.
         """
@@ -432,7 +432,7 @@ class TransitGateway(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        The tags for the transit gateway.
         """
         return pulumi.get(self, "tags")
 

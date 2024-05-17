@@ -92,7 +92,7 @@ class GetTaskTemplateResult:
     @pulumi.getter
     def defaults(self) -> Optional[Sequence['outputs.TaskTemplateDefaultFieldValue']]:
         """
-        Describes a default field and its corresponding value.
+        The default values for fields when a task is created by referencing this template.
         """
         return pulumi.get(self, "defaults")
 

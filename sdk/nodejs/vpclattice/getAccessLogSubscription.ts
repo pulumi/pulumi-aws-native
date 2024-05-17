@@ -47,7 +47,7 @@ export interface GetAccessLogSubscriptionResult {
      */
     readonly resourceId?: string;
     /**
-     * Specifies a tag for an access log subscription.
+     * The tags for the access log subscription.
      */
     readonly tags?: outputs.Tag[];
 }

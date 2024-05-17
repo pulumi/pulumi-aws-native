@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
         /// </summary>
         public readonly string? Orientation;
         /// <summary>
-        /// The `FieldPosition` property specifies the field position.
+        /// Specifies the position of the text in a field for a `Text` sectional element.
         /// </summary>
         public readonly object? Position;
         /// <summary>

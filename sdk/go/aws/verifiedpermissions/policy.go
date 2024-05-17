@@ -102,9 +102,7 @@ import (
 type Policy struct {
 	pulumi.CustomResourceState
 
-	// A structure that defines a Cedar policy. It includes the policy type, a description, and a policy body. This is a top level data type used to create a policy.
-	//
-	// This data type is used as a request parameter for the [CreatePolicy](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html) operation. This structure must always have either an `Static` or a `TemplateLinked` element.
+	// Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
 	Definition pulumi.AnyOutput `pulumi:"definition"`
 	// The unique ID of the new or updated policy.
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
@@ -167,9 +165,7 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
-	// A structure that defines a Cedar policy. It includes the policy type, a description, and a policy body. This is a top level data type used to create a policy.
-	//
-	// This data type is used as a request parameter for the [CreatePolicy](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html) operation. This structure must always have either an `Static` or a `TemplateLinked` element.
+	// Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
 	Definition interface{} `pulumi:"definition"`
 	// Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
 	PolicyStoreId string `pulumi:"policyStoreId"`
@@ -177,9 +173,7 @@ type policyArgs struct {
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
-	// A structure that defines a Cedar policy. It includes the policy type, a description, and a policy body. This is a top level data type used to create a policy.
-	//
-	// This data type is used as a request parameter for the [CreatePolicy](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html) operation. This structure must always have either an `Static` or a `TemplateLinked` element.
+	// Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
 	Definition pulumi.Input
 	// Specifies the `PolicyStoreId` of the policy store you want to store the policy in.
 	PolicyStoreId pulumi.StringInput
@@ -222,9 +216,7 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 	return o
 }
 
-// A structure that defines a Cedar policy. It includes the policy type, a description, and a policy body. This is a top level data type used to create a policy.
-//
-// This data type is used as a request parameter for the [CreatePolicy](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreatePolicy.html) operation. This structure must always have either an `Static` or a `TemplateLinked` element.
+// Specifies the policy type and content to use for the new or updated policy. The definition structure must include either a `Static` or a `TemplateLinked` element.
 func (o PolicyOutput) Definition() pulumi.AnyOutput {
 	return o.ApplyT(func(v *Policy) pulumi.AnyOutput { return v.Definition }).(pulumi.AnyOutput)
 }

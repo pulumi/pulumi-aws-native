@@ -56,9 +56,7 @@ class CapacityReservationArgs:
                Default: `open`
         :param pulumi.Input[str] out_post_arn: The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
         :param pulumi.Input[str] placement_group_arn: The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
-        :param pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagSpecificationArgs']]] tag_specifications: An array of key-value pairs to apply to this resource.
-               
-               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        :param pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagSpecificationArgs']]] tag_specifications: The tags to apply to the Capacity Reservation during launch.
         :param pulumi.Input[str] tenancy: Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
                
                - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .
@@ -237,9 +235,7 @@ class CapacityReservationArgs:
     @pulumi.getter(name="tagSpecifications")
     def tag_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationTagSpecificationArgs']]]]:
         """
-        An array of key-value pairs to apply to this resource.
-
-        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        The tags to apply to the Capacity Reservation during launch.
         """
         return pulumi.get(self, "tag_specifications")
 
@@ -312,9 +308,7 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.Input[str] instance_type: The instance type for which to reserve capacity. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
         :param pulumi.Input[str] out_post_arn: The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
         :param pulumi.Input[str] placement_group_arn: The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapacityReservationTagSpecificationArgs']]]] tag_specifications: An array of key-value pairs to apply to this resource.
-               
-               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapacityReservationTagSpecificationArgs']]]] tag_specifications: The tags to apply to the Capacity Reservation during launch.
         :param pulumi.Input[str] tenancy: Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
                
                - `default` - The Capacity Reservation is created on hardware that is shared with other AWS accounts .
@@ -554,9 +548,7 @@ class CapacityReservation(pulumi.CustomResource):
     @pulumi.getter(name="tagSpecifications")
     def tag_specifications(self) -> pulumi.Output[Optional[Sequence['outputs.CapacityReservationTagSpecification']]]:
         """
-        An array of key-value pairs to apply to this resource.
-
-        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+        The tags to apply to the Capacity Reservation during launch.
         """
         return pulumi.get(self, "tag_specifications")
 

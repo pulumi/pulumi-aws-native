@@ -23,8 +23,6 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly string? AxisOffset;
         /// <summary>
         /// The data options for an axis.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
         /// </summary>
         public readonly Outputs.AnalysisAxisDataOptions? DataOptions;
         /// <summary>
@@ -32,7 +30,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? GridLineVisibility;
         /// <summary>
-        /// The visual display options for a data zoom scroll bar.
+        /// The scroll bar options for an axis.
         /// </summary>
         public readonly Outputs.AnalysisScrollBarOptions? ScrollbarOptions;
         /// <summary>

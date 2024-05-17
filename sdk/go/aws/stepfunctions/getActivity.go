@@ -31,7 +31,9 @@ type LookupActivityArgs struct {
 type LookupActivityResult struct {
 	// Returns the ARN of the resource.
 	Arn *string `pulumi:"arn"`
-	// The `TagsEntry` property specifies *tags* to identify an activity.
+	// The list of tags to add to a resource.
+	//
+	// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -76,7 +78,9 @@ func (o LookupActivityResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupActivityResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// The `TagsEntry` property specifies *tags* to identify an activity.
+// The list of tags to add to a resource.
+//
+// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
 func (o LookupActivityResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupActivityResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

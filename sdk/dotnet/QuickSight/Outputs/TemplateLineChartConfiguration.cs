@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateContributionAnalysisDefault> ContributionAnalysisDefaults;
         /// <summary>
-        /// The options that determine the presentation of the data labels.
+        /// The data label configuration of a line chart.
         /// </summary>
         public readonly Outputs.TemplateDataLabelOptions? DataLabels;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.TemplateLineChartFieldWells? FieldWells;
         /// <summary>
-        /// The forecast configuration that is used in a line chart's display properties.
+        /// The forecast configuration of a line chart.
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateForecastConfiguration> ForecastConfigurations;
         /// <summary>
-        /// The options for the legend setup of a visual.
+        /// The legend configuration of a line chart.
         /// </summary>
         public readonly Outputs.TemplateLegendOptions? Legend;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.TemplateLineSeriesAxisDisplayOptions? PrimaryYAxisDisplayOptions;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The options that determine the presentation of the y-axis label.
         /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? PrimaryYAxisLabelOptions;
         /// <summary>
@@ -54,17 +54,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.TemplateLineSeriesAxisDisplayOptions? SecondaryYAxisDisplayOptions;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The options that determine the presentation of the secondary y-axis label.
         /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? SecondaryYAxisLabelOptions;
         /// <summary>
         /// The series item configuration of a line chart.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateSeriesItem> Series;
         /// <summary>
-        /// Options that determine the layout and display options of a chart's small multiples.
+        /// The small multiples setup for the visual.
         /// </summary>
         public readonly Outputs.TemplateSmallMultiplesOptions? SmallMultiplesOptions;
         /// <summary>
@@ -72,7 +70,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.TemplateLineChartSortConfiguration? SortConfiguration;
         /// <summary>
-        /// The display options for the visual tooltip.
+        /// The tooltip configuration of a line chart.
         /// </summary>
         public readonly Outputs.TemplateTooltipOptions? Tooltip;
         /// <summary>
@@ -80,15 +78,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateLineChartType? Type;
         /// <summary>
-        /// The visual display options for the visual palette.
+        /// The visual palette configuration of a line chart.
         /// </summary>
         public readonly Outputs.TemplateVisualPalette? VisualPalette;
         /// <summary>
-        /// The display options for the axis label.
+        /// The options that determine the presentation of the x-axis.
         /// </summary>
         public readonly Outputs.TemplateAxisDisplayOptions? XAxisDisplayOptions;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The options that determine the presentation of the x-axis label.
         /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? XAxisLabelOptions;
 

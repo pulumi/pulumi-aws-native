@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
         /// </summary>
         public readonly bool? CaseSensitive;
         /// <summary>
-        /// Describes a header match type.
+        /// The header match type.
         /// </summary>
         public readonly Outputs.RuleHeaderMatchType Match;
         /// <summary>

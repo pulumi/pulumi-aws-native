@@ -22,13 +22,13 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> CreatedDate { get; private set; } = null!;
 
         /// <summary>
-        /// Describes a path.
+        /// The paths to exclude.
         /// </summary>
         [Output("excludePaths")]
         public Output<ImmutableArray<Outputs.NetworkInsightsAccessScopeAccessScopePathRequest>> ExcludePaths { get; private set; } = null!;
 
         /// <summary>
-        /// Describes a path.
+        /// The paths to match.
         /// </summary>
         [Output("matchPaths")]
         public Output<ImmutableArray<Outputs.NetworkInsightsAccessScopeAccessScopePathRequest>> MatchPaths { get; private set; } = null!;
@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> NetworkInsightsAccessScopeId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// The tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.AwsNative.Ec2
         private InputList<Inputs.NetworkInsightsAccessScopeAccessScopePathRequestArgs>? _excludePaths;
 
         /// <summary>
-        /// Describes a path.
+        /// The paths to exclude.
         /// </summary>
         public InputList<Inputs.NetworkInsightsAccessScopeAccessScopePathRequestArgs> ExcludePaths
         {
@@ -123,7 +123,7 @@ namespace Pulumi.AwsNative.Ec2
         private InputList<Inputs.NetworkInsightsAccessScopeAccessScopePathRequestArgs>? _matchPaths;
 
         /// <summary>
-        /// Describes a path.
+        /// The paths to match.
         /// </summary>
         public InputList<Inputs.NetworkInsightsAccessScopeAccessScopePathRequestArgs> MatchPaths
         {
@@ -135,7 +135,7 @@ namespace Pulumi.AwsNative.Ec2
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// The tags.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

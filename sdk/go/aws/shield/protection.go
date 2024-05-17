@@ -17,9 +17,9 @@ import (
 type Protection struct {
 	pulumi.CustomResourceState
 
-	// The automatic application layer DDoS mitigation settings for a `Protection` . This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
+	// The automatic application layer DDoS mitigation settings for the protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
 	//
-	// If you use AWS CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the guidance for the `AWS::WAFv2::WebACL` resource.
+	// If you use AWS CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the additional guidance about web ACL management in the `AWS::WAFv2::WebACL` resource description.
 	ApplicationLayerAutomaticResponseConfiguration ProtectionApplicationLayerAutomaticResponseConfigurationPtrOutput `pulumi:"applicationLayerAutomaticResponseConfiguration"`
 	// The Amazon Resource Names (ARNs) of the health check to associate with the protection.
 	HealthCheckArns pulumi.StringArrayOutput `pulumi:"healthCheckArns"`
@@ -83,9 +83,9 @@ func (ProtectionState) ElementType() reflect.Type {
 }
 
 type protectionArgs struct {
-	// The automatic application layer DDoS mitigation settings for a `Protection` . This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
+	// The automatic application layer DDoS mitigation settings for the protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
 	//
-	// If you use AWS CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the guidance for the `AWS::WAFv2::WebACL` resource.
+	// If you use AWS CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the additional guidance about web ACL management in the `AWS::WAFv2::WebACL` resource description.
 	ApplicationLayerAutomaticResponseConfiguration *ProtectionApplicationLayerAutomaticResponseConfiguration `pulumi:"applicationLayerAutomaticResponseConfiguration"`
 	// The Amazon Resource Names (ARNs) of the health check to associate with the protection.
 	HealthCheckArns []string `pulumi:"healthCheckArns"`
@@ -99,9 +99,9 @@ type protectionArgs struct {
 
 // The set of arguments for constructing a Protection resource.
 type ProtectionArgs struct {
-	// The automatic application layer DDoS mitigation settings for a `Protection` . This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
+	// The automatic application layer DDoS mitigation settings for the protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
 	//
-	// If you use AWS CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the guidance for the `AWS::WAFv2::WebACL` resource.
+	// If you use AWS CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the additional guidance about web ACL management in the `AWS::WAFv2::WebACL` resource description.
 	ApplicationLayerAutomaticResponseConfiguration ProtectionApplicationLayerAutomaticResponseConfigurationPtrInput
 	// The Amazon Resource Names (ARNs) of the health check to associate with the protection.
 	HealthCheckArns pulumi.StringArrayInput
@@ -150,9 +150,9 @@ func (o ProtectionOutput) ToProtectionOutputWithContext(ctx context.Context) Pro
 	return o
 }
 
-// The automatic application layer DDoS mitigation settings for a `Protection` . This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
+// The automatic application layer DDoS mitigation settings for the protection. This configuration determines whether Shield Advanced automatically manages rules in the web ACL in order to respond to application layer events that Shield Advanced determines to be DDoS attacks.
 //
-// If you use AWS CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the guidance for the `AWS::WAFv2::WebACL` resource.
+// If you use AWS CloudFormation to manage the web ACLs that you use with Shield Advanced automatic mitigation, see the additional guidance about web ACL management in the `AWS::WAFv2::WebACL` resource description.
 func (o ProtectionOutput) ApplicationLayerAutomaticResponseConfiguration() ProtectionApplicationLayerAutomaticResponseConfigurationPtrOutput {
 	return o.ApplyT(func(v *Protection) ProtectionApplicationLayerAutomaticResponseConfigurationPtrOutput {
 		return v.ApplicationLayerAutomaticResponseConfiguration

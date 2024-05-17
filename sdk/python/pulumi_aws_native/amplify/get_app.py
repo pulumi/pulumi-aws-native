@@ -112,7 +112,7 @@ class GetAppResult:
     @pulumi.getter(name="customRules")
     def custom_rules(self) -> Optional[Sequence['outputs.AppCustomRule']]:
         """
-        The CustomRule property type allows you to specify redirects, rewrites, and reverse proxies. Redirects enable a web app to reroute navigation from one URL to another.
+        The custom rewrite and redirect rules for an Amplify app.
         """
         return pulumi.get(self, "custom_rules")
 
@@ -144,7 +144,9 @@ class GetAppResult:
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[Sequence['outputs.AppEnvironmentVariable']]:
         """
-        Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+        The environment variables for the Amplify app.
+
+        For a list of the environment variables that are accessible to Amplify by default, see [Amplify Environment variables](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html) in the *Amplify Hosting User Guide* .
         """
         return pulumi.get(self, "environment_variables")
 
@@ -184,7 +186,7 @@ class GetAppResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::App` resource.
+        The tag for an Amplify app.
         """
         return pulumi.get(self, "tags")
 

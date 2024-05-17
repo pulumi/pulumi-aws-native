@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.CloudFront
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+        /// Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
         /// </summary>
         [Output("endPoints")]
         public Output<ImmutableArray<Outputs.RealtimeLogConfigEndPoint>> EndPoints { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.CloudFront
         private InputList<Inputs.RealtimeLogConfigEndPointArgs>? _endPoints;
 
         /// <summary>
-        /// Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+        /// Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
         /// </summary>
         public InputList<Inputs.RealtimeLogConfigEndPointArgs> EndPoints
         {

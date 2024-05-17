@@ -46,7 +46,7 @@ export class UserAccessLoggingSettings extends pulumi.CustomResource {
      */
     public readonly kinesisStreamArn!: pulumi.Output<string>;
     /**
-     * The tag.
+     * The tags to add to the user access logging settings resource. A tag is a key-value pair.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -92,7 +92,7 @@ export interface UserAccessLoggingSettingsArgs {
      */
     kinesisStreamArn: pulumi.Input<string>;
     /**
-     * The tag.
+     * The tags to add to the user access logging settings resource. A tag is a key-value pair.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -30,10 +30,10 @@ class ApplicationInstanceArgs:
         """
         The set of arguments for constructing a ApplicationInstance resource.
         :param pulumi.Input[str] default_runtime_context_device: The device's ID.
-        :param pulumi.Input['ApplicationInstanceManifestPayloadArgs'] manifest_payload: A application verion's manifest file. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the application manifest ( `graph.json` ). This file is located in the `graphs` folder in your application source.
+        :param pulumi.Input['ApplicationInstanceManifestPayloadArgs'] manifest_payload: The application's manifest document.
         :param pulumi.Input[str] application_instance_id_to_replace: The ID of an application instance to replace with the new instance.
         :param pulumi.Input[str] description: A description for the application instance.
-        :param pulumi.Input['ApplicationInstanceManifestOverridesPayloadArgs'] manifest_overrides_payload: Parameter overrides for an application instance. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the overrides document.
+        :param pulumi.Input['ApplicationInstanceManifestOverridesPayloadArgs'] manifest_overrides_payload: Setting overrides for the application manifest.
         :param pulumi.Input[str] name: A name for the application instance.
         :param pulumi.Input[str] runtime_role_arn: The ARN of a runtime role for the application instance.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags for the application instance.
@@ -69,7 +69,7 @@ class ApplicationInstanceArgs:
     @pulumi.getter(name="manifestPayload")
     def manifest_payload(self) -> pulumi.Input['ApplicationInstanceManifestPayloadArgs']:
         """
-        A application verion's manifest file. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the application manifest ( `graph.json` ). This file is located in the `graphs` folder in your application source.
+        The application's manifest document.
         """
         return pulumi.get(self, "manifest_payload")
 
@@ -105,7 +105,7 @@ class ApplicationInstanceArgs:
     @pulumi.getter(name="manifestOverridesPayload")
     def manifest_overrides_payload(self) -> Optional[pulumi.Input['ApplicationInstanceManifestOverridesPayloadArgs']]:
         """
-        Parameter overrides for an application instance. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the overrides document.
+        Setting overrides for the application manifest.
         """
         return pulumi.get(self, "manifest_overrides_payload")
 
@@ -172,8 +172,8 @@ class ApplicationInstance(pulumi.CustomResource):
         :param pulumi.Input[str] application_instance_id_to_replace: The ID of an application instance to replace with the new instance.
         :param pulumi.Input[str] default_runtime_context_device: The device's ID.
         :param pulumi.Input[str] description: A description for the application instance.
-        :param pulumi.Input[pulumi.InputType['ApplicationInstanceManifestOverridesPayloadArgs']] manifest_overrides_payload: Parameter overrides for an application instance. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the overrides document.
-        :param pulumi.Input[pulumi.InputType['ApplicationInstanceManifestPayloadArgs']] manifest_payload: A application verion's manifest file. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the application manifest ( `graph.json` ). This file is located in the `graphs` folder in your application source.
+        :param pulumi.Input[pulumi.InputType['ApplicationInstanceManifestOverridesPayloadArgs']] manifest_overrides_payload: Setting overrides for the application manifest.
+        :param pulumi.Input[pulumi.InputType['ApplicationInstanceManifestPayloadArgs']] manifest_payload: The application's manifest document.
         :param pulumi.Input[str] name: A name for the application instance.
         :param pulumi.Input[str] runtime_role_arn: The ARN of a runtime role for the application instance.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Tags for the application instance.
@@ -357,7 +357,7 @@ class ApplicationInstance(pulumi.CustomResource):
     @pulumi.getter(name="manifestOverridesPayload")
     def manifest_overrides_payload(self) -> pulumi.Output[Optional['outputs.ApplicationInstanceManifestOverridesPayload']]:
         """
-        Parameter overrides for an application instance. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the overrides document.
+        Setting overrides for the application manifest.
         """
         return pulumi.get(self, "manifest_overrides_payload")
 
@@ -365,7 +365,7 @@ class ApplicationInstance(pulumi.CustomResource):
     @pulumi.getter(name="manifestPayload")
     def manifest_payload(self) -> pulumi.Output['outputs.ApplicationInstanceManifestPayload']:
         """
-        A application verion's manifest file. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the application manifest ( `graph.json` ). This file is located in the `graphs` folder in your application source.
+        The application's manifest document.
         """
         return pulumi.get(self, "manifest_payload")
 

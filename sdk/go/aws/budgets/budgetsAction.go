@@ -27,20 +27,15 @@ type BudgetsAction struct {
 	ApprovalModel BudgetsActionApprovalModelPtrOutput `pulumi:"approvalModel"`
 	// A string that represents the budget name. ":" and "\" characters aren't allowed.
 	BudgetName pulumi.StringOutput `pulumi:"budgetName"`
-	// The definition is where you specify all of the type-specific parameters.
+	// Specifies all of the type-specific parameters.
 	Definition BudgetsActionDefinitionOutput `pulumi:"definition"`
 	// The role passed for action execution and reversion. Roles and actions must be in the same account.
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
 	// The type of a notification.
 	NotificationType BudgetsActionNotificationTypeOutput `pulumi:"notificationType"`
-	// The tag structure that contains a tag key and value.
+	// An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
 	ResourceTags aws.TagArrayOutput `pulumi:"resourceTags"`
-	// The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
-	//
-	// For example, an email subscriber has the following parameters:
-	//
-	// - A `subscriptionType` of `EMAIL`
-	// - An `address` of `example@example.com`
+	// A list of subscribers.
 	Subscribers BudgetsActionSubscriberArrayOutput `pulumi:"subscribers"`
 }
 
@@ -118,20 +113,15 @@ type budgetsActionArgs struct {
 	ApprovalModel *BudgetsActionApprovalModel `pulumi:"approvalModel"`
 	// A string that represents the budget name. ":" and "\" characters aren't allowed.
 	BudgetName string `pulumi:"budgetName"`
-	// The definition is where you specify all of the type-specific parameters.
+	// Specifies all of the type-specific parameters.
 	Definition BudgetsActionDefinition `pulumi:"definition"`
 	// The role passed for action execution and reversion. Roles and actions must be in the same account.
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
 	// The type of a notification.
 	NotificationType BudgetsActionNotificationType `pulumi:"notificationType"`
-	// The tag structure that contains a tag key and value.
+	// An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
 	ResourceTags []aws.Tag `pulumi:"resourceTags"`
-	// The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
-	//
-	// For example, an email subscriber has the following parameters:
-	//
-	// - A `subscriptionType` of `EMAIL`
-	// - An `address` of `example@example.com`
+	// A list of subscribers.
 	Subscribers []BudgetsActionSubscriber `pulumi:"subscribers"`
 }
 
@@ -145,20 +135,15 @@ type BudgetsActionArgs struct {
 	ApprovalModel BudgetsActionApprovalModelPtrInput
 	// A string that represents the budget name. ":" and "\" characters aren't allowed.
 	BudgetName pulumi.StringInput
-	// The definition is where you specify all of the type-specific parameters.
+	// Specifies all of the type-specific parameters.
 	Definition BudgetsActionDefinitionInput
 	// The role passed for action execution and reversion. Roles and actions must be in the same account.
 	ExecutionRoleArn pulumi.StringInput
 	// The type of a notification.
 	NotificationType BudgetsActionNotificationTypeInput
-	// The tag structure that contains a tag key and value.
+	// An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
 	ResourceTags aws.TagArrayInput
-	// The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
-	//
-	// For example, an email subscriber has the following parameters:
-	//
-	// - A `subscriptionType` of `EMAIL`
-	// - An `address` of `example@example.com`
+	// A list of subscribers.
 	Subscribers BudgetsActionSubscriberArrayInput
 }
 
@@ -224,7 +209,7 @@ func (o BudgetsActionOutput) BudgetName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BudgetsAction) pulumi.StringOutput { return v.BudgetName }).(pulumi.StringOutput)
 }
 
-// The definition is where you specify all of the type-specific parameters.
+// Specifies all of the type-specific parameters.
 func (o BudgetsActionOutput) Definition() BudgetsActionDefinitionOutput {
 	return o.ApplyT(func(v *BudgetsAction) BudgetsActionDefinitionOutput { return v.Definition }).(BudgetsActionDefinitionOutput)
 }
@@ -239,17 +224,12 @@ func (o BudgetsActionOutput) NotificationType() BudgetsActionNotificationTypeOut
 	return o.ApplyT(func(v *BudgetsAction) BudgetsActionNotificationTypeOutput { return v.NotificationType }).(BudgetsActionNotificationTypeOutput)
 }
 
-// The tag structure that contains a tag key and value.
+// An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
 func (o BudgetsActionOutput) ResourceTags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *BudgetsAction) aws.TagArrayOutput { return v.ResourceTags }).(aws.TagArrayOutput)
 }
 
-// The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
-//
-// For example, an email subscriber has the following parameters:
-//
-// - A `subscriptionType` of `EMAIL`
-// - An `address` of `example@example.com`
+// A list of subscribers.
 func (o BudgetsActionOutput) Subscribers() BudgetsActionSubscriberArrayOutput {
 	return o.ApplyT(func(v *BudgetsAction) BudgetsActionSubscriberArrayOutput { return v.Subscribers }).(BudgetsActionSubscriberArrayOutput)
 }

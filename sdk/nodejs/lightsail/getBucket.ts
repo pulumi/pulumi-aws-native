@@ -31,7 +31,7 @@ export interface GetBucketResult {
      */
     readonly ableToUpdateBundle?: boolean;
     /**
-     * `AccessRules` is a property of the [AWS::Lightsail::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html) resource. It describes access rules for a bucket.
+     * An object that describes the access rules for the bucket.
      */
     readonly accessRules?: outputs.lightsail.BucketAccessRules;
     /**

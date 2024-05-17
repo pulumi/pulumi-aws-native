@@ -13,7 +13,11 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     public sealed class DataSourceWebCrawlerConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Provides the configuration information to connect to websites that require user authentication.
+        /// Configuration information required to connect to websites using authentication.
+        /// 
+        /// You can connect to websites using basic authentication of user name and password. You use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) to store your authentication credentials.
+        /// 
+        /// You must provide the website host name and port number. For example, the host name of https://a.example.com/page1.html is "a.example.com" and the port is 443, the standard port for HTTPS.
         /// </summary>
         [Input("authenticationConfiguration")]
         public Input<Inputs.DataSourceWebCrawlerAuthenticationConfigurationArgs>? AuthenticationConfiguration { get; set; }
@@ -55,7 +59,11 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public Input<int>? MaxUrlsPerMinuteCrawlRate { get; set; }
 
         /// <summary>
-        /// Provides the configuration information for a web proxy to connect to website hosts.
+        /// Configuration information required to connect to your internal websites via a web proxy.
+        /// 
+        /// You must provide the website host name and port number. For example, the host name of https://a.example.com/page1.html is "a.example.com" and the port is 443, the standard port for HTTPS.
+        /// 
+        /// Web proxy credentials are optional and you can use them to connect to a web proxy server that requires basic authentication. To store web proxy credentials, you use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) .
         /// </summary>
         [Input("proxyConfiguration")]
         public Input<Inputs.DataSourceProxyConfigurationArgs>? ProxyConfiguration { get; set; }
@@ -91,7 +99,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         /// 
         /// You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling.
         /// 
-        /// *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://docs.aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use the Amazon Kendra web crawler to index your own webpages, or webpages that you have authorization to index.*
+        /// *When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://docs.aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index.*
         /// </summary>
         [Input("urls", required: true)]
         public Input<Inputs.DataSourceWebCrawlerUrlsArgs> Urls { get; set; } = null!;

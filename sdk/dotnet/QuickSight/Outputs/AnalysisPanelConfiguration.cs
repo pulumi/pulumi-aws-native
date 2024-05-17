@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? GutterVisibility;
         /// <summary>
-        /// The options that determine the title styles for each small multiples panel.
+        /// Configures the title display within each small multiples panel.
         /// </summary>
         public readonly Outputs.AnalysisPanelTitleOptions? Title;
 

@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         public Input<Pulumi.AwsNative.NetworkFirewall.RuleGroupStatefulRuleAction> Action { get; set; } = null!;
 
         /// <summary>
-        /// The 5-tuple criteria for AWS Network Firewall to use to inspect packet headers in stateful traffic flow inspection. Traffic flows that match the criteria are a match for the corresponding stateful rule.
+        /// The stateful inspection criteria for this rule, used to inspect traffic flows.
         /// </summary>
         [Input("header", required: true)]
         public Input<Inputs.RuleGroupHeaderArgs> Header { get; set; } = null!;
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         private InputList<Inputs.RuleGroupRuleOptionArgs>? _ruleOptions;
 
         /// <summary>
-        /// Additional settings for a stateful rule.
+        /// Additional settings for a stateful rule, provided as keywords and settings.
         /// </summary>
         public InputList<Inputs.RuleGroupRuleOptionArgs> RuleOptions
         {

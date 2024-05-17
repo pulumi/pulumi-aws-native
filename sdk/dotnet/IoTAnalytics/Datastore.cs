@@ -157,13 +157,15 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public Output<Outputs.DatastoreFileFormatConfiguration?> FileFormatConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// How long, in days, message data is kept.
+        /// How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
         /// </summary>
         [Output("retentionPeriod")]
         public Output<Outputs.DatastoreRetentionPeriod?> RetentionPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// A set of key-value pairs that are used to manage the resource.
+        /// Metadata which can be used to manage the data store.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -246,7 +248,7 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public Input<Inputs.DatastoreFileFormatConfigurationArgs>? FileFormatConfiguration { get; set; }
 
         /// <summary>
-        /// How long, in days, message data is kept.
+        /// How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
         /// </summary>
         [Input("retentionPeriod")]
         public Input<Inputs.DatastoreRetentionPeriodArgs>? RetentionPeriod { get; set; }
@@ -255,7 +257,9 @@ namespace Pulumi.AwsNative.IoTAnalytics
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A set of key-value pairs that are used to manage the resource.
+        /// Metadata which can be used to manage the data store.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

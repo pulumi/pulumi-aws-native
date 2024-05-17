@@ -41,7 +41,7 @@ type LookupPartnershipResult struct {
 	PartnershipArn *string `pulumi:"partnershipArn"`
 	// Returns the unique, system-generated identifier for a partnership.
 	PartnershipId *string `pulumi:"partnershipId"`
-	// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+	// A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Returns the unique, system-generated identifier for a trading partner.
 	TradingPartnerId *string `pulumi:"tradingPartnerId"`
@@ -113,7 +113,7 @@ func (o LookupPartnershipResultOutput) PartnershipId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPartnershipResult) *string { return v.PartnershipId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+// A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
 func (o LookupPartnershipResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupPartnershipResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

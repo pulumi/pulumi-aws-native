@@ -78,7 +78,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
      */
     public readonly originEndpointName!: pulumi.Output<string>;
     /**
-     * The segment configuration, including the segment name, duration, and other configuration values.
+     * The segment associated with the origin endpoint.
      */
     public readonly segment!: pulumi.Output<outputs.mediapackagev2.OriginEndpointSegment | undefined>;
     /**
@@ -175,7 +175,7 @@ export interface OriginEndpointArgs {
      */
     originEndpointName?: pulumi.Input<string>;
     /**
-     * The segment configuration, including the segment name, duration, and other configuration values.
+     * The segment associated with the origin endpoint.
      */
     segment?: pulumi.Input<inputs.mediapackagev2.OriginEndpointSegmentArgs>;
     /**

@@ -22,19 +22,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardPivotTableSubtotalLevel? FieldLevel;
         /// <summary>
-        /// The optional configuration of subtotals cells.
+        /// The optional configuration of subtotal cells.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardPivotTableFieldSubtotalOptions> FieldLevelOptions;
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The cell styling options for the subtotals of header cells.
         /// </summary>
         public readonly Outputs.DashboardTableCellStyle? MetricHeaderCellStyle;
         /// <summary>
-        /// The table style target.
+        /// The style targets options for subtotals.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardTableStyleTarget> StyleTargets;
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The cell styling options for the subtotal cells.
         /// </summary>
         public readonly Outputs.DashboardTableCellStyle? TotalCellStyle;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? TotalsVisibility;
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The cell styling options for the subtotals of value cells.
         /// </summary>
         public readonly Outputs.DashboardTableCellStyle? ValueCellStyle;
 

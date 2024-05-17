@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardTooltipOptions
     {
         /// <summary>
-        /// The setup for the detailed tooltip.
+        /// The setup for the detailed tooltip. The tooltip setup is always saved. The display type is decided based on the tooltip type.
         /// </summary>
         public readonly Outputs.DashboardFieldBasedTooltip? FieldBasedTooltip;
         /// <summary>

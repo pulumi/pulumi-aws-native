@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateAxisLabelOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The reference that specifies where the axis label is applied to.
+        /// The options that indicate which field the label belongs to.
         /// </summary>
         [Input("applyTo")]
         public Input<Inputs.TemplateAxisLabelReferenceOptionsArgs>? ApplyTo { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string>? CustomLabel { get; set; }
 
         /// <summary>
-        /// Configures the display properties of the given text.
+        /// The font configuration of the axis label.
         /// </summary>
         [Input("fontConfiguration")]
         public Input<Inputs.TemplateFontConfigurationArgs>? FontConfiguration { get; set; }

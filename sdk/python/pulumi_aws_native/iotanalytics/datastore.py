@@ -34,8 +34,10 @@ class DatastoreArgs:
                The default file format is JSON. You can specify only one format.
                
                You can't change the file format after you create the data store.
-        :param pulumi.Input['DatastoreRetentionPeriodArgs'] retention_period: How long, in days, message data is kept.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of key-value pairs that are used to manage the resource.
+        :param pulumi.Input['DatastoreRetentionPeriodArgs'] retention_period: How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Metadata which can be used to manage the data store.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         if datastore_name is not None:
             pulumi.set(__self__, "datastore_name", datastore_name)
@@ -106,7 +108,7 @@ class DatastoreArgs:
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> Optional[pulumi.Input['DatastoreRetentionPeriodArgs']]:
         """
-        How long, in days, message data is kept.
+        How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
         """
         return pulumi.get(self, "retention_period")
 
@@ -118,7 +120,9 @@ class DatastoreArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A set of key-value pairs that are used to manage the resource.
+        Metadata which can be used to manage the data store.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         return pulumi.get(self, "tags")
 
@@ -220,8 +224,10 @@ class Datastore(pulumi.CustomResource):
                The default file format is JSON. You can specify only one format.
                
                You can't change the file format after you create the data store.
-        :param pulumi.Input[pulumi.InputType['DatastoreRetentionPeriodArgs']] retention_period: How long, in days, message data is kept.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A set of key-value pairs that are used to manage the resource.
+        :param pulumi.Input[pulumi.InputType['DatastoreRetentionPeriodArgs']] retention_period: How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata which can be used to manage the data store.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         ...
     @overload
@@ -415,7 +421,7 @@ class Datastore(pulumi.CustomResource):
     @pulumi.getter(name="retentionPeriod")
     def retention_period(self) -> pulumi.Output[Optional['outputs.DatastoreRetentionPeriod']]:
         """
-        How long, in days, message data is kept.
+        How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
         """
         return pulumi.get(self, "retention_period")
 
@@ -423,7 +429,9 @@ class Datastore(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A set of key-value pairs that are used to manage the resource.
+        Metadata which can be used to manage the data store.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         return pulumi.get(self, "tags")
 

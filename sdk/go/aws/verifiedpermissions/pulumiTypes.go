@@ -156,8 +156,6 @@ type IdentitySourceCognitoUserPoolConfiguration struct {
 	// Example: `"ClientIds": ["&ExampleCogClientId;"]`
 	ClientIds []string `pulumi:"clientIds"`
 	// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source.
-	//
-	// This data type is part of a [CognitoUserPoolConfiguration](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfiguration.html) structure and is a request parameter in [CreateIdentitySource](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html) .
 	GroupConfiguration *IdentitySourceCognitoGroupConfiguration `pulumi:"groupConfiguration"`
 	// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the Amazon Cognito user pool that contains the identities to be authorized.
 	UserPoolArn string `pulumi:"userPoolArn"`
@@ -180,8 +178,6 @@ type IdentitySourceCognitoUserPoolConfigurationArgs struct {
 	// Example: `"ClientIds": ["&ExampleCogClientId;"]`
 	ClientIds pulumi.StringArrayInput `pulumi:"clientIds"`
 	// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source.
-	//
-	// This data type is part of a [CognitoUserPoolConfiguration](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfiguration.html) structure and is a request parameter in [CreateIdentitySource](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html) .
 	GroupConfiguration IdentitySourceCognitoGroupConfigurationPtrInput `pulumi:"groupConfiguration"`
 	// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the Amazon Cognito user pool that contains the identities to be authorized.
 	UserPoolArn pulumi.StringInput `pulumi:"userPoolArn"`
@@ -221,8 +217,6 @@ func (o IdentitySourceCognitoUserPoolConfigurationOutput) ClientIds() pulumi.Str
 }
 
 // The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source.
-//
-// This data type is part of a [CognitoUserPoolConfiguration](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfiguration.html) structure and is a request parameter in [CreateIdentitySource](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html) .
 func (o IdentitySourceCognitoUserPoolConfigurationOutput) GroupConfiguration() IdentitySourceCognitoGroupConfigurationPtrOutput {
 	return o.ApplyT(func(v IdentitySourceCognitoUserPoolConfiguration) *IdentitySourceCognitoGroupConfiguration {
 		return v.GroupConfiguration
@@ -271,8 +265,6 @@ func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) ClientIds() pulumi.
 }
 
 // The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source.
-//
-// This data type is part of a [CognitoUserPoolConfiguration](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfiguration.html) structure and is a request parameter in [CreateIdentitySource](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html) .
 func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) GroupConfiguration() IdentitySourceCognitoGroupConfigurationPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceCognitoUserPoolConfiguration) *IdentitySourceCognitoGroupConfiguration {
 		if v == nil {

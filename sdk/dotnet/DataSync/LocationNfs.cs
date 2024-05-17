@@ -34,7 +34,9 @@ namespace Pulumi.AwsNative.DataSync
         public Output<Outputs.LocationNfsMountOptions?> MountOptions { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS DataSync agents that are connecting to a Network File System (NFS) location.
+        /// Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+        /// 
+        /// You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
         /// </summary>
         [Output("onPremConfig")]
         public Output<Outputs.LocationNfsOnPremConfig> OnPremConfig { get; private set; } = null!;
@@ -113,7 +115,9 @@ namespace Pulumi.AwsNative.DataSync
         public Input<Inputs.LocationNfsMountOptionsArgs>? MountOptions { get; set; }
 
         /// <summary>
-        /// The AWS DataSync agents that are connecting to a Network File System (NFS) location.
+        /// Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+        /// 
+        /// You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
         /// </summary>
         [Input("onPremConfig", required: true)]
         public Input<Inputs.LocationNfsOnPremConfigArgs> OnPremConfig { get; set; } = null!;

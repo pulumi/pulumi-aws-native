@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.MediaPackage
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters for enabling CDN authorization on the endpoint.
+        /// Parameters for CDN authorization.
         /// </summary>
         [Output("authorization")]
         public Output<Outputs.OriginEndpointAuthorization?> Authorization { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.AwsNative.MediaPackage
     public sealed class OriginEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Parameters for enabling CDN authorization on the endpoint.
+        /// Parameters for CDN authorization.
         /// </summary>
         [Input("authorization")]
         public Input<Inputs.OriginEndpointAuthorizationArgs>? Authorization { get; set; }

@@ -36,9 +36,7 @@ type LookupRestoreTestingSelectionResult struct {
 	IamRoleArn *string `pulumi:"iamRoleArn"`
 	// You can include specific ARNs, such as `ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]` or you can include a wildcard: `ProtectedResourceArns: ["*"]` , but not both.
 	ProtectedResourceArns []string `pulumi:"protectedResourceArns"`
-	// The conditions that you define for resources in your restore testing plan using tags.
-	//
-	// For example, `"StringEquals": { "Key": "aws:ResourceTag/CreatedByCryo", "Value": "true" },` . Condition operators are case sensitive.
+	// In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
 	ProtectedResourceConditions *RestoreTestingSelectionProtectedResourceConditions `pulumi:"protectedResourceConditions"`
 	// You can override certain restore metadata keys by including the parameter `RestoreMetadataOverrides` in the body of `RestoreTestingSelection` . Key values are not case sensitive.
 	//
@@ -98,9 +96,7 @@ func (o LookupRestoreTestingSelectionResultOutput) ProtectedResourceArns() pulum
 	return o.ApplyT(func(v LookupRestoreTestingSelectionResult) []string { return v.ProtectedResourceArns }).(pulumi.StringArrayOutput)
 }
 
-// The conditions that you define for resources in your restore testing plan using tags.
-//
-// For example, `"StringEquals": { "Key": "aws:ResourceTag/CreatedByCryo", "Value": "true" },` . Condition operators are case sensitive.
+// In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
 func (o LookupRestoreTestingSelectionResultOutput) ProtectedResourceConditions() RestoreTestingSelectionProtectedResourceConditionsPtrOutput {
 	return o.ApplyT(func(v LookupRestoreTestingSelectionResult) *RestoreTestingSelectionProtectedResourceConditions {
 		return v.ProtectedResourceConditions

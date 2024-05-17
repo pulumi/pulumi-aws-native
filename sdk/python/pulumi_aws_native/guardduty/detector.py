@@ -27,10 +27,14 @@ class DetectorArgs:
         """
         The set of arguments for constructing a Detector resource.
         :param pulumi.Input[bool] enable: Specifies whether the detector is to be enabled on creation.
-        :param pulumi.Input['DetectorCfnDataSourceConfigurationsArgs'] data_sources: Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
-        :param pulumi.Input[Sequence[pulumi.Input['DetectorCfnFeatureConfigurationArgs']]] features: Information about the configuration of a feature in your account.
+        :param pulumi.Input['DetectorCfnDataSourceConfigurationsArgs'] data_sources: Describes which data sources will be enabled for the detector.
+        :param pulumi.Input[Sequence[pulumi.Input['DetectorCfnFeatureConfigurationArgs']]] features: A list of features that will be configured for the detector.
         :param pulumi.Input[str] finding_publishing_frequency: Specifies how frequently updated findings are exported.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Describes a tag.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
+               
+               Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         pulumi.set(__self__, "enable", enable)
         if data_sources is not None:
@@ -58,7 +62,7 @@ class DetectorArgs:
     @pulumi.getter(name="dataSources")
     def data_sources(self) -> Optional[pulumi.Input['DetectorCfnDataSourceConfigurationsArgs']]:
         """
-        Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
+        Describes which data sources will be enabled for the detector.
         """
         return pulumi.get(self, "data_sources")
 
@@ -70,7 +74,7 @@ class DetectorArgs:
     @pulumi.getter
     def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorCfnFeatureConfigurationArgs']]]]:
         """
-        Information about the configuration of a feature in your account.
+        A list of features that will be configured for the detector.
         """
         return pulumi.get(self, "features")
 
@@ -94,7 +98,11 @@ class DetectorArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        Describes a tag.
+        Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
+
+        Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         return pulumi.get(self, "tags")
 
@@ -119,11 +127,15 @@ class Detector(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DetectorCfnDataSourceConfigurationsArgs']] data_sources: Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
+        :param pulumi.Input[pulumi.InputType['DetectorCfnDataSourceConfigurationsArgs']] data_sources: Describes which data sources will be enabled for the detector.
         :param pulumi.Input[bool] enable: Specifies whether the detector is to be enabled on creation.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorCfnFeatureConfigurationArgs']]]] features: Information about the configuration of a feature in your account.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorCfnFeatureConfigurationArgs']]]] features: A list of features that will be configured for the detector.
         :param pulumi.Input[str] finding_publishing_frequency: Specifies how frequently updated findings are exported.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Describes a tag.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
+               
+               Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         ...
     @overload
@@ -210,7 +222,7 @@ class Detector(pulumi.CustomResource):
     @pulumi.getter(name="dataSources")
     def data_sources(self) -> pulumi.Output[Optional['outputs.DetectorCfnDataSourceConfigurations']]:
         """
-        Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
+        Describes which data sources will be enabled for the detector.
         """
         return pulumi.get(self, "data_sources")
 
@@ -226,7 +238,7 @@ class Detector(pulumi.CustomResource):
     @pulumi.getter
     def features(self) -> pulumi.Output[Optional[Sequence['outputs.DetectorCfnFeatureConfiguration']]]:
         """
-        Information about the configuration of a feature in your account.
+        A list of features that will be configured for the detector.
         """
         return pulumi.get(self, "features")
 
@@ -242,7 +254,11 @@ class Detector(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        Describes a tag.
+        Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
+
+        Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         return pulumi.get(self, "tags")
 

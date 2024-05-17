@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.TemplateBodySectionConfigurationArgs>? _bodySections;
 
         /// <summary>
-        /// The configuration of a body section.
+        /// A list of body section configurations.
         /// </summary>
         public InputList<Inputs.TemplateBodySectionConfigurationArgs> BodySections
         {
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.TemplateHeaderFooterSectionConfigurationArgs>? _footerSections;
 
         /// <summary>
-        /// The configuration of a header or footer section.
+        /// A list of footer section configurations.
         /// </summary>
         public InputList<Inputs.TemplateHeaderFooterSectionConfigurationArgs> FooterSections
         {

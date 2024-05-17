@@ -4939,7 +4939,9 @@ func (o LaunchConfigurationMetadataOptionsPtrOutput) HttpTokens() pulumi.StringP
 }
 
 type ScalingPolicyCustomizedMetricSpecification struct {
-	// `MetricDimension` specifies a name/value pair that is part of the identity of a CloudWatch metric for the `Dimensions` property of the [AWS::AutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html) property type. Duplicate dimensions are not allowed.
+	// The dimensions of the metric.
+	//
+	// Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
 	Dimensions []ScalingPolicyMetricDimension `pulumi:"dimensions"`
 	// The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
 	MetricName string `pulumi:"metricName"`
@@ -4963,7 +4965,9 @@ type ScalingPolicyCustomizedMetricSpecificationInput interface {
 }
 
 type ScalingPolicyCustomizedMetricSpecificationArgs struct {
-	// `MetricDimension` specifies a name/value pair that is part of the identity of a CloudWatch metric for the `Dimensions` property of the [AWS::AutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html) property type. Duplicate dimensions are not allowed.
+	// The dimensions of the metric.
+	//
+	// Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
 	Dimensions ScalingPolicyMetricDimensionArrayInput `pulumi:"dimensions"`
 	// The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
 	MetricName pulumi.StringInput `pulumi:"metricName"`
@@ -5052,7 +5056,9 @@ func (o ScalingPolicyCustomizedMetricSpecificationOutput) ToScalingPolicyCustomi
 	}).(ScalingPolicyCustomizedMetricSpecificationPtrOutput)
 }
 
-// `MetricDimension` specifies a name/value pair that is part of the identity of a CloudWatch metric for the `Dimensions` property of the [AWS::AutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html) property type. Duplicate dimensions are not allowed.
+// The dimensions of the metric.
+//
+// Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
 func (o ScalingPolicyCustomizedMetricSpecificationOutput) Dimensions() ScalingPolicyMetricDimensionArrayOutput {
 	return o.ApplyT(func(v ScalingPolicyCustomizedMetricSpecification) []ScalingPolicyMetricDimension { return v.Dimensions }).(ScalingPolicyMetricDimensionArrayOutput)
 }
@@ -5101,7 +5107,9 @@ func (o ScalingPolicyCustomizedMetricSpecificationPtrOutput) Elem() ScalingPolic
 	}).(ScalingPolicyCustomizedMetricSpecificationOutput)
 }
 
-// `MetricDimension` specifies a name/value pair that is part of the identity of a CloudWatch metric for the `Dimensions` property of the [AWS::AutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html) property type. Duplicate dimensions are not allowed.
+// The dimensions of the metric.
+//
+// Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
 func (o ScalingPolicyCustomizedMetricSpecificationPtrOutput) Dimensions() ScalingPolicyMetricDimensionArrayOutput {
 	return o.ApplyT(func(v *ScalingPolicyCustomizedMetricSpecification) []ScalingPolicyMetricDimension {
 		if v == nil {
@@ -5152,7 +5160,9 @@ func (o ScalingPolicyCustomizedMetricSpecificationPtrOutput) Unit() pulumi.Strin
 }
 
 type ScalingPolicyMetric struct {
-	// `MetricDimension` specifies a name/value pair that is part of the identity of a CloudWatch metric for the `Dimensions` property of the [AWS::AutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html) property type. Duplicate dimensions are not allowed.
+	// The dimensions for the metric. For the list of available dimensions, see the AWS documentation available from the table in [AWS services that publish CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) in the *Amazon CloudWatch User Guide* .
+	//
+	// Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
 	Dimensions []ScalingPolicyMetricDimension `pulumi:"dimensions"`
 	// The name of the metric.
 	MetricName string `pulumi:"metricName"`
@@ -5172,7 +5182,9 @@ type ScalingPolicyMetricInput interface {
 }
 
 type ScalingPolicyMetricArgs struct {
-	// `MetricDimension` specifies a name/value pair that is part of the identity of a CloudWatch metric for the `Dimensions` property of the [AWS::AutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html) property type. Duplicate dimensions are not allowed.
+	// The dimensions for the metric. For the list of available dimensions, see the AWS documentation available from the table in [AWS services that publish CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) in the *Amazon CloudWatch User Guide* .
+	//
+	// Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
 	Dimensions ScalingPolicyMetricDimensionArrayInput `pulumi:"dimensions"`
 	// The name of the metric.
 	MetricName pulumi.StringInput `pulumi:"metricName"`
@@ -5257,7 +5269,9 @@ func (o ScalingPolicyMetricOutput) ToScalingPolicyMetricPtrOutputWithContext(ctx
 	}).(ScalingPolicyMetricPtrOutput)
 }
 
-// `MetricDimension` specifies a name/value pair that is part of the identity of a CloudWatch metric for the `Dimensions` property of the [AWS::AutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html) property type. Duplicate dimensions are not allowed.
+// The dimensions for the metric. For the list of available dimensions, see the AWS documentation available from the table in [AWS services that publish CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) in the *Amazon CloudWatch User Guide* .
+//
+// Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
 func (o ScalingPolicyMetricOutput) Dimensions() ScalingPolicyMetricDimensionArrayOutput {
 	return o.ApplyT(func(v ScalingPolicyMetric) []ScalingPolicyMetricDimension { return v.Dimensions }).(ScalingPolicyMetricDimensionArrayOutput)
 }
@@ -5296,7 +5310,9 @@ func (o ScalingPolicyMetricPtrOutput) Elem() ScalingPolicyMetricOutput {
 	}).(ScalingPolicyMetricOutput)
 }
 
-// `MetricDimension` specifies a name/value pair that is part of the identity of a CloudWatch metric for the `Dimensions` property of the [AWS::AutoScaling::ScalingPolicy CustomizedMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html) property type. Duplicate dimensions are not allowed.
+// The dimensions for the metric. For the list of available dimensions, see the AWS documentation available from the table in [AWS services that publish CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) in the *Amazon CloudWatch User Guide* .
+//
+// Conditional: If you published your metric with dimensions, you must specify the same dimensions in your scaling policy.
 func (o ScalingPolicyMetricPtrOutput) Dimensions() ScalingPolicyMetricDimensionArrayOutput {
 	return o.ApplyT(func(v *ScalingPolicyMetric) []ScalingPolicyMetricDimension {
 		if v == nil {
@@ -5335,11 +5351,9 @@ type ScalingPolicyMetricDataQuery struct {
 	Id string `pulumi:"id"`
 	// A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.
 	Label *string `pulumi:"label"`
-	// `MetricStat` is a property of the [AWS::AutoScaling::ScalingPolicy MetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricdataquery.html) property type.
+	// Information about the metric data to return.
 	//
-	// This structure defines the CloudWatch metric to return, along with the statistic and unit.
-	//
-	// For more information about the CloudWatch terminology below, see [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html) in the *Amazon CloudWatch User Guide* .
+	// Conditional: Within each `MetricDataQuery` object, you must specify either `Expression` or `MetricStat` , but not both.
 	MetricStat *ScalingPolicyMetricStat `pulumi:"metricStat"`
 	// Indicates whether to return the timestamps and raw data values of this metric.
 	//
@@ -5369,11 +5383,9 @@ type ScalingPolicyMetricDataQueryArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.
 	Label pulumi.StringPtrInput `pulumi:"label"`
-	// `MetricStat` is a property of the [AWS::AutoScaling::ScalingPolicy MetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricdataquery.html) property type.
+	// Information about the metric data to return.
 	//
-	// This structure defines the CloudWatch metric to return, along with the statistic and unit.
-	//
-	// For more information about the CloudWatch terminology below, see [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html) in the *Amazon CloudWatch User Guide* .
+	// Conditional: Within each `MetricDataQuery` object, you must specify either `Expression` or `MetricStat` , but not both.
 	MetricStat ScalingPolicyMetricStatPtrInput `pulumi:"metricStat"`
 	// Indicates whether to return the timestamps and raw data values of this metric.
 	//
@@ -5451,11 +5463,9 @@ func (o ScalingPolicyMetricDataQueryOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyMetricDataQuery) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
-// `MetricStat` is a property of the [AWS::AutoScaling::ScalingPolicy MetricDataQuery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricdataquery.html) property type.
+// Information about the metric data to return.
 //
-// This structure defines the CloudWatch metric to return, along with the statistic and unit.
-//
-// For more information about the CloudWatch terminology below, see [Amazon CloudWatch concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html) in the *Amazon CloudWatch User Guide* .
+// Conditional: Within each `MetricDataQuery` object, you must specify either `Expression` or `MetricStat` , but not both.
 func (o ScalingPolicyMetricDataQueryOutput) MetricStat() ScalingPolicyMetricStatPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyMetricDataQuery) *ScalingPolicyMetricStat { return v.MetricStat }).(ScalingPolicyMetricStatPtrOutput)
 }
@@ -5596,9 +5606,7 @@ func (o ScalingPolicyMetricDimensionArrayOutput) Index(i pulumi.IntInput) Scalin
 }
 
 type ScalingPolicyMetricStat struct {
-	// Represents a specific metric.
-	//
-	// `Metric` is a property of the [AWS::AutoScaling::ScalingPolicy MetricStat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricstat.html) property type.
+	// The CloudWatch metric to return, including the metric name, namespace, and dimensions. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
 	Metric ScalingPolicyMetric `pulumi:"metric"`
 	// The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide* .
 	//
@@ -5620,9 +5628,7 @@ type ScalingPolicyMetricStatInput interface {
 }
 
 type ScalingPolicyMetricStatArgs struct {
-	// Represents a specific metric.
-	//
-	// `Metric` is a property of the [AWS::AutoScaling::ScalingPolicy MetricStat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricstat.html) property type.
+	// The CloudWatch metric to return, including the metric name, namespace, and dimensions. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
 	Metric ScalingPolicyMetricInput `pulumi:"metric"`
 	// The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide* .
 	//
@@ -5709,9 +5715,7 @@ func (o ScalingPolicyMetricStatOutput) ToScalingPolicyMetricStatPtrOutputWithCon
 	}).(ScalingPolicyMetricStatPtrOutput)
 }
 
-// Represents a specific metric.
-//
-// `Metric` is a property of the [AWS::AutoScaling::ScalingPolicy MetricStat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricstat.html) property type.
+// The CloudWatch metric to return, including the metric name, namespace, and dimensions. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
 func (o ScalingPolicyMetricStatOutput) Metric() ScalingPolicyMetricOutput {
 	return o.ApplyT(func(v ScalingPolicyMetricStat) ScalingPolicyMetric { return v.Metric }).(ScalingPolicyMetricOutput)
 }
@@ -5752,9 +5756,7 @@ func (o ScalingPolicyMetricStatPtrOutput) Elem() ScalingPolicyMetricStatOutput {
 	}).(ScalingPolicyMetricStatOutput)
 }
 
-// Represents a specific metric.
-//
-// `Metric` is a property of the [AWS::AutoScaling::ScalingPolicy MetricStat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricstat.html) property type.
+// The CloudWatch metric to return, including the metric name, namespace, and dimensions. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
 func (o ScalingPolicyMetricStatPtrOutput) Metric() ScalingPolicyMetricPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicyMetricStat) *ScalingPolicyMetric {
 		if v == nil {
@@ -6022,19 +6024,9 @@ type ScalingPolicyPredictiveScalingConfiguration struct {
 	//
 	// Required if the `MaxCapacityBreachBehavior` property is set to `IncreaseMaxCapacity` , and cannot be used otherwise.
 	MaxCapacityBuffer *int `pulumi:"maxCapacityBuffer"`
-	// A structure that specifies a metric specification for the `MetricSpecifications` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingconfiguration.html) property type.
+	// This structure includes the metrics and target utilization to use for predictive scaling.
 	//
-	// You must specify either a metric pair, or a load metric and a scaling metric individually. Specifying a metric pair instead of individual metrics provides a simpler way to configure metrics for a scaling policy. You choose the metric pair, and the policy automatically knows the correct sum and average statistics to use for the load metric and the scaling metric.
-	//
-	// Example
-	//
-	// - You create a predictive scaling policy and specify `ALBRequestCount` as the value for the metric pair and `1000.0` as the target value. For this type of metric, you must provide the metric dimension for the corresponding target group, so you also provide a resource label for the Application Load Balancer target group that is attached to your Auto Scaling group.
-	// - The number of requests the target group receives per minute provides the load metric, and the request count averaged between the members of the target group provides the scaling metric. In CloudWatch, this refers to the `RequestCount` and `RequestCountPerTarget` metrics, respectively.
-	// - For optimal use of predictive scaling, you adhere to the best practice of using a dynamic scaling policy to automatically scale between the minimum capacity and maximum capacity in response to real-time changes in resource utilization.
-	// - Amazon EC2 Auto Scaling consumes data points for the load metric over the last 14 days and creates an hourly load forecast for predictive scaling. (A minimum of 24 hours of data is required.)
-	// - After creating the load forecast, Amazon EC2 Auto Scaling determines when to reduce or increase the capacity of your Auto Scaling group in each hour of the forecast period so that the average number of requests received by each instance is as close to 1000 requests per minute as possible at all times.
-	//
-	// For information about using custom metrics with predictive scaling, see [Advanced predictive scaling policy configurations using custom metrics](https://docs.aws.amazon.com/autoscaling/ec2/userguide/predictive-scaling-customized-metric-specification.html) in the *Amazon EC2 Auto Scaling User Guide* .
+	// This is an array, but we currently only support a single metric specification. That is, you can specify a target value and a single metric pair, or a target value and one scaling metric and one load metric.
 	MetricSpecifications []ScalingPolicyPredictiveScalingMetricSpecification `pulumi:"metricSpecifications"`
 	// The predictive scaling mode. Defaults to `ForecastOnly` if not specified.
 	Mode *string `pulumi:"mode"`
@@ -6071,19 +6063,9 @@ type ScalingPolicyPredictiveScalingConfigurationArgs struct {
 	//
 	// Required if the `MaxCapacityBreachBehavior` property is set to `IncreaseMaxCapacity` , and cannot be used otherwise.
 	MaxCapacityBuffer pulumi.IntPtrInput `pulumi:"maxCapacityBuffer"`
-	// A structure that specifies a metric specification for the `MetricSpecifications` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingconfiguration.html) property type.
+	// This structure includes the metrics and target utilization to use for predictive scaling.
 	//
-	// You must specify either a metric pair, or a load metric and a scaling metric individually. Specifying a metric pair instead of individual metrics provides a simpler way to configure metrics for a scaling policy. You choose the metric pair, and the policy automatically knows the correct sum and average statistics to use for the load metric and the scaling metric.
-	//
-	// Example
-	//
-	// - You create a predictive scaling policy and specify `ALBRequestCount` as the value for the metric pair and `1000.0` as the target value. For this type of metric, you must provide the metric dimension for the corresponding target group, so you also provide a resource label for the Application Load Balancer target group that is attached to your Auto Scaling group.
-	// - The number of requests the target group receives per minute provides the load metric, and the request count averaged between the members of the target group provides the scaling metric. In CloudWatch, this refers to the `RequestCount` and `RequestCountPerTarget` metrics, respectively.
-	// - For optimal use of predictive scaling, you adhere to the best practice of using a dynamic scaling policy to automatically scale between the minimum capacity and maximum capacity in response to real-time changes in resource utilization.
-	// - Amazon EC2 Auto Scaling consumes data points for the load metric over the last 14 days and creates an hourly load forecast for predictive scaling. (A minimum of 24 hours of data is required.)
-	// - After creating the load forecast, Amazon EC2 Auto Scaling determines when to reduce or increase the capacity of your Auto Scaling group in each hour of the forecast period so that the average number of requests received by each instance is as close to 1000 requests per minute as possible at all times.
-	//
-	// For information about using custom metrics with predictive scaling, see [Advanced predictive scaling policy configurations using custom metrics](https://docs.aws.amazon.com/autoscaling/ec2/userguide/predictive-scaling-customized-metric-specification.html) in the *Amazon EC2 Auto Scaling User Guide* .
+	// This is an array, but we currently only support a single metric specification. That is, you can specify a target value and a single metric pair, or a target value and one scaling metric and one load metric.
 	MetricSpecifications ScalingPolicyPredictiveScalingMetricSpecificationArrayInput `pulumi:"metricSpecifications"`
 	// The predictive scaling mode. Defaults to `ForecastOnly` if not specified.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
@@ -6191,19 +6173,9 @@ func (o ScalingPolicyPredictiveScalingConfigurationOutput) MaxCapacityBuffer() p
 	return o.ApplyT(func(v ScalingPolicyPredictiveScalingConfiguration) *int { return v.MaxCapacityBuffer }).(pulumi.IntPtrOutput)
 }
 
-// A structure that specifies a metric specification for the `MetricSpecifications` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingconfiguration.html) property type.
+// This structure includes the metrics and target utilization to use for predictive scaling.
 //
-// You must specify either a metric pair, or a load metric and a scaling metric individually. Specifying a metric pair instead of individual metrics provides a simpler way to configure metrics for a scaling policy. You choose the metric pair, and the policy automatically knows the correct sum and average statistics to use for the load metric and the scaling metric.
-//
-// # Example
-//
-// - You create a predictive scaling policy and specify `ALBRequestCount` as the value for the metric pair and `1000.0` as the target value. For this type of metric, you must provide the metric dimension for the corresponding target group, so you also provide a resource label for the Application Load Balancer target group that is attached to your Auto Scaling group.
-// - The number of requests the target group receives per minute provides the load metric, and the request count averaged between the members of the target group provides the scaling metric. In CloudWatch, this refers to the `RequestCount` and `RequestCountPerTarget` metrics, respectively.
-// - For optimal use of predictive scaling, you adhere to the best practice of using a dynamic scaling policy to automatically scale between the minimum capacity and maximum capacity in response to real-time changes in resource utilization.
-// - Amazon EC2 Auto Scaling consumes data points for the load metric over the last 14 days and creates an hourly load forecast for predictive scaling. (A minimum of 24 hours of data is required.)
-// - After creating the load forecast, Amazon EC2 Auto Scaling determines when to reduce or increase the capacity of your Auto Scaling group in each hour of the forecast period so that the average number of requests received by each instance is as close to 1000 requests per minute as possible at all times.
-//
-// For information about using custom metrics with predictive scaling, see [Advanced predictive scaling policy configurations using custom metrics](https://docs.aws.amazon.com/autoscaling/ec2/userguide/predictive-scaling-customized-metric-specification.html) in the *Amazon EC2 Auto Scaling User Guide* .
+// This is an array, but we currently only support a single metric specification. That is, you can specify a target value and a single metric pair, or a target value and one scaling metric and one load metric.
 func (o ScalingPolicyPredictiveScalingConfigurationOutput) MetricSpecifications() ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput {
 	return o.ApplyT(func(v ScalingPolicyPredictiveScalingConfiguration) []ScalingPolicyPredictiveScalingMetricSpecification {
 		return v.MetricSpecifications
@@ -6277,19 +6249,9 @@ func (o ScalingPolicyPredictiveScalingConfigurationPtrOutput) MaxCapacityBuffer(
 	}).(pulumi.IntPtrOutput)
 }
 
-// A structure that specifies a metric specification for the `MetricSpecifications` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingconfiguration.html) property type.
+// This structure includes the metrics and target utilization to use for predictive scaling.
 //
-// You must specify either a metric pair, or a load metric and a scaling metric individually. Specifying a metric pair instead of individual metrics provides a simpler way to configure metrics for a scaling policy. You choose the metric pair, and the policy automatically knows the correct sum and average statistics to use for the load metric and the scaling metric.
-//
-// # Example
-//
-// - You create a predictive scaling policy and specify `ALBRequestCount` as the value for the metric pair and `1000.0` as the target value. For this type of metric, you must provide the metric dimension for the corresponding target group, so you also provide a resource label for the Application Load Balancer target group that is attached to your Auto Scaling group.
-// - The number of requests the target group receives per minute provides the load metric, and the request count averaged between the members of the target group provides the scaling metric. In CloudWatch, this refers to the `RequestCount` and `RequestCountPerTarget` metrics, respectively.
-// - For optimal use of predictive scaling, you adhere to the best practice of using a dynamic scaling policy to automatically scale between the minimum capacity and maximum capacity in response to real-time changes in resource utilization.
-// - Amazon EC2 Auto Scaling consumes data points for the load metric over the last 14 days and creates an hourly load forecast for predictive scaling. (A minimum of 24 hours of data is required.)
-// - After creating the load forecast, Amazon EC2 Auto Scaling determines when to reduce or increase the capacity of your Auto Scaling group in each hour of the forecast period so that the average number of requests received by each instance is as close to 1000 requests per minute as possible at all times.
-//
-// For information about using custom metrics with predictive scaling, see [Advanced predictive scaling policy configurations using custom metrics](https://docs.aws.amazon.com/autoscaling/ec2/userguide/predictive-scaling-customized-metric-specification.html) in the *Amazon EC2 Auto Scaling User Guide* .
+// This is an array, but we currently only support a single metric specification. That is, you can specify a target value and a single metric pair, or a target value and one scaling metric and one load metric.
 func (o ScalingPolicyPredictiveScalingConfigurationPtrOutput) MetricSpecifications() ScalingPolicyPredictiveScalingMetricSpecificationArrayOutput {
 	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingConfiguration) []ScalingPolicyPredictiveScalingMetricSpecification {
 		if v == nil {
@@ -6322,19 +6284,7 @@ func (o ScalingPolicyPredictiveScalingConfigurationPtrOutput) SchedulingBufferTi
 }
 
 type ScalingPolicyPredictiveScalingCustomizedCapacityMetric struct {
-	// The metric data to return. Also defines whether this call is returning data for one metric only, or whether it is performing a math expression on the values of returned metric statistics to create a new time series. A time series is a series of data points, each of which is associated with a timestamp.
-	//
-	// `MetricDataQuery` is a property of the following property types:
-	//
-	// - [AWS::AutoScaling::ScalingPolicy PredictiveScalingCustomizedScalingMetric](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedscalingmetric.html)
-	// - [AWS::AutoScaling::ScalingPolicy PredictiveScalingCustomizedLoadMetric](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedloadmetric.html)
-	// - [AWS::AutoScaling::ScalingPolicy PredictiveScalingCustomizedCapacityMetric](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedcapacitymetric.html)
-	//
-	// Predictive scaling uses the time series data received from CloudWatch to understand how to schedule capacity based on your historical workload patterns.
-	//
-	// You can call for a single metric or perform math expressions on multiple metrics. Any expressions used in a metric specification must eventually return a single time series.
-	//
-	// For more information and examples, see [Advanced predictive scaling policy configurations using custom metrics](https://docs.aws.amazon.com/autoscaling/ec2/userguide/predictive-scaling-customized-metric-specification.html) in the *Amazon EC2 Auto Scaling User Guide* .
+	// One or more metric data queries to provide the data points for a capacity metric. Use multiple metric data queries only if you are performing a math expression on returned data.
 	MetricDataQueries []ScalingPolicyMetricDataQuery `pulumi:"metricDataQueries"`
 }
 
@@ -6350,19 +6300,7 @@ type ScalingPolicyPredictiveScalingCustomizedCapacityMetricInput interface {
 }
 
 type ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs struct {
-	// The metric data to return. Also defines whether this call is returning data for one metric only, or whether it is performing a math expression on the values of returned metric statistics to create a new time series. A time series is a series of data points, each of which is associated with a timestamp.
-	//
-	// `MetricDataQuery` is a property of the following property types:
-	//
-	// - [AWS::AutoScaling::ScalingPolicy PredictiveScalingCustomizedScalingMetric](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedscalingmetric.html)
-	// - [AWS::AutoScaling::ScalingPolicy PredictiveScalingCustomizedLoadMetric](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedloadmetric.html)
-	// - [AWS::AutoScaling::ScalingPolicy PredictiveScalingCustomizedCapacityMetric](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedcapacitymetric.html)
-	//
-	// Predictive scaling uses the time series data received from CloudWatch to understand how to schedule capacity based on your historical workload patterns.
-	//
-	// You can call for a single metric or perform math expressions on multiple metrics. Any expressions used in a metric specification must eventually return a single time series.
-	//
-	// For more information and examples, see [Advanced predictive scaling policy configurations using custom metrics](https://docs.aws.amazon.com/autoscaling/ec2/userguide/predictive-scaling-customized-metric-specification.html) in the *Amazon EC2 Auto Scaling User Guide* .
+	// One or more metric data queries to provide the data points for a capacity metric. Use multiple metric data queries only if you are performing a math expression on returned data.
 	MetricDataQueries ScalingPolicyMetricDataQueryArrayInput `pulumi:"metricDataQueries"`
 }
 
@@ -6443,19 +6381,7 @@ func (o ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput) ToScalingP
 	}).(ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput)
 }
 
-// The metric data to return. Also defines whether this call is returning data for one metric only, or whether it is performing a math expression on the values of returned metric statistics to create a new time series. A time series is a series of data points, each of which is associated with a timestamp.
-//
-// `MetricDataQuery` is a property of the following property types:
-//
-// - [AWS::AutoScaling::ScalingPolicy PredictiveScalingCustomizedScalingMetric](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedscalingmetric.html)
-// - [AWS::AutoScaling::ScalingPolicy PredictiveScalingCustomizedLoadMetric](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedloadmetric.html)
-// - [AWS::AutoScaling::ScalingPolicy PredictiveScalingCustomizedCapacityMetric](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedcapacitymetric.html)
-//
-// Predictive scaling uses the time series data received from CloudWatch to understand how to schedule capacity based on your historical workload patterns.
-//
-// You can call for a single metric or perform math expressions on multiple metrics. Any expressions used in a metric specification must eventually return a single time series.
-//
-// For more information and examples, see [Advanced predictive scaling policy configurations using custom metrics](https://docs.aws.amazon.com/autoscaling/ec2/userguide/predictive-scaling-customized-metric-specification.html) in the *Amazon EC2 Auto Scaling User Guide* .
+// One or more metric data queries to provide the data points for a capacity metric. Use multiple metric data queries only if you are performing a math expression on returned data.
 func (o ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput) MetricDataQueries() ScalingPolicyMetricDataQueryArrayOutput {
 	return o.ApplyT(func(v ScalingPolicyPredictiveScalingCustomizedCapacityMetric) []ScalingPolicyMetricDataQuery {
 		return v.MetricDataQueries
@@ -6486,19 +6412,7 @@ func (o ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput) Elem() 
 	}).(ScalingPolicyPredictiveScalingCustomizedCapacityMetricOutput)
 }
 
-// The metric data to return. Also defines whether this call is returning data for one metric only, or whether it is performing a math expression on the values of returned metric statistics to create a new time series. A time series is a series of data points, each of which is associated with a timestamp.
-//
-// `MetricDataQuery` is a property of the following property types:
-//
-// - [AWS::AutoScaling::ScalingPolicy PredictiveScalingCustomizedScalingMetric](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedscalingmetric.html)
-// - [AWS::AutoScaling::ScalingPolicy PredictiveScalingCustomizedLoadMetric](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedloadmetric.html)
-// - [AWS::AutoScaling::ScalingPolicy PredictiveScalingCustomizedCapacityMetric](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedcapacitymetric.html)
-//
-// Predictive scaling uses the time series data received from CloudWatch to understand how to schedule capacity based on your historical workload patterns.
-//
-// You can call for a single metric or perform math expressions on multiple metrics. Any expressions used in a metric specification must eventually return a single time series.
-//
-// For more information and examples, see [Advanced predictive scaling policy configurations using custom metrics](https://docs.aws.amazon.com/autoscaling/ec2/userguide/predictive-scaling-customized-metric-specification.html) in the *Amazon EC2 Auto Scaling User Guide* .
+// One or more metric data queries to provide the data points for a capacity metric. Use multiple metric data queries only if you are performing a math expression on returned data.
 func (o ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput) MetricDataQueries() ScalingPolicyMetricDataQueryArrayOutput {
 	return o.ApplyT(func(v *ScalingPolicyPredictiveScalingCustomizedCapacityMetric) []ScalingPolicyMetricDataQuery {
 		if v == nil {
@@ -6787,23 +6701,17 @@ func (o ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput) MetricDa
 }
 
 type ScalingPolicyPredictiveScalingMetricSpecification struct {
-	// Contains capacity metric information for the `CustomizedCapacityMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+	// The customized capacity metric specification.
 	CustomizedCapacityMetricSpecification *ScalingPolicyPredictiveScalingCustomizedCapacityMetric `pulumi:"customizedCapacityMetricSpecification"`
-	// Contains load metric information for the `CustomizedLoadMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+	// The customized load metric specification.
 	CustomizedLoadMetricSpecification *ScalingPolicyPredictiveScalingCustomizedLoadMetric `pulumi:"customizedLoadMetricSpecification"`
-	// Contains scaling metric information for the `CustomizedScalingMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+	// The customized scaling metric specification.
 	CustomizedScalingMetricSpecification *ScalingPolicyPredictiveScalingCustomizedScalingMetric `pulumi:"customizedScalingMetricSpecification"`
-	// Contains load metric information for the `PredefinedLoadMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
-	//
-	// > Does not apply to policies that use a *metric pair* for the metric specification.
+	// The predefined load metric specification.
 	PredefinedLoadMetricSpecification *ScalingPolicyPredictiveScalingPredefinedLoadMetric `pulumi:"predefinedLoadMetricSpecification"`
-	// Contains metric pair information for the `PredefinedMetricPairSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
-	//
-	// For more information, see [Predictive scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html) in the *Amazon EC2 Auto Scaling User Guide* .
+	// The predefined metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
 	PredefinedMetricPairSpecification *ScalingPolicyPredictiveScalingPredefinedMetricPair `pulumi:"predefinedMetricPairSpecification"`
-	// Contains scaling metric information for the `PredefinedScalingMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
-	//
-	// > Does not apply to policies that use a *metric pair* for the metric specification.
+	// The predefined scaling metric specification.
 	PredefinedScalingMetricSpecification *ScalingPolicyPredictiveScalingPredefinedScalingMetric `pulumi:"predefinedScalingMetricSpecification"`
 	// Specifies the target utilization.
 	//
@@ -6823,23 +6731,17 @@ type ScalingPolicyPredictiveScalingMetricSpecificationInput interface {
 }
 
 type ScalingPolicyPredictiveScalingMetricSpecificationArgs struct {
-	// Contains capacity metric information for the `CustomizedCapacityMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+	// The customized capacity metric specification.
 	CustomizedCapacityMetricSpecification ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrInput `pulumi:"customizedCapacityMetricSpecification"`
-	// Contains load metric information for the `CustomizedLoadMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+	// The customized load metric specification.
 	CustomizedLoadMetricSpecification ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrInput `pulumi:"customizedLoadMetricSpecification"`
-	// Contains scaling metric information for the `CustomizedScalingMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+	// The customized scaling metric specification.
 	CustomizedScalingMetricSpecification ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrInput `pulumi:"customizedScalingMetricSpecification"`
-	// Contains load metric information for the `PredefinedLoadMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
-	//
-	// > Does not apply to policies that use a *metric pair* for the metric specification.
+	// The predefined load metric specification.
 	PredefinedLoadMetricSpecification ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrInput `pulumi:"predefinedLoadMetricSpecification"`
-	// Contains metric pair information for the `PredefinedMetricPairSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
-	//
-	// For more information, see [Predictive scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html) in the *Amazon EC2 Auto Scaling User Guide* .
+	// The predefined metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
 	PredefinedMetricPairSpecification ScalingPolicyPredictiveScalingPredefinedMetricPairPtrInput `pulumi:"predefinedMetricPairSpecification"`
-	// Contains scaling metric information for the `PredefinedScalingMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
-	//
-	// > Does not apply to policies that use a *metric pair* for the metric specification.
+	// The predefined scaling metric specification.
 	PredefinedScalingMetricSpecification ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrInput `pulumi:"predefinedScalingMetricSpecification"`
 	// Specifies the target utilization.
 	//
@@ -6898,48 +6800,42 @@ func (o ScalingPolicyPredictiveScalingMetricSpecificationOutput) ToScalingPolicy
 	return o
 }
 
-// Contains capacity metric information for the `CustomizedCapacityMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+// The customized capacity metric specification.
 func (o ScalingPolicyPredictiveScalingMetricSpecificationOutput) CustomizedCapacityMetricSpecification() ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetricSpecification) *ScalingPolicyPredictiveScalingCustomizedCapacityMetric {
 		return v.CustomizedCapacityMetricSpecification
 	}).(ScalingPolicyPredictiveScalingCustomizedCapacityMetricPtrOutput)
 }
 
-// Contains load metric information for the `CustomizedLoadMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+// The customized load metric specification.
 func (o ScalingPolicyPredictiveScalingMetricSpecificationOutput) CustomizedLoadMetricSpecification() ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetricSpecification) *ScalingPolicyPredictiveScalingCustomizedLoadMetric {
 		return v.CustomizedLoadMetricSpecification
 	}).(ScalingPolicyPredictiveScalingCustomizedLoadMetricPtrOutput)
 }
 
-// Contains scaling metric information for the `CustomizedScalingMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+// The customized scaling metric specification.
 func (o ScalingPolicyPredictiveScalingMetricSpecificationOutput) CustomizedScalingMetricSpecification() ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetricSpecification) *ScalingPolicyPredictiveScalingCustomizedScalingMetric {
 		return v.CustomizedScalingMetricSpecification
 	}).(ScalingPolicyPredictiveScalingCustomizedScalingMetricPtrOutput)
 }
 
-// Contains load metric information for the `PredefinedLoadMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
-//
-// > Does not apply to policies that use a *metric pair* for the metric specification.
+// The predefined load metric specification.
 func (o ScalingPolicyPredictiveScalingMetricSpecificationOutput) PredefinedLoadMetricSpecification() ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetricSpecification) *ScalingPolicyPredictiveScalingPredefinedLoadMetric {
 		return v.PredefinedLoadMetricSpecification
 	}).(ScalingPolicyPredictiveScalingPredefinedLoadMetricPtrOutput)
 }
 
-// Contains metric pair information for the `PredefinedMetricPairSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
-//
-// For more information, see [Predictive scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html) in the *Amazon EC2 Auto Scaling User Guide* .
+// The predefined metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
 func (o ScalingPolicyPredictiveScalingMetricSpecificationOutput) PredefinedMetricPairSpecification() ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetricSpecification) *ScalingPolicyPredictiveScalingPredefinedMetricPair {
 		return v.PredefinedMetricPairSpecification
 	}).(ScalingPolicyPredictiveScalingPredefinedMetricPairPtrOutput)
 }
 
-// Contains scaling metric information for the `PredefinedScalingMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
-//
-// > Does not apply to policies that use a *metric pair* for the metric specification.
+// The predefined scaling metric specification.
 func (o ScalingPolicyPredictiveScalingMetricSpecificationOutput) PredefinedScalingMetricSpecification() ScalingPolicyPredictiveScalingPredefinedScalingMetricPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyPredictiveScalingMetricSpecification) *ScalingPolicyPredictiveScalingPredefinedScalingMetric {
 		return v.PredefinedScalingMetricSpecification
@@ -7695,22 +7591,11 @@ func (o ScalingPolicyStepAdjustmentArrayOutput) Index(i pulumi.IntInput) Scaling
 }
 
 type ScalingPolicyTargetTrackingConfiguration struct {
-	// Contains customized metric specification information for a target tracking scaling policy for Amazon EC2 Auto Scaling.
-	//
-	// To create your customized metric specification:
-	//
-	// - Add values for each required property from CloudWatch. You can use an existing metric, or a new metric that you create. To use your own metric, you must first publish the metric to CloudWatch. For more information, see [Publish Custom Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html) in the *Amazon CloudWatch User Guide* .
-	// - Choose a metric that changes proportionally with capacity. The value of the metric should increase or decrease in inverse proportion to the number of capacity units. That is, the value of the metric should decrease when capacity increases.
-	//
-	// For more information about CloudWatch, see [Amazon CloudWatch Concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html) .
-	//
-	// `CustomizedMetricSpecification` is a property of the [AWS::AutoScaling::ScalingPolicy TargetTrackingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html) property type.
+	// A customized metric. You must specify either a predefined metric or a customized metric.
 	CustomizedMetricSpecification *ScalingPolicyCustomizedMetricSpecification `pulumi:"customizedMetricSpecification"`
 	// Indicates whether scaling in by the target tracking scaling policy is disabled. If scaling in is disabled, the target tracking scaling policy doesn't remove instances from the Auto Scaling group. Otherwise, the target tracking scaling policy can remove instances from the Auto Scaling group. The default is `false` .
 	DisableScaleIn *bool `pulumi:"disableScaleIn"`
-	// Contains predefined metric specification information for a target tracking scaling policy for Amazon EC2 Auto Scaling.
-	//
-	// `PredefinedMetricSpecification` is a property of the [AWS::AutoScaling::ScalingPolicy TargetTrackingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html) property type.
+	// A predefined metric. You must specify either a predefined metric or a customized metric.
 	PredefinedMetricSpecification *ScalingPolicyPredefinedMetricSpecification `pulumi:"predefinedMetricSpecification"`
 	// The target value for the metric.
 	//
@@ -7730,22 +7615,11 @@ type ScalingPolicyTargetTrackingConfigurationInput interface {
 }
 
 type ScalingPolicyTargetTrackingConfigurationArgs struct {
-	// Contains customized metric specification information for a target tracking scaling policy for Amazon EC2 Auto Scaling.
-	//
-	// To create your customized metric specification:
-	//
-	// - Add values for each required property from CloudWatch. You can use an existing metric, or a new metric that you create. To use your own metric, you must first publish the metric to CloudWatch. For more information, see [Publish Custom Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html) in the *Amazon CloudWatch User Guide* .
-	// - Choose a metric that changes proportionally with capacity. The value of the metric should increase or decrease in inverse proportion to the number of capacity units. That is, the value of the metric should decrease when capacity increases.
-	//
-	// For more information about CloudWatch, see [Amazon CloudWatch Concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html) .
-	//
-	// `CustomizedMetricSpecification` is a property of the [AWS::AutoScaling::ScalingPolicy TargetTrackingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html) property type.
+	// A customized metric. You must specify either a predefined metric or a customized metric.
 	CustomizedMetricSpecification ScalingPolicyCustomizedMetricSpecificationPtrInput `pulumi:"customizedMetricSpecification"`
 	// Indicates whether scaling in by the target tracking scaling policy is disabled. If scaling in is disabled, the target tracking scaling policy doesn't remove instances from the Auto Scaling group. Otherwise, the target tracking scaling policy can remove instances from the Auto Scaling group. The default is `false` .
 	DisableScaleIn pulumi.BoolPtrInput `pulumi:"disableScaleIn"`
-	// Contains predefined metric specification information for a target tracking scaling policy for Amazon EC2 Auto Scaling.
-	//
-	// `PredefinedMetricSpecification` is a property of the [AWS::AutoScaling::ScalingPolicy TargetTrackingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html) property type.
+	// A predefined metric. You must specify either a predefined metric or a customized metric.
 	PredefinedMetricSpecification ScalingPolicyPredefinedMetricSpecificationPtrInput `pulumi:"predefinedMetricSpecification"`
 	// The target value for the metric.
 	//
@@ -7830,16 +7704,7 @@ func (o ScalingPolicyTargetTrackingConfigurationOutput) ToScalingPolicyTargetTra
 	}).(ScalingPolicyTargetTrackingConfigurationPtrOutput)
 }
 
-// Contains customized metric specification information for a target tracking scaling policy for Amazon EC2 Auto Scaling.
-//
-// To create your customized metric specification:
-//
-// - Add values for each required property from CloudWatch. You can use an existing metric, or a new metric that you create. To use your own metric, you must first publish the metric to CloudWatch. For more information, see [Publish Custom Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html) in the *Amazon CloudWatch User Guide* .
-// - Choose a metric that changes proportionally with capacity. The value of the metric should increase or decrease in inverse proportion to the number of capacity units. That is, the value of the metric should decrease when capacity increases.
-//
-// For more information about CloudWatch, see [Amazon CloudWatch Concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html) .
-//
-// `CustomizedMetricSpecification` is a property of the [AWS::AutoScaling::ScalingPolicy TargetTrackingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html) property type.
+// A customized metric. You must specify either a predefined metric or a customized metric.
 func (o ScalingPolicyTargetTrackingConfigurationOutput) CustomizedMetricSpecification() ScalingPolicyCustomizedMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyTargetTrackingConfiguration) *ScalingPolicyCustomizedMetricSpecification {
 		return v.CustomizedMetricSpecification
@@ -7851,9 +7716,7 @@ func (o ScalingPolicyTargetTrackingConfigurationOutput) DisableScaleIn() pulumi.
 	return o.ApplyT(func(v ScalingPolicyTargetTrackingConfiguration) *bool { return v.DisableScaleIn }).(pulumi.BoolPtrOutput)
 }
 
-// Contains predefined metric specification information for a target tracking scaling policy for Amazon EC2 Auto Scaling.
-//
-// `PredefinedMetricSpecification` is a property of the [AWS::AutoScaling::ScalingPolicy TargetTrackingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html) property type.
+// A predefined metric. You must specify either a predefined metric or a customized metric.
 func (o ScalingPolicyTargetTrackingConfigurationOutput) PredefinedMetricSpecification() ScalingPolicyPredefinedMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v ScalingPolicyTargetTrackingConfiguration) *ScalingPolicyPredefinedMetricSpecification {
 		return v.PredefinedMetricSpecification
@@ -7891,16 +7754,7 @@ func (o ScalingPolicyTargetTrackingConfigurationPtrOutput) Elem() ScalingPolicyT
 	}).(ScalingPolicyTargetTrackingConfigurationOutput)
 }
 
-// Contains customized metric specification information for a target tracking scaling policy for Amazon EC2 Auto Scaling.
-//
-// To create your customized metric specification:
-//
-// - Add values for each required property from CloudWatch. You can use an existing metric, or a new metric that you create. To use your own metric, you must first publish the metric to CloudWatch. For more information, see [Publish Custom Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html) in the *Amazon CloudWatch User Guide* .
-// - Choose a metric that changes proportionally with capacity. The value of the metric should increase or decrease in inverse proportion to the number of capacity units. That is, the value of the metric should decrease when capacity increases.
-//
-// For more information about CloudWatch, see [Amazon CloudWatch Concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html) .
-//
-// `CustomizedMetricSpecification` is a property of the [AWS::AutoScaling::ScalingPolicy TargetTrackingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html) property type.
+// A customized metric. You must specify either a predefined metric or a customized metric.
 func (o ScalingPolicyTargetTrackingConfigurationPtrOutput) CustomizedMetricSpecification() ScalingPolicyCustomizedMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicyTargetTrackingConfiguration) *ScalingPolicyCustomizedMetricSpecification {
 		if v == nil {
@@ -7920,9 +7774,7 @@ func (o ScalingPolicyTargetTrackingConfigurationPtrOutput) DisableScaleIn() pulu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Contains predefined metric specification information for a target tracking scaling policy for Amazon EC2 Auto Scaling.
-//
-// `PredefinedMetricSpecification` is a property of the [AWS::AutoScaling::ScalingPolicy TargetTrackingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html) property type.
+// A predefined metric. You must specify either a predefined metric or a customized metric.
 func (o ScalingPolicyTargetTrackingConfigurationPtrOutput) PredefinedMetricSpecification() ScalingPolicyPredefinedMetricSpecificationPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicyTargetTrackingConfiguration) *ScalingPolicyPredefinedMetricSpecification {
 		if v == nil {

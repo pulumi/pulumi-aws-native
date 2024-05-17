@@ -24,7 +24,7 @@ type ServiceAction struct {
 	AcceptLanguage ServiceActionAcceptLanguagePtrOutput `pulumi:"acceptLanguage"`
 	// The self-service action identifier. For example, `act-fs7abcd89wxyz` .
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
-	// The list of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}] or [{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]` .
+	// A map that defines the self-service action.
 	Definition ServiceActionDefinitionParameterArrayOutput `pulumi:"definition"`
 	// The self-service action definition type. For example, `SSM_AUTOMATION` .
 	DefinitionType ServiceActionDefinitionTypeOutput `pulumi:"definitionType"`
@@ -86,7 +86,7 @@ type serviceActionArgs struct {
 	// - `jp` - Japanese
 	// - `zh` - Chinese
 	AcceptLanguage *ServiceActionAcceptLanguage `pulumi:"acceptLanguage"`
-	// The list of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}] or [{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]` .
+	// A map that defines the self-service action.
 	Definition []ServiceActionDefinitionParameter `pulumi:"definition"`
 	// The self-service action definition type. For example, `SSM_AUTOMATION` .
 	DefinitionType ServiceActionDefinitionType `pulumi:"definitionType"`
@@ -104,7 +104,7 @@ type ServiceActionArgs struct {
 	// - `jp` - Japanese
 	// - `zh` - Chinese
 	AcceptLanguage ServiceActionAcceptLanguagePtrInput
-	// The list of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}] or [{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]` .
+	// A map that defines the self-service action.
 	Definition ServiceActionDefinitionParameterArrayInput
 	// The self-service action definition type. For example, `SSM_AUTOMATION` .
 	DefinitionType ServiceActionDefinitionTypeInput
@@ -165,7 +165,7 @@ func (o ServiceActionOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceAction) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
-// The list of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}] or [{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]` .
+// A map that defines the self-service action.
 func (o ServiceActionOutput) Definition() ServiceActionDefinitionParameterArrayOutput {
 	return o.ApplyT(func(v *ServiceAction) ServiceActionDefinitionParameterArrayOutput { return v.Definition }).(ServiceActionDefinitionParameterArrayOutput)
 }

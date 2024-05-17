@@ -27,9 +27,9 @@ class ThemeArgs:
         :param pulumi.Input[str] app_id: The unique ID for the Amplify app associated with the theme.
         :param pulumi.Input[str] environment_name: The name of the backend environment that is a part of the Amplify app.
         :param pulumi.Input[str] name: The name of the theme.
-        :param pulumi.Input[Sequence[pulumi.Input['ThemeValuesArgs']]] overrides: The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+        :param pulumi.Input[Sequence[pulumi.Input['ThemeValuesArgs']]] overrides: Describes the properties that can be overriden to customize a theme.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: One or more key-value pairs to use when tagging the theme.
-        :param pulumi.Input[Sequence[pulumi.Input['ThemeValuesArgs']]] values: The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+        :param pulumi.Input[Sequence[pulumi.Input['ThemeValuesArgs']]] values: A list of key-value pairs that defines the properties of the theme.
         """
         if app_id is not None:
             pulumi.set(__self__, "app_id", app_id)
@@ -84,7 +84,7 @@ class ThemeArgs:
     @pulumi.getter
     def overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThemeValuesArgs']]]]:
         """
-        The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+        Describes the properties that can be overriden to customize a theme.
         """
         return pulumi.get(self, "overrides")
 
@@ -108,7 +108,7 @@ class ThemeArgs:
     @pulumi.getter
     def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThemeValuesArgs']]]]:
         """
-        The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+        A list of key-value pairs that defines the properties of the theme.
         """
         return pulumi.get(self, "values")
 
@@ -137,9 +137,9 @@ class Theme(pulumi.CustomResource):
         :param pulumi.Input[str] app_id: The unique ID for the Amplify app associated with the theme.
         :param pulumi.Input[str] environment_name: The name of the backend environment that is a part of the Amplify app.
         :param pulumi.Input[str] name: The name of the theme.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeValuesArgs']]]] overrides: The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeValuesArgs']]]] overrides: Describes the properties that can be overriden to customize a theme.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: One or more key-value pairs to use when tagging the theme.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeValuesArgs']]]] values: The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemeValuesArgs']]]] values: A list of key-value pairs that defines the properties of the theme.
         """
         ...
     @overload
@@ -276,7 +276,7 @@ class Theme(pulumi.CustomResource):
     @pulumi.getter
     def overrides(self) -> pulumi.Output[Optional[Sequence['outputs.ThemeValues']]]:
         """
-        The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+        Describes the properties that can be overriden to customize a theme.
         """
         return pulumi.get(self, "overrides")
 
@@ -292,7 +292,7 @@ class Theme(pulumi.CustomResource):
     @pulumi.getter
     def values(self) -> pulumi.Output[Optional[Sequence['outputs.ThemeValues']]]:
         """
-        The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+        A list of key-value pairs that defines the properties of the theme.
         """
         return pulumi.get(self, "values")
 

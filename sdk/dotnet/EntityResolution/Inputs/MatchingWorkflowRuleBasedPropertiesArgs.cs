@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.EntityResolution.Inputs
         private InputList<Inputs.MatchingWorkflowRuleArgs>? _rules;
 
         /// <summary>
-        /// An object containing `RuleName` , and `MatchingKeys` .
+        /// A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
         /// </summary>
         public InputList<Inputs.MatchingWorkflowRuleArgs> Rules
         {

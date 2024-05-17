@@ -37,11 +37,11 @@ export interface GetFormArgs {
 
 export interface GetFormResult {
     /**
-     * The `FormCTA` property specifies the call to action button configuration for the form.
+     * The `FormCTA` object that stores the call to action configuration for the form.
      */
     readonly cta?: outputs.amplifyuibuilder.FormCta;
     /**
-     * The `FormDataTypeConfig` property specifies the data type configuration for the data source associated with a form.
+     * The type of data source to use to create the form.
      */
     readonly dataType?: outputs.amplifyuibuilder.FormDataTypeConfig;
     /**
@@ -73,7 +73,7 @@ export interface GetFormResult {
      */
     readonly sectionalElements?: {[key: string]: outputs.amplifyuibuilder.FormSectionalElement};
     /**
-     * The `FormStyle` property specifies the configuration for the form's style.
+     * The configuration for the form's style.
      */
     readonly style?: outputs.amplifyuibuilder.FormStyle;
     /**

@@ -28,16 +28,20 @@ type LookupDetectorArgs struct {
 }
 
 type LookupDetectorResult struct {
-	// Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
+	// Describes which data sources will be enabled for the detector.
 	DataSources *DetectorCfnDataSourceConfigurations `pulumi:"dataSources"`
 	// Specifies whether the detector is to be enabled on creation.
 	Enable *bool `pulumi:"enable"`
-	// Information about the configuration of a feature in your account.
+	// A list of features that will be configured for the detector.
 	Features []DetectorCfnFeatureConfiguration `pulumi:"features"`
 	// Specifies how frequently updated findings are exported.
 	FindingPublishingFrequency *string `pulumi:"findingPublishingFrequency"`
 	Id                         *string `pulumi:"id"`
-	// Describes a tag.
+	// Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
+	//
+	// Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -76,7 +80,7 @@ func (o LookupDetectorResultOutput) ToLookupDetectorResultOutputWithContext(ctx 
 	return o
 }
 
-// Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
+// Describes which data sources will be enabled for the detector.
 func (o LookupDetectorResultOutput) DataSources() DetectorCfnDataSourceConfigurationsPtrOutput {
 	return o.ApplyT(func(v LookupDetectorResult) *DetectorCfnDataSourceConfigurations { return v.DataSources }).(DetectorCfnDataSourceConfigurationsPtrOutput)
 }
@@ -86,7 +90,7 @@ func (o LookupDetectorResultOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDetectorResult) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
 }
 
-// Information about the configuration of a feature in your account.
+// A list of features that will be configured for the detector.
 func (o LookupDetectorResultOutput) Features() DetectorCfnFeatureConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupDetectorResult) []DetectorCfnFeatureConfiguration { return v.Features }).(DetectorCfnFeatureConfigurationArrayOutput)
 }
@@ -100,7 +104,11 @@ func (o LookupDetectorResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDetectorResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Describes a tag.
+// Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
+//
+// Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o LookupDetectorResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDetectorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

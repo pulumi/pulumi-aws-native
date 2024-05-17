@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DataSetTransformOperation> DataTransforms;
         /// <summary>
-        /// Information about the source of a logical table. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+        /// Source of this logical table.
         /// </summary>
         public readonly Outputs.DataSetLogicalTableSource Source;
 

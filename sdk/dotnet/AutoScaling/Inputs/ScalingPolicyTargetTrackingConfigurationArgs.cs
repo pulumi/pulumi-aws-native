@@ -13,16 +13,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
     public sealed class ScalingPolicyTargetTrackingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains customized metric specification information for a target tracking scaling policy for Amazon EC2 Auto Scaling.
-        /// 
-        /// To create your customized metric specification:
-        /// 
-        /// - Add values for each required property from CloudWatch. You can use an existing metric, or a new metric that you create. To use your own metric, you must first publish the metric to CloudWatch. For more information, see [Publish Custom Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html) in the *Amazon CloudWatch User Guide* .
-        /// - Choose a metric that changes proportionally with capacity. The value of the metric should increase or decrease in inverse proportion to the number of capacity units. That is, the value of the metric should decrease when capacity increases.
-        /// 
-        /// For more information about CloudWatch, see [Amazon CloudWatch Concepts](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html) .
-        /// 
-        /// `CustomizedMetricSpecification` is a property of the [AWS::AutoScaling::ScalingPolicy TargetTrackingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html) property type.
+        /// A customized metric. You must specify either a predefined metric or a customized metric.
         /// </summary>
         [Input("customizedMetricSpecification")]
         public Input<Inputs.ScalingPolicyCustomizedMetricSpecificationArgs>? CustomizedMetricSpecification { get; set; }
@@ -34,9 +25,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public Input<bool>? DisableScaleIn { get; set; }
 
         /// <summary>
-        /// Contains predefined metric specification information for a target tracking scaling policy for Amazon EC2 Auto Scaling.
-        /// 
-        /// `PredefinedMetricSpecification` is a property of the [AWS::AutoScaling::ScalingPolicy TargetTrackingConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html) property type.
+        /// A predefined metric. You must specify either a predefined metric or a customized metric.
         /// </summary>
         [Input("predefinedMetricSpecification")]
         public Input<Inputs.ScalingPolicyPredefinedMetricSpecificationArgs>? PredefinedMetricSpecification { get; set; }

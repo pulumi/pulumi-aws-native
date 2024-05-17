@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<string>? DestinationAddress { get; set; }
 
         /// <summary>
-        /// Describes a port range.
+        /// The destination port range.
         /// </summary>
         [Input("destinationPortRange")]
         public Input<Inputs.NetworkInsightsPathFilterPortRangeArgs>? DestinationPortRange { get; set; }
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<string>? SourceAddress { get; set; }
 
         /// <summary>
-        /// Describes a port range.
+        /// The source port range.
         /// </summary>
         [Input("sourcePortRange")]
         public Input<Inputs.NetworkInsightsPathFilterPortRangeArgs>? SourcePortRange { get; set; }

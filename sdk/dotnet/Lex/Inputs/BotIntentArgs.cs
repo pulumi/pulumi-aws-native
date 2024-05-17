@@ -22,13 +22,13 @@ namespace Pulumi.AwsNative.Lex.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Settings that determine the Lambda function that Amazon Lex uses for processing user responses.
+        /// Specifies that Amazon Lex invokes the alias Lambda function for each user input. You can invoke this Lambda function to personalize user interaction.
         /// </summary>
         [Input("dialogCodeHook")]
         public Input<Inputs.BotDialogCodeHookSettingArgs>? DialogCodeHook { get; set; }
 
         /// <summary>
-        /// Determines if a Lambda function should be invoked for a specific intent.
+        /// Specifies that Amazon Lex invokes the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user.
         /// </summary>
         [Input("fulfillmentCodeHook")]
         public Input<Inputs.BotFulfillmentCodeHookSettingArgs>? FulfillmentCodeHook { get; set; }
@@ -52,13 +52,13 @@ namespace Pulumi.AwsNative.Lex.Inputs
         }
 
         /// <summary>
-        /// Provides a statement the Amazon Lex conveys to the user when the intent is successfully fulfilled.
+        /// Sets the response that Amazon Lex sends to the user when the intent is closed.
         /// </summary>
         [Input("intentClosingSetting")]
         public Input<Inputs.BotIntentClosingSettingArgs>? IntentClosingSetting { get; set; }
 
         /// <summary>
-        /// Provides a prompt for making sure that the user is ready for the intent to be fulfilled.
+        /// Provides prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers "no," the settings contain a statement that is sent to the user to end the intent.
         /// </summary>
         [Input("intentConfirmationSetting")]
         public Input<Inputs.BotIntentConfirmationSettingArgs>? IntentConfirmationSetting { get; set; }

@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.DataSync
         public Output<string> LocationUri { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the data transfer protocol that AWS DataSync uses to access your Amazon FSx file system.
+        /// Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.
         /// </summary>
         [Output("protocol")]
         public Output<Outputs.LocationFSxOntapProtocol?> Protocol { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.AwsNative.DataSync
     public sealed class LocationFSxOntapArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the data transfer protocol that AWS DataSync uses to access your Amazon FSx file system.
+        /// Specifies the data transfer protocol that DataSync uses to access your Amazon FSx file system.
         /// </summary>
         [Input("protocol")]
         public Input<Inputs.LocationFSxOntapProtocolArgs>? Protocol { get; set; }

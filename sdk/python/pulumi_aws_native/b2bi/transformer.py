@@ -28,7 +28,7 @@ class TransformerArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Transformer resource.
-        :param pulumi.Input['TransformerEdiTypePropertiesArgs'] edi_type: Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+        :param pulumi.Input['TransformerEdiTypePropertiesArgs'] edi_type: Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
         :param pulumi.Input['TransformerFileFormat'] file_format: Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
         :param pulumi.Input[str] mapping_template: Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
         :param pulumi.Input['TransformerStatus'] status: Returns the state of the newly created transformer. The transformer can be either `active` or `inactive` . For the transformer to be used in a capability, its status must `active` .
@@ -51,7 +51,7 @@ class TransformerArgs:
     @pulumi.getter(name="ediType")
     def edi_type(self) -> pulumi.Input['TransformerEdiTypePropertiesArgs']:
         """
-        Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+        Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
         """
         return pulumi.get(self, "edi_type")
 
@@ -150,7 +150,7 @@ class Transformer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TransformerEdiTypePropertiesArgs']] edi_type: Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+        :param pulumi.Input[pulumi.InputType['TransformerEdiTypePropertiesArgs']] edi_type: Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
         :param pulumi.Input['TransformerFileFormat'] file_format: Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
         :param pulumi.Input[str] mapping_template: Returns a sample EDI document that is used by a transformer as a guide for processing the EDI data.
         :param pulumi.Input[str] name: Returns the descriptive name for the transformer.
@@ -264,7 +264,7 @@ class Transformer(pulumi.CustomResource):
     @pulumi.getter(name="ediType")
     def edi_type(self) -> pulumi.Output['outputs.TransformerEdiTypeProperties']:
         """
-        Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+        Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
         """
         return pulumi.get(self, "edi_type")
 

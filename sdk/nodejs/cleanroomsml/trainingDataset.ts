@@ -60,7 +60,7 @@ export class TrainingDataset extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * Defines where the training dataset is located, what type of data it contains, and how to access the data.
+     * An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.
      */
     public readonly trainingData!: pulumi.Output<outputs.cleanroomsml.TrainingDatasetDataset[]>;
     /**
@@ -131,7 +131,7 @@ export interface TrainingDatasetArgs {
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
-     * Defines where the training dataset is located, what type of data it contains, and how to access the data.
+     * An array of information that lists the Dataset objects, which specifies the dataset type and details on its location and schema. You must provide a role that has read access to these tables.
      */
     trainingData: pulumi.Input<pulumi.Input<inputs.cleanroomsml.TrainingDatasetDatasetArgs>[]>;
 }

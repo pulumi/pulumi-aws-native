@@ -113,7 +113,7 @@ type Stream struct {
 	//
 	// If you provide an `InclusiveStartTime` that is before the ledger's `CreationDateTime` , QLDB effectively defaults it to the ledger's `CreationDateTime` .
 	InclusiveStartTime pulumi.StringOutput `pulumi:"inclusiveStartTime"`
-	// The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal stream.
+	// The configuration settings of the Kinesis Data Streams destination for your stream request.
 	KinesisConfiguration StreamKinesisConfigurationOutput `pulumi:"kinesisConfiguration"`
 	// The name of the ledger.
 	LedgerName pulumi.StringOutput `pulumi:"ledgerName"`
@@ -200,7 +200,7 @@ type streamArgs struct {
 	//
 	// If you provide an `InclusiveStartTime` that is before the ledger's `CreationDateTime` , QLDB effectively defaults it to the ledger's `CreationDateTime` .
 	InclusiveStartTime string `pulumi:"inclusiveStartTime"`
-	// The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal stream.
+	// The configuration settings of the Kinesis Data Streams destination for your stream request.
 	KinesisConfiguration StreamKinesisConfiguration `pulumi:"kinesisConfiguration"`
 	// The name of the ledger.
 	LedgerName string `pulumi:"ledgerName"`
@@ -228,7 +228,7 @@ type StreamArgs struct {
 	//
 	// If you provide an `InclusiveStartTime` that is before the ledger's `CreationDateTime` , QLDB effectively defaults it to the ledger's `CreationDateTime` .
 	InclusiveStartTime pulumi.StringInput
-	// The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal stream.
+	// The configuration settings of the Kinesis Data Streams destination for your stream request.
 	KinesisConfiguration StreamKinesisConfigurationInput
 	// The name of the ledger.
 	LedgerName pulumi.StringInput
@@ -307,7 +307,7 @@ func (o StreamOutput) InclusiveStartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.InclusiveStartTime }).(pulumi.StringOutput)
 }
 
-// The configuration settings of the Amazon Kinesis Data Streams destination for an Amazon QLDB journal stream.
+// The configuration settings of the Kinesis Data Streams destination for your stream request.
 func (o StreamOutput) KinesisConfiguration() StreamKinesisConfigurationOutput {
 	return o.ApplyT(func(v *Stream) StreamKinesisConfigurationOutput { return v.KinesisConfiguration }).(StreamKinesisConfigurationOutput)
 }

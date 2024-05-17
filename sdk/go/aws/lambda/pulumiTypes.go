@@ -151,7 +151,7 @@ func (o AliasProvisionedConcurrencyConfigurationPtrOutput) ProvisionedConcurrent
 }
 
 type AliasRoutingConfiguration struct {
-	// The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+	// The second version, and the percentage of traffic that's routed to it.
 	AdditionalVersionWeights []AliasVersionWeight `pulumi:"additionalVersionWeights"`
 }
 
@@ -167,7 +167,7 @@ type AliasRoutingConfigurationInput interface {
 }
 
 type AliasRoutingConfigurationArgs struct {
-	// The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+	// The second version, and the percentage of traffic that's routed to it.
 	AdditionalVersionWeights AliasVersionWeightArrayInput `pulumi:"additionalVersionWeights"`
 }
 
@@ -248,7 +248,7 @@ func (o AliasRoutingConfigurationOutput) ToAliasRoutingConfigurationPtrOutputWit
 	}).(AliasRoutingConfigurationPtrOutput)
 }
 
-// The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+// The second version, and the percentage of traffic that's routed to it.
 func (o AliasRoutingConfigurationOutput) AdditionalVersionWeights() AliasVersionWeightArrayOutput {
 	return o.ApplyT(func(v AliasRoutingConfiguration) []AliasVersionWeight { return v.AdditionalVersionWeights }).(AliasVersionWeightArrayOutput)
 }
@@ -277,7 +277,7 @@ func (o AliasRoutingConfigurationPtrOutput) Elem() AliasRoutingConfigurationOutp
 	}).(AliasRoutingConfigurationOutput)
 }
 
-// The [traffic-shifting](https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html) configuration of a Lambda function alias.
+// The second version, and the percentage of traffic that's routed to it.
 func (o AliasRoutingConfigurationPtrOutput) AdditionalVersionWeights() AliasVersionWeightArrayOutput {
 	return o.ApplyT(func(v *AliasRoutingConfiguration) []AliasVersionWeight {
 		if v == nil {
@@ -626,9 +626,9 @@ func (o CodeSigningConfigCodeSigningPoliciesPtrOutput) UntrustedArtifactOnDeploy
 
 // A destination for events after they have been sent to a function for processing.
 type EventInvokeConfigDestinationConfig struct {
-	// A destination for events that failed processing.
+	// The destination configuration for failed invocations.
 	OnFailure *EventInvokeConfigOnFailure `pulumi:"onFailure"`
-	// A destination for events that were processed successfully.
+	// The destination configuration for successful invocations.
 	OnSuccess *EventInvokeConfigOnSuccess `pulumi:"onSuccess"`
 }
 
@@ -645,9 +645,9 @@ type EventInvokeConfigDestinationConfigInput interface {
 
 // A destination for events after they have been sent to a function for processing.
 type EventInvokeConfigDestinationConfigArgs struct {
-	// A destination for events that failed processing.
+	// The destination configuration for failed invocations.
 	OnFailure EventInvokeConfigOnFailurePtrInput `pulumi:"onFailure"`
-	// A destination for events that were processed successfully.
+	// The destination configuration for successful invocations.
 	OnSuccess EventInvokeConfigOnSuccessPtrInput `pulumi:"onSuccess"`
 }
 
@@ -729,12 +729,12 @@ func (o EventInvokeConfigDestinationConfigOutput) ToEventInvokeConfigDestination
 	}).(EventInvokeConfigDestinationConfigPtrOutput)
 }
 
-// A destination for events that failed processing.
+// The destination configuration for failed invocations.
 func (o EventInvokeConfigDestinationConfigOutput) OnFailure() EventInvokeConfigOnFailurePtrOutput {
 	return o.ApplyT(func(v EventInvokeConfigDestinationConfig) *EventInvokeConfigOnFailure { return v.OnFailure }).(EventInvokeConfigOnFailurePtrOutput)
 }
 
-// A destination for events that were processed successfully.
+// The destination configuration for successful invocations.
 func (o EventInvokeConfigDestinationConfigOutput) OnSuccess() EventInvokeConfigOnSuccessPtrOutput {
 	return o.ApplyT(func(v EventInvokeConfigDestinationConfig) *EventInvokeConfigOnSuccess { return v.OnSuccess }).(EventInvokeConfigOnSuccessPtrOutput)
 }
@@ -763,7 +763,7 @@ func (o EventInvokeConfigDestinationConfigPtrOutput) Elem() EventInvokeConfigDes
 	}).(EventInvokeConfigDestinationConfigOutput)
 }
 
-// A destination for events that failed processing.
+// The destination configuration for failed invocations.
 func (o EventInvokeConfigDestinationConfigPtrOutput) OnFailure() EventInvokeConfigOnFailurePtrOutput {
 	return o.ApplyT(func(v *EventInvokeConfigDestinationConfig) *EventInvokeConfigOnFailure {
 		if v == nil {
@@ -773,7 +773,7 @@ func (o EventInvokeConfigDestinationConfigPtrOutput) OnFailure() EventInvokeConf
 	}).(EventInvokeConfigOnFailurePtrOutput)
 }
 
-// A destination for events that were processed successfully.
+// The destination configuration for successful invocations.
 func (o EventInvokeConfigDestinationConfigPtrOutput) OnSuccess() EventInvokeConfigOnSuccessPtrOutput {
 	return o.ApplyT(func(v *EventInvokeConfigDestinationConfig) *EventInvokeConfigOnSuccess {
 		if v == nil {

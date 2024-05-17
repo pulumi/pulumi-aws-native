@@ -31,7 +31,7 @@ export interface GetEmailIdentityResult {
      */
     readonly configurationSetAttributes?: outputs.ses.EmailIdentityConfigurationSetAttributes;
     /**
-     * Used to enable or disable DKIM authentication for an email identity.
+     * An object that contains information about the DKIM attributes for the identity.
      */
     readonly dkimAttributes?: outputs.ses.EmailIdentityDkimAttributes;
     /**
@@ -59,18 +59,11 @@ export interface GetEmailIdentityResult {
      */
     readonly dkimDnsTokenValue3?: string;
     /**
-     * Used to configure or change the DKIM authentication settings for an email domain identity. You can use this operation to do any of the following:
-     *
-     * - Update the signing attributes for an identity that uses Bring Your Own DKIM (BYODKIM).
-     * - Update the key length that should be used for Easy DKIM.
-     * - Change from using no DKIM authentication to using Easy DKIM.
-     * - Change from using no DKIM authentication to using BYODKIM.
-     * - Change from using Easy DKIM to using BYODKIM.
-     * - Change from using BYODKIM to using Easy DKIM.
+     * If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, or, configures the key length to be used for [Easy DKIM](https://docs.aws.amazon.com/ses/latest/dg/send-email-authentication-dkim-easy.html) .
      */
     readonly dkimSigningAttributes?: outputs.ses.EmailIdentityDkimSigningAttributes;
     /**
-     * Used to enable or disable feedback forwarding for an identity. This setting determines what happens when an identity is used to send an email that results in a bounce or complaint event.
+     * Used to enable or disable feedback forwarding for an identity.
      */
     readonly feedbackAttributes?: outputs.ses.EmailIdentityFeedbackAttributes;
     /**

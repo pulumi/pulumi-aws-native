@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
         private InputList<Inputs.FormValueMappingArgs>? _values;
 
         /// <summary>
-        /// The `ValueMapping` property specifies the association between a complex object and a display value. Use `ValueMapping` to store how to represent complex objects when they are displayed.
+        /// The value and display value pairs.
         /// </summary>
         public InputList<Inputs.FormValueMappingArgs> Values
         {

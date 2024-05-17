@@ -32,9 +32,9 @@ class KnowledgeBaseArgs:
         :param pulumi.Input[str] description: The description.
         :param pulumi.Input[str] name: The name of the knowledge base.
         :param pulumi.Input['KnowledgeBaseRenderingConfigurationArgs'] rendering_configuration: Information about how to render the content.
-        :param pulumi.Input['KnowledgeBaseServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: The configuration information for the customer managed key used for encryption.
-        :param pulumi.Input['KnowledgeBaseSourceConfigurationArgs'] source_configuration: Configuration information about the external data source.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: Metadata to assign to the Wisdom knowledge base. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+        :param pulumi.Input['KnowledgeBaseServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
+        :param pulumi.Input['KnowledgeBaseSourceConfigurationArgs'] source_configuration: The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The tags used to organize, track, or control access for this resource.
         """
         pulumi.set(__self__, "knowledge_base_type", knowledge_base_type)
         if description is not None:
@@ -102,7 +102,7 @@ class KnowledgeBaseArgs:
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseServerSideEncryptionConfigurationArgs']]:
         """
-        The configuration information for the customer managed key used for encryption.
+        This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
         """
         return pulumi.get(self, "server_side_encryption_configuration")
 
@@ -114,7 +114,7 @@ class KnowledgeBaseArgs:
     @pulumi.getter(name="sourceConfiguration")
     def source_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseSourceConfigurationArgs']]:
         """
-        Configuration information about the external data source.
+        The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
         """
         return pulumi.get(self, "source_configuration")
 
@@ -126,7 +126,7 @@ class KnowledgeBaseArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
-        Metadata to assign to the Wisdom knowledge base. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+        The tags used to organize, track, or control access for this resource.
         """
         return pulumi.get(self, "tags")
 
@@ -157,9 +157,9 @@ class KnowledgeBase(pulumi.CustomResource):
         :param pulumi.Input['KnowledgeBaseType'] knowledge_base_type: The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
         :param pulumi.Input[str] name: The name of the knowledge base.
         :param pulumi.Input[pulumi.InputType['KnowledgeBaseRenderingConfigurationArgs']] rendering_configuration: Information about how to render the content.
-        :param pulumi.Input[pulumi.InputType['KnowledgeBaseServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: The configuration information for the customer managed key used for encryption.
-        :param pulumi.Input[pulumi.InputType['KnowledgeBaseSourceConfigurationArgs']] source_configuration: Configuration information about the external data source.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: Metadata to assign to the Wisdom knowledge base. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+        :param pulumi.Input[pulumi.InputType['KnowledgeBaseServerSideEncryptionConfigurationArgs']] server_side_encryption_configuration: This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
+        :param pulumi.Input[pulumi.InputType['KnowledgeBaseSourceConfigurationArgs']] source_configuration: The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
     @overload
@@ -299,7 +299,7 @@ class KnowledgeBase(pulumi.CustomResource):
     @pulumi.getter(name="serverSideEncryptionConfiguration")
     def server_side_encryption_configuration(self) -> pulumi.Output[Optional['outputs.KnowledgeBaseServerSideEncryptionConfiguration']]:
         """
-        The configuration information for the customer managed key used for encryption.
+        This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
         """
         return pulumi.get(self, "server_side_encryption_configuration")
 
@@ -307,7 +307,7 @@ class KnowledgeBase(pulumi.CustomResource):
     @pulumi.getter(name="sourceConfiguration")
     def source_configuration(self) -> pulumi.Output[Optional['outputs.KnowledgeBaseSourceConfiguration']]:
         """
-        Configuration information about the external data source.
+        The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
         """
         return pulumi.get(self, "source_configuration")
 
@@ -315,7 +315,7 @@ class KnowledgeBase(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
         """
-        Metadata to assign to the Wisdom knowledge base. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+        The tags used to organize, track, or control access for this resource.
         """
         return pulumi.get(self, "tags")
 

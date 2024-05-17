@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.TopicCalculatedFieldArgs>? _calculatedFields;
 
         /// <summary>
-        /// A structure that represents a calculated field.
+        /// The list of calculated field definitions.
         /// </summary>
         public InputList<Inputs.TopicCalculatedFieldArgs> CalculatedFields
         {
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.TopicColumnArgs>? _columns;
 
         /// <summary>
-        /// Represents a column in a dataset.
+        /// The list of column definitions.
         /// </summary>
         public InputList<Inputs.TopicColumnArgs> Columns
         {
@@ -64,7 +64,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.TopicFilterArgs>? _filters;
 
         /// <summary>
-        /// A structure that represents a filter used to select items for a topic.
+        /// The list of filter definitions.
         /// </summary>
         public InputList<Inputs.TopicFilterArgs> Filters
         {
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.TopicNamedEntityArgs>? _namedEntities;
 
         /// <summary>
-        /// A structure that represents a named entity.
+        /// The list of named entities definitions.
         /// </summary>
         public InputList<Inputs.TopicNamedEntityArgs> NamedEntities
         {

@@ -35,11 +35,11 @@ type LookupRuleResult struct {
 	Arn *string `pulumi:"arn"`
 	// The ID of the listener.
 	Id *string `pulumi:"id"`
-	// Describes a rule match.
+	// The rule match.
 	Match *RuleMatch `pulumi:"match"`
 	// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
 	Priority *int `pulumi:"priority"`
-	// Specifies a tag for a listener rule.
+	// The tags for the rule.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -94,7 +94,7 @@ func (o LookupRuleResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Describes a rule match.
+// The rule match.
 func (o LookupRuleResultOutput) Match() RuleMatchPtrOutput {
 	return o.ApplyT(func(v LookupRuleResult) *RuleMatch { return v.Match }).(RuleMatchPtrOutput)
 }
@@ -104,7 +104,7 @@ func (o LookupRuleResultOutput) Priority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupRuleResult) *int { return v.Priority }).(pulumi.IntPtrOutput)
 }
 
-// Specifies a tag for a listener rule.
+// The tags for the rule.
 func (o LookupRuleResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupRuleResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -18,19 +18,19 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.AnalysisDataPathLabelType? DataPathLabelType;
         /// <summary>
-        /// The field label type.
+        /// Determines the label configuration for the entire field.
         /// </summary>
         public readonly Outputs.AnalysisFieldLabelType? FieldLabelType;
         /// <summary>
-        /// The maximum label of a data path label.
+        /// Determines the label configuration for the maximum value in a visual.
         /// </summary>
         public readonly Outputs.AnalysisMaximumLabelType? MaximumLabelType;
         /// <summary>
-        /// The minimum label of a data path label.
+        /// Determines the label configuration for the minimum value in a visual.
         /// </summary>
         public readonly Outputs.AnalysisMinimumLabelType? MinimumLabelType;
         /// <summary>
-        /// The range ends label type of a data path label.
+        /// Determines the label configuration for range end value in a visual.
         /// </summary>
         public readonly Outputs.AnalysisRangeEndsLabelType? RangeEndsLabelType;
 

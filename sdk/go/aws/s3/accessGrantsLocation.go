@@ -24,7 +24,7 @@ type AccessGrantsLocation struct {
 	IamRoleArn pulumi.StringPtrOutput `pulumi:"iamRoleArn"`
 	// Descriptor for where the location actually points
 	LocationScope pulumi.StringPtrOutput `pulumi:"locationScope"`
-	// A container of a key value name pair.
+	// The AWS resource tags that you are adding to the S3 Access Grants location. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
@@ -76,7 +76,7 @@ type accessGrantsLocationArgs struct {
 	IamRoleArn *string `pulumi:"iamRoleArn"`
 	// Descriptor for where the location actually points
 	LocationScope *string `pulumi:"locationScope"`
-	// A container of a key value name pair.
+	// The AWS resource tags that you are adding to the S3 Access Grants location. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
@@ -86,7 +86,7 @@ type AccessGrantsLocationArgs struct {
 	IamRoleArn pulumi.StringPtrInput
 	// Descriptor for where the location actually points
 	LocationScope pulumi.StringPtrInput
-	// A container of a key value name pair.
+	// The AWS resource tags that you are adding to the S3 Access Grants location. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
 	Tags aws.CreateOnlyTagArrayInput
 }
 
@@ -147,7 +147,7 @@ func (o AccessGrantsLocationOutput) LocationScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccessGrantsLocation) pulumi.StringPtrOutput { return v.LocationScope }).(pulumi.StringPtrOutput)
 }
 
-// A container of a key value name pair.
+// The AWS resource tags that you are adding to the S3 Access Grants location. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.
 func (o AccessGrantsLocationOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *AccessGrantsLocation) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }

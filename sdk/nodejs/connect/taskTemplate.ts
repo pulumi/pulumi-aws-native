@@ -54,7 +54,7 @@ export class TaskTemplate extends pulumi.CustomResource {
      */
     public readonly contactFlowArn!: pulumi.Output<string | undefined>;
     /**
-     * Describes a default field and its corresponding value.
+     * The default values for fields when a task is created by referencing this template.
      */
     public readonly defaults!: pulumi.Output<outputs.connect.TaskTemplateDefaultFieldValue[] | undefined>;
     /**
@@ -142,7 +142,7 @@ export interface TaskTemplateArgs {
      */
     contactFlowArn?: pulumi.Input<string>;
     /**
-     * Describes a default field and its corresponding value.
+     * The default values for fields when a task is created by referencing this template.
      */
     defaults?: pulumi.Input<pulumi.Input<inputs.connect.TaskTemplateDefaultFieldValueArgs>[]>;
     /**

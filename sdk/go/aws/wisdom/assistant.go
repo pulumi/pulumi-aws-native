@@ -25,9 +25,9 @@ type Assistant struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the assistant.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The configuration information for the customer managed key used for encryption.
+	// The configuration information for the customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) .
 	ServerSideEncryptionConfiguration AssistantServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
-	// Metadata to assign to the Wisdom assistant. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+	// The tags used to organize, track, or control access for this resource.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 	// The type of assistant.
 	Type AssistantTypeOutput `pulumi:"type"`
@@ -88,9 +88,9 @@ type assistantArgs struct {
 	Description *string `pulumi:"description"`
 	// The name of the assistant.
 	Name *string `pulumi:"name"`
-	// The configuration information for the customer managed key used for encryption.
+	// The configuration information for the customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) .
 	ServerSideEncryptionConfiguration *AssistantServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
-	// Metadata to assign to the Wisdom assistant. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+	// The tags used to organize, track, or control access for this resource.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 	// The type of assistant.
 	Type AssistantType `pulumi:"type"`
@@ -102,9 +102,9 @@ type AssistantArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the assistant.
 	Name pulumi.StringPtrInput
-	// The configuration information for the customer managed key used for encryption.
+	// The configuration information for the customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) .
 	ServerSideEncryptionConfiguration AssistantServerSideEncryptionConfigurationPtrInput
-	// Metadata to assign to the Wisdom assistant. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+	// The tags used to organize, track, or control access for this resource.
 	Tags aws.CreateOnlyTagArrayInput
 	// The type of assistant.
 	Type AssistantTypeInput
@@ -167,14 +167,14 @@ func (o AssistantOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assistant) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The configuration information for the customer managed key used for encryption.
+// The configuration information for the customer managed key used for encryption. The customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. To use Wisdom with chat, the key policy must also allow `kms:Decrypt` , `kms:GenerateDataKey*` , and `kms:DescribeKey` permissions to the `connect.amazonaws.com` service principal. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) .
 func (o AssistantOutput) ServerSideEncryptionConfiguration() AssistantServerSideEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *Assistant) AssistantServerSideEncryptionConfigurationPtrOutput {
 		return v.ServerSideEncryptionConfiguration
 	}).(AssistantServerSideEncryptionConfigurationPtrOutput)
 }
 
-// Metadata to assign to the Wisdom assistant. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+// The tags used to organize, track, or control access for this resource.
 func (o AssistantOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *Assistant) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }

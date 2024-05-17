@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardTimeEqualityFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A column of a data set.
+        /// The column that the filter is applied to.
         /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.DashboardColumnIdentifierArgs> Column { get; set; } = null!;
 
         /// <summary>
-        /// The default configuration for all dependent controls of the filter.
+        /// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
         /// </summary>
         [Input("defaultFilterControlConfiguration")]
         public Input<Inputs.DashboardDefaultFilterControlConfigurationArgs>? DefaultFilterControlConfiguration { get; set; }
@@ -39,7 +39,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string>? ParameterName { get; set; }
 
         /// <summary>
-        /// The rolling date configuration of a date time filter.
+        /// The rolling date input for the `TimeEquality` filter.
+        /// 
+        /// This field is mutually exclusive to `Value` and `ParameterName` .
         /// </summary>
         [Input("rollingDate")]
         public Input<Inputs.DashboardRollingDateConfigurationArgs>? RollingDate { get; set; }

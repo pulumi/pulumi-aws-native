@@ -28,15 +28,7 @@ namespace Pulumi.AwsNative.CloudFront
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
         /// <summary>
-        /// An origin request policy configuration.
-        /// 
-        /// This configuration determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:
-        /// 
-        /// - The request body and the URL path (without the domain name) from the viewer request.
-        /// - The headers that CloudFront automatically includes in every origin request, including `Host` , `User-Agent` , and `X-Amz-Cf-Id` .
-        /// - All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.
-        /// 
-        /// CloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use `CachePolicy` .
+        /// The origin request policy configuration.
         /// </summary>
         [Output("originRequestPolicyConfig")]
         public Output<Outputs.OriginRequestPolicyConfig> OriginRequestPolicyConfig { get; private set; } = null!;
@@ -87,15 +79,7 @@ namespace Pulumi.AwsNative.CloudFront
     public sealed class OriginRequestPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An origin request policy configuration.
-        /// 
-        /// This configuration determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:
-        /// 
-        /// - The request body and the URL path (without the domain name) from the viewer request.
-        /// - The headers that CloudFront automatically includes in every origin request, including `Host` , `User-Agent` , and `X-Amz-Cf-Id` .
-        /// - All HTTP headers, cookies, and URL query strings that are specified in the cache policy or the origin request policy. These can include items from the viewer request and, in the case of headers, additional ones that are added by CloudFront.
-        /// 
-        /// CloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use `CachePolicy` .
+        /// The origin request policy configuration.
         /// </summary>
         [Input("originRequestPolicyConfig", required: true)]
         public Input<Inputs.OriginRequestPolicyConfigArgs> OriginRequestPolicyConfig { get; set; } = null!;

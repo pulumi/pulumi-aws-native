@@ -19,7 +19,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public Input<Inputs.JobDefinitionEfsVolumeConfigurationArgs>? EfsVolumeConfiguration { get; set; }
 
         /// <summary>
-        /// Determine whether your data volume persists on the host container instance and where it's stored. If this parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
+        /// The contents of the `host` parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
+        /// 
+        /// &gt; This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.
         /// </summary>
         [Input("host")]
         public Input<Inputs.JobDefinitionVolumesHostArgs>? Host { get; set; }

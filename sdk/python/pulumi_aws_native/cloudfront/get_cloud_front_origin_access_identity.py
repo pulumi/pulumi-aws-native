@@ -34,7 +34,7 @@ class GetCloudFrontOriginAccessIdentityResult:
     @pulumi.getter(name="cloudFrontOriginAccessIdentityConfig")
     def cloud_front_origin_access_identity_config(self) -> Optional['outputs.CloudFrontOriginAccessIdentityConfig']:
         """
-        Origin access identity configuration. Send a `GET` request to the `/ *CloudFront API version* /CloudFront/identity ID/config` resource.
+        The current configuration information for the identity.
         """
         return pulumi.get(self, "cloud_front_origin_access_identity_config")
 

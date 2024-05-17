@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
     public sealed class ThingGroupPropertiesProperties
     {
         /// <summary>
-        /// The attribute payload.
+        /// The thing group attributes in JSON format.
         /// </summary>
         public readonly Outputs.ThingGroupAttributePayload? AttributePayload;
         /// <summary>

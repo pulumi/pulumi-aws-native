@@ -21,7 +21,9 @@ class BackupSelectionArgs:
         """
         The set of arguments for constructing a BackupSelection resource.
         :param pulumi.Input[str] backup_plan_id: Uniquely identifies a backup plan.
-        :param pulumi.Input['BackupSelectionResourceTypeArgs'] backup_selection: Specifies an object containing properties used to assign a set of resources to a backup plan.
+        :param pulumi.Input['BackupSelectionResourceTypeArgs'] backup_selection: Specifies the body of a request to assign a set of resources to a backup plan.
+               
+               It includes an array of resources, an optional array of patterns to exclude resources, an optional role to provide access to the AWS service the resource belongs to, and an optional array of tags used to identify a set of resources.
         """
         pulumi.set(__self__, "backup_plan_id", backup_plan_id)
         pulumi.set(__self__, "backup_selection", backup_selection)
@@ -42,7 +44,9 @@ class BackupSelectionArgs:
     @pulumi.getter(name="backupSelection")
     def backup_selection(self) -> pulumi.Input['BackupSelectionResourceTypeArgs']:
         """
-        Specifies an object containing properties used to assign a set of resources to a backup plan.
+        Specifies the body of a request to assign a set of resources to a backup plan.
+
+        It includes an array of resources, an optional array of patterns to exclude resources, an optional role to provide access to the AWS service the resource belongs to, and an optional array of tags used to identify a set of resources.
         """
         return pulumi.get(self, "backup_selection")
 
@@ -65,7 +69,9 @@ class BackupSelection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backup_plan_id: Uniquely identifies a backup plan.
-        :param pulumi.Input[pulumi.InputType['BackupSelectionResourceTypeArgs']] backup_selection: Specifies an object containing properties used to assign a set of resources to a backup plan.
+        :param pulumi.Input[pulumi.InputType['BackupSelectionResourceTypeArgs']] backup_selection: Specifies the body of a request to assign a set of resources to a backup plan.
+               
+               It includes an array of resources, an optional array of patterns to exclude resources, an optional role to provide access to the AWS service the resource belongs to, and an optional array of tags used to identify a set of resources.
         """
         ...
     @overload
@@ -160,7 +166,9 @@ class BackupSelection(pulumi.CustomResource):
     @pulumi.getter(name="backupSelection")
     def backup_selection(self) -> pulumi.Output['outputs.BackupSelectionResourceType']:
         """
-        Specifies an object containing properties used to assign a set of resources to a backup plan.
+        Specifies the body of a request to assign a set of resources to a backup plan.
+
+        It includes an array of resources, an optional array of patterns to exclude resources, an optional role to provide access to the AWS service the resource belongs to, and an optional array of tags used to identify a set of resources.
         """
         return pulumi.get(self, "backup_selection")
 

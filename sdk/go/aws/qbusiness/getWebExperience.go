@@ -43,7 +43,7 @@ type LookupWebExperienceResult struct {
 	Status *WebExperienceStatus `pulumi:"status"`
 	// A subtitle to personalize your Amazon Q Business web experience.
 	Subtitle *string `pulumi:"subtitle"`
-	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	// A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The title for your Amazon Q Business web experience.
 	Title *string `pulumi:"title"`
@@ -127,7 +127,7 @@ func (o LookupWebExperienceResultOutput) Subtitle() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWebExperienceResult) *string { return v.Subtitle }).(pulumi.StringPtrOutput)
 }
 
-// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+// A list of key-value pairs that identify or categorize your Amazon Q Business web experience. You can also use tags to help control access to the web experience. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 func (o LookupWebExperienceResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupWebExperienceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

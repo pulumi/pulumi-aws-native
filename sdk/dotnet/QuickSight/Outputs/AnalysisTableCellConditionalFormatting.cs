@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string FieldId;
         /// <summary>
-        /// The conditional formatting for the text.
+        /// The text format of the cell for conditional formatting.
         /// </summary>
         public readonly Outputs.AnalysisTextConditionalFormat? TextFormat;
 

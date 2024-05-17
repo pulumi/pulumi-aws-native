@@ -27,7 +27,7 @@ class KeyAttributesArgs:
                
                For symmetric keys, AWS Payment Cryptography supports `AES` and `TDES` algorithms. For asymmetric keys, AWS Payment Cryptography supports `RSA` and `ECC_NIST` algorithms.
         :param pulumi.Input['KeyClass'] key_class: The type of AWS Payment Cryptography key to create, which determines the classiﬁcation of the cryptographic method and whether AWS Payment Cryptography key contains a symmetric key or an asymmetric key pair.
-        :param pulumi.Input['KeyModesOfUseArgs'] key_modes_of_use: The list of cryptographic operations that you can perform using the key. The modes of use are deﬁned in section A.5.3 of the TR-31 spec.
+        :param pulumi.Input['KeyModesOfUseArgs'] key_modes_of_use: The list of cryptographic operations that you can perform using the key.
         :param pulumi.Input['KeyUsage'] key_usage: The cryptographic usage of an AWS Payment Cryptography key as deﬁned in section A.5.2 of the TR-31 spec.
         """
         pulumi.set(__self__, "key_algorithm", key_algorithm)
@@ -65,7 +65,7 @@ class KeyAttributesArgs:
     @pulumi.getter(name="keyModesOfUse")
     def key_modes_of_use(self) -> pulumi.Input['KeyModesOfUseArgs']:
         """
-        The list of cryptographic operations that you can perform using the key. The modes of use are deﬁned in section A.5.3 of the TR-31 spec.
+        The list of cryptographic operations that you can perform using the key.
         """
         return pulumi.get(self, "key_modes_of_use")
 

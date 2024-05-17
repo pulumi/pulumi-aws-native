@@ -28,7 +28,7 @@ class BucketArgs:
         """
         The set of arguments for constructing a Bucket resource.
         :param pulumi.Input[str] bundle_id: The ID of the bundle to use for the bucket.
-        :param pulumi.Input['BucketAccessRulesArgs'] access_rules: `AccessRules` is a property of the [AWS::Lightsail::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html) resource. It describes access rules for a bucket.
+        :param pulumi.Input['BucketAccessRulesArgs'] access_rules: An object that describes the access rules for the bucket.
         :param pulumi.Input[str] bucket_name: The name for the bucket.
         :param pulumi.Input[bool] object_versioning: Specifies whether to enable or disable versioning of objects in the bucket.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_only_access_accounts: An array of strings to specify the AWS account IDs that can access the bucket.
@@ -65,7 +65,7 @@ class BucketArgs:
     @pulumi.getter(name="accessRules")
     def access_rules(self) -> Optional[pulumi.Input['BucketAccessRulesArgs']]:
         """
-        `AccessRules` is a property of the [AWS::Lightsail::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html) resource. It describes access rules for a bucket.
+        An object that describes the access rules for the bucket.
         """
         return pulumi.get(self, "access_rules")
 
@@ -152,7 +152,7 @@ class Bucket(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['BucketAccessRulesArgs']] access_rules: `AccessRules` is a property of the [AWS::Lightsail::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html) resource. It describes access rules for a bucket.
+        :param pulumi.Input[pulumi.InputType['BucketAccessRulesArgs']] access_rules: An object that describes the access rules for the bucket.
         :param pulumi.Input[str] bucket_name: The name for the bucket.
         :param pulumi.Input[str] bundle_id: The ID of the bundle to use for the bucket.
         :param pulumi.Input[bool] object_versioning: Specifies whether to enable or disable versioning of objects in the bucket.
@@ -260,7 +260,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter(name="accessRules")
     def access_rules(self) -> pulumi.Output[Optional['outputs.BucketAccessRules']]:
         """
-        `AccessRules` is a property of the [AWS::Lightsail::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html) resource. It describes access rules for a bucket.
+        An object that describes the access rules for the bucket.
         """
         return pulumi.get(self, "access_rules")
 

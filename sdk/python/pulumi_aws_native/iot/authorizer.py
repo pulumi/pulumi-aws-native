@@ -34,7 +34,13 @@ class AuthorizerArgs:
         :param pulumi.Input['AuthorizerStatus'] status: The status of the authorizer.
                
                Valid values: `ACTIVE` | `INACTIVE`
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of key/value pairs that are used to manage the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Metadata which can be used to manage the custom authorizer.
+               
+               > For URI Request parameters use format: ...key1=value1&key2=value2...
+               > 
+               > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+               > 
+               > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
         :param pulumi.Input[str] token_key_name: The key used to extract the token from the HTTP headers.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] token_signing_public_keys: The public keys used to validate the token signature returned by your custom authentication service.
         """
@@ -120,7 +126,13 @@ class AuthorizerArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A set of key/value pairs that are used to manage the resource.
+        Metadata which can be used to manage the custom authorizer.
+
+        > For URI Request parameters use format: ...key1=value1&key2=value2...
+        > 
+        > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+        > 
+        > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
         """
         return pulumi.get(self, "tags")
 
@@ -179,7 +191,13 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.Input['AuthorizerStatus'] status: The status of the authorizer.
                
                Valid values: `ACTIVE` | `INACTIVE`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A set of key/value pairs that are used to manage the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata which can be used to manage the custom authorizer.
+               
+               > For URI Request parameters use format: ...key1=value1&key2=value2...
+               > 
+               > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+               > 
+               > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
         :param pulumi.Input[str] token_key_name: The key used to extract the token from the HTTP headers.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] token_signing_public_keys: The public keys used to validate the token signature returned by your custom authentication service.
         """
@@ -324,7 +342,13 @@ class Authorizer(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A set of key/value pairs that are used to manage the resource.
+        Metadata which can be used to manage the custom authorizer.
+
+        > For URI Request parameters use format: ...key1=value1&key2=value2...
+        > 
+        > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+        > 
+        > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
         """
         return pulumi.get(self, "tags")
 

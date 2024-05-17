@@ -19,7 +19,7 @@ type Bucket struct {
 
 	// Indicates whether the bundle that is currently applied to a bucket can be changed to another bundle. You can update a bucket's bundle only one time within a monthly AWS billing cycle.
 	AbleToUpdateBundle pulumi.BoolOutput `pulumi:"ableToUpdateBundle"`
-	// `AccessRules` is a property of the [AWS::Lightsail::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html) resource. It describes access rules for a bucket.
+	// An object that describes the access rules for the bucket.
 	AccessRules BucketAccessRulesPtrOutput `pulumi:"accessRules"`
 	// The Amazon Resource Name (ARN) of the bucket.
 	BucketArn pulumi.StringOutput `pulumi:"bucketArn"`
@@ -86,7 +86,7 @@ func (BucketState) ElementType() reflect.Type {
 }
 
 type bucketArgs struct {
-	// `AccessRules` is a property of the [AWS::Lightsail::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html) resource. It describes access rules for a bucket.
+	// An object that describes the access rules for the bucket.
 	AccessRules *BucketAccessRules `pulumi:"accessRules"`
 	// The name for the bucket.
 	BucketName *string `pulumi:"bucketName"`
@@ -104,7 +104,7 @@ type bucketArgs struct {
 
 // The set of arguments for constructing a Bucket resource.
 type BucketArgs struct {
-	// `AccessRules` is a property of the [AWS::Lightsail::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html) resource. It describes access rules for a bucket.
+	// An object that describes the access rules for the bucket.
 	AccessRules BucketAccessRulesPtrInput
 	// The name for the bucket.
 	BucketName pulumi.StringPtrInput
@@ -162,7 +162,7 @@ func (o BucketOutput) AbleToUpdateBundle() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Bucket) pulumi.BoolOutput { return v.AbleToUpdateBundle }).(pulumi.BoolOutput)
 }
 
-// `AccessRules` is a property of the [AWS::Lightsail::Bucket](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html) resource. It describes access rules for a bucket.
+// An object that describes the access rules for the bucket.
 func (o BucketOutput) AccessRules() BucketAccessRulesPtrOutput {
 	return o.ApplyT(func(v *Bucket) BucketAccessRulesPtrOutput { return v.AccessRules }).(BucketAccessRulesPtrOutput)
 }

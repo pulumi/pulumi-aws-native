@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardPivotTableOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The table cell style of cells.
         /// </summary>
         [Input("cellStyle")]
         public Input<Inputs.DashboardTableCellStyleArgs>? CellStyle { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? CollapsedRowDimensionsVisibility { get; set; }
 
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The table cell style of the column header.
         /// </summary>
         [Input("columnHeaderStyle")]
         public Input<Inputs.DashboardTableCellStyleArgs>? ColumnHeaderStyle { get; set; }
@@ -49,25 +49,25 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.DashboardPivotTableMetricPlacement>? MetricPlacement { get; set; }
 
         /// <summary>
-        /// Determines the row alternate color options.
+        /// The row alternate color options (widget status, row alternate colors).
         /// </summary>
         [Input("rowAlternateColorOptions")]
         public Input<Inputs.DashboardRowAlternateColorOptionsArgs>? RowAlternateColorOptions { get; set; }
 
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The table cell style of row field names.
         /// </summary>
         [Input("rowFieldNamesStyle")]
         public Input<Inputs.DashboardTableCellStyleArgs>? RowFieldNamesStyle { get; set; }
 
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The table cell style of the row headers.
         /// </summary>
         [Input("rowHeaderStyle")]
         public Input<Inputs.DashboardTableCellStyleArgs>? RowHeaderStyle { get; set; }
 
         /// <summary>
-        /// The options for the label thta is located above the row headers. This option is only applicable when `RowsLayout` is set to `HIERARCHY` .
+        /// The options for the label that is located above the row headers. This option is only applicable when `RowsLayout` is set to `HIERARCHY` .
         /// </summary>
         [Input("rowsLabelOptions")]
         public Input<Inputs.DashboardPivotTableRowsLabelOptionsArgs>? RowsLabelOptions { get; set; }

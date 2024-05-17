@@ -41,11 +41,11 @@ export interface GetBackupVaultResult {
      */
     readonly backupVaultTags?: {[key: string]: string};
     /**
-     * The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+     * Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
      */
     readonly lockConfiguration?: outputs.backup.BackupVaultLockConfigurationType;
     /**
-     * Specifies an object containing SNS event notification properties for the target backup vault.
+     * The SNS event notifications for the specified backup vault.
      */
     readonly notifications?: outputs.backup.BackupVaultNotificationObjectType;
 }

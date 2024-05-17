@@ -71,9 +71,9 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly allowedOAuthScopes!: pulumi.Output<string[] | undefined>;
     /**
-     * The Amazon Pinpoint analytics configuration necessary to collect metrics for a user pool.
+     * The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.
      *
-     * > In Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.
+     * > In AWS Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in AWS Region us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.
      */
     public readonly analyticsConfiguration!: pulumi.Output<outputs.cognito.UserPoolClientAnalyticsConfiguration | undefined>;
     /**
@@ -188,7 +188,7 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly supportedIdentityProviders!: pulumi.Output<string[] | undefined>;
     /**
-     * The time units you use when you set the duration of ID, access, and refresh tokens. The default unit for RefreshToken is days, and the default for ID and access tokens is hours.
+     * The units in which the validity times are represented. The default unit for RefreshToken is days, and default for ID and access tokens are hours.
      */
     public readonly tokenValidityUnits!: pulumi.Output<outputs.cognito.UserPoolClientTokenValidityUnits | undefined>;
     /**
@@ -315,9 +315,9 @@ export interface UserPoolClientArgs {
      */
     allowedOAuthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The Amazon Pinpoint analytics configuration necessary to collect metrics for a user pool.
+     * The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.
      *
-     * > In Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.
+     * > In AWS Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in AWS Region us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.
      */
     analyticsConfiguration?: pulumi.Input<inputs.cognito.UserPoolClientAnalyticsConfigurationArgs>;
     /**
@@ -426,7 +426,7 @@ export interface UserPoolClientArgs {
      */
     supportedIdentityProviders?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The time units you use when you set the duration of ID, access, and refresh tokens. The default unit for RefreshToken is days, and the default for ID and access tokens is hours.
+     * The units in which the validity times are represented. The default unit for RefreshToken is days, and default for ID and access tokens are hours.
      */
     tokenValidityUnits?: pulumi.Input<inputs.cognito.UserPoolClientTokenValidityUnitsArgs>;
     /**

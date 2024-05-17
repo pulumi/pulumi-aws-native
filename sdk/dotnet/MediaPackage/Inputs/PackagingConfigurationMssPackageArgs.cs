@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
     public sealed class PackagingConfigurationMssPackageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Holds encryption information so that access to the content can be controlled by a DRM solution.
+        /// Parameters for encrypting content.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.PackagingConfigurationMssEncryptionArgs>? Encryption { get; set; }

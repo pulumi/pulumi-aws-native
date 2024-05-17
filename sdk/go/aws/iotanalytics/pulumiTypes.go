@@ -463,7 +463,7 @@ func (o ChannelServiceManagedS3PtrOutput) Elem() ChannelServiceManagedS3Output {
 }
 
 type ChannelStorage struct {
-	// Used to store channel data in an S3 bucket that you manage.
+	// Used to store channel data in an S3 bucket that you manage. If customer managed storage is selected, the `retentionPeriod` parameter is ignored. You can't change the choice of S3 storage after the data store is created.
 	CustomerManagedS3 *ChannelCustomerManagedS3 `pulumi:"customerManagedS3"`
 	// Used to store channel data in an S3 bucket managed by AWS IoT Analytics . You can't change the choice of S3 storage after the data store is created.
 	ServiceManagedS3 *ChannelServiceManagedS3 `pulumi:"serviceManagedS3"`
@@ -481,7 +481,7 @@ type ChannelStorageInput interface {
 }
 
 type ChannelStorageArgs struct {
-	// Used to store channel data in an S3 bucket that you manage.
+	// Used to store channel data in an S3 bucket that you manage. If customer managed storage is selected, the `retentionPeriod` parameter is ignored. You can't change the choice of S3 storage after the data store is created.
 	CustomerManagedS3 ChannelCustomerManagedS3PtrInput `pulumi:"customerManagedS3"`
 	// Used to store channel data in an S3 bucket managed by AWS IoT Analytics . You can't change the choice of S3 storage after the data store is created.
 	ServiceManagedS3 ChannelServiceManagedS3PtrInput `pulumi:"serviceManagedS3"`
@@ -564,7 +564,7 @@ func (o ChannelStorageOutput) ToChannelStoragePtrOutputWithContext(ctx context.C
 	}).(ChannelStoragePtrOutput)
 }
 
-// Used to store channel data in an S3 bucket that you manage.
+// Used to store channel data in an S3 bucket that you manage. If customer managed storage is selected, the `retentionPeriod` parameter is ignored. You can't change the choice of S3 storage after the data store is created.
 func (o ChannelStorageOutput) CustomerManagedS3() ChannelCustomerManagedS3PtrOutput {
 	return o.ApplyT(func(v ChannelStorage) *ChannelCustomerManagedS3 { return v.CustomerManagedS3 }).(ChannelCustomerManagedS3PtrOutput)
 }
@@ -598,7 +598,7 @@ func (o ChannelStoragePtrOutput) Elem() ChannelStorageOutput {
 	}).(ChannelStorageOutput)
 }
 
-// Used to store channel data in an S3 bucket that you manage.
+// Used to store channel data in an S3 bucket that you manage. If customer managed storage is selected, the `retentionPeriod` parameter is ignored. You can't change the choice of S3 storage after the data store is created.
 func (o ChannelStoragePtrOutput) CustomerManagedS3() ChannelCustomerManagedS3PtrOutput {
 	return o.ApplyT(func(v *ChannelStorage) *ChannelCustomerManagedS3 {
 		if v == nil {
@@ -628,7 +628,7 @@ type ChannelTag struct {
 type DatasetAction struct {
 	// The name of the data set action by which data set contents are automatically created.
 	ActionName string `pulumi:"actionName"`
-	// Information needed to run the "containerAction" to produce data set contents.
+	// Information which allows the system to run a containerized application in order to create the data set contents. The application must be in a Docker container along with any needed support libraries.
 	ContainerAction *DatasetContainerAction `pulumi:"containerAction"`
 	// An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
 	QueryAction *DatasetQueryAction `pulumi:"queryAction"`
@@ -648,7 +648,7 @@ type DatasetActionInput interface {
 type DatasetActionArgs struct {
 	// The name of the data set action by which data set contents are automatically created.
 	ActionName pulumi.StringInput `pulumi:"actionName"`
-	// Information needed to run the "containerAction" to produce data set contents.
+	// Information which allows the system to run a containerized application in order to create the data set contents. The application must be in a Docker container along with any needed support libraries.
 	ContainerAction DatasetContainerActionPtrInput `pulumi:"containerAction"`
 	// An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
 	QueryAction DatasetQueryActionPtrInput `pulumi:"queryAction"`
@@ -710,7 +710,7 @@ func (o DatasetActionOutput) ActionName() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetAction) string { return v.ActionName }).(pulumi.StringOutput)
 }
 
-// Information needed to run the "containerAction" to produce data set contents.
+// Information which allows the system to run a containerized application in order to create the data set contents. The application must be in a Docker container along with any needed support libraries.
 func (o DatasetActionOutput) ContainerAction() DatasetContainerActionPtrOutput {
 	return o.ApplyT(func(v DatasetAction) *DatasetContainerAction { return v.ContainerAction }).(DatasetContainerActionPtrOutput)
 }
@@ -745,9 +745,9 @@ type DatasetContainerAction struct {
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
 	// The ARN of the Docker container stored in your account. The Docker container contains an application and needed support libraries and is used to generate data set contents.
 	Image string `pulumi:"image"`
-	// The configuration of the resource used to execute the `containerAction` .
+	// Configuration of the resource which executes the "containerAction".
 	ResourceConfiguration DatasetResourceConfiguration `pulumi:"resourceConfiguration"`
-	// An instance of a variable to be passed to the `containerAction` execution. Each variable must have a name and a value given by one of `stringValue` , `datasetContentVersionValue` , or `outputFileUriValue` .
+	// The values of variables used within the context of the execution of the containerized application (basically, parameters passed to the application). Each variable must have a name and a value given by one of "stringValue", "datasetContentVersionValue", or "outputFileUriValue".
 	Variables []DatasetVariable `pulumi:"variables"`
 }
 
@@ -767,9 +767,9 @@ type DatasetContainerActionArgs struct {
 	ExecutionRoleArn pulumi.StringInput `pulumi:"executionRoleArn"`
 	// The ARN of the Docker container stored in your account. The Docker container contains an application and needed support libraries and is used to generate data set contents.
 	Image pulumi.StringInput `pulumi:"image"`
-	// The configuration of the resource used to execute the `containerAction` .
+	// Configuration of the resource which executes the "containerAction".
 	ResourceConfiguration DatasetResourceConfigurationInput `pulumi:"resourceConfiguration"`
-	// An instance of a variable to be passed to the `containerAction` execution. Each variable must have a name and a value given by one of `stringValue` , `datasetContentVersionValue` , or `outputFileUriValue` .
+	// The values of variables used within the context of the execution of the containerized application (basically, parameters passed to the application). Each variable must have a name and a value given by one of "stringValue", "datasetContentVersionValue", or "outputFileUriValue".
 	Variables DatasetVariableArrayInput `pulumi:"variables"`
 }
 
@@ -860,12 +860,12 @@ func (o DatasetContainerActionOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetContainerAction) string { return v.Image }).(pulumi.StringOutput)
 }
 
-// The configuration of the resource used to execute the `containerAction` .
+// Configuration of the resource which executes the "containerAction".
 func (o DatasetContainerActionOutput) ResourceConfiguration() DatasetResourceConfigurationOutput {
 	return o.ApplyT(func(v DatasetContainerAction) DatasetResourceConfiguration { return v.ResourceConfiguration }).(DatasetResourceConfigurationOutput)
 }
 
-// An instance of a variable to be passed to the `containerAction` execution. Each variable must have a name and a value given by one of `stringValue` , `datasetContentVersionValue` , or `outputFileUriValue` .
+// The values of variables used within the context of the execution of the containerized application (basically, parameters passed to the application). Each variable must have a name and a value given by one of "stringValue", "datasetContentVersionValue", or "outputFileUriValue".
 func (o DatasetContainerActionOutput) Variables() DatasetVariableArrayOutput {
 	return o.ApplyT(func(v DatasetContainerAction) []DatasetVariable { return v.Variables }).(DatasetVariableArrayOutput)
 }
@@ -914,7 +914,7 @@ func (o DatasetContainerActionPtrOutput) Image() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration of the resource used to execute the `containerAction` .
+// Configuration of the resource which executes the "containerAction".
 func (o DatasetContainerActionPtrOutput) ResourceConfiguration() DatasetResourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DatasetContainerAction) *DatasetResourceConfiguration {
 		if v == nil {
@@ -924,7 +924,7 @@ func (o DatasetContainerActionPtrOutput) ResourceConfiguration() DatasetResource
 	}).(DatasetResourceConfigurationPtrOutput)
 }
 
-// An instance of a variable to be passed to the `containerAction` execution. Each variable must have a name and a value given by one of `stringValue` , `datasetContentVersionValue` , or `outputFileUriValue` .
+// The values of variables used within the context of the execution of the containerized application (basically, parameters passed to the application). Each variable must have a name and a value given by one of "stringValue", "datasetContentVersionValue", or "outputFileUriValue".
 func (o DatasetContainerActionPtrOutput) Variables() DatasetVariableArrayOutput {
 	return o.ApplyT(func(v *DatasetContainerAction) []DatasetVariable {
 		if v == nil {
@@ -1043,7 +1043,7 @@ func (o DatasetContentDeliveryRuleArrayOutput) Index(i pulumi.IntInput) DatasetC
 type DatasetContentDeliveryRuleDestination struct {
 	// Configuration information for delivery of dataset contents to AWS IoT Events .
 	IotEventsDestinationConfiguration *DatasetIotEventsDestinationConfiguration `pulumi:"iotEventsDestinationConfiguration"`
-	// Configuration information for delivery of dataset contents to Amazon Simple Storage Service (Amazon S3).
+	// Configuration information for delivery of dataset contents to Amazon S3.
 	S3DestinationConfiguration *DatasetS3DestinationConfiguration `pulumi:"s3DestinationConfiguration"`
 }
 
@@ -1061,7 +1061,7 @@ type DatasetContentDeliveryRuleDestinationInput interface {
 type DatasetContentDeliveryRuleDestinationArgs struct {
 	// Configuration information for delivery of dataset contents to AWS IoT Events .
 	IotEventsDestinationConfiguration DatasetIotEventsDestinationConfigurationPtrInput `pulumi:"iotEventsDestinationConfiguration"`
-	// Configuration information for delivery of dataset contents to Amazon Simple Storage Service (Amazon S3).
+	// Configuration information for delivery of dataset contents to Amazon S3.
 	S3DestinationConfiguration DatasetS3DestinationConfigurationPtrInput `pulumi:"s3DestinationConfiguration"`
 }
 
@@ -1098,7 +1098,7 @@ func (o DatasetContentDeliveryRuleDestinationOutput) IotEventsDestinationConfigu
 	}).(DatasetIotEventsDestinationConfigurationPtrOutput)
 }
 
-// Configuration information for delivery of dataset contents to Amazon Simple Storage Service (Amazon S3).
+// Configuration information for delivery of dataset contents to Amazon S3.
 func (o DatasetContentDeliveryRuleDestinationOutput) S3DestinationConfiguration() DatasetS3DestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v DatasetContentDeliveryRuleDestination) *DatasetS3DestinationConfiguration {
 		return v.S3DestinationConfiguration
@@ -1953,7 +1953,7 @@ func (o DatasetIotEventsDestinationConfigurationPtrOutput) RoleArn() pulumi.Stri
 }
 
 type DatasetLateDataRule struct {
-	// The information needed to configure a delta time session window.
+	// The information needed to configure the late data rule.
 	RuleConfiguration DatasetLateDataRuleConfiguration `pulumi:"ruleConfiguration"`
 	// The name of the late data rule.
 	RuleName *string `pulumi:"ruleName"`
@@ -1971,7 +1971,7 @@ type DatasetLateDataRuleInput interface {
 }
 
 type DatasetLateDataRuleArgs struct {
-	// The information needed to configure a delta time session window.
+	// The information needed to configure the late data rule.
 	RuleConfiguration DatasetLateDataRuleConfigurationInput `pulumi:"ruleConfiguration"`
 	// The name of the late data rule.
 	RuleName pulumi.StringPtrInput `pulumi:"ruleName"`
@@ -2028,7 +2028,7 @@ func (o DatasetLateDataRuleOutput) ToDatasetLateDataRuleOutputWithContext(ctx co
 	return o
 }
 
-// The information needed to configure a delta time session window.
+// The information needed to configure the late data rule.
 func (o DatasetLateDataRuleOutput) RuleConfiguration() DatasetLateDataRuleConfigurationOutput {
 	return o.ApplyT(func(v DatasetLateDataRule) DatasetLateDataRuleConfiguration { return v.RuleConfiguration }).(DatasetLateDataRuleConfigurationOutput)
 }
@@ -2059,9 +2059,7 @@ func (o DatasetLateDataRuleArrayOutput) Index(i pulumi.IntInput) DatasetLateData
 }
 
 type DatasetLateDataRuleConfiguration struct {
-	// A structure that contains the configuration information of a delta time session window.
-	//
-	// [`DeltaTime`](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html) specifies a time interval. You can use `DeltaTime` to create dataset contents with data that has arrived in the data store since the last execution. For an example of `DeltaTime` , see [Creating a SQL dataset with a delta window (CLI)](https://docs.aws.amazon.com/iotanalytics/latest/userguide/automate-create-dataset.html#automate-example6) in the *AWS IoT Analytics User Guide* .
+	// The information needed to configure a delta time session window.
 	DeltaTimeSessionWindowConfiguration *DatasetDeltaTimeSessionWindowConfiguration `pulumi:"deltaTimeSessionWindowConfiguration"`
 }
 
@@ -2077,9 +2075,7 @@ type DatasetLateDataRuleConfigurationInput interface {
 }
 
 type DatasetLateDataRuleConfigurationArgs struct {
-	// A structure that contains the configuration information of a delta time session window.
-	//
-	// [`DeltaTime`](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html) specifies a time interval. You can use `DeltaTime` to create dataset contents with data that has arrived in the data store since the last execution. For an example of `DeltaTime` , see [Creating a SQL dataset with a delta window (CLI)](https://docs.aws.amazon.com/iotanalytics/latest/userguide/automate-create-dataset.html#automate-example6) in the *AWS IoT Analytics User Guide* .
+	// The information needed to configure a delta time session window.
 	DeltaTimeSessionWindowConfiguration DatasetDeltaTimeSessionWindowConfigurationPtrInput `pulumi:"deltaTimeSessionWindowConfiguration"`
 }
 
@@ -2109,9 +2105,7 @@ func (o DatasetLateDataRuleConfigurationOutput) ToDatasetLateDataRuleConfigurati
 	return o
 }
 
-// A structure that contains the configuration information of a delta time session window.
-//
-// [`DeltaTime`](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html) specifies a time interval. You can use `DeltaTime` to create dataset contents with data that has arrived in the data store since the last execution. For an example of `DeltaTime` , see [Creating a SQL dataset with a delta window (CLI)](https://docs.aws.amazon.com/iotanalytics/latest/userguide/automate-create-dataset.html#automate-example6) in the *AWS IoT Analytics User Guide* .
+// The information needed to configure a delta time session window.
 func (o DatasetLateDataRuleConfigurationOutput) DeltaTimeSessionWindowConfiguration() DatasetDeltaTimeSessionWindowConfigurationPtrOutput {
 	return o.ApplyT(func(v DatasetLateDataRuleConfiguration) *DatasetDeltaTimeSessionWindowConfiguration {
 		return v.DeltaTimeSessionWindowConfiguration
@@ -2256,7 +2250,7 @@ func (o DatasetOutputFileUriValuePtrOutput) FileName() pulumi.StringPtrOutput {
 }
 
 type DatasetQueryAction struct {
-	// Information which is used to filter message data, to segregate it according to the time frame in which it arrives.
+	// Pre-filters applied to message data.
 	Filters []DatasetFilter `pulumi:"filters"`
 	// An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
 	SqlQuery string `pulumi:"sqlQuery"`
@@ -2274,7 +2268,7 @@ type DatasetQueryActionInput interface {
 }
 
 type DatasetQueryActionArgs struct {
-	// Information which is used to filter message data, to segregate it according to the time frame in which it arrives.
+	// Pre-filters applied to message data.
 	Filters DatasetFilterArrayInput `pulumi:"filters"`
 	// An "SqlQueryDatasetAction" object that uses an SQL query to automatically create data set contents.
 	SqlQuery pulumi.StringInput `pulumi:"sqlQuery"`
@@ -2357,7 +2351,7 @@ func (o DatasetQueryActionOutput) ToDatasetQueryActionPtrOutputWithContext(ctx c
 	}).(DatasetQueryActionPtrOutput)
 }
 
-// Information which is used to filter message data, to segregate it according to the time frame in which it arrives.
+// Pre-filters applied to message data.
 func (o DatasetQueryActionOutput) Filters() DatasetFilterArrayOutput {
 	return o.ApplyT(func(v DatasetQueryAction) []DatasetFilter { return v.Filters }).(DatasetFilterArrayOutput)
 }
@@ -2391,7 +2385,7 @@ func (o DatasetQueryActionPtrOutput) Elem() DatasetQueryActionOutput {
 	}).(DatasetQueryActionOutput)
 }
 
-// Information which is used to filter message data, to segregate it according to the time frame in which it arrives.
+// Pre-filters applied to message data.
 func (o DatasetQueryActionPtrOutput) Filters() DatasetFilterArrayOutput {
 	return o.ApplyT(func(v *DatasetQueryAction) []DatasetFilter {
 		if v == nil {
@@ -3102,9 +3096,9 @@ type DatasetTag struct {
 }
 
 type DatasetTrigger struct {
-	// The schedule for when to trigger an update.
+	// The "Schedule" when the trigger is initiated.
 	Schedule *DatasetSchedule `pulumi:"schedule"`
-	// Information about the dataset whose content generation triggers the new dataset content generation.
+	// Information about the data set whose content generation triggers the new data set content generation.
 	TriggeringDataset *DatasetTriggeringDataset `pulumi:"triggeringDataset"`
 }
 
@@ -3120,9 +3114,9 @@ type DatasetTriggerInput interface {
 }
 
 type DatasetTriggerArgs struct {
-	// The schedule for when to trigger an update.
+	// The "Schedule" when the trigger is initiated.
 	Schedule DatasetSchedulePtrInput `pulumi:"schedule"`
-	// Information about the dataset whose content generation triggers the new dataset content generation.
+	// Information about the data set whose content generation triggers the new data set content generation.
 	TriggeringDataset DatasetTriggeringDatasetPtrInput `pulumi:"triggeringDataset"`
 }
 
@@ -3177,12 +3171,12 @@ func (o DatasetTriggerOutput) ToDatasetTriggerOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The schedule for when to trigger an update.
+// The "Schedule" when the trigger is initiated.
 func (o DatasetTriggerOutput) Schedule() DatasetSchedulePtrOutput {
 	return o.ApplyT(func(v DatasetTrigger) *DatasetSchedule { return v.Schedule }).(DatasetSchedulePtrOutput)
 }
 
-// Information about the dataset whose content generation triggers the new dataset content generation.
+// Information about the data set whose content generation triggers the new data set content generation.
 func (o DatasetTriggerOutput) TriggeringDataset() DatasetTriggeringDatasetPtrOutput {
 	return o.ApplyT(func(v DatasetTrigger) *DatasetTriggeringDataset { return v.TriggeringDataset }).(DatasetTriggeringDatasetPtrOutput)
 }
@@ -3345,7 +3339,7 @@ func (o DatasetTriggeringDatasetPtrOutput) DatasetName() pulumi.StringPtrOutput 
 }
 
 type DatasetVariable struct {
-	// The dataset whose latest contents are used as input to the notebook or application.
+	// The value of the variable as a structure that specifies a dataset content version.
 	DatasetContentVersionValue *DatasetContentVersionValue `pulumi:"datasetContentVersionValue"`
 	// The value of the variable as a double (numeric).
 	DoubleValue *float64 `pulumi:"doubleValue"`
@@ -3369,7 +3363,7 @@ type DatasetVariableInput interface {
 }
 
 type DatasetVariableArgs struct {
-	// The dataset whose latest contents are used as input to the notebook or application.
+	// The value of the variable as a structure that specifies a dataset content version.
 	DatasetContentVersionValue DatasetContentVersionValuePtrInput `pulumi:"datasetContentVersionValue"`
 	// The value of the variable as a double (numeric).
 	DoubleValue pulumi.Float64PtrInput `pulumi:"doubleValue"`
@@ -3432,7 +3426,7 @@ func (o DatasetVariableOutput) ToDatasetVariableOutputWithContext(ctx context.Co
 	return o
 }
 
-// The dataset whose latest contents are used as input to the notebook or application.
+// The value of the variable as a structure that specifies a dataset content version.
 func (o DatasetVariableOutput) DatasetContentVersionValue() DatasetContentVersionValuePtrOutput {
 	return o.ApplyT(func(v DatasetVariable) *DatasetContentVersionValue { return v.DatasetContentVersionValue }).(DatasetContentVersionValuePtrOutput)
 }
@@ -4227,7 +4221,7 @@ func (o DatastoreFileFormatConfigurationPtrOutput) ParquetConfiguration() Datast
 }
 
 type DatastoreIotSiteWiseMultiLayerStorage struct {
-	// Amazon S3 -customer-managed; When you choose customer-managed storage, the `retentionPeriod` parameter is ignored. You can't change the choice of Amazon S3 storage after your data store is created.
+	// Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage.
 	CustomerManagedS3Storage *DatastoreCustomerManagedS3Storage `pulumi:"customerManagedS3Storage"`
 }
 
@@ -4243,7 +4237,7 @@ type DatastoreIotSiteWiseMultiLayerStorageInput interface {
 }
 
 type DatastoreIotSiteWiseMultiLayerStorageArgs struct {
-	// Amazon S3 -customer-managed; When you choose customer-managed storage, the `retentionPeriod` parameter is ignored. You can't change the choice of Amazon S3 storage after your data store is created.
+	// Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage.
 	CustomerManagedS3Storage DatastoreCustomerManagedS3StoragePtrInput `pulumi:"customerManagedS3Storage"`
 }
 
@@ -4324,7 +4318,7 @@ func (o DatastoreIotSiteWiseMultiLayerStorageOutput) ToDatastoreIotSiteWiseMulti
 	}).(DatastoreIotSiteWiseMultiLayerStoragePtrOutput)
 }
 
-// Amazon S3 -customer-managed; When you choose customer-managed storage, the `retentionPeriod` parameter is ignored. You can't change the choice of Amazon S3 storage after your data store is created.
+// Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage.
 func (o DatastoreIotSiteWiseMultiLayerStorageOutput) CustomerManagedS3Storage() DatastoreCustomerManagedS3StoragePtrOutput {
 	return o.ApplyT(func(v DatastoreIotSiteWiseMultiLayerStorage) *DatastoreCustomerManagedS3Storage {
 		return v.CustomerManagedS3Storage
@@ -4355,7 +4349,7 @@ func (o DatastoreIotSiteWiseMultiLayerStoragePtrOutput) Elem() DatastoreIotSiteW
 	}).(DatastoreIotSiteWiseMultiLayerStorageOutput)
 }
 
-// Amazon S3 -customer-managed; When you choose customer-managed storage, the `retentionPeriod` parameter is ignored. You can't change the choice of Amazon S3 storage after your data store is created.
+// Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage.
 func (o DatastoreIotSiteWiseMultiLayerStoragePtrOutput) CustomerManagedS3Storage() DatastoreCustomerManagedS3StoragePtrOutput {
 	return o.ApplyT(func(v *DatastoreIotSiteWiseMultiLayerStorage) *DatastoreCustomerManagedS3Storage {
 		if v == nil {
@@ -4621,7 +4615,7 @@ func (o DatastoreParquetConfigurationPtrOutput) SchemaDefinition() DatastoreSche
 }
 
 type DatastorePartition struct {
-	// A single dimension to partition a data store. The dimension must be an `AttributePartition` or a `TimestampPartition` .
+	// A partition dimension defined by an attribute.
 	Partition *Partition `pulumi:"partition"`
 	// A partition dimension defined by a timestamp attribute.
 	TimestampPartition *DatastoreTimestampPartition `pulumi:"timestampPartition"`
@@ -4639,7 +4633,7 @@ type DatastorePartitionInput interface {
 }
 
 type DatastorePartitionArgs struct {
-	// A single dimension to partition a data store. The dimension must be an `AttributePartition` or a `TimestampPartition` .
+	// A partition dimension defined by an attribute.
 	Partition PartitionPtrInput `pulumi:"partition"`
 	// A partition dimension defined by a timestamp attribute.
 	TimestampPartition DatastoreTimestampPartitionPtrInput `pulumi:"timestampPartition"`
@@ -4696,7 +4690,7 @@ func (o DatastorePartitionOutput) ToDatastorePartitionOutputWithContext(ctx cont
 	return o
 }
 
-// A single dimension to partition a data store. The dimension must be an `AttributePartition` or a `TimestampPartition` .
+// A partition dimension defined by an attribute.
 func (o DatastorePartitionOutput) Partition() PartitionPtrOutput {
 	return o.ApplyT(func(v DatastorePartition) *Partition { return v.Partition }).(PartitionPtrOutput)
 }
@@ -4727,7 +4721,7 @@ func (o DatastorePartitionArrayOutput) Index(i pulumi.IntInput) DatastorePartiti
 }
 
 type DatastorePartitions struct {
-	// A single dimension to partition a data store. The dimension must be an `AttributePartition` or a `TimestampPartition` .
+	// A list of partition dimensions in a data store.
 	Partitions []DatastorePartition `pulumi:"partitions"`
 }
 
@@ -4743,7 +4737,7 @@ type DatastorePartitionsInput interface {
 }
 
 type DatastorePartitionsArgs struct {
-	// A single dimension to partition a data store. The dimension must be an `AttributePartition` or a `TimestampPartition` .
+	// A list of partition dimensions in a data store.
 	Partitions DatastorePartitionArrayInput `pulumi:"partitions"`
 }
 
@@ -4824,7 +4818,7 @@ func (o DatastorePartitionsOutput) ToDatastorePartitionsPtrOutputWithContext(ctx
 	}).(DatastorePartitionsPtrOutput)
 }
 
-// A single dimension to partition a data store. The dimension must be an `AttributePartition` or a `TimestampPartition` .
+// A list of partition dimensions in a data store.
 func (o DatastorePartitionsOutput) Partitions() DatastorePartitionArrayOutput {
 	return o.ApplyT(func(v DatastorePartitions) []DatastorePartition { return v.Partitions }).(DatastorePartitionArrayOutput)
 }
@@ -4853,7 +4847,7 @@ func (o DatastorePartitionsPtrOutput) Elem() DatastorePartitionsOutput {
 	}).(DatastorePartitionsOutput)
 }
 
-// A single dimension to partition a data store. The dimension must be an `AttributePartition` or a `TimestampPartition` .
+// A list of partition dimensions in a data store.
 func (o DatastorePartitionsPtrOutput) Partitions() DatastorePartitionArrayOutput {
 	return o.ApplyT(func(v *DatastorePartitions) []DatastorePartition {
 		if v == nil {
@@ -5020,7 +5014,9 @@ func (o DatastoreRetentionPeriodPtrOutput) Unlimited() pulumi.BoolPtrOutput {
 }
 
 type DatastoreSchemaDefinition struct {
-	// Contains information about a column that stores your data.
+	// Specifies one or more columns that store your data.
+	//
+	// Each schema can have up to 100 columns. Each column can have up to 100 nested types.
 	Columns []DatastoreColumn `pulumi:"columns"`
 }
 
@@ -5036,7 +5032,9 @@ type DatastoreSchemaDefinitionInput interface {
 }
 
 type DatastoreSchemaDefinitionArgs struct {
-	// Contains information about a column that stores your data.
+	// Specifies one or more columns that store your data.
+	//
+	// Each schema can have up to 100 columns. Each column can have up to 100 nested types.
 	Columns DatastoreColumnArrayInput `pulumi:"columns"`
 }
 
@@ -5117,7 +5115,9 @@ func (o DatastoreSchemaDefinitionOutput) ToDatastoreSchemaDefinitionPtrOutputWit
 	}).(DatastoreSchemaDefinitionPtrOutput)
 }
 
-// Contains information about a column that stores your data.
+// Specifies one or more columns that store your data.
+//
+// Each schema can have up to 100 columns. Each column can have up to 100 nested types.
 func (o DatastoreSchemaDefinitionOutput) Columns() DatastoreColumnArrayOutput {
 	return o.ApplyT(func(v DatastoreSchemaDefinition) []DatastoreColumn { return v.Columns }).(DatastoreColumnArrayOutput)
 }
@@ -5146,7 +5146,9 @@ func (o DatastoreSchemaDefinitionPtrOutput) Elem() DatastoreSchemaDefinitionOutp
 	}).(DatastoreSchemaDefinitionOutput)
 }
 
-// Contains information about a column that stores your data.
+// Specifies one or more columns that store your data.
+//
+// Each schema can have up to 100 columns. Each column can have up to 100 nested types.
 func (o DatastoreSchemaDefinitionPtrOutput) Columns() DatastoreColumnArrayOutput {
 	return o.ApplyT(func(v *DatastoreSchemaDefinition) []DatastoreColumn {
 		if v == nil {
@@ -5275,9 +5277,9 @@ func (o DatastoreServiceManagedS3PtrOutput) Elem() DatastoreServiceManagedS3Outp
 }
 
 type DatastoreStorage struct {
-	// S3-customer-managed; When you choose customer-managed storage, the `retentionPeriod` parameter is ignored. You can't change the choice of Amazon S3 storage after your data store is created.
+	// Use this to store data store data in an S3 bucket that you manage. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
 	CustomerManagedS3 *DatastoreCustomerManagedS3 `pulumi:"customerManagedS3"`
-	// Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
+	// Use this to store data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
 	IotSiteWiseMultiLayerStorage *DatastoreIotSiteWiseMultiLayerStorage `pulumi:"iotSiteWiseMultiLayerStorage"`
 	// Use this to store data store data in an S3 bucket managed by the AWS IoT Analytics service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
 	ServiceManagedS3 *DatastoreServiceManagedS3 `pulumi:"serviceManagedS3"`
@@ -5295,9 +5297,9 @@ type DatastoreStorageInput interface {
 }
 
 type DatastoreStorageArgs struct {
-	// S3-customer-managed; When you choose customer-managed storage, the `retentionPeriod` parameter is ignored. You can't change the choice of Amazon S3 storage after your data store is created.
+	// Use this to store data store data in an S3 bucket that you manage. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
 	CustomerManagedS3 DatastoreCustomerManagedS3PtrInput `pulumi:"customerManagedS3"`
-	// Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
+	// Use this to store data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
 	IotSiteWiseMultiLayerStorage DatastoreIotSiteWiseMultiLayerStoragePtrInput `pulumi:"iotSiteWiseMultiLayerStorage"`
 	// Use this to store data store data in an S3 bucket managed by the AWS IoT Analytics service. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
 	ServiceManagedS3 DatastoreServiceManagedS3PtrInput `pulumi:"serviceManagedS3"`
@@ -5380,12 +5382,12 @@ func (o DatastoreStorageOutput) ToDatastoreStoragePtrOutputWithContext(ctx conte
 	}).(DatastoreStoragePtrOutput)
 }
 
-// S3-customer-managed; When you choose customer-managed storage, the `retentionPeriod` parameter is ignored. You can't change the choice of Amazon S3 storage after your data store is created.
+// Use this to store data store data in an S3 bucket that you manage. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
 func (o DatastoreStorageOutput) CustomerManagedS3() DatastoreCustomerManagedS3PtrOutput {
 	return o.ApplyT(func(v DatastoreStorage) *DatastoreCustomerManagedS3 { return v.CustomerManagedS3 }).(DatastoreCustomerManagedS3PtrOutput)
 }
 
-// Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
+// Use this to store data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
 func (o DatastoreStorageOutput) IotSiteWiseMultiLayerStorage() DatastoreIotSiteWiseMultiLayerStoragePtrOutput {
 	return o.ApplyT(func(v DatastoreStorage) *DatastoreIotSiteWiseMultiLayerStorage { return v.IotSiteWiseMultiLayerStorage }).(DatastoreIotSiteWiseMultiLayerStoragePtrOutput)
 }
@@ -5419,7 +5421,7 @@ func (o DatastoreStoragePtrOutput) Elem() DatastoreStorageOutput {
 	}).(DatastoreStorageOutput)
 }
 
-// S3-customer-managed; When you choose customer-managed storage, the `retentionPeriod` parameter is ignored. You can't change the choice of Amazon S3 storage after your data store is created.
+// Use this to store data store data in an S3 bucket that you manage. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
 func (o DatastoreStoragePtrOutput) CustomerManagedS3() DatastoreCustomerManagedS3PtrOutput {
 	return o.ApplyT(func(v *DatastoreStorage) *DatastoreCustomerManagedS3 {
 		if v == nil {
@@ -5429,7 +5431,7 @@ func (o DatastoreStoragePtrOutput) CustomerManagedS3() DatastoreCustomerManagedS
 	}).(DatastoreCustomerManagedS3PtrOutput)
 }
 
-// Stores data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
+// Use this to store data used by AWS IoT SiteWise in an Amazon S3 bucket that you manage. You can't change the choice of Amazon S3 storage after your data store is created.
 func (o DatastoreStoragePtrOutput) IotSiteWiseMultiLayerStorage() DatastoreIotSiteWiseMultiLayerStoragePtrOutput {
 	return o.ApplyT(func(v *DatastoreStorage) *DatastoreIotSiteWiseMultiLayerStorage {
 		if v == nil {
@@ -5750,23 +5752,23 @@ func (o PartitionPtrOutput) AttributeName() pulumi.StringPtrOutput {
 }
 
 type PipelineActivity struct {
-	// An activity that adds other attributes based on existing attributes in the message.
+	// Adds other attributes based on existing attributes in the message.
 	AddAttributes *PipelineAddAttributes `pulumi:"addAttributes"`
 	// Determines the source of the messages to be processed.
 	Channel *PipelineChannel `pulumi:"channel"`
-	// The datastore activity that specifies where to store the processed data.
+	// Specifies where to store the processed message data.
 	Datastore *PipelineDatastore `pulumi:"datastore"`
-	// An activity that adds data from the AWS IoT device registry to your message.
+	// Adds data from the AWS IoT device registry to your message.
 	DeviceRegistryEnrich *PipelineDeviceRegistryEnrich `pulumi:"deviceRegistryEnrich"`
-	// An activity that adds information from the AWS IoT Device Shadows service to a message.
+	// Adds information from the AWS IoT Device Shadows service to a message.
 	DeviceShadowEnrich *PipelineDeviceShadowEnrich `pulumi:"deviceShadowEnrich"`
-	// An activity that filters a message based on its attributes.
+	// Filters a message based on its attributes.
 	Filter *PipelineFilter `pulumi:"filter"`
-	// An activity that runs a Lambda function to modify the message.
+	// Runs a Lambda function to modify the message.
 	Lambda *PipelineLambda `pulumi:"lambda"`
-	// An activity that computes an arithmetic expression using the message's attributes.
+	// Computes an arithmetic expression using the message's attributes and adds it to the message.
 	Math *PipelineMath `pulumi:"math"`
-	// An activity that removes attributes from a message.
+	// Removes attributes from a message.
 	RemoveAttributes *PipelineRemoveAttributes `pulumi:"removeAttributes"`
 	// Creates a new message using only the specified attributes from the original message.
 	SelectAttributes *PipelineSelectAttributes `pulumi:"selectAttributes"`
@@ -5784,23 +5786,23 @@ type PipelineActivityInput interface {
 }
 
 type PipelineActivityArgs struct {
-	// An activity that adds other attributes based on existing attributes in the message.
+	// Adds other attributes based on existing attributes in the message.
 	AddAttributes PipelineAddAttributesPtrInput `pulumi:"addAttributes"`
 	// Determines the source of the messages to be processed.
 	Channel PipelineChannelPtrInput `pulumi:"channel"`
-	// The datastore activity that specifies where to store the processed data.
+	// Specifies where to store the processed message data.
 	Datastore PipelineDatastorePtrInput `pulumi:"datastore"`
-	// An activity that adds data from the AWS IoT device registry to your message.
+	// Adds data from the AWS IoT device registry to your message.
 	DeviceRegistryEnrich PipelineDeviceRegistryEnrichPtrInput `pulumi:"deviceRegistryEnrich"`
-	// An activity that adds information from the AWS IoT Device Shadows service to a message.
+	// Adds information from the AWS IoT Device Shadows service to a message.
 	DeviceShadowEnrich PipelineDeviceShadowEnrichPtrInput `pulumi:"deviceShadowEnrich"`
-	// An activity that filters a message based on its attributes.
+	// Filters a message based on its attributes.
 	Filter PipelineFilterPtrInput `pulumi:"filter"`
-	// An activity that runs a Lambda function to modify the message.
+	// Runs a Lambda function to modify the message.
 	Lambda PipelineLambdaPtrInput `pulumi:"lambda"`
-	// An activity that computes an arithmetic expression using the message's attributes.
+	// Computes an arithmetic expression using the message's attributes and adds it to the message.
 	Math PipelineMathPtrInput `pulumi:"math"`
-	// An activity that removes attributes from a message.
+	// Removes attributes from a message.
 	RemoveAttributes PipelineRemoveAttributesPtrInput `pulumi:"removeAttributes"`
 	// Creates a new message using only the specified attributes from the original message.
 	SelectAttributes PipelineSelectAttributesPtrInput `pulumi:"selectAttributes"`
@@ -5857,7 +5859,7 @@ func (o PipelineActivityOutput) ToPipelineActivityOutputWithContext(ctx context.
 	return o
 }
 
-// An activity that adds other attributes based on existing attributes in the message.
+// Adds other attributes based on existing attributes in the message.
 func (o PipelineActivityOutput) AddAttributes() PipelineAddAttributesPtrOutput {
 	return o.ApplyT(func(v PipelineActivity) *PipelineAddAttributes { return v.AddAttributes }).(PipelineAddAttributesPtrOutput)
 }
@@ -5867,37 +5869,37 @@ func (o PipelineActivityOutput) Channel() PipelineChannelPtrOutput {
 	return o.ApplyT(func(v PipelineActivity) *PipelineChannel { return v.Channel }).(PipelineChannelPtrOutput)
 }
 
-// The datastore activity that specifies where to store the processed data.
+// Specifies where to store the processed message data.
 func (o PipelineActivityOutput) Datastore() PipelineDatastorePtrOutput {
 	return o.ApplyT(func(v PipelineActivity) *PipelineDatastore { return v.Datastore }).(PipelineDatastorePtrOutput)
 }
 
-// An activity that adds data from the AWS IoT device registry to your message.
+// Adds data from the AWS IoT device registry to your message.
 func (o PipelineActivityOutput) DeviceRegistryEnrich() PipelineDeviceRegistryEnrichPtrOutput {
 	return o.ApplyT(func(v PipelineActivity) *PipelineDeviceRegistryEnrich { return v.DeviceRegistryEnrich }).(PipelineDeviceRegistryEnrichPtrOutput)
 }
 
-// An activity that adds information from the AWS IoT Device Shadows service to a message.
+// Adds information from the AWS IoT Device Shadows service to a message.
 func (o PipelineActivityOutput) DeviceShadowEnrich() PipelineDeviceShadowEnrichPtrOutput {
 	return o.ApplyT(func(v PipelineActivity) *PipelineDeviceShadowEnrich { return v.DeviceShadowEnrich }).(PipelineDeviceShadowEnrichPtrOutput)
 }
 
-// An activity that filters a message based on its attributes.
+// Filters a message based on its attributes.
 func (o PipelineActivityOutput) Filter() PipelineFilterPtrOutput {
 	return o.ApplyT(func(v PipelineActivity) *PipelineFilter { return v.Filter }).(PipelineFilterPtrOutput)
 }
 
-// An activity that runs a Lambda function to modify the message.
+// Runs a Lambda function to modify the message.
 func (o PipelineActivityOutput) Lambda() PipelineLambdaPtrOutput {
 	return o.ApplyT(func(v PipelineActivity) *PipelineLambda { return v.Lambda }).(PipelineLambdaPtrOutput)
 }
 
-// An activity that computes an arithmetic expression using the message's attributes.
+// Computes an arithmetic expression using the message's attributes and adds it to the message.
 func (o PipelineActivityOutput) Math() PipelineMathPtrOutput {
 	return o.ApplyT(func(v PipelineActivity) *PipelineMath { return v.Math }).(PipelineMathPtrOutput)
 }
 
-// An activity that removes attributes from a message.
+// Removes attributes from a message.
 func (o PipelineActivityOutput) RemoveAttributes() PipelineRemoveAttributesPtrOutput {
 	return o.ApplyT(func(v PipelineActivity) *PipelineRemoveAttributes { return v.RemoveAttributes }).(PipelineRemoveAttributesPtrOutput)
 }

@@ -51,7 +51,7 @@ export interface GetPartnershipResult {
      */
     readonly partnershipId?: string;
     /**
-     * Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+     * A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
      */
     readonly tags?: outputs.Tag[];
     /**

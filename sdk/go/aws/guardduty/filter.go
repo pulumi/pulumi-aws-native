@@ -23,7 +23,7 @@ type Filter struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
 	DetectorId pulumi.StringPtrOutput `pulumi:"detectorId"`
-	// Represents a map of finding properties that match specified conditions and values when querying findings.
+	// Represents the criteria to be used in the filter for querying findings.
 	FindingCriteria FilterFindingCriteriaOutput `pulumi:"findingCriteria"`
 	// The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
@@ -91,7 +91,7 @@ type filterArgs struct {
 	Description *string `pulumi:"description"`
 	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
 	DetectorId *string `pulumi:"detectorId"`
-	// Represents a map of finding properties that match specified conditions and values when querying findings.
+	// Represents the criteria to be used in the filter for querying findings.
 	FindingCriteria FilterFindingCriteria `pulumi:"findingCriteria"`
 	// The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
 	Name *string `pulumi:"name"`
@@ -113,7 +113,7 @@ type FilterArgs struct {
 	Description pulumi.StringPtrInput
 	// The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
 	DetectorId pulumi.StringPtrInput
-	// Represents a map of finding properties that match specified conditions and values when querying findings.
+	// Represents the criteria to be used in the filter for querying findings.
 	FindingCriteria FilterFindingCriteriaInput
 	// The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
 	Name pulumi.StringPtrInput
@@ -179,7 +179,7 @@ func (o FilterOutput) DetectorId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Filter) pulumi.StringPtrOutput { return v.DetectorId }).(pulumi.StringPtrOutput)
 }
 
-// Represents a map of finding properties that match specified conditions and values when querying findings.
+// Represents the criteria to be used in the filter for querying findings.
 func (o FilterOutput) FindingCriteria() FilterFindingCriteriaOutput {
 	return o.ApplyT(func(v *Filter) FilterFindingCriteriaOutput { return v.FindingCriteria }).(FilterFindingCriteriaOutput)
 }

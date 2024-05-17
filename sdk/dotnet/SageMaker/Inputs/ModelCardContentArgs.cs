@@ -40,13 +40,13 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         }
 
         /// <summary>
-        /// The intended uses of a model.
+        /// The intended usage of the model.
         /// </summary>
         [Input("intendedUses")]
         public Input<Inputs.ModelCardIntendedUsesArgs>? IntendedUses { get; set; }
 
         /// <summary>
-        /// An overview about the model.
+        /// An overview about the model
         /// </summary>
         [Input("modelOverview")]
         public Input<Inputs.ModelCardModelOverviewArgs>? ModelOverview { get; set; }
@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<Inputs.ModelCardModelPackageDetailsArgs>? ModelPackageDetails { get; set; }
 
         /// <summary>
-        /// The training details of the model
+        /// An overview about model training.
         /// </summary>
         [Input("trainingDetails")]
         public Input<Inputs.ModelCardTrainingDetailsArgs>? TrainingDetails { get; set; }

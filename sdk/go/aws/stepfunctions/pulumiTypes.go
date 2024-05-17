@@ -606,9 +606,7 @@ func (o StateMachineDefinitionPtrOutput) Elem() StateMachineDefinitionOutput {
 }
 
 type StateMachineLogDestination struct {
-	// Defines a CloudWatch log group.
-	//
-	// > For more information see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
+	// An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the AWS CloudFormation User Guide.
 	CloudWatchLogsLogGroup *StateMachineCloudWatchLogsLogGroup `pulumi:"cloudWatchLogsLogGroup"`
 }
 
@@ -624,9 +622,7 @@ type StateMachineLogDestinationInput interface {
 }
 
 type StateMachineLogDestinationArgs struct {
-	// Defines a CloudWatch log group.
-	//
-	// > For more information see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
+	// An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the AWS CloudFormation User Guide.
 	CloudWatchLogsLogGroup StateMachineCloudWatchLogsLogGroupPtrInput `pulumi:"cloudWatchLogsLogGroup"`
 }
 
@@ -681,9 +677,7 @@ func (o StateMachineLogDestinationOutput) ToStateMachineLogDestinationOutputWith
 	return o
 }
 
-// Defines a CloudWatch log group.
-//
-// > For more information see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
+// An object describing a CloudWatch log group. For more information, see [AWS::Logs::LogGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html) in the AWS CloudFormation User Guide.
 func (o StateMachineLogDestinationOutput) CloudWatchLogsLogGroup() StateMachineCloudWatchLogsLogGroupPtrOutput {
 	return o.ApplyT(func(v StateMachineLogDestination) *StateMachineCloudWatchLogsLogGroup {
 		return v.CloudWatchLogsLogGroup
@@ -711,9 +705,7 @@ func (o StateMachineLogDestinationArrayOutput) Index(i pulumi.IntInput) StateMac
 }
 
 type StateMachineLoggingConfiguration struct {
-	// Defines a destination for `LoggingConfiguration` .
-	//
-	// > For more information on logging with `EXPRESS` workflows, see [Logging Express Workflows Using CloudWatch Logs](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) .
+	// An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to `OFF` .
 	Destinations []StateMachineLogDestination `pulumi:"destinations"`
 	// Determines whether execution data is included in your log. When set to `false` , data is excluded.
 	IncludeExecutionData *bool `pulumi:"includeExecutionData"`
@@ -733,9 +725,7 @@ type StateMachineLoggingConfigurationInput interface {
 }
 
 type StateMachineLoggingConfigurationArgs struct {
-	// Defines a destination for `LoggingConfiguration` .
-	//
-	// > For more information on logging with `EXPRESS` workflows, see [Logging Express Workflows Using CloudWatch Logs](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) .
+	// An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to `OFF` .
 	Destinations StateMachineLogDestinationArrayInput `pulumi:"destinations"`
 	// Determines whether execution data is included in your log. When set to `false` , data is excluded.
 	IncludeExecutionData pulumi.BoolPtrInput `pulumi:"includeExecutionData"`
@@ -820,9 +810,7 @@ func (o StateMachineLoggingConfigurationOutput) ToStateMachineLoggingConfigurati
 	}).(StateMachineLoggingConfigurationPtrOutput)
 }
 
-// Defines a destination for `LoggingConfiguration` .
-//
-// > For more information on logging with `EXPRESS` workflows, see [Logging Express Workflows Using CloudWatch Logs](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) .
+// An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to `OFF` .
 func (o StateMachineLoggingConfigurationOutput) Destinations() StateMachineLogDestinationArrayOutput {
 	return o.ApplyT(func(v StateMachineLoggingConfiguration) []StateMachineLogDestination { return v.Destinations }).(StateMachineLogDestinationArrayOutput)
 }
@@ -861,9 +849,7 @@ func (o StateMachineLoggingConfigurationPtrOutput) Elem() StateMachineLoggingCon
 	}).(StateMachineLoggingConfigurationOutput)
 }
 
-// Defines a destination for `LoggingConfiguration` .
-//
-// > For more information on logging with `EXPRESS` workflows, see [Logging Express Workflows Using CloudWatch Logs](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) .
+// An array of objects that describes where your execution history events will be logged. Limited to size 1. Required, if your log level is not set to `OFF` .
 func (o StateMachineLoggingConfigurationPtrOutput) Destinations() StateMachineLogDestinationArrayOutput {
 	return o.ApplyT(func(v *StateMachineLoggingConfiguration) []StateMachineLogDestination {
 		if v == nil {

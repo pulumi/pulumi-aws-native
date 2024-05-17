@@ -25,9 +25,7 @@ type LocationAzureBlob struct {
 	AzureBlobAuthenticationType LocationAzureBlobAzureBlobAuthenticationTypeOutput `pulumi:"azureBlobAuthenticationType"`
 	// The URL of the Azure Blob container that was described.
 	AzureBlobContainerUrl pulumi.StringPtrOutput `pulumi:"azureBlobContainerUrl"`
-	// The shared access signature (SAS) configuration that allows AWS DataSync to access your Microsoft Azure Blob Storage.
-	//
-	// For more information, see [SAS tokens](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-sas-tokens) for accessing your Azure Blob Storage.
+	// Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
 	AzureBlobSasConfiguration LocationAzureBlobAzureBlobSasConfigurationPtrOutput `pulumi:"azureBlobSasConfiguration"`
 	// Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
 	AzureBlobType LocationAzureBlobAzureBlobTypePtrOutput `pulumi:"azureBlobType"`
@@ -99,9 +97,7 @@ type locationAzureBlobArgs struct {
 	AzureBlobAuthenticationType LocationAzureBlobAzureBlobAuthenticationType `pulumi:"azureBlobAuthenticationType"`
 	// The URL of the Azure Blob container that was described.
 	AzureBlobContainerUrl *string `pulumi:"azureBlobContainerUrl"`
-	// The shared access signature (SAS) configuration that allows AWS DataSync to access your Microsoft Azure Blob Storage.
-	//
-	// For more information, see [SAS tokens](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-sas-tokens) for accessing your Azure Blob Storage.
+	// Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
 	AzureBlobSasConfiguration *LocationAzureBlobAzureBlobSasConfiguration `pulumi:"azureBlobSasConfiguration"`
 	// Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
 	AzureBlobType *LocationAzureBlobAzureBlobType `pulumi:"azureBlobType"`
@@ -121,9 +117,7 @@ type LocationAzureBlobArgs struct {
 	AzureBlobAuthenticationType LocationAzureBlobAzureBlobAuthenticationTypeInput
 	// The URL of the Azure Blob container that was described.
 	AzureBlobContainerUrl pulumi.StringPtrInput
-	// The shared access signature (SAS) configuration that allows AWS DataSync to access your Microsoft Azure Blob Storage.
-	//
-	// For more information, see [SAS tokens](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-sas-tokens) for accessing your Azure Blob Storage.
+	// Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
 	AzureBlobSasConfiguration LocationAzureBlobAzureBlobSasConfigurationPtrInput
 	// Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
 	AzureBlobType LocationAzureBlobAzureBlobTypePtrInput
@@ -192,9 +186,7 @@ func (o LocationAzureBlobOutput) AzureBlobContainerUrl() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *LocationAzureBlob) pulumi.StringPtrOutput { return v.AzureBlobContainerUrl }).(pulumi.StringPtrOutput)
 }
 
-// The shared access signature (SAS) configuration that allows AWS DataSync to access your Microsoft Azure Blob Storage.
-//
-// For more information, see [SAS tokens](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-sas-tokens) for accessing your Azure Blob Storage.
+// Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
 func (o LocationAzureBlobOutput) AzureBlobSasConfiguration() LocationAzureBlobAzureBlobSasConfigurationPtrOutput {
 	return o.ApplyT(func(v *LocationAzureBlob) LocationAzureBlobAzureBlobSasConfigurationPtrOutput {
 		return v.AzureBlobSasConfiguration

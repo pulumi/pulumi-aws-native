@@ -19,7 +19,7 @@ type OriginEndpoint struct {
 
 	// The Amazon Resource Name (ARN) assigned to the OriginEndpoint.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Parameters for enabling CDN authorization on the endpoint.
+	// Parameters for CDN authorization.
 	Authorization OriginEndpointAuthorizationPtrOutput `pulumi:"authorization"`
 	// The ID of the OriginEndpoint.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
@@ -97,7 +97,7 @@ func (OriginEndpointState) ElementType() reflect.Type {
 }
 
 type originEndpointArgs struct {
-	// Parameters for enabling CDN authorization on the endpoint.
+	// Parameters for CDN authorization.
 	Authorization *OriginEndpointAuthorization `pulumi:"authorization"`
 	// The ID of the OriginEndpoint.
 	AwsId string `pulumi:"awsId"`
@@ -129,7 +129,7 @@ type originEndpointArgs struct {
 
 // The set of arguments for constructing a OriginEndpoint resource.
 type OriginEndpointArgs struct {
-	// Parameters for enabling CDN authorization on the endpoint.
+	// Parameters for CDN authorization.
 	Authorization OriginEndpointAuthorizationPtrInput
 	// The ID of the OriginEndpoint.
 	AwsId pulumi.StringInput
@@ -201,7 +201,7 @@ func (o OriginEndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OriginEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Parameters for enabling CDN authorization on the endpoint.
+// Parameters for CDN authorization.
 func (o OriginEndpointOutput) Authorization() OriginEndpointAuthorizationPtrOutput {
 	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointAuthorizationPtrOutput { return v.Authorization }).(OriginEndpointAuthorizationPtrOutput)
 }

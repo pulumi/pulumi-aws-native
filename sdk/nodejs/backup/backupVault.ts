@@ -62,11 +62,11 @@ export class BackupVault extends pulumi.CustomResource {
      */
     public readonly encryptionKeyArn!: pulumi.Output<string | undefined>;
     /**
-     * The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+     * Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
      */
     public readonly lockConfiguration!: pulumi.Output<outputs.backup.BackupVaultLockConfigurationType | undefined>;
     /**
-     * Specifies an object containing SNS event notification properties for the target backup vault.
+     * The SNS event notifications for the specified backup vault.
      */
     public readonly notifications!: pulumi.Output<outputs.backup.BackupVaultNotificationObjectType | undefined>;
 
@@ -129,11 +129,11 @@ export interface BackupVaultArgs {
      */
     encryptionKeyArn?: pulumi.Input<string>;
     /**
-     * The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+     * Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
      */
     lockConfiguration?: pulumi.Input<inputs.backup.BackupVaultLockConfigurationTypeArgs>;
     /**
-     * Specifies an object containing SNS event notification properties for the target backup vault.
+     * The SNS event notifications for the specified backup vault.
      */
     notifications?: pulumi.Input<inputs.backup.BackupVaultNotificationObjectTypeArgs>;
 }

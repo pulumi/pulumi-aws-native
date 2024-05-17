@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     public sealed class JobProfileConfiguration
     {
         /// <summary>
-        /// Configuration for column evaluations for a profile job. ColumnStatisticsConfiguration can be used to select evaluations and override parameters of evaluations for particular columns.
+        /// List of configurations for column evaluations. ColumnStatisticsConfigurations are used to select evaluations and override parameters of evaluations for particular columns. When ColumnStatisticsConfigurations is undefined, the profile job will profile all supported columns and run all supported evaluations.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobColumnStatisticsConfiguration> ColumnStatisticsConfigurations;
         /// <summary>
-        /// Configuration of evaluations for a profile job. This configuration can be used to select evaluations and override the parameters of selected evaluations.
+        /// Configuration for inter-column evaluations. Configuration can be used to select evaluations and override parameters of evaluations. When configuration is undefined, the profile job will run all supported inter-column evaluations.
         /// </summary>
         public readonly Outputs.JobStatisticsConfiguration? DatasetStatisticsConfiguration;
         /// <summary>

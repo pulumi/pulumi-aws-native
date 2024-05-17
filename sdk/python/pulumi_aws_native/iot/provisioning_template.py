@@ -33,8 +33,8 @@ class ProvisioningTemplateArgs:
         :param pulumi.Input[str] template_body: The JSON formatted contents of the fleet provisioning template version.
         :param pulumi.Input[str] description: The description of the fleet provisioning template.
         :param pulumi.Input[bool] enabled: True to enable the fleet provisioning template, otherwise false.
-        :param pulumi.Input['ProvisioningTemplateProvisioningHookArgs'] pre_provisioning_hook: Structure that contains payloadVersion and targetArn. Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of key/value pairs that are used to manage the resource.
+        :param pulumi.Input['ProvisioningTemplateProvisioningHookArgs'] pre_provisioning_hook: Creates a pre-provisioning hook template.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Metadata that can be used to manage the fleet provisioning template.
         :param pulumi.Input[str] template_name: The name of the fleet provisioning template.
         :param pulumi.Input['ProvisioningTemplateTemplateType'] template_type: The type of the provisioning template.
         """
@@ -105,7 +105,7 @@ class ProvisioningTemplateArgs:
     @pulumi.getter(name="preProvisioningHook")
     def pre_provisioning_hook(self) -> Optional[pulumi.Input['ProvisioningTemplateProvisioningHookArgs']]:
         """
-        Structure that contains payloadVersion and targetArn. Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
+        Creates a pre-provisioning hook template.
         """
         return pulumi.get(self, "pre_provisioning_hook")
 
@@ -117,7 +117,7 @@ class ProvisioningTemplateArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A set of key/value pairs that are used to manage the resource.
+        Metadata that can be used to manage the fleet provisioning template.
         """
         return pulumi.get(self, "tags")
 
@@ -171,9 +171,9 @@ class ProvisioningTemplate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the fleet provisioning template.
         :param pulumi.Input[bool] enabled: True to enable the fleet provisioning template, otherwise false.
-        :param pulumi.Input[pulumi.InputType['ProvisioningTemplateProvisioningHookArgs']] pre_provisioning_hook: Structure that contains payloadVersion and targetArn. Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
+        :param pulumi.Input[pulumi.InputType['ProvisioningTemplateProvisioningHookArgs']] pre_provisioning_hook: Creates a pre-provisioning hook template.
         :param pulumi.Input[str] provisioning_role_arn: The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A set of key/value pairs that are used to manage the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata that can be used to manage the fleet provisioning template.
         :param pulumi.Input[str] template_body: The JSON formatted contents of the fleet provisioning template version.
         :param pulumi.Input[str] template_name: The name of the fleet provisioning template.
         :param pulumi.Input['ProvisioningTemplateTemplateType'] template_type: The type of the provisioning template.
@@ -287,7 +287,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
     @pulumi.getter(name="preProvisioningHook")
     def pre_provisioning_hook(self) -> pulumi.Output[Optional['outputs.ProvisioningTemplateProvisioningHook']]:
         """
-        Structure that contains payloadVersion and targetArn. Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
+        Creates a pre-provisioning hook template.
         """
         return pulumi.get(self, "pre_provisioning_hook")
 
@@ -303,7 +303,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A set of key/value pairs that are used to manage the resource.
+        Metadata that can be used to manage the fleet provisioning template.
         """
         return pulumi.get(self, "tags")
 

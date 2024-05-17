@@ -40,9 +40,7 @@ class GetSpotFleetResult:
     @pulumi.getter(name="spotFleetRequestConfigData")
     def spot_fleet_request_config_data(self) -> Optional['outputs.SpotFleetRequestConfigData']:
         """
-        Specifies the configuration of a Spot Fleet request. For more information, see [Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet.html) in the *Amazon EC2 User Guide* .
-
-        You must specify either `LaunchSpecifications` or `LaunchTemplateConfigs` .
+        Describes the configuration of a Spot Fleet request.
         """
         return pulumi.get(self, "spot_fleet_request_config_data")
 

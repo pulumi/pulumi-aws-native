@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public readonly string? LastUpdatedTime;
         /// <summary>
-        /// Describes the options for an OpenID Connect-compatible user-identity trust provider.
+        /// The options for an OpenID Connect-compatible user-identity trust provider.
         /// </summary>
         public readonly Outputs.VerifiedAccessTrustProviderOidcOptions? OidcOptions;
         /// <summary>

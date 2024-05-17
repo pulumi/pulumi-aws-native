@@ -16,7 +16,12 @@ import (
 type EventInvokeConfig struct {
 	pulumi.CustomResourceState
 
-	// A configuration object that specifies the destination of an event after Lambda processes it.
+	// A destination for events after they have been sent to a function for processing.
+	//
+	// **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
+	// - *Queue* - The ARN of a standard SQS queue.
+	// - *Topic* - The ARN of a standard SNS topic.
+	// - *Event Bus* - The ARN of an Amazon EventBridge event bus.
 	DestinationConfig EventInvokeConfigDestinationConfigPtrOutput `pulumi:"destinationConfig"`
 	// The name of the Lambda function.
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
@@ -79,7 +84,12 @@ func (EventInvokeConfigState) ElementType() reflect.Type {
 }
 
 type eventInvokeConfigArgs struct {
-	// A configuration object that specifies the destination of an event after Lambda processes it.
+	// A destination for events after they have been sent to a function for processing.
+	//
+	// **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
+	// - *Queue* - The ARN of a standard SQS queue.
+	// - *Topic* - The ARN of a standard SNS topic.
+	// - *Event Bus* - The ARN of an Amazon EventBridge event bus.
 	DestinationConfig *EventInvokeConfigDestinationConfig `pulumi:"destinationConfig"`
 	// The name of the Lambda function.
 	FunctionName string `pulumi:"functionName"`
@@ -93,7 +103,12 @@ type eventInvokeConfigArgs struct {
 
 // The set of arguments for constructing a EventInvokeConfig resource.
 type EventInvokeConfigArgs struct {
-	// A configuration object that specifies the destination of an event after Lambda processes it.
+	// A destination for events after they have been sent to a function for processing.
+	//
+	// **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
+	// - *Queue* - The ARN of a standard SQS queue.
+	// - *Topic* - The ARN of a standard SNS topic.
+	// - *Event Bus* - The ARN of an Amazon EventBridge event bus.
 	DestinationConfig EventInvokeConfigDestinationConfigPtrInput
 	// The name of the Lambda function.
 	FunctionName pulumi.StringInput
@@ -142,7 +157,12 @@ func (o EventInvokeConfigOutput) ToEventInvokeConfigOutputWithContext(ctx contex
 	return o
 }
 
-// A configuration object that specifies the destination of an event after Lambda processes it.
+// A destination for events after they have been sent to a function for processing.
+//
+// **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
+// - *Queue* - The ARN of a standard SQS queue.
+// - *Topic* - The ARN of a standard SNS topic.
+// - *Event Bus* - The ARN of an Amazon EventBridge event bus.
 func (o EventInvokeConfigOutput) DestinationConfig() EventInvokeConfigDestinationConfigPtrOutput {
 	return o.ApplyT(func(v *EventInvokeConfig) EventInvokeConfigDestinationConfigPtrOutput { return v.DestinationConfig }).(EventInvokeConfigDestinationConfigPtrOutput)
 }

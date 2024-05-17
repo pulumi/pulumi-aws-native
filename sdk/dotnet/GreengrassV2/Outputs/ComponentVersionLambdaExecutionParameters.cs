@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? EnvironmentVariables;
         /// <summary>
-        /// Contains information about an event source for an AWS Lambda function. The event source defines the topics on which this Lambda function subscribes to receive messages that run the function.
+        /// The list of event sources to which to subscribe to receive work messages. The Lambda function runs when it receives a message from an event source. You can subscribe this function to local publish/subscribe messages and AWS IoT Core MQTT messages.
         /// </summary>
         public readonly ImmutableArray<Outputs.ComponentVersionLambdaEventSource> EventSources;
         /// <summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.GreengrassV2.ComponentVersionLambdaExecutionParametersInputPayloadEncodingType? InputPayloadEncodingType;
         /// <summary>
-        /// Contains parameters for a Linux process that contains an AWS Lambda function.
+        /// The parameters for the Linux process that contains the Lambda function.
         /// </summary>
         public readonly Outputs.ComponentVersionLambdaLinuxProcessParams? LinuxProcessParams;
         /// <summary>

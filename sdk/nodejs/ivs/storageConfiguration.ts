@@ -46,7 +46,7 @@ export class StorageConfiguration extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * The S3StorageConfiguration property type describes an S3 location where recorded videos will be stored.
+     * An S3 storage configuration contains information about where recorded video will be stored. See the [S3StorageConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-storageconfiguration-s3storageconfiguration.html) property type for more information.
      */
     public readonly s3!: pulumi.Output<outputs.ivs.StorageConfigurationS3StorageConfiguration>;
     /**
@@ -94,7 +94,7 @@ export interface StorageConfigurationArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The S3StorageConfiguration property type describes an S3 location where recorded videos will be stored.
+     * An S3 storage configuration contains information about where recorded video will be stored. See the [S3StorageConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-storageconfiguration-s3storageconfiguration.html) property type for more information.
      */
     s3: pulumi.Input<inputs.ivs.StorageConfigurationS3StorageConfigurationArgs>;
     /**

@@ -42,11 +42,11 @@ export class License extends pulumi.CustomResource {
      */
     public readonly beneficiary!: pulumi.Output<string | undefined>;
     /**
-     * Details about a consumption configuration.
+     * Configuration for consumption of the license.
      */
     public readonly consumptionConfiguration!: pulumi.Output<outputs.licensemanager.LicenseConsumptionConfiguration>;
     /**
-     * Describes a resource entitled for use with a license.
+     * License entitlements.
      */
     public readonly entitlements!: pulumi.Output<outputs.licensemanager.LicenseEntitlement[]>;
     /**
@@ -54,7 +54,7 @@ export class License extends pulumi.CustomResource {
      */
     public readonly homeRegion!: pulumi.Output<string>;
     /**
-     * Details associated with the issuer of a license.
+     * License issuer.
      */
     public readonly issuer!: pulumi.Output<outputs.licensemanager.LicenseIssuerData>;
     /**
@@ -62,7 +62,7 @@ export class License extends pulumi.CustomResource {
      */
     public /*out*/ readonly licenseArn!: pulumi.Output<string>;
     /**
-     * Describes key/value pairs.
+     * License metadata.
      */
     public readonly licenseMetadata!: pulumi.Output<outputs.licensemanager.LicenseMetadata[] | undefined>;
     /**
@@ -161,11 +161,11 @@ export interface LicenseArgs {
      */
     beneficiary?: pulumi.Input<string>;
     /**
-     * Details about a consumption configuration.
+     * Configuration for consumption of the license.
      */
     consumptionConfiguration: pulumi.Input<inputs.licensemanager.LicenseConsumptionConfigurationArgs>;
     /**
-     * Describes a resource entitled for use with a license.
+     * License entitlements.
      */
     entitlements: pulumi.Input<pulumi.Input<inputs.licensemanager.LicenseEntitlementArgs>[]>;
     /**
@@ -173,11 +173,11 @@ export interface LicenseArgs {
      */
     homeRegion: pulumi.Input<string>;
     /**
-     * Details associated with the issuer of a license.
+     * License issuer.
      */
     issuer: pulumi.Input<inputs.licensemanager.LicenseIssuerDataArgs>;
     /**
-     * Describes key/value pairs.
+     * License metadata.
      */
     licenseMetadata?: pulumi.Input<pulumi.Input<inputs.licensemanager.LicenseMetadataArgs>[]>;
     /**

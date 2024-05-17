@@ -17,7 +17,7 @@ type InAppTemplate struct {
 
 	// The Amazon Resource Name (ARN) of the message template.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specifies the configuration of an in-app message, including its header, body, buttons, colors, and images.
+	// An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
 	Content InAppTemplateInAppMessageContentArrayOutput `pulumi:"content"`
 	// Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
 	//
@@ -88,7 +88,7 @@ func (InAppTemplateState) ElementType() reflect.Type {
 }
 
 type inAppTemplateArgs struct {
-	// Specifies the configuration of an in-app message, including its header, body, buttons, colors, and images.
+	// An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
 	Content []InAppTemplateInAppMessageContent `pulumi:"content"`
 	// Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
 	//
@@ -117,7 +117,7 @@ type inAppTemplateArgs struct {
 
 // The set of arguments for constructing a InAppTemplate resource.
 type InAppTemplateArgs struct {
-	// Specifies the configuration of an in-app message, including its header, body, buttons, colors, and images.
+	// An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
 	Content InAppTemplateInAppMessageContentArrayInput
 	// Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
 	//
@@ -186,7 +186,7 @@ func (o InAppTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InAppTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies the configuration of an in-app message, including its header, body, buttons, colors, and images.
+// An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
 func (o InAppTemplateOutput) Content() InAppTemplateInAppMessageContentArrayOutput {
 	return o.ApplyT(func(v *InAppTemplate) InAppTemplateInAppMessageContentArrayOutput { return v.Content }).(InAppTemplateInAppMessageContentArrayOutput)
 }

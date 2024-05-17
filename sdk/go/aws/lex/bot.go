@@ -22,7 +22,7 @@ type Bot struct {
 	AutoBuildBotLocales pulumi.BoolPtrOutput `pulumi:"autoBuildBotLocales"`
 	// The unique identifier of the bot.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
-	// Defines an Amazon S3 bucket location.
+	// The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
 	BotFileS3Location BotS3LocationPtrOutput `pulumi:"botFileS3Location"`
 	// List of bot locales
 	BotLocales BotLocaleArrayOutput `pulumi:"botLocales"`
@@ -95,7 +95,7 @@ func (BotState) ElementType() reflect.Type {
 type botArgs struct {
 	// Specifies whether to build the bot locales after bot creation completes.
 	AutoBuildBotLocales *bool `pulumi:"autoBuildBotLocales"`
-	// Defines an Amazon S3 bucket location.
+	// The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
 	BotFileS3Location *BotS3Location `pulumi:"botFileS3Location"`
 	// List of bot locales
 	BotLocales []BotLocale `pulumi:"botLocales"`
@@ -121,7 +121,7 @@ type botArgs struct {
 type BotArgs struct {
 	// Specifies whether to build the bot locales after bot creation completes.
 	AutoBuildBotLocales pulumi.BoolPtrInput
-	// Defines an Amazon S3 bucket location.
+	// The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
 	BotFileS3Location BotS3LocationPtrInput
 	// List of bot locales
 	BotLocales BotLocaleArrayInput
@@ -195,7 +195,7 @@ func (o BotOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
-// Defines an Amazon S3 bucket location.
+// The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
 func (o BotOutput) BotFileS3Location() BotS3LocationPtrOutput {
 	return o.ApplyT(func(v *Bot) BotS3LocationPtrOutput { return v.BotFileS3Location }).(BotS3LocationPtrOutput)
 }

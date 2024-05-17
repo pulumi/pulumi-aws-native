@@ -151,7 +151,7 @@ type AccessPointObjectLambdaConfiguration struct {
 	CloudWatchMetricsEnabled *bool `pulumi:"cloudWatchMetricsEnabled"`
 	// Standard access point associated with the Object Lambda Access Point.
 	SupportingAccessPoint string `pulumi:"supportingAccessPoint"`
-	// A configuration used when creating an Object Lambda Access Point transformation.
+	// A container for transformation configurations for an Object Lambda Access Point.
 	TransformationConfigurations []AccessPointTransformationConfiguration `pulumi:"transformationConfigurations"`
 }
 
@@ -174,7 +174,7 @@ type AccessPointObjectLambdaConfigurationArgs struct {
 	CloudWatchMetricsEnabled pulumi.BoolPtrInput `pulumi:"cloudWatchMetricsEnabled"`
 	// Standard access point associated with the Object Lambda Access Point.
 	SupportingAccessPoint pulumi.StringInput `pulumi:"supportingAccessPoint"`
-	// A configuration used when creating an Object Lambda Access Point transformation.
+	// A container for transformation configurations for an Object Lambda Access Point.
 	TransformationConfigurations AccessPointTransformationConfigurationArrayInput `pulumi:"transformationConfigurations"`
 }
 
@@ -220,7 +220,7 @@ func (o AccessPointObjectLambdaConfigurationOutput) SupportingAccessPoint() pulu
 	return o.ApplyT(func(v AccessPointObjectLambdaConfiguration) string { return v.SupportingAccessPoint }).(pulumi.StringOutput)
 }
 
-// A configuration used when creating an Object Lambda Access Point transformation.
+// A container for transformation configurations for an Object Lambda Access Point.
 func (o AccessPointObjectLambdaConfigurationOutput) TransformationConfigurations() AccessPointTransformationConfigurationArrayOutput {
 	return o.ApplyT(func(v AccessPointObjectLambdaConfiguration) []AccessPointTransformationConfiguration {
 		return v.TransformationConfigurations
@@ -281,7 +281,7 @@ func (o AccessPointObjectLambdaConfigurationPtrOutput) SupportingAccessPoint() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// A configuration used when creating an Object Lambda Access Point transformation.
+// A container for transformation configurations for an Object Lambda Access Point.
 func (o AccessPointObjectLambdaConfigurationPtrOutput) TransformationConfigurations() AccessPointTransformationConfigurationArrayOutput {
 	return o.ApplyT(func(v *AccessPointObjectLambdaConfiguration) []AccessPointTransformationConfiguration {
 		if v == nil {

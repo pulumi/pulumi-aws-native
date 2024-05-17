@@ -13,15 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateAggregationSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An aggregation function aggregates values from a dimension or measure.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The function that aggregates the values in `Column` .
         /// </summary>
         [Input("aggregationFunction")]
         public Input<Inputs.TemplateAggregationFunctionArgs>? AggregationFunction { get; set; }
 
         /// <summary>
-        /// A column of a data set.
+        /// The column that determines the sort order of aggregated values.
         /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.TemplateColumnIdentifierArgs> Column { get; set; } = null!;

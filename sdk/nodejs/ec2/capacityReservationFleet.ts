@@ -92,9 +92,7 @@ export class CapacityReservationFleet extends pulumi.CustomResource {
      */
     public readonly instanceMatchCriteria!: pulumi.Output<enums.ec2.CapacityReservationFleetInstanceMatchCriteria | undefined>;
     /**
-     * Specifies information about an instance type to use in a Capacity Reservation Fleet.
-     *
-     * `InstanceTypeSpecification` is a property of the [AWS::EC2::CapacityReservationFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html) resource.
+     * Information about the instance types for which to reserve the capacity.
      */
     public readonly instanceTypeSpecifications!: pulumi.Output<outputs.ec2.CapacityReservationFleetInstanceTypeSpecification[] | undefined>;
     /**
@@ -106,9 +104,7 @@ export class CapacityReservationFleet extends pulumi.CustomResource {
      */
     public readonly removeEndDate!: pulumi.Output<boolean | undefined>;
     /**
-     * The tags to apply to a resource when the resource is being created. When you specify a tag, you must specify the resource type to tag, otherwise the request will fail.
-     *
-     * > The `Valid Values` lists all the resource types that can be tagged. However, the action you're using might not support tagging all of these resource types. If you try to tag a resource type that is unsupported for the action you're using, you'll get an error.
+     * The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.
      */
     public readonly tagSpecifications!: pulumi.Output<outputs.ec2.CapacityReservationFleetTagSpecification[] | undefined>;
     /**
@@ -186,9 +182,7 @@ export interface CapacityReservationFleetArgs {
      */
     instanceMatchCriteria?: pulumi.Input<enums.ec2.CapacityReservationFleetInstanceMatchCriteria>;
     /**
-     * Specifies information about an instance type to use in a Capacity Reservation Fleet.
-     *
-     * `InstanceTypeSpecification` is a property of the [AWS::EC2::CapacityReservationFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html) resource.
+     * Information about the instance types for which to reserve the capacity.
      */
     instanceTypeSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.CapacityReservationFleetInstanceTypeSpecificationArgs>[]>;
     /**
@@ -200,9 +194,7 @@ export interface CapacityReservationFleetArgs {
      */
     removeEndDate?: pulumi.Input<boolean>;
     /**
-     * The tags to apply to a resource when the resource is being created. When you specify a tag, you must specify the resource type to tag, otherwise the request will fail.
-     *
-     * > The `Valid Values` lists all the resource types that can be tagged. However, the action you're using might not support tagging all of these resource types. If you try to tag a resource type that is unsupported for the action you're using, you'll get an error.
+     * The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.
      */
     tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.CapacityReservationFleetTagSpecificationArgs>[]>;
     /**

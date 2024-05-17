@@ -21,8 +21,7 @@ type Crl struct {
 	CrlId   pulumi.StringOutput  `pulumi:"crlId"`
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	Name    pulumi.StringOutput  `pulumi:"name"`
-	// A label that consists of a key and value you define.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags    aws.TagArrayOutput   `pulumi:"tags"`
 	// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
 	TrustAnchorArn pulumi.StringPtrOutput `pulumi:"trustAnchorArn"`
 }
@@ -70,11 +69,10 @@ func (CrlState) ElementType() reflect.Type {
 }
 
 type crlArgs struct {
-	CrlData string  `pulumi:"crlData"`
-	Enabled *bool   `pulumi:"enabled"`
-	Name    *string `pulumi:"name"`
-	// A label that consists of a key and value you define.
-	Tags []aws.Tag `pulumi:"tags"`
+	CrlData string    `pulumi:"crlData"`
+	Enabled *bool     `pulumi:"enabled"`
+	Name    *string   `pulumi:"name"`
+	Tags    []aws.Tag `pulumi:"tags"`
 	// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
 	TrustAnchorArn *string `pulumi:"trustAnchorArn"`
 }
@@ -84,8 +82,7 @@ type CrlArgs struct {
 	CrlData pulumi.StringInput
 	Enabled pulumi.BoolPtrInput
 	Name    pulumi.StringPtrInput
-	// A label that consists of a key and value you define.
-	Tags aws.TagArrayInput
+	Tags    aws.TagArrayInput
 	// The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
 	TrustAnchorArn pulumi.StringPtrInput
 }
@@ -143,7 +140,6 @@ func (o CrlOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Crl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A label that consists of a key and value you define.
 func (o CrlOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Crl) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -52,7 +52,7 @@ class GetInAppTemplateResult:
     @pulumi.getter
     def content(self) -> Optional[Sequence['outputs.InAppTemplateInAppMessageContent']]:
         """
-        Specifies the configuration of an in-app message, including its header, body, buttons, colors, and images.
+        An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
         """
         return pulumi.get(self, "content")
 

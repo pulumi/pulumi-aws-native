@@ -19,7 +19,7 @@ type Transformer struct {
 
 	// Returns a timestamp indicating when the transformer was created. For example, `2023-07-20T19:58:44.624Z` .
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+	// Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
 	EdiType TransformerEdiTypePropertiesOutput `pulumi:"ediType"`
 	// Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
 	FileFormat TransformerFileFormatOutput `pulumi:"fileFormat"`
@@ -93,7 +93,7 @@ func (TransformerState) ElementType() reflect.Type {
 }
 
 type transformerArgs struct {
-	// Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+	// Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
 	EdiType TransformerEdiTypeProperties `pulumi:"ediType"`
 	// Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
 	FileFormat TransformerFileFormat `pulumi:"fileFormat"`
@@ -111,7 +111,7 @@ type transformerArgs struct {
 
 // The set of arguments for constructing a Transformer resource.
 type TransformerArgs struct {
-	// Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+	// Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
 	EdiType TransformerEdiTypePropertiesInput
 	// Returns that the currently supported file formats for EDI transformations are `JSON` and `XML` .
 	FileFormat TransformerFileFormatInput
@@ -169,7 +169,7 @@ func (o TransformerOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Transformer) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Specifies the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
+// Returns the details for the EDI standard that is being used for the transformer. Currently, only X12 is supported. X12 is a set of standards and corresponding messages that define specific business documents.
 func (o TransformerOutput) EdiType() TransformerEdiTypePropertiesOutput {
 	return o.ApplyT(func(v *Transformer) TransformerEdiTypePropertiesOutput { return v.EdiType }).(TransformerEdiTypePropertiesOutput)
 }

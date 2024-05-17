@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.TopicDisplayFormat>? DisplayFormat { get; set; }
 
         /// <summary>
-        /// A structure that represents additional options for display formatting.
+        /// The additional options for display formatting.
         /// </summary>
         [Input("displayFormatOptions")]
         public Input<Inputs.TopicDisplayFormatOptionsArgs>? DisplayFormatOptions { get; set; }

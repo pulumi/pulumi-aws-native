@@ -29,10 +29,10 @@ class InstanceStorageConfigArgs:
         :param pulumi.Input[str] instance_arn: Connect Instance ID with which the storage config will be associated
         :param pulumi.Input['InstanceStorageConfigInstanceStorageResourceType'] resource_type: A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
         :param pulumi.Input['InstanceStorageConfigStorageType'] storage_type: A valid storage type.
-        :param pulumi.Input['InstanceStorageConfigKinesisFirehoseConfigArgs'] kinesis_firehose_config: Configuration information of a Kinesis Data Firehose delivery stream.
-        :param pulumi.Input['InstanceStorageConfigKinesisStreamConfigArgs'] kinesis_stream_config: Configuration information of a Kinesis data stream.
-        :param pulumi.Input['InstanceStorageConfigKinesisVideoStreamConfigArgs'] kinesis_video_stream_config: Configuration information of a Kinesis video stream.
-        :param pulumi.Input['InstanceStorageConfigS3ConfigArgs'] s3_config: Information about the Amazon Simple Storage Service (Amazon S3) storage type.
+        :param pulumi.Input['InstanceStorageConfigKinesisFirehoseConfigArgs'] kinesis_firehose_config: The configuration of the Kinesis Firehose delivery stream.
+        :param pulumi.Input['InstanceStorageConfigKinesisStreamConfigArgs'] kinesis_stream_config: The configuration of the Kinesis data stream.
+        :param pulumi.Input['InstanceStorageConfigKinesisVideoStreamConfigArgs'] kinesis_video_stream_config: The configuration of the Kinesis video stream.
+        :param pulumi.Input['InstanceStorageConfigS3ConfigArgs'] s3_config: The S3 bucket configuration.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         pulumi.set(__self__, "resource_type", resource_type)
@@ -86,7 +86,7 @@ class InstanceStorageConfigArgs:
     @pulumi.getter(name="kinesisFirehoseConfig")
     def kinesis_firehose_config(self) -> Optional[pulumi.Input['InstanceStorageConfigKinesisFirehoseConfigArgs']]:
         """
-        Configuration information of a Kinesis Data Firehose delivery stream.
+        The configuration of the Kinesis Firehose delivery stream.
         """
         return pulumi.get(self, "kinesis_firehose_config")
 
@@ -98,7 +98,7 @@ class InstanceStorageConfigArgs:
     @pulumi.getter(name="kinesisStreamConfig")
     def kinesis_stream_config(self) -> Optional[pulumi.Input['InstanceStorageConfigKinesisStreamConfigArgs']]:
         """
-        Configuration information of a Kinesis data stream.
+        The configuration of the Kinesis data stream.
         """
         return pulumi.get(self, "kinesis_stream_config")
 
@@ -110,7 +110,7 @@ class InstanceStorageConfigArgs:
     @pulumi.getter(name="kinesisVideoStreamConfig")
     def kinesis_video_stream_config(self) -> Optional[pulumi.Input['InstanceStorageConfigKinesisVideoStreamConfigArgs']]:
         """
-        Configuration information of a Kinesis video stream.
+        The configuration of the Kinesis video stream.
         """
         return pulumi.get(self, "kinesis_video_stream_config")
 
@@ -122,7 +122,7 @@ class InstanceStorageConfigArgs:
     @pulumi.getter(name="s3Config")
     def s3_config(self) -> Optional[pulumi.Input['InstanceStorageConfigS3ConfigArgs']]:
         """
-        Information about the Amazon Simple Storage Service (Amazon S3) storage type.
+        The S3 bucket configuration.
         """
         return pulumi.get(self, "s3_config")
 
@@ -150,11 +150,11 @@ class InstanceStorageConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] instance_arn: Connect Instance ID with which the storage config will be associated
-        :param pulumi.Input[pulumi.InputType['InstanceStorageConfigKinesisFirehoseConfigArgs']] kinesis_firehose_config: Configuration information of a Kinesis Data Firehose delivery stream.
-        :param pulumi.Input[pulumi.InputType['InstanceStorageConfigKinesisStreamConfigArgs']] kinesis_stream_config: Configuration information of a Kinesis data stream.
-        :param pulumi.Input[pulumi.InputType['InstanceStorageConfigKinesisVideoStreamConfigArgs']] kinesis_video_stream_config: Configuration information of a Kinesis video stream.
+        :param pulumi.Input[pulumi.InputType['InstanceStorageConfigKinesisFirehoseConfigArgs']] kinesis_firehose_config: The configuration of the Kinesis Firehose delivery stream.
+        :param pulumi.Input[pulumi.InputType['InstanceStorageConfigKinesisStreamConfigArgs']] kinesis_stream_config: The configuration of the Kinesis data stream.
+        :param pulumi.Input[pulumi.InputType['InstanceStorageConfigKinesisVideoStreamConfigArgs']] kinesis_video_stream_config: The configuration of the Kinesis video stream.
         :param pulumi.Input['InstanceStorageConfigInstanceStorageResourceType'] resource_type: A valid resource type. Following are the valid resource types: `CHAT_TRANSCRIPTS` | `CALL_RECORDINGS` | `SCHEDULED_REPORTS` | `MEDIA_STREAMS` | `CONTACT_TRACE_RECORDS` | `AGENT_EVENTS`
-        :param pulumi.Input[pulumi.InputType['InstanceStorageConfigS3ConfigArgs']] s3_config: Information about the Amazon Simple Storage Service (Amazon S3) storage type.
+        :param pulumi.Input[pulumi.InputType['InstanceStorageConfigS3ConfigArgs']] s3_config: The S3 bucket configuration.
         :param pulumi.Input['InstanceStorageConfigStorageType'] storage_type: A valid storage type.
         """
         ...
@@ -265,7 +265,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
     @pulumi.getter(name="kinesisFirehoseConfig")
     def kinesis_firehose_config(self) -> pulumi.Output[Optional['outputs.InstanceStorageConfigKinesisFirehoseConfig']]:
         """
-        Configuration information of a Kinesis Data Firehose delivery stream.
+        The configuration of the Kinesis Firehose delivery stream.
         """
         return pulumi.get(self, "kinesis_firehose_config")
 
@@ -273,7 +273,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
     @pulumi.getter(name="kinesisStreamConfig")
     def kinesis_stream_config(self) -> pulumi.Output[Optional['outputs.InstanceStorageConfigKinesisStreamConfig']]:
         """
-        Configuration information of a Kinesis data stream.
+        The configuration of the Kinesis data stream.
         """
         return pulumi.get(self, "kinesis_stream_config")
 
@@ -281,7 +281,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
     @pulumi.getter(name="kinesisVideoStreamConfig")
     def kinesis_video_stream_config(self) -> pulumi.Output[Optional['outputs.InstanceStorageConfigKinesisVideoStreamConfig']]:
         """
-        Configuration information of a Kinesis video stream.
+        The configuration of the Kinesis video stream.
         """
         return pulumi.get(self, "kinesis_video_stream_config")
 
@@ -297,7 +297,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
     @pulumi.getter(name="s3Config")
     def s3_config(self) -> pulumi.Output[Optional['outputs.InstanceStorageConfigS3Config']]:
         """
-        Information about the Amazon Simple Storage Service (Amazon S3) storage type.
+        The S3 bucket configuration.
         """
         return pulumi.get(self, "s3_config")
 

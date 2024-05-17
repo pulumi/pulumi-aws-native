@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.LookoutMetrics.Inputs
         public Input<int>? Offset { get; set; }
 
         /// <summary>
-        /// Contains information about the column used to track time in a source data file.
+        /// Contains information about the column used for tracking time in your source data.
         /// </summary>
         [Input("timestampColumn")]
         public Input<Inputs.AnomalyDetectorTimestampColumnArgs>? TimestampColumn { get; set; }

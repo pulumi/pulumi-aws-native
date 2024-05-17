@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardStringDefaultValuesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines different defaults to the users or groups based on mapping.
+        /// The dynamic value of the `StringDefaultValues` . Different defaults displayed according to users, groups, and values mapping.
         /// </summary>
         [Input("dynamicValue")]
         public Input<Inputs.DashboardDynamicDefaultValueArgs>? DynamicValue { get; set; }

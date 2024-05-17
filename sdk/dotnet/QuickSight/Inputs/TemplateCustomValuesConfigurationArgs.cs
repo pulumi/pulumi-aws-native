@@ -12,11 +12,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateCustomValuesConfigurationArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The customized parameter values.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
-        /// </summary>
         [Input("customValues", required: true)]
         public Input<Inputs.TemplateCustomParameterValuesArgs> CustomValues { get; set; } = null!;
 

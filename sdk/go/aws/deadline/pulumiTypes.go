@@ -531,9 +531,9 @@ func (o FleetAttributeCapabilityArrayOutput) Index(i pulumi.IntInput) FleetAttri
 }
 
 type FleetCapabilities struct {
-	// The fleet amount and attribute capabilities.
+	// Amount capabilities of the fleet.
 	Amounts []FleetAmountCapability `pulumi:"amounts"`
-	// Defines the fleet's capability name, minimum, and maximum.
+	// Attribute capabilities of the fleet.
 	Attributes []FleetAttributeCapability `pulumi:"attributes"`
 }
 
@@ -551,12 +551,12 @@ func (o FleetCapabilitiesOutput) ToFleetCapabilitiesOutputWithContext(ctx contex
 	return o
 }
 
-// The fleet amount and attribute capabilities.
+// Amount capabilities of the fleet.
 func (o FleetCapabilitiesOutput) Amounts() FleetAmountCapabilityArrayOutput {
 	return o.ApplyT(func(v FleetCapabilities) []FleetAmountCapability { return v.Amounts }).(FleetAmountCapabilityArrayOutput)
 }
 
-// Defines the fleet's capability name, minimum, and maximum.
+// Attribute capabilities of the fleet.
 func (o FleetCapabilitiesOutput) Attributes() FleetAttributeCapabilityArrayOutput {
 	return o.ApplyT(func(v FleetCapabilities) []FleetAttributeCapability { return v.Attributes }).(FleetAttributeCapabilityArrayOutput)
 }
@@ -585,7 +585,7 @@ func (o FleetCapabilitiesPtrOutput) Elem() FleetCapabilitiesOutput {
 	}).(FleetCapabilitiesOutput)
 }
 
-// The fleet amount and attribute capabilities.
+// Amount capabilities of the fleet.
 func (o FleetCapabilitiesPtrOutput) Amounts() FleetAmountCapabilityArrayOutput {
 	return o.ApplyT(func(v *FleetCapabilities) []FleetAmountCapability {
 		if v == nil {
@@ -595,7 +595,7 @@ func (o FleetCapabilitiesPtrOutput) Amounts() FleetAmountCapabilityArrayOutput {
 	}).(FleetAmountCapabilityArrayOutput)
 }
 
-// Defines the fleet's capability name, minimum, and maximum.
+// Attribute capabilities of the fleet.
 func (o FleetCapabilitiesPtrOutput) Attributes() FleetAttributeCapabilityArrayOutput {
 	return o.ApplyT(func(v *FleetCapabilities) []FleetAttributeCapability {
 		if v == nil {
@@ -1996,11 +1996,11 @@ func (o QueueJobAttachmentSettingsPtrOutput) S3BucketName() pulumi.StringPtrOutp
 }
 
 type QueueJobRunAsUser struct {
-	// The POSIX user.
+	// The user and group that the jobs in the queue run as.
 	Posix *QueuePosixUser `pulumi:"posix"`
 	// Specifies whether the job should run using the queue's system user or if the job should run using the worker agent system user.
 	RunAs QueueRunAs `pulumi:"runAs"`
-	// The Windows user details.
+	// Identifies a Microsoft Windows user.
 	Windows *QueueWindowsUser `pulumi:"windows"`
 }
 
@@ -2016,11 +2016,11 @@ type QueueJobRunAsUserInput interface {
 }
 
 type QueueJobRunAsUserArgs struct {
-	// The POSIX user.
+	// The user and group that the jobs in the queue run as.
 	Posix QueuePosixUserPtrInput `pulumi:"posix"`
 	// Specifies whether the job should run using the queue's system user or if the job should run using the worker agent system user.
 	RunAs QueueRunAsInput `pulumi:"runAs"`
-	// The Windows user details.
+	// Identifies a Microsoft Windows user.
 	Windows QueueWindowsUserPtrInput `pulumi:"windows"`
 }
 
@@ -2101,7 +2101,7 @@ func (o QueueJobRunAsUserOutput) ToQueueJobRunAsUserPtrOutputWithContext(ctx con
 	}).(QueueJobRunAsUserPtrOutput)
 }
 
-// The POSIX user.
+// The user and group that the jobs in the queue run as.
 func (o QueueJobRunAsUserOutput) Posix() QueuePosixUserPtrOutput {
 	return o.ApplyT(func(v QueueJobRunAsUser) *QueuePosixUser { return v.Posix }).(QueuePosixUserPtrOutput)
 }
@@ -2111,7 +2111,7 @@ func (o QueueJobRunAsUserOutput) RunAs() QueueRunAsOutput {
 	return o.ApplyT(func(v QueueJobRunAsUser) QueueRunAs { return v.RunAs }).(QueueRunAsOutput)
 }
 
-// The Windows user details.
+// Identifies a Microsoft Windows user.
 func (o QueueJobRunAsUserOutput) Windows() QueueWindowsUserPtrOutput {
 	return o.ApplyT(func(v QueueJobRunAsUser) *QueueWindowsUser { return v.Windows }).(QueueWindowsUserPtrOutput)
 }
@@ -2140,7 +2140,7 @@ func (o QueueJobRunAsUserPtrOutput) Elem() QueueJobRunAsUserOutput {
 	}).(QueueJobRunAsUserOutput)
 }
 
-// The POSIX user.
+// The user and group that the jobs in the queue run as.
 func (o QueueJobRunAsUserPtrOutput) Posix() QueuePosixUserPtrOutput {
 	return o.ApplyT(func(v *QueueJobRunAsUser) *QueuePosixUser {
 		if v == nil {
@@ -2160,7 +2160,7 @@ func (o QueueJobRunAsUserPtrOutput) RunAs() QueueRunAsPtrOutput {
 	}).(QueueRunAsPtrOutput)
 }
 
-// The Windows user details.
+// Identifies a Microsoft Windows user.
 func (o QueueJobRunAsUserPtrOutput) Windows() QueueWindowsUserPtrOutput {
 	return o.ApplyT(func(v *QueueJobRunAsUser) *QueueWindowsUser {
 		if v == nil {

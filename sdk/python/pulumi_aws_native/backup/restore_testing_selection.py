@@ -32,9 +32,7 @@ class RestoreTestingSelectionArgs:
                
                The name cannot be changed after creation. The name must consist of only alphanumeric characters and underscores. Maximum length is 50.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protected_resource_arns: You can include specific ARNs, such as `ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]` or you can include a wildcard: `ProtectedResourceArns: ["*"]` , but not both.
-        :param pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsArgs'] protected_resource_conditions: The conditions that you define for resources in your restore testing plan using tags.
-               
-               For example, `"StringEquals": { "Key": "aws:ResourceTag/CreatedByCryo", "Value": "true" },` . Condition operators are case sensitive.
+        :param pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsArgs'] protected_resource_conditions: In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] restore_metadata_overrides: You can override certain restore metadata keys by including the parameter `RestoreMetadataOverrides` in the body of `RestoreTestingSelection` . Key values are not case sensitive.
                
                See the complete list of [restore testing inferred metadata](https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html) .
@@ -109,9 +107,7 @@ class RestoreTestingSelectionArgs:
     @pulumi.getter(name="protectedResourceConditions")
     def protected_resource_conditions(self) -> Optional[pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsArgs']]:
         """
-        The conditions that you define for resources in your restore testing plan using tags.
-
-        For example, `"StringEquals": { "Key": "aws:ResourceTag/CreatedByCryo", "Value": "true" },` . Condition operators are case sensitive.
+        In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
         """
         return pulumi.get(self, "protected_resource_conditions")
 
@@ -179,9 +175,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] iam_role_arn: The Amazon Resource Name (ARN) of the IAM role that AWS Backup uses to create the target resource; for example: `arn:aws:iam::123456789012:role/S3Access` .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protected_resource_arns: You can include specific ARNs, such as `ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]` or you can include a wildcard: `ProtectedResourceArns: ["*"]` , but not both.
-        :param pulumi.Input[pulumi.InputType['RestoreTestingSelectionProtectedResourceConditionsArgs']] protected_resource_conditions: The conditions that you define for resources in your restore testing plan using tags.
-               
-               For example, `"StringEquals": { "Key": "aws:ResourceTag/CreatedByCryo", "Value": "true" },` . Condition operators are case sensitive.
+        :param pulumi.Input[pulumi.InputType['RestoreTestingSelectionProtectedResourceConditionsArgs']] protected_resource_conditions: In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
         :param pulumi.Input[str] protected_resource_type: The type of AWS resource included in a resource testing selection; for example, an Amazon EBS volume or an Amazon RDS database.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] restore_metadata_overrides: You can override certain restore metadata keys by including the parameter `RestoreMetadataOverrides` in the body of `RestoreTestingSelection` . Key values are not case sensitive.
                
@@ -301,9 +295,7 @@ class RestoreTestingSelection(pulumi.CustomResource):
     @pulumi.getter(name="protectedResourceConditions")
     def protected_resource_conditions(self) -> pulumi.Output[Optional['outputs.RestoreTestingSelectionProtectedResourceConditions']]:
         """
-        The conditions that you define for resources in your restore testing plan using tags.
-
-        For example, `"StringEquals": { "Key": "aws:ResourceTag/CreatedByCryo", "Value": "true" },` . Condition operators are case sensitive.
+        In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
         """
         return pulumi.get(self, "protected_resource_conditions")
 

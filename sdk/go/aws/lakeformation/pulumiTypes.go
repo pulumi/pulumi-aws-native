@@ -2663,13 +2663,11 @@ func (o TagAssociationLfTagPairArrayOutput) Index(i pulumi.IntInput) TagAssociat
 type TagAssociationResource struct {
 	// The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment.
 	Catalog *TagAssociationCatalogResource `pulumi:"catalog"`
-	// A structure for the database object.
+	// The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal.
 	Database *TagAssociationDatabaseResource `pulumi:"database"`
-	// A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+	// The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
 	Table *TagAssociationTableResource `pulumi:"table"`
-	// A structure for a table with columns object. This object is only used when granting a SELECT permission.
-	//
-	// This object must take a value for at least one of `ColumnsNames` , `ColumnsIndexes` , or `ColumnsWildcard` .
+	// The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.
 	TableWithColumns *TagAssociationTableWithColumnsResource `pulumi:"tableWithColumns"`
 }
 
@@ -2687,13 +2685,11 @@ type TagAssociationResourceInput interface {
 type TagAssociationResourceArgs struct {
 	// The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your AWS Lake Formation environment.
 	Catalog TagAssociationCatalogResourcePtrInput `pulumi:"catalog"`
-	// A structure for the database object.
+	// The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal.
 	Database TagAssociationDatabaseResourcePtrInput `pulumi:"database"`
-	// A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+	// The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
 	Table TagAssociationTableResourcePtrInput `pulumi:"table"`
-	// A structure for a table with columns object. This object is only used when granting a SELECT permission.
-	//
-	// This object must take a value for at least one of `ColumnsNames` , `ColumnsIndexes` , or `ColumnsWildcard` .
+	// The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.
 	TableWithColumns TagAssociationTableWithColumnsResourcePtrInput `pulumi:"tableWithColumns"`
 }
 
@@ -2728,19 +2724,17 @@ func (o TagAssociationResourceOutput) Catalog() TagAssociationCatalogResourcePtr
 	return o.ApplyT(func(v TagAssociationResource) *TagAssociationCatalogResource { return v.Catalog }).(TagAssociationCatalogResourcePtrOutput)
 }
 
-// A structure for the database object.
+// The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal.
 func (o TagAssociationResourceOutput) Database() TagAssociationDatabaseResourcePtrOutput {
 	return o.ApplyT(func(v TagAssociationResource) *TagAssociationDatabaseResource { return v.Database }).(TagAssociationDatabaseResourcePtrOutput)
 }
 
-// A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+// The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
 func (o TagAssociationResourceOutput) Table() TagAssociationTableResourcePtrOutput {
 	return o.ApplyT(func(v TagAssociationResource) *TagAssociationTableResource { return v.Table }).(TagAssociationTableResourcePtrOutput)
 }
 
-// A structure for a table with columns object. This object is only used when granting a SELECT permission.
-//
-// This object must take a value for at least one of `ColumnsNames` , `ColumnsIndexes` , or `ColumnsWildcard` .
+// The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.
 func (o TagAssociationResourceOutput) TableWithColumns() TagAssociationTableWithColumnsResourcePtrOutput {
 	return o.ApplyT(func(v TagAssociationResource) *TagAssociationTableWithColumnsResource { return v.TableWithColumns }).(TagAssociationTableWithColumnsResourcePtrOutput)
 }

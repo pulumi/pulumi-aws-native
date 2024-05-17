@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QBusiness.Outputs
     public sealed class IndexStatistics
     {
         /// <summary>
-        /// Provides information about text documents in an index.
+        /// The number of documents indexed.
         /// </summary>
         public readonly Outputs.IndexTextDocumentStatistics? TextDocumentStatistics;
 

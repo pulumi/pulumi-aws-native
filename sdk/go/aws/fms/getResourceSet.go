@@ -36,10 +36,9 @@ type LookupResourceSetResult struct {
 	// The descriptive name of the resource set. You can't change the name of a resource set after you create it.
 	Name *string `pulumi:"name"`
 	// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
-	ResourceTypeList []string `pulumi:"resourceTypeList"`
-	Resources        []string `pulumi:"resources"`
-	// A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
-	Tags []aws.Tag `pulumi:"tags"`
+	ResourceTypeList []string  `pulumi:"resourceTypeList"`
+	Resources        []string  `pulumi:"resources"`
+	Tags             []aws.Tag `pulumi:"tags"`
 }
 
 func LookupResourceSetOutput(ctx *pulumi.Context, args LookupResourceSetOutputArgs, opts ...pulumi.InvokeOption) LookupResourceSetResultOutput {
@@ -102,7 +101,6 @@ func (o LookupResourceSetResultOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupResourceSetResult) []string { return v.Resources }).(pulumi.StringArrayOutput)
 }
 
-// A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
 func (o LookupResourceSetResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupResourceSetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

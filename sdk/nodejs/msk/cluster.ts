@@ -39,11 +39,11 @@ export class Cluster extends pulumi.CustomResource {
 
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Describes the setup to be used for the broker nodes in the cluster.
+     * Information about the broker nodes in the cluster.
      */
     public readonly brokerNodeGroupInfo!: pulumi.Output<outputs.msk.ClusterBrokerNodeGroupInfo>;
     /**
-     * Includes all client authentication information.
+     * VPC connection control settings for brokers.
      */
     public readonly clientAuthentication!: pulumi.Output<outputs.msk.ClusterClientAuthentication | undefined>;
     /**
@@ -51,7 +51,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly clusterName!: pulumi.Output<string>;
     /**
-     * Specifies the configuration to use for the brokers.
+     * Represents the configuration that you want MSK to use for the cluster.
      */
     public readonly configurationInfo!: pulumi.Output<outputs.msk.ClusterConfigurationInfo | undefined>;
     /**
@@ -59,7 +59,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly currentVersion!: pulumi.Output<string | undefined>;
     /**
-     * Includes encryption-related information, such as the Amazon KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.
+     * Includes all encryption-related information.
      */
     public readonly encryptionInfo!: pulumi.Output<outputs.msk.ClusterEncryptionInfo | undefined>;
     /**
@@ -71,7 +71,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly kafkaVersion!: pulumi.Output<string>;
     /**
-     * You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
+     * Logging Info details.
      */
     public readonly loggingInfo!: pulumi.Output<outputs.msk.ClusterLoggingInfo | undefined>;
     /**
@@ -79,7 +79,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly numberOfBrokerNodes!: pulumi.Output<number>;
     /**
-     * JMX and Node monitoring for the MSK cluster.
+     * The settings for open monitoring.
      */
     public readonly openMonitoring!: pulumi.Output<outputs.msk.ClusterOpenMonitoring | undefined>;
     /**
@@ -153,11 +153,11 @@ export class Cluster extends pulumi.CustomResource {
  */
 export interface ClusterArgs {
     /**
-     * Describes the setup to be used for the broker nodes in the cluster.
+     * Information about the broker nodes in the cluster.
      */
     brokerNodeGroupInfo: pulumi.Input<inputs.msk.ClusterBrokerNodeGroupInfoArgs>;
     /**
-     * Includes all client authentication information.
+     * VPC connection control settings for brokers.
      */
     clientAuthentication?: pulumi.Input<inputs.msk.ClusterClientAuthenticationArgs>;
     /**
@@ -165,7 +165,7 @@ export interface ClusterArgs {
      */
     clusterName?: pulumi.Input<string>;
     /**
-     * Specifies the configuration to use for the brokers.
+     * Represents the configuration that you want MSK to use for the cluster.
      */
     configurationInfo?: pulumi.Input<inputs.msk.ClusterConfigurationInfoArgs>;
     /**
@@ -173,7 +173,7 @@ export interface ClusterArgs {
      */
     currentVersion?: pulumi.Input<string>;
     /**
-     * Includes encryption-related information, such as the Amazon KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.
+     * Includes all encryption-related information.
      */
     encryptionInfo?: pulumi.Input<inputs.msk.ClusterEncryptionInfoArgs>;
     /**
@@ -185,7 +185,7 @@ export interface ClusterArgs {
      */
     kafkaVersion: pulumi.Input<string>;
     /**
-     * You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
+     * Logging Info details.
      */
     loggingInfo?: pulumi.Input<inputs.msk.ClusterLoggingInfoArgs>;
     /**
@@ -193,7 +193,7 @@ export interface ClusterArgs {
      */
     numberOfBrokerNodes: pulumi.Input<number>;
     /**
-     * JMX and Node monitoring for the MSK cluster.
+     * The settings for open monitoring.
      */
     openMonitoring?: pulumi.Input<inputs.msk.ClusterOpenMonitoringArgs>;
     /**

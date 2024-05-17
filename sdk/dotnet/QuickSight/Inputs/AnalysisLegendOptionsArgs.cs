@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.AnalysisLegendPosition>? Position { get; set; }
 
         /// <summary>
-        /// The share label options for the labels.
+        /// The custom title for the legend.
         /// </summary>
         [Input("title")]
         public Input<Inputs.AnalysisLabelOptionsArgs>? Title { get; set; }

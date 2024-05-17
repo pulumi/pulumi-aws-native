@@ -22,7 +22,7 @@ type Domain struct {
 	AccessPolicies pulumi.AnyOutput `pulumi:"accessPolicies"`
 	// Additional options to specify for the OpenSearch Service domain. For more information, see [AdvancedOptions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateDomain.html#API_CreateDomain_RequestBody) in the OpenSearch Service API reference.
 	AdvancedOptions pulumi.StringMapOutput `pulumi:"advancedOptions"`
-	// Specifies options for fine-grained access control.
+	// Specifies options for fine-grained access control and SAML authentication.
 	//
 	// If you specify advanced security options, you must also enable node-to-node encryption ( [NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html) ) and encryption at rest ( [EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html) ). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html) , which requires HTTPS for all traffic to the domain.
 	AdvancedSecurityOptions DomainAdvancedSecurityOptionsInputPtrOutput `pulumi:"advancedSecurityOptions"`
@@ -30,7 +30,7 @@ type Domain struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The resource ID. For example, `123456789012/my-domain` .
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
-	// The cluster configuration for the OpenSearch Service domain. You can specify options such as the instance type and the number of instances. For more information, see [Creating and managing Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html) in the *Amazon OpenSearch Service Developer Guide* .
+	// Container for the cluster configuration of a domain.
 	ClusterConfig DomainClusterConfigPtrOutput `pulumi:"clusterConfig"`
 	// Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
 	CognitoOptions DomainCognitoOptionsPtrOutput `pulumi:"cognitoOptions"`
@@ -51,7 +51,9 @@ type Domain struct {
 	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
 	// The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the OpenSearch Service domain. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
 	EbsOptions DomainEbsOptionsPtrOutput `pulumi:"ebsOptions"`
-	// Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service key to use.
+	// Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
+	//
+	// If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
 	EncryptionAtRestOptions DomainEncryptionAtRestOptionsPtrOutput `pulumi:"encryptionAtRestOptions"`
 	// The version of OpenSearch to use. The value must be in the format `OpenSearch_X.Y` or `Elasticsearch_X.Y` . If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
 	//
@@ -61,21 +63,20 @@ type Domain struct {
 	IpAddressType pulumi.StringPtrOutput `pulumi:"ipAddressType"`
 	// An object with one or more of the following keys: `SEARCH_SLOW_LOGS` , `ES_APPLICATION_LOGS` , `INDEX_SLOW_LOGS` , `AUDIT_LOGS` , depending on the types of logs you want to publish. Each key needs a valid `LogPublishingOption` value. For the full syntax, see the [examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--examples) .
 	LogPublishingOptions DomainLogPublishingOptionMapOutput `pulumi:"logPublishingOptions"`
-	// Specifies options for node-to-node encryption.
+	// Specifies whether node-to-node encryption is enabled. See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
 	NodeToNodeEncryptionOptions DomainNodeToNodeEncryptionOptionsPtrOutput `pulumi:"nodeToNodeEncryptionOptions"`
-	// Off-peak window settings for the domain.
-	OffPeakWindowOptions DomainOffPeakWindowOptionsPtrOutput `pulumi:"offPeakWindowOptions"`
-	// The current status of the service software for an Amazon OpenSearch Service domain. For more information, see [Service software updates in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html) .
-	ServiceSoftwareOptions DomainServiceSoftwareOptionsOutput `pulumi:"serviceSoftwareOptions"`
-	// *DEPRECATED* . This setting is only relevant to domains running legacy Elasticsearch OSS versions earlier than 5.3. It does not apply to OpenSearch domains.
-	//
-	// The automated snapshot configuration for the OpenSearch Service domain indexes.
+	// Options for a domain's off-peak window, during which OpenSearch Service can perform mandatory configuration changes on the domain.
+	OffPeakWindowOptions   DomainOffPeakWindowOptionsPtrOutput `pulumi:"offPeakWindowOptions"`
+	ServiceSoftwareOptions DomainServiceSoftwareOptionsOutput  `pulumi:"serviceSoftwareOptions"`
+	// *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
 	SnapshotOptions DomainSnapshotOptionsPtrOutput `pulumi:"snapshotOptions"`
-	// Options for configuring service software updates for a domain.
+	// Service software update options for the domain.
 	SoftwareUpdateOptions DomainSoftwareUpdateOptionsPtrOutput `pulumi:"softwareUpdateOptions"`
 	// An arbitrary set of tags (key-value pairs) for this Domain.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains using a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
+	// The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
+	//
+	// If you remove this entity altogether, along with its associated properties, it causes a replacement. You might encounter this scenario if you're updating your security configuration from a VPC to a public endpoint.
 	VpcOptions DomainVpcOptionsPtrOutput `pulumi:"vpcOptions"`
 }
 
@@ -129,11 +130,11 @@ type domainArgs struct {
 	AccessPolicies interface{} `pulumi:"accessPolicies"`
 	// Additional options to specify for the OpenSearch Service domain. For more information, see [AdvancedOptions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateDomain.html#API_CreateDomain_RequestBody) in the OpenSearch Service API reference.
 	AdvancedOptions map[string]string `pulumi:"advancedOptions"`
-	// Specifies options for fine-grained access control.
+	// Specifies options for fine-grained access control and SAML authentication.
 	//
 	// If you specify advanced security options, you must also enable node-to-node encryption ( [NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html) ) and encryption at rest ( [EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html) ). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html) , which requires HTTPS for all traffic to the domain.
 	AdvancedSecurityOptions *DomainAdvancedSecurityOptionsInput `pulumi:"advancedSecurityOptions"`
-	// The cluster configuration for the OpenSearch Service domain. You can specify options such as the instance type and the number of instances. For more information, see [Creating and managing Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html) in the *Amazon OpenSearch Service Developer Guide* .
+	// Container for the cluster configuration of a domain.
 	ClusterConfig *DomainClusterConfig `pulumi:"clusterConfig"`
 	// Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
 	CognitoOptions *DomainCognitoOptions `pulumi:"cognitoOptions"`
@@ -147,7 +148,9 @@ type domainArgs struct {
 	DomainName *string `pulumi:"domainName"`
 	// The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the OpenSearch Service domain. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
 	EbsOptions *DomainEbsOptions `pulumi:"ebsOptions"`
-	// Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service key to use.
+	// Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
+	//
+	// If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
 	EncryptionAtRestOptions *DomainEncryptionAtRestOptions `pulumi:"encryptionAtRestOptions"`
 	// The version of OpenSearch to use. The value must be in the format `OpenSearch_X.Y` or `Elasticsearch_X.Y` . If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
 	//
@@ -157,19 +160,19 @@ type domainArgs struct {
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// An object with one or more of the following keys: `SEARCH_SLOW_LOGS` , `ES_APPLICATION_LOGS` , `INDEX_SLOW_LOGS` , `AUDIT_LOGS` , depending on the types of logs you want to publish. Each key needs a valid `LogPublishingOption` value. For the full syntax, see the [examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--examples) .
 	LogPublishingOptions map[string]DomainLogPublishingOption `pulumi:"logPublishingOptions"`
-	// Specifies options for node-to-node encryption.
+	// Specifies whether node-to-node encryption is enabled. See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
 	NodeToNodeEncryptionOptions *DomainNodeToNodeEncryptionOptions `pulumi:"nodeToNodeEncryptionOptions"`
-	// Off-peak window settings for the domain.
+	// Options for a domain's off-peak window, during which OpenSearch Service can perform mandatory configuration changes on the domain.
 	OffPeakWindowOptions *DomainOffPeakWindowOptions `pulumi:"offPeakWindowOptions"`
-	// *DEPRECATED* . This setting is only relevant to domains running legacy Elasticsearch OSS versions earlier than 5.3. It does not apply to OpenSearch domains.
-	//
-	// The automated snapshot configuration for the OpenSearch Service domain indexes.
+	// *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
 	SnapshotOptions *DomainSnapshotOptions `pulumi:"snapshotOptions"`
-	// Options for configuring service software updates for a domain.
+	// Service software update options for the domain.
 	SoftwareUpdateOptions *DomainSoftwareUpdateOptions `pulumi:"softwareUpdateOptions"`
 	// An arbitrary set of tags (key-value pairs) for this Domain.
 	Tags []aws.Tag `pulumi:"tags"`
-	// The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains using a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
+	// The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
+	//
+	// If you remove this entity altogether, along with its associated properties, it causes a replacement. You might encounter this scenario if you're updating your security configuration from a VPC to a public endpoint.
 	VpcOptions *DomainVpcOptions `pulumi:"vpcOptions"`
 }
 
@@ -181,11 +184,11 @@ type DomainArgs struct {
 	AccessPolicies pulumi.Input
 	// Additional options to specify for the OpenSearch Service domain. For more information, see [AdvancedOptions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateDomain.html#API_CreateDomain_RequestBody) in the OpenSearch Service API reference.
 	AdvancedOptions pulumi.StringMapInput
-	// Specifies options for fine-grained access control.
+	// Specifies options for fine-grained access control and SAML authentication.
 	//
 	// If you specify advanced security options, you must also enable node-to-node encryption ( [NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html) ) and encryption at rest ( [EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html) ). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html) , which requires HTTPS for all traffic to the domain.
 	AdvancedSecurityOptions DomainAdvancedSecurityOptionsInputPtrInput
-	// The cluster configuration for the OpenSearch Service domain. You can specify options such as the instance type and the number of instances. For more information, see [Creating and managing Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html) in the *Amazon OpenSearch Service Developer Guide* .
+	// Container for the cluster configuration of a domain.
 	ClusterConfig DomainClusterConfigPtrInput
 	// Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
 	CognitoOptions DomainCognitoOptionsPtrInput
@@ -199,7 +202,9 @@ type DomainArgs struct {
 	DomainName pulumi.StringPtrInput
 	// The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the OpenSearch Service domain. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
 	EbsOptions DomainEbsOptionsPtrInput
-	// Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service key to use.
+	// Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
+	//
+	// If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
 	EncryptionAtRestOptions DomainEncryptionAtRestOptionsPtrInput
 	// The version of OpenSearch to use. The value must be in the format `OpenSearch_X.Y` or `Elasticsearch_X.Y` . If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
 	//
@@ -209,19 +214,19 @@ type DomainArgs struct {
 	IpAddressType pulumi.StringPtrInput
 	// An object with one or more of the following keys: `SEARCH_SLOW_LOGS` , `ES_APPLICATION_LOGS` , `INDEX_SLOW_LOGS` , `AUDIT_LOGS` , depending on the types of logs you want to publish. Each key needs a valid `LogPublishingOption` value. For the full syntax, see the [examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--examples) .
 	LogPublishingOptions DomainLogPublishingOptionMapInput
-	// Specifies options for node-to-node encryption.
+	// Specifies whether node-to-node encryption is enabled. See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
 	NodeToNodeEncryptionOptions DomainNodeToNodeEncryptionOptionsPtrInput
-	// Off-peak window settings for the domain.
+	// Options for a domain's off-peak window, during which OpenSearch Service can perform mandatory configuration changes on the domain.
 	OffPeakWindowOptions DomainOffPeakWindowOptionsPtrInput
-	// *DEPRECATED* . This setting is only relevant to domains running legacy Elasticsearch OSS versions earlier than 5.3. It does not apply to OpenSearch domains.
-	//
-	// The automated snapshot configuration for the OpenSearch Service domain indexes.
+	// *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
 	SnapshotOptions DomainSnapshotOptionsPtrInput
-	// Options for configuring service software updates for a domain.
+	// Service software update options for the domain.
 	SoftwareUpdateOptions DomainSoftwareUpdateOptionsPtrInput
 	// An arbitrary set of tags (key-value pairs) for this Domain.
 	Tags aws.TagArrayInput
-	// The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains using a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
+	// The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
+	//
+	// If you remove this entity altogether, along with its associated properties, it causes a replacement. You might encounter this scenario if you're updating your security configuration from a VPC to a public endpoint.
 	VpcOptions DomainVpcOptionsPtrInput
 }
 
@@ -274,7 +279,7 @@ func (o DomainOutput) AdvancedOptions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringMapOutput { return v.AdvancedOptions }).(pulumi.StringMapOutput)
 }
 
-// Specifies options for fine-grained access control.
+// Specifies options for fine-grained access control and SAML authentication.
 //
 // If you specify advanced security options, you must also enable node-to-node encryption ( [NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html) ) and encryption at rest ( [EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html) ). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html) , which requires HTTPS for all traffic to the domain.
 func (o DomainOutput) AdvancedSecurityOptions() DomainAdvancedSecurityOptionsInputPtrOutput {
@@ -291,7 +296,7 @@ func (o DomainOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
-// The cluster configuration for the OpenSearch Service domain. You can specify options such as the instance type and the number of instances. For more information, see [Creating and managing Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html) in the *Amazon OpenSearch Service Developer Guide* .
+// Container for the cluster configuration of a domain.
 func (o DomainOutput) ClusterConfig() DomainClusterConfigPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainClusterConfigPtrOutput { return v.ClusterConfig }).(DomainClusterConfigPtrOutput)
 }
@@ -339,7 +344,9 @@ func (o DomainOutput) EbsOptions() DomainEbsOptionsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainEbsOptionsPtrOutput { return v.EbsOptions }).(DomainEbsOptionsPtrOutput)
 }
 
-// Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service key to use.
+// Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
+//
+// If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
 func (o DomainOutput) EncryptionAtRestOptions() DomainEncryptionAtRestOptionsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainEncryptionAtRestOptionsPtrOutput { return v.EncryptionAtRestOptions }).(DomainEncryptionAtRestOptionsPtrOutput)
 }
@@ -361,29 +368,26 @@ func (o DomainOutput) LogPublishingOptions() DomainLogPublishingOptionMapOutput 
 	return o.ApplyT(func(v *Domain) DomainLogPublishingOptionMapOutput { return v.LogPublishingOptions }).(DomainLogPublishingOptionMapOutput)
 }
 
-// Specifies options for node-to-node encryption.
+// Specifies whether node-to-node encryption is enabled. See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
 func (o DomainOutput) NodeToNodeEncryptionOptions() DomainNodeToNodeEncryptionOptionsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainNodeToNodeEncryptionOptionsPtrOutput { return v.NodeToNodeEncryptionOptions }).(DomainNodeToNodeEncryptionOptionsPtrOutput)
 }
 
-// Off-peak window settings for the domain.
+// Options for a domain's off-peak window, during which OpenSearch Service can perform mandatory configuration changes on the domain.
 func (o DomainOutput) OffPeakWindowOptions() DomainOffPeakWindowOptionsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainOffPeakWindowOptionsPtrOutput { return v.OffPeakWindowOptions }).(DomainOffPeakWindowOptionsPtrOutput)
 }
 
-// The current status of the service software for an Amazon OpenSearch Service domain. For more information, see [Service software updates in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html) .
 func (o DomainOutput) ServiceSoftwareOptions() DomainServiceSoftwareOptionsOutput {
 	return o.ApplyT(func(v *Domain) DomainServiceSoftwareOptionsOutput { return v.ServiceSoftwareOptions }).(DomainServiceSoftwareOptionsOutput)
 }
 
-// *DEPRECATED* . This setting is only relevant to domains running legacy Elasticsearch OSS versions earlier than 5.3. It does not apply to OpenSearch domains.
-//
-// The automated snapshot configuration for the OpenSearch Service domain indexes.
+// *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
 func (o DomainOutput) SnapshotOptions() DomainSnapshotOptionsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainSnapshotOptionsPtrOutput { return v.SnapshotOptions }).(DomainSnapshotOptionsPtrOutput)
 }
 
-// Options for configuring service software updates for a domain.
+// Service software update options for the domain.
 func (o DomainOutput) SoftwareUpdateOptions() DomainSoftwareUpdateOptionsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainSoftwareUpdateOptionsPtrOutput { return v.SoftwareUpdateOptions }).(DomainSoftwareUpdateOptionsPtrOutput)
 }
@@ -393,7 +397,9 @@ func (o DomainOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Domain) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains using a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
+// The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
+//
+// If you remove this entity altogether, along with its associated properties, it causes a replacement. You might encounter this scenario if you're updating your security configuration from a VPC to a public endpoint.
 func (o DomainOutput) VpcOptions() DomainVpcOptionsPtrOutput {
 	return o.ApplyT(func(v *Domain) DomainVpcOptionsPtrOutput { return v.VpcOptions }).(DomainVpcOptionsPtrOutput)
 }

@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Osis
         public Output<ImmutableArray<string>> IngestEndpointUrls { get; private set; } = null!;
 
         /// <summary>
-        /// Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
+        /// Key-value pairs that represent log publishing settings.
         /// </summary>
         [Output("logPublishingOptions")]
         public Output<Outputs.PipelineLogPublishingOptions?> LogPublishingOptions { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.AwsNative.Osis
         public Input<Inputs.PipelineEncryptionAtRestOptionsArgs>? EncryptionAtRestOptions { get; set; }
 
         /// <summary>
-        /// Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
+        /// Key-value pairs that represent log publishing settings.
         /// </summary>
         [Input("logPublishingOptions")]
         public Input<Inputs.PipelineLogPublishingOptionsArgs>? LogPublishingOptions { get; set; }

@@ -32,10 +32,13 @@ class TemplateArgs:
         The set of arguments for constructing a Template resource.
         :param pulumi.Input[str] aws_account_id: The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
         :param pulumi.Input[str] template_id: An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
-        :param pulumi.Input['TemplateVersionDefinitionArgs'] definition: The detailed definition of a template.
         :param pulumi.Input[str] name: A display name for the template.
-        :param pulumi.Input[Sequence[pulumi.Input['TemplateResourcePermissionArgs']]] permissions: Permission for the resource.
-        :param pulumi.Input['TemplateSourceEntityArgs'] source_entity: The source entity of the template.
+        :param pulumi.Input[Sequence[pulumi.Input['TemplateResourcePermissionArgs']]] permissions: A list of resource permissions to be set on the template.
+        :param pulumi.Input['TemplateSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+               
+               Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
+               
+               Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
         :param pulumi.Input['TemplateValidationStrategyArgs'] validation_strategy: The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
         :param pulumi.Input[str] version_description: A description of the current template version being created. This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
@@ -84,9 +87,6 @@ class TemplateArgs:
     @property
     @pulumi.getter
     def definition(self) -> Optional[pulumi.Input['TemplateVersionDefinitionArgs']]:
-        """
-        The detailed definition of a template.
-        """
         return pulumi.get(self, "definition")
 
     @definition.setter
@@ -109,7 +109,7 @@ class TemplateArgs:
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplateResourcePermissionArgs']]]]:
         """
-        Permission for the resource.
+        A list of resource permissions to be set on the template.
         """
         return pulumi.get(self, "permissions")
 
@@ -121,7 +121,11 @@ class TemplateArgs:
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> Optional[pulumi.Input['TemplateSourceEntityArgs']]:
         """
-        The source entity of the template.
+        The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+
+        Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
+
+        Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
         """
         return pulumi.get(self, "source_entity")
 
@@ -187,10 +191,13 @@ class Template(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_account_id: The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon QuickSight account.
-        :param pulumi.Input[pulumi.InputType['TemplateVersionDefinitionArgs']] definition: The detailed definition of a template.
         :param pulumi.Input[str] name: A display name for the template.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateResourcePermissionArgs']]]] permissions: Permission for the resource.
-        :param pulumi.Input[pulumi.InputType['TemplateSourceEntityArgs']] source_entity: The source entity of the template.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplateResourcePermissionArgs']]]] permissions: A list of resource permissions to be set on the template.
+        :param pulumi.Input[pulumi.InputType['TemplateSourceEntityArgs']] source_entity: The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+               
+               Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
+               
+               Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
         :param pulumi.Input[str] template_id: An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
         :param pulumi.Input[pulumi.InputType['TemplateValidationStrategyArgs']] validation_strategy: The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
@@ -321,9 +328,6 @@ class Template(pulumi.CustomResource):
     @property
     @pulumi.getter
     def definition(self) -> pulumi.Output[Optional['outputs.TemplateVersionDefinition']]:
-        """
-        The detailed definition of a template.
-        """
         return pulumi.get(self, "definition")
 
     @property
@@ -346,7 +350,7 @@ class Template(pulumi.CustomResource):
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Optional[Sequence['outputs.TemplateResourcePermission']]]:
         """
-        Permission for the resource.
+        A list of resource permissions to be set on the template.
         """
         return pulumi.get(self, "permissions")
 
@@ -354,7 +358,11 @@ class Template(pulumi.CustomResource):
     @pulumi.getter(name="sourceEntity")
     def source_entity(self) -> pulumi.Output[Optional['outputs.TemplateSourceEntity']]:
         """
-        The source entity of the template.
+        The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+
+        Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
+
+        Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
         """
         return pulumi.get(self, "source_entity")
 
@@ -385,9 +393,6 @@ class Template(pulumi.CustomResource):
     @property
     @pulumi.getter
     def version(self) -> pulumi.Output['outputs.TemplateVersion']:
-        """
-        A version of a template.
-        """
         return pulumi.get(self, "version")
 
     @property

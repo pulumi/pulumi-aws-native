@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class AnalysisCategoricalDimensionFieldArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A column of a data set.
+        /// The column that is used in the `CategoricalDimensionField` .
         /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.AnalysisColumnIdentifierArgs> Column { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string> FieldId { get; set; } = null!;
 
         /// <summary>
-        /// Formatting configuration for string fields.
+        /// The format configuration of the field.
         /// </summary>
         [Input("formatConfiguration")]
         public Input<Inputs.AnalysisStringFormatConfigurationArgs>? FormatConfiguration { get; set; }

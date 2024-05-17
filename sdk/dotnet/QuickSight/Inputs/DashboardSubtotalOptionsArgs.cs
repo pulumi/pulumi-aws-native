@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.DashboardPivotTableFieldSubtotalOptionsArgs>? _fieldLevelOptions;
 
         /// <summary>
-        /// The optional configuration of subtotals cells.
+        /// The optional configuration of subtotal cells.
         /// </summary>
         public InputList<Inputs.DashboardPivotTableFieldSubtotalOptionsArgs> FieldLevelOptions
         {
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The cell styling options for the subtotals of header cells.
         /// </summary>
         [Input("metricHeaderCellStyle")]
         public Input<Inputs.DashboardTableCellStyleArgs>? MetricHeaderCellStyle { get; set; }
@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.DashboardTableStyleTargetArgs>? _styleTargets;
 
         /// <summary>
-        /// The table style target.
+        /// The style targets options for subtotals.
         /// </summary>
         public InputList<Inputs.DashboardTableStyleTargetArgs> StyleTargets
         {
@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The cell styling options for the subtotal cells.
         /// </summary>
         [Input("totalCellStyle")]
         public Input<Inputs.DashboardTableCellStyleArgs>? TotalCellStyle { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? TotalsVisibility { get; set; }
 
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The cell styling options for the subtotals of value cells.
         /// </summary>
         [Input("valueCellStyle")]
         public Input<Inputs.DashboardTableCellStyleArgs>? ValueCellStyle { get; set; }

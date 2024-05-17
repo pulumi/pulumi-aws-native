@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
     public sealed class ConfigAntennaDownlinkConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines a spectrum.
+        /// Defines the spectrum configuration.
         /// </summary>
         [Input("spectrumConfig")]
         public Input<Inputs.ConfigSpectrumConfigArgs>? SpectrumConfig { get; set; }

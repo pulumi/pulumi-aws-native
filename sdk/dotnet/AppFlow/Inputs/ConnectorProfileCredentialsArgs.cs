@@ -28,49 +28,49 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public Input<Inputs.ConnectorProfileCustomConnectorProfileCredentialsArgs>? CustomConnector { get; set; }
 
         /// <summary>
-        /// The connector-specific credentials required by Datadog.
+        /// The connector-specific credentials required when using Datadog.
         /// </summary>
         [Input("datadog")]
         public Input<Inputs.ConnectorProfileDatadogConnectorProfileCredentialsArgs>? Datadog { get; set; }
 
         /// <summary>
-        /// The connector-specific profile credentials required by Dynatrace.
+        /// The connector-specific credentials required when using Dynatrace.
         /// </summary>
         [Input("dynatrace")]
         public Input<Inputs.ConnectorProfileDynatraceConnectorProfileCredentialsArgs>? Dynatrace { get; set; }
 
         /// <summary>
-        /// The connector-specific profile credentials required by Google Analytics.
+        /// The connector-specific credentials required when using Google Analytics.
         /// </summary>
         [Input("googleAnalytics")]
         public Input<Inputs.ConnectorProfileGoogleAnalyticsConnectorProfileCredentialsArgs>? GoogleAnalytics { get; set; }
 
         /// <summary>
-        /// The connector-specific profile credentials required by Infor Nexus.
+        /// The connector-specific credentials required when using Infor Nexus.
         /// </summary>
         [Input("inforNexus")]
         public Input<Inputs.ConnectorProfileInforNexusConnectorProfileCredentialsArgs>? InforNexus { get; set; }
 
         /// <summary>
-        /// The connector-specific profile credentials required by Marketo.
+        /// The connector-specific credentials required when using Marketo.
         /// </summary>
         [Input("marketo")]
         public Input<Inputs.ConnectorProfileMarketoConnectorProfileCredentialsArgs>? Marketo { get; set; }
 
         /// <summary>
-        /// The connector-specific profile credentials required when using Salesforce Pardot.
+        /// The connector-specific credentials required when using Salesforce Pardot.
         /// </summary>
         [Input("pardot")]
         public Input<Inputs.ConnectorProfilePardotConnectorProfileCredentialsArgs>? Pardot { get; set; }
 
         /// <summary>
-        /// The connector-specific profile credentials required when using Amazon Redshift.
+        /// The connector-specific credentials required when using Amazon Redshift.
         /// </summary>
         [Input("redshift")]
         public Input<Inputs.ConnectorProfileRedshiftConnectorProfileCredentialsArgs>? Redshift { get; set; }
 
         /// <summary>
-        /// The connector-specific profile credentials required when using Salesforce.
+        /// The connector-specific credentials required when using Salesforce.
         /// </summary>
         [Input("salesforce")]
         public Input<Inputs.ConnectorProfileSalesforceConnectorProfileCredentialsArgs>? Salesforce { get; set; }
@@ -82,43 +82,43 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public Input<Inputs.ConnectorProfileSapoDataConnectorProfileCredentialsArgs>? SapoData { get; set; }
 
         /// <summary>
-        /// The connector-specific profile credentials required when using ServiceNow.
+        /// The connector-specific credentials required when using ServiceNow.
         /// </summary>
         [Input("serviceNow")]
         public Input<Inputs.ConnectorProfileServiceNowConnectorProfileCredentialsArgs>? ServiceNow { get; set; }
 
         /// <summary>
-        /// The connector-specific profile credentials required when using Singular.
+        /// The connector-specific credentials required when using Singular.
         /// </summary>
         [Input("singular")]
         public Input<Inputs.ConnectorProfileSingularConnectorProfileCredentialsArgs>? Singular { get; set; }
 
         /// <summary>
-        /// The connector-specific profile credentials required when using Slack.
+        /// The connector-specific credentials required when using Slack.
         /// </summary>
         [Input("slack")]
         public Input<Inputs.ConnectorProfileSlackConnectorProfileCredentialsArgs>? Slack { get; set; }
 
         /// <summary>
-        /// The connector-specific profile credentials required when using Snowflake.
+        /// The connector-specific credentials required when using Snowflake.
         /// </summary>
         [Input("snowflake")]
         public Input<Inputs.ConnectorProfileSnowflakeConnectorProfileCredentialsArgs>? Snowflake { get; set; }
 
         /// <summary>
-        /// The connector-specific profile credentials required when using Trend Micro.
+        /// The connector-specific credentials required when using Trend Micro.
         /// </summary>
         [Input("trendmicro")]
         public Input<Inputs.ConnectorProfileTrendmicroConnectorProfileCredentialsArgs>? Trendmicro { get; set; }
 
         /// <summary>
-        /// The connector-specific profile credentials required when using Veeva.
+        /// The connector-specific credentials required when using Veeva.
         /// </summary>
         [Input("veeva")]
         public Input<Inputs.ConnectorProfileVeevaConnectorProfileCredentialsArgs>? Veeva { get; set; }
 
         /// <summary>
-        /// The connector-specific profile credentials required when using Zendesk.
+        /// The connector-specific credentials required when using Zendesk.
         /// </summary>
         [Input("zendesk")]
         public Input<Inputs.ConnectorProfileZendeskConnectorProfileCredentialsArgs>? Zendesk { get; set; }

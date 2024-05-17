@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Comprehend.Inputs
         private InputList<Inputs.FlywheelEntityTypesListItemArgs>? _entityTypes;
 
         /// <summary>
-        /// An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.
+        /// Up to 25 entity types that the model is trained to recognize.
         /// </summary>
         public InputList<Inputs.FlywheelEntityTypesListItemArgs> EntityTypes
         {

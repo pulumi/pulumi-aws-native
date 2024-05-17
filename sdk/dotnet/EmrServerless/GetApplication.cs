@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.EmrServerless
         /// </summary>
         public readonly Outputs.ApplicationAutoStopConfiguration? AutoStopConfiguration;
         /// <summary>
-        /// The image configuration.
+        /// The image configuration applied to all worker types.
         /// </summary>
         public readonly Outputs.ApplicationImageConfigurationInput? ImageConfiguration;
         /// <summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.EmrServerless
         /// </summary>
         public readonly Outputs.ApplicationMaximumAllowedResources? MaximumCapacity;
         /// <summary>
-        /// The configuration setting for monitoring.
+        /// A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
         /// </summary>
         public readonly Outputs.ApplicationMonitoringConfiguration? MonitoringConfiguration;
         /// <summary>

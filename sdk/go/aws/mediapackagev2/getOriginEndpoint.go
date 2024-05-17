@@ -43,7 +43,7 @@ type LookupOriginEndpointResult struct {
 	LowLatencyHlsManifests []OriginEndpointLowLatencyHlsManifestConfiguration `pulumi:"lowLatencyHlsManifests"`
 	// <p>The date and time the origin endpoint was modified.</p>
 	ModifiedAt *string `pulumi:"modifiedAt"`
-	// The segment configuration, including the segment name, duration, and other configuration values.
+	// The segment associated with the origin endpoint.
 	Segment *OriginEndpointSegment `pulumi:"segment"`
 	// <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
 	StartoverWindowSeconds *int `pulumi:"startoverWindowSeconds"`
@@ -124,7 +124,7 @@ func (o LookupOriginEndpointResultOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// The segment configuration, including the segment name, duration, and other configuration values.
+// The segment associated with the origin endpoint.
 func (o LookupOriginEndpointResultOutput) Segment() OriginEndpointSegmentPtrOutput {
 	return o.ApplyT(func(v LookupOriginEndpointResult) *OriginEndpointSegment { return v.Segment }).(OriginEndpointSegmentPtrOutput)
 }

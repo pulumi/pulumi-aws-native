@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.AppRunner.Inputs
     public sealed class ServiceImageRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes the configuration that AWS App Runner uses to run an App Runner service using an image pulled from a source image repository.
+        /// Configuration for running the identified image.
         /// </summary>
         [Input("imageConfiguration")]
         public Input<Inputs.ServiceImageConfigurationArgs>? ImageConfiguration { get; set; }

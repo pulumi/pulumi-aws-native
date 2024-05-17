@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardNumericalDimensionField
     {
         /// <summary>
-        /// A column of a data set.
+        /// The column that is used in the `NumericalDimensionField` .
         /// </summary>
         public readonly Outputs.DashboardColumnIdentifier Column;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string FieldId;
         /// <summary>
-        /// Formatting configuration for number fields.
+        /// The format configuration of the field.
         /// </summary>
         public readonly Outputs.DashboardNumberFormatConfiguration? FormatConfiguration;
         /// <summary>

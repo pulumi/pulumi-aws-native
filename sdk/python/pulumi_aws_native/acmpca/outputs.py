@@ -207,7 +207,7 @@ class CertificateAuthorityCrlConfiguration(dict):
         """
         Your certificate authority can create and maintain a certificate revocation list (CRL). A CRL contains information about certificates that have been revoked.
         :param bool enabled: Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. You can use this value to enable certificate revocation for a new CA when you call the `CreateCertificateAuthority` operation or for an existing CA when you call the `UpdateCertificateAuthority` operation.
-        :param 'CertificateAuthorityCrlDistributionPointExtensionConfiguration' crl_distribution_point_extension_configuration: Contains configuration information for the default behavior of the CRL Distribution Point (CDP) extension in certificates issued by your CA. This extension contains a link to download the CRL, so you can check whether a certificate has been revoked. To choose whether you want this extension omitted or not in certificates issued by your CA, you can set the *OmitExtension* parameter.
+        :param 'CertificateAuthorityCrlDistributionPointExtensionConfiguration' crl_distribution_point_extension_configuration: Configures the default behavior of the CRL Distribution Point extension for certificates issued by your CA. If this field is not provided, then the CRL Distribution Point extension will be present and contain the default CRL URL.
         :param str custom_cname: Name inserted into the certificate *CRL Distribution Points* extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public.
                
                > The content of a Canonical Name (CNAME) record must conform to [RFC2396](https://docs.aws.amazon.com/https://www.ietf.org/rfc/rfc2396.txt) restrictions on the use of special characters in URIs. Additionally, the value of the CNAME must not include a protocol prefix such as "http://" or "https://".
@@ -247,7 +247,7 @@ class CertificateAuthorityCrlConfiguration(dict):
     @pulumi.getter(name="crlDistributionPointExtensionConfiguration")
     def crl_distribution_point_extension_configuration(self) -> Optional['outputs.CertificateAuthorityCrlDistributionPointExtensionConfiguration']:
         """
-        Contains configuration information for the default behavior of the CRL Distribution Point (CDP) extension in certificates issued by your CA. This extension contains a link to download the CRL, so you can check whether a certificate has been revoked. To choose whether you want this extension omitted or not in certificates issued by your CA, you can set the *OmitExtension* parameter.
+        Configures the default behavior of the CRL Distribution Point extension for certificates issued by your CA. If this field is not provided, then the CRL Distribution Point extension will be present and contain the default CRL URL.
         """
         return pulumi.get(self, "crl_distribution_point_extension_configuration")
 
@@ -370,7 +370,7 @@ class CertificateAuthorityCsrExtensions(dict):
                  subject_information_access: Optional[Sequence['outputs.CertificateAuthorityAccessDescription']] = None):
         """
         Structure that contains CSR pass though extensions information.
-        :param 'CertificateAuthorityKeyUsage' key_usage: Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+        :param 'CertificateAuthorityKeyUsage' key_usage: Indicates the purpose of the certificate and of the key contained in the certificate.
         :param Sequence['CertificateAuthorityAccessDescription'] subject_information_access: For CA certificates, provides a path to additional information pertaining to the CA, such as revocation and policy. For more information, see [Subject Information Access](https://docs.aws.amazon.com/https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.2.2) in RFC 5280.
         """
         if key_usage is not None:
@@ -382,7 +382,7 @@ class CertificateAuthorityCsrExtensions(dict):
     @pulumi.getter(name="keyUsage")
     def key_usage(self) -> Optional['outputs.CertificateAuthorityKeyUsage']:
         """
-        Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+        Indicates the purpose of the certificate and of the key contained in the certificate.
         """
         return pulumi.get(self, "key_usage")
 
@@ -866,41 +866,8 @@ class CertificateAuthorityRevocationConfiguration(dict):
                  ocsp_configuration: Optional['outputs.CertificateAuthorityOcspConfiguration'] = None):
         """
         Certificate Authority revocation information.
-        :param 'CertificateAuthorityCrlConfiguration' crl_configuration: Contains configuration information for a certificate revocation list (CRL). Your private certificate authority (CA) creates base CRLs. Delta CRLs are not supported. You can enable CRLs for your new or an existing private CA by setting the *Enabled* parameter to `true` . Your private CA writes CRLs to an S3 bucket that you specify in the *S3BucketName* parameter. You can hide the name of your bucket by specifying a value for the *CustomCname* parameter. Your private CA by default copies the CNAME or the S3 bucket name to the *CRL Distribution Points* extension of each certificate it issues. If you want to configure this default behavior to be something different, you can set the *CrlDistributionPointExtensionConfiguration* parameter. Your S3 bucket policy must give write permission to AWS Private CA.
-               
-               AWS Private CA assets that are stored in Amazon S3 can be protected with encryption. For more information, see [Encrypting Your CRLs](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#crl-encryption) .
-               
-               Your private CA uses the value in the *ExpirationInDays* parameter to calculate the *nextUpdate* field in the CRL. The CRL is refreshed prior to a certificate's expiration date or when a certificate is revoked. When a certificate is revoked, it appears in the CRL until the certificate expires, and then in one additional CRL after expiration, and it always appears in the audit report.
-               
-               A CRL is typically updated approximately 30 minutes after a certificate is revoked. If for any reason a CRL update fails, AWS Private CA makes further attempts every 15 minutes.
-               
-               CRLs contain the following fields:
-               
-               - *Version* : The current version number defined in RFC 5280 is V2. The integer value is 0x1.
-               - *Signature Algorithm* : The name of the algorithm used to sign the CRL.
-               - *Issuer* : The X.500 distinguished name of your private CA that issued the CRL.
-               - *Last Update* : The issue date and time of this CRL.
-               - *Next Update* : The day and time by which the next CRL will be issued.
-               - *Revoked Certificates* : List of revoked certificates. Each list item contains the following information.
-               
-               - *Serial Number* : The serial number, in hexadecimal format, of the revoked certificate.
-               - *Revocation Date* : Date and time the certificate was revoked.
-               - *CRL Entry Extensions* : Optional extensions for the CRL entry.
-               
-               - *X509v3 CRL Reason Code* : Reason the certificate was revoked.
-               - *CRL Extensions* : Optional extensions for the CRL.
-               
-               - *X509v3 Authority Key Identifier* : Identifies the public key associated with the private key used to sign the certificate.
-               - *X509v3 CRL Number:* : Decimal sequence number for the CRL.
-               - *Signature Algorithm* : Algorithm used by your private CA to sign the CRL.
-               - *Signature Value* : Signature computed over the CRL.
-               
-               Certificate revocation lists created by AWS Private CA are DER-encoded. You can use the following OpenSSL command to list a CRL.
-               
-               `openssl crl -inform DER -text -in *crl_path* -noout`
-               
-               For more information, see [Planning a certificate revocation list (CRL)](https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html) in the *AWS Private Certificate Authority User Guide*
-        :param 'CertificateAuthorityOcspConfiguration' ocsp_configuration: Contains information to enable and configure Online Certificate Status Protocol (OCSP) for validating certificate revocation status.
+        :param 'CertificateAuthorityCrlConfiguration' crl_configuration: Configuration of the certificate revocation list (CRL), if any, maintained by your private CA.
+        :param 'CertificateAuthorityOcspConfiguration' ocsp_configuration: Configuration of Online Certificate Status Protocol (OCSP) support, if any, maintained by your private CA.
         """
         if crl_configuration is not None:
             pulumi.set(__self__, "crl_configuration", crl_configuration)
@@ -911,40 +878,7 @@ class CertificateAuthorityRevocationConfiguration(dict):
     @pulumi.getter(name="crlConfiguration")
     def crl_configuration(self) -> Optional['outputs.CertificateAuthorityCrlConfiguration']:
         """
-        Contains configuration information for a certificate revocation list (CRL). Your private certificate authority (CA) creates base CRLs. Delta CRLs are not supported. You can enable CRLs for your new or an existing private CA by setting the *Enabled* parameter to `true` . Your private CA writes CRLs to an S3 bucket that you specify in the *S3BucketName* parameter. You can hide the name of your bucket by specifying a value for the *CustomCname* parameter. Your private CA by default copies the CNAME or the S3 bucket name to the *CRL Distribution Points* extension of each certificate it issues. If you want to configure this default behavior to be something different, you can set the *CrlDistributionPointExtensionConfiguration* parameter. Your S3 bucket policy must give write permission to AWS Private CA.
-
-        AWS Private CA assets that are stored in Amazon S3 can be protected with encryption. For more information, see [Encrypting Your CRLs](https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#crl-encryption) .
-
-        Your private CA uses the value in the *ExpirationInDays* parameter to calculate the *nextUpdate* field in the CRL. The CRL is refreshed prior to a certificate's expiration date or when a certificate is revoked. When a certificate is revoked, it appears in the CRL until the certificate expires, and then in one additional CRL after expiration, and it always appears in the audit report.
-
-        A CRL is typically updated approximately 30 minutes after a certificate is revoked. If for any reason a CRL update fails, AWS Private CA makes further attempts every 15 minutes.
-
-        CRLs contain the following fields:
-
-        - *Version* : The current version number defined in RFC 5280 is V2. The integer value is 0x1.
-        - *Signature Algorithm* : The name of the algorithm used to sign the CRL.
-        - *Issuer* : The X.500 distinguished name of your private CA that issued the CRL.
-        - *Last Update* : The issue date and time of this CRL.
-        - *Next Update* : The day and time by which the next CRL will be issued.
-        - *Revoked Certificates* : List of revoked certificates. Each list item contains the following information.
-
-        - *Serial Number* : The serial number, in hexadecimal format, of the revoked certificate.
-        - *Revocation Date* : Date and time the certificate was revoked.
-        - *CRL Entry Extensions* : Optional extensions for the CRL entry.
-
-        - *X509v3 CRL Reason Code* : Reason the certificate was revoked.
-        - *CRL Extensions* : Optional extensions for the CRL.
-
-        - *X509v3 Authority Key Identifier* : Identifies the public key associated with the private key used to sign the certificate.
-        - *X509v3 CRL Number:* : Decimal sequence number for the CRL.
-        - *Signature Algorithm* : Algorithm used by your private CA to sign the CRL.
-        - *Signature Value* : Signature computed over the CRL.
-
-        Certificate revocation lists created by AWS Private CA are DER-encoded. You can use the following OpenSSL command to list a CRL.
-
-        `openssl crl -inform DER -text -in *crl_path* -noout`
-
-        For more information, see [Planning a certificate revocation list (CRL)](https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html) in the *AWS Private Certificate Authority User Guide*
+        Configuration of the certificate revocation list (CRL), if any, maintained by your private CA.
         """
         return pulumi.get(self, "crl_configuration")
 
@@ -952,7 +886,7 @@ class CertificateAuthorityRevocationConfiguration(dict):
     @pulumi.getter(name="ocspConfiguration")
     def ocsp_configuration(self) -> Optional['outputs.CertificateAuthorityOcspConfiguration']:
         """
-        Contains information to enable and configure Online Certificate Status Protocol (OCSP) for validating certificate revocation status.
+        Configuration of Online Certificate Status Protocol (OCSP) support, if any, maintained by your private CA.
         """
         return pulumi.get(self, "ocsp_configuration")
 

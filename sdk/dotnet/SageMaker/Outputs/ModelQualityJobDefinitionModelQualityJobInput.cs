@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly Outputs.ModelQualityJobDefinitionEndpointInput? EndpointInput;
         /// <summary>
-        /// The ground truth labels for the dataset used for the monitoring job.
+        /// The ground truth label provided for the model.
         /// </summary>
         public readonly Outputs.ModelQualityJobDefinitionMonitoringGroundTruthS3Input GroundTruthS3Input;
 

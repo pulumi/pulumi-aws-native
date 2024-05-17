@@ -29,7 +29,7 @@ type LookupAnalyzerArgs struct {
 }
 
 type LookupAnalyzerResult struct {
-	// Contains information about an archive rule.
+	// Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
 	ArchiveRules []AnalyzerArchiveRule `pulumi:"archiveRules"`
 	// Amazon Resource Name (ARN) of the analyzer
 	Arn *string `pulumi:"arn"`
@@ -73,7 +73,7 @@ func (o LookupAnalyzerResultOutput) ToLookupAnalyzerResultOutputWithContext(ctx 
 	return o
 }
 
-// Contains information about an archive rule.
+// Specifies the archive rules to add for the analyzer. Archive rules automatically archive findings that meet the criteria you define for the rule.
 func (o LookupAnalyzerResultOutput) ArchiveRules() AnalyzerArchiveRuleArrayOutput {
 	return o.ApplyT(func(v LookupAnalyzerResult) []AnalyzerArchiveRule { return v.ArchiveRules }).(AnalyzerArchiveRuleArrayOutput)
 }

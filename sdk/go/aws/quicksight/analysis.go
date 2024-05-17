@@ -26,22 +26,25 @@ type Analysis struct {
 	// <p>The time that the analysis was created.</p>
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// <p>The ARNs of the datasets of the analysis.</p>
-	DataSetArns pulumi.StringArrayOutput `pulumi:"dataSetArns"`
-	// The definition of an analysis.
-	Definition AnalysisDefinitionPtrOutput `pulumi:"definition"`
+	DataSetArns pulumi.StringArrayOutput    `pulumi:"dataSetArns"`
+	Definition  AnalysisDefinitionPtrOutput `pulumi:"definition"`
 	// <p>Errors associated with the analysis.</p>
 	Errors AnalysisErrorArrayOutput `pulumi:"errors"`
 	// <p>The time that the analysis was last updated.</p>
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
 	// <p>The descriptive name of the analysis.</p>
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A list of Amazon QuickSight parameters and the list's override values.
+	// The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values.
 	Parameters AnalysisParametersPtrOutput `pulumi:"parameters"`
-	// Permission for the resource.
+	// A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+	//
+	// To specify no permissions, omit `Permissions` .
 	Permissions AnalysisResourcePermissionArrayOutput `pulumi:"permissions"`
 	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
 	Sheets AnalysisSheetArrayOutput `pulumi:"sheets"`
-	// The source entity of an analysis.
+	// A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.
+	//
+	// Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
 	SourceEntity AnalysisSourceEntityPtrOutput `pulumi:"sourceEntity"`
 	// Status associated with the analysis.
 	Status AnalysisResourceStatusPtrOutput `pulumi:"status"`
@@ -107,20 +110,23 @@ type analysisArgs struct {
 	// The ID for the analysis that you're creating. This ID displays in the URL of the analysis.
 	AnalysisId string `pulumi:"analysisId"`
 	// The ID of the AWS account where you are creating an analysis.
-	AwsAccountId string `pulumi:"awsAccountId"`
-	// The definition of an analysis.
-	Definition *AnalysisDefinition `pulumi:"definition"`
+	AwsAccountId string              `pulumi:"awsAccountId"`
+	Definition   *AnalysisDefinition `pulumi:"definition"`
 	// <p>Errors associated with the analysis.</p>
 	Errors []AnalysisError `pulumi:"errors"`
 	// <p>The descriptive name of the analysis.</p>
 	Name *string `pulumi:"name"`
-	// A list of Amazon QuickSight parameters and the list's override values.
+	// The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values.
 	Parameters *AnalysisParameters `pulumi:"parameters"`
-	// Permission for the resource.
+	// A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+	//
+	// To specify no permissions, omit `Permissions` .
 	Permissions []AnalysisResourcePermission `pulumi:"permissions"`
 	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
 	Sheets []AnalysisSheet `pulumi:"sheets"`
-	// The source entity of an analysis.
+	// A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.
+	//
+	// Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
 	SourceEntity *AnalysisSourceEntity `pulumi:"sourceEntity"`
 	// Status associated with the analysis.
 	Status *AnalysisResourceStatus `pulumi:"status"`
@@ -138,19 +144,22 @@ type AnalysisArgs struct {
 	AnalysisId pulumi.StringInput
 	// The ID of the AWS account where you are creating an analysis.
 	AwsAccountId pulumi.StringInput
-	// The definition of an analysis.
-	Definition AnalysisDefinitionPtrInput
+	Definition   AnalysisDefinitionPtrInput
 	// <p>Errors associated with the analysis.</p>
 	Errors AnalysisErrorArrayInput
 	// <p>The descriptive name of the analysis.</p>
 	Name pulumi.StringPtrInput
-	// A list of Amazon QuickSight parameters and the list's override values.
+	// The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values.
 	Parameters AnalysisParametersPtrInput
-	// Permission for the resource.
+	// A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+	//
+	// To specify no permissions, omit `Permissions` .
 	Permissions AnalysisResourcePermissionArrayInput
 	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
 	Sheets AnalysisSheetArrayInput
-	// The source entity of an analysis.
+	// A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.
+	//
+	// Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
 	SourceEntity AnalysisSourceEntityPtrInput
 	// Status associated with the analysis.
 	Status AnalysisResourceStatusPtrInput
@@ -224,7 +233,6 @@ func (o AnalysisOutput) DataSetArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringArrayOutput { return v.DataSetArns }).(pulumi.StringArrayOutput)
 }
 
-// The definition of an analysis.
 func (o AnalysisOutput) Definition() AnalysisDefinitionPtrOutput {
 	return o.ApplyT(func(v *Analysis) AnalysisDefinitionPtrOutput { return v.Definition }).(AnalysisDefinitionPtrOutput)
 }
@@ -244,12 +252,14 @@ func (o AnalysisOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A list of Amazon QuickSight parameters and the list's override values.
+// The parameter names and override values that you want to use. An analysis can have any parameter type, and some parameters might accept multiple values.
 func (o AnalysisOutput) Parameters() AnalysisParametersPtrOutput {
 	return o.ApplyT(func(v *Analysis) AnalysisParametersPtrOutput { return v.Parameters }).(AnalysisParametersPtrOutput)
 }
 
-// Permission for the resource.
+// A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+//
+// To specify no permissions, omit `Permissions` .
 func (o AnalysisOutput) Permissions() AnalysisResourcePermissionArrayOutput {
 	return o.ApplyT(func(v *Analysis) AnalysisResourcePermissionArrayOutput { return v.Permissions }).(AnalysisResourcePermissionArrayOutput)
 }
@@ -259,7 +269,9 @@ func (o AnalysisOutput) Sheets() AnalysisSheetArrayOutput {
 	return o.ApplyT(func(v *Analysis) AnalysisSheetArrayOutput { return v.Sheets }).(AnalysisSheetArrayOutput)
 }
 
-// The source entity of an analysis.
+// A source entity to use for the analysis that you're creating. This metadata structure contains details that describe a source template and one or more datasets.
+//
+// Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
 func (o AnalysisOutput) SourceEntity() AnalysisSourceEntityPtrOutput {
 	return o.ApplyT(func(v *Analysis) AnalysisSourceEntityPtrOutput { return v.SourceEntity }).(AnalysisSourceEntityPtrOutput)
 }

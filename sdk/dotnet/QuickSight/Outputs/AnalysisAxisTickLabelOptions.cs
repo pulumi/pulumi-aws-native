@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisAxisTickLabelOptions
     {
         /// <summary>
-        /// The share label options for the labels.
+        /// Determines whether or not the axis ticks are visible.
         /// </summary>
         public readonly Outputs.AnalysisLabelOptions? LabelOptions;
         /// <summary>

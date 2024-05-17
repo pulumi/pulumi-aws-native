@@ -205,9 +205,7 @@ class GetDataSetResult:
     @pulumi.getter(name="rowLevelPermissionDataSet")
     def row_level_permission_data_set(self) -> Optional['outputs.DataSetRowLevelPermissionDataSet']:
         """
-        Information about a dataset that contains permissions for row-level security (RLS). The permissions dataset maps fields to users or groups. For more information, see [Using Row-Level Security (RLS) to Restrict Access to a Dataset](https://docs.aws.amazon.com/quicksight/latest/user/restrict-access-to-a-data-set-using-row-level-security.html) in the *Amazon QuickSight User Guide* .
-
-        The option to deny permissions by setting `PermissionPolicy` to `DENY_ACCESS` is not supported for new RLS datasets.
+        The row-level security configuration for the data that you want to create.
         """
         return pulumi.get(self, "row_level_permission_data_set")
 

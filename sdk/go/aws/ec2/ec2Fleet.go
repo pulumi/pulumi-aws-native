@@ -24,27 +24,21 @@ type Ec2Fleet struct {
 	ExcessCapacityTerminationPolicy Ec2FleetExcessCapacityTerminationPolicyPtrOutput `pulumi:"excessCapacityTerminationPolicy"`
 	// The ID of the EC2 Fleet.
 	FleetId pulumi.StringOutput `pulumi:"fleetId"`
-	// Specifies a launch template and overrides for an EC2 Fleet.
-	//
-	// `FleetLaunchTemplateConfigRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+	// The configuration for the EC2 Fleet.
 	LaunchTemplateConfigs Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput `pulumi:"launchTemplateConfigs"`
-	// Specifies the allocation strategy of On-Demand Instances in an EC2 Fleet.
-	//
-	// `OnDemandOptionsRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+	// Describes the configuration of On-Demand Instances in an EC2 Fleet.
 	OnDemandOptions Ec2FleetOnDemandOptionsRequestPtrOutput `pulumi:"onDemandOptions"`
 	// Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type `maintain` . For more information, see [EC2 Fleet health checks](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks) in the *Amazon EC2 User Guide* .
 	ReplaceUnhealthyInstances pulumi.BoolPtrOutput `pulumi:"replaceUnhealthyInstances"`
-	// Specifies the configuration of Spot Instances for an EC2 Fleet.
-	//
-	// `SpotOptionsRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+	// Describes the configuration of Spot Instances in an EC2 Fleet.
 	SpotOptions Ec2FleetSpotOptionsRequestPtrOutput `pulumi:"spotOptions"`
-	// Specifies the tags to apply to a resource when the resource is being created for an EC2 Fleet.
+	// The key-value pair for tagging the EC2 Fleet request on creation. For more information, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
 	//
-	// `TagSpecification` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+	// If the fleet type is `instant` , specify a resource type of `fleet` to tag the fleet or `instance` to tag the instances at launch.
+	//
+	// If the fleet type is `maintain` or `request` , specify a resource type of `fleet` to tag the fleet. You cannot specify a resource type of `instance` . To tag instances at launch, specify the tags in a [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) .
 	TagSpecifications Ec2FleetTagSpecificationArrayOutput `pulumi:"tagSpecifications"`
-	// Specifies the number of units to request for an EC2 Fleet. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of `0` and add capacity later.
-	//
-	// `TargetCapacitySpecificationRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+	// The number of units to request.
 	TargetCapacitySpecification Ec2FleetTargetCapacitySpecificationRequestOutput `pulumi:"targetCapacitySpecification"`
 	// Indicates whether running instances should be terminated when the EC2 Fleet expires.
 	TerminateInstancesWithExpiration pulumi.BoolPtrOutput `pulumi:"terminateInstancesWithExpiration"`
@@ -126,27 +120,21 @@ type ec2FleetArgs struct {
 	//
 	// Supported only for fleets of type `maintain` .
 	ExcessCapacityTerminationPolicy *Ec2FleetExcessCapacityTerminationPolicy `pulumi:"excessCapacityTerminationPolicy"`
-	// Specifies a launch template and overrides for an EC2 Fleet.
-	//
-	// `FleetLaunchTemplateConfigRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+	// The configuration for the EC2 Fleet.
 	LaunchTemplateConfigs []Ec2FleetFleetLaunchTemplateConfigRequest `pulumi:"launchTemplateConfigs"`
-	// Specifies the allocation strategy of On-Demand Instances in an EC2 Fleet.
-	//
-	// `OnDemandOptionsRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+	// Describes the configuration of On-Demand Instances in an EC2 Fleet.
 	OnDemandOptions *Ec2FleetOnDemandOptionsRequest `pulumi:"onDemandOptions"`
 	// Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type `maintain` . For more information, see [EC2 Fleet health checks](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks) in the *Amazon EC2 User Guide* .
 	ReplaceUnhealthyInstances *bool `pulumi:"replaceUnhealthyInstances"`
-	// Specifies the configuration of Spot Instances for an EC2 Fleet.
-	//
-	// `SpotOptionsRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+	// Describes the configuration of Spot Instances in an EC2 Fleet.
 	SpotOptions *Ec2FleetSpotOptionsRequest `pulumi:"spotOptions"`
-	// Specifies the tags to apply to a resource when the resource is being created for an EC2 Fleet.
+	// The key-value pair for tagging the EC2 Fleet request on creation. For more information, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
 	//
-	// `TagSpecification` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+	// If the fleet type is `instant` , specify a resource type of `fleet` to tag the fleet or `instance` to tag the instances at launch.
+	//
+	// If the fleet type is `maintain` or `request` , specify a resource type of `fleet` to tag the fleet. You cannot specify a resource type of `instance` . To tag instances at launch, specify the tags in a [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) .
 	TagSpecifications []Ec2FleetTagSpecification `pulumi:"tagSpecifications"`
-	// Specifies the number of units to request for an EC2 Fleet. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of `0` and add capacity later.
-	//
-	// `TargetCapacitySpecificationRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+	// The number of units to request.
 	TargetCapacitySpecification Ec2FleetTargetCapacitySpecificationRequest `pulumi:"targetCapacitySpecification"`
 	// Indicates whether running instances should be terminated when the EC2 Fleet expires.
 	TerminateInstancesWithExpiration *bool `pulumi:"terminateInstancesWithExpiration"`
@@ -172,27 +160,21 @@ type Ec2FleetArgs struct {
 	//
 	// Supported only for fleets of type `maintain` .
 	ExcessCapacityTerminationPolicy Ec2FleetExcessCapacityTerminationPolicyPtrInput
-	// Specifies a launch template and overrides for an EC2 Fleet.
-	//
-	// `FleetLaunchTemplateConfigRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+	// The configuration for the EC2 Fleet.
 	LaunchTemplateConfigs Ec2FleetFleetLaunchTemplateConfigRequestArrayInput
-	// Specifies the allocation strategy of On-Demand Instances in an EC2 Fleet.
-	//
-	// `OnDemandOptionsRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+	// Describes the configuration of On-Demand Instances in an EC2 Fleet.
 	OnDemandOptions Ec2FleetOnDemandOptionsRequestPtrInput
 	// Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type `maintain` . For more information, see [EC2 Fleet health checks](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks) in the *Amazon EC2 User Guide* .
 	ReplaceUnhealthyInstances pulumi.BoolPtrInput
-	// Specifies the configuration of Spot Instances for an EC2 Fleet.
-	//
-	// `SpotOptionsRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+	// Describes the configuration of Spot Instances in an EC2 Fleet.
 	SpotOptions Ec2FleetSpotOptionsRequestPtrInput
-	// Specifies the tags to apply to a resource when the resource is being created for an EC2 Fleet.
+	// The key-value pair for tagging the EC2 Fleet request on creation. For more information, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
 	//
-	// `TagSpecification` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+	// If the fleet type is `instant` , specify a resource type of `fleet` to tag the fleet or `instance` to tag the instances at launch.
+	//
+	// If the fleet type is `maintain` or `request` , specify a resource type of `fleet` to tag the fleet. You cannot specify a resource type of `instance` . To tag instances at launch, specify the tags in a [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) .
 	TagSpecifications Ec2FleetTagSpecificationArrayInput
-	// Specifies the number of units to request for an EC2 Fleet. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of `0` and add capacity later.
-	//
-	// `TargetCapacitySpecificationRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+	// The number of units to request.
 	TargetCapacitySpecification Ec2FleetTargetCapacitySpecificationRequestInput
 	// Indicates whether running instances should be terminated when the EC2 Fleet expires.
 	TerminateInstancesWithExpiration pulumi.BoolPtrInput
@@ -266,16 +248,12 @@ func (o Ec2FleetOutput) FleetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ec2Fleet) pulumi.StringOutput { return v.FleetId }).(pulumi.StringOutput)
 }
 
-// Specifies a launch template and overrides for an EC2 Fleet.
-//
-// `FleetLaunchTemplateConfigRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+// The configuration for the EC2 Fleet.
 func (o Ec2FleetOutput) LaunchTemplateConfigs() Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput {
 	return o.ApplyT(func(v *Ec2Fleet) Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput { return v.LaunchTemplateConfigs }).(Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput)
 }
 
-// Specifies the allocation strategy of On-Demand Instances in an EC2 Fleet.
-//
-// `OnDemandOptionsRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+// Describes the configuration of On-Demand Instances in an EC2 Fleet.
 func (o Ec2FleetOutput) OnDemandOptions() Ec2FleetOnDemandOptionsRequestPtrOutput {
 	return o.ApplyT(func(v *Ec2Fleet) Ec2FleetOnDemandOptionsRequestPtrOutput { return v.OnDemandOptions }).(Ec2FleetOnDemandOptionsRequestPtrOutput)
 }
@@ -285,23 +263,21 @@ func (o Ec2FleetOutput) ReplaceUnhealthyInstances() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Ec2Fleet) pulumi.BoolPtrOutput { return v.ReplaceUnhealthyInstances }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the configuration of Spot Instances for an EC2 Fleet.
-//
-// `SpotOptionsRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com//AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+// Describes the configuration of Spot Instances in an EC2 Fleet.
 func (o Ec2FleetOutput) SpotOptions() Ec2FleetSpotOptionsRequestPtrOutput {
 	return o.ApplyT(func(v *Ec2Fleet) Ec2FleetSpotOptionsRequestPtrOutput { return v.SpotOptions }).(Ec2FleetSpotOptionsRequestPtrOutput)
 }
 
-// Specifies the tags to apply to a resource when the resource is being created for an EC2 Fleet.
+// The key-value pair for tagging the EC2 Fleet request on creation. For more information, see [Tag your resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources) .
 //
-// `TagSpecification` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+// If the fleet type is `instant` , specify a resource type of `fleet` to tag the fleet or `instance` to tag the instances at launch.
+//
+// If the fleet type is `maintain` or `request` , specify a resource type of `fleet` to tag the fleet. You cannot specify a resource type of `instance` . To tag instances at launch, specify the tags in a [launch template](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template) .
 func (o Ec2FleetOutput) TagSpecifications() Ec2FleetTagSpecificationArrayOutput {
 	return o.ApplyT(func(v *Ec2Fleet) Ec2FleetTagSpecificationArrayOutput { return v.TagSpecifications }).(Ec2FleetTagSpecificationArrayOutput)
 }
 
-// Specifies the number of units to request for an EC2 Fleet. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is `maintain` , you can specify a target capacity of `0` and add capacity later.
-//
-// `TargetCapacitySpecificationRequest` is a property of the [AWS::EC2::EC2Fleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html) resource.
+// The number of units to request.
 func (o Ec2FleetOutput) TargetCapacitySpecification() Ec2FleetTargetCapacitySpecificationRequestOutput {
 	return o.ApplyT(func(v *Ec2Fleet) Ec2FleetTargetCapacitySpecificationRequestOutput {
 		return v.TargetCapacitySpecification

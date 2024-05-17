@@ -92,7 +92,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly syncSchedule!: pulumi.Output<string | undefined>;
     /**
-     * A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+     * A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -104,7 +104,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
     /**
-     * Provides configuration information needed to connect to an Amazon VPC (Virtual Private Cloud).
+     * Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source. For more information, see [Using Amazon VPC with Amazon Q Business connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connector-vpc.html) .
      */
     public readonly vpcConfiguration!: pulumi.Output<outputs.qbusiness.DataSourceVpcConfiguration | undefined>;
 
@@ -215,11 +215,11 @@ export interface DataSourceArgs {
      */
     syncSchedule?: pulumi.Input<string>;
     /**
-     * A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+     * A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
-     * Provides configuration information needed to connect to an Amazon VPC (Virtual Private Cloud).
+     * Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source. For more information, see [Using Amazon VPC with Amazon Q Business connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connector-vpc.html) .
      */
     vpcConfiguration?: pulumi.Input<inputs.qbusiness.DataSourceVpcConfigurationArgs>;
 }

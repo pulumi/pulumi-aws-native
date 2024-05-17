@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Amplify.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AutoBranchCreationPatterns;
         /// <summary>
-        /// Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
+        /// Sets password protection for your auto created branch.
         /// </summary>
         public readonly Outputs.AppBasicAuthConfig? BasicAuthConfig;
         /// <summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.Amplify.Outputs
         /// </summary>
         public readonly bool? EnablePullRequestPreview;
         /// <summary>
-        /// Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+        /// The environment variables for the autocreated branch.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppEnvironmentVariable> EnvironmentVariables;
         /// <summary>

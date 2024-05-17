@@ -14,15 +14,15 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     public sealed class FormStyle
     {
         /// <summary>
-        /// The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
+        /// The spacing for the horizontal gap.
         /// </summary>
         public readonly Union<Outputs.FormStyleConfig0Properties, Outputs.FormStyleConfig1Properties>? HorizontalGap;
         /// <summary>
-        /// The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
+        /// The size of the outer padding for the form.
         /// </summary>
         public readonly Union<Outputs.FormStyleConfig0Properties, Outputs.FormStyleConfig1Properties>? OuterPadding;
         /// <summary>
-        /// The `FormStyleConfig` property specifies the configuration settings for the form's style properties.
+        /// The spacing for the vertical gap.
         /// </summary>
         public readonly Union<Outputs.FormStyleConfig0Properties, Outputs.FormStyleConfig1Properties>? VerticalGap;
 

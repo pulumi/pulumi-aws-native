@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Backup.Inputs
         private InputList<Inputs.BackupPlanCopyActionResourceTypeArgs>? _copyActions;
 
         /// <summary>
-        /// Copies backups created by a backup rule to another vault.
+        /// An array of CopyAction objects, which contains the details of the copy operation.
         /// </summary>
         public InputList<Inputs.BackupPlanCopyActionResourceTypeArgs> CopyActions
         {
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Backup.Inputs
         public Input<bool>? EnableContinuousBackup { get; set; }
 
         /// <summary>
-        /// Specifies an object containing an array of `Transition` objects that determine how long in days before a recovery point transitions to cold storage or is deleted.
+        /// The lifecycle defines when a protected resource is transitioned to cold storage and when it expires. AWS Backup transitions and expires backups automatically according to the lifecycle that you define.
         /// </summary>
         [Input("lifecycle")]
         public Input<Inputs.BackupPlanLifecycleResourceTypeArgs>? Lifecycle { get; set; }

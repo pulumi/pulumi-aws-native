@@ -66,7 +66,9 @@ class GetLocationNfsResult:
     @pulumi.getter(name="onPremConfig")
     def on_prem_config(self) -> Optional['outputs.LocationNfsOnPremConfig']:
         """
-        The AWS DataSync agents that are connecting to a Network File System (NFS) location.
+        Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+
+        You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
         """
         return pulumi.get(self, "on_prem_config")
 

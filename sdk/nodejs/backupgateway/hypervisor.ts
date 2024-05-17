@@ -62,7 +62,7 @@ export class Hypervisor extends pulumi.CustomResource {
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
-     * A key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ : /.
+     * The tags of the hypervisor configuration to import.
      */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
     /**
@@ -131,7 +131,7 @@ export interface HypervisorArgs {
      */
     password?: pulumi.Input<string>;
     /**
-     * A key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ : /.
+     * The tags of the hypervisor configuration to import.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
     /**

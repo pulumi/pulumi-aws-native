@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
     public sealed class DeploymentIoTJobExecutionsRolloutConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains information about an exponential rollout rate for a configuration deployment job.
+        /// The exponential rate to increase the job rollout rate.
         /// </summary>
         [Input("exponentialRate")]
         public Input<Inputs.DeploymentIoTJobExponentialRolloutRateArgs>? ExponentialRate { get; set; }

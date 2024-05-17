@@ -73,9 +73,7 @@ namespace Pulumi.AwsNative.Ram
         /// </summary>
         public readonly string? PermissionType;
         /// <summary>
-        /// A structure containing a tag. A tag is metadata that you can attach to your resources to help organize and categorize them. You can also use them to help you secure your resources. For more information, see [Controlling access to AWS resources using tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) .
-        /// 
-        /// For more information about tags, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference Guide* .
+        /// Specifies a list of one or more tag key and value pairs to attach to the permission.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>

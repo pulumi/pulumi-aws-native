@@ -35,8 +35,6 @@ type LookupStateMachineResult struct {
 	DefinitionString *string `pulumi:"definitionString"`
 	// Defines what execution history events are logged and where they are logged.
 	//
-	// Step Functions provides the log levels — `OFF` , `ALL` , `ERROR` , and `FATAL` . No event types log when set to `OFF` and all event types do when set to `ALL` .
-	//
 	// > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
 	LoggingConfiguration *StateMachineLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// Returns the name of the state machine. For example:
@@ -57,9 +55,11 @@ type LookupStateMachineResult struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.
 	StateMachineRevisionId *string `pulumi:"stateMachineRevisionId"`
-	// The `TagsEntry` property specifies *tags* to identify a state machine.
+	// The list of tags to add to a resource.
+	//
+	// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
 	Tags []aws.Tag `pulumi:"tags"`
-	// Selects whether or not the state machine's AWS X-Ray tracing is enabled. To configure your state machine to send trace data to X-Ray, set `Enabled` to `true` .
+	// Selects whether or not the state machine's AWS X-Ray tracing is enabled.
 	TracingConfiguration *StateMachineTracingConfiguration `pulumi:"tracingConfiguration"`
 }
 
@@ -111,8 +111,6 @@ func (o LookupStateMachineResultOutput) DefinitionString() pulumi.StringPtrOutpu
 
 // Defines what execution history events are logged and where they are logged.
 //
-// Step Functions provides the log levels — `OFF` , `ALL` , `ERROR` , and `FATAL` . No event types log when set to `OFF` and all event types do when set to `ALL` .
-//
 // > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
 func (o LookupStateMachineResultOutput) LoggingConfiguration() StateMachineLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupStateMachineResult) *StateMachineLoggingConfiguration { return v.LoggingConfiguration }).(StateMachineLoggingConfigurationPtrOutput)
@@ -145,12 +143,14 @@ func (o LookupStateMachineResultOutput) StateMachineRevisionId() pulumi.StringPt
 	return o.ApplyT(func(v LookupStateMachineResult) *string { return v.StateMachineRevisionId }).(pulumi.StringPtrOutput)
 }
 
-// The `TagsEntry` property specifies *tags* to identify a state machine.
+// The list of tags to add to a resource.
+//
+// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
 func (o LookupStateMachineResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupStateMachineResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// Selects whether or not the state machine's AWS X-Ray tracing is enabled. To configure your state machine to send trace data to X-Ray, set `Enabled` to `true` .
+// Selects whether or not the state machine's AWS X-Ray tracing is enabled.
 func (o LookupStateMachineResultOutput) TracingConfiguration() StateMachineTracingConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupStateMachineResult) *StateMachineTracingConfiguration { return v.TracingConfiguration }).(StateMachineTracingConfigurationPtrOutput)
 }

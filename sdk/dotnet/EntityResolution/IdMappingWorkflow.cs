@@ -25,13 +25,13 @@ namespace Pulumi.AwsNative.EntityResolution
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An object which defines the ID mapping techniques and provider configurations.
+        /// An object which defines the `idMappingType` and the `providerProperties` .
         /// </summary>
         [Output("idMappingTechniques")]
         public Output<Outputs.IdMappingWorkflowIdMappingTechniques> IdMappingTechniques { get; private set; } = null!;
 
         /// <summary>
-        /// An object containing `InputSourceARN` , `SchemaName` , and `Type` .
+        /// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
         /// </summary>
         [Output("inputSourceConfig")]
         public Output<ImmutableArray<Outputs.IdMappingWorkflowInputSource>> InputSourceConfig { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.AwsNative.EntityResolution
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// An object which defines the ID mapping techniques and provider configurations.
+        /// An object which defines the `idMappingType` and the `providerProperties` .
         /// </summary>
         [Input("idMappingTechniques", required: true)]
         public Input<Inputs.IdMappingWorkflowIdMappingTechniquesArgs> IdMappingTechniques { get; set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.AwsNative.EntityResolution
         private InputList<Inputs.IdMappingWorkflowInputSourceArgs>? _inputSourceConfig;
 
         /// <summary>
-        /// An object containing `InputSourceARN` , `SchemaName` , and `Type` .
+        /// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
         /// </summary>
         public InputList<Inputs.IdMappingWorkflowInputSourceArgs> InputSourceConfig
         {

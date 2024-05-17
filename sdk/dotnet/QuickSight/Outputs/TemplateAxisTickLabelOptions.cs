@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateAxisTickLabelOptions
     {
         /// <summary>
-        /// The share label options for the labels.
+        /// Determines whether or not the axis ticks are visible.
         /// </summary>
         public readonly Outputs.TemplateLabelOptions? LabelOptions;
         /// <summary>

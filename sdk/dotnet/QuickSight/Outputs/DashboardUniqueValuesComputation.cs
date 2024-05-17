@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardUniqueValuesComputation
     {
         /// <summary>
-        /// The dimension type field.
+        /// The category field that is used in a computation.
         /// </summary>
         public readonly Outputs.DashboardDimensionField? Category;
         /// <summary>

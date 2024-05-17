@@ -75,11 +75,13 @@ namespace Pulumi.AwsNative.IoTAnalytics
         public readonly Outputs.DatastoreFileFormatConfiguration? FileFormatConfiguration;
         public readonly string? Id;
         /// <summary>
-        /// How long, in days, message data is kept.
+        /// How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
         /// </summary>
         public readonly Outputs.DatastoreRetentionPeriod? RetentionPeriod;
         /// <summary>
-        /// A set of key-value pairs that are used to manage the resource.
+        /// Metadata which can be used to manage the data store.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

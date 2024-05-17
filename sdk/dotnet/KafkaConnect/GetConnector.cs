@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.KafkaConnect
     public sealed class GetConnectorResult
     {
         /// <summary>
-        /// Information about the capacity of the connector, whether it is auto scaled or provisioned.
+        /// The connector's compute capacity settings.
         /// </summary>
         public readonly Outputs.ConnectorCapacity? Capacity;
         /// <summary>

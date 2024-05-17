@@ -43,7 +43,7 @@ type LookupProfileResult struct {
 	// Returns an Amazon Resource Name (ARN) for the profile.
 	ProfileArn *string `pulumi:"profileArn"`
 	ProfileId  *string `pulumi:"profileId"`
-	// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+	// A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -124,7 +124,7 @@ func (o LookupProfileResultOutput) ProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProfileResult) *string { return v.ProfileId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+// A key-value pair for a specific profile. Tags are metadata that you can use to search for and group capabilities for various purposes.
 func (o LookupProfileResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

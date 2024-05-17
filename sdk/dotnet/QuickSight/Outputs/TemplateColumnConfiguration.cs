@@ -14,15 +14,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateColumnConfiguration
     {
         /// <summary>
-        /// The color configurations for a column.
+        /// The color configurations of the column.
         /// </summary>
         public readonly Outputs.TemplateColorsConfiguration? ColorsConfiguration;
         /// <summary>
-        /// A column of a data set.
+        /// The column.
         /// </summary>
         public readonly Outputs.TemplateColumnIdentifier Column;
         /// <summary>
-        /// The formatting configuration for all types of field.
+        /// The format configuration of a column.
         /// </summary>
         public readonly Outputs.TemplateFormatConfiguration? FormatConfiguration;
         /// <summary>

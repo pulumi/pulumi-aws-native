@@ -31,7 +31,7 @@ type Service struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The custom domain name of the service.
 	CustomDomainName pulumi.StringPtrOutput `pulumi:"customDomainName"`
-	// Describes the DNS information of a service.
+	// The DNS information of the service.
 	DnsEntry ServiceDnsEntryPtrOutput `pulumi:"dnsEntry"`
 	// The date and time that the service was last updated, specified in ISO-8601 format.
 	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
@@ -41,7 +41,7 @@ type Service struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The status of the service.
 	Status ServiceStatusOutput `pulumi:"status"`
-	// Specifies a tag for a service.
+	// The tags for the service.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -99,13 +99,13 @@ type serviceArgs struct {
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The custom domain name of the service.
 	CustomDomainName *string `pulumi:"customDomainName"`
-	// Describes the DNS information of a service.
+	// The DNS information of the service.
 	DnsEntry *ServiceDnsEntry `pulumi:"dnsEntry"`
 	// The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	//
 	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
 	Name *string `pulumi:"name"`
-	// Specifies a tag for a service.
+	// The tags for the service.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -120,13 +120,13 @@ type ServiceArgs struct {
 	CertificateArn pulumi.StringPtrInput
 	// The custom domain name of the service.
 	CustomDomainName pulumi.StringPtrInput
-	// Describes the DNS information of a service.
+	// The DNS information of the service.
 	DnsEntry ServiceDnsEntryPtrInput
 	// The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
 	//
 	// If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
 	Name pulumi.StringPtrInput
-	// Specifies a tag for a service.
+	// The tags for the service.
 	Tags aws.TagArrayInput
 }
 
@@ -200,7 +200,7 @@ func (o ServiceOutput) CustomDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.CustomDomainName }).(pulumi.StringPtrOutput)
 }
 
-// Describes the DNS information of a service.
+// The DNS information of the service.
 func (o ServiceOutput) DnsEntry() ServiceDnsEntryPtrOutput {
 	return o.ApplyT(func(v *Service) ServiceDnsEntryPtrOutput { return v.DnsEntry }).(ServiceDnsEntryPtrOutput)
 }
@@ -222,7 +222,7 @@ func (o ServiceOutput) Status() ServiceStatusOutput {
 	return o.ApplyT(func(v *Service) ServiceStatusOutput { return v.Status }).(ServiceStatusOutput)
 }
 
-// Specifies a tag for a service.
+// The tags for the service.
 func (o ServiceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Service) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string> BaseThemeId { get; private set; } = null!;
 
         /// <summary>
-        /// The theme configuration. This configuration contains all of the display properties for a theme.
+        /// The theme configuration, which contains the theme display properties.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.ThemeConfiguration> Configuration { get; private set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Permission for the resource.
+        /// A valid grouping of resource permissions to apply to the new theme.
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.ThemeResourcePermission>> Permissions { get; private set; } = null!;
@@ -81,9 +81,6 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("type")]
         public Output<Pulumi.AwsNative.QuickSight.ThemeType> Type { get; private set; } = null!;
 
-        /// <summary>
-        /// A version of a theme.
-        /// </summary>
         [Output("version")]
         public Output<Outputs.ThemeVersion> Version { get; private set; } = null!;
 
@@ -156,7 +153,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Input<string> BaseThemeId { get; set; } = null!;
 
         /// <summary>
-        /// The theme configuration. This configuration contains all of the display properties for a theme.
+        /// The theme configuration, which contains the theme display properties.
         /// </summary>
         [Input("configuration", required: true)]
         public Input<Inputs.ThemeConfigurationArgs> Configuration { get; set; } = null!;
@@ -171,7 +168,7 @@ namespace Pulumi.AwsNative.QuickSight
         private InputList<Inputs.ThemeResourcePermissionArgs>? _permissions;
 
         /// <summary>
-        /// Permission for the resource.
+        /// A valid grouping of resource permissions to apply to the new theme.
         /// </summary>
         public InputList<Inputs.ThemeResourcePermissionArgs> Permissions
         {

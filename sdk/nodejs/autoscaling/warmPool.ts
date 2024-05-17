@@ -42,9 +42,7 @@ export class WarmPool extends pulumi.CustomResource {
      */
     public readonly autoScalingGroupName!: pulumi.Output<string>;
     /**
-     * A structure that specifies an instance reuse policy for the `InstanceReusePolicy` property of the [AWS::AutoScaling::WarmPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html) resource.
-     *
-     * For more information, see [Warm pools for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html) in the *Amazon EC2 Auto Scaling User Guide* .
+     * Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
      */
     public readonly instanceReusePolicy!: pulumi.Output<outputs.autoscaling.WarmPoolInstanceReusePolicy | undefined>;
     /**
@@ -108,9 +106,7 @@ export interface WarmPoolArgs {
      */
     autoScalingGroupName: pulumi.Input<string>;
     /**
-     * A structure that specifies an instance reuse policy for the `InstanceReusePolicy` property of the [AWS::AutoScaling::WarmPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-warmpool.html) resource.
-     *
-     * For more information, see [Warm pools for Amazon EC2 Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html) in the *Amazon EC2 Auto Scaling User Guide* .
+     * Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
      */
     instanceReusePolicy?: pulumi.Input<inputs.autoscaling.WarmPoolInstanceReusePolicyArgs>;
     /**

@@ -13,21 +13,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardNumericEqualityFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An aggregation function aggregates values from a dimension or measure.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The aggregation function of the filter.
         /// </summary>
         [Input("aggregationFunction")]
         public Input<Inputs.DashboardAggregationFunctionArgs>? AggregationFunction { get; set; }
 
         /// <summary>
-        /// A column of a data set.
+        /// The column that the filter is applied to.
         /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.DashboardColumnIdentifierArgs> Column { get; set; } = null!;
 
         /// <summary>
-        /// The default configuration for all dependent controls of the filter.
+        /// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
         /// </summary>
         [Input("defaultFilterControlConfiguration")]
         public Input<Inputs.DashboardDefaultFilterControlConfigurationArgs>? DefaultFilterControlConfiguration { get; set; }

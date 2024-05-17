@@ -23,8 +23,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         /// <summary>
         /// The option that determines the data label type.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
         /// </summary>
         public InputList<Inputs.DashboardDataLabelTypeArgs> DataLabelTypes
         {
@@ -45,7 +43,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.DashboardDataLabelContent>? LabelContent { get; set; }
 
         /// <summary>
-        /// Configures the display properties of the given text.
+        /// Determines the font configuration of the data labels.
         /// </summary>
         [Input("labelFontConfiguration")]
         public Input<Inputs.DashboardFontConfigurationArgs>? LabelFontConfiguration { get; set; }

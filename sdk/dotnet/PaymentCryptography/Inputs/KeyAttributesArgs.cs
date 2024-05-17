@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.PaymentCryptography.Inputs
         public Input<Pulumi.AwsNative.PaymentCryptography.KeyClass> KeyClass { get; set; } = null!;
 
         /// <summary>
-        /// The list of cryptographic operations that you can perform using the key. The modes of use are deﬁned in section A.5.3 of the TR-31 spec.
+        /// The list of cryptographic operations that you can perform using the key.
         /// </summary>
         [Input("keyModesOfUse", required: true)]
         public Input<Inputs.KeyModesOfUseArgs> KeyModesOfUse { get; set; } = null!;

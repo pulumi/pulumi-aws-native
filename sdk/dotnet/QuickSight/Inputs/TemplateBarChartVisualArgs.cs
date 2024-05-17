@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.TemplateVisualCustomActionArgs>? _actions;
 
         /// <summary>
-        /// A custom action defined on a visual.
+        /// The list of custom actions that are configured for a visual.
         /// </summary>
         public InputList<Inputs.TemplateVisualCustomActionArgs> Actions
         {
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The configuration of a `BarChartVisual` .
+        /// The configuration settings of the visual.
         /// </summary>
         [Input("chartConfiguration")]
         public Input<Inputs.TemplateBarChartConfigurationArgs>? ChartConfiguration { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.TemplateColumnHierarchyArgs>? _columnHierarchies;
 
         /// <summary>
-        /// The option that determines the hierarchy of the fields for a visual element.
+        /// The column hierarchy that is used during drill-downs and drill-ups.
         /// </summary>
         public InputList<Inputs.TemplateColumnHierarchyArgs> ColumnHierarchies
         {
@@ -43,13 +43,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The subtitle label options for a visual.
+        /// The subtitle that is displayed on the visual.
         /// </summary>
         [Input("subtitle")]
         public Input<Inputs.TemplateVisualSubtitleLabelOptionsArgs>? Subtitle { get; set; }
 
         /// <summary>
-        /// The title label options for a visual.
+        /// The title that is displayed on the visual.
         /// </summary>
         [Input("title")]
         public Input<Inputs.TemplateVisualTitleLabelOptionsArgs>? Title { get; set; }

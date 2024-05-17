@@ -159,7 +159,7 @@ namespace Pulumi.AwsNative.Events
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Endpoints can replicate all events to the secondary Region.
+        /// Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
         /// </summary>
         [Output("replicationConfig")]
         public Output<Outputs.EndpointReplicationConfig?> ReplicationConfig { get; private set; } = null!;
@@ -264,7 +264,7 @@ namespace Pulumi.AwsNative.Events
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Endpoints can replicate all events to the secondary Region.
+        /// Whether event replication was enabled or disabled for this endpoint. The default state is `ENABLED` which means you must supply a `RoleArn` . If you don't have a `RoleArn` or you don't want event replication enabled, set the state to `DISABLED` .
         /// </summary>
         [Input("replicationConfig")]
         public Input<Inputs.EndpointReplicationConfigArgs>? ReplicationConfig { get; set; }

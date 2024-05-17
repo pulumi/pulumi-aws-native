@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
-        /// Describes the DNS information of a service.
+        /// The DNS information of the service.
         /// </summary>
         public readonly Outputs.ServiceDnsEntry? DnsEntry;
         /// <summary>
@@ -93,7 +93,7 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public readonly Pulumi.AwsNative.VpcLattice.ServiceStatus? Status;
         /// <summary>
-        /// Specifies a tag for a service.
+        /// The tags for the service.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

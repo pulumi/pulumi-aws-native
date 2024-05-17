@@ -31,7 +31,7 @@ type LookupVpcPeeringConnectionArgs struct {
 type LookupVpcPeeringConnectionResult struct {
 	// The ID of the peering connection.
 	Id *string `pulumi:"id"`
-	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	// Any tags assigned to the resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -76,7 +76,7 @@ func (o LookupVpcPeeringConnectionResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+// Any tags assigned to the resource.
 func (o LookupVpcPeeringConnectionResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupVpcPeeringConnectionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

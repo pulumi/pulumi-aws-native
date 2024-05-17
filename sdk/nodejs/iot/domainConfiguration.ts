@@ -74,7 +74,7 @@ export class DomainConfiguration extends pulumi.CustomResource {
      */
     public readonly serverCertificateConfig!: pulumi.Output<outputs.iot.DomainConfigurationServerCertificateConfig | undefined>;
     /**
-     * An object that contains information about a server certificate.
+     * The ARNs of the certificates that AWS IoT passes to the device during the TLS handshake. Currently you can specify only one certificate ARN. This value is not required for AWS -managed domains.
      */
     public /*out*/ readonly serverCertificates!: pulumi.Output<outputs.iot.DomainConfigurationServerCertificateSummary[]>;
     /**
@@ -84,7 +84,13 @@ export class DomainConfiguration extends pulumi.CustomResource {
      */
     public readonly serviceType!: pulumi.Output<enums.iot.DomainConfigurationServiceType | undefined>;
     /**
-     * A set of key/value pairs that are used to manage the resource.
+     * Metadata which can be used to manage the domain configuration.
+     *
+     * > For URI Request parameters use format: ...key1=value1&key2=value2...
+     * > 
+     * > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+     * > 
+     * > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -181,7 +187,13 @@ export interface DomainConfigurationArgs {
      */
     serviceType?: pulumi.Input<enums.iot.DomainConfigurationServiceType>;
     /**
-     * A set of key/value pairs that are used to manage the resource.
+     * Metadata which can be used to manage the domain configuration.
+     *
+     * > For URI Request parameters use format: ...key1=value1&key2=value2...
+     * > 
+     * > For the CLI command-line parameter use format: &&tags "key1=value1&key2=value2..."
+     * > 
+     * > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**

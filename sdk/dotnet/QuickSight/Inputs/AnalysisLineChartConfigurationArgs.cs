@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The options that determine the presentation of the data labels.
+        /// The data label configuration of a line chart.
         /// </summary>
         [Input("dataLabels")]
         public Input<Inputs.AnalysisDataLabelOptionsArgs>? DataLabels { get; set; }
@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.AnalysisForecastConfigurationArgs>? _forecastConfigurations;
 
         /// <summary>
-        /// The forecast configuration that is used in a line chart's display properties.
+        /// The forecast configuration of a line chart.
         /// </summary>
         public InputList<Inputs.AnalysisForecastConfigurationArgs> ForecastConfigurations
         {
@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The options for the legend setup of a visual.
+        /// The legend configuration of a line chart.
         /// </summary>
         [Input("legend")]
         public Input<Inputs.AnalysisLegendOptionsArgs>? Legend { get; set; }
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.AnalysisLineSeriesAxisDisplayOptionsArgs>? PrimaryYAxisDisplayOptions { get; set; }
 
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The options that determine the presentation of the y-axis label.
         /// </summary>
         [Input("primaryYAxisLabelOptions")]
         public Input<Inputs.AnalysisChartAxisLabelOptionsArgs>? PrimaryYAxisLabelOptions { get; set; }
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.AnalysisLineSeriesAxisDisplayOptionsArgs>? SecondaryYAxisDisplayOptions { get; set; }
 
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The options that determine the presentation of the secondary y-axis label.
         /// </summary>
         [Input("secondaryYAxisLabelOptions")]
         public Input<Inputs.AnalysisChartAxisLabelOptionsArgs>? SecondaryYAxisLabelOptions { get; set; }
@@ -101,8 +101,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         /// <summary>
         /// The series item configuration of a line chart.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
         /// </summary>
         public InputList<Inputs.AnalysisSeriesItemArgs> Series
         {
@@ -111,7 +109,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// Options that determine the layout and display options of a chart's small multiples.
+        /// The small multiples setup for the visual.
         /// </summary>
         [Input("smallMultiplesOptions")]
         public Input<Inputs.AnalysisSmallMultiplesOptionsArgs>? SmallMultiplesOptions { get; set; }
@@ -123,7 +121,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.AnalysisLineChartSortConfigurationArgs>? SortConfiguration { get; set; }
 
         /// <summary>
-        /// The display options for the visual tooltip.
+        /// The tooltip configuration of a line chart.
         /// </summary>
         [Input("tooltip")]
         public Input<Inputs.AnalysisTooltipOptionsArgs>? Tooltip { get; set; }
@@ -135,19 +133,19 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.AnalysisLineChartType>? Type { get; set; }
 
         /// <summary>
-        /// The visual display options for the visual palette.
+        /// The visual palette configuration of a line chart.
         /// </summary>
         [Input("visualPalette")]
         public Input<Inputs.AnalysisVisualPaletteArgs>? VisualPalette { get; set; }
 
         /// <summary>
-        /// The display options for the axis label.
+        /// The options that determine the presentation of the x-axis.
         /// </summary>
         [Input("xAxisDisplayOptions")]
         public Input<Inputs.AnalysisAxisDisplayOptionsArgs>? XAxisDisplayOptions { get; set; }
 
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The options that determine the presentation of the x-axis label.
         /// </summary>
         [Input("xAxisLabelOptions")]
         public Input<Inputs.AnalysisChartAxisLabelOptionsArgs>? XAxisLabelOptions { get; set; }

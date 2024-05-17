@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.Sso
         public Output<Pulumi.AwsNative.Sso.InstanceStatus> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+        /// Specifies tags to be attached to the instance of IAM Identity Center.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.Sso
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+        /// Specifies tags to be attached to the instance of IAM Identity Center.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

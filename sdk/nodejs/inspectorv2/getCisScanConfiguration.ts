@@ -35,7 +35,7 @@ export interface GetCisScanConfigurationResult {
      */
     readonly scanName?: string;
     /**
-     * The schedule the CIS scan configuration runs on. Each CIS scan configuration has exactly one type of schedule.
+     * The CIS scan configuration's schedule.
      */
     readonly schedule?: outputs.inspectorv2.CisScanConfigurationSchedule;
     /**
@@ -47,7 +47,7 @@ export interface GetCisScanConfigurationResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The CIS targets.
+     * The CIS scan configuration's targets.
      */
     readonly targets?: outputs.inspectorv2.CisScanConfigurationCisTargets;
 }

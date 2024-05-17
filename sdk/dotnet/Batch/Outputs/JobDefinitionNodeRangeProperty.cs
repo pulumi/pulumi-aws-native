@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.Batch.Outputs
     public sealed class JobDefinitionNodeRangeProperty
     {
         /// <summary>
-        /// Container properties are used for Amazon ECS based job definitions. These properties to describe the container that's launched as part of a job.
+        /// The container details for the node range.
         /// </summary>
         public readonly Outputs.JobDefinitionContainerProperties? Container;
         /// <summary>
-        /// An object that contains the properties for the Amazon ECS resources of a job.
+        /// This is an object that represents the properties of the node range for a multi-node parallel job.
         /// </summary>
         public readonly Outputs.JobDefinitionEcsProperties? EcsProperties;
         /// <summary>

@@ -16,9 +16,9 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     public sealed class WebAclBlockActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A custom response to send to the client. You can define a custom response for rule actions and default web ACL actions that are set to the block action.
+        /// Defines a custom response for the web request.
         /// 
-        /// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the [AWS WAF developer guide](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) .
+        /// For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
         /// </summary>
         [Input("customResponse")]
         public Input<Inputs.WebAclCustomResponseArgs>? CustomResponse { get; set; }

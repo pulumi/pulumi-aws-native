@@ -78,9 +78,6 @@ namespace Pulumi.AwsNative.PaymentCryptography
         /// The state of key that is being created or deleted.
         /// </summary>
         public readonly Pulumi.AwsNative.PaymentCryptography.KeyState? KeyState;
-        /// <summary>
-        /// A structure that contains information about a tag.
-        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

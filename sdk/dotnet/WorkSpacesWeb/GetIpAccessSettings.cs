@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// </summary>
         public readonly ImmutableArray<Outputs.IpAccessSettingsIpRule> IpRules;
         /// <summary>
-        /// The tag.
+        /// The tags to add to the browser settings resource. A tag is a key-value pair.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

@@ -33,8 +33,6 @@ type LookupResponseHeadersPolicyResult struct {
 	// The date and time when the response headers policy was last modified.
 	LastModifiedTime *string `pulumi:"lastModifiedTime"`
 	// A response headers policy configuration.
-	//
-	// A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
 	ResponseHeadersPolicyConfig *ResponseHeadersPolicyConfig `pulumi:"responseHeadersPolicyConfig"`
 }
 
@@ -85,8 +83,6 @@ func (o LookupResponseHeadersPolicyResultOutput) LastModifiedTime() pulumi.Strin
 }
 
 // A response headers policy configuration.
-//
-// A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
 func (o LookupResponseHeadersPolicyResultOutput) ResponseHeadersPolicyConfig() ResponseHeadersPolicyConfigPtrOutput {
 	return o.ApplyT(func(v LookupResponseHeadersPolicyResult) *ResponseHeadersPolicyConfig {
 		return v.ResponseHeadersPolicyConfig

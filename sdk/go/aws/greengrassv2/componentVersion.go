@@ -25,7 +25,9 @@ type ComponentVersion struct {
 	//
 	// You must specify either `InlineRecipe` or `LambdaFunction` .
 	InlineRecipe pulumi.StringPtrOutput `pulumi:"inlineRecipe"`
-	// Contains information about an AWS Lambda function to import to create a component.
+	// The parameters to create a component from a Lambda function.
+	//
+	// You must specify either `InlineRecipe` or `LambdaFunction` .
 	LambdaFunction ComponentVersionLambdaFunctionRecipeSourcePtrOutput `pulumi:"lambdaFunction"`
 	// Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
 	//
@@ -82,7 +84,9 @@ type componentVersionArgs struct {
 	//
 	// You must specify either `InlineRecipe` or `LambdaFunction` .
 	InlineRecipe *string `pulumi:"inlineRecipe"`
-	// Contains information about an AWS Lambda function to import to create a component.
+	// The parameters to create a component from a Lambda function.
+	//
+	// You must specify either `InlineRecipe` or `LambdaFunction` .
 	LambdaFunction *ComponentVersionLambdaFunctionRecipeSource `pulumi:"lambdaFunction"`
 	// Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
 	//
@@ -96,7 +100,9 @@ type ComponentVersionArgs struct {
 	//
 	// You must specify either `InlineRecipe` or `LambdaFunction` .
 	InlineRecipe pulumi.StringPtrInput
-	// Contains information about an AWS Lambda function to import to create a component.
+	// The parameters to create a component from a Lambda function.
+	//
+	// You must specify either `InlineRecipe` or `LambdaFunction` .
 	LambdaFunction ComponentVersionLambdaFunctionRecipeSourcePtrInput
 	// Application-specific metadata to attach to the component version. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
 	//
@@ -163,7 +169,9 @@ func (o ComponentVersionOutput) InlineRecipe() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComponentVersion) pulumi.StringPtrOutput { return v.InlineRecipe }).(pulumi.StringPtrOutput)
 }
 
-// Contains information about an AWS Lambda function to import to create a component.
+// The parameters to create a component from a Lambda function.
+//
+// You must specify either `InlineRecipe` or `LambdaFunction` .
 func (o ComponentVersionOutput) LambdaFunction() ComponentVersionLambdaFunctionRecipeSourcePtrOutput {
 	return o.ApplyT(func(v *ComponentVersion) ComponentVersionLambdaFunctionRecipeSourcePtrOutput { return v.LambdaFunction }).(ComponentVersionLambdaFunctionRecipeSourcePtrOutput)
 }

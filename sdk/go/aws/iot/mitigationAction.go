@@ -19,7 +19,7 @@ type MitigationAction struct {
 
 	// A unique identifier for the mitigation action.
 	ActionName pulumi.StringPtrOutput `pulumi:"actionName"`
-	// Defines the type of action and the parameters for that action.
+	// The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
 	ActionParams MitigationActionActionParamsOutput `pulumi:"actionParams"`
 	// The Amazon Resource Name (ARN) of the mitigation action.
 	MitigationActionArn pulumi.StringOutput `pulumi:"mitigationActionArn"`
@@ -83,7 +83,7 @@ func (MitigationActionState) ElementType() reflect.Type {
 type mitigationActionArgs struct {
 	// A unique identifier for the mitigation action.
 	ActionName *string `pulumi:"actionName"`
-	// Defines the type of action and the parameters for that action.
+	// The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
 	ActionParams MitigationActionActionParams `pulumi:"actionParams"`
 	// The IAM role ARN used to apply this mitigation action.
 	RoleArn string `pulumi:"roleArn"`
@@ -95,7 +95,7 @@ type mitigationActionArgs struct {
 type MitigationActionArgs struct {
 	// A unique identifier for the mitigation action.
 	ActionName pulumi.StringPtrInput
-	// Defines the type of action and the parameters for that action.
+	// The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
 	ActionParams MitigationActionActionParamsInput
 	// The IAM role ARN used to apply this mitigation action.
 	RoleArn pulumi.StringInput
@@ -145,7 +145,7 @@ func (o MitigationActionOutput) ActionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MitigationAction) pulumi.StringPtrOutput { return v.ActionName }).(pulumi.StringPtrOutput)
 }
 
-// Defines the type of action and the parameters for that action.
+// The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
 func (o MitigationActionOutput) ActionParams() MitigationActionActionParamsOutput {
 	return o.ApplyT(func(v *MitigationAction) MitigationActionActionParamsOutput { return v.ActionParams }).(MitigationActionActionParamsOutput)
 }

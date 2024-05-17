@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string? BaseThemeId;
         /// <summary>
-        /// The theme configuration. This configuration contains all of the display properties for a theme.
+        /// The theme configuration, which contains all the theme display properties.
         /// </summary>
         public readonly Outputs.ThemeConfiguration? Configuration;
         /// <summary>

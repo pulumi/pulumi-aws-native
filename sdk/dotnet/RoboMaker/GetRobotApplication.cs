@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.RoboMaker
         /// </summary>
         public readonly string? Environment;
         /// <summary>
-        /// Information about a robot software suite.
+        /// The robot software suite used by the robot application.
         /// </summary>
         public readonly Outputs.RobotApplicationRobotSoftwareSuite? RobotSoftwareSuite;
         /// <summary>

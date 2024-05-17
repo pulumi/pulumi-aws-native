@@ -84,9 +84,9 @@ export class LocationS3 extends pulumi.CustomResource {
      */
     public readonly s3BucketArn!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.
+     * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
      *
-     * For more information, see [Accessing S3 buckets](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access) .
+     * For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
      */
     public readonly s3Config!: pulumi.Output<outputs.datasync.LocationS3s3Config>;
     /**
@@ -148,9 +148,9 @@ export interface LocationS3Args {
      */
     s3BucketArn?: pulumi.Input<string>;
     /**
-     * Specifies the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.
+     * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
      *
-     * For more information, see [Accessing S3 buckets](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access) .
+     * For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
      */
     s3Config: pulumi.Input<inputs.datasync.LocationS3s3ConfigArgs>;
     /**

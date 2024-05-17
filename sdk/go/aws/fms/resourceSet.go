@@ -26,8 +26,7 @@ type ResourceSet struct {
 	// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
 	ResourceTypeList pulumi.StringArrayOutput `pulumi:"resourceTypeList"`
 	Resources        pulumi.StringArrayOutput `pulumi:"resources"`
-	// A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags             aws.TagArrayOutput       `pulumi:"tags"`
 }
 
 // NewResourceSet registers a new resource with the given unique name, arguments, and options.
@@ -78,10 +77,9 @@ type resourceSetArgs struct {
 	// The descriptive name of the resource set. You can't change the name of a resource set after you create it.
 	Name *string `pulumi:"name"`
 	// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
-	ResourceTypeList []string `pulumi:"resourceTypeList"`
-	Resources        []string `pulumi:"resources"`
-	// A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
-	Tags []aws.Tag `pulumi:"tags"`
+	ResourceTypeList []string  `pulumi:"resourceTypeList"`
+	Resources        []string  `pulumi:"resources"`
+	Tags             []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResourceSet resource.
@@ -93,8 +91,7 @@ type ResourceSetArgs struct {
 	// Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
 	ResourceTypeList pulumi.StringArrayInput
 	Resources        pulumi.StringArrayInput
-	// A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
-	Tags aws.TagArrayInput
+	Tags             aws.TagArrayInput
 }
 
 func (ResourceSetArgs) ElementType() reflect.Type {
@@ -158,7 +155,6 @@ func (o ResourceSetOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceSet) pulumi.StringArrayOutput { return v.Resources }).(pulumi.StringArrayOutput)
 }
 
-// A collection of key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
 func (o ResourceSetOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ResourceSet) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

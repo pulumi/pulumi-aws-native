@@ -147,9 +147,6 @@ namespace Pulumi.AwsNative.Lambda
         /// Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
         /// </summary>
         public readonly Outputs.FunctionRuntimeManagementConfig? RuntimeManagementConfig;
-        /// <summary>
-        /// The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
-        /// </summary>
         public readonly Outputs.FunctionSnapStartResponse? SnapStartResponse;
         /// <summary>
         /// A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.

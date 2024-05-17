@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.GroundStation
         /// </summary>
         public readonly int? ContactPrePassDurationSeconds;
         /// <summary>
-        /// The security details and endpoint information.
+        /// List of Endpoint Details, containing address and port for each endpoint.
         /// </summary>
         public readonly ImmutableArray<Outputs.DataflowEndpointGroupEndpointDetails> EndpointDetails;
         /// <summary>

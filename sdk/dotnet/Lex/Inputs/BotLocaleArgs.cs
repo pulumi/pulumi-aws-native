@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Lex.Inputs
     public sealed class BotLocaleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies a custom vocabulary. A custom vocabulary is a list of words that you expect to be used during a conversation with your bot.
+        /// Specifies a custom vocabulary to use with a specific locale.
         /// </summary>
         [Input("customVocabulary")]
         public Input<Inputs.BotCustomVocabularyArgs>? CustomVocabulary { get; set; }

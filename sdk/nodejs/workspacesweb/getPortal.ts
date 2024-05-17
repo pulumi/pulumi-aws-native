@@ -99,7 +99,7 @@ export interface GetPortalResult {
      */
     readonly statusReason?: string;
     /**
-     * The tag.
+     * The tags to add to the web portal. A tag is a key-value pair.
      */
     readonly tags?: outputs.Tag[];
     /**

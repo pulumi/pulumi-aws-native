@@ -16,9 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.TemplateComputationArgs>? _computations;
 
         /// <summary>
-        /// The computation union that is used in an insight visual.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The computations configurations of the insight visual
         /// </summary>
         public InputList<Inputs.TemplateComputationArgs> Computations
         {
@@ -27,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The custom narrative options.
+        /// The custom narrative of the insight visual.
         /// </summary>
         [Input("customNarrative")]
         public Input<Inputs.TemplateCustomNarrativeOptionsArgs>? CustomNarrative { get; set; }

@@ -23,9 +23,9 @@ type Launch struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Start or Stop Launch Launch. Default is not started.
 	ExecutionStatus LaunchExecutionStatusObjectPtrOutput `pulumi:"executionStatus"`
-	// A structure that defines one launch group in a launch. A launch group is a variation of the feature that you are including in the launch.
+	// An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
 	Groups LaunchGroupObjectArrayOutput `pulumi:"groups"`
-	// This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
+	// An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
 	MetricMonitors LaunchMetricDefinitionObjectArrayOutput `pulumi:"metricMonitors"`
 	// The name for the launch. It can include up to 127 characters.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -33,7 +33,7 @@ type Launch struct {
 	Project pulumi.StringOutput `pulumi:"project"`
 	// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
 	RandomizationSalt pulumi.StringPtrOutput `pulumi:"randomizationSalt"`
-	// A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
+	// An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
 	ScheduledSplitsConfig LaunchStepConfigArrayOutput `pulumi:"scheduledSplitsConfig"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -97,9 +97,9 @@ type launchArgs struct {
 	Description *string `pulumi:"description"`
 	// Start or Stop Launch Launch. Default is not started.
 	ExecutionStatus *LaunchExecutionStatusObject `pulumi:"executionStatus"`
-	// A structure that defines one launch group in a launch. A launch group is a variation of the feature that you are including in the launch.
+	// An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
 	Groups []LaunchGroupObject `pulumi:"groups"`
-	// This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
+	// An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
 	MetricMonitors []LaunchMetricDefinitionObject `pulumi:"metricMonitors"`
 	// The name for the launch. It can include up to 127 characters.
 	Name *string `pulumi:"name"`
@@ -107,7 +107,7 @@ type launchArgs struct {
 	Project string `pulumi:"project"`
 	// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
 	RandomizationSalt *string `pulumi:"randomizationSalt"`
-	// A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
+	// An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
 	ScheduledSplitsConfig []LaunchStepConfig `pulumi:"scheduledSplitsConfig"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -119,9 +119,9 @@ type LaunchArgs struct {
 	Description pulumi.StringPtrInput
 	// Start or Stop Launch Launch. Default is not started.
 	ExecutionStatus LaunchExecutionStatusObjectPtrInput
-	// A structure that defines one launch group in a launch. A launch group is a variation of the feature that you are including in the launch.
+	// An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
 	Groups LaunchGroupObjectArrayInput
-	// This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
+	// An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
 	MetricMonitors LaunchMetricDefinitionObjectArrayInput
 	// The name for the launch. It can include up to 127 characters.
 	Name pulumi.StringPtrInput
@@ -129,7 +129,7 @@ type LaunchArgs struct {
 	Project pulumi.StringInput
 	// When Evidently assigns a particular user session to a launch, it must use a randomization ID to determine which variation the user session is served. This randomization ID is a combination of the entity ID and `randomizationSalt` . If you omit `randomizationSalt` , Evidently uses the launch name as the `randomizationsSalt` .
 	RandomizationSalt pulumi.StringPtrInput
-	// A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
+	// An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
 	ScheduledSplitsConfig LaunchStepConfigArrayInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
@@ -187,12 +187,12 @@ func (o LaunchOutput) ExecutionStatus() LaunchExecutionStatusObjectPtrOutput {
 	return o.ApplyT(func(v *Launch) LaunchExecutionStatusObjectPtrOutput { return v.ExecutionStatus }).(LaunchExecutionStatusObjectPtrOutput)
 }
 
-// A structure that defines one launch group in a launch. A launch group is a variation of the feature that you are including in the launch.
+// An array of structures that contains the feature and variations that are to be used for the launch. You can up to five launch groups in a launch.
 func (o LaunchOutput) Groups() LaunchGroupObjectArrayOutput {
 	return o.ApplyT(func(v *Launch) LaunchGroupObjectArrayOutput { return v.Groups }).(LaunchGroupObjectArrayOutput)
 }
 
-// This structure defines a metric that you want to use to evaluate the variations during a launch or experiment.
+// An array of structures that define the metrics that will be used to monitor the launch performance. You can have up to three metric monitors in the array.
 func (o LaunchOutput) MetricMonitors() LaunchMetricDefinitionObjectArrayOutput {
 	return o.ApplyT(func(v *Launch) LaunchMetricDefinitionObjectArrayOutput { return v.MetricMonitors }).(LaunchMetricDefinitionObjectArrayOutput)
 }
@@ -212,7 +212,7 @@ func (o LaunchOutput) RandomizationSalt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Launch) pulumi.StringPtrOutput { return v.RandomizationSalt }).(pulumi.StringPtrOutput)
 }
 
-// A structure that defines when each step of the launch is to start, and how much launch traffic is to be allocated to each variation during each step.
+// An array of structures that define the traffic allocation percentages among the feature variations during each step of the launch.
 func (o LaunchOutput) ScheduledSplitsConfig() LaunchStepConfigArrayOutput {
 	return o.ApplyT(func(v *Launch) LaunchStepConfigArrayOutput { return v.ScheduledSplitsConfig }).(LaunchStepConfigArrayOutput)
 }

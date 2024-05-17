@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The AttributePayload property specifies up to three attributes for an AWS IoT as key-value pairs. AttributePayload is a property of the [AWS::IoT::Thing](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html) resource.
+        /// A string that contains up to three key value pairs. Maximum length of 800. Duplicates not allowed.
         /// </summary>
         [Output("attributePayload")]
         public Output<Outputs.ThingAttributePayload?> AttributePayload { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.AwsNative.IoT
     public sealed class ThingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AttributePayload property specifies up to three attributes for an AWS IoT as key-value pairs. AttributePayload is a property of the [AWS::IoT::Thing](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html) resource.
+        /// A string that contains up to three key value pairs. Maximum length of 800. Duplicates not allowed.
         /// </summary>
         [Input("attributePayload")]
         public Input<Inputs.ThingAttributePayloadArgs>? AttributePayload { get; set; }

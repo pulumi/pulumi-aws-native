@@ -27,13 +27,7 @@ class DatasetArgs:
         :param pulumi.Input[str] dataset_group_arn: The Amazon Resource Name (ARN) of the dataset group to add the dataset to
         :param pulumi.Input['DatasetType'] dataset_type: The type of dataset
         :param pulumi.Input[str] schema_arn: The ARN of the schema to associate with the dataset. The schema defines the dataset fields.
-        :param pulumi.Input['DatasetImportJobArgs'] dataset_import_job: Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset.
-               
-               A dataset import job can be in one of the following states:
-               
-               - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-               
-               If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
+        :param pulumi.Input['DatasetImportJobArgs'] dataset_import_job: Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset. If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
         :param pulumi.Input[str] name: The name for the dataset
         """
         pulumi.set(__self__, "dataset_group_arn", dataset_group_arn)
@@ -84,13 +78,7 @@ class DatasetArgs:
     @pulumi.getter(name="datasetImportJob")
     def dataset_import_job(self) -> Optional[pulumi.Input['DatasetImportJobArgs']]:
         """
-        Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset.
-
-        A dataset import job can be in one of the following states:
-
-        - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-
-        If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
+        Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset. If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
         """
         return pulumi.get(self, "dataset_import_job")
 
@@ -170,13 +158,7 @@ class Dataset(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dataset_group_arn: The Amazon Resource Name (ARN) of the dataset group to add the dataset to
-        :param pulumi.Input[pulumi.InputType['DatasetImportJobArgs']] dataset_import_job: Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset.
-               
-               A dataset import job can be in one of the following states:
-               
-               - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-               
-               If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
+        :param pulumi.Input[pulumi.InputType['DatasetImportJobArgs']] dataset_import_job: Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset. If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
         :param pulumi.Input['DatasetType'] dataset_type: The type of dataset
         :param pulumi.Input[str] name: The name for the dataset
         :param pulumi.Input[str] schema_arn: The ARN of the schema to associate with the dataset. The schema defines the dataset fields.
@@ -325,13 +307,7 @@ class Dataset(pulumi.CustomResource):
     @pulumi.getter(name="datasetImportJob")
     def dataset_import_job(self) -> pulumi.Output[Optional['outputs.DatasetImportJob']]:
         """
-        Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset.
-
-        A dataset import job can be in one of the following states:
-
-        - CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED
-
-        If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
+        Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset. If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
         """
         return pulumi.get(self, "dataset_import_job")
 

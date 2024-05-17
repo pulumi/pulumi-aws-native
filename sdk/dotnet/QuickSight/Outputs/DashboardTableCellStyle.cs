@@ -18,11 +18,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string? BackgroundColor;
         /// <summary>
-        /// Determines the border options for a table visual.
+        /// The borders for the table cells.
         /// </summary>
         public readonly Outputs.DashboardGlobalTableBorderOptions? Border;
         /// <summary>
-        /// Configures the display properties of the given text.
+        /// The font configuration of the table cells.
         /// </summary>
         public readonly Outputs.DashboardFontConfiguration? FontConfiguration;
         /// <summary>

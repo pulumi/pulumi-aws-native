@@ -17,14 +17,7 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
     public sealed class TableScalingPolicy
     {
         /// <summary>
-        /// Amazon Keyspaces supports the `target tracking` auto scaling policy for a provisioned table. This policy scales a table based on the ratio of consumed to provisioned capacity. The auto scaling target is a percentage of the provisioned capacity of the table.
-        /// 
-        /// - `targetTrackingScalingPolicyConfiguration` : To define the target tracking policy, you must define the target value.
-        /// 
-        /// - `targetValue` : The target utilization rate of the table. Amazon Keyspaces auto scaling ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value. You define `targetValue` as a percentage. A `double` between 20 and 90. (Required)
-        /// - `disableScaleIn` : A `boolean` that specifies if `scale-in` is disabled or enabled for the table. This parameter is disabled by default. To turn on `scale-in` , set the `boolean` value to `FALSE` . This means that capacity for a table can be automatically scaled down on your behalf. (Optional)
-        /// - `scaleInCooldown` : A cooldown period in seconds between scaling activities that lets the table stabilize before another scale in activity starts. If no value is provided, the default is 0. (Optional)
-        /// - `scaleOutCooldown` : A cooldown period in seconds between scaling activities that lets the table stabilize before another scale out activity starts. If no value is provided, the default is 0. (Optional)
+        /// The auto scaling policy that scales a table based on the ratio of consumed to provisioned capacity.
         /// </summary>
         public readonly Outputs.TableTargetTrackingScalingPolicyConfiguration? TargetTrackingScalingPolicyConfiguration;
 

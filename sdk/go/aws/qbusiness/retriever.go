@@ -33,7 +33,7 @@ type Retriever struct {
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// The status of your retriever.
 	Status RetrieverStatusOutput `pulumi:"status"`
-	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	// A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The type of your retriever.
 	Type RetrieverTypeOutput `pulumi:"type"`
@@ -106,7 +106,7 @@ type retrieverArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// The ARN of an IAM role used by Amazon Q Business to access the basic authentication credentials stored in a Secrets Manager secret.
 	RoleArn *string `pulumi:"roleArn"`
-	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	// A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The type of your retriever.
 	Type RetrieverType `pulumi:"type"`
@@ -122,7 +122,7 @@ type RetrieverArgs struct {
 	DisplayName pulumi.StringInput
 	// The ARN of an IAM role used by Amazon Q Business to access the basic authentication credentials stored in a Secrets Manager secret.
 	RoleArn pulumi.StringPtrInput
-	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	// A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 	Tags aws.TagArrayInput
 	// The type of your retriever.
 	Type RetrieverTypeInput
@@ -205,7 +205,7 @@ func (o RetrieverOutput) Status() RetrieverStatusOutput {
 	return o.ApplyT(func(v *Retriever) RetrieverStatusOutput { return v.Status }).(RetrieverStatusOutput)
 }
 
-// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+// A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 func (o RetrieverOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Retriever) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

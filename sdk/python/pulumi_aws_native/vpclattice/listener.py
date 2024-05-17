@@ -34,7 +34,7 @@ class ListenerArgs:
                If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
         :param pulumi.Input[int] port: The listener port. You can specify a value from 1 to 65535. For HTTP, the default is 80. For HTTPS, the default is 443.
         :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Name (ARN) of the service.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Specifies a tag for a listener.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the listener.
         """
         pulumi.set(__self__, "default_action", default_action)
         pulumi.set(__self__, "protocol", protocol)
@@ -113,7 +113,7 @@ class ListenerArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        Specifies a tag for a listener.
+        The tags for the listener.
         """
         return pulumi.get(self, "tags")
 
@@ -146,7 +146,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[int] port: The listener port. You can specify a value from 1 to 65535. For HTTP, the default is 80. For HTTPS, the default is 443.
         :param pulumi.Input['ListenerProtocol'] protocol: The listener protocol.
         :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Name (ARN) of the service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies a tag for a listener.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the listener.
         """
         ...
     @overload
@@ -315,7 +315,7 @@ class Listener(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        Specifies a tag for a listener.
+        The tags for the listener.
         """
         return pulumi.get(self, "tags")
 

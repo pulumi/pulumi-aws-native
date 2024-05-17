@@ -38,7 +38,7 @@ export class StorageLensGroup extends pulumi.CustomResource {
     }
 
     /**
-     * This resource sets the criteria for the Storage Lens group data that is displayed. For multiple filter conditions, the `AND` or `OR` logical operator is used.
+     * This property contains the criteria for the Storage Lens group data that is displayed
      */
     public readonly filter!: pulumi.Output<outputs.s3.StorageLensGroupFilter>;
     /**
@@ -90,7 +90,7 @@ export class StorageLensGroup extends pulumi.CustomResource {
  */
 export interface StorageLensGroupArgs {
     /**
-     * This resource sets the criteria for the Storage Lens group data that is displayed. For multiple filter conditions, the `AND` or `OR` logical operator is used.
+     * This property contains the criteria for the Storage Lens group data that is displayed
      */
     filter: pulumi.Input<inputs.s3.StorageLensGroupFilterArgs>;
     /**

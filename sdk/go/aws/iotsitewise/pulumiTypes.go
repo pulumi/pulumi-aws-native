@@ -295,11 +295,11 @@ func (o AccessPolicyIamUserPtrOutput) Arn() pulumi.StringPtrOutput {
 
 // The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
 type AccessPolicyIdentity struct {
-	// Contains information about an AWS Identity and Access Management role. For more information, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the *IAM User Guide* .
+	// An IAM role identity.
 	IamRole *AccessPolicyIamRole `pulumi:"iamRole"`
-	// Contains information about an AWS Identity and Access Management user.
+	// An IAM user identity.
 	IamUser *AccessPolicyIamUser `pulumi:"iamUser"`
-	// Contains information for a user identity in an access policy.
+	// An IAM Identity Center user identity.
 	User *AccessPolicyUser `pulumi:"user"`
 }
 
@@ -316,11 +316,11 @@ type AccessPolicyIdentityInput interface {
 
 // The identity for this access policy. Choose either an SSO user or group or an IAM user or role.
 type AccessPolicyIdentityArgs struct {
-	// Contains information about an AWS Identity and Access Management role. For more information, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the *IAM User Guide* .
+	// An IAM role identity.
 	IamRole AccessPolicyIamRolePtrInput `pulumi:"iamRole"`
-	// Contains information about an AWS Identity and Access Management user.
+	// An IAM user identity.
 	IamUser AccessPolicyIamUserPtrInput `pulumi:"iamUser"`
-	// Contains information for a user identity in an access policy.
+	// An IAM Identity Center user identity.
 	User AccessPolicyUserPtrInput `pulumi:"user"`
 }
 
@@ -351,17 +351,17 @@ func (o AccessPolicyIdentityOutput) ToAccessPolicyIdentityOutputWithContext(ctx 
 	return o
 }
 
-// Contains information about an AWS Identity and Access Management role. For more information, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the *IAM User Guide* .
+// An IAM role identity.
 func (o AccessPolicyIdentityOutput) IamRole() AccessPolicyIamRolePtrOutput {
 	return o.ApplyT(func(v AccessPolicyIdentity) *AccessPolicyIamRole { return v.IamRole }).(AccessPolicyIamRolePtrOutput)
 }
 
-// Contains information about an AWS Identity and Access Management user.
+// An IAM user identity.
 func (o AccessPolicyIdentityOutput) IamUser() AccessPolicyIamUserPtrOutput {
 	return o.ApplyT(func(v AccessPolicyIdentity) *AccessPolicyIamUser { return v.IamUser }).(AccessPolicyIamUserPtrOutput)
 }
 
-// Contains information for a user identity in an access policy.
+// An IAM Identity Center user identity.
 func (o AccessPolicyIdentityOutput) User() AccessPolicyUserPtrOutput {
 	return o.ApplyT(func(v AccessPolicyIdentity) *AccessPolicyUser { return v.User }).(AccessPolicyUserPtrOutput)
 }
@@ -390,7 +390,7 @@ func (o AccessPolicyIdentityPtrOutput) Elem() AccessPolicyIdentityOutput {
 	}).(AccessPolicyIdentityOutput)
 }
 
-// Contains information about an AWS Identity and Access Management role. For more information, see [IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) in the *IAM User Guide* .
+// An IAM role identity.
 func (o AccessPolicyIdentityPtrOutput) IamRole() AccessPolicyIamRolePtrOutput {
 	return o.ApplyT(func(v *AccessPolicyIdentity) *AccessPolicyIamRole {
 		if v == nil {
@@ -400,7 +400,7 @@ func (o AccessPolicyIdentityPtrOutput) IamRole() AccessPolicyIamRolePtrOutput {
 	}).(AccessPolicyIamRolePtrOutput)
 }
 
-// Contains information about an AWS Identity and Access Management user.
+// An IAM user identity.
 func (o AccessPolicyIdentityPtrOutput) IamUser() AccessPolicyIamUserPtrOutput {
 	return o.ApplyT(func(v *AccessPolicyIdentity) *AccessPolicyIamUser {
 		if v == nil {
@@ -410,7 +410,7 @@ func (o AccessPolicyIdentityPtrOutput) IamUser() AccessPolicyIamUserPtrOutput {
 	}).(AccessPolicyIamUserPtrOutput)
 }
 
-// Contains information for a user identity in an access policy.
+// An IAM Identity Center user identity.
 func (o AccessPolicyIdentityPtrOutput) User() AccessPolicyUserPtrOutput {
 	return o.ApplyT(func(v *AccessPolicyIdentity) *AccessPolicyUser {
 		if v == nil {
@@ -1962,11 +1962,7 @@ func (o AssetModelMetricPtrOutput) Window() AssetModelMetricWindowPtrOutput {
 
 // Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
 type AssetModelMetricWindow struct {
-	// Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and contiguous time window. You can use this window in metrics to aggregate data from properties and other assets.
-	//
-	// You can use `m` , `h` , `d` , and `w` when you specify an interval or offset. Note that `m` represents minutes, `h` represents hours, `d` represents days, and `w` represents weeks. You can also use `s` to represent seconds in `offset` .
-	//
-	// The `interval` and `offset` parameters support the [ISO 8601 format](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/ISO_8601) . For example, `PT5S` represents 5 seconds, `PT5M` represents 5 minutes, and `PT5H` represents 5 hours.
+	// The tumbling time interval window.
 	Tumbling *AssetModelTumblingWindow `pulumi:"tumbling"`
 }
 
@@ -1983,11 +1979,7 @@ type AssetModelMetricWindowInput interface {
 
 // Contains a time interval window used for data aggregate computations (for example, average, sum, count, and so on).
 type AssetModelMetricWindowArgs struct {
-	// Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and contiguous time window. You can use this window in metrics to aggregate data from properties and other assets.
-	//
-	// You can use `m` , `h` , `d` , and `w` when you specify an interval or offset. Note that `m` represents minutes, `h` represents hours, `d` represents days, and `w` represents weeks. You can also use `s` to represent seconds in `offset` .
-	//
-	// The `interval` and `offset` parameters support the [ISO 8601 format](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/ISO_8601) . For example, `PT5S` represents 5 seconds, `PT5M` represents 5 minutes, and `PT5H` represents 5 hours.
+	// The tumbling time interval window.
 	Tumbling AssetModelTumblingWindowPtrInput `pulumi:"tumbling"`
 }
 
@@ -2069,11 +2061,7 @@ func (o AssetModelMetricWindowOutput) ToAssetModelMetricWindowPtrOutputWithConte
 	}).(AssetModelMetricWindowPtrOutput)
 }
 
-// Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and contiguous time window. You can use this window in metrics to aggregate data from properties and other assets.
-//
-// You can use `m` , `h` , `d` , and `w` when you specify an interval or offset. Note that `m` represents minutes, `h` represents hours, `d` represents days, and `w` represents weeks. You can also use `s` to represent seconds in `offset` .
-//
-// The `interval` and `offset` parameters support the [ISO 8601 format](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/ISO_8601) . For example, `PT5S` represents 5 seconds, `PT5M` represents 5 minutes, and `PT5H` represents 5 hours.
+// The tumbling time interval window.
 func (o AssetModelMetricWindowOutput) Tumbling() AssetModelTumblingWindowPtrOutput {
 	return o.ApplyT(func(v AssetModelMetricWindow) *AssetModelTumblingWindow { return v.Tumbling }).(AssetModelTumblingWindowPtrOutput)
 }
@@ -2102,11 +2090,7 @@ func (o AssetModelMetricWindowPtrOutput) Elem() AssetModelMetricWindowOutput {
 	}).(AssetModelMetricWindowOutput)
 }
 
-// Contains a tumbling window, which is a repeating fixed-sized, non-overlapping, and contiguous time window. You can use this window in metrics to aggregate data from properties and other assets.
-//
-// You can use `m` , `h` , `d` , and `w` when you specify an interval or offset. Note that `m` represents minutes, `h` represents hours, `d` represents days, and `w` represents weeks. You can also use `s` to represent seconds in `offset` .
-//
-// The `interval` and `offset` parameters support the [ISO 8601 format](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/ISO_8601) . For example, `PT5S` represents 5 seconds, `PT5M` represents 5 minutes, and `PT5H` represents 5 hours.
+// The tumbling time interval window.
 func (o AssetModelMetricWindowPtrOutput) Tumbling() AssetModelTumblingWindowPtrOutput {
 	return o.ApplyT(func(v *AssetModelMetricWindow) *AssetModelTumblingWindow {
 		if v == nil {
@@ -2381,17 +2365,11 @@ func (o AssetModelPropertyPathDefinitionArrayOutput) Index(i pulumi.IntInput) As
 
 // Contains a property type, which can be one of attribute, measurement, metric, or transform.
 type AssetModelPropertyType struct {
-	// Contains an asset attribute property. For more information, see [Attributes](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#attributes) in the *AWS IoT SiteWise User Guide* .
+	// Specifies an asset attribute property. An attribute generally contains static information, such as the serial number of an [IIoT](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications) wind turbine.
 	Attribute *AssetModelAttribute `pulumi:"attribute"`
-	// Contains an asset metric property. With metrics, you can calculate aggregate functions, such as an average, maximum, or minimum, as specified through an expression. A metric maps several values to a single value (such as a sum).
-	//
-	// The maximum number of dependent/cascading variables used in any one metric calculation is 10. Therefore, a *root* metric can have up to 10 cascading metrics in its computational dependency tree. Additionally, a metric can only have a data type of `DOUBLE` and consume properties with data types of `INTEGER` or `DOUBLE` .
-	//
-	// For more information, see [Metrics](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#metrics) in the *AWS IoT SiteWise User Guide* .
+	// Specifies an asset metric property. A metric contains a mathematical expression that uses aggregate functions to process all input data points over a time interval and output a single data point, such as to calculate the average hourly temperature.
 	Metric *AssetModelMetric `pulumi:"metric"`
-	// Contains an asset transform property. A transform is a one-to-one mapping of a property's data points from one form to another. For example, you can use a transform to convert a Celsius data stream to Fahrenheit by applying the transformation expression to each data point of the Celsius stream. A transform can only have a data type of `DOUBLE` and consume properties with data types of `INTEGER` or `DOUBLE` .
-	//
-	// For more information, see [Transforms](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#transforms) in the *AWS IoT SiteWise User Guide* .
+	// Specifies an asset transform property. A transform contains a mathematical expression that maps a property's data points from one form to another, such as a unit conversion from Celsius to Fahrenheit.
 	Transform *AssetModelTransform `pulumi:"transform"`
 	// The type of property type, which can be one of `Attribute` , `Measurement` , `Metric` , or `Transform` .
 	TypeName AssetModelTypeName `pulumi:"typeName"`
@@ -2410,17 +2388,11 @@ type AssetModelPropertyTypeInput interface {
 
 // Contains a property type, which can be one of attribute, measurement, metric, or transform.
 type AssetModelPropertyTypeArgs struct {
-	// Contains an asset attribute property. For more information, see [Attributes](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#attributes) in the *AWS IoT SiteWise User Guide* .
+	// Specifies an asset attribute property. An attribute generally contains static information, such as the serial number of an [IIoT](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications) wind turbine.
 	Attribute AssetModelAttributePtrInput `pulumi:"attribute"`
-	// Contains an asset metric property. With metrics, you can calculate aggregate functions, such as an average, maximum, or minimum, as specified through an expression. A metric maps several values to a single value (such as a sum).
-	//
-	// The maximum number of dependent/cascading variables used in any one metric calculation is 10. Therefore, a *root* metric can have up to 10 cascading metrics in its computational dependency tree. Additionally, a metric can only have a data type of `DOUBLE` and consume properties with data types of `INTEGER` or `DOUBLE` .
-	//
-	// For more information, see [Metrics](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#metrics) in the *AWS IoT SiteWise User Guide* .
+	// Specifies an asset metric property. A metric contains a mathematical expression that uses aggregate functions to process all input data points over a time interval and output a single data point, such as to calculate the average hourly temperature.
 	Metric AssetModelMetricPtrInput `pulumi:"metric"`
-	// Contains an asset transform property. A transform is a one-to-one mapping of a property's data points from one form to another. For example, you can use a transform to convert a Celsius data stream to Fahrenheit by applying the transformation expression to each data point of the Celsius stream. A transform can only have a data type of `DOUBLE` and consume properties with data types of `INTEGER` or `DOUBLE` .
-	//
-	// For more information, see [Transforms](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#transforms) in the *AWS IoT SiteWise User Guide* .
+	// Specifies an asset transform property. A transform contains a mathematical expression that maps a property's data points from one form to another, such as a unit conversion from Celsius to Fahrenheit.
 	Transform AssetModelTransformPtrInput `pulumi:"transform"`
 	// The type of property type, which can be one of `Attribute` , `Measurement` , `Metric` , or `Transform` .
 	TypeName AssetModelTypeNameInput `pulumi:"typeName"`
@@ -2453,23 +2425,17 @@ func (o AssetModelPropertyTypeOutput) ToAssetModelPropertyTypeOutputWithContext(
 	return o
 }
 
-// Contains an asset attribute property. For more information, see [Attributes](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#attributes) in the *AWS IoT SiteWise User Guide* .
+// Specifies an asset attribute property. An attribute generally contains static information, such as the serial number of an [IIoT](https://docs.aws.amazon.com/https://en.wikipedia.org/wiki/Internet_of_things#Industrial_applications) wind turbine.
 func (o AssetModelPropertyTypeOutput) Attribute() AssetModelAttributePtrOutput {
 	return o.ApplyT(func(v AssetModelPropertyType) *AssetModelAttribute { return v.Attribute }).(AssetModelAttributePtrOutput)
 }
 
-// Contains an asset metric property. With metrics, you can calculate aggregate functions, such as an average, maximum, or minimum, as specified through an expression. A metric maps several values to a single value (such as a sum).
-//
-// The maximum number of dependent/cascading variables used in any one metric calculation is 10. Therefore, a *root* metric can have up to 10 cascading metrics in its computational dependency tree. Additionally, a metric can only have a data type of `DOUBLE` and consume properties with data types of `INTEGER` or `DOUBLE` .
-//
-// For more information, see [Metrics](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#metrics) in the *AWS IoT SiteWise User Guide* .
+// Specifies an asset metric property. A metric contains a mathematical expression that uses aggregate functions to process all input data points over a time interval and output a single data point, such as to calculate the average hourly temperature.
 func (o AssetModelPropertyTypeOutput) Metric() AssetModelMetricPtrOutput {
 	return o.ApplyT(func(v AssetModelPropertyType) *AssetModelMetric { return v.Metric }).(AssetModelMetricPtrOutput)
 }
 
-// Contains an asset transform property. A transform is a one-to-one mapping of a property's data points from one form to another. For example, you can use a transform to convert a Celsius data stream to Fahrenheit by applying the transformation expression to each data point of the Celsius stream. A transform can only have a data type of `DOUBLE` and consume properties with data types of `INTEGER` or `DOUBLE` .
-//
-// For more information, see [Transforms](https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-properties.html#transforms) in the *AWS IoT SiteWise User Guide* .
+// Specifies an asset transform property. A transform contains a mathematical expression that maps a property's data points from one form to another, such as a unit conversion from Celsius to Fahrenheit.
 func (o AssetModelPropertyTypeOutput) Transform() AssetModelTransformPtrOutput {
 	return o.ApplyT(func(v AssetModelPropertyType) *AssetModelTransform { return v.Transform }).(AssetModelTransformPtrOutput)
 }

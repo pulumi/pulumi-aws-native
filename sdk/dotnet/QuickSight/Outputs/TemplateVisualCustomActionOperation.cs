@@ -19,8 +19,6 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Outputs.TemplateCustomActionFilterOperation? FilterOperation;
         /// <summary>
         /// The navigation operation that navigates between different sheets in the same analysis.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
         /// </summary>
         public readonly Outputs.TemplateCustomActionNavigationOperation? NavigationOperation;
         /// <summary>

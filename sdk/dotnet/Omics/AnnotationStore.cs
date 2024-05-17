@@ -40,13 +40,13 @@ namespace Pulumi.AwsNative.Omics
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A genome reference.
+        /// The genome reference for the store's annotations.
         /// </summary>
         [Output("reference")]
         public Output<Outputs.AnnotationStoreReferenceItem?> Reference { get; private set; } = null!;
 
         /// <summary>
-        /// Server-side encryption (SSE) settings for a store.
+        /// The store's server-side encryption (SSE) settings.
         /// </summary>
         [Output("sseConfig")]
         public Output<Outputs.AnnotationStoreSseConfig?> SseConfig { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Omics
         public Output<Pulumi.AwsNative.Omics.AnnotationStoreStoreFormat> StoreFormat { get; private set; } = null!;
 
         /// <summary>
-        /// The store's file parsing options.
+        /// File parsing options for the annotation store.
         /// </summary>
         [Output("storeOptions")]
         public Output<Outputs.AnnotationStoreStoreOptionsProperties?> StoreOptions { get; private set; } = null!;
@@ -166,13 +166,13 @@ namespace Pulumi.AwsNative.Omics
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A genome reference.
+        /// The genome reference for the store's annotations.
         /// </summary>
         [Input("reference")]
         public Input<Inputs.AnnotationStoreReferenceItemArgs>? Reference { get; set; }
 
         /// <summary>
-        /// Server-side encryption (SSE) settings for a store.
+        /// The store's server-side encryption (SSE) settings.
         /// </summary>
         [Input("sseConfig")]
         public Input<Inputs.AnnotationStoreSseConfigArgs>? SseConfig { get; set; }
@@ -184,7 +184,7 @@ namespace Pulumi.AwsNative.Omics
         public Input<Pulumi.AwsNative.Omics.AnnotationStoreStoreFormat> StoreFormat { get; set; } = null!;
 
         /// <summary>
-        /// The store's file parsing options.
+        /// File parsing options for the annotation store.
         /// </summary>
         [Input("storeOptions")]
         public Input<Inputs.AnnotationStoreStoreOptionsPropertiesArgs>? StoreOptions { get; set; }

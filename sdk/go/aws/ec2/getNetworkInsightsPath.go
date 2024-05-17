@@ -39,7 +39,7 @@ type LookupNetworkInsightsPathResult struct {
 	NetworkInsightsPathId *string `pulumi:"networkInsightsPathId"`
 	// The Amazon Resource Name (ARN) of the source.
 	SourceArn *string `pulumi:"sourceArn"`
-	// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+	// The tags to add to the path.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -104,7 +104,7 @@ func (o LookupNetworkInsightsPathResultOutput) SourceArn() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupNetworkInsightsPathResult) *string { return v.SourceArn }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+// The tags to add to the path.
 func (o LookupNetworkInsightsPathResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupNetworkInsightsPathResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

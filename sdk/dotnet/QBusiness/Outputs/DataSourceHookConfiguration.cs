@@ -14,11 +14,9 @@ namespace Pulumi.AwsNative.QBusiness.Outputs
     public sealed class DataSourceHookConfiguration
     {
         /// <summary>
-        /// The condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business. You use this with [`DocumentAttributeTarget`](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html) to apply the condition.
+        /// The condition used for when a Lambda function should be invoked.
         /// 
-        /// For example, you can create the 'Department' target field and have it prefill department names associated with the documents based on information in the 'Source_URI' field. Set the condition that if the 'Source_URI' field contains 'financial' in its URI value, then prefill the target field 'Department' with the target value 'Finance' for the document.
-        /// 
-        /// Amazon Q Business can't create a target field if it has not already been created as an index field. After you create your index field, you can create a document metadata field using `DocumentAttributeTarget` . Amazon Q Business then will map your newly created metadata field to your index field.
+        /// For example, you can specify a condition that if there are empty date-time values, then Amazon Q Business should invoke a function that inserts the current date-time.
         /// </summary>
         public readonly Outputs.DataSourceDocumentAttributeCondition? InvocationCondition;
         /// <summary>

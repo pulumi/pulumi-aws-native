@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateAxisLabelReferenceOptions
     {
         /// <summary>
-        /// A column of a data set.
+        /// The column that the axis label is targeted to.
         /// </summary>
         public readonly Outputs.TemplateColumnIdentifier Column;
         /// <summary>

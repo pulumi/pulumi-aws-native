@@ -39,7 +39,7 @@ export interface GetBrowserSettingsResult {
      */
     readonly browserSettingsArn?: string;
     /**
-     * The tag.
+     * The tags to add to the browser settings resource. A tag is a key-value pair.
      */
     readonly tags?: outputs.Tag[];
 }

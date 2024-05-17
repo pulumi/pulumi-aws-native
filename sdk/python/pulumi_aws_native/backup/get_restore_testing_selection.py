@@ -56,9 +56,7 @@ class GetRestoreTestingSelectionResult:
     @pulumi.getter(name="protectedResourceConditions")
     def protected_resource_conditions(self) -> Optional['outputs.RestoreTestingSelectionProtectedResourceConditions']:
         """
-        The conditions that you define for resources in your restore testing plan using tags.
-
-        For example, `"StringEquals": { "Key": "aws:ResourceTag/CreatedByCryo", "Value": "true" },` . Condition operators are case sensitive.
+        In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
         """
         return pulumi.get(self, "protected_resource_conditions")
 

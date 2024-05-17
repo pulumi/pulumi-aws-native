@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardMeasureField
     {
         /// <summary>
-        /// The table calculation measure field for pivot tables.
+        /// The calculated measure field only used in pivot tables.
         /// </summary>
         public readonly Outputs.DashboardCalculatedMeasureField? CalculatedMeasureField;
         /// <summary>

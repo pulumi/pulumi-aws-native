@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         private InputList<Inputs.UserPoolRecoveryOptionArgs>? _recoveryMechanisms;
 
         /// <summary>
-        /// A map containing a priority as a key, and recovery method name as a value.
+        /// The list of `RecoveryOptionTypes` .
         /// </summary>
         public InputList<Inputs.UserPoolRecoveryOptionArgs> RecoveryMechanisms
         {

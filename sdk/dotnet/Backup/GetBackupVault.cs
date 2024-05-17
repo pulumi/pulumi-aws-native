@@ -72,11 +72,11 @@ namespace Pulumi.AwsNative.Backup
         /// </summary>
         public readonly ImmutableDictionary<string, string>? BackupVaultTags;
         /// <summary>
-        /// The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+        /// Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
         /// </summary>
         public readonly Outputs.BackupVaultLockConfigurationType? LockConfiguration;
         /// <summary>
-        /// Specifies an object containing SNS event notification properties for the target backup vault.
+        /// The SNS event notifications for the specified backup vault.
         /// </summary>
         public readonly Outputs.BackupVaultNotificationObjectType? Notifications;
 

@@ -62,7 +62,7 @@ export class SequenceStore extends pulumi.CustomResource {
      */
     public /*out*/ readonly sequenceStoreId!: pulumi.Output<string>;
     /**
-     * Server-side encryption (SSE) settings for a store.
+     * Server-side encryption (SSE) settings for the store.
      */
     public readonly sseConfig!: pulumi.Output<outputs.omics.SequenceStoreSseConfig | undefined>;
     /**
@@ -123,7 +123,7 @@ export interface SequenceStoreArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Server-side encryption (SSE) settings for a store.
+     * Server-side encryption (SSE) settings for the store.
      */
     sseConfig?: pulumi.Input<inputs.omics.SequenceStoreSseConfigArgs>;
     /**

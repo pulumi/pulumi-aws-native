@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
     public sealed class ComponentActionParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// The HTML anchor link to the location to open. Specify this value for a navigation action.
         /// </summary>
         [Input("anchor")]
         public Input<Inputs.ComponentPropertyArgs>? Anchor { get; set; }
@@ -31,13 +31,13 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
         }
 
         /// <summary>
-        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// Specifies whether the user should be signed out globally. Specify this value for an auth sign out action.
         /// </summary>
         [Input("global")]
         public Input<Inputs.ComponentPropertyArgs>? Global { get; set; }
 
         /// <summary>
-        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// The unique ID of the component that the `ActionParameters` apply to.
         /// </summary>
         [Input("id")]
         public Input<Inputs.ComponentPropertyArgs>? Id { get; set; }
@@ -49,25 +49,25 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
         public Input<string>? Model { get; set; }
 
         /// <summary>
-        /// Represents the state configuration when an action modifies a property of another element within the same component.
+        /// A key-value pair that specifies the state property name and its initial value.
         /// </summary>
         [Input("state")]
         public Input<Inputs.ComponentMutationActionSetStateParameterArgs>? State { get; set; }
 
         /// <summary>
-        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// The element within the same component to modify when the action occurs.
         /// </summary>
         [Input("target")]
         public Input<Inputs.ComponentPropertyArgs>? Target { get; set; }
 
         /// <summary>
-        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// The type of navigation action. Valid values are `url` and `anchor` . This value is required for a navigation action.
         /// </summary>
         [Input("type")]
         public Input<Inputs.ComponentPropertyArgs>? Type { get; set; }
 
         /// <summary>
-        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// The URL to the location to open. Specify this value for a navigation action.
         /// </summary>
         [Input("url")]
         public Input<Inputs.ComponentPropertyArgs>? Url { get; set; }

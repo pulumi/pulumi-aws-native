@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.NetworkManager.Outputs
     public sealed class ConnectPeerConfiguration
     {
         /// <summary>
-        /// Describes a core network BGP configuration.
+        /// The Connect peer BGP configurations.
         /// </summary>
         public readonly ImmutableArray<Outputs.ConnectPeerBgpConfiguration> BgpConfigurations;
         /// <summary>

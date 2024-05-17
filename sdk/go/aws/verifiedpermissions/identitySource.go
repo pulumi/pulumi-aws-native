@@ -57,11 +57,7 @@ import (
 type IdentitySource struct {
 	pulumi.CustomResourceState
 
-	// A structure that contains configuration information used when creating or updating a new identity source.
-	//
-	// > At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
-	// >
-	// > You must specify a `userPoolArn` , and optionally, a `ClientId` .
+	// Contains configuration information about an identity source.
 	Configuration IdentitySourceConfigurationOutput `pulumi:"configuration"`
 	Details       IdentitySourceDetailsOutput       `pulumi:"details"`
 	// The unique ID of the new or updated identity store.
@@ -122,11 +118,7 @@ func (IdentitySourceState) ElementType() reflect.Type {
 }
 
 type identitySourceArgs struct {
-	// A structure that contains configuration information used when creating or updating a new identity source.
-	//
-	// > At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
-	// >
-	// > You must specify a `userPoolArn` , and optionally, a `ClientId` .
+	// Contains configuration information about an identity source.
 	Configuration IdentitySourceConfiguration `pulumi:"configuration"`
 	// Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
 	PolicyStoreId string `pulumi:"policyStoreId"`
@@ -136,11 +128,7 @@ type identitySourceArgs struct {
 
 // The set of arguments for constructing a IdentitySource resource.
 type IdentitySourceArgs struct {
-	// A structure that contains configuration information used when creating or updating a new identity source.
-	//
-	// > At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
-	// >
-	// > You must specify a `userPoolArn` , and optionally, a `ClientId` .
+	// Contains configuration information about an identity source.
 	Configuration IdentitySourceConfigurationInput
 	// Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
 	PolicyStoreId pulumi.StringInput
@@ -185,11 +173,7 @@ func (o IdentitySourceOutput) ToIdentitySourceOutputWithContext(ctx context.Cont
 	return o
 }
 
-// A structure that contains configuration information used when creating or updating a new identity source.
-//
-// > At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
-// >
-// > You must specify a `userPoolArn` , and optionally, a `ClientId` .
+// Contains configuration information about an identity source.
 func (o IdentitySourceOutput) Configuration() IdentitySourceConfigurationOutput {
 	return o.ApplyT(func(v *IdentitySource) IdentitySourceConfigurationOutput { return v.Configuration }).(IdentitySourceConfigurationOutput)
 }

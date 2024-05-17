@@ -21,37 +21,37 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.TemplateCategoryFilterArgs>? CategoryFilter { get; set; }
 
         /// <summary>
-        /// A `NumericEqualityFilter` filters values that are equal to the specified value.
+        /// A `NumericEqualityFilter` filters numeric values that equal or do not equal a given numeric value.
         /// </summary>
         [Input("numericEqualityFilter")]
         public Input<Inputs.TemplateNumericEqualityFilterArgs>? NumericEqualityFilter { get; set; }
 
         /// <summary>
-        /// A `NumericRangeFilter` filters values that are within the value range.
+        /// A `NumericRangeFilter` filters numeric values that are either inside or outside a given numeric range.
         /// </summary>
         [Input("numericRangeFilter")]
         public Input<Inputs.TemplateNumericRangeFilterArgs>? NumericRangeFilter { get; set; }
 
         /// <summary>
-        /// A `RelativeDatesFilter` filters relative dates values.
+        /// A `RelativeDatesFilter` filters date values that are relative to a given date.
         /// </summary>
         [Input("relativeDatesFilter")]
         public Input<Inputs.TemplateRelativeDatesFilterArgs>? RelativeDatesFilter { get; set; }
 
         /// <summary>
-        /// A `TimeEqualityFilter` filters values that are equal to a given value.
+        /// A `TimeEqualityFilter` filters date-time values that equal or do not equal a given date/time value.
         /// </summary>
         [Input("timeEqualityFilter")]
         public Input<Inputs.TemplateTimeEqualityFilterArgs>? TimeEqualityFilter { get; set; }
 
         /// <summary>
-        /// A `TimeRangeFilter` filters values that are between two specified values.
+        /// A `TimeRangeFilter` filters date-time values that are either inside or outside a given date/time range.
         /// </summary>
         [Input("timeRangeFilter")]
         public Input<Inputs.TemplateTimeRangeFilterArgs>? TimeRangeFilter { get; set; }
 
         /// <summary>
-        /// A `TopBottomFilter` filters values that are at the top or the bottom.
+        /// A `TopBottomFilter` filters data to the top or bottom values for a given column.
         /// </summary>
         [Input("topBottomFilter")]
         public Input<Inputs.TemplateTopBottomFilterArgs>? TopBottomFilter { get; set; }

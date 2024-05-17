@@ -42,7 +42,7 @@ export class DeliveryStream extends pulumi.CustomResource {
      */
     public readonly amazonOpenSearchServerlessDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessDestinationConfiguration | undefined>;
     /**
-     * Describes the configuration of a destination in Amazon OpenSearch Service.
+     * The destination in Amazon OpenSearch Service. You can specify only one destination.
      */
     public readonly amazonopensearchserviceDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfiguration | undefined>;
     /**
@@ -65,19 +65,27 @@ export class DeliveryStream extends pulumi.CustomResource {
      */
     public readonly deliveryStreamType!: pulumi.Output<enums.kinesisfirehose.DeliveryStreamType | undefined>;
     /**
-     * The `ElasticsearchDestinationConfiguration` property type specifies an Amazon Elasticsearch Service (Amazon ES) domain that Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data to.
+     * An Amazon ES destination for the delivery stream.
+     *
+     * Conditional. You must specify only one destination configuration.
+     *
+     * If you change the delivery stream destination from an Amazon ES destination to an Amazon S3 or Amazon Redshift destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
      */
     public readonly elasticsearchDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamElasticsearchDestinationConfiguration | undefined>;
     /**
-     * The `ExtendedS3DestinationConfiguration` property type configures an Amazon S3 destination for an Amazon Kinesis Data Firehose delivery stream.
+     * An Amazon S3 destination for the delivery stream.
+     *
+     * Conditional. You must specify only one destination configuration.
+     *
+     * If you change the delivery stream destination from an Amazon Extended S3 destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
      */
     public readonly extendedS3DestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamExtendedS3DestinationConfiguration | undefined>;
     /**
-     * Describes the configuration of the HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+     * Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination. You can specify only one destination.
      */
     public readonly httpEndpointDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamHttpEndpointDestinationConfiguration | undefined>;
     /**
-     * The `KinesisStreamSourceConfiguration` property type specifies the stream and role Amazon Resource Names (ARNs) for a Kinesis stream used as the source for a delivery stream.
+     * When a Kinesis stream is used as the source for the delivery stream, a [KinesisStreamSourceConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html) containing the Kinesis stream ARN and the role ARN for the source stream.
      */
     public readonly kinesisStreamSourceConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamKinesisStreamSourceConfiguration | undefined>;
     /**
@@ -85,11 +93,19 @@ export class DeliveryStream extends pulumi.CustomResource {
      */
     public readonly mskSourceConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamMskSourceConfiguration | undefined>;
     /**
-     * The `RedshiftDestinationConfiguration` property type specifies an Amazon Redshift cluster to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+     * An Amazon Redshift destination for the delivery stream.
+     *
+     * Conditional. You must specify only one destination configuration.
+     *
+     * If you change the delivery stream destination from an Amazon Redshift destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
      */
     public readonly redshiftDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamRedshiftDestinationConfiguration | undefined>;
     /**
      * The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+     *
+     * Conditional. You must specify only one destination configuration.
+     *
+     * If you change the delivery stream destination from an Amazon S3 destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
      */
     public readonly s3DestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamS3DestinationConfiguration | undefined>;
     /**
@@ -97,11 +113,21 @@ export class DeliveryStream extends pulumi.CustomResource {
      */
     public readonly snowflakeDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamSnowflakeDestinationConfiguration | undefined>;
     /**
-     * The `SplunkDestinationConfiguration` property type specifies the configuration of a destination in Splunk for a Kinesis Data Firehose delivery stream.
+     * The configuration of a destination in Splunk for the delivery stream.
      */
     public readonly splunkDestinationConfiguration!: pulumi.Output<outputs.kinesisfirehose.DeliveryStreamSplunkDestinationConfiguration | undefined>;
     /**
-     * Metadata that you can assign to a delivery stream, consisting of a key-value pair.
+     * A set of tags to assign to the delivery stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the AWS Billing and Cost Management User Guide.
+     *
+     * You can specify up to 50 tags when creating a delivery stream.
+     *
+     * If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose delivery streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
+     *
+     * *AccessDeniedException*
+     *
+     * User: arn:aws:sts::x:assumed-role/x/x is not authorized to perform: firehose:TagDeliveryStream on resource: arn:aws:firehose:us-east-1:x:deliverystream/x with an explicit deny in an identity-based policy.
+     *
+     * For an example IAM policy, see [Tag example.](https://docs.aws.amazon.com/firehose/latest/APIReference/API_CreateDeliveryStream.html#API_CreateDeliveryStream_Examples)
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -151,7 +177,7 @@ export class DeliveryStream extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["amazonopensearchserviceDestinationConfiguration.vpcConfiguration", "deliveryStreamName", "deliveryStreamType", "kinesisStreamSourceConfiguration", "mskSourceConfiguration"] };
+        const replaceOnChanges = { replaceOnChanges: ["deliveryStreamName", "deliveryStreamType", "kinesisStreamSourceConfiguration", "mskSourceConfiguration"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DeliveryStream.__pulumiType, name, resourceInputs, opts);
     }
@@ -166,7 +192,7 @@ export interface DeliveryStreamArgs {
      */
     amazonOpenSearchServerlessDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamAmazonOpenSearchServerlessDestinationConfigurationArgs>;
     /**
-     * Describes the configuration of a destination in Amazon OpenSearch Service.
+     * The destination in Amazon OpenSearch Service. You can specify only one destination.
      */
     amazonopensearchserviceDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs>;
     /**
@@ -185,19 +211,27 @@ export interface DeliveryStreamArgs {
      */
     deliveryStreamType?: pulumi.Input<enums.kinesisfirehose.DeliveryStreamType>;
     /**
-     * The `ElasticsearchDestinationConfiguration` property type specifies an Amazon Elasticsearch Service (Amazon ES) domain that Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data to.
+     * An Amazon ES destination for the delivery stream.
+     *
+     * Conditional. You must specify only one destination configuration.
+     *
+     * If you change the delivery stream destination from an Amazon ES destination to an Amazon S3 or Amazon Redshift destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
      */
     elasticsearchDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamElasticsearchDestinationConfigurationArgs>;
     /**
-     * The `ExtendedS3DestinationConfiguration` property type configures an Amazon S3 destination for an Amazon Kinesis Data Firehose delivery stream.
+     * An Amazon S3 destination for the delivery stream.
+     *
+     * Conditional. You must specify only one destination configuration.
+     *
+     * If you change the delivery stream destination from an Amazon Extended S3 destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
      */
     extendedS3DestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamExtendedS3DestinationConfigurationArgs>;
     /**
-     * Describes the configuration of the HTTP endpoint destination. Kinesis Firehose supports any custom HTTP endpoint or HTTP endpoints owned by supported third-party service providers, including Datadog, MongoDB, and New Relic.
+     * Enables configuring Kinesis Firehose to deliver data to any HTTP endpoint destination. You can specify only one destination.
      */
     httpEndpointDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamHttpEndpointDestinationConfigurationArgs>;
     /**
-     * The `KinesisStreamSourceConfiguration` property type specifies the stream and role Amazon Resource Names (ARNs) for a Kinesis stream used as the source for a delivery stream.
+     * When a Kinesis stream is used as the source for the delivery stream, a [KinesisStreamSourceConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html) containing the Kinesis stream ARN and the role ARN for the source stream.
      */
     kinesisStreamSourceConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamKinesisStreamSourceConfigurationArgs>;
     /**
@@ -205,11 +239,19 @@ export interface DeliveryStreamArgs {
      */
     mskSourceConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamMskSourceConfigurationArgs>;
     /**
-     * The `RedshiftDestinationConfiguration` property type specifies an Amazon Redshift cluster to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+     * An Amazon Redshift destination for the delivery stream.
+     *
+     * Conditional. You must specify only one destination configuration.
+     *
+     * If you change the delivery stream destination from an Amazon Redshift destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
      */
     redshiftDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamRedshiftDestinationConfigurationArgs>;
     /**
      * The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+     *
+     * Conditional. You must specify only one destination configuration.
+     *
+     * If you change the delivery stream destination from an Amazon S3 destination to an Amazon ES destination, update requires [some interruptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-some-interrupt) .
      */
     s3DestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamS3DestinationConfigurationArgs>;
     /**
@@ -217,11 +259,21 @@ export interface DeliveryStreamArgs {
      */
     snowflakeDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamSnowflakeDestinationConfigurationArgs>;
     /**
-     * The `SplunkDestinationConfiguration` property type specifies the configuration of a destination in Splunk for a Kinesis Data Firehose delivery stream.
+     * The configuration of a destination in Splunk for the delivery stream.
      */
     splunkDestinationConfiguration?: pulumi.Input<inputs.kinesisfirehose.DeliveryStreamSplunkDestinationConfigurationArgs>;
     /**
-     * Metadata that you can assign to a delivery stream, consisting of a key-value pair.
+     * A set of tags to assign to the delivery stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see [Using Cost Allocation Tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html) in the AWS Billing and Cost Management User Guide.
+     *
+     * You can specify up to 50 tags when creating a delivery stream.
+     *
+     * If you specify tags in the `CreateDeliveryStream` action, Amazon Data Firehose performs an additional authorization on the `firehose:TagDeliveryStream` action to verify if users have permissions to create tags. If you do not provide this permission, requests to create new Firehose delivery streams with IAM resource tags will fail with an `AccessDeniedException` such as following.
+     *
+     * *AccessDeniedException*
+     *
+     * User: arn:aws:sts::x:assumed-role/x/x is not authorized to perform: firehose:TagDeliveryStream on resource: arn:aws:firehose:us-east-1:x:deliverystream/x with an explicit deny in an identity-based policy.
+     *
+     * For an example IAM policy, see [Tag example.](https://docs.aws.amazon.com/firehose/latest/APIReference/API_CreateDeliveryStream.html#API_CreateDeliveryStream_Examples)
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

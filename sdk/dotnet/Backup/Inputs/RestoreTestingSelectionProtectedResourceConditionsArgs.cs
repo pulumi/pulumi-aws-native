@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Backup.Inputs
         private InputList<Inputs.RestoreTestingSelectionKeyValueArgs>? _stringEquals;
 
         /// <summary>
-        /// Pair of two related strings. Allowed characters are letters, white space, and numbers that can be represented in UTF-8 and the following characters: `+ - = . _ : /`
+        /// Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching."
         /// </summary>
         public InputList<Inputs.RestoreTestingSelectionKeyValueArgs> StringEquals
         {

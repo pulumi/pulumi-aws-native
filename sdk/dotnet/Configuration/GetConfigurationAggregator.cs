@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.Configuration
     public sealed class GetConfigurationAggregatorResult
     {
         /// <summary>
-        /// A collection of accounts and regions.
+        /// Provides a list of source accounts and regions to be aggregated.
         /// </summary>
         public readonly ImmutableArray<Outputs.ConfigurationAggregatorAccountAggregationSource> AccountAggregationSources;
         /// <summary>
@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.Configuration
         /// </summary>
         public readonly string? ConfigurationAggregatorArn;
         /// <summary>
-        /// This object contains regions to set up the aggregator and an IAM role to retrieve organization details.
+        /// Provides an organization and list of regions to be aggregated.
         /// </summary>
         public readonly Outputs.ConfigurationAggregatorOrganizationAggregationSource? OrganizationAggregationSource;
         /// <summary>

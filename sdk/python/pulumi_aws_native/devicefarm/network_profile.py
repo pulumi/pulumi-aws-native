@@ -37,7 +37,9 @@ class NetworkProfileArgs:
         :param pulumi.Input[int] downlink_jitter_ms: Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
         :param pulumi.Input[int] downlink_loss_percent: Proportion of received packets that fail to arrive from 0 to 100 percent.
         :param pulumi.Input[str] name: The name of the network profile.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
         :param pulumi.Input[int] uplink_bandwidth_bits: The data throughput rate in bits per second, as an integer from 0 to 104857600.
         :param pulumi.Input[int] uplink_delay_ms: Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
         :param pulumi.Input[int] uplink_jitter_ms: Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
@@ -155,7 +157,9 @@ class NetworkProfileArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
         """
         return pulumi.get(self, "tags")
 
@@ -242,7 +246,9 @@ class NetworkProfile(pulumi.CustomResource):
         :param pulumi.Input[int] downlink_loss_percent: Proportion of received packets that fail to arrive from 0 to 100 percent.
         :param pulumi.Input[str] name: The name of the network profile.
         :param pulumi.Input[str] project_arn: The Amazon Resource Name (ARN) of the specified project.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
         :param pulumi.Input[int] uplink_bandwidth_bits: The data throughput rate in bits per second, as an integer from 0 to 104857600.
         :param pulumi.Input[int] uplink_delay_ms: Delay time for all packets to destination in milliseconds as an integer from 0 to 2000.
         :param pulumi.Input[int] uplink_jitter_ms: Time variation in the delay of received packets in milliseconds as an integer from 0 to 2000.
@@ -415,7 +421,9 @@ class NetworkProfile(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
         """
         return pulumi.get(self, "tags")
 

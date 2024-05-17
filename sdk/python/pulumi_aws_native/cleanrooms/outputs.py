@@ -262,7 +262,9 @@ class CollaborationMemberSpecification(dict):
         :param Sequence['CollaborationMemberAbility'] member_abilities: The abilities granted to the collaboration member.
                
                *Allowed Values* : `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
-        :param 'CollaborationPaymentConfiguration' payment_configuration: An object representing the collaboration member's payment responsibilities set by the collaboration creator.
+        :param 'CollaborationPaymentConfiguration' payment_configuration: The collaboration member's payment responsibilities set by the collaboration creator.
+               
+               If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "display_name", display_name)
@@ -300,7 +302,9 @@ class CollaborationMemberSpecification(dict):
     @pulumi.getter(name="paymentConfiguration")
     def payment_configuration(self) -> Optional['outputs.CollaborationPaymentConfiguration']:
         """
-        An object representing the collaboration member's payment responsibilities set by the collaboration creator.
+        The collaboration member's payment responsibilities set by the collaboration creator.
+
+        If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.
         """
         return pulumi.get(self, "payment_configuration")
 
@@ -327,7 +331,7 @@ class CollaborationPaymentConfiguration(dict):
     def __init__(__self__, *,
                  query_compute: 'outputs.CollaborationQueryComputePaymentConfig'):
         """
-        :param 'CollaborationQueryComputePaymentConfig' query_compute: An object representing the collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
+        :param 'CollaborationQueryComputePaymentConfig' query_compute: The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
         """
         pulumi.set(__self__, "query_compute", query_compute)
 
@@ -335,7 +339,7 @@ class CollaborationPaymentConfiguration(dict):
     @pulumi.getter(name="queryCompute")
     def query_compute(self) -> 'outputs.CollaborationQueryComputePaymentConfig':
         """
-        An object representing the collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
+        The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
         """
         return pulumi.get(self, "query_compute")
 
@@ -468,7 +472,7 @@ class ConfiguredTableAnalysisRule(dict):
                  policy: 'outputs.ConfiguredTableAnalysisRulePolicy',
                  type: 'ConfiguredTableAnalysisRuleType'):
         """
-        :param 'ConfiguredTableAnalysisRulePolicy' policy: Controls on the query specifications that can be run on a configured table.
+        :param 'ConfiguredTableAnalysisRulePolicy' policy: A policy that describes the associated data usage limitations.
         :param 'ConfiguredTableAnalysisRuleType' type: The type of analysis rule.
         """
         pulumi.set(__self__, "policy", policy)
@@ -478,7 +482,7 @@ class ConfiguredTableAnalysisRule(dict):
     @pulumi.getter
     def policy(self) -> 'outputs.ConfiguredTableAnalysisRulePolicy':
         """
-        Controls on the query specifications that can be run on a configured table.
+        A policy that describes the associated data usage limitations.
         """
         return pulumi.get(self, "policy")
 
@@ -804,7 +808,7 @@ class ConfiguredTableTableReference(dict):
     def __init__(__self__, *,
                  glue: 'outputs.ConfiguredTableGlueTableReference'):
         """
-        :param 'ConfiguredTableGlueTableReference' glue: A reference to a table within an AWS Glue data catalog.
+        :param 'ConfiguredTableGlueTableReference' glue: If present, a reference to the AWS Glue table referred to by this table reference.
         """
         pulumi.set(__self__, "glue", glue)
 
@@ -812,7 +816,7 @@ class ConfiguredTableTableReference(dict):
     @pulumi.getter
     def glue(self) -> 'outputs.ConfiguredTableGlueTableReference':
         """
-        A reference to a table within an AWS Glue data catalog.
+        If present, a reference to the AWS Glue table referred to by this table reference.
         """
         return pulumi.get(self, "glue")
 
@@ -839,7 +843,7 @@ class MembershipPaymentConfiguration(dict):
     def __init__(__self__, *,
                  query_compute: 'outputs.MembershipQueryComputePaymentConfig'):
         """
-        :param 'MembershipQueryComputePaymentConfig' query_compute: An object representing the payment responsibilities accepted by the collaboration member for query compute costs.
+        :param 'MembershipQueryComputePaymentConfig' query_compute: The payment responsibilities accepted by the collaboration member for query compute costs.
         """
         pulumi.set(__self__, "query_compute", query_compute)
 
@@ -847,7 +851,7 @@ class MembershipPaymentConfiguration(dict):
     @pulumi.getter(name="queryCompute")
     def query_compute(self) -> 'outputs.MembershipQueryComputePaymentConfig':
         """
-        An object representing the payment responsibilities accepted by the collaboration member for query compute costs.
+        The payment responsibilities accepted by the collaboration member for query compute costs.
         """
         return pulumi.get(self, "query_compute")
 
@@ -857,7 +861,7 @@ class MembershipProtectedQueryOutputConfiguration(dict):
     def __init__(__self__, *,
                  s3: 'outputs.MembershipProtectedQueryS3OutputConfiguration'):
         """
-        :param 'MembershipProtectedQueryS3OutputConfiguration' s3: Contains the configuration to write the query results to S3.
+        :param 'MembershipProtectedQueryS3OutputConfiguration' s3: Required configuration for a protected query with an `S3` output type.
         """
         pulumi.set(__self__, "s3", s3)
 
@@ -865,7 +869,7 @@ class MembershipProtectedQueryOutputConfiguration(dict):
     @pulumi.getter
     def s3(self) -> 'outputs.MembershipProtectedQueryS3OutputConfiguration':
         """
-        Contains the configuration to write the query results to S3.
+        Required configuration for a protected query with an `S3` output type.
         """
         return pulumi.get(self, "s3")
 
@@ -895,7 +899,7 @@ class MembershipProtectedQueryResultConfiguration(dict):
                  output_configuration: 'outputs.MembershipProtectedQueryOutputConfiguration',
                  role_arn: Optional[str] = None):
         """
-        :param 'MembershipProtectedQueryOutputConfiguration' output_configuration: Contains configurations for protected query results.
+        :param 'MembershipProtectedQueryOutputConfiguration' output_configuration: Configuration for protected query results.
         :param str role_arn: The unique ARN for an IAM role that is used by AWS Clean Rooms to write protected query results to the result location, given by the member who can receive results.
         """
         pulumi.set(__self__, "output_configuration", output_configuration)
@@ -906,7 +910,7 @@ class MembershipProtectedQueryResultConfiguration(dict):
     @pulumi.getter(name="outputConfiguration")
     def output_configuration(self) -> 'outputs.MembershipProtectedQueryOutputConfiguration':
         """
-        Contains configurations for protected query results.
+        Configuration for protected query results.
         """
         return pulumi.get(self, "output_configuration")
 

@@ -16,31 +16,31 @@ namespace Pulumi.AwsNative.Mwaa.Inputs
     public sealed class EnvironmentLoggingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        /// Defines the processing logs sent to CloudWatch Logs and the logging level to send.
         /// </summary>
         [Input("dagProcessingLogs")]
         public Input<Inputs.EnvironmentModuleLoggingConfigurationArgs>? DagProcessingLogs { get; set; }
 
         /// <summary>
-        /// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        /// Defines the scheduler logs sent to CloudWatch Logs and the logging level to send.
         /// </summary>
         [Input("schedulerLogs")]
         public Input<Inputs.EnvironmentModuleLoggingConfigurationArgs>? SchedulerLogs { get; set; }
 
         /// <summary>
-        /// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        /// Defines the task logs sent to CloudWatch Logs and the logging level to send.
         /// </summary>
         [Input("taskLogs")]
         public Input<Inputs.EnvironmentModuleLoggingConfigurationArgs>? TaskLogs { get; set; }
 
         /// <summary>
-        /// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        /// Defines the web server logs sent to CloudWatch Logs and the logging level to send.
         /// </summary>
         [Input("webserverLogs")]
         public Input<Inputs.EnvironmentModuleLoggingConfigurationArgs>? WebserverLogs { get; set; }
 
         /// <summary>
-        /// Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        /// Defines the worker logs sent to CloudWatch Logs and the logging level to send.
         /// </summary>
         [Input("workerLogs")]
         public Input<Inputs.EnvironmentModuleLoggingConfigurationArgs>? WorkerLogs { get; set; }

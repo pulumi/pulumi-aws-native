@@ -295,7 +295,7 @@ class GetClusterResult:
     @pulumi.getter
     def endpoint(self) -> Optional['outputs.ClusterEndpoint']:
         """
-        Describes a connection endpoint.
+        The connection endpoint.
         """
         return pulumi.get(self, "endpoint")
 

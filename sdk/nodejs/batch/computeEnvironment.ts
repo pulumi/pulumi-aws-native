@@ -46,11 +46,11 @@ export class ComputeEnvironment extends pulumi.CustomResource {
      */
     public readonly computeEnvironmentName!: pulumi.Output<string | undefined>;
     /**
-     * Details about the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the *AWS Batch User Guide* .
+     * The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
      */
     public readonly computeResources!: pulumi.Output<outputs.batch.ComputeEnvironmentComputeResources | undefined>;
     /**
-     * Configuration for the Amazon EKS cluster that supports the AWS Batch compute environment. The cluster must exist before the compute environment can be created.
+     * The details for the Amazon EKS cluster that supports the compute environment.
      */
     public readonly eksConfiguration!: pulumi.Output<outputs.batch.ComputeEnvironmentEksConfiguration | undefined>;
     /**
@@ -154,11 +154,11 @@ export interface ComputeEnvironmentArgs {
      */
     computeEnvironmentName?: pulumi.Input<string>;
     /**
-     * Details about the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the *AWS Batch User Guide* .
+     * The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
      */
     computeResources?: pulumi.Input<inputs.batch.ComputeEnvironmentComputeResourcesArgs>;
     /**
-     * Configuration for the Amazon EKS cluster that supports the AWS Batch compute environment. The cluster must exist before the compute environment can be created.
+     * The details for the Amazon EKS cluster that supports the compute environment.
      */
     eksConfiguration?: pulumi.Input<inputs.batch.ComputeEnvironmentEksConfigurationArgs>;
     /**

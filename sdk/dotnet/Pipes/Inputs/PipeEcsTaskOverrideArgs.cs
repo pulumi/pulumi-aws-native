@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         private InputList<Inputs.PipeEcsContainerOverrideArgs>? _containerOverrides;
 
         /// <summary>
-        /// The overrides that are sent to a container. An empty container override can be passed in. An example of an empty container override is `{"containerOverrides": [ ] }` . If a non-empty container override is specified, the `name` parameter must be included.
+        /// One or more container overrides that are sent to a task.
         /// </summary>
         public InputList<Inputs.PipeEcsContainerOverrideArgs> ContainerOverrides
         {
@@ -31,9 +31,12 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         public Input<string>? Cpu { get; set; }
 
         /// <summary>
-        /// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on Fargate. For more information, see [Fargate task storage](https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html) in the *Amazon ECS User Guide for Fargate* .
+        /// The ephemeral storage setting override for the task.
         /// 
-        /// &gt; This parameter is only supported for tasks hosted on Fargate using Linux platform version `1.4.0` or later. This parameter is not supported for Windows containers on Fargate.
+        /// &gt; This parameter is only supported for tasks hosted on Fargate that use the following platform versions:
+        /// &gt; 
+        /// &gt; - Linux platform version `1.4.0` or later.
+        /// &gt; - Windows platform version `1.0.0` or later.
         /// </summary>
         [Input("ephemeralStorage")]
         public Input<Inputs.PipeEcsEphemeralStorageArgs>? EphemeralStorage { get; set; }
@@ -48,7 +51,7 @@ namespace Pulumi.AwsNative.Pipes.Inputs
         private InputList<Inputs.PipeEcsInferenceAcceleratorOverrideArgs>? _inferenceAcceleratorOverrides;
 
         /// <summary>
-        /// Details on an Elastic Inference accelerator task override. This parameter is used to override the Elastic Inference accelerator specified in the task definition. For more information, see [Working with Amazon Elastic Inference on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/userguide/ecs-inference.html) in the *Amazon Elastic Container Service Developer Guide* .
+        /// The Elastic Inference accelerator override for the task.
         /// </summary>
         public InputList<Inputs.PipeEcsInferenceAcceleratorOverrideArgs> InferenceAcceleratorOverrides
         {

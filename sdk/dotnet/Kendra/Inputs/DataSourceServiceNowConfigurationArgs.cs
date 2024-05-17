@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public Input<string> HostUrl { get; set; } = null!;
 
         /// <summary>
-        /// Provides the configuration information for crawling knowledge articles in the ServiceNow site.
+        /// Configuration information for crawling knowledge articles in the ServiceNow site.
         /// </summary>
         [Input("knowledgeArticleConfiguration")]
         public Input<Inputs.DataSourceServiceNowKnowledgeArticleConfigurationArgs>? KnowledgeArticleConfiguration { get; set; }
@@ -39,7 +39,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public Input<string> SecretArn { get; set; } = null!;
 
         /// <summary>
-        /// Provides the configuration information for crawling service catalog items in the ServiceNow site
+        /// Configuration information for crawling service catalogs in the ServiceNow site.
         /// </summary>
         [Input("serviceCatalogConfiguration")]
         public Input<Inputs.DataSourceServiceNowServiceCatalogConfigurationArgs>? ServiceCatalogConfiguration { get; set; }

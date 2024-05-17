@@ -57,7 +57,7 @@ class IdMappingWorkflowIdMappingTechniques(dict):
                  provider_properties: Optional['outputs.IdMappingWorkflowProviderProperties'] = None):
         """
         :param 'IdMappingWorkflowIdMappingTechniquesIdMappingType' id_mapping_type: The type of ID mapping.
-        :param 'IdMappingWorkflowProviderProperties' provider_properties: An object containing the `providerServiceARN` , `intermediateSourceConfiguration` , and `providerConfiguration` .
+        :param 'IdMappingWorkflowProviderProperties' provider_properties: An object which defines any additional configurations required by the provider service.
         """
         if id_mapping_type is not None:
             pulumi.set(__self__, "id_mapping_type", id_mapping_type)
@@ -76,7 +76,7 @@ class IdMappingWorkflowIdMappingTechniques(dict):
     @pulumi.getter(name="providerProperties")
     def provider_properties(self) -> Optional['outputs.IdMappingWorkflowProviderProperties']:
         """
-        An object containing the `providerServiceARN` , `intermediateSourceConfiguration` , and `providerConfiguration` .
+        An object which defines any additional configurations required by the provider service.
         """
         return pulumi.get(self, "provider_properties")
 
@@ -323,7 +323,7 @@ class IdNamespaceIdMappingWorkflowProperties(dict):
                  provider_properties: Optional['outputs.IdNamespaceNamespaceProviderProperties'] = None):
         """
         :param 'IdNamespaceIdMappingWorkflowPropertiesIdMappingType' id_mapping_type: The type of ID mapping.
-        :param 'IdNamespaceNamespaceProviderProperties' provider_properties: An object containing `ProviderConfiguration` and `ProviderServiceArn` .
+        :param 'IdNamespaceNamespaceProviderProperties' provider_properties: An object which defines any additional configurations required by the provider service.
         """
         pulumi.set(__self__, "id_mapping_type", id_mapping_type)
         if provider_properties is not None:
@@ -341,7 +341,7 @@ class IdNamespaceIdMappingWorkflowProperties(dict):
     @pulumi.getter(name="providerProperties")
     def provider_properties(self) -> Optional['outputs.IdNamespaceNamespaceProviderProperties']:
         """
-        An object containing `ProviderConfiguration` and `ProviderServiceArn` .
+        An object which defines any additional configurations required by the provider service.
         """
         return pulumi.get(self, "provider_properties")
 
@@ -736,7 +736,7 @@ class MatchingWorkflowResolutionTechniques(dict):
                  resolution_type: Optional['MatchingWorkflowResolutionTechniquesResolutionType'] = None,
                  rule_based_properties: Optional['outputs.MatchingWorkflowRuleBasedProperties'] = None):
         """
-        :param 'MatchingWorkflowProviderProperties' provider_properties: An object containing the `providerServiceARN` , `intermediateSourceConfiguration` , and `providerConfiguration` .
+        :param 'MatchingWorkflowProviderProperties' provider_properties: The properties of the provider service.
         :param 'MatchingWorkflowResolutionTechniquesResolutionType' resolution_type: The type of matching. There are three types of matching: `RULE_MATCHING` , `ML_MATCHING` , and `PROVIDER` .
         :param 'MatchingWorkflowRuleBasedProperties' rule_based_properties: An object which defines the list of matching rules to run and has a field `Rules` , which is a list of rule objects.
         """
@@ -751,7 +751,7 @@ class MatchingWorkflowResolutionTechniques(dict):
     @pulumi.getter(name="providerProperties")
     def provider_properties(self) -> Optional['outputs.MatchingWorkflowProviderProperties']:
         """
-        An object containing the `providerServiceARN` , `intermediateSourceConfiguration` , and `providerConfiguration` .
+        The properties of the provider service.
         """
         return pulumi.get(self, "provider_properties")
 
@@ -844,7 +844,7 @@ class MatchingWorkflowRuleBasedProperties(dict):
                  rules: Sequence['outputs.MatchingWorkflowRule']):
         """
         :param 'MatchingWorkflowRuleBasedPropertiesAttributeMatchingModel' attribute_matching_model: The comparison type. You can either choose `ONE_TO_ONE` or `MANY_TO_MANY` as the AttributeMatchingModel. When choosing `MANY_TO_MANY` , the system can match attributes across the sub-types of an attribute type. For example, if the value of the `Email` field of Profile A and the value of `BusinessEmail` field of Profile B matches, the two profiles are matched on the `Email` type. When choosing `ONE_TO_ONE` ,the system can only match if the sub-types are exact matches. For example, only when the value of the `Email` field of Profile A and the value of the `Email` field of Profile B matches, the two profiles are matched on the `Email` type.
-        :param Sequence['MatchingWorkflowRule'] rules: An object containing `RuleName` , and `MatchingKeys` .
+        :param Sequence['MatchingWorkflowRule'] rules: A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
         """
         pulumi.set(__self__, "attribute_matching_model", attribute_matching_model)
         pulumi.set(__self__, "rules", rules)
@@ -861,7 +861,7 @@ class MatchingWorkflowRuleBasedProperties(dict):
     @pulumi.getter
     def rules(self) -> Sequence['outputs.MatchingWorkflowRule']:
         """
-        An object containing `RuleName` , and `MatchingKeys` .
+        A list of `Rule` objects, each of which have fields `RuleName` and `MatchingKeys` .
         """
         return pulumi.get(self, "rules")
 

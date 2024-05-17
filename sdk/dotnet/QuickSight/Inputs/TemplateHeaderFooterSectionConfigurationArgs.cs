@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateHeaderFooterSectionConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The layout configuration of a section.
+        /// The layout configuration of the header or footer section.
         /// </summary>
         [Input("layout", required: true)]
         public Input<Inputs.TemplateSectionLayoutConfigurationArgs> Layout { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string> SectionId { get; set; } = null!;
 
         /// <summary>
-        /// The options that style a section.
+        /// The style options of a header or footer section.
         /// </summary>
         [Input("style")]
         public Input<Inputs.TemplateSectionStyleArgs>? Style { get; set; }

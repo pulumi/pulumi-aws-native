@@ -27,10 +27,10 @@ class DomainArgs:
         """
         The set of arguments for constructing a Domain resource.
         :param pulumi.Input[str] app_id: The unique ID for an Amplify app.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainSubDomainSettingArgs']]] sub_domain_settings: The SubDomainSetting property type enables you to connect a subdomain (for example, example.exampledomain.com) to a specific branch.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainSubDomainSettingArgs']]] sub_domain_settings: The setting for the subdomain.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_sub_domain_creation_patterns: Sets the branch patterns for automatic subdomain creation.
         :param pulumi.Input[str] auto_sub_domain_iam_role: The required AWS Identity and Access Management (IAMlong) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
-        :param pulumi.Input['DomainCertificateSettingsArgs'] certificate_settings: The type of SSL/TLS certificate to use for your custom domain. If a certificate type isn't specified, Amplify uses the default `AMPLIFY_MANAGED` certificate.
+        :param pulumi.Input['DomainCertificateSettingsArgs'] certificate_settings: The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
         :param pulumi.Input[str] domain_name: The domain name for the domain association.
         :param pulumi.Input[bool] enable_auto_sub_domain: Enables the automated creation of subdomains for branches.
         """
@@ -63,7 +63,7 @@ class DomainArgs:
     @pulumi.getter(name="subDomainSettings")
     def sub_domain_settings(self) -> pulumi.Input[Sequence[pulumi.Input['DomainSubDomainSettingArgs']]]:
         """
-        The SubDomainSetting property type enables you to connect a subdomain (for example, example.exampledomain.com) to a specific branch.
+        The setting for the subdomain.
         """
         return pulumi.get(self, "sub_domain_settings")
 
@@ -99,7 +99,7 @@ class DomainArgs:
     @pulumi.getter(name="certificateSettings")
     def certificate_settings(self) -> Optional[pulumi.Input['DomainCertificateSettingsArgs']]:
         """
-        The type of SSL/TLS certificate to use for your custom domain. If a certificate type isn't specified, Amplify uses the default `AMPLIFY_MANAGED` certificate.
+        The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
         """
         return pulumi.get(self, "certificate_settings")
 
@@ -153,10 +153,10 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] app_id: The unique ID for an Amplify app.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_sub_domain_creation_patterns: Sets the branch patterns for automatic subdomain creation.
         :param pulumi.Input[str] auto_sub_domain_iam_role: The required AWS Identity and Access Management (IAMlong) service role for the Amazon Resource Name (ARN) for automatically creating subdomains.
-        :param pulumi.Input[pulumi.InputType['DomainCertificateSettingsArgs']] certificate_settings: The type of SSL/TLS certificate to use for your custom domain. If a certificate type isn't specified, Amplify uses the default `AMPLIFY_MANAGED` certificate.
+        :param pulumi.Input[pulumi.InputType['DomainCertificateSettingsArgs']] certificate_settings: The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
         :param pulumi.Input[str] domain_name: The domain name for the domain association.
         :param pulumi.Input[bool] enable_auto_sub_domain: Enables the automated creation of subdomains for branches.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainSubDomainSettingArgs']]]] sub_domain_settings: The SubDomainSetting property type enables you to connect a subdomain (for example, example.exampledomain.com) to a specific branch.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainSubDomainSettingArgs']]]] sub_domain_settings: The setting for the subdomain.
         """
         ...
     @overload
@@ -289,11 +289,6 @@ class Domain(pulumi.CustomResource):
     @property
     @pulumi.getter
     def certificate(self) -> pulumi.Output['outputs.DomainCertificate']:
-        """
-        Describes the SSL/TLS certificate for the domain association. This can be your own custom certificate or the default certificate that Amplify provisions for you.
-
-        If you are updating your domain to use a different certificate, `Certificate` points to the new certificate that is being created instead of the current active certificate. Otherwise, `Certificate` points to the current active certificate.
-        """
         return pulumi.get(self, "certificate")
 
     @property
@@ -308,7 +303,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="certificateSettings")
     def certificate_settings(self) -> pulumi.Output[Optional['outputs.DomainCertificateSettings']]:
         """
-        The type of SSL/TLS certificate to use for your custom domain. If a certificate type isn't specified, Amplify uses the default `AMPLIFY_MANAGED` certificate.
+        The type of SSL/TLS certificate to use for your custom domain. If you don't specify a certificate type, Amplify uses the default certificate that it provisions and manages for you.
         """
         return pulumi.get(self, "certificate_settings")
 
@@ -348,7 +343,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="subDomainSettings")
     def sub_domain_settings(self) -> pulumi.Output[Sequence['outputs.DomainSubDomainSetting']]:
         """
-        The SubDomainSetting property type enables you to connect a subdomain (for example, example.exampledomain.com) to a specific branch.
+        The setting for the subdomain.
         """
         return pulumi.get(self, "sub_domain_settings")
 

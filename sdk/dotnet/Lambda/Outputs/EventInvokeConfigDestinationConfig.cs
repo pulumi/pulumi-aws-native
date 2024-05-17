@@ -17,11 +17,11 @@ namespace Pulumi.AwsNative.Lambda.Outputs
     public sealed class EventInvokeConfigDestinationConfig
     {
         /// <summary>
-        /// A destination for events that failed processing.
+        /// The destination configuration for failed invocations.
         /// </summary>
         public readonly Outputs.EventInvokeConfigOnFailure? OnFailure;
         /// <summary>
-        /// A destination for events that were processed successfully.
+        /// The destination configuration for successful invocations.
         /// </summary>
         public readonly Outputs.EventInvokeConfigOnSuccess? OnSuccess;
 

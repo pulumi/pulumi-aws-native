@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.SsmIncidents.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Details about the PagerDuty service where the response plan creates an incident.
+        /// Details about the PagerDuty service associated with the configuration.
         /// </summary>
         public readonly Outputs.ResponsePlanPagerDutyIncidentConfiguration PagerDutyIncidentConfiguration;
         /// <summary>

@@ -29,9 +29,9 @@ type BackupVault struct {
 	//
 	// To learn which AWS Backup services support full AWS Backup management and how AWS Backup handles encryption for backups from services that do not yet support full AWS Backup , see [Encryption for backups in AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html)
 	EncryptionKeyArn pulumi.StringPtrOutput `pulumi:"encryptionKeyArn"`
-	// The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+	// Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
 	LockConfiguration BackupVaultLockConfigurationTypePtrOutput `pulumi:"lockConfiguration"`
-	// Specifies an object containing SNS event notification properties for the target backup vault.
+	// The SNS event notifications for the specified backup vault.
 	Notifications BackupVaultNotificationObjectTypePtrOutput `pulumi:"notifications"`
 }
 
@@ -92,9 +92,9 @@ type backupVaultArgs struct {
 	//
 	// To learn which AWS Backup services support full AWS Backup management and how AWS Backup handles encryption for backups from services that do not yet support full AWS Backup , see [Encryption for backups in AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html)
 	EncryptionKeyArn *string `pulumi:"encryptionKeyArn"`
-	// The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+	// Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
 	LockConfiguration *BackupVaultLockConfigurationType `pulumi:"lockConfiguration"`
-	// Specifies an object containing SNS event notification properties for the target backup vault.
+	// The SNS event notifications for the specified backup vault.
 	Notifications *BackupVaultNotificationObjectType `pulumi:"notifications"`
 }
 
@@ -112,9 +112,9 @@ type BackupVaultArgs struct {
 	//
 	// To learn which AWS Backup services support full AWS Backup management and how AWS Backup handles encryption for backups from services that do not yet support full AWS Backup , see [Encryption for backups in AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html)
 	EncryptionKeyArn pulumi.StringPtrInput
-	// The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+	// Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
 	LockConfiguration BackupVaultLockConfigurationTypePtrInput
-	// Specifies an object containing SNS event notification properties for the target backup vault.
+	// The SNS event notifications for the specified backup vault.
 	Notifications BackupVaultNotificationObjectTypePtrInput
 }
 
@@ -184,12 +184,12 @@ func (o BackupVaultOutput) EncryptionKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BackupVault) pulumi.StringPtrOutput { return v.EncryptionKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+// Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
 func (o BackupVaultOutput) LockConfiguration() BackupVaultLockConfigurationTypePtrOutput {
 	return o.ApplyT(func(v *BackupVault) BackupVaultLockConfigurationTypePtrOutput { return v.LockConfiguration }).(BackupVaultLockConfigurationTypePtrOutput)
 }
 
-// Specifies an object containing SNS event notification properties for the target backup vault.
+// The SNS event notifications for the specified backup vault.
 func (o BackupVaultOutput) Notifications() BackupVaultNotificationObjectTypePtrOutput {
 	return o.ApplyT(func(v *BackupVault) BackupVaultNotificationObjectTypePtrOutput { return v.Notifications }).(BackupVaultNotificationObjectTypePtrOutput)
 }

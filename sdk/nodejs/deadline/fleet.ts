@@ -41,12 +41,9 @@ export class Fleet extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) assigned to the fleet.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
-    /**
-     * The amounts and attributes of fleets.
-     */
     public /*out*/ readonly capabilities!: pulumi.Output<outputs.deadline.FleetCapabilities>;
     /**
-     * Fleet configuration details.
+     * The configuration details for the fleet.
      */
     public readonly configuration!: pulumi.Output<outputs.deadline.FleetConfiguration0Properties | outputs.deadline.FleetConfiguration1Properties>;
     /**
@@ -147,7 +144,7 @@ export class Fleet extends pulumi.CustomResource {
  */
 export interface FleetArgs {
     /**
-     * Fleet configuration details.
+     * The configuration details for the fleet.
      */
     configuration: pulumi.Input<inputs.deadline.FleetConfiguration0PropertiesArgs | inputs.deadline.FleetConfiguration1PropertiesArgs>;
     /**

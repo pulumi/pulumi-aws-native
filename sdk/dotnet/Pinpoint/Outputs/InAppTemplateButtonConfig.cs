@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
     public sealed class InAppTemplateButtonConfig
     {
         /// <summary>
-        /// Specifies the configuration of a button with settings that are specific to a certain device type.
+        /// Optional button configuration to use for in-app messages sent to Android devices. This button configuration overrides the default button configuration.
         /// </summary>
         public readonly Outputs.InAppTemplateOverrideButtonConfiguration? Android;
         /// <summary>
@@ -22,11 +22,11 @@ namespace Pulumi.AwsNative.Pinpoint.Outputs
         /// </summary>
         public readonly Outputs.InAppTemplateDefaultButtonConfiguration? DefaultConfig;
         /// <summary>
-        /// Specifies the configuration of a button with settings that are specific to a certain device type.
+        /// Optional button configuration to use for in-app messages sent to iOS devices. This button configuration overrides the default button configuration.
         /// </summary>
         public readonly Outputs.InAppTemplateOverrideButtonConfiguration? Ios;
         /// <summary>
-        /// Specifies the configuration of a button with settings that are specific to a certain device type.
+        /// Optional button configuration to use for in-app messages sent to web applications. This button configuration overrides the default button configuration.
         /// </summary>
         public readonly Outputs.InAppTemplateOverrideButtonConfiguration? Web;
 

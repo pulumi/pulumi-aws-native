@@ -37,9 +37,7 @@ type LookupDomainNameResult struct {
 	DistributionDomainName *string `pulumi:"distributionDomainName"`
 	// The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The only valid value is `Z2FDTNDATAQYW2` for all regions.
 	DistributionHostedZoneId *string `pulumi:"distributionHostedZoneId"`
-	// The `EndpointConfiguration` property type specifies the endpoint types of an Amazon API Gateway domain name.
-	//
-	// `EndpointConfiguration` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
+	// The endpoint configuration of this DomainName showing the endpoint types of the domain name.
 	EndpointConfiguration *DomainNameEndpointConfiguration `pulumi:"endpointConfiguration"`
 	// The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
 	MutualTlsAuthentication *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
@@ -53,9 +51,7 @@ type LookupDomainNameResult struct {
 	RegionalHostedZoneId *string `pulumi:"regionalHostedZoneId"`
 	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are `TLS_1_0` and `TLS_1_2` .
 	SecurityPolicy *string `pulumi:"securityPolicy"`
-	// An array of key-value pairs to apply to this resource.
-	//
-	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+	// The collection of tags. Each tag element is associated with a given resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -112,9 +108,7 @@ func (o LookupDomainNameResultOutput) DistributionHostedZoneId() pulumi.StringPt
 	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.DistributionHostedZoneId }).(pulumi.StringPtrOutput)
 }
 
-// The `EndpointConfiguration` property type specifies the endpoint types of an Amazon API Gateway domain name.
-//
-// `EndpointConfiguration` is a property of the [AWS::ApiGateway::DomainName](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html) resource.
+// The endpoint configuration of this DomainName showing the endpoint types of the domain name.
 func (o LookupDomainNameResultOutput) EndpointConfiguration() DomainNameEndpointConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) *DomainNameEndpointConfiguration { return v.EndpointConfiguration }).(DomainNameEndpointConfigurationPtrOutput)
 }
@@ -149,9 +143,7 @@ func (o LookupDomainNameResultOutput) SecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) *string { return v.SecurityPolicy }).(pulumi.StringPtrOutput)
 }
 
-// An array of key-value pairs to apply to this resource.
-//
-// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+// The collection of tags. Each tag element is associated with a given resource.
 func (o LookupDomainNameResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

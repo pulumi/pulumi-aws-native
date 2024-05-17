@@ -14,17 +14,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisLayoutConfiguration
     {
         /// <summary>
-        /// The configuration of a free-form layout.
+        /// A free-form is optimized for a fixed width and has more control over the exact placement of layout elements.
         /// </summary>
         public readonly Outputs.AnalysisFreeFormLayoutConfiguration? FreeFormLayout;
         /// <summary>
-        /// The configuration for a grid layout. Also called a tiled layout.
-        /// 
-        /// Visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size.
+        /// A type of layout that can be used on a sheet. In a grid layout, visuals snap to a grid with standard spacing and alignment. Dashboards are displayed as designed, with options to fit to screen or view at actual size. A grid layout can be configured to behave in one of two ways when the viewport is resized: `FIXED` or `RESPONSIVE` .
         /// </summary>
         public readonly Outputs.AnalysisGridLayoutConfiguration? GridLayout;
         /// <summary>
-        /// The configuration for a section-based layout.
+        /// A section based layout organizes visuals into multiple sections and has customized header, footer and page break.
         /// </summary>
         public readonly Outputs.AnalysisSectionBasedLayoutConfiguration? SectionBasedLayout;
 

@@ -39,7 +39,9 @@ class GetActivityResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        The `TagsEntry` property specifies *tags* to identify an activity.
+        The list of tags to add to a resource.
+
+        Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
         """
         return pulumi.get(self, "tags")
 

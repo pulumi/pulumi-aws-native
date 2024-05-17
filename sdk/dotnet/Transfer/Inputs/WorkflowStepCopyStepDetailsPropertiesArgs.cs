@@ -15,9 +15,6 @@ namespace Pulumi.AwsNative.Transfer.Inputs
     /// </summary>
     public sealed class WorkflowStepCopyStepDetailsPropertiesArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Specifies the S3 details for the file being used, such as bucket, ETag, and so forth.
-        /// </summary>
         [Input("destinationFileLocation")]
         public Input<Inputs.WorkflowS3FileLocationArgs>? DestinationFileLocation { get; set; }
 

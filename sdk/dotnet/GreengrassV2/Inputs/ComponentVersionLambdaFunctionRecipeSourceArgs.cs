@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
         }
 
         /// <summary>
-        /// Contains parameters for a Lambda function that runs on AWS IoT Greengrass .
+        /// The system and runtime parameters for the Lambda function as it runs on the AWS IoT Greengrass core device.
         /// </summary>
         [Input("componentLambdaParameters")]
         public Input<Inputs.ComponentVersionLambdaExecutionParametersArgs>? ComponentLambdaParameters { get; set; }
@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
         private InputList<Inputs.ComponentVersionComponentPlatformArgs>? _componentPlatforms;
 
         /// <summary>
-        /// Contains information about a platform that a component supports.
+        /// The platforms that the component version supports.
         /// </summary>
         public InputList<Inputs.ComponentVersionComponentPlatformArgs> ComponentPlatforms
         {

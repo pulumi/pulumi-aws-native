@@ -27,7 +27,7 @@ type Feature struct {
 	DefaultVariation pulumi.StringPtrOutput `pulumi:"defaultVariation"`
 	// An optional description of the feature.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A set of key-value pairs that specify users who should always be served a specific variation of a feature. Each key specifies a user using their user ID, account ID, or some other identifier. The value specifies the name of the variation that the user is to be served.
+	// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
 	EntityOverrides FeatureEntityOverrideArrayOutput `pulumi:"entityOverrides"`
 	// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
 	EvaluationStrategy FeatureEvaluationStrategyPtrOutput `pulumi:"evaluationStrategy"`
@@ -37,7 +37,9 @@ type Feature struct {
 	Project pulumi.StringOutput `pulumi:"project"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// This structure contains the name and variation value of one variation of a feature. It can contain only one of the following parameters: `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` .
+	// An array of structures that contain the configuration of the feature's different variations.
+	//
+	// Each `VariationObject` in the `Variations` array for a feature must have the same type of value ( `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` ).
 	Variations FeatureVariationObjectArrayOutput `pulumi:"variations"`
 }
 
@@ -100,7 +102,7 @@ type featureArgs struct {
 	DefaultVariation *string `pulumi:"defaultVariation"`
 	// An optional description of the feature.
 	Description *string `pulumi:"description"`
-	// A set of key-value pairs that specify users who should always be served a specific variation of a feature. Each key specifies a user using their user ID, account ID, or some other identifier. The value specifies the name of the variation that the user is to be served.
+	// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
 	EntityOverrides []FeatureEntityOverride `pulumi:"entityOverrides"`
 	// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
 	EvaluationStrategy *FeatureEvaluationStrategy `pulumi:"evaluationStrategy"`
@@ -110,7 +112,9 @@ type featureArgs struct {
 	Project string `pulumi:"project"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
-	// This structure contains the name and variation value of one variation of a feature. It can contain only one of the following parameters: `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` .
+	// An array of structures that contain the configuration of the feature's different variations.
+	//
+	// Each `VariationObject` in the `Variations` array for a feature must have the same type of value ( `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` ).
 	Variations []FeatureVariationObject `pulumi:"variations"`
 }
 
@@ -124,7 +128,7 @@ type FeatureArgs struct {
 	DefaultVariation pulumi.StringPtrInput
 	// An optional description of the feature.
 	Description pulumi.StringPtrInput
-	// A set of key-value pairs that specify users who should always be served a specific variation of a feature. Each key specifies a user using their user ID, account ID, or some other identifier. The value specifies the name of the variation that the user is to be served.
+	// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
 	EntityOverrides FeatureEntityOverrideArrayInput
 	// Specify `ALL_RULES` to activate the traffic allocation specified by any ongoing launches or experiments. Specify `DEFAULT_VARIATION` to serve the default variation to all users instead.
 	EvaluationStrategy FeatureEvaluationStrategyPtrInput
@@ -134,7 +138,9 @@ type FeatureArgs struct {
 	Project pulumi.StringInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
-	// This structure contains the name and variation value of one variation of a feature. It can contain only one of the following parameters: `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` .
+	// An array of structures that contain the configuration of the feature's different variations.
+	//
+	// Each `VariationObject` in the `Variations` array for a feature must have the same type of value ( `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` ).
 	Variations FeatureVariationObjectArrayInput
 }
 
@@ -194,7 +200,7 @@ func (o FeatureOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Feature) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A set of key-value pairs that specify users who should always be served a specific variation of a feature. Each key specifies a user using their user ID, account ID, or some other identifier. The value specifies the name of the variation that the user is to be served.
+// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
 func (o FeatureOutput) EntityOverrides() FeatureEntityOverrideArrayOutput {
 	return o.ApplyT(func(v *Feature) FeatureEntityOverrideArrayOutput { return v.EntityOverrides }).(FeatureEntityOverrideArrayOutput)
 }
@@ -219,7 +225,9 @@ func (o FeatureOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Feature) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// This structure contains the name and variation value of one variation of a feature. It can contain only one of the following parameters: `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` .
+// An array of structures that contain the configuration of the feature's different variations.
+//
+// Each `VariationObject` in the `Variations` array for a feature must have the same type of value ( `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` ).
 func (o FeatureOutput) Variations() FeatureVariationObjectArrayOutput {
 	return o.ApplyT(func(v *Feature) FeatureVariationObjectArrayOutput { return v.Variations }).(FeatureVariationObjectArrayOutput)
 }

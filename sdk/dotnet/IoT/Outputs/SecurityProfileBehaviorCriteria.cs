@@ -33,11 +33,11 @@ namespace Pulumi.AwsNative.IoT.Outputs
         /// </summary>
         public readonly int? DurationSeconds;
         /// <summary>
-        /// The `MachineLearningDetectionConfig` property type controls confidence of the machine learning model.
+        /// The confidence level of the detection model.
         /// </summary>
         public readonly Outputs.SecurityProfileMachineLearningDetectionConfig? MlDetectionConfig;
         /// <summary>
-        /// A statistical ranking (percentile) that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
+        /// A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
         /// </summary>
         public readonly Outputs.SecurityProfileStatisticalThreshold? StatisticalThreshold;
         /// <summary>

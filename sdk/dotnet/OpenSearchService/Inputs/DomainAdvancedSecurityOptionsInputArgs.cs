@@ -38,8 +38,6 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
 
         /// <summary>
         /// Specifies information about the master user.
-        /// 
-        /// Required if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
         /// </summary>
         [Input("masterUserOptions")]
         public Input<Inputs.DomainMasterUserOptionsArgs>? MasterUserOptions { get; set; }

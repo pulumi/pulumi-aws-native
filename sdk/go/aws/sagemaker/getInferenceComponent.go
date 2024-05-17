@@ -43,12 +43,10 @@ type LookupInferenceComponentResult struct {
 	// The status of the inference component.
 	InferenceComponentStatus *InferenceComponentStatus `pulumi:"inferenceComponentStatus"`
 	// The time when the inference component was last updated.
-	LastModifiedTime *string `pulumi:"lastModifiedTime"`
-	// Runtime settings for a model that is deployed with an inference component.
-	RuntimeConfig *InferenceComponentRuntimeConfig `pulumi:"runtimeConfig"`
-	// Details about the resources to deploy with this inference component, including the model, container, and compute resources.
-	Specification *InferenceComponentSpecification `pulumi:"specification"`
-	Tags          []aws.Tag                        `pulumi:"tags"`
+	LastModifiedTime *string                          `pulumi:"lastModifiedTime"`
+	RuntimeConfig    *InferenceComponentRuntimeConfig `pulumi:"runtimeConfig"`
+	Specification    *InferenceComponentSpecification `pulumi:"specification"`
+	Tags             []aws.Tag                        `pulumi:"tags"`
 	// The name of the production variant that hosts the inference component.
 	VariantName *string `pulumi:"variantName"`
 }
@@ -128,12 +126,10 @@ func (o LookupInferenceComponentResultOutput) LastModifiedTime() pulumi.StringPt
 	return o.ApplyT(func(v LookupInferenceComponentResult) *string { return v.LastModifiedTime }).(pulumi.StringPtrOutput)
 }
 
-// Runtime settings for a model that is deployed with an inference component.
 func (o LookupInferenceComponentResultOutput) RuntimeConfig() InferenceComponentRuntimeConfigPtrOutput {
 	return o.ApplyT(func(v LookupInferenceComponentResult) *InferenceComponentRuntimeConfig { return v.RuntimeConfig }).(InferenceComponentRuntimeConfigPtrOutput)
 }
 
-// Details about the resources to deploy with this inference component, including the model, container, and compute resources.
 func (o LookupInferenceComponentResultOutput) Specification() InferenceComponentSpecificationPtrOutput {
 	return o.ApplyT(func(v LookupInferenceComponentResult) *InferenceComponentSpecification { return v.Specification }).(InferenceComponentSpecificationPtrOutput)
 }

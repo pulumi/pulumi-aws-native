@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     public sealed class UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType
     {
         /// <summary>
-        /// The compromised credentials actions type.
+        /// The compromised credentials risk configuration actions.
         /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType Actions;
         /// <summary>

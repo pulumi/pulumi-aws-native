@@ -38,7 +38,7 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
     }
 
     /**
-     * A collection of accounts and regions.
+     * Provides a list of source accounts and regions to be aggregated.
      */
     public readonly accountAggregationSources!: pulumi.Output<outputs.configuration.ConfigurationAggregatorAccountAggregationSource[] | undefined>;
     /**
@@ -50,7 +50,7 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
      */
     public readonly configurationAggregatorName!: pulumi.Output<string | undefined>;
     /**
-     * This object contains regions to set up the aggregator and an IAM role to retrieve organization details.
+     * Provides an organization and list of regions to be aggregated.
      */
     public readonly organizationAggregationSource!: pulumi.Output<outputs.configuration.ConfigurationAggregatorOrganizationAggregationSource | undefined>;
     /**
@@ -93,7 +93,7 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
  */
 export interface ConfigurationAggregatorArgs {
     /**
-     * A collection of accounts and regions.
+     * Provides a list of source accounts and regions to be aggregated.
      */
     accountAggregationSources?: pulumi.Input<pulumi.Input<inputs.configuration.ConfigurationAggregatorAccountAggregationSourceArgs>[]>;
     /**
@@ -101,7 +101,7 @@ export interface ConfigurationAggregatorArgs {
      */
     configurationAggregatorName?: pulumi.Input<string>;
     /**
-     * This object contains regions to set up the aggregator and an IAM role to retrieve organization details.
+     * Provides an organization and list of regions to be aggregated.
      */
     organizationAggregationSource?: pulumi.Input<inputs.configuration.ConfigurationAggregatorOrganizationAggregationSourceArgs>;
     /**

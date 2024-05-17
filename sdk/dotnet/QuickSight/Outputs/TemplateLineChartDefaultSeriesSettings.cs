@@ -18,11 +18,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateAxisBinding? AxisBinding;
         /// <summary>
-        /// Line styles options for a line series in `LineChartVisual` .
+        /// Line styles options for all line series in the visual.
         /// </summary>
         public readonly Outputs.TemplateLineChartLineStyleSettings? LineStyleSettings;
         /// <summary>
-        /// Marker styles options for a line series in `LineChartVisual` .
+        /// Marker styles options for all line series in the visual.
         /// </summary>
         public readonly Outputs.TemplateLineChartMarkerStyleSettings? MarkerStyleSettings;
 

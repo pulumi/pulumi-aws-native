@@ -50,7 +50,7 @@ export class Bot extends pulumi.CustomResource {
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
-     * Defines an Amazon S3 bucket location.
+     * The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
      */
     public readonly botFileS3Location!: pulumi.Output<outputs.lex.BotS3Location | undefined>;
     /**
@@ -152,7 +152,7 @@ export interface BotArgs {
      */
     autoBuildBotLocales?: pulumi.Input<boolean>;
     /**
-     * Defines an Amazon S3 bucket location.
+     * The Amazon S3 location of files used to import a bot. The files must be in the import format specified in [JSON format for importing and exporting](https://docs.aws.amazon.com/lexv2/latest/dg/import-export-format.html) in the *Amazon Lex developer guide.*
      */
     botFileS3Location?: pulumi.Input<inputs.lex.BotS3LocationArgs>;
     /**

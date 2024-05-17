@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
     public sealed class MembershipProtectedQueryResultConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains configurations for protected query results.
+        /// Configuration for protected query results.
         /// </summary>
         [Input("outputConfiguration", required: true)]
         public Input<Inputs.MembershipProtectedQueryOutputConfigurationArgs> OutputConfiguration { get; set; } = null!;

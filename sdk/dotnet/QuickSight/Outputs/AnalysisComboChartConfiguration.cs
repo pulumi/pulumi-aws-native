@@ -14,7 +14,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisComboChartConfiguration
     {
         /// <summary>
-        /// The options that determine the presentation of the data labels.
+        /// The options that determine if visual data labels are displayed.
+        /// 
+        /// The data label options for a bar in a combo chart.
         /// </summary>
         public readonly Outputs.AnalysisDataLabelOptions? BarDataLabels;
         /// <summary>
@@ -26,37 +28,37 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisBarsArrangement? BarsArrangement;
         /// <summary>
-        /// The display options for the axis label.
+        /// The category axis of a combo chart.
         /// </summary>
         public readonly Outputs.AnalysisAxisDisplayOptions? CategoryAxis;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility, and sort icon visibility) of a combo chart category (group/color) field well.
         /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? CategoryLabelOptions;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
         /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? ColorLabelOptions;
         /// <summary>
         /// The field wells of the visual.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
         /// </summary>
         public readonly Outputs.AnalysisComboChartFieldWells? FieldWells;
         /// <summary>
-        /// The options for the legend setup of a visual.
+        /// The legend display setup of the visual.
         /// </summary>
         public readonly Outputs.AnalysisLegendOptions? Legend;
         /// <summary>
-        /// The options that determine the presentation of the data labels.
+        /// The options that determine if visual data labels are displayed.
+        /// 
+        /// The data label options for a line in a combo chart.
         /// </summary>
         public readonly Outputs.AnalysisDataLabelOptions? LineDataLabels;
         /// <summary>
-        /// The display options for the axis label.
+        /// The label display options (grid line, range, scale, and axis step) of a combo chart's primary y-axis (bar) field well.
         /// </summary>
         public readonly Outputs.AnalysisAxisDisplayOptions? PrimaryYAxisDisplayOptions;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility, and sort icon visibility) of a combo chart's primary y-axis (bar) field well.
         /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? PrimaryYAxisLabelOptions;
         /// <summary>
@@ -64,11 +66,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisReferenceLine> ReferenceLines;
         /// <summary>
-        /// The display options for the axis label.
+        /// The label display options (grid line, range, scale, axis step) of a combo chart's secondary y-axis (line) field well.
         /// </summary>
         public readonly Outputs.AnalysisAxisDisplayOptions? SecondaryYAxisDisplayOptions;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.
         /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? SecondaryYAxisLabelOptions;
         /// <summary>
@@ -76,11 +78,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.AnalysisComboChartSortConfiguration? SortConfiguration;
         /// <summary>
-        /// The display options for the visual tooltip.
+        /// The legend display setup of the visual.
         /// </summary>
         public readonly Outputs.AnalysisTooltipOptions? Tooltip;
         /// <summary>
-        /// The visual display options for the visual palette.
+        /// The palette (chart color) display setup of the visual.
         /// </summary>
         public readonly Outputs.AnalysisVisualPalette? VisualPalette;
 

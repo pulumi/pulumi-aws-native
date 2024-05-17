@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.Omics
         public Output<string> ReferenceStoreId { get; private set; } = null!;
 
         /// <summary>
-        /// Server-side encryption (SSE) settings for a store.
+        /// Server-side encryption (SSE) settings for the store.
         /// </summary>
         [Output("sseConfig")]
         public Output<Outputs.ReferenceStoreSseConfig?> SseConfig { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.AwsNative.Omics
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Server-side encryption (SSE) settings for a store.
+        /// Server-side encryption (SSE) settings for the store.
         /// </summary>
         [Input("sseConfig")]
         public Input<Inputs.ReferenceStoreSseConfigArgs>? SseConfig { get; set; }

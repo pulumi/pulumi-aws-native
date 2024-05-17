@@ -20,9 +20,9 @@ type IdMappingWorkflow struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The description of the IdMappingWorkflow
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// An object which defines the ID mapping techniques and provider configurations.
+	// An object which defines the `idMappingType` and the `providerProperties` .
 	IdMappingTechniques IdMappingWorkflowIdMappingTechniquesOutput `pulumi:"idMappingTechniques"`
-	// An object containing `InputSourceARN` , `SchemaName` , and `Type` .
+	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig IdMappingWorkflowInputSourceArrayOutput `pulumi:"inputSourceConfig"`
 	// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
 	OutputSourceConfig IdMappingWorkflowOutputSourceArrayOutput `pulumi:"outputSourceConfig"`
@@ -91,9 +91,9 @@ func (IdMappingWorkflowState) ElementType() reflect.Type {
 type idMappingWorkflowArgs struct {
 	// The description of the IdMappingWorkflow
 	Description *string `pulumi:"description"`
-	// An object which defines the ID mapping techniques and provider configurations.
+	// An object which defines the `idMappingType` and the `providerProperties` .
 	IdMappingTechniques IdMappingWorkflowIdMappingTechniques `pulumi:"idMappingTechniques"`
-	// An object containing `InputSourceARN` , `SchemaName` , and `Type` .
+	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig []IdMappingWorkflowInputSource `pulumi:"inputSourceConfig"`
 	// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
 	OutputSourceConfig []IdMappingWorkflowOutputSource `pulumi:"outputSourceConfig"`
@@ -109,9 +109,9 @@ type idMappingWorkflowArgs struct {
 type IdMappingWorkflowArgs struct {
 	// The description of the IdMappingWorkflow
 	Description pulumi.StringPtrInput
-	// An object which defines the ID mapping techniques and provider configurations.
+	// An object which defines the `idMappingType` and the `providerProperties` .
 	IdMappingTechniques IdMappingWorkflowIdMappingTechniquesInput
-	// An object containing `InputSourceARN` , `SchemaName` , and `Type` .
+	// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 	InputSourceConfig IdMappingWorkflowInputSourceArrayInput
 	// A list of `IdMappingWorkflowOutputSource` objects, each of which contains fields `OutputS3Path` and `Output` .
 	OutputSourceConfig IdMappingWorkflowOutputSourceArrayInput
@@ -169,12 +169,12 @@ func (o IdMappingWorkflowOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdMappingWorkflow) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// An object which defines the ID mapping techniques and provider configurations.
+// An object which defines the `idMappingType` and the `providerProperties` .
 func (o IdMappingWorkflowOutput) IdMappingTechniques() IdMappingWorkflowIdMappingTechniquesOutput {
 	return o.ApplyT(func(v *IdMappingWorkflow) IdMappingWorkflowIdMappingTechniquesOutput { return v.IdMappingTechniques }).(IdMappingWorkflowIdMappingTechniquesOutput)
 }
 
-// An object containing `InputSourceARN` , `SchemaName` , and `Type` .
+// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
 func (o IdMappingWorkflowOutput) InputSourceConfig() IdMappingWorkflowInputSourceArrayOutput {
 	return o.ApplyT(func(v *IdMappingWorkflow) IdMappingWorkflowInputSourceArrayOutput { return v.InputSourceConfig }).(IdMappingWorkflowInputSourceArrayOutput)
 }

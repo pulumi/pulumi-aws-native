@@ -21,8 +21,6 @@ type ResponseHeadersPolicy struct {
 	// The date and time when the response headers policy was last modified.
 	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
 	// A response headers policy configuration.
-	//
-	// A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
 	ResponseHeadersPolicyConfig ResponseHeadersPolicyConfigOutput `pulumi:"responseHeadersPolicyConfig"`
 }
 
@@ -70,16 +68,12 @@ func (ResponseHeadersPolicyState) ElementType() reflect.Type {
 
 type responseHeadersPolicyArgs struct {
 	// A response headers policy configuration.
-	//
-	// A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
 	ResponseHeadersPolicyConfig ResponseHeadersPolicyConfig `pulumi:"responseHeadersPolicyConfig"`
 }
 
 // The set of arguments for constructing a ResponseHeadersPolicy resource.
 type ResponseHeadersPolicyArgs struct {
 	// A response headers policy configuration.
-	//
-	// A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
 	ResponseHeadersPolicyConfig ResponseHeadersPolicyConfigInput
 }
 
@@ -131,8 +125,6 @@ func (o ResponseHeadersPolicyOutput) LastModifiedTime() pulumi.StringOutput {
 }
 
 // A response headers policy configuration.
-//
-// A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
 func (o ResponseHeadersPolicyOutput) ResponseHeadersPolicyConfig() ResponseHeadersPolicyConfigOutput {
 	return o.ApplyT(func(v *ResponseHeadersPolicy) ResponseHeadersPolicyConfigOutput { return v.ResponseHeadersPolicyConfig }).(ResponseHeadersPolicyConfigOutput)
 }

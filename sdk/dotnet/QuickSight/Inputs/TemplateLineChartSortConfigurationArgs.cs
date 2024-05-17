@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateLineChartSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of categories that are displayed in a line chart.
         /// </summary>
         [Input("categoryItemsLimitConfiguration")]
         public Input<Inputs.TemplateItemsLimitConfigurationArgs>? CategoryItemsLimitConfiguration { get; set; }
@@ -31,13 +31,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of lines that are displayed in a line chart.
         /// </summary>
         [Input("colorItemsLimitConfiguration")]
         public Input<Inputs.TemplateItemsLimitConfigurationArgs>? ColorItemsLimitConfiguration { get; set; }
 
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of small multiples panels that are displayed.
         /// </summary>
         [Input("smallMultiplesLimitConfiguration")]
         public Input<Inputs.TemplateItemsLimitConfigurationArgs>? SmallMultiplesLimitConfiguration { get; set; }

@@ -37,14 +37,10 @@ class CapacityReservationFleetArgs:
         :param pulumi.Input['CapacityReservationFleetInstanceMatchCriteria'] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All Capacity Reservations in the Fleet inherit this instance matching criteria.
                
                Currently, Capacity Reservation Fleets support `open` instance matching criteria only. This means that instances that have matching attributes (instance type, platform, and Availability Zone) run in the Capacity Reservations automatically. Instances do not need to explicitly target a Capacity Reservation Fleet to use its reserved capacity.
-        :param pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetInstanceTypeSpecificationArgs']]] instance_type_specifications: Specifies information about an instance type to use in a Capacity Reservation Fleet.
-               
-               `InstanceTypeSpecification` is a property of the [AWS::EC2::CapacityReservationFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html) resource.
+        :param pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetInstanceTypeSpecificationArgs']]] instance_type_specifications: Information about the instance types for which to reserve the capacity.
         :param pulumi.Input[bool] no_remove_end_date: Used to add an end date to a Capacity Reservation Fleet that has no end date and time. To add an end date to a Capacity Reservation Fleet, specify `true` for this paramater and specify the end date and time (in UTC time format) for the *EndDate* parameter.
         :param pulumi.Input[bool] remove_end_date: Used to remove an end date from a Capacity Reservation Fleet that is configured to end automatically at a specific date and time. To remove the end date from a Capacity Reservation Fleet, specify `true` for this paramater and omit the *EndDate* parameter.
-        :param pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetTagSpecificationArgs']]] tag_specifications: The tags to apply to a resource when the resource is being created. When you specify a tag, you must specify the resource type to tag, otherwise the request will fail.
-               
-               > The `Valid Values` lists all the resource types that can be tagged. However, the action you're using might not support tagging all of these resource types. If you try to tag a resource type that is unsupported for the action you're using, you'll get an error.
+        :param pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetTagSpecificationArgs']]] tag_specifications: The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.
         :param pulumi.Input['CapacityReservationFleetTenancy'] tenancy: Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the following tenancy settings:
                
                - `default` - The Capacity Reservation Fleet is created on hardware that is shared with other AWS accounts .
@@ -116,9 +112,7 @@ class CapacityReservationFleetArgs:
     @pulumi.getter(name="instanceTypeSpecifications")
     def instance_type_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetInstanceTypeSpecificationArgs']]]]:
         """
-        Specifies information about an instance type to use in a Capacity Reservation Fleet.
-
-        `InstanceTypeSpecification` is a property of the [AWS::EC2::CapacityReservationFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html) resource.
+        Information about the instance types for which to reserve the capacity.
         """
         return pulumi.get(self, "instance_type_specifications")
 
@@ -154,9 +148,7 @@ class CapacityReservationFleetArgs:
     @pulumi.getter(name="tagSpecifications")
     def tag_specifications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapacityReservationFleetTagSpecificationArgs']]]]:
         """
-        The tags to apply to a resource when the resource is being created. When you specify a tag, you must specify the resource type to tag, otherwise the request will fail.
-
-        > The `Valid Values` lists all the resource types that can be tagged. However, the action you're using might not support tagging all of these resource types. If you try to tag a resource type that is unsupported for the action you're using, you'll get an error.
+        The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.
         """
         return pulumi.get(self, "tag_specifications")
 
@@ -252,14 +244,10 @@ class CapacityReservationFleet(pulumi.CustomResource):
         :param pulumi.Input['CapacityReservationFleetInstanceMatchCriteria'] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All Capacity Reservations in the Fleet inherit this instance matching criteria.
                
                Currently, Capacity Reservation Fleets support `open` instance matching criteria only. This means that instances that have matching attributes (instance type, platform, and Availability Zone) run in the Capacity Reservations automatically. Instances do not need to explicitly target a Capacity Reservation Fleet to use its reserved capacity.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapacityReservationFleetInstanceTypeSpecificationArgs']]]] instance_type_specifications: Specifies information about an instance type to use in a Capacity Reservation Fleet.
-               
-               `InstanceTypeSpecification` is a property of the [AWS::EC2::CapacityReservationFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html) resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapacityReservationFleetInstanceTypeSpecificationArgs']]]] instance_type_specifications: Information about the instance types for which to reserve the capacity.
         :param pulumi.Input[bool] no_remove_end_date: Used to add an end date to a Capacity Reservation Fleet that has no end date and time. To add an end date to a Capacity Reservation Fleet, specify `true` for this paramater and specify the end date and time (in UTC time format) for the *EndDate* parameter.
         :param pulumi.Input[bool] remove_end_date: Used to remove an end date from a Capacity Reservation Fleet that is configured to end automatically at a specific date and time. To remove the end date from a Capacity Reservation Fleet, specify `true` for this paramater and omit the *EndDate* parameter.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapacityReservationFleetTagSpecificationArgs']]]] tag_specifications: The tags to apply to a resource when the resource is being created. When you specify a tag, you must specify the resource type to tag, otherwise the request will fail.
-               
-               > The `Valid Values` lists all the resource types that can be tagged. However, the action you're using might not support tagging all of these resource types. If you try to tag a resource type that is unsupported for the action you're using, you'll get an error.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CapacityReservationFleetTagSpecificationArgs']]]] tag_specifications: The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.
         :param pulumi.Input['CapacityReservationFleetTenancy'] tenancy: Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the following tenancy settings:
                
                - `default` - The Capacity Reservation Fleet is created on hardware that is shared with other AWS accounts .
@@ -427,9 +415,7 @@ class CapacityReservationFleet(pulumi.CustomResource):
     @pulumi.getter(name="instanceTypeSpecifications")
     def instance_type_specifications(self) -> pulumi.Output[Optional[Sequence['outputs.CapacityReservationFleetInstanceTypeSpecification']]]:
         """
-        Specifies information about an instance type to use in a Capacity Reservation Fleet.
-
-        `InstanceTypeSpecification` is a property of the [AWS::EC2::CapacityReservationFleet](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-capacityreservationfleet.html) resource.
+        Information about the instance types for which to reserve the capacity.
         """
         return pulumi.get(self, "instance_type_specifications")
 
@@ -453,9 +439,7 @@ class CapacityReservationFleet(pulumi.CustomResource):
     @pulumi.getter(name="tagSpecifications")
     def tag_specifications(self) -> pulumi.Output[Optional[Sequence['outputs.CapacityReservationFleetTagSpecification']]]:
         """
-        The tags to apply to a resource when the resource is being created. When you specify a tag, you must specify the resource type to tag, otherwise the request will fail.
-
-        > The `Valid Values` lists all the resource types that can be tagged. However, the action you're using might not support tagging all of these resource types. If you try to tag a resource type that is unsupported for the action you're using, you'll get an error.
+        The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.
         """
         return pulumi.get(self, "tag_specifications")
 

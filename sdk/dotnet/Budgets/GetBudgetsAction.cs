@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.Budgets
         /// </summary>
         public readonly Pulumi.AwsNative.Budgets.BudgetsActionApprovalModel? ApprovalModel;
         /// <summary>
-        /// The definition is where you specify all of the type-specific parameters.
+        /// Specifies all of the type-specific parameters.
         /// </summary>
         public readonly Outputs.BudgetsActionDefinition? Definition;
         /// <summary>
@@ -94,16 +94,11 @@ namespace Pulumi.AwsNative.Budgets
         /// </summary>
         public readonly Pulumi.AwsNative.Budgets.BudgetsActionNotificationType? NotificationType;
         /// <summary>
-        /// The tag structure that contains a tag key and value.
+        /// An optional list of tags to associate with the specified budget action. Each tag consists of a key and a value, and each key must be unique for the resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> ResourceTags;
         /// <summary>
-        /// The subscriber to a budget notification. The subscriber consists of a subscription type and either an Amazon SNS topic or an email address.
-        /// 
-        /// For example, an email subscriber has the following parameters:
-        /// 
-        /// - A `subscriptionType` of `EMAIL`
-        /// - An `address` of `example@example.com`
+        /// A list of subscribers.
         /// </summary>
         public readonly ImmutableArray<Outputs.BudgetsActionSubscriber> Subscribers;
 

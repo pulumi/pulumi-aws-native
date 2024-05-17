@@ -86,9 +86,9 @@ class LoggingConfigurationDestinationConfiguration(dict):
                  s3: Optional['outputs.LoggingConfigurationS3DestinationConfiguration'] = None):
         """
         Destination configuration for IVS Chat logging.
-        :param 'LoggingConfigurationCloudWatchLogsDestinationConfiguration' cloud_watch_logs: The CloudWatchLogsDestinationConfiguration property type specifies a CloudWatch Logs location where chat logs will be stored.
-        :param 'LoggingConfigurationFirehoseDestinationConfiguration' firehose: The FirehoseDestinationConfiguration property type specifies a Kinesis Firehose location where chat logs will be stored.
-        :param 'LoggingConfigurationS3DestinationConfiguration' s3: The S3DestinationConfiguration property type specifies an S3 location where chat logs will be stored.
+        :param 'LoggingConfigurationCloudWatchLogsDestinationConfiguration' cloud_watch_logs: An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
+        :param 'LoggingConfigurationFirehoseDestinationConfiguration' firehose: An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
+        :param 'LoggingConfigurationS3DestinationConfiguration' s3: An Amazon S3 destination configuration where chat activity will be logged.
         """
         if cloud_watch_logs is not None:
             pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
@@ -101,7 +101,7 @@ class LoggingConfigurationDestinationConfiguration(dict):
     @pulumi.getter(name="cloudWatchLogs")
     def cloud_watch_logs(self) -> Optional['outputs.LoggingConfigurationCloudWatchLogsDestinationConfiguration']:
         """
-        The CloudWatchLogsDestinationConfiguration property type specifies a CloudWatch Logs location where chat logs will be stored.
+        An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
         """
         return pulumi.get(self, "cloud_watch_logs")
 
@@ -109,7 +109,7 @@ class LoggingConfigurationDestinationConfiguration(dict):
     @pulumi.getter
     def firehose(self) -> Optional['outputs.LoggingConfigurationFirehoseDestinationConfiguration']:
         """
-        The FirehoseDestinationConfiguration property type specifies a Kinesis Firehose location where chat logs will be stored.
+        An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
         """
         return pulumi.get(self, "firehose")
 
@@ -117,7 +117,7 @@ class LoggingConfigurationDestinationConfiguration(dict):
     @pulumi.getter
     def s3(self) -> Optional['outputs.LoggingConfigurationS3DestinationConfiguration']:
         """
-        The S3DestinationConfiguration property type specifies an S3 location where chat logs will be stored.
+        An Amazon S3 destination configuration where chat activity will be logged.
         """
         return pulumi.get(self, "s3")
 

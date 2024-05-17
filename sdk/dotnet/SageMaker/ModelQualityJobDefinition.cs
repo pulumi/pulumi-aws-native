@@ -49,13 +49,13 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<Outputs.ModelQualityJobDefinitionModelQualityAppSpecification> ModelQualityAppSpecification { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
+        /// Specifies the constraints and baselines for the monitoring job.
         /// </summary>
         [Output("modelQualityBaselineConfig")]
         public Output<Outputs.ModelQualityJobDefinitionModelQualityBaselineConfig?> ModelQualityBaselineConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The input for the model quality monitoring job. Currently endpoints are supported for input for model quality monitoring jobs.
+        /// A list of the inputs that are monitored. Currently endpoints are supported.
         /// </summary>
         [Output("modelQualityJobInput")]
         public Output<Outputs.ModelQualityJobDefinitionModelQualityJobInput> ModelQualityJobInput { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<Outputs.ModelQualityJobDefinitionMonitoringOutputConfig> ModelQualityJobOutputConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        /// Specifies the network configuration for the monitoring job.
         /// </summary>
         [Output("networkConfig")]
         public Output<Outputs.ModelQualityJobDefinitionNetworkConfig?> NetworkConfig { get; private set; } = null!;
@@ -79,13 +79,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
-        /// 
-        /// To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-        /// 
-        /// The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
-        /// 
-        /// &gt; The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+        /// A time limit for how long the monitoring job is allowed to run before stopping.
         /// </summary>
         [Output("stoppingCondition")]
         public Output<Outputs.ModelQualityJobDefinitionStoppingCondition?> StoppingCondition { get; private set; } = null!;
@@ -177,13 +171,13 @@ namespace Pulumi.AwsNative.SageMaker
         public Input<Inputs.ModelQualityJobDefinitionModelQualityAppSpecificationArgs> ModelQualityAppSpecification { get; set; } = null!;
 
         /// <summary>
-        /// Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
+        /// Specifies the constraints and baselines for the monitoring job.
         /// </summary>
         [Input("modelQualityBaselineConfig")]
         public Input<Inputs.ModelQualityJobDefinitionModelQualityBaselineConfigArgs>? ModelQualityBaselineConfig { get; set; }
 
         /// <summary>
-        /// The input for the model quality monitoring job. Currently endpoints are supported for input for model quality monitoring jobs.
+        /// A list of the inputs that are monitored. Currently endpoints are supported.
         /// </summary>
         [Input("modelQualityJobInput", required: true)]
         public Input<Inputs.ModelQualityJobDefinitionModelQualityJobInputArgs> ModelQualityJobInput { get; set; } = null!;
@@ -195,7 +189,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Input<Inputs.ModelQualityJobDefinitionMonitoringOutputConfigArgs> ModelQualityJobOutputConfig { get; set; } = null!;
 
         /// <summary>
-        /// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+        /// Specifies the network configuration for the monitoring job.
         /// </summary>
         [Input("networkConfig")]
         public Input<Inputs.ModelQualityJobDefinitionNetworkConfigArgs>? NetworkConfig { get; set; }
@@ -207,13 +201,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
-        /// 
-        /// To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-        /// 
-        /// The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
-        /// 
-        /// &gt; The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+        /// A time limit for how long the monitoring job is allowed to run before stopping.
         /// </summary>
         [Input("stoppingCondition")]
         public Input<Inputs.ModelQualityJobDefinitionStoppingConditionArgs>? StoppingCondition { get; set; }

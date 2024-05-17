@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
         /// </summary>
         public readonly string? DescriptiveText;
         /// <summary>
-        /// Describes the configuration for the file uploader field.
+        /// The configuration for the file uploader field.
         /// </summary>
         public readonly Outputs.FormFileUploaderFieldConfig? FileUploaderConfig;
         /// <summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
         /// </summary>
         public readonly string? Value;
         /// <summary>
-        /// The `ValueMappings` property specifies the data binding configuration for a value map.
+        /// The information to use to customize the input fields with data at runtime.
         /// </summary>
         public readonly Outputs.FormValueMappings? ValueMappings;
 

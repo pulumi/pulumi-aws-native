@@ -17,11 +17,11 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     public sealed class ModelPackageModelQuality
     {
         /// <summary>
-        /// Details about the metrics source.
+        /// Model quality constraints.
         /// </summary>
         public readonly Outputs.ModelPackageMetricsSource? Constraints;
         /// <summary>
-        /// Details about the metrics source.
+        /// Model quality statistics.
         /// </summary>
         public readonly Outputs.ModelPackageMetricsSource? Statistics;
 

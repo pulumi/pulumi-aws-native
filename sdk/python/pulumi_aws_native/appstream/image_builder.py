@@ -68,7 +68,7 @@ class ImageBuilderArgs:
                - stream.graphics-pro.4xlarge
                - stream.graphics-pro.8xlarge
                - stream.graphics-pro.16xlarge
-        :param pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]] access_endpoints: Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]] access_endpoints: The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
         :param pulumi.Input[str] appstream_agent_version: The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
         :param pulumi.Input[str] description: The description to display.
         :param pulumi.Input[str] display_name: The image builder name to display.
@@ -80,8 +80,8 @@ class ImageBuilderArgs:
         :param pulumi.Input[str] image_arn: The ARN of the public, private, or shared image to use.
         :param pulumi.Input[str] image_name: The name of the image used to create the image builder.
         :param pulumi.Input[str] name: A unique name for the image builder.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tag of the image builder.
-        :param pulumi.Input['ImageBuilderVpcConfigArgs'] vpc_config: The VPC configuration for the image builder.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs.
+        :param pulumi.Input['ImageBuilderVpcConfigArgs'] vpc_config: The VPC configuration for the image builder. You can specify only one subnet.
         """
         pulumi.set(__self__, "instance_type", instance_type)
         if access_endpoints is not None:
@@ -159,7 +159,7 @@ class ImageBuilderArgs:
     @pulumi.getter(name="accessEndpoints")
     def access_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]]:
         """
-        Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+        The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
         """
         return pulumi.get(self, "access_endpoints")
 
@@ -281,7 +281,7 @@ class ImageBuilderArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The tag of the image builder.
+        An array of key-value pairs.
         """
         return pulumi.get(self, "tags")
 
@@ -293,7 +293,7 @@ class ImageBuilderArgs:
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> Optional[pulumi.Input['ImageBuilderVpcConfigArgs']]:
         """
-        The VPC configuration for the image builder.
+        The VPC configuration for the image builder. You can specify only one subnet.
         """
         return pulumi.get(self, "vpc_config")
 
@@ -326,7 +326,7 @@ class ImageBuilder(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageBuilderAccessEndpointArgs']]]] access_endpoints: Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageBuilderAccessEndpointArgs']]]] access_endpoints: The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
         :param pulumi.Input[str] appstream_agent_version: The version of the AppStream 2.0 agent to use for this image builder. To use the latest version of the AppStream 2.0 agent, specify [LATEST].
         :param pulumi.Input[str] description: The description to display.
         :param pulumi.Input[str] display_name: The image builder name to display.
@@ -373,8 +373,8 @@ class ImageBuilder(pulumi.CustomResource):
                - stream.graphics-pro.8xlarge
                - stream.graphics-pro.16xlarge
         :param pulumi.Input[str] name: A unique name for the image builder.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tag of the image builder.
-        :param pulumi.Input[pulumi.InputType['ImageBuilderVpcConfigArgs']] vpc_config: The VPC configuration for the image builder.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs.
+        :param pulumi.Input[pulumi.InputType['ImageBuilderVpcConfigArgs']] vpc_config: The VPC configuration for the image builder. You can specify only one subnet.
         """
         ...
     @overload
@@ -480,7 +480,7 @@ class ImageBuilder(pulumi.CustomResource):
     @pulumi.getter(name="accessEndpoints")
     def access_endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.ImageBuilderAccessEndpoint']]]:
         """
-        Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+        The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
         """
         return pulumi.get(self, "access_endpoints")
 
@@ -612,7 +612,7 @@ class ImageBuilder(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The tag of the image builder.
+        An array of key-value pairs.
         """
         return pulumi.get(self, "tags")
 
@@ -620,7 +620,7 @@ class ImageBuilder(pulumi.CustomResource):
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Output[Optional['outputs.ImageBuilderVpcConfig']]:
         """
-        The VPC configuration for the image builder.
+        The VPC configuration for the image builder. You can specify only one subnet.
         """
         return pulumi.get(self, "vpc_config")
 

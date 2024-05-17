@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.PcaConnectorAd
     public partial class TemplateGroupAccessControlEntry : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a template.
+        /// Permissions to allow or deny an Active Directory group to enroll or autoenroll certificates issued against a template.
         /// </summary>
         [Output("accessRights")]
         public Output<Outputs.TemplateGroupAccessControlEntryAccessRights> AccessRights { get; private set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.PcaConnectorAd
     public sealed class TemplateGroupAccessControlEntryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a template.
+        /// Permissions to allow or deny an Active Directory group to enroll or autoenroll certificates issued against a template.
         /// </summary>
         [Input("accessRights", required: true)]
         public Input<Inputs.TemplateGroupAccessControlEntryAccessRightsArgs> AccessRights { get; set; } = null!;

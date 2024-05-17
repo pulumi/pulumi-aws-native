@@ -14,15 +14,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisColumnConfiguration
     {
         /// <summary>
-        /// The color configurations for a column.
+        /// The color configurations of the column.
         /// </summary>
         public readonly Outputs.AnalysisColorsConfiguration? ColorsConfiguration;
         /// <summary>
-        /// A column of a data set.
+        /// The column.
         /// </summary>
         public readonly Outputs.AnalysisColumnIdentifier Column;
         /// <summary>
-        /// The formatting configuration for all types of field.
+        /// The format configuration of a column.
         /// </summary>
         public readonly Outputs.AnalysisFormatConfiguration? FormatConfiguration;
         /// <summary>

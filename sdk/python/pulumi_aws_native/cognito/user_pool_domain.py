@@ -25,7 +25,7 @@ class UserPoolDomainArgs:
                
                This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
         :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool where you want to associate a user pool domain.
-        :param pulumi.Input['UserPoolDomainCustomDomainConfigTypeArgs'] custom_domain_config: The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+        :param pulumi.Input['UserPoolDomainCustomDomainConfigTypeArgs'] custom_domain_config: The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -62,7 +62,7 @@ class UserPoolDomainArgs:
     @pulumi.getter(name="customDomainConfig")
     def custom_domain_config(self) -> Optional[pulumi.Input['UserPoolDomainCustomDomainConfigTypeArgs']]:
         """
-        The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+        The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
         """
         return pulumi.get(self, "custom_domain_config")
 
@@ -85,7 +85,7 @@ class UserPoolDomain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['UserPoolDomainCustomDomainConfigTypeArgs']] custom_domain_config: The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+        :param pulumi.Input[pulumi.InputType['UserPoolDomainCustomDomainConfigTypeArgs']] custom_domain_config: The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
         :param pulumi.Input[str] domain: The domain name for the domain that hosts the sign-up and sign-in pages for your application. For example: `auth.example.com` . If you're using a prefix domain, this field denotes the first part of the domain before `.auth.[region].amazoncognito.com` .
                
                This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
@@ -187,7 +187,7 @@ class UserPoolDomain(pulumi.CustomResource):
     @pulumi.getter(name="customDomainConfig")
     def custom_domain_config(self) -> pulumi.Output[Optional['outputs.UserPoolDomainCustomDomainConfigType']]:
         """
-        The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.
+        The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
         """
         return pulumi.get(self, "custom_domain_config")
 

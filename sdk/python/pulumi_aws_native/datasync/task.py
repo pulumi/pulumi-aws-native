@@ -35,18 +35,16 @@ class TaskArgs:
         :param pulumi.Input[str] destination_location_arn: The ARN of an AWS storage resource's location.
         :param pulumi.Input[str] source_location_arn: The ARN of the source location for the task.
         :param pulumi.Input[str] cloud_watch_log_group_arn: The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
-        :param pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]] excludes: Specifies which files, folders, and objects to include or exclude when transferring files from source to destination.
-        :param pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]] includes: Specifies which files, folders, and objects to include or exclude when transferring files from source to destination.
-        :param pulumi.Input['TaskManifestConfigArgs'] manifest_config: Configures a manifest, which is a list of files or objects that you want AWS DataSync to transfer. For more information and configuration examples, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
+        :param pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]] excludes: Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+        :param pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]] includes: Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+        :param pulumi.Input['TaskManifestConfigArgs'] manifest_config: The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
         :param pulumi.Input[str] name: The name of a task. This value is a text reference that is used to identify the task in the console.
-        :param pulumi.Input['TaskOptionsArgs'] options: Represents the options that are available to control the behavior of a [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) operation. This behavior includes preserving metadata, such as user ID (UID), group ID (GID), and file permissions; overwriting files in the destination; data integrity verification; and so on.
-               
-               A task has a set of default options associated with it. If you don't specify an option in [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) , the default value is used. You can override the default options on each task execution by specifying an overriding `Options` value to [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) .
-        :param pulumi.Input['TaskScheduleArgs'] schedule: Configures your AWS DataSync task to run on a [schedule](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) (at a minimum interval of 1 hour).
+        :param pulumi.Input['TaskOptionsArgs'] options: Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
+        :param pulumi.Input['TaskScheduleArgs'] schedule: Specifies a schedule for when you want your task to run. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
-        :param pulumi.Input['TaskReportConfigArgs'] task_report_config: Specifies how you want to configure a task report, which provides detailed information about for your AWS DataSync transfer.
+        :param pulumi.Input['TaskReportConfigArgs'] task_report_config: Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
                
-               For more information, see [Task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
+               When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
         """
         pulumi.set(__self__, "destination_location_arn", destination_location_arn)
         pulumi.set(__self__, "source_location_arn", source_location_arn)
@@ -109,7 +107,7 @@ class TaskArgs:
     @pulumi.getter
     def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]]]:
         """
-        Specifies which files, folders, and objects to include or exclude when transferring files from source to destination.
+        Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
         """
         return pulumi.get(self, "excludes")
 
@@ -121,7 +119,7 @@ class TaskArgs:
     @pulumi.getter
     def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskFilterRuleArgs']]]]:
         """
-        Specifies which files, folders, and objects to include or exclude when transferring files from source to destination.
+        Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
         """
         return pulumi.get(self, "includes")
 
@@ -133,7 +131,7 @@ class TaskArgs:
     @pulumi.getter(name="manifestConfig")
     def manifest_config(self) -> Optional[pulumi.Input['TaskManifestConfigArgs']]:
         """
-        Configures a manifest, which is a list of files or objects that you want AWS DataSync to transfer. For more information and configuration examples, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
+        The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
         """
         return pulumi.get(self, "manifest_config")
 
@@ -157,9 +155,7 @@ class TaskArgs:
     @pulumi.getter
     def options(self) -> Optional[pulumi.Input['TaskOptionsArgs']]:
         """
-        Represents the options that are available to control the behavior of a [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) operation. This behavior includes preserving metadata, such as user ID (UID), group ID (GID), and file permissions; overwriting files in the destination; data integrity verification; and so on.
-
-        A task has a set of default options associated with it. If you don't specify an option in [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) , the default value is used. You can override the default options on each task execution by specifying an overriding `Options` value to [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) .
+        Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
         """
         return pulumi.get(self, "options")
 
@@ -171,7 +167,7 @@ class TaskArgs:
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['TaskScheduleArgs']]:
         """
-        Configures your AWS DataSync task to run on a [schedule](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) (at a minimum interval of 1 hour).
+        Specifies a schedule for when you want your task to run. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
         """
         return pulumi.get(self, "schedule")
 
@@ -195,9 +191,9 @@ class TaskArgs:
     @pulumi.getter(name="taskReportConfig")
     def task_report_config(self) -> Optional[pulumi.Input['TaskReportConfigArgs']]:
         """
-        Specifies how you want to configure a task report, which provides detailed information about for your AWS DataSync transfer.
+        Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
 
-        For more information, see [Task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
+        When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
         """
         return pulumi.get(self, "task_report_config")
 
@@ -254,19 +250,17 @@ class Task(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloud_watch_log_group_arn: The ARN of the Amazon CloudWatch log group that is used to monitor and log events in the task.
         :param pulumi.Input[str] destination_location_arn: The ARN of an AWS storage resource's location.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]] excludes: Specifies which files, folders, and objects to include or exclude when transferring files from source to destination.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]] includes: Specifies which files, folders, and objects to include or exclude when transferring files from source to destination.
-        :param pulumi.Input[pulumi.InputType['TaskManifestConfigArgs']] manifest_config: Configures a manifest, which is a list of files or objects that you want AWS DataSync to transfer. For more information and configuration examples, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]] excludes: Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskFilterRuleArgs']]]] includes: Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
+        :param pulumi.Input[pulumi.InputType['TaskManifestConfigArgs']] manifest_config: The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
         :param pulumi.Input[str] name: The name of a task. This value is a text reference that is used to identify the task in the console.
-        :param pulumi.Input[pulumi.InputType['TaskOptionsArgs']] options: Represents the options that are available to control the behavior of a [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) operation. This behavior includes preserving metadata, such as user ID (UID), group ID (GID), and file permissions; overwriting files in the destination; data integrity verification; and so on.
-               
-               A task has a set of default options associated with it. If you don't specify an option in [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) , the default value is used. You can override the default options on each task execution by specifying an overriding `Options` value to [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) .
-        :param pulumi.Input[pulumi.InputType['TaskScheduleArgs']] schedule: Configures your AWS DataSync task to run on a [schedule](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) (at a minimum interval of 1 hour).
+        :param pulumi.Input[pulumi.InputType['TaskOptionsArgs']] options: Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
+        :param pulumi.Input[pulumi.InputType['TaskScheduleArgs']] schedule: Specifies a schedule for when you want your task to run. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
         :param pulumi.Input[str] source_location_arn: The ARN of the source location for the task.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
-        :param pulumi.Input[pulumi.InputType['TaskReportConfigArgs']] task_report_config: Specifies how you want to configure a task report, which provides detailed information about for your AWS DataSync transfer.
+        :param pulumi.Input[pulumi.InputType['TaskReportConfigArgs']] task_report_config: Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
                
-               For more information, see [Task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
+               When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
         """
         ...
     @overload
@@ -424,7 +418,7 @@ class Task(pulumi.CustomResource):
     @pulumi.getter
     def excludes(self) -> pulumi.Output[Optional[Sequence['outputs.TaskFilterRule']]]:
         """
-        Specifies which files, folders, and objects to include or exclude when transferring files from source to destination.
+        Specifies exclude filters that define the files, objects, and folders in your source location that you don't want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
         """
         return pulumi.get(self, "excludes")
 
@@ -432,7 +426,7 @@ class Task(pulumi.CustomResource):
     @pulumi.getter
     def includes(self) -> pulumi.Output[Optional[Sequence['outputs.TaskFilterRule']]]:
         """
-        Specifies which files, folders, and objects to include or exclude when transferring files from source to destination.
+        Specifies include filters define the files, objects, and folders in your source location that you want DataSync to transfer. For more information and examples, see [Specifying what DataSync transfers by using filters](https://docs.aws.amazon.com/datasync/latest/userguide/filtering.html) .
         """
         return pulumi.get(self, "includes")
 
@@ -440,7 +434,7 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="manifestConfig")
     def manifest_config(self) -> pulumi.Output[Optional['outputs.TaskManifestConfig']]:
         """
-        Configures a manifest, which is a list of files or objects that you want AWS DataSync to transfer. For more information and configuration examples, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
+        The configuration of the manifest that lists the files or objects that you want DataSync to transfer. For more information, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
         """
         return pulumi.get(self, "manifest_config")
 
@@ -456,9 +450,7 @@ class Task(pulumi.CustomResource):
     @pulumi.getter
     def options(self) -> pulumi.Output[Optional['outputs.TaskOptions']]:
         """
-        Represents the options that are available to control the behavior of a [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) operation. This behavior includes preserving metadata, such as user ID (UID), group ID (GID), and file permissions; overwriting files in the destination; data integrity verification; and so on.
-
-        A task has a set of default options associated with it. If you don't specify an option in [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) , the default value is used. You can override the default options on each task execution by specifying an overriding `Options` value to [StartTaskExecution](https://docs.aws.amazon.com/datasync/latest/userguide/API_StartTaskExecution.html) .
+        Specifies your task's settings, such as preserving file metadata, verifying data integrity, among other options.
         """
         return pulumi.get(self, "options")
 
@@ -466,7 +458,7 @@ class Task(pulumi.CustomResource):
     @pulumi.getter
     def schedule(self) -> pulumi.Output[Optional['outputs.TaskSchedule']]:
         """
-        Configures your AWS DataSync task to run on a [schedule](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) (at a minimum interval of 1 hour).
+        Specifies a schedule for when you want your task to run. For more information, see [Scheduling your task](https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html) .
         """
         return pulumi.get(self, "schedule")
 
@@ -514,9 +506,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="taskReportConfig")
     def task_report_config(self) -> pulumi.Output[Optional['outputs.TaskReportConfig']]:
         """
-        Specifies how you want to configure a task report, which provides detailed information about for your AWS DataSync transfer.
+        Specifies how you want to configure a task report, which provides detailed information about your DataSync transfer. For more information, see [Monitoring your DataSync transfers with task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
 
-        For more information, see [Task reports](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
+        When using this parameter, your caller identity (the role that you're using DataSync with) must have the `iam:PassRole` permission. The [AWSDataSyncFullAccess](https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess) policy includes this permission.
         """
         return pulumi.get(self, "task_report_config")
 

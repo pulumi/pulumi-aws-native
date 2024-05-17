@@ -31,7 +31,7 @@ export interface GetLoggingConfigurationResult {
      */
     readonly arn?: string;
     /**
-     * The DestinationConfiguration property type describes a location where chat logs will be stored. Each member represents the configuration of one log destination. For logging, you define only one type of destination.
+     * The DestinationConfiguration is a complex type that contains information about where chat content will be logged.
      */
     readonly destinationConfiguration?: outputs.ivschat.LoggingConfigurationDestinationConfiguration;
     /**

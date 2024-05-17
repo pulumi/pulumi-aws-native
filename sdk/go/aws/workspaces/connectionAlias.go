@@ -19,13 +19,13 @@ type ConnectionAlias struct {
 
 	// The identifier of the connection alias, returned as a string.
 	AliasId pulumi.StringOutput `pulumi:"aliasId"`
-	// Describes a connection alias association that is used for cross-Region redirection. For more information, see [Cross-Region Redirection for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html) .
+	// The association status of the connection alias.
 	Associations ConnectionAliasAssociationArrayOutput `pulumi:"associations"`
 	// The current state of the connection alias, returned as a string.
 	ConnectionAliasState ConnectionAliasStateEnumOutput `pulumi:"connectionAliasState"`
 	// The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as `www.example.com` .
 	ConnectionString pulumi.StringOutput `pulumi:"connectionString"`
-	// Describes a tag.
+	// The tags to associate with the connection alias.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
@@ -79,7 +79,7 @@ func (ConnectionAliasState) ElementType() reflect.Type {
 type connectionAliasArgs struct {
 	// The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as `www.example.com` .
 	ConnectionString string `pulumi:"connectionString"`
-	// Describes a tag.
+	// The tags to associate with the connection alias.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
@@ -87,7 +87,7 @@ type connectionAliasArgs struct {
 type ConnectionAliasArgs struct {
 	// The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as `www.example.com` .
 	ConnectionString pulumi.StringInput
-	// Describes a tag.
+	// The tags to associate with the connection alias.
 	Tags aws.CreateOnlyTagArrayInput
 }
 
@@ -133,7 +133,7 @@ func (o ConnectionAliasOutput) AliasId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionAlias) pulumi.StringOutput { return v.AliasId }).(pulumi.StringOutput)
 }
 
-// Describes a connection alias association that is used for cross-Region redirection. For more information, see [Cross-Region Redirection for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html) .
+// The association status of the connection alias.
 func (o ConnectionAliasOutput) Associations() ConnectionAliasAssociationArrayOutput {
 	return o.ApplyT(func(v *ConnectionAlias) ConnectionAliasAssociationArrayOutput { return v.Associations }).(ConnectionAliasAssociationArrayOutput)
 }
@@ -148,7 +148,7 @@ func (o ConnectionAliasOutput) ConnectionString() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConnectionAlias) pulumi.StringOutput { return v.ConnectionString }).(pulumi.StringOutput)
 }
 
-// Describes a tag.
+// The tags to associate with the connection alias.
 func (o ConnectionAliasOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *ConnectionAlias) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }

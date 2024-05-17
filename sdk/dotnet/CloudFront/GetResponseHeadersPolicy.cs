@@ -67,8 +67,6 @@ namespace Pulumi.AwsNative.CloudFront
         public readonly string? LastModifiedTime;
         /// <summary>
         /// A response headers policy configuration.
-        /// 
-        /// A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
         /// </summary>
         public readonly Outputs.ResponseHeadersPolicyConfig? ResponseHeadersPolicyConfig;
 

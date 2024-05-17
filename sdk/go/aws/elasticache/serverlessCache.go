@@ -19,7 +19,7 @@ type ServerlessCache struct {
 
 	// The ARN of the Serverless Cache.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The usage limits for storage and ElastiCache Processing Units for the cache.
+	// The cache usage limit for the serverless cache.
 	CacheUsageLimits ServerlessCacheCacheUsageLimitsPtrOutput `pulumi:"cacheUsageLimits"`
 	// The creation time of the Serverless Cache.
 	CreateTime pulumi.StringOutput `pulumi:"createTime"`
@@ -111,7 +111,7 @@ func (ServerlessCacheState) ElementType() reflect.Type {
 }
 
 type serverlessCacheArgs struct {
-	// The usage limits for storage and ElastiCache Processing Units for the cache.
+	// The cache usage limit for the serverless cache.
 	CacheUsageLimits *ServerlessCacheCacheUsageLimits `pulumi:"cacheUsageLimits"`
 	// The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.
 	DailySnapshotTime *string `pulumi:"dailySnapshotTime"`
@@ -147,7 +147,7 @@ type serverlessCacheArgs struct {
 
 // The set of arguments for constructing a ServerlessCache resource.
 type ServerlessCacheArgs struct {
-	// The usage limits for storage and ElastiCache Processing Units for the cache.
+	// The cache usage limit for the serverless cache.
 	CacheUsageLimits ServerlessCacheCacheUsageLimitsPtrInput
 	// The daily time range (in UTC) during which the service takes automatic snapshot of the Serverless Cache.
 	DailySnapshotTime pulumi.StringPtrInput
@@ -223,7 +223,7 @@ func (o ServerlessCacheOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The usage limits for storage and ElastiCache Processing Units for the cache.
+// The cache usage limit for the serverless cache.
 func (o ServerlessCacheOutput) CacheUsageLimits() ServerlessCacheCacheUsageLimitsPtrOutput {
 	return o.ApplyT(func(v *ServerlessCache) ServerlessCacheCacheUsageLimitsPtrOutput { return v.CacheUsageLimits }).(ServerlessCacheCacheUsageLimitsPtrOutput)
 }

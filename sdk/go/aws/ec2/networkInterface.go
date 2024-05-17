@@ -19,7 +19,7 @@ type NetworkInterface struct {
 
 	// Network interface id.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
-	// Configurable options for connection tracking on a network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon Elastic Compute Cloud User Guide* .
+	// A connection tracking specification for the network interface.
 	ConnectionTrackingSpecification NetworkInterfaceConnectionTrackingSpecificationPtrOutput `pulumi:"connectionTrackingSpecification"`
 	// A description for the network interface.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -112,7 +112,7 @@ func (NetworkInterfaceState) ElementType() reflect.Type {
 }
 
 type networkInterfaceArgs struct {
-	// Configurable options for connection tracking on a network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon Elastic Compute Cloud User Guide* .
+	// A connection tracking specification for the network interface.
 	ConnectionTrackingSpecification *NetworkInterfaceConnectionTrackingSpecification `pulumi:"connectionTrackingSpecification"`
 	// A description for the network interface.
 	Description *string `pulumi:"description"`
@@ -150,7 +150,7 @@ type networkInterfaceArgs struct {
 
 // The set of arguments for constructing a NetworkInterface resource.
 type NetworkInterfaceArgs struct {
-	// Configurable options for connection tracking on a network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon Elastic Compute Cloud User Guide* .
+	// A connection tracking specification for the network interface.
 	ConnectionTrackingSpecification NetworkInterfaceConnectionTrackingSpecificationPtrInput
 	// A description for the network interface.
 	Description pulumi.StringPtrInput
@@ -228,7 +228,7 @@ func (o NetworkInterfaceOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
-// Configurable options for connection tracking on a network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon Elastic Compute Cloud User Guide* .
+// A connection tracking specification for the network interface.
 func (o NetworkInterfaceOutput) ConnectionTrackingSpecification() NetworkInterfaceConnectionTrackingSpecificationPtrOutput {
 	return o.ApplyT(func(v *NetworkInterface) NetworkInterfaceConnectionTrackingSpecificationPtrOutput {
 		return v.ConnectionTrackingSpecification

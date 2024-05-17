@@ -58,32 +58,34 @@ namespace Pulumi.AwsNative.IoTAnalytics
     public sealed class GetDatasetResult
     {
         /// <summary>
-        /// Information needed to run the "containerAction" to produce data set contents.
+        /// The `DatasetAction` objects that automatically create the dataset contents.
         /// </summary>
         public readonly ImmutableArray<Outputs.DatasetAction> Actions;
         /// <summary>
-        /// When dataset contents are created, they are delivered to destination specified here.
+        /// When dataset contents are created they are delivered to destinations specified here.
         /// </summary>
         public readonly ImmutableArray<Outputs.DatasetContentDeliveryRule> ContentDeliveryRules;
         public readonly string? Id;
         /// <summary>
-        /// A structure that contains the name and configuration information of a late data rule.
+        /// A list of data rules that send notifications to CloudWatch, when data arrives late. To specify `lateDataRules` , the dataset must use a [DeltaTimer](https://docs.aws.amazon.com/iotanalytics/latest/APIReference/API_DeltaTime.html) filter.
         /// </summary>
         public readonly ImmutableArray<Outputs.DatasetLateDataRule> LateDataRules;
         /// <summary>
-        /// How long, in days, message data is kept.
+        /// Optional. How long, in days, message data is kept for the dataset.
         /// </summary>
         public readonly Outputs.DatasetRetentionPeriod? RetentionPeriod;
         /// <summary>
-        /// A set of key-value pairs that are used to manage the resource.
+        /// Metadata which can be used to manage the data set.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
-        /// The "DatasetTrigger" that specifies when the data set is automatically updated.
+        /// The `DatasetTrigger` objects that specify when the dataset is automatically updated.
         /// </summary>
         public readonly ImmutableArray<Outputs.DatasetTrigger> Triggers;
         /// <summary>
-        /// Information about the versioning of dataset contents.
+        /// Optional. How many versions of dataset contents are kept. If not specified or set to null, only the latest version plus the latest succeeded version (if they are different) are kept for the time period specified by the `retentionPeriod` parameter. For more information, see [Keeping Multiple Versions of AWS IoT Analytics datasets](https://docs.aws.amazon.com/iotanalytics/latest/userguide/getting-started.html#aws-iot-analytics-dataset-versions) in the *AWS IoT Analytics User Guide* .
         /// </summary>
         public readonly Outputs.DatasetVersioningConfiguration? VersioningConfiguration;
 

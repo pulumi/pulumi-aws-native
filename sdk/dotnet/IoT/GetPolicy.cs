@@ -71,9 +71,6 @@ namespace Pulumi.AwsNative.IoT
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::IoT::Policy` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? PolicyDocument;
-        /// <summary>
-        /// A set of key/value pairs that are used to manage the resource.
-        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

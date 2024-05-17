@@ -58,7 +58,7 @@ export class ResponsePlan extends pulumi.CustomResource {
      */
     public readonly engagements!: pulumi.Output<string[] | undefined>;
     /**
-     * The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
+     * Details used to create an incident when using this response plan.
      */
     public readonly incidentTemplate!: pulumi.Output<outputs.ssmincidents.ResponsePlanIncidentTemplate>;
     /**
@@ -136,7 +136,7 @@ export interface ResponsePlanArgs {
      */
     engagements?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
+     * Details used to create an incident when using this response plan.
      */
     incidentTemplate: pulumi.Input<inputs.ssmincidents.ResponsePlanIncidentTemplateArgs>;
     /**

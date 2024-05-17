@@ -66,15 +66,15 @@ namespace Pulumi.AwsNative.RolesAnywhere
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Customizable notification settings that will be applied to notification events. IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge , and AWS Health Dashboard .
+        /// A list of notification settings to be associated to the trust anchor.
         /// </summary>
         public readonly ImmutableArray<Outputs.TrustAnchorNotificationSetting> NotificationSettings;
         /// <summary>
-        /// Object representing the TrustAnchor type and its related certificate data.
+        /// The trust anchor type and its related certificate data.
         /// </summary>
         public readonly Outputs.TrustAnchorSource? Source;
         /// <summary>
-        /// A label that consists of a key and value you define.
+        /// The tags to attach to the trust anchor.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>

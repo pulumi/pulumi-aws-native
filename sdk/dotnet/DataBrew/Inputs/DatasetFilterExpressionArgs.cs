@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         private InputList<Inputs.DatasetFilterValueArgs>? _valuesMap;
 
         /// <summary>
-        /// Represents a single entry in the `ValuesMap` of a `FilterExpression` . A `FilterValue` associates the name of a substitution variable in an expression to its value.
+        /// The map of substitution variable names to their values used in this filter expression.
         /// </summary>
         public InputList<Inputs.DatasetFilterValueArgs> ValuesMap
         {

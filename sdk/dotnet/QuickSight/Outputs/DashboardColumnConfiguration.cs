@@ -14,15 +14,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardColumnConfiguration
     {
         /// <summary>
-        /// The color configurations for a column.
+        /// The color configurations of the column.
         /// </summary>
         public readonly Outputs.DashboardColorsConfiguration? ColorsConfiguration;
         /// <summary>
-        /// A column of a data set.
+        /// The column.
         /// </summary>
         public readonly Outputs.DashboardColumnIdentifier Column;
         /// <summary>
-        /// The formatting configuration for all types of field.
+        /// The format configuration of a column.
         /// </summary>
         public readonly Outputs.DashboardFormatConfiguration? FormatConfiguration;
         /// <summary>

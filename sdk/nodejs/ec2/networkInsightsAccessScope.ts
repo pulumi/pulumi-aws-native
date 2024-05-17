@@ -42,11 +42,11 @@ export class NetworkInsightsAccessScope extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdDate!: pulumi.Output<string>;
     /**
-     * Describes a path.
+     * The paths to exclude.
      */
     public readonly excludePaths!: pulumi.Output<outputs.ec2.NetworkInsightsAccessScopeAccessScopePathRequest[] | undefined>;
     /**
-     * Describes a path.
+     * The paths to match.
      */
     public readonly matchPaths!: pulumi.Output<outputs.ec2.NetworkInsightsAccessScopeAccessScopePathRequest[] | undefined>;
     /**
@@ -58,7 +58,7 @@ export class NetworkInsightsAccessScope extends pulumi.CustomResource {
      */
     public /*out*/ readonly networkInsightsAccessScopeId!: pulumi.Output<string>;
     /**
-     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     * The tags.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -105,15 +105,15 @@ export class NetworkInsightsAccessScope extends pulumi.CustomResource {
  */
 export interface NetworkInsightsAccessScopeArgs {
     /**
-     * Describes a path.
+     * The paths to exclude.
      */
     excludePaths?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeAccessScopePathRequestArgs>[]>;
     /**
-     * Describes a path.
+     * The paths to match.
      */
     matchPaths?: pulumi.Input<pulumi.Input<inputs.ec2.NetworkInsightsAccessScopeAccessScopePathRequestArgs>[]>;
     /**
-     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     * The tags.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

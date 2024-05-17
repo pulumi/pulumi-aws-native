@@ -33,7 +33,7 @@ type Partnership struct {
 	Phone         pulumi.StringPtrOutput `pulumi:"phone"`
 	// Returns the unique, system-generated identifier for the profile connected to this partnership.
 	ProfileId pulumi.StringOutput `pulumi:"profileId"`
-	// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+	// A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Returns the unique, system-generated identifier for a trading partner.
 	TradingPartnerId pulumi.StringOutput `pulumi:"tradingPartnerId"`
@@ -99,7 +99,7 @@ type partnershipArgs struct {
 	Phone *string `pulumi:"phone"`
 	// Returns the unique, system-generated identifier for the profile connected to this partnership.
 	ProfileId string `pulumi:"profileId"`
-	// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+	// A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -113,7 +113,7 @@ type PartnershipArgs struct {
 	Phone pulumi.StringPtrInput
 	// Returns the unique, system-generated identifier for the profile connected to this partnership.
 	ProfileId pulumi.StringInput
-	// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+	// A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
 	Tags aws.TagArrayInput
 }
 
@@ -197,7 +197,7 @@ func (o PartnershipOutput) ProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Partnership) pulumi.StringOutput { return v.ProfileId }).(pulumi.StringOutput)
 }
 
-// Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+// A key-value pair for a specific partnership. Tags are metadata that you can use to search for and group capabilities for various purposes.
 func (o PartnershipOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Partnership) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

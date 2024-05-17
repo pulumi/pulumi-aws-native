@@ -32,7 +32,7 @@ class BotAliasArgs:
         :param pulumi.Input[str] bot_alias_name: The name of the bot alias.
         :param pulumi.Input[Sequence[pulumi.Input['BotAliasTagArgs']]] bot_alias_tags: A list of tags to add to the bot alias.
         :param pulumi.Input[str] bot_version: The version of the bot that the bot alias references.
-        :param pulumi.Input['BotAliasConversationLogSettingsArgs'] conversation_log_settings: Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+        :param pulumi.Input['BotAliasConversationLogSettingsArgs'] conversation_log_settings: Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
         :param pulumi.Input[str] description: The description of the bot alias.
         :param pulumi.Input['SentimentAnalysisSettingsPropertiesArgs'] sentiment_analysis_settings: Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
         """
@@ -116,7 +116,7 @@ class BotAliasArgs:
     @pulumi.getter(name="conversationLogSettings")
     def conversation_log_settings(self) -> Optional[pulumi.Input['BotAliasConversationLogSettingsArgs']]:
         """
-        Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+        Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
         """
         return pulumi.get(self, "conversation_log_settings")
 
@@ -173,7 +173,7 @@ class BotAlias(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotAliasTagArgs']]]] bot_alias_tags: A list of tags to add to the bot alias.
         :param pulumi.Input[str] bot_id: The unique identifier of the bot.
         :param pulumi.Input[str] bot_version: The version of the bot that the bot alias references.
-        :param pulumi.Input[pulumi.InputType['BotAliasConversationLogSettingsArgs']] conversation_log_settings: Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+        :param pulumi.Input[pulumi.InputType['BotAliasConversationLogSettingsArgs']] conversation_log_settings: Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
         :param pulumi.Input[str] description: The description of the bot alias.
         :param pulumi.Input[pulumi.InputType['SentimentAnalysisSettingsPropertiesArgs']] sentiment_analysis_settings: Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of user utterances.
         """
@@ -336,7 +336,7 @@ class BotAlias(pulumi.CustomResource):
     @pulumi.getter(name="conversationLogSettings")
     def conversation_log_settings(self) -> pulumi.Output[Optional['outputs.BotAliasConversationLogSettings']]:
         """
-        Configures conversation logging that saves audio, text, and metadata for the conversations with your users.
+        Specifies whether Amazon Lex logs text and audio for conversations with the bot. When you enable conversation logs, text logs store text input, transcripts of audio input, and associated metadata in Amazon CloudWatch logs. Audio logs store input in Amazon S3 .
         """
         return pulumi.get(self, "conversation_log_settings")
 

@@ -33,9 +33,6 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("createdTime")]
         public Output<string> CreatedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// The detailed definition of a template.
-        /// </summary>
         [Output("definition")]
         public Output<Outputs.TemplateVersionDefinition?> Definition { get; private set; } = null!;
 
@@ -52,13 +49,17 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Permission for the resource.
+        /// A list of resource permissions to be set on the template.
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.TemplateResourcePermission>> Permissions { get; private set; } = null!;
 
         /// <summary>
-        /// The source entity of the template.
+        /// The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+        /// 
+        /// Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
+        /// 
+        /// Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
         /// </summary>
         [Output("sourceEntity")]
         public Output<Outputs.TemplateSourceEntity?> SourceEntity { get; private set; } = null!;
@@ -81,9 +82,6 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("validationStrategy")]
         public Output<Outputs.TemplateValidationStrategy?> ValidationStrategy { get; private set; } = null!;
 
-        /// <summary>
-        /// A version of a template.
-        /// </summary>
         [Output("version")]
         public Output<Outputs.TemplateVersion> Version { get; private set; } = null!;
 
@@ -149,9 +147,6 @@ namespace Pulumi.AwsNative.QuickSight
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
-        /// <summary>
-        /// The detailed definition of a template.
-        /// </summary>
         [Input("definition")]
         public Input<Inputs.TemplateVersionDefinitionArgs>? Definition { get; set; }
 
@@ -165,7 +160,7 @@ namespace Pulumi.AwsNative.QuickSight
         private InputList<Inputs.TemplateResourcePermissionArgs>? _permissions;
 
         /// <summary>
-        /// Permission for the resource.
+        /// A list of resource permissions to be set on the template.
         /// </summary>
         public InputList<Inputs.TemplateResourcePermissionArgs> Permissions
         {
@@ -174,7 +169,11 @@ namespace Pulumi.AwsNative.QuickSight
         }
 
         /// <summary>
-        /// The source entity of the template.
+        /// The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Amazon QuickSight-supported AWS Region .
+        /// 
+        /// Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
+        /// 
+        /// Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
         /// </summary>
         [Input("sourceEntity")]
         public Input<Inputs.TemplateSourceEntityArgs>? SourceEntity { get; set; }

@@ -26,11 +26,11 @@ class EnvironmentLoggingConfigurationArgs:
                  worker_logs: Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']] = None):
         """
         Logging configuration for the environment.
-        :param pulumi.Input['EnvironmentModuleLoggingConfigurationArgs'] dag_processing_logs: Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
-        :param pulumi.Input['EnvironmentModuleLoggingConfigurationArgs'] scheduler_logs: Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
-        :param pulumi.Input['EnvironmentModuleLoggingConfigurationArgs'] task_logs: Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
-        :param pulumi.Input['EnvironmentModuleLoggingConfigurationArgs'] webserver_logs: Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
-        :param pulumi.Input['EnvironmentModuleLoggingConfigurationArgs'] worker_logs: Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        :param pulumi.Input['EnvironmentModuleLoggingConfigurationArgs'] dag_processing_logs: Defines the processing logs sent to CloudWatch Logs and the logging level to send.
+        :param pulumi.Input['EnvironmentModuleLoggingConfigurationArgs'] scheduler_logs: Defines the scheduler logs sent to CloudWatch Logs and the logging level to send.
+        :param pulumi.Input['EnvironmentModuleLoggingConfigurationArgs'] task_logs: Defines the task logs sent to CloudWatch Logs and the logging level to send.
+        :param pulumi.Input['EnvironmentModuleLoggingConfigurationArgs'] webserver_logs: Defines the web server logs sent to CloudWatch Logs and the logging level to send.
+        :param pulumi.Input['EnvironmentModuleLoggingConfigurationArgs'] worker_logs: Defines the worker logs sent to CloudWatch Logs and the logging level to send.
         """
         if dag_processing_logs is not None:
             pulumi.set(__self__, "dag_processing_logs", dag_processing_logs)
@@ -47,7 +47,7 @@ class EnvironmentLoggingConfigurationArgs:
     @pulumi.getter(name="dagProcessingLogs")
     def dag_processing_logs(self) -> Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']]:
         """
-        Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        Defines the processing logs sent to CloudWatch Logs and the logging level to send.
         """
         return pulumi.get(self, "dag_processing_logs")
 
@@ -59,7 +59,7 @@ class EnvironmentLoggingConfigurationArgs:
     @pulumi.getter(name="schedulerLogs")
     def scheduler_logs(self) -> Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']]:
         """
-        Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        Defines the scheduler logs sent to CloudWatch Logs and the logging level to send.
         """
         return pulumi.get(self, "scheduler_logs")
 
@@ -71,7 +71,7 @@ class EnvironmentLoggingConfigurationArgs:
     @pulumi.getter(name="taskLogs")
     def task_logs(self) -> Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']]:
         """
-        Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        Defines the task logs sent to CloudWatch Logs and the logging level to send.
         """
         return pulumi.get(self, "task_logs")
 
@@ -83,7 +83,7 @@ class EnvironmentLoggingConfigurationArgs:
     @pulumi.getter(name="webserverLogs")
     def webserver_logs(self) -> Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']]:
         """
-        Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        Defines the web server logs sent to CloudWatch Logs and the logging level to send.
         """
         return pulumi.get(self, "webserver_logs")
 
@@ -95,7 +95,7 @@ class EnvironmentLoggingConfigurationArgs:
     @pulumi.getter(name="workerLogs")
     def worker_logs(self) -> Optional[pulumi.Input['EnvironmentModuleLoggingConfigurationArgs']]:
         """
-        Defines the type of logs to send for the Apache Airflow log type (e.g. `DagProcessingLogs` ).
+        Defines the worker logs sent to CloudWatch Logs and the logging level to send.
         """
         return pulumi.get(self, "worker_logs")
 

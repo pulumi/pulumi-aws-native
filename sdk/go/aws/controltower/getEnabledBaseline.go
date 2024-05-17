@@ -33,9 +33,9 @@ type LookupEnabledBaselineResult struct {
 	BaselineVersion *string `pulumi:"baselineVersion"`
 	// The ARN of the `EnabledBaseline` resource.
 	EnabledBaselineIdentifier *string `pulumi:"enabledBaselineIdentifier"`
-	// A key-value parameter to an `EnabledBaseline` resource.
+	// Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
 	Parameters []EnabledBaselineParameter `pulumi:"parameters"`
-	// A key-value parameter to an `EnabledBaseline` resource.
+	// Tags associated with input to `EnableBaseline` .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -85,12 +85,12 @@ func (o LookupEnabledBaselineResultOutput) EnabledBaselineIdentifier() pulumi.St
 	return o.ApplyT(func(v LookupEnabledBaselineResult) *string { return v.EnabledBaselineIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// A key-value parameter to an `EnabledBaseline` resource.
+// Parameters that are applied when enabling this `Baseline` . These parameters configure the behavior of the baseline.
 func (o LookupEnabledBaselineResultOutput) Parameters() EnabledBaselineParameterArrayOutput {
 	return o.ApplyT(func(v LookupEnabledBaselineResult) []EnabledBaselineParameter { return v.Parameters }).(EnabledBaselineParameterArrayOutput)
 }
 
-// A key-value parameter to an `EnabledBaseline` resource.
+// Tags associated with input to `EnableBaseline` .
 func (o LookupEnabledBaselineResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupEnabledBaselineResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -40,9 +40,7 @@ namespace Pulumi.AwsNative.DataSync
         public Output<string?> AzureBlobContainerUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The shared access signature (SAS) configuration that allows AWS DataSync to access your Microsoft Azure Blob Storage.
-        /// 
-        /// For more information, see [SAS tokens](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-sas-tokens) for accessing your Azure Blob Storage.
+        /// Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
         /// </summary>
         [Output("azureBlobSasConfiguration")]
         public Output<Outputs.LocationAzureBlobAzureBlobSasConfiguration?> AzureBlobSasConfiguration { get; private set; } = null!;
@@ -157,9 +155,7 @@ namespace Pulumi.AwsNative.DataSync
         public Input<string>? AzureBlobContainerUrl { get; set; }
 
         /// <summary>
-        /// The shared access signature (SAS) configuration that allows AWS DataSync to access your Microsoft Azure Blob Storage.
-        /// 
-        /// For more information, see [SAS tokens](https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-sas-tokens) for accessing your Azure Blob Storage.
+        /// Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
         /// </summary>
         [Input("azureBlobSasConfiguration")]
         public Input<Inputs.LocationAzureBlobAzureBlobSasConfigurationArgs>? AzureBlobSasConfiguration { get; set; }

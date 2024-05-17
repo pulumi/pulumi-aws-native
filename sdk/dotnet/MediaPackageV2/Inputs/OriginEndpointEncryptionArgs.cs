@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         public Input<string>? ConstantInitializationVector { get; set; }
 
         /// <summary>
-        /// The encryption method associated with the origin endpoint.
+        /// The encryption method to use.
         /// </summary>
         [Input("encryptionMethod", required: true)]
         public Input<Inputs.OriginEndpointEncryptionMethodArgs> EncryptionMethod { get; set; } = null!;
@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Inputs
         public Input<int>? KeyRotationIntervalSeconds { get; set; }
 
         /// <summary>
-        /// The parameters for the SPEKE key provider.
+        /// The SPEKE key provider to use for encryption.
         /// </summary>
         [Input("spekeKeyProvider", required: true)]
         public Input<Inputs.OriginEndpointSpekeKeyProviderArgs> SpekeKeyProvider { get; set; } = null!;

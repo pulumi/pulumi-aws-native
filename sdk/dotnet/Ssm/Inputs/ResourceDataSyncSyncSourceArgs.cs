@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Ssm.Inputs
     public sealed class ResourceDataSyncSyncSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Information about the `AwsOrganizationsSource` resource data sync source. A sync source of this type can synchronize data from AWS Organizations or, if an AWS organization isn't present, from multiple AWS Regions .
+        /// Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations .
         /// </summary>
         [Input("awsOrganizationsSource")]
         public Input<Inputs.ResourceDataSyncAwsOrganizationsSourceArgs>? AwsOrganizationsSource { get; set; }

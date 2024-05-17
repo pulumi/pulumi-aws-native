@@ -58,7 +58,7 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly autoStopConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationAutoStopConfiguration | undefined>;
     /**
-     * The image configuration.
+     * The image configuration applied to all worker types.
      */
     public readonly imageConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationImageConfigurationInput | undefined>;
     /**
@@ -70,7 +70,7 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly maximumCapacity!: pulumi.Output<outputs.emrserverless.ApplicationMaximumAllowedResources | undefined>;
     /**
-     * The configuration setting for monitoring.
+     * A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
      */
     public readonly monitoringConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationMonitoringConfiguration | undefined>;
     /**
@@ -177,7 +177,7 @@ export interface ApplicationArgs {
      */
     autoStopConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationAutoStopConfigurationArgs>;
     /**
-     * The image configuration.
+     * The image configuration applied to all worker types.
      */
     imageConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationImageConfigurationInputArgs>;
     /**
@@ -189,7 +189,7 @@ export interface ApplicationArgs {
      */
     maximumCapacity?: pulumi.Input<inputs.emrserverless.ApplicationMaximumAllowedResourcesArgs>;
     /**
-     * The configuration setting for monitoring.
+     * A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.
      */
     monitoringConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationMonitoringConfigurationArgs>;
     /**

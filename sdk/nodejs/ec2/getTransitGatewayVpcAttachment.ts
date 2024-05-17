@@ -35,7 +35,7 @@ export interface GetTransitGatewayVpcAttachmentResult {
      */
     readonly options?: outputs.ec2.OptionsProperties;
     /**
-     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     * The tags for the VPC attachment.
      */
     readonly tags?: outputs.Tag[];
 }

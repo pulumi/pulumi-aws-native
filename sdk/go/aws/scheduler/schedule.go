@@ -40,7 +40,7 @@ type Schedule struct {
 	//
 	// *Allowed Values* : `ENABLED` | `DISABLED`
 	State ScheduleStateEnumPtrOutput `pulumi:"state"`
-	// The schedule's target. EventBridge Scheduler supports templated target that invoke common API operations, as well as universal targets that you can customize to invoke over 6,000 API operations across more than 270 services. You can only specify one templated or universal target for a schedule.
+	// The schedule's target details.
 	Target ScheduleTargetOutput `pulumi:"target"`
 }
 
@@ -119,7 +119,7 @@ type scheduleArgs struct {
 	//
 	// *Allowed Values* : `ENABLED` | `DISABLED`
 	State *ScheduleStateEnum `pulumi:"state"`
-	// The schedule's target. EventBridge Scheduler supports templated target that invoke common API operations, as well as universal targets that you can customize to invoke over 6,000 API operations across more than 270 services. You can only specify one templated or universal target for a schedule.
+	// The schedule's target details.
 	Target ScheduleTarget `pulumi:"target"`
 }
 
@@ -147,7 +147,7 @@ type ScheduleArgs struct {
 	//
 	// *Allowed Values* : `ENABLED` | `DISABLED`
 	State ScheduleStateEnumPtrInput
-	// The schedule's target. EventBridge Scheduler supports templated target that invoke common API operations, as well as universal targets that you can customize to invoke over 6,000 API operations across more than 270 services. You can only specify one templated or universal target for a schedule.
+	// The schedule's target details.
 	Target ScheduleTargetInput
 }
 
@@ -245,7 +245,7 @@ func (o ScheduleOutput) State() ScheduleStateEnumPtrOutput {
 	return o.ApplyT(func(v *Schedule) ScheduleStateEnumPtrOutput { return v.State }).(ScheduleStateEnumPtrOutput)
 }
 
-// The schedule's target. EventBridge Scheduler supports templated target that invoke common API operations, as well as universal targets that you can customize to invoke over 6,000 API operations across more than 270 services. You can only specify one templated or universal target for a schedule.
+// The schedule's target details.
 func (o ScheduleOutput) Target() ScheduleTargetOutput {
 	return o.ApplyT(func(v *Schedule) ScheduleTargetOutput { return v.Target }).(ScheduleTargetOutput)
 }

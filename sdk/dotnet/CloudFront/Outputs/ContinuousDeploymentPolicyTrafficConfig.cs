@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly Outputs.ContinuousDeploymentPolicySingleHeaderConfig? SingleHeaderConfig;
         /// <summary>
-        /// This configuration determines the percentage of HTTP requests that are sent to the staging distribution.
+        /// Contains the percentage of traffic to send to the staging distribution.
         /// </summary>
         public readonly Outputs.ContinuousDeploymentPolicySingleWeightConfig? SingleWeightConfig;
         /// <summary>

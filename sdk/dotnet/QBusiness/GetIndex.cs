@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.QBusiness
     public sealed class GetIndexResult
     {
         /// <summary>
-        /// Provides information about index capacity configuration.
+        /// The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
         /// </summary>
         public readonly Outputs.IndexCapacityConfiguration? CapacityConfiguration;
         /// <summary>
@@ -99,16 +99,13 @@ namespace Pulumi.AwsNative.QBusiness
         /// The identifier for the index.
         /// </summary>
         public readonly string? IndexId;
-        /// <summary>
-        /// Provides information about the number of documents in an index.
-        /// </summary>
         public readonly Outputs.IndexStatistics? IndexStatistics;
         /// <summary>
         /// The current status of the index. When the status is `ACTIVE` , the index is ready.
         /// </summary>
         public readonly Pulumi.AwsNative.QBusiness.IndexStatus? Status;
         /// <summary>
-        /// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        /// A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>

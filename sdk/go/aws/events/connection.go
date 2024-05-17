@@ -64,7 +64,7 @@ type Connection struct {
 
 	// The arn of the connection resource.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Contains the authorization parameters to use for the connection.
+	// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
 	AuthParameters ConnectionAuthParametersOutput `pulumi:"authParameters"`
 	// The type of authorization to use for the connection.
 	//
@@ -128,7 +128,7 @@ func (ConnectionState) ElementType() reflect.Type {
 }
 
 type connectionArgs struct {
-	// Contains the authorization parameters to use for the connection.
+	// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
 	AuthParameters ConnectionAuthParameters `pulumi:"authParameters"`
 	// The type of authorization to use for the connection.
 	//
@@ -142,7 +142,7 @@ type connectionArgs struct {
 
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
-	// Contains the authorization parameters to use for the connection.
+	// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
 	AuthParameters ConnectionAuthParametersInput
 	// The type of authorization to use for the connection.
 	//
@@ -196,7 +196,7 @@ func (o ConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Contains the authorization parameters to use for the connection.
+// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
 func (o ConnectionOutput) AuthParameters() ConnectionAuthParametersOutput {
 	return o.ApplyT(func(v *Connection) ConnectionAuthParametersOutput { return v.AuthParameters }).(ConnectionAuthParametersOutput)
 }

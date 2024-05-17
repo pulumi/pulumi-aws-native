@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DataSetColumnTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Metadata that contains a description for a column.
+        /// A description for a column.
         /// </summary>
         [Input("columnDescription")]
         public Input<Inputs.DataSetColumnDescriptionArgs>? ColumnDescription { get; set; }

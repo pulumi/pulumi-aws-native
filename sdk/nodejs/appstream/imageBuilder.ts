@@ -38,7 +38,7 @@ export class ImageBuilder extends pulumi.CustomResource {
     }
 
     /**
-     * Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+     * The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
      */
     public readonly accessEndpoints!: pulumi.Output<outputs.appstream.ImageBuilderAccessEndpoint[] | undefined>;
     /**
@@ -122,11 +122,11 @@ export class ImageBuilder extends pulumi.CustomResource {
      */
     public /*out*/ readonly streamingUrl!: pulumi.Output<string>;
     /**
-     * The tag of the image builder.
+     * An array of key-value pairs.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * The VPC configuration for the image builder.
+     * The VPC configuration for the image builder. You can specify only one subnet.
      */
     public readonly vpcConfig!: pulumi.Output<outputs.appstream.ImageBuilderVpcConfig | undefined>;
 
@@ -184,7 +184,7 @@ export class ImageBuilder extends pulumi.CustomResource {
  */
 export interface ImageBuilderArgs {
     /**
-     * Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+     * The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
      */
     accessEndpoints?: pulumi.Input<pulumi.Input<inputs.appstream.ImageBuilderAccessEndpointArgs>[]>;
     /**
@@ -264,11 +264,11 @@ export interface ImageBuilderArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The tag of the image builder.
+     * An array of key-value pairs.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
-     * The VPC configuration for the image builder.
+     * The VPC configuration for the image builder. You can specify only one subnet.
      */
     vpcConfig?: pulumi.Input<inputs.appstream.ImageBuilderVpcConfigArgs>;
 }

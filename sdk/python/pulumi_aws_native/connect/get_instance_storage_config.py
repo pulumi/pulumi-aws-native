@@ -52,7 +52,7 @@ class GetInstanceStorageConfigResult:
     @pulumi.getter(name="kinesisFirehoseConfig")
     def kinesis_firehose_config(self) -> Optional['outputs.InstanceStorageConfigKinesisFirehoseConfig']:
         """
-        Configuration information of a Kinesis Data Firehose delivery stream.
+        The configuration of the Kinesis Firehose delivery stream.
         """
         return pulumi.get(self, "kinesis_firehose_config")
 
@@ -60,7 +60,7 @@ class GetInstanceStorageConfigResult:
     @pulumi.getter(name="kinesisStreamConfig")
     def kinesis_stream_config(self) -> Optional['outputs.InstanceStorageConfigKinesisStreamConfig']:
         """
-        Configuration information of a Kinesis data stream.
+        The configuration of the Kinesis data stream.
         """
         return pulumi.get(self, "kinesis_stream_config")
 
@@ -68,7 +68,7 @@ class GetInstanceStorageConfigResult:
     @pulumi.getter(name="kinesisVideoStreamConfig")
     def kinesis_video_stream_config(self) -> Optional['outputs.InstanceStorageConfigKinesisVideoStreamConfig']:
         """
-        Configuration information of a Kinesis video stream.
+        The configuration of the Kinesis video stream.
         """
         return pulumi.get(self, "kinesis_video_stream_config")
 
@@ -76,7 +76,7 @@ class GetInstanceStorageConfigResult:
     @pulumi.getter(name="s3Config")
     def s3_config(self) -> Optional['outputs.InstanceStorageConfigS3Config']:
         """
-        Information about the Amazon Simple Storage Service (Amazon S3) storage type.
+        The S3 bucket configuration.
         """
         return pulumi.get(self, "s3_config")
 

@@ -28,7 +28,7 @@ type BrowserSettings struct {
 	//
 	// *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
 	CustomerManagedKey pulumi.StringPtrOutput `pulumi:"customerManagedKey"`
-	// The tag.
+	// The tags to add to the browser settings resource. A tag is a key-value pair.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -85,7 +85,7 @@ type browserSettingsArgs struct {
 	//
 	// *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
 	CustomerManagedKey *string `pulumi:"customerManagedKey"`
-	// The tag.
+	// The tags to add to the browser settings resource. A tag is a key-value pair.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -99,7 +99,7 @@ type BrowserSettingsArgs struct {
 	//
 	// *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
 	CustomerManagedKey pulumi.StringPtrInput
-	// The tag.
+	// The tags to add to the browser settings resource. A tag is a key-value pair.
 	Tags aws.TagArrayInput
 }
 
@@ -167,7 +167,7 @@ func (o BrowserSettingsOutput) CustomerManagedKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrowserSettings) pulumi.StringPtrOutput { return v.CustomerManagedKey }).(pulumi.StringPtrOutput)
 }
 
-// The tag.
+// The tags to add to the browser settings resource. A tag is a key-value pair.
 func (o BrowserSettingsOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *BrowserSettings) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

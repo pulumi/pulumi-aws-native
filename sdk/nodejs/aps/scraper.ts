@@ -46,7 +46,7 @@ export class Scraper extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Where to send the metrics from a scraper.
+     * The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
      */
     public readonly destination!: pulumi.Output<outputs.aps.ScraperDestination>;
     /**
@@ -54,7 +54,7 @@ export class Scraper extends pulumi.CustomResource {
      */
     public /*out*/ readonly roleArn!: pulumi.Output<string>;
     /**
-     * A scrape configuration for a scraper, base 64 encoded. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration) in the *Amazon Managed Service for Prometheus User Guide* .
+     * The configuration in use by the scraper.
      */
     public readonly scrapeConfiguration!: pulumi.Output<outputs.aps.ScraperScrapeConfiguration>;
     /**
@@ -62,7 +62,7 @@ export class Scraper extends pulumi.CustomResource {
      */
     public /*out*/ readonly scraperId!: pulumi.Output<string>;
     /**
-     * The source of collected metrics for a scraper.
+     * The Amazon EKS cluster from which the scraper collects metrics.
      */
     public readonly source!: pulumi.Output<outputs.aps.ScraperSource>;
     /**
@@ -124,15 +124,15 @@ export interface ScraperArgs {
      */
     alias?: pulumi.Input<string>;
     /**
-     * Where to send the metrics from a scraper.
+     * The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
      */
     destination: pulumi.Input<inputs.aps.ScraperDestinationArgs>;
     /**
-     * A scrape configuration for a scraper, base 64 encoded. For more information, see [Scraper configuration](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration) in the *Amazon Managed Service for Prometheus User Guide* .
+     * The configuration in use by the scraper.
      */
     scrapeConfiguration: pulumi.Input<inputs.aps.ScraperScrapeConfigurationArgs>;
     /**
-     * The source of collected metrics for a scraper.
+     * The Amazon EKS cluster from which the scraper collects metrics.
      */
     source: pulumi.Input<inputs.aps.ScraperSourceArgs>;
     /**

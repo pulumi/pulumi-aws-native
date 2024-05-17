@@ -85,6 +85,9 @@ namespace Pulumi.AwsNative.XRay
 
         /// <summary>
         /// The structure containing configurations related to insights.
+        /// 
+        /// - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
+        /// - The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
         /// </summary>
         [Output("insightsConfiguration")]
         public Output<Outputs.GroupInsightsConfiguration?> InsightsConfiguration { get; private set; } = null!;
@@ -154,6 +157,9 @@ namespace Pulumi.AwsNative.XRay
 
         /// <summary>
         /// The structure containing configurations related to insights.
+        /// 
+        /// - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
+        /// - The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
         /// </summary>
         [Input("insightsConfiguration")]
         public Input<Inputs.GroupInsightsConfigurationArgs>? InsightsConfiguration { get; set; }

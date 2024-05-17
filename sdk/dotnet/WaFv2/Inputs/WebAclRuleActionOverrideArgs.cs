@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
     public sealed class WebAclRuleActionOverrideArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The action that AWS WAF should take on a web request when it matches a rule's statement. Settings at the web ACL level can override the rule action setting.
+        /// The override action to use, in place of the configured action of the rule in the rule group.
         /// </summary>
         [Input("actionToUse", required: true)]
         public Input<Inputs.WebAclRuleActionArgs> ActionToUse { get; set; } = null!;

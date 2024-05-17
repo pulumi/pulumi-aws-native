@@ -50,7 +50,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.TopicComparativeOrder? ComparativeOrder;
         /// <summary>
-        /// A structure that represents a default formatting definition.
+        /// The default formatting used for values in the column.
         /// </summary>
         public readonly Outputs.TopicDefaultFormatting? DefaultFormatting;
         /// <summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.QuickSight.TopicAuthorSpecifiedAggregation> NotAllowedAggregations;
         /// <summary>
-        /// A structure that represents a semantic type.
+        /// The semantic type of data contained in the column.
         /// </summary>
         public readonly Outputs.TopicSemanticType? SemanticType;
         /// <summary>

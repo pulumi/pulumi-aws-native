@@ -32,8 +32,8 @@ class FormArgs:
         """
         The set of arguments for constructing a Form resource.
         :param pulumi.Input[str] app_id: The unique ID of the Amplify app associated with the form.
-        :param pulumi.Input['FormCtaArgs'] cta: The `FormCTA` property specifies the call to action button configuration for the form.
-        :param pulumi.Input['FormDataTypeConfigArgs'] data_type: The `FormDataTypeConfig` property specifies the data type configuration for the data source associated with a form.
+        :param pulumi.Input['FormCtaArgs'] cta: The `FormCTA` object that stores the call to action configuration for the form.
+        :param pulumi.Input['FormDataTypeConfigArgs'] data_type: The type of data source to use to create the form.
         :param pulumi.Input[str] environment_name: The name of the backend environment that is a part of the Amplify app.
         :param pulumi.Input[Mapping[str, pulumi.Input['FormFieldConfigArgs']]] fields: The configuration information for the form's fields.
         :param pulumi.Input['FormActionType'] form_action_type: Specifies whether to perform a create or update action on the form.
@@ -41,7 +41,7 @@ class FormArgs:
         :param pulumi.Input[str] name: The name of the form.
         :param pulumi.Input[str] schema_version: The schema version of the form.
         :param pulumi.Input[Mapping[str, pulumi.Input['FormSectionalElementArgs']]] sectional_elements: The configuration information for the visual helper elements for the form. These elements are not associated with any data.
-        :param pulumi.Input['FormStyleArgs'] style: The `FormStyle` property specifies the configuration for the form's style.
+        :param pulumi.Input['FormStyleArgs'] style: The configuration for the form's style.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: One or more key-value pairs to use when tagging the form data.
         """
         if app_id is not None:
@@ -85,7 +85,7 @@ class FormArgs:
     @pulumi.getter
     def cta(self) -> Optional[pulumi.Input['FormCtaArgs']]:
         """
-        The `FormCTA` property specifies the call to action button configuration for the form.
+        The `FormCTA` object that stores the call to action configuration for the form.
         """
         return pulumi.get(self, "cta")
 
@@ -97,7 +97,7 @@ class FormArgs:
     @pulumi.getter(name="dataType")
     def data_type(self) -> Optional[pulumi.Input['FormDataTypeConfigArgs']]:
         """
-        The `FormDataTypeConfig` property specifies the data type configuration for the data source associated with a form.
+        The type of data source to use to create the form.
         """
         return pulumi.get(self, "data_type")
 
@@ -193,7 +193,7 @@ class FormArgs:
     @pulumi.getter
     def style(self) -> Optional[pulumi.Input['FormStyleArgs']]:
         """
-        The `FormStyle` property specifies the configuration for the form's style.
+        The configuration for the form's style.
         """
         return pulumi.get(self, "style")
 
@@ -238,8 +238,8 @@ class Form(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_id: The unique ID of the Amplify app associated with the form.
-        :param pulumi.Input[pulumi.InputType['FormCtaArgs']] cta: The `FormCTA` property specifies the call to action button configuration for the form.
-        :param pulumi.Input[pulumi.InputType['FormDataTypeConfigArgs']] data_type: The `FormDataTypeConfig` property specifies the data type configuration for the data source associated with a form.
+        :param pulumi.Input[pulumi.InputType['FormCtaArgs']] cta: The `FormCTA` object that stores the call to action configuration for the form.
+        :param pulumi.Input[pulumi.InputType['FormDataTypeConfigArgs']] data_type: The type of data source to use to create the form.
         :param pulumi.Input[str] environment_name: The name of the backend environment that is a part of the Amplify app.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['FormFieldConfigArgs']]]] fields: The configuration information for the form's fields.
         :param pulumi.Input['FormActionType'] form_action_type: Specifies whether to perform a create or update action on the form.
@@ -247,7 +247,7 @@ class Form(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the form.
         :param pulumi.Input[str] schema_version: The schema version of the form.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['FormSectionalElementArgs']]]] sectional_elements: The configuration information for the visual helper elements for the form. These elements are not associated with any data.
-        :param pulumi.Input[pulumi.InputType['FormStyleArgs']] style: The `FormStyle` property specifies the configuration for the form's style.
+        :param pulumi.Input[pulumi.InputType['FormStyleArgs']] style: The configuration for the form's style.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: One or more key-value pairs to use when tagging the form data.
         """
         ...
@@ -367,7 +367,7 @@ class Form(pulumi.CustomResource):
     @pulumi.getter
     def cta(self) -> pulumi.Output[Optional['outputs.FormCta']]:
         """
-        The `FormCTA` property specifies the call to action button configuration for the form.
+        The `FormCTA` object that stores the call to action configuration for the form.
         """
         return pulumi.get(self, "cta")
 
@@ -375,7 +375,7 @@ class Form(pulumi.CustomResource):
     @pulumi.getter(name="dataType")
     def data_type(self) -> pulumi.Output[Optional['outputs.FormDataTypeConfig']]:
         """
-        The `FormDataTypeConfig` property specifies the data type configuration for the data source associated with a form.
+        The type of data source to use to create the form.
         """
         return pulumi.get(self, "data_type")
 
@@ -439,7 +439,7 @@ class Form(pulumi.CustomResource):
     @pulumi.getter
     def style(self) -> pulumi.Output[Optional['outputs.FormStyle']]:
         """
-        The `FormStyle` property specifies the configuration for the form's style.
+        The configuration for the form's style.
         """
         return pulumi.get(self, "style")
 

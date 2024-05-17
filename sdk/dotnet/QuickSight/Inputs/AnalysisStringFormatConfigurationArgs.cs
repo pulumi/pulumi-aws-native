@@ -19,9 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.AnalysisNullValueFormatConfigurationArgs>? NullValueFormatConfiguration { get; set; }
 
         /// <summary>
-        /// The options that determine the numeric format configuration.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The formatting configuration for numeric strings.
         /// </summary>
         [Input("numericFormatConfiguration")]
         public Input<Inputs.AnalysisNumericFormatConfigurationArgs>? NumericFormatConfiguration { get; set; }

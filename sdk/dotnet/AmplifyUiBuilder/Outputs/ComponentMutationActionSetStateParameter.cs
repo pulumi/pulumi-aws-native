@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
         /// </summary>
         public readonly string Property;
         /// <summary>
-        /// The `ComponentProperty` property specifies the configuration for all of a component's properties. Use `ComponentProperty` to specify the values to render or bind by default.
+        /// The state configuration to assign to the property.
         /// </summary>
         public readonly Outputs.ComponentProperty Set;
 

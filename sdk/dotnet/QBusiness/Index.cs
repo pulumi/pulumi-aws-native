@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QBusiness
         public Output<string> ApplicationId { get; private set; } = null!;
 
         /// <summary>
-        /// Provides information about index capacity configuration.
+        /// The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
         /// </summary>
         [Output("capacityConfiguration")]
         public Output<Outputs.IndexCapacityConfiguration?> CapacityConfiguration { get; private set; } = null!;
@@ -65,9 +65,6 @@ namespace Pulumi.AwsNative.QBusiness
         [Output("indexId")]
         public Output<string> IndexId { get; private set; } = null!;
 
-        /// <summary>
-        /// Provides information about the number of documents in an index.
-        /// </summary>
         [Output("indexStatistics")]
         public Output<Outputs.IndexStatistics> IndexStatistics { get; private set; } = null!;
 
@@ -78,7 +75,7 @@ namespace Pulumi.AwsNative.QBusiness
         public Output<Pulumi.AwsNative.QBusiness.IndexStatus> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        /// A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -152,7 +149,7 @@ namespace Pulumi.AwsNative.QBusiness
         public Input<string> ApplicationId { get; set; } = null!;
 
         /// <summary>
-        /// Provides information about index capacity configuration.
+        /// The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
         /// </summary>
         [Input("capacityConfiguration")]
         public Input<Inputs.IndexCapacityConfigurationArgs>? CapacityConfiguration { get; set; }
@@ -187,7 +184,7 @@ namespace Pulumi.AwsNative.QBusiness
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        /// A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

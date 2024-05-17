@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         /// </summary>
         public readonly string? ConstantInitializationVector;
         /// <summary>
-        /// The encryption method associated with the origin endpoint.
+        /// The encryption method to use.
         /// </summary>
         public readonly Outputs.OriginEndpointEncryptionMethod EncryptionMethod;
         /// <summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.MediaPackageV2.Outputs
         /// </summary>
         public readonly int? KeyRotationIntervalSeconds;
         /// <summary>
-        /// The parameters for the SPEKE key provider.
+        /// The SPEKE key provider to use for encryption.
         /// </summary>
         public readonly Outputs.OriginEndpointSpekeKeyProvider SpekeKeyProvider;
 

@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// </summary>
         public readonly string HostUrl;
         /// <summary>
-        /// Provides the configuration information for crawling knowledge articles in the ServiceNow site.
+        /// Configuration information for crawling knowledge articles in the ServiceNow site.
         /// </summary>
         public readonly Outputs.DataSourceServiceNowKnowledgeArticleConfiguration? KnowledgeArticleConfiguration;
         /// <summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// </summary>
         public readonly string SecretArn;
         /// <summary>
-        /// Provides the configuration information for crawling service catalog items in the ServiceNow site
+        /// Configuration information for crawling service catalogs in the ServiceNow site.
         /// </summary>
         public readonly Outputs.DataSourceServiceNowServiceCatalogConfiguration? ServiceCatalogConfiguration;
         /// <summary>

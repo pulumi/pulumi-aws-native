@@ -100,11 +100,7 @@ class ZonalAutoshiftConfigurationPracticeRunConfiguration(dict):
         :param Sequence[str] blocked_windows: An array of one or more days and times that you can specify when Route 53 ARC does not start practice runs for a resource. Days and times are in UTC.
                
                Specify blocked windows in the format `DAY:HH:MM-DAY:HH:MM` , separated by spaces. For example, `MON:18:30-MON:19:30 TUE:18:30-TUE:19:30` .
-        :param Sequence['ZonalAutoshiftConfigurationControlCondition'] blocking_alarms: A control condition is an alarm that you specify for a practice run. When you configure practice runs with zonal autoshift for a resource, you specify Amazon CloudWatch alarms, which you create in CloudWatch to use with the practice run. The alarms that you specify are an *outcome alarm* , to monitor application health during practice runs and, optionally, a *blocking alarm* , to block practice runs from starting or to interrupt a practice run in progress.
-               
-               Control condition alarms do not apply for autoshifts.
-               
-               For more information, see [Considerations when you configure zonal autoshift](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html) in the Route 53 ARC Developer Guide.
+        :param Sequence['ZonalAutoshiftConfigurationControlCondition'] blocking_alarms: An optional alarm that you can specify that blocks practice runs when the alarm is in an `ALARM` state. When a blocking alarm goes into an `ALARM` state, it prevents practice runs from being started, and ends practice runs that are in progress.
         """
         pulumi.set(__self__, "outcome_alarms", outcome_alarms)
         if blocked_dates is not None:
@@ -146,11 +142,7 @@ class ZonalAutoshiftConfigurationPracticeRunConfiguration(dict):
     @pulumi.getter(name="blockingAlarms")
     def blocking_alarms(self) -> Optional[Sequence['outputs.ZonalAutoshiftConfigurationControlCondition']]:
         """
-        A control condition is an alarm that you specify for a practice run. When you configure practice runs with zonal autoshift for a resource, you specify Amazon CloudWatch alarms, which you create in CloudWatch to use with the practice run. The alarms that you specify are an *outcome alarm* , to monitor application health during practice runs and, optionally, a *blocking alarm* , to block practice runs from starting or to interrupt a practice run in progress.
-
-        Control condition alarms do not apply for autoshifts.
-
-        For more information, see [Considerations when you configure zonal autoshift](https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-autoshift.considerations.html) in the Route 53 ARC Developer Guide.
+        An optional alarm that you can specify that blocks practice runs when the alarm is in an `ALARM` state. When a blocking alarm goes into an `ALARM` state, it prevents practice runs from being started, and ends practice runs that are in progress.
         """
         return pulumi.get(self, "blocking_alarms")
 

@@ -74,11 +74,11 @@ export class ApplicationInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<number>;
     /**
-     * Parameter overrides for an application instance. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the overrides document.
+     * Setting overrides for the application manifest.
      */
     public readonly manifestOverridesPayload!: pulumi.Output<outputs.panorama.ApplicationInstanceManifestOverridesPayload | undefined>;
     /**
-     * A application verion's manifest file. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the application manifest ( `graph.json` ). This file is located in the `graphs` folder in your application source.
+     * The application's manifest document.
      */
     public readonly manifestPayload!: pulumi.Output<outputs.panorama.ApplicationInstanceManifestPayload>;
     /**
@@ -177,11 +177,11 @@ export interface ApplicationInstanceArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * Parameter overrides for an application instance. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the overrides document.
+     * Setting overrides for the application manifest.
      */
     manifestOverridesPayload?: pulumi.Input<inputs.panorama.ApplicationInstanceManifestOverridesPayloadArgs>;
     /**
-     * A application verion's manifest file. This is a JSON document that has a single key ( `PayloadData` ) where the value is an escaped string representation of the application manifest ( `graph.json` ). This file is located in the `graphs` folder in your application source.
+     * The application's manifest document.
      */
     manifestPayload: pulumi.Input<inputs.panorama.ApplicationInstanceManifestPayloadArgs>;
     /**

@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.Msk.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ClientSubnets;
         /// <summary>
-        /// Broker access controls.
+        /// Information about the cluster's connectivity setting.
         /// </summary>
         public readonly Outputs.ClusterConnectivityInfo? ConnectivityInfo;
         /// <summary>

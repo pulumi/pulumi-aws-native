@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly string? ContentType;
         /// <summary>
-        /// Describes the location of the channel data.
+        /// Describes the location of the channel data, which is, the S3 location of the input data that the model can consume.
         /// </summary>
         public readonly Outputs.ModelPackageDataSource DataSource;
         /// <summary>

@@ -17,11 +17,11 @@ namespace Pulumi.AwsNative.KafkaConnect.Outputs
     public sealed class ConnectorWorkerLogDelivery
     {
         /// <summary>
-        /// The settings for delivering connector logs to Amazon CloudWatch Logs.
+        /// Details about delivering logs to Amazon CloudWatch Logs.
         /// </summary>
         public readonly Outputs.ConnectorCloudWatchLogsLogDelivery? CloudWatchLogs;
         /// <summary>
-        /// The settings for delivering logs to Amazon Kinesis Data Firehose.
+        /// Details about delivering logs to Amazon Kinesis Data Firehose.
         /// </summary>
         public readonly Outputs.ConnectorFirehoseLogDelivery? Firehose;
         /// <summary>

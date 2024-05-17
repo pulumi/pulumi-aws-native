@@ -58,7 +58,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<enums.sso.InstanceStatus>;
     /**
-     * A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+     * Specifies tags to be attached to the instance of IAM Identity Center.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -101,7 +101,7 @@ export interface InstanceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+     * Specifies tags to be attached to the instance of IAM Identity Center.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

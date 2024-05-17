@@ -43,8 +43,7 @@ type LookupKeyResult struct {
 	KeyOrigin *KeyOrigin `pulumi:"keyOrigin"`
 	// The state of key that is being created or deleted.
 	KeyState *KeyStateEnum `pulumi:"keyState"`
-	// A structure that contains information about a tag.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags     []aws.Tag     `pulumi:"tags"`
 }
 
 func LookupKeyOutput(ctx *pulumi.Context, args LookupKeyOutputArgs, opts ...pulumi.InvokeOption) LookupKeyResultOutput {
@@ -118,7 +117,6 @@ func (o LookupKeyResultOutput) KeyState() KeyStateEnumPtrOutput {
 	return o.ApplyT(func(v LookupKeyResult) *KeyStateEnum { return v.KeyState }).(KeyStateEnumPtrOutput)
 }
 
-// A structure that contains information about a tag.
 func (o LookupKeyResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupKeyResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -92,7 +92,7 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly kmsKey!: pulumi.Output<string | undefined>;
     /**
-     * The type of Apache Airflow logs to send to CloudWatch Logs.
+     * The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
      */
     public readonly loggingConfiguration!: pulumi.Output<outputs.mwaa.EnvironmentLoggingConfiguration | undefined>;
     /**
@@ -302,7 +302,7 @@ export interface EnvironmentArgs {
      */
     kmsKey?: pulumi.Input<string>;
     /**
-     * The type of Apache Airflow logs to send to CloudWatch Logs.
+     * The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
      */
     loggingConfiguration?: pulumi.Input<inputs.mwaa.EnvironmentLoggingConfigurationArgs>;
     /**

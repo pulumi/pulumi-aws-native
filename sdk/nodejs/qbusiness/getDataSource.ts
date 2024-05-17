@@ -83,7 +83,7 @@ export interface GetDataSourceResult {
      */
     readonly syncSchedule?: string;
     /**
-     * A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+     * A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
      */
     readonly tags?: outputs.Tag[];
     /**
@@ -95,7 +95,7 @@ export interface GetDataSourceResult {
      */
     readonly updatedAt?: string;
     /**
-     * Provides configuration information needed to connect to an Amazon VPC (Virtual Private Cloud).
+     * Configuration information for an Amazon VPC (Virtual Private Cloud) to connect to your data source. For more information, see [Using Amazon VPC with Amazon Q Business connectors](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/connector-vpc.html) .
      */
     readonly vpcConfiguration?: outputs.qbusiness.DataSourceVpcConfiguration;
 }

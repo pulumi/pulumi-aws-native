@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
     public sealed class RuleGroupAndStatement
     {
         /// <summary>
-        /// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+        /// The statements to combine with AND logic. You can use any statements that can be nested.
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleGroupStatement> Statements;
 

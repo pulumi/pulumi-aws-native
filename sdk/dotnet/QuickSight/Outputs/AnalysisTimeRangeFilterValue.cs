@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string? Parameter;
         /// <summary>
-        /// The rolling date configuration of a date time filter.
+        /// The rolling date input value.
         /// </summary>
         public readonly Outputs.AnalysisRollingDateConfiguration? RollingDate;
         /// <summary>

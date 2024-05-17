@@ -20,8 +20,8 @@ class VdmAttributesArgs:
                  guardian_attributes: Optional[pulumi.Input['VdmAttributesGuardianAttributesArgs']] = None):
         """
         The set of arguments for constructing a VdmAttributes resource.
-        :param pulumi.Input['VdmAttributesDashboardAttributesArgs'] dashboard_attributes: Settings for your VDM configuration as applicable to the Dashboard.
-        :param pulumi.Input['VdmAttributesGuardianAttributesArgs'] guardian_attributes: Settings for your VDM configuration as applicable to the Guardian.
+        :param pulumi.Input['VdmAttributesDashboardAttributesArgs'] dashboard_attributes: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        :param pulumi.Input['VdmAttributesGuardianAttributesArgs'] guardian_attributes: Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """
         if dashboard_attributes is not None:
             pulumi.set(__self__, "dashboard_attributes", dashboard_attributes)
@@ -32,7 +32,7 @@ class VdmAttributesArgs:
     @pulumi.getter(name="dashboardAttributes")
     def dashboard_attributes(self) -> Optional[pulumi.Input['VdmAttributesDashboardAttributesArgs']]:
         """
-        Settings for your VDM configuration as applicable to the Dashboard.
+        Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         """
         return pulumi.get(self, "dashboard_attributes")
 
@@ -44,7 +44,7 @@ class VdmAttributesArgs:
     @pulumi.getter(name="guardianAttributes")
     def guardian_attributes(self) -> Optional[pulumi.Input['VdmAttributesGuardianAttributesArgs']]:
         """
-        Settings for your VDM configuration as applicable to the Guardian.
+        Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """
         return pulumi.get(self, "guardian_attributes")
 
@@ -66,8 +66,8 @@ class VdmAttributes(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['VdmAttributesDashboardAttributesArgs']] dashboard_attributes: Settings for your VDM configuration as applicable to the Dashboard.
-        :param pulumi.Input[pulumi.InputType['VdmAttributesGuardianAttributesArgs']] guardian_attributes: Settings for your VDM configuration as applicable to the Guardian.
+        :param pulumi.Input[pulumi.InputType['VdmAttributesDashboardAttributesArgs']] dashboard_attributes: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        :param pulumi.Input[pulumi.InputType['VdmAttributesGuardianAttributesArgs']] guardian_attributes: Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """
         ...
     @overload
@@ -138,7 +138,7 @@ class VdmAttributes(pulumi.CustomResource):
     @pulumi.getter(name="dashboardAttributes")
     def dashboard_attributes(self) -> pulumi.Output[Optional['outputs.VdmAttributesDashboardAttributes']]:
         """
-        Settings for your VDM configuration as applicable to the Dashboard.
+        Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         """
         return pulumi.get(self, "dashboard_attributes")
 
@@ -146,7 +146,7 @@ class VdmAttributes(pulumi.CustomResource):
     @pulumi.getter(name="guardianAttributes")
     def guardian_attributes(self) -> pulumi.Output[Optional['outputs.VdmAttributesGuardianAttributes']]:
         """
-        Settings for your VDM configuration as applicable to the Guardian.
+        Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """
         return pulumi.get(self, "guardian_attributes")
 

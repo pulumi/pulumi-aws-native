@@ -30,9 +30,11 @@ class FhirDatastoreArgs:
         :param pulumi.Input['FhirDatastoreDatastoreTypeVersion'] datastore_type_version: The FHIR version of the data store. The only supported version is R4.
         :param pulumi.Input[str] datastore_name: The user generated name for the data store.
         :param pulumi.Input['FhirDatastoreIdentityProviderConfigurationArgs'] identity_provider_configuration: The identity provider configuration that you gave when the data store was created.
-        :param pulumi.Input['FhirDatastorePreloadDataConfigArgs'] preload_data_config: Optional parameter to preload data upon creation of the data store. Currently, the only supported preloaded data is synthetic data generated from Synthea.
-        :param pulumi.Input['FhirDatastoreSseConfigurationArgs'] sse_configuration: The server-side encryption key configuration for a customer provided encryption key.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A tag is a label consisting of a user-defined key and value. The form for tags is {"Key", "Value"}
+        :param pulumi.Input['FhirDatastorePreloadDataConfigArgs'] preload_data_config: The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
+        :param pulumi.Input['FhirDatastoreSseConfigurationArgs'] sse_configuration: The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         pulumi.set(__self__, "datastore_type_version", datastore_type_version)
         if datastore_name is not None:
@@ -86,7 +88,7 @@ class FhirDatastoreArgs:
     @pulumi.getter(name="preloadDataConfig")
     def preload_data_config(self) -> Optional[pulumi.Input['FhirDatastorePreloadDataConfigArgs']]:
         """
-        Optional parameter to preload data upon creation of the data store. Currently, the only supported preloaded data is synthetic data generated from Synthea.
+        The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
         """
         return pulumi.get(self, "preload_data_config")
 
@@ -98,7 +100,7 @@ class FhirDatastoreArgs:
     @pulumi.getter(name="sseConfiguration")
     def sse_configuration(self) -> Optional[pulumi.Input['FhirDatastoreSseConfigurationArgs']]:
         """
-        The server-side encryption key configuration for a customer provided encryption key.
+        The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
         """
         return pulumi.get(self, "sse_configuration")
 
@@ -110,7 +112,9 @@ class FhirDatastoreArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A tag is a label consisting of a user-defined key and value. The form for tags is {"Key", "Value"}
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         return pulumi.get(self, "tags")
 
@@ -139,9 +143,11 @@ class FhirDatastore(pulumi.CustomResource):
         :param pulumi.Input[str] datastore_name: The user generated name for the data store.
         :param pulumi.Input['FhirDatastoreDatastoreTypeVersion'] datastore_type_version: The FHIR version of the data store. The only supported version is R4.
         :param pulumi.Input[pulumi.InputType['FhirDatastoreIdentityProviderConfigurationArgs']] identity_provider_configuration: The identity provider configuration that you gave when the data store was created.
-        :param pulumi.Input[pulumi.InputType['FhirDatastorePreloadDataConfigArgs']] preload_data_config: Optional parameter to preload data upon creation of the data store. Currently, the only supported preloaded data is synthetic data generated from Synthea.
-        :param pulumi.Input[pulumi.InputType['FhirDatastoreSseConfigurationArgs']] sse_configuration: The server-side encryption key configuration for a customer provided encryption key.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A tag is a label consisting of a user-defined key and value. The form for tags is {"Key", "Value"}
+        :param pulumi.Input[pulumi.InputType['FhirDatastorePreloadDataConfigArgs']] preload_data_config: The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
+        :param pulumi.Input[pulumi.InputType['FhirDatastoreSseConfigurationArgs']] sse_configuration: The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         ...
     @overload
@@ -297,7 +303,7 @@ class FhirDatastore(pulumi.CustomResource):
     @pulumi.getter(name="preloadDataConfig")
     def preload_data_config(self) -> pulumi.Output[Optional['outputs.FhirDatastorePreloadDataConfig']]:
         """
-        Optional parameter to preload data upon creation of the data store. Currently, the only supported preloaded data is synthetic data generated from Synthea.
+        The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
         """
         return pulumi.get(self, "preload_data_config")
 
@@ -305,7 +311,7 @@ class FhirDatastore(pulumi.CustomResource):
     @pulumi.getter(name="sseConfiguration")
     def sse_configuration(self) -> pulumi.Output[Optional['outputs.FhirDatastoreSseConfiguration']]:
         """
-        The server-side encryption key configuration for a customer provided encryption key.
+        The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
         """
         return pulumi.get(self, "sse_configuration")
 
@@ -313,7 +319,9 @@ class FhirDatastore(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A tag is a label consisting of a user-defined key and value. The form for tags is {"Key", "Value"}
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         return pulumi.get(self, "tags")
 

@@ -20,7 +20,7 @@ type DataSource struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The data deletion policy for a data source.
 	DataDeletionPolicy DataSourceDataDeletionPolicyPtrOutput `pulumi:"dataDeletionPolicy"`
-	// Contains details about how a data source is stored.
+	// Contains details about how the data source is stored.
 	DataSourceConfiguration DataSourceConfigurationOutput `pulumi:"dataSourceConfiguration"`
 	// Identifier for a resource.
 	DataSourceId pulumi.StringOutput `pulumi:"dataSourceId"`
@@ -37,11 +37,11 @@ type DataSource struct {
 	KnowledgeBaseId pulumi.StringOutput `pulumi:"knowledgeBaseId"`
 	// The name of the data source.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Contains the configuration for server-side encryption.
+	// Contains details about the configuration of the server-side encryption.
 	ServerSideEncryptionConfiguration DataSourceServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
 	// The time at which the knowledge base was last updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
-	// Contains details about how to ingest the documents in a data source.
+	// Contains details about how to ingest the documents in the data source.
 	VectorIngestionConfiguration DataSourceVectorIngestionConfigurationPtrOutput `pulumi:"vectorIngestionConfiguration"`
 }
 
@@ -98,7 +98,7 @@ func (DataSourceState) ElementType() reflect.Type {
 type dataSourceArgs struct {
 	// The data deletion policy for a data source.
 	DataDeletionPolicy *DataSourceDataDeletionPolicy `pulumi:"dataDeletionPolicy"`
-	// Contains details about how a data source is stored.
+	// Contains details about how the data source is stored.
 	DataSourceConfiguration DataSourceConfiguration `pulumi:"dataSourceConfiguration"`
 	// Description of the Resource.
 	Description *string `pulumi:"description"`
@@ -106,9 +106,9 @@ type dataSourceArgs struct {
 	KnowledgeBaseId string `pulumi:"knowledgeBaseId"`
 	// The name of the data source.
 	Name *string `pulumi:"name"`
-	// Contains the configuration for server-side encryption.
+	// Contains details about the configuration of the server-side encryption.
 	ServerSideEncryptionConfiguration *DataSourceServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
-	// Contains details about how to ingest the documents in a data source.
+	// Contains details about how to ingest the documents in the data source.
 	VectorIngestionConfiguration *DataSourceVectorIngestionConfiguration `pulumi:"vectorIngestionConfiguration"`
 }
 
@@ -116,7 +116,7 @@ type dataSourceArgs struct {
 type DataSourceArgs struct {
 	// The data deletion policy for a data source.
 	DataDeletionPolicy DataSourceDataDeletionPolicyPtrInput
-	// Contains details about how a data source is stored.
+	// Contains details about how the data source is stored.
 	DataSourceConfiguration DataSourceConfigurationInput
 	// Description of the Resource.
 	Description pulumi.StringPtrInput
@@ -124,9 +124,9 @@ type DataSourceArgs struct {
 	KnowledgeBaseId pulumi.StringInput
 	// The name of the data source.
 	Name pulumi.StringPtrInput
-	// Contains the configuration for server-side encryption.
+	// Contains details about the configuration of the server-side encryption.
 	ServerSideEncryptionConfiguration DataSourceServerSideEncryptionConfigurationPtrInput
-	// Contains details about how to ingest the documents in a data source.
+	// Contains details about how to ingest the documents in the data source.
 	VectorIngestionConfiguration DataSourceVectorIngestionConfigurationPtrInput
 }
 
@@ -177,7 +177,7 @@ func (o DataSourceOutput) DataDeletionPolicy() DataSourceDataDeletionPolicyPtrOu
 	return o.ApplyT(func(v *DataSource) DataSourceDataDeletionPolicyPtrOutput { return v.DataDeletionPolicy }).(DataSourceDataDeletionPolicyPtrOutput)
 }
 
-// Contains details about how a data source is stored.
+// Contains details about how the data source is stored.
 func (o DataSourceOutput) DataSourceConfiguration() DataSourceConfigurationOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceConfigurationOutput { return v.DataSourceConfiguration }).(DataSourceConfigurationOutput)
 }
@@ -215,7 +215,7 @@ func (o DataSourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Contains the configuration for server-side encryption.
+// Contains details about the configuration of the server-side encryption.
 func (o DataSourceOutput) ServerSideEncryptionConfiguration() DataSourceServerSideEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceServerSideEncryptionConfigurationPtrOutput {
 		return v.ServerSideEncryptionConfiguration
@@ -227,7 +227,7 @@ func (o DataSourceOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
-// Contains details about how to ingest the documents in a data source.
+// Contains details about how to ingest the documents in the data source.
 func (o DataSourceOutput) VectorIngestionConfiguration() DataSourceVectorIngestionConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceVectorIngestionConfigurationPtrOutput {
 		return v.VectorIngestionConfiguration

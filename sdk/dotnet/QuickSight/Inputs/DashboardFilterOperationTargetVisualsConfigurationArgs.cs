@@ -14,8 +14,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         /// <summary>
         /// The configuration of the same-sheet target visuals that you want to be filtered.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
         /// </summary>
         [Input("sameSheetTargetVisualConfiguration")]
         public Input<Inputs.DashboardSameSheetTargetVisualConfigurationArgs>? SameSheetTargetVisualConfiguration { get; set; }

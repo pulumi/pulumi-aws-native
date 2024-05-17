@@ -16,7 +16,7 @@ import (
 type TemplateGroupAccessControlEntry struct {
 	pulumi.CustomResourceState
 
-	// Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a template.
+	// Permissions to allow or deny an Active Directory group to enroll or autoenroll certificates issued against a template.
 	AccessRights TemplateGroupAccessControlEntryAccessRightsOutput `pulumi:"accessRights"`
 	// Name of the Active Directory group. This name does not need to match the group name in Active Directory.
 	GroupDisplayName pulumi.StringOutput `pulumi:"groupDisplayName"`
@@ -77,7 +77,7 @@ func (TemplateGroupAccessControlEntryState) ElementType() reflect.Type {
 }
 
 type templateGroupAccessControlEntryArgs struct {
-	// Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a template.
+	// Permissions to allow or deny an Active Directory group to enroll or autoenroll certificates issued against a template.
 	AccessRights TemplateGroupAccessControlEntryAccessRights `pulumi:"accessRights"`
 	// Name of the Active Directory group. This name does not need to match the group name in Active Directory.
 	GroupDisplayName string `pulumi:"groupDisplayName"`
@@ -89,7 +89,7 @@ type templateGroupAccessControlEntryArgs struct {
 
 // The set of arguments for constructing a TemplateGroupAccessControlEntry resource.
 type TemplateGroupAccessControlEntryArgs struct {
-	// Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a template.
+	// Permissions to allow or deny an Active Directory group to enroll or autoenroll certificates issued against a template.
 	AccessRights TemplateGroupAccessControlEntryAccessRightsInput
 	// Name of the Active Directory group. This name does not need to match the group name in Active Directory.
 	GroupDisplayName pulumi.StringInput
@@ -136,7 +136,7 @@ func (o TemplateGroupAccessControlEntryOutput) ToTemplateGroupAccessControlEntry
 	return o
 }
 
-// Allow or deny permissions for an Active Directory group to enroll or autoenroll certificates for a template.
+// Permissions to allow or deny an Active Directory group to enroll or autoenroll certificates issued against a template.
 func (o TemplateGroupAccessControlEntryOutput) AccessRights() TemplateGroupAccessControlEntryAccessRightsOutput {
 	return o.ApplyT(func(v *TemplateGroupAccessControlEntry) TemplateGroupAccessControlEntryAccessRightsOutput {
 		return v.AccessRights

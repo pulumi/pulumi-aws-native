@@ -71,9 +71,9 @@ class GetBranchResult:
     @pulumi.getter
     def backend(self) -> Optional['outputs.BranchBackend']:
         """
-        Describes the backend associated with an Amplify `Branch` .
+        The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
 
-        This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
+        This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
         """
         return pulumi.get(self, "backend")
 
@@ -127,7 +127,7 @@ class GetBranchResult:
     @pulumi.getter(name="environmentVariables")
     def environment_variables(self) -> Optional[Sequence['outputs.BranchEnvironmentVariable']]:
         """
-        The EnvironmentVariable property type sets environment variables for a specific branch. Environment variables are key-value pairs that are available at build time.
+        The environment variables for the branch.
         """
         return pulumi.get(self, "environment_variables")
 
@@ -165,7 +165,7 @@ class GetBranchResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::Branch` resource.
+        The tag for the branch.
         """
         return pulumi.get(self, "tags")
 

@@ -27,7 +27,7 @@ export interface GetNetworkInterfaceArgs {
 
 export interface GetNetworkInterfaceResult {
     /**
-     * Configurable options for connection tracking on a network interface. For more information, see [Connection tracking timeouts](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts) in the *Amazon Elastic Compute Cloud User Guide* .
+     * A connection tracking specification for the network interface.
      */
     readonly connectionTrackingSpecification?: outputs.ec2.NetworkInterfaceConnectionTrackingSpecification;
     /**

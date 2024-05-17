@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateFunnelChartConfiguration
     {
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options of the categories that are displayed in a `FunnelChartVisual` .
         /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? CategoryLabelOptions;
         /// <summary>
@@ -23,8 +23,6 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Outputs.TemplateFunnelChartDataLabelOptions? DataLabelOptions;
         /// <summary>
         /// The field well configuration of a `FunnelChartVisual` .
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
         /// </summary>
         public readonly Outputs.TemplateFunnelChartFieldWells? FieldWells;
         /// <summary>
@@ -32,15 +30,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.TemplateFunnelChartSortConfiguration? SortConfiguration;
         /// <summary>
-        /// The display options for the visual tooltip.
+        /// The tooltip configuration of a `FunnelChartVisual` .
         /// </summary>
         public readonly Outputs.TemplateTooltipOptions? Tooltip;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options for the values that are displayed in a `FunnelChartVisual` .
         /// </summary>
         public readonly Outputs.TemplateChartAxisLabelOptions? ValueLabelOptions;
         /// <summary>
-        /// The visual display options for the visual palette.
+        /// The visual palette configuration of a `FunnelChartVisual` .
         /// </summary>
         public readonly Outputs.TemplateVisualPalette? VisualPalette;
 

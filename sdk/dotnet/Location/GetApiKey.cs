@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.Location
         /// </summary>
         public readonly string? KeyArn;
         /// <summary>
-        /// API Restrictions on the allowed actions, resources, and referers for an API key resource.
+        /// The API key restrictions for the API key resource.
         /// </summary>
         public readonly Outputs.ApiKeyRestrictions? Restrictions;
         /// <summary>

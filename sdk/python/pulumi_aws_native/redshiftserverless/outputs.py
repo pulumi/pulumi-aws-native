@@ -344,9 +344,9 @@ class Workgroup(dict):
                  workgroup_name: Optional[str] = None):
         """
         :param int base_capacity: The base data warehouse capacity of the workgroup in Redshift Processing Units (RPUs).
-        :param Sequence['WorkgroupConfigParameter'] config_parameters: A array of parameters to set for more control over a serverless database.
+        :param Sequence['WorkgroupConfigParameter'] config_parameters: An array of parameters to set for advanced control over a database. The options are `auto_mv` , `datestyle` , `enable_case_sensitive_identifier` , `enable_user_activity_logging` , `query_group` , `search_path` , `require_ssl` , `use_fips_ssl` , and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see [Query monitoring metrics for Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) .
         :param str creation_date: The creation date of the workgroup.
-        :param 'WorkgroupEndpoint' endpoint: The VPC endpoint object.
+        :param 'WorkgroupEndpoint' endpoint: The endpoint that is created from the workgroup.
         :param bool enhanced_vpc_routing: The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
         :param int max_capacity: The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries. The max capacity is specified in RPUs.
         :param str namespace_name: The namespace the workgroup is associated with.
@@ -399,7 +399,7 @@ class Workgroup(dict):
     @pulumi.getter(name="configParameters")
     def config_parameters(self) -> Optional[Sequence['outputs.WorkgroupConfigParameter']]:
         """
-        A array of parameters to set for more control over a serverless database.
+        An array of parameters to set for advanced control over a database. The options are `auto_mv` , `datestyle` , `enable_case_sensitive_identifier` , `enable_user_activity_logging` , `query_group` , `search_path` , `require_ssl` , `use_fips_ssl` , and query monitoring metrics that let you define performance boundaries. For more information about query monitoring rules and available metrics, see [Query monitoring metrics for Amazon Redshift Serverless](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) .
         """
         return pulumi.get(self, "config_parameters")
 
@@ -415,7 +415,7 @@ class Workgroup(dict):
     @pulumi.getter
     def endpoint(self) -> Optional['outputs.WorkgroupEndpoint']:
         """
-        The VPC endpoint object.
+        The endpoint that is created from the workgroup.
         """
         return pulumi.get(self, "endpoint")
 
@@ -576,7 +576,7 @@ class WorkgroupEndpoint(dict):
         """
         :param str address: The DNS address of the VPC endpoint.
         :param int port: The port that Amazon Redshift Serverless listens on.
-        :param Sequence['WorkgroupVpcEndpoint'] vpc_endpoints: The connection endpoint for connecting to Amazon Redshift Serverless through the proxy.
+        :param Sequence['WorkgroupVpcEndpoint'] vpc_endpoints: An array of `VpcEndpoint` objects.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -605,7 +605,7 @@ class WorkgroupEndpoint(dict):
     @pulumi.getter(name="vpcEndpoints")
     def vpc_endpoints(self) -> Optional[Sequence['outputs.WorkgroupVpcEndpoint']]:
         """
-        The connection endpoint for connecting to Amazon Redshift Serverless through the proxy.
+        An array of `VpcEndpoint` objects.
         """
         return pulumi.get(self, "vpc_endpoints")
 
@@ -716,7 +716,7 @@ class WorkgroupVpcEndpoint(dict):
                  vpc_endpoint_id: Optional[str] = None,
                  vpc_id: Optional[str] = None):
         """
-        :param Sequence['WorkgroupNetworkInterface'] network_interfaces: Contains information about a network interface in an Amazon Redshift Serverless managed VPC endpoint.
+        :param Sequence['WorkgroupNetworkInterface'] network_interfaces: One or more network interfaces of the endpoint. Also known as an interface endpoint.
         :param str vpc_endpoint_id: The connection endpoint ID for connecting to Amazon Redshift Serverless.
         :param str vpc_id: The VPC identifier that the endpoint is associated with.
         """
@@ -731,7 +731,7 @@ class WorkgroupVpcEndpoint(dict):
     @pulumi.getter(name="networkInterfaces")
     def network_interfaces(self) -> Optional[Sequence['outputs.WorkgroupNetworkInterface']]:
         """
-        Contains information about a network interface in an Amazon Redshift Serverless managed VPC endpoint.
+        One or more network interfaces of the endpoint. Also known as an interface endpoint.
         """
         return pulumi.get(self, "network_interfaces")
 

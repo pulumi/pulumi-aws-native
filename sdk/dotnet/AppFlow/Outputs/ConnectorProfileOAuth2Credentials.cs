@@ -25,9 +25,6 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// The client secret used by the OAuth client to authenticate to the authorization server.
         /// </summary>
         public readonly string? ClientSecret;
-        /// <summary>
-        /// Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
-        /// </summary>
         public readonly Outputs.ConnectorProfileConnectorOAuthRequest? OAuthRequest;
         /// <summary>
         /// The refresh token used to refresh an expired access token.

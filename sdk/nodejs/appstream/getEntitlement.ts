@@ -36,7 +36,7 @@ export interface GetEntitlementResult {
      */
     readonly appVisibility?: string;
     /**
-     * An attribute that belongs to an entitlement. Application entitlements work by matching a supported SAML 2.0 attribute name to a value when a user identity federates to an AppStream 2.0 SAML application.
+     * The attributes of the entitlement.
      */
     readonly attributes?: outputs.appstream.EntitlementAttribute[];
     /**

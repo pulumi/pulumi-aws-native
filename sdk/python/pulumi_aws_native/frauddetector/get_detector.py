@@ -140,7 +140,7 @@ class GetDetectorResult:
     @pulumi.getter
     def rules(self) -> Optional[Sequence['outputs.DetectorRule']]:
         """
-        A rule.
+        The rules to include in the detector version.
         """
         return pulumi.get(self, "rules")
 

@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     public sealed class DataSourceConfluenceConfiguration
     {
         /// <summary>
-        /// Configuration of attachment settings for the Confluence data source. Attachment settings are optional, if you don't specify settings attachments, Amazon Kendra won't index them.
+        /// Configuration information for indexing attachments to Confluence blogs and pages.
         /// </summary>
         public readonly Outputs.DataSourceConfluenceAttachmentConfiguration? AttachmentConfiguration;
         /// <summary>
-        /// Configuration of blog settings for the Confluence data source. Blogs are always indexed unless filtered from the index by the `ExclusionPatterns` or `InclusionPatterns` fields in the `ConfluenceConfiguration` object.
+        /// Configuration information for indexing Confluence blogs.
         /// </summary>
         public readonly Outputs.DataSourceConfluenceBlogConfiguration? BlogConfiguration;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// </summary>
         public readonly ImmutableArray<string> InclusionPatterns;
         /// <summary>
-        /// Configuration of the page settings for the Confluence data source.
+        /// Configuration information for indexing Confluence pages.
         /// </summary>
         public readonly Outputs.DataSourceConfluencePageConfiguration? PageConfiguration;
         /// <summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.Kendra.DataSourceConfluenceVersion Version;
         /// <summary>
-        /// Provides the configuration information to connect to an Amazon VPC.
+        /// Configuration information for an Amazon Virtual Private Cloud to connect to your Confluence. For more information, see [Configuring a VPC](https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html) .
         /// </summary>
         public readonly Outputs.DataSourceVpcConfiguration? VpcConfiguration;
 

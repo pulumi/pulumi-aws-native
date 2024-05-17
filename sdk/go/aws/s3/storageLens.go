@@ -17,7 +17,7 @@ import (
 type StorageLens struct {
 	pulumi.CustomResourceState
 
-	// This is the property of the Amazon S3 Storage Lens configuration.
+	// This resource contains the details Amazon S3 Storage Lens configuration.
 	StorageLensConfiguration StorageLensConfigurationOutput `pulumi:"storageLensConfiguration"`
 	// A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -70,7 +70,7 @@ func (StorageLensState) ElementType() reflect.Type {
 }
 
 type storageLensArgs struct {
-	// This is the property of the Amazon S3 Storage Lens configuration.
+	// This resource contains the details Amazon S3 Storage Lens configuration.
 	StorageLensConfiguration StorageLensConfiguration `pulumi:"storageLensConfiguration"`
 	// A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -78,7 +78,7 @@ type storageLensArgs struct {
 
 // The set of arguments for constructing a StorageLens resource.
 type StorageLensArgs struct {
-	// This is the property of the Amazon S3 Storage Lens configuration.
+	// This resource contains the details Amazon S3 Storage Lens configuration.
 	StorageLensConfiguration StorageLensConfigurationInput
 	// A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
 	Tags aws.TagArrayInput
@@ -121,7 +121,7 @@ func (o StorageLensOutput) ToStorageLensOutputWithContext(ctx context.Context) S
 	return o
 }
 
-// This is the property of the Amazon S3 Storage Lens configuration.
+// This resource contains the details Amazon S3 Storage Lens configuration.
 func (o StorageLensOutput) StorageLensConfiguration() StorageLensConfigurationOutput {
 	return o.ApplyT(func(v *StorageLens) StorageLensConfigurationOutput { return v.StorageLensConfiguration }).(StorageLensConfigurationOutput)
 }

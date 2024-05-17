@@ -39,7 +39,7 @@ type JobTemplate struct {
 	JobExecutionsRolloutConfig JobExecutionsRolloutConfigPropertiesPtrOutput `pulumi:"jobExecutionsRolloutConfig"`
 	// A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
 	JobTemplateId pulumi.StringOutput `pulumi:"jobTemplateId"`
-	// An optional configuration within the `SchedulingConfig` to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+	// An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
 	MaintenanceWindows JobTemplateMaintenanceWindowArrayOutput `pulumi:"maintenanceWindows"`
 	// Configuration for pre-signed S3 URLs.
 	PresignedUrlConfig PresignedUrlConfigPropertiesPtrOutput `pulumi:"presignedUrlConfig"`
@@ -131,7 +131,7 @@ type jobTemplateArgs struct {
 	JobExecutionsRolloutConfig *JobExecutionsRolloutConfigProperties `pulumi:"jobExecutionsRolloutConfig"`
 	// A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
 	JobTemplateId string `pulumi:"jobTemplateId"`
-	// An optional configuration within the `SchedulingConfig` to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+	// An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
 	MaintenanceWindows []JobTemplateMaintenanceWindow `pulumi:"maintenanceWindows"`
 	// Configuration for pre-signed S3 URLs.
 	PresignedUrlConfig *PresignedUrlConfigProperties `pulumi:"presignedUrlConfig"`
@@ -163,7 +163,7 @@ type JobTemplateArgs struct {
 	JobExecutionsRolloutConfig JobExecutionsRolloutConfigPropertiesPtrInput
 	// A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.
 	JobTemplateId pulumi.StringInput
-	// An optional configuration within the `SchedulingConfig` to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+	// An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
 	MaintenanceWindows JobTemplateMaintenanceWindowArrayInput
 	// Configuration for pre-signed S3 URLs.
 	PresignedUrlConfig PresignedUrlConfigPropertiesPtrInput
@@ -264,7 +264,7 @@ func (o JobTemplateOutput) JobTemplateId() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobTemplate) pulumi.StringOutput { return v.JobTemplateId }).(pulumi.StringOutput)
 }
 
-// An optional configuration within the `SchedulingConfig` to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
+// An optional configuration within the SchedulingConfig to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.
 func (o JobTemplateOutput) MaintenanceWindows() JobTemplateMaintenanceWindowArrayOutput {
 	return o.ApplyT(func(v *JobTemplate) JobTemplateMaintenanceWindowArrayOutput { return v.MaintenanceWindows }).(JobTemplateMaintenanceWindowArrayOutput)
 }

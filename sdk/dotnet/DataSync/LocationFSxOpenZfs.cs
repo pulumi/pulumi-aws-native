@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.DataSync
         public Output<string> LocationUri { get; private set; } = null!;
 
         /// <summary>
-        /// Represents the protocol that AWS DataSync uses to access your Amazon FSx for OpenZFS file system.
+        /// The type of protocol that AWS DataSync uses to access your file system.
         /// </summary>
         [Output("protocol")]
         public Output<Outputs.LocationFSxOpenZfsProtocol> Protocol { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.AwsNative.DataSync
         public Input<string>? FsxFilesystemArn { get; set; }
 
         /// <summary>
-        /// Represents the protocol that AWS DataSync uses to access your Amazon FSx for OpenZFS file system.
+        /// The type of protocol that AWS DataSync uses to access your file system.
         /// </summary>
         [Input("protocol", required: true)]
         public Input<Inputs.LocationFSxOpenZfsProtocolArgs> Protocol { get; set; } = null!;

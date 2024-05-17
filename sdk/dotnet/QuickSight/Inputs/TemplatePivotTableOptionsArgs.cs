@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplatePivotTableOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The table cell style of cells.
         /// </summary>
         [Input("cellStyle")]
         public Input<Inputs.TemplateTableCellStyleArgs>? CellStyle { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? CollapsedRowDimensionsVisibility { get; set; }
 
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The table cell style of the column header.
         /// </summary>
         [Input("columnHeaderStyle")]
         public Input<Inputs.TemplateTableCellStyleArgs>? ColumnHeaderStyle { get; set; }
@@ -49,25 +49,25 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.TemplatePivotTableMetricPlacement>? MetricPlacement { get; set; }
 
         /// <summary>
-        /// Determines the row alternate color options.
+        /// The row alternate color options (widget status, row alternate colors).
         /// </summary>
         [Input("rowAlternateColorOptions")]
         public Input<Inputs.TemplateRowAlternateColorOptionsArgs>? RowAlternateColorOptions { get; set; }
 
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The table cell style of row field names.
         /// </summary>
         [Input("rowFieldNamesStyle")]
         public Input<Inputs.TemplateTableCellStyleArgs>? RowFieldNamesStyle { get; set; }
 
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// The table cell style of the row headers.
         /// </summary>
         [Input("rowHeaderStyle")]
         public Input<Inputs.TemplateTableCellStyleArgs>? RowHeaderStyle { get; set; }
 
         /// <summary>
-        /// The options for the label thta is located above the row headers. This option is only applicable when `RowsLayout` is set to `HIERARCHY` .
+        /// The options for the label that is located above the row headers. This option is only applicable when `RowsLayout` is set to `HIERARCHY` .
         /// </summary>
         [Input("rowsLabelOptions")]
         public Input<Inputs.TemplatePivotTableRowsLabelOptionsArgs>? RowsLabelOptions { get; set; }

@@ -161,9 +161,11 @@ type Datastore struct {
 	//
 	// You can't change the file format after you create the data store.
 	FileFormatConfiguration DatastoreFileFormatConfigurationPtrOutput `pulumi:"fileFormatConfiguration"`
-	// How long, in days, message data is kept.
+	// How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
 	RetentionPeriod DatastoreRetentionPeriodPtrOutput `pulumi:"retentionPeriod"`
-	// A set of key-value pairs that are used to manage the resource.
+	// Metadata which can be used to manage the data store.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -223,9 +225,11 @@ type datastoreArgs struct {
 	//
 	// You can't change the file format after you create the data store.
 	FileFormatConfiguration *DatastoreFileFormatConfiguration `pulumi:"fileFormatConfiguration"`
-	// How long, in days, message data is kept.
+	// How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
 	RetentionPeriod *DatastoreRetentionPeriod `pulumi:"retentionPeriod"`
-	// A set of key-value pairs that are used to manage the resource.
+	// Metadata which can be used to manage the data store.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -243,9 +247,11 @@ type DatastoreArgs struct {
 	//
 	// You can't change the file format after you create the data store.
 	FileFormatConfiguration DatastoreFileFormatConfigurationPtrInput
-	// How long, in days, message data is kept.
+	// How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
 	RetentionPeriod DatastoreRetentionPeriodPtrInput
-	// A set of key-value pairs that are used to manage the resource.
+	// Metadata which can be used to manage the data store.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags aws.TagArrayInput
 }
 
@@ -314,12 +320,14 @@ func (o DatastoreOutput) FileFormatConfiguration() DatastoreFileFormatConfigurat
 	return o.ApplyT(func(v *Datastore) DatastoreFileFormatConfigurationPtrOutput { return v.FileFormatConfiguration }).(DatastoreFileFormatConfigurationPtrOutput)
 }
 
-// How long, in days, message data is kept.
+// How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
 func (o DatastoreOutput) RetentionPeriod() DatastoreRetentionPeriodPtrOutput {
 	return o.ApplyT(func(v *Datastore) DatastoreRetentionPeriodPtrOutput { return v.RetentionPeriod }).(DatastoreRetentionPeriodPtrOutput)
 }
 
-// A set of key-value pairs that are used to manage the resource.
+// Metadata which can be used to manage the data store.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o DatastoreOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Datastore) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

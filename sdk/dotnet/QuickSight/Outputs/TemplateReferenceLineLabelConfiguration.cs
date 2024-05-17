@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateReferenceLineLabelConfiguration
     {
         /// <summary>
-        /// The configuration for a custom label on a `ReferenceLine` .
+        /// The custom label configuration of the label in a reference line.
         /// </summary>
         public readonly Outputs.TemplateReferenceLineCustomLabelConfiguration? CustomLabelConfiguration;
         /// <summary>
@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string? FontColor;
         /// <summary>
-        /// Configures the display properties of the given text.
+        /// The font configuration of the label in a reference line.
         /// </summary>
         public readonly Outputs.TemplateFontConfiguration? FontConfiguration;
         /// <summary>

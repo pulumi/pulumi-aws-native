@@ -97,7 +97,7 @@ class GetEnvironmentBlueprintConfigurationResult:
     @pulumi.getter(name="regionalParameters")
     def regional_parameters(self) -> Optional[Sequence['outputs.EnvironmentBlueprintConfigurationRegionalParameter']]:
         """
-        The regional parameters in the environment blueprint.
+        The regional parameters of the environment blueprint.
         """
         return pulumi.get(self, "regional_parameters")
 

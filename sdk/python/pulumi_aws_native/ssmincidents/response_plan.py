@@ -29,7 +29,7 @@ class ResponsePlanArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ResponsePlan resource.
-        :param pulumi.Input['ResponsePlanIncidentTemplateArgs'] incident_template: The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
+        :param pulumi.Input['ResponsePlanIncidentTemplateArgs'] incident_template: Details used to create an incident when using this response plan.
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionArgs']]] actions: The list of actions.
         :param pulumi.Input['ResponsePlanChatChannelArgs'] chat_channel: The AWS Chatbot chat channel used for collaboration during an incident.
         :param pulumi.Input[str] display_name: The display name of the response plan.
@@ -58,7 +58,7 @@ class ResponsePlanArgs:
     @pulumi.getter(name="incidentTemplate")
     def incident_template(self) -> pulumi.Input['ResponsePlanIncidentTemplateArgs']:
         """
-        The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
+        Details used to create an incident when using this response plan.
         """
         return pulumi.get(self, "incident_template")
 
@@ -174,7 +174,7 @@ class ResponsePlan(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ResponsePlanChatChannelArgs']] chat_channel: The AWS Chatbot chat channel used for collaboration during an incident.
         :param pulumi.Input[str] display_name: The display name of the response plan.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] engagements: The list of engagements to use.
-        :param pulumi.Input[pulumi.InputType['ResponsePlanIncidentTemplateArgs']] incident_template: The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
+        :param pulumi.Input[pulumi.InputType['ResponsePlanIncidentTemplateArgs']] incident_template: Details used to create an incident when using this response plan.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResponsePlanIntegrationArgs']]]] integrations: The list of integrations.
         :param pulumi.Input[str] name: The name of the response plan.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to apply to the response plan.
@@ -310,7 +310,7 @@ class ResponsePlan(pulumi.CustomResource):
     @pulumi.getter(name="incidentTemplate")
     def incident_template(self) -> pulumi.Output['outputs.ResponsePlanIncidentTemplate']:
         """
-        The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
+        Details used to create an incident when using this response plan.
         """
         return pulumi.get(self, "incident_template")
 

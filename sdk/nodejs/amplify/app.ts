@@ -60,11 +60,11 @@ export class App extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Use the AutoBranchCreationConfig property type to automatically create branches that match a certain pattern.
+     * Sets the configuration for your automatic branch creation.
      */
     public readonly autoBranchCreationConfig!: pulumi.Output<outputs.amplify.AppAutoBranchCreationConfig | undefined>;
     /**
-     * Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
+     * The credentials for basic authorization for an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
      */
     public readonly basicAuthConfig!: pulumi.Output<outputs.amplify.AppBasicAuthConfig | undefined>;
     /**
@@ -76,7 +76,7 @@ export class App extends pulumi.CustomResource {
      */
     public readonly customHeaders!: pulumi.Output<string | undefined>;
     /**
-     * The CustomRule property type allows you to specify redirects, rewrites, and reverse proxies. Redirects enable a web app to reroute navigation from one URL to another.
+     * The custom rewrite and redirect rules for an Amplify app.
      */
     public readonly customRules!: pulumi.Output<outputs.amplify.AppCustomRule[] | undefined>;
     /**
@@ -92,7 +92,9 @@ export class App extends pulumi.CustomResource {
      */
     public readonly enableBranchAutoDeletion!: pulumi.Output<boolean | undefined>;
     /**
-     * Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+     * The environment variables for the Amplify app.
+     *
+     * For a list of the environment variables that are accessible to Amplify by default, see [Amplify Environment variables](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html) in the *Amplify Hosting User Guide* .
      */
     public readonly environmentVariables!: pulumi.Output<outputs.amplify.AppEnvironmentVariable[] | undefined>;
     /**
@@ -122,7 +124,7 @@ export class App extends pulumi.CustomResource {
      */
     public readonly repository!: pulumi.Output<string | undefined>;
     /**
-     * The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::App` resource.
+     * The tag for an Amplify app.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -197,11 +199,11 @@ export interface AppArgs {
      */
     accessToken?: pulumi.Input<string>;
     /**
-     * Use the AutoBranchCreationConfig property type to automatically create branches that match a certain pattern.
+     * Sets the configuration for your automatic branch creation.
      */
     autoBranchCreationConfig?: pulumi.Input<inputs.amplify.AppAutoBranchCreationConfigArgs>;
     /**
-     * Use the BasicAuthConfig property type to set password protection at an app level to all your branches.
+     * The credentials for basic authorization for an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
      */
     basicAuthConfig?: pulumi.Input<inputs.amplify.AppBasicAuthConfigArgs>;
     /**
@@ -213,7 +215,7 @@ export interface AppArgs {
      */
     customHeaders?: pulumi.Input<string>;
     /**
-     * The CustomRule property type allows you to specify redirects, rewrites, and reverse proxies. Redirects enable a web app to reroute navigation from one URL to another.
+     * The custom rewrite and redirect rules for an Amplify app.
      */
     customRules?: pulumi.Input<pulumi.Input<inputs.amplify.AppCustomRuleArgs>[]>;
     /**
@@ -225,7 +227,9 @@ export interface AppArgs {
      */
     enableBranchAutoDeletion?: pulumi.Input<boolean>;
     /**
-     * Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+     * The environment variables for the Amplify app.
+     *
+     * For a list of the environment variables that are accessible to Amplify by default, see [Amplify Environment variables](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html) in the *Amplify Hosting User Guide* .
      */
     environmentVariables?: pulumi.Input<pulumi.Input<inputs.amplify.AppEnvironmentVariableArgs>[]>;
     /**
@@ -255,7 +259,7 @@ export interface AppArgs {
      */
     repository?: pulumi.Input<string>;
     /**
-     * The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::App` resource.
+     * The tag for an Amplify app.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

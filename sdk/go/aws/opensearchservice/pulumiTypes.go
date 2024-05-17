@@ -23,8 +23,6 @@ type DomainAdvancedSecurityOptionsInput struct {
 	// True to enable the internal user database.
 	InternalUserDatabaseEnabled *bool `pulumi:"internalUserDatabaseEnabled"`
 	// Specifies information about the master user.
-	//
-	// Required if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
 	MasterUserOptions *DomainMasterUserOptions `pulumi:"masterUserOptions"`
 	// Container for information about the SAML configuration for OpenSearch Dashboards.
 	SamlOptions *DomainSamlOptions `pulumi:"samlOptions"`
@@ -51,8 +49,6 @@ type DomainAdvancedSecurityOptionsInputArgs struct {
 	// True to enable the internal user database.
 	InternalUserDatabaseEnabled pulumi.BoolPtrInput `pulumi:"internalUserDatabaseEnabled"`
 	// Specifies information about the master user.
-	//
-	// Required if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
 	MasterUserOptions DomainMasterUserOptionsPtrInput `pulumi:"masterUserOptions"`
 	// Container for information about the SAML configuration for OpenSearch Dashboards.
 	SamlOptions DomainSamlOptionsPtrInput `pulumi:"samlOptions"`
@@ -156,8 +152,6 @@ func (o DomainAdvancedSecurityOptionsInputOutput) InternalUserDatabaseEnabled() 
 }
 
 // Specifies information about the master user.
-//
-// Required if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
 func (o DomainAdvancedSecurityOptionsInputOutput) MasterUserOptions() DomainMasterUserOptionsPtrOutput {
 	return o.ApplyT(func(v DomainAdvancedSecurityOptionsInput) *DomainMasterUserOptions { return v.MasterUserOptions }).(DomainMasterUserOptionsPtrOutput)
 }
@@ -232,8 +226,6 @@ func (o DomainAdvancedSecurityOptionsInputPtrOutput) InternalUserDatabaseEnabled
 }
 
 // Specifies information about the master user.
-//
-// Required if `InternalUserDatabaseEnabled` is true in [AdvancedSecurityOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
 func (o DomainAdvancedSecurityOptionsInputPtrOutput) MasterUserOptions() DomainMasterUserOptionsPtrOutput {
 	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsInput) *DomainMasterUserOptions {
 		if v == nil {
@@ -254,7 +246,7 @@ func (o DomainAdvancedSecurityOptionsInputPtrOutput) SamlOptions() DomainSamlOpt
 }
 
 type DomainClusterConfig struct {
-	// Container for the parameters required to enable cold storage for an OpenSearch Service domain. For more information, see [Cold storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cold-storage.html) .
+	// Container for cold storage configuration options.
 	ColdStorageOptions *DomainColdStorageOptions `pulumi:"coldStorageOptions"`
 	// The number of instances to use for the master node. If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property.
 	DedicatedMasterCount *int `pulumi:"dedicatedMasterCount"`
@@ -292,7 +284,7 @@ type DomainClusterConfigInput interface {
 }
 
 type DomainClusterConfigArgs struct {
-	// Container for the parameters required to enable cold storage for an OpenSearch Service domain. For more information, see [Cold storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cold-storage.html) .
+	// Container for cold storage configuration options.
 	ColdStorageOptions DomainColdStorageOptionsPtrInput `pulumi:"coldStorageOptions"`
 	// The number of instances to use for the master node. If you specify this property, you must specify `true` for the `DedicatedMasterEnabled` property.
 	DedicatedMasterCount pulumi.IntPtrInput `pulumi:"dedicatedMasterCount"`
@@ -395,7 +387,7 @@ func (o DomainClusterConfigOutput) ToDomainClusterConfigPtrOutputWithContext(ctx
 	}).(DomainClusterConfigPtrOutput)
 }
 
-// Container for the parameters required to enable cold storage for an OpenSearch Service domain. For more information, see [Cold storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cold-storage.html) .
+// Container for cold storage configuration options.
 func (o DomainClusterConfigOutput) ColdStorageOptions() DomainColdStorageOptionsPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *DomainColdStorageOptions { return v.ColdStorageOptions }).(DomainColdStorageOptionsPtrOutput)
 }
@@ -479,7 +471,7 @@ func (o DomainClusterConfigPtrOutput) Elem() DomainClusterConfigOutput {
 	}).(DomainClusterConfigOutput)
 }
 
-// Container for the parameters required to enable cold storage for an OpenSearch Service domain. For more information, see [Cold storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cold-storage.html) .
+// Container for cold storage configuration options.
 func (o DomainClusterConfigPtrOutput) ColdStorageOptions() DomainColdStorageOptionsPtrOutput {
 	return o.ApplyT(func(v *DomainClusterConfig) *DomainColdStorageOptions {
 		if v == nil {
@@ -2157,7 +2149,7 @@ func (o DomainNodeToNodeEncryptionOptionsPtrOutput) Enabled() pulumi.BoolPtrOutp
 }
 
 type DomainOffPeakWindow struct {
-	// A custom start time for the off-peak window, in Coordinated Universal Time (UTC). The window length will always be 10 hours, so you can't specify an end time. For example, if you specify 11:00 P.M. UTC as a start time, the end time will automatically be set to 9:00 A.M.
+	// The desired start time for an off-peak maintenance window.
 	WindowStartTime *DomainWindowStartTime `pulumi:"windowStartTime"`
 }
 
@@ -2173,7 +2165,7 @@ type DomainOffPeakWindowInput interface {
 }
 
 type DomainOffPeakWindowArgs struct {
-	// A custom start time for the off-peak window, in Coordinated Universal Time (UTC). The window length will always be 10 hours, so you can't specify an end time. For example, if you specify 11:00 P.M. UTC as a start time, the end time will automatically be set to 9:00 A.M.
+	// The desired start time for an off-peak maintenance window.
 	WindowStartTime DomainWindowStartTimePtrInput `pulumi:"windowStartTime"`
 }
 
@@ -2254,7 +2246,7 @@ func (o DomainOffPeakWindowOutput) ToDomainOffPeakWindowPtrOutputWithContext(ctx
 	}).(DomainOffPeakWindowPtrOutput)
 }
 
-// A custom start time for the off-peak window, in Coordinated Universal Time (UTC). The window length will always be 10 hours, so you can't specify an end time. For example, if you specify 11:00 P.M. UTC as a start time, the end time will automatically be set to 9:00 A.M.
+// The desired start time for an off-peak maintenance window.
 func (o DomainOffPeakWindowOutput) WindowStartTime() DomainWindowStartTimePtrOutput {
 	return o.ApplyT(func(v DomainOffPeakWindow) *DomainWindowStartTime { return v.WindowStartTime }).(DomainWindowStartTimePtrOutput)
 }
@@ -2283,7 +2275,7 @@ func (o DomainOffPeakWindowPtrOutput) Elem() DomainOffPeakWindowOutput {
 	}).(DomainOffPeakWindowOutput)
 }
 
-// A custom start time for the off-peak window, in Coordinated Universal Time (UTC). The window length will always be 10 hours, so you can't specify an end time. For example, if you specify 11:00 P.M. UTC as a start time, the end time will automatically be set to 9:00 A.M.
+// The desired start time for an off-peak maintenance window.
 func (o DomainOffPeakWindowPtrOutput) WindowStartTime() DomainWindowStartTimePtrOutput {
 	return o.ApplyT(func(v *DomainOffPeakWindow) *DomainWindowStartTime {
 		if v == nil {
@@ -2296,7 +2288,7 @@ func (o DomainOffPeakWindowPtrOutput) WindowStartTime() DomainWindowStartTimePtr
 type DomainOffPeakWindowOptions struct {
 	// Specifies whether off-peak window settings are enabled for the domain.
 	Enabled *bool `pulumi:"enabled"`
-	// A custom 10-hour, low-traffic window during which OpenSearch Service can perform mandatory configuration changes on the domain. These actions can include scheduled service software updates and blue/green Auto-Tune enhancements. OpenSearch Service will schedule these actions during the window that you specify. If you don't specify a window start time, it defaults to 10:00 P.M. local time.
+	// Off-peak window settings for the domain.
 	OffPeakWindow *DomainOffPeakWindow `pulumi:"offPeakWindow"`
 }
 
@@ -2314,7 +2306,7 @@ type DomainOffPeakWindowOptionsInput interface {
 type DomainOffPeakWindowOptionsArgs struct {
 	// Specifies whether off-peak window settings are enabled for the domain.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// A custom 10-hour, low-traffic window during which OpenSearch Service can perform mandatory configuration changes on the domain. These actions can include scheduled service software updates and blue/green Auto-Tune enhancements. OpenSearch Service will schedule these actions during the window that you specify. If you don't specify a window start time, it defaults to 10:00 P.M. local time.
+	// Off-peak window settings for the domain.
 	OffPeakWindow DomainOffPeakWindowPtrInput `pulumi:"offPeakWindow"`
 }
 
@@ -2400,7 +2392,7 @@ func (o DomainOffPeakWindowOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainOffPeakWindowOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// A custom 10-hour, low-traffic window during which OpenSearch Service can perform mandatory configuration changes on the domain. These actions can include scheduled service software updates and blue/green Auto-Tune enhancements. OpenSearch Service will schedule these actions during the window that you specify. If you don't specify a window start time, it defaults to 10:00 P.M. local time.
+// Off-peak window settings for the domain.
 func (o DomainOffPeakWindowOptionsOutput) OffPeakWindow() DomainOffPeakWindowPtrOutput {
 	return o.ApplyT(func(v DomainOffPeakWindowOptions) *DomainOffPeakWindow { return v.OffPeakWindow }).(DomainOffPeakWindowPtrOutput)
 }
@@ -2439,7 +2431,7 @@ func (o DomainOffPeakWindowOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A custom 10-hour, low-traffic window during which OpenSearch Service can perform mandatory configuration changes on the domain. These actions can include scheduled service software updates and blue/green Auto-Tune enhancements. OpenSearch Service will schedule these actions during the window that you specify. If you don't specify a window start time, it defaults to 10:00 P.M. local time.
+// Off-peak window settings for the domain.
 func (o DomainOffPeakWindowOptionsPtrOutput) OffPeakWindow() DomainOffPeakWindowPtrOutput {
 	return o.ApplyT(func(v *DomainOffPeakWindowOptions) *DomainOffPeakWindow {
 		if v == nil {

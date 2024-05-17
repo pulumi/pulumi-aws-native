@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateDestinationParameterValueConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The configuration of custom values for the destination parameter in `DestinationParameterValueConfiguration` .
+        /// The configuration of custom values for destination parameter in `DestinationParameterValueConfiguration` .
         /// </summary>
         [Input("customValuesConfiguration")]
         public Input<Inputs.TemplateCustomValuesConfigurationArgs>? CustomValuesConfiguration { get; set; }
@@ -24,9 +24,6 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("selectAllValueOptions")]
         public Input<Pulumi.AwsNative.QuickSight.TemplateSelectAllValueOptions>? SelectAllValueOptions { get; set; }
 
-        /// <summary>
-        /// A column of a data set.
-        /// </summary>
         [Input("sourceColumn")]
         public Input<Inputs.TemplateColumnIdentifierArgs>? SourceColumn { get; set; }
 

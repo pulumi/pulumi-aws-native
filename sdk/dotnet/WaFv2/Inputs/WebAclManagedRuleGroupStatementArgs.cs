@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         private InputList<Inputs.WebAclExcludedRuleArgs>? _excludedRules;
 
         /// <summary>
-        /// Specifies a single rule in a rule group whose action you want to override to `Count` .
+        /// Rules in the referenced rule group whose actions are set to `Count` .
         /// 
         /// &gt; Instead of this option, use `RuleActionOverrides` . It accepts any valid action setting, including `Count` .
         /// </summary>
@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.WaFv2.Inputs
         }
 
         /// <summary>
-        /// The processing guidance for a rule, used by AWS WAF to determine whether a web request matches the rule.
+        /// An optional nested statement that narrows the scope of the web requests that are evaluated by the managed rule group. Requests are only evaluated by the rule group if they match the scope-down statement. You can use any nestable `Statement` in the scope-down statement, and you can nest statements at any level, the same as you can for a rule statement.
         /// </summary>
         [Input("scopeDownStatement")]
         public Input<Inputs.WebAclStatementArgs>? ScopeDownStatement { get; set; }

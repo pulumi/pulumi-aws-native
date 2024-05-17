@@ -45,7 +45,7 @@ type LookupLocationHdfsResult struct {
 	LocationUri *string `pulumi:"locationUri"`
 	// An array of Name Node(s) of the HDFS location.
 	NameNodes []LocationHdfsNameNode `pulumi:"nameNodes"`
-	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer privacy settings configured on the Hadoop Distributed File System (HDFS) cluster.
+	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `QopConfiguration` isn't specified, `RpcProtection` and `DataTransferProtection` default to `PRIVACY` . If you set `RpcProtection` or `DataTransferProtection` , the other parameter assumes the same value.
 	QopConfiguration *LocationHdfsQopConfiguration `pulumi:"qopConfiguration"`
 	// Number of copies of each block that exists inside the HDFS cluster.
 	ReplicationFactor *int `pulumi:"replicationFactor"`
@@ -131,7 +131,7 @@ func (o LookupLocationHdfsResultOutput) NameNodes() LocationHdfsNameNodeArrayOut
 	return o.ApplyT(func(v LookupLocationHdfsResult) []LocationHdfsNameNode { return v.NameNodes }).(LocationHdfsNameNodeArrayOutput)
 }
 
-// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer privacy settings configured on the Hadoop Distributed File System (HDFS) cluster.
+// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `QopConfiguration` isn't specified, `RpcProtection` and `DataTransferProtection` default to `PRIVACY` . If you set `RpcProtection` or `DataTransferProtection` , the other parameter assumes the same value.
 func (o LookupLocationHdfsResultOutput) QopConfiguration() LocationHdfsQopConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupLocationHdfsResult) *LocationHdfsQopConfiguration { return v.QopConfiguration }).(LocationHdfsQopConfigurationPtrOutput)
 }

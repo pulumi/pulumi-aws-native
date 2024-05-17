@@ -44,7 +44,13 @@ class GetTopicRuleResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        A set of key/value pairs that are used to manage the resource.
+        Metadata which can be used to manage the topic rule.
+
+        > For URI Request parameters use format: ...key1=value1&key2=value2...
+        > 
+        > For the CLI command-line parameter use format: --tags "key1=value1&key2=value2..."
+        > 
+        > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
         """
         return pulumi.get(self, "tags")
 
@@ -52,7 +58,7 @@ class GetTopicRuleResult:
     @pulumi.getter(name="topicRulePayload")
     def topic_rule_payload(self) -> Optional['outputs.TopicRulePayload']:
         """
-        Describes a rule.
+        The rule payload.
         """
         return pulumi.get(self, "topic_rule_payload")
 

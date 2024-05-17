@@ -32,7 +32,7 @@ class RouteArgs:
         :param pulumi.Input[str] environment_identifier: The unique identifier of the environment.
         :param pulumi.Input['RouteType'] route_type: The route type of the route.
         :param pulumi.Input[str] service_identifier: The unique identifier of the service.
-        :param pulumi.Input['RouteDefaultRouteInputArgs'] default_route: The configuration for the default route type.
+        :param pulumi.Input['RouteDefaultRouteInputArgs'] default_route: Configuration for the default route type.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Metadata that you can assign to help organize the frameworks that you create. Each tag is a key-value pair.
         :param pulumi.Input['RouteUriPathRouteInputArgs'] uri_path_route: The configuration for the URI path route type.
         """
@@ -99,7 +99,7 @@ class RouteArgs:
     @pulumi.getter(name="defaultRoute")
     def default_route(self) -> Optional[pulumi.Input['RouteDefaultRouteInputArgs']]:
         """
-        The configuration for the default route type.
+        Configuration for the default route type.
         """
         return pulumi.get(self, "default_route")
 
@@ -151,7 +151,7 @@ class Route(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_identifier: The unique identifier of the application.
-        :param pulumi.Input[pulumi.InputType['RouteDefaultRouteInputArgs']] default_route: The configuration for the default route type.
+        :param pulumi.Input[pulumi.InputType['RouteDefaultRouteInputArgs']] default_route: Configuration for the default route type.
         :param pulumi.Input[str] environment_identifier: The unique identifier of the environment.
         :param pulumi.Input['RouteType'] route_type: The route type of the route.
         :param pulumi.Input[str] service_identifier: The unique identifier of the service.
@@ -272,7 +272,7 @@ class Route(pulumi.CustomResource):
     @pulumi.getter(name="defaultRoute")
     def default_route(self) -> pulumi.Output[Optional['outputs.RouteDefaultRouteInput']]:
         """
-        The configuration for the default route type.
+        Configuration for the default route type.
         """
         return pulumi.get(self, "default_route")
 

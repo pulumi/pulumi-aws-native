@@ -42,10 +42,10 @@ class DomainArgs:
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] advanced_options: Additional options to specify for the OpenSearch Service domain. For more information, see [AdvancedOptions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateDomain.html#API_CreateDomain_RequestBody) in the OpenSearch Service API reference.
-        :param pulumi.Input['DomainAdvancedSecurityOptionsInputArgs'] advanced_security_options: Specifies options for fine-grained access control.
+        :param pulumi.Input['DomainAdvancedSecurityOptionsInputArgs'] advanced_security_options: Specifies options for fine-grained access control and SAML authentication.
                
                If you specify advanced security options, you must also enable node-to-node encryption ( [NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html) ) and encryption at rest ( [EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html) ). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html) , which requires HTTPS for all traffic to the domain.
-        :param pulumi.Input['DomainClusterConfigArgs'] cluster_config: The cluster configuration for the OpenSearch Service domain. You can specify options such as the instance type and the number of instances. For more information, see [Creating and managing Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html) in the *Amazon OpenSearch Service Developer Guide* .
+        :param pulumi.Input['DomainClusterConfigArgs'] cluster_config: Container for the cluster configuration of a domain.
         :param pulumi.Input['DomainCognitoOptionsArgs'] cognito_options: Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
         :param pulumi.Input['DomainEndpointOptionsArgs'] domain_endpoint_options: Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
         :param pulumi.Input[str] domain_name: A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
@@ -54,20 +54,22 @@ class DomainArgs:
                
                > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         :param pulumi.Input['DomainEbsOptionsArgs'] ebs_options: The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the OpenSearch Service domain. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
-        :param pulumi.Input['DomainEncryptionAtRestOptionsArgs'] encryption_at_rest_options: Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service key to use.
+        :param pulumi.Input['DomainEncryptionAtRestOptionsArgs'] encryption_at_rest_options: Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
+               
+               If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
         :param pulumi.Input[str] engine_version: The version of OpenSearch to use. The value must be in the format `OpenSearch_X.Y` or `Elasticsearch_X.Y` . If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
                
                If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
         :param pulumi.Input[str] ip_address_type: Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.
         :param pulumi.Input[Mapping[str, pulumi.Input['DomainLogPublishingOptionArgs']]] log_publishing_options: An object with one or more of the following keys: `SEARCH_SLOW_LOGS` , `ES_APPLICATION_LOGS` , `INDEX_SLOW_LOGS` , `AUDIT_LOGS` , depending on the types of logs you want to publish. Each key needs a valid `LogPublishingOption` value. For the full syntax, see the [examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--examples) .
-        :param pulumi.Input['DomainNodeToNodeEncryptionOptionsArgs'] node_to_node_encryption_options: Specifies options for node-to-node encryption.
-        :param pulumi.Input['DomainOffPeakWindowOptionsArgs'] off_peak_window_options: Off-peak window settings for the domain.
-        :param pulumi.Input['DomainSnapshotOptionsArgs'] snapshot_options: *DEPRECATED* . This setting is only relevant to domains running legacy Elasticsearch OSS versions earlier than 5.3. It does not apply to OpenSearch domains.
-               
-               The automated snapshot configuration for the OpenSearch Service domain indexes.
-        :param pulumi.Input['DomainSoftwareUpdateOptionsArgs'] software_update_options: Options for configuring service software updates for a domain.
+        :param pulumi.Input['DomainNodeToNodeEncryptionOptionsArgs'] node_to_node_encryption_options: Specifies whether node-to-node encryption is enabled. See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
+        :param pulumi.Input['DomainOffPeakWindowOptionsArgs'] off_peak_window_options: Options for a domain's off-peak window, during which OpenSearch Service can perform mandatory configuration changes on the domain.
+        :param pulumi.Input['DomainSnapshotOptionsArgs'] snapshot_options: *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
+        :param pulumi.Input['DomainSoftwareUpdateOptionsArgs'] software_update_options: Service software update options for the domain.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An arbitrary set of tags (key-value pairs) for this Domain.
-        :param pulumi.Input['DomainVpcOptionsArgs'] vpc_options: The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains using a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
+        :param pulumi.Input['DomainVpcOptionsArgs'] vpc_options: The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
+               
+               If you remove this entity altogether, along with its associated properties, it causes a replacement. You might encounter this scenario if you're updating your security configuration from a VPC to a public endpoint.
         """
         if access_policies is not None:
             pulumi.set(__self__, "access_policies", access_policies)
@@ -136,7 +138,7 @@ class DomainArgs:
     @pulumi.getter(name="advancedSecurityOptions")
     def advanced_security_options(self) -> Optional[pulumi.Input['DomainAdvancedSecurityOptionsInputArgs']]:
         """
-        Specifies options for fine-grained access control.
+        Specifies options for fine-grained access control and SAML authentication.
 
         If you specify advanced security options, you must also enable node-to-node encryption ( [NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html) ) and encryption at rest ( [EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html) ). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html) , which requires HTTPS for all traffic to the domain.
         """
@@ -150,7 +152,7 @@ class DomainArgs:
     @pulumi.getter(name="clusterConfig")
     def cluster_config(self) -> Optional[pulumi.Input['DomainClusterConfigArgs']]:
         """
-        The cluster configuration for the OpenSearch Service domain. You can specify options such as the instance type and the number of instances. For more information, see [Creating and managing Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html) in the *Amazon OpenSearch Service Developer Guide* .
+        Container for the cluster configuration of a domain.
         """
         return pulumi.get(self, "cluster_config")
 
@@ -214,7 +216,9 @@ class DomainArgs:
     @pulumi.getter(name="encryptionAtRestOptions")
     def encryption_at_rest_options(self) -> Optional[pulumi.Input['DomainEncryptionAtRestOptionsArgs']]:
         """
-        Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service key to use.
+        Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
+
+        If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
         """
         return pulumi.get(self, "encryption_at_rest_options")
 
@@ -264,7 +268,7 @@ class DomainArgs:
     @pulumi.getter(name="nodeToNodeEncryptionOptions")
     def node_to_node_encryption_options(self) -> Optional[pulumi.Input['DomainNodeToNodeEncryptionOptionsArgs']]:
         """
-        Specifies options for node-to-node encryption.
+        Specifies whether node-to-node encryption is enabled. See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
         """
         return pulumi.get(self, "node_to_node_encryption_options")
 
@@ -276,7 +280,7 @@ class DomainArgs:
     @pulumi.getter(name="offPeakWindowOptions")
     def off_peak_window_options(self) -> Optional[pulumi.Input['DomainOffPeakWindowOptionsArgs']]:
         """
-        Off-peak window settings for the domain.
+        Options for a domain's off-peak window, during which OpenSearch Service can perform mandatory configuration changes on the domain.
         """
         return pulumi.get(self, "off_peak_window_options")
 
@@ -288,9 +292,7 @@ class DomainArgs:
     @pulumi.getter(name="snapshotOptions")
     def snapshot_options(self) -> Optional[pulumi.Input['DomainSnapshotOptionsArgs']]:
         """
-        *DEPRECATED* . This setting is only relevant to domains running legacy Elasticsearch OSS versions earlier than 5.3. It does not apply to OpenSearch domains.
-
-        The automated snapshot configuration for the OpenSearch Service domain indexes.
+        *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
         """
         return pulumi.get(self, "snapshot_options")
 
@@ -302,7 +304,7 @@ class DomainArgs:
     @pulumi.getter(name="softwareUpdateOptions")
     def software_update_options(self) -> Optional[pulumi.Input['DomainSoftwareUpdateOptionsArgs']]:
         """
-        Options for configuring service software updates for a domain.
+        Service software update options for the domain.
         """
         return pulumi.get(self, "software_update_options")
 
@@ -326,7 +328,9 @@ class DomainArgs:
     @pulumi.getter(name="vpcOptions")
     def vpc_options(self) -> Optional[pulumi.Input['DomainVpcOptionsArgs']]:
         """
-        The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains using a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
+        The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
+
+        If you remove this entity altogether, along with its associated properties, it causes a replacement. You might encounter this scenario if you're updating your security configuration from a VPC to a public endpoint.
         """
         return pulumi.get(self, "vpc_options")
 
@@ -368,10 +372,10 @@ class Domain(pulumi.CustomResource):
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::OpenSearchService::Domain` for more information about the expected schema for this property.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] advanced_options: Additional options to specify for the OpenSearch Service domain. For more information, see [AdvancedOptions](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateDomain.html#API_CreateDomain_RequestBody) in the OpenSearch Service API reference.
-        :param pulumi.Input[pulumi.InputType['DomainAdvancedSecurityOptionsInputArgs']] advanced_security_options: Specifies options for fine-grained access control.
+        :param pulumi.Input[pulumi.InputType['DomainAdvancedSecurityOptionsInputArgs']] advanced_security_options: Specifies options for fine-grained access control and SAML authentication.
                
                If you specify advanced security options, you must also enable node-to-node encryption ( [NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html) ) and encryption at rest ( [EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html) ). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html) , which requires HTTPS for all traffic to the domain.
-        :param pulumi.Input[pulumi.InputType['DomainClusterConfigArgs']] cluster_config: The cluster configuration for the OpenSearch Service domain. You can specify options such as the instance type and the number of instances. For more information, see [Creating and managing Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html) in the *Amazon OpenSearch Service Developer Guide* .
+        :param pulumi.Input[pulumi.InputType['DomainClusterConfigArgs']] cluster_config: Container for the cluster configuration of a domain.
         :param pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']] cognito_options: Configures OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
         :param pulumi.Input[pulumi.InputType['DomainEndpointOptionsArgs']] domain_endpoint_options: Specifies additional options for the domain endpoint, such as whether to require HTTPS for all traffic or whether to use a custom endpoint rather than the default endpoint.
         :param pulumi.Input[str] domain_name: A name for the OpenSearch Service domain. The name must have a minimum length of 3 and a maximum length of 28. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the domain name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
@@ -380,20 +384,22 @@ class Domain(pulumi.CustomResource):
                
                > If you specify a name, you can't perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         :param pulumi.Input[pulumi.InputType['DomainEbsOptionsArgs']] ebs_options: The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the OpenSearch Service domain. For more information, see [EBS volume size limits](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource) in the *Amazon OpenSearch Service Developer Guide* .
-        :param pulumi.Input[pulumi.InputType['DomainEncryptionAtRestOptionsArgs']] encryption_at_rest_options: Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service key to use.
+        :param pulumi.Input[pulumi.InputType['DomainEncryptionAtRestOptionsArgs']] encryption_at_rest_options: Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
+               
+               If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
         :param pulumi.Input[str] engine_version: The version of OpenSearch to use. The value must be in the format `OpenSearch_X.Y` or `Elasticsearch_X.Y` . If not specified, the latest version of OpenSearch is used. For information about the versions that OpenSearch Service supports, see [Supported versions of OpenSearch and Elasticsearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html#choosing-version) in the *Amazon OpenSearch Service Developer Guide* .
                
                If you set the [EnableVersionUpgrade](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain) update policy to `true` , you can update `EngineVersion` without interruption. When `EnableVersionUpgrade` is set to `false` , or is not specified, updating `EngineVersion` results in [replacement](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.html#update-replacement) .
         :param pulumi.Input[str] ip_address_type: Choose either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option. If you set your IP address type to dual stack, you can't change your address type later.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DomainLogPublishingOptionArgs']]]] log_publishing_options: An object with one or more of the following keys: `SEARCH_SLOW_LOGS` , `ES_APPLICATION_LOGS` , `INDEX_SLOW_LOGS` , `AUDIT_LOGS` , depending on the types of logs you want to publish. Each key needs a valid `LogPublishingOption` value. For the full syntax, see the [examples](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-domain.html#aws-resource-opensearchservice-domain--examples) .
-        :param pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionOptionsArgs']] node_to_node_encryption_options: Specifies options for node-to-node encryption.
-        :param pulumi.Input[pulumi.InputType['DomainOffPeakWindowOptionsArgs']] off_peak_window_options: Off-peak window settings for the domain.
-        :param pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']] snapshot_options: *DEPRECATED* . This setting is only relevant to domains running legacy Elasticsearch OSS versions earlier than 5.3. It does not apply to OpenSearch domains.
-               
-               The automated snapshot configuration for the OpenSearch Service domain indexes.
-        :param pulumi.Input[pulumi.InputType['DomainSoftwareUpdateOptionsArgs']] software_update_options: Options for configuring service software updates for a domain.
+        :param pulumi.Input[pulumi.InputType['DomainNodeToNodeEncryptionOptionsArgs']] node_to_node_encryption_options: Specifies whether node-to-node encryption is enabled. See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
+        :param pulumi.Input[pulumi.InputType['DomainOffPeakWindowOptionsArgs']] off_peak_window_options: Options for a domain's off-peak window, during which OpenSearch Service can perform mandatory configuration changes on the domain.
+        :param pulumi.Input[pulumi.InputType['DomainSnapshotOptionsArgs']] snapshot_options: *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
+        :param pulumi.Input[pulumi.InputType['DomainSoftwareUpdateOptionsArgs']] software_update_options: Service software update options for the domain.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this Domain.
-        :param pulumi.Input[pulumi.InputType['DomainVpcOptionsArgs']] vpc_options: The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains using a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
+        :param pulumi.Input[pulumi.InputType['DomainVpcOptionsArgs']] vpc_options: The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
+               
+               If you remove this entity altogether, along with its associated properties, it causes a replacement. You might encounter this scenario if you're updating your security configuration from a VPC to a public endpoint.
         """
         ...
     @overload
@@ -544,7 +550,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="advancedSecurityOptions")
     def advanced_security_options(self) -> pulumi.Output[Optional['outputs.DomainAdvancedSecurityOptionsInput']]:
         """
-        Specifies options for fine-grained access control.
+        Specifies options for fine-grained access control and SAML authentication.
 
         If you specify advanced security options, you must also enable node-to-node encryption ( [NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html) ) and encryption at rest ( [EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html) ). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html) , which requires HTTPS for all traffic to the domain.
         """
@@ -570,7 +576,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="clusterConfig")
     def cluster_config(self) -> pulumi.Output[Optional['outputs.DomainClusterConfig']]:
         """
-        The cluster configuration for the OpenSearch Service domain. You can specify options such as the instance type and the number of instances. For more information, see [Creating and managing Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html) in the *Amazon OpenSearch Service Developer Guide* .
+        Container for the cluster configuration of a domain.
         """
         return pulumi.get(self, "cluster_config")
 
@@ -643,7 +649,9 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="encryptionAtRestOptions")
     def encryption_at_rest_options(self) -> pulumi.Output[Optional['outputs.DomainEncryptionAtRestOptions']]:
         """
-        Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service key to use.
+        Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
+
+        If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
         """
         return pulumi.get(self, "encryption_at_rest_options")
 
@@ -677,7 +685,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="nodeToNodeEncryptionOptions")
     def node_to_node_encryption_options(self) -> pulumi.Output[Optional['outputs.DomainNodeToNodeEncryptionOptions']]:
         """
-        Specifies options for node-to-node encryption.
+        Specifies whether node-to-node encryption is enabled. See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
         """
         return pulumi.get(self, "node_to_node_encryption_options")
 
@@ -685,25 +693,20 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="offPeakWindowOptions")
     def off_peak_window_options(self) -> pulumi.Output[Optional['outputs.DomainOffPeakWindowOptions']]:
         """
-        Off-peak window settings for the domain.
+        Options for a domain's off-peak window, during which OpenSearch Service can perform mandatory configuration changes on the domain.
         """
         return pulumi.get(self, "off_peak_window_options")
 
     @property
     @pulumi.getter(name="serviceSoftwareOptions")
     def service_software_options(self) -> pulumi.Output['outputs.DomainServiceSoftwareOptions']:
-        """
-        The current status of the service software for an Amazon OpenSearch Service domain. For more information, see [Service software updates in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html) .
-        """
         return pulumi.get(self, "service_software_options")
 
     @property
     @pulumi.getter(name="snapshotOptions")
     def snapshot_options(self) -> pulumi.Output[Optional['outputs.DomainSnapshotOptions']]:
         """
-        *DEPRECATED* . This setting is only relevant to domains running legacy Elasticsearch OSS versions earlier than 5.3. It does not apply to OpenSearch domains.
-
-        The automated snapshot configuration for the OpenSearch Service domain indexes.
+        *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
         """
         return pulumi.get(self, "snapshot_options")
 
@@ -711,7 +714,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="softwareUpdateOptions")
     def software_update_options(self) -> pulumi.Output[Optional['outputs.DomainSoftwareUpdateOptions']]:
         """
-        Options for configuring service software updates for a domain.
+        Service software update options for the domain.
         """
         return pulumi.get(self, "software_update_options")
 
@@ -727,7 +730,9 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="vpcOptions")
     def vpc_options(self) -> pulumi.Output[Optional['outputs.DomainVpcOptions']]:
         """
-        The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains using a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
+        The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
+
+        If you remove this entity altogether, along with its associated properties, it causes a replacement. You might encounter this scenario if you're updating your security configuration from a VPC to a public endpoint.
         """
         return pulumi.get(self, "vpc_options")
 

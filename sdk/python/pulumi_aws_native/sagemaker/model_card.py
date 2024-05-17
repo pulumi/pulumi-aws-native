@@ -28,7 +28,7 @@ class ModelCardArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ModelCard resource.
-        :param pulumi.Input['ModelCardContentArgs'] content: The content of the model card. It follows the [model card json schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
+        :param pulumi.Input['ModelCardContentArgs'] content: The content of the model card. Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
         :param pulumi.Input['ModelCardStatus'] model_card_status: The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.
         :param pulumi.Input['ModelCardUserContextArgs'] created_by: Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
         :param pulumi.Input['ModelCardUserContextArgs'] last_modified_by: Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
@@ -53,7 +53,7 @@ class ModelCardArgs:
     @pulumi.getter
     def content(self) -> pulumi.Input['ModelCardContentArgs']:
         """
-        The content of the model card. It follows the [model card json schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
+        The content of the model card. Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
         """
         return pulumi.get(self, "content")
 
@@ -152,7 +152,7 @@ class ModelCard(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ModelCardContentArgs']] content: The content of the model card. It follows the [model card json schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
+        :param pulumi.Input[pulumi.InputType['ModelCardContentArgs']] content: The content of the model card. Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
         :param pulumi.Input[pulumi.InputType['ModelCardUserContextArgs']] created_by: Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
         :param pulumi.Input[pulumi.InputType['ModelCardUserContextArgs']] last_modified_by: Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
         :param pulumi.Input[str] model_card_name: The unique name of the model card.
@@ -258,7 +258,7 @@ class ModelCard(pulumi.CustomResource):
     @pulumi.getter
     def content(self) -> pulumi.Output['outputs.ModelCardContent']:
         """
-        The content of the model card. It follows the [model card json schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
+        The content of the model card. Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
         """
         return pulumi.get(self, "content")
 

@@ -170,13 +170,13 @@ func (o ConnectionApiKeyAuthParametersPtrOutput) ApiKeyValue() pulumi.StringPtrO
 }
 
 type ConnectionAuthParameters struct {
-	// Contains the API key authorization parameters for the connection.
+	// The API Key parameters to use for authorization.
 	ApiKeyAuthParameters *ConnectionApiKeyAuthParameters `pulumi:"apiKeyAuthParameters"`
-	// Contains the Basic authorization parameters for the connection.
+	// The authorization parameters for Basic authorization.
 	BasicAuthParameters *ConnectionBasicAuthParameters `pulumi:"basicAuthParameters"`
-	// Contains additional parameters for the connection.
+	// Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
 	InvocationHttpParameters *ConnectionHttpParameters `pulumi:"invocationHttpParameters"`
-	// Contains the OAuth authorization parameters to use for the connection.
+	// The OAuth parameters to use for authorization.
 	OAuthParameters *ConnectionOAuthParameters `pulumi:"oAuthParameters"`
 }
 
@@ -192,13 +192,13 @@ type ConnectionAuthParametersInput interface {
 }
 
 type ConnectionAuthParametersArgs struct {
-	// Contains the API key authorization parameters for the connection.
+	// The API Key parameters to use for authorization.
 	ApiKeyAuthParameters ConnectionApiKeyAuthParametersPtrInput `pulumi:"apiKeyAuthParameters"`
-	// Contains the Basic authorization parameters for the connection.
+	// The authorization parameters for Basic authorization.
 	BasicAuthParameters ConnectionBasicAuthParametersPtrInput `pulumi:"basicAuthParameters"`
-	// Contains additional parameters for the connection.
+	// Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
 	InvocationHttpParameters ConnectionHttpParametersPtrInput `pulumi:"invocationHttpParameters"`
-	// Contains the OAuth authorization parameters to use for the connection.
+	// The OAuth parameters to use for authorization.
 	OAuthParameters ConnectionOAuthParametersPtrInput `pulumi:"oAuthParameters"`
 }
 
@@ -228,22 +228,22 @@ func (o ConnectionAuthParametersOutput) ToConnectionAuthParametersOutputWithCont
 	return o
 }
 
-// Contains the API key authorization parameters for the connection.
+// The API Key parameters to use for authorization.
 func (o ConnectionAuthParametersOutput) ApiKeyAuthParameters() ConnectionApiKeyAuthParametersPtrOutput {
 	return o.ApplyT(func(v ConnectionAuthParameters) *ConnectionApiKeyAuthParameters { return v.ApiKeyAuthParameters }).(ConnectionApiKeyAuthParametersPtrOutput)
 }
 
-// Contains the Basic authorization parameters for the connection.
+// The authorization parameters for Basic authorization.
 func (o ConnectionAuthParametersOutput) BasicAuthParameters() ConnectionBasicAuthParametersPtrOutput {
 	return o.ApplyT(func(v ConnectionAuthParameters) *ConnectionBasicAuthParameters { return v.BasicAuthParameters }).(ConnectionBasicAuthParametersPtrOutput)
 }
 
-// Contains additional parameters for the connection.
+// Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
 func (o ConnectionAuthParametersOutput) InvocationHttpParameters() ConnectionHttpParametersPtrOutput {
 	return o.ApplyT(func(v ConnectionAuthParameters) *ConnectionHttpParameters { return v.InvocationHttpParameters }).(ConnectionHttpParametersPtrOutput)
 }
 
-// Contains the OAuth authorization parameters to use for the connection.
+// The OAuth parameters to use for authorization.
 func (o ConnectionAuthParametersOutput) OAuthParameters() ConnectionOAuthParametersPtrOutput {
 	return o.ApplyT(func(v ConnectionAuthParameters) *ConnectionOAuthParameters { return v.OAuthParameters }).(ConnectionOAuthParametersPtrOutput)
 }
@@ -561,7 +561,7 @@ func (o ConnectionClientParametersPtrOutput) ClientSecret() pulumi.StringPtrOutp
 }
 
 type ConnectionHttpParameters struct {
-	// Additional query string parameter for the connection. You can include up to 100 additional query string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB.
+	// Contains additional body string parameters for the connection.
 	BodyParameters []ConnectionParameter `pulumi:"bodyParameters"`
 	// Contains additional header parameters for the connection.
 	HeaderParameters []ConnectionParameter `pulumi:"headerParameters"`
@@ -581,7 +581,7 @@ type ConnectionHttpParametersInput interface {
 }
 
 type ConnectionHttpParametersArgs struct {
-	// Additional query string parameter for the connection. You can include up to 100 additional query string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB.
+	// Contains additional body string parameters for the connection.
 	BodyParameters ConnectionParameterArrayInput `pulumi:"bodyParameters"`
 	// Contains additional header parameters for the connection.
 	HeaderParameters ConnectionParameterArrayInput `pulumi:"headerParameters"`
@@ -666,7 +666,7 @@ func (o ConnectionHttpParametersOutput) ToConnectionHttpParametersPtrOutputWithC
 	}).(ConnectionHttpParametersPtrOutput)
 }
 
-// Additional query string parameter for the connection. You can include up to 100 additional query string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB.
+// Contains additional body string parameters for the connection.
 func (o ConnectionHttpParametersOutput) BodyParameters() ConnectionParameterArrayOutput {
 	return o.ApplyT(func(v ConnectionHttpParameters) []ConnectionParameter { return v.BodyParameters }).(ConnectionParameterArrayOutput)
 }
@@ -705,7 +705,7 @@ func (o ConnectionHttpParametersPtrOutput) Elem() ConnectionHttpParametersOutput
 	}).(ConnectionHttpParametersOutput)
 }
 
-// Additional query string parameter for the connection. You can include up to 100 additional query string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB.
+// Contains additional body string parameters for the connection.
 func (o ConnectionHttpParametersPtrOutput) BodyParameters() ConnectionParameterArrayOutput {
 	return o.ApplyT(func(v *ConnectionHttpParameters) []ConnectionParameter {
 		if v == nil {
@@ -738,11 +738,11 @@ func (o ConnectionHttpParametersPtrOutput) QueryStringParameters() ConnectionPar
 type ConnectionOAuthParameters struct {
 	// The URL to the authorization endpoint when OAuth is specified as the authorization type.
 	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
-	// Contains the OAuth authorization parameters to use for the connection.
+	// A `CreateConnectionOAuthClientRequestParameters` object that contains the client parameters for OAuth authorization.
 	ClientParameters ConnectionClientParameters `pulumi:"clientParameters"`
 	// The method to use for the authorization request.
 	HttpMethod ConnectionOAuthParametersHttpMethod `pulumi:"httpMethod"`
-	// Contains additional parameters for the connection.
+	// A `ConnectionHttpParameters` object that contains details about the additional parameters to use for the connection.
 	OAuthHttpParameters *ConnectionHttpParameters `pulumi:"oAuthHttpParameters"`
 }
 
@@ -760,11 +760,11 @@ type ConnectionOAuthParametersInput interface {
 type ConnectionOAuthParametersArgs struct {
 	// The URL to the authorization endpoint when OAuth is specified as the authorization type.
 	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
-	// Contains the OAuth authorization parameters to use for the connection.
+	// A `CreateConnectionOAuthClientRequestParameters` object that contains the client parameters for OAuth authorization.
 	ClientParameters ConnectionClientParametersInput `pulumi:"clientParameters"`
 	// The method to use for the authorization request.
 	HttpMethod ConnectionOAuthParametersHttpMethodInput `pulumi:"httpMethod"`
-	// Contains additional parameters for the connection.
+	// A `ConnectionHttpParameters` object that contains details about the additional parameters to use for the connection.
 	OAuthHttpParameters ConnectionHttpParametersPtrInput `pulumi:"oAuthHttpParameters"`
 }
 
@@ -850,7 +850,7 @@ func (o ConnectionOAuthParametersOutput) AuthorizationEndpoint() pulumi.StringOu
 	return o.ApplyT(func(v ConnectionOAuthParameters) string { return v.AuthorizationEndpoint }).(pulumi.StringOutput)
 }
 
-// Contains the OAuth authorization parameters to use for the connection.
+// A `CreateConnectionOAuthClientRequestParameters` object that contains the client parameters for OAuth authorization.
 func (o ConnectionOAuthParametersOutput) ClientParameters() ConnectionClientParametersOutput {
 	return o.ApplyT(func(v ConnectionOAuthParameters) ConnectionClientParameters { return v.ClientParameters }).(ConnectionClientParametersOutput)
 }
@@ -860,7 +860,7 @@ func (o ConnectionOAuthParametersOutput) HttpMethod() ConnectionOAuthParametersH
 	return o.ApplyT(func(v ConnectionOAuthParameters) ConnectionOAuthParametersHttpMethod { return v.HttpMethod }).(ConnectionOAuthParametersHttpMethodOutput)
 }
 
-// Contains additional parameters for the connection.
+// A `ConnectionHttpParameters` object that contains details about the additional parameters to use for the connection.
 func (o ConnectionOAuthParametersOutput) OAuthHttpParameters() ConnectionHttpParametersPtrOutput {
 	return o.ApplyT(func(v ConnectionOAuthParameters) *ConnectionHttpParameters { return v.OAuthHttpParameters }).(ConnectionHttpParametersPtrOutput)
 }
@@ -899,7 +899,7 @@ func (o ConnectionOAuthParametersPtrOutput) AuthorizationEndpoint() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Contains the OAuth authorization parameters to use for the connection.
+// A `CreateConnectionOAuthClientRequestParameters` object that contains the client parameters for OAuth authorization.
 func (o ConnectionOAuthParametersPtrOutput) ClientParameters() ConnectionClientParametersPtrOutput {
 	return o.ApplyT(func(v *ConnectionOAuthParameters) *ConnectionClientParameters {
 		if v == nil {
@@ -919,7 +919,7 @@ func (o ConnectionOAuthParametersPtrOutput) HttpMethod() ConnectionOAuthParamete
 	}).(ConnectionOAuthParametersHttpMethodPtrOutput)
 }
 
-// Contains additional parameters for the connection.
+// A `ConnectionHttpParameters` object that contains details about the additional parameters to use for the connection.
 func (o ConnectionOAuthParametersPtrOutput) OAuthHttpParameters() ConnectionHttpParametersPtrOutput {
 	return o.ApplyT(func(v *ConnectionOAuthParameters) *ConnectionHttpParameters {
 		if v == nil {
@@ -1275,9 +1275,9 @@ func (o EndpointEventBusArrayOutput) Index(i pulumi.IntInput) EndpointEventBusOu
 }
 
 type EndpointFailoverConfig struct {
-	// The primary Region of the endpoint.
+	// The main Region of the endpoint.
 	Primary EndpointPrimary `pulumi:"primary"`
-	// The secondary Region that processes events when failover is triggered or replication is enabled.
+	// The Region that events are routed to when failover is triggered or event replication is enabled.
 	Secondary EndpointSecondary `pulumi:"secondary"`
 }
 
@@ -1293,9 +1293,9 @@ type EndpointFailoverConfigInput interface {
 }
 
 type EndpointFailoverConfigArgs struct {
-	// The primary Region of the endpoint.
+	// The main Region of the endpoint.
 	Primary EndpointPrimaryInput `pulumi:"primary"`
-	// The secondary Region that processes events when failover is triggered or replication is enabled.
+	// The Region that events are routed to when failover is triggered or event replication is enabled.
 	Secondary EndpointSecondaryInput `pulumi:"secondary"`
 }
 
@@ -1325,12 +1325,12 @@ func (o EndpointFailoverConfigOutput) ToEndpointFailoverConfigOutputWithContext(
 	return o
 }
 
-// The primary Region of the endpoint.
+// The main Region of the endpoint.
 func (o EndpointFailoverConfigOutput) Primary() EndpointPrimaryOutput {
 	return o.ApplyT(func(v EndpointFailoverConfig) EndpointPrimary { return v.Primary }).(EndpointPrimaryOutput)
 }
 
-// The secondary Region that processes events when failover is triggered or replication is enabled.
+// The Region that events are routed to when failover is triggered or event replication is enabled.
 func (o EndpointFailoverConfigOutput) Secondary() EndpointSecondaryOutput {
 	return o.ApplyT(func(v EndpointFailoverConfig) EndpointSecondary { return v.Secondary }).(EndpointSecondaryOutput)
 }
@@ -1359,7 +1359,7 @@ func (o EndpointFailoverConfigPtrOutput) Elem() EndpointFailoverConfigOutput {
 	}).(EndpointFailoverConfigOutput)
 }
 
-// The primary Region of the endpoint.
+// The main Region of the endpoint.
 func (o EndpointFailoverConfigPtrOutput) Primary() EndpointPrimaryPtrOutput {
 	return o.ApplyT(func(v *EndpointFailoverConfig) *EndpointPrimary {
 		if v == nil {
@@ -1369,7 +1369,7 @@ func (o EndpointFailoverConfigPtrOutput) Primary() EndpointPrimaryPtrOutput {
 	}).(EndpointPrimaryPtrOutput)
 }
 
-// The secondary Region that processes events when failover is triggered or replication is enabled.
+// The Region that events are routed to when failover is triggered or event replication is enabled.
 func (o EndpointFailoverConfigPtrOutput) Secondary() EndpointSecondaryPtrOutput {
 	return o.ApplyT(func(v *EndpointFailoverConfig) *EndpointSecondary {
 		if v == nil {
@@ -2245,7 +2245,7 @@ type RuleBatchParameters struct {
 	JobDefinition string `pulumi:"jobDefinition"`
 	// The name to use for this execution of the job, if the target is an AWS Batch job.
 	JobName string `pulumi:"jobName"`
-	// The retry strategy to use for failed jobs, if the target is an AWS Batch job. If you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
+	// The retry strategy to use for failed jobs, if the target is an AWS Batch job. The retry strategy is the number of times to retry the failed job execution. Valid values are 1–10. When you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
 	RetryStrategy *RuleBatchRetryStrategy `pulumi:"retryStrategy"`
 }
 
@@ -2267,7 +2267,7 @@ type RuleBatchParametersArgs struct {
 	JobDefinition pulumi.StringInput `pulumi:"jobDefinition"`
 	// The name to use for this execution of the job, if the target is an AWS Batch job.
 	JobName pulumi.StringInput `pulumi:"jobName"`
-	// The retry strategy to use for failed jobs, if the target is an AWS Batch job. If you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
+	// The retry strategy to use for failed jobs, if the target is an AWS Batch job. The retry strategy is the number of times to retry the failed job execution. Valid values are 1–10. When you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
 	RetryStrategy RuleBatchRetryStrategyPtrInput `pulumi:"retryStrategy"`
 }
 
@@ -2363,7 +2363,7 @@ func (o RuleBatchParametersOutput) JobName() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleBatchParameters) string { return v.JobName }).(pulumi.StringOutput)
 }
 
-// The retry strategy to use for failed jobs, if the target is an AWS Batch job. If you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
+// The retry strategy to use for failed jobs, if the target is an AWS Batch job. The retry strategy is the number of times to retry the failed job execution. Valid values are 1–10. When you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
 func (o RuleBatchParametersOutput) RetryStrategy() RuleBatchRetryStrategyPtrOutput {
 	return o.ApplyT(func(v RuleBatchParameters) *RuleBatchRetryStrategy { return v.RetryStrategy }).(RuleBatchRetryStrategyPtrOutput)
 }
@@ -2422,7 +2422,7 @@ func (o RuleBatchParametersPtrOutput) JobName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The retry strategy to use for failed jobs, if the target is an AWS Batch job. If you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
+// The retry strategy to use for failed jobs, if the target is an AWS Batch job. The retry strategy is the number of times to retry the failed job execution. Valid values are 1–10. When you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
 func (o RuleBatchParametersPtrOutput) RetryStrategy() RuleBatchRetryStrategyPtrOutput {
 	return o.ApplyT(func(v *RuleBatchParameters) *RuleBatchRetryStrategy {
 		if v == nil {
@@ -2822,7 +2822,9 @@ func (o RuleDeadLetterConfigPtrOutput) Arn() pulumi.StringPtrOutput {
 }
 
 type RuleEcsParameters struct {
-	// The details of a capacity provider strategy. To learn more, see [CapacityProviderStrategyItem](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CapacityProviderStrategyItem.html) in the Amazon ECS API Reference.
+	// The capacity provider strategy to use for the task.
+	//
+	// If a `capacityProviderStrategy` is specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or launchType is specified, the `defaultCapacityProviderStrategy` for the cluster is used.
 	CapacityProviderStrategy []RuleCapacityProviderStrategyItem `pulumi:"capacityProviderStrategy"`
 	// Specifies whether to enable Amazon ECS managed tags for the task. For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the Amazon Elastic Container Service Developer Guide.
 	EnableEcsManagedTags *bool `pulumi:"enableEcsManagedTags"`
@@ -2832,11 +2834,13 @@ type RuleEcsParameters struct {
 	Group *string `pulumi:"group"`
 	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The `FARGATE` value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see [AWS Fargate on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html) in the *Amazon Elastic Container Service Developer Guide* .
 	LaunchType *string `pulumi:"launchType"`
-	// This structure specifies the network configuration for an ECS task.
+	// Use this structure if the Amazon ECS task uses the `awsvpc` network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if `LaunchType` is `FARGATE` because the `awsvpc` mode is required for Fargate tasks.
+	//
+	// If you specify `NetworkConfiguration` when the target ECS task does not use the `awsvpc` network mode, the task fails.
 	NetworkConfiguration *RuleNetworkConfiguration `pulumi:"networkConfiguration"`
-	// An object representing a constraint on task placement. To learn more, see [Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the Amazon Elastic Container Service Developer Guide.
+	// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime).
 	PlacementConstraints []RulePlacementConstraint `pulumi:"placementConstraints"`
-	// The task placement strategy for a task or service. To learn more, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the Amazon Elastic Container Service Service Developer Guide.
+	// The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
 	PlacementStrategies []RulePlacementStrategy `pulumi:"placementStrategies"`
 	// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0` .
 	//
@@ -2846,9 +2850,7 @@ type RuleEcsParameters struct {
 	PropagateTags *string `pulumi:"propagateTags"`
 	// The reference ID to use for the task.
 	ReferenceId *string `pulumi:"referenceId"`
-	// A key-value pair associated with an ECS Target of an EventBridge rule. The tag will be propagated to ECS by EventBridge when starting an ECS task based on a matched event.
-	//
-	// > Currently, tags are only available when using ECS with EventBridge .
+	// The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-tags) in the Amazon ECS API Reference.
 	TagList []RuleTag `pulumi:"tagList"`
 	// The number of tasks to create based on `TaskDefinition` . The default is 1.
 	TaskCount *int `pulumi:"taskCount"`
@@ -2868,7 +2870,9 @@ type RuleEcsParametersInput interface {
 }
 
 type RuleEcsParametersArgs struct {
-	// The details of a capacity provider strategy. To learn more, see [CapacityProviderStrategyItem](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CapacityProviderStrategyItem.html) in the Amazon ECS API Reference.
+	// The capacity provider strategy to use for the task.
+	//
+	// If a `capacityProviderStrategy` is specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or launchType is specified, the `defaultCapacityProviderStrategy` for the cluster is used.
 	CapacityProviderStrategy RuleCapacityProviderStrategyItemArrayInput `pulumi:"capacityProviderStrategy"`
 	// Specifies whether to enable Amazon ECS managed tags for the task. For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the Amazon Elastic Container Service Developer Guide.
 	EnableEcsManagedTags pulumi.BoolPtrInput `pulumi:"enableEcsManagedTags"`
@@ -2878,11 +2882,13 @@ type RuleEcsParametersArgs struct {
 	Group pulumi.StringPtrInput `pulumi:"group"`
 	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The `FARGATE` value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see [AWS Fargate on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html) in the *Amazon Elastic Container Service Developer Guide* .
 	LaunchType pulumi.StringPtrInput `pulumi:"launchType"`
-	// This structure specifies the network configuration for an ECS task.
+	// Use this structure if the Amazon ECS task uses the `awsvpc` network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if `LaunchType` is `FARGATE` because the `awsvpc` mode is required for Fargate tasks.
+	//
+	// If you specify `NetworkConfiguration` when the target ECS task does not use the `awsvpc` network mode, the task fails.
 	NetworkConfiguration RuleNetworkConfigurationPtrInput `pulumi:"networkConfiguration"`
-	// An object representing a constraint on task placement. To learn more, see [Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the Amazon Elastic Container Service Developer Guide.
+	// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime).
 	PlacementConstraints RulePlacementConstraintArrayInput `pulumi:"placementConstraints"`
-	// The task placement strategy for a task or service. To learn more, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the Amazon Elastic Container Service Service Developer Guide.
+	// The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
 	PlacementStrategies RulePlacementStrategyArrayInput `pulumi:"placementStrategies"`
 	// Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0` .
 	//
@@ -2892,9 +2898,7 @@ type RuleEcsParametersArgs struct {
 	PropagateTags pulumi.StringPtrInput `pulumi:"propagateTags"`
 	// The reference ID to use for the task.
 	ReferenceId pulumi.StringPtrInput `pulumi:"referenceId"`
-	// A key-value pair associated with an ECS Target of an EventBridge rule. The tag will be propagated to ECS by EventBridge when starting an ECS task based on a matched event.
-	//
-	// > Currently, tags are only available when using ECS with EventBridge .
+	// The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-tags) in the Amazon ECS API Reference.
 	TagList RuleTagArrayInput `pulumi:"tagList"`
 	// The number of tasks to create based on `TaskDefinition` . The default is 1.
 	TaskCount pulumi.IntPtrInput `pulumi:"taskCount"`
@@ -2979,7 +2983,9 @@ func (o RuleEcsParametersOutput) ToRuleEcsParametersPtrOutputWithContext(ctx con
 	}).(RuleEcsParametersPtrOutput)
 }
 
-// The details of a capacity provider strategy. To learn more, see [CapacityProviderStrategyItem](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CapacityProviderStrategyItem.html) in the Amazon ECS API Reference.
+// The capacity provider strategy to use for the task.
+//
+// If a `capacityProviderStrategy` is specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or launchType is specified, the `defaultCapacityProviderStrategy` for the cluster is used.
 func (o RuleEcsParametersOutput) CapacityProviderStrategy() RuleCapacityProviderStrategyItemArrayOutput {
 	return o.ApplyT(func(v RuleEcsParameters) []RuleCapacityProviderStrategyItem { return v.CapacityProviderStrategy }).(RuleCapacityProviderStrategyItemArrayOutput)
 }
@@ -3004,17 +3010,19 @@ func (o RuleEcsParametersOutput) LaunchType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleEcsParameters) *string { return v.LaunchType }).(pulumi.StringPtrOutput)
 }
 
-// This structure specifies the network configuration for an ECS task.
+// Use this structure if the Amazon ECS task uses the `awsvpc` network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if `LaunchType` is `FARGATE` because the `awsvpc` mode is required for Fargate tasks.
+//
+// If you specify `NetworkConfiguration` when the target ECS task does not use the `awsvpc` network mode, the task fails.
 func (o RuleEcsParametersOutput) NetworkConfiguration() RuleNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v RuleEcsParameters) *RuleNetworkConfiguration { return v.NetworkConfiguration }).(RuleNetworkConfigurationPtrOutput)
 }
 
-// An object representing a constraint on task placement. To learn more, see [Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the Amazon Elastic Container Service Developer Guide.
+// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime).
 func (o RuleEcsParametersOutput) PlacementConstraints() RulePlacementConstraintArrayOutput {
 	return o.ApplyT(func(v RuleEcsParameters) []RulePlacementConstraint { return v.PlacementConstraints }).(RulePlacementConstraintArrayOutput)
 }
 
-// The task placement strategy for a task or service. To learn more, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the Amazon Elastic Container Service Service Developer Guide.
+// The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
 func (o RuleEcsParametersOutput) PlacementStrategies() RulePlacementStrategyArrayOutput {
 	return o.ApplyT(func(v RuleEcsParameters) []RulePlacementStrategy { return v.PlacementStrategies }).(RulePlacementStrategyArrayOutput)
 }
@@ -3036,9 +3044,7 @@ func (o RuleEcsParametersOutput) ReferenceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleEcsParameters) *string { return v.ReferenceId }).(pulumi.StringPtrOutput)
 }
 
-// A key-value pair associated with an ECS Target of an EventBridge rule. The tag will be propagated to ECS by EventBridge when starting an ECS task based on a matched event.
-//
-// > Currently, tags are only available when using ECS with EventBridge .
+// The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-tags) in the Amazon ECS API Reference.
 func (o RuleEcsParametersOutput) TagList() RuleTagArrayOutput {
 	return o.ApplyT(func(v RuleEcsParameters) []RuleTag { return v.TagList }).(RuleTagArrayOutput)
 }
@@ -3077,7 +3083,9 @@ func (o RuleEcsParametersPtrOutput) Elem() RuleEcsParametersOutput {
 	}).(RuleEcsParametersOutput)
 }
 
-// The details of a capacity provider strategy. To learn more, see [CapacityProviderStrategyItem](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CapacityProviderStrategyItem.html) in the Amazon ECS API Reference.
+// The capacity provider strategy to use for the task.
+//
+// If a `capacityProviderStrategy` is specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or launchType is specified, the `defaultCapacityProviderStrategy` for the cluster is used.
 func (o RuleEcsParametersPtrOutput) CapacityProviderStrategy() RuleCapacityProviderStrategyItemArrayOutput {
 	return o.ApplyT(func(v *RuleEcsParameters) []RuleCapacityProviderStrategyItem {
 		if v == nil {
@@ -3127,7 +3135,9 @@ func (o RuleEcsParametersPtrOutput) LaunchType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// This structure specifies the network configuration for an ECS task.
+// Use this structure if the Amazon ECS task uses the `awsvpc` network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if `LaunchType` is `FARGATE` because the `awsvpc` mode is required for Fargate tasks.
+//
+// If you specify `NetworkConfiguration` when the target ECS task does not use the `awsvpc` network mode, the task fails.
 func (o RuleEcsParametersPtrOutput) NetworkConfiguration() RuleNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v *RuleEcsParameters) *RuleNetworkConfiguration {
 		if v == nil {
@@ -3137,7 +3147,7 @@ func (o RuleEcsParametersPtrOutput) NetworkConfiguration() RuleNetworkConfigurat
 	}).(RuleNetworkConfigurationPtrOutput)
 }
 
-// An object representing a constraint on task placement. To learn more, see [Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the Amazon Elastic Container Service Developer Guide.
+// An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime).
 func (o RuleEcsParametersPtrOutput) PlacementConstraints() RulePlacementConstraintArrayOutput {
 	return o.ApplyT(func(v *RuleEcsParameters) []RulePlacementConstraint {
 		if v == nil {
@@ -3147,7 +3157,7 @@ func (o RuleEcsParametersPtrOutput) PlacementConstraints() RulePlacementConstrai
 	}).(RulePlacementConstraintArrayOutput)
 }
 
-// The task placement strategy for a task or service. To learn more, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the Amazon Elastic Container Service Service Developer Guide.
+// The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
 func (o RuleEcsParametersPtrOutput) PlacementStrategies() RulePlacementStrategyArrayOutput {
 	return o.ApplyT(func(v *RuleEcsParameters) []RulePlacementStrategy {
 		if v == nil {
@@ -3189,9 +3199,7 @@ func (o RuleEcsParametersPtrOutput) ReferenceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A key-value pair associated with an ECS Target of an EventBridge rule. The tag will be propagated to ECS by EventBridge when starting an ECS task based on a matched event.
-//
-// > Currently, tags are only available when using ECS with EventBridge .
+// The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-tags) in the Amazon ECS API Reference.
 func (o RuleEcsParametersPtrOutput) TagList() RuleTagArrayOutput {
 	return o.ApplyT(func(v *RuleEcsParameters) []RuleTag {
 		if v == nil {
@@ -3866,7 +3874,7 @@ func (o RuleKinesisParametersPtrOutput) PartitionKeyPath() pulumi.StringPtrOutpu
 }
 
 type RuleNetworkConfiguration struct {
-	// This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
+	// Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
 	AwsVpcConfiguration *RuleAwsVpcConfiguration `pulumi:"awsVpcConfiguration"`
 }
 
@@ -3882,7 +3890,7 @@ type RuleNetworkConfigurationInput interface {
 }
 
 type RuleNetworkConfigurationArgs struct {
-	// This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
+	// Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
 	AwsVpcConfiguration RuleAwsVpcConfigurationPtrInput `pulumi:"awsVpcConfiguration"`
 }
 
@@ -3963,7 +3971,7 @@ func (o RuleNetworkConfigurationOutput) ToRuleNetworkConfigurationPtrOutputWithC
 	}).(RuleNetworkConfigurationPtrOutput)
 }
 
-// This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
+// Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
 func (o RuleNetworkConfigurationOutput) AwsVpcConfiguration() RuleAwsVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v RuleNetworkConfiguration) *RuleAwsVpcConfiguration { return v.AwsVpcConfiguration }).(RuleAwsVpcConfigurationPtrOutput)
 }
@@ -3992,7 +4000,7 @@ func (o RuleNetworkConfigurationPtrOutput) Elem() RuleNetworkConfigurationOutput
 	}).(RuleNetworkConfigurationOutput)
 }
 
-// This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
+// Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
 func (o RuleNetworkConfigurationPtrOutput) AwsVpcConfiguration() RuleAwsVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *RuleNetworkConfiguration) *RuleAwsVpcConfiguration {
 		if v == nil {
@@ -4622,7 +4630,7 @@ func (o RuleRetryPolicyPtrOutput) MaximumRetryAttempts() pulumi.IntPtrOutput {
 }
 
 type RuleRunCommandParameters struct {
-	// Information about the EC2 instances that are to be sent the command, specified as key-value pairs. Each `RunCommandTarget` block can include only one key, but this key may specify multiple values.
+	// Currently, we support including only one RunCommandTarget block, which specifies either an array of InstanceIds or a tag.
 	RunCommandTargets []RuleRunCommandTarget `pulumi:"runCommandTargets"`
 }
 
@@ -4638,7 +4646,7 @@ type RuleRunCommandParametersInput interface {
 }
 
 type RuleRunCommandParametersArgs struct {
-	// Information about the EC2 instances that are to be sent the command, specified as key-value pairs. Each `RunCommandTarget` block can include only one key, but this key may specify multiple values.
+	// Currently, we support including only one RunCommandTarget block, which specifies either an array of InstanceIds or a tag.
 	RunCommandTargets RuleRunCommandTargetArrayInput `pulumi:"runCommandTargets"`
 }
 
@@ -4719,7 +4727,7 @@ func (o RuleRunCommandParametersOutput) ToRuleRunCommandParametersPtrOutputWithC
 	}).(RuleRunCommandParametersPtrOutput)
 }
 
-// Information about the EC2 instances that are to be sent the command, specified as key-value pairs. Each `RunCommandTarget` block can include only one key, but this key may specify multiple values.
+// Currently, we support including only one RunCommandTarget block, which specifies either an array of InstanceIds or a tag.
 func (o RuleRunCommandParametersOutput) RunCommandTargets() RuleRunCommandTargetArrayOutput {
 	return o.ApplyT(func(v RuleRunCommandParameters) []RuleRunCommandTarget { return v.RunCommandTargets }).(RuleRunCommandTargetArrayOutput)
 }
@@ -4748,7 +4756,7 @@ func (o RuleRunCommandParametersPtrOutput) Elem() RuleRunCommandParametersOutput
 	}).(RuleRunCommandParametersOutput)
 }
 
-// Information about the EC2 instances that are to be sent the command, specified as key-value pairs. Each `RunCommandTarget` block can include only one key, but this key may specify multiple values.
+// Currently, we support including only one RunCommandTarget block, which specifies either an array of InstanceIds or a tag.
 func (o RuleRunCommandParametersPtrOutput) RunCommandTargets() RuleRunCommandTargetArrayOutput {
 	return o.ApplyT(func(v *RuleRunCommandParameters) []RuleRunCommandTarget {
 		if v == nil {
@@ -4971,7 +4979,7 @@ func (o RuleSageMakerPipelineParameterArrayOutput) Index(i pulumi.IntInput) Rule
 }
 
 type RuleSageMakerPipelineParameters struct {
-	// Name/Value pair of a parameter to start execution of a SageMaker Model Building Pipeline.
+	// List of Parameter names and values for SageMaker Model Building Pipeline execution.
 	PipelineParameterList []RuleSageMakerPipelineParameter `pulumi:"pipelineParameterList"`
 }
 
@@ -4987,7 +4995,7 @@ type RuleSageMakerPipelineParametersInput interface {
 }
 
 type RuleSageMakerPipelineParametersArgs struct {
-	// Name/Value pair of a parameter to start execution of a SageMaker Model Building Pipeline.
+	// List of Parameter names and values for SageMaker Model Building Pipeline execution.
 	PipelineParameterList RuleSageMakerPipelineParameterArrayInput `pulumi:"pipelineParameterList"`
 }
 
@@ -5068,7 +5076,7 @@ func (o RuleSageMakerPipelineParametersOutput) ToRuleSageMakerPipelineParameters
 	}).(RuleSageMakerPipelineParametersPtrOutput)
 }
 
-// Name/Value pair of a parameter to start execution of a SageMaker Model Building Pipeline.
+// List of Parameter names and values for SageMaker Model Building Pipeline execution.
 func (o RuleSageMakerPipelineParametersOutput) PipelineParameterList() RuleSageMakerPipelineParameterArrayOutput {
 	return o.ApplyT(func(v RuleSageMakerPipelineParameters) []RuleSageMakerPipelineParameter {
 		return v.PipelineParameterList
@@ -5099,7 +5107,7 @@ func (o RuleSageMakerPipelineParametersPtrOutput) Elem() RuleSageMakerPipelinePa
 	}).(RuleSageMakerPipelineParametersOutput)
 }
 
-// Name/Value pair of a parameter to start execution of a SageMaker Model Building Pipeline.
+// List of Parameter names and values for SageMaker Model Building Pipeline execution.
 func (o RuleSageMakerPipelineParametersPtrOutput) PipelineParameterList() RuleSageMakerPipelineParameterArrayOutput {
 	return o.ApplyT(func(v *RuleSageMakerPipelineParameters) []RuleSageMakerPipelineParameter {
 		if v == nil {
@@ -5357,15 +5365,15 @@ type RuleTarget struct {
 	AppSyncParameters *RuleAppSyncParameters `pulumi:"appSyncParameters"`
 	// The Amazon Resource Name (ARN) of the target.
 	Arn string `pulumi:"arn"`
-	// The custom parameters to be used when the target is an AWS Batch job.
+	// If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For more information, see [Jobs](https://docs.aws.amazon.com/batch/latest/userguide/jobs.html) in the *AWS Batch User Guide* .
 	BatchParameters *RuleBatchParameters `pulumi:"batchParameters"`
-	// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ).
-	//
-	// For more information, see [Event retry policy and using dead-letter queues](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-dlq.html) in the *EventBridge User Guide* .
+	// The `DeadLetterConfig` that defines the target queue to send dead-letter queue events to.
 	DeadLetterConfig *RuleDeadLetterConfig `pulumi:"deadLetterConfig"`
-	// The custom parameters to be used when the target is an Amazon ECS task.
+	// Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see [Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon EC2 Container Service Developer Guide* .
 	EcsParameters *RuleEcsParameters `pulumi:"ecsParameters"`
-	// These are custom parameter to be used when the target is an API Gateway APIs or EventBridge ApiDestinations. In the latter case, these are merged with any InvocationParameters specified on the Connection, with any values from the Connection taking precedence.
+	// Contains the HTTP parameters to use when the target is a API Gateway endpoint or EventBridge ApiDestination.
+	//
+	// If you specify an API Gateway API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence.
 	HttpParameters *RuleHttpParameters `pulumi:"httpParameters"`
 	// The ID of the target within the specified rule. Use this ID to reference the target when updating the rule. We recommend using a memorable and unique string.
 	Id string `pulumi:"id"`
@@ -5373,21 +5381,27 @@ type RuleTarget struct {
 	Input *string `pulumi:"input"`
 	// The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. You may use JSON dot notation or bracket notation. For more information about JSON paths, see [JSONPath](https://docs.aws.amazon.com/http://goessner.net/articles/JsonPath/) .
 	InputPath *string `pulumi:"inputPath"`
-	// Contains the parameters needed for you to provide custom input to a target based on one or more pieces of data extracted from the event.
+	// Settings to enable you to provide custom input to a target based on certain event data. You can extract one or more key-value pairs from the event and then use that data to send customized input to the target.
 	InputTransformer *RuleInputTransformer `pulumi:"inputTransformer"`
-	// This object enables you to specify a JSON path to extract from the event and use as the partition key for the Amazon Kinesis data stream, so that you can control the shard to which the event goes. If you do not include this parameter, the default is to use the `eventId` as the partition key.
+	// The custom parameter you can use to control the shard assignment, when the target is a Kinesis data stream. If you do not include this parameter, the default is to use the `eventId` as the partition key.
 	KinesisParameters *RuleKinesisParameters `pulumi:"kinesisParameters"`
-	// These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
+	// Contains the Amazon Redshift Data API parameters to use when the target is a Amazon Redshift cluster.
+	//
+	// If you specify a Amazon Redshift Cluster as a Target, you can use this to specify parameters to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
 	RedshiftDataParameters *RuleRedshiftDataParameters `pulumi:"redshiftDataParameters"`
-	// A `RetryPolicy` object that includes information about the retry policy settings.
+	// The `RetryPolicy` object that contains the retry policy configuration to use for the dead-letter queue.
 	RetryPolicy *RuleRetryPolicy `pulumi:"retryPolicy"`
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target.
 	RoleArn *string `pulumi:"roleArn"`
-	// This parameter contains the criteria (either InstanceIds or a tag) used to specify which EC2 instances are to be sent the command.
+	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
 	RunCommandParameters *RuleRunCommandParameters `pulumi:"runCommandParameters"`
-	// These are custom parameters to use when the target is a SageMaker Model Building Pipeline that starts based on EventBridge events.
+	// Contains the SageMaker Model Building Pipeline parameters to start execution of a SageMaker Model Building Pipeline.
+	//
+	// If you specify a SageMaker Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
 	SageMakerPipelineParameters *RuleSageMakerPipelineParameters `pulumi:"sageMakerPipelineParameters"`
-	// This structure includes the custom parameter to be used when the target is an SQS FIFO queue.
+	// Contains the message group ID to use when the target is a FIFO queue.
+	//
+	// If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
 	SqsParameters *RuleSqsParameters `pulumi:"sqsParameters"`
 }
 
@@ -5407,15 +5421,15 @@ type RuleTargetArgs struct {
 	AppSyncParameters RuleAppSyncParametersPtrInput `pulumi:"appSyncParameters"`
 	// The Amazon Resource Name (ARN) of the target.
 	Arn pulumi.StringInput `pulumi:"arn"`
-	// The custom parameters to be used when the target is an AWS Batch job.
+	// If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For more information, see [Jobs](https://docs.aws.amazon.com/batch/latest/userguide/jobs.html) in the *AWS Batch User Guide* .
 	BatchParameters RuleBatchParametersPtrInput `pulumi:"batchParameters"`
-	// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ).
-	//
-	// For more information, see [Event retry policy and using dead-letter queues](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-dlq.html) in the *EventBridge User Guide* .
+	// The `DeadLetterConfig` that defines the target queue to send dead-letter queue events to.
 	DeadLetterConfig RuleDeadLetterConfigPtrInput `pulumi:"deadLetterConfig"`
-	// The custom parameters to be used when the target is an Amazon ECS task.
+	// Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see [Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon EC2 Container Service Developer Guide* .
 	EcsParameters RuleEcsParametersPtrInput `pulumi:"ecsParameters"`
-	// These are custom parameter to be used when the target is an API Gateway APIs or EventBridge ApiDestinations. In the latter case, these are merged with any InvocationParameters specified on the Connection, with any values from the Connection taking precedence.
+	// Contains the HTTP parameters to use when the target is a API Gateway endpoint or EventBridge ApiDestination.
+	//
+	// If you specify an API Gateway API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence.
 	HttpParameters RuleHttpParametersPtrInput `pulumi:"httpParameters"`
 	// The ID of the target within the specified rule. Use this ID to reference the target when updating the rule. We recommend using a memorable and unique string.
 	Id pulumi.StringInput `pulumi:"id"`
@@ -5423,21 +5437,27 @@ type RuleTargetArgs struct {
 	Input pulumi.StringPtrInput `pulumi:"input"`
 	// The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. You may use JSON dot notation or bracket notation. For more information about JSON paths, see [JSONPath](https://docs.aws.amazon.com/http://goessner.net/articles/JsonPath/) .
 	InputPath pulumi.StringPtrInput `pulumi:"inputPath"`
-	// Contains the parameters needed for you to provide custom input to a target based on one or more pieces of data extracted from the event.
+	// Settings to enable you to provide custom input to a target based on certain event data. You can extract one or more key-value pairs from the event and then use that data to send customized input to the target.
 	InputTransformer RuleInputTransformerPtrInput `pulumi:"inputTransformer"`
-	// This object enables you to specify a JSON path to extract from the event and use as the partition key for the Amazon Kinesis data stream, so that you can control the shard to which the event goes. If you do not include this parameter, the default is to use the `eventId` as the partition key.
+	// The custom parameter you can use to control the shard assignment, when the target is a Kinesis data stream. If you do not include this parameter, the default is to use the `eventId` as the partition key.
 	KinesisParameters RuleKinesisParametersPtrInput `pulumi:"kinesisParameters"`
-	// These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
+	// Contains the Amazon Redshift Data API parameters to use when the target is a Amazon Redshift cluster.
+	//
+	// If you specify a Amazon Redshift Cluster as a Target, you can use this to specify parameters to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
 	RedshiftDataParameters RuleRedshiftDataParametersPtrInput `pulumi:"redshiftDataParameters"`
-	// A `RetryPolicy` object that includes information about the retry policy settings.
+	// The `RetryPolicy` object that contains the retry policy configuration to use for the dead-letter queue.
 	RetryPolicy RuleRetryPolicyPtrInput `pulumi:"retryPolicy"`
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
-	// This parameter contains the criteria (either InstanceIds or a tag) used to specify which EC2 instances are to be sent the command.
+	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
 	RunCommandParameters RuleRunCommandParametersPtrInput `pulumi:"runCommandParameters"`
-	// These are custom parameters to use when the target is a SageMaker Model Building Pipeline that starts based on EventBridge events.
+	// Contains the SageMaker Model Building Pipeline parameters to start execution of a SageMaker Model Building Pipeline.
+	//
+	// If you specify a SageMaker Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
 	SageMakerPipelineParameters RuleSageMakerPipelineParametersPtrInput `pulumi:"sageMakerPipelineParameters"`
-	// This structure includes the custom parameter to be used when the target is an SQS FIFO queue.
+	// Contains the message group ID to use when the target is a FIFO queue.
+	//
+	// If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
 	SqsParameters RuleSqsParametersPtrInput `pulumi:"sqsParameters"`
 }
 
@@ -5502,24 +5522,24 @@ func (o RuleTargetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleTarget) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The custom parameters to be used when the target is an AWS Batch job.
+// If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For more information, see [Jobs](https://docs.aws.amazon.com/batch/latest/userguide/jobs.html) in the *AWS Batch User Guide* .
 func (o RuleTargetOutput) BatchParameters() RuleBatchParametersPtrOutput {
 	return o.ApplyT(func(v RuleTarget) *RuleBatchParameters { return v.BatchParameters }).(RuleBatchParametersPtrOutput)
 }
 
-// Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ).
-//
-// For more information, see [Event retry policy and using dead-letter queues](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-dlq.html) in the *EventBridge User Guide* .
+// The `DeadLetterConfig` that defines the target queue to send dead-letter queue events to.
 func (o RuleTargetOutput) DeadLetterConfig() RuleDeadLetterConfigPtrOutput {
 	return o.ApplyT(func(v RuleTarget) *RuleDeadLetterConfig { return v.DeadLetterConfig }).(RuleDeadLetterConfigPtrOutput)
 }
 
-// The custom parameters to be used when the target is an Amazon ECS task.
+// Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see [Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon EC2 Container Service Developer Guide* .
 func (o RuleTargetOutput) EcsParameters() RuleEcsParametersPtrOutput {
 	return o.ApplyT(func(v RuleTarget) *RuleEcsParameters { return v.EcsParameters }).(RuleEcsParametersPtrOutput)
 }
 
-// These are custom parameter to be used when the target is an API Gateway APIs or EventBridge ApiDestinations. In the latter case, these are merged with any InvocationParameters specified on the Connection, with any values from the Connection taking precedence.
+// Contains the HTTP parameters to use when the target is a API Gateway endpoint or EventBridge ApiDestination.
+//
+// If you specify an API Gateway API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence.
 func (o RuleTargetOutput) HttpParameters() RuleHttpParametersPtrOutput {
 	return o.ApplyT(func(v RuleTarget) *RuleHttpParameters { return v.HttpParameters }).(RuleHttpParametersPtrOutput)
 }
@@ -5539,22 +5559,24 @@ func (o RuleTargetOutput) InputPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleTarget) *string { return v.InputPath }).(pulumi.StringPtrOutput)
 }
 
-// Contains the parameters needed for you to provide custom input to a target based on one or more pieces of data extracted from the event.
+// Settings to enable you to provide custom input to a target based on certain event data. You can extract one or more key-value pairs from the event and then use that data to send customized input to the target.
 func (o RuleTargetOutput) InputTransformer() RuleInputTransformerPtrOutput {
 	return o.ApplyT(func(v RuleTarget) *RuleInputTransformer { return v.InputTransformer }).(RuleInputTransformerPtrOutput)
 }
 
-// This object enables you to specify a JSON path to extract from the event and use as the partition key for the Amazon Kinesis data stream, so that you can control the shard to which the event goes. If you do not include this parameter, the default is to use the `eventId` as the partition key.
+// The custom parameter you can use to control the shard assignment, when the target is a Kinesis data stream. If you do not include this parameter, the default is to use the `eventId` as the partition key.
 func (o RuleTargetOutput) KinesisParameters() RuleKinesisParametersPtrOutput {
 	return o.ApplyT(func(v RuleTarget) *RuleKinesisParameters { return v.KinesisParameters }).(RuleKinesisParametersPtrOutput)
 }
 
-// These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
+// Contains the Amazon Redshift Data API parameters to use when the target is a Amazon Redshift cluster.
+//
+// If you specify a Amazon Redshift Cluster as a Target, you can use this to specify parameters to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
 func (o RuleTargetOutput) RedshiftDataParameters() RuleRedshiftDataParametersPtrOutput {
 	return o.ApplyT(func(v RuleTarget) *RuleRedshiftDataParameters { return v.RedshiftDataParameters }).(RuleRedshiftDataParametersPtrOutput)
 }
 
-// A `RetryPolicy` object that includes information about the retry policy settings.
+// The `RetryPolicy` object that contains the retry policy configuration to use for the dead-letter queue.
 func (o RuleTargetOutput) RetryPolicy() RuleRetryPolicyPtrOutput {
 	return o.ApplyT(func(v RuleTarget) *RuleRetryPolicy { return v.RetryPolicy }).(RuleRetryPolicyPtrOutput)
 }
@@ -5564,17 +5586,21 @@ func (o RuleTargetOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleTarget) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// This parameter contains the criteria (either InstanceIds or a tag) used to specify which EC2 instances are to be sent the command.
+// Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
 func (o RuleTargetOutput) RunCommandParameters() RuleRunCommandParametersPtrOutput {
 	return o.ApplyT(func(v RuleTarget) *RuleRunCommandParameters { return v.RunCommandParameters }).(RuleRunCommandParametersPtrOutput)
 }
 
-// These are custom parameters to use when the target is a SageMaker Model Building Pipeline that starts based on EventBridge events.
+// Contains the SageMaker Model Building Pipeline parameters to start execution of a SageMaker Model Building Pipeline.
+//
+// If you specify a SageMaker Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
 func (o RuleTargetOutput) SageMakerPipelineParameters() RuleSageMakerPipelineParametersPtrOutput {
 	return o.ApplyT(func(v RuleTarget) *RuleSageMakerPipelineParameters { return v.SageMakerPipelineParameters }).(RuleSageMakerPipelineParametersPtrOutput)
 }
 
-// This structure includes the custom parameter to be used when the target is an SQS FIFO queue.
+// Contains the message group ID to use when the target is a FIFO queue.
+//
+// If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
 func (o RuleTargetOutput) SqsParameters() RuleSqsParametersPtrOutput {
 	return o.ApplyT(func(v RuleTarget) *RuleSqsParameters { return v.SqsParameters }).(RuleSqsParametersPtrOutput)
 }

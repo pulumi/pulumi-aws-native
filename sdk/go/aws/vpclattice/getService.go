@@ -40,7 +40,7 @@ type LookupServiceResult struct {
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The date and time that the service was created, specified in ISO-8601 format.
 	CreatedAt *string `pulumi:"createdAt"`
-	// Describes the DNS information of a service.
+	// The DNS information of the service.
 	DnsEntry *ServiceDnsEntry `pulumi:"dnsEntry"`
 	// The ID of the service.
 	Id *string `pulumi:"id"`
@@ -48,7 +48,7 @@ type LookupServiceResult struct {
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
 	// The status of the service.
 	Status *ServiceStatus `pulumi:"status"`
-	// Specifies a tag for a service.
+	// The tags for the service.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -111,7 +111,7 @@ func (o LookupServiceResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
-// Describes the DNS information of a service.
+// The DNS information of the service.
 func (o LookupServiceResultOutput) DnsEntry() ServiceDnsEntryPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceDnsEntry { return v.DnsEntry }).(ServiceDnsEntryPtrOutput)
 }
@@ -131,7 +131,7 @@ func (o LookupServiceResultOutput) Status() ServiceStatusPtrOutput {
 	return o.ApplyT(func(v LookupServiceResult) *ServiceStatus { return v.Status }).(ServiceStatusPtrOutput)
 }
 
-// Specifies a tag for a service.
+// The tags for the service.
 func (o LookupServiceResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupServiceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

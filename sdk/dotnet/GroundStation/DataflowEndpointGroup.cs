@@ -87,7 +87,7 @@ namespace Pulumi.AwsNative.GroundStation
         public Output<int?> ContactPrePassDurationSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// The security details and endpoint information.
+        /// List of Endpoint Details, containing address and port for each endpoint.
         /// </summary>
         [Output("endpointDetails")]
         public Output<ImmutableArray<Outputs.DataflowEndpointGroupEndpointDetails>> EndpointDetails { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.AwsNative.GroundStation
         private InputList<Inputs.DataflowEndpointGroupEndpointDetailsArgs>? _endpointDetails;
 
         /// <summary>
-        /// The security details and endpoint information.
+        /// List of Endpoint Details, containing address and port for each endpoint.
         /// </summary>
         public InputList<Inputs.DataflowEndpointGroupEndpointDetailsArgs> EndpointDetails
         {

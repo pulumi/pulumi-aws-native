@@ -35,7 +35,7 @@ class GetStorageLensGroupResult:
     @pulumi.getter
     def filter(self) -> Optional['outputs.StorageLensGroupFilter']:
         """
-        This resource sets the criteria for the Storage Lens group data that is displayed. For multiple filter conditions, the `AND` or `OR` logical operator is used.
+        This property contains the criteria for the Storage Lens group data that is displayed
         """
         return pulumi.get(self, "filter")
 

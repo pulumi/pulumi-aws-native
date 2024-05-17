@@ -234,9 +234,6 @@ class StreamingImage(pulumi.CustomResource):
     @property
     @pulumi.getter(name="encryptionConfiguration")
     def encryption_configuration(self) -> pulumi.Output['outputs.StreamingImageEncryptionConfiguration']:
-        """
-        Specifies how a streaming image is encrypted.
-        """
         return pulumi.get(self, "encryption_configuration")
 
     @property

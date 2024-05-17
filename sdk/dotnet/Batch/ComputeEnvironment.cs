@@ -28,13 +28,13 @@ namespace Pulumi.AwsNative.Batch
         public Output<string?> ComputeEnvironmentName { get; private set; } = null!;
 
         /// <summary>
-        /// Details about the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the *AWS Batch User Guide* .
+        /// The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
         /// </summary>
         [Output("computeResources")]
         public Output<Outputs.ComputeEnvironmentComputeResources?> ComputeResources { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration for the Amazon EKS cluster that supports the AWS Batch compute environment. The cluster must exist before the compute environment can be created.
+        /// The details for the Amazon EKS cluster that supports the compute environment.
         /// </summary>
         [Output("eksConfiguration")]
         public Output<Outputs.ComputeEnvironmentEksConfiguration?> EksConfiguration { get; private set; } = null!;
@@ -158,13 +158,13 @@ namespace Pulumi.AwsNative.Batch
         public Input<string>? ComputeEnvironmentName { get; set; }
 
         /// <summary>
-        /// Details about the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the *AWS Batch User Guide* .
+        /// The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
         /// </summary>
         [Input("computeResources")]
         public Input<Inputs.ComputeEnvironmentComputeResourcesArgs>? ComputeResources { get; set; }
 
         /// <summary>
-        /// Configuration for the Amazon EKS cluster that supports the AWS Batch compute environment. The cluster must exist before the compute environment can be created.
+        /// The details for the Amazon EKS cluster that supports the compute environment.
         /// </summary>
         [Input("eksConfiguration")]
         public Input<Inputs.ComputeEnvironmentEksConfigurationArgs>? EksConfiguration { get; set; }

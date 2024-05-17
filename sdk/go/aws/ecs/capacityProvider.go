@@ -247,11 +247,11 @@ import (
 type CapacityProvider struct {
 	pulumi.CustomResourceState
 
-	// The details of the Auto Scaling group for the capacity provider.
+	// The Auto Scaling group settings for the capacity provider.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderOutput `pulumi:"autoScalingGroupProvider"`
 	// The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+	// The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
 	//
 	// The following basic restrictions apply to tags:
 	//
@@ -276,7 +276,6 @@ func NewCapacityProvider(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'AutoScalingGroupProvider'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"autoScalingGroupProvider.autoScalingGroupArn",
 		"name",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -313,11 +312,11 @@ func (CapacityProviderState) ElementType() reflect.Type {
 }
 
 type capacityProviderArgs struct {
-	// The details of the Auto Scaling group for the capacity provider.
+	// The Auto Scaling group settings for the capacity provider.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
 	// The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
 	Name *string `pulumi:"name"`
-	// The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+	// The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
 	//
 	// The following basic restrictions apply to tags:
 	//
@@ -333,11 +332,11 @@ type capacityProviderArgs struct {
 
 // The set of arguments for constructing a CapacityProvider resource.
 type CapacityProviderArgs struct {
-	// The details of the Auto Scaling group for the capacity provider.
+	// The Auto Scaling group settings for the capacity provider.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderInput
 	// The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
 	Name pulumi.StringPtrInput
-	// The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+	// The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
 	//
 	// The following basic restrictions apply to tags:
 	//
@@ -388,7 +387,7 @@ func (o CapacityProviderOutput) ToCapacityProviderOutputWithContext(ctx context.
 	return o
 }
 
-// The details of the Auto Scaling group for the capacity provider.
+// The Auto Scaling group settings for the capacity provider.
 func (o CapacityProviderOutput) AutoScalingGroupProvider() CapacityProviderAutoScalingGroupProviderOutput {
 	return o.ApplyT(func(v *CapacityProvider) CapacityProviderAutoScalingGroupProviderOutput {
 		return v.AutoScalingGroupProvider
@@ -400,7 +399,7 @@ func (o CapacityProviderOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProvider) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+// The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
 //
 // The following basic restrictions apply to tags:
 //

@@ -42,7 +42,7 @@ export class InAppTemplate extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Specifies the configuration of an in-app message, including its header, body, buttons, colors, and images.
+     * An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
      */
     public readonly content!: pulumi.Output<outputs.pinpoint.InAppTemplateInAppMessageContent[] | undefined>;
     /**
@@ -118,7 +118,7 @@ export class InAppTemplate extends pulumi.CustomResource {
  */
 export interface InAppTemplateArgs {
     /**
-     * Specifies the configuration of an in-app message, including its header, body, buttons, colors, and images.
+     * An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
      */
     content?: pulumi.Input<pulumi.Input<inputs.pinpoint.InAppTemplateInAppMessageContentArgs>[]>;
     /**

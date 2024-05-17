@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// A structure that represents a dataset.
+        /// The data sets that the topic is associated with.
         /// </summary>
         public readonly ImmutableArray<Outputs.TopicDatasetMetadata> DataSets;
         /// <summary>

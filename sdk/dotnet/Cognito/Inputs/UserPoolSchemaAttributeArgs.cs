@@ -41,7 +41,7 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The minimum and maximum values of an attribute that is of the number data type.
+        /// Specifies the constraints for an attribute of the number type.
         /// </summary>
         [Input("numberAttributeConstraints")]
         public Input<Inputs.UserPoolNumberAttributeConstraintsArgs>? NumberAttributeConstraints { get; set; }
@@ -53,7 +53,7 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         public Input<bool>? Required { get; set; }
 
         /// <summary>
-        /// The `StringAttributeConstraints` property type defines the string attribute constraints of an Amazon Cognito user pool. `StringAttributeConstraints` is a subproperty of the [SchemaAttribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html) property type.
+        /// Specifies the constraints for an attribute of the string type.
         /// </summary>
         [Input("stringAttributeConstraints")]
         public Input<Inputs.UserPoolStringAttributeConstraintsArgs>? StringAttributeConstraints { get; set; }

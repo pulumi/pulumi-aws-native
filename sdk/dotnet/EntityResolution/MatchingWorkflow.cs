@@ -25,13 +25,13 @@ namespace Pulumi.AwsNative.EntityResolution
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+        /// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
         /// </summary>
         [Output("inputSourceConfig")]
         public Output<ImmutableArray<Outputs.MatchingWorkflowInputSource>> InputSourceConfig { get; private set; } = null!;
 
         /// <summary>
-        /// A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+        /// A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
         /// </summary>
         [Output("outputSourceConfig")]
         public Output<ImmutableArray<Outputs.MatchingWorkflowOutputSource>> OutputSourceConfig { get; private set; } = null!;
@@ -125,7 +125,7 @@ namespace Pulumi.AwsNative.EntityResolution
         private InputList<Inputs.MatchingWorkflowInputSourceArgs>? _inputSourceConfig;
 
         /// <summary>
-        /// An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+        /// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
         /// </summary>
         public InputList<Inputs.MatchingWorkflowInputSourceArgs> InputSourceConfig
         {
@@ -137,7 +137,7 @@ namespace Pulumi.AwsNative.EntityResolution
         private InputList<Inputs.MatchingWorkflowOutputSourceArgs>? _outputSourceConfig;
 
         /// <summary>
-        /// A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+        /// A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
         /// </summary>
         public InputList<Inputs.MatchingWorkflowOutputSourceArgs> OutputSourceConfig
         {

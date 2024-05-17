@@ -92,7 +92,7 @@ type Pipe struct {
 	EnrichmentParameters PipeEnrichmentParametersPtrOutput `pulumi:"enrichmentParameters"`
 	// When the pipe was last updated, in [ISO-8601 format](https://docs.aws.amazon.com/https://www.w3.org/TR/NOTE-datetime) (YYYY-MM-DDThh:mm:ss.sTZD).
 	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
-	// Represents the configuration settings for the logs to which this pipe should report events.
+	// The logging configuration settings for the pipe.
 	LogConfiguration PipeLogConfigurationPtrOutput `pulumi:"logConfiguration"`
 	// The name of the pipe.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
@@ -185,7 +185,7 @@ type pipeArgs struct {
 	Enrichment *string `pulumi:"enrichment"`
 	// The parameters required to set up enrichment on your pipe.
 	EnrichmentParameters *PipeEnrichmentParameters `pulumi:"enrichmentParameters"`
-	// Represents the configuration settings for the logs to which this pipe should report events.
+	// The logging configuration settings for the pipe.
 	LogConfiguration *PipeLogConfiguration `pulumi:"logConfiguration"`
 	// The name of the pipe.
 	Name *string `pulumi:"name"`
@@ -215,7 +215,7 @@ type PipeArgs struct {
 	Enrichment pulumi.StringPtrInput
 	// The parameters required to set up enrichment on your pipe.
 	EnrichmentParameters PipeEnrichmentParametersPtrInput
-	// Represents the configuration settings for the logs to which this pipe should report events.
+	// The logging configuration settings for the pipe.
 	LogConfiguration PipeLogConfigurationPtrInput
 	// The name of the pipe.
 	Name pulumi.StringPtrInput
@@ -312,7 +312,7 @@ func (o PipeOutput) LastModifiedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.LastModifiedTime }).(pulumi.StringOutput)
 }
 
-// Represents the configuration settings for the logs to which this pipe should report events.
+// The logging configuration settings for the pipe.
 func (o PipeOutput) LogConfiguration() PipeLogConfigurationPtrOutput {
 	return o.ApplyT(func(v *Pipe) PipeLogConfigurationPtrOutput { return v.LogConfiguration }).(PipeLogConfigurationPtrOutput)
 }

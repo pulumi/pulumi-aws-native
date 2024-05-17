@@ -18,9 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.TemplatePivotTableFieldOptions? FieldOptions;
         /// <summary>
-        /// The field wells for a pivot table visual.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The field wells of the visual.
         /// </summary>
         public readonly Outputs.TemplatePivotTableFieldWells? FieldWells;
         /// <summary>

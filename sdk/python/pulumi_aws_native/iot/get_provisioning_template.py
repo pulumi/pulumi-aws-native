@@ -63,7 +63,7 @@ class GetProvisioningTemplateResult:
     @pulumi.getter(name="preProvisioningHook")
     def pre_provisioning_hook(self) -> Optional['outputs.ProvisioningTemplateProvisioningHook']:
         """
-        Structure that contains payloadVersion and targetArn. Provisioning hooks can be used when fleet provisioning to validate device parameters before allowing the device to be provisioned.
+        Creates a pre-provisioning hook template.
         """
         return pulumi.get(self, "pre_provisioning_hook")
 
@@ -79,7 +79,7 @@ class GetProvisioningTemplateResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        A set of key/value pairs that are used to manage the resource.
+        Metadata that can be used to manage the fleet provisioning template.
         """
         return pulumi.get(self, "tags")
 

@@ -31,8 +31,7 @@ type LookupStreamingImageArgs struct {
 
 type LookupStreamingImageResult struct {
 	// <p>A human-readable description of the streaming image.</p>
-	Description *string `pulumi:"description"`
-	// Specifies how a streaming image is encrypted.
+	Description             *string                                `pulumi:"description"`
 	EncryptionConfiguration *StreamingImageEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// <p>The list of EULAs that must be accepted before a Streaming Session can be started using this streaming image.</p>
 	EulaIds []string `pulumi:"eulaIds"`
@@ -89,7 +88,6 @@ func (o LookupStreamingImageResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStreamingImageResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Specifies how a streaming image is encrypted.
 func (o LookupStreamingImageResultOutput) EncryptionConfiguration() StreamingImageEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupStreamingImageResult) *StreamingImageEncryptionConfiguration {
 		return v.EncryptionConfiguration

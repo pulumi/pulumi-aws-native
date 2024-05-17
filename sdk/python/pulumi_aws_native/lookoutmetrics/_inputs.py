@@ -36,8 +36,8 @@ class AlertActionArgs:
                  lambda_configuration: Optional[pulumi.Input['AlertLambdaConfigurationArgs']] = None,
                  sns_configuration: Optional[pulumi.Input['AlertSnsConfigurationArgs']] = None):
         """
-        :param pulumi.Input['AlertLambdaConfigurationArgs'] lambda_configuration: Contains information about a Lambda configuration.
-        :param pulumi.Input['AlertSnsConfigurationArgs'] sns_configuration: Contains information about the SNS topic to which you want to send your alerts and the IAM role that has access to that topic.
+        :param pulumi.Input['AlertLambdaConfigurationArgs'] lambda_configuration: A configuration for an AWS Lambda channel.
+        :param pulumi.Input['AlertSnsConfigurationArgs'] sns_configuration: A configuration for an Amazon SNS channel.
         """
         if lambda_configuration is not None:
             pulumi.set(__self__, "lambda_configuration", lambda_configuration)
@@ -48,7 +48,7 @@ class AlertActionArgs:
     @pulumi.getter(name="lambdaConfiguration")
     def lambda_configuration(self) -> Optional[pulumi.Input['AlertLambdaConfigurationArgs']]:
         """
-        Contains information about a Lambda configuration.
+        A configuration for an AWS Lambda channel.
         """
         return pulumi.get(self, "lambda_configuration")
 
@@ -60,7 +60,7 @@ class AlertActionArgs:
     @pulumi.getter(name="snsConfiguration")
     def sns_configuration(self) -> Optional[pulumi.Input['AlertSnsConfigurationArgs']]:
         """
-        Contains information about the SNS topic to which you want to send your alerts and the IAM role that has access to that topic.
+        A configuration for an Amazon SNS channel.
         """
         return pulumi.get(self, "sns_configuration")
 
@@ -427,7 +427,7 @@ class AnomalyDetectorMetricSetArgs:
         :param pulumi.Input[str] metric_set_description: A description for the MetricSet.
         :param pulumi.Input['AnomalyDetectorMetricSetMetricSetFrequency'] metric_set_frequency: A frequency period to aggregate the data
         :param pulumi.Input[int] offset: Offset, in seconds, between the frequency interval and the time at which the metrics are available.
-        :param pulumi.Input['AnomalyDetectorTimestampColumnArgs'] timestamp_column: Contains information about the column used to track time in a source data file.
+        :param pulumi.Input['AnomalyDetectorTimestampColumnArgs'] timestamp_column: Contains information about the column used for tracking time in your source data.
         :param pulumi.Input[str] timezone: The time zone in which your source data was recorded.
         """
         pulumi.set(__self__, "metric_list", metric_list)
@@ -534,7 +534,7 @@ class AnomalyDetectorMetricSetArgs:
     @pulumi.getter(name="timestampColumn")
     def timestamp_column(self) -> Optional[pulumi.Input['AnomalyDetectorTimestampColumnArgs']]:
         """
-        Contains information about the column used to track time in a source data file.
+        Contains information about the column used for tracking time in your source data.
         """
         return pulumi.get(self, "timestamp_column")
 
@@ -564,10 +564,10 @@ class AnomalyDetectorMetricSourceArgs:
                  redshift_source_config: Optional[pulumi.Input['AnomalyDetectorRedshiftSourceConfigArgs']] = None,
                  s3_source_config: Optional[pulumi.Input['AnomalyDetectorS3SourceConfigArgs']] = None):
         """
-        :param pulumi.Input['AnomalyDetectorAppFlowConfigArgs'] app_flow_config: Details about an Amazon AppFlow flow datasource.
-        :param pulumi.Input['AnomalyDetectorCloudwatchConfigArgs'] cloudwatch_config: Details about an Amazon CloudWatch datasource.
-        :param pulumi.Input['AnomalyDetectorRdsSourceConfigArgs'] rds_source_config: Contains information about the Amazon Relational Database Service (RDS) configuration.
-        :param pulumi.Input['AnomalyDetectorRedshiftSourceConfigArgs'] redshift_source_config: Provides information about the Amazon Redshift database configuration.
+        :param pulumi.Input['AnomalyDetectorAppFlowConfigArgs'] app_flow_config: Details about an AppFlow datasource.
+        :param pulumi.Input['AnomalyDetectorCloudwatchConfigArgs'] cloudwatch_config: Details about an Amazon CloudWatch monitoring datasource.
+        :param pulumi.Input['AnomalyDetectorRdsSourceConfigArgs'] rds_source_config: Details about an Amazon Relational Database Service (RDS) datasource.
+        :param pulumi.Input['AnomalyDetectorRedshiftSourceConfigArgs'] redshift_source_config: Details about an Amazon Redshift database datasource.
         :param pulumi.Input['AnomalyDetectorS3SourceConfigArgs'] s3_source_config: Contains information about the configuration of the S3 bucket that contains source files.
         """
         if app_flow_config is not None:
@@ -585,7 +585,7 @@ class AnomalyDetectorMetricSourceArgs:
     @pulumi.getter(name="appFlowConfig")
     def app_flow_config(self) -> Optional[pulumi.Input['AnomalyDetectorAppFlowConfigArgs']]:
         """
-        Details about an Amazon AppFlow flow datasource.
+        Details about an AppFlow datasource.
         """
         return pulumi.get(self, "app_flow_config")
 
@@ -597,7 +597,7 @@ class AnomalyDetectorMetricSourceArgs:
     @pulumi.getter(name="cloudwatchConfig")
     def cloudwatch_config(self) -> Optional[pulumi.Input['AnomalyDetectorCloudwatchConfigArgs']]:
         """
-        Details about an Amazon CloudWatch datasource.
+        Details about an Amazon CloudWatch monitoring datasource.
         """
         return pulumi.get(self, "cloudwatch_config")
 
@@ -609,7 +609,7 @@ class AnomalyDetectorMetricSourceArgs:
     @pulumi.getter(name="rdsSourceConfig")
     def rds_source_config(self) -> Optional[pulumi.Input['AnomalyDetectorRdsSourceConfigArgs']]:
         """
-        Contains information about the Amazon Relational Database Service (RDS) configuration.
+        Details about an Amazon Relational Database Service (RDS) datasource.
         """
         return pulumi.get(self, "rds_source_config")
 
@@ -621,7 +621,7 @@ class AnomalyDetectorMetricSourceArgs:
     @pulumi.getter(name="redshiftSourceConfig")
     def redshift_source_config(self) -> Optional[pulumi.Input['AnomalyDetectorRedshiftSourceConfigArgs']]:
         """
-        Provides information about the Amazon Redshift database configuration.
+        Details about an Amazon Redshift database datasource.
         """
         return pulumi.get(self, "redshift_source_config")
 
@@ -714,7 +714,7 @@ class AnomalyDetectorRdsSourceConfigArgs:
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the role.
         :param pulumi.Input[str] secret_manager_arn: The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
         :param pulumi.Input[str] table_name: The name of the table in the database.
-        :param pulumi.Input['AnomalyDetectorVpcConfigurationArgs'] vpc_configuration: Contains configuration information about the Amazon Virtual Private Cloud (VPC).
+        :param pulumi.Input['AnomalyDetectorVpcConfigurationArgs'] vpc_configuration: An object containing information about the Amazon Virtual Private Cloud (VPC) configuration.
         """
         pulumi.set(__self__, "database_host", database_host)
         pulumi.set(__self__, "database_name", database_name)
@@ -813,7 +813,7 @@ class AnomalyDetectorRdsSourceConfigArgs:
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> pulumi.Input['AnomalyDetectorVpcConfigurationArgs']:
         """
-        Contains configuration information about the Amazon Virtual Private Cloud (VPC).
+        An object containing information about the Amazon Virtual Private Cloud (VPC) configuration.
         """
         return pulumi.get(self, "vpc_configuration")
 
@@ -841,7 +841,7 @@ class AnomalyDetectorRedshiftSourceConfigArgs:
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the role providing access to the database.
         :param pulumi.Input[str] secret_manager_arn: The Amazon Resource Name (ARN) of the AWS Secrets Manager role.
         :param pulumi.Input[str] table_name: The table name of the Redshift database.
-        :param pulumi.Input['AnomalyDetectorVpcConfigurationArgs'] vpc_configuration: Contains configuration information about the Amazon Virtual Private Cloud (VPC).
+        :param pulumi.Input['AnomalyDetectorVpcConfigurationArgs'] vpc_configuration: Contains information about the Amazon Virtual Private Cloud (VPC) configuration.
         """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         pulumi.set(__self__, "database_host", database_host)
@@ -940,7 +940,7 @@ class AnomalyDetectorRedshiftSourceConfigArgs:
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> pulumi.Input['AnomalyDetectorVpcConfigurationArgs']:
         """
-        Contains configuration information about the Amazon Virtual Private Cloud (VPC).
+        Contains information about the Amazon Virtual Private Cloud (VPC) configuration.
         """
         return pulumi.get(self, "vpc_configuration")
 

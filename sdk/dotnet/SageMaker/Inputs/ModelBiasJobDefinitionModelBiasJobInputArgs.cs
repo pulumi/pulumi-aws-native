@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<Inputs.ModelBiasJobDefinitionEndpointInputArgs>? EndpointInput { get; set; }
 
         /// <summary>
-        /// The ground truth labels for the dataset used for the monitoring job.
+        /// Location of ground truth labels to use in model bias job.
         /// </summary>
         [Input("groundTruthS3Input", required: true)]
         public Input<Inputs.ModelBiasJobDefinitionMonitoringGroundTruthS3InputArgs> GroundTruthS3Input { get; set; } = null!;

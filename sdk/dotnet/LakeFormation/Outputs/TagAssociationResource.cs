@@ -18,17 +18,15 @@ namespace Pulumi.AwsNative.LakeFormation.Outputs
         /// </summary>
         public readonly Outputs.TagAssociationCatalogResource? Catalog;
         /// <summary>
-        /// A structure for the database object.
+        /// The database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal.
         /// </summary>
         public readonly Outputs.TagAssociationDatabaseResource? Database;
         /// <summary>
-        /// A structure for the table object. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
+        /// The table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal.
         /// </summary>
         public readonly Outputs.TagAssociationTableResource? Table;
         /// <summary>
-        /// A structure for a table with columns object. This object is only used when granting a SELECT permission.
-        /// 
-        /// This object must take a value for at least one of `ColumnsNames` , `ColumnsIndexes` , or `ColumnsWildcard` .
+        /// The table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3.
         /// </summary>
         public readonly Outputs.TagAssociationTableWithColumnsResource? TableWithColumns;
 

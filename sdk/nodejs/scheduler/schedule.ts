@@ -84,7 +84,7 @@ export class Schedule extends pulumi.CustomResource {
      */
     public readonly state!: pulumi.Output<enums.scheduler.ScheduleState | undefined>;
     /**
-     * The schedule's target. EventBridge Scheduler supports templated target that invoke common API operations, as well as universal targets that you can customize to invoke over 6,000 API operations across more than 270 services. You can only specify one templated or universal target for a schedule.
+     * The schedule's target details.
      */
     public readonly target!: pulumi.Output<outputs.scheduler.ScheduleTarget>;
 
@@ -188,7 +188,7 @@ export interface ScheduleArgs {
      */
     state?: pulumi.Input<enums.scheduler.ScheduleState>;
     /**
-     * The schedule's target. EventBridge Scheduler supports templated target that invoke common API operations, as well as universal targets that you can customize to invoke over 6,000 API operations across more than 270 services. You can only specify one templated or universal target for a schedule.
+     * The schedule's target details.
      */
     target: pulumi.Input<inputs.scheduler.ScheduleTargetArgs>;
 }

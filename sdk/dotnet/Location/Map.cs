@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.Location
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the map tile style selected from an available provider.
+        /// Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
         /// </summary>
         [Output("configuration")]
         public Output<Outputs.MapConfiguration> Configuration { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.AwsNative.Location
     public sealed class MapArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the map tile style selected from an available provider.
+        /// Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
         /// </summary>
         [Input("configuration", required: true)]
         public Input<Inputs.MapConfigurationArgs> Configuration { get; set; } = null!;

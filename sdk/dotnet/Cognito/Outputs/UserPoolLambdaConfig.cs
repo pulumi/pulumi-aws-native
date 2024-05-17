@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Cognito.Outputs
         /// </summary>
         public readonly string? PreTokenGeneration;
         /// <summary>
-        /// The properties of a pre token generation Lambda trigger.
+        /// The detailed configuration of a pre token generation trigger. If you also set an ARN in `PreTokenGeneration` , its value must be identical to `PreTokenGenerationConfig` .
         /// </summary>
         public readonly Outputs.UserPoolPreTokenGenerationConfig? PreTokenGenerationConfig;
         /// <summary>

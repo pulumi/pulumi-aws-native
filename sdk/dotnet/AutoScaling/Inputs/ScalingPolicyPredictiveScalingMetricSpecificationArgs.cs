@@ -13,43 +13,37 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
     public sealed class ScalingPolicyPredictiveScalingMetricSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains capacity metric information for the `CustomizedCapacityMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+        /// The customized capacity metric specification.
         /// </summary>
         [Input("customizedCapacityMetricSpecification")]
         public Input<Inputs.ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs>? CustomizedCapacityMetricSpecification { get; set; }
 
         /// <summary>
-        /// Contains load metric information for the `CustomizedLoadMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+        /// The customized load metric specification.
         /// </summary>
         [Input("customizedLoadMetricSpecification")]
         public Input<Inputs.ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs>? CustomizedLoadMetricSpecification { get; set; }
 
         /// <summary>
-        /// Contains scaling metric information for the `CustomizedScalingMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
+        /// The customized scaling metric specification.
         /// </summary>
         [Input("customizedScalingMetricSpecification")]
         public Input<Inputs.ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs>? CustomizedScalingMetricSpecification { get; set; }
 
         /// <summary>
-        /// Contains load metric information for the `PredefinedLoadMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
-        /// 
-        /// &gt; Does not apply to policies that use a *metric pair* for the metric specification.
+        /// The predefined load metric specification.
         /// </summary>
         [Input("predefinedLoadMetricSpecification")]
         public Input<Inputs.ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs>? PredefinedLoadMetricSpecification { get; set; }
 
         /// <summary>
-        /// Contains metric pair information for the `PredefinedMetricPairSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
-        /// 
-        /// For more information, see [Predictive scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-predictive-scaling.html) in the *Amazon EC2 Auto Scaling User Guide* .
+        /// The predefined metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
         /// </summary>
         [Input("predefinedMetricPairSpecification")]
         public Input<Inputs.ScalingPolicyPredictiveScalingPredefinedMetricPairArgs>? PredefinedMetricPairSpecification { get; set; }
 
         /// <summary>
-        /// Contains scaling metric information for the `PredefinedScalingMetricSpecification` property of the [AWS::AutoScaling::ScalingPolicy PredictiveScalingMetricSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingmetricspecification.html) property type.
-        /// 
-        /// &gt; Does not apply to policies that use a *metric pair* for the metric specification.
+        /// The predefined scaling metric specification.
         /// </summary>
         [Input("predefinedScalingMetricSpecification")]
         public Input<Inputs.ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs>? PredefinedScalingMetricSpecification { get; set; }

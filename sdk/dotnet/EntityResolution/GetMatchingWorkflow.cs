@@ -63,11 +63,11 @@ namespace Pulumi.AwsNative.EntityResolution
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+        /// A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
         /// </summary>
         public readonly ImmutableArray<Outputs.MatchingWorkflowInputSource> InputSourceConfig;
         /// <summary>
-        /// A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+        /// A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
         /// </summary>
         public readonly ImmutableArray<Outputs.MatchingWorkflowOutputSource> OutputSourceConfig;
         /// <summary>

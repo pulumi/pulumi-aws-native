@@ -13,15 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateColumnTooltipItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An aggregation function aggregates values from a dimension or measure.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The aggregation function of the column tooltip item.
         /// </summary>
         [Input("aggregation")]
         public Input<Inputs.TemplateAggregationFunctionArgs>? Aggregation { get; set; }
 
         /// <summary>
-        /// A column of a data set.
+        /// The target column of the tooltip item.
         /// </summary>
         [Input("column", required: true)]
         public Input<Inputs.TemplateColumnIdentifierArgs> Column { get; set; } = null!;

@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Ivs
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The DestinationConfiguration property type describes the location where recorded videos will be stored. Each member represents a type of destination configuration. For recording, you define one and only one type of destination configuration.
+        /// A destination configuration describes an S3 bucket where recorded video will be stored. See the DestinationConfiguration property type for more information.
         /// </summary>
         [Output("destinationConfiguration")]
         public Output<Outputs.RecordingConfigurationDestinationConfiguration> DestinationConfiguration { get; private set; } = null!;
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Ivs
         public Output<int?> RecordingReconnectWindowSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// The RenditionConfiguration property type describes which renditions should be recorded for a stream.
+        /// A rendition configuration describes which renditions should be recorded for a stream. See the RenditionConfiguration property type for more information.
         /// </summary>
         [Output("renditionConfiguration")]
         public Output<Outputs.RecordingConfigurationRenditionConfiguration?> RenditionConfiguration { get; private set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.Ivs
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The ThumbnailConfiguration property type describes a configuration of thumbnails for recorded video.
+        /// A thumbnail configuration enables/disables the recording of thumbnails for a live session and controls the interval at which thumbnails are generated for the live session. See the ThumbnailConfiguration property type for more information.
         /// </summary>
         [Output("thumbnailConfiguration")]
         public Output<Outputs.RecordingConfigurationThumbnailConfiguration?> ThumbnailConfiguration { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.AwsNative.Ivs
     public sealed class RecordingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The DestinationConfiguration property type describes the location where recorded videos will be stored. Each member represents a type of destination configuration. For recording, you define one and only one type of destination configuration.
+        /// A destination configuration describes an S3 bucket where recorded video will be stored. See the DestinationConfiguration property type for more information.
         /// </summary>
         [Input("destinationConfiguration", required: true)]
         public Input<Inputs.RecordingConfigurationDestinationConfigurationArgs> DestinationConfiguration { get; set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.AwsNative.Ivs
         public Input<int>? RecordingReconnectWindowSeconds { get; set; }
 
         /// <summary>
-        /// The RenditionConfiguration property type describes which renditions should be recorded for a stream.
+        /// A rendition configuration describes which renditions should be recorded for a stream. See the RenditionConfiguration property type for more information.
         /// </summary>
         [Input("renditionConfiguration")]
         public Input<Inputs.RecordingConfigurationRenditionConfigurationArgs>? RenditionConfiguration { get; set; }
@@ -153,7 +153,7 @@ namespace Pulumi.AwsNative.Ivs
         }
 
         /// <summary>
-        /// The ThumbnailConfiguration property type describes a configuration of thumbnails for recorded video.
+        /// A thumbnail configuration enables/disables the recording of thumbnails for a live session and controls the interval at which thumbnails are generated for the live session. See the ThumbnailConfiguration property type for more information.
         /// </summary>
         [Input("thumbnailConfiguration")]
         public Input<Inputs.RecordingConfigurationThumbnailConfigurationArgs>? ThumbnailConfiguration { get; set; }

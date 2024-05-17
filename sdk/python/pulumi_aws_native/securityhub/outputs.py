@@ -603,7 +603,7 @@ class AutomationRulesAction(dict):
                  finding_fields_update: 'outputs.AutomationRulesFindingFieldsUpdate',
                  type: 'AutomationRulesActionType'):
         """
-        :param 'AutomationRulesFindingFieldsUpdate' finding_fields_update: Identifies the finding fields that the automation rule action updates when a finding matches the defined criteria.
+        :param 'AutomationRulesFindingFieldsUpdate' finding_fields_update: Specifies that the automation rule action is an update to a finding field.
         :param 'AutomationRulesActionType' type: Specifies that the rule action should update the `Types` finding field. The `Types` finding field classifies findings in the format of namespace/category/classifier. For more information, see [Types taxonomy for ASFF](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html) in the *AWS Security Hub User Guide* .
         """
         pulumi.set(__self__, "finding_fields_update", finding_fields_update)
@@ -613,7 +613,7 @@ class AutomationRulesAction(dict):
     @pulumi.getter(name="findingFieldsUpdate")
     def finding_fields_update(self) -> 'outputs.AutomationRulesFindingFieldsUpdate':
         """
-        Identifies the finding fields that the automation rule action updates when a finding matches the defined criteria.
+        Specifies that the automation rule action is an update to a finding field.
         """
         return pulumi.get(self, "finding_fields_update")
 
@@ -878,7 +878,9 @@ class AutomationRulesFindingFilters(dict):
                  verification_state: Optional[Sequence['outputs.AutomationRuleStringFilter']] = None,
                  workflow_status: Optional[Sequence['outputs.AutomationRuleStringFilter']] = None):
         """
-        :param Sequence['AutomationRuleStringFilter'] aws_account_id: A string filter for filtering AWS Security Hub findings.
+        :param Sequence['AutomationRuleStringFilter'] aws_account_id: The AWS account ID in which a finding was generated.
+               
+               Array Members: Minimum number of 1 item. Maximum number of 100 items.
         :param Sequence['AutomationRuleStringFilter'] company_name: The name of the company for the product that generated the finding. For control-based findings, the company is AWS .
                
                Array Members: Minimum number of 1 item. Maximum number of 20 items.
@@ -891,8 +893,20 @@ class AutomationRulesFindingFilters(dict):
         :param Sequence['AutomationRuleStringFilter'] compliance_status: The result of a security check. This field is only used for findings generated from controls.
                
                Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleNumberFilter'] confidence: A number filter for querying findings.
-        :param Sequence['AutomationRuleDateFilter'] created_at: A date filter for querying findings.
+        :param Sequence['AutomationRuleNumberFilter'] confidence: The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *AWS Security Hub User Guide* .
+               
+               Array Members: Minimum number of 1 item. Maximum number of 20 items.
+        :param Sequence['AutomationRuleDateFilter'] created_at: A timestamp that indicates when this finding record was created.
+               
+               This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+               
+               - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
+               - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
+               - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
+               - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
+               - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
+               
+               Array Members: Minimum number of 1 item. Maximum number of 20 items.
         :param Sequence['AutomationRuleNumberFilter'] criticality: The level of importance that is assigned to the resources that are associated with a finding. `Criticality` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of `0` means that the underlying resources have no criticality, and a score of `100` is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *AWS Security Hub User Guide* .
                
                Array Members: Minimum number of 1 item. Maximum number of 20 items.
@@ -959,7 +973,9 @@ class AutomationRulesFindingFilters(dict):
         :param Sequence['AutomationRuleStringFilter'] related_findings_product_arn: The ARN for the product that generated a related finding.
                
                Array Members: Minimum number of 1 item. Maximum number of 20 items.
-        :param Sequence['AutomationRuleMapFilter'] resource_details_other: A map filter for filtering AWS Security Hub findings. Each map filter provides the field to check for, the value to check for, and the comparison operator.
+        :param Sequence['AutomationRuleMapFilter'] resource_details_other: Custom fields and values about the resource that a finding pertains to.
+               
+               Array Members: Minimum number of 1 item. Maximum number of 20 items.
         :param Sequence['AutomationRuleStringFilter'] resource_id: The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non- AWS resources, this is a unique identifier that is associated with the resource.
                
                Array Members: Minimum number of 1 item. Maximum number of 100 items.
@@ -1083,7 +1099,9 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[Sequence['outputs.AutomationRuleStringFilter']]:
         """
-        A string filter for filtering AWS Security Hub findings.
+        The AWS account ID in which a finding was generated.
+
+        Array Members: Minimum number of 1 item. Maximum number of 100 items.
         """
         return pulumi.get(self, "aws_account_id")
 
@@ -1131,7 +1149,9 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter
     def confidence(self) -> Optional[Sequence['outputs.AutomationRuleNumberFilter']]:
         """
-        A number filter for querying findings.
+        The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. For example, a data exfiltration detection based on a statistical deviation of network traffic has low confidence because an actual exfiltration hasn't been verified. For more information, see [Confidence](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence) in the *AWS Security Hub User Guide* .
+
+        Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "confidence")
 
@@ -1139,7 +1159,17 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[Sequence['outputs.AutomationRuleDateFilter']]:
         """
-        A date filter for querying findings.
+        A timestamp that indicates when this finding record was created.
+
+        This field accepts only the specified formats. Timestamps can end with `Z` or `("+" / "-") time-hour [":" time-minute]` . The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
+
+        - `YYYY-MM-DDTHH:MM:SSZ` (for example, `2019-01-31T23:00:00Z` )
+        - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ` (for example, `2019-01-31T23:00:00.123456789Z` )
+        - `YYYY-MM-DDTHH:MM:SS+HH:MM` (for example, `2024-01-04T15:25:10+17:59` )
+        - `YYYY-MM-DDTHH:MM:SS-HHMM` (for example, `2024-01-04T15:25:10-1759` )
+        - `YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM` (for example, `2024-01-04T15:25:10.123456789+17:59` )
+
+        Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "created_at")
 
@@ -1311,7 +1341,9 @@ class AutomationRulesFindingFilters(dict):
     @pulumi.getter(name="resourceDetailsOther")
     def resource_details_other(self) -> Optional[Sequence['outputs.AutomationRuleMapFilter']]:
         """
-        A map filter for filtering AWS Security Hub findings. Each map filter provides the field to check for, the value to check for, and the comparison operator.
+        Custom fields and values about the resource that a finding pertains to.
+
+        Array Members: Minimum number of 1 item. Maximum number of 20 items.
         """
         return pulumi.get(self, "resource_details_other")
 

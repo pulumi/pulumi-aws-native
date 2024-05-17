@@ -60,7 +60,7 @@ class GetIndexResult:
     @pulumi.getter(name="capacityConfiguration")
     def capacity_configuration(self) -> Optional['outputs.IndexCapacityConfiguration']:
         """
-        Provides information about index capacity configuration.
+        The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
         """
         return pulumi.get(self, "capacity_configuration")
 
@@ -117,9 +117,6 @@ class GetIndexResult:
     @property
     @pulumi.getter(name="indexStatistics")
     def index_statistics(self) -> Optional['outputs.IndexStatistics']:
-        """
-        Provides information about the number of documents in an index.
-        """
         return pulumi.get(self, "index_statistics")
 
     @property
@@ -134,7 +131,7 @@ class GetIndexResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+        A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         """
         return pulumi.get(self, "tags")
 

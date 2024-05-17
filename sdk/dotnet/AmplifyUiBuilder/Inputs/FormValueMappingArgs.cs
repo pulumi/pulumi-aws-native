@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
     public sealed class FormValueMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The `FormInputValueProperty` property specifies the configuration for an input field on a form. Use `FormInputValueProperty` to specify the values to render or bind by default.
+        /// The value to display for the complex object.
         /// </summary>
         [Input("displayValue")]
         public Input<Inputs.FormInputValuePropertyArgs>? DisplayValue { get; set; }
 
         /// <summary>
-        /// The `FormInputValueProperty` property specifies the configuration for an input field on a form. Use `FormInputValueProperty` to specify the values to render or bind by default.
+        /// The complex object.
         /// </summary>
         [Input("value", required: true)]
         public Input<Inputs.FormInputValuePropertyArgs> Value { get; set; } = null!;

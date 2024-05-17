@@ -37,7 +37,7 @@ type CaCertificate struct {
 	//
 	// Valid values are "DEFAULT" and "SNI_ONLY".
 	CertificateMode CaCertificateCertificateModePtrOutput `pulumi:"certificateMode"`
-	// The registration configuration.
+	// Information about the registration configuration.
 	RegistrationConfig CaCertificateRegistrationConfigPtrOutput `pulumi:"registrationConfig"`
 	// If true, removes auto registration.
 	RemoveAutoRegistration pulumi.BoolPtrOutput `pulumi:"removeAutoRegistration"`
@@ -113,7 +113,7 @@ type caCertificateArgs struct {
 	//
 	// Valid values are "DEFAULT" and "SNI_ONLY".
 	CertificateMode *CaCertificateCertificateMode `pulumi:"certificateMode"`
-	// The registration configuration.
+	// Information about the registration configuration.
 	RegistrationConfig *CaCertificateRegistrationConfig `pulumi:"registrationConfig"`
 	// If true, removes auto registration.
 	RemoveAutoRegistration *bool `pulumi:"removeAutoRegistration"`
@@ -139,7 +139,7 @@ type CaCertificateArgs struct {
 	//
 	// Valid values are "DEFAULT" and "SNI_ONLY".
 	CertificateMode CaCertificateCertificateModePtrInput
-	// The registration configuration.
+	// Information about the registration configuration.
 	RegistrationConfig CaCertificateRegistrationConfigPtrInput
 	// If true, removes auto registration.
 	RemoveAutoRegistration pulumi.BoolPtrInput
@@ -225,7 +225,7 @@ func (o CaCertificateOutput) CertificateMode() CaCertificateCertificateModePtrOu
 	return o.ApplyT(func(v *CaCertificate) CaCertificateCertificateModePtrOutput { return v.CertificateMode }).(CaCertificateCertificateModePtrOutput)
 }
 
-// The registration configuration.
+// Information about the registration configuration.
 func (o CaCertificateOutput) RegistrationConfig() CaCertificateRegistrationConfigPtrOutput {
 	return o.ApplyT(func(v *CaCertificate) CaCertificateRegistrationConfigPtrOutput { return v.RegistrationConfig }).(CaCertificateRegistrationConfigPtrOutput)
 }

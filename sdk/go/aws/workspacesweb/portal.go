@@ -64,7 +64,7 @@ type Portal struct {
 	ServiceProviderSamlMetadata pulumi.StringOutput `pulumi:"serviceProviderSamlMetadata"`
 	// A message that explains why the web portal is in its current status.
 	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
-	// The tag.
+	// The tags to add to the web portal. A tag is a key-value pair.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The ARN of the trust store that is associated with the web portal.
 	TrustStoreArn pulumi.StringPtrOutput `pulumi:"trustStoreArn"`
@@ -151,7 +151,7 @@ type portalArgs struct {
 	MaxConcurrentSessions *float64 `pulumi:"maxConcurrentSessions"`
 	// The ARN of the network settings that is associated with the web portal.
 	NetworkSettingsArn *string `pulumi:"networkSettingsArn"`
-	// The tag.
+	// The tags to add to the web portal. A tag is a key-value pair.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The ARN of the trust store that is associated with the web portal.
 	TrustStoreArn *string `pulumi:"trustStoreArn"`
@@ -195,7 +195,7 @@ type PortalArgs struct {
 	MaxConcurrentSessions pulumi.Float64PtrInput
 	// The ARN of the network settings that is associated with the web portal.
 	NetworkSettingsArn pulumi.StringPtrInput
-	// The tag.
+	// The tags to add to the web portal. A tag is a key-value pair.
 	Tags aws.TagArrayInput
 	// The ARN of the trust store that is associated with the web portal.
 	TrustStoreArn pulumi.StringPtrInput
@@ -341,7 +341,7 @@ func (o PortalOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *Portal) pulumi.StringOutput { return v.StatusReason }).(pulumi.StringOutput)
 }
 
-// The tag.
+// The tags to add to the web portal. A tag is a key-value pair.
 func (o PortalOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Portal) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

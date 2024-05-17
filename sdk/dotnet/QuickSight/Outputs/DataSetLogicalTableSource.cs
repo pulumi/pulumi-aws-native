@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string? DataSetArn;
         /// <summary>
-        /// The instructions associated with a join.
+        /// Specifies the result of a join of two logical tables.
         /// </summary>
         public readonly Outputs.DataSetJoinInstruction? JoinInstruction;
         /// <summary>

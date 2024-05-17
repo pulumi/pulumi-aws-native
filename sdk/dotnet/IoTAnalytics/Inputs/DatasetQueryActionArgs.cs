@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         private InputList<Inputs.DatasetFilterArgs>? _filters;
 
         /// <summary>
-        /// Information which is used to filter message data, to segregate it according to the time frame in which it arrives.
+        /// Pre-filters applied to message data.
         /// </summary>
         public InputList<Inputs.DatasetFilterArgs> Filters
         {

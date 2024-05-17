@@ -32,9 +32,9 @@ type LookupFormArgs struct {
 }
 
 type LookupFormResult struct {
-	// The `FormCTA` property specifies the call to action button configuration for the form.
+	// The `FormCTA` object that stores the call to action configuration for the form.
 	Cta *FormCta `pulumi:"cta"`
-	// The `FormDataTypeConfig` property specifies the data type configuration for the data source associated with a form.
+	// The type of data source to use to create the form.
 	DataType *FormDataTypeConfig `pulumi:"dataType"`
 	// The configuration information for the form's fields.
 	Fields map[string]FormFieldConfig `pulumi:"fields"`
@@ -50,7 +50,7 @@ type LookupFormResult struct {
 	SchemaVersion *string `pulumi:"schemaVersion"`
 	// The configuration information for the visual helper elements for the form. These elements are not associated with any data.
 	SectionalElements map[string]FormSectionalElement `pulumi:"sectionalElements"`
-	// The `FormStyle` property specifies the configuration for the form's style.
+	// The configuration for the form's style.
 	Style *FormStyle `pulumi:"style"`
 	// One or more key-value pairs to use when tagging the form data.
 	Tags map[string]string `pulumi:"tags"`
@@ -96,12 +96,12 @@ func (o LookupFormResultOutput) ToLookupFormResultOutputWithContext(ctx context.
 	return o
 }
 
-// The `FormCTA` property specifies the call to action button configuration for the form.
+// The `FormCTA` object that stores the call to action configuration for the form.
 func (o LookupFormResultOutput) Cta() FormCtaPtrOutput {
 	return o.ApplyT(func(v LookupFormResult) *FormCta { return v.Cta }).(FormCtaPtrOutput)
 }
 
-// The `FormDataTypeConfig` property specifies the data type configuration for the data source associated with a form.
+// The type of data source to use to create the form.
 func (o LookupFormResultOutput) DataType() FormDataTypeConfigPtrOutput {
 	return o.ApplyT(func(v LookupFormResult) *FormDataTypeConfig { return v.DataType }).(FormDataTypeConfigPtrOutput)
 }
@@ -141,7 +141,7 @@ func (o LookupFormResultOutput) SectionalElements() FormSectionalElementMapOutpu
 	return o.ApplyT(func(v LookupFormResult) map[string]FormSectionalElement { return v.SectionalElements }).(FormSectionalElementMapOutput)
 }
 
-// The `FormStyle` property specifies the configuration for the form's style.
+// The configuration for the form's style.
 func (o LookupFormResultOutput) Style() FormStylePtrOutput {
 	return o.ApplyT(func(v LookupFormResult) *FormStyle { return v.Style }).(FormStylePtrOutput)
 }

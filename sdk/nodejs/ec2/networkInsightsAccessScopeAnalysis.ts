@@ -74,7 +74,7 @@ export class NetworkInsightsAccessScopeAnalysis extends pulumi.CustomResource {
      */
     public /*out*/ readonly statusMessage!: pulumi.Output<string>;
     /**
-     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     * The tags.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -130,7 +130,7 @@ export interface NetworkInsightsAccessScopeAnalysisArgs {
      */
     networkInsightsAccessScopeId: pulumi.Input<string>;
     /**
-     * Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+     * The tags.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

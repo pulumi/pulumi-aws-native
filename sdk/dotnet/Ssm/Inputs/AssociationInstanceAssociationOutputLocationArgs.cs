@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.Ssm.Inputs
     public sealed class AssociationInstanceAssociationOutputLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// `S3OutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
+        /// `S3OutputLocation` is a property of the [InstanceAssociationOutputLocation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html) property that specifies an Amazon S3 bucket where you want to store the results of this request.
         /// </summary>
         [Input("s3Location")]
         public Input<Inputs.AssociationS3OutputLocationArgs>? S3Location { get; set; }

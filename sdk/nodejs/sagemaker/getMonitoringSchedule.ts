@@ -51,7 +51,7 @@ export interface GetMonitoringScheduleResult {
      */
     readonly monitoringScheduleArn?: string;
     /**
-     * Configures the monitoring schedule and defines the monitoring job.
+     * The configuration object that specifies the monitoring schedule and defines the monitoring job.
      */
     readonly monitoringScheduleConfig?: outputs.sagemaker.MonitoringScheduleConfig;
     /**

@@ -81,7 +81,7 @@ class GetMembershipResult:
     @pulumi.getter(name="defaultResultConfiguration")
     def default_result_configuration(self) -> Optional['outputs.MembershipProtectedQueryResultConfiguration']:
         """
-        Contains configurations for protected query results.
+        The default protected query result configuration as specified by the member who can receive results.
         """
         return pulumi.get(self, "default_result_configuration")
 
@@ -99,7 +99,7 @@ class GetMembershipResult:
     @pulumi.getter(name="paymentConfiguration")
     def payment_configuration(self) -> Optional['outputs.MembershipPaymentConfiguration']:
         """
-        An object representing the payment responsibilities accepted by the collaboration member.
+        The payment responsibilities accepted by the collaboration member.
         """
         return pulumi.get(self, "payment_configuration")
 

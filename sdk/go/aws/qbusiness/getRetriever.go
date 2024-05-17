@@ -45,7 +45,7 @@ type LookupRetrieverResult struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// The status of your retriever.
 	Status *RetrieverStatus `pulumi:"status"`
-	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	// A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The Unix timestamp when the retriever was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
@@ -124,7 +124,7 @@ func (o LookupRetrieverResultOutput) Status() RetrieverStatusPtrOutput {
 	return o.ApplyT(func(v LookupRetrieverResult) *RetrieverStatus { return v.Status }).(RetrieverStatusPtrOutput)
 }
 
-// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+// A list of key-value pairs that identify or categorize the retriever. You can also use tags to help control access to the retriever. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 func (o LookupRetrieverResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupRetrieverResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

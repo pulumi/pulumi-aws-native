@@ -26,11 +26,11 @@ namespace Pulumi.AwsNative.FraudDetector.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The entity type details.
+        /// The event type entity types.
         /// </summary>
         public readonly ImmutableArray<Outputs.DetectorEntityType> EntityTypes;
         /// <summary>
-        /// The event type variable for the detector.
+        /// The event type event variables.
         /// </summary>
         public readonly ImmutableArray<Outputs.DetectorEventVariable> EventVariables;
         /// <summary>
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.FraudDetector.Outputs
         /// </summary>
         public readonly bool? Inline;
         /// <summary>
-        /// The label details.
+        /// The event type labels.
         /// </summary>
         public readonly ImmutableArray<Outputs.DetectorLabel> Labels;
         /// <summary>

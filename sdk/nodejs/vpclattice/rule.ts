@@ -54,7 +54,7 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly listenerIdentifier!: pulumi.Output<string | undefined>;
     /**
-     * Describes a rule match.
+     * The rule match.
      */
     public readonly match!: pulumi.Output<outputs.vpclattice.RuleMatch>;
     /**
@@ -72,7 +72,7 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly serviceIdentifier!: pulumi.Output<string | undefined>;
     /**
-     * Specifies a tag for a listener rule.
+     * The tags for the rule.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -136,7 +136,7 @@ export interface RuleArgs {
      */
     listenerIdentifier?: pulumi.Input<string>;
     /**
-     * Describes a rule match.
+     * The rule match.
      */
     match: pulumi.Input<inputs.vpclattice.RuleMatchArgs>;
     /**
@@ -154,7 +154,7 @@ export interface RuleArgs {
      */
     serviceIdentifier?: pulumi.Input<string>;
     /**
-     * Specifies a tag for a listener rule.
+     * The tags for the rule.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

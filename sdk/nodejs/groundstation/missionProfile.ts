@@ -106,7 +106,7 @@ export class MissionProfile extends pulumi.CustomResource {
      */
     public readonly contactPrePassDurationSeconds!: pulumi.Output<number | undefined>;
     /**
-     * A dataflow edge defines from where and to where data will flow during a contact.
+     * A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
      */
     public readonly dataflowEdges!: pulumi.Output<outputs.groundstation.MissionProfileDataflowEdge[]>;
     /**
@@ -202,7 +202,7 @@ export interface MissionProfileArgs {
      */
     contactPrePassDurationSeconds?: pulumi.Input<number>;
     /**
-     * A dataflow edge defines from where and to where data will flow during a contact.
+     * A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
      */
     dataflowEdges: pulumi.Input<pulumi.Input<inputs.groundstation.MissionProfileDataflowEdgeArgs>[]>;
     /**

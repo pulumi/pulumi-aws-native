@@ -27,6 +27,9 @@ class GroupArgs:
         :param pulumi.Input[str] filter_expression: The filter expression defining criteria by which to group traces.
         :param pulumi.Input[str] group_name: The case-sensitive name of the new group. Names must be unique.
         :param pulumi.Input['GroupInsightsConfigurationArgs'] insights_configuration: The structure containing configurations related to insights.
+               
+               - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
+               - The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         if filter_expression is not None:
@@ -67,6 +70,9 @@ class GroupArgs:
     def insights_configuration(self) -> Optional[pulumi.Input['GroupInsightsConfigurationArgs']]:
         """
         The structure containing configurations related to insights.
+
+        - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
+        - The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
         """
         return pulumi.get(self, "insights_configuration")
 
@@ -137,6 +143,9 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] filter_expression: The filter expression defining criteria by which to group traces.
         :param pulumi.Input[str] group_name: The case-sensitive name of the new group. Names must be unique.
         :param pulumi.Input[pulumi.InputType['GroupInsightsConfigurationArgs']] insights_configuration: The structure containing configurations related to insights.
+               
+               - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
+               - The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
@@ -271,6 +280,9 @@ class Group(pulumi.CustomResource):
     def insights_configuration(self) -> pulumi.Output[Optional['outputs.GroupInsightsConfiguration']]:
         """
         The structure containing configurations related to insights.
+
+        - The InsightsEnabled boolean can be set to true to enable insights for the group or false to disable insights for the group.
+        - The NotificationsEnabled boolean can be set to true to enable insights notifications through Amazon EventBridge for the group.
         """
         return pulumi.get(self, "insights_configuration")
 

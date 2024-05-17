@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.GroundStation.Outputs
     public sealed class ConfigUplinkSpectrumConfig
     {
         /// <summary>
-        /// Defines a frequency.
+        /// The center frequency of the spectrum. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
         /// </summary>
         public readonly Outputs.ConfigFrequency? CenterFrequency;
         /// <summary>

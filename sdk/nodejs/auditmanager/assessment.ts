@@ -46,11 +46,11 @@ export class Assessment extends pulumi.CustomResource {
      */
     public /*out*/ readonly assessmentId!: pulumi.Output<string>;
     /**
-     * The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+     * The destination that evidence reports are stored in for the assessment.
      */
     public readonly assessmentReportsDestination!: pulumi.Output<outputs.auditmanager.AssessmentReportsDestination | undefined>;
     /**
-     * The `AWSAccount` property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
+     * The AWS account that's associated with the assessment.
      */
     public readonly awsAccount!: pulumi.Output<outputs.auditmanager.AssessmentAwsAccount | undefined>;
     /**
@@ -78,7 +78,7 @@ export class Assessment extends pulumi.CustomResource {
      */
     public readonly roles!: pulumi.Output<outputs.auditmanager.AssessmentRole[] | undefined>;
     /**
-     * The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+     * The wrapper of AWS accounts and services that are in scope for the assessment.
      */
     public readonly scope!: pulumi.Output<outputs.auditmanager.AssessmentScope | undefined>;
     /**
@@ -145,11 +145,11 @@ export class Assessment extends pulumi.CustomResource {
  */
 export interface AssessmentArgs {
     /**
-     * The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+     * The destination that evidence reports are stored in for the assessment.
      */
     assessmentReportsDestination?: pulumi.Input<inputs.auditmanager.AssessmentReportsDestinationArgs>;
     /**
-     * The `AWSAccount` property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
+     * The AWS account that's associated with the assessment.
      */
     awsAccount?: pulumi.Input<inputs.auditmanager.AssessmentAwsAccountArgs>;
     /**
@@ -173,7 +173,7 @@ export interface AssessmentArgs {
      */
     roles?: pulumi.Input<pulumi.Input<inputs.auditmanager.AssessmentRoleArgs>[]>;
     /**
-     * The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+     * The wrapper of AWS accounts and services that are in scope for the assessment.
      */
     scope?: pulumi.Input<inputs.auditmanager.AssessmentScopeArgs>;
     /**

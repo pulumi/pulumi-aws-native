@@ -18,11 +18,11 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string? AdditionalDetailType;
         /// <summary>
-        /// Describes a path component.
+        /// The path component.
         /// </summary>
         public readonly Outputs.NetworkInsightsAnalysisAnalysisComponent? Component;
         /// <summary>
-        /// Describes a path component.
+        /// The load balancers.
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkInsightsAnalysisAnalysisComponent> LoadBalancers;
         /// <summary>

@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.Connect.Inputs
     public sealed class QuickConnectConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains information about a phone number for a quick connect.
+        /// The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.
         /// </summary>
         [Input("phoneConfig")]
         public Input<Inputs.QuickConnectPhoneNumberQuickConnectConfigArgs>? PhoneConfig { get; set; }
 
         /// <summary>
-        /// Contains information about a queue for a quick connect. The flow must be of type Transfer to Queue.
+        /// The queue configuration. This is required only if QuickConnectType is QUEUE.
         /// </summary>
         [Input("queueConfig")]
         public Input<Inputs.QuickConnectQueueQuickConnectConfigArgs>? QueueConfig { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public Input<Pulumi.AwsNative.Connect.QuickConnectType> QuickConnectType { get; set; } = null!;
 
         /// <summary>
-        /// Contains information about the quick connect configuration settings for a user. The contact flow must be of type Transfer to Agent.
+        /// The user configuration. This is required only if QuickConnectType is USER.
         /// </summary>
         [Input("userConfig")]
         public Input<Inputs.QuickConnectUserQuickConnectConfigArgs>? UserConfig { get; set; }

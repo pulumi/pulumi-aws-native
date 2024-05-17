@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.MediaPackage.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.MediaPackage.OriginEndpointAdsOnDeliveryRestrictions? AdsOnDeliveryRestrictions;
         /// <summary>
-        /// Holds encryption information so that access to the content can be controlled by a DRM solution.
+        /// Parameters for encrypting content.
         /// </summary>
         public readonly Outputs.OriginEndpointHlsEncryption? Encryption;
         /// <summary>

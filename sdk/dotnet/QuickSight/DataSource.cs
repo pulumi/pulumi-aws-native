@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string> CreatedTime { get; private set; } = null!;
 
         /// <summary>
-        /// Data source credentials. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+        /// The credentials Amazon QuickSight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
         /// </summary>
         [Output("credentials")]
         public Output<Outputs.DataSourceCredentials?> Credentials { get; private set; } = null!;
@@ -60,13 +60,13 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string?> DataSourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The parameters that Amazon QuickSight uses to connect to your underlying data source. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+        /// The parameters that Amazon QuickSight uses to connect to your underlying source.
         /// </summary>
         [Output("dataSourceParameters")]
         public Output<Outputs.DataSourceParameters?> DataSourceParameters { get; private set; } = null!;
 
         /// <summary>
-        /// Error information for the data source creation or update.
+        /// Error information from the last update or the creation of the data source.
         /// </summary>
         [Output("errorInfo")]
         public Output<Outputs.DataSourceErrorInfo?> ErrorInfo { get; private set; } = null!;
@@ -84,13 +84,13 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Permission for the resource.
+        /// A list of resource permissions on the data source.
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<Outputs.DataSourceResourcePermission>> Permissions { get; private set; } = null!;
 
         /// <summary>
-        /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying data source.
+        /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
         /// </summary>
         [Output("sslProperties")]
         public Output<Outputs.DataSourceSslProperties?> SslProperties { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<Pulumi.AwsNative.QuickSight.DataSourceType> Type { get; private set; } = null!;
 
         /// <summary>
-        /// VPC connection properties.
+        /// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
         /// </summary>
         [Output("vpcConnectionProperties")]
         public Output<Outputs.DataSourceVpcConnectionProperties?> VpcConnectionProperties { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Input<string>? AwsAccountId { get; set; }
 
         /// <summary>
-        /// Data source credentials. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+        /// The credentials Amazon QuickSight that uses to connect to your underlying source. Currently, only credentials based on user name and password are supported.
         /// </summary>
         [Input("credentials")]
         public Input<Inputs.DataSourceCredentialsArgs>? Credentials { get; set; }
@@ -211,13 +211,13 @@ namespace Pulumi.AwsNative.QuickSight
         public Input<string>? DataSourceId { get; set; }
 
         /// <summary>
-        /// The parameters that Amazon QuickSight uses to connect to your underlying data source. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+        /// The parameters that Amazon QuickSight uses to connect to your underlying source.
         /// </summary>
         [Input("dataSourceParameters")]
         public Input<Inputs.DataSourceParametersArgs>? DataSourceParameters { get; set; }
 
         /// <summary>
-        /// Error information for the data source creation or update.
+        /// Error information from the last update or the creation of the data source.
         /// </summary>
         [Input("errorInfo")]
         public Input<Inputs.DataSourceErrorInfoArgs>? ErrorInfo { get; set; }
@@ -232,7 +232,7 @@ namespace Pulumi.AwsNative.QuickSight
         private InputList<Inputs.DataSourceResourcePermissionArgs>? _permissions;
 
         /// <summary>
-        /// Permission for the resource.
+        /// A list of resource permissions on the data source.
         /// </summary>
         public InputList<Inputs.DataSourceResourcePermissionArgs> Permissions
         {
@@ -241,7 +241,7 @@ namespace Pulumi.AwsNative.QuickSight
         }
 
         /// <summary>
-        /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying data source.
+        /// Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
         /// </summary>
         [Input("sslProperties")]
         public Input<Inputs.DataSourceSslPropertiesArgs>? SslProperties { get; set; }
@@ -267,7 +267,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Input<Pulumi.AwsNative.QuickSight.DataSourceType> Type { get; set; } = null!;
 
         /// <summary>
-        /// VPC connection properties.
+        /// Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
         /// </summary>
         [Input("vpcConnectionProperties")]
         public Input<Inputs.DataSourceVpcConnectionPropertiesArgs>? VpcConnectionProperties { get; set; }

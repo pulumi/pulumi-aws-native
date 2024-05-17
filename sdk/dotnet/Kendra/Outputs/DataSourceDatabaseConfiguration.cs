@@ -14,15 +14,15 @@ namespace Pulumi.AwsNative.Kendra.Outputs
     public sealed class DataSourceDatabaseConfiguration
     {
         /// <summary>
-        /// Provides information about the column that should be used for filtering the query response by groups.
+        /// Information about the database column that provides information for user context filtering.
         /// </summary>
         public readonly Outputs.DataSourceAclConfiguration? AclConfiguration;
         /// <summary>
-        /// Provides information about how Amazon Kendra should use the columns of a database in an index.
+        /// Information about where the index should get the document information from the database.
         /// </summary>
         public readonly Outputs.DataSourceColumnConfiguration ColumnConfiguration;
         /// <summary>
-        /// Provides the configuration information that's required to connect to a database.
+        /// Configuration information that's required to connect to a database.
         /// </summary>
         public readonly Outputs.DataSourceConnectionConfiguration ConnectionConfiguration;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.Kendra.DataSourceDatabaseEngineType DatabaseEngineType;
         /// <summary>
-        /// Provides information that configures Amazon Kendra to use a SQL database.
+        /// Provides information about how Amazon Kendra uses quote marks around SQL identifiers when querying a database data source.
         /// </summary>
         public readonly Outputs.DataSourceSqlConfiguration? SqlConfiguration;
         /// <summary>
-        /// Provides the configuration information to connect to an Amazon VPC.
+        /// Provides information for connecting to an Amazon VPC.
         /// </summary>
         public readonly Outputs.DataSourceVpcConfiguration? VpcConfiguration;
 

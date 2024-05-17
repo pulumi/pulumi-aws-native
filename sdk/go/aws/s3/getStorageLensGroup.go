@@ -29,7 +29,7 @@ type LookupStorageLensGroupArgs struct {
 }
 
 type LookupStorageLensGroupResult struct {
-	// This resource sets the criteria for the Storage Lens group data that is displayed. For multiple filter conditions, the `AND` or `OR` logical operator is used.
+	// This property contains the criteria for the Storage Lens group data that is displayed
 	Filter *StorageLensGroupFilter `pulumi:"filter"`
 	// The ARN for the Amazon S3 Storage Lens Group.
 	StorageLensGroupArn *string `pulumi:"storageLensGroupArn"`
@@ -73,7 +73,7 @@ func (o LookupStorageLensGroupResultOutput) ToLookupStorageLensGroupResultOutput
 	return o
 }
 
-// This resource sets the criteria for the Storage Lens group data that is displayed. For multiple filter conditions, the `AND` or `OR` logical operator is used.
+// This property contains the criteria for the Storage Lens group data that is displayed
 func (o LookupStorageLensGroupResultOutput) Filter() StorageLensGroupFilterPtrOutput {
 	return o.ApplyT(func(v LookupStorageLensGroupResult) *StorageLensGroupFilter { return v.Filter }).(StorageLensGroupFilterPtrOutput)
 }

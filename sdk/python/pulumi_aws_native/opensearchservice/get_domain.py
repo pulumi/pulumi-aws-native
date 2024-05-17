@@ -116,7 +116,7 @@ class GetDomainResult:
     @pulumi.getter(name="advancedSecurityOptions")
     def advanced_security_options(self) -> Optional['outputs.DomainAdvancedSecurityOptionsInput']:
         """
-        Specifies options for fine-grained access control.
+        Specifies options for fine-grained access control and SAML authentication.
 
         If you specify advanced security options, you must also enable node-to-node encryption ( [NodeToNodeEncryptionOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodetonodeencryptionoptions.html) ) and encryption at rest ( [EncryptionAtRestOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-encryptionatrestoptions.html) ). You must also enable `EnforceHTTPS` within [DomainEndpointOptions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-domainendpointoptions.html) , which requires HTTPS for all traffic to the domain.
         """
@@ -134,7 +134,7 @@ class GetDomainResult:
     @pulumi.getter(name="clusterConfig")
     def cluster_config(self) -> Optional['outputs.DomainClusterConfig']:
         """
-        The cluster configuration for the OpenSearch Service domain. You can specify options such as the instance type and the number of instances. For more information, see [Creating and managing Amazon OpenSearch Service domains](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html) in the *Amazon OpenSearch Service Developer Guide* .
+        Container for the cluster configuration of a domain.
         """
         return pulumi.get(self, "cluster_config")
 
@@ -195,7 +195,9 @@ class GetDomainResult:
     @pulumi.getter(name="encryptionAtRestOptions")
     def encryption_at_rest_options(self) -> Optional['outputs.DomainEncryptionAtRestOptions']:
         """
-        Whether the domain should encrypt data at rest, and if so, the AWS Key Management Service key to use.
+        Whether the domain should encrypt data at rest, and if so, the AWS KMS key to use. See [Encryption of data at rest for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html) .
+
+        If no encryption at rest options were initially specified in the template, updating this property by adding it causes no interruption. However, if you change this property after it's already been set within a template, the domain is deleted and recreated in order to modify the property.
         """
         return pulumi.get(self, "encryption_at_rest_options")
 
@@ -237,7 +239,7 @@ class GetDomainResult:
     @pulumi.getter(name="nodeToNodeEncryptionOptions")
     def node_to_node_encryption_options(self) -> Optional['outputs.DomainNodeToNodeEncryptionOptions']:
         """
-        Specifies options for node-to-node encryption.
+        Specifies whether node-to-node encryption is enabled. See [Node-to-node encryption for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ntn.html) .
         """
         return pulumi.get(self, "node_to_node_encryption_options")
 
@@ -245,25 +247,20 @@ class GetDomainResult:
     @pulumi.getter(name="offPeakWindowOptions")
     def off_peak_window_options(self) -> Optional['outputs.DomainOffPeakWindowOptions']:
         """
-        Off-peak window settings for the domain.
+        Options for a domain's off-peak window, during which OpenSearch Service can perform mandatory configuration changes on the domain.
         """
         return pulumi.get(self, "off_peak_window_options")
 
     @property
     @pulumi.getter(name="serviceSoftwareOptions")
     def service_software_options(self) -> Optional['outputs.DomainServiceSoftwareOptions']:
-        """
-        The current status of the service software for an Amazon OpenSearch Service domain. For more information, see [Service software updates in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/service-software.html) .
-        """
         return pulumi.get(self, "service_software_options")
 
     @property
     @pulumi.getter(name="snapshotOptions")
     def snapshot_options(self) -> Optional['outputs.DomainSnapshotOptions']:
         """
-        *DEPRECATED* . This setting is only relevant to domains running legacy Elasticsearch OSS versions earlier than 5.3. It does not apply to OpenSearch domains.
-
-        The automated snapshot configuration for the OpenSearch Service domain indexes.
+        *DEPRECATED* . The automated snapshot configuration for the OpenSearch Service domain indexes.
         """
         return pulumi.get(self, "snapshot_options")
 
@@ -271,7 +268,7 @@ class GetDomainResult:
     @pulumi.getter(name="softwareUpdateOptions")
     def software_update_options(self) -> Optional['outputs.DomainSoftwareUpdateOptions']:
         """
-        Options for configuring service software updates for a domain.
+        Service software update options for the domain.
         """
         return pulumi.get(self, "software_update_options")
 
@@ -287,7 +284,9 @@ class GetDomainResult:
     @pulumi.getter(name="vpcOptions")
     def vpc_options(self) -> Optional['outputs.DomainVpcOptions']:
         """
-        The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains using a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
+        The virtual private cloud (VPC) configuration for the OpenSearch Service domain. For more information, see [Launching your Amazon OpenSearch Service domains within a VPC](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html) in the *Amazon OpenSearch Service Developer Guide* .
+
+        If you remove this entity altogether, along with its associated properties, it causes a replacement. You might encounter this scenario if you're updating your security configuration from a VPC to a public endpoint.
         """
         return pulumi.get(self, "vpc_options")
 

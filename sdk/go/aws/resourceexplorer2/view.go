@@ -15,9 +15,13 @@ import (
 type View struct {
 	pulumi.CustomResourceState
 
-	// A search filter defines which resources can be part of a search query result set.
+	// An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view. When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
+	//
+	// For information about the supported syntax, see [Search query reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+	//
+	// > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
 	Filters ViewSearchFilterPtrOutput `pulumi:"filters"`
-	// Information about an additional property that describes a resource, that you can optionally include in a view.
+	// A list of fields that provide additional information about the view.
 	IncludedProperties ViewIncludedPropertyArrayOutput `pulumi:"includedProperties"`
 	// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
 	Scope pulumi.StringPtrOutput `pulumi:"scope"`
@@ -76,9 +80,13 @@ func (ViewState) ElementType() reflect.Type {
 }
 
 type viewArgs struct {
-	// A search filter defines which resources can be part of a search query result set.
+	// An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view. When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
+	//
+	// For information about the supported syntax, see [Search query reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+	//
+	// > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
 	Filters *ViewSearchFilter `pulumi:"filters"`
-	// Information about an additional property that describes a resource, that you can optionally include in a view.
+	// A list of fields that provide additional information about the view.
 	IncludedProperties []ViewIncludedProperty `pulumi:"includedProperties"`
 	// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
 	Scope *string `pulumi:"scope"`
@@ -90,9 +98,13 @@ type viewArgs struct {
 
 // The set of arguments for constructing a View resource.
 type ViewArgs struct {
-	// A search filter defines which resources can be part of a search query result set.
+	// An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view. When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
+	//
+	// For information about the supported syntax, see [Search query reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+	//
+	// > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
 	Filters ViewSearchFilterPtrInput
-	// Information about an additional property that describes a resource, that you can optionally include in a view.
+	// A list of fields that provide additional information about the view.
 	IncludedProperties ViewIncludedPropertyArrayInput
 	// The root ARN of the account, an organizational unit (OU), or an organization ARN. If left empty, the default is account.
 	Scope pulumi.StringPtrInput
@@ -139,12 +151,16 @@ func (o ViewOutput) ToViewOutputWithContext(ctx context.Context) ViewOutput {
 	return o
 }
 
-// A search filter defines which resources can be part of a search query result set.
+// An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view. When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
+//
+// For information about the supported syntax, see [Search query reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+//
+// > This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
 func (o ViewOutput) Filters() ViewSearchFilterPtrOutput {
 	return o.ApplyT(func(v *View) ViewSearchFilterPtrOutput { return v.Filters }).(ViewSearchFilterPtrOutput)
 }
 
-// Information about an additional property that describes a resource, that you can optionally include in a view.
+// A list of fields that provide additional information about the view.
 func (o ViewOutput) IncludedProperties() ViewIncludedPropertyArrayOutput {
 	return o.ApplyT(func(v *View) ViewIncludedPropertyArrayOutput { return v.IncludedProperties }).(ViewIncludedPropertyArrayOutput)
 }

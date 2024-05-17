@@ -16,49 +16,49 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
     public sealed class ConnectorProfilePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The profile properties required by the custom connector.
+        /// The properties required by the custom connector.
         /// </summary>
         [Input("customConnector")]
         public Input<Inputs.ConnectorProfileCustomConnectorProfilePropertiesArgs>? CustomConnector { get; set; }
 
         /// <summary>
-        /// The connector-specific profile properties required by Datadog.
+        /// The connector-specific properties required by Datadog.
         /// </summary>
         [Input("datadog")]
         public Input<Inputs.ConnectorProfileDatadogConnectorProfilePropertiesArgs>? Datadog { get; set; }
 
         /// <summary>
-        /// The connector-specific profile properties required by Dynatrace.
+        /// The connector-specific properties required by Dynatrace.
         /// </summary>
         [Input("dynatrace")]
         public Input<Inputs.ConnectorProfileDynatraceConnectorProfilePropertiesArgs>? Dynatrace { get; set; }
 
         /// <summary>
-        /// The connector-specific profile properties required by Infor Nexus.
+        /// The connector-specific properties required by Infor Nexus.
         /// </summary>
         [Input("inforNexus")]
         public Input<Inputs.ConnectorProfileInforNexusConnectorProfilePropertiesArgs>? InforNexus { get; set; }
 
         /// <summary>
-        /// The connector-specific profile properties required when using Marketo.
+        /// The connector-specific properties required by Marketo.
         /// </summary>
         [Input("marketo")]
         public Input<Inputs.ConnectorProfileMarketoConnectorProfilePropertiesArgs>? Marketo { get; set; }
 
         /// <summary>
-        /// The connector-specific profile properties required when using Salesforce Pardot.
+        /// The connector-specific properties required by Salesforce Pardot.
         /// </summary>
         [Input("pardot")]
         public Input<Inputs.ConnectorProfilePardotConnectorProfilePropertiesArgs>? Pardot { get; set; }
 
         /// <summary>
-        /// The connector-specific profile properties when using Amazon Redshift.
+        /// The connector-specific properties required by Amazon Redshift.
         /// </summary>
         [Input("redshift")]
         public Input<Inputs.ConnectorProfileRedshiftConnectorProfilePropertiesArgs>? Redshift { get; set; }
 
         /// <summary>
-        /// The connector-specific profile properties required when using Salesforce.
+        /// The connector-specific properties required by Salesforce.
         /// </summary>
         [Input("salesforce")]
         public Input<Inputs.ConnectorProfileSalesforceConnectorProfilePropertiesArgs>? Salesforce { get; set; }
@@ -70,31 +70,31 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public Input<Inputs.ConnectorProfileSapoDataConnectorProfilePropertiesArgs>? SapoData { get; set; }
 
         /// <summary>
-        /// The connector-specific profile properties required when using ServiceNow.
+        /// The connector-specific properties required by serviceNow.
         /// </summary>
         [Input("serviceNow")]
         public Input<Inputs.ConnectorProfileServiceNowConnectorProfilePropertiesArgs>? ServiceNow { get; set; }
 
         /// <summary>
-        /// The connector-specific profile properties required when using Slack.
+        /// The connector-specific properties required by Slack.
         /// </summary>
         [Input("slack")]
         public Input<Inputs.ConnectorProfileSlackConnectorProfilePropertiesArgs>? Slack { get; set; }
 
         /// <summary>
-        /// The connector-specific profile properties required when using Snowflake.
+        /// The connector-specific properties required by Snowflake.
         /// </summary>
         [Input("snowflake")]
         public Input<Inputs.ConnectorProfileSnowflakeConnectorProfilePropertiesArgs>? Snowflake { get; set; }
 
         /// <summary>
-        /// The connector-specific profile properties required when using Veeva.
+        /// The connector-specific properties required by Veeva.
         /// </summary>
         [Input("veeva")]
         public Input<Inputs.ConnectorProfileVeevaConnectorProfilePropertiesArgs>? Veeva { get; set; }
 
         /// <summary>
-        /// The connector-specific profile properties required when using Zendesk.
+        /// The connector-specific properties required by Zendesk.
         /// </summary>
         [Input("zendesk")]
         public Input<Inputs.ConnectorProfileZendeskConnectorProfilePropertiesArgs>? Zendesk { get; set; }

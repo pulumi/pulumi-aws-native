@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
         private InputList<Inputs.ComponentVersionLambdaEventSourceArgs>? _eventSources;
 
         /// <summary>
-        /// Contains information about an event source for an AWS Lambda function. The event source defines the topics on which this Lambda function subscribes to receive messages that run the function.
+        /// The list of event sources to which to subscribe to receive work messages. The Lambda function runs when it receives a message from an event source. You can subscribe this function to local publish/subscribe messages and AWS IoT Core MQTT messages.
         /// </summary>
         public InputList<Inputs.ComponentVersionLambdaEventSourceArgs> EventSources
         {
@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.GreengrassV2.Inputs
         public Input<Pulumi.AwsNative.GreengrassV2.ComponentVersionLambdaExecutionParametersInputPayloadEncodingType>? InputPayloadEncodingType { get; set; }
 
         /// <summary>
-        /// Contains parameters for a Linux process that contains an AWS Lambda function.
+        /// The parameters for the Linux process that contains the Lambda function.
         /// </summary>
         [Input("linuxProcessParams")]
         public Input<Inputs.ComponentVersionLambdaLinuxProcessParamsArgs>? LinuxProcessParams { get; set; }

@@ -32,13 +32,11 @@ type LookupExperimentTemplateResult struct {
 	Actions map[string]ExperimentTemplateAction `pulumi:"actions"`
 	// The description for the experiment template.
 	Description *string `pulumi:"description"`
-	// Describes the experiment options for an experiment template.
+	// The experiment options for an experiment template.
 	ExperimentOptions *ExperimentTemplateExperimentOptions `pulumi:"experimentOptions"`
 	// The ID of the experiment template.
 	Id *string `pulumi:"id"`
-	// Specifies the configuration for experiment logging.
-	//
-	// For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+	// The configuration for experiment logging.
 	LogConfiguration *ExperimentTemplateLogConfiguration `pulumi:"logConfiguration"`
 	// The Amazon Resource Name (ARN) of an IAM role.
 	RoleArn *string `pulumi:"roleArn"`
@@ -94,7 +92,7 @@ func (o LookupExperimentTemplateResultOutput) Description() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LookupExperimentTemplateResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Describes the experiment options for an experiment template.
+// The experiment options for an experiment template.
 func (o LookupExperimentTemplateResultOutput) ExperimentOptions() ExperimentTemplateExperimentOptionsPtrOutput {
 	return o.ApplyT(func(v LookupExperimentTemplateResult) *ExperimentTemplateExperimentOptions {
 		return v.ExperimentOptions
@@ -106,9 +104,7 @@ func (o LookupExperimentTemplateResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupExperimentTemplateResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the configuration for experiment logging.
-//
-// For more information, see [Experiment logging](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html) in the *AWS Fault Injection Service User Guide* .
+// The configuration for experiment logging.
 func (o LookupExperimentTemplateResultOutput) LogConfiguration() ExperimentTemplateLogConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupExperimentTemplateResult) *ExperimentTemplateLogConfiguration { return v.LogConfiguration }).(ExperimentTemplateLogConfigurationPtrOutput)
 }

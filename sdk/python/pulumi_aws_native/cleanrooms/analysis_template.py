@@ -30,7 +30,7 @@ class AnalysisTemplateArgs:
         The set of arguments for constructing a AnalysisTemplate resource.
         :param pulumi.Input['AnalysisTemplateFormat'] format: The format of the analysis template.
         :param pulumi.Input[str] membership_identifier: The identifier for a membership resource.
-        :param pulumi.Input['AnalysisTemplateAnalysisSourceArgs'] source: The structure that defines the body of the analysis template.
+        :param pulumi.Input['AnalysisTemplateAnalysisSourceArgs'] source: The source of the analysis template.
         :param pulumi.Input[Sequence[pulumi.Input['AnalysisTemplateAnalysisParameterArgs']]] analysis_parameters: The member who can query can provide this placeholder for a literal data value in an analysis template
         :param pulumi.Input[str] description: The description of the analysis template.
         :param pulumi.Input[str] name: The name of the analysis template.
@@ -76,7 +76,7 @@ class AnalysisTemplateArgs:
     @pulumi.getter
     def source(self) -> pulumi.Input['AnalysisTemplateAnalysisSourceArgs']:
         """
-        The structure that defines the body of the analysis template.
+        The source of the analysis template.
         """
         return pulumi.get(self, "source")
 
@@ -156,7 +156,7 @@ class AnalysisTemplate(pulumi.CustomResource):
         :param pulumi.Input['AnalysisTemplateFormat'] format: The format of the analysis template.
         :param pulumi.Input[str] membership_identifier: The identifier for a membership resource.
         :param pulumi.Input[str] name: The name of the analysis template.
-        :param pulumi.Input[pulumi.InputType['AnalysisTemplateAnalysisSourceArgs']] source: The structure that defines the body of the analysis template.
+        :param pulumi.Input[pulumi.InputType['AnalysisTemplateAnalysisSourceArgs']] source: The source of the analysis template.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
         """
         ...
@@ -350,16 +350,13 @@ class AnalysisTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter
     def schema(self) -> pulumi.Output['outputs.AnalysisTemplateAnalysisSchema']:
-        """
-        A relation within an analysis.
-        """
         return pulumi.get(self, "schema")
 
     @property
     @pulumi.getter
     def source(self) -> pulumi.Output['outputs.AnalysisTemplateAnalysisSource']:
         """
-        The structure that defines the body of the analysis template.
+        The source of the analysis template.
         """
         return pulumi.get(self, "source")
 

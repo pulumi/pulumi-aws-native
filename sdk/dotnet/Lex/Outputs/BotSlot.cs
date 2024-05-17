@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Determines whether Amazon Lex obscures slot values in conversation logs.
+        /// Determines whether the contents of the slot are obfuscated in Amazon CloudWatch Logs logs. Use obfuscated slots to protect information such as personally identifiable information (PII) in logs.
         /// </summary>
         public readonly Outputs.BotObfuscationSetting? ObfuscationSetting;
         /// <summary>
@@ -37,7 +37,12 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// </summary>
         public readonly string SlotTypeName;
         /// <summary>
-        /// Specifies the elicitation setting details eliciting a slot.
+        /// Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
+        /// 
+        /// - ORIGINAL_VALUE - Returns the value entered by the user, if the user value is similar to a slot value.
+        /// - TOP_RESOLUTION - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
+        /// 
+        /// If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
         /// </summary>
         public readonly Outputs.BotSlotValueElicitationSetting ValueElicitationSetting;
 

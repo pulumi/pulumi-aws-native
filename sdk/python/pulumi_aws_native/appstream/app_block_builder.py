@@ -35,8 +35,8 @@ class AppBlockBuilderArgs:
         :param pulumi.Input[str] platform: The platform of the app block builder.
                
                *Allowed values* : `WINDOWS_SERVER_2019`
-        :param pulumi.Input['AppBlockBuilderVpcConfigArgs'] vpc_config: Describes VPC configuration information for fleets and image builders.
-        :param pulumi.Input[Sequence[pulumi.Input['AppBlockBuilderAccessEndpointArgs']]] access_endpoints: Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+        :param pulumi.Input['AppBlockBuilderVpcConfigArgs'] vpc_config: The VPC configuration for the app block builder.
+        :param pulumi.Input[Sequence[pulumi.Input['AppBlockBuilderAccessEndpointArgs']]] access_endpoints: The access endpoints of the app block builder.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] app_block_arns: The ARN of the app block.
                
                *Maximum* : `1`
@@ -45,7 +45,7 @@ class AppBlockBuilderArgs:
         :param pulumi.Input[bool] enable_default_internet_access: Indicates whether default internet access is enabled for the app block builder.
         :param pulumi.Input[str] iam_role_arn: The ARN of the IAM role that is applied to the app block builder.
         :param pulumi.Input[str] name: The name of the app block builder.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tag of the app block builder.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags of the app block builder.
         """
         pulumi.set(__self__, "instance_type", instance_type)
         pulumi.set(__self__, "platform", platform)
@@ -97,7 +97,7 @@ class AppBlockBuilderArgs:
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Input['AppBlockBuilderVpcConfigArgs']:
         """
-        Describes VPC configuration information for fleets and image builders.
+        The VPC configuration for the app block builder.
         """
         return pulumi.get(self, "vpc_config")
 
@@ -109,7 +109,7 @@ class AppBlockBuilderArgs:
     @pulumi.getter(name="accessEndpoints")
     def access_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AppBlockBuilderAccessEndpointArgs']]]]:
         """
-        Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+        The access endpoints of the app block builder.
         """
         return pulumi.get(self, "access_endpoints")
 
@@ -195,7 +195,7 @@ class AppBlockBuilderArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The tag of the app block builder.
+        The tags of the app block builder.
         """
         return pulumi.get(self, "tags")
 
@@ -226,7 +226,7 @@ class AppBlockBuilder(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppBlockBuilderAccessEndpointArgs']]]] access_endpoints: Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AppBlockBuilderAccessEndpointArgs']]]] access_endpoints: The access endpoints of the app block builder.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] app_block_arns: The ARN of the app block.
                
                *Maximum* : `1`
@@ -239,8 +239,8 @@ class AppBlockBuilder(pulumi.CustomResource):
         :param pulumi.Input[str] platform: The platform of the app block builder.
                
                *Allowed values* : `WINDOWS_SERVER_2019`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tag of the app block builder.
-        :param pulumi.Input[pulumi.InputType['AppBlockBuilderVpcConfigArgs']] vpc_config: Describes VPC configuration information for fleets and image builders.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags of the app block builder.
+        :param pulumi.Input[pulumi.InputType['AppBlockBuilderVpcConfigArgs']] vpc_config: The VPC configuration for the app block builder.
         """
         ...
     @overload
@@ -348,7 +348,7 @@ class AppBlockBuilder(pulumi.CustomResource):
     @pulumi.getter(name="accessEndpoints")
     def access_endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.AppBlockBuilderAccessEndpoint']]]:
         """
-        Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+        The access endpoints of the app block builder.
         """
         return pulumi.get(self, "access_endpoints")
 
@@ -440,7 +440,7 @@ class AppBlockBuilder(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The tag of the app block builder.
+        The tags of the app block builder.
         """
         return pulumi.get(self, "tags")
 
@@ -448,7 +448,7 @@ class AppBlockBuilder(pulumi.CustomResource):
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Output['outputs.AppBlockBuilderVpcConfig']:
         """
-        Describes VPC configuration information for fleets and image builders.
+        The VPC configuration for the app block builder.
         """
         return pulumi.get(self, "vpc_config")
 

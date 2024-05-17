@@ -37,13 +37,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.DashboardGaugeChartConditionalFormattingArgs>? ConditionalFormatting { get; set; }
 
         /// <summary>
-        /// The subtitle label options for a visual.
+        /// The subtitle that is displayed on the visual.
         /// </summary>
         [Input("subtitle")]
         public Input<Inputs.DashboardVisualSubtitleLabelOptionsArgs>? Subtitle { get; set; }
 
         /// <summary>
-        /// The title label options for a visual.
+        /// The title that is displayed on the visual.
         /// </summary>
         [Input("title")]
         public Input<Inputs.DashboardVisualTitleLabelOptionsArgs>? Title { get; set; }

@@ -105,7 +105,9 @@ class GetAnalysisResult:
     @pulumi.getter
     def permissions(self) -> Optional[Sequence['outputs.AnalysisResourcePermission']]:
         """
-        Permission for the resource.
+        A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+
+        To specify no permissions, omit `Permissions` .
         """
         return pulumi.get(self, "permissions")
 

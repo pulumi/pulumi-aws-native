@@ -67,7 +67,7 @@ class GetMatchingWorkflowResult:
     @pulumi.getter(name="inputSourceConfig")
     def input_source_config(self) -> Optional[Sequence['outputs.MatchingWorkflowInputSource']]:
         """
-        An object containing `InputSourceARN` , `SchemaName` , and `ApplyNormalization` .
+        A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
         """
         return pulumi.get(self, "input_source_config")
 
@@ -75,7 +75,7 @@ class GetMatchingWorkflowResult:
     @pulumi.getter(name="outputSourceConfig")
     def output_source_config(self) -> Optional[Sequence['outputs.MatchingWorkflowOutputSource']]:
         """
-        A list of `OutputAttribute` objects, each of which have the fields `Name` and `Hashed` . Each of these objects selects a column to be included in the output table, and whether the values of the column should be hashed.
+        A list of `OutputSource` objects, each of which contains fields `OutputS3Path` , `ApplyNormalization` , and `Output` .
         """
         return pulumi.get(self, "output_source_config")
 

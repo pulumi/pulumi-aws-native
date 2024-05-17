@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         public Output<Pulumi.AwsNative.WorkSpacesWeb.UserSettingsEnabledType> PrintAllowed { get; private set; } = null!;
 
         /// <summary>
-        /// The tag.
+        /// The tags to add to the user settings resource. A tag is a key-value pair.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -207,7 +207,7 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// The tag.
+        /// The tags to add to the user settings resource. A tag is a key-value pair.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

@@ -21,7 +21,7 @@ type Experiment struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// An optional description of the experiment.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+	// An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
 	MetricGoals ExperimentMetricGoalObjectArrayOutput `pulumi:"metricGoals"`
 	// A name for the new experiment.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -45,7 +45,7 @@ type Experiment struct {
 	Segment pulumi.StringPtrOutput `pulumi:"segment"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
+	// An array of structures that describe the configuration of each feature variation used in the experiment.
 	Treatments ExperimentTreatmentObjectArrayOutput `pulumi:"treatments"`
 }
 
@@ -108,7 +108,7 @@ func (ExperimentState) ElementType() reflect.Type {
 type experimentArgs struct {
 	// An optional description of the experiment.
 	Description *string `pulumi:"description"`
-	// Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+	// An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
 	MetricGoals []ExperimentMetricGoalObject `pulumi:"metricGoals"`
 	// A name for the new experiment.
 	Name *string `pulumi:"name"`
@@ -132,7 +132,7 @@ type experimentArgs struct {
 	Segment *string `pulumi:"segment"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
-	// A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
+	// An array of structures that describe the configuration of each feature variation used in the experiment.
 	Treatments []ExperimentTreatmentObject `pulumi:"treatments"`
 }
 
@@ -140,7 +140,7 @@ type experimentArgs struct {
 type ExperimentArgs struct {
 	// An optional description of the experiment.
 	Description pulumi.StringPtrInput
-	// Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+	// An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
 	MetricGoals ExperimentMetricGoalObjectArrayInput
 	// A name for the new experiment.
 	Name pulumi.StringPtrInput
@@ -164,7 +164,7 @@ type ExperimentArgs struct {
 	Segment pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
-	// A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
+	// An array of structures that describe the configuration of each feature variation used in the experiment.
 	Treatments ExperimentTreatmentObjectArrayInput
 }
 
@@ -215,7 +215,7 @@ func (o ExperimentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Experiment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+// An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
 func (o ExperimentOutput) MetricGoals() ExperimentMetricGoalObjectArrayOutput {
 	return o.ApplyT(func(v *Experiment) ExperimentMetricGoalObjectArrayOutput { return v.MetricGoals }).(ExperimentMetricGoalObjectArrayOutput)
 }
@@ -269,7 +269,7 @@ func (o ExperimentOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Experiment) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
+// An array of structures that describe the configuration of each feature variation used in the experiment.
 func (o ExperimentOutput) Treatments() ExperimentTreatmentObjectArrayOutput {
 	return o.ApplyT(func(v *Experiment) ExperimentTreatmentObjectArrayOutput { return v.Treatments }).(ExperimentTreatmentObjectArrayOutput)
 }

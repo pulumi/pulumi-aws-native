@@ -55,9 +55,13 @@ namespace Pulumi.AwsNative.Batch.Inputs
         private InputList<Inputs.ComputeEnvironmentEc2ConfigurationObjectArgs>? _ec2Configuration;
 
         /// <summary>
-        /// Provides information used to select Amazon Machine Images (AMIs) for instances in the compute environment. If `Ec2Configuration` isn't specified, the default is `ECS_AL2` ( [Amazon Linux 2](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) ).
+        /// Provides information used to select Amazon Machine Images (AMIs) for Amazon EC2 instances in the compute environment. If `Ec2Configuration` isn't specified, the default is `ECS_AL2` .
         /// 
-        /// &gt; This object isn't applicable to jobs that are running on Fargate resources.
+        /// When updating a compute environment, changing this setting requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the *AWS Batch User Guide* . To remove the Amazon EC2 configuration and any custom AMI ID specified in `imageIdOverride` , set this value to an empty string.
+        /// 
+        /// One or two values can be provided.
+        /// 
+        /// &gt; This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.
         /// </summary>
         public InputList<Inputs.ComputeEnvironmentEc2ConfigurationObjectArgs> Ec2Configuration
         {
@@ -112,11 +116,11 @@ namespace Pulumi.AwsNative.Batch.Inputs
         }
 
         /// <summary>
-        /// An object that represents a launch template that's associated with a compute resource. You must specify either the launch template ID or launch template name in the request, but not both.
+        /// The launch template to use for your compute resources. Any other compute resource parameters that you specify in a [CreateComputeEnvironment](https://docs.aws.amazon.com/batch/latest/APIReference/API_CreateComputeEnvironment.html) API operation override the same parameters in the launch template. You must specify either the launch template ID or launch template name in the request, but not both. For more information, see [Launch Template Support](https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html) in the ** . Removing the launch template from a compute environment will not remove the AMI specified in the launch template. In order to update the AMI specified in a launch template, the `updateToLatestImageVersion` parameter must be set to `true` .
         /// 
-        /// If security groups are specified using both the `securityGroupIds` parameter of `CreateComputeEnvironment` and the launch template, the values in the `securityGroupIds` parameter of `CreateComputeEnvironment` will be used.
+        /// When updating a compute environment, changing the launch template requires an infrastructure update of the compute environment. For more information, see [Updating compute environments](https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html) in the ** .
         /// 
-        /// &gt; This object isn't applicable to jobs that are running on Fargate resources.
+        /// &gt; This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         [Input("launchTemplate")]
         public Input<Inputs.ComputeEnvironmentLaunchTemplateSpecificationArgs>? LaunchTemplate { get; set; }

@@ -112,7 +112,7 @@ class UserSettingsCookieSynchronizationConfiguration(dict):
                  allowlist: Sequence['outputs.UserSettingsCookieSpecification'],
                  blocklist: Optional[Sequence['outputs.UserSettingsCookieSpecification']] = None):
         """
-        :param Sequence['UserSettingsCookieSpecification'] allowlist: Specifies a single cookie or set of cookies in an end user's browser.
+        :param Sequence['UserSettingsCookieSpecification'] allowlist: The list of cookie specifications that are allowed to be synchronized to the remote browser.
         :param Sequence['UserSettingsCookieSpecification'] blocklist: The list of cookie specifications that are blocked from being synchronized to the remote browser.
         """
         pulumi.set(__self__, "allowlist", allowlist)
@@ -123,7 +123,7 @@ class UserSettingsCookieSynchronizationConfiguration(dict):
     @pulumi.getter
     def allowlist(self) -> Sequence['outputs.UserSettingsCookieSpecification']:
         """
-        Specifies a single cookie or set of cookies in an end user's browser.
+        The list of cookie specifications that are allowed to be synchronized to the remote browser.
         """
         return pulumi.get(self, "allowlist")
 

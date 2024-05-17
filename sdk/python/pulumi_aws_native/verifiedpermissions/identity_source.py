@@ -22,11 +22,7 @@ class IdentitySourceArgs:
                  principal_entity_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IdentitySource resource.
-        :param pulumi.Input['IdentitySourceConfigurationArgs'] configuration: A structure that contains configuration information used when creating or updating a new identity source.
-               
-               > At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
-               > 
-               > You must specify a `userPoolArn` , and optionally, a `ClientId` .
+        :param pulumi.Input['IdentitySourceConfigurationArgs'] configuration: Contains configuration information about an identity source.
         :param pulumi.Input[str] policy_store_id: Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
         :param pulumi.Input[str] principal_entity_type: Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
         """
@@ -39,11 +35,7 @@ class IdentitySourceArgs:
     @pulumi.getter
     def configuration(self) -> pulumi.Input['IdentitySourceConfigurationArgs']:
         """
-        A structure that contains configuration information used when creating or updating a new identity source.
-
-        > At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
-        > 
-        > You must specify a `userPoolArn` , and optionally, a `ClientId` .
+        Contains configuration information about an identity source.
         """
         return pulumi.get(self, "configuration")
 
@@ -115,11 +107,7 @@ class IdentitySource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['IdentitySourceConfigurationArgs']] configuration: A structure that contains configuration information used when creating or updating a new identity source.
-               
-               > At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
-               > 
-               > You must specify a `userPoolArn` , and optionally, a `ClientId` .
+        :param pulumi.Input[pulumi.InputType['IdentitySourceConfigurationArgs']] configuration: Contains configuration information about an identity source.
         :param pulumi.Input[str] policy_store_id: Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
         :param pulumi.Input[str] principal_entity_type: Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
         """
@@ -228,11 +216,7 @@ class IdentitySource(pulumi.CustomResource):
     @pulumi.getter
     def configuration(self) -> pulumi.Output['outputs.IdentitySourceConfiguration']:
         """
-        A structure that contains configuration information used when creating or updating a new identity source.
-
-        > At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
-        > 
-        > You must specify a `userPoolArn` , and optionally, a `ClientId` .
+        Contains configuration information about an identity source.
         """
         return pulumi.get(self, "configuration")
 

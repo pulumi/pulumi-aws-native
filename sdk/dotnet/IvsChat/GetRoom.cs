@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.IvsChat
         /// </summary>
         public readonly int? MaximumMessageRatePerSecond;
         /// <summary>
-        /// The MessageReviewHandler property type specifies configuration information for optional message review.
+        /// Configuration information for optional review of messages.
         /// </summary>
         public readonly Outputs.RoomMessageReviewHandler? MessageReviewHandler;
         /// <summary>

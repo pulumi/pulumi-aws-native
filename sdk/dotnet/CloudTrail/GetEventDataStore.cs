@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.CloudTrail
         /// </summary>
         public readonly string? Status;
         /// <summary>
-        /// A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+        /// A list of tags.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>

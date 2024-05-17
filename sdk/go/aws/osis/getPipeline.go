@@ -35,7 +35,7 @@ type LookupPipelineResult struct {
 	EncryptionAtRestOptions *PipelineEncryptionAtRestOptions `pulumi:"encryptionAtRestOptions"`
 	// A list of endpoints that can be used for ingesting data into a pipeline
 	IngestEndpointUrls []string `pulumi:"ingestEndpointUrls"`
-	// Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
+	// Key-value pairs that represent log publishing settings.
 	LogPublishingOptions *PipelineLogPublishingOptions `pulumi:"logPublishingOptions"`
 	// The maximum pipeline capacity, in Ingestion OpenSearch Compute Units (OCUs).
 	MaxUnits *int `pulumi:"maxUnits"`
@@ -102,7 +102,7 @@ func (o LookupPipelineResultOutput) IngestEndpointUrls() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v LookupPipelineResult) []string { return v.IngestEndpointUrls }).(pulumi.StringArrayOutput)
 }
 
-// Container for the values required to configure logging for the pipeline. If you don't specify these values, OpenSearch Ingestion will not publish logs from your application to CloudWatch Logs.
+// Key-value pairs that represent log publishing settings.
 func (o LookupPipelineResultOutput) LogPublishingOptions() PipelineLogPublishingOptionsPtrOutput {
 	return o.ApplyT(func(v LookupPipelineResult) *PipelineLogPublishingOptions { return v.LogPublishingOptions }).(PipelineLogPublishingOptionsPtrOutput)
 }

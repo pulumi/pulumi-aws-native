@@ -50,7 +50,7 @@ class GetSecurityConfigResult:
     @pulumi.getter(name="samlOptions")
     def saml_options(self) -> Optional['outputs.SecurityConfigSamlConfigOptions']:
         """
-        Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
+        SAML options for the security configuration in the form of a key-value map.
         """
         return pulumi.get(self, "saml_options")
 

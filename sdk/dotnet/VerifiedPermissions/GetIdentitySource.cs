@@ -70,11 +70,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     public sealed class GetIdentitySourceResult
     {
         /// <summary>
-        /// A structure that contains configuration information used when creating or updating a new identity source.
-        /// 
-        /// &gt; At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
-        /// &gt; 
-        /// &gt; You must specify a `userPoolArn` , and optionally, a `ClientId` .
+        /// Contains configuration information about an identity source.
         /// </summary>
         public readonly Outputs.IdentitySourceConfiguration? Configuration;
         public readonly Outputs.IdentitySourceDetails? Details;

@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.Evidently
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// A set of key-value pairs that specify users who should always be served a specific variation of a feature. Each key specifies a user using their user ID, account ID, or some other identifier. The value specifies the name of the variation that the user is to be served.
+        /// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
         /// </summary>
         [Output("entityOverrides")]
         public Output<ImmutableArray<Outputs.FeatureEntityOverride>> EntityOverrides { get; private set; } = null!;
@@ -68,7 +68,9 @@ namespace Pulumi.AwsNative.Evidently
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// This structure contains the name and variation value of one variation of a feature. It can contain only one of the following parameters: `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` .
+        /// An array of structures that contain the configuration of the feature's different variations.
+        /// 
+        /// Each `VariationObject` in the `Variations` array for a feature must have the same type of value ( `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` ).
         /// </summary>
         [Output("variations")]
         public Output<ImmutableArray<Outputs.FeatureVariationObject>> Variations { get; private set; } = null!;
@@ -143,7 +145,7 @@ namespace Pulumi.AwsNative.Evidently
         private InputList<Inputs.FeatureEntityOverrideArgs>? _entityOverrides;
 
         /// <summary>
-        /// A set of key-value pairs that specify users who should always be served a specific variation of a feature. Each key specifies a user using their user ID, account ID, or some other identifier. The value specifies the name of the variation that the user is to be served.
+        /// Specify users that should always be served a specific variation of a feature. Each user is specified by a key-value pair . For each key, specify a user by entering their user ID, account ID, or some other identifier. For the value, specify the name of the variation that they are to be served.
         /// </summary>
         public InputList<Inputs.FeatureEntityOverrideArgs> EntityOverrides
         {
@@ -185,7 +187,9 @@ namespace Pulumi.AwsNative.Evidently
         private InputList<Inputs.FeatureVariationObjectArgs>? _variations;
 
         /// <summary>
-        /// This structure contains the name and variation value of one variation of a feature. It can contain only one of the following parameters: `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` .
+        /// An array of structures that contain the configuration of the feature's different variations.
+        /// 
+        /// Each `VariationObject` in the `Variations` array for a feature must have the same type of value ( `BooleanValue` , `DoubleValue` , `LongValue` or `StringValue` ).
         /// </summary>
         public InputList<Inputs.FeatureVariationObjectArgs> Variations
         {

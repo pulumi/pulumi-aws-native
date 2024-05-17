@@ -36,9 +36,9 @@ type LookupBackupVaultResult struct {
 	BackupVaultArn *string `pulumi:"backupVaultArn"`
 	// The tags to assign to the backup vault.
 	BackupVaultTags map[string]string `pulumi:"backupVaultTags"`
-	// The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+	// Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
 	LockConfiguration *BackupVaultLockConfigurationType `pulumi:"lockConfiguration"`
-	// Specifies an object containing SNS event notification properties for the target backup vault.
+	// The SNS event notifications for the specified backup vault.
 	Notifications *BackupVaultNotificationObjectType `pulumi:"notifications"`
 }
 
@@ -95,12 +95,12 @@ func (o LookupBackupVaultResultOutput) BackupVaultTags() pulumi.StringMapOutput 
 	return o.ApplyT(func(v LookupBackupVaultResult) map[string]string { return v.BackupVaultTags }).(pulumi.StringMapOutput)
 }
 
-// The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+// Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
 func (o LookupBackupVaultResultOutput) LockConfiguration() BackupVaultLockConfigurationTypePtrOutput {
 	return o.ApplyT(func(v LookupBackupVaultResult) *BackupVaultLockConfigurationType { return v.LockConfiguration }).(BackupVaultLockConfigurationTypePtrOutput)
 }
 
-// Specifies an object containing SNS event notification properties for the target backup vault.
+// The SNS event notifications for the specified backup vault.
 func (o LookupBackupVaultResultOutput) Notifications() BackupVaultNotificationObjectTypePtrOutput {
 	return o.ApplyT(func(v LookupBackupVaultResult) *BackupVaultNotificationObjectType { return v.Notifications }).(BackupVaultNotificationObjectTypePtrOutput)
 }

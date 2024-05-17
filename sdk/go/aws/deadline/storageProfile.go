@@ -20,7 +20,7 @@ type StorageProfile struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// The unique identifier of the farm that contains the storage profile.
 	FarmId pulumi.StringPtrOutput `pulumi:"farmId"`
-	// The details of the file system location for the resource.
+	// Operating system specific file system path to the storage location.
 	FileSystemLocations StorageProfileFileSystemLocationArrayOutput `pulumi:"fileSystemLocations"`
 	// The operating system (OS) family.
 	OsFamily StorageProfileOperatingSystemFamilyOutput `pulumi:"osFamily"`
@@ -82,7 +82,7 @@ type storageProfileArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// The unique identifier of the farm that contains the storage profile.
 	FarmId *string `pulumi:"farmId"`
-	// The details of the file system location for the resource.
+	// Operating system specific file system path to the storage location.
 	FileSystemLocations []StorageProfileFileSystemLocation `pulumi:"fileSystemLocations"`
 	// The operating system (OS) family.
 	OsFamily StorageProfileOperatingSystemFamily `pulumi:"osFamily"`
@@ -94,7 +94,7 @@ type StorageProfileArgs struct {
 	DisplayName pulumi.StringInput
 	// The unique identifier of the farm that contains the storage profile.
 	FarmId pulumi.StringPtrInput
-	// The details of the file system location for the resource.
+	// Operating system specific file system path to the storage location.
 	FileSystemLocations StorageProfileFileSystemLocationArrayInput
 	// The operating system (OS) family.
 	OsFamily StorageProfileOperatingSystemFamilyInput
@@ -147,7 +147,7 @@ func (o StorageProfileOutput) FarmId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageProfile) pulumi.StringPtrOutput { return v.FarmId }).(pulumi.StringPtrOutput)
 }
 
-// The details of the file system location for the resource.
+// Operating system specific file system path to the storage location.
 func (o StorageProfileOutput) FileSystemLocations() StorageProfileFileSystemLocationArrayOutput {
 	return o.ApplyT(func(v *StorageProfile) StorageProfileFileSystemLocationArrayOutput { return v.FileSystemLocations }).(StorageProfileFileSystemLocationArrayOutput)
 }

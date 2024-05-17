@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
     public sealed class FormInputBindingPropertiesValue
     {
         /// <summary>
-        /// Represents the data binding configuration for a specific property using data stored in AWS . For AWS connected properties, you can bind a property to data stored in an Amplify DataStore model.
+        /// Describes the properties to customize with data at runtime.
         /// </summary>
         public readonly Outputs.FormInputBindingPropertiesValueProperties? BindingProperties;
         /// <summary>

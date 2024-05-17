@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.IvsChat
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// The DestinationConfiguration property type describes a location where chat logs will be stored. Each member represents the configuration of one log destination. For logging, you define only one type of destination.
+        /// The DestinationConfiguration is a complex type that contains information about where chat content will be logged.
         /// </summary>
         public readonly Outputs.LoggingConfigurationDestinationConfiguration? DestinationConfiguration;
         /// <summary>

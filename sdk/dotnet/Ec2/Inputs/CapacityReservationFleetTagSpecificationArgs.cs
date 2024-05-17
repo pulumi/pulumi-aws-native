@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         private InputList<Inputs.CapacityReservationFleetTagArgs>? _tags;
 
         /// <summary>
-        /// Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        /// The tags to apply to the resource.
         /// </summary>
         public InputList<Inputs.CapacityReservationFleetTagArgs> Tags
         {

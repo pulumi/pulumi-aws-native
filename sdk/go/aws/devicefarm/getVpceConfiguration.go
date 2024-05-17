@@ -33,7 +33,9 @@ type LookupVpceConfigurationResult struct {
 	Arn *string `pulumi:"arn"`
 	// The DNS name that Device Farm will use to map to the private service you want to access.
 	ServiceDnsName *string `pulumi:"serviceDnsName"`
-	// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
 	Tags []aws.Tag `pulumi:"tags"`
 	// An optional description that provides details about your VPC endpoint configuration.
 	VpceConfigurationDescription *string `pulumi:"vpceConfigurationDescription"`
@@ -91,7 +93,9 @@ func (o LookupVpceConfigurationResultOutput) ServiceDnsName() pulumi.StringPtrOu
 	return o.ApplyT(func(v LookupVpceConfigurationResult) *string { return v.ServiceDnsName }).(pulumi.StringPtrOutput)
 }
 
-// The metadata that you apply to a resource to help you categorize and organize it. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters. Tag values can have a maximum length of 256 characters.
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
 func (o LookupVpceConfigurationResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupVpceConfigurationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

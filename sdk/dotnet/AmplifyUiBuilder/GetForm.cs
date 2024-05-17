@@ -82,11 +82,11 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
     public sealed class GetFormResult
     {
         /// <summary>
-        /// The `FormCTA` property specifies the call to action button configuration for the form.
+        /// The `FormCTA` object that stores the call to action configuration for the form.
         /// </summary>
         public readonly Outputs.FormCta? Cta;
         /// <summary>
-        /// The `FormDataTypeConfig` property specifies the data type configuration for the data source associated with a form.
+        /// The type of data source to use to create the form.
         /// </summary>
         public readonly Outputs.FormDataTypeConfig? DataType;
         /// <summary>
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.FormSectionalElement>? SectionalElements;
         /// <summary>
-        /// The `FormStyle` property specifies the configuration for the form's style.
+        /// The configuration for the form's style.
         /// </summary>
         public readonly Outputs.FormStyle? Style;
         /// <summary>

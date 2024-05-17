@@ -27,7 +27,7 @@ export interface GetImageBuilderArgs {
 
 export interface GetImageBuilderResult {
     /**
-     * Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+     * The list of virtual private cloud (VPC) interface endpoint objects. Administrators can connect to the image builder only through the specified endpoints.
      */
     readonly accessEndpoints?: outputs.appstream.ImageBuilderAccessEndpoint[];
     /**
@@ -111,11 +111,11 @@ export interface GetImageBuilderResult {
      */
     readonly streamingUrl?: string;
     /**
-     * The tag of the image builder.
+     * An array of key-value pairs.
      */
     readonly tags?: outputs.Tag[];
     /**
-     * The VPC configuration for the image builder.
+     * The VPC configuration for the image builder. You can specify only one subnet.
      */
     readonly vpcConfig?: outputs.appstream.ImageBuilderVpcConfig;
 }

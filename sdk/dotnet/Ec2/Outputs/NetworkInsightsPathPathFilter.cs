@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string? DestinationAddress;
         /// <summary>
-        /// Describes a port range.
+        /// The destination port range.
         /// </summary>
         public readonly Outputs.NetworkInsightsPathFilterPortRange? DestinationPortRange;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly string? SourceAddress;
         /// <summary>
-        /// Describes a port range.
+        /// The source port range.
         /// </summary>
         public readonly Outputs.NetworkInsightsPathFilterPortRange? SourcePortRange;
 

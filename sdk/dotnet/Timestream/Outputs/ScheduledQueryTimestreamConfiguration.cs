@@ -33,7 +33,7 @@ namespace Pulumi.AwsNative.Timestream.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ScheduledQueryMixedMeasureMapping> MixedMeasureMappings;
         /// <summary>
-        /// Only one of MixedMeasureMappings or MultiMeasureMappings is to be provided. MultiMeasureMappings can be used to ingest data as multi measures in the derived table.
+        /// Multi-measure mappings.
         /// </summary>
         public readonly Outputs.ScheduledQueryMultiMeasureMappings? MultiMeasureMappings;
         /// <summary>

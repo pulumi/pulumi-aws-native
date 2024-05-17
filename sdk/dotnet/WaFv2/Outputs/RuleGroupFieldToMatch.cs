@@ -21,27 +21,26 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// </summary>
         public readonly object? AllQueryArguments;
         /// <summary>
-        /// Inspect the body of the web request. The body immediately follows the request headers.
+        /// Inspect the request body as plain text. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
         /// 
-        /// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+        /// AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
+        /// 
+        /// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+        /// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
+        /// 
+        /// For information about how to handle oversized request bodies, see the `Body` object configuration.
         /// </summary>
         public readonly Outputs.RuleGroupBody? Body;
         /// <summary>
-        /// Inspect the cookies in the web request. You can specify the parts of the cookies to inspect and you can narrow the set of cookies to inspect by including or excluding specific keys.
+        /// Inspect the request cookies. You must configure scope and pattern matching filters in the `Cookies` object, to define the set of cookies and the parts of the cookies that AWS WAF inspects.
         /// 
-        /// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
-        /// 
-        /// Example JSON: `"Cookies": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`
+        /// Only the first 8 KB (8192 bytes) of a request's cookies and only the first 200 cookies are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize cookie content in the `Cookies` object. AWS WAF applies the pattern matching filters to the cookies that it receives from the underlying host service.
         /// </summary>
         public readonly Outputs.RuleGroupCookies? Cookies;
         /// <summary>
-        /// Inspect all headers in the web request. You can specify the parts of the headers to inspect and you can narrow the set of headers to inspect by including or excluding specific keys.
+        /// Inspect the request headers. You must configure scope and pattern matching filters in the `Headers` object, to define the set of headers to and the parts of the headers that AWS WAF inspects.
         /// 
-        /// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
-        /// 
-        /// If you want to inspect just the value of a single header, use the `SingleHeader` `FieldToMatch` setting instead.
-        /// 
-        /// Example JSON: `"Headers": { "MatchPattern": { "All": {} }, "MatchScope": "KEY", "OversizeHandling": "MATCH" }`
+        /// Only the first 8 KB (8192 bytes) of a request's headers and only the first 200 headers are forwarded to AWS WAF for inspection by the underlying host service. You must configure how to handle any oversize header content in the `Headers` object. AWS WAF applies the pattern matching filters to the headers that it receives from the underlying host service.
         /// </summary>
         public readonly Outputs.RuleGroupHeaders? Headers;
         /// <summary>
@@ -55,13 +54,14 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// </summary>
         public readonly Outputs.RuleGroupJa3Fingerprint? Ja3Fingerprint;
         /// <summary>
-        /// Inspect the body of the web request as JSON. The body immediately follows the request headers.
+        /// Inspect the request body as JSON. The request body immediately follows the request headers. This is the part of a request that contains any additional data that you want to send to your web server as the HTTP request body, such as data from a form.
         /// 
-        /// This is used to indicate the web request component to inspect, in the `FieldToMatch` specification.
+        /// AWS WAF does not support inspecting the entire contents of the web request body if the body exceeds the limit for the resource type. When a web request body is larger than the limit, the underlying host service only forwards the contents that are within the limit to AWS WAF for inspection.
         /// 
-        /// Use the specifications in this object to indicate which parts of the JSON body to inspect using the rule's inspection criteria. AWS WAF inspects only the parts of the JSON that result from the matches that you indicate.
+        /// - For Application Load Balancer and AWS AppSync , the limit is fixed at 8 KB (8,192 bytes).
+        /// - For CloudFront, API Gateway, Amazon Cognito, App Runner, and Verified Access, the default limit is 16 KB (16,384 bytes), and you can increase the limit for each resource type in the web ACL `AssociationConfig` , for additional processing fees.
         /// 
-        /// Example JSON: `"JsonBody": { "MatchPattern": { "All": {} }, "MatchScope": "ALL" }`
+        /// For information about how to handle oversized request bodies, see the `JsonBody` object configuration.
         /// </summary>
         public readonly Outputs.RuleGroupJsonBody? JsonBody;
         /// <summary>

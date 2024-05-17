@@ -14,9 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardAxisScale
     {
         /// <summary>
-        /// The liner axis scale setup.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The linear axis scale setup.
         /// </summary>
         public readonly Outputs.DashboardAxisLinearScale? Linear;
         /// <summary>

@@ -29,7 +29,7 @@ class ServiceNetworkArgs:
         :param pulumi.Input[str] name: The name of the service network. The name must be unique to the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
                
                If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Specifies a tag for a service network.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the service network.
         """
         if auth_type is not None:
             pulumi.set(__self__, "auth_type", auth_type)
@@ -71,7 +71,7 @@ class ServiceNetworkArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        Specifies a tag for a service network.
+        The tags for the service network.
         """
         return pulumi.get(self, "tags")
 
@@ -101,7 +101,7 @@ class ServiceNetwork(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the service network. The name must be unique to the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
                
                If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies a tag for a service network.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags for the service network.
         """
         ...
     @overload
@@ -236,7 +236,7 @@ class ServiceNetwork(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        Specifies a tag for a service network.
+        The tags for the service network.
         """
         return pulumi.get(self, "tags")
 

@@ -29,7 +29,7 @@ export interface GetConfiguredTableArgs {
 
 export interface GetConfiguredTableResult {
     /**
-     * A specification about how data from the configured table can be used in a query.
+     * The entire created analysis rule.
      */
     readonly analysisRules?: outputs.cleanrooms.ConfiguredTableAnalysisRule[];
     /**

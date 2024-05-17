@@ -27,7 +27,7 @@ export interface GetMitigationActionArgs {
 
 export interface GetMitigationActionResult {
     /**
-     * Defines the type of action and the parameters for that action.
+     * The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
      */
     readonly actionParams?: outputs.iot.MitigationActionActionParams;
     /**

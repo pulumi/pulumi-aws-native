@@ -17,7 +17,9 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
     public sealed class ServiceCodeRepository
     {
         /// <summary>
-        /// Describes the configuration that AWS App Runner uses to build and run an App Runner service from a source code repository.
+        /// Configuration for building and running the service from a source code repository.
+        /// 
+        /// &gt; `CodeConfiguration` is required only for `CreateService` request.
         /// </summary>
         public readonly Outputs.ServiceCodeConfiguration? CodeConfiguration;
         /// <summary>
@@ -25,7 +27,7 @@ namespace Pulumi.AwsNative.AppRunner.Outputs
         /// </summary>
         public readonly string RepositoryUrl;
         /// <summary>
-        /// Identifies a version of code that AWS App Runner refers to within a source code repository.
+        /// The version that should be used within the source code repository.
         /// </summary>
         public readonly Outputs.ServiceSourceCodeVersion SourceCodeVersion;
         /// <summary>

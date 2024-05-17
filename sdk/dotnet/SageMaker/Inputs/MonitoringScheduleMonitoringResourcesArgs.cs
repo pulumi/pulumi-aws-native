@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     public sealed class MonitoringScheduleMonitoringResourcesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration for the cluster used to run model monitoring jobs.
+        /// The configuration for the cluster resources used to run the processing job.
         /// </summary>
         [Input("clusterConfig", required: true)]
         public Input<Inputs.MonitoringScheduleClusterConfigArgs> ClusterConfig { get; set; } = null!;

@@ -63,7 +63,7 @@ namespace Pulumi.AwsNative.XRay
         public readonly string? RuleArn;
         public readonly string? RuleName;
         /// <summary>
-        /// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+        /// The sampling rule to be created or updated.
         /// </summary>
         public readonly Outputs.SamplingRule? SamplingRuleValue;
         public readonly Outputs.SamplingRuleRecord? SamplingRuleRecord;

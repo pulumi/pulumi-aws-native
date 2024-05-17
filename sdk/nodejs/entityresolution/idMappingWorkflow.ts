@@ -43,11 +43,11 @@ export class IdMappingWorkflow extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * An object which defines the ID mapping techniques and provider configurations.
+     * An object which defines the `idMappingType` and the `providerProperties` .
      */
     public readonly idMappingTechniques!: pulumi.Output<outputs.entityresolution.IdMappingWorkflowIdMappingTechniques>;
     /**
-     * An object containing `InputSourceARN` , `SchemaName` , and `Type` .
+     * A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
      */
     public readonly inputSourceConfig!: pulumi.Output<outputs.entityresolution.IdMappingWorkflowInputSource[]>;
     /**
@@ -127,11 +127,11 @@ export interface IdMappingWorkflowArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * An object which defines the ID mapping techniques and provider configurations.
+     * An object which defines the `idMappingType` and the `providerProperties` .
      */
     idMappingTechniques: pulumi.Input<inputs.entityresolution.IdMappingWorkflowIdMappingTechniquesArgs>;
     /**
-     * An object containing `InputSourceARN` , `SchemaName` , and `Type` .
+     * A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
      */
     inputSourceConfig: pulumi.Input<pulumi.Input<inputs.entityresolution.IdMappingWorkflowInputSourceArgs>[]>;
     /**

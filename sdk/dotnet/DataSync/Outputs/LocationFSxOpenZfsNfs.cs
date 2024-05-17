@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.DataSync.Outputs
     public sealed class LocationFSxOpenZfsNfs
     {
         /// <summary>
-        /// Represents the mount options that are available for DataSync to access a Network File System (NFS) location.
+        /// Represents the mount options that are available for DataSync to access an NFS location.
         /// </summary>
         public readonly Outputs.LocationFSxOpenZfsMountOptions MountOptions;
 

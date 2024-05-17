@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.DynamoDb
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Represents an attribute for describing the schema for the table and indexes.
+        /// A list of attributes that describe the key schema for the global table and indexes.
         /// </summary>
         [Output("attributeDefinitions")]
         public Output<ImmutableArray<Outputs.GlobalTableAttributeDefinition>> AttributeDefinitions { get; private set; } = null!;
@@ -39,35 +39,39 @@ namespace Pulumi.AwsNative.DynamoDb
         public Output<string?> BillingMode { get; private set; } = null!;
 
         /// <summary>
-        /// Allows you to specify a global secondary index for the global table. The index will be defined on all replicas.
+        /// Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
+        /// 
+        /// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
         /// </summary>
         [Output("globalSecondaryIndexes")]
         public Output<ImmutableArray<Outputs.GlobalTableGlobalSecondaryIndex>> GlobalSecondaryIndexes { get; private set; } = null!;
 
         /// <summary>
-        /// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
-        /// 
-        /// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
-        /// 
-        /// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+        /// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
         /// </summary>
         [Output("keySchema")]
         public Output<ImmutableArray<Outputs.GlobalTableKeySchema>> KeySchema { get; private set; } = null!;
 
         /// <summary>
-        /// Represents the properties of a local secondary index. A local secondary index can only be created when its parent table is created.
+        /// Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
         /// </summary>
         [Output("localSecondaryIndexes")]
         public Output<ImmutableArray<Outputs.GlobalTableLocalSecondaryIndex>> LocalSecondaryIndexes { get; private set; } = null!;
 
         /// <summary>
-        /// Defines settings specific to a single replica of a global table.
+        /// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
+        /// 
+        /// &gt; Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
+        /// &gt; 
+        /// &gt; If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica. 
+        /// 
+        /// You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
         /// </summary>
         [Output("replicas")]
         public Output<ImmutableArray<Outputs.GlobalTableReplicaSpecification>> Replicas { get; private set; } = null!;
 
         /// <summary>
-        /// Represents the settings used to enable server-side encryption.
+        /// Specifies the settings to enable server-side encryption. These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
         /// </summary>
         [Output("sseSpecification")]
         public Output<Outputs.GlobalTableSseSpecification?> SseSpecification { get; private set; } = null!;
@@ -81,9 +85,7 @@ namespace Pulumi.AwsNative.DynamoDb
         public Output<string> StreamArn { get; private set; } = null!;
 
         /// <summary>
-        /// Represents the DynamoDB Streams configuration for a table in DynamoDB.
-        /// 
-        /// You can only modify this value if your `AWS::DynamoDB::GlobalTable` contains only one entry in `Replicas` . You must specify a value for this property if your `AWS::DynamoDB::GlobalTable` contains more than one replica.
+        /// Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
         /// </summary>
         [Output("streamSpecification")]
         public Output<Outputs.GlobalTableStreamSpecification?> StreamSpecification { get; private set; } = null!;
@@ -103,7 +105,7 @@ namespace Pulumi.AwsNative.DynamoDb
         public Output<string?> TableName { get; private set; } = null!;
 
         /// <summary>
-        /// Represents the settings used to enable or disable Time to Live (TTL) for the specified table. All replicas will have the same time to live configuration.
+        /// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
         /// </summary>
         [Output("timeToLiveSpecification")]
         public Output<Outputs.GlobalTableTimeToLiveSpecification?> TimeToLiveSpecification { get; private set; } = null!;
@@ -175,7 +177,7 @@ namespace Pulumi.AwsNative.DynamoDb
         private InputList<Inputs.GlobalTableAttributeDefinitionArgs>? _attributeDefinitions;
 
         /// <summary>
-        /// Represents an attribute for describing the schema for the table and indexes.
+        /// A list of attributes that describe the key schema for the global table and indexes.
         /// </summary>
         public InputList<Inputs.GlobalTableAttributeDefinitionArgs> AttributeDefinitions
         {
@@ -198,7 +200,9 @@ namespace Pulumi.AwsNative.DynamoDb
         private InputList<Inputs.GlobalTableGlobalSecondaryIndexArgs>? _globalSecondaryIndexes;
 
         /// <summary>
-        /// Allows you to specify a global secondary index for the global table. The index will be defined on all replicas.
+        /// Global secondary indexes to be created on the global table. You can create up to 20 global secondary indexes. Each replica in your global table will have the same global secondary index settings. You can only create or delete one global secondary index in a single stack operation.
+        /// 
+        /// Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
         /// </summary>
         public InputList<Inputs.GlobalTableGlobalSecondaryIndexArgs> GlobalSecondaryIndexes
         {
@@ -210,11 +214,7 @@ namespace Pulumi.AwsNative.DynamoDb
         private InputList<Inputs.GlobalTableKeySchemaArgs>? _keySchema;
 
         /// <summary>
-        /// Represents *a single element* of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
-        /// 
-        /// A `KeySchemaElement` represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one `KeySchemaElement` (for the partition key). A composite primary key would require one `KeySchemaElement` for the partition key, and another `KeySchemaElement` for the sort key.
-        /// 
-        /// A `KeySchemaElement` must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.
+        /// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
         /// </summary>
         public InputList<Inputs.GlobalTableKeySchemaArgs> KeySchema
         {
@@ -226,7 +226,7 @@ namespace Pulumi.AwsNative.DynamoDb
         private InputList<Inputs.GlobalTableLocalSecondaryIndexArgs>? _localSecondaryIndexes;
 
         /// <summary>
-        /// Represents the properties of a local secondary index. A local secondary index can only be created when its parent table is created.
+        /// Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
         /// </summary>
         public InputList<Inputs.GlobalTableLocalSecondaryIndexArgs> LocalSecondaryIndexes
         {
@@ -238,7 +238,13 @@ namespace Pulumi.AwsNative.DynamoDb
         private InputList<Inputs.GlobalTableReplicaSpecificationArgs>? _replicas;
 
         /// <summary>
-        /// Defines settings specific to a single replica of a global table.
+        /// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
+        /// 
+        /// &gt; Adding a replica might take a few minutes for an empty table, or up to several hours for large tables. If you want to add or remove a replica, we recommend submitting an `UpdateStack` operation containing only that change.
+        /// &gt; 
+        /// &gt; If you add or delete a replica during an update, we recommend that you don't update any other resources. If your stack fails to update and is rolled back while adding a new replica, you might need to manually delete the replica. 
+        /// 
+        /// You can create a new global table with as many replicas as needed. You can add or remove replicas after table creation, but you can only add or remove a single replica in each update.
         /// </summary>
         public InputList<Inputs.GlobalTableReplicaSpecificationArgs> Replicas
         {
@@ -247,15 +253,13 @@ namespace Pulumi.AwsNative.DynamoDb
         }
 
         /// <summary>
-        /// Represents the settings used to enable server-side encryption.
+        /// Specifies the settings to enable server-side encryption. These settings will be applied to all replicas. If you plan to use customer-managed KMS keys, you must provide a key for each replica using the `ReplicaSpecification.ReplicaSSESpecification` property.
         /// </summary>
         [Input("sseSpecification")]
         public Input<Inputs.GlobalTableSseSpecificationArgs>? SseSpecification { get; set; }
 
         /// <summary>
-        /// Represents the DynamoDB Streams configuration for a table in DynamoDB.
-        /// 
-        /// You can only modify this value if your `AWS::DynamoDB::GlobalTable` contains only one entry in `Replicas` . You must specify a value for this property if your `AWS::DynamoDB::GlobalTable` contains more than one replica.
+        /// Specifies the streams settings on your global table. You must provide a value for this property if your global table contains more than one replica. You can only change the streams settings if your global table has only one replica.
         /// </summary>
         [Input("streamSpecification")]
         public Input<Inputs.GlobalTableStreamSpecificationArgs>? StreamSpecification { get; set; }
@@ -269,7 +273,7 @@ namespace Pulumi.AwsNative.DynamoDb
         public Input<string>? TableName { get; set; }
 
         /// <summary>
-        /// Represents the settings used to enable or disable Time to Live (TTL) for the specified table. All replicas will have the same time to live configuration.
+        /// Specifies the time to live (TTL) settings for the table. This setting will be applied to all replicas.
         /// </summary>
         [Input("timeToLiveSpecification")]
         public Input<Inputs.GlobalTableTimeToLiveSpecificationArgs>? TimeToLiveSpecification { get; set; }

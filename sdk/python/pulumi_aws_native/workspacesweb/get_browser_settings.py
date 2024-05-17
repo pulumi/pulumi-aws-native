@@ -61,7 +61,7 @@ class GetBrowserSettingsResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        The tag.
+        The tags to add to the browser settings resource. A tag is a key-value pair.
         """
         return pulumi.get(self, "tags")
 

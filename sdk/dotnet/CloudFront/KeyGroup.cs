@@ -22,9 +22,7 @@ namespace Pulumi.AwsNative.CloudFront
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// A key group configuration.
-        /// 
-        /// A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) .
+        /// The key group configuration.
         /// </summary>
         [Output("keyGroupConfig")]
         public Output<Outputs.KeyGroupConfig> KeyGroupConfig { get; private set; } = null!;
@@ -81,9 +79,7 @@ namespace Pulumi.AwsNative.CloudFront
     public sealed class KeyGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A key group configuration.
-        /// 
-        /// A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html) .
+        /// The key group configuration.
         /// </summary>
         [Input("keyGroupConfig", required: true)]
         public Input<Inputs.KeyGroupConfigArgs> KeyGroupConfig { get; set; } = null!;

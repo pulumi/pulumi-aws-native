@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.VpcLattice.Inputs
         public Input<Inputs.ListenerFixedResponseArgs>? FixedResponse { get; set; }
 
         /// <summary>
-        /// The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+        /// Describes a forward action. You can use forward actions to route requests to one or more target groups.
         /// </summary>
         [Input("forward")]
         public Input<Inputs.ListenerForwardArgs>? Forward { get; set; }

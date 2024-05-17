@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public Output<Outputs.ManagedExecutionProperties?> ManagedExecution { get; private set; } = null!;
 
         /// <summary>
-        /// The user-specified preferences for how AWS CloudFormation performs a stack set operation. For more information on maximum concurrent accounts and failure tolerance, see [Stack set operation options](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options) .
+        /// The user-specified preferences for how AWS CloudFormation performs a stack set operation.
         /// </summary>
         [Output("operationPreferences")]
         public Output<Outputs.StackSetOperationPreferences?> OperationPreferences { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public Input<Inputs.ManagedExecutionPropertiesArgs>? ManagedExecution { get; set; }
 
         /// <summary>
-        /// The user-specified preferences for how AWS CloudFormation performs a stack set operation. For more information on maximum concurrent accounts and failure tolerance, see [Stack set operation options](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-ops-options) .
+        /// The user-specified preferences for how AWS CloudFormation performs a stack set operation.
         /// </summary>
         [Input("operationPreferences")]
         public Input<Inputs.StackSetOperationPreferencesArgs>? OperationPreferences { get; set; }

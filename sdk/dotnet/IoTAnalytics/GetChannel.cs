@@ -58,16 +58,18 @@ namespace Pulumi.AwsNative.IoTAnalytics
     public sealed class GetChannelResult
     {
         /// <summary>
-        /// Where channel data is stored. You may choose one of `serviceManagedS3` , `customerManagedS3` storage. If not specified, the default is `serviceManagedS3` . This can't be changed after creation of the channel.
+        /// Where channel data is stored.
         /// </summary>
         public readonly Outputs.ChannelStorage? ChannelStorage;
         public readonly string? Id;
         /// <summary>
-        /// How long, in days, message data is kept.
+        /// How long, in days, message data is kept for the channel.
         /// </summary>
         public readonly Outputs.ChannelRetentionPeriod? RetentionPeriod;
         /// <summary>
-        /// A set of key-value pairs that are used to manage the resource.
+        /// Metadata which can be used to manage the channel.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

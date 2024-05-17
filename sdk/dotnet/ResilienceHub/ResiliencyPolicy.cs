@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.ResilienceHub
         public Output<Pulumi.AwsNative.ResilienceHub.ResiliencyPolicyDataLocationConstraint?> DataLocationConstraint { get; private set; } = null!;
 
         /// <summary>
-        /// The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds.
+        /// The resiliency policy.
         /// </summary>
         [Output("policy")]
         public Output<Outputs.ResiliencyPolicyPolicyMap> Policy { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.AwsNative.ResilienceHub
         public Input<Pulumi.AwsNative.ResilienceHub.ResiliencyPolicyDataLocationConstraint>? DataLocationConstraint { get; set; }
 
         /// <summary>
-        /// The type of resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds.
+        /// The resiliency policy.
         /// </summary>
         [Input("policy", required: true)]
         public Input<Inputs.ResiliencyPolicyPolicyMapArgs> Policy { get; set; } = null!;

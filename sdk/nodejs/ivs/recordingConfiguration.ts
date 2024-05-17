@@ -42,7 +42,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The DestinationConfiguration property type describes the location where recorded videos will be stored. Each member represents a type of destination configuration. For recording, you define one and only one type of destination configuration.
+     * A destination configuration describes an S3 bucket where recorded video will be stored. See the DestinationConfiguration property type for more information.
      */
     public readonly destinationConfiguration!: pulumi.Output<outputs.ivs.RecordingConfigurationDestinationConfiguration>;
     /**
@@ -54,7 +54,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
      */
     public readonly recordingReconnectWindowSeconds!: pulumi.Output<number | undefined>;
     /**
-     * The RenditionConfiguration property type describes which renditions should be recorded for a stream.
+     * A rendition configuration describes which renditions should be recorded for a stream. See the RenditionConfiguration property type for more information.
      */
     public readonly renditionConfiguration!: pulumi.Output<outputs.ivs.RecordingConfigurationRenditionConfiguration | undefined>;
     /**
@@ -66,7 +66,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * The ThumbnailConfiguration property type describes a configuration of thumbnails for recorded video.
+     * A thumbnail configuration enables/disables the recording of thumbnails for a live session and controls the interval at which thumbnails are generated for the live session. See the ThumbnailConfiguration property type for more information.
      */
     public readonly thumbnailConfiguration!: pulumi.Output<outputs.ivs.RecordingConfigurationThumbnailConfiguration | undefined>;
 
@@ -114,7 +114,7 @@ export class RecordingConfiguration extends pulumi.CustomResource {
  */
 export interface RecordingConfigurationArgs {
     /**
-     * The DestinationConfiguration property type describes the location where recorded videos will be stored. Each member represents a type of destination configuration. For recording, you define one and only one type of destination configuration.
+     * A destination configuration describes an S3 bucket where recorded video will be stored. See the DestinationConfiguration property type for more information.
      */
     destinationConfiguration: pulumi.Input<inputs.ivs.RecordingConfigurationDestinationConfigurationArgs>;
     /**
@@ -126,7 +126,7 @@ export interface RecordingConfigurationArgs {
      */
     recordingReconnectWindowSeconds?: pulumi.Input<number>;
     /**
-     * The RenditionConfiguration property type describes which renditions should be recorded for a stream.
+     * A rendition configuration describes which renditions should be recorded for a stream. See the RenditionConfiguration property type for more information.
      */
     renditionConfiguration?: pulumi.Input<inputs.ivs.RecordingConfigurationRenditionConfigurationArgs>;
     /**
@@ -134,7 +134,7 @@ export interface RecordingConfigurationArgs {
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
-     * The ThumbnailConfiguration property type describes a configuration of thumbnails for recorded video.
+     * A thumbnail configuration enables/disables the recording of thumbnails for a live session and controls the interval at which thumbnails are generated for the live session. See the ThumbnailConfiguration property type for more information.
      */
     thumbnailConfiguration?: pulumi.Input<inputs.ivs.RecordingConfigurationThumbnailConfigurationArgs>;
 }

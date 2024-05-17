@@ -50,9 +50,7 @@ export class DocumentClassifier extends pulumi.CustomResource {
      */
     public readonly documentClassifierName!: pulumi.Output<string>;
     /**
-     * The input properties for training a document classifier.
-     *
-     * For more information on how the input file is formatted, see [Preparing training data](https://docs.aws.amazon.com/comprehend/latest/dg/prep-classifier-data.html) in the Comprehend Developer Guide.
+     * Specifies the format and location of the input data for the job.
      */
     public readonly inputDataConfig!: pulumi.Output<outputs.comprehend.DocumentClassifierInputDataConfig>;
     /**
@@ -83,11 +81,11 @@ export class DocumentClassifier extends pulumi.CustomResource {
      */
     public readonly modelPolicy!: pulumi.Output<string | undefined>;
     /**
-     * Provide the location for output data from a custom classifier job. This field is mandatory if you are training a native document model.
+     * Provides output results configuration parameters for custom classifier jobs.
      */
     public readonly outputDataConfig!: pulumi.Output<outputs.comprehend.DocumentClassifierOutputDataConfig | undefined>;
     /**
-     * A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+     * Tags to associate with the document classifier. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -102,7 +100,7 @@ export class DocumentClassifier extends pulumi.CustomResource {
      */
     public readonly volumeKmsKeyId!: pulumi.Output<string | undefined>;
     /**
-     * Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
+     * Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
      */
     public readonly vpcConfig!: pulumi.Output<outputs.comprehend.DocumentClassifierVpcConfig | undefined>;
 
@@ -174,9 +172,7 @@ export interface DocumentClassifierArgs {
      */
     documentClassifierName?: pulumi.Input<string>;
     /**
-     * The input properties for training a document classifier.
-     *
-     * For more information on how the input file is formatted, see [Preparing training data](https://docs.aws.amazon.com/comprehend/latest/dg/prep-classifier-data.html) in the Comprehend Developer Guide.
+     * Specifies the format and location of the input data for the job.
      */
     inputDataConfig: pulumi.Input<inputs.comprehend.DocumentClassifierInputDataConfigArgs>;
     /**
@@ -207,11 +203,11 @@ export interface DocumentClassifierArgs {
      */
     modelPolicy?: pulumi.Input<string>;
     /**
-     * Provide the location for output data from a custom classifier job. This field is mandatory if you are training a native document model.
+     * Provides output results configuration parameters for custom classifier jobs.
      */
     outputDataConfig?: pulumi.Input<inputs.comprehend.DocumentClassifierOutputDataConfigArgs>;
     /**
-     * A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+     * Tags to associate with the document classifier. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
@@ -226,7 +222,7 @@ export interface DocumentClassifierArgs {
      */
     volumeKmsKeyId?: pulumi.Input<string>;
     /**
-     * Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
+     * Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your custom classifier. For more information, see [Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html) .
      */
     vpcConfig?: pulumi.Input<inputs.comprehend.DocumentClassifierVpcConfigArgs>;
 }

@@ -29,8 +29,6 @@ namespace Pulumi.AwsNative.CloudFront
 
         /// <summary>
         /// A response headers policy configuration.
-        /// 
-        /// A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
         /// </summary>
         [Output("responseHeadersPolicyConfig")]
         public Output<Outputs.ResponseHeadersPolicyConfig> ResponseHeadersPolicyConfig { get; private set; } = null!;
@@ -82,8 +80,6 @@ namespace Pulumi.AwsNative.CloudFront
     {
         /// <summary>
         /// A response headers policy configuration.
-        /// 
-        /// A response headers policy configuration contains metadata about the response headers policy, and configurations for sets of HTTP response headers.
         /// </summary>
         [Input("responseHeadersPolicyConfig", required: true)]
         public Input<Inputs.ResponseHeadersPolicyConfigArgs> ResponseHeadersPolicyConfig { get; set; } = null!;

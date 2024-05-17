@@ -42,7 +42,7 @@ export class Schema extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Specifies the version of a schema.
+     * Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
      */
     public readonly checkpointVersion!: pulumi.Output<outputs.glue.SchemaVersion | undefined>;
     /**
@@ -66,7 +66,7 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies a registry in the AWS Glue Schema Registry.
+     * The registry where a schema is stored.
      */
     public readonly registry!: pulumi.Output<outputs.glue.SchemaRegistry | undefined>;
     /**
@@ -132,7 +132,7 @@ export class Schema extends pulumi.CustomResource {
  */
 export interface SchemaArgs {
     /**
-     * Specifies the version of a schema.
+     * Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
      */
     checkpointVersion?: pulumi.Input<inputs.glue.SchemaVersionArgs>;
     /**
@@ -152,7 +152,7 @@ export interface SchemaArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies a registry in the AWS Glue Schema Registry.
+     * The registry where a schema is stored.
      */
     registry?: pulumi.Input<inputs.glue.SchemaRegistryArgs>;
     /**

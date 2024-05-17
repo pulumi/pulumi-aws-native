@@ -31,7 +31,7 @@ class NetworkSettingsArgs:
         :param pulumi.Input[str] vpc_id: The VPC that streaming instances will connect to.
                
                *Pattern* : `^vpc-[0-9a-z]*$`
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tag.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the network settings resource. A tag is a key-value pair.
         """
         pulumi.set(__self__, "security_group_ids", security_group_ids)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
@@ -85,7 +85,7 @@ class NetworkSettingsArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The tag.
+        The tags to add to the network settings resource. A tag is a key-value pair.
         """
         return pulumi.get(self, "tags")
 
@@ -115,7 +115,7 @@ class NetworkSettings(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The subnets in which network interfaces are created to connect streaming instances to your VPC. At least two of these subnets must be in different availability zones.
                
                *Pattern* : `^subnet-([0-9a-f]{8}|[0-9a-f]{17})$`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tag.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to add to the network settings resource. A tag is a key-value pair.
         :param pulumi.Input[str] vpc_id: The VPC that streaming instances will connect to.
                
                *Pattern* : `^vpc-[0-9a-z]*$`
@@ -239,7 +239,7 @@ class NetworkSettings(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The tag.
+        The tags to add to the network settings resource. A tag is a key-value pair.
         """
         return pulumi.get(self, "tags")
 

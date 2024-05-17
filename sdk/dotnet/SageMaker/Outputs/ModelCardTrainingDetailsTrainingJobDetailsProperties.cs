@@ -16,9 +16,6 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ModelCardTrainingDetailsTrainingJobDetailsProperties
     {
-        /// <summary>
-        /// A hyper parameter that was configured in training the model.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ModelCardTrainingHyperParameter> HyperParameters;
         /// <summary>
         /// SageMaker Training job arn.
@@ -29,9 +26,6 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly ImmutableArray<string> TrainingDatasets;
         public readonly Outputs.ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties? TrainingEnvironment;
-        /// <summary>
-        /// A result from a SageMaker training job.
-        /// </summary>
         public readonly ImmutableArray<Outputs.ModelCardTrainingMetric> TrainingMetrics;
         public readonly ImmutableArray<Outputs.ModelCardTrainingHyperParameter> UserProvidedHyperParameters;
         public readonly ImmutableArray<Outputs.ModelCardTrainingMetric> UserProvidedTrainingMetrics;

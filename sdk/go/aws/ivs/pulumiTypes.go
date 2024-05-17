@@ -45,7 +45,7 @@ type PlaybackRestrictionPolicyTag struct {
 
 // Recording Destination Configuration.
 type RecordingConfigurationDestinationConfiguration struct {
-	// The S3DestinationConfiguration property type describes an S3 location where recorded videos will be stored.
+	// An S3 destination configuration where recorded videos will be stored. See the [S3DestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html) property type for more information.
 	S3 *RecordingConfigurationS3DestinationConfiguration `pulumi:"s3"`
 }
 
@@ -62,7 +62,7 @@ type RecordingConfigurationDestinationConfigurationInput interface {
 
 // Recording Destination Configuration.
 type RecordingConfigurationDestinationConfigurationArgs struct {
-	// The S3DestinationConfiguration property type describes an S3 location where recorded videos will be stored.
+	// An S3 destination configuration where recorded videos will be stored. See the [S3DestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html) property type for more information.
 	S3 RecordingConfigurationS3DestinationConfigurationPtrInput `pulumi:"s3"`
 }
 
@@ -93,7 +93,7 @@ func (o RecordingConfigurationDestinationConfigurationOutput) ToRecordingConfigu
 	return o
 }
 
-// The S3DestinationConfiguration property type describes an S3 location where recorded videos will be stored.
+// An S3 destination configuration where recorded videos will be stored. See the [S3DestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html) property type for more information.
 func (o RecordingConfigurationDestinationConfigurationOutput) S3() RecordingConfigurationS3DestinationConfigurationPtrOutput {
 	return o.ApplyT(func(v RecordingConfigurationDestinationConfiguration) *RecordingConfigurationS3DestinationConfiguration {
 		return v.S3

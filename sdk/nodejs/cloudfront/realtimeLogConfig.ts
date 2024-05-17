@@ -42,7 +42,7 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+     * Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
      */
     public readonly endPoints!: pulumi.Output<outputs.cloudfront.RealtimeLogConfigEndPoint[]>;
     /**
@@ -104,7 +104,7 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
  */
 export interface RealtimeLogConfigArgs {
     /**
-     * Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
+     * Contains information about the Amazon Kinesis data stream where you are sending real-time log data for this real-time log configuration.
      */
     endPoints: pulumi.Input<pulumi.Input<inputs.cloudfront.RealtimeLogConfigEndPointArgs>[]>;
     /**

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
     public sealed class TopicRuleIotSiteWiseAction
     {
         /// <summary>
-        /// An asset property value entry containing the following information.
+        /// A list of asset property value entries.
         /// </summary>
         public readonly ImmutableArray<Outputs.TopicRulePutAssetPropertyValueEntry> PutAssetPropertyValueEntries;
         /// <summary>

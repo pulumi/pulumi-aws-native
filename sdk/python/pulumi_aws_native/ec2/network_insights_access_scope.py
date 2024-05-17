@@ -24,9 +24,9 @@ class NetworkInsightsAccessScopeArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a NetworkInsightsAccessScope resource.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeAccessScopePathRequestArgs']]] exclude_paths: Describes a path.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeAccessScopePathRequestArgs']]] match_paths: Describes a path.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeAccessScopePathRequestArgs']]] exclude_paths: The paths to exclude.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeAccessScopePathRequestArgs']]] match_paths: The paths to match.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags.
         """
         if exclude_paths is not None:
             pulumi.set(__self__, "exclude_paths", exclude_paths)
@@ -39,7 +39,7 @@ class NetworkInsightsAccessScopeArgs:
     @pulumi.getter(name="excludePaths")
     def exclude_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeAccessScopePathRequestArgs']]]]:
         """
-        Describes a path.
+        The paths to exclude.
         """
         return pulumi.get(self, "exclude_paths")
 
@@ -51,7 +51,7 @@ class NetworkInsightsAccessScopeArgs:
     @pulumi.getter(name="matchPaths")
     def match_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAccessScopeAccessScopePathRequestArgs']]]]:
         """
-        Describes a path.
+        The paths to match.
         """
         return pulumi.get(self, "match_paths")
 
@@ -63,7 +63,7 @@ class NetworkInsightsAccessScopeArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        The tags.
         """
         return pulumi.get(self, "tags")
 
@@ -86,9 +86,9 @@ class NetworkInsightsAccessScope(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInsightsAccessScopeAccessScopePathRequestArgs']]]] exclude_paths: Describes a path.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInsightsAccessScopeAccessScopePathRequestArgs']]]] match_paths: Describes a path.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInsightsAccessScopeAccessScopePathRequestArgs']]]] exclude_paths: The paths to exclude.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInsightsAccessScopeAccessScopePathRequestArgs']]]] match_paths: The paths to match.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags.
         """
         ...
     @overload
@@ -178,7 +178,7 @@ class NetworkInsightsAccessScope(pulumi.CustomResource):
     @pulumi.getter(name="excludePaths")
     def exclude_paths(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkInsightsAccessScopeAccessScopePathRequest']]]:
         """
-        Describes a path.
+        The paths to exclude.
         """
         return pulumi.get(self, "exclude_paths")
 
@@ -186,7 +186,7 @@ class NetworkInsightsAccessScope(pulumi.CustomResource):
     @pulumi.getter(name="matchPaths")
     def match_paths(self) -> pulumi.Output[Optional[Sequence['outputs.NetworkInsightsAccessScopeAccessScopePathRequest']]]:
         """
-        Describes a path.
+        The paths to match.
         """
         return pulumi.get(self, "match_paths")
 
@@ -210,7 +210,7 @@ class NetworkInsightsAccessScope(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        Specifies a tag. For more information, see [Add tags to a resource](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#cloudformation-add-tag-specifications) .
+        The tags.
         """
         return pulumi.get(self, "tags")
 

@@ -23,7 +23,7 @@ class ConnectionAliasArgs:
         """
         The set of arguments for constructing a ConnectionAlias resource.
         :param pulumi.Input[str] connection_string: The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as `www.example.com` .
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: Describes a tag.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The tags to associate with the connection alias.
         """
         pulumi.set(__self__, "connection_string", connection_string)
         if tags is not None:
@@ -45,7 +45,7 @@ class ConnectionAliasArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
-        Describes a tag.
+        The tags to associate with the connection alias.
         """
         return pulumi.get(self, "tags")
 
@@ -68,7 +68,7 @@ class ConnectionAlias(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_string: The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as `www.example.com` .
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: Describes a tag.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.CreateOnlyTagArgs']]]] tags: The tags to associate with the connection alias.
         """
         ...
     @overload
@@ -155,7 +155,7 @@ class ConnectionAlias(pulumi.CustomResource):
     @pulumi.getter
     def associations(self) -> pulumi.Output[Sequence['outputs.ConnectionAliasAssociation']]:
         """
-        Describes a connection alias association that is used for cross-Region redirection. For more information, see [Cross-Region Redirection for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html) .
+        The association status of the connection alias.
         """
         return pulumi.get(self, "associations")
 
@@ -179,7 +179,7 @@ class ConnectionAlias(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
         """
-        Describes a tag.
+        The tags to associate with the connection alias.
         """
         return pulumi.get(self, "tags")
 

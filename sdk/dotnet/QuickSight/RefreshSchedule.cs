@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Output<string?> DataSetId { get; private set; } = null!;
 
         /// <summary>
-        /// A summary of a configured refresh schedule for a dataset.
+        /// The refresh schedule of a dataset.
         /// </summary>
         [Output("schedule")]
         public Output<Outputs.RefreshScheduleMap?> Schedule { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.QuickSight
         public Input<string>? DataSetId { get; set; }
 
         /// <summary>
-        /// A summary of a configured refresh schedule for a dataset.
+        /// The refresh schedule of a dataset.
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.RefreshScheduleMapArgs>? Schedule { get; set; }

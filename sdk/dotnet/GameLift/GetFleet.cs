@@ -78,9 +78,9 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         public readonly string? FleetId;
         /// <summary>
-        /// *This data type has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+        /// A set of remote locations to deploy additional instances to and manage as part of the fleet. This parameter can only be used when creating fleets in AWS Regions that support multiple locations. You can add any Amazon GameLift-supported AWS Region as a remote location, in the form of an AWS Region code, such as `us-west-2` or Local Zone code. To create a fleet with instances in the home Region only, don't set this parameter.
         /// 
-        /// A remote location where a multi-location fleet can deploy game servers for game hosting.
+        /// When using this parameter, Amazon GameLift requires you to include your home location in the request.
         /// </summary>
         public readonly ImmutableArray<Outputs.FleetLocationConfiguration> Locations;
         /// <summary>

@@ -32,7 +32,7 @@ type LookupTopicArgs struct {
 type LookupTopicResult struct {
 	// The Amazon Resource Name (ARN) of the topic.
 	Arn *string `pulumi:"arn"`
-	// A structure that represents a dataset.
+	// The data sets that the topic is associated with.
 	DataSets []TopicDatasetMetadata `pulumi:"dataSets"`
 	// The description of the topic.
 	Description *string `pulumi:"description"`
@@ -85,7 +85,7 @@ func (o LookupTopicResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// A structure that represents a dataset.
+// The data sets that the topic is associated with.
 func (o LookupTopicResultOutput) DataSets() TopicDatasetMetadataArrayOutput {
 	return o.ApplyT(func(v LookupTopicResult) []TopicDatasetMetadata { return v.DataSets }).(TopicDatasetMetadataArrayOutput)
 }

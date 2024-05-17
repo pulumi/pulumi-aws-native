@@ -39,7 +39,7 @@ export class Detector extends pulumi.CustomResource {
 
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
-     * Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
+     * Describes which data sources will be enabled for the detector.
      */
     public readonly dataSources!: pulumi.Output<outputs.guardduty.DetectorCfnDataSourceConfigurations | undefined>;
     /**
@@ -47,7 +47,7 @@ export class Detector extends pulumi.CustomResource {
      */
     public readonly enable!: pulumi.Output<boolean>;
     /**
-     * Information about the configuration of a feature in your account.
+     * A list of features that will be configured for the detector.
      */
     public readonly features!: pulumi.Output<outputs.guardduty.DetectorCfnFeatureConfiguration[] | undefined>;
     /**
@@ -55,7 +55,11 @@ export class Detector extends pulumi.CustomResource {
      */
     public readonly findingPublishingFrequency!: pulumi.Output<string | undefined>;
     /**
-     * Describes a tag.
+     * Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
+     *
+     * Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -97,7 +101,7 @@ export class Detector extends pulumi.CustomResource {
  */
 export interface DetectorArgs {
     /**
-     * Describes whether S3 data event logs, Kubernetes audit logs, or Malware Protection will be enabled as a data source when the detector is created.
+     * Describes which data sources will be enabled for the detector.
      */
     dataSources?: pulumi.Input<inputs.guardduty.DetectorCfnDataSourceConfigurationsArgs>;
     /**
@@ -105,7 +109,7 @@ export interface DetectorArgs {
      */
     enable: pulumi.Input<boolean>;
     /**
-     * Information about the configuration of a feature in your account.
+     * A list of features that will be configured for the detector.
      */
     features?: pulumi.Input<pulumi.Input<inputs.guardduty.DetectorCfnFeatureConfigurationArgs>[]>;
     /**
@@ -113,7 +117,11 @@ export interface DetectorArgs {
      */
     findingPublishingFrequency?: pulumi.Input<string>;
     /**
-     * Describes a tag.
+     * Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
+     *
+     * Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

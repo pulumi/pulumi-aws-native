@@ -42,7 +42,7 @@ export class ConnectionAlias extends pulumi.CustomResource {
      */
     public /*out*/ readonly aliasId!: pulumi.Output<string>;
     /**
-     * Describes a connection alias association that is used for cross-Region redirection. For more information, see [Cross-Region Redirection for Amazon WorkSpaces](https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html) .
+     * The association status of the connection alias.
      */
     public /*out*/ readonly associations!: pulumi.Output<outputs.workspaces.ConnectionAliasAssociation[]>;
     /**
@@ -54,7 +54,7 @@ export class ConnectionAlias extends pulumi.CustomResource {
      */
     public readonly connectionString!: pulumi.Output<string>;
     /**
-     * Describes a tag.
+     * The tags to associate with the connection alias.
      */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
@@ -100,7 +100,7 @@ export interface ConnectionAliasArgs {
      */
     connectionString: pulumi.Input<string>;
     /**
-     * Describes a tag.
+     * The tags to associate with the connection alias.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
 }

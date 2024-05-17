@@ -27,7 +27,7 @@ type ResponsePlan struct {
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The list of engagements to use.
 	Engagements pulumi.StringArrayOutput `pulumi:"engagements"`
-	// The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
+	// Details used to create an incident when using this response plan.
 	IncidentTemplate ResponsePlanIncidentTemplateOutput `pulumi:"incidentTemplate"`
 	// The list of integrations.
 	Integrations ResponsePlanIntegrationArrayOutput `pulumi:"integrations"`
@@ -92,7 +92,7 @@ type responsePlanArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The list of engagements to use.
 	Engagements []string `pulumi:"engagements"`
-	// The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
+	// Details used to create an incident when using this response plan.
 	IncidentTemplate ResponsePlanIncidentTemplate `pulumi:"incidentTemplate"`
 	// The list of integrations.
 	Integrations []ResponsePlanIntegration `pulumi:"integrations"`
@@ -112,7 +112,7 @@ type ResponsePlanArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// The list of engagements to use.
 	Engagements pulumi.StringArrayInput
-	// The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
+	// Details used to create an incident when using this response plan.
 	IncidentTemplate ResponsePlanIncidentTemplateInput
 	// The list of integrations.
 	Integrations ResponsePlanIntegrationArrayInput
@@ -184,7 +184,7 @@ func (o ResponsePlanOutput) Engagements() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResponsePlan) pulumi.StringArrayOutput { return v.Engagements }).(pulumi.StringArrayOutput)
 }
 
-// The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
+// Details used to create an incident when using this response plan.
 func (o ResponsePlanOutput) IncidentTemplate() ResponsePlanIncidentTemplateOutput {
 	return o.ApplyT(func(v *ResponsePlan) ResponsePlanIncidentTemplateOutput { return v.IncidentTemplate }).(ResponsePlanIncidentTemplateOutput)
 }

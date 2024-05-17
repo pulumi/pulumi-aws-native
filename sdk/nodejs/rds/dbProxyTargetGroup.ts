@@ -38,7 +38,7 @@ export class DbProxyTargetGroup extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+     * Settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
      */
     public readonly connectionPoolConfigurationInfo!: pulumi.Output<outputs.rds.DbProxyTargetGroupConnectionPoolConfigurationInfoFormat | undefined>;
     /**
@@ -105,7 +105,7 @@ export class DbProxyTargetGroup extends pulumi.CustomResource {
  */
 export interface DbProxyTargetGroupArgs {
     /**
-     * Specifies the settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
+     * Settings that control the size and behavior of the connection pool associated with a `DBProxyTargetGroup` .
      */
     connectionPoolConfigurationInfo?: pulumi.Input<inputs.rds.DbProxyTargetGroupConnectionPoolConfigurationInfoFormatArgs>;
     /**

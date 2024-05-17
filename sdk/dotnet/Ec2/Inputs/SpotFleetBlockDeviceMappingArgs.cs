@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<string> DeviceName { get; set; } = null!;
 
         /// <summary>
-        /// Describes a block device for an EBS volume.
+        /// Parameters used to automatically set up EBS volumes when the instance is launched.
         /// </summary>
         [Input("ebs")]
         public Input<Inputs.SpotFleetEbsBlockDeviceArgs>? Ebs { get; set; }

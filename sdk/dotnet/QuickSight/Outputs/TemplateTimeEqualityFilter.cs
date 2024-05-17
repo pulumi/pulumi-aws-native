@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateTimeEqualityFilter
     {
         /// <summary>
-        /// A column of a data set.
+        /// The column that the filter is applied to.
         /// </summary>
         public readonly Outputs.TemplateColumnIdentifier Column;
         /// <summary>
-        /// The default configuration for all dependent controls of the filter.
+        /// The default configurations for the associated controls. This applies only for filters that are scoped to multiple sheets.
         /// </summary>
         public readonly Outputs.TemplateDefaultFilterControlConfiguration? DefaultFilterControlConfiguration;
         /// <summary>
@@ -32,7 +32,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string? ParameterName;
         /// <summary>
-        /// The rolling date configuration of a date time filter.
+        /// The rolling date input for the `TimeEquality` filter.
+        /// 
+        /// This field is mutually exclusive to `Value` and `ParameterName` .
         /// </summary>
         public readonly Outputs.TemplateRollingDateConfiguration? RollingDate;
         /// <summary>

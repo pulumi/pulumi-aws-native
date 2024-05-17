@@ -160,8 +160,8 @@ class LocationFSxOntapProtocolArgs:
                  smb: Optional[pulumi.Input['LocationFSxOntapSmbArgs']] = None):
         """
         Configuration settings for NFS or SMB protocol.
-        :param pulumi.Input['LocationFSxOntapNfsArgs'] nfs: Specifies the Network File System (NFS) protocol configuration that AWS DataSync uses to access a storage virtual machine (SVM) on your Amazon FSx for NetApp ONTAP file system. For more information, see [Accessing FSx for ONTAP file systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access) .
-        :param pulumi.Input['LocationFSxOntapSmbArgs'] smb: Specifies the Server Message Block (SMB) protocol configuration that AWS DataSync uses to access a storage virtual machine (SVM) on your Amazon FSx for NetApp ONTAP file system. For more information, see [Accessing FSx for ONTAP file systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access) .
+        :param pulumi.Input['LocationFSxOntapNfsArgs'] nfs: Specifies the Network File System (NFS) protocol configuration that DataSync uses to access your FSx for ONTAP file system's storage virtual machine (SVM).
+        :param pulumi.Input['LocationFSxOntapSmbArgs'] smb: Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your FSx for ONTAP file system's SVM.
         """
         if nfs is not None:
             pulumi.set(__self__, "nfs", nfs)
@@ -172,7 +172,7 @@ class LocationFSxOntapProtocolArgs:
     @pulumi.getter
     def nfs(self) -> Optional[pulumi.Input['LocationFSxOntapNfsArgs']]:
         """
-        Specifies the Network File System (NFS) protocol configuration that AWS DataSync uses to access a storage virtual machine (SVM) on your Amazon FSx for NetApp ONTAP file system. For more information, see [Accessing FSx for ONTAP file systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access) .
+        Specifies the Network File System (NFS) protocol configuration that DataSync uses to access your FSx for ONTAP file system's storage virtual machine (SVM).
         """
         return pulumi.get(self, "nfs")
 
@@ -184,7 +184,7 @@ class LocationFSxOntapProtocolArgs:
     @pulumi.getter
     def smb(self) -> Optional[pulumi.Input['LocationFSxOntapSmbArgs']]:
         """
-        Specifies the Server Message Block (SMB) protocol configuration that AWS DataSync uses to access a storage virtual machine (SVM) on your Amazon FSx for NetApp ONTAP file system. For more information, see [Accessing FSx for ONTAP file systems](https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access) .
+        Specifies the Server Message Block (SMB) protocol configuration that DataSync uses to access your FSx for ONTAP file system's SVM.
         """
         return pulumi.get(self, "smb")
 
@@ -226,7 +226,7 @@ class LocationFSxOntapSmbArgs:
                  domain: Optional[pulumi.Input[str]] = None):
         """
         SMB protocol configuration for FSx ONTAP file system.
-        :param pulumi.Input['LocationFSxOntapSmbMountOptionsArgs'] mount_options: Specifies the version of the Server Message Block (SMB) protocol that AWS DataSync uses to access an SMB file server.
+        :param pulumi.Input['LocationFSxOntapSmbMountOptionsArgs'] mount_options: Specifies how DataSync can access a location using the SMB protocol.
         :param pulumi.Input[str] password: The password of the user who can mount the share and has the permissions to access files and folders in the SMB share.
         :param pulumi.Input[str] user: The user who can mount the share, has the permissions to access files and folders in the SMB share.
         :param pulumi.Input[str] domain: The name of the Windows domain that the SMB server belongs to.
@@ -241,7 +241,7 @@ class LocationFSxOntapSmbArgs:
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> pulumi.Input['LocationFSxOntapSmbMountOptionsArgs']:
         """
-        Specifies the version of the Server Message Block (SMB) protocol that AWS DataSync uses to access an SMB file server.
+        Specifies how DataSync can access a location using the SMB protocol.
         """
         return pulumi.get(self, "mount_options")
 
@@ -316,7 +316,7 @@ class LocationFSxOpenZfsNfsArgs:
                  mount_options: pulumi.Input['LocationFSxOpenZfsMountOptionsArgs']):
         """
         FSx OpenZFS file system NFS protocol information
-        :param pulumi.Input['LocationFSxOpenZfsMountOptionsArgs'] mount_options: Represents the mount options that are available for DataSync to access a Network File System (NFS) location.
+        :param pulumi.Input['LocationFSxOpenZfsMountOptionsArgs'] mount_options: Represents the mount options that are available for DataSync to access an NFS location.
         """
         pulumi.set(__self__, "mount_options", mount_options)
 
@@ -324,7 +324,7 @@ class LocationFSxOpenZfsNfsArgs:
     @pulumi.getter(name="mountOptions")
     def mount_options(self) -> pulumi.Input['LocationFSxOpenZfsMountOptionsArgs']:
         """
-        Represents the mount options that are available for DataSync to access a Network File System (NFS) location.
+        Represents the mount options that are available for DataSync to access an NFS location.
         """
         return pulumi.get(self, "mount_options")
 
@@ -339,7 +339,7 @@ class LocationFSxOpenZfsProtocolArgs:
                  nfs: Optional[pulumi.Input['LocationFSxOpenZfsNfsArgs']] = None):
         """
         Configuration settings for an NFS or SMB protocol, currently only support NFS
-        :param pulumi.Input['LocationFSxOpenZfsNfsArgs'] nfs: Represents the Network File System (NFS) protocol that AWS DataSync uses to access your Amazon FSx for OpenZFS file system.
+        :param pulumi.Input['LocationFSxOpenZfsNfsArgs'] nfs: Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system.
         """
         if nfs is not None:
             pulumi.set(__self__, "nfs", nfs)
@@ -348,7 +348,7 @@ class LocationFSxOpenZfsProtocolArgs:
     @pulumi.getter
     def nfs(self) -> Optional[pulumi.Input['LocationFSxOpenZfsNfsArgs']]:
         """
-        Represents the Network File System (NFS) protocol that AWS DataSync uses to access your Amazon FSx for OpenZFS file system.
+        Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system.
         """
         return pulumi.get(self, "nfs")
 
@@ -652,7 +652,6 @@ class TaskManifestConfigSourcePropertiesArgs:
                  s3: Optional[pulumi.Input['TaskManifestConfigSourceS3Args']] = None):
         """
         Specifies the manifest that you want DataSync to use and where it's hosted.
-        :param pulumi.Input['TaskManifestConfigSourceS3Args'] s3: Specifies the S3 bucket where you're hosting the manifest that you want AWS DataSync to use. For more information and configuration examples, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
         """
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
@@ -660,9 +659,6 @@ class TaskManifestConfigSourcePropertiesArgs:
     @property
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['TaskManifestConfigSourceS3Args']]:
-        """
-        Specifies the S3 bucket where you're hosting the manifest that you want AWS DataSync to use. For more information and configuration examples, see [Specifying what DataSync transfers by using a manifest](https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html) .
-        """
         return pulumi.get(self, "s3")
 
     @s3.setter
@@ -1051,7 +1047,6 @@ class TaskReportConfigDestinationPropertiesArgs:
                  s3: Optional[pulumi.Input['TaskReportConfigDestinationS3Args']] = None):
         """
         Specifies where DataSync uploads your task report.
-        :param pulumi.Input['TaskReportConfigDestinationS3Args'] s3: Specifies the Amazon S3 bucket where DataSync uploads your [task report](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
         """
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
@@ -1059,9 +1054,6 @@ class TaskReportConfigDestinationPropertiesArgs:
     @property
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['TaskReportConfigDestinationS3Args']]:
-        """
-        Specifies the Amazon S3 bucket where DataSync uploads your [task report](https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html) .
-        """
         return pulumi.get(self, "s3")
 
     @s3.setter

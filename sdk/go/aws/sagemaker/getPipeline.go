@@ -39,11 +39,7 @@ type LookupPipelineResult struct {
 	PipelineDisplayName *string `pulumi:"pipelineDisplayName"`
 	// Role Arn
 	RoleArn *string `pulumi:"roleArn"`
-	// A tag object that consists of a key and an optional value, used to manage metadata for SageMaker AWS resources.
-	//
-	// You can add tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform jobs, models, labeling jobs, work teams, endpoint configurations, and endpoints. For more information on adding tags to SageMaker resources, see [AddTags](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html) .
-	//
-	// For more information on adding metadata to your AWS resources with tagging, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) . For advice on best practices for managing AWS resources with tagging, see [Tagging Best Practices: Implement an Effective AWS Resource Tagging Strategy](https://docs.aws.amazon.com/https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf) .
+	// The tags of the pipeline.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -108,11 +104,7 @@ func (o LookupPipelineResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPipelineResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// A tag object that consists of a key and an optional value, used to manage metadata for SageMaker AWS resources.
-//
-// You can add tags to notebook instances, training jobs, hyperparameter tuning jobs, batch transform jobs, models, labeling jobs, work teams, endpoint configurations, and endpoints. For more information on adding tags to SageMaker resources, see [AddTags](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AddTags.html) .
-//
-// For more information on adding metadata to your AWS resources with tagging, see [Tagging AWS resources](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) . For advice on best practices for managing AWS resources with tagging, see [Tagging Best Practices: Implement an Effective AWS Resource Tagging Strategy](https://docs.aws.amazon.com/https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf) .
+// The tags of the pipeline.
 func (o LookupPipelineResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupPipelineResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -31,7 +31,7 @@ class EnvironmentBlueprintConfigurationArgs:
                In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
         :param pulumi.Input[str] manage_access_role_arn: The ARN of the manage access role.
         :param pulumi.Input[str] provisioning_role_arn: The ARN of the provisioning role.
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentBlueprintConfigurationRegionalParameterArgs']]] regional_parameters: The regional parameters in the environment blueprint.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentBlueprintConfigurationRegionalParameterArgs']]] regional_parameters: The regional parameters of the environment blueprint.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
         pulumi.set(__self__, "enabled_regions", enabled_regions)
@@ -109,7 +109,7 @@ class EnvironmentBlueprintConfigurationArgs:
     @pulumi.getter(name="regionalParameters")
     def regional_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentBlueprintConfigurationRegionalParameterArgs']]]]:
         """
-        The regional parameters in the environment blueprint.
+        The regional parameters of the environment blueprint.
         """
         return pulumi.get(self, "regional_parameters")
 
@@ -142,7 +142,7 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
                In the current release, only the following values are supported: `DefaultDataLake` and `DefaultDataWarehouse` .
         :param pulumi.Input[str] manage_access_role_arn: The ARN of the manage access role.
         :param pulumi.Input[str] provisioning_role_arn: The ARN of the provisioning role.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentBlueprintConfigurationRegionalParameterArgs']]]] regional_parameters: The regional parameters in the environment blueprint.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentBlueprintConfigurationRegionalParameterArgs']]]] regional_parameters: The regional parameters of the environment blueprint.
         """
         ...
     @overload
@@ -305,7 +305,7 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="regionalParameters")
     def regional_parameters(self) -> pulumi.Output[Optional[Sequence['outputs.EnvironmentBlueprintConfigurationRegionalParameter']]]:
         """
-        The regional parameters in the environment blueprint.
+        The regional parameters of the environment blueprint.
         """
         return pulumi.get(self, "regional_parameters")
 

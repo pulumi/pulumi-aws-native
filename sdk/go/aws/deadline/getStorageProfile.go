@@ -32,7 +32,7 @@ type LookupStorageProfileArgs struct {
 type LookupStorageProfileResult struct {
 	// The display name of the storage profile summary to update.
 	DisplayName *string `pulumi:"displayName"`
-	// The details of the file system location for the resource.
+	// Operating system specific file system path to the storage location.
 	FileSystemLocations []StorageProfileFileSystemLocation `pulumi:"fileSystemLocations"`
 	// The operating system (OS) family.
 	OsFamily *StorageProfileOperatingSystemFamily `pulumi:"osFamily"`
@@ -83,7 +83,7 @@ func (o LookupStorageProfileResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupStorageProfileResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// The details of the file system location for the resource.
+// Operating system specific file system path to the storage location.
 func (o LookupStorageProfileResultOutput) FileSystemLocations() StorageProfileFileSystemLocationArrayOutput {
 	return o.ApplyT(func(v LookupStorageProfileResult) []StorageProfileFileSystemLocation { return v.FileSystemLocations }).(StorageProfileFileSystemLocationArrayOutput)
 }

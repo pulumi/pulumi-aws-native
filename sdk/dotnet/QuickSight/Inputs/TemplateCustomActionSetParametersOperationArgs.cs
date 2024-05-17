@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.TemplateSetParameterValueConfigurationArgs>? _parameterValueConfigurations;
 
         /// <summary>
-        /// The configuration of adding parameters in action.
+        /// The parameter that determines the value configuration.
         /// </summary>
         public InputList<Inputs.TemplateSetParameterValueConfigurationArgs> ParameterValueConfigurations
         {

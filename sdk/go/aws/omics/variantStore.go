@@ -24,9 +24,9 @@ type VariantStore struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A name for the store.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The read set's genome reference ARN.
+	// The genome reference for the store's variants.
 	Reference VariantStoreReferenceItemOutput `pulumi:"reference"`
-	// Server-side encryption (SSE) settings for a store.
+	// Server-side encryption (SSE) settings for the store.
 	SseConfig VariantStoreSseConfigPtrOutput `pulumi:"sseConfig"`
 	// The store's status.
 	Status VariantStoreStoreStatusOutput `pulumi:"status"`
@@ -96,9 +96,9 @@ type variantStoreArgs struct {
 	Description *string `pulumi:"description"`
 	// A name for the store.
 	Name *string `pulumi:"name"`
-	// The read set's genome reference ARN.
+	// The genome reference for the store's variants.
 	Reference VariantStoreReferenceItem `pulumi:"reference"`
-	// Server-side encryption (SSE) settings for a store.
+	// Server-side encryption (SSE) settings for the store.
 	SseConfig *VariantStoreSseConfig `pulumi:"sseConfig"`
 	// Tags for the store.
 	Tags map[string]string `pulumi:"tags"`
@@ -110,9 +110,9 @@ type VariantStoreArgs struct {
 	Description pulumi.StringPtrInput
 	// A name for the store.
 	Name pulumi.StringPtrInput
-	// The read set's genome reference ARN.
+	// The genome reference for the store's variants.
 	Reference VariantStoreReferenceItemInput
-	// Server-side encryption (SSE) settings for a store.
+	// Server-side encryption (SSE) settings for the store.
 	SseConfig VariantStoreSseConfigPtrInput
 	// Tags for the store.
 	Tags pulumi.StringMapInput
@@ -175,12 +175,12 @@ func (o VariantStoreOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VariantStore) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The read set's genome reference ARN.
+// The genome reference for the store's variants.
 func (o VariantStoreOutput) Reference() VariantStoreReferenceItemOutput {
 	return o.ApplyT(func(v *VariantStore) VariantStoreReferenceItemOutput { return v.Reference }).(VariantStoreReferenceItemOutput)
 }
 
-// Server-side encryption (SSE) settings for a store.
+// Server-side encryption (SSE) settings for the store.
 func (o VariantStoreOutput) SseConfig() VariantStoreSseConfigPtrOutput {
 	return o.ApplyT(func(v *VariantStore) VariantStoreSseConfigPtrOutput { return v.SseConfig }).(VariantStoreSseConfigPtrOutput)
 }

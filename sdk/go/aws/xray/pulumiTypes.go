@@ -553,8 +553,7 @@ type SamplingRuleRecord struct {
 	// When the rule was created, in Unix time seconds.
 	CreatedAt *string `pulumi:"createdAt"`
 	// When the rule was modified, in Unix time seconds.
-	ModifiedAt *string `pulumi:"modifiedAt"`
-	// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+	ModifiedAt   *string           `pulumi:"modifiedAt"`
 	SamplingRule *SamplingRuleType `pulumi:"samplingRule"`
 }
 
@@ -573,8 +572,7 @@ type SamplingRuleRecordArgs struct {
 	// When the rule was created, in Unix time seconds.
 	CreatedAt pulumi.StringPtrInput `pulumi:"createdAt"`
 	// When the rule was modified, in Unix time seconds.
-	ModifiedAt pulumi.StringPtrInput `pulumi:"modifiedAt"`
-	// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+	ModifiedAt   pulumi.StringPtrInput    `pulumi:"modifiedAt"`
 	SamplingRule SamplingRuleTypePtrInput `pulumi:"samplingRule"`
 }
 
@@ -665,7 +663,6 @@ func (o SamplingRuleRecordOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SamplingRuleRecord) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
 }
 
-// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
 func (o SamplingRuleRecordOutput) SamplingRule() SamplingRuleTypePtrOutput {
 	return o.ApplyT(func(v SamplingRuleRecord) *SamplingRuleType { return v.SamplingRule }).(SamplingRuleTypePtrOutput)
 }
@@ -714,7 +711,6 @@ func (o SamplingRuleRecordPtrOutput) ModifiedAt() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
 func (o SamplingRuleRecordPtrOutput) SamplingRule() SamplingRuleTypePtrOutput {
 	return o.ApplyT(func(v *SamplingRuleRecord) *SamplingRuleType {
 		if v == nil {

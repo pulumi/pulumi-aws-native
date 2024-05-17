@@ -32,13 +32,13 @@ type LookupCisScanConfigurationResult struct {
 	Arn *string `pulumi:"arn"`
 	// Name of the scan
 	ScanName *string `pulumi:"scanName"`
-	// The schedule the CIS scan configuration runs on. Each CIS scan configuration has exactly one type of schedule.
+	// The CIS scan configuration's schedule.
 	Schedule *CisScanConfigurationSchedule `pulumi:"schedule"`
 	// The CIS scan configuration's CIS Benchmark level.
 	SecurityLevel *CisScanConfigurationCisSecurityLevel `pulumi:"securityLevel"`
 	// The CIS scan configuration's tags.
 	Tags map[string]string `pulumi:"tags"`
-	// The CIS targets.
+	// The CIS scan configuration's targets.
 	Targets *CisScanConfigurationCisTargets `pulumi:"targets"`
 }
 
@@ -88,7 +88,7 @@ func (o LookupCisScanConfigurationResultOutput) ScanName() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupCisScanConfigurationResult) *string { return v.ScanName }).(pulumi.StringPtrOutput)
 }
 
-// The schedule the CIS scan configuration runs on. Each CIS scan configuration has exactly one type of schedule.
+// The CIS scan configuration's schedule.
 func (o LookupCisScanConfigurationResultOutput) Schedule() CisScanConfigurationSchedulePtrOutput {
 	return o.ApplyT(func(v LookupCisScanConfigurationResult) *CisScanConfigurationSchedule { return v.Schedule }).(CisScanConfigurationSchedulePtrOutput)
 }
@@ -103,7 +103,7 @@ func (o LookupCisScanConfigurationResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupCisScanConfigurationResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The CIS targets.
+// The CIS scan configuration's targets.
 func (o LookupCisScanConfigurationResultOutput) Targets() CisScanConfigurationCisTargetsPtrOutput {
 	return o.ApplyT(func(v LookupCisScanConfigurationResult) *CisScanConfigurationCisTargets { return v.Targets }).(CisScanConfigurationCisTargetsPtrOutput)
 }

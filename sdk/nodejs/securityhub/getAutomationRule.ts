@@ -27,7 +27,7 @@ export interface GetAutomationRuleArgs {
 
 export interface GetAutomationRuleResult {
     /**
-     * One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+     * One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
      */
     readonly actions?: outputs.securityhub.AutomationRulesAction[];
     /**

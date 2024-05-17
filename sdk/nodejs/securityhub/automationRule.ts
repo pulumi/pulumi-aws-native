@@ -598,7 +598,7 @@ export class AutomationRule extends pulumi.CustomResource {
     }
 
     /**
-     * One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+     * One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
      */
     public readonly actions!: pulumi.Output<outputs.securityhub.AutomationRulesAction[] | undefined>;
     /**
@@ -697,7 +697,7 @@ export class AutomationRule extends pulumi.CustomResource {
  */
 export interface AutomationRuleArgs {
     /**
-     * One or more actions to update finding fields if a finding matches the defined criteria of the rule.
+     * One or more actions to update finding fields if a finding matches the conditions specified in `Criteria` .
      */
     actions?: pulumi.Input<pulumi.Input<inputs.securityhub.AutomationRulesActionArgs>[]>;
     /**

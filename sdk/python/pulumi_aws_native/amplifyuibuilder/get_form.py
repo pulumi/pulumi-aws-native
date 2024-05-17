@@ -59,7 +59,7 @@ class GetFormResult:
     @pulumi.getter
     def cta(self) -> Optional['outputs.FormCta']:
         """
-        The `FormCTA` property specifies the call to action button configuration for the form.
+        The `FormCTA` object that stores the call to action configuration for the form.
         """
         return pulumi.get(self, "cta")
 
@@ -67,7 +67,7 @@ class GetFormResult:
     @pulumi.getter(name="dataType")
     def data_type(self) -> Optional['outputs.FormDataTypeConfig']:
         """
-        The `FormDataTypeConfig` property specifies the data type configuration for the data source associated with a form.
+        The type of data source to use to create the form.
         """
         return pulumi.get(self, "data_type")
 
@@ -131,7 +131,7 @@ class GetFormResult:
     @pulumi.getter
     def style(self) -> Optional['outputs.FormStyle']:
         """
-        The `FormStyle` property specifies the configuration for the form's style.
+        The configuration for the form's style.
         """
         return pulumi.get(self, "style")
 

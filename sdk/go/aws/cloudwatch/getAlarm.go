@@ -77,7 +77,9 @@ type LookupAlarmResult struct {
 	//  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
 	//  For an alarm based on a math expression, you can't specify ``Statistic``. Instead, you use ``Metrics``.
 	Statistic *string `pulumi:"statistic"`
-	// One of the key-value pairs associated with the alarm. Tags can help you organize and categorize your resources.
+	// A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm. To be able to associate tags with the alarm when you create the alarm, you must have the `cloudwatch:TagResource` permission.
+	//
+	// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The value to compare with the specified statistic.
 	Threshold *float64 `pulumi:"threshold"`
@@ -230,7 +232,9 @@ func (o LookupAlarmResultOutput) Statistic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAlarmResult) *string { return v.Statistic }).(pulumi.StringPtrOutput)
 }
 
-// One of the key-value pairs associated with the alarm. Tags can help you organize and categorize your resources.
+// A list of key-value pairs to associate with the alarm. You can associate as many as 50 tags with an alarm. To be able to associate tags with the alarm when you create the alarm, you must have the `cloudwatch:TagResource` permission.
+//
+// Tags can help you organize and categorize your resources. You can also use them to scope user permissions by granting a user permission to access or change only resources with certain tag values.
 func (o LookupAlarmResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupAlarmResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

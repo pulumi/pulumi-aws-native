@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.Amplify
         /// </summary>
         public readonly string? CustomHeaders;
         /// <summary>
-        /// The CustomRule property type allows you to specify redirects, rewrites, and reverse proxies. Redirects enable a web app to reroute navigation from one URL to another.
+        /// The custom rewrite and redirect rules for an Amplify app.
         /// </summary>
         public readonly ImmutableArray<Outputs.AppCustomRule> CustomRules;
         /// <summary>
@@ -94,7 +94,9 @@ namespace Pulumi.AwsNative.Amplify
         /// </summary>
         public readonly bool? EnableBranchAutoDeletion;
         /// <summary>
-        /// Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+        /// The environment variables for the Amplify app.
+        /// 
+        /// For a list of the environment variables that are accessible to Amplify by default, see [Amplify Environment variables](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html) in the *Amplify Hosting User Guide* .
         /// </summary>
         public readonly ImmutableArray<Outputs.AppEnvironmentVariable> EnvironmentVariables;
         /// <summary>
@@ -114,7 +116,7 @@ namespace Pulumi.AwsNative.Amplify
         /// </summary>
         public readonly string? Repository;
         /// <summary>
-        /// The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::App` resource.
+        /// The tag for an Amplify app.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

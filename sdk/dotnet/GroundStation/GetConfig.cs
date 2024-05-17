@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.GroundStation
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// Config objects provide information to Ground Station about how to configure the antenna and how data flows during a contact.
+        /// Object containing the parameters of a config. Only one subtype may be specified per config. See the subtype definitions for a description of each config subtype.
         /// </summary>
         public readonly Outputs.ConfigData? ConfigData;
         /// <summary>

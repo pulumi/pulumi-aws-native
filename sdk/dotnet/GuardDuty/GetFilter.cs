@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.GuardDuty
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Represents a map of finding properties that match specified conditions and values when querying findings.
+        /// Represents the criteria to be used in the filter for querying findings.
         /// </summary>
         public readonly Outputs.FilterFindingCriteria? FindingCriteria;
         /// <summary>

@@ -17,7 +17,7 @@ import (
 type ModelCard struct {
 	pulumi.CustomResourceState
 
-	// The content of the model card. It follows the [model card json schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
+	// The content of the model card. Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
 	Content ModelCardContentOutput `pulumi:"content"`
 	// Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
 	CreatedBy ModelCardUserContextPtrOutput `pulumi:"createdBy"`
@@ -94,7 +94,7 @@ func (ModelCardState) ElementType() reflect.Type {
 }
 
 type modelCardArgs struct {
-	// The content of the model card. It follows the [model card json schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
+	// The content of the model card. Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
 	Content ModelCardContent `pulumi:"content"`
 	// Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
 	CreatedBy *ModelCardUserContext `pulumi:"createdBy"`
@@ -112,7 +112,7 @@ type modelCardArgs struct {
 
 // The set of arguments for constructing a ModelCard resource.
 type ModelCardArgs struct {
-	// The content of the model card. It follows the [model card json schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
+	// The content of the model card. Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
 	Content ModelCardContentInput
 	// Information about the user who created or modified an experiment, trial, trial component, lineage group, project, or model card.
 	CreatedBy ModelCardUserContextPtrInput
@@ -165,7 +165,7 @@ func (o ModelCardOutput) ToModelCardOutputWithContext(ctx context.Context) Model
 	return o
 }
 
-// The content of the model card. It follows the [model card json schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
+// The content of the model card. Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
 func (o ModelCardOutput) Content() ModelCardContentOutput {
 	return o.ApplyT(func(v *ModelCard) ModelCardContentOutput { return v.Content }).(ModelCardContentOutput)
 }

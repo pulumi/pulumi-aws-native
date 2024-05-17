@@ -31,9 +31,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.AnalysisFilterArgs>? _filters;
 
         /// <summary>
-        /// With a `Filter` , you can remove portions of data from a particular visual or view.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The list of filters that are present in a `FilterGroup` .
         /// </summary>
         public InputList<Inputs.AnalysisFilterArgs> Filters
         {
@@ -42,7 +40,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The scope configuration for a `FilterGroup` .
+        /// The configuration that specifies what scope to apply to a `FilterGroup` .
         /// 
         /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
         /// </summary>

@@ -19,7 +19,7 @@ type Schema struct {
 
 	// Amazon Resource Name for the Schema.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specifies the version of a schema.
+	// Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
 	CheckpointVersion SchemaVersionTypePtrOutput `pulumi:"checkpointVersion"`
 	// Compatibility setting for the schema.
 	Compatibility SchemaCompatibilityOutput `pulumi:"compatibility"`
@@ -31,7 +31,7 @@ type Schema struct {
 	InitialSchemaVersionId pulumi.StringOutput `pulumi:"initialSchemaVersionId"`
 	// Name of the schema.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies a registry in the AWS Glue Schema Registry.
+	// The registry where a schema is stored.
 	Registry SchemaRegistryPtrOutput `pulumi:"registry"`
 	// Definition for the initial schema version in plain-text.
 	SchemaDefinition pulumi.StringOutput `pulumi:"schemaDefinition"`
@@ -95,7 +95,7 @@ func (SchemaState) ElementType() reflect.Type {
 }
 
 type schemaArgs struct {
-	// Specifies the version of a schema.
+	// Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
 	CheckpointVersion *SchemaVersionType `pulumi:"checkpointVersion"`
 	// Compatibility setting for the schema.
 	Compatibility SchemaCompatibility `pulumi:"compatibility"`
@@ -105,7 +105,7 @@ type schemaArgs struct {
 	Description *string `pulumi:"description"`
 	// Name of the schema.
 	Name *string `pulumi:"name"`
-	// Specifies a registry in the AWS Glue Schema Registry.
+	// The registry where a schema is stored.
 	Registry *SchemaRegistry `pulumi:"registry"`
 	// Definition for the initial schema version in plain-text.
 	SchemaDefinition string `pulumi:"schemaDefinition"`
@@ -115,7 +115,7 @@ type schemaArgs struct {
 
 // The set of arguments for constructing a Schema resource.
 type SchemaArgs struct {
-	// Specifies the version of a schema.
+	// Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
 	CheckpointVersion SchemaVersionTypePtrInput
 	// Compatibility setting for the schema.
 	Compatibility SchemaCompatibilityInput
@@ -125,7 +125,7 @@ type SchemaArgs struct {
 	Description pulumi.StringPtrInput
 	// Name of the schema.
 	Name pulumi.StringPtrInput
-	// Specifies a registry in the AWS Glue Schema Registry.
+	// The registry where a schema is stored.
 	Registry SchemaRegistryPtrInput
 	// Definition for the initial schema version in plain-text.
 	SchemaDefinition pulumi.StringInput
@@ -175,7 +175,7 @@ func (o SchemaOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies the version of a schema.
+// Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
 func (o SchemaOutput) CheckpointVersion() SchemaVersionTypePtrOutput {
 	return o.ApplyT(func(v *Schema) SchemaVersionTypePtrOutput { return v.CheckpointVersion }).(SchemaVersionTypePtrOutput)
 }
@@ -205,7 +205,7 @@ func (o SchemaOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies a registry in the AWS Glue Schema Registry.
+// The registry where a schema is stored.
 func (o SchemaOutput) Registry() SchemaRegistryPtrOutput {
 	return o.ApplyT(func(v *Schema) SchemaRegistryPtrOutput { return v.Registry }).(SchemaRegistryPtrOutput)
 }

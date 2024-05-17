@@ -60,15 +60,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Output("lastModifiedTime")]
         public Output<string> LastModifiedTime { get; private set; } = null!;
 
-        /// <summary>
-        /// Runtime settings for a model that is deployed with an inference component.
-        /// </summary>
         [Output("runtimeConfig")]
         public Output<Outputs.InferenceComponentRuntimeConfig> RuntimeConfig { get; private set; } = null!;
 
-        /// <summary>
-        /// Details about the resources to deploy with this inference component, including the model, container, and compute resources.
-        /// </summary>
         [Output("specification")]
         public Output<Outputs.InferenceComponentSpecification> Specification { get; private set; } = null!;
 
@@ -144,15 +138,9 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("inferenceComponentName")]
         public Input<string>? InferenceComponentName { get; set; }
 
-        /// <summary>
-        /// Runtime settings for a model that is deployed with an inference component.
-        /// </summary>
         [Input("runtimeConfig", required: true)]
         public Input<Inputs.InferenceComponentRuntimeConfigArgs> RuntimeConfig { get; set; } = null!;
 
-        /// <summary>
-        /// Details about the resources to deploy with this inference component, including the model, container, and compute resources.
-        /// </summary>
         [Input("specification", required: true)]
         public Input<Inputs.InferenceComponentSpecificationArgs> Specification { get; set; } = null!;
 

@@ -32,7 +32,7 @@ class GetBridgeSourceResult:
     @pulumi.getter(name="flowSource")
     def flow_source(self) -> Optional['outputs.BridgeSourceBridgeFlowSource']:
         """
-        The source of the bridge. A flow source originates in MediaConnect as an existing cloud flow.
+        Add a flow source to an existing bridge.
         """
         return pulumi.get(self, "flow_source")
 
@@ -40,7 +40,7 @@ class GetBridgeSourceResult:
     @pulumi.getter(name="networkSource")
     def network_source(self) -> Optional['outputs.BridgeSourceBridgeNetworkSource']:
         """
-        The source of the bridge. A network source originates at your premises.
+        Add a network source to an existing bridge.
         """
         return pulumi.get(self, "network_source")
 

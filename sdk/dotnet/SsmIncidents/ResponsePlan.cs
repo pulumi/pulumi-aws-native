@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.SsmIncidents
         public Output<ImmutableArray<string>> Engagements { get; private set; } = null!;
 
         /// <summary>
-        /// The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
+        /// Details used to create an incident when using this response plan.
         /// </summary>
         [Output("incidentTemplate")]
         public Output<Outputs.ResponsePlanIncidentTemplate> IncidentTemplate { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.AwsNative.SsmIncidents
         }
 
         /// <summary>
-        /// The `IncidentTemplate` property type specifies details used to create an incident when using this response plan.
+        /// Details used to create an incident when using this response plan.
         /// </summary>
         [Input("incidentTemplate", required: true)]
         public Input<Inputs.ResponsePlanIncidentTemplateArgs> IncidentTemplate { get; set; } = null!;

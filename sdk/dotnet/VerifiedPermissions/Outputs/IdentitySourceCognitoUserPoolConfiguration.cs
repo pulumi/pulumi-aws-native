@@ -21,8 +21,6 @@ namespace Pulumi.AwsNative.VerifiedPermissions.Outputs
         public readonly ImmutableArray<string> ClientIds;
         /// <summary>
         /// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source.
-        /// 
-        /// This data type is part of a [CognitoUserPoolConfiguration](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CognitoUserPoolConfiguration.html) structure and is a request parameter in [CreateIdentitySource](https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html) .
         /// </summary>
         public readonly Outputs.IdentitySourceCognitoGroupConfiguration? GroupConfiguration;
         /// <summary>

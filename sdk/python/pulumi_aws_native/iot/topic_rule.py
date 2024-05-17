@@ -24,11 +24,17 @@ class TopicRuleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a TopicRule resource.
-        :param pulumi.Input['TopicRulePayloadArgs'] topic_rule_payload: Describes a rule.
+        :param pulumi.Input['TopicRulePayloadArgs'] topic_rule_payload: The rule payload.
         :param pulumi.Input[str] rule_name: The name of the rule.
                
                *Pattern* : `[a-zA-Z0-9:_-]+`
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A set of key/value pairs that are used to manage the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Metadata which can be used to manage the topic rule.
+               
+               > For URI Request parameters use format: ...key1=value1&key2=value2...
+               > 
+               > For the CLI command-line parameter use format: --tags "key1=value1&key2=value2..."
+               > 
+               > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
         """
         pulumi.set(__self__, "topic_rule_payload", topic_rule_payload)
         if rule_name is not None:
@@ -40,7 +46,7 @@ class TopicRuleArgs:
     @pulumi.getter(name="topicRulePayload")
     def topic_rule_payload(self) -> pulumi.Input['TopicRulePayloadArgs']:
         """
-        Describes a rule.
+        The rule payload.
         """
         return pulumi.get(self, "topic_rule_payload")
 
@@ -66,7 +72,13 @@ class TopicRuleArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A set of key/value pairs that are used to manage the resource.
+        Metadata which can be used to manage the topic rule.
+
+        > For URI Request parameters use format: ...key1=value1&key2=value2...
+        > 
+        > For the CLI command-line parameter use format: --tags "key1=value1&key2=value2..."
+        > 
+        > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
         """
         return pulumi.get(self, "tags")
 
@@ -92,8 +104,14 @@ class TopicRule(pulumi.CustomResource):
         :param pulumi.Input[str] rule_name: The name of the rule.
                
                *Pattern* : `[a-zA-Z0-9:_-]+`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A set of key/value pairs that are used to manage the resource.
-        :param pulumi.Input[pulumi.InputType['TopicRulePayloadArgs']] topic_rule_payload: Describes a rule.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: Metadata which can be used to manage the topic rule.
+               
+               > For URI Request parameters use format: ...key1=value1&key2=value2...
+               > 
+               > For the CLI command-line parameter use format: --tags "key1=value1&key2=value2..."
+               > 
+               > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
+        :param pulumi.Input[pulumi.InputType['TopicRulePayloadArgs']] topic_rule_payload: The rule payload.
         """
         ...
     @overload
@@ -189,7 +207,13 @@ class TopicRule(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A set of key/value pairs that are used to manage the resource.
+        Metadata which can be used to manage the topic rule.
+
+        > For URI Request parameters use format: ...key1=value1&key2=value2...
+        > 
+        > For the CLI command-line parameter use format: --tags "key1=value1&key2=value2..."
+        > 
+        > For the cli-input-json file use format: "tags": "key1=value1&key2=value2..."
         """
         return pulumi.get(self, "tags")
 
@@ -197,7 +221,7 @@ class TopicRule(pulumi.CustomResource):
     @pulumi.getter(name="topicRulePayload")
     def topic_rule_payload(self) -> pulumi.Output['outputs.TopicRulePayload']:
         """
-        Describes a rule.
+        The rule payload.
         """
         return pulumi.get(self, "topic_rule_payload")
 

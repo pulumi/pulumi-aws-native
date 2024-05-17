@@ -13,9 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateVisualTitleLabelOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The text format for the title.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The short text format of the title label, such as plain text or rich text.
         /// </summary>
         [Input("formatText")]
         public Input<Inputs.TemplateShortFormatTextArgs>? FormatText { get; set; }

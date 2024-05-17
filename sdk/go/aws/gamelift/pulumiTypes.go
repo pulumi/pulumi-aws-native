@@ -1877,28 +1877,19 @@ func (o FleetConnectionPortRangePtrOutput) ToPort() pulumi.IntPtrOutput {
 
 // Specifies container groups that this instance will hold. You must specify exactly one replica group. Optionally, you may specify exactly one daemon group. You can't change this property after you create the fleet.
 type FleetContainerGroupsConfiguration struct {
-	// *This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+	// A set of ports to allow inbound traffic, including game clients, to connect to processes running in the container fleet.
 	//
-	// The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
+	// Connection ports are dynamically mapped to container ports, which are assigned to individual processes running in a container. The connection port range must have enough ports to map to all container ports across a fleet instance. To calculate the minimum connection ports needed, use the following formula:
 	//
-	// *Part of:* `ContainerGroupsConfiguration` , `ContainerGroupsAttributes`
+	// *[Total number of container ports as defined for containers in the replica container group] * [Desired or calculated number of replica container groups per instance] + [Total number of container ports as defined for containers in the daemon container group]*
+	//
+	// As a best practice, double the minimum number of connection ports.
+	//
+	// > Use the fleet's `EC2InboundPermissions` property to control external access to connection ports. Set this property to the connection port numbers that you want to open access to. See `IpPermission` for more details.
 	ConnectionPortRange FleetConnectionPortRange `pulumi:"connectionPortRange"`
 	// The names of the container group definitions that will be created in an instance. You must specify exactly one REPLICA container group. You have the option to also specify one DAEMON container group.
-	ContainerGroupDefinitionNames []string `pulumi:"containerGroupDefinitionNames"`
-	// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
-	//
-	// Determines how many replica container groups that Amazon GameLift deploys to each instance in a container fleet.
-	//
-	// Amazon GameLift calculates the maximum possible replica groups per instance based on the instance 's CPU and memory resources. When deploying a fleet, Amazon GameLift places replica container groups on each fleet instance based on the following:
-	//
-	// - If no desired value is set, Amazon GameLift places the calculated maximum.
-	// - If a desired number is set to a value higher than the calculated maximum, fleet creation fails..
-	// - If a desired number is set to a value lower than the calculated maximum, Amazon GameLift places the desired number.
-	//
-	// *Part of:* `ContainerGroupsConfiguration` , `ContainerGroupsAttributes`
-	//
-	// *Returned by:* `DescribeFleetAttributes` , `CreateFleet`
-	ContainerGroupsPerInstance *FleetContainerGroupsPerInstance `pulumi:"containerGroupsPerInstance"`
+	ContainerGroupDefinitionNames []string                         `pulumi:"containerGroupDefinitionNames"`
+	ContainerGroupsPerInstance    *FleetContainerGroupsPerInstance `pulumi:"containerGroupsPerInstance"`
 }
 
 // FleetContainerGroupsConfigurationInput is an input type that accepts FleetContainerGroupsConfigurationArgs and FleetContainerGroupsConfigurationOutput values.
@@ -1914,28 +1905,19 @@ type FleetContainerGroupsConfigurationInput interface {
 
 // Specifies container groups that this instance will hold. You must specify exactly one replica group. Optionally, you may specify exactly one daemon group. You can't change this property after you create the fleet.
 type FleetContainerGroupsConfigurationArgs struct {
-	// *This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+	// A set of ports to allow inbound traffic, including game clients, to connect to processes running in the container fleet.
 	//
-	// The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
+	// Connection ports are dynamically mapped to container ports, which are assigned to individual processes running in a container. The connection port range must have enough ports to map to all container ports across a fleet instance. To calculate the minimum connection ports needed, use the following formula:
 	//
-	// *Part of:* `ContainerGroupsConfiguration` , `ContainerGroupsAttributes`
+	// *[Total number of container ports as defined for containers in the replica container group] * [Desired or calculated number of replica container groups per instance] + [Total number of container ports as defined for containers in the daemon container group]*
+	//
+	// As a best practice, double the minimum number of connection ports.
+	//
+	// > Use the fleet's `EC2InboundPermissions` property to control external access to connection ports. Set this property to the connection port numbers that you want to open access to. See `IpPermission` for more details.
 	ConnectionPortRange FleetConnectionPortRangeInput `pulumi:"connectionPortRange"`
 	// The names of the container group definitions that will be created in an instance. You must specify exactly one REPLICA container group. You have the option to also specify one DAEMON container group.
-	ContainerGroupDefinitionNames pulumi.StringArrayInput `pulumi:"containerGroupDefinitionNames"`
-	// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
-	//
-	// Determines how many replica container groups that Amazon GameLift deploys to each instance in a container fleet.
-	//
-	// Amazon GameLift calculates the maximum possible replica groups per instance based on the instance 's CPU and memory resources. When deploying a fleet, Amazon GameLift places replica container groups on each fleet instance based on the following:
-	//
-	// - If no desired value is set, Amazon GameLift places the calculated maximum.
-	// - If a desired number is set to a value higher than the calculated maximum, fleet creation fails..
-	// - If a desired number is set to a value lower than the calculated maximum, Amazon GameLift places the desired number.
-	//
-	// *Part of:* `ContainerGroupsConfiguration` , `ContainerGroupsAttributes`
-	//
-	// *Returned by:* `DescribeFleetAttributes` , `CreateFleet`
-	ContainerGroupsPerInstance FleetContainerGroupsPerInstancePtrInput `pulumi:"containerGroupsPerInstance"`
+	ContainerGroupDefinitionNames pulumi.StringArrayInput                 `pulumi:"containerGroupDefinitionNames"`
+	ContainerGroupsPerInstance    FleetContainerGroupsPerInstancePtrInput `pulumi:"containerGroupsPerInstance"`
 }
 
 func (FleetContainerGroupsConfigurationArgs) ElementType() reflect.Type {
@@ -2016,11 +1998,15 @@ func (o FleetContainerGroupsConfigurationOutput) ToFleetContainerGroupsConfigura
 	}).(FleetContainerGroupsConfigurationPtrOutput)
 }
 
-// *This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+// A set of ports to allow inbound traffic, including game clients, to connect to processes running in the container fleet.
 //
-// The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
+// Connection ports are dynamically mapped to container ports, which are assigned to individual processes running in a container. The connection port range must have enough ports to map to all container ports across a fleet instance. To calculate the minimum connection ports needed, use the following formula:
 //
-// *Part of:* `ContainerGroupsConfiguration` , `ContainerGroupsAttributes`
+// *[Total number of container ports as defined for containers in the replica container group] * [Desired or calculated number of replica container groups per instance] + [Total number of container ports as defined for containers in the daemon container group]*
+//
+// As a best practice, double the minimum number of connection ports.
+//
+// > Use the fleet's `EC2InboundPermissions` property to control external access to connection ports. Set this property to the connection port numbers that you want to open access to. See `IpPermission` for more details.
 func (o FleetContainerGroupsConfigurationOutput) ConnectionPortRange() FleetConnectionPortRangeOutput {
 	return o.ApplyT(func(v FleetContainerGroupsConfiguration) FleetConnectionPortRange { return v.ConnectionPortRange }).(FleetConnectionPortRangeOutput)
 }
@@ -2030,19 +2016,6 @@ func (o FleetContainerGroupsConfigurationOutput) ContainerGroupDefinitionNames()
 	return o.ApplyT(func(v FleetContainerGroupsConfiguration) []string { return v.ContainerGroupDefinitionNames }).(pulumi.StringArrayOutput)
 }
 
-// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
-//
-// Determines how many replica container groups that Amazon GameLift deploys to each instance in a container fleet.
-//
-// Amazon GameLift calculates the maximum possible replica groups per instance based on the instance 's CPU and memory resources. When deploying a fleet, Amazon GameLift places replica container groups on each fleet instance based on the following:
-//
-// - If no desired value is set, Amazon GameLift places the calculated maximum.
-// - If a desired number is set to a value higher than the calculated maximum, fleet creation fails..
-// - If a desired number is set to a value lower than the calculated maximum, Amazon GameLift places the desired number.
-//
-// *Part of:* `ContainerGroupsConfiguration` , `ContainerGroupsAttributes`
-//
-// *Returned by:* `DescribeFleetAttributes` , `CreateFleet`
 func (o FleetContainerGroupsConfigurationOutput) ContainerGroupsPerInstance() FleetContainerGroupsPerInstancePtrOutput {
 	return o.ApplyT(func(v FleetContainerGroupsConfiguration) *FleetContainerGroupsPerInstance {
 		return v.ContainerGroupsPerInstance
@@ -2073,11 +2046,15 @@ func (o FleetContainerGroupsConfigurationPtrOutput) Elem() FleetContainerGroupsC
 	}).(FleetContainerGroupsConfigurationOutput)
 }
 
-// *This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.*
+// A set of ports to allow inbound traffic, including game clients, to connect to processes running in the container fleet.
 //
-// The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
+// Connection ports are dynamically mapped to container ports, which are assigned to individual processes running in a container. The connection port range must have enough ports to map to all container ports across a fleet instance. To calculate the minimum connection ports needed, use the following formula:
 //
-// *Part of:* `ContainerGroupsConfiguration` , `ContainerGroupsAttributes`
+// *[Total number of container ports as defined for containers in the replica container group] * [Desired or calculated number of replica container groups per instance] + [Total number of container ports as defined for containers in the daemon container group]*
+//
+// As a best practice, double the minimum number of connection ports.
+//
+// > Use the fleet's `EC2InboundPermissions` property to control external access to connection ports. Set this property to the connection port numbers that you want to open access to. See `IpPermission` for more details.
 func (o FleetContainerGroupsConfigurationPtrOutput) ConnectionPortRange() FleetConnectionPortRangePtrOutput {
 	return o.ApplyT(func(v *FleetContainerGroupsConfiguration) *FleetConnectionPortRange {
 		if v == nil {
@@ -2097,19 +2074,6 @@ func (o FleetContainerGroupsConfigurationPtrOutput) ContainerGroupDefinitionName
 	}).(pulumi.StringArrayOutput)
 }
 
-// *This data type is used with the Amazon GameLift containers feature, which is currently in public preview.*
-//
-// Determines how many replica container groups that Amazon GameLift deploys to each instance in a container fleet.
-//
-// Amazon GameLift calculates the maximum possible replica groups per instance based on the instance 's CPU and memory resources. When deploying a fleet, Amazon GameLift places replica container groups on each fleet instance based on the following:
-//
-// - If no desired value is set, Amazon GameLift places the calculated maximum.
-// - If a desired number is set to a value higher than the calculated maximum, fleet creation fails..
-// - If a desired number is set to a value lower than the calculated maximum, Amazon GameLift places the desired number.
-//
-// *Part of:* `ContainerGroupsConfiguration` , `ContainerGroupsAttributes`
-//
-// *Returned by:* `DescribeFleetAttributes` , `CreateFleet`
 func (o FleetContainerGroupsConfigurationPtrOutput) ContainerGroupsPerInstance() FleetContainerGroupsPerInstancePtrOutput {
 	return o.ApplyT(func(v *FleetContainerGroupsConfiguration) *FleetContainerGroupsPerInstance {
 		if v == nil {
@@ -3526,9 +3490,7 @@ func (o FleetTargetConfigurationPtrOutput) TargetValue() pulumi.Float64PtrOutput
 type GameServerGroupAutoScalingPolicy struct {
 	// Length of time, in seconds, it takes for a new instance to start new game server processes and register with Amazon GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
 	EstimatedInstanceWarmup *float64 `pulumi:"estimatedInstanceWarmup"`
-	// *This data type is used with the Amazon GameLift FleetIQ and game server groups.*
-	//
-	// Settings for a target-based scaling policy as part of a `GameServerGroupAutoScalingPolicy` . These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric `"PercentUtilizedGameServers"` and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
+	// Settings for a target-based scaling policy applied to Auto Scaling group. These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric `PercentUtilizedGameServers` and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
 	TargetTrackingConfiguration GameServerGroupTargetTrackingConfiguration `pulumi:"targetTrackingConfiguration"`
 }
 
@@ -3547,9 +3509,7 @@ type GameServerGroupAutoScalingPolicyInput interface {
 type GameServerGroupAutoScalingPolicyArgs struct {
 	// Length of time, in seconds, it takes for a new instance to start new game server processes and register with Amazon GameLift FleetIQ. Specifying a warm-up time can be useful, particularly with game servers that take a long time to start up, because it avoids prematurely starting new instances.
 	EstimatedInstanceWarmup pulumi.Float64PtrInput `pulumi:"estimatedInstanceWarmup"`
-	// *This data type is used with the Amazon GameLift FleetIQ and game server groups.*
-	//
-	// Settings for a target-based scaling policy as part of a `GameServerGroupAutoScalingPolicy` . These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric `"PercentUtilizedGameServers"` and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
+	// Settings for a target-based scaling policy applied to Auto Scaling group. These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric `PercentUtilizedGameServers` and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
 	TargetTrackingConfiguration GameServerGroupTargetTrackingConfigurationInput `pulumi:"targetTrackingConfiguration"`
 }
 
@@ -3636,9 +3596,7 @@ func (o GameServerGroupAutoScalingPolicyOutput) EstimatedInstanceWarmup() pulumi
 	return o.ApplyT(func(v GameServerGroupAutoScalingPolicy) *float64 { return v.EstimatedInstanceWarmup }).(pulumi.Float64PtrOutput)
 }
 
-// *This data type is used with the Amazon GameLift FleetIQ and game server groups.*
-//
-// Settings for a target-based scaling policy as part of a `GameServerGroupAutoScalingPolicy` . These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric `"PercentUtilizedGameServers"` and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
+// Settings for a target-based scaling policy applied to Auto Scaling group. These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric `PercentUtilizedGameServers` and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
 func (o GameServerGroupAutoScalingPolicyOutput) TargetTrackingConfiguration() GameServerGroupTargetTrackingConfigurationOutput {
 	return o.ApplyT(func(v GameServerGroupAutoScalingPolicy) GameServerGroupTargetTrackingConfiguration {
 		return v.TargetTrackingConfiguration
@@ -3679,9 +3637,7 @@ func (o GameServerGroupAutoScalingPolicyPtrOutput) EstimatedInstanceWarmup() pul
 	}).(pulumi.Float64PtrOutput)
 }
 
-// *This data type is used with the Amazon GameLift FleetIQ and game server groups.*
-//
-// Settings for a target-based scaling policy as part of a `GameServerGroupAutoScalingPolicy` . These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric `"PercentUtilizedGameServers"` and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
+// Settings for a target-based scaling policy applied to Auto Scaling group. These settings are used to create a target-based policy that tracks the GameLift FleetIQ metric `PercentUtilizedGameServers` and specifies a target value for the metric. As player usage changes, the policy triggers to adjust the game server group capacity so that the metric returns to the target value.
 func (o GameServerGroupAutoScalingPolicyPtrOutput) TargetTrackingConfiguration() GameServerGroupTargetTrackingConfigurationPtrOutput {
 	return o.ApplyT(func(v *GameServerGroupAutoScalingPolicy) *GameServerGroupTargetTrackingConfiguration {
 		if v == nil {

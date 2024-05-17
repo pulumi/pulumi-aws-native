@@ -165,12 +165,12 @@ class DetectorEventTypeArgs:
         :param pulumi.Input[str] arn: The ARN of the event type.
         :param pulumi.Input[str] created_time: The time when the event type was created.
         :param pulumi.Input[str] description: The description of the event type.
-        :param pulumi.Input[Sequence[pulumi.Input['DetectorEntityTypeArgs']]] entity_types: The entity type details.
-        :param pulumi.Input[Sequence[pulumi.Input['DetectorEventVariableArgs']]] event_variables: The event type variable for the detector.
+        :param pulumi.Input[Sequence[pulumi.Input['DetectorEntityTypeArgs']]] entity_types: The event type entity types.
+        :param pulumi.Input[Sequence[pulumi.Input['DetectorEventVariableArgs']]] event_variables: The event type event variables.
         :param pulumi.Input[bool] inline: Indicates whether the resource is defined within this CloudFormation template and impacts the create, update, and delete behavior of the stack. If the value is `true` , CloudFormation will create/update/delete the resource when creating/updating/deleting the stack. If the value is `false` , CloudFormation will validate that the object exists and then use it within the resource without making changes to the object.
                
                For example, when creating `AWS::FraudDetector::Detector` you must define at least two variables. You can set `Inline=true` for these variables and CloudFormation will create/update/delete the Variables as part of stack operations. However, if you set `Inline=false` , CloudFormation will associate the variables to your detector but not execute any changes to the variables.
-        :param pulumi.Input[Sequence[pulumi.Input['DetectorLabelArgs']]] labels: The label details.
+        :param pulumi.Input[Sequence[pulumi.Input['DetectorLabelArgs']]] labels: The event type labels.
         :param pulumi.Input[str] last_updated_time: The time when the event type was last updated.
         :param pulumi.Input[str] name: The name for the event type
         :param pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]] tags: Tags associated with this event type.
@@ -236,7 +236,7 @@ class DetectorEventTypeArgs:
     @pulumi.getter(name="entityTypes")
     def entity_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorEntityTypeArgs']]]]:
         """
-        The entity type details.
+        The event type entity types.
         """
         return pulumi.get(self, "entity_types")
 
@@ -248,7 +248,7 @@ class DetectorEventTypeArgs:
     @pulumi.getter(name="eventVariables")
     def event_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorEventVariableArgs']]]]:
         """
-        The event type variable for the detector.
+        The event type event variables.
         """
         return pulumi.get(self, "event_variables")
 
@@ -274,7 +274,7 @@ class DetectorEventTypeArgs:
     @pulumi.getter
     def labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorLabelArgs']]]]:
         """
-        The label details.
+        The event type labels.
         """
         return pulumi.get(self, "labels")
 
@@ -812,7 +812,7 @@ class DetectorRuleArgs:
                
                Valid Value: DETECTORPL
         :param pulumi.Input[str] last_updated_time: The time when the event type was last updated.
-        :param pulumi.Input[Sequence[pulumi.Input['DetectorOutcomeArgs']]] outcomes: The outcome.
+        :param pulumi.Input[Sequence[pulumi.Input['DetectorOutcomeArgs']]] outcomes: The rule outcome.
         :param pulumi.Input[str] rule_id: The rule ID.
         :param pulumi.Input[str] rule_version: The rule version.
         :param pulumi.Input[Sequence[pulumi.Input['DetectorTagArgs']]] tags: Tags associated with this event type.
@@ -930,7 +930,7 @@ class DetectorRuleArgs:
     @pulumi.getter
     def outcomes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorOutcomeArgs']]]]:
         """
-        The outcome.
+        The rule outcome.
         """
         return pulumi.get(self, "outcomes")
 

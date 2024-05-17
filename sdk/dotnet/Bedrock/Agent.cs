@@ -126,7 +126,7 @@ namespace Pulumi.AwsNative.Bedrock
         public Output<string> PreparedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+        /// Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
         /// </summary>
         [Output("promptOverrideConfiguration")]
         public Output<Outputs.AgentPromptOverrideConfiguration?> PromptOverrideConfiguration { get; private set; } = null!;
@@ -285,7 +285,7 @@ namespace Pulumi.AwsNative.Bedrock
         }
 
         /// <summary>
-        /// Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+        /// Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
         /// </summary>
         [Input("promptOverrideConfiguration")]
         public Input<Inputs.AgentPromptOverrideConfigurationArgs>? PromptOverrideConfiguration { get; set; }

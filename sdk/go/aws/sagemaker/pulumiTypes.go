@@ -1930,7 +1930,7 @@ type DataQualityJobDefinitionDataQualityBaselineConfig struct {
 	BaseliningJobName *string `pulumi:"baseliningJobName"`
 	// The constraints resource for a monitoring job.
 	ConstraintsResource *DataQualityJobDefinitionConstraintsResource `pulumi:"constraintsResource"`
-	// The statistics resource for a monitoring job.
+	// Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
 	StatisticsResource *DataQualityJobDefinitionStatisticsResource `pulumi:"statisticsResource"`
 }
 
@@ -1951,7 +1951,7 @@ type DataQualityJobDefinitionDataQualityBaselineConfigArgs struct {
 	BaseliningJobName pulumi.StringPtrInput `pulumi:"baseliningJobName"`
 	// The constraints resource for a monitoring job.
 	ConstraintsResource DataQualityJobDefinitionConstraintsResourcePtrInput `pulumi:"constraintsResource"`
-	// The statistics resource for a monitoring job.
+	// Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
 	StatisticsResource DataQualityJobDefinitionStatisticsResourcePtrInput `pulumi:"statisticsResource"`
 }
 
@@ -2045,7 +2045,7 @@ func (o DataQualityJobDefinitionDataQualityBaselineConfigOutput) ConstraintsReso
 	}).(DataQualityJobDefinitionConstraintsResourcePtrOutput)
 }
 
-// The statistics resource for a monitoring job.
+// Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
 func (o DataQualityJobDefinitionDataQualityBaselineConfigOutput) StatisticsResource() DataQualityJobDefinitionStatisticsResourcePtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionDataQualityBaselineConfig) *DataQualityJobDefinitionStatisticsResource {
 		return v.StatisticsResource
@@ -2096,7 +2096,7 @@ func (o DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput) ConstraintsR
 	}).(DataQualityJobDefinitionConstraintsResourcePtrOutput)
 }
 
-// The statistics resource for a monitoring job.
+// Configuration for monitoring constraints and monitoring statistics. These baseline resources are compared against the results of the current job from the series of jobs scheduled to collect data periodically.
 func (o DataQualityJobDefinitionDataQualityBaselineConfigPtrOutput) StatisticsResource() DataQualityJobDefinitionStatisticsResourcePtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionDataQualityBaselineConfig) *DataQualityJobDefinitionStatisticsResource {
 		if v == nil {
@@ -2868,7 +2868,7 @@ func (o DataQualityJobDefinitionMonitoringOutputConfigOutput) MonitoringOutputs(
 
 // Identifies the resources to deploy for a monitoring job.
 type DataQualityJobDefinitionMonitoringResources struct {
-	// The configuration for the cluster of resources used to run the processing job.
+	// The configuration for the cluster resources used to run the processing job.
 	ClusterConfig DataQualityJobDefinitionClusterConfig `pulumi:"clusterConfig"`
 }
 
@@ -2885,7 +2885,7 @@ type DataQualityJobDefinitionMonitoringResourcesInput interface {
 
 // Identifies the resources to deploy for a monitoring job.
 type DataQualityJobDefinitionMonitoringResourcesArgs struct {
-	// The configuration for the cluster of resources used to run the processing job.
+	// The configuration for the cluster resources used to run the processing job.
 	ClusterConfig DataQualityJobDefinitionClusterConfigInput `pulumi:"clusterConfig"`
 }
 
@@ -2916,7 +2916,7 @@ func (o DataQualityJobDefinitionMonitoringResourcesOutput) ToDataQualityJobDefin
 	return o
 }
 
-// The configuration for the cluster of resources used to run the processing job.
+// The configuration for the cluster resources used to run the processing job.
 func (o DataQualityJobDefinitionMonitoringResourcesOutput) ClusterConfig() DataQualityJobDefinitionClusterConfigOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionMonitoringResources) DataQualityJobDefinitionClusterConfig {
 		return v.ClusterConfig
@@ -2929,7 +2929,7 @@ type DataQualityJobDefinitionNetworkConfig struct {
 	EnableInterContainerTrafficEncryption *bool `pulumi:"enableInterContainerTrafficEncryption"`
 	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
 	EnableNetworkIsolation *bool `pulumi:"enableNetworkIsolation"`
-	// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+	// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 	VpcConfig *DataQualityJobDefinitionVpcConfig `pulumi:"vpcConfig"`
 }
 
@@ -2950,7 +2950,7 @@ type DataQualityJobDefinitionNetworkConfigArgs struct {
 	EnableInterContainerTrafficEncryption pulumi.BoolPtrInput `pulumi:"enableInterContainerTrafficEncryption"`
 	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
 	EnableNetworkIsolation pulumi.BoolPtrInput `pulumi:"enableNetworkIsolation"`
-	// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+	// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 	VpcConfig DataQualityJobDefinitionVpcConfigPtrInput `pulumi:"vpcConfig"`
 }
 
@@ -3042,7 +3042,7 @@ func (o DataQualityJobDefinitionNetworkConfigOutput) EnableNetworkIsolation() pu
 	return o.ApplyT(func(v DataQualityJobDefinitionNetworkConfig) *bool { return v.EnableNetworkIsolation }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 func (o DataQualityJobDefinitionNetworkConfigOutput) VpcConfig() DataQualityJobDefinitionVpcConfigPtrOutput {
 	return o.ApplyT(func(v DataQualityJobDefinitionNetworkConfig) *DataQualityJobDefinitionVpcConfig { return v.VpcConfig }).(DataQualityJobDefinitionVpcConfigPtrOutput)
 }
@@ -3091,7 +3091,7 @@ func (o DataQualityJobDefinitionNetworkConfigPtrOutput) EnableNetworkIsolation()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 func (o DataQualityJobDefinitionNetworkConfigPtrOutput) VpcConfig() DataQualityJobDefinitionVpcConfigPtrOutput {
 	return o.ApplyT(func(v *DataQualityJobDefinitionNetworkConfig) *DataQualityJobDefinitionVpcConfig {
 		if v == nil {
@@ -4197,7 +4197,7 @@ func (o DomainCodeRepositoryArrayOutput) Index(i pulumi.IntInput) DomainCodeRepo
 }
 
 type DomainCustomFileSystemConfig struct {
-	// The settings for assigning a custom Amazon EFS file system to a user profile or space for an Amazon SageMaker Domain.
+	// The settings for a custom Amazon EFS file system.
 	EfsFileSystemConfig *DomainEfsFileSystemConfig `pulumi:"efsFileSystemConfig"`
 }
 
@@ -4213,7 +4213,7 @@ type DomainCustomFileSystemConfigInput interface {
 }
 
 type DomainCustomFileSystemConfigArgs struct {
-	// The settings for assigning a custom Amazon EFS file system to a user profile or space for an Amazon SageMaker Domain.
+	// The settings for a custom Amazon EFS file system.
 	EfsFileSystemConfig DomainEfsFileSystemConfigPtrInput `pulumi:"efsFileSystemConfig"`
 }
 
@@ -4268,7 +4268,7 @@ func (o DomainCustomFileSystemConfigOutput) ToDomainCustomFileSystemConfigOutput
 	return o
 }
 
-// The settings for assigning a custom Amazon EFS file system to a user profile or space for an Amazon SageMaker Domain.
+// The settings for a custom Amazon EFS file system.
 func (o DomainCustomFileSystemConfigOutput) EfsFileSystemConfig() DomainEfsFileSystemConfigPtrOutput {
 	return o.ApplyT(func(v DomainCustomFileSystemConfig) *DomainEfsFileSystemConfig { return v.EfsFileSystemConfig }).(DomainEfsFileSystemConfigPtrOutput)
 }
@@ -4925,7 +4925,7 @@ func (o DomainDefaultSpaceSettingsPtrOutput) SecurityGroups() pulumi.StringArray
 
 // Default storage settings for a space.
 type DomainDefaultSpaceStorageSettings struct {
-	// A collection of default EBS storage settings that apply to spaces created within a domain or user profile.
+	// The default EBS storage settings for a space.
 	DefaultEbsStorageSettings *DomainDefaultEbsStorageSettings `pulumi:"defaultEbsStorageSettings"`
 }
 
@@ -4942,7 +4942,7 @@ type DomainDefaultSpaceStorageSettingsInput interface {
 
 // Default storage settings for a space.
 type DomainDefaultSpaceStorageSettingsArgs struct {
-	// A collection of default EBS storage settings that apply to spaces created within a domain or user profile.
+	// The default EBS storage settings for a space.
 	DefaultEbsStorageSettings DomainDefaultEbsStorageSettingsPtrInput `pulumi:"defaultEbsStorageSettings"`
 }
 
@@ -5024,7 +5024,7 @@ func (o DomainDefaultSpaceStorageSettingsOutput) ToDomainDefaultSpaceStorageSett
 	}).(DomainDefaultSpaceStorageSettingsPtrOutput)
 }
 
-// A collection of default EBS storage settings that apply to spaces created within a domain or user profile.
+// The default EBS storage settings for a space.
 func (o DomainDefaultSpaceStorageSettingsOutput) DefaultEbsStorageSettings() DomainDefaultEbsStorageSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceStorageSettings) *DomainDefaultEbsStorageSettings {
 		return v.DefaultEbsStorageSettings
@@ -5055,7 +5055,7 @@ func (o DomainDefaultSpaceStorageSettingsPtrOutput) Elem() DomainDefaultSpaceSto
 	}).(DomainDefaultSpaceStorageSettingsOutput)
 }
 
-// A collection of default EBS storage settings that apply to spaces created within a domain or user profile.
+// The default EBS storage settings for a space.
 func (o DomainDefaultSpaceStorageSettingsPtrOutput) DefaultEbsStorageSettings() DomainDefaultEbsStorageSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceStorageSettings) *DomainDefaultEbsStorageSettings {
 		if v == nil {
@@ -5579,7 +5579,7 @@ func (o DomainJupyterLabAppSettingsPtrOutput) LifecycleConfigArns() pulumi.Strin
 
 // The JupyterServer app settings.
 type DomainJupyterServerAppSettings struct {
-	// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
 	DefaultResourceSpec *DomainResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -5596,7 +5596,7 @@ type DomainJupyterServerAppSettingsInput interface {
 
 // The JupyterServer app settings.
 type DomainJupyterServerAppSettingsArgs struct {
-	// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
 	DefaultResourceSpec DomainResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -5678,7 +5678,7 @@ func (o DomainJupyterServerAppSettingsOutput) ToDomainJupyterServerAppSettingsPt
 	}).(DomainJupyterServerAppSettingsPtrOutput)
 }
 
-// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
 func (o DomainJupyterServerAppSettingsOutput) DefaultResourceSpec() DomainResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainJupyterServerAppSettings) *DomainResourceSpec { return v.DefaultResourceSpec }).(DomainResourceSpecPtrOutput)
 }
@@ -5707,7 +5707,7 @@ func (o DomainJupyterServerAppSettingsPtrOutput) Elem() DomainJupyterServerAppSe
 	}).(DomainJupyterServerAppSettingsOutput)
 }
 
-// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
 func (o DomainJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() DomainResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainJupyterServerAppSettings) *DomainResourceSpec {
 		if v == nil {
@@ -5880,7 +5880,7 @@ func (o DomainKernelGatewayAppSettingsPtrOutput) DefaultResourceSpec() DomainRes
 type DomainRSessionAppSettings struct {
 	// A list of custom SageMaker images that are configured to run as a KernelGateway app.
 	CustomImages []DomainCustomImage `pulumi:"customImages"`
-	// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+	// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 	DefaultResourceSpec *DomainResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -5899,7 +5899,7 @@ type DomainRSessionAppSettingsInput interface {
 type DomainRSessionAppSettingsArgs struct {
 	// A list of custom SageMaker images that are configured to run as a KernelGateway app.
 	CustomImages DomainCustomImageArrayInput `pulumi:"customImages"`
-	// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+	// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 	DefaultResourceSpec DomainResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -5986,7 +5986,7 @@ func (o DomainRSessionAppSettingsOutput) CustomImages() DomainCustomImageArrayOu
 	return o.ApplyT(func(v DomainRSessionAppSettings) []DomainCustomImage { return v.CustomImages }).(DomainCustomImageArrayOutput)
 }
 
-// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 func (o DomainRSessionAppSettingsOutput) DefaultResourceSpec() DomainResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainRSessionAppSettings) *DomainResourceSpec { return v.DefaultResourceSpec }).(DomainResourceSpecPtrOutput)
 }
@@ -6025,7 +6025,7 @@ func (o DomainRSessionAppSettingsPtrOutput) CustomImages() DomainCustomImageArra
 	}).(DomainCustomImageArrayOutput)
 }
 
-// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 func (o DomainRSessionAppSettingsPtrOutput) DefaultResourceSpec() DomainResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainRSessionAppSettings) *DomainResourceSpec {
 		if v == nil {
@@ -6200,7 +6200,7 @@ func (o DomainRStudioServerProAppSettingsPtrOutput) UserGroup() DomainRStudioSer
 
 // A collection of settings that update the current configuration for the RStudioServerPro Domain-level app.
 type DomainRStudioServerProDomainSettings struct {
-	// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+	// A collection that defines the default `InstanceType` , `SageMakerImageArn` , and `SageMakerImageVersionArn` for the Domain.
 	DefaultResourceSpec *DomainResourceSpec `pulumi:"defaultResourceSpec"`
 	// The ARN of the execution role for the RStudioServerPro Domain-level app.
 	DomainExecutionRoleArn string `pulumi:"domainExecutionRoleArn"`
@@ -6223,7 +6223,7 @@ type DomainRStudioServerProDomainSettingsInput interface {
 
 // A collection of settings that update the current configuration for the RStudioServerPro Domain-level app.
 type DomainRStudioServerProDomainSettingsArgs struct {
-	// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+	// A collection that defines the default `InstanceType` , `SageMakerImageArn` , and `SageMakerImageVersionArn` for the Domain.
 	DefaultResourceSpec DomainResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 	// The ARN of the execution role for the RStudioServerPro Domain-level app.
 	DomainExecutionRoleArn pulumi.StringInput `pulumi:"domainExecutionRoleArn"`
@@ -6311,7 +6311,7 @@ func (o DomainRStudioServerProDomainSettingsOutput) ToDomainRStudioServerProDoma
 	}).(DomainRStudioServerProDomainSettingsPtrOutput)
 }
 
-// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+// A collection that defines the default `InstanceType` , `SageMakerImageArn` , and `SageMakerImageVersionArn` for the Domain.
 func (o DomainRStudioServerProDomainSettingsOutput) DefaultResourceSpec() DomainResourceSpecPtrOutput {
 	return o.ApplyT(func(v DomainRStudioServerProDomainSettings) *DomainResourceSpec { return v.DefaultResourceSpec }).(DomainResourceSpecPtrOutput)
 }
@@ -6355,7 +6355,7 @@ func (o DomainRStudioServerProDomainSettingsPtrOutput) Elem() DomainRStudioServe
 	}).(DomainRStudioServerProDomainSettingsOutput)
 }
 
-// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+// A collection that defines the default `InstanceType` , `SageMakerImageArn` , and `SageMakerImageVersionArn` for the Domain.
 func (o DomainRStudioServerProDomainSettingsPtrOutput) DefaultResourceSpec() DomainResourceSpecPtrOutput {
 	return o.ApplyT(func(v *DomainRStudioServerProDomainSettings) *DomainResourceSpec {
 		if v == nil {
@@ -6957,10 +6957,8 @@ type DomainTag struct {
 // A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type DomainUserSettings struct {
 	// The Code Editor application settings.
-	//
-	// For more information about Code Editor, see [Get started with Code Editor in Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/code-editor.html) .
 	CodeEditorAppSettings *DomainCodeEditorAppSettings `pulumi:"codeEditorAppSettings"`
-	// The settings for assigning a custom file system to a user profile or space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.
+	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
 	CustomFileSystemConfigs []DomainCustomFileSystemConfig `pulumi:"customFileSystemConfigs"`
 	// Details about the POSIX identity that is used for file system operations.
 	CustomPosixUserConfig *DomainCustomPosixUserConfig `pulumi:"customPosixUserConfig"`
@@ -6974,7 +6972,7 @@ type DomainUserSettings struct {
 	JupyterServerAppSettings *DomainJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
 	KernelGatewayAppSettings *DomainKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
-	// A collection of settings that apply to an `RSessionGateway` app.
+	// A collection of settings that configure the `RSessionGateway` app.
 	RSessionAppSettings *DomainRSessionAppSettings `pulumi:"rSessionAppSettings"`
 	// A collection of settings that configure user interaction with the `RStudioServerPro` app.
 	RStudioServerProAppSettings *DomainRStudioServerProAppSettings `pulumi:"rStudioServerProAppSettings"`
@@ -6982,7 +6980,7 @@ type DomainUserSettings struct {
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The sharing settings.
 	SharingSettings *DomainSharingSettings `pulumi:"sharingSettings"`
-	// The default storage settings for a space.
+	// The storage settings for a space.
 	SpaceStorageSettings *DomainDefaultSpaceStorageSettings `pulumi:"spaceStorageSettings"`
 	// Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
 	StudioWebPortal *DomainUserSettingsStudioWebPortal `pulumi:"studioWebPortal"`
@@ -7002,10 +7000,8 @@ type DomainUserSettingsInput interface {
 // A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type DomainUserSettingsArgs struct {
 	// The Code Editor application settings.
-	//
-	// For more information about Code Editor, see [Get started with Code Editor in Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/code-editor.html) .
 	CodeEditorAppSettings DomainCodeEditorAppSettingsPtrInput `pulumi:"codeEditorAppSettings"`
-	// The settings for assigning a custom file system to a user profile or space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.
+	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
 	CustomFileSystemConfigs DomainCustomFileSystemConfigArrayInput `pulumi:"customFileSystemConfigs"`
 	// Details about the POSIX identity that is used for file system operations.
 	CustomPosixUserConfig DomainCustomPosixUserConfigPtrInput `pulumi:"customPosixUserConfig"`
@@ -7019,7 +7015,7 @@ type DomainUserSettingsArgs struct {
 	JupyterServerAppSettings DomainJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
 	KernelGatewayAppSettings DomainKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
-	// A collection of settings that apply to an `RSessionGateway` app.
+	// A collection of settings that configure the `RSessionGateway` app.
 	RSessionAppSettings DomainRSessionAppSettingsPtrInput `pulumi:"rSessionAppSettings"`
 	// A collection of settings that configure user interaction with the `RStudioServerPro` app.
 	RStudioServerProAppSettings DomainRStudioServerProAppSettingsPtrInput `pulumi:"rStudioServerProAppSettings"`
@@ -7027,7 +7023,7 @@ type DomainUserSettingsArgs struct {
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// The sharing settings.
 	SharingSettings DomainSharingSettingsPtrInput `pulumi:"sharingSettings"`
-	// The default storage settings for a space.
+	// The storage settings for a space.
 	SpaceStorageSettings DomainDefaultSpaceStorageSettingsPtrInput `pulumi:"spaceStorageSettings"`
 	// Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
 	StudioWebPortal DomainUserSettingsStudioWebPortalPtrInput `pulumi:"studioWebPortal"`
@@ -7061,13 +7057,11 @@ func (o DomainUserSettingsOutput) ToDomainUserSettingsOutputWithContext(ctx cont
 }
 
 // The Code Editor application settings.
-//
-// For more information about Code Editor, see [Get started with Code Editor in Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/code-editor.html) .
 func (o DomainUserSettingsOutput) CodeEditorAppSettings() DomainCodeEditorAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainUserSettings) *DomainCodeEditorAppSettings { return v.CodeEditorAppSettings }).(DomainCodeEditorAppSettingsPtrOutput)
 }
 
-// The settings for assigning a custom file system to a user profile or space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.
+// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
 func (o DomainUserSettingsOutput) CustomFileSystemConfigs() DomainCustomFileSystemConfigArrayOutput {
 	return o.ApplyT(func(v DomainUserSettings) []DomainCustomFileSystemConfig { return v.CustomFileSystemConfigs }).(DomainCustomFileSystemConfigArrayOutput)
 }
@@ -7102,7 +7096,7 @@ func (o DomainUserSettingsOutput) KernelGatewayAppSettings() DomainKernelGateway
 	return o.ApplyT(func(v DomainUserSettings) *DomainKernelGatewayAppSettings { return v.KernelGatewayAppSettings }).(DomainKernelGatewayAppSettingsPtrOutput)
 }
 
-// A collection of settings that apply to an `RSessionGateway` app.
+// A collection of settings that configure the `RSessionGateway` app.
 func (o DomainUserSettingsOutput) RSessionAppSettings() DomainRSessionAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainUserSettings) *DomainRSessionAppSettings { return v.RSessionAppSettings }).(DomainRSessionAppSettingsPtrOutput)
 }
@@ -7122,7 +7116,7 @@ func (o DomainUserSettingsOutput) SharingSettings() DomainSharingSettingsPtrOutp
 	return o.ApplyT(func(v DomainUserSettings) *DomainSharingSettings { return v.SharingSettings }).(DomainSharingSettingsPtrOutput)
 }
 
-// The default storage settings for a space.
+// The storage settings for a space.
 func (o DomainUserSettingsOutput) SpaceStorageSettings() DomainDefaultSpaceStorageSettingsPtrOutput {
 	return o.ApplyT(func(v DomainUserSettings) *DomainDefaultSpaceStorageSettings { return v.SpaceStorageSettings }).(DomainDefaultSpaceStorageSettingsPtrOutput)
 }
@@ -7157,8 +7151,6 @@ func (o DomainUserSettingsPtrOutput) Elem() DomainUserSettingsOutput {
 }
 
 // The Code Editor application settings.
-//
-// For more information about Code Editor, see [Get started with Code Editor in Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/code-editor.html) .
 func (o DomainUserSettingsPtrOutput) CodeEditorAppSettings() DomainCodeEditorAppSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainUserSettings) *DomainCodeEditorAppSettings {
 		if v == nil {
@@ -7168,7 +7160,7 @@ func (o DomainUserSettingsPtrOutput) CodeEditorAppSettings() DomainCodeEditorApp
 	}).(DomainCodeEditorAppSettingsPtrOutput)
 }
 
-// The settings for assigning a custom file system to a user profile or space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.
+// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
 func (o DomainUserSettingsPtrOutput) CustomFileSystemConfigs() DomainCustomFileSystemConfigArrayOutput {
 	return o.ApplyT(func(v *DomainUserSettings) []DomainCustomFileSystemConfig {
 		if v == nil {
@@ -7238,7 +7230,7 @@ func (o DomainUserSettingsPtrOutput) KernelGatewayAppSettings() DomainKernelGate
 	}).(DomainKernelGatewayAppSettingsPtrOutput)
 }
 
-// A collection of settings that apply to an `RSessionGateway` app.
+// A collection of settings that configure the `RSessionGateway` app.
 func (o DomainUserSettingsPtrOutput) RSessionAppSettings() DomainRSessionAppSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainUserSettings) *DomainRSessionAppSettings {
 		if v == nil {
@@ -7278,7 +7270,7 @@ func (o DomainUserSettingsPtrOutput) SharingSettings() DomainSharingSettingsPtrO
 	}).(DomainSharingSettingsPtrOutput)
 }
 
-// The default storage settings for a space.
+// The storage settings for a space.
 func (o DomainUserSettingsPtrOutput) SpaceStorageSettings() DomainDefaultSpaceStorageSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainUserSettings) *DomainDefaultSpaceStorageSettings {
 		if v == nil {
@@ -8480,10 +8472,7 @@ func (o InferenceComponentComputeResourceRequirementsPtrOutput) NumberOfCpuCores
 
 type InferenceComponentContainerSpecification struct {
 	// The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
-	ArtifactUrl *string `pulumi:"artifactUrl"`
-	// Gets the Amazon EC2 Container Registry path of the docker image of the model that is hosted in this [ProductionVariant](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariant.html) .
-	//
-	// If you used the `registry/repository[:tag]` form to specify the image path of the primary container when you created the model hosted in this `ProductionVariant` , the path resolves to a path of the form `registry/repository[@digest]` . A digest is a hash value that identifies a specific version of an image. For information about Amazon ECR paths, see [Pulling an Image](https://docs.aws.amazon.com//AmazonECR/latest/userguide/docker-pull-ecr-image.html) in the *Amazon ECR User Guide* .
+	ArtifactUrl   *string                          `pulumi:"artifactUrl"`
 	DeployedImage *InferenceComponentDeployedImage `pulumi:"deployedImage"`
 	// The environment variables to set in the Docker container. Each key and value in the Environment string-to-string map can have length of up to 1024. We support up to 16 entries in the map.
 	Environment map[string]string `pulumi:"environment"`
@@ -8504,10 +8493,7 @@ type InferenceComponentContainerSpecificationInput interface {
 
 type InferenceComponentContainerSpecificationArgs struct {
 	// The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
-	ArtifactUrl pulumi.StringPtrInput `pulumi:"artifactUrl"`
-	// Gets the Amazon EC2 Container Registry path of the docker image of the model that is hosted in this [ProductionVariant](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariant.html) .
-	//
-	// If you used the `registry/repository[:tag]` form to specify the image path of the primary container when you created the model hosted in this `ProductionVariant` , the path resolves to a path of the form `registry/repository[@digest]` . A digest is a hash value that identifies a specific version of an image. For information about Amazon ECR paths, see [Pulling an Image](https://docs.aws.amazon.com//AmazonECR/latest/userguide/docker-pull-ecr-image.html) in the *Amazon ECR User Guide* .
+	ArtifactUrl   pulumi.StringPtrInput                   `pulumi:"artifactUrl"`
 	DeployedImage InferenceComponentDeployedImagePtrInput `pulumi:"deployedImage"`
 	// The environment variables to set in the Docker container. Each key and value in the Environment string-to-string map can have length of up to 1024. We support up to 16 entries in the map.
 	Environment pulumi.StringMapInput `pulumi:"environment"`
@@ -8597,9 +8583,6 @@ func (o InferenceComponentContainerSpecificationOutput) ArtifactUrl() pulumi.Str
 	return o.ApplyT(func(v InferenceComponentContainerSpecification) *string { return v.ArtifactUrl }).(pulumi.StringPtrOutput)
 }
 
-// Gets the Amazon EC2 Container Registry path of the docker image of the model that is hosted in this [ProductionVariant](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariant.html) .
-//
-// If you used the `registry/repository[:tag]` form to specify the image path of the primary container when you created the model hosted in this `ProductionVariant` , the path resolves to a path of the form `registry/repository[@digest]` . A digest is a hash value that identifies a specific version of an image. For information about Amazon ECR paths, see [Pulling an Image](https://docs.aws.amazon.com//AmazonECR/latest/userguide/docker-pull-ecr-image.html) in the *Amazon ECR User Guide* .
 func (o InferenceComponentContainerSpecificationOutput) DeployedImage() InferenceComponentDeployedImagePtrOutput {
 	return o.ApplyT(func(v InferenceComponentContainerSpecification) *InferenceComponentDeployedImage {
 		return v.DeployedImage
@@ -8650,9 +8633,6 @@ func (o InferenceComponentContainerSpecificationPtrOutput) ArtifactUrl() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Gets the Amazon EC2 Container Registry path of the docker image of the model that is hosted in this [ProductionVariant](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariant.html) .
-//
-// If you used the `registry/repository[:tag]` form to specify the image path of the primary container when you created the model hosted in this `ProductionVariant` , the path resolves to a path of the form `registry/repository[@digest]` . A digest is a hash value that identifies a specific version of an image. For information about Amazon ECR paths, see [Pulling an Image](https://docs.aws.amazon.com//AmazonECR/latest/userguide/docker-pull-ecr-image.html) in the *Amazon ECR User Guide* .
 func (o InferenceComponentContainerSpecificationPtrOutput) DeployedImage() InferenceComponentDeployedImagePtrOutput {
 	return o.ApplyT(func(v *InferenceComponentContainerSpecification) *InferenceComponentDeployedImage {
 		if v == nil {
@@ -8978,7 +8958,7 @@ func (o InferenceComponentRuntimeConfigPtrOutput) DesiredCopyCount() pulumi.IntP
 
 // The specification for the inference component
 type InferenceComponentSpecification struct {
-	// Defines the compute resources to allocate to run a model that you assign to an inference component. These resources include CPU cores, accelerators, and memory.
+	// The compute resources allocated to run the model assigned to the inference component.
 	ComputeResourceRequirements InferenceComponentComputeResourceRequirements `pulumi:"computeResourceRequirements"`
 	// Defines a container that provides the runtime environment for a model that you deploy with an inference component.
 	Container *InferenceComponentContainerSpecification `pulumi:"container"`
@@ -9001,7 +8981,7 @@ type InferenceComponentSpecificationInput interface {
 
 // The specification for the inference component
 type InferenceComponentSpecificationArgs struct {
-	// Defines the compute resources to allocate to run a model that you assign to an inference component. These resources include CPU cores, accelerators, and memory.
+	// The compute resources allocated to run the model assigned to the inference component.
 	ComputeResourceRequirements InferenceComponentComputeResourceRequirementsInput `pulumi:"computeResourceRequirements"`
 	// Defines a container that provides the runtime environment for a model that you deploy with an inference component.
 	Container InferenceComponentContainerSpecificationPtrInput `pulumi:"container"`
@@ -9038,7 +9018,7 @@ func (o InferenceComponentSpecificationOutput) ToInferenceComponentSpecification
 	return o
 }
 
-// Defines the compute resources to allocate to run a model that you assign to an inference component. These resources include CPU cores, accelerators, and memory.
+// The compute resources allocated to run the model assigned to the inference component.
 func (o InferenceComponentSpecificationOutput) ComputeResourceRequirements() InferenceComponentComputeResourceRequirementsOutput {
 	return o.ApplyT(func(v InferenceComponentSpecification) InferenceComponentComputeResourceRequirements {
 		return v.ComputeResourceRequirements
@@ -9086,7 +9066,7 @@ func (o InferenceComponentSpecificationPtrOutput) Elem() InferenceComponentSpeci
 	}).(InferenceComponentSpecificationOutput)
 }
 
-// Defines the compute resources to allocate to run a model that you assign to an inference component. These resources include CPU cores, accelerators, and memory.
+// The compute resources allocated to run the model assigned to the inference component.
 func (o InferenceComponentSpecificationPtrOutput) ComputeResourceRequirements() InferenceComponentComputeResourceRequirementsPtrOutput {
 	return o.ApplyT(func(v *InferenceComponentSpecification) *InferenceComponentComputeResourceRequirements {
 		if v == nil {
@@ -9451,7 +9431,7 @@ func (o InferenceExperimentCaptureContentTypeHeaderPtrOutput) JsonContentTypes()
 
 // The Amazon S3 location and configuration for storing inference request and response data.
 type InferenceExperimentDataStorageConfig struct {
-	// Configuration specifying how to treat different headers. If no headers are specified Amazon SageMaker will by default base64 encode when capturing the data.
+	// Configuration specifying how to treat different headers. If no headers are specified SageMaker will by default base64 encode when capturing the data.
 	ContentType *InferenceExperimentCaptureContentTypeHeader `pulumi:"contentType"`
 	// The Amazon S3 bucket where the inference request and response data is stored.
 	Destination string `pulumi:"destination"`
@@ -9472,7 +9452,7 @@ type InferenceExperimentDataStorageConfigInput interface {
 
 // The Amazon S3 location and configuration for storing inference request and response data.
 type InferenceExperimentDataStorageConfigArgs struct {
-	// Configuration specifying how to treat different headers. If no headers are specified Amazon SageMaker will by default base64 encode when capturing the data.
+	// Configuration specifying how to treat different headers. If no headers are specified SageMaker will by default base64 encode when capturing the data.
 	ContentType InferenceExperimentCaptureContentTypeHeaderPtrInput `pulumi:"contentType"`
 	// The Amazon S3 bucket where the inference request and response data is stored.
 	Destination pulumi.StringInput `pulumi:"destination"`
@@ -9558,7 +9538,7 @@ func (o InferenceExperimentDataStorageConfigOutput) ToInferenceExperimentDataSto
 	}).(InferenceExperimentDataStorageConfigPtrOutput)
 }
 
-// Configuration specifying how to treat different headers. If no headers are specified Amazon SageMaker will by default base64 encode when capturing the data.
+// Configuration specifying how to treat different headers. If no headers are specified SageMaker will by default base64 encode when capturing the data.
 func (o InferenceExperimentDataStorageConfigOutput) ContentType() InferenceExperimentCaptureContentTypeHeaderPtrOutput {
 	return o.ApplyT(func(v InferenceExperimentDataStorageConfig) *InferenceExperimentCaptureContentTypeHeader {
 		return v.ContentType
@@ -9599,7 +9579,7 @@ func (o InferenceExperimentDataStorageConfigPtrOutput) Elem() InferenceExperimen
 	}).(InferenceExperimentDataStorageConfigOutput)
 }
 
-// Configuration specifying how to treat different headers. If no headers are specified Amazon SageMaker will by default base64 encode when capturing the data.
+// Configuration specifying how to treat different headers. If no headers are specified SageMaker will by default base64 encode when capturing the data.
 func (o InferenceExperimentDataStorageConfigPtrOutput) ContentType() InferenceExperimentCaptureContentTypeHeaderPtrOutput {
 	return o.ApplyT(func(v *InferenceExperimentDataStorageConfig) *InferenceExperimentCaptureContentTypeHeader {
 		if v == nil {
@@ -9729,7 +9709,7 @@ func (o InferenceExperimentEndpointMetadataPtrOutput) EndpointStatus() Inference
 type InferenceExperimentModelInfrastructureConfig struct {
 	// The type of the inference experiment that you want to run.
 	InfrastructureType InferenceExperimentModelInfrastructureConfigInfrastructureType `pulumi:"infrastructureType"`
-	// The infrastructure configuration for deploying the model to a real-time inference endpoint.
+	// The infrastructure configuration for deploying the model to real-time inference.
 	RealTimeInferenceConfig InferenceExperimentRealTimeInferenceConfig `pulumi:"realTimeInferenceConfig"`
 }
 
@@ -9748,7 +9728,7 @@ type InferenceExperimentModelInfrastructureConfigInput interface {
 type InferenceExperimentModelInfrastructureConfigArgs struct {
 	// The type of the inference experiment that you want to run.
 	InfrastructureType InferenceExperimentModelInfrastructureConfigInfrastructureTypeInput `pulumi:"infrastructureType"`
-	// The infrastructure configuration for deploying the model to a real-time inference endpoint.
+	// The infrastructure configuration for deploying the model to real-time inference.
 	RealTimeInferenceConfig InferenceExperimentRealTimeInferenceConfigInput `pulumi:"realTimeInferenceConfig"`
 }
 
@@ -9786,7 +9766,7 @@ func (o InferenceExperimentModelInfrastructureConfigOutput) InfrastructureType()
 	}).(InferenceExperimentModelInfrastructureConfigInfrastructureTypeOutput)
 }
 
-// The infrastructure configuration for deploying the model to a real-time inference endpoint.
+// The infrastructure configuration for deploying the model to real-time inference.
 func (o InferenceExperimentModelInfrastructureConfigOutput) RealTimeInferenceConfig() InferenceExperimentRealTimeInferenceConfigOutput {
 	return o.ApplyT(func(v InferenceExperimentModelInfrastructureConfig) InferenceExperimentRealTimeInferenceConfig {
 		return v.RealTimeInferenceConfig
@@ -11973,7 +11953,7 @@ type ModelBiasJobDefinitionModelBiasJobInput struct {
 	BatchTransformInput *ModelBiasJobDefinitionBatchTransformInput `pulumi:"batchTransformInput"`
 	// Input object for the endpoint
 	EndpointInput *ModelBiasJobDefinitionEndpointInput `pulumi:"endpointInput"`
-	// The ground truth labels for the dataset used for the monitoring job.
+	// Location of ground truth labels to use in model bias job.
 	GroundTruthS3Input ModelBiasJobDefinitionMonitoringGroundTruthS3Input `pulumi:"groundTruthS3Input"`
 }
 
@@ -11994,7 +11974,7 @@ type ModelBiasJobDefinitionModelBiasJobInputArgs struct {
 	BatchTransformInput ModelBiasJobDefinitionBatchTransformInputPtrInput `pulumi:"batchTransformInput"`
 	// Input object for the endpoint
 	EndpointInput ModelBiasJobDefinitionEndpointInputPtrInput `pulumi:"endpointInput"`
-	// The ground truth labels for the dataset used for the monitoring job.
+	// Location of ground truth labels to use in model bias job.
 	GroundTruthS3Input ModelBiasJobDefinitionMonitoringGroundTruthS3InputInput `pulumi:"groundTruthS3Input"`
 }
 
@@ -12039,7 +12019,7 @@ func (o ModelBiasJobDefinitionModelBiasJobInputOutput) EndpointInput() ModelBias
 	}).(ModelBiasJobDefinitionEndpointInputPtrOutput)
 }
 
-// The ground truth labels for the dataset used for the monitoring job.
+// Location of ground truth labels to use in model bias job.
 func (o ModelBiasJobDefinitionModelBiasJobInputOutput) GroundTruthS3Input() ModelBiasJobDefinitionMonitoringGroundTruthS3InputOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionModelBiasJobInput) ModelBiasJobDefinitionMonitoringGroundTruthS3Input {
 		return v.GroundTruthS3Input
@@ -12330,7 +12310,7 @@ type ModelBiasJobDefinitionNetworkConfig struct {
 	EnableInterContainerTrafficEncryption *bool `pulumi:"enableInterContainerTrafficEncryption"`
 	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
 	EnableNetworkIsolation *bool `pulumi:"enableNetworkIsolation"`
-	// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+	// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 	VpcConfig *ModelBiasJobDefinitionVpcConfig `pulumi:"vpcConfig"`
 }
 
@@ -12351,7 +12331,7 @@ type ModelBiasJobDefinitionNetworkConfigArgs struct {
 	EnableInterContainerTrafficEncryption pulumi.BoolPtrInput `pulumi:"enableInterContainerTrafficEncryption"`
 	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
 	EnableNetworkIsolation pulumi.BoolPtrInput `pulumi:"enableNetworkIsolation"`
-	// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+	// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 	VpcConfig ModelBiasJobDefinitionVpcConfigPtrInput `pulumi:"vpcConfig"`
 }
 
@@ -12443,7 +12423,7 @@ func (o ModelBiasJobDefinitionNetworkConfigOutput) EnableNetworkIsolation() pulu
 	return o.ApplyT(func(v ModelBiasJobDefinitionNetworkConfig) *bool { return v.EnableNetworkIsolation }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 func (o ModelBiasJobDefinitionNetworkConfigOutput) VpcConfig() ModelBiasJobDefinitionVpcConfigPtrOutput {
 	return o.ApplyT(func(v ModelBiasJobDefinitionNetworkConfig) *ModelBiasJobDefinitionVpcConfig { return v.VpcConfig }).(ModelBiasJobDefinitionVpcConfigPtrOutput)
 }
@@ -12492,7 +12472,7 @@ func (o ModelBiasJobDefinitionNetworkConfigPtrOutput) EnableNetworkIsolation() p
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 func (o ModelBiasJobDefinitionNetworkConfigPtrOutput) VpcConfig() ModelBiasJobDefinitionVpcConfigPtrOutput {
 	return o.ApplyT(func(v *ModelBiasJobDefinitionNetworkConfig) *ModelBiasJobDefinitionVpcConfig {
 		if v == nil {
@@ -13439,12 +13419,12 @@ type ModelCardContent struct {
 	BusinessDetails *ModelCardBusinessDetails `pulumi:"businessDetails"`
 	// An overview about the model's evaluation.
 	EvaluationDetails []ModelCardEvaluationDetail `pulumi:"evaluationDetails"`
-	// The intended uses of a model.
+	// The intended usage of the model.
 	IntendedUses *ModelCardIntendedUses `pulumi:"intendedUses"`
-	// An overview about the model.
+	// An overview about the model
 	ModelOverview       *ModelCardModelOverview       `pulumi:"modelOverview"`
 	ModelPackageDetails *ModelCardModelPackageDetails `pulumi:"modelPackageDetails"`
-	// The training details of the model
+	// An overview about model training.
 	TrainingDetails *ModelCardTrainingDetails `pulumi:"trainingDetails"`
 }
 
@@ -13467,12 +13447,12 @@ type ModelCardContentArgs struct {
 	BusinessDetails ModelCardBusinessDetailsPtrInput `pulumi:"businessDetails"`
 	// An overview about the model's evaluation.
 	EvaluationDetails ModelCardEvaluationDetailArrayInput `pulumi:"evaluationDetails"`
-	// The intended uses of a model.
+	// The intended usage of the model.
 	IntendedUses ModelCardIntendedUsesPtrInput `pulumi:"intendedUses"`
-	// An overview about the model.
+	// An overview about the model
 	ModelOverview       ModelCardModelOverviewPtrInput       `pulumi:"modelOverview"`
 	ModelPackageDetails ModelCardModelPackageDetailsPtrInput `pulumi:"modelPackageDetails"`
-	// The training details of the model
+	// An overview about model training.
 	TrainingDetails ModelCardTrainingDetailsPtrInput `pulumi:"trainingDetails"`
 }
 
@@ -13518,12 +13498,12 @@ func (o ModelCardContentOutput) EvaluationDetails() ModelCardEvaluationDetailArr
 	return o.ApplyT(func(v ModelCardContent) []ModelCardEvaluationDetail { return v.EvaluationDetails }).(ModelCardEvaluationDetailArrayOutput)
 }
 
-// The intended uses of a model.
+// The intended usage of the model.
 func (o ModelCardContentOutput) IntendedUses() ModelCardIntendedUsesPtrOutput {
 	return o.ApplyT(func(v ModelCardContent) *ModelCardIntendedUses { return v.IntendedUses }).(ModelCardIntendedUsesPtrOutput)
 }
 
-// An overview about the model.
+// An overview about the model
 func (o ModelCardContentOutput) ModelOverview() ModelCardModelOverviewPtrOutput {
 	return o.ApplyT(func(v ModelCardContent) *ModelCardModelOverview { return v.ModelOverview }).(ModelCardModelOverviewPtrOutput)
 }
@@ -13532,7 +13512,7 @@ func (o ModelCardContentOutput) ModelPackageDetails() ModelCardModelPackageDetai
 	return o.ApplyT(func(v ModelCardContent) *ModelCardModelPackageDetails { return v.ModelPackageDetails }).(ModelCardModelPackageDetailsPtrOutput)
 }
 
-// The training details of the model
+// An overview about model training.
 func (o ModelCardContentOutput) TrainingDetails() ModelCardTrainingDetailsPtrOutput {
 	return o.ApplyT(func(v ModelCardContent) *ModelCardTrainingDetails { return v.TrainingDetails }).(ModelCardTrainingDetailsPtrOutput)
 }
@@ -13591,7 +13571,7 @@ func (o ModelCardContentPtrOutput) EvaluationDetails() ModelCardEvaluationDetail
 	}).(ModelCardEvaluationDetailArrayOutput)
 }
 
-// The intended uses of a model.
+// The intended usage of the model.
 func (o ModelCardContentPtrOutput) IntendedUses() ModelCardIntendedUsesPtrOutput {
 	return o.ApplyT(func(v *ModelCardContent) *ModelCardIntendedUses {
 		if v == nil {
@@ -13601,7 +13581,7 @@ func (o ModelCardContentPtrOutput) IntendedUses() ModelCardIntendedUsesPtrOutput
 	}).(ModelCardIntendedUsesPtrOutput)
 }
 
-// An overview about the model.
+// An overview about the model
 func (o ModelCardContentPtrOutput) ModelOverview() ModelCardModelOverviewPtrOutput {
 	return o.ApplyT(func(v *ModelCardContent) *ModelCardModelOverview {
 		if v == nil {
@@ -13620,7 +13600,7 @@ func (o ModelCardContentPtrOutput) ModelPackageDetails() ModelCardModelPackageDe
 	}).(ModelCardModelPackageDetailsPtrOutput)
 }
 
-// The training details of the model
+// An overview about model training.
 func (o ModelCardContentPtrOutput) TrainingDetails() ModelCardTrainingDetailsPtrOutput {
 	return o.ApplyT(func(v *ModelCardContent) *ModelCardTrainingDetails {
 		if v == nil {
@@ -16204,17 +16184,15 @@ func (o ModelCardTrainingDetailsPtrOutput) TrainingObservations() pulumi.StringP
 
 // Details about any associated training jobs.
 type ModelCardTrainingDetailsTrainingJobDetailsProperties struct {
-	// A hyper parameter that was configured in training the model.
 	HyperParameters []ModelCardTrainingHyperParameter `pulumi:"hyperParameters"`
 	// SageMaker Training job arn.
 	TrainingArn *string `pulumi:"trainingArn"`
 	// Location of the model datasets.
-	TrainingDatasets    []string                                                                           `pulumi:"trainingDatasets"`
-	TrainingEnvironment *ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties `pulumi:"trainingEnvironment"`
-	// A result from a SageMaker training job.
-	TrainingMetrics             []ModelCardTrainingMetric         `pulumi:"trainingMetrics"`
-	UserProvidedHyperParameters []ModelCardTrainingHyperParameter `pulumi:"userProvidedHyperParameters"`
-	UserProvidedTrainingMetrics []ModelCardTrainingMetric         `pulumi:"userProvidedTrainingMetrics"`
+	TrainingDatasets            []string                                                                           `pulumi:"trainingDatasets"`
+	TrainingEnvironment         *ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentProperties `pulumi:"trainingEnvironment"`
+	TrainingMetrics             []ModelCardTrainingMetric                                                          `pulumi:"trainingMetrics"`
+	UserProvidedHyperParameters []ModelCardTrainingHyperParameter                                                  `pulumi:"userProvidedHyperParameters"`
+	UserProvidedTrainingMetrics []ModelCardTrainingMetric                                                          `pulumi:"userProvidedTrainingMetrics"`
 }
 
 // ModelCardTrainingDetailsTrainingJobDetailsPropertiesInput is an input type that accepts ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs and ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput values.
@@ -16230,17 +16208,15 @@ type ModelCardTrainingDetailsTrainingJobDetailsPropertiesInput interface {
 
 // Details about any associated training jobs.
 type ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs struct {
-	// A hyper parameter that was configured in training the model.
 	HyperParameters ModelCardTrainingHyperParameterArrayInput `pulumi:"hyperParameters"`
 	// SageMaker Training job arn.
 	TrainingArn pulumi.StringPtrInput `pulumi:"trainingArn"`
 	// Location of the model datasets.
-	TrainingDatasets    pulumi.StringArrayInput                                                                   `pulumi:"trainingDatasets"`
-	TrainingEnvironment ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrInput `pulumi:"trainingEnvironment"`
-	// A result from a SageMaker training job.
-	TrainingMetrics             ModelCardTrainingMetricArrayInput         `pulumi:"trainingMetrics"`
-	UserProvidedHyperParameters ModelCardTrainingHyperParameterArrayInput `pulumi:"userProvidedHyperParameters"`
-	UserProvidedTrainingMetrics ModelCardTrainingMetricArrayInput         `pulumi:"userProvidedTrainingMetrics"`
+	TrainingDatasets            pulumi.StringArrayInput                                                                   `pulumi:"trainingDatasets"`
+	TrainingEnvironment         ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrInput `pulumi:"trainingEnvironment"`
+	TrainingMetrics             ModelCardTrainingMetricArrayInput                                                         `pulumi:"trainingMetrics"`
+	UserProvidedHyperParameters ModelCardTrainingHyperParameterArrayInput                                                 `pulumi:"userProvidedHyperParameters"`
+	UserProvidedTrainingMetrics ModelCardTrainingMetricArrayInput                                                         `pulumi:"userProvidedTrainingMetrics"`
 }
 
 func (ModelCardTrainingDetailsTrainingJobDetailsPropertiesArgs) ElementType() reflect.Type {
@@ -16321,7 +16297,6 @@ func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput) ToModelCardT
 	}).(ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput)
 }
 
-// A hyper parameter that was configured in training the model.
 func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput) HyperParameters() ModelCardTrainingHyperParameterArrayOutput {
 	return o.ApplyT(func(v ModelCardTrainingDetailsTrainingJobDetailsProperties) []ModelCardTrainingHyperParameter {
 		return v.HyperParameters
@@ -16344,7 +16319,6 @@ func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput) TrainingEnvi
 	}).(ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput)
 }
 
-// A result from a SageMaker training job.
 func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput) TrainingMetrics() ModelCardTrainingMetricArrayOutput {
 	return o.ApplyT(func(v ModelCardTrainingDetailsTrainingJobDetailsProperties) []ModelCardTrainingMetric {
 		return v.TrainingMetrics
@@ -16387,7 +16361,6 @@ func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput) Elem() Mo
 	}).(ModelCardTrainingDetailsTrainingJobDetailsPropertiesOutput)
 }
 
-// A hyper parameter that was configured in training the model.
 func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput) HyperParameters() ModelCardTrainingHyperParameterArrayOutput {
 	return o.ApplyT(func(v *ModelCardTrainingDetailsTrainingJobDetailsProperties) []ModelCardTrainingHyperParameter {
 		if v == nil {
@@ -16426,7 +16399,6 @@ func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput) TrainingE
 	}).(ModelCardTrainingDetailsTrainingJobDetailsPropertiesTrainingEnvironmentPropertiesPtrOutput)
 }
 
-// A result from a SageMaker training job.
 func (o ModelCardTrainingDetailsTrainingJobDetailsPropertiesPtrOutput) TrainingMetrics() ModelCardTrainingMetricArrayOutput {
 	return o.ApplyT(func(v *ModelCardTrainingDetailsTrainingJobDetailsProperties) []ModelCardTrainingMetric {
 		if v == nil {
@@ -18288,7 +18260,7 @@ func (o ModelExplainabilityJobDefinitionModelExplainabilityAppSpecificationOutpu
 type ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig struct {
 	// The name of the baseline model explainability job.
 	BaseliningJobName *string `pulumi:"baseliningJobName"`
-	// Input object for the endpoint
+	// The constraints resource for a model explainability job.
 	ConstraintsResource *ModelExplainabilityJobDefinitionConstraintsResource `pulumi:"constraintsResource"`
 }
 
@@ -18307,7 +18279,7 @@ type ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigInput inte
 type ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigArgs struct {
 	// The name of the baseline model explainability job.
 	BaseliningJobName pulumi.StringPtrInput `pulumi:"baseliningJobName"`
-	// Input object for the endpoint
+	// The constraints resource for a model explainability job.
 	ConstraintsResource ModelExplainabilityJobDefinitionConstraintsResourcePtrInput `pulumi:"constraintsResource"`
 }
 
@@ -18396,7 +18368,7 @@ func (o ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// Input object for the endpoint
+// The constraints resource for a model explainability job.
 func (o ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigOutput) ConstraintsResource() ModelExplainabilityJobDefinitionConstraintsResourcePtrOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig) *ModelExplainabilityJobDefinitionConstraintsResource {
 		return v.ConstraintsResource
@@ -18437,7 +18409,7 @@ func (o ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// Input object for the endpoint
+// The constraints resource for a model explainability job.
 func (o ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfigPtrOutput) ConstraintsResource() ModelExplainabilityJobDefinitionConstraintsResourcePtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionModelExplainabilityBaselineConfig) *ModelExplainabilityJobDefinitionConstraintsResource {
 		if v == nil {
@@ -18746,7 +18718,7 @@ type ModelExplainabilityJobDefinitionNetworkConfig struct {
 	EnableInterContainerTrafficEncryption *bool `pulumi:"enableInterContainerTrafficEncryption"`
 	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
 	EnableNetworkIsolation *bool `pulumi:"enableNetworkIsolation"`
-	// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+	// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 	VpcConfig *ModelExplainabilityJobDefinitionVpcConfig `pulumi:"vpcConfig"`
 }
 
@@ -18767,7 +18739,7 @@ type ModelExplainabilityJobDefinitionNetworkConfigArgs struct {
 	EnableInterContainerTrafficEncryption pulumi.BoolPtrInput `pulumi:"enableInterContainerTrafficEncryption"`
 	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
 	EnableNetworkIsolation pulumi.BoolPtrInput `pulumi:"enableNetworkIsolation"`
-	// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+	// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 	VpcConfig ModelExplainabilityJobDefinitionVpcConfigPtrInput `pulumi:"vpcConfig"`
 }
 
@@ -18861,7 +18833,7 @@ func (o ModelExplainabilityJobDefinitionNetworkConfigOutput) EnableNetworkIsolat
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionNetworkConfig) *bool { return v.EnableNetworkIsolation }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 func (o ModelExplainabilityJobDefinitionNetworkConfigOutput) VpcConfig() ModelExplainabilityJobDefinitionVpcConfigPtrOutput {
 	return o.ApplyT(func(v ModelExplainabilityJobDefinitionNetworkConfig) *ModelExplainabilityJobDefinitionVpcConfig {
 		return v.VpcConfig
@@ -18912,7 +18884,7 @@ func (o ModelExplainabilityJobDefinitionNetworkConfigPtrOutput) EnableNetworkIso
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 func (o ModelExplainabilityJobDefinitionNetworkConfigPtrOutput) VpcConfig() ModelExplainabilityJobDefinitionVpcConfigPtrOutput {
 	return o.ApplyT(func(v *ModelExplainabilityJobDefinitionNetworkConfig) *ModelExplainabilityJobDefinitionVpcConfig {
 		if v == nil {
@@ -19470,11 +19442,11 @@ func (o ModelPackageAdditionalInferenceSpecificationDefinitionArrayOutput) Index
 
 // Contains bias metrics for a model.
 type ModelPackageBias struct {
-	// Details about the metrics source.
+	// The post-training bias report for a model.
 	PostTrainingReport *ModelPackageMetricsSource `pulumi:"postTrainingReport"`
-	// Details about the metrics source.
+	// The pre-training bias report for a model.
 	PreTrainingReport *ModelPackageMetricsSource `pulumi:"preTrainingReport"`
-	// Details about the metrics source.
+	// The bias report for a model
 	Report *ModelPackageMetricsSource `pulumi:"report"`
 }
 
@@ -19491,11 +19463,11 @@ type ModelPackageBiasInput interface {
 
 // Contains bias metrics for a model.
 type ModelPackageBiasArgs struct {
-	// Details about the metrics source.
+	// The post-training bias report for a model.
 	PostTrainingReport ModelPackageMetricsSourcePtrInput `pulumi:"postTrainingReport"`
-	// Details about the metrics source.
+	// The pre-training bias report for a model.
 	PreTrainingReport ModelPackageMetricsSourcePtrInput `pulumi:"preTrainingReport"`
-	// Details about the metrics source.
+	// The bias report for a model
 	Report ModelPackageMetricsSourcePtrInput `pulumi:"report"`
 }
 
@@ -19577,17 +19549,17 @@ func (o ModelPackageBiasOutput) ToModelPackageBiasPtrOutputWithContext(ctx conte
 	}).(ModelPackageBiasPtrOutput)
 }
 
-// Details about the metrics source.
+// The post-training bias report for a model.
 func (o ModelPackageBiasOutput) PostTrainingReport() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v ModelPackageBias) *ModelPackageMetricsSource { return v.PostTrainingReport }).(ModelPackageMetricsSourcePtrOutput)
 }
 
-// Details about the metrics source.
+// The pre-training bias report for a model.
 func (o ModelPackageBiasOutput) PreTrainingReport() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v ModelPackageBias) *ModelPackageMetricsSource { return v.PreTrainingReport }).(ModelPackageMetricsSourcePtrOutput)
 }
 
-// Details about the metrics source.
+// The bias report for a model
 func (o ModelPackageBiasOutput) Report() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v ModelPackageBias) *ModelPackageMetricsSource { return v.Report }).(ModelPackageMetricsSourcePtrOutput)
 }
@@ -19616,7 +19588,7 @@ func (o ModelPackageBiasPtrOutput) Elem() ModelPackageBiasOutput {
 	}).(ModelPackageBiasOutput)
 }
 
-// Details about the metrics source.
+// The post-training bias report for a model.
 func (o ModelPackageBiasPtrOutput) PostTrainingReport() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v *ModelPackageBias) *ModelPackageMetricsSource {
 		if v == nil {
@@ -19626,7 +19598,7 @@ func (o ModelPackageBiasPtrOutput) PostTrainingReport() ModelPackageMetricsSourc
 	}).(ModelPackageMetricsSourcePtrOutput)
 }
 
-// Details about the metrics source.
+// The pre-training bias report for a model.
 func (o ModelPackageBiasPtrOutput) PreTrainingReport() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v *ModelPackageBias) *ModelPackageMetricsSource {
 		if v == nil {
@@ -19636,7 +19608,7 @@ func (o ModelPackageBiasPtrOutput) PreTrainingReport() ModelPackageMetricsSource
 	}).(ModelPackageMetricsSourcePtrOutput)
 }
 
-// Details about the metrics source.
+// The bias report for a model
 func (o ModelPackageBiasPtrOutput) Report() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v *ModelPackageBias) *ModelPackageMetricsSource {
 		if v == nil {
@@ -20083,9 +20055,7 @@ func (o ModelPackageCustomerMetadataPropertiesPtrOutput) Elem() ModelPackageCust
 
 // Describes the input source of a transform job and the way the transform job consumes it.
 type ModelPackageDataSource struct {
-	// Describes the S3 data source.
-	//
-	// Your input bucket must be in the same AWS region as your training job.
+	// The S3 location of the data source that is associated with a channel.
 	S3DataSource ModelPackageS3DataSource `pulumi:"s3DataSource"`
 }
 
@@ -20102,9 +20072,7 @@ type ModelPackageDataSourceInput interface {
 
 // Describes the input source of a transform job and the way the transform job consumes it.
 type ModelPackageDataSourceArgs struct {
-	// Describes the S3 data source.
-	//
-	// Your input bucket must be in the same AWS region as your training job.
+	// The S3 location of the data source that is associated with a channel.
 	S3DataSource ModelPackageS3DataSourceInput `pulumi:"s3DataSource"`
 }
 
@@ -20135,9 +20103,7 @@ func (o ModelPackageDataSourceOutput) ToModelPackageDataSourceOutputWithContext(
 	return o
 }
 
-// Describes the S3 data source.
-//
-// Your input bucket must be in the same AWS region as your training job.
+// The S3 location of the data source that is associated with a channel.
 func (o ModelPackageDataSourceOutput) S3DataSource() ModelPackageS3DataSourceOutput {
 	return o.ApplyT(func(v ModelPackageDataSource) ModelPackageS3DataSource { return v.S3DataSource }).(ModelPackageS3DataSourceOutput)
 }
@@ -20148,7 +20114,7 @@ type ModelPackageDriftCheckBaselines struct {
 	Bias *ModelPackageDriftCheckBias `pulumi:"bias"`
 	// Represents the drift check explainability baselines that can be used when the model monitor is set using the model package.
 	Explainability *ModelPackageDriftCheckExplainability `pulumi:"explainability"`
-	// Represents the drift check data quality baselines that can be used when the model monitor is set using the model package.
+	// Represents the drift check model data quality baselines that can be used when the model monitor is set using the model package.
 	ModelDataQuality *ModelPackageDriftCheckModelDataQuality `pulumi:"modelDataQuality"`
 	// Represents the drift check model quality baselines that can be used when the model monitor is set using the model package.
 	ModelQuality *ModelPackageDriftCheckModelQuality `pulumi:"modelQuality"`
@@ -20171,7 +20137,7 @@ type ModelPackageDriftCheckBaselinesArgs struct {
 	Bias ModelPackageDriftCheckBiasPtrInput `pulumi:"bias"`
 	// Represents the drift check explainability baselines that can be used when the model monitor is set using the model package.
 	Explainability ModelPackageDriftCheckExplainabilityPtrInput `pulumi:"explainability"`
-	// Represents the drift check data quality baselines that can be used when the model monitor is set using the model package.
+	// Represents the drift check model data quality baselines that can be used when the model monitor is set using the model package.
 	ModelDataQuality ModelPackageDriftCheckModelDataQualityPtrInput `pulumi:"modelDataQuality"`
 	// Represents the drift check model quality baselines that can be used when the model monitor is set using the model package.
 	ModelQuality ModelPackageDriftCheckModelQualityPtrInput `pulumi:"modelQuality"`
@@ -20265,7 +20231,7 @@ func (o ModelPackageDriftCheckBaselinesOutput) Explainability() ModelPackageDrif
 	return o.ApplyT(func(v ModelPackageDriftCheckBaselines) *ModelPackageDriftCheckExplainability { return v.Explainability }).(ModelPackageDriftCheckExplainabilityPtrOutput)
 }
 
-// Represents the drift check data quality baselines that can be used when the model monitor is set using the model package.
+// Represents the drift check model data quality baselines that can be used when the model monitor is set using the model package.
 func (o ModelPackageDriftCheckBaselinesOutput) ModelDataQuality() ModelPackageDriftCheckModelDataQualityPtrOutput {
 	return o.ApplyT(func(v ModelPackageDriftCheckBaselines) *ModelPackageDriftCheckModelDataQuality {
 		return v.ModelDataQuality
@@ -20321,7 +20287,7 @@ func (o ModelPackageDriftCheckBaselinesPtrOutput) Explainability() ModelPackageD
 	}).(ModelPackageDriftCheckExplainabilityPtrOutput)
 }
 
-// Represents the drift check data quality baselines that can be used when the model monitor is set using the model package.
+// Represents the drift check model data quality baselines that can be used when the model monitor is set using the model package.
 func (o ModelPackageDriftCheckBaselinesPtrOutput) ModelDataQuality() ModelPackageDriftCheckModelDataQualityPtrOutput {
 	return o.ApplyT(func(v *ModelPackageDriftCheckBaselines) *ModelPackageDriftCheckModelDataQuality {
 		if v == nil {
@@ -20343,11 +20309,11 @@ func (o ModelPackageDriftCheckBaselinesPtrOutput) ModelQuality() ModelPackageDri
 
 // Represents the drift check bias baselines that can be used when the model monitor is set using the model package.
 type ModelPackageDriftCheckBias struct {
-	// Contains details regarding the file source.
+	// The bias config file for a model.
 	ConfigFile *ModelPackageFileSource `pulumi:"configFile"`
-	// Details about the metrics source.
+	// The post-training constraints.
 	PostTrainingConstraints *ModelPackageMetricsSource `pulumi:"postTrainingConstraints"`
-	// Details about the metrics source.
+	// The pre-training constraints.
 	PreTrainingConstraints *ModelPackageMetricsSource `pulumi:"preTrainingConstraints"`
 }
 
@@ -20364,11 +20330,11 @@ type ModelPackageDriftCheckBiasInput interface {
 
 // Represents the drift check bias baselines that can be used when the model monitor is set using the model package.
 type ModelPackageDriftCheckBiasArgs struct {
-	// Contains details regarding the file source.
+	// The bias config file for a model.
 	ConfigFile ModelPackageFileSourcePtrInput `pulumi:"configFile"`
-	// Details about the metrics source.
+	// The post-training constraints.
 	PostTrainingConstraints ModelPackageMetricsSourcePtrInput `pulumi:"postTrainingConstraints"`
-	// Details about the metrics source.
+	// The pre-training constraints.
 	PreTrainingConstraints ModelPackageMetricsSourcePtrInput `pulumi:"preTrainingConstraints"`
 }
 
@@ -20450,17 +20416,17 @@ func (o ModelPackageDriftCheckBiasOutput) ToModelPackageDriftCheckBiasPtrOutputW
 	}).(ModelPackageDriftCheckBiasPtrOutput)
 }
 
-// Contains details regarding the file source.
+// The bias config file for a model.
 func (o ModelPackageDriftCheckBiasOutput) ConfigFile() ModelPackageFileSourcePtrOutput {
 	return o.ApplyT(func(v ModelPackageDriftCheckBias) *ModelPackageFileSource { return v.ConfigFile }).(ModelPackageFileSourcePtrOutput)
 }
 
-// Details about the metrics source.
+// The post-training constraints.
 func (o ModelPackageDriftCheckBiasOutput) PostTrainingConstraints() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v ModelPackageDriftCheckBias) *ModelPackageMetricsSource { return v.PostTrainingConstraints }).(ModelPackageMetricsSourcePtrOutput)
 }
 
-// Details about the metrics source.
+// The pre-training constraints.
 func (o ModelPackageDriftCheckBiasOutput) PreTrainingConstraints() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v ModelPackageDriftCheckBias) *ModelPackageMetricsSource { return v.PreTrainingConstraints }).(ModelPackageMetricsSourcePtrOutput)
 }
@@ -20489,7 +20455,7 @@ func (o ModelPackageDriftCheckBiasPtrOutput) Elem() ModelPackageDriftCheckBiasOu
 	}).(ModelPackageDriftCheckBiasOutput)
 }
 
-// Contains details regarding the file source.
+// The bias config file for a model.
 func (o ModelPackageDriftCheckBiasPtrOutput) ConfigFile() ModelPackageFileSourcePtrOutput {
 	return o.ApplyT(func(v *ModelPackageDriftCheckBias) *ModelPackageFileSource {
 		if v == nil {
@@ -20499,7 +20465,7 @@ func (o ModelPackageDriftCheckBiasPtrOutput) ConfigFile() ModelPackageFileSource
 	}).(ModelPackageFileSourcePtrOutput)
 }
 
-// Details about the metrics source.
+// The post-training constraints.
 func (o ModelPackageDriftCheckBiasPtrOutput) PostTrainingConstraints() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v *ModelPackageDriftCheckBias) *ModelPackageMetricsSource {
 		if v == nil {
@@ -20509,7 +20475,7 @@ func (o ModelPackageDriftCheckBiasPtrOutput) PostTrainingConstraints() ModelPack
 	}).(ModelPackageMetricsSourcePtrOutput)
 }
 
-// Details about the metrics source.
+// The pre-training constraints.
 func (o ModelPackageDriftCheckBiasPtrOutput) PreTrainingConstraints() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v *ModelPackageDriftCheckBias) *ModelPackageMetricsSource {
 		if v == nil {
@@ -20521,9 +20487,9 @@ func (o ModelPackageDriftCheckBiasPtrOutput) PreTrainingConstraints() ModelPacka
 
 // Contains explainability metrics for a model.
 type ModelPackageDriftCheckExplainability struct {
-	// Contains details regarding the file source.
+	// The explainability config file for the model.
 	ConfigFile *ModelPackageFileSource `pulumi:"configFile"`
-	// Details about the metrics source.
+	// The drift check explainability constraints.
 	Constraints *ModelPackageMetricsSource `pulumi:"constraints"`
 }
 
@@ -20540,9 +20506,9 @@ type ModelPackageDriftCheckExplainabilityInput interface {
 
 // Contains explainability metrics for a model.
 type ModelPackageDriftCheckExplainabilityArgs struct {
-	// Contains details regarding the file source.
+	// The explainability config file for the model.
 	ConfigFile ModelPackageFileSourcePtrInput `pulumi:"configFile"`
-	// Details about the metrics source.
+	// The drift check explainability constraints.
 	Constraints ModelPackageMetricsSourcePtrInput `pulumi:"constraints"`
 }
 
@@ -20624,12 +20590,12 @@ func (o ModelPackageDriftCheckExplainabilityOutput) ToModelPackageDriftCheckExpl
 	}).(ModelPackageDriftCheckExplainabilityPtrOutput)
 }
 
-// Contains details regarding the file source.
+// The explainability config file for the model.
 func (o ModelPackageDriftCheckExplainabilityOutput) ConfigFile() ModelPackageFileSourcePtrOutput {
 	return o.ApplyT(func(v ModelPackageDriftCheckExplainability) *ModelPackageFileSource { return v.ConfigFile }).(ModelPackageFileSourcePtrOutput)
 }
 
-// Details about the metrics source.
+// The drift check explainability constraints.
 func (o ModelPackageDriftCheckExplainabilityOutput) Constraints() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v ModelPackageDriftCheckExplainability) *ModelPackageMetricsSource { return v.Constraints }).(ModelPackageMetricsSourcePtrOutput)
 }
@@ -20658,7 +20624,7 @@ func (o ModelPackageDriftCheckExplainabilityPtrOutput) Elem() ModelPackageDriftC
 	}).(ModelPackageDriftCheckExplainabilityOutput)
 }
 
-// Contains details regarding the file source.
+// The explainability config file for the model.
 func (o ModelPackageDriftCheckExplainabilityPtrOutput) ConfigFile() ModelPackageFileSourcePtrOutput {
 	return o.ApplyT(func(v *ModelPackageDriftCheckExplainability) *ModelPackageFileSource {
 		if v == nil {
@@ -20668,7 +20634,7 @@ func (o ModelPackageDriftCheckExplainabilityPtrOutput) ConfigFile() ModelPackage
 	}).(ModelPackageFileSourcePtrOutput)
 }
 
-// Details about the metrics source.
+// The drift check explainability constraints.
 func (o ModelPackageDriftCheckExplainabilityPtrOutput) Constraints() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v *ModelPackageDriftCheckExplainability) *ModelPackageMetricsSource {
 		if v == nil {
@@ -20680,9 +20646,9 @@ func (o ModelPackageDriftCheckExplainabilityPtrOutput) Constraints() ModelPackag
 
 // Represents the drift check data quality baselines that can be used when the model monitor is set using the model package.
 type ModelPackageDriftCheckModelDataQuality struct {
-	// Details about the metrics source.
+	// The drift check model data quality constraints.
 	Constraints *ModelPackageMetricsSource `pulumi:"constraints"`
-	// Details about the metrics source.
+	// The drift check model data quality statistics.
 	Statistics *ModelPackageMetricsSource `pulumi:"statistics"`
 }
 
@@ -20699,9 +20665,9 @@ type ModelPackageDriftCheckModelDataQualityInput interface {
 
 // Represents the drift check data quality baselines that can be used when the model monitor is set using the model package.
 type ModelPackageDriftCheckModelDataQualityArgs struct {
-	// Details about the metrics source.
+	// The drift check model data quality constraints.
 	Constraints ModelPackageMetricsSourcePtrInput `pulumi:"constraints"`
-	// Details about the metrics source.
+	// The drift check model data quality statistics.
 	Statistics ModelPackageMetricsSourcePtrInput `pulumi:"statistics"`
 }
 
@@ -20783,12 +20749,12 @@ func (o ModelPackageDriftCheckModelDataQualityOutput) ToModelPackageDriftCheckMo
 	}).(ModelPackageDriftCheckModelDataQualityPtrOutput)
 }
 
-// Details about the metrics source.
+// The drift check model data quality constraints.
 func (o ModelPackageDriftCheckModelDataQualityOutput) Constraints() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v ModelPackageDriftCheckModelDataQuality) *ModelPackageMetricsSource { return v.Constraints }).(ModelPackageMetricsSourcePtrOutput)
 }
 
-// Details about the metrics source.
+// The drift check model data quality statistics.
 func (o ModelPackageDriftCheckModelDataQualityOutput) Statistics() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v ModelPackageDriftCheckModelDataQuality) *ModelPackageMetricsSource { return v.Statistics }).(ModelPackageMetricsSourcePtrOutput)
 }
@@ -20817,7 +20783,7 @@ func (o ModelPackageDriftCheckModelDataQualityPtrOutput) Elem() ModelPackageDrif
 	}).(ModelPackageDriftCheckModelDataQualityOutput)
 }
 
-// Details about the metrics source.
+// The drift check model data quality constraints.
 func (o ModelPackageDriftCheckModelDataQualityPtrOutput) Constraints() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v *ModelPackageDriftCheckModelDataQuality) *ModelPackageMetricsSource {
 		if v == nil {
@@ -20827,7 +20793,7 @@ func (o ModelPackageDriftCheckModelDataQualityPtrOutput) Constraints() ModelPack
 	}).(ModelPackageMetricsSourcePtrOutput)
 }
 
-// Details about the metrics source.
+// The drift check model data quality statistics.
 func (o ModelPackageDriftCheckModelDataQualityPtrOutput) Statistics() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v *ModelPackageDriftCheckModelDataQuality) *ModelPackageMetricsSource {
 		if v == nil {
@@ -20839,9 +20805,9 @@ func (o ModelPackageDriftCheckModelDataQualityPtrOutput) Statistics() ModelPacka
 
 // Represents the drift check model quality baselines that can be used when the model monitor is set using the model package.
 type ModelPackageDriftCheckModelQuality struct {
-	// Details about the metrics source.
+	// The drift check model quality constraints.
 	Constraints *ModelPackageMetricsSource `pulumi:"constraints"`
-	// Details about the metrics source.
+	// The drift check model quality statistics.
 	Statistics *ModelPackageMetricsSource `pulumi:"statistics"`
 }
 
@@ -20858,9 +20824,9 @@ type ModelPackageDriftCheckModelQualityInput interface {
 
 // Represents the drift check model quality baselines that can be used when the model monitor is set using the model package.
 type ModelPackageDriftCheckModelQualityArgs struct {
-	// Details about the metrics source.
+	// The drift check model quality constraints.
 	Constraints ModelPackageMetricsSourcePtrInput `pulumi:"constraints"`
-	// Details about the metrics source.
+	// The drift check model quality statistics.
 	Statistics ModelPackageMetricsSourcePtrInput `pulumi:"statistics"`
 }
 
@@ -20942,12 +20908,12 @@ func (o ModelPackageDriftCheckModelQualityOutput) ToModelPackageDriftCheckModelQ
 	}).(ModelPackageDriftCheckModelQualityPtrOutput)
 }
 
-// Details about the metrics source.
+// The drift check model quality constraints.
 func (o ModelPackageDriftCheckModelQualityOutput) Constraints() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v ModelPackageDriftCheckModelQuality) *ModelPackageMetricsSource { return v.Constraints }).(ModelPackageMetricsSourcePtrOutput)
 }
 
-// Details about the metrics source.
+// The drift check model quality statistics.
 func (o ModelPackageDriftCheckModelQualityOutput) Statistics() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v ModelPackageDriftCheckModelQuality) *ModelPackageMetricsSource { return v.Statistics }).(ModelPackageMetricsSourcePtrOutput)
 }
@@ -20976,7 +20942,7 @@ func (o ModelPackageDriftCheckModelQualityPtrOutput) Elem() ModelPackageDriftChe
 	}).(ModelPackageDriftCheckModelQualityOutput)
 }
 
-// Details about the metrics source.
+// The drift check model quality constraints.
 func (o ModelPackageDriftCheckModelQualityPtrOutput) Constraints() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v *ModelPackageDriftCheckModelQuality) *ModelPackageMetricsSource {
 		if v == nil {
@@ -20986,7 +20952,7 @@ func (o ModelPackageDriftCheckModelQualityPtrOutput) Constraints() ModelPackageM
 	}).(ModelPackageMetricsSourcePtrOutput)
 }
 
-// Details about the metrics source.
+// The drift check model quality statistics.
 func (o ModelPackageDriftCheckModelQualityPtrOutput) Statistics() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v *ModelPackageDriftCheckModelQuality) *ModelPackageMetricsSource {
 		if v == nil {
@@ -21119,7 +21085,7 @@ func (o ModelPackageEnvironmentPtrOutput) Elem() ModelPackageEnvironmentOutput {
 
 // Contains explainability metrics for a model.
 type ModelPackageExplainability struct {
-	// Details about the metrics source.
+	// The explainability report for a model.
 	Report *ModelPackageMetricsSource `pulumi:"report"`
 }
 
@@ -21136,7 +21102,7 @@ type ModelPackageExplainabilityInput interface {
 
 // Contains explainability metrics for a model.
 type ModelPackageExplainabilityArgs struct {
-	// Details about the metrics source.
+	// The explainability report for a model.
 	Report ModelPackageMetricsSourcePtrInput `pulumi:"report"`
 }
 
@@ -21218,7 +21184,7 @@ func (o ModelPackageExplainabilityOutput) ToModelPackageExplainabilityPtrOutputW
 	}).(ModelPackageExplainabilityPtrOutput)
 }
 
-// Details about the metrics source.
+// The explainability report for a model.
 func (o ModelPackageExplainabilityOutput) Report() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v ModelPackageExplainability) *ModelPackageMetricsSource { return v.Report }).(ModelPackageMetricsSourcePtrOutput)
 }
@@ -21247,7 +21213,7 @@ func (o ModelPackageExplainabilityPtrOutput) Elem() ModelPackageExplainabilityOu
 	}).(ModelPackageExplainabilityOutput)
 }
 
-// Details about the metrics source.
+// The explainability report for a model.
 func (o ModelPackageExplainabilityPtrOutput) Report() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v *ModelPackageExplainability) *ModelPackageMetricsSource {
 		if v == nil {
@@ -22036,9 +22002,9 @@ func (o ModelPackageMetricsSourcePtrOutput) S3Uri() pulumi.StringPtrOutput {
 
 // Metrics that measure the quality of the input data for a model.
 type ModelPackageModelDataQuality struct {
-	// Details about the metrics source.
+	// Data quality constraints for a model.
 	Constraints *ModelPackageMetricsSource `pulumi:"constraints"`
-	// Details about the metrics source.
+	// Data quality statistics for a model.
 	Statistics *ModelPackageMetricsSource `pulumi:"statistics"`
 }
 
@@ -22055,9 +22021,9 @@ type ModelPackageModelDataQualityInput interface {
 
 // Metrics that measure the quality of the input data for a model.
 type ModelPackageModelDataQualityArgs struct {
-	// Details about the metrics source.
+	// Data quality constraints for a model.
 	Constraints ModelPackageMetricsSourcePtrInput `pulumi:"constraints"`
-	// Details about the metrics source.
+	// Data quality statistics for a model.
 	Statistics ModelPackageMetricsSourcePtrInput `pulumi:"statistics"`
 }
 
@@ -22139,12 +22105,12 @@ func (o ModelPackageModelDataQualityOutput) ToModelPackageModelDataQualityPtrOut
 	}).(ModelPackageModelDataQualityPtrOutput)
 }
 
-// Details about the metrics source.
+// Data quality constraints for a model.
 func (o ModelPackageModelDataQualityOutput) Constraints() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v ModelPackageModelDataQuality) *ModelPackageMetricsSource { return v.Constraints }).(ModelPackageMetricsSourcePtrOutput)
 }
 
-// Details about the metrics source.
+// Data quality statistics for a model.
 func (o ModelPackageModelDataQualityOutput) Statistics() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v ModelPackageModelDataQuality) *ModelPackageMetricsSource { return v.Statistics }).(ModelPackageMetricsSourcePtrOutput)
 }
@@ -22173,7 +22139,7 @@ func (o ModelPackageModelDataQualityPtrOutput) Elem() ModelPackageModelDataQuali
 	}).(ModelPackageModelDataQualityOutput)
 }
 
-// Details about the metrics source.
+// Data quality constraints for a model.
 func (o ModelPackageModelDataQualityPtrOutput) Constraints() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v *ModelPackageModelDataQuality) *ModelPackageMetricsSource {
 		if v == nil {
@@ -22183,7 +22149,7 @@ func (o ModelPackageModelDataQualityPtrOutput) Constraints() ModelPackageMetrics
 	}).(ModelPackageMetricsSourcePtrOutput)
 }
 
-// Details about the metrics source.
+// Data quality statistics for a model.
 func (o ModelPackageModelDataQualityPtrOutput) Statistics() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v *ModelPackageModelDataQuality) *ModelPackageMetricsSource {
 		if v == nil {
@@ -22195,13 +22161,13 @@ func (o ModelPackageModelDataQualityPtrOutput) Statistics() ModelPackageMetricsS
 
 // A structure that contains model metrics reports.
 type ModelPackageModelMetrics struct {
-	// Contains bias metrics for a model.
+	// Metrics that measure bias in a model.
 	Bias *ModelPackageBias `pulumi:"bias"`
-	// Contains explainability metrics for a model.
+	// Metrics that help explain a model.
 	Explainability *ModelPackageExplainability `pulumi:"explainability"`
-	// Data quality constraints and statistics for a model.
+	// Metrics that measure the quality of the input data for a model.
 	ModelDataQuality *ModelPackageModelDataQuality `pulumi:"modelDataQuality"`
-	// Model quality statistics and constraints.
+	// Metrics that measure the quality of a model.
 	ModelQuality *ModelPackageModelQuality `pulumi:"modelQuality"`
 }
 
@@ -22218,13 +22184,13 @@ type ModelPackageModelMetricsInput interface {
 
 // A structure that contains model metrics reports.
 type ModelPackageModelMetricsArgs struct {
-	// Contains bias metrics for a model.
+	// Metrics that measure bias in a model.
 	Bias ModelPackageBiasPtrInput `pulumi:"bias"`
-	// Contains explainability metrics for a model.
+	// Metrics that help explain a model.
 	Explainability ModelPackageExplainabilityPtrInput `pulumi:"explainability"`
-	// Data quality constraints and statistics for a model.
+	// Metrics that measure the quality of the input data for a model.
 	ModelDataQuality ModelPackageModelDataQualityPtrInput `pulumi:"modelDataQuality"`
-	// Model quality statistics and constraints.
+	// Metrics that measure the quality of a model.
 	ModelQuality ModelPackageModelQualityPtrInput `pulumi:"modelQuality"`
 }
 
@@ -22306,22 +22272,22 @@ func (o ModelPackageModelMetricsOutput) ToModelPackageModelMetricsPtrOutputWithC
 	}).(ModelPackageModelMetricsPtrOutput)
 }
 
-// Contains bias metrics for a model.
+// Metrics that measure bias in a model.
 func (o ModelPackageModelMetricsOutput) Bias() ModelPackageBiasPtrOutput {
 	return o.ApplyT(func(v ModelPackageModelMetrics) *ModelPackageBias { return v.Bias }).(ModelPackageBiasPtrOutput)
 }
 
-// Contains explainability metrics for a model.
+// Metrics that help explain a model.
 func (o ModelPackageModelMetricsOutput) Explainability() ModelPackageExplainabilityPtrOutput {
 	return o.ApplyT(func(v ModelPackageModelMetrics) *ModelPackageExplainability { return v.Explainability }).(ModelPackageExplainabilityPtrOutput)
 }
 
-// Data quality constraints and statistics for a model.
+// Metrics that measure the quality of the input data for a model.
 func (o ModelPackageModelMetricsOutput) ModelDataQuality() ModelPackageModelDataQualityPtrOutput {
 	return o.ApplyT(func(v ModelPackageModelMetrics) *ModelPackageModelDataQuality { return v.ModelDataQuality }).(ModelPackageModelDataQualityPtrOutput)
 }
 
-// Model quality statistics and constraints.
+// Metrics that measure the quality of a model.
 func (o ModelPackageModelMetricsOutput) ModelQuality() ModelPackageModelQualityPtrOutput {
 	return o.ApplyT(func(v ModelPackageModelMetrics) *ModelPackageModelQuality { return v.ModelQuality }).(ModelPackageModelQualityPtrOutput)
 }
@@ -22350,7 +22316,7 @@ func (o ModelPackageModelMetricsPtrOutput) Elem() ModelPackageModelMetricsOutput
 	}).(ModelPackageModelMetricsOutput)
 }
 
-// Contains bias metrics for a model.
+// Metrics that measure bias in a model.
 func (o ModelPackageModelMetricsPtrOutput) Bias() ModelPackageBiasPtrOutput {
 	return o.ApplyT(func(v *ModelPackageModelMetrics) *ModelPackageBias {
 		if v == nil {
@@ -22360,7 +22326,7 @@ func (o ModelPackageModelMetricsPtrOutput) Bias() ModelPackageBiasPtrOutput {
 	}).(ModelPackageBiasPtrOutput)
 }
 
-// Contains explainability metrics for a model.
+// Metrics that help explain a model.
 func (o ModelPackageModelMetricsPtrOutput) Explainability() ModelPackageExplainabilityPtrOutput {
 	return o.ApplyT(func(v *ModelPackageModelMetrics) *ModelPackageExplainability {
 		if v == nil {
@@ -22370,7 +22336,7 @@ func (o ModelPackageModelMetricsPtrOutput) Explainability() ModelPackageExplaina
 	}).(ModelPackageExplainabilityPtrOutput)
 }
 
-// Data quality constraints and statistics for a model.
+// Metrics that measure the quality of the input data for a model.
 func (o ModelPackageModelMetricsPtrOutput) ModelDataQuality() ModelPackageModelDataQualityPtrOutput {
 	return o.ApplyT(func(v *ModelPackageModelMetrics) *ModelPackageModelDataQuality {
 		if v == nil {
@@ -22380,7 +22346,7 @@ func (o ModelPackageModelMetricsPtrOutput) ModelDataQuality() ModelPackageModelD
 	}).(ModelPackageModelDataQualityPtrOutput)
 }
 
-// Model quality statistics and constraints.
+// Metrics that measure the quality of a model.
 func (o ModelPackageModelMetricsPtrOutput) ModelQuality() ModelPackageModelQualityPtrOutput {
 	return o.ApplyT(func(v *ModelPackageModelMetrics) *ModelPackageModelQuality {
 		if v == nil {
@@ -22392,9 +22358,9 @@ func (o ModelPackageModelMetricsPtrOutput) ModelQuality() ModelPackageModelQuali
 
 // Metrics that measure the quality of a model.
 type ModelPackageModelQuality struct {
-	// Details about the metrics source.
+	// Model quality constraints.
 	Constraints *ModelPackageMetricsSource `pulumi:"constraints"`
-	// Details about the metrics source.
+	// Model quality statistics.
 	Statistics *ModelPackageMetricsSource `pulumi:"statistics"`
 }
 
@@ -22411,9 +22377,9 @@ type ModelPackageModelQualityInput interface {
 
 // Metrics that measure the quality of a model.
 type ModelPackageModelQualityArgs struct {
-	// Details about the metrics source.
+	// Model quality constraints.
 	Constraints ModelPackageMetricsSourcePtrInput `pulumi:"constraints"`
-	// Details about the metrics source.
+	// Model quality statistics.
 	Statistics ModelPackageMetricsSourcePtrInput `pulumi:"statistics"`
 }
 
@@ -22495,12 +22461,12 @@ func (o ModelPackageModelQualityOutput) ToModelPackageModelQualityPtrOutputWithC
 	}).(ModelPackageModelQualityPtrOutput)
 }
 
-// Details about the metrics source.
+// Model quality constraints.
 func (o ModelPackageModelQualityOutput) Constraints() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v ModelPackageModelQuality) *ModelPackageMetricsSource { return v.Constraints }).(ModelPackageMetricsSourcePtrOutput)
 }
 
-// Details about the metrics source.
+// Model quality statistics.
 func (o ModelPackageModelQualityOutput) Statistics() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v ModelPackageModelQuality) *ModelPackageMetricsSource { return v.Statistics }).(ModelPackageMetricsSourcePtrOutput)
 }
@@ -22529,7 +22495,7 @@ func (o ModelPackageModelQualityPtrOutput) Elem() ModelPackageModelQualityOutput
 	}).(ModelPackageModelQualityOutput)
 }
 
-// Details about the metrics source.
+// Model quality constraints.
 func (o ModelPackageModelQualityPtrOutput) Constraints() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v *ModelPackageModelQuality) *ModelPackageMetricsSource {
 		if v == nil {
@@ -22539,7 +22505,7 @@ func (o ModelPackageModelQualityPtrOutput) Constraints() ModelPackageMetricsSour
 	}).(ModelPackageMetricsSourcePtrOutput)
 }
 
-// Details about the metrics source.
+// Model quality statistics.
 func (o ModelPackageModelQualityPtrOutput) Statistics() ModelPackageMetricsSourcePtrOutput {
 	return o.ApplyT(func(v *ModelPackageModelQuality) *ModelPackageMetricsSource {
 		if v == nil {
@@ -22866,7 +22832,7 @@ func (o ModelPackageSourceAlgorithmSpecificationPtrOutput) SourceAlgorithms() Mo
 
 // Details about the current status of the model package.
 type ModelPackageStatusDetails struct {
-	// Represents the overall status of a model package.
+	// The validation status of the model package.
 	ValidationStatuses []ModelPackageStatusItem `pulumi:"validationStatuses"`
 }
 
@@ -22883,7 +22849,7 @@ type ModelPackageStatusDetailsInput interface {
 
 // Details about the current status of the model package.
 type ModelPackageStatusDetailsArgs struct {
-	// Represents the overall status of a model package.
+	// The validation status of the model package.
 	ValidationStatuses ModelPackageStatusItemArrayInput `pulumi:"validationStatuses"`
 }
 
@@ -22965,7 +22931,7 @@ func (o ModelPackageStatusDetailsOutput) ToModelPackageStatusDetailsPtrOutputWit
 	}).(ModelPackageStatusDetailsPtrOutput)
 }
 
-// Represents the overall status of a model package.
+// The validation status of the model package.
 func (o ModelPackageStatusDetailsOutput) ValidationStatuses() ModelPackageStatusItemArrayOutput {
 	return o.ApplyT(func(v ModelPackageStatusDetails) []ModelPackageStatusItem { return v.ValidationStatuses }).(ModelPackageStatusItemArrayOutput)
 }
@@ -22994,7 +22960,7 @@ func (o ModelPackageStatusDetailsPtrOutput) Elem() ModelPackageStatusDetailsOutp
 	}).(ModelPackageStatusDetailsOutput)
 }
 
-// Represents the overall status of a model package.
+// The validation status of the model package.
 func (o ModelPackageStatusDetailsPtrOutput) ValidationStatuses() ModelPackageStatusItemArrayOutput {
 	return o.ApplyT(func(v *ModelPackageStatusDetails) []ModelPackageStatusItem {
 		if v == nil {
@@ -23136,7 +23102,7 @@ type ModelPackageTransformInput struct {
 	CompressionType *ModelPackageTransformInputCompressionType `pulumi:"compressionType"`
 	// The multipurpose internet mail extension (MIME) type of the data. Amazon SageMaker uses the MIME type with each http call to transfer data to the transform job.
 	ContentType *string `pulumi:"contentType"`
-	// Describes the location of the channel data.
+	// Describes the location of the channel data, which is, the S3 location of the input data that the model can consume.
 	DataSource ModelPackageDataSource `pulumi:"dataSource"`
 	// The method to use to split the transform job's data files into smaller batches.
 	SplitType *ModelPackageTransformInputSplitType `pulumi:"splitType"`
@@ -23159,7 +23125,7 @@ type ModelPackageTransformInputArgs struct {
 	CompressionType ModelPackageTransformInputCompressionTypePtrInput `pulumi:"compressionType"`
 	// The multipurpose internet mail extension (MIME) type of the data. Amazon SageMaker uses the MIME type with each http call to transfer data to the transform job.
 	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
-	// Describes the location of the channel data.
+	// Describes the location of the channel data, which is, the S3 location of the input data that the model can consume.
 	DataSource ModelPackageDataSourceInput `pulumi:"dataSource"`
 	// The method to use to split the transform job's data files into smaller batches.
 	SplitType ModelPackageTransformInputSplitTypePtrInput `pulumi:"splitType"`
@@ -23204,7 +23170,7 @@ func (o ModelPackageTransformInputOutput) ContentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPackageTransformInput) *string { return v.ContentType }).(pulumi.StringPtrOutput)
 }
 
-// Describes the location of the channel data.
+// Describes the location of the channel data, which is, the S3 location of the input data that the model can consume.
 func (o ModelPackageTransformInputOutput) DataSource() ModelPackageDataSourceOutput {
 	return o.ApplyT(func(v ModelPackageTransformInput) ModelPackageDataSource { return v.DataSource }).(ModelPackageDataSourceOutput)
 }
@@ -23224,11 +23190,11 @@ type ModelPackageTransformJobDefinition struct {
 	MaxConcurrentTransforms *int `pulumi:"maxConcurrentTransforms"`
 	// The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
 	MaxPayloadInMb *int `pulumi:"maxPayloadInMb"`
-	// Describes the input source of a transform job and the way the transform job consumes it.
+	// A description of the input source and the way the transform job consumes it.
 	TransformInput ModelPackageTransformInput `pulumi:"transformInput"`
-	// Describes the results of a transform job.
+	// Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.
 	TransformOutput ModelPackageTransformOutput `pulumi:"transformOutput"`
-	// Describes the resources, including ML instance types and ML instance count, to use for transform job.
+	// Identifies the ML compute instances for the transform job.
 	TransformResources ModelPackageTransformResources `pulumi:"transformResources"`
 }
 
@@ -23253,11 +23219,11 @@ type ModelPackageTransformJobDefinitionArgs struct {
 	MaxConcurrentTransforms pulumi.IntPtrInput `pulumi:"maxConcurrentTransforms"`
 	// The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
 	MaxPayloadInMb pulumi.IntPtrInput `pulumi:"maxPayloadInMb"`
-	// Describes the input source of a transform job and the way the transform job consumes it.
+	// A description of the input source and the way the transform job consumes it.
 	TransformInput ModelPackageTransformInputInput `pulumi:"transformInput"`
-	// Describes the results of a transform job.
+	// Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.
 	TransformOutput ModelPackageTransformOutputInput `pulumi:"transformOutput"`
-	// Describes the resources, including ML instance types and ML instance count, to use for transform job.
+	// Identifies the ML compute instances for the transform job.
 	TransformResources ModelPackageTransformResourcesInput `pulumi:"transformResources"`
 }
 
@@ -23310,17 +23276,17 @@ func (o ModelPackageTransformJobDefinitionOutput) MaxPayloadInMb() pulumi.IntPtr
 	return o.ApplyT(func(v ModelPackageTransformJobDefinition) *int { return v.MaxPayloadInMb }).(pulumi.IntPtrOutput)
 }
 
-// Describes the input source of a transform job and the way the transform job consumes it.
+// A description of the input source and the way the transform job consumes it.
 func (o ModelPackageTransformJobDefinitionOutput) TransformInput() ModelPackageTransformInputOutput {
 	return o.ApplyT(func(v ModelPackageTransformJobDefinition) ModelPackageTransformInput { return v.TransformInput }).(ModelPackageTransformInputOutput)
 }
 
-// Describes the results of a transform job.
+// Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.
 func (o ModelPackageTransformJobDefinitionOutput) TransformOutput() ModelPackageTransformOutputOutput {
 	return o.ApplyT(func(v ModelPackageTransformJobDefinition) ModelPackageTransformOutput { return v.TransformOutput }).(ModelPackageTransformOutputOutput)
 }
 
-// Describes the resources, including ML instance types and ML instance count, to use for transform job.
+// Identifies the ML compute instances for the transform job.
 func (o ModelPackageTransformJobDefinitionOutput) TransformResources() ModelPackageTransformResourcesOutput {
 	return o.ApplyT(func(v ModelPackageTransformJobDefinition) ModelPackageTransformResources { return v.TransformResources }).(ModelPackageTransformResourcesOutput)
 }
@@ -23484,7 +23450,7 @@ func (o ModelPackageTransformResourcesOutput) VolumeKmsKeyId() pulumi.StringPtrO
 type ModelPackageValidationProfile struct {
 	// The name of the profile for the model package.
 	ProfileName string `pulumi:"profileName"`
-	// Defines the input needed to run a transform job using the inference specification specified in the algorithm.
+	// The `TransformJobDefinition` object that describes the transform job used for the validation of the model package.
 	TransformJobDefinition ModelPackageTransformJobDefinition `pulumi:"transformJobDefinition"`
 }
 
@@ -23503,7 +23469,7 @@ type ModelPackageValidationProfileInput interface {
 type ModelPackageValidationProfileArgs struct {
 	// The name of the profile for the model package.
 	ProfileName pulumi.StringInput `pulumi:"profileName"`
-	// Defines the input needed to run a transform job using the inference specification specified in the algorithm.
+	// The `TransformJobDefinition` object that describes the transform job used for the validation of the model package.
 	TransformJobDefinition ModelPackageTransformJobDefinitionInput `pulumi:"transformJobDefinition"`
 }
 
@@ -23564,7 +23530,7 @@ func (o ModelPackageValidationProfileOutput) ProfileName() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelPackageValidationProfile) string { return v.ProfileName }).(pulumi.StringOutput)
 }
 
-// Defines the input needed to run a transform job using the inference specification specified in the algorithm.
+// The `TransformJobDefinition` object that describes the transform job used for the validation of the model package.
 func (o ModelPackageValidationProfileOutput) TransformJobDefinition() ModelPackageTransformJobDefinitionOutput {
 	return o.ApplyT(func(v ModelPackageValidationProfile) ModelPackageTransformJobDefinition {
 		return v.TransformJobDefinition
@@ -23593,9 +23559,7 @@ func (o ModelPackageValidationProfileArrayOutput) Index(i pulumi.IntInput) Model
 
 // Specifies configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.
 type ModelPackageValidationSpecification struct {
-	// Contains data, such as the inputs and targeted instance types that are used in the process of validating the model package.
-	//
-	// The data provided in the validation profile is made available to your buyers on AWS Marketplace.
+	// An array of `ModelPackageValidationProfile` objects, each of which specifies a batch transform job that SageMaker runs to validate your model package.
 	ValidationProfiles []ModelPackageValidationProfile `pulumi:"validationProfiles"`
 	// The IAM roles to be used for the validation of the model package.
 	ValidationRole string `pulumi:"validationRole"`
@@ -23614,9 +23578,7 @@ type ModelPackageValidationSpecificationInput interface {
 
 // Specifies configurations for one or more transform jobs that Amazon SageMaker runs to test the model package.
 type ModelPackageValidationSpecificationArgs struct {
-	// Contains data, such as the inputs and targeted instance types that are used in the process of validating the model package.
-	//
-	// The data provided in the validation profile is made available to your buyers on AWS Marketplace.
+	// An array of `ModelPackageValidationProfile` objects, each of which specifies a batch transform job that SageMaker runs to validate your model package.
 	ValidationProfiles ModelPackageValidationProfileArrayInput `pulumi:"validationProfiles"`
 	// The IAM roles to be used for the validation of the model package.
 	ValidationRole pulumi.StringInput `pulumi:"validationRole"`
@@ -23700,9 +23662,7 @@ func (o ModelPackageValidationSpecificationOutput) ToModelPackageValidationSpeci
 	}).(ModelPackageValidationSpecificationPtrOutput)
 }
 
-// Contains data, such as the inputs and targeted instance types that are used in the process of validating the model package.
-//
-// The data provided in the validation profile is made available to your buyers on AWS Marketplace.
+// An array of `ModelPackageValidationProfile` objects, each of which specifies a batch transform job that SageMaker runs to validate your model package.
 func (o ModelPackageValidationSpecificationOutput) ValidationProfiles() ModelPackageValidationProfileArrayOutput {
 	return o.ApplyT(func(v ModelPackageValidationSpecification) []ModelPackageValidationProfile {
 		return v.ValidationProfiles
@@ -23738,9 +23698,7 @@ func (o ModelPackageValidationSpecificationPtrOutput) Elem() ModelPackageValidat
 	}).(ModelPackageValidationSpecificationOutput)
 }
 
-// Contains data, such as the inputs and targeted instance types that are used in the process of validating the model package.
-//
-// The data provided in the validation profile is made available to your buyers on AWS Marketplace.
+// An array of `ModelPackageValidationProfile` objects, each of which specifies a batch transform job that SageMaker runs to validate your model package.
 func (o ModelPackageValidationSpecificationPtrOutput) ValidationProfiles() ModelPackageValidationProfileArrayOutput {
 	return o.ApplyT(func(v *ModelPackageValidationSpecification) []ModelPackageValidationProfile {
 		if v == nil {
@@ -25323,7 +25281,7 @@ type ModelQualityJobDefinitionModelQualityJobInput struct {
 	BatchTransformInput *ModelQualityJobDefinitionBatchTransformInput `pulumi:"batchTransformInput"`
 	// Input object for the endpoint
 	EndpointInput *ModelQualityJobDefinitionEndpointInput `pulumi:"endpointInput"`
-	// The ground truth labels for the dataset used for the monitoring job.
+	// The ground truth label provided for the model.
 	GroundTruthS3Input ModelQualityJobDefinitionMonitoringGroundTruthS3Input `pulumi:"groundTruthS3Input"`
 }
 
@@ -25344,7 +25302,7 @@ type ModelQualityJobDefinitionModelQualityJobInputArgs struct {
 	BatchTransformInput ModelQualityJobDefinitionBatchTransformInputPtrInput `pulumi:"batchTransformInput"`
 	// Input object for the endpoint
 	EndpointInput ModelQualityJobDefinitionEndpointInputPtrInput `pulumi:"endpointInput"`
-	// The ground truth labels for the dataset used for the monitoring job.
+	// The ground truth label provided for the model.
 	GroundTruthS3Input ModelQualityJobDefinitionMonitoringGroundTruthS3InputInput `pulumi:"groundTruthS3Input"`
 }
 
@@ -25389,7 +25347,7 @@ func (o ModelQualityJobDefinitionModelQualityJobInputOutput) EndpointInput() Mod
 	}).(ModelQualityJobDefinitionEndpointInputPtrOutput)
 }
 
-// The ground truth labels for the dataset used for the monitoring job.
+// The ground truth label provided for the model.
 func (o ModelQualityJobDefinitionModelQualityJobInputOutput) GroundTruthS3Input() ModelQualityJobDefinitionMonitoringGroundTruthS3InputOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionModelQualityJobInput) ModelQualityJobDefinitionMonitoringGroundTruthS3Input {
 		return v.GroundTruthS3Input
@@ -25619,7 +25577,7 @@ func (o ModelQualityJobDefinitionMonitoringOutputConfigOutput) MonitoringOutputs
 
 // Identifies the resources to deploy for a monitoring job.
 type ModelQualityJobDefinitionMonitoringResources struct {
-	// The configuration for the cluster of resources used to run the processing job.
+	// The configuration for the cluster resources used to run the processing job.
 	ClusterConfig ModelQualityJobDefinitionClusterConfig `pulumi:"clusterConfig"`
 }
 
@@ -25636,7 +25594,7 @@ type ModelQualityJobDefinitionMonitoringResourcesInput interface {
 
 // Identifies the resources to deploy for a monitoring job.
 type ModelQualityJobDefinitionMonitoringResourcesArgs struct {
-	// The configuration for the cluster of resources used to run the processing job.
+	// The configuration for the cluster resources used to run the processing job.
 	ClusterConfig ModelQualityJobDefinitionClusterConfigInput `pulumi:"clusterConfig"`
 }
 
@@ -25667,7 +25625,7 @@ func (o ModelQualityJobDefinitionMonitoringResourcesOutput) ToModelQualityJobDef
 	return o
 }
 
-// The configuration for the cluster of resources used to run the processing job.
+// The configuration for the cluster resources used to run the processing job.
 func (o ModelQualityJobDefinitionMonitoringResourcesOutput) ClusterConfig() ModelQualityJobDefinitionClusterConfigOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionMonitoringResources) ModelQualityJobDefinitionClusterConfig {
 		return v.ClusterConfig
@@ -25680,7 +25638,7 @@ type ModelQualityJobDefinitionNetworkConfig struct {
 	EnableInterContainerTrafficEncryption *bool `pulumi:"enableInterContainerTrafficEncryption"`
 	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
 	EnableNetworkIsolation *bool `pulumi:"enableNetworkIsolation"`
-	// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+	// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 	VpcConfig *ModelQualityJobDefinitionVpcConfig `pulumi:"vpcConfig"`
 }
 
@@ -25701,7 +25659,7 @@ type ModelQualityJobDefinitionNetworkConfigArgs struct {
 	EnableInterContainerTrafficEncryption pulumi.BoolPtrInput `pulumi:"enableInterContainerTrafficEncryption"`
 	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
 	EnableNetworkIsolation pulumi.BoolPtrInput `pulumi:"enableNetworkIsolation"`
-	// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+	// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 	VpcConfig ModelQualityJobDefinitionVpcConfigPtrInput `pulumi:"vpcConfig"`
 }
 
@@ -25793,7 +25751,7 @@ func (o ModelQualityJobDefinitionNetworkConfigOutput) EnableNetworkIsolation() p
 	return o.ApplyT(func(v ModelQualityJobDefinitionNetworkConfig) *bool { return v.EnableNetworkIsolation }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 func (o ModelQualityJobDefinitionNetworkConfigOutput) VpcConfig() ModelQualityJobDefinitionVpcConfigPtrOutput {
 	return o.ApplyT(func(v ModelQualityJobDefinitionNetworkConfig) *ModelQualityJobDefinitionVpcConfig { return v.VpcConfig }).(ModelQualityJobDefinitionVpcConfigPtrOutput)
 }
@@ -25842,7 +25800,7 @@ func (o ModelQualityJobDefinitionNetworkConfigPtrOutput) EnableNetworkIsolation(
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC.
 func (o ModelQualityJobDefinitionNetworkConfigPtrOutput) VpcConfig() ModelQualityJobDefinitionVpcConfigPtrOutput {
 	return o.ApplyT(func(v *ModelQualityJobDefinitionNetworkConfig) *ModelQualityJobDefinitionVpcConfig {
 		if v == nil {
@@ -26837,7 +26795,7 @@ type MonitoringScheduleConfig struct {
 	MonitoringJobDefinitionName *string `pulumi:"monitoringJobDefinitionName"`
 	// The type of the monitoring job definition to schedule.
 	MonitoringType *MonitoringScheduleMonitoringType `pulumi:"monitoringType"`
-	// Configuration details about the monitoring schedule.
+	// Configures the monitoring schedule.
 	ScheduleConfig *MonitoringScheduleScheduleConfig `pulumi:"scheduleConfig"`
 }
 
@@ -26860,7 +26818,7 @@ type MonitoringScheduleConfigArgs struct {
 	MonitoringJobDefinitionName pulumi.StringPtrInput `pulumi:"monitoringJobDefinitionName"`
 	// The type of the monitoring job definition to schedule.
 	MonitoringType MonitoringScheduleMonitoringTypePtrInput `pulumi:"monitoringType"`
-	// Configuration details about the monitoring schedule.
+	// Configures the monitoring schedule.
 	ScheduleConfig MonitoringScheduleScheduleConfigPtrInput `pulumi:"scheduleConfig"`
 }
 
@@ -26908,7 +26866,7 @@ func (o MonitoringScheduleConfigOutput) MonitoringType() MonitoringScheduleMonit
 	return o.ApplyT(func(v MonitoringScheduleConfig) *MonitoringScheduleMonitoringType { return v.MonitoringType }).(MonitoringScheduleMonitoringTypePtrOutput)
 }
 
-// Configuration details about the monitoring schedule.
+// Configures the monitoring schedule.
 func (o MonitoringScheduleConfigOutput) ScheduleConfig() MonitoringScheduleScheduleConfigPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleConfig) *MonitoringScheduleScheduleConfig { return v.ScheduleConfig }).(MonitoringScheduleScheduleConfigPtrOutput)
 }
@@ -26967,7 +26925,7 @@ func (o MonitoringScheduleConfigPtrOutput) MonitoringType() MonitoringScheduleMo
 	}).(MonitoringScheduleMonitoringTypePtrOutput)
 }
 
-// Configuration details about the monitoring schedule.
+// Configures the monitoring schedule.
 func (o MonitoringScheduleConfigPtrOutput) ScheduleConfig() MonitoringScheduleScheduleConfigPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleConfig) *MonitoringScheduleScheduleConfig {
 		if v == nil {
@@ -28377,29 +28335,23 @@ func (o MonitoringScheduleMonitoringInputArrayOutput) Index(i pulumi.IntInput) M
 
 // Defines the monitoring job.
 type MonitoringScheduleMonitoringJobDefinition struct {
-	// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
+	// Baseline configuration used to validate that the data conforms to the specified constraints and statistics
 	BaselineConfig *MonitoringScheduleBaselineConfig `pulumi:"baselineConfig"`
 	// Sets the environment variables in the Docker container
 	Environment interface{} `pulumi:"environment"`
-	// Container image configuration object for the monitoring job.
+	// Configures the monitoring job to run a specified Docker container image.
 	MonitoringAppSpecification MonitoringScheduleMonitoringAppSpecification `pulumi:"monitoringAppSpecification"`
 	// The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker Endpoint.
 	MonitoringInputs []MonitoringScheduleMonitoringInput `pulumi:"monitoringInputs"`
-	// The output configuration for monitoring jobs.
+	// The array of outputs from the monitoring job to be uploaded to Amazon S3.
 	MonitoringOutputConfig MonitoringScheduleMonitoringOutputConfig `pulumi:"monitoringOutputConfig"`
-	// Identifies the resources to deploy for a monitoring job.
+	// Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. In distributed processing, you specify more than one instance.
 	MonitoringResources MonitoringScheduleMonitoringResources `pulumi:"monitoringResources"`
-	// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+	// Specifies networking options for an monitoring job.
 	NetworkConfig *MonitoringScheduleNetworkConfig `pulumi:"networkConfig"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
 	RoleArn string `pulumi:"roleArn"`
-	// Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
-	//
-	// To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-	//
-	// The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
-	//
-	// > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+	// Specifies a time limit for how long the monitoring job is allowed to run.
 	StoppingCondition *MonitoringScheduleStoppingCondition `pulumi:"stoppingCondition"`
 }
 
@@ -28416,29 +28368,23 @@ type MonitoringScheduleMonitoringJobDefinitionInput interface {
 
 // Defines the monitoring job.
 type MonitoringScheduleMonitoringJobDefinitionArgs struct {
-	// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
+	// Baseline configuration used to validate that the data conforms to the specified constraints and statistics
 	BaselineConfig MonitoringScheduleBaselineConfigPtrInput `pulumi:"baselineConfig"`
 	// Sets the environment variables in the Docker container
 	Environment pulumi.Input `pulumi:"environment"`
-	// Container image configuration object for the monitoring job.
+	// Configures the monitoring job to run a specified Docker container image.
 	MonitoringAppSpecification MonitoringScheduleMonitoringAppSpecificationInput `pulumi:"monitoringAppSpecification"`
 	// The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker Endpoint.
 	MonitoringInputs MonitoringScheduleMonitoringInputArrayInput `pulumi:"monitoringInputs"`
-	// The output configuration for monitoring jobs.
+	// The array of outputs from the monitoring job to be uploaded to Amazon S3.
 	MonitoringOutputConfig MonitoringScheduleMonitoringOutputConfigInput `pulumi:"monitoringOutputConfig"`
-	// Identifies the resources to deploy for a monitoring job.
+	// Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. In distributed processing, you specify more than one instance.
 	MonitoringResources MonitoringScheduleMonitoringResourcesInput `pulumi:"monitoringResources"`
-	// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+	// Specifies networking options for an monitoring job.
 	NetworkConfig MonitoringScheduleNetworkConfigPtrInput `pulumi:"networkConfig"`
 	// The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
-	//
-	// To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-	//
-	// The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
-	//
-	// > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+	// Specifies a time limit for how long the monitoring job is allowed to run.
 	StoppingCondition MonitoringScheduleStoppingConditionPtrInput `pulumi:"stoppingCondition"`
 }
 
@@ -28520,7 +28466,7 @@ func (o MonitoringScheduleMonitoringJobDefinitionOutput) ToMonitoringScheduleMon
 	}).(MonitoringScheduleMonitoringJobDefinitionPtrOutput)
 }
 
-// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
+// Baseline configuration used to validate that the data conforms to the specified constraints and statistics
 func (o MonitoringScheduleMonitoringJobDefinitionOutput) BaselineConfig() MonitoringScheduleBaselineConfigPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringJobDefinition) *MonitoringScheduleBaselineConfig {
 		return v.BaselineConfig
@@ -28532,7 +28478,7 @@ func (o MonitoringScheduleMonitoringJobDefinitionOutput) Environment() pulumi.An
 	return o.ApplyT(func(v MonitoringScheduleMonitoringJobDefinition) interface{} { return v.Environment }).(pulumi.AnyOutput)
 }
 
-// Container image configuration object for the monitoring job.
+// Configures the monitoring job to run a specified Docker container image.
 func (o MonitoringScheduleMonitoringJobDefinitionOutput) MonitoringAppSpecification() MonitoringScheduleMonitoringAppSpecificationOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringJobDefinition) MonitoringScheduleMonitoringAppSpecification {
 		return v.MonitoringAppSpecification
@@ -28546,21 +28492,21 @@ func (o MonitoringScheduleMonitoringJobDefinitionOutput) MonitoringInputs() Moni
 	}).(MonitoringScheduleMonitoringInputArrayOutput)
 }
 
-// The output configuration for monitoring jobs.
+// The array of outputs from the monitoring job to be uploaded to Amazon S3.
 func (o MonitoringScheduleMonitoringJobDefinitionOutput) MonitoringOutputConfig() MonitoringScheduleMonitoringOutputConfigOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringJobDefinition) MonitoringScheduleMonitoringOutputConfig {
 		return v.MonitoringOutputConfig
 	}).(MonitoringScheduleMonitoringOutputConfigOutput)
 }
 
-// Identifies the resources to deploy for a monitoring job.
+// Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. In distributed processing, you specify more than one instance.
 func (o MonitoringScheduleMonitoringJobDefinitionOutput) MonitoringResources() MonitoringScheduleMonitoringResourcesOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringJobDefinition) MonitoringScheduleMonitoringResources {
 		return v.MonitoringResources
 	}).(MonitoringScheduleMonitoringResourcesOutput)
 }
 
-// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+// Specifies networking options for an monitoring job.
 func (o MonitoringScheduleMonitoringJobDefinitionOutput) NetworkConfig() MonitoringScheduleNetworkConfigPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringJobDefinition) *MonitoringScheduleNetworkConfig {
 		return v.NetworkConfig
@@ -28572,13 +28518,7 @@ func (o MonitoringScheduleMonitoringJobDefinitionOutput) RoleArn() pulumi.String
 	return o.ApplyT(func(v MonitoringScheduleMonitoringJobDefinition) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
-// Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
-//
-// To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-//
-// The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
-//
-// > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+// Specifies a time limit for how long the monitoring job is allowed to run.
 func (o MonitoringScheduleMonitoringJobDefinitionOutput) StoppingCondition() MonitoringScheduleStoppingConditionPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringJobDefinition) *MonitoringScheduleStoppingCondition {
 		return v.StoppingCondition
@@ -28609,7 +28549,7 @@ func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) Elem() MonitoringSch
 	}).(MonitoringScheduleMonitoringJobDefinitionOutput)
 }
 
-// Baseline configuration used to validate that the data conforms to the specified constraints and statistics.
+// Baseline configuration used to validate that the data conforms to the specified constraints and statistics
 func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) BaselineConfig() MonitoringScheduleBaselineConfigPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringJobDefinition) *MonitoringScheduleBaselineConfig {
 		if v == nil {
@@ -28629,7 +28569,7 @@ func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) Environment() pulumi
 	}).(pulumi.AnyOutput)
 }
 
-// Container image configuration object for the monitoring job.
+// Configures the monitoring job to run a specified Docker container image.
 func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) MonitoringAppSpecification() MonitoringScheduleMonitoringAppSpecificationPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringJobDefinition) *MonitoringScheduleMonitoringAppSpecification {
 		if v == nil {
@@ -28649,7 +28589,7 @@ func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) MonitoringInputs() M
 	}).(MonitoringScheduleMonitoringInputArrayOutput)
 }
 
-// The output configuration for monitoring jobs.
+// The array of outputs from the monitoring job to be uploaded to Amazon S3.
 func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) MonitoringOutputConfig() MonitoringScheduleMonitoringOutputConfigPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringJobDefinition) *MonitoringScheduleMonitoringOutputConfig {
 		if v == nil {
@@ -28659,7 +28599,7 @@ func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) MonitoringOutputConf
 	}).(MonitoringScheduleMonitoringOutputConfigPtrOutput)
 }
 
-// Identifies the resources to deploy for a monitoring job.
+// Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. In distributed processing, you specify more than one instance.
 func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) MonitoringResources() MonitoringScheduleMonitoringResourcesPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringJobDefinition) *MonitoringScheduleMonitoringResources {
 		if v == nil {
@@ -28669,7 +28609,7 @@ func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) MonitoringResources(
 	}).(MonitoringScheduleMonitoringResourcesPtrOutput)
 }
 
-// Networking options for a job, such as network traffic encryption between containers, whether to allow inbound and outbound network calls to and from containers, and the VPC subnets and security groups to use for VPC-enabled jobs.
+// Specifies networking options for an monitoring job.
 func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) NetworkConfig() MonitoringScheduleNetworkConfigPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringJobDefinition) *MonitoringScheduleNetworkConfig {
 		if v == nil {
@@ -28689,13 +28629,7 @@ func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) RoleArn() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies a limit to how long a model training job or model compilation job can run. It also specifies how long a managed spot training job has to complete. When the job reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap model training costs.
-//
-// To stop a training job, SageMaker sends the algorithm the `SIGTERM` signal, which delays job termination for 120 seconds. Algorithms can use this 120-second window to save the model artifacts, so the results of training are not lost.
-//
-// The training algorithms provided by SageMaker automatically save the intermediate results of a model training job when possible. This attempt to save artifacts is only a best effort case as model might not be in a state from which it can be saved. For example, if training has just started, the model might not be ready to save. When saved, this intermediate data is a valid model artifact. You can use it to create a model with `CreateModel` .
-//
-// > The Neural Topic Model (NTM) currently does not support saving intermediate model artifacts. When training NTMs, make sure that the maximum runtime is sufficient for the training job to complete.
+// Specifies a time limit for how long the monitoring job is allowed to run.
 func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) StoppingCondition() MonitoringScheduleStoppingConditionPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringJobDefinition) *MonitoringScheduleStoppingCondition {
 		if v == nil {
@@ -28707,7 +28641,7 @@ func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) StoppingCondition() 
 
 // The output object for a monitoring job.
 type MonitoringScheduleMonitoringOutput struct {
-	// Information about where and how you want to store the results of a monitoring job.
+	// The Amazon S3 storage location where the results of a monitoring job are saved.
 	S3Output MonitoringScheduleS3Output `pulumi:"s3Output"`
 }
 
@@ -28724,7 +28658,7 @@ type MonitoringScheduleMonitoringOutputInput interface {
 
 // The output object for a monitoring job.
 type MonitoringScheduleMonitoringOutputArgs struct {
-	// Information about where and how you want to store the results of a monitoring job.
+	// The Amazon S3 storage location where the results of a monitoring job are saved.
 	S3Output MonitoringScheduleS3OutputInput `pulumi:"s3Output"`
 }
 
@@ -28780,7 +28714,7 @@ func (o MonitoringScheduleMonitoringOutputOutput) ToMonitoringScheduleMonitoring
 	return o
 }
 
-// Information about where and how you want to store the results of a monitoring job.
+// The Amazon S3 storage location where the results of a monitoring job are saved.
 func (o MonitoringScheduleMonitoringOutputOutput) S3Output() MonitoringScheduleS3OutputOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringOutput) MonitoringScheduleS3Output { return v.S3Output }).(MonitoringScheduleS3OutputOutput)
 }
@@ -28968,7 +28902,7 @@ func (o MonitoringScheduleMonitoringOutputConfigPtrOutput) MonitoringOutputs() M
 
 // Identifies the resources to deploy for a monitoring job.
 type MonitoringScheduleMonitoringResources struct {
-	// Configuration for the cluster used to run model monitoring jobs.
+	// The configuration for the cluster resources used to run the processing job.
 	ClusterConfig MonitoringScheduleClusterConfig `pulumi:"clusterConfig"`
 }
 
@@ -28985,7 +28919,7 @@ type MonitoringScheduleMonitoringResourcesInput interface {
 
 // Identifies the resources to deploy for a monitoring job.
 type MonitoringScheduleMonitoringResourcesArgs struct {
-	// Configuration for the cluster used to run model monitoring jobs.
+	// The configuration for the cluster resources used to run the processing job.
 	ClusterConfig MonitoringScheduleClusterConfigInput `pulumi:"clusterConfig"`
 }
 
@@ -29067,7 +29001,7 @@ func (o MonitoringScheduleMonitoringResourcesOutput) ToMonitoringScheduleMonitor
 	}).(MonitoringScheduleMonitoringResourcesPtrOutput)
 }
 
-// Configuration for the cluster used to run model monitoring jobs.
+// The configuration for the cluster resources used to run the processing job.
 func (o MonitoringScheduleMonitoringResourcesOutput) ClusterConfig() MonitoringScheduleClusterConfigOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringResources) MonitoringScheduleClusterConfig { return v.ClusterConfig }).(MonitoringScheduleClusterConfigOutput)
 }
@@ -29096,7 +29030,7 @@ func (o MonitoringScheduleMonitoringResourcesPtrOutput) Elem() MonitoringSchedul
 	}).(MonitoringScheduleMonitoringResourcesOutput)
 }
 
-// Configuration for the cluster used to run model monitoring jobs.
+// The configuration for the cluster resources used to run the processing job.
 func (o MonitoringScheduleMonitoringResourcesPtrOutput) ClusterConfig() MonitoringScheduleClusterConfigPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringResources) *MonitoringScheduleClusterConfig {
 		if v == nil {
@@ -29112,7 +29046,7 @@ type MonitoringScheduleNetworkConfig struct {
 	EnableInterContainerTrafficEncryption *bool `pulumi:"enableInterContainerTrafficEncryption"`
 	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
 	EnableNetworkIsolation *bool `pulumi:"enableNetworkIsolation"`
-	// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+	// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. For more information, see [Protect Endpoints by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html) and [Protect Training Jobs by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html) .
 	VpcConfig *MonitoringScheduleVpcConfig `pulumi:"vpcConfig"`
 }
 
@@ -29133,7 +29067,7 @@ type MonitoringScheduleNetworkConfigArgs struct {
 	EnableInterContainerTrafficEncryption pulumi.BoolPtrInput `pulumi:"enableInterContainerTrafficEncryption"`
 	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
 	EnableNetworkIsolation pulumi.BoolPtrInput `pulumi:"enableNetworkIsolation"`
-	// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+	// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. For more information, see [Protect Endpoints by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html) and [Protect Training Jobs by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html) .
 	VpcConfig MonitoringScheduleVpcConfigPtrInput `pulumi:"vpcConfig"`
 }
 
@@ -29225,7 +29159,7 @@ func (o MonitoringScheduleNetworkConfigOutput) EnableNetworkIsolation() pulumi.B
 	return o.ApplyT(func(v MonitoringScheduleNetworkConfig) *bool { return v.EnableNetworkIsolation }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. For more information, see [Protect Endpoints by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html) and [Protect Training Jobs by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html) .
 func (o MonitoringScheduleNetworkConfigOutput) VpcConfig() MonitoringScheduleVpcConfigPtrOutput {
 	return o.ApplyT(func(v MonitoringScheduleNetworkConfig) *MonitoringScheduleVpcConfig { return v.VpcConfig }).(MonitoringScheduleVpcConfigPtrOutput)
 }
@@ -29274,7 +29208,7 @@ func (o MonitoringScheduleNetworkConfigPtrOutput) EnableNetworkIsolation() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC. For more information, see [Give SageMaker Access to Resources in your Amazon VPC](https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html) .
+// Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. For more information, see [Protect Endpoints by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/host-vpc.html) and [Protect Training Jobs by Using an Amazon Virtual Private Cloud](https://docs.aws.amazon.com/sagemaker/latest/dg/train-vpc.html) .
 func (o MonitoringScheduleNetworkConfigPtrOutput) VpcConfig() MonitoringScheduleVpcConfigPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleNetworkConfig) *MonitoringScheduleVpcConfig {
 		if v == nil {
@@ -29984,13 +29918,13 @@ func (o MonitoringScheduleVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput
 
 // The configuration of an `OfflineStore` .
 type OfflineStoreConfigProperties struct {
-	// The meta data of the Glue table which serves as data catalog for the `OfflineStore` .
+	// The meta data of the Glue table that is autogenerated when an `OfflineStore` is created.
 	DataCatalogConfig *FeatureGroupDataCatalogConfig `pulumi:"dataCatalogConfig"`
 	// Set to `True` to disable the automatic creation of an AWS Glue table when configuring an `OfflineStore` . If set to `False` , Feature Store will name the `OfflineStore` Glue table following [Athena's naming recommendations](https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html) .
 	//
 	// The default value is `False` .
 	DisableGlueTableCreation *bool `pulumi:"disableGlueTableCreation"`
-	// The Amazon Simple Storage (Amazon S3) location and security configuration for `OfflineStore` .
+	// The Amazon Simple Storage (Amazon S3) location of `OfflineStore` .
 	S3StorageConfig FeatureGroupS3StorageConfig `pulumi:"s3StorageConfig"`
 	// Format for the offline store table. Supported formats are Glue (Default) and [Apache Iceberg](https://docs.aws.amazon.com/https://iceberg.apache.org/) .
 	TableFormat *FeatureGroupTableFormat `pulumi:"tableFormat"`
@@ -30009,13 +29943,13 @@ type OfflineStoreConfigPropertiesInput interface {
 
 // The configuration of an `OfflineStore` .
 type OfflineStoreConfigPropertiesArgs struct {
-	// The meta data of the Glue table which serves as data catalog for the `OfflineStore` .
+	// The meta data of the Glue table that is autogenerated when an `OfflineStore` is created.
 	DataCatalogConfig FeatureGroupDataCatalogConfigPtrInput `pulumi:"dataCatalogConfig"`
 	// Set to `True` to disable the automatic creation of an AWS Glue table when configuring an `OfflineStore` . If set to `False` , Feature Store will name the `OfflineStore` Glue table following [Athena's naming recommendations](https://docs.aws.amazon.com/athena/latest/ug/tables-databases-columns-names.html) .
 	//
 	// The default value is `False` .
 	DisableGlueTableCreation pulumi.BoolPtrInput `pulumi:"disableGlueTableCreation"`
-	// The Amazon Simple Storage (Amazon S3) location and security configuration for `OfflineStore` .
+	// The Amazon Simple Storage (Amazon S3) location of `OfflineStore` .
 	S3StorageConfig FeatureGroupS3StorageConfigInput `pulumi:"s3StorageConfig"`
 	// Format for the offline store table. Supported formats are Glue (Default) and [Apache Iceberg](https://docs.aws.amazon.com/https://iceberg.apache.org/) .
 	TableFormat FeatureGroupTableFormatPtrInput `pulumi:"tableFormat"`
@@ -30099,7 +30033,7 @@ func (o OfflineStoreConfigPropertiesOutput) ToOfflineStoreConfigPropertiesPtrOut
 	}).(OfflineStoreConfigPropertiesPtrOutput)
 }
 
-// The meta data of the Glue table which serves as data catalog for the `OfflineStore` .
+// The meta data of the Glue table that is autogenerated when an `OfflineStore` is created.
 func (o OfflineStoreConfigPropertiesOutput) DataCatalogConfig() FeatureGroupDataCatalogConfigPtrOutput {
 	return o.ApplyT(func(v OfflineStoreConfigProperties) *FeatureGroupDataCatalogConfig { return v.DataCatalogConfig }).(FeatureGroupDataCatalogConfigPtrOutput)
 }
@@ -30111,7 +30045,7 @@ func (o OfflineStoreConfigPropertiesOutput) DisableGlueTableCreation() pulumi.Bo
 	return o.ApplyT(func(v OfflineStoreConfigProperties) *bool { return v.DisableGlueTableCreation }).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Simple Storage (Amazon S3) location and security configuration for `OfflineStore` .
+// The Amazon Simple Storage (Amazon S3) location of `OfflineStore` .
 func (o OfflineStoreConfigPropertiesOutput) S3StorageConfig() FeatureGroupS3StorageConfigOutput {
 	return o.ApplyT(func(v OfflineStoreConfigProperties) FeatureGroupS3StorageConfig { return v.S3StorageConfig }).(FeatureGroupS3StorageConfigOutput)
 }
@@ -30145,7 +30079,7 @@ func (o OfflineStoreConfigPropertiesPtrOutput) Elem() OfflineStoreConfigProperti
 	}).(OfflineStoreConfigPropertiesOutput)
 }
 
-// The meta data of the Glue table which serves as data catalog for the `OfflineStore` .
+// The meta data of the Glue table that is autogenerated when an `OfflineStore` is created.
 func (o OfflineStoreConfigPropertiesPtrOutput) DataCatalogConfig() FeatureGroupDataCatalogConfigPtrOutput {
 	return o.ApplyT(func(v *OfflineStoreConfigProperties) *FeatureGroupDataCatalogConfig {
 		if v == nil {
@@ -30167,7 +30101,7 @@ func (o OfflineStoreConfigPropertiesPtrOutput) DisableGlueTableCreation() pulumi
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Simple Storage (Amazon S3) location and security configuration for `OfflineStore` .
+// The Amazon Simple Storage (Amazon S3) location of `OfflineStore` .
 func (o OfflineStoreConfigPropertiesPtrOutput) S3StorageConfig() FeatureGroupS3StorageConfigPtrOutput {
 	return o.ApplyT(func(v *OfflineStoreConfigProperties) *FeatureGroupS3StorageConfig {
 		if v == nil {
@@ -30193,7 +30127,7 @@ type OnlineStoreConfigProperties struct {
 	//
 	// The default value is `False` .
 	EnableOnlineStore *bool `pulumi:"enableOnlineStore"`
-	// The security configuration for `OnlineStore` .
+	// Use to specify KMS Key ID ( `KMSKeyId` ) for at-rest encryption of your `OnlineStore` .
 	SecurityConfig *FeatureGroupOnlineStoreSecurityConfig `pulumi:"securityConfig"`
 	// Option for different tiers of low latency storage for real-time data retrieval.
 	//
@@ -30221,7 +30155,7 @@ type OnlineStoreConfigPropertiesArgs struct {
 	//
 	// The default value is `False` .
 	EnableOnlineStore pulumi.BoolPtrInput `pulumi:"enableOnlineStore"`
-	// The security configuration for `OnlineStore` .
+	// Use to specify KMS Key ID ( `KMSKeyId` ) for at-rest encryption of your `OnlineStore` .
 	SecurityConfig FeatureGroupOnlineStoreSecurityConfigPtrInput `pulumi:"securityConfig"`
 	// Option for different tiers of low latency storage for real-time data retrieval.
 	//
@@ -30317,7 +30251,7 @@ func (o OnlineStoreConfigPropertiesOutput) EnableOnlineStore() pulumi.BoolPtrOut
 	return o.ApplyT(func(v OnlineStoreConfigProperties) *bool { return v.EnableOnlineStore }).(pulumi.BoolPtrOutput)
 }
 
-// The security configuration for `OnlineStore` .
+// Use to specify KMS Key ID ( `KMSKeyId` ) for at-rest encryption of your `OnlineStore` .
 func (o OnlineStoreConfigPropertiesOutput) SecurityConfig() FeatureGroupOnlineStoreSecurityConfigPtrOutput {
 	return o.ApplyT(func(v OnlineStoreConfigProperties) *FeatureGroupOnlineStoreSecurityConfig { return v.SecurityConfig }).(FeatureGroupOnlineStoreSecurityConfigPtrOutput)
 }
@@ -30371,7 +30305,7 @@ func (o OnlineStoreConfigPropertiesPtrOutput) EnableOnlineStore() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The security configuration for `OnlineStore` .
+// Use to specify KMS Key ID ( `KMSKeyId` ) for at-rest encryption of your `OnlineStore` .
 func (o OnlineStoreConfigPropertiesPtrOutput) SecurityConfig() FeatureGroupOnlineStoreSecurityConfigPtrOutput {
 	return o.ApplyT(func(v *OnlineStoreConfigProperties) *FeatureGroupOnlineStoreSecurityConfig {
 		if v == nil {
@@ -31256,7 +31190,7 @@ func (o ServiceCatalogProvisioningDetailsPropertiesOutput) ProvisioningParameter
 
 // The CodeEditor app settings.
 type SpaceCodeEditorAppSettings struct {
-	// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+	// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 	DefaultResourceSpec *SpaceResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -31273,7 +31207,7 @@ type SpaceCodeEditorAppSettingsInput interface {
 
 // The CodeEditor app settings.
 type SpaceCodeEditorAppSettingsArgs struct {
-	// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+	// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 	DefaultResourceSpec SpaceResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -31355,7 +31289,7 @@ func (o SpaceCodeEditorAppSettingsOutput) ToSpaceCodeEditorAppSettingsPtrOutputW
 	}).(SpaceCodeEditorAppSettingsPtrOutput)
 }
 
-// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 func (o SpaceCodeEditorAppSettingsOutput) DefaultResourceSpec() SpaceResourceSpecPtrOutput {
 	return o.ApplyT(func(v SpaceCodeEditorAppSettings) *SpaceResourceSpec { return v.DefaultResourceSpec }).(SpaceResourceSpecPtrOutput)
 }
@@ -31384,7 +31318,7 @@ func (o SpaceCodeEditorAppSettingsPtrOutput) Elem() SpaceCodeEditorAppSettingsOu
 	}).(SpaceCodeEditorAppSettingsOutput)
 }
 
-// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 func (o SpaceCodeEditorAppSettingsPtrOutput) DefaultResourceSpec() SpaceResourceSpecPtrOutput {
 	return o.ApplyT(func(v *SpaceCodeEditorAppSettings) *SpaceResourceSpec {
 		if v == nil {
@@ -31980,7 +31914,7 @@ func (o SpaceEfsFileSystemPtrOutput) FileSystemId() pulumi.StringPtrOutput {
 type SpaceJupyterLabAppSettings struct {
 	// A list of CodeRepositories available for use with JupyterLab apps.
 	CodeRepositories []SpaceCodeRepository `pulumi:"codeRepositories"`
-	// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+	// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 	DefaultResourceSpec *SpaceResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -31999,7 +31933,7 @@ type SpaceJupyterLabAppSettingsInput interface {
 type SpaceJupyterLabAppSettingsArgs struct {
 	// A list of CodeRepositories available for use with JupyterLab apps.
 	CodeRepositories SpaceCodeRepositoryArrayInput `pulumi:"codeRepositories"`
-	// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+	// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 	DefaultResourceSpec SpaceResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -32086,7 +32020,7 @@ func (o SpaceJupyterLabAppSettingsOutput) CodeRepositories() SpaceCodeRepository
 	return o.ApplyT(func(v SpaceJupyterLabAppSettings) []SpaceCodeRepository { return v.CodeRepositories }).(SpaceCodeRepositoryArrayOutput)
 }
 
-// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 func (o SpaceJupyterLabAppSettingsOutput) DefaultResourceSpec() SpaceResourceSpecPtrOutput {
 	return o.ApplyT(func(v SpaceJupyterLabAppSettings) *SpaceResourceSpec { return v.DefaultResourceSpec }).(SpaceResourceSpecPtrOutput)
 }
@@ -32125,7 +32059,7 @@ func (o SpaceJupyterLabAppSettingsPtrOutput) CodeRepositories() SpaceCodeReposit
 	}).(SpaceCodeRepositoryArrayOutput)
 }
 
-// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+// Specifies the ARNs of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
 func (o SpaceJupyterLabAppSettingsPtrOutput) DefaultResourceSpec() SpaceResourceSpecPtrOutput {
 	return o.ApplyT(func(v *SpaceJupyterLabAppSettings) *SpaceResourceSpec {
 		if v == nil {
@@ -32137,7 +32071,7 @@ func (o SpaceJupyterLabAppSettingsPtrOutput) DefaultResourceSpec() SpaceResource
 
 // The JupyterServer app settings.
 type SpaceJupyterServerAppSettings struct {
-	// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
 	DefaultResourceSpec *SpaceResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -32154,7 +32088,7 @@ type SpaceJupyterServerAppSettingsInput interface {
 
 // The JupyterServer app settings.
 type SpaceJupyterServerAppSettingsArgs struct {
-	// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
 	DefaultResourceSpec SpaceResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -32236,7 +32170,7 @@ func (o SpaceJupyterServerAppSettingsOutput) ToSpaceJupyterServerAppSettingsPtrO
 	}).(SpaceJupyterServerAppSettingsPtrOutput)
 }
 
-// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
 func (o SpaceJupyterServerAppSettingsOutput) DefaultResourceSpec() SpaceResourceSpecPtrOutput {
 	return o.ApplyT(func(v SpaceJupyterServerAppSettings) *SpaceResourceSpec { return v.DefaultResourceSpec }).(SpaceResourceSpecPtrOutput)
 }
@@ -32265,7 +32199,7 @@ func (o SpaceJupyterServerAppSettingsPtrOutput) Elem() SpaceJupyterServerAppSett
 	}).(SpaceJupyterServerAppSettingsOutput)
 }
 
-// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
 func (o SpaceJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() SpaceResourceSpecPtrOutput {
 	return o.ApplyT(func(v *SpaceJupyterServerAppSettings) *SpaceResourceSpec {
 		if v == nil {
@@ -33138,7 +33072,7 @@ func (o SpaceSharingSettingsPtrOutput) SharingType() SpaceSharingSettingsSharing
 }
 
 type SpaceStorageSettings struct {
-	// A collection of EBS storage settings that apply to both private and shared spaces.
+	// A collection of EBS storage settings for a space.
 	EbsStorageSettings *SpaceEbsStorageSettings `pulumi:"ebsStorageSettings"`
 }
 
@@ -33154,7 +33088,7 @@ type SpaceStorageSettingsInput interface {
 }
 
 type SpaceStorageSettingsArgs struct {
-	// A collection of EBS storage settings that apply to both private and shared spaces.
+	// A collection of EBS storage settings for a space.
 	EbsStorageSettings SpaceEbsStorageSettingsPtrInput `pulumi:"ebsStorageSettings"`
 }
 
@@ -33235,7 +33169,7 @@ func (o SpaceStorageSettingsOutput) ToSpaceStorageSettingsPtrOutputWithContext(c
 	}).(SpaceStorageSettingsPtrOutput)
 }
 
-// A collection of EBS storage settings that apply to both private and shared spaces.
+// A collection of EBS storage settings for a space.
 func (o SpaceStorageSettingsOutput) EbsStorageSettings() SpaceEbsStorageSettingsPtrOutput {
 	return o.ApplyT(func(v SpaceStorageSettings) *SpaceEbsStorageSettings { return v.EbsStorageSettings }).(SpaceEbsStorageSettingsPtrOutput)
 }
@@ -33264,7 +33198,7 @@ func (o SpaceStorageSettingsPtrOutput) Elem() SpaceStorageSettingsOutput {
 	}).(SpaceStorageSettingsOutput)
 }
 
-// A collection of EBS storage settings that apply to both private and shared spaces.
+// A collection of EBS storage settings for a space.
 func (o SpaceStorageSettingsPtrOutput) EbsStorageSettings() SpaceEbsStorageSettingsPtrOutput {
 	return o.ApplyT(func(v *SpaceStorageSettings) *SpaceEbsStorageSettings {
 		if v == nil {
@@ -33557,7 +33491,7 @@ func (o UserProfileCodeRepositoryArrayOutput) Index(i pulumi.IntInput) UserProfi
 }
 
 type UserProfileCustomFileSystemConfig struct {
-	// The settings for assigning a custom Amazon EFS file system to a user profile or space for an Amazon SageMaker Domain.
+	// The settings for a custom Amazon EFS file system.
 	EfsFileSystemConfig *UserProfileEfsFileSystemConfig `pulumi:"efsFileSystemConfig"`
 }
 
@@ -33573,7 +33507,7 @@ type UserProfileCustomFileSystemConfigInput interface {
 }
 
 type UserProfileCustomFileSystemConfigArgs struct {
-	// The settings for assigning a custom Amazon EFS file system to a user profile or space for an Amazon SageMaker Domain.
+	// The settings for a custom Amazon EFS file system.
 	EfsFileSystemConfig UserProfileEfsFileSystemConfigPtrInput `pulumi:"efsFileSystemConfig"`
 }
 
@@ -33628,7 +33562,7 @@ func (o UserProfileCustomFileSystemConfigOutput) ToUserProfileCustomFileSystemCo
 	return o
 }
 
-// The settings for assigning a custom Amazon EFS file system to a user profile or space for an Amazon SageMaker Domain.
+// The settings for a custom Amazon EFS file system.
 func (o UserProfileCustomFileSystemConfigOutput) EfsFileSystemConfig() UserProfileEfsFileSystemConfigPtrOutput {
 	return o.ApplyT(func(v UserProfileCustomFileSystemConfig) *UserProfileEfsFileSystemConfig {
 		return v.EfsFileSystemConfig
@@ -34090,7 +34024,7 @@ func (o UserProfileDefaultEbsStorageSettingsPtrOutput) MaximumEbsVolumeSizeInGb(
 
 // Default storage settings for a space.
 type UserProfileDefaultSpaceStorageSettings struct {
-	// A collection of default EBS storage settings that apply to spaces created within a domain or user profile.
+	// The default EBS storage settings for a space.
 	DefaultEbsStorageSettings *UserProfileDefaultEbsStorageSettings `pulumi:"defaultEbsStorageSettings"`
 }
 
@@ -34107,7 +34041,7 @@ type UserProfileDefaultSpaceStorageSettingsInput interface {
 
 // Default storage settings for a space.
 type UserProfileDefaultSpaceStorageSettingsArgs struct {
-	// A collection of default EBS storage settings that apply to spaces created within a domain or user profile.
+	// The default EBS storage settings for a space.
 	DefaultEbsStorageSettings UserProfileDefaultEbsStorageSettingsPtrInput `pulumi:"defaultEbsStorageSettings"`
 }
 
@@ -34189,7 +34123,7 @@ func (o UserProfileDefaultSpaceStorageSettingsOutput) ToUserProfileDefaultSpaceS
 	}).(UserProfileDefaultSpaceStorageSettingsPtrOutput)
 }
 
-// A collection of default EBS storage settings that apply to spaces created within a domain or user profile.
+// The default EBS storage settings for a space.
 func (o UserProfileDefaultSpaceStorageSettingsOutput) DefaultEbsStorageSettings() UserProfileDefaultEbsStorageSettingsPtrOutput {
 	return o.ApplyT(func(v UserProfileDefaultSpaceStorageSettings) *UserProfileDefaultEbsStorageSettings {
 		return v.DefaultEbsStorageSettings
@@ -34220,7 +34154,7 @@ func (o UserProfileDefaultSpaceStorageSettingsPtrOutput) Elem() UserProfileDefau
 	}).(UserProfileDefaultSpaceStorageSettingsOutput)
 }
 
-// A collection of default EBS storage settings that apply to spaces created within a domain or user profile.
+// The default EBS storage settings for a space.
 func (o UserProfileDefaultSpaceStorageSettingsPtrOutput) DefaultEbsStorageSettings() UserProfileDefaultEbsStorageSettingsPtrOutput {
 	return o.ApplyT(func(v *UserProfileDefaultSpaceStorageSettings) *UserProfileDefaultEbsStorageSettings {
 		if v == nil {
@@ -34585,7 +34519,7 @@ func (o UserProfileJupyterLabAppSettingsPtrOutput) LifecycleConfigArns() pulumi.
 
 // The JupyterServer app settings.
 type UserProfileJupyterServerAppSettings struct {
-	// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
 	DefaultResourceSpec *UserProfileResourceSpec `pulumi:"defaultResourceSpec"`
 }
 
@@ -34602,7 +34536,7 @@ type UserProfileJupyterServerAppSettingsInput interface {
 
 // The JupyterServer app settings.
 type UserProfileJupyterServerAppSettingsArgs struct {
-	// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
 	DefaultResourceSpec UserProfileResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 }
 
@@ -34684,7 +34618,7 @@ func (o UserProfileJupyterServerAppSettingsOutput) ToUserProfileJupyterServerApp
 	}).(UserProfileJupyterServerAppSettingsPtrOutput)
 }
 
-// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
 func (o UserProfileJupyterServerAppSettingsOutput) DefaultResourceSpec() UserProfileResourceSpecPtrOutput {
 	return o.ApplyT(func(v UserProfileJupyterServerAppSettings) *UserProfileResourceSpec { return v.DefaultResourceSpec }).(UserProfileResourceSpecPtrOutput)
 }
@@ -34713,7 +34647,7 @@ func (o UserProfileJupyterServerAppSettingsPtrOutput) Elem() UserProfileJupyterS
 	}).(UserProfileJupyterServerAppSettingsOutput)
 }
 
-// Specifies the ARN's of a SageMaker image and SageMaker image version, and the instance type that the version runs on.
+// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app.
 func (o UserProfileJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() UserProfileResourceSpecPtrOutput {
 	return o.ApplyT(func(v *UserProfileJupyterServerAppSettings) *UserProfileResourceSpec {
 		if v == nil {
@@ -35410,10 +35344,8 @@ type UserProfileTag struct {
 // A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type UserProfileUserSettings struct {
 	// The Code Editor application settings.
-	//
-	// For more information about Code Editor, see [Get started with Code Editor in Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/code-editor.html) .
 	CodeEditorAppSettings *UserProfileCodeEditorAppSettings `pulumi:"codeEditorAppSettings"`
-	// The settings for assigning a custom file system to a user profile or space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.
+	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
 	CustomFileSystemConfigs []UserProfileCustomFileSystemConfig `pulumi:"customFileSystemConfigs"`
 	// Details about the POSIX identity that is used for file system operations.
 	CustomPosixUserConfig *UserProfileCustomPosixUserConfig `pulumi:"customPosixUserConfig"`
@@ -35433,7 +35365,7 @@ type UserProfileUserSettings struct {
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// The sharing settings.
 	SharingSettings *UserProfileSharingSettings `pulumi:"sharingSettings"`
-	// The default storage settings for a space.
+	// The storage settings for a space.
 	SpaceStorageSettings *UserProfileDefaultSpaceStorageSettings `pulumi:"spaceStorageSettings"`
 	// Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
 	StudioWebPortal *UserProfileUserSettingsStudioWebPortal `pulumi:"studioWebPortal"`
@@ -35453,10 +35385,8 @@ type UserProfileUserSettingsInput interface {
 // A collection of settings that apply to users of Amazon SageMaker Studio. These settings are specified when the CreateUserProfile API is called, and as DefaultUserSettings when the CreateDomain API is called.
 type UserProfileUserSettingsArgs struct {
 	// The Code Editor application settings.
-	//
-	// For more information about Code Editor, see [Get started with Code Editor in Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/code-editor.html) .
 	CodeEditorAppSettings UserProfileCodeEditorAppSettingsPtrInput `pulumi:"codeEditorAppSettings"`
-	// The settings for assigning a custom file system to a user profile or space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.
+	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
 	CustomFileSystemConfigs UserProfileCustomFileSystemConfigArrayInput `pulumi:"customFileSystemConfigs"`
 	// Details about the POSIX identity that is used for file system operations.
 	CustomPosixUserConfig UserProfileCustomPosixUserConfigPtrInput `pulumi:"customPosixUserConfig"`
@@ -35476,7 +35406,7 @@ type UserProfileUserSettingsArgs struct {
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
 	// The sharing settings.
 	SharingSettings UserProfileSharingSettingsPtrInput `pulumi:"sharingSettings"`
-	// The default storage settings for a space.
+	// The storage settings for a space.
 	SpaceStorageSettings UserProfileDefaultSpaceStorageSettingsPtrInput `pulumi:"spaceStorageSettings"`
 	// Indicates whether the Studio experience is available to users. If not, users cannot access Studio.
 	StudioWebPortal UserProfileUserSettingsStudioWebPortalPtrInput `pulumi:"studioWebPortal"`
@@ -35561,13 +35491,11 @@ func (o UserProfileUserSettingsOutput) ToUserProfileUserSettingsPtrOutputWithCon
 }
 
 // The Code Editor application settings.
-//
-// For more information about Code Editor, see [Get started with Code Editor in Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/code-editor.html) .
 func (o UserProfileUserSettingsOutput) CodeEditorAppSettings() UserProfileCodeEditorAppSettingsPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileCodeEditorAppSettings { return v.CodeEditorAppSettings }).(UserProfileCodeEditorAppSettingsPtrOutput)
 }
 
-// The settings for assigning a custom file system to a user profile or space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.
+// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
 func (o UserProfileUserSettingsOutput) CustomFileSystemConfigs() UserProfileCustomFileSystemConfigArrayOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) []UserProfileCustomFileSystemConfig { return v.CustomFileSystemConfigs }).(UserProfileCustomFileSystemConfigArrayOutput)
 }
@@ -35623,7 +35551,7 @@ func (o UserProfileUserSettingsOutput) SharingSettings() UserProfileSharingSetti
 	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileSharingSettings { return v.SharingSettings }).(UserProfileSharingSettingsPtrOutput)
 }
 
-// The default storage settings for a space.
+// The storage settings for a space.
 func (o UserProfileUserSettingsOutput) SpaceStorageSettings() UserProfileDefaultSpaceStorageSettingsPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileDefaultSpaceStorageSettings { return v.SpaceStorageSettings }).(UserProfileDefaultSpaceStorageSettingsPtrOutput)
 }
@@ -35658,8 +35586,6 @@ func (o UserProfileUserSettingsPtrOutput) Elem() UserProfileUserSettingsOutput {
 }
 
 // The Code Editor application settings.
-//
-// For more information about Code Editor, see [Get started with Code Editor in Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/code-editor.html) .
 func (o UserProfileUserSettingsPtrOutput) CodeEditorAppSettings() UserProfileCodeEditorAppSettingsPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileCodeEditorAppSettings {
 		if v == nil {
@@ -35669,7 +35595,7 @@ func (o UserProfileUserSettingsPtrOutput) CodeEditorAppSettings() UserProfileCod
 	}).(UserProfileCodeEditorAppSettingsPtrOutput)
 }
 
-// The settings for assigning a custom file system to a user profile or space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.
+// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
 func (o UserProfileUserSettingsPtrOutput) CustomFileSystemConfigs() UserProfileCustomFileSystemConfigArrayOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) []UserProfileCustomFileSystemConfig {
 		if v == nil {
@@ -35769,7 +35695,7 @@ func (o UserProfileUserSettingsPtrOutput) SharingSettings() UserProfileSharingSe
 	}).(UserProfileSharingSettingsPtrOutput)
 }
 
-// The default storage settings for a space.
+// The storage settings for a space.
 func (o UserProfileUserSettingsPtrOutput) SpaceStorageSettings() UserProfileDefaultSpaceStorageSettingsPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettings) *UserProfileDefaultSpaceStorageSettings {
 		if v == nil {

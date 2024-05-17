@@ -64,11 +64,7 @@ export class IdentitySource extends pulumi.CustomResource {
     }
 
     /**
-     * A structure that contains configuration information used when creating or updating a new identity source.
-     *
-     * > At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
-     * > 
-     * > You must specify a `userPoolArn` , and optionally, a `ClientId` .
+     * Contains configuration information about an identity source.
      */
     public readonly configuration!: pulumi.Output<outputs.verifiedpermissions.IdentitySourceConfiguration>;
     public /*out*/ readonly details!: pulumi.Output<outputs.verifiedpermissions.IdentitySourceDetails>;
@@ -126,11 +122,7 @@ export class IdentitySource extends pulumi.CustomResource {
  */
 export interface IdentitySourceArgs {
     /**
-     * A structure that contains configuration information used when creating or updating a new identity source.
-     *
-     * > At this time, the only valid member of this structure is a Amazon Cognito user pool configuration.
-     * > 
-     * > You must specify a `userPoolArn` , and optionally, a `ClientId` .
+     * Contains configuration information about an identity source.
      */
     configuration: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationArgs>;
     /**

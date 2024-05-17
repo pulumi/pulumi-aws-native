@@ -47,7 +47,7 @@ export interface GetNetworkSettingsResult {
      */
     readonly subnetIds?: string[];
     /**
-     * The tag.
+     * The tags to add to the network settings resource. A tag is a key-value pair.
      */
     readonly tags?: outputs.Tag[];
     /**

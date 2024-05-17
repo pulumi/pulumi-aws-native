@@ -30,7 +30,7 @@ type LookupInAppTemplateArgs struct {
 type LookupInAppTemplateResult struct {
 	// The Amazon Resource Name (ARN) of the message template.
 	Arn *string `pulumi:"arn"`
-	// Specifies the configuration of an in-app message, including its header, body, buttons, colors, and images.
+	// An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
 	Content []InAppTemplateInAppMessageContent `pulumi:"content"`
 	// Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
 	//
@@ -96,7 +96,7 @@ func (o LookupInAppTemplateResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInAppTemplateResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the configuration of an in-app message, including its header, body, buttons, colors, and images.
+// An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
 func (o LookupInAppTemplateResultOutput) Content() InAppTemplateInAppMessageContentArrayOutput {
 	return o.ApplyT(func(v LookupInAppTemplateResult) []InAppTemplateInAppMessageContent { return v.Content }).(InAppTemplateInAppMessageContentArrayOutput)
 }

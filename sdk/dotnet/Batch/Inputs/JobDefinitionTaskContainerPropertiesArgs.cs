@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
         private InputList<Inputs.JobDefinitionTaskContainerDependencyArgs>? _dependsOn;
 
         /// <summary>
-        /// A list of containers that this task depends on.
+        /// A list of containers that this container depends on.
         /// </summary>
         public InputList<Inputs.JobDefinitionTaskContainerDependencyArgs> DependsOn
         {
@@ -65,13 +65,23 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public Input<string> Image { get; set; } = null!;
 
         /// <summary>
-        /// Linux-specific modifications that are applied to the container, such as details for device mappings.
+        /// Linux-specific modifications that are applied to the container, such as Linux kernel capabilities. For more information, see [KernelCapabilities](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html) .
         /// </summary>
         [Input("linuxParameters")]
         public Input<Inputs.JobDefinitionLinuxParametersArgs>? LinuxParameters { get; set; }
 
         /// <summary>
-        /// Log configuration options to send to a custom log driver for the container.
+        /// The log configuration specification for the container.
+        /// 
+        /// This parameter maps to `LogConfig` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--log-driver` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
+        /// 
+        /// By default, containers use the same logging driver that the Docker daemon uses. However the container can use a different logging driver than the Docker daemon by specifying a log driver with this parameter in the container definition. To use a different logging driver for a container, the log system must be configured properly on the container instance (or on a different log server for remote logging options). For more information about the options for different supported log drivers, see [Configure logging drivers](https://docs.aws.amazon.com/https://docs.docker.com/engine/admin/logging/overview/) in the *Docker documentation* .
+        /// 
+        /// &gt; Amazon ECS currently supports a subset of the logging drivers available to the Docker daemon (shown in the `LogConfiguration` data type). Additional log drivers may be available in future releases of the Amazon ECS container agent. 
+        /// 
+        /// This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: sudo docker version `--format '{{.Server.APIVersion}}'`
+        /// 
+        /// &gt; The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the `ECS_AVAILABLE_LOGGING_DRIVERS` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide* .
         /// </summary>
         [Input("logConfiguration")]
         public Input<Inputs.JobDefinitionLogConfigurationArgs>? LogConfiguration { get; set; }
@@ -115,7 +125,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public Input<bool>? ReadonlyRootFilesystem { get; set; }
 
         /// <summary>
-        /// The repository credentials for private registry authentication.
+        /// The private repository authentication credentials to use.
         /// </summary>
         [Input("repositoryCredentials")]
         public Input<Inputs.JobDefinitionRepositoryCredentialsArgs>? RepositoryCredentials { get; set; }

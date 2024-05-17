@@ -62,7 +62,7 @@ export class MonitoringSchedule extends pulumi.CustomResource {
      */
     public /*out*/ readonly monitoringScheduleArn!: pulumi.Output<string>;
     /**
-     * Configures the monitoring schedule and defines the monitoring job.
+     * The configuration object that specifies the monitoring schedule and defines the monitoring job.
      */
     public readonly monitoringScheduleConfig!: pulumi.Output<outputs.sagemaker.MonitoringScheduleConfig>;
     /**
@@ -138,7 +138,7 @@ export interface MonitoringScheduleArgs {
      */
     lastMonitoringExecutionSummary?: pulumi.Input<inputs.sagemaker.MonitoringScheduleMonitoringExecutionSummaryArgs>;
     /**
-     * Configures the monitoring schedule and defines the monitoring job.
+     * The configuration object that specifies the monitoring schedule and defines the monitoring job.
      */
     monitoringScheduleConfig: pulumi.Input<inputs.sagemaker.MonitoringScheduleConfigArgs>;
     /**

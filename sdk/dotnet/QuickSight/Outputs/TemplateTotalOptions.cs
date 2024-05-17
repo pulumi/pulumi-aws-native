@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateTotalAggregationOption> TotalAggregationOptions;
         /// <summary>
-        /// The table cell style for a cell in pivot table or table visual.
+        /// Cell styling options for the total cells.
         /// </summary>
         public readonly Outputs.TemplateTableCellStyle? TotalCellStyle;
         /// <summary>

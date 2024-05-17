@@ -47,7 +47,7 @@ type LookupProfileResult struct {
 	RoleArns []string `pulumi:"roleArns"`
 	// A session policy that will applied to the trust boundary of the vended session credentials.
 	SessionPolicy *string `pulumi:"sessionPolicy"`
-	// A label that consists of a key and value you define.
+	// A list of Tags.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -132,7 +132,7 @@ func (o LookupProfileResultOutput) SessionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProfileResult) *string { return v.SessionPolicy }).(pulumi.StringPtrOutput)
 }
 
-// A label that consists of a key and value you define.
+// A list of Tags.
 func (o LookupProfileResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupProfileResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

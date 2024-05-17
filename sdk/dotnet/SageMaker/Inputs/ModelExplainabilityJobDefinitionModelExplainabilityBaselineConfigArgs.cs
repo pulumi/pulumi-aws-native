@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<string>? BaseliningJobName { get; set; }
 
         /// <summary>
-        /// Input object for the endpoint
+        /// The constraints resource for a model explainability job.
         /// </summary>
         [Input("constraintsResource")]
         public Input<Inputs.ModelExplainabilityJobDefinitionConstraintsResourceArgs>? ConstraintsResource { get; set; }

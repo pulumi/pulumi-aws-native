@@ -83,7 +83,7 @@ class GetAccessLogSubscriptionResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        Specifies a tag for an access log subscription.
+        The tags for the access log subscription.
         """
         return pulumi.get(self, "tags")
 

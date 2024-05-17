@@ -14,33 +14,31 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisTreeMapConfiguration
     {
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility) for the colors displayed in a tree map.
         /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? ColorLabelOptions;
         /// <summary>
-        /// Determines the color scale that is applied to the visual.
+        /// The color options (gradient color, point of divergence) of a tree map.
         /// </summary>
         public readonly Outputs.AnalysisColorScale? ColorScale;
         /// <summary>
-        /// The options that determine the presentation of the data labels.
+        /// The options that determine if visual data labels are displayed.
         /// </summary>
         public readonly Outputs.AnalysisDataLabelOptions? DataLabels;
         /// <summary>
-        /// The field wells of a tree map.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The field wells of the visual.
         /// </summary>
         public readonly Outputs.AnalysisTreeMapFieldWells? FieldWells;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility) of the groups that are displayed in a tree map.
         /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? GroupLabelOptions;
         /// <summary>
-        /// The options for the legend setup of a visual.
+        /// The legend display setup of the visual.
         /// </summary>
         public readonly Outputs.AnalysisLegendOptions? Legend;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility) of the sizes that are displayed in a tree map.
         /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? SizeLabelOptions;
         /// <summary>
@@ -48,7 +46,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.AnalysisTreeMapSortConfiguration? SortConfiguration;
         /// <summary>
-        /// The display options for the visual tooltip.
+        /// The tooltip display setup of the visual.
         /// </summary>
         public readonly Outputs.AnalysisTooltipOptions? Tooltip;
 

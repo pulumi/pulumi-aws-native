@@ -94,7 +94,7 @@ export class ModelPackage extends pulumi.CustomResource {
      */
     public readonly modelApprovalStatus!: pulumi.Output<enums.sagemaker.ModelPackageModelApprovalStatus | undefined>;
     /**
-     * Contains metrics captured from a model.
+     * Metrics for the model.
      */
     public readonly modelMetrics!: pulumi.Output<outputs.sagemaker.ModelPackageModelMetrics | undefined>;
     /**
@@ -287,7 +287,7 @@ export interface ModelPackageArgs {
      */
     modelApprovalStatus?: pulumi.Input<enums.sagemaker.ModelPackageModelApprovalStatus>;
     /**
-     * Contains metrics captured from a model.
+     * Metrics for the model.
      */
     modelMetrics?: pulumi.Input<inputs.sagemaker.ModelPackageModelMetricsArgs>;
     /**

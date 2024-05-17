@@ -19,9 +19,6 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         public readonly string? AccessToken;
         public readonly string? ClientId;
         public readonly string? ClientSecret;
-        /// <summary>
-        /// Used by select connectors for which the OAuth workflow is supported, such as Salesforce, Google Analytics, Marketo, Zendesk, and Slack.
-        /// </summary>
         public readonly Outputs.ConnectorProfileConnectorOAuthRequest? ConnectorOAuthRequest;
         public readonly string? RefreshToken;
 

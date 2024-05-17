@@ -16,7 +16,9 @@ namespace Pulumi.AwsNative.IoT.Inputs
     public sealed class SecurityProfileBehaviorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The criteria by which the behavior is determined to be normal.
+        /// The criteria that determine if a device is behaving normally in regard to the `metric` .
+        /// 
+        /// &gt; In the AWS IoT console, you can choose to be sent an alert through Amazon SNS when AWS IoT Device Defender detects that a device is behaving anomalously.
         /// </summary>
         [Input("criteria")]
         public Input<Inputs.SecurityProfileBehaviorCriteriaArgs>? Criteria { get; set; }

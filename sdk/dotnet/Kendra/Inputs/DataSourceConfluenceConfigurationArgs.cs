@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     public sealed class DataSourceConfluenceConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration of attachment settings for the Confluence data source. Attachment settings are optional, if you don't specify settings attachments, Amazon Kendra won't index them.
+        /// Configuration information for indexing attachments to Confluence blogs and pages.
         /// </summary>
         [Input("attachmentConfiguration")]
         public Input<Inputs.DataSourceConfluenceAttachmentConfigurationArgs>? AttachmentConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration of blog settings for the Confluence data source. Blogs are always indexed unless filtered from the index by the `ExclusionPatterns` or `InclusionPatterns` fields in the `ConfluenceConfiguration` object.
+        /// Configuration information for indexing Confluence blogs.
         /// </summary>
         [Input("blogConfiguration")]
         public Input<Inputs.DataSourceConfluenceBlogConfigurationArgs>? BlogConfiguration { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         }
 
         /// <summary>
-        /// Configuration of the page settings for the Confluence data source.
+        /// Configuration information for indexing Confluence pages.
         /// </summary>
         [Input("pageConfiguration")]
         public Input<Inputs.DataSourceConfluencePageConfigurationArgs>? PageConfiguration { get; set; }
@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public Input<Pulumi.AwsNative.Kendra.DataSourceConfluenceVersion> Version { get; set; } = null!;
 
         /// <summary>
-        /// Provides the configuration information to connect to an Amazon VPC.
+        /// Configuration information for an Amazon Virtual Private Cloud to connect to your Confluence. For more information, see [Configuring a VPC](https://docs.aws.amazon.com/kendra/latest/dg/vpc-configuration.html) .
         /// </summary>
         [Input("vpcConfiguration")]
         public Input<Inputs.DataSourceVpcConfigurationArgs>? VpcConfiguration { get; set; }

@@ -111,21 +111,20 @@ namespace Pulumi.AwsNative.Cassandra
         public Output<string?> KeyspaceName { get; private set; } = null!;
 
         /// <summary>
-        /// You can use `ReplicationSpecification` to configure the `ReplicationStrategy` of a keyspace in Amazon Keyspaces .
+        /// Specifies the `ReplicationStrategy` of a keyspace. The options are:
         /// 
-        /// The `ReplicationSpecification` property is `CreateOnly` and cannot be changed after the keyspace has been created. This property applies automatically to all tables in the keyspace.
+        /// - `SINGLE_REGION` for a single Region keyspace (optional) or
+        /// - `MULTI_REGION` for a multi-Region keyspace
         /// 
-        /// For more information, see [Multi-Region Replication](https://docs.aws.amazon.com/keyspaces/latest/devguide/multiRegion-replication.html) in the *Amazon Keyspaces Developer Guide* .
+        /// If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
         /// </summary>
         [Output("replicationSpecification")]
         public Output<Outputs.KeyspaceReplicationSpecification?> ReplicationSpecification { get; private set; } = null!;
 
         /// <summary>
-        /// Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single Amazon Keyspaces resource.
+        /// An array of key-value pairs to apply to this resource.
         /// 
-        /// AWS -assigned tag names and values are automatically assigned the `aws:` prefix, which the user cannot assign. AWS -assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix `user:` in the Cost Allocation Report. You cannot backdate the application of a tag.
-        /// 
-        /// For more information, see [Adding tags and labels to Amazon Keyspaces resources](https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html) in the *Amazon Keyspaces Developer Guide* .
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -187,11 +186,12 @@ namespace Pulumi.AwsNative.Cassandra
         public Input<string>? KeyspaceName { get; set; }
 
         /// <summary>
-        /// You can use `ReplicationSpecification` to configure the `ReplicationStrategy` of a keyspace in Amazon Keyspaces .
+        /// Specifies the `ReplicationStrategy` of a keyspace. The options are:
         /// 
-        /// The `ReplicationSpecification` property is `CreateOnly` and cannot be changed after the keyspace has been created. This property applies automatically to all tables in the keyspace.
+        /// - `SINGLE_REGION` for a single Region keyspace (optional) or
+        /// - `MULTI_REGION` for a multi-Region keyspace
         /// 
-        /// For more information, see [Multi-Region Replication](https://docs.aws.amazon.com/keyspaces/latest/devguide/multiRegion-replication.html) in the *Amazon Keyspaces Developer Guide* .
+        /// If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
         /// </summary>
         [Input("replicationSpecification")]
         public Input<Inputs.KeyspaceReplicationSpecificationArgs>? ReplicationSpecification { get; set; }
@@ -200,11 +200,9 @@ namespace Pulumi.AwsNative.Cassandra
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single Amazon Keyspaces resource.
+        /// An array of key-value pairs to apply to this resource.
         /// 
-        /// AWS -assigned tag names and values are automatically assigned the `aws:` prefix, which the user cannot assign. AWS -assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix `user:` in the Cost Allocation Report. You cannot backdate the application of a tag.
-        /// 
-        /// For more information, see [Adding tags and labels to Amazon Keyspaces resources](https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html) in the *Amazon Keyspaces Developer Guide* .
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

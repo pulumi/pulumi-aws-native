@@ -46,9 +46,7 @@ export class RestoreTestingSelection extends pulumi.CustomResource {
      */
     public readonly protectedResourceArns!: pulumi.Output<string[] | undefined>;
     /**
-     * The conditions that you define for resources in your restore testing plan using tags.
-     *
-     * For example, `"StringEquals": { "Key": "aws:ResourceTag/CreatedByCryo", "Value": "true" },` . Condition operators are case sensitive.
+     * In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
      */
     public readonly protectedResourceConditions!: pulumi.Output<outputs.backup.RestoreTestingSelectionProtectedResourceConditions | undefined>;
     /**
@@ -134,9 +132,7 @@ export interface RestoreTestingSelectionArgs {
      */
     protectedResourceArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The conditions that you define for resources in your restore testing plan using tags.
-     *
-     * For example, `"StringEquals": { "Key": "aws:ResourceTag/CreatedByCryo", "Value": "true" },` . Condition operators are case sensitive.
+     * In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
      */
     protectedResourceConditions?: pulumi.Input<inputs.backup.RestoreTestingSelectionProtectedResourceConditionsArgs>;
     /**

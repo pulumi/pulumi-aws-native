@@ -519,9 +519,9 @@ type ParameterGroupTag struct {
 
 // The cache capacity limit of the Serverless Cache.
 type ServerlessCacheCacheUsageLimits struct {
-	// The data storage limit.
+	// The maximum data storage limit in the cache, expressed in Gigabytes.
 	DataStorage *ServerlessCacheDataStorage `pulumi:"dataStorage"`
-	// The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.
+	// The number of ElastiCache Processing Units (ECPU) the cache can consume per second.
 	EcpuPerSecond *ServerlessCacheEcpuPerSecond `pulumi:"ecpuPerSecond"`
 }
 
@@ -538,9 +538,9 @@ type ServerlessCacheCacheUsageLimitsInput interface {
 
 // The cache capacity limit of the Serverless Cache.
 type ServerlessCacheCacheUsageLimitsArgs struct {
-	// The data storage limit.
+	// The maximum data storage limit in the cache, expressed in Gigabytes.
 	DataStorage ServerlessCacheDataStoragePtrInput `pulumi:"dataStorage"`
-	// The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.
+	// The number of ElastiCache Processing Units (ECPU) the cache can consume per second.
 	EcpuPerSecond ServerlessCacheEcpuPerSecondPtrInput `pulumi:"ecpuPerSecond"`
 }
 
@@ -622,12 +622,12 @@ func (o ServerlessCacheCacheUsageLimitsOutput) ToServerlessCacheCacheUsageLimits
 	}).(ServerlessCacheCacheUsageLimitsPtrOutput)
 }
 
-// The data storage limit.
+// The maximum data storage limit in the cache, expressed in Gigabytes.
 func (o ServerlessCacheCacheUsageLimitsOutput) DataStorage() ServerlessCacheDataStoragePtrOutput {
 	return o.ApplyT(func(v ServerlessCacheCacheUsageLimits) *ServerlessCacheDataStorage { return v.DataStorage }).(ServerlessCacheDataStoragePtrOutput)
 }
 
-// The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.
+// The number of ElastiCache Processing Units (ECPU) the cache can consume per second.
 func (o ServerlessCacheCacheUsageLimitsOutput) EcpuPerSecond() ServerlessCacheEcpuPerSecondPtrOutput {
 	return o.ApplyT(func(v ServerlessCacheCacheUsageLimits) *ServerlessCacheEcpuPerSecond { return v.EcpuPerSecond }).(ServerlessCacheEcpuPerSecondPtrOutput)
 }
@@ -656,7 +656,7 @@ func (o ServerlessCacheCacheUsageLimitsPtrOutput) Elem() ServerlessCacheCacheUsa
 	}).(ServerlessCacheCacheUsageLimitsOutput)
 }
 
-// The data storage limit.
+// The maximum data storage limit in the cache, expressed in Gigabytes.
 func (o ServerlessCacheCacheUsageLimitsPtrOutput) DataStorage() ServerlessCacheDataStoragePtrOutput {
 	return o.ApplyT(func(v *ServerlessCacheCacheUsageLimits) *ServerlessCacheDataStorage {
 		if v == nil {
@@ -666,7 +666,7 @@ func (o ServerlessCacheCacheUsageLimitsPtrOutput) DataStorage() ServerlessCacheD
 	}).(ServerlessCacheDataStoragePtrOutput)
 }
 
-// The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second.
+// The number of ElastiCache Processing Units (ECPU) the cache can consume per second.
 func (o ServerlessCacheCacheUsageLimitsPtrOutput) EcpuPerSecond() ServerlessCacheEcpuPerSecondPtrOutput {
 	return o.ApplyT(func(v *ServerlessCacheCacheUsageLimits) *ServerlessCacheEcpuPerSecond {
 		if v == nil {

@@ -19,19 +19,19 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies the deserializer you want to use to convert the format of the input data. This parameter is required if `Enabled` is set to true.
+        /// Specifies the deserializer that you want Firehose to use to convert the format of your data from JSON. This parameter is required if `Enabled` is set to true.
         /// </summary>
         [Input("inputFormatConfiguration")]
         public Input<Inputs.DeliveryStreamInputFormatConfigurationArgs>? InputFormatConfiguration { get; set; }
 
         /// <summary>
-        /// Specifies the serializer that you want Firehose to use to convert the format of your data before it writes it to Amazon S3. This parameter is required if `Enabled` is set to true.
+        /// Specifies the serializer that you want Firehose to use to convert the format of your data to the Parquet or ORC format. This parameter is required if `Enabled` is set to true.
         /// </summary>
         [Input("outputFormatConfiguration")]
         public Input<Inputs.DeliveryStreamOutputFormatConfigurationArgs>? OutputFormatConfiguration { get; set; }
 
         /// <summary>
-        /// Specifies the schema to which you want Firehose to configure your data before it writes it to Amazon S3. This parameter is required if `Enabled` is set to true.
+        /// Specifies the AWS Glue Data Catalog table that contains the column information. This parameter is required if `Enabled` is set to true.
         /// </summary>
         [Input("schemaConfiguration")]
         public Input<Inputs.DeliveryStreamSchemaConfigurationArgs>? SchemaConfiguration { get; set; }

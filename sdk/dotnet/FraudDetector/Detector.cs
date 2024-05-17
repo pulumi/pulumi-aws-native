@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.FraudDetector
         public Output<Pulumi.AwsNative.FraudDetector.DetectorRuleExecutionMode?> RuleExecutionMode { get; private set; } = null!;
 
         /// <summary>
-        /// A rule.
+        /// The rules to include in the detector version.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.DetectorRule>> Rules { get; private set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.AwsNative.FraudDetector
         private InputList<Inputs.DetectorRuleArgs>? _rules;
 
         /// <summary>
-        /// A rule.
+        /// The rules to include in the detector version.
         /// </summary>
         public InputList<Inputs.DetectorRuleArgs> Rules
         {

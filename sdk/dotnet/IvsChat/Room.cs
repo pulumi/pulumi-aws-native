@@ -110,7 +110,7 @@ namespace Pulumi.AwsNative.IvsChat
         public Output<int?> MaximumMessageRatePerSecond { get; private set; } = null!;
 
         /// <summary>
-        /// The MessageReviewHandler property type specifies configuration information for optional message review.
+        /// Configuration information for optional review of messages.
         /// </summary>
         [Output("messageReviewHandler")]
         public Output<Outputs.RoomMessageReviewHandler?> MessageReviewHandler { get; private set; } = null!;
@@ -197,7 +197,7 @@ namespace Pulumi.AwsNative.IvsChat
         public Input<int>? MaximumMessageRatePerSecond { get; set; }
 
         /// <summary>
-        /// The MessageReviewHandler property type specifies configuration information for optional message review.
+        /// Configuration information for optional review of messages.
         /// </summary>
         [Input("messageReviewHandler")]
         public Input<Inputs.RoomMessageReviewHandlerArgs>? MessageReviewHandler { get; set; }

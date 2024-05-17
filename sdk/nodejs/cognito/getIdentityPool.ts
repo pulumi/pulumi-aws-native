@@ -32,7 +32,7 @@ export interface GetIdentityPoolResult {
      */
     readonly allowUnauthenticatedIdentities?: boolean;
     /**
-     * `CognitoIdentityProvider` is a property of the [AWS::Cognito::IdentityPool](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html) resource that represents an Amazon Cognito user pool and its client ID.
+     * The Amazon Cognito user pools and their client IDs.
      */
     readonly cognitoIdentityProviders?: outputs.cognito.IdentityPoolCognitoIdentityProvider[];
     /**

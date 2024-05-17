@@ -14,11 +14,14 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     public sealed class TlsInspectionConfigurationServerCertificateScope
     {
         /// <summary>
-        /// A single port range specification. This is used for source and destination port ranges in the stateless rule [MatchAttributes](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html) , `SourcePorts` , and `DestinationPorts` settings.
+        /// The destination ports to decrypt for inspection, in Transmission Control Protocol (TCP) format. If not specified, this matches with any destination port.
+        /// 
+        /// You can specify individual ports, for example `1994` , and you can specify port ranges, such as `1990:1994` .
         /// </summary>
         public readonly ImmutableArray<Outputs.TlsInspectionConfigurationPortRange> DestinationPorts;
         /// <summary>
-        /// A single IP address specification. This is used in the [MatchAttributes](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-matchattributes.html) source and destination settings.
+        /// The destination IP addresses and address ranges to decrypt for inspection, in CIDR notation. If not specified, this
+        /// matches with any destination address.
         /// </summary>
         public readonly ImmutableArray<Outputs.TlsInspectionConfigurationAddress> Destinations;
         /// <summary>

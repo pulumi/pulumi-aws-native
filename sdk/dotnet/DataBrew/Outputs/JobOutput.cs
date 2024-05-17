@@ -22,11 +22,11 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.DataBrew.JobOutputFormat? Format;
         /// <summary>
-        /// Represents a set of options that define the structure of comma-separated (CSV) job output.
+        /// Represents options that define how DataBrew formats job output files.
         /// </summary>
         public readonly Outputs.JobOutputFormatOptions? FormatOptions;
         /// <summary>
-        /// Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+        /// The location in Amazon S3 where the job writes its output.
         /// </summary>
         public readonly Outputs.JobS3Location Location;
         /// <summary>

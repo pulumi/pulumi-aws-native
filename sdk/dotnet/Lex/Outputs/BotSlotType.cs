@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Provides information about the external source of the slot type's definition.
+        /// Sets the type of external information used to create the slot type.
         /// </summary>
         public readonly Outputs.BotExternalSourceSetting? ExternalSourceSetting;
         /// <summary>
@@ -39,7 +39,12 @@ namespace Pulumi.AwsNative.Lex.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.BotSlotTypeValue> SlotTypeValues;
         /// <summary>
-        /// Contains settings used by Amazon Lex to select a slot value.
+        /// Determines the slot resolution strategy that Amazon Lex uses to return slot type values. The field can be set to one of the following values:
+        /// 
+        /// - `ORIGINAL_VALUE` - Returns the value entered by the user, if the user value is similar to the slot value.
+        /// - `TOP_RESOLUTION` - If there is a resolution list for the slot, return the first value in the resolution list as the slot type value. If there is no resolution list, null is returned.
+        /// 
+        /// If you don't specify the `valueSelectionStrategy` , the default is `ORIGINAL_VALUE` .
         /// </summary>
         public readonly Outputs.BotSlotValueSelectionSetting? ValueSelectionSetting;
 

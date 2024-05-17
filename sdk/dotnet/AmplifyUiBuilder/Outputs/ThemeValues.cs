@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Outputs
         /// </summary>
         public readonly string? Key;
         /// <summary>
-        /// The `ThemeValue` property specifies the configuration of a theme's properties.
+        /// The value of the property.
         /// </summary>
         public readonly Outputs.ThemeValue? Value;
 

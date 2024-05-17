@@ -14,7 +14,9 @@ namespace Pulumi.AwsNative.Comprehend.Outputs
     public sealed class DocumentClassifierInputDataConfig
     {
         /// <summary>
-        /// An augmented manifest file that provides training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
+        /// A list of augmented manifest files that provide training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
+        /// 
+        /// This parameter is required if you set `DataFormat` to `AUGMENTED_MANIFEST` .
         /// </summary>
         public readonly ImmutableArray<Outputs.DocumentClassifierAugmentedManifestsListItem> AugmentedManifests;
         /// <summary>
@@ -28,26 +30,13 @@ namespace Pulumi.AwsNative.Comprehend.Outputs
         /// If you don't specify a value, Amazon Comprehend uses `COMPREHEND_CSV` as the default.
         /// </summary>
         public readonly Pulumi.AwsNative.Comprehend.DocumentClassifierInputDataConfigDataFormat? DataFormat;
-        /// <summary>
-        /// Provides configuration parameters to override the default actions for extracting text from PDF documents and image files.
-        /// 
-        /// By default, Amazon Comprehend performs the following actions to extract text from files, based on the input file type:
-        /// 
-        /// - *Word files* - Amazon Comprehend parser extracts the text.
-        /// - *Digital PDF files* - Amazon Comprehend parser extracts the text.
-        /// - *Image files and scanned PDF files* - Amazon Comprehend uses the Amazon Textract `DetectDocumentText` API to extract the text.
-        /// 
-        /// `DocumentReaderConfig` does not apply to plain text files or Word files.
-        /// 
-        /// For image files and PDF documents, you can override these default actions using the fields listed below. For more information, see [Setting text extraction options](https://docs.aws.amazon.com/comprehend/latest/dg/idp-set-textract-options.html) in the Comprehend Developer Guide.
-        /// </summary>
         public readonly Outputs.DocumentClassifierDocumentReaderConfig? DocumentReaderConfig;
         /// <summary>
         /// The type of input documents for training the model. Provide plain-text documents to create a plain-text model, and provide semi-structured documents to create a native document model.
         /// </summary>
         public readonly Pulumi.AwsNative.Comprehend.DocumentClassifierInputDataConfigDocumentType? DocumentType;
         /// <summary>
-        /// The location of the training documents. This parameter is required in a request to create a semi-structured document classification model.
+        /// The S3 location of the training documents. This parameter is required in a request to create a native document model.
         /// </summary>
         public readonly Outputs.DocumentClassifierDocuments? Documents;
         /// <summary>

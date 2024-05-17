@@ -179,7 +179,7 @@ class GetEnvironmentResult:
     @pulumi.getter(name="loggingConfiguration")
     def logging_configuration(self) -> Optional['outputs.EnvironmentLoggingConfiguration']:
         """
-        The type of Apache Airflow logs to send to CloudWatch Logs.
+        The Apache Airflow logs being sent to CloudWatch Logs: `DagProcessingLogs` , `SchedulerLogs` , `TaskLogs` , `WebserverLogs` , `WorkerLogs` .
         """
         return pulumi.get(self, "logging_configuration")
 

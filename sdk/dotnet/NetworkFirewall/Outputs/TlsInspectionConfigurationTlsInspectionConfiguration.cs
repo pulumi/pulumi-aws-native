@@ -14,9 +14,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     public sealed class TlsInspectionConfigurationTlsInspectionConfiguration
     {
         /// <summary>
-        /// Configures the AWS Certificate Manager certificates and scope that Network Firewall uses to decrypt and re-encrypt traffic using a [TLSInspectionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-tlsinspectionconfiguration.html) . You can configure `ServerCertificates` for inbound SSL/TLS inspection, a `CertificateAuthorityArn` for outbound SSL/TLS inspection, or both. For information about working with certificates for TLS inspection, see [Using SSL/TLS server certficiates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) in the *AWS Network Firewall Developer Guide* .
-        /// 
-        /// &gt; If a server certificate that's associated with your [TLSInspectionConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-tlsinspectionconfiguration.html) is revoked, deleted, or expired it can result in client-side TLS errors.
+        /// Lists the server certificate configurations that are associated with the TLS configuration.
         /// </summary>
         public readonly ImmutableArray<Outputs.TlsInspectionConfigurationServerCertificateConfiguration> ServerCertificateConfigurations;
 

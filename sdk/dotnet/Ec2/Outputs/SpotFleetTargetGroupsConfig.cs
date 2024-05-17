@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     public sealed class SpotFleetTargetGroupsConfig
     {
         /// <summary>
-        /// Describes a load balancer target group.
+        /// One or more target groups.
         /// </summary>
         public readonly ImmutableArray<Outputs.SpotFleetTargetGroup> TargetGroups;
 

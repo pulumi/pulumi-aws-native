@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.IoTAnalytics.Inputs
         public Input<Inputs.DatasetIotEventsDestinationConfigurationArgs>? IotEventsDestinationConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration information for delivery of dataset contents to Amazon Simple Storage Service (Amazon S3).
+        /// Configuration information for delivery of dataset contents to Amazon S3.
         /// </summary>
         [Input("s3DestinationConfiguration")]
         public Input<Inputs.DatasetS3DestinationConfigurationArgs>? S3DestinationConfiguration { get; set; }

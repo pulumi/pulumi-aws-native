@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.MediaPackage.Inputs
         public Input<Pulumi.AwsNative.MediaPackage.OriginEndpointAdsOnDeliveryRestrictions>? AdsOnDeliveryRestrictions { get; set; }
 
         /// <summary>
-        /// Holds encryption information so that access to the content can be controlled by a DRM solution.
+        /// Parameters for encrypting content.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.OriginEndpointDashEncryptionArgs>? Encryption { get; set; }

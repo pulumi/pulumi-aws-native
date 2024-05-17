@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class AnalysisTopBottomMoversComputationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The dimension type field.
+        /// The category field that is used in a computation.
         /// </summary>
         [Input("category")]
         public Input<Inputs.AnalysisDimensionFieldArgs>? Category { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.AnalysisTopBottomSortOrder>? SortOrder { get; set; }
 
         /// <summary>
-        /// The dimension type field.
+        /// The time field that is used in a computation.
         /// </summary>
         [Input("time")]
         public Input<Inputs.AnalysisDimensionFieldArgs>? Time { get; set; }
@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.AnalysisTopBottomComputationType> Type { get; set; } = null!;
 
         /// <summary>
-        /// The measure (metric) type field.
+        /// The value field that is used in a computation.
         /// </summary>
         [Input("value")]
         public Input<Inputs.AnalysisMeasureFieldArgs>? Value { get; set; }

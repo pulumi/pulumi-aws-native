@@ -55,7 +55,7 @@ export interface GetNotificationRuleResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Information about the AWS Chatbot topics or AWS Chatbot clients associated with a notification rule.
+     * A list of Amazon Resource Names (ARNs) of Amazon SNS topics and AWS Chatbot clients to associate with the notification rule.
      */
     readonly targets?: outputs.codestarnotifications.NotificationRuleTarget[];
 }

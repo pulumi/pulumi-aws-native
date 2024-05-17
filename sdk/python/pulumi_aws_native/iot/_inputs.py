@@ -100,7 +100,7 @@ class AbortConfigPropertiesArgs:
                  criteria_list: pulumi.Input[Sequence[pulumi.Input['JobTemplateAbortCriteriaArgs']]]):
         """
         The criteria that determine when and how a job abort takes place.
-        :param pulumi.Input[Sequence[pulumi.Input['JobTemplateAbortCriteriaArgs']]] criteria_list: The criteria that determine when and how a job abort takes place.
+        :param pulumi.Input[Sequence[pulumi.Input['JobTemplateAbortCriteriaArgs']]] criteria_list: The list of criteria that determine when and how to abort the job.
         """
         pulumi.set(__self__, "criteria_list", criteria_list)
 
@@ -108,7 +108,7 @@ class AbortConfigPropertiesArgs:
     @pulumi.getter(name="criteriaList")
     def criteria_list(self) -> pulumi.Input[Sequence[pulumi.Input['JobTemplateAbortCriteriaArgs']]]:
         """
-        The criteria that determine when and how a job abort takes place.
+        The list of criteria that determine when and how to abort the job.
         """
         return pulumi.get(self, "criteria_list")
 
@@ -138,22 +138,22 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
                  unauthenticated_cognito_role_overly_permissive_check: Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']] = None):
         """
         Specifies which audit checks are enabled and disabled for this account.
-        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] authenticated_cognito_role_overly_permissive_check: Which audit checks are enabled and disabled for this account.
-        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] ca_certificate_expiring_check: Which audit checks are enabled and disabled for this account.
-        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] ca_certificate_key_quality_check: Which audit checks are enabled and disabled for this account.
-        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] conflicting_client_ids_check: Which audit checks are enabled and disabled for this account.
-        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] device_certificate_expiring_check: Which audit checks are enabled and disabled for this account.
-        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] device_certificate_key_quality_check: Which audit checks are enabled and disabled for this account.
-        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] device_certificate_shared_check: Which audit checks are enabled and disabled for this account.
-        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] intermediate_ca_revoked_for_active_device_certificates_check: Which audit checks are enabled and disabled for this account.
-        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] io_t_policy_potential_mis_configuration_check: Which audit checks are enabled and disabled for this account.
-        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] iot_policy_overly_permissive_check: Which audit checks are enabled and disabled for this account.
-        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] iot_role_alias_allows_access_to_unused_services_check: Which audit checks are enabled and disabled for this account.
-        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] iot_role_alias_overly_permissive_check: Which audit checks are enabled and disabled for this account.
-        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] logging_disabled_check: Which audit checks are enabled and disabled for this account.
-        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] revoked_ca_certificate_still_active_check: Which audit checks are enabled and disabled for this account.
-        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] revoked_device_certificate_still_active_check: Which audit checks are enabled and disabled for this account.
-        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] unauthenticated_cognito_role_overly_permissive_check: Which audit checks are enabled and disabled for this account.
+        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] authenticated_cognito_role_overly_permissive_check: Checks the permissiveness of an authenticated Amazon Cognito identity pool role. For this check, AWS IoT Device Defender audits all Amazon Cognito identity pools that have been used to connect to the AWS IoT message broker during the 31 days before the audit is performed.
+        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] ca_certificate_expiring_check: Checks if a CA certificate is expiring. This check applies to CA certificates expiring within 30 days or that have expired.
+        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] ca_certificate_key_quality_check: Checks the quality of the CA certificate key. The quality checks if the key is in a valid format, not expired, and if the key meets a minimum required size. This check applies to CA certificates that are `ACTIVE` or `PENDING_TRANSFER` .
+        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] conflicting_client_ids_check: Checks if multiple devices connect using the same client ID.
+        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] device_certificate_expiring_check: Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
+        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] device_certificate_key_quality_check: Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
+        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] device_certificate_shared_check: Checks if multiple concurrent connections use the same X.509 certificate to authenticate with AWS IoT .
+        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] intermediate_ca_revoked_for_active_device_certificates_check: Checks if device certificates are still active despite being revoked by an intermediate CA.
+        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] io_t_policy_potential_mis_configuration_check: Checks if an AWS IoT policy is potentially misconfigured. Misconfigured policies, including overly permissive policies, can cause security incidents like allowing devices access to unintended resources. This check is a warning for you to make sure that only intended actions are allowed before updating the policy.
+        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] iot_policy_overly_permissive_check: Checks the permissiveness of a policy attached to an authenticated Amazon Cognito identity pool role.
+        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] iot_role_alias_allows_access_to_unused_services_check: Checks if a role alias has access to services that haven't been used for the AWS IoT device in the last year.
+        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] iot_role_alias_overly_permissive_check: Checks if the temporary credentials provided by AWS IoT role aliases are overly permissive.
+        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] logging_disabled_check: Checks if AWS IoT logs are disabled.
+        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] revoked_ca_certificate_still_active_check: Checks if a revoked CA certificate is still active.
+        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] revoked_device_certificate_still_active_check: Checks if a revoked device certificate is still active.
+        :param pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs'] unauthenticated_cognito_role_overly_permissive_check: Checks if policy attached to an unauthenticated Amazon Cognito identity pool role is too permissive.
         """
         if authenticated_cognito_role_overly_permissive_check is not None:
             pulumi.set(__self__, "authenticated_cognito_role_overly_permissive_check", authenticated_cognito_role_overly_permissive_check)
@@ -192,7 +192,7 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
     @pulumi.getter(name="authenticatedCognitoRoleOverlyPermissiveCheck")
     def authenticated_cognito_role_overly_permissive_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
-        Which audit checks are enabled and disabled for this account.
+        Checks the permissiveness of an authenticated Amazon Cognito identity pool role. For this check, AWS IoT Device Defender audits all Amazon Cognito identity pools that have been used to connect to the AWS IoT message broker during the 31 days before the audit is performed.
         """
         return pulumi.get(self, "authenticated_cognito_role_overly_permissive_check")
 
@@ -204,7 +204,7 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
     @pulumi.getter(name="caCertificateExpiringCheck")
     def ca_certificate_expiring_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
-        Which audit checks are enabled and disabled for this account.
+        Checks if a CA certificate is expiring. This check applies to CA certificates expiring within 30 days or that have expired.
         """
         return pulumi.get(self, "ca_certificate_expiring_check")
 
@@ -216,7 +216,7 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
     @pulumi.getter(name="caCertificateKeyQualityCheck")
     def ca_certificate_key_quality_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
-        Which audit checks are enabled and disabled for this account.
+        Checks the quality of the CA certificate key. The quality checks if the key is in a valid format, not expired, and if the key meets a minimum required size. This check applies to CA certificates that are `ACTIVE` or `PENDING_TRANSFER` .
         """
         return pulumi.get(self, "ca_certificate_key_quality_check")
 
@@ -228,7 +228,7 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
     @pulumi.getter(name="conflictingClientIdsCheck")
     def conflicting_client_ids_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
-        Which audit checks are enabled and disabled for this account.
+        Checks if multiple devices connect using the same client ID.
         """
         return pulumi.get(self, "conflicting_client_ids_check")
 
@@ -240,7 +240,7 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
     @pulumi.getter(name="deviceCertificateExpiringCheck")
     def device_certificate_expiring_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
-        Which audit checks are enabled and disabled for this account.
+        Checks if a device certificate is expiring. This check applies to device certificates expiring within 30 days or that have expired.
         """
         return pulumi.get(self, "device_certificate_expiring_check")
 
@@ -252,7 +252,7 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
     @pulumi.getter(name="deviceCertificateKeyQualityCheck")
     def device_certificate_key_quality_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
-        Which audit checks are enabled and disabled for this account.
+        Checks the quality of the device certificate key. The quality checks if the key is in a valid format, not expired, signed by a registered certificate authority, and if the key meets a minimum required size.
         """
         return pulumi.get(self, "device_certificate_key_quality_check")
 
@@ -264,7 +264,7 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
     @pulumi.getter(name="deviceCertificateSharedCheck")
     def device_certificate_shared_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
-        Which audit checks are enabled and disabled for this account.
+        Checks if multiple concurrent connections use the same X.509 certificate to authenticate with AWS IoT .
         """
         return pulumi.get(self, "device_certificate_shared_check")
 
@@ -276,7 +276,7 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
     @pulumi.getter(name="intermediateCaRevokedForActiveDeviceCertificatesCheck")
     def intermediate_ca_revoked_for_active_device_certificates_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
-        Which audit checks are enabled and disabled for this account.
+        Checks if device certificates are still active despite being revoked by an intermediate CA.
         """
         return pulumi.get(self, "intermediate_ca_revoked_for_active_device_certificates_check")
 
@@ -288,7 +288,7 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
     @pulumi.getter(name="ioTPolicyPotentialMisConfigurationCheck")
     def io_t_policy_potential_mis_configuration_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
-        Which audit checks are enabled and disabled for this account.
+        Checks if an AWS IoT policy is potentially misconfigured. Misconfigured policies, including overly permissive policies, can cause security incidents like allowing devices access to unintended resources. This check is a warning for you to make sure that only intended actions are allowed before updating the policy.
         """
         return pulumi.get(self, "io_t_policy_potential_mis_configuration_check")
 
@@ -300,7 +300,7 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
     @pulumi.getter(name="iotPolicyOverlyPermissiveCheck")
     def iot_policy_overly_permissive_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
-        Which audit checks are enabled and disabled for this account.
+        Checks the permissiveness of a policy attached to an authenticated Amazon Cognito identity pool role.
         """
         return pulumi.get(self, "iot_policy_overly_permissive_check")
 
@@ -312,7 +312,7 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
     @pulumi.getter(name="iotRoleAliasAllowsAccessToUnusedServicesCheck")
     def iot_role_alias_allows_access_to_unused_services_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
-        Which audit checks are enabled and disabled for this account.
+        Checks if a role alias has access to services that haven't been used for the AWS IoT device in the last year.
         """
         return pulumi.get(self, "iot_role_alias_allows_access_to_unused_services_check")
 
@@ -324,7 +324,7 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
     @pulumi.getter(name="iotRoleAliasOverlyPermissiveCheck")
     def iot_role_alias_overly_permissive_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
-        Which audit checks are enabled and disabled for this account.
+        Checks if the temporary credentials provided by AWS IoT role aliases are overly permissive.
         """
         return pulumi.get(self, "iot_role_alias_overly_permissive_check")
 
@@ -336,7 +336,7 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
     @pulumi.getter(name="loggingDisabledCheck")
     def logging_disabled_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
-        Which audit checks are enabled and disabled for this account.
+        Checks if AWS IoT logs are disabled.
         """
         return pulumi.get(self, "logging_disabled_check")
 
@@ -348,7 +348,7 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
     @pulumi.getter(name="revokedCaCertificateStillActiveCheck")
     def revoked_ca_certificate_still_active_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
-        Which audit checks are enabled and disabled for this account.
+        Checks if a revoked CA certificate is still active.
         """
         return pulumi.get(self, "revoked_ca_certificate_still_active_check")
 
@@ -360,7 +360,7 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
     @pulumi.getter(name="revokedDeviceCertificateStillActiveCheck")
     def revoked_device_certificate_still_active_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
-        Which audit checks are enabled and disabled for this account.
+        Checks if a revoked device certificate is still active.
         """
         return pulumi.get(self, "revoked_device_certificate_still_active_check")
 
@@ -372,7 +372,7 @@ class AccountAuditConfigurationAuditCheckConfigurationsArgs:
     @pulumi.getter(name="unauthenticatedCognitoRoleOverlyPermissiveCheck")
     def unauthenticated_cognito_role_overly_permissive_check(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditCheckConfigurationArgs']]:
         """
-        Which audit checks are enabled and disabled for this account.
+        Checks if policy attached to an unauthenticated Amazon Cognito identity pool role is too permissive.
         """
         return pulumi.get(self, "unauthenticated_cognito_role_overly_permissive_check")
 
@@ -411,7 +411,7 @@ class AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs:
                  sns: Optional[pulumi.Input['AccountAuditConfigurationAuditNotificationTargetArgs']] = None):
         """
         Information about the targets to which audit notifications are sent.
-        :param pulumi.Input['AccountAuditConfigurationAuditNotificationTargetArgs'] sns: Information about the targets to which audit notifications are sent.
+        :param pulumi.Input['AccountAuditConfigurationAuditNotificationTargetArgs'] sns: The `Sns` notification target.
         """
         if sns is not None:
             pulumi.set(__self__, "sns", sns)
@@ -420,7 +420,7 @@ class AccountAuditConfigurationAuditNotificationTargetConfigurationsArgs:
     @pulumi.getter
     def sns(self) -> Optional[pulumi.Input['AccountAuditConfigurationAuditNotificationTargetArgs']]:
         """
-        Information about the targets to which audit notifications are sent.
+        The `Sns` notification target.
         """
         return pulumi.get(self, "sns")
 
@@ -692,7 +692,7 @@ class JobExecutionsRetryConfigPropertiesArgs:
                  retry_criteria_list: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateRetryCriteriaArgs']]]] = None):
         """
         Allows you to create the criteria to retry a job.
-        :param pulumi.Input[Sequence[pulumi.Input['JobTemplateRetryCriteriaArgs']]] retry_criteria_list: The criteria that determines how many retries are allowed for each failure type for a job.
+        :param pulumi.Input[Sequence[pulumi.Input['JobTemplateRetryCriteriaArgs']]] retry_criteria_list: The list of criteria that determines how many retries are allowed for each failure type for a job.
         """
         if retry_criteria_list is not None:
             pulumi.set(__self__, "retry_criteria_list", retry_criteria_list)
@@ -701,7 +701,7 @@ class JobExecutionsRetryConfigPropertiesArgs:
     @pulumi.getter(name="retryCriteriaList")
     def retry_criteria_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateRetryCriteriaArgs']]]]:
         """
-        The criteria that determines how many retries are allowed for each failure type for a job.
+        The list of criteria that determines how many retries are allowed for each failure type for a job.
         """
         return pulumi.get(self, "retry_criteria_list")
 
@@ -1039,12 +1039,12 @@ class MitigationActionActionParamsArgs:
                  update_device_certificate_params: Optional[pulumi.Input['MitigationActionUpdateDeviceCertificateParamsArgs']] = None):
         """
         The set of parameters for this mitigation action. You can specify only one type of parameter (in other words, you can apply only one action for each defined mitigation action).
-        :param pulumi.Input['MitigationActionAddThingsToThingGroupParamsArgs'] add_things_to_thing_group_params: Parameters used when defining a mitigation action that move a set of things to a thing group.
-        :param pulumi.Input['MitigationActionEnableIoTLoggingParamsArgs'] enable_io_t_logging_params: Parameters used when defining a mitigation action that enable AWS IoT Core logging.
-        :param pulumi.Input['MitigationActionPublishFindingToSnsParamsArgs'] publish_finding_to_sns_params: Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
-        :param pulumi.Input['MitigationActionReplaceDefaultPolicyVersionParamsArgs'] replace_default_policy_version_params: Parameters to define a mitigation action that adds a blank policy to restrict permissions.
-        :param pulumi.Input['MitigationActionUpdateCaCertificateParamsArgs'] update_ca_certificate_params: Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
-        :param pulumi.Input['MitigationActionUpdateDeviceCertificateParamsArgs'] update_device_certificate_params: Parameters to define a mitigation action that changes the state of the device certificate to inactive.
+        :param pulumi.Input['MitigationActionAddThingsToThingGroupParamsArgs'] add_things_to_thing_group_params: Specifies the group to which you want to add the devices.
+        :param pulumi.Input['MitigationActionEnableIoTLoggingParamsArgs'] enable_io_t_logging_params: Specifies the logging level and the role with permissions for logging. You cannot specify a logging level of `DISABLED` .
+        :param pulumi.Input['MitigationActionPublishFindingToSnsParamsArgs'] publish_finding_to_sns_params: Specifies the topic to which the finding should be published.
+        :param pulumi.Input['MitigationActionReplaceDefaultPolicyVersionParamsArgs'] replace_default_policy_version_params: Replaces the policy version with a default or blank policy. You specify the template name. Only a value of `BLANK_POLICY` is currently supported.
+        :param pulumi.Input['MitigationActionUpdateCaCertificateParamsArgs'] update_ca_certificate_params: Specifies the new state for the CA certificate. Only a value of `DEACTIVATE` is currently supported.
+        :param pulumi.Input['MitigationActionUpdateDeviceCertificateParamsArgs'] update_device_certificate_params: Specifies the new state for a device certificate. Only a value of `DEACTIVATE` is currently supported.
         """
         if add_things_to_thing_group_params is not None:
             pulumi.set(__self__, "add_things_to_thing_group_params", add_things_to_thing_group_params)
@@ -1063,7 +1063,7 @@ class MitigationActionActionParamsArgs:
     @pulumi.getter(name="addThingsToThingGroupParams")
     def add_things_to_thing_group_params(self) -> Optional[pulumi.Input['MitigationActionAddThingsToThingGroupParamsArgs']]:
         """
-        Parameters used when defining a mitigation action that move a set of things to a thing group.
+        Specifies the group to which you want to add the devices.
         """
         return pulumi.get(self, "add_things_to_thing_group_params")
 
@@ -1075,7 +1075,7 @@ class MitigationActionActionParamsArgs:
     @pulumi.getter(name="enableIoTLoggingParams")
     def enable_io_t_logging_params(self) -> Optional[pulumi.Input['MitigationActionEnableIoTLoggingParamsArgs']]:
         """
-        Parameters used when defining a mitigation action that enable AWS IoT Core logging.
+        Specifies the logging level and the role with permissions for logging. You cannot specify a logging level of `DISABLED` .
         """
         return pulumi.get(self, "enable_io_t_logging_params")
 
@@ -1087,7 +1087,7 @@ class MitigationActionActionParamsArgs:
     @pulumi.getter(name="publishFindingToSnsParams")
     def publish_finding_to_sns_params(self) -> Optional[pulumi.Input['MitigationActionPublishFindingToSnsParamsArgs']]:
         """
-        Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.
+        Specifies the topic to which the finding should be published.
         """
         return pulumi.get(self, "publish_finding_to_sns_params")
 
@@ -1099,7 +1099,7 @@ class MitigationActionActionParamsArgs:
     @pulumi.getter(name="replaceDefaultPolicyVersionParams")
     def replace_default_policy_version_params(self) -> Optional[pulumi.Input['MitigationActionReplaceDefaultPolicyVersionParamsArgs']]:
         """
-        Parameters to define a mitigation action that adds a blank policy to restrict permissions.
+        Replaces the policy version with a default or blank policy. You specify the template name. Only a value of `BLANK_POLICY` is currently supported.
         """
         return pulumi.get(self, "replace_default_policy_version_params")
 
@@ -1111,7 +1111,7 @@ class MitigationActionActionParamsArgs:
     @pulumi.getter(name="updateCaCertificateParams")
     def update_ca_certificate_params(self) -> Optional[pulumi.Input['MitigationActionUpdateCaCertificateParamsArgs']]:
         """
-        Parameters to define a mitigation action that changes the state of the CA certificate to inactive.
+        Specifies the new state for the CA certificate. Only a value of `DEACTIVATE` is currently supported.
         """
         return pulumi.get(self, "update_ca_certificate_params")
 
@@ -1123,7 +1123,7 @@ class MitigationActionActionParamsArgs:
     @pulumi.getter(name="updateDeviceCertificateParams")
     def update_device_certificate_params(self) -> Optional[pulumi.Input['MitigationActionUpdateDeviceCertificateParamsArgs']]:
         """
-        Parameters to define a mitigation action that changes the state of the device certificate to inactive.
+        Specifies the new state for a device certificate. Only a value of `DEACTIVATE` is currently supported.
         """
         return pulumi.get(self, "update_device_certificate_params")
 
@@ -1437,8 +1437,8 @@ class SecurityProfileBehaviorCriteriaArgs:
         :param pulumi.Input[int] consecutive_datapoints_to_alarm: If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
         :param pulumi.Input[int] consecutive_datapoints_to_clear: If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
         :param pulumi.Input[int] duration_seconds: Use this to specify the time duration over which the behavior is evaluated.
-        :param pulumi.Input['SecurityProfileMachineLearningDetectionConfigArgs'] ml_detection_config: The `MachineLearningDetectionConfig` property type controls confidence of the machine learning model.
-        :param pulumi.Input['SecurityProfileStatisticalThresholdArgs'] statistical_threshold: A statistical ranking (percentile) that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
+        :param pulumi.Input['SecurityProfileMachineLearningDetectionConfigArgs'] ml_detection_config: The confidence level of the detection model.
+        :param pulumi.Input['SecurityProfileStatisticalThresholdArgs'] statistical_threshold: A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
         :param pulumi.Input['SecurityProfileMetricValueArgs'] value: The value to be compared with the `metric` .
         """
         if comparison_operator is not None:
@@ -1508,7 +1508,7 @@ class SecurityProfileBehaviorCriteriaArgs:
     @pulumi.getter(name="mlDetectionConfig")
     def ml_detection_config(self) -> Optional[pulumi.Input['SecurityProfileMachineLearningDetectionConfigArgs']]:
         """
-        The `MachineLearningDetectionConfig` property type controls confidence of the machine learning model.
+        The confidence level of the detection model.
         """
         return pulumi.get(self, "ml_detection_config")
 
@@ -1520,7 +1520,7 @@ class SecurityProfileBehaviorCriteriaArgs:
     @pulumi.getter(name="statisticalThreshold")
     def statistical_threshold(self) -> Optional[pulumi.Input['SecurityProfileStatisticalThresholdArgs']]:
         """
-        A statistical ranking (percentile) that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
+        A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
         """
         return pulumi.get(self, "statistical_threshold")
 
@@ -1553,7 +1553,9 @@ class SecurityProfileBehaviorArgs:
         """
         A security profile behavior.
         :param pulumi.Input[str] name: The name for the behavior.
-        :param pulumi.Input['SecurityProfileBehaviorCriteriaArgs'] criteria: The criteria by which the behavior is determined to be normal.
+        :param pulumi.Input['SecurityProfileBehaviorCriteriaArgs'] criteria: The criteria that determine if a device is behaving normally in regard to the `metric` .
+               
+               > In the AWS IoT console, you can choose to be sent an alert through Amazon SNS when AWS IoT Device Defender detects that a device is behaving anomalously.
         :param pulumi.Input[bool] export_metric: Value indicates exporting metrics related to the behavior when it is true.
         :param pulumi.Input[str] metric: What is measured by the behavior.
         :param pulumi.Input['SecurityProfileMetricDimensionArgs'] metric_dimension: The dimension of the metric.
@@ -1587,7 +1589,9 @@ class SecurityProfileBehaviorArgs:
     @pulumi.getter
     def criteria(self) -> Optional[pulumi.Input['SecurityProfileBehaviorCriteriaArgs']]:
         """
-        The criteria by which the behavior is determined to be normal.
+        The criteria that determine if a device is behaving normally in regard to the `metric` .
+
+        > In the AWS IoT console, you can choose to be sent an alert through Amazon SNS when AWS IoT Device Defender detects that a device is behaving anomalously.
         """
         return pulumi.get(self, "criteria")
 
@@ -1951,7 +1955,7 @@ class ThingGroupPropertiesPropertiesArgs:
                  thing_group_description: Optional[pulumi.Input[str]] = None):
         """
         Thing group properties.
-        :param pulumi.Input['ThingGroupAttributePayloadArgs'] attribute_payload: The attribute payload.
+        :param pulumi.Input['ThingGroupAttributePayloadArgs'] attribute_payload: The thing group attributes in JSON format.
         :param pulumi.Input[str] thing_group_description: The thing group description.
         """
         if attribute_payload is not None:
@@ -1963,7 +1967,7 @@ class ThingGroupPropertiesPropertiesArgs:
     @pulumi.getter(name="attributePayload")
     def attribute_payload(self) -> Optional[pulumi.Input['ThingGroupAttributePayloadArgs']]:
         """
-        The attribute payload.
+        The thing group attributes in JSON format.
         """
         return pulumi.get(self, "attribute_payload")
 
@@ -2073,46 +2077,30 @@ class TopicRuleActionArgs:
                  step_functions: Optional[pulumi.Input['TopicRuleStepFunctionsActionArgs']] = None,
                  timestream: Optional[pulumi.Input['TopicRuleTimestreamActionArgs']] = None):
         """
-        :param pulumi.Input['TopicRuleCloudwatchAlarmActionArgs'] cloudwatch_alarm: Describes an action that updates a CloudWatch alarm.
-        :param pulumi.Input['TopicRuleCloudwatchLogsActionArgs'] cloudwatch_logs: Describes an action that updates a CloudWatch log.
-        :param pulumi.Input['TopicRuleCloudwatchMetricActionArgs'] cloudwatch_metric: Describes an action that captures a CloudWatch metric.
-        :param pulumi.Input['TopicRuleDynamoDBv2ActionArgs'] dynamo_d_bv2: Describes an action to write to a DynamoDB table.
-               
-               This DynamoDB action writes each attribute in the message payload into it's own column in the DynamoDB table.
-        :param pulumi.Input['TopicRuleDynamoDbActionArgs'] dynamo_db: Describes an action to write to a DynamoDB table.
-               
-               The `tableName` , `hashKeyField` , and `rangeKeyField` values must match the values used when you created the table.
-               
-               The `hashKeyValue` and `rangeKeyvalue` fields use a substitution template syntax. These templates provide data at runtime. The syntax is as follows: ${ *sql-expression* }.
-               
-               You can specify any valid expression in a WHERE or SELECT clause, including JSON properties, comparisons, calculations, and functions. For example, the following field uses the third level of the topic:
-               
-               `"hashKeyValue": "${topic(3)}"`
-               
-               The following field uses the timestamp:
-               
-               `"rangeKeyValue": "${timestamp()}"`
-               
-               For more information, see [DynamoDBv2 Action](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rule-actions.html) in the *AWS IoT Developer Guide* .
-        :param pulumi.Input['TopicRuleElasticsearchActionArgs'] elasticsearch: Describes an action that writes data to an Amazon OpenSearch Service domain.
+        :param pulumi.Input['TopicRuleCloudwatchAlarmActionArgs'] cloudwatch_alarm: Change the state of a CloudWatch alarm.
+        :param pulumi.Input['TopicRuleCloudwatchLogsActionArgs'] cloudwatch_logs: Sends data to CloudWatch.
+        :param pulumi.Input['TopicRuleCloudwatchMetricActionArgs'] cloudwatch_metric: Capture a CloudWatch metric.
+        :param pulumi.Input['TopicRuleDynamoDBv2ActionArgs'] dynamo_d_bv2: Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
+        :param pulumi.Input['TopicRuleDynamoDbActionArgs'] dynamo_db: Write to a DynamoDB table.
+        :param pulumi.Input['TopicRuleElasticsearchActionArgs'] elasticsearch: Write data to an Amazon OpenSearch Service domain.
                
                > The `Elasticsearch` action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the `OpenSearch` rule action instead. For more information, see [OpenSearchAction](https://docs.aws.amazon.com//iot/latest/apireference/API_OpenSearchAction.html) .
-        :param pulumi.Input['TopicRuleFirehoseActionArgs'] firehose: Describes an action that writes data to an Amazon Kinesis Firehose stream.
+        :param pulumi.Input['TopicRuleFirehoseActionArgs'] firehose: Write to an Amazon Kinesis Firehose stream.
         :param pulumi.Input['TopicRuleHttpActionArgs'] http: Send data to an HTTPS endpoint.
         :param pulumi.Input['TopicRuleIotAnalyticsActionArgs'] iot_analytics: Sends message data to an AWS IoT Analytics channel.
         :param pulumi.Input['TopicRuleIotEventsActionArgs'] iot_events: Sends an input to an AWS IoT Events detector.
-        :param pulumi.Input['TopicRuleIotSiteWiseActionArgs'] iot_site_wise: Describes an action to send data from an MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
+        :param pulumi.Input['TopicRuleIotSiteWiseActionArgs'] iot_site_wise: Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
         :param pulumi.Input['TopicRuleKafkaActionArgs'] kafka: Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.
-        :param pulumi.Input['TopicRuleKinesisActionArgs'] kinesis: Describes an action to write data to an Amazon Kinesis stream.
-        :param pulumi.Input['TopicRuleLambdaActionArgs'] lambda_: Describes an action to invoke a Lambda function.
-        :param pulumi.Input['TopicRuleLocationActionArgs'] location: Describes an action to send device location updates from an MQTT message to an Amazon Location tracker resource.
-        :param pulumi.Input['TopicRuleOpenSearchActionArgs'] open_search: Describes an action that writes data to an Amazon OpenSearch Service domain.
-        :param pulumi.Input['TopicRuleRepublishActionArgs'] republish: Describes an action to republish to another topic.
-        :param pulumi.Input['TopicRuleS3ActionArgs'] s3: Describes an action to write data to an Amazon S3 bucket.
-        :param pulumi.Input['TopicRuleSnsActionArgs'] sns: Describes an action to publish to an Amazon SNS topic.
-        :param pulumi.Input['TopicRuleSqsActionArgs'] sqs: Describes an action to publish data to an Amazon SQS queue.
+        :param pulumi.Input['TopicRuleKinesisActionArgs'] kinesis: Write data to an Amazon Kinesis stream.
+        :param pulumi.Input['TopicRuleLambdaActionArgs'] lambda_: Invoke a Lambda function.
+        :param pulumi.Input['TopicRuleLocationActionArgs'] location: Sends device location data to [Amazon Location Service](https://docs.aws.amazon.com//location/latest/developerguide/welcome.html) .
+        :param pulumi.Input['TopicRuleOpenSearchActionArgs'] open_search: Write data to an Amazon OpenSearch Service domain.
+        :param pulumi.Input['TopicRuleRepublishActionArgs'] republish: Publish to another MQTT topic.
+        :param pulumi.Input['TopicRuleS3ActionArgs'] s3: Write to an Amazon S3 bucket.
+        :param pulumi.Input['TopicRuleSnsActionArgs'] sns: Publish to an Amazon SNS topic.
+        :param pulumi.Input['TopicRuleSqsActionArgs'] sqs: Publish to an Amazon SQS queue.
         :param pulumi.Input['TopicRuleStepFunctionsActionArgs'] step_functions: Starts execution of a Step Functions state machine.
-        :param pulumi.Input['TopicRuleTimestreamActionArgs'] timestream: Describes an action that writes records into an Amazon Timestream table.
+        :param pulumi.Input['TopicRuleTimestreamActionArgs'] timestream: Writes attributes from an MQTT message.
         """
         if cloudwatch_alarm is not None:
             pulumi.set(__self__, "cloudwatch_alarm", cloudwatch_alarm)
@@ -2163,7 +2151,7 @@ class TopicRuleActionArgs:
     @pulumi.getter(name="cloudwatchAlarm")
     def cloudwatch_alarm(self) -> Optional[pulumi.Input['TopicRuleCloudwatchAlarmActionArgs']]:
         """
-        Describes an action that updates a CloudWatch alarm.
+        Change the state of a CloudWatch alarm.
         """
         return pulumi.get(self, "cloudwatch_alarm")
 
@@ -2175,7 +2163,7 @@ class TopicRuleActionArgs:
     @pulumi.getter(name="cloudwatchLogs")
     def cloudwatch_logs(self) -> Optional[pulumi.Input['TopicRuleCloudwatchLogsActionArgs']]:
         """
-        Describes an action that updates a CloudWatch log.
+        Sends data to CloudWatch.
         """
         return pulumi.get(self, "cloudwatch_logs")
 
@@ -2187,7 +2175,7 @@ class TopicRuleActionArgs:
     @pulumi.getter(name="cloudwatchMetric")
     def cloudwatch_metric(self) -> Optional[pulumi.Input['TopicRuleCloudwatchMetricActionArgs']]:
         """
-        Describes an action that captures a CloudWatch metric.
+        Capture a CloudWatch metric.
         """
         return pulumi.get(self, "cloudwatch_metric")
 
@@ -2199,9 +2187,7 @@ class TopicRuleActionArgs:
     @pulumi.getter(name="dynamoDBv2")
     def dynamo_d_bv2(self) -> Optional[pulumi.Input['TopicRuleDynamoDBv2ActionArgs']]:
         """
-        Describes an action to write to a DynamoDB table.
-
-        This DynamoDB action writes each attribute in the message payload into it's own column in the DynamoDB table.
+        Write to a DynamoDB table. This is a new version of the DynamoDB action. It allows you to write each attribute in an MQTT message payload into a separate DynamoDB column.
         """
         return pulumi.get(self, "dynamo_d_bv2")
 
@@ -2213,21 +2199,7 @@ class TopicRuleActionArgs:
     @pulumi.getter(name="dynamoDb")
     def dynamo_db(self) -> Optional[pulumi.Input['TopicRuleDynamoDbActionArgs']]:
         """
-        Describes an action to write to a DynamoDB table.
-
-        The `tableName` , `hashKeyField` , and `rangeKeyField` values must match the values used when you created the table.
-
-        The `hashKeyValue` and `rangeKeyvalue` fields use a substitution template syntax. These templates provide data at runtime. The syntax is as follows: ${ *sql-expression* }.
-
-        You can specify any valid expression in a WHERE or SELECT clause, including JSON properties, comparisons, calculations, and functions. For example, the following field uses the third level of the topic:
-
-        `"hashKeyValue": "${topic(3)}"`
-
-        The following field uses the timestamp:
-
-        `"rangeKeyValue": "${timestamp()}"`
-
-        For more information, see [DynamoDBv2 Action](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rule-actions.html) in the *AWS IoT Developer Guide* .
+        Write to a DynamoDB table.
         """
         return pulumi.get(self, "dynamo_db")
 
@@ -2239,7 +2211,7 @@ class TopicRuleActionArgs:
     @pulumi.getter
     def elasticsearch(self) -> Optional[pulumi.Input['TopicRuleElasticsearchActionArgs']]:
         """
-        Describes an action that writes data to an Amazon OpenSearch Service domain.
+        Write data to an Amazon OpenSearch Service domain.
 
         > The `Elasticsearch` action can only be used by existing rule actions. To create a new rule action or to update an existing rule action, use the `OpenSearch` rule action instead. For more information, see [OpenSearchAction](https://docs.aws.amazon.com//iot/latest/apireference/API_OpenSearchAction.html) .
         """
@@ -2253,7 +2225,7 @@ class TopicRuleActionArgs:
     @pulumi.getter
     def firehose(self) -> Optional[pulumi.Input['TopicRuleFirehoseActionArgs']]:
         """
-        Describes an action that writes data to an Amazon Kinesis Firehose stream.
+        Write to an Amazon Kinesis Firehose stream.
         """
         return pulumi.get(self, "firehose")
 
@@ -2301,7 +2273,7 @@ class TopicRuleActionArgs:
     @pulumi.getter(name="iotSiteWise")
     def iot_site_wise(self) -> Optional[pulumi.Input['TopicRuleIotSiteWiseActionArgs']]:
         """
-        Describes an action to send data from an MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
+        Sends data from the MQTT message that triggered the rule to AWS IoT SiteWise asset properties.
         """
         return pulumi.get(self, "iot_site_wise")
 
@@ -2325,7 +2297,7 @@ class TopicRuleActionArgs:
     @pulumi.getter
     def kinesis(self) -> Optional[pulumi.Input['TopicRuleKinesisActionArgs']]:
         """
-        Describes an action to write data to an Amazon Kinesis stream.
+        Write data to an Amazon Kinesis stream.
         """
         return pulumi.get(self, "kinesis")
 
@@ -2337,7 +2309,7 @@ class TopicRuleActionArgs:
     @pulumi.getter(name="lambda")
     def lambda_(self) -> Optional[pulumi.Input['TopicRuleLambdaActionArgs']]:
         """
-        Describes an action to invoke a Lambda function.
+        Invoke a Lambda function.
         """
         return pulumi.get(self, "lambda_")
 
@@ -2349,7 +2321,7 @@ class TopicRuleActionArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input['TopicRuleLocationActionArgs']]:
         """
-        Describes an action to send device location updates from an MQTT message to an Amazon Location tracker resource.
+        Sends device location data to [Amazon Location Service](https://docs.aws.amazon.com//location/latest/developerguide/welcome.html) .
         """
         return pulumi.get(self, "location")
 
@@ -2361,7 +2333,7 @@ class TopicRuleActionArgs:
     @pulumi.getter(name="openSearch")
     def open_search(self) -> Optional[pulumi.Input['TopicRuleOpenSearchActionArgs']]:
         """
-        Describes an action that writes data to an Amazon OpenSearch Service domain.
+        Write data to an Amazon OpenSearch Service domain.
         """
         return pulumi.get(self, "open_search")
 
@@ -2373,7 +2345,7 @@ class TopicRuleActionArgs:
     @pulumi.getter
     def republish(self) -> Optional[pulumi.Input['TopicRuleRepublishActionArgs']]:
         """
-        Describes an action to republish to another topic.
+        Publish to another MQTT topic.
         """
         return pulumi.get(self, "republish")
 
@@ -2385,7 +2357,7 @@ class TopicRuleActionArgs:
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['TopicRuleS3ActionArgs']]:
         """
-        Describes an action to write data to an Amazon S3 bucket.
+        Write to an Amazon S3 bucket.
         """
         return pulumi.get(self, "s3")
 
@@ -2397,7 +2369,7 @@ class TopicRuleActionArgs:
     @pulumi.getter
     def sns(self) -> Optional[pulumi.Input['TopicRuleSnsActionArgs']]:
         """
-        Describes an action to publish to an Amazon SNS topic.
+        Publish to an Amazon SNS topic.
         """
         return pulumi.get(self, "sns")
 
@@ -2409,7 +2381,7 @@ class TopicRuleActionArgs:
     @pulumi.getter
     def sqs(self) -> Optional[pulumi.Input['TopicRuleSqsActionArgs']]:
         """
-        Describes an action to publish data to an Amazon SQS queue.
+        Publish to an Amazon SQS queue.
         """
         return pulumi.get(self, "sqs")
 
@@ -2433,7 +2405,7 @@ class TopicRuleActionArgs:
     @pulumi.getter
     def timestream(self) -> Optional[pulumi.Input['TopicRuleTimestreamActionArgs']]:
         """
-        Describes an action that writes records into an Amazon Timestream table.
+        Writes attributes from an MQTT message.
         """
         return pulumi.get(self, "timestream")
 
@@ -2487,8 +2459,8 @@ class TopicRuleAssetPropertyValueArgs:
                  value: pulumi.Input['TopicRuleAssetPropertyVariantArgs'],
                  quality: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['TopicRuleAssetPropertyTimestampArgs'] timestamp: An asset property timestamp entry containing the following information.
-        :param pulumi.Input['TopicRuleAssetPropertyVariantArgs'] value: Contains an asset property value (of a single type).
+        :param pulumi.Input['TopicRuleAssetPropertyTimestampArgs'] timestamp: The asset property value timestamp.
+        :param pulumi.Input['TopicRuleAssetPropertyVariantArgs'] value: The value of the asset property.
         :param pulumi.Input[str] quality: Optional. A string that describes the quality of the value. Accepts substitution templates. Must be `GOOD` , `BAD` , or `UNCERTAIN` .
         """
         pulumi.set(__self__, "timestamp", timestamp)
@@ -2500,7 +2472,7 @@ class TopicRuleAssetPropertyValueArgs:
     @pulumi.getter
     def timestamp(self) -> pulumi.Input['TopicRuleAssetPropertyTimestampArgs']:
         """
-        An asset property timestamp entry containing the following information.
+        The asset property value timestamp.
         """
         return pulumi.get(self, "timestamp")
 
@@ -2512,7 +2484,7 @@ class TopicRuleAssetPropertyValueArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input['TopicRuleAssetPropertyVariantArgs']:
         """
-        Contains an asset property value (of a single type).
+        The value of the asset property.
         """
         return pulumi.get(self, "value")
 
@@ -2922,7 +2894,11 @@ class TopicRuleDynamoDBv2ActionArgs:
                  put_item: Optional[pulumi.Input['TopicRulePutItemInputArgs']] = None,
                  role_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['TopicRulePutItemInputArgs'] put_item: The input for the DynamoActionVS action that specifies the DynamoDB table to which the message data will be written.
+        :param pulumi.Input['TopicRulePutItemInputArgs'] put_item: Specifies the DynamoDB table to which the message data will be written. For example:
+               
+               `{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }`
+               
+               Each attribute in the message payload will be written to a separate column in the DynamoDB database.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role that grants access to the DynamoDB table.
         """
         if put_item is not None:
@@ -2934,7 +2910,11 @@ class TopicRuleDynamoDBv2ActionArgs:
     @pulumi.getter(name="putItem")
     def put_item(self) -> Optional[pulumi.Input['TopicRulePutItemInputArgs']]:
         """
-        The input for the DynamoActionVS action that specifies the DynamoDB table to which the message data will be written.
+        Specifies the DynamoDB table to which the message data will be written. For example:
+
+        `{ "dynamoDBv2": { "roleArn": "aws:iam:12341251:my-role" "putItem": { "tableName": "my-table" } } }`
+
+        Each attribute in the message payload will be written to a separate column in the DynamoDB database.
         """
         return pulumi.get(self, "put_item")
 
@@ -3303,9 +3283,9 @@ class TopicRuleHttpActionArgs:
                  headers: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpActionHeaderArgs']]]] = None):
         """
         :param pulumi.Input[str] url: The endpoint URL. If substitution templates are used in the URL, you must also specify a `confirmationUrl` . If this is a new destination, a new `TopicRuleDestination` is created if possible.
-        :param pulumi.Input['TopicRuleHttpAuthorizationArgs'] auth: The authorization method used to send messages.
+        :param pulumi.Input['TopicRuleHttpAuthorizationArgs'] auth: The authentication method to use when sending data to an HTTPS endpoint.
         :param pulumi.Input[str] confirmation_url: The URL to which AWS IoT sends a confirmation message. The value of the confirmation URL must be a prefix of the endpoint URL. If you do not specify a confirmation URL AWS IoT uses the endpoint URL as the confirmation URL. If you use substitution templates in the confirmationUrl, you must create and enable topic rule destinations that match each possible value of the substitution template before traffic is allowed to your endpoint URL.
-        :param pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpActionHeaderArgs']]] headers: The HTTP action header.
+        :param pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpActionHeaderArgs']]] headers: The HTTP headers to send with the message data.
         """
         pulumi.set(__self__, "url", url)
         if auth is not None:
@@ -3331,7 +3311,7 @@ class TopicRuleHttpActionArgs:
     @pulumi.getter
     def auth(self) -> Optional[pulumi.Input['TopicRuleHttpAuthorizationArgs']]:
         """
-        The authorization method used to send messages.
+        The authentication method to use when sending data to an HTTPS endpoint.
         """
         return pulumi.get(self, "auth")
 
@@ -3355,7 +3335,7 @@ class TopicRuleHttpActionArgs:
     @pulumi.getter
     def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpActionHeaderArgs']]]]:
         """
-        The HTTP action header.
+        The HTTP headers to send with the message data.
         """
         return pulumi.get(self, "headers")
 
@@ -3369,7 +3349,7 @@ class TopicRuleHttpAuthorizationArgs:
     def __init__(__self__, *,
                  sigv4: Optional[pulumi.Input['TopicRuleSigV4AuthorizationArgs']] = None):
         """
-        :param pulumi.Input['TopicRuleSigV4AuthorizationArgs'] sigv4: For more information, see [Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
+        :param pulumi.Input['TopicRuleSigV4AuthorizationArgs'] sigv4: Use Sig V4 authorization. For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
         """
         if sigv4 is not None:
             pulumi.set(__self__, "sigv4", sigv4)
@@ -3378,7 +3358,7 @@ class TopicRuleHttpAuthorizationArgs:
     @pulumi.getter
     def sigv4(self) -> Optional[pulumi.Input['TopicRuleSigV4AuthorizationArgs']]:
         """
-        For more information, see [Signature Version 4 signing process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
+        Use Sig V4 authorization. For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
         """
         return pulumi.get(self, "sigv4")
 
@@ -3535,7 +3515,7 @@ class TopicRuleIotSiteWiseActionArgs:
                  put_asset_property_value_entries: pulumi.Input[Sequence[pulumi.Input['TopicRulePutAssetPropertyValueEntryArgs']]],
                  role_arn: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['TopicRulePutAssetPropertyValueEntryArgs']]] put_asset_property_value_entries: An asset property value entry containing the following information.
+        :param pulumi.Input[Sequence[pulumi.Input['TopicRulePutAssetPropertyValueEntryArgs']]] put_asset_property_value_entries: A list of asset property value entries.
         :param pulumi.Input[str] role_arn: The ARN of the role that grants AWS IoT permission to send an asset property value to AWS IoT SiteWise. ( `"Action": "iotsitewise:BatchPutAssetPropertyValue"` ). The trust policy can restrict access to specific asset hierarchy paths.
         """
         pulumi.set(__self__, "put_asset_property_value_entries", put_asset_property_value_entries)
@@ -3545,7 +3525,7 @@ class TopicRuleIotSiteWiseActionArgs:
     @pulumi.getter(name="putAssetPropertyValueEntries")
     def put_asset_property_value_entries(self) -> pulumi.Input[Sequence[pulumi.Input['TopicRulePutAssetPropertyValueEntryArgs']]]:
         """
-        An asset property value entry containing the following information.
+        A list of asset property value entries.
         """
         return pulumi.get(self, "put_asset_property_value_entries")
 
@@ -3616,7 +3596,7 @@ class TopicRuleKafkaActionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_properties: Properties of the Apache Kafka producer client.
         :param pulumi.Input[str] destination_arn: The ARN of Kafka action's VPC `TopicRuleDestination` .
         :param pulumi.Input[str] topic: The Kafka topic for messages to be sent to the Kafka broker.
-        :param pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaActionHeaderArgs']]] headers: Specifies a Kafka header using key-value pairs when you create a Rule’s Kafka Action. You can use these headers to route data from IoT clients to downstream Kafka clusters without modifying your message payload.
+        :param pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaActionHeaderArgs']]] headers: The list of Kafka headers that you specify.
         :param pulumi.Input[str] key: The Kafka message key.
         :param pulumi.Input[str] partition: The Kafka message partition.
         """
@@ -3670,7 +3650,7 @@ class TopicRuleKafkaActionArgs:
     @pulumi.getter
     def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaActionHeaderArgs']]]]:
         """
-        Specifies a Kafka header using key-value pairs when you create a Rule’s Kafka Action. You can use these headers to route data from IoT clients to downstream Kafka clusters without modifying your message payload.
+        The list of Kafka headers that you specify.
         """
         return pulumi.get(self, "headers")
 
@@ -3794,7 +3774,7 @@ class TopicRuleLocationActionArgs:
         :param pulumi.Input[str] longitude: A string that evaluates to a double value that represents the longitude of the device's location.
         :param pulumi.Input[str] role_arn: The IAM role that grants permission to write to the Amazon Location resource.
         :param pulumi.Input[str] tracker_name: The name of the tracker resource in Amazon Location in which the location is updated.
-        :param pulumi.Input['TopicRuleTimestampArgs'] timestamp: Describes how to interpret an application-defined timestamp value from an MQTT message payload and the precision of that value.
+        :param pulumi.Input['TopicRuleTimestampArgs'] timestamp: The time that the location data was sampled. The default value is the time the MQTT message was processed.
         """
         pulumi.set(__self__, "device_id", device_id)
         pulumi.set(__self__, "latitude", latitude)
@@ -3868,7 +3848,7 @@ class TopicRuleLocationActionArgs:
     @pulumi.getter
     def timestamp(self) -> Optional[pulumi.Input['TopicRuleTimestampArgs']]:
         """
-        Describes how to interpret an application-defined timestamp value from an MQTT message payload and the precision of that value.
+        The time that the location data was sampled. The default value is the time the MQTT message was processed.
         """
         return pulumi.get(self, "timestamp")
 
@@ -3969,13 +3949,13 @@ class TopicRulePayloadArgs:
                  error_action: Optional[pulumi.Input['TopicRuleActionArgs']] = None,
                  rule_disabled: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['TopicRuleActionArgs']]] actions: Describes the actions associated with a rule.
+        :param pulumi.Input[Sequence[pulumi.Input['TopicRuleActionArgs']]] actions: The actions associated with the rule.
         :param pulumi.Input[str] sql: The SQL statement used to query the topic. For more information, see [AWS IoT SQL Reference](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html) in the *AWS IoT Developer Guide* .
         :param pulumi.Input[str] aws_iot_sql_version: The version of the SQL rules engine to use when evaluating the rule.
                
                The default value is 2015-10-08.
         :param pulumi.Input[str] description: The description of the rule.
-        :param pulumi.Input['TopicRuleActionArgs'] error_action: Describes the actions associated with a rule.
+        :param pulumi.Input['TopicRuleActionArgs'] error_action: The action to take when an error occurs.
         :param pulumi.Input[bool] rule_disabled: Specifies whether the rule is disabled.
         """
         pulumi.set(__self__, "actions", actions)
@@ -3993,7 +3973,7 @@ class TopicRulePayloadArgs:
     @pulumi.getter
     def actions(self) -> pulumi.Input[Sequence[pulumi.Input['TopicRuleActionArgs']]]:
         """
-        Describes the actions associated with a rule.
+        The actions associated with the rule.
         """
         return pulumi.get(self, "actions")
 
@@ -4043,7 +4023,7 @@ class TopicRulePayloadArgs:
     @pulumi.getter(name="errorAction")
     def error_action(self) -> Optional[pulumi.Input['TopicRuleActionArgs']]:
         """
-        Describes the actions associated with a rule.
+        The action to take when an error occurs.
         """
         return pulumi.get(self, "error_action")
 
@@ -4073,7 +4053,7 @@ class TopicRulePutAssetPropertyValueEntryArgs:
                  property_alias: Optional[pulumi.Input[str]] = None,
                  property_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['TopicRuleAssetPropertyValueArgs']]] property_values: An asset property value entry containing the following information.
+        :param pulumi.Input[Sequence[pulumi.Input['TopicRuleAssetPropertyValueArgs']]] property_values: A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
         :param pulumi.Input[str] asset_id: The ID of the AWS IoT SiteWise asset. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
         :param pulumi.Input[str] entry_id: Optional. A unique identifier for this entry that you can define to better track which message caused an error in case of failure. Accepts substitution templates. Defaults to a new UUID.
         :param pulumi.Input[str] property_alias: The name of the property alias associated with your asset property. You must specify either a `propertyAlias` or both an `aliasId` and a `propertyId` . Accepts substitution templates.
@@ -4093,7 +4073,7 @@ class TopicRulePutAssetPropertyValueEntryArgs:
     @pulumi.getter(name="propertyValues")
     def property_values(self) -> pulumi.Input[Sequence[pulumi.Input['TopicRuleAssetPropertyValueArgs']]]:
         """
-        An asset property value entry containing the following information.
+        A list of property values to insert that each contain timestamp, quality, and value (TQV) information.
         """
         return pulumi.get(self, "property_values")
 
@@ -4329,7 +4309,7 @@ class TopicRuleRepublishActionArgs:
         """
         :param pulumi.Input[str] role_arn: The ARN of the IAM role that grants access.
         :param pulumi.Input[str] topic: The name of the MQTT topic.
-        :param pulumi.Input['TopicRuleRepublishActionHeadersArgs'] headers: Specifies MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
+        :param pulumi.Input['TopicRuleRepublishActionHeadersArgs'] headers: MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
         :param pulumi.Input[int] qos: The Quality of Service (QoS) level to use when republishing messages. The default value is 0.
         """
         pulumi.set(__self__, "role_arn", role_arn)
@@ -4367,7 +4347,7 @@ class TopicRuleRepublishActionArgs:
     @pulumi.getter
     def headers(self) -> Optional[pulumi.Input['TopicRuleRepublishActionHeadersArgs']]:
         """
-        Specifies MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
+        MQTT Version 5.0 headers information. For more information, see [MQTT](https://docs.aws.amazon.com//iot/latest/developerguide/mqtt.html) in the IoT Core Developer Guide.
         """
         return pulumi.get(self, "headers")
 

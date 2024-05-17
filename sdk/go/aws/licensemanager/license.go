@@ -18,17 +18,17 @@ type License struct {
 
 	// Beneficiary of the license.
 	Beneficiary pulumi.StringPtrOutput `pulumi:"beneficiary"`
-	// Details about a consumption configuration.
+	// Configuration for consumption of the license.
 	ConsumptionConfiguration LicenseConsumptionConfigurationOutput `pulumi:"consumptionConfiguration"`
-	// Describes a resource entitled for use with a license.
+	// License entitlements.
 	Entitlements LicenseEntitlementArrayOutput `pulumi:"entitlements"`
 	// Home region for the created license.
 	HomeRegion pulumi.StringOutput `pulumi:"homeRegion"`
-	// Details associated with the issuer of a license.
+	// License issuer.
 	Issuer LicenseIssuerDataOutput `pulumi:"issuer"`
 	// Amazon Resource Name is a unique name for each resource.
 	LicenseArn pulumi.StringOutput `pulumi:"licenseArn"`
-	// Describes key/value pairs.
+	// License metadata.
 	LicenseMetadata LicenseMetadataArrayOutput `pulumi:"licenseMetadata"`
 	// Name for the created license.
 	LicenseName pulumi.StringOutput `pulumi:"licenseName"`
@@ -104,15 +104,15 @@ func (LicenseState) ElementType() reflect.Type {
 type licenseArgs struct {
 	// Beneficiary of the license.
 	Beneficiary *string `pulumi:"beneficiary"`
-	// Details about a consumption configuration.
+	// Configuration for consumption of the license.
 	ConsumptionConfiguration LicenseConsumptionConfiguration `pulumi:"consumptionConfiguration"`
-	// Describes a resource entitled for use with a license.
+	// License entitlements.
 	Entitlements []LicenseEntitlement `pulumi:"entitlements"`
 	// Home region for the created license.
 	HomeRegion string `pulumi:"homeRegion"`
-	// Details associated with the issuer of a license.
+	// License issuer.
 	Issuer LicenseIssuerData `pulumi:"issuer"`
-	// Describes key/value pairs.
+	// License metadata.
 	LicenseMetadata []LicenseMetadata `pulumi:"licenseMetadata"`
 	// Name for the created license.
 	LicenseName *string `pulumi:"licenseName"`
@@ -130,15 +130,15 @@ type licenseArgs struct {
 type LicenseArgs struct {
 	// Beneficiary of the license.
 	Beneficiary pulumi.StringPtrInput
-	// Details about a consumption configuration.
+	// Configuration for consumption of the license.
 	ConsumptionConfiguration LicenseConsumptionConfigurationInput
-	// Describes a resource entitled for use with a license.
+	// License entitlements.
 	Entitlements LicenseEntitlementArrayInput
 	// Home region for the created license.
 	HomeRegion pulumi.StringInput
-	// Details associated with the issuer of a license.
+	// License issuer.
 	Issuer LicenseIssuerDataInput
-	// Describes key/value pairs.
+	// License metadata.
 	LicenseMetadata LicenseMetadataArrayInput
 	// Name for the created license.
 	LicenseName pulumi.StringPtrInput
@@ -194,12 +194,12 @@ func (o LicenseOutput) Beneficiary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *License) pulumi.StringPtrOutput { return v.Beneficiary }).(pulumi.StringPtrOutput)
 }
 
-// Details about a consumption configuration.
+// Configuration for consumption of the license.
 func (o LicenseOutput) ConsumptionConfiguration() LicenseConsumptionConfigurationOutput {
 	return o.ApplyT(func(v *License) LicenseConsumptionConfigurationOutput { return v.ConsumptionConfiguration }).(LicenseConsumptionConfigurationOutput)
 }
 
-// Describes a resource entitled for use with a license.
+// License entitlements.
 func (o LicenseOutput) Entitlements() LicenseEntitlementArrayOutput {
 	return o.ApplyT(func(v *License) LicenseEntitlementArrayOutput { return v.Entitlements }).(LicenseEntitlementArrayOutput)
 }
@@ -209,7 +209,7 @@ func (o LicenseOutput) HomeRegion() pulumi.StringOutput {
 	return o.ApplyT(func(v *License) pulumi.StringOutput { return v.HomeRegion }).(pulumi.StringOutput)
 }
 
-// Details associated with the issuer of a license.
+// License issuer.
 func (o LicenseOutput) Issuer() LicenseIssuerDataOutput {
 	return o.ApplyT(func(v *License) LicenseIssuerDataOutput { return v.Issuer }).(LicenseIssuerDataOutput)
 }
@@ -219,7 +219,7 @@ func (o LicenseOutput) LicenseArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *License) pulumi.StringOutput { return v.LicenseArn }).(pulumi.StringOutput)
 }
 
-// Describes key/value pairs.
+// License metadata.
 func (o LicenseOutput) LicenseMetadata() LicenseMetadataArrayOutput {
 	return o.ApplyT(func(v *License) LicenseMetadataArrayOutput { return v.LicenseMetadata }).(LicenseMetadataArrayOutput)
 }

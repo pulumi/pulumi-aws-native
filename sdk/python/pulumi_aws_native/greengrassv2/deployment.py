@@ -29,8 +29,8 @@ class DeploymentArgs:
         :param pulumi.Input[str] target_arn: The ARN of the target AWS IoT thing or thing group.
         :param pulumi.Input[Mapping[str, pulumi.Input['DeploymentComponentDeploymentSpecificationArgs']]] components: The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
         :param pulumi.Input[str] deployment_name: The name of the deployment.
-        :param pulumi.Input['DeploymentPoliciesArgs'] deployment_policies: Contains information about policies that define how a deployment updates components and handles failure.
-        :param pulumi.Input['DeploymentIoTJobConfigurationArgs'] iot_job_configuration: Contains information about an AWS IoT job configuration.
+        :param pulumi.Input['DeploymentPoliciesArgs'] deployment_policies: The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.
+        :param pulumi.Input['DeploymentIoTJobConfigurationArgs'] iot_job_configuration: The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
         :param pulumi.Input[str] parent_target_arn: The parent deployment's [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for a subdeployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Application-specific metadata to attach to the deployment. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
                
@@ -95,7 +95,7 @@ class DeploymentArgs:
     @pulumi.getter(name="deploymentPolicies")
     def deployment_policies(self) -> Optional[pulumi.Input['DeploymentPoliciesArgs']]:
         """
-        Contains information about policies that define how a deployment updates components and handles failure.
+        The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.
         """
         return pulumi.get(self, "deployment_policies")
 
@@ -107,7 +107,7 @@ class DeploymentArgs:
     @pulumi.getter(name="iotJobConfiguration")
     def iot_job_configuration(self) -> Optional[pulumi.Input['DeploymentIoTJobConfigurationArgs']]:
         """
-        Contains information about an AWS IoT job configuration.
+        The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
         """
         return pulumi.get(self, "iot_job_configuration")
 
@@ -167,8 +167,8 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['DeploymentComponentDeploymentSpecificationArgs']]]] components: The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
         :param pulumi.Input[str] deployment_name: The name of the deployment.
-        :param pulumi.Input[pulumi.InputType['DeploymentPoliciesArgs']] deployment_policies: Contains information about policies that define how a deployment updates components and handles failure.
-        :param pulumi.Input[pulumi.InputType['DeploymentIoTJobConfigurationArgs']] iot_job_configuration: Contains information about an AWS IoT job configuration.
+        :param pulumi.Input[pulumi.InputType['DeploymentPoliciesArgs']] deployment_policies: The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.
+        :param pulumi.Input[pulumi.InputType['DeploymentIoTJobConfigurationArgs']] iot_job_configuration: The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
         :param pulumi.Input[str] parent_target_arn: The parent deployment's [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for a subdeployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Application-specific metadata to attach to the deployment. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
                
@@ -292,7 +292,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="deploymentPolicies")
     def deployment_policies(self) -> pulumi.Output[Optional['outputs.DeploymentPolicies']]:
         """
-        Contains information about policies that define how a deployment updates components and handles failure.
+        The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.
         """
         return pulumi.get(self, "deployment_policies")
 
@@ -300,7 +300,7 @@ class Deployment(pulumi.CustomResource):
     @pulumi.getter(name="iotJobConfiguration")
     def iot_job_configuration(self) -> pulumi.Output[Optional['outputs.DeploymentIoTJobConfiguration']]:
         """
-        Contains information about an AWS IoT job configuration.
+        The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
         """
         return pulumi.get(self, "iot_job_configuration")
 

@@ -46,7 +46,7 @@ export class Route extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The configuration for the default route type.
+     * Configuration for the default route type.
      */
     public readonly defaultRoute!: pulumi.Output<outputs.refactorspaces.RouteDefaultRouteInput | undefined>;
     /**
@@ -139,7 +139,7 @@ export interface RouteArgs {
      */
     applicationIdentifier: pulumi.Input<string>;
     /**
-     * The configuration for the default route type.
+     * Configuration for the default route type.
      */
     defaultRoute?: pulumi.Input<inputs.refactorspaces.RouteDefaultRouteInputArgs>;
     /**

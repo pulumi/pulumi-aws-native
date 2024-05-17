@@ -69,7 +69,7 @@ export interface GetScheduleResult {
      */
     readonly state?: enums.scheduler.ScheduleState;
     /**
-     * The schedule's target. EventBridge Scheduler supports templated target that invoke common API operations, as well as universal targets that you can customize to invoke over 6,000 API operations across more than 270 services. You can only specify one templated or universal target for a schedule.
+     * The schedule's target details.
      */
     readonly target?: outputs.scheduler.ScheduleTarget;
 }

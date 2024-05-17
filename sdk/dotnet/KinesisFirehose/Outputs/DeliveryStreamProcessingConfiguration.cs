@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// The `Processor` property specifies a data processor for an Amazon Kinesis Data Firehose delivery stream.
+        /// The data processors.
         /// </summary>
         public readonly ImmutableArray<Outputs.DeliveryStreamProcessor> Processors;
 

@@ -31,12 +31,12 @@ class ScheduledQueryArgs:
                  target_configuration: Optional[pulumi.Input['ScheduledQueryTargetConfigurationArgs']] = None):
         """
         The set of arguments for constructing a ScheduledQuery resource.
-        :param pulumi.Input['ScheduledQueryErrorReportConfigurationArgs'] error_report_configuration: Configuration required for error reporting.
-        :param pulumi.Input['ScheduledQueryNotificationConfigurationArgs'] notification_configuration: Notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated or when it is deleted.
+        :param pulumi.Input['ScheduledQueryErrorReportConfigurationArgs'] error_report_configuration: Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
+        :param pulumi.Input['ScheduledQueryNotificationConfigurationArgs'] notification_configuration: Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
         :param pulumi.Input[str] query_string: The query string to run. Parameter names can be specified in the query string `@` character followed by an identifier. The named Parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run.
                
                The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
-        :param pulumi.Input['ScheduledQueryScheduleConfigurationArgs'] schedule_configuration: Configuration of the schedule of the query.
+        :param pulumi.Input['ScheduledQueryScheduleConfigurationArgs'] schedule_configuration: Schedule configuration.
         :param pulumi.Input[str] scheduled_query_execution_role_arn: The ARN for the IAM role that Timestream will assume when running the scheduled query.
         :param pulumi.Input[str] client_token: Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words, making the same request repeatedly will produce the same result. Making multiple identical CreateScheduledQuery requests has the same effect as making a single request.
                
@@ -47,7 +47,7 @@ class ScheduledQueryArgs:
                If ErrorReportConfiguration uses `SSE_KMS` as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
         :param pulumi.Input[str] scheduled_query_name: A name for the query. Scheduled query names must be unique within each Region.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs to label the scheduled query.
-        :param pulumi.Input['ScheduledQueryTargetConfigurationArgs'] target_configuration: Configuration used for writing the output of a query.
+        :param pulumi.Input['ScheduledQueryTargetConfigurationArgs'] target_configuration: Scheduled query target store configuration.
         """
         pulumi.set(__self__, "error_report_configuration", error_report_configuration)
         pulumi.set(__self__, "notification_configuration", notification_configuration)
@@ -69,7 +69,7 @@ class ScheduledQueryArgs:
     @pulumi.getter(name="errorReportConfiguration")
     def error_report_configuration(self) -> pulumi.Input['ScheduledQueryErrorReportConfigurationArgs']:
         """
-        Configuration required for error reporting.
+        Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
         """
         return pulumi.get(self, "error_report_configuration")
 
@@ -81,7 +81,7 @@ class ScheduledQueryArgs:
     @pulumi.getter(name="notificationConfiguration")
     def notification_configuration(self) -> pulumi.Input['ScheduledQueryNotificationConfigurationArgs']:
         """
-        Notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated or when it is deleted.
+        Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
         """
         return pulumi.get(self, "notification_configuration")
 
@@ -107,7 +107,7 @@ class ScheduledQueryArgs:
     @pulumi.getter(name="scheduleConfiguration")
     def schedule_configuration(self) -> pulumi.Input['ScheduledQueryScheduleConfigurationArgs']:
         """
-        Configuration of the schedule of the query.
+        Schedule configuration.
         """
         return pulumi.get(self, "schedule_configuration")
 
@@ -184,7 +184,7 @@ class ScheduledQueryArgs:
     @pulumi.getter(name="targetConfiguration")
     def target_configuration(self) -> Optional[pulumi.Input['ScheduledQueryTargetConfigurationArgs']]:
         """
-        Configuration used for writing the output of a query.
+        Scheduled query target store configuration.
         """
         return pulumi.get(self, "target_configuration")
 
@@ -218,19 +218,19 @@ class ScheduledQuery(pulumi.CustomResource):
                
                - If CreateScheduledQuery is called without a `ClientToken` , the Query SDK generates a `ClientToken` on your behalf.
                - After 8 hours, any request with the same `ClientToken` is treated as a new request.
-        :param pulumi.Input[pulumi.InputType['ScheduledQueryErrorReportConfigurationArgs']] error_report_configuration: Configuration required for error reporting.
+        :param pulumi.Input[pulumi.InputType['ScheduledQueryErrorReportConfigurationArgs']] error_report_configuration: Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
         :param pulumi.Input[str] kms_key_id: The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the Amazon KMS key is not specified, the scheduled query resource will be encrypted with a Timestream owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix the name with *alias/*
                
                If ErrorReportConfiguration uses `SSE_KMS` as encryption type, the same KmsKeyId is used to encrypt the error report at rest.
-        :param pulumi.Input[pulumi.InputType['ScheduledQueryNotificationConfigurationArgs']] notification_configuration: Notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated or when it is deleted.
+        :param pulumi.Input[pulumi.InputType['ScheduledQueryNotificationConfigurationArgs']] notification_configuration: Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
         :param pulumi.Input[str] query_string: The query string to run. Parameter names can be specified in the query string `@` character followed by an identifier. The named Parameter `@scheduled_runtime` is reserved and can be used in the query to get the time at which the query is scheduled to run.
                
                The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of `@scheduled_runtime` paramater for each query run. For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the `@scheduled_runtime` parameter is initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.
-        :param pulumi.Input[pulumi.InputType['ScheduledQueryScheduleConfigurationArgs']] schedule_configuration: Configuration of the schedule of the query.
+        :param pulumi.Input[pulumi.InputType['ScheduledQueryScheduleConfigurationArgs']] schedule_configuration: Schedule configuration.
         :param pulumi.Input[str] scheduled_query_execution_role_arn: The ARN for the IAM role that Timestream will assume when running the scheduled query.
         :param pulumi.Input[str] scheduled_query_name: A name for the query. Scheduled query names must be unique within each Region.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A list of key-value pairs to label the scheduled query.
-        :param pulumi.Input[pulumi.InputType['ScheduledQueryTargetConfigurationArgs']] target_configuration: Configuration used for writing the output of a query.
+        :param pulumi.Input[pulumi.InputType['ScheduledQueryTargetConfigurationArgs']] target_configuration: Scheduled query target store configuration.
         """
         ...
     @overload
@@ -372,7 +372,7 @@ class ScheduledQuery(pulumi.CustomResource):
     @pulumi.getter(name="errorReportConfiguration")
     def error_report_configuration(self) -> pulumi.Output['outputs.ScheduledQueryErrorReportConfiguration']:
         """
-        Configuration required for error reporting.
+        Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
         """
         return pulumi.get(self, "error_report_configuration")
 
@@ -390,7 +390,7 @@ class ScheduledQuery(pulumi.CustomResource):
     @pulumi.getter(name="notificationConfiguration")
     def notification_configuration(self) -> pulumi.Output['outputs.ScheduledQueryNotificationConfiguration']:
         """
-        Notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated or when it is deleted.
+        Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
         """
         return pulumi.get(self, "notification_configuration")
 
@@ -408,7 +408,7 @@ class ScheduledQuery(pulumi.CustomResource):
     @pulumi.getter(name="scheduleConfiguration")
     def schedule_configuration(self) -> pulumi.Output['outputs.ScheduledQueryScheduleConfiguration']:
         """
-        Configuration of the schedule of the query.
+        Schedule configuration.
         """
         return pulumi.get(self, "schedule_configuration")
 
@@ -504,7 +504,7 @@ class ScheduledQuery(pulumi.CustomResource):
     @pulumi.getter(name="targetConfiguration")
     def target_configuration(self) -> pulumi.Output[Optional['outputs.ScheduledQueryTargetConfiguration']]:
         """
-        Configuration used for writing the output of a query.
+        Scheduled query target store configuration.
         """
         return pulumi.get(self, "target_configuration")
 

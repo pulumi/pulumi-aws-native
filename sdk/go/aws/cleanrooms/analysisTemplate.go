@@ -46,10 +46,9 @@ type AnalysisTemplate struct {
 	// The identifier for a membership resource.
 	MembershipIdentifier pulumi.StringOutput `pulumi:"membershipIdentifier"`
 	// The name of the analysis template.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// A relation within an analysis.
+	Name   pulumi.StringOutput                  `pulumi:"name"`
 	Schema AnalysisTemplateAnalysisSchemaOutput `pulumi:"schema"`
-	// The structure that defines the body of the analysis template.
+	// The source of the analysis template.
 	Source AnalysisTemplateAnalysisSourceOutput `pulumi:"source"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -122,7 +121,7 @@ type analysisTemplateArgs struct {
 	MembershipIdentifier string `pulumi:"membershipIdentifier"`
 	// The name of the analysis template.
 	Name *string `pulumi:"name"`
-	// The structure that defines the body of the analysis template.
+	// The source of the analysis template.
 	Source AnalysisTemplateAnalysisSource `pulumi:"source"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -140,7 +139,7 @@ type AnalysisTemplateArgs struct {
 	MembershipIdentifier pulumi.StringInput
 	// The name of the analysis template.
 	Name pulumi.StringPtrInput
-	// The structure that defines the body of the analysis template.
+	// The source of the analysis template.
 	Source AnalysisTemplateAnalysisSourceInput
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms analysis template.
 	Tags aws.TagArrayInput
@@ -243,12 +242,11 @@ func (o AnalysisTemplateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalysisTemplate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A relation within an analysis.
 func (o AnalysisTemplateOutput) Schema() AnalysisTemplateAnalysisSchemaOutput {
 	return o.ApplyT(func(v *AnalysisTemplate) AnalysisTemplateAnalysisSchemaOutput { return v.Schema }).(AnalysisTemplateAnalysisSchemaOutput)
 }
 
-// The structure that defines the body of the analysis template.
+// The source of the analysis template.
 func (o AnalysisTemplateOutput) Source() AnalysisTemplateAnalysisSourceOutput {
 	return o.ApplyT(func(v *AnalysisTemplate) AnalysisTemplateAnalysisSourceOutput { return v.Source }).(AnalysisTemplateAnalysisSourceOutput)
 }

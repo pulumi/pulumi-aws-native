@@ -30,7 +30,7 @@ type LookupRecipeArgs struct {
 type LookupRecipeResult struct {
 	// Description of the recipe
 	Description *string `pulumi:"description"`
-	// Represents a single step from a DataBrew recipe to be performed.
+	// A list of steps that are defined by the recipe.
 	Steps []RecipeStep `pulumi:"steps"`
 }
 
@@ -75,7 +75,7 @@ func (o LookupRecipeResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRecipeResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Represents a single step from a DataBrew recipe to be performed.
+// A list of steps that are defined by the recipe.
 func (o LookupRecipeResultOutput) Steps() RecipeStepArrayOutput {
 	return o.ApplyT(func(v LookupRecipeResult) []RecipeStep { return v.Steps }).(RecipeStepArrayOutput)
 }

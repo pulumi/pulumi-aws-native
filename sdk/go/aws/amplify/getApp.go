@@ -39,7 +39,7 @@ type LookupAppResult struct {
 	BuildSpec *string `pulumi:"buildSpec"`
 	// The custom HTTP headers for an Amplify app.
 	CustomHeaders *string `pulumi:"customHeaders"`
-	// The CustomRule property type allows you to specify redirects, rewrites, and reverse proxies. Redirects enable a web app to reroute navigation from one URL to another.
+	// The custom rewrite and redirect rules for an Amplify app.
 	CustomRules []AppCustomRule `pulumi:"customRules"`
 	// Default domain for the Amplify App.
 	DefaultDomain *string `pulumi:"defaultDomain"`
@@ -47,7 +47,9 @@ type LookupAppResult struct {
 	Description *string `pulumi:"description"`
 	// Automatically disconnect a branch in Amplify Hosting when you delete a branch from your Git repository.
 	EnableBranchAutoDeletion *bool `pulumi:"enableBranchAutoDeletion"`
-	// Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+	// The environment variables for the Amplify app.
+	//
+	// For a list of the environment variables that are accessible to Amplify by default, see [Amplify Environment variables](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html) in the *Amplify Hosting User Guide* .
 	EnvironmentVariables []AppEnvironmentVariable `pulumi:"environmentVariables"`
 	// AWS Identity and Access Management ( IAM ) service role for the Amazon Resource Name (ARN) of the Amplify app.
 	IamServiceRole *string `pulumi:"iamServiceRole"`
@@ -57,7 +59,7 @@ type LookupAppResult struct {
 	Platform *AppPlatform `pulumi:"platform"`
 	// The Git repository for the Amplify app.
 	Repository *string `pulumi:"repository"`
-	// The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::App` resource.
+	// The tag for an Amplify app.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -122,7 +124,7 @@ func (o LookupAppResultOutput) CustomHeaders() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *string { return v.CustomHeaders }).(pulumi.StringPtrOutput)
 }
 
-// The CustomRule property type allows you to specify redirects, rewrites, and reverse proxies. Redirects enable a web app to reroute navigation from one URL to another.
+// The custom rewrite and redirect rules for an Amplify app.
 func (o LookupAppResultOutput) CustomRules() AppCustomRuleArrayOutput {
 	return o.ApplyT(func(v LookupAppResult) []AppCustomRule { return v.CustomRules }).(AppCustomRuleArrayOutput)
 }
@@ -142,7 +144,9 @@ func (o LookupAppResultOutput) EnableBranchAutoDeletion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *bool { return v.EnableBranchAutoDeletion }).(pulumi.BoolPtrOutput)
 }
 
-// Environment variables are key-value pairs that are available at build time. Set environment variables for all branches in your app.
+// The environment variables for the Amplify app.
+//
+// For a list of the environment variables that are accessible to Amplify by default, see [Amplify Environment variables](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html) in the *Amplify Hosting User Guide* .
 func (o LookupAppResultOutput) EnvironmentVariables() AppEnvironmentVariableArrayOutput {
 	return o.ApplyT(func(v LookupAppResult) []AppEnvironmentVariable { return v.EnvironmentVariables }).(AppEnvironmentVariableArrayOutput)
 }
@@ -167,7 +171,7 @@ func (o LookupAppResultOutput) Repository() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *string { return v.Repository }).(pulumi.StringPtrOutput)
 }
 
-// The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::App` resource.
+// The tag for an Amplify app.
 func (o LookupAppResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupAppResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

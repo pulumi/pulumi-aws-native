@@ -16,9 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         private InputList<Inputs.AnalysisDrillDownFilterArgs>? _drillDownFilters;
 
         /// <summary>
-        /// The drill down filter for the column hierarchies.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The option that determines the drill down filters for the `DateTime` hierarchy.
         /// </summary>
         public InputList<Inputs.AnalysisDrillDownFilterArgs> DrillDownFilters
         {

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateGeospatialMapFieldWells
     {
         /// <summary>
-        /// The aggregated field wells for a geospatial map.
+        /// The aggregated field well for a geospatial map.
         /// </summary>
         public readonly Outputs.TemplateGeospatialMapAggregatedFieldWells? GeospatialMapAggregatedFieldWells;
 

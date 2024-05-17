@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The pagination configuration for a table visual or boxplot.
+        /// The pagination configuration of a table visual or box plot.
         /// </summary>
         [Input("paginationConfiguration")]
         public Input<Inputs.AnalysisPaginationConfigurationArgs>? PaginationConfiguration { get; set; }

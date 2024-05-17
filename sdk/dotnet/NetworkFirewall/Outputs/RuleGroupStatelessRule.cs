@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
         /// </summary>
         public readonly int Priority;
         /// <summary>
-        /// The inspection criteria and action for a single stateless rule. AWS Network Firewall inspects each packet for the specified matching criteria. When a packet matches the criteria, Network Firewall performs the rule's actions on the packet.
+        /// Defines the stateless 5-tuple packet inspection criteria and the action to take on a packet that matches the criteria.
         /// </summary>
         public readonly Outputs.RuleGroupRuleDefinition RuleDefinition;
 

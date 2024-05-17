@@ -50,7 +50,7 @@ export interface GetServiceNetworkResult {
      */
     readonly lastUpdatedAt?: string;
     /**
-     * Specifies a tag for a service network.
+     * The tags for the service network.
      */
     readonly tags?: outputs.Tag[];
 }

@@ -25,15 +25,15 @@ export interface GetClusterArgs {
 export interface GetClusterResult {
     readonly arn?: string;
     /**
-     * Describes the setup to be used for the broker nodes in the cluster.
+     * Information about the broker nodes in the cluster.
      */
     readonly brokerNodeGroupInfo?: outputs.msk.ClusterBrokerNodeGroupInfo;
     /**
-     * Includes all client authentication information.
+     * VPC connection control settings for brokers.
      */
     readonly clientAuthentication?: outputs.msk.ClusterClientAuthentication;
     /**
-     * Specifies the configuration to use for the brokers.
+     * Represents the configuration that you want MSK to use for the cluster.
      */
     readonly configurationInfo?: outputs.msk.ClusterConfigurationInfo;
     /**
@@ -41,7 +41,7 @@ export interface GetClusterResult {
      */
     readonly currentVersion?: string;
     /**
-     * Includes encryption-related information, such as the Amazon KMS key used for encrypting data at rest and whether you want MSK to encrypt your data in transit.
+     * Includes all encryption-related information.
      */
     readonly encryptionInfo?: outputs.msk.ClusterEncryptionInfo;
     /**
@@ -53,7 +53,7 @@ export interface GetClusterResult {
      */
     readonly kafkaVersion?: string;
     /**
-     * You can configure your MSK cluster to send broker logs to different destination types. This is a container for the configuration details related to broker logs.
+     * Logging Info details.
      */
     readonly loggingInfo?: outputs.msk.ClusterLoggingInfo;
     /**
@@ -61,7 +61,7 @@ export interface GetClusterResult {
      */
     readonly numberOfBrokerNodes?: number;
     /**
-     * JMX and Node monitoring for the MSK cluster.
+     * The settings for open monitoring.
      */
     readonly openMonitoring?: outputs.msk.ClusterOpenMonitoring;
     /**

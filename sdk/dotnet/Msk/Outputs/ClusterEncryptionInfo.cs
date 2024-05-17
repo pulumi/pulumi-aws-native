@@ -14,11 +14,11 @@ namespace Pulumi.AwsNative.Msk.Outputs
     public sealed class ClusterEncryptionInfo
     {
         /// <summary>
-        /// The data-volume encryption details. You can't update encryption at rest settings for existing clusters.
+        /// The data-volume encryption details.
         /// </summary>
         public readonly Outputs.ClusterEncryptionAtRest? EncryptionAtRest;
         /// <summary>
-        /// The settings for encrypting data in transit.
+        /// The details for encryption in transit.
         /// </summary>
         public readonly Outputs.ClusterEncryptionInTransit? EncryptionInTransit;
 

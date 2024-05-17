@@ -76,7 +76,7 @@ class GetExperimentResult:
     @pulumi.getter(name="metricGoals")
     def metric_goals(self) -> Optional[Sequence['outputs.ExperimentMetricGoalObject']]:
         """
-        Use this structure to tell Evidently whether higher or lower values are desired for a metric that is used in an experiment.
+        An array of structures that defines the metrics used for the experiment, and whether a higher or lower value for each metric is the goal. You can use up to three metrics in an experiment.
         """
         return pulumi.get(self, "metric_goals")
 
@@ -144,7 +144,7 @@ class GetExperimentResult:
     @pulumi.getter
     def treatments(self) -> Optional[Sequence['outputs.ExperimentTreatmentObject']]:
         """
-        A structure that defines one treatment in an experiment. A treatment is a variation of the feature that you are including in the experiment.
+        An array of structures that describe the configuration of each feature variation used in the experiment.
         """
         return pulumi.get(self, "treatments")
 

@@ -122,17 +122,16 @@ type Keyspace struct {
 
 	// Name for Cassandra keyspace
 	KeyspaceName pulumi.StringPtrOutput `pulumi:"keyspaceName"`
-	// You can use `ReplicationSpecification` to configure the `ReplicationStrategy` of a keyspace in Amazon Keyspaces .
+	// Specifies the `ReplicationStrategy` of a keyspace. The options are:
 	//
-	// The `ReplicationSpecification` property is `CreateOnly` and cannot be changed after the keyspace has been created. This property applies automatically to all tables in the keyspace.
+	// - `SINGLE_REGION` for a single Region keyspace (optional) or
+	// - `MULTI_REGION` for a multi-Region keyspace
 	//
-	// For more information, see [Multi-Region Replication](https://docs.aws.amazon.com/keyspaces/latest/devguide/multiRegion-replication.html) in the *Amazon Keyspaces Developer Guide* .
+	// If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
 	ReplicationSpecification KeyspaceReplicationSpecificationPtrOutput `pulumi:"replicationSpecification"`
-	// Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single Amazon Keyspaces resource.
+	// An array of key-value pairs to apply to this resource.
 	//
-	// AWS -assigned tag names and values are automatically assigned the `aws:` prefix, which the user cannot assign. AWS -assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix `user:` in the Cost Allocation Report. You cannot backdate the application of a tag.
-	//
-	// For more information, see [Adding tags and labels to Amazon Keyspaces resources](https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html) in the *Amazon Keyspaces Developer Guide* .
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -183,17 +182,16 @@ func (KeyspaceState) ElementType() reflect.Type {
 type keyspaceArgs struct {
 	// Name for Cassandra keyspace
 	KeyspaceName *string `pulumi:"keyspaceName"`
-	// You can use `ReplicationSpecification` to configure the `ReplicationStrategy` of a keyspace in Amazon Keyspaces .
+	// Specifies the `ReplicationStrategy` of a keyspace. The options are:
 	//
-	// The `ReplicationSpecification` property is `CreateOnly` and cannot be changed after the keyspace has been created. This property applies automatically to all tables in the keyspace.
+	// - `SINGLE_REGION` for a single Region keyspace (optional) or
+	// - `MULTI_REGION` for a multi-Region keyspace
 	//
-	// For more information, see [Multi-Region Replication](https://docs.aws.amazon.com/keyspaces/latest/devguide/multiRegion-replication.html) in the *Amazon Keyspaces Developer Guide* .
+	// If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
 	ReplicationSpecification *KeyspaceReplicationSpecification `pulumi:"replicationSpecification"`
-	// Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single Amazon Keyspaces resource.
+	// An array of key-value pairs to apply to this resource.
 	//
-	// AWS -assigned tag names and values are automatically assigned the `aws:` prefix, which the user cannot assign. AWS -assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix `user:` in the Cost Allocation Report. You cannot backdate the application of a tag.
-	//
-	// For more information, see [Adding tags and labels to Amazon Keyspaces resources](https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html) in the *Amazon Keyspaces Developer Guide* .
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -201,17 +199,16 @@ type keyspaceArgs struct {
 type KeyspaceArgs struct {
 	// Name for Cassandra keyspace
 	KeyspaceName pulumi.StringPtrInput
-	// You can use `ReplicationSpecification` to configure the `ReplicationStrategy` of a keyspace in Amazon Keyspaces .
+	// Specifies the `ReplicationStrategy` of a keyspace. The options are:
 	//
-	// The `ReplicationSpecification` property is `CreateOnly` and cannot be changed after the keyspace has been created. This property applies automatically to all tables in the keyspace.
+	// - `SINGLE_REGION` for a single Region keyspace (optional) or
+	// - `MULTI_REGION` for a multi-Region keyspace
 	//
-	// For more information, see [Multi-Region Replication](https://docs.aws.amazon.com/keyspaces/latest/devguide/multiRegion-replication.html) in the *Amazon Keyspaces Developer Guide* .
+	// If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
 	ReplicationSpecification KeyspaceReplicationSpecificationPtrInput
-	// Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single Amazon Keyspaces resource.
+	// An array of key-value pairs to apply to this resource.
 	//
-	// AWS -assigned tag names and values are automatically assigned the `aws:` prefix, which the user cannot assign. AWS -assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix `user:` in the Cost Allocation Report. You cannot backdate the application of a tag.
-	//
-	// For more information, see [Adding tags and labels to Amazon Keyspaces resources](https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html) in the *Amazon Keyspaces Developer Guide* .
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags aws.TagArrayInput
 }
 
@@ -257,20 +254,19 @@ func (o KeyspaceOutput) KeyspaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Keyspace) pulumi.StringPtrOutput { return v.KeyspaceName }).(pulumi.StringPtrOutput)
 }
 
-// You can use `ReplicationSpecification` to configure the `ReplicationStrategy` of a keyspace in Amazon Keyspaces .
+// Specifies the `ReplicationStrategy` of a keyspace. The options are:
 //
-// The `ReplicationSpecification` property is `CreateOnly` and cannot be changed after the keyspace has been created. This property applies automatically to all tables in the keyspace.
+// - `SINGLE_REGION` for a single Region keyspace (optional) or
+// - `MULTI_REGION` for a multi-Region keyspace
 //
-// For more information, see [Multi-Region Replication](https://docs.aws.amazon.com/keyspaces/latest/devguide/multiRegion-replication.html) in the *Amazon Keyspaces Developer Guide* .
+// If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
 func (o KeyspaceOutput) ReplicationSpecification() KeyspaceReplicationSpecificationPtrOutput {
 	return o.ApplyT(func(v *Keyspace) KeyspaceReplicationSpecificationPtrOutput { return v.ReplicationSpecification }).(KeyspaceReplicationSpecificationPtrOutput)
 }
 
-// Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single Amazon Keyspaces resource.
+// An array of key-value pairs to apply to this resource.
 //
-// AWS -assigned tag names and values are automatically assigned the `aws:` prefix, which the user cannot assign. AWS -assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix `user:` in the Cost Allocation Report. You cannot backdate the application of a tag.
-//
-// For more information, see [Adding tags and labels to Amazon Keyspaces resources](https://docs.aws.amazon.com/keyspaces/latest/devguide/tagging-keyspaces.html) in the *Amazon Keyspaces Developer Guide* .
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o KeyspaceOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Keyspace) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

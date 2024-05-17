@@ -19,7 +19,7 @@ type SamplingRule struct {
 	// The sampling rule ARN that was created or updated.
 	RuleArn  pulumi.StringOutput    `pulumi:"ruleArn"`
 	RuleName pulumi.StringPtrOutput `pulumi:"ruleName"`
-	// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+	// The sampling rule to be created or updated.
 	SamplingRule       SamplingRuleTypePtrOutput   `pulumi:"samplingRule"`
 	SamplingRuleRecord SamplingRuleRecordPtrOutput `pulumi:"samplingRuleRecord"`
 	SamplingRuleUpdate SamplingRuleUpdatePtrOutput `pulumi:"samplingRuleUpdate"`
@@ -68,7 +68,7 @@ func (SamplingRuleState) ElementType() reflect.Type {
 
 type samplingRuleArgs struct {
 	RuleName *string `pulumi:"ruleName"`
-	// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+	// The sampling rule to be created or updated.
 	SamplingRule       *SamplingRuleType   `pulumi:"samplingRule"`
 	SamplingRuleRecord *SamplingRuleRecord `pulumi:"samplingRuleRecord"`
 	SamplingRuleUpdate *SamplingRuleUpdate `pulumi:"samplingRuleUpdate"`
@@ -79,7 +79,7 @@ type samplingRuleArgs struct {
 // The set of arguments for constructing a SamplingRule resource.
 type SamplingRuleArgs struct {
 	RuleName pulumi.StringPtrInput
-	// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+	// The sampling rule to be created or updated.
 	SamplingRule       SamplingRuleTypePtrInput
 	SamplingRuleRecord SamplingRuleRecordPtrInput
 	SamplingRuleUpdate SamplingRuleUpdatePtrInput
@@ -133,7 +133,7 @@ func (o SamplingRuleOutput) RuleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SamplingRule) pulumi.StringPtrOutput { return v.RuleName }).(pulumi.StringPtrOutput)
 }
 
-// A sampling rule that services use to decide whether to instrument a request. Rule fields can match properties of the service, or properties of a request. The service can ignore rules that don't match its properties.
+// The sampling rule to be created or updated.
 func (o SamplingRuleOutput) SamplingRule() SamplingRuleTypePtrOutput {
 	return o.ApplyT(func(v *SamplingRule) SamplingRuleTypePtrOutput { return v.SamplingRule }).(SamplingRuleTypePtrOutput)
 }

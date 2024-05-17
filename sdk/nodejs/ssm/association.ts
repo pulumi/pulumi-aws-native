@@ -194,9 +194,7 @@ export class Association extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * `InstanceAssociationOutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
-     *
-     * For the minimal permissions required to enable Amazon S3 output for an association, see [Creating associations](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc.html) in the *Systems Manager User Guide* .
+     * An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
      */
     public readonly outputLocation!: pulumi.Output<outputs.ssm.AssociationInstanceAssociationOutputLocation | undefined>;
     /**
@@ -333,9 +331,7 @@ export interface AssociationArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * `InstanceAssociationOutputLocation` is a property of the [AWS::SSM::Association](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html) resource that specifies an Amazon S3 bucket where you want to store the results of this association request.
-     *
-     * For the minimal permissions required to enable Amazon S3 output for an association, see [Creating associations](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc.html) in the *Systems Manager User Guide* .
+     * An Amazon Simple Storage Service (Amazon S3) bucket where you want to store the output details of the request.
      */
     outputLocation?: pulumi.Input<inputs.ssm.AssociationInstanceAssociationOutputLocationArgs>;
     /**

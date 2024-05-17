@@ -21,7 +21,11 @@ namespace Pulumi.AwsNative.CodeDeploy.Inputs
         public Input<int>? FirstZoneMonitorDurationInSeconds { get; set; }
 
         /// <summary>
-        /// Information about the minimum number of healthy instances per Availability Zone.
+        /// The number or percentage of instances that must remain available per Availability Zone during a deployment. This option works in conjunction with the `MinimumHealthyHosts` option. For more information, see [About the minimum number of healthy hosts per Availability Zone](https://docs.aws.amazon.com//codedeploy/latest/userguide/instances-health.html#minimum-healthy-hosts-az) in the *CodeDeploy User Guide* .
+        /// 
+        /// If you don't specify the `minimumHealthyHostsPerZone` option, then CodeDeploy uses a default value of `0` percent.
+        /// 
+        /// For more information about the zonal configuration feature, see [zonal configuration](https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config) in the *CodeDeploy User Guide* .
         /// </summary>
         [Input("minimumHealthyHostsPerZone")]
         public Input<Inputs.DeploymentConfigMinimumHealthyHostsPerZoneArgs>? MinimumHealthyHostsPerZone { get; set; }

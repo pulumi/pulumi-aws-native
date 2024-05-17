@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardGeospatialWindowOptions
     {
         /// <summary>
-        /// The bound options (north, south, west, east) of the geospatial window options.
+        /// The bounds options (north, south, west, east) of the geospatial window options.
         /// </summary>
         public readonly Outputs.DashboardGeospatialCoordinateBounds? Bounds;
         /// <summary>

@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.SecurityHub.Inputs
     public sealed class AutomationRulesActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Identifies the finding fields that the automation rule action updates when a finding matches the defined criteria.
+        /// Specifies that the automation rule action is an update to a finding field.
         /// </summary>
         [Input("findingFieldsUpdate", required: true)]
         public Input<Inputs.AutomationRulesFindingFieldsUpdateArgs> FindingFieldsUpdate { get; set; } = null!;

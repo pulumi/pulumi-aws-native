@@ -43,7 +43,9 @@ type LookupAnalysisResult struct {
 	LastUpdatedTime *string `pulumi:"lastUpdatedTime"`
 	// <p>The descriptive name of the analysis.</p>
 	Name *string `pulumi:"name"`
-	// Permission for the resource.
+	// A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+	//
+	// To specify no permissions, omit `Permissions` .
 	Permissions []AnalysisResourcePermission `pulumi:"permissions"`
 	// <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
 	Sheets []AnalysisSheet `pulumi:"sheets"`
@@ -121,7 +123,9 @@ func (o LookupAnalysisResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Permission for the resource.
+// A structure that describes the principals and the resource-level permissions on an analysis. You can use the `Permissions` structure to grant permissions by providing a list of AWS Identity and Access Management (IAM) action information for each principal listed by Amazon Resource Name (ARN).
+//
+// To specify no permissions, omit `Permissions` .
 func (o LookupAnalysisResultOutput) Permissions() AnalysisResourcePermissionArrayOutput {
 	return o.ApplyT(func(v LookupAnalysisResult) []AnalysisResourcePermission { return v.Permissions }).(AnalysisResourcePermissionArrayOutput)
 }

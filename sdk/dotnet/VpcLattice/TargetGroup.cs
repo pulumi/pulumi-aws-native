@@ -28,9 +28,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the configuration of a target group.
-        /// 
-        /// For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in the *Amazon VPC Lattice User Guide* .
+        /// The target group configuration.
         /// </summary>
         [Output("config")]
         public Output<Outputs.TargetGroupConfig?> Config { get; private set; } = null!;
@@ -62,7 +60,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Output<Pulumi.AwsNative.VpcLattice.TargetGroupStatus> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a tag for a target group.
+        /// The tags for the target group.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -130,9 +128,7 @@ namespace Pulumi.AwsNative.VpcLattice
     public sealed class TargetGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes the configuration of a target group.
-        /// 
-        /// For more information, see [Target groups](https://docs.aws.amazon.com/vpc-lattice/latest/ug/target-groups.html) in the *Amazon VPC Lattice User Guide* .
+        /// The target group configuration.
         /// </summary>
         [Input("config")]
         public Input<Inputs.TargetGroupConfigArgs>? Config { get; set; }
@@ -149,7 +145,7 @@ namespace Pulumi.AwsNative.VpcLattice
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// Specifies a tag for a target group.
+        /// The tags for the target group.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

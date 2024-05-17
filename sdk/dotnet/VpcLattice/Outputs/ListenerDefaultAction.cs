@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
         /// </summary>
         public readonly Outputs.ListenerFixedResponse? FixedResponse;
         /// <summary>
-        /// The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+        /// Describes a forward action. You can use forward actions to route requests to one or more target groups.
         /// </summary>
         public readonly Outputs.ListenerForward? Forward;
 

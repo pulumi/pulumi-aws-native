@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
         private InputList<Inputs.JobDefinitionTaskContainerPropertiesArgs>? _containers;
 
         /// <summary>
-        /// Container properties are used for Amazon ECS-based job definitions. These properties to describe the container that's launched as part of a job.
+        /// This object is a list of containers.
         /// </summary>
         public InputList<Inputs.JobDefinitionTaskContainerPropertiesArgs> Containers
         {

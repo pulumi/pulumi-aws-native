@@ -112,7 +112,7 @@ class DatasetDataCatalogInputDefinitionArgs:
         :param pulumi.Input[str] catalog_id: Catalog id
         :param pulumi.Input[str] database_name: Database name
         :param pulumi.Input[str] table_name: Table name
-        :param pulumi.Input['DatasetS3LocationArgs'] temp_directory: Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+        :param pulumi.Input['DatasetS3LocationArgs'] temp_directory: An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
         """
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
@@ -163,7 +163,7 @@ class DatasetDataCatalogInputDefinitionArgs:
     @pulumi.getter(name="tempDirectory")
     def temp_directory(self) -> Optional[pulumi.Input['DatasetS3LocationArgs']]:
         """
-        Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+        An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
         """
         return pulumi.get(self, "temp_directory")
 
@@ -183,7 +183,7 @@ class DatasetDatabaseInputDefinitionArgs:
         :param pulumi.Input[str] glue_connection_name: Glue connection name
         :param pulumi.Input[str] database_table_name: Database table name
         :param pulumi.Input[str] query_string: Custom SQL to run against the provided AWS Glue connection. This SQL will be used as the input for DataBrew projects and jobs.
-        :param pulumi.Input['DatasetS3LocationArgs'] temp_directory: Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+        :param pulumi.Input['DatasetS3LocationArgs'] temp_directory: An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
         """
         pulumi.set(__self__, "glue_connection_name", glue_connection_name)
         if database_table_name is not None:
@@ -233,7 +233,7 @@ class DatasetDatabaseInputDefinitionArgs:
     @pulumi.getter(name="tempDirectory")
     def temp_directory(self) -> Optional[pulumi.Input['DatasetS3LocationArgs']]:
         """
-        Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+        An Amazon location that AWS Glue Data Catalog can use as a temporary directory.
         """
         return pulumi.get(self, "temp_directory")
 
@@ -412,7 +412,7 @@ class DatasetFilterExpressionArgs:
                  values_map: pulumi.Input[Sequence[pulumi.Input['DatasetFilterValueArgs']]]):
         """
         :param pulumi.Input[str] expression: Filtering expression for a parameter
-        :param pulumi.Input[Sequence[pulumi.Input['DatasetFilterValueArgs']]] values_map: Represents a single entry in the `ValuesMap` of a `FilterExpression` . A `FilterValue` associates the name of a substitution variable in an expression to its value.
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetFilterValueArgs']]] values_map: The map of substitution variable names to their values used in this filter expression.
         """
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "values_map", values_map)
@@ -433,7 +433,7 @@ class DatasetFilterExpressionArgs:
     @pulumi.getter(name="valuesMap")
     def values_map(self) -> pulumi.Input[Sequence[pulumi.Input['DatasetFilterValueArgs']]]:
         """
-        Represents a single entry in the `ValuesMap` of a `FilterExpression` . A `FilterValue` associates the name of a substitution variable in an expression to its value.
+        The map of substitution variable names to their values used in this filter expression.
         """
         return pulumi.get(self, "values_map")
 
@@ -488,9 +488,9 @@ class DatasetFormatOptionsArgs:
                  json: Optional[pulumi.Input['DatasetJsonOptionsArgs']] = None):
         """
         Format options for dataset
-        :param pulumi.Input['DatasetCsvOptionsArgs'] csv: Represents a set of options that define how DataBrew will read a comma-separated value (CSV) file when creating a dataset from that file.
-        :param pulumi.Input['DatasetExcelOptionsArgs'] excel: Represents a set of options that define how DataBrew will interpret a Microsoft Excel file when creating a dataset from that file.
-        :param pulumi.Input['DatasetJsonOptionsArgs'] json: Represents the JSON-specific options that define how input is to be interpreted by AWS Glue DataBrew .
+        :param pulumi.Input['DatasetCsvOptionsArgs'] csv: Options that define how CSV input is to be interpreted by DataBrew.
+        :param pulumi.Input['DatasetExcelOptionsArgs'] excel: Options that define how Excel input is to be interpreted by DataBrew.
+        :param pulumi.Input['DatasetJsonOptionsArgs'] json: Options that define how JSON input is to be interpreted by DataBrew.
         """
         if csv is not None:
             pulumi.set(__self__, "csv", csv)
@@ -503,7 +503,7 @@ class DatasetFormatOptionsArgs:
     @pulumi.getter
     def csv(self) -> Optional[pulumi.Input['DatasetCsvOptionsArgs']]:
         """
-        Represents a set of options that define how DataBrew will read a comma-separated value (CSV) file when creating a dataset from that file.
+        Options that define how CSV input is to be interpreted by DataBrew.
         """
         return pulumi.get(self, "csv")
 
@@ -515,7 +515,7 @@ class DatasetFormatOptionsArgs:
     @pulumi.getter
     def excel(self) -> Optional[pulumi.Input['DatasetExcelOptionsArgs']]:
         """
-        Represents a set of options that define how DataBrew will interpret a Microsoft Excel file when creating a dataset from that file.
+        Options that define how Excel input is to be interpreted by DataBrew.
         """
         return pulumi.get(self, "excel")
 
@@ -527,7 +527,7 @@ class DatasetFormatOptionsArgs:
     @pulumi.getter
     def json(self) -> Optional[pulumi.Input['DatasetJsonOptionsArgs']]:
         """
-        Represents the JSON-specific options that define how input is to be interpreted by AWS Glue DataBrew .
+        Options that define how JSON input is to be interpreted by DataBrew.
         """
         return pulumi.get(self, "json")
 
@@ -545,10 +545,10 @@ class DatasetInputArgs:
                  s3_input_definition: Optional[pulumi.Input['DatasetS3LocationArgs']] = None):
         """
         Input
-        :param pulumi.Input['DatasetDataCatalogInputDefinitionArgs'] data_catalog_input_definition: Represents how metadata stored in the AWS Glue Data Catalog is defined in a DataBrew dataset.
+        :param pulumi.Input['DatasetDataCatalogInputDefinitionArgs'] data_catalog_input_definition: The AWS Glue Data Catalog parameters for the data.
         :param pulumi.Input['DatasetDatabaseInputDefinitionArgs'] database_input_definition: Connection information for dataset input files stored in a database.
         :param pulumi.Input['DatasetMetadataArgs'] metadata: Contains additional resource information needed for specific datasets.
-        :param pulumi.Input['DatasetS3LocationArgs'] s3_input_definition: Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+        :param pulumi.Input['DatasetS3LocationArgs'] s3_input_definition: The Amazon S3 location where the data is stored.
         """
         if data_catalog_input_definition is not None:
             pulumi.set(__self__, "data_catalog_input_definition", data_catalog_input_definition)
@@ -563,7 +563,7 @@ class DatasetInputArgs:
     @pulumi.getter(name="dataCatalogInputDefinition")
     def data_catalog_input_definition(self) -> Optional[pulumi.Input['DatasetDataCatalogInputDefinitionArgs']]:
         """
-        Represents how metadata stored in the AWS Glue Data Catalog is defined in a DataBrew dataset.
+        The AWS Glue Data Catalog parameters for the data.
         """
         return pulumi.get(self, "data_catalog_input_definition")
 
@@ -599,7 +599,7 @@ class DatasetInputArgs:
     @pulumi.getter(name="s3InputDefinition")
     def s3_input_definition(self) -> Optional[pulumi.Input['DatasetS3LocationArgs']]:
         """
-        Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+        The Amazon S3 location where the data is stored.
         """
         return pulumi.get(self, "s3_input_definition")
 
@@ -667,8 +667,8 @@ class DatasetParameterArgs:
         :param pulumi.Input[str] name: The name of the parameter that is used in the dataset's Amazon S3 path.
         :param pulumi.Input['DatasetParameterType'] type: Parameter type
         :param pulumi.Input[bool] create_column: Add the value of this parameter as a column in a dataset.
-        :param pulumi.Input['DatasetDatetimeOptionsArgs'] datetime_options: Represents additional options for correct interpretation of datetime parameters used in the Amazon S3 path of a dataset.
-        :param pulumi.Input['DatasetFilterExpressionArgs'] filter: Represents a structure for defining parameter conditions.
+        :param pulumi.Input['DatasetDatetimeOptionsArgs'] datetime_options: Additional parameter options such as a format and a timezone. Required for datetime parameters.
+        :param pulumi.Input['DatasetFilterExpressionArgs'] filter: The optional filter expression structure to apply additional matching criteria to the parameter.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -719,7 +719,7 @@ class DatasetParameterArgs:
     @pulumi.getter(name="datetimeOptions")
     def datetime_options(self) -> Optional[pulumi.Input['DatasetDatetimeOptionsArgs']]:
         """
-        Represents additional options for correct interpretation of datetime parameters used in the Amazon S3 path of a dataset.
+        Additional parameter options such as a format and a timezone. Required for datetime parameters.
         """
         return pulumi.get(self, "datetime_options")
 
@@ -731,7 +731,7 @@ class DatasetParameterArgs:
     @pulumi.getter
     def filter(self) -> Optional[pulumi.Input['DatasetFilterExpressionArgs']]:
         """
-        Represents a structure for defining parameter conditions.
+        The optional filter expression structure to apply additional matching criteria to the parameter.
         """
         return pulumi.get(self, "filter")
 
@@ -748,9 +748,9 @@ class DatasetPathOptionsArgs:
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPathParameterArgs']]]] = None):
         """
         Path options for dataset
-        :param pulumi.Input['DatasetFilesLimitArgs'] files_limit: Represents a limit imposed on number of Amazon S3 files that should be selected for a dataset from a connected Amazon S3 path.
-        :param pulumi.Input['DatasetFilterExpressionArgs'] last_modified_date_condition: Represents a structure for defining parameter conditions.
-        :param pulumi.Input[Sequence[pulumi.Input['DatasetPathParameterArgs']]] parameters: Represents a single entry in the path parameters of a dataset. Each `PathParameter` consists of a name and a parameter definition.
+        :param pulumi.Input['DatasetFilesLimitArgs'] files_limit: If provided, this structure imposes a limit on a number of files that should be selected.
+        :param pulumi.Input['DatasetFilterExpressionArgs'] last_modified_date_condition: If provided, this structure defines a date range for matching Amazon S3 objects based on their LastModifiedDate attribute in Amazon S3 .
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetPathParameterArgs']]] parameters: A structure that maps names of parameters used in the Amazon S3 path of a dataset to their definitions.
         """
         if files_limit is not None:
             pulumi.set(__self__, "files_limit", files_limit)
@@ -763,7 +763,7 @@ class DatasetPathOptionsArgs:
     @pulumi.getter(name="filesLimit")
     def files_limit(self) -> Optional[pulumi.Input['DatasetFilesLimitArgs']]:
         """
-        Represents a limit imposed on number of Amazon S3 files that should be selected for a dataset from a connected Amazon S3 path.
+        If provided, this structure imposes a limit on a number of files that should be selected.
         """
         return pulumi.get(self, "files_limit")
 
@@ -775,7 +775,7 @@ class DatasetPathOptionsArgs:
     @pulumi.getter(name="lastModifiedDateCondition")
     def last_modified_date_condition(self) -> Optional[pulumi.Input['DatasetFilterExpressionArgs']]:
         """
-        Represents a structure for defining parameter conditions.
+        If provided, this structure defines a date range for matching Amazon S3 objects based on their LastModifiedDate attribute in Amazon S3 .
         """
         return pulumi.get(self, "last_modified_date_condition")
 
@@ -787,7 +787,7 @@ class DatasetPathOptionsArgs:
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetPathParameterArgs']]]]:
         """
-        Represents a single entry in the path parameters of a dataset. Each `PathParameter` consists of a name and a parameter definition.
+        A structure that maps names of parameters used in the Amazon S3 path of a dataset to their definitions.
         """
         return pulumi.get(self, "parameters")
 
@@ -803,7 +803,7 @@ class DatasetPathParameterArgs:
                  path_parameter_name: pulumi.Input[str]):
         """
         A key-value pair to associate dataset parameter name with its definition.
-        :param pulumi.Input['DatasetParameterArgs'] dataset_parameter: Represents a dataset paramater that defines type and conditions for a parameter in the Amazon S3 path of the dataset.
+        :param pulumi.Input['DatasetParameterArgs'] dataset_parameter: The path parameter definition.
         :param pulumi.Input[str] path_parameter_name: The name of the path parameter.
         """
         pulumi.set(__self__, "dataset_parameter", dataset_parameter)
@@ -813,7 +813,7 @@ class DatasetPathParameterArgs:
     @pulumi.getter(name="datasetParameter")
     def dataset_parameter(self) -> pulumi.Input['DatasetParameterArgs']:
         """
-        Represents a dataset paramater that defines type and conditions for a parameter in the Amazon S3 path of the dataset.
+        The path parameter definition.
         """
         return pulumi.get(self, "dataset_parameter")
 
@@ -940,8 +940,8 @@ class JobColumnStatisticsConfigurationArgs:
                  statistics: pulumi.Input['JobStatisticsConfigurationArgs'],
                  selectors: Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]]] = None):
         """
-        :param pulumi.Input['JobStatisticsConfigurationArgs'] statistics: Configuration of evaluations for a profile job. This configuration can be used to select evaluations and override the parameters of selected evaluations.
-        :param pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]] selectors: Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression.
+        :param pulumi.Input['JobStatisticsConfigurationArgs'] statistics: Configuration for evaluations. Statistics can be used to select evaluations and override parameters of evaluations.
+        :param pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]] selectors: List of column selectors. Selectors can be used to select columns from the dataset. When selectors are undefined, configuration will be applied to all supported columns.
         """
         pulumi.set(__self__, "statistics", statistics)
         if selectors is not None:
@@ -951,7 +951,7 @@ class JobColumnStatisticsConfigurationArgs:
     @pulumi.getter
     def statistics(self) -> pulumi.Input['JobStatisticsConfigurationArgs']:
         """
-        Configuration of evaluations for a profile job. This configuration can be used to select evaluations and override the parameters of selected evaluations.
+        Configuration for evaluations. Statistics can be used to select evaluations and override parameters of evaluations.
         """
         return pulumi.get(self, "statistics")
 
@@ -963,7 +963,7 @@ class JobColumnStatisticsConfigurationArgs:
     @pulumi.getter
     def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]]]:
         """
-        Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression.
+        List of column selectors. Selectors can be used to select columns from the dataset. When selectors are undefined, configuration will be applied to all supported columns.
         """
         return pulumi.get(self, "selectors")
 
@@ -1157,7 +1157,7 @@ class JobDatabaseTableOutputOptionsArgs:
                  temp_directory: Optional[pulumi.Input['JobS3LocationArgs']] = None):
         """
         :param pulumi.Input[str] table_name: A prefix for the name of a table DataBrew will create in the database.
-        :param pulumi.Input['JobS3LocationArgs'] temp_directory: Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+        :param pulumi.Input['JobS3LocationArgs'] temp_directory: Represents an Amazon S3 location (bucket name and object key) where DataBrew can store intermediate results.
         """
         pulumi.set(__self__, "table_name", table_name)
         if temp_directory is not None:
@@ -1179,7 +1179,7 @@ class JobDatabaseTableOutputOptionsArgs:
     @pulumi.getter(name="tempDirectory")
     def temp_directory(self) -> Optional[pulumi.Input['JobS3LocationArgs']]:
         """
-        Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+        Represents an Amazon S3 location (bucket name and object key) where DataBrew can store intermediate results.
         """
         return pulumi.get(self, "temp_directory")
 
@@ -1276,7 +1276,7 @@ class JobOutputFormatOptionsArgs:
                  csv: Optional[pulumi.Input['JobCsvOutputOptionsArgs']] = None):
         """
         Format options for job Output
-        :param pulumi.Input['JobCsvOutputOptionsArgs'] csv: Represents a set of options that define how DataBrew will write a comma-separated value (CSV) file.
+        :param pulumi.Input['JobCsvOutputOptionsArgs'] csv: Represents a set of options that define the structure of comma-separated value (CSV) job output.
         """
         if csv is not None:
             pulumi.set(__self__, "csv", csv)
@@ -1285,7 +1285,7 @@ class JobOutputFormatOptionsArgs:
     @pulumi.getter
     def csv(self) -> Optional[pulumi.Input['JobCsvOutputOptionsArgs']]:
         """
-        Represents a set of options that define how DataBrew will write a comma-separated value (CSV) file.
+        Represents a set of options that define the structure of comma-separated value (CSV) job output.
         """
         return pulumi.get(self, "csv")
 
@@ -1356,10 +1356,10 @@ class JobOutputArgs:
                  overwrite: Optional[pulumi.Input[bool]] = None,
                  partition_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input['JobS3LocationArgs'] location: Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+        :param pulumi.Input['JobS3LocationArgs'] location: The location in Amazon S3 where the job writes its output.
         :param pulumi.Input['JobOutputCompressionFormat'] compression_format: The compression algorithm used to compress the output text of the job.
         :param pulumi.Input['JobOutputFormat'] format: The data format of the output of the job.
-        :param pulumi.Input['JobOutputFormatOptionsArgs'] format_options: Represents a set of options that define the structure of comma-separated (CSV) job output.
+        :param pulumi.Input['JobOutputFormatOptionsArgs'] format_options: Represents options that define how DataBrew formats job output files.
         :param pulumi.Input[int] max_output_files: The maximum number of files to be generated by the job and written to the output folder.
         :param pulumi.Input[bool] overwrite: A value that, if true, means that any data in the location specified for output is overwritten with new output.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_columns: The names of one or more partition columns for the output of the job.
@@ -1382,7 +1382,7 @@ class JobOutputArgs:
     @pulumi.getter
     def location(self) -> pulumi.Input['JobS3LocationArgs']:
         """
-        Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+        The location in Amazon S3 where the job writes its output.
         """
         return pulumi.get(self, "location")
 
@@ -1418,7 +1418,7 @@ class JobOutputArgs:
     @pulumi.getter(name="formatOptions")
     def format_options(self) -> Optional[pulumi.Input['JobOutputFormatOptionsArgs']]:
         """
-        Represents a set of options that define the structure of comma-separated (CSV) job output.
+        Represents options that define how DataBrew formats job output files.
         """
         return pulumi.get(self, "format_options")
 
@@ -1471,8 +1471,8 @@ class JobProfileConfigurationArgs:
                  entity_detector_configuration: Optional[pulumi.Input['JobEntityDetectorConfigurationArgs']] = None,
                  profile_columns: Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['JobColumnStatisticsConfigurationArgs']]] column_statistics_configurations: Configuration for column evaluations for a profile job. ColumnStatisticsConfiguration can be used to select evaluations and override parameters of evaluations for particular columns.
-        :param pulumi.Input['JobStatisticsConfigurationArgs'] dataset_statistics_configuration: Configuration of evaluations for a profile job. This configuration can be used to select evaluations and override the parameters of selected evaluations.
+        :param pulumi.Input[Sequence[pulumi.Input['JobColumnStatisticsConfigurationArgs']]] column_statistics_configurations: List of configurations for column evaluations. ColumnStatisticsConfigurations are used to select evaluations and override parameters of evaluations for particular columns. When ColumnStatisticsConfigurations is undefined, the profile job will profile all supported columns and run all supported evaluations.
+        :param pulumi.Input['JobStatisticsConfigurationArgs'] dataset_statistics_configuration: Configuration for inter-column evaluations. Configuration can be used to select evaluations and override parameters of evaluations. When configuration is undefined, the profile job will run all supported inter-column evaluations.
         :param pulumi.Input['JobEntityDetectorConfigurationArgs'] entity_detector_configuration: Configuration of entity detection for a profile job. When undefined, entity detection is disabled.
         :param pulumi.Input[Sequence[pulumi.Input['JobColumnSelectorArgs']]] profile_columns: List of column selectors. ProfileColumns can be used to select columns from the dataset. When ProfileColumns is undefined, the profile job will profile all supported columns.
         """
@@ -1489,7 +1489,7 @@ class JobProfileConfigurationArgs:
     @pulumi.getter(name="columnStatisticsConfigurations")
     def column_statistics_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobColumnStatisticsConfigurationArgs']]]]:
         """
-        Configuration for column evaluations for a profile job. ColumnStatisticsConfiguration can be used to select evaluations and override parameters of evaluations for particular columns.
+        List of configurations for column evaluations. ColumnStatisticsConfigurations are used to select evaluations and override parameters of evaluations for particular columns. When ColumnStatisticsConfigurations is undefined, the profile job will profile all supported columns and run all supported evaluations.
         """
         return pulumi.get(self, "column_statistics_configurations")
 
@@ -1501,7 +1501,7 @@ class JobProfileConfigurationArgs:
     @pulumi.getter(name="datasetStatisticsConfiguration")
     def dataset_statistics_configuration(self) -> Optional[pulumi.Input['JobStatisticsConfigurationArgs']]:
         """
-        Configuration of evaluations for a profile job. This configuration can be used to select evaluations and override the parameters of selected evaluations.
+        Configuration for inter-column evaluations. Configuration can be used to select evaluations and override parameters of evaluations. When configuration is undefined, the profile job will run all supported inter-column evaluations.
         """
         return pulumi.get(self, "dataset_statistics_configuration")
 
@@ -1632,7 +1632,7 @@ class JobS3TableOutputOptionsArgs:
     def __init__(__self__, *,
                  location: pulumi.Input['JobS3LocationArgs']):
         """
-        :param pulumi.Input['JobS3LocationArgs'] location: Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+        :param pulumi.Input['JobS3LocationArgs'] location: Represents an Amazon S3 location (bucket name and object key) where DataBrew can write output from a job.
         """
         pulumi.set(__self__, "location", location)
 
@@ -1640,7 +1640,7 @@ class JobS3TableOutputOptionsArgs:
     @pulumi.getter
     def location(self) -> pulumi.Input['JobS3LocationArgs']:
         """
-        Represents an Amazon S3 location (bucket name, bucket owner, and object key) where DataBrew can read input data, or write output from a job.
+        Represents an Amazon S3 location (bucket name and object key) where DataBrew can write output from a job.
         """
         return pulumi.get(self, "location")
 
@@ -1743,7 +1743,7 @@ class JobStatisticsConfigurationArgs:
                  overrides: Optional[pulumi.Input[Sequence[pulumi.Input['JobStatisticOverrideArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] included_statistics: List of included evaluations. When the list is undefined, all supported evaluations will be included.
-        :param pulumi.Input[Sequence[pulumi.Input['JobStatisticOverrideArgs']]] overrides: Override of a particular evaluation for a profile job.
+        :param pulumi.Input[Sequence[pulumi.Input['JobStatisticOverrideArgs']]] overrides: List of overrides for evaluations.
         """
         if included_statistics is not None:
             pulumi.set(__self__, "included_statistics", included_statistics)
@@ -1766,7 +1766,7 @@ class JobStatisticsConfigurationArgs:
     @pulumi.getter
     def overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobStatisticOverrideArgs']]]]:
         """
-        Override of a particular evaluation for a profile job.
+        List of overrides for evaluations.
         """
         return pulumi.get(self, "overrides")
 
@@ -3335,7 +3335,7 @@ class RecipeStepArgs:
                  action: pulumi.Input['RecipeActionArgs'],
                  condition_expressions: Optional[pulumi.Input[Sequence[pulumi.Input['RecipeConditionExpressionArgs']]]] = None):
         """
-        :param pulumi.Input['RecipeActionArgs'] action: Represents a transformation and associated parameters that are used to apply a change to an AWS Glue DataBrew dataset.
+        :param pulumi.Input['RecipeActionArgs'] action: The particular action to be performed in the recipe step.
         :param pulumi.Input[Sequence[pulumi.Input['RecipeConditionExpressionArgs']]] condition_expressions: Condition expressions applied to the step action
         """
         pulumi.set(__self__, "action", action)
@@ -3346,7 +3346,7 @@ class RecipeStepArgs:
     @pulumi.getter
     def action(self) -> pulumi.Input['RecipeActionArgs']:
         """
-        Represents a transformation and associated parameters that are used to apply a change to an AWS Glue DataBrew dataset.
+        The particular action to be performed in the recipe step.
         """
         return pulumi.get(self, "action")
 
@@ -3420,10 +3420,10 @@ class RulesetRuleArgs:
         Data quality rule for a target resource (dataset)
         :param pulumi.Input[str] check_expression: The expression which includes column references, condition names followed by variable references, possibly grouped and combined with other conditions. For example, `(:col1 starts_with :prefix1 or :col1 starts_with :prefix2) and (:col1 ends_with :suffix1 or :col1 ends_with :suffix2)` . Column and value references are substitution variables that should start with the ':' symbol. Depending on the context, substitution variables' values can be either an actual value or a column name. These values are defined in the SubstitutionMap. If a CheckExpression starts with a column reference, then ColumnSelectors in the rule should be null. If ColumnSelectors has been defined, then there should be no columnn reference in the left side of a condition, for example, `is_between :val1 and :val2` .
         :param pulumi.Input[str] name: Name of the rule
-        :param pulumi.Input[Sequence[pulumi.Input['RulesetColumnSelectorArgs']]] column_selectors: Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression.
+        :param pulumi.Input[Sequence[pulumi.Input['RulesetColumnSelectorArgs']]] column_selectors: List of column selectors. Selectors can be used to select columns using a name or regular expression from the dataset. Rule will be applied to selected columns.
         :param pulumi.Input[bool] disabled: A value that specifies whether the rule is disabled. Once a rule is disabled, a profile job will not validate it during a job run. Default value is false.
         :param pulumi.Input[Sequence[pulumi.Input['RulesetSubstitutionValueArgs']]] substitution_map: The map of substitution variable names to their values used in a check expression. Variable names should start with a ':' (colon). Variable values can either be actual values or column names. To differentiate between the two, column names should be enclosed in backticks, for example, `":col1": "`Column A`".`
-        :param pulumi.Input['RulesetThresholdArgs'] threshold: The threshold used with a non-aggregate check expression. The non-aggregate check expression will be applied to each row in a specific column. Then the threshold will be used to determine whether the validation succeeds.
+        :param pulumi.Input['RulesetThresholdArgs'] threshold: The threshold used with a non-aggregate check expression. Non-aggregate check expressions will be applied to each row in a specific column, and the threshold will be used to determine whether the validation succeeds.
         """
         pulumi.set(__self__, "check_expression", check_expression)
         pulumi.set(__self__, "name", name)
@@ -3464,7 +3464,7 @@ class RulesetRuleArgs:
     @pulumi.getter(name="columnSelectors")
     def column_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesetColumnSelectorArgs']]]]:
         """
-        Selector of a column from a dataset for profile job configuration. One selector includes either a column name or a regular expression.
+        List of column selectors. Selectors can be used to select columns using a name or regular expression from the dataset. Rule will be applied to selected columns.
         """
         return pulumi.get(self, "column_selectors")
 
@@ -3500,7 +3500,7 @@ class RulesetRuleArgs:
     @pulumi.getter
     def threshold(self) -> Optional[pulumi.Input['RulesetThresholdArgs']]:
         """
-        The threshold used with a non-aggregate check expression. The non-aggregate check expression will be applied to each row in a specific column. Then the threshold will be used to determine whether the validation succeeds.
+        The threshold used with a non-aggregate check expression. Non-aggregate check expressions will be applied to each row in a specific column, and the threshold will be used to determine whether the validation succeeds.
         """
         return pulumi.get(self, "threshold")
 

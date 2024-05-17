@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Kendra.Outputs
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Kendra.DataSourceSalesforceKnowledgeArticleState> IncludedStates;
         /// <summary>
-        /// Provides the configuration information for standard Salesforce knowledge articles.
+        /// Configuration information for standard Salesforce knowledge articles.
         /// </summary>
         public readonly Outputs.DataSourceSalesforceStandardKnowledgeArticleTypeConfiguration? StandardKnowledgeArticleTypeConfiguration;
 

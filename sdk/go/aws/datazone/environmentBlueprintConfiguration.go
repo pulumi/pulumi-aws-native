@@ -34,7 +34,7 @@ type EnvironmentBlueprintConfiguration struct {
 	ManageAccessRoleArn pulumi.StringPtrOutput `pulumi:"manageAccessRoleArn"`
 	// The ARN of the provisioning role.
 	ProvisioningRoleArn pulumi.StringPtrOutput `pulumi:"provisioningRoleArn"`
-	// The regional parameters in the environment blueprint.
+	// The regional parameters of the environment blueprint.
 	RegionalParameters EnvironmentBlueprintConfigurationRegionalParameterArrayOutput `pulumi:"regionalParameters"`
 	// The timestamp of when the environment blueprint was updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
@@ -106,7 +106,7 @@ type environmentBlueprintConfigurationArgs struct {
 	ManageAccessRoleArn *string `pulumi:"manageAccessRoleArn"`
 	// The ARN of the provisioning role.
 	ProvisioningRoleArn *string `pulumi:"provisioningRoleArn"`
-	// The regional parameters in the environment blueprint.
+	// The regional parameters of the environment blueprint.
 	RegionalParameters []EnvironmentBlueprintConfigurationRegionalParameter `pulumi:"regionalParameters"`
 }
 
@@ -124,7 +124,7 @@ type EnvironmentBlueprintConfigurationArgs struct {
 	ManageAccessRoleArn pulumi.StringPtrInput
 	// The ARN of the provisioning role.
 	ProvisioningRoleArn pulumi.StringPtrInput
-	// The regional parameters in the environment blueprint.
+	// The regional parameters of the environment blueprint.
 	RegionalParameters EnvironmentBlueprintConfigurationRegionalParameterArrayInput
 }
 
@@ -209,7 +209,7 @@ func (o EnvironmentBlueprintConfigurationOutput) ProvisioningRoleArn() pulumi.St
 	return o.ApplyT(func(v *EnvironmentBlueprintConfiguration) pulumi.StringPtrOutput { return v.ProvisioningRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The regional parameters in the environment blueprint.
+// The regional parameters of the environment blueprint.
 func (o EnvironmentBlueprintConfigurationOutput) RegionalParameters() EnvironmentBlueprintConfigurationRegionalParameterArrayOutput {
 	return o.ApplyT(func(v *EnvironmentBlueprintConfiguration) EnvironmentBlueprintConfigurationRegionalParameterArrayOutput {
 		return v.RegionalParameters

@@ -27,7 +27,7 @@ export interface GetModelCardArgs {
 
 export interface GetModelCardResult {
     /**
-     * The content of the model card. It follows the [model card json schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
+     * The content of the model card. Content uses the [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema) .
      */
     readonly content?: outputs.sagemaker.ModelCardContent;
     /**

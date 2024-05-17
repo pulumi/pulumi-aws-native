@@ -51,7 +51,7 @@ class TrailArgs:
         :param pulumi.Input[str] kms_key_id: Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         :param pulumi.Input[str] s3_key_prefix: Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see Finding Your CloudTrail Log Files. The maximum length is 200 characters.
         :param pulumi.Input[str] sns_topic_name: Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A custom set of tags (key-value pairs) for this trail.
         :param pulumi.Input[str] trail_name: Specifies the name of the trail. The name must meet the following requirements:
                
                - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
@@ -263,7 +263,7 @@ class TrailArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+        A custom set of tags (key-value pairs) for this trail.
         """
         return pulumi.get(self, "tags")
 
@@ -331,7 +331,7 @@ class Trail(pulumi.CustomResource):
         :param pulumi.Input[str] s3_bucket_name: Specifies the name of the Amazon S3 bucket designated for publishing log files. See Amazon S3 Bucket Naming Requirements.
         :param pulumi.Input[str] s3_key_prefix: Specifies the Amazon S3 key prefix that comes after the name of the bucket you have designated for log file delivery. For more information, see Finding Your CloudTrail Log Files. The maximum length is 200 characters.
         :param pulumi.Input[str] sns_topic_name: Specifies the name of the Amazon SNS topic defined for notification of log file delivery. The maximum length is 256 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: A custom set of tags (key-value pairs) for this trail.
         :param pulumi.Input[str] trail_name: Specifies the name of the trail. The name must meet the following requirements:
                
                - Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
@@ -587,7 +587,7 @@ class Trail(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        A custom key-value pair associated with a resource such as a CloudTrail trail, event data store, or channel.
+        A custom set of tags (key-value pairs) for this trail.
         """
         return pulumi.get(self, "tags")
 

@@ -120,7 +120,7 @@ func (o TrainingDatasetColumnSchemaArrayOutput) Index(i pulumi.IntInput) Trainin
 }
 
 type TrainingDatasetDataSource struct {
-	// Defines the Glue data source that contains the training data.
+	// A GlueDataSource object that defines the catalog ID, database name, and table name for the training data.
 	GlueDataSource TrainingDatasetGlueDataSource `pulumi:"glueDataSource"`
 }
 
@@ -136,7 +136,7 @@ type TrainingDatasetDataSourceInput interface {
 }
 
 type TrainingDatasetDataSourceArgs struct {
-	// Defines the Glue data source that contains the training data.
+	// A GlueDataSource object that defines the catalog ID, database name, and table name for the training data.
 	GlueDataSource TrainingDatasetGlueDataSourceInput `pulumi:"glueDataSource"`
 }
 
@@ -166,13 +166,13 @@ func (o TrainingDatasetDataSourceOutput) ToTrainingDatasetDataSourceOutputWithCo
 	return o
 }
 
-// Defines the Glue data source that contains the training data.
+// A GlueDataSource object that defines the catalog ID, database name, and table name for the training data.
 func (o TrainingDatasetDataSourceOutput) GlueDataSource() TrainingDatasetGlueDataSourceOutput {
 	return o.ApplyT(func(v TrainingDatasetDataSource) TrainingDatasetGlueDataSource { return v.GlueDataSource }).(TrainingDatasetGlueDataSourceOutput)
 }
 
 type TrainingDatasetDataset struct {
-	// Defines the Glue data source and schema mapping information.
+	// A DatasetInputConfig object that defines the data source and schema mapping.
 	InputConfig TrainingDatasetDatasetInputConfig `pulumi:"inputConfig"`
 	// What type of information is found in the dataset.
 	Type TrainingDatasetDatasetType `pulumi:"type"`
@@ -190,7 +190,7 @@ type TrainingDatasetDatasetInput interface {
 }
 
 type TrainingDatasetDatasetArgs struct {
-	// Defines the Glue data source and schema mapping information.
+	// A DatasetInputConfig object that defines the data source and schema mapping.
 	InputConfig TrainingDatasetDatasetInputConfigInput `pulumi:"inputConfig"`
 	// What type of information is found in the dataset.
 	Type TrainingDatasetDatasetTypeInput `pulumi:"type"`
@@ -247,7 +247,7 @@ func (o TrainingDatasetDatasetOutput) ToTrainingDatasetDatasetOutputWithContext(
 	return o
 }
 
-// Defines the Glue data source and schema mapping information.
+// A DatasetInputConfig object that defines the data source and schema mapping.
 func (o TrainingDatasetDatasetOutput) InputConfig() TrainingDatasetDatasetInputConfigOutput {
 	return o.ApplyT(func(v TrainingDatasetDataset) TrainingDatasetDatasetInputConfig { return v.InputConfig }).(TrainingDatasetDatasetInputConfigOutput)
 }
@@ -278,9 +278,9 @@ func (o TrainingDatasetDatasetArrayOutput) Index(i pulumi.IntInput) TrainingData
 }
 
 type TrainingDatasetDatasetInputConfig struct {
-	// Defines information about the Glue data source that contains the training data.
+	// A DataSource object that specifies the Glue data source for the training data.
 	DataSource TrainingDatasetDataSource `pulumi:"dataSource"`
-	// Metadata for a column.
+	// The schema information for the training data.
 	Schema []TrainingDatasetColumnSchema `pulumi:"schema"`
 }
 
@@ -296,9 +296,9 @@ type TrainingDatasetDatasetInputConfigInput interface {
 }
 
 type TrainingDatasetDatasetInputConfigArgs struct {
-	// Defines information about the Glue data source that contains the training data.
+	// A DataSource object that specifies the Glue data source for the training data.
 	DataSource TrainingDatasetDataSourceInput `pulumi:"dataSource"`
-	// Metadata for a column.
+	// The schema information for the training data.
 	Schema TrainingDatasetColumnSchemaArrayInput `pulumi:"schema"`
 }
 
@@ -328,12 +328,12 @@ func (o TrainingDatasetDatasetInputConfigOutput) ToTrainingDatasetDatasetInputCo
 	return o
 }
 
-// Defines information about the Glue data source that contains the training data.
+// A DataSource object that specifies the Glue data source for the training data.
 func (o TrainingDatasetDatasetInputConfigOutput) DataSource() TrainingDatasetDataSourceOutput {
 	return o.ApplyT(func(v TrainingDatasetDatasetInputConfig) TrainingDatasetDataSource { return v.DataSource }).(TrainingDatasetDataSourceOutput)
 }
 
-// Metadata for a column.
+// The schema information for the training data.
 func (o TrainingDatasetDatasetInputConfigOutput) Schema() TrainingDatasetColumnSchemaArrayOutput {
 	return o.ApplyT(func(v TrainingDatasetDatasetInputConfig) []TrainingDatasetColumnSchema { return v.Schema }).(TrainingDatasetColumnSchemaArrayOutput)
 }

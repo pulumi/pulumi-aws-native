@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Outputs
     public sealed class FirewallPolicyCustomAction
     {
         /// <summary>
-        /// A custom action to use in stateless rule actions settings.
+        /// The custom action associated with the action name.
         /// </summary>
         public readonly Outputs.FirewallPolicyActionDefinition ActionDefinition;
         /// <summary>

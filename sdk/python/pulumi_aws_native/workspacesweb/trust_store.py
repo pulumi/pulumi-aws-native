@@ -21,7 +21,7 @@ class TrustStoreArgs:
         """
         The set of arguments for constructing a TrustStore resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] certificate_list: A list of CA certificates to be added to the trust store.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tag.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the trust store. A tag is a key-value pair.
         """
         pulumi.set(__self__, "certificate_list", certificate_list)
         if tags is not None:
@@ -43,7 +43,7 @@ class TrustStoreArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The tag.
+        The tags to add to the trust store. A tag is a key-value pair.
         """
         return pulumi.get(self, "tags")
 
@@ -66,7 +66,7 @@ class TrustStore(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] certificate_list: A list of CA certificates to be added to the trust store.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tag.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The tags to add to the trust store. A tag is a key-value pair.
         """
         ...
     @overload
@@ -157,7 +157,7 @@ class TrustStore(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The tag.
+        The tags to add to the trust store. A tag is a key-value pair.
         """
         return pulumi.get(self, "tags")
 

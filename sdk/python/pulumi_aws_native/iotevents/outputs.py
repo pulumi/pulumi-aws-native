@@ -1356,70 +1356,18 @@ class DetectorModelAction(dict):
         """
         The actions to be performed.
         :param 'DetectorModelClearTimer' clear_timer: Information needed to clear the timer.
-        :param 'DetectorModelDynamoDBv2' dynamo_d_bv2: Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
-               
-               You must use expressions for all parameters in `DynamoDBv2Action` . The expressions accept literals, operators, functions, references, and substitution templates.
-               
-               **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `tableName` parameter can be `'GreenhouseTemperatureTable'` .
-               - For references, you must specify either variables or input values. For example, the value for the `tableName` parameter can be `$variable.ddbtableName` .
-               - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-               
-               In the following example, the value for the `contentExpression` parameter in `Payload` uses a substitution template.
-               
-               `'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'`
-               - For a string concatenation, you must use `+` . A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-               
-               In the following example, the value for the `tableName` parameter uses a string concatenation.
-               
-               `'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`
-               
-               For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
-               
-               The value for the `type` parameter in `Payload` must be `JSON` .
-        :param 'DetectorModelDynamoDb' dynamo_db: Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
-               
-               You must use expressions for all parameters in `DynamoDBAction` . The expressions accept literals, operators, functions, references, and substitution templates.
-               
-               **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `hashKeyType` parameter can be `'STRING'` .
-               - For references, you must specify either variables or input values. For example, the value for the `hashKeyField` parameter can be `$input.GreenhouseInput.name` .
-               - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-               
-               In the following example, the value for the `hashKeyValue` parameter uses a substitution template.
-               
-               `'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'`
-               - For a string concatenation, you must use `+` . A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-               
-               In the following example, the value for the `tableName` parameter uses a string concatenation.
-               
-               `'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`
-               
-               For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
-               
-               If the defined payload type is a string, `DynamoDBAction` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the `payloadField` parameter is `<payload-field>_raw` .
+        :param 'DetectorModelDynamoDBv2' dynamo_d_bv2: Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
+        :param 'DetectorModelDynamoDb' dynamo_db: Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
         :param 'DetectorModelFirehose' firehose: Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
-        :param 'DetectorModelIotEvents' iot_events: Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
-        :param 'DetectorModelIotSiteWise' iot_site_wise: Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise .
-               
-               You must use expressions for all parameters in `IotSiteWiseAction` . The expressions accept literals, operators, functions, references, and substitutions templates.
-               
-               **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `propertyAlias` parameter can be `'/company/windfarm/3/turbine/7/temperature'` .
-               - For references, you must specify either variables or input values. For example, the value for the `assetId` parameter can be `$input.TurbineInput.assetId1` .
-               - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-               
-               In the following example, the value for the `propertyAlias` parameter uses a substitution template.
-               
-               `'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'`
-               
-               You must specify either `propertyAlias` or both `assetId` and `propertyId` to identify the target asset property in AWS IoT SiteWise .
-               
-               For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
-        :param 'DetectorModelIotTopicPublish' iot_topic_publish: Information required to publish the MQTT message through the AWS IoT message broker.
+        :param 'DetectorModelIotEvents' iot_events: Sends AWS IoT Events input, which passes information about the detector model instance and the event that triggered the action.
+        :param 'DetectorModelIotSiteWise' iot_site_wise: Sends information about the detector model instance and the event that triggered the action to an asset property in AWS IoT SiteWise .
+        :param 'DetectorModelIotTopicPublish' iot_topic_publish: Publishes an MQTT message with the given topic to the AWS IoT message broker.
         :param 'DetectorModelLambda' lambda_: Calls a Lambda function, passing in information about the detector model instance and the event that triggered the action.
-        :param 'DetectorModelResetTimer' reset_timer: Information required to reset the timer. The timer is reset to the previously evaluated result of the duration. The duration expression isn't reevaluated when you reset the timer.
+        :param 'DetectorModelResetTimer' reset_timer: Information needed to reset the timer.
         :param 'DetectorModelSetTimer' set_timer: Information needed to set the timer.
-        :param 'DetectorModelSetVariable' set_variable: Information about the variable and its new value.
-        :param 'DetectorModelSns' sns: Information required to publish the Amazon SNS message.
-        :param 'DetectorModelSqs' sqs: Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
+        :param 'DetectorModelSetVariable' set_variable: Sets a variable to a specified value.
+        :param 'DetectorModelSns' sns: Sends an Amazon SNS message.
+        :param 'DetectorModelSqs' sqs: Sends an Amazon SNS message.
         """
         if clear_timer is not None:
             pulumi.set(__self__, "clear_timer", clear_timer)
@@ -1460,26 +1408,7 @@ class DetectorModelAction(dict):
     @pulumi.getter(name="dynamoDBv2")
     def dynamo_d_bv2(self) -> Optional['outputs.DetectorModelDynamoDBv2']:
         """
-        Defines an action to write to the Amazon DynamoDB table that you created. The default action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify.
-
-        You must use expressions for all parameters in `DynamoDBv2Action` . The expressions accept literals, operators, functions, references, and substitution templates.
-
-        **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `tableName` parameter can be `'GreenhouseTemperatureTable'` .
-        - For references, you must specify either variables or input values. For example, the value for the `tableName` parameter can be `$variable.ddbtableName` .
-        - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-
-        In the following example, the value for the `contentExpression` parameter in `Payload` uses a substitution template.
-
-        `'{\\"sensorID\\": \\"${$input.GreenhouseInput.sensor_id}\\", \\"temperature\\": \\"${$input.GreenhouseInput.temperature * 9 / 5 + 32}\\"}'`
-        - For a string concatenation, you must use `+` . A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-
-        In the following example, the value for the `tableName` parameter uses a string concatenation.
-
-        `'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`
-
-        For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
-
-        The value for the `type` parameter in `Payload` must be `JSON` .
+        Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . A separate column of the DynamoDB table receives one attribute-value pair in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
         """
         return pulumi.get(self, "dynamo_d_bv2")
 
@@ -1487,26 +1416,7 @@ class DetectorModelAction(dict):
     @pulumi.getter(name="dynamoDb")
     def dynamo_db(self) -> Optional['outputs.DetectorModelDynamoDb']:
         """
-        Defines an action to write to the Amazon DynamoDB table that you created. The standard action payload contains all the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify.
-
-        You must use expressions for all parameters in `DynamoDBAction` . The expressions accept literals, operators, functions, references, and substitution templates.
-
-        **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `hashKeyType` parameter can be `'STRING'` .
-        - For references, you must specify either variables or input values. For example, the value for the `hashKeyField` parameter can be `$input.GreenhouseInput.name` .
-        - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-
-        In the following example, the value for the `hashKeyValue` parameter uses a substitution template.
-
-        `'${$input.GreenhouseInput.temperature * 6 / 5 + 32} in Fahrenheit'`
-        - For a string concatenation, you must use `+` . A string concatenation can also contain a combination of literals, operators, functions, references, and substitution templates.
-
-        In the following example, the value for the `tableName` parameter uses a string concatenation.
-
-        `'GreenhouseTemperatureTable ' + $input.GreenhouseInput.date`
-
-        For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
-
-        If the defined payload type is a string, `DynamoDBAction` writes non-JSON data to the DynamoDB table as binary data. The DynamoDB console displays the data as Base64-encoded text. The value for the `payloadField` parameter is `<payload-field>_raw` .
+        Writes to the DynamoDB table that you created. The default action payload contains all attribute-value pairs that have the information about the detector model instance and the event that triggered the action. You can customize the [payload](https://docs.aws.amazon.com/iotevents/latest/apireference/API_Payload.html) . One column of the DynamoDB table receives all attribute-value pairs in the payload that you specify. For more information, see [Actions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-event-actions.html) in *AWS IoT Events Developer Guide* .
         """
         return pulumi.get(self, "dynamo_db")
 
@@ -1522,7 +1432,7 @@ class DetectorModelAction(dict):
     @pulumi.getter(name="iotEvents")
     def iot_events(self) -> Optional['outputs.DetectorModelIotEvents']:
         """
-        Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
+        Sends AWS IoT Events input, which passes information about the detector model instance and the event that triggered the action.
         """
         return pulumi.get(self, "iot_events")
 
@@ -1530,21 +1440,7 @@ class DetectorModelAction(dict):
     @pulumi.getter(name="iotSiteWise")
     def iot_site_wise(self) -> Optional['outputs.DetectorModelIotSiteWise']:
         """
-        Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise .
-
-        You must use expressions for all parameters in `IotSiteWiseAction` . The expressions accept literals, operators, functions, references, and substitutions templates.
-
-        **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `propertyAlias` parameter can be `'/company/windfarm/3/turbine/7/temperature'` .
-        - For references, you must specify either variables or input values. For example, the value for the `assetId` parameter can be `$input.TurbineInput.assetId1` .
-        - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-
-        In the following example, the value for the `propertyAlias` parameter uses a substitution template.
-
-        `'company/windfarm/${$input.TemperatureInput.sensorData.windfarmID}/turbine/ ${$input.TemperatureInput.sensorData.turbineID}/temperature'`
-
-        You must specify either `propertyAlias` or both `assetId` and `propertyId` to identify the target asset property in AWS IoT SiteWise .
-
-        For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
+        Sends information about the detector model instance and the event that triggered the action to an asset property in AWS IoT SiteWise .
         """
         return pulumi.get(self, "iot_site_wise")
 
@@ -1552,7 +1448,7 @@ class DetectorModelAction(dict):
     @pulumi.getter(name="iotTopicPublish")
     def iot_topic_publish(self) -> Optional['outputs.DetectorModelIotTopicPublish']:
         """
-        Information required to publish the MQTT message through the AWS IoT message broker.
+        Publishes an MQTT message with the given topic to the AWS IoT message broker.
         """
         return pulumi.get(self, "iot_topic_publish")
 
@@ -1568,7 +1464,7 @@ class DetectorModelAction(dict):
     @pulumi.getter(name="resetTimer")
     def reset_timer(self) -> Optional['outputs.DetectorModelResetTimer']:
         """
-        Information required to reset the timer. The timer is reset to the previously evaluated result of the duration. The duration expression isn't reevaluated when you reset the timer.
+        Information needed to reset the timer.
         """
         return pulumi.get(self, "reset_timer")
 
@@ -1584,7 +1480,7 @@ class DetectorModelAction(dict):
     @pulumi.getter(name="setVariable")
     def set_variable(self) -> Optional['outputs.DetectorModelSetVariable']:
         """
-        Information about the variable and its new value.
+        Sets a variable to a specified value.
         """
         return pulumi.get(self, "set_variable")
 
@@ -1592,7 +1488,7 @@ class DetectorModelAction(dict):
     @pulumi.getter
     def sns(self) -> Optional['outputs.DetectorModelSns']:
         """
-        Information required to publish the Amazon SNS message.
+        Sends an Amazon SNS message.
         """
         return pulumi.get(self, "sns")
 
@@ -1600,7 +1496,7 @@ class DetectorModelAction(dict):
     @pulumi.getter
     def sqs(self) -> Optional['outputs.DetectorModelSqs']:
         """
-        Sends information about the detector model instance and the event that triggered the action to an Amazon SQS queue.
+        Sends an Amazon SNS message.
         """
         return pulumi.get(self, "sqs")
 
@@ -1669,35 +1565,9 @@ class DetectorModelAssetPropertyValue(dict):
                  timestamp: Optional['outputs.DetectorModelAssetPropertyTimestamp'] = None):
         """
         A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference*.
-        :param 'DetectorModelAssetPropertyVariant' value: A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *AWS IoT SiteWise API Reference* .
-               
-               You must use expressions for all parameters in `AssetPropertyVariant` . The expressions accept literals, operators, functions, references, and substitution templates.
-               
-               **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `integerValue` parameter can be `'100'` .
-               - For references, you must specify either variables or parameters. For example, the value for the `booleanValue` parameter can be `$variable.offline` .
-               - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-               
-               In the following example, the value for the `doubleValue` parameter uses a substitution template.
-               
-               `'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'`
-               
-               For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
-               
-               You must specify one of the following value types, depending on the `dataType` of the specified asset property. For more information, see [AssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html) in the *AWS IoT SiteWise API Reference* .
+        :param 'DetectorModelAssetPropertyVariant' value: The value to send to an asset property.
         :param str quality: The quality of the asset property value. The value must be `GOOD`, `BAD`, or `UNCERTAIN`. You can also specify an expression.
-        :param 'DetectorModelAssetPropertyTimestamp' timestamp: A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *AWS IoT SiteWise API Reference* .
-               
-               You must use expressions for all parameters in `AssetPropertyTimestamp` . The expressions accept literals, operators, functions, references, and substitution templates.
-               
-               **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `timeInSeconds` parameter can be `'1586400675'` .
-               - For references, you must specify either variables or input values. For example, the value for the `offsetInNanos` parameter can be `$variable.time` .
-               - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-               
-               In the following example, the value for the `timeInSeconds` parameter uses a substitution template.
-               
-               `'${$input.TemperatureInput.sensorData.timestamp / 1000}'`
-               
-               For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
+        :param 'DetectorModelAssetPropertyTimestamp' timestamp: The timestamp associated with the asset property value. The default is the current event time.
         """
         pulumi.set(__self__, "value", value)
         if quality is not None:
@@ -1709,21 +1579,7 @@ class DetectorModelAssetPropertyValue(dict):
     @pulumi.getter
     def value(self) -> 'outputs.DetectorModelAssetPropertyVariant':
         """
-        A structure that contains an asset property value. For more information, see [Variant](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_Variant.html) in the *AWS IoT SiteWise API Reference* .
-
-        You must use expressions for all parameters in `AssetPropertyVariant` . The expressions accept literals, operators, functions, references, and substitution templates.
-
-        **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `integerValue` parameter can be `'100'` .
-        - For references, you must specify either variables or parameters. For example, the value for the `booleanValue` parameter can be `$variable.offline` .
-        - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-
-        In the following example, the value for the `doubleValue` parameter uses a substitution template.
-
-        `'${$input.TemperatureInput.sensorData.temperature * 6 / 5 + 32}'`
-
-        For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
-
-        You must specify one of the following value types, depending on the `dataType` of the specified asset property. For more information, see [AssetProperty](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetProperty.html) in the *AWS IoT SiteWise API Reference* .
+        The value to send to an asset property.
         """
         return pulumi.get(self, "value")
 
@@ -1739,19 +1595,7 @@ class DetectorModelAssetPropertyValue(dict):
     @pulumi.getter
     def timestamp(self) -> Optional['outputs.DetectorModelAssetPropertyTimestamp']:
         """
-        A structure that contains timestamp information. For more information, see [TimeInNanos](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_TimeInNanos.html) in the *AWS IoT SiteWise API Reference* .
-
-        You must use expressions for all parameters in `AssetPropertyTimestamp` . The expressions accept literals, operators, functions, references, and substitution templates.
-
-        **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `timeInSeconds` parameter can be `'1586400675'` .
-        - For references, you must specify either variables or input values. For example, the value for the `offsetInNanos` parameter can be `$variable.time` .
-        - For a substitution template, you must use `${}` , and the template must be in single quotes. A substitution template can also contain a combination of literals, operators, functions, references, and substitution templates.
-
-        In the following example, the value for the `timeInSeconds` parameter uses a substitution template.
-
-        `'${$input.TemperatureInput.sensorData.timestamp / 1000}'`
-
-        For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
+        The timestamp associated with the asset property value. The default is the current event time.
         """
         return pulumi.get(self, "timestamp")
 
@@ -2285,9 +2129,7 @@ class DetectorModelFirehose(dict):
         """
         Sends information about the detector model instance and the event that triggered the action to an Amazon Kinesis Data Firehose delivery stream.
         :param str delivery_stream_name: The name of the Kinesis Data Firehose delivery stream where the data is written.
-        :param 'DetectorModelPayload' payload: Information needed to configure the payload.
-               
-               By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+        :param 'DetectorModelPayload' payload: You can configure the action payload when you send a message to an Amazon Data Firehose delivery stream.
         :param str separator: A character separator that is used to separate records written to the Kinesis Data Firehose delivery stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
         """
         pulumi.set(__self__, "delivery_stream_name", delivery_stream_name)
@@ -2308,9 +2150,7 @@ class DetectorModelFirehose(dict):
     @pulumi.getter
     def payload(self) -> Optional['outputs.DetectorModelPayload']:
         """
-        Information needed to configure the payload.
-
-        By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+        You can configure the action payload when you send a message to an Amazon Data Firehose delivery stream.
         """
         return pulumi.get(self, "payload")
 
@@ -2351,9 +2191,7 @@ class DetectorModelIotEvents(dict):
         """
         Sends an AWS IoT Events input, passing in information about the detector model instance and the event that triggered the action.
         :param str input_name: The name of the AWS IoT Events input where the data is sent.
-        :param 'DetectorModelPayload' payload: Information needed to configure the payload.
-               
-               By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+        :param 'DetectorModelPayload' payload: You can configure the action payload when you send a message to an AWS IoT Events input.
         """
         pulumi.set(__self__, "input_name", input_name)
         if payload is not None:
@@ -2371,9 +2209,7 @@ class DetectorModelIotEvents(dict):
     @pulumi.getter
     def payload(self) -> Optional['outputs.DetectorModelPayload']:
         """
-        Information needed to configure the payload.
-
-        By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+        You can configure the action payload when you send a message to an AWS IoT Events input.
         """
         return pulumi.get(self, "payload")
 
@@ -2416,14 +2252,7 @@ class DetectorModelIotSiteWise(dict):
                  property_id: Optional[str] = None):
         """
         Sends information about the detector model instance and the event that triggered the action to a specified asset property in AWS IoT SiteWise.
-        :param 'DetectorModelAssetPropertyValue' property_value: A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference* .
-               
-               You must use expressions for all parameters in `AssetPropertyValue` . The expressions accept literals, operators, functions, references, and substitution templates.
-               
-               **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `quality` parameter can be `'GOOD'` .
-               - For references, you must specify either variables or input values. For example, the value for the `quality` parameter can be `$input.TemperatureInput.sensorData.quality` .
-               
-               For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
+        :param 'DetectorModelAssetPropertyValue' property_value: The value to send to the asset property. This value contains timestamp, quality, and value (TQV) information.
         :param str asset_id: The ID of the asset that has the specified property. You can specify an expression.
         :param str entry_id: A unique identifier for this entry. You can use the entry ID to track which data entry causes an error in case of failure. The default is a new unique identifier. You can also specify an expression.
         :param str property_alias: The alias of the asset property. You can also specify an expression.
@@ -2443,14 +2272,7 @@ class DetectorModelIotSiteWise(dict):
     @pulumi.getter(name="propertyValue")
     def property_value(self) -> 'outputs.DetectorModelAssetPropertyValue':
         """
-        A structure that contains value information. For more information, see [AssetPropertyValue](https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_AssetPropertyValue.html) in the *AWS IoT SiteWise API Reference* .
-
-        You must use expressions for all parameters in `AssetPropertyValue` . The expressions accept literals, operators, functions, references, and substitution templates.
-
-        **Examples** - For literal values, the expressions must contain single quotes. For example, the value for the `quality` parameter can be `'GOOD'` .
-        - For references, you must specify either variables or input values. For example, the value for the `quality` parameter can be `$input.TemperatureInput.sensorData.quality` .
-
-        For more information, see [Expressions](https://docs.aws.amazon.com/iotevents/latest/developerguide/iotevents-expressions.html) in the *AWS IoT Events Developer Guide* .
+        The value to send to the asset property. This value contains timestamp, quality, and value (TQV) information.
         """
         return pulumi.get(self, "property_value")
 
@@ -2515,9 +2337,7 @@ class DetectorModelIotTopicPublish(dict):
         """
         Information required to publish the MQTT message through the AWS IoT message broker.
         :param str mqtt_topic: The MQTT topic of the message. You can use a string expression that includes variables (`$variable.<variable-name>`) and input values (`$input.<input-name>.<path-to-datum>`) as the topic string.
-        :param 'DetectorModelPayload' payload: Information needed to configure the payload.
-               
-               By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+        :param 'DetectorModelPayload' payload: You can configure the action payload when you publish a message to an AWS IoT Core topic.
         """
         pulumi.set(__self__, "mqtt_topic", mqtt_topic)
         if payload is not None:
@@ -2535,9 +2355,7 @@ class DetectorModelIotTopicPublish(dict):
     @pulumi.getter
     def payload(self) -> Optional['outputs.DetectorModelPayload']:
         """
-        Information needed to configure the payload.
-
-        By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+        You can configure the action payload when you publish a message to an AWS IoT Core topic.
         """
         return pulumi.get(self, "payload")
 
@@ -2566,9 +2384,7 @@ class DetectorModelLambda(dict):
                  payload: Optional['outputs.DetectorModelPayload'] = None):
         """
         :param str function_arn: The ARN of the Lambda function that is executed.
-        :param 'DetectorModelPayload' payload: Information needed to configure the payload.
-               
-               By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+        :param 'DetectorModelPayload' payload: You can configure the action payload when you send a message to a Lambda function.
         """
         pulumi.set(__self__, "function_arn", function_arn)
         if payload is not None:
@@ -2586,9 +2402,7 @@ class DetectorModelLambda(dict):
     @pulumi.getter
     def payload(self) -> Optional['outputs.DetectorModelPayload']:
         """
-        Information needed to configure the payload.
-
-        By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+        You can configure the action payload when you send a message to a Lambda function.
         """
         return pulumi.get(self, "payload")
 
@@ -2927,9 +2741,7 @@ class DetectorModelSns(dict):
         """
         Information required to publish the Amazon SNS message.
         :param str target_arn: The ARN of the Amazon SNS target where the message is sent.
-        :param 'DetectorModelPayload' payload: Information needed to configure the payload.
-               
-               By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+        :param 'DetectorModelPayload' payload: You can configure the action payload when you send a message as an Amazon SNS push notification.
         """
         pulumi.set(__self__, "target_arn", target_arn)
         if payload is not None:
@@ -2947,9 +2759,7 @@ class DetectorModelSns(dict):
     @pulumi.getter
     def payload(self) -> Optional['outputs.DetectorModelPayload']:
         """
-        Information needed to configure the payload.
-
-        By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+        You can configure the action payload when you send a message as an Amazon SNS push notification.
         """
         return pulumi.get(self, "payload")
 
@@ -2981,9 +2791,7 @@ class DetectorModelSqs(dict):
                  use_base64: Optional[bool] = None):
         """
         :param str queue_url: The URL of the SQS queue where the data is written.
-        :param 'DetectorModelPayload' payload: Information needed to configure the payload.
-               
-               By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+        :param 'DetectorModelPayload' payload: You can configure the action payload when you send a message to an Amazon SQS queue.
         :param bool use_base64: Set this to `TRUE` if you want the data to be base-64 encoded before it is written to the queue. Otherwise, set this to `FALSE`.
         """
         pulumi.set(__self__, "queue_url", queue_url)
@@ -3004,9 +2812,7 @@ class DetectorModelSqs(dict):
     @pulumi.getter
     def payload(self) -> Optional['outputs.DetectorModelPayload']:
         """
-        Information needed to configure the payload.
-
-        By default, AWS IoT Events generates a standard payload in JSON for any action. This action payload contains all attribute-value pairs that have the information about the detector model instance and the event triggered the action. To configure the action payload, you can use `contentExpression` .
+        You can configure the action payload when you send a message to an Amazon SQS queue.
         """
         return pulumi.get(self, "payload")
 
@@ -3057,7 +2863,7 @@ class DetectorModelState(dict):
         :param str state_name: The name of the state.
         :param 'DetectorModelOnEnter' on_enter: When entering this state, perform these `actions` if the `condition` is TRUE.
         :param 'DetectorModelOnExit' on_exit: When exiting this state, perform these `actions` if the specified `condition` is `TRUE` .
-        :param 'DetectorModelOnInput' on_input: Specifies the actions performed when the `condition` evaluates to TRUE.
+        :param 'DetectorModelOnInput' on_input: When an input is received and the `condition` is TRUE, perform the specified `actions` .
         """
         pulumi.set(__self__, "state_name", state_name)
         if on_enter is not None:
@@ -3095,7 +2901,7 @@ class DetectorModelState(dict):
     @pulumi.getter(name="onInput")
     def on_input(self) -> Optional['outputs.DetectorModelOnInput']:
         """
-        Specifies the actions performed when the `condition` evaluates to TRUE.
+        When an input is received and the `condition` is TRUE, perform the specified `actions` .
         """
         return pulumi.get(self, "on_input")
 

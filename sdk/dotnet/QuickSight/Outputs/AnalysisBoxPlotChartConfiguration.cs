@@ -14,33 +14,28 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisBoxPlotChartConfiguration
     {
         /// <summary>
-        /// The options of a box plot visual.
+        /// The box plot chart options for a box plot visual
         /// </summary>
         public readonly Outputs.AnalysisBoxPlotOptions? BoxPlotOptions;
         /// <summary>
-        /// The display options for the axis label.
+        /// The label display options (grid line, range, scale, axis step) of a box plot category.
         /// </summary>
         public readonly Outputs.AnalysisAxisDisplayOptions? CategoryAxis;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility and sort Icon visibility) of a box plot category.
         /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? CategoryLabelOptions;
         /// <summary>
-        /// The field wells of a `BoxPlotVisual` .
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The field wells of the visual.
         /// </summary>
         public readonly Outputs.AnalysisBoxPlotFieldWells? FieldWells;
-        /// <summary>
-        /// The options for the legend setup of a visual.
-        /// </summary>
         public readonly Outputs.AnalysisLegendOptions? Legend;
         /// <summary>
-        /// The display options for the axis label.
+        /// The label display options (grid line, range, scale, axis step) of a box plot category.
         /// </summary>
         public readonly Outputs.AnalysisAxisDisplayOptions? PrimaryYAxisDisplayOptions;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility and sort icon visibility) of a box plot value.
         /// </summary>
         public readonly Outputs.AnalysisChartAxisLabelOptions? PrimaryYAxisLabelOptions;
         /// <summary>
@@ -52,11 +47,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.AnalysisBoxPlotSortConfiguration? SortConfiguration;
         /// <summary>
-        /// The display options for the visual tooltip.
+        /// The tooltip display setup of the visual.
         /// </summary>
         public readonly Outputs.AnalysisTooltipOptions? Tooltip;
         /// <summary>
-        /// The visual display options for the visual palette.
+        /// The palette (chart color) display setup of the visual.
         /// </summary>
         public readonly Outputs.AnalysisVisualPalette? VisualPalette;
 

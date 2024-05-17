@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.DataBrew
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Represents a single step from a DataBrew recipe to be performed.
+        /// A list of steps that are defined by the recipe.
         /// </summary>
         [Output("steps")]
         public Output<ImmutableArray<Outputs.RecipeStep>> Steps { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.AwsNative.DataBrew
         private InputList<Inputs.RecipeStepArgs>? _steps;
 
         /// <summary>
-        /// Represents a single step from a DataBrew recipe to be performed.
+        /// A list of steps that are defined by the recipe.
         /// </summary>
         public InputList<Inputs.RecipeStepArgs> Steps
         {

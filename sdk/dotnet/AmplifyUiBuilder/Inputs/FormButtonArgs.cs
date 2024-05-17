@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
         public Input<bool>? Excluded { get; set; }
 
         /// <summary>
-        /// The `FieldPosition` property specifies the field position.
+        /// The position of the button.
         /// </summary>
         [Input("position")]
         public object? Position { get; set; }

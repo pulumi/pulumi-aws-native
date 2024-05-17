@@ -32,8 +32,7 @@ type Key struct {
 	KeyOrigin KeyOriginOutput `pulumi:"keyOrigin"`
 	// The state of key that is being created or deleted.
 	KeyState KeyStateEnumOutput `pulumi:"keyState"`
-	// A structure that contains information about a tag.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags     aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewKey registers a new resource with the given unique name, arguments, and options.
@@ -92,8 +91,7 @@ type keyArgs struct {
 	//
 	// For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
 	KeyCheckValueAlgorithm *KeyCheckValueAlgorithm `pulumi:"keyCheckValueAlgorithm"`
-	// A structure that contains information about a tag.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags                   []aws.Tag               `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Key resource.
@@ -108,8 +106,7 @@ type KeyArgs struct {
 	//
 	// For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
 	KeyCheckValueAlgorithm KeyCheckValueAlgorithmPtrInput
-	// A structure that contains information about a tag.
-	Tags aws.TagArrayInput
+	Tags                   aws.TagArrayInput
 }
 
 func (KeyArgs) ElementType() reflect.Type {
@@ -185,7 +182,6 @@ func (o KeyOutput) KeyState() KeyStateEnumOutput {
 	return o.ApplyT(func(v *Key) KeyStateEnumOutput { return v.KeyState }).(KeyStateEnumOutput)
 }
 
-// A structure that contains information about a tag.
 func (o KeyOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Key) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

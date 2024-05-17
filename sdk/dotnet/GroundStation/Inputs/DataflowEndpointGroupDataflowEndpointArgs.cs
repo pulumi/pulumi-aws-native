@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.GroundStation.Inputs
     public sealed class DataflowEndpointGroupDataflowEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The address of the endpoint, such as `192.168.1.1` .
+        /// The address and port of an endpoint.
         /// </summary>
         [Input("address")]
         public Input<Inputs.DataflowEndpointGroupSocketAddressArgs>? Address { get; set; }

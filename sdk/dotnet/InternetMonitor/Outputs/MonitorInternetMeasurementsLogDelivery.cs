@@ -14,9 +14,7 @@ namespace Pulumi.AwsNative.InternetMonitor.Outputs
     public sealed class MonitorInternetMeasurementsLogDelivery
     {
         /// <summary>
-        /// The configuration for publishing Amazon CloudWatch Internet Monitor internet measurements to Amazon S3. The configuration includes the bucket name and (optionally) bucket prefix for the S3 bucket to store the measurements, and the delivery status. The delivery status is `ENABLED` if you choose to deliver internet measurements to S3 logs, and `DISABLED` otherwise.
-        /// 
-        /// The measurements are also published to Amazon CloudWatch Logs.
+        /// The configuration for publishing Amazon CloudWatch Internet Monitor internet measurements to Amazon S3.
         /// </summary>
         public readonly Outputs.MonitorS3Config? S3Config;
 

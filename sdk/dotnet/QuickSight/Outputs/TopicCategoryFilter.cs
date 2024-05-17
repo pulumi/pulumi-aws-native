@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TopicCategoryFilterType? CategoryFilterType;
         /// <summary>
-        /// A constant used in a category filter.
+        /// The constant used in a category filter.
         /// </summary>
         public readonly Outputs.TopicCategoryFilterConstant? Constant;
         /// <summary>

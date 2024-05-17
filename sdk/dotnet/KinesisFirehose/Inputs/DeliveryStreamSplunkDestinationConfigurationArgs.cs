@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<Inputs.DeliveryStreamSplunkBufferingHintsArgs>? BufferingHints { get; set; }
 
         /// <summary>
-        /// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        /// The Amazon CloudWatch logging options for your delivery stream.
         /// </summary>
         [Input("cloudWatchLoggingOptions")]
         public Input<Inputs.DeliveryStreamCloudWatchLoggingOptionsArgs>? CloudWatchLoggingOptions { get; set; }
@@ -49,13 +49,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<string> HecToken { get; set; } = null!;
 
         /// <summary>
-        /// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+        /// The data processing configuration.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.DeliveryStreamProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
 
         /// <summary>
-        /// The `SplunkRetryOptions` property type specifies retry behavior in case Kinesis Data Firehose is unable to deliver documents to Splunk or if it doesn't receive an acknowledgment from Splunk.
+        /// The retry behavior in case Firehose is unable to deliver data to Splunk, or if it doesn't receive an acknowledgment of receipt from Splunk.
         /// </summary>
         [Input("retryOptions")]
         public Input<Inputs.DeliveryStreamSplunkRetryOptionsArgs>? RetryOptions { get; set; }
@@ -69,7 +69,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<string>? S3BackupMode { get; set; }
 
         /// <summary>
-        /// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        /// The configuration for the backup Amazon S3 location.
         /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.DeliveryStreamS3DestinationConfigurationArgs> S3Configuration { get; set; } = null!;

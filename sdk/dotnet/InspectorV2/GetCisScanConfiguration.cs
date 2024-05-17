@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.InspectorV2
         /// </summary>
         public readonly string? ScanName;
         /// <summary>
-        /// The schedule the CIS scan configuration runs on. Each CIS scan configuration has exactly one type of schedule.
+        /// The CIS scan configuration's schedule.
         /// </summary>
         public readonly Outputs.CisScanConfigurationSchedule? Schedule;
         /// <summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.InspectorV2
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The CIS targets.
+        /// The CIS scan configuration's targets.
         /// </summary>
         public readonly Outputs.CisScanConfigurationCisTargets? Targets;
 

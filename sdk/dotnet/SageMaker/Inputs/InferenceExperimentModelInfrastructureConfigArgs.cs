@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<Pulumi.AwsNative.SageMaker.InferenceExperimentModelInfrastructureConfigInfrastructureType> InfrastructureType { get; set; } = null!;
 
         /// <summary>
-        /// The infrastructure configuration for deploying the model to a real-time inference endpoint.
+        /// The infrastructure configuration for deploying the model to real-time inference.
         /// </summary>
         [Input("realTimeInferenceConfig", required: true)]
         public Input<Inputs.InferenceExperimentRealTimeInferenceConfigArgs> RealTimeInferenceConfig { get; set; } = null!;

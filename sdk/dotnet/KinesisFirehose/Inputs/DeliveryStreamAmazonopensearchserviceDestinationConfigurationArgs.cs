@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
     public sealed class DeliveryStreamAmazonopensearchserviceDestinationConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes the buffering to perform before delivering data to the Amazon OpenSearch Service destination.
+        /// The buffering options. If no value is specified, the default values for AmazonopensearchserviceBufferingHints are used.
         /// </summary>
         [Input("bufferingHints")]
         public Input<Inputs.DeliveryStreamAmazonopensearchserviceBufferingHintsArgs>? BufferingHints { get; set; }
 
         /// <summary>
-        /// The `CloudWatchLoggingOptions` property type specifies Amazon CloudWatch Logs (CloudWatch Logs) logging options that Amazon Kinesis Data Firehose (Kinesis Data Firehose) uses for the delivery stream.
+        /// Describes the Amazon CloudWatch logging options for your delivery stream.
         /// </summary>
         [Input("cloudWatchLoggingOptions")]
         public Input<Inputs.DeliveryStreamCloudWatchLoggingOptionsArgs>? CloudWatchLoggingOptions { get; set; }
@@ -55,13 +55,13 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamAmazonopensearchserviceDestinationConfigurationIndexRotationPeriod>? IndexRotationPeriod { get; set; }
 
         /// <summary>
-        /// The `ProcessingConfiguration` property configures data processing for an Amazon Kinesis Data Firehose delivery stream.
+        /// Describes a data processing configuration.
         /// </summary>
         [Input("processingConfiguration")]
         public Input<Inputs.DeliveryStreamProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
 
         /// <summary>
-        /// Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon OpenSearch Service.
+        /// The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon OpenSearch Service. The default value is 300 (5 minutes).
         /// </summary>
         [Input("retryOptions")]
         public Input<Inputs.DeliveryStreamAmazonopensearchserviceRetryOptionsArgs>? RetryOptions { get; set; }
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<Pulumi.AwsNative.KinesisFirehose.DeliveryStreamAmazonopensearchserviceDestinationConfigurationS3BackupMode>? S3BackupMode { get; set; }
 
         /// <summary>
-        /// The `S3DestinationConfiguration` property type specifies an Amazon Simple Storage Service (Amazon S3) destination to which Amazon Kinesis Data Firehose (Kinesis Data Firehose) delivers data.
+        /// Describes the configuration of a destination in Amazon S3.
         /// </summary>
         [Input("s3Configuration", required: true)]
         public Input<Inputs.DeliveryStreamS3DestinationConfigurationArgs> S3Configuration { get; set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.KinesisFirehose.Inputs
         public Input<string>? TypeName { get; set; }
 
         /// <summary>
-        /// The details of the VPC of the Amazon ES destination.
+        /// The details of the VPC of the Amazon OpenSearch Service destination.
         /// </summary>
         [Input("vpcConfiguration")]
         public Input<Inputs.DeliveryStreamVpcConfigurationArgs>? VpcConfiguration { get; set; }

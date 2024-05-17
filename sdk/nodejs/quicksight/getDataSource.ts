@@ -52,11 +52,11 @@ export interface GetDataSourceResult {
      */
     readonly createdTime?: string;
     /**
-     * The parameters that Amazon QuickSight uses to connect to your underlying data source. This is a variant type structure. For this structure to be valid, only one of the attributes can be non-null.
+     * The parameters that Amazon QuickSight uses to connect to your underlying source.
      */
     readonly dataSourceParameters?: outputs.quicksight.DataSourceParameters;
     /**
-     * Error information for the data source creation or update.
+     * Error information from the last update or the creation of the data source.
      */
     readonly errorInfo?: outputs.quicksight.DataSourceErrorInfo;
     /**
@@ -68,11 +68,11 @@ export interface GetDataSourceResult {
      */
     readonly name?: string;
     /**
-     * Permission for the resource.
+     * A list of resource permissions on the data source.
      */
     readonly permissions?: outputs.quicksight.DataSourceResourcePermission[];
     /**
-     * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying data source.
+     * Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source.
      */
     readonly sslProperties?: outputs.quicksight.DataSourceSslProperties;
     /**
@@ -84,7 +84,7 @@ export interface GetDataSourceResult {
      */
     readonly tags?: outputs.Tag[];
     /**
-     * VPC connection properties.
+     * Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source.
      */
     readonly vpcConnectionProperties?: outputs.quicksight.DataSourceVpcConnectionProperties;
 }

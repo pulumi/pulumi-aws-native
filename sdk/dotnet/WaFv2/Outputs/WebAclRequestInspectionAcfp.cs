@@ -32,15 +32,29 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclFieldIdentifier> AddressFields;
         /// <summary>
-        /// The identifier of a field in the web request payload that contains customer data.
+        /// The name of the field in the request payload that contains your customer's email.
         /// 
-        /// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+        /// How you specify this depends on the request inspection payload type.
+        /// 
+        /// - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+        /// 
+        /// For example, for the JSON payload `{ "form": { "email": "THE_EMAIL" } }` , the email field specification is `/form/email` .
+        /// - For form encoded payload types, use the HTML form names.
+        /// 
+        /// For example, for an HTML form with the input element named `email1` , the email field specification is `email1` .
         /// </summary>
         public readonly Outputs.WebAclFieldIdentifier? EmailField;
         /// <summary>
-        /// The identifier of a field in the web request payload that contains customer data.
+        /// The name of the field in the request payload that contains your customer's password.
         /// 
-        /// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+        /// How you specify this depends on the request inspection payload type.
+        /// 
+        /// - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+        /// 
+        /// For example, for the JSON payload `{ "form": { "password": "THE_PASSWORD" } }` , the password field specification is `/form/password` .
+        /// - For form encoded payload types, use the HTML form names.
+        /// 
+        /// For example, for an HTML form with the input element named `password1` , the password field specification is `password1` .
         /// </summary>
         public readonly Outputs.WebAclFieldIdentifier? PasswordField;
         /// <summary>
@@ -63,9 +77,16 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclFieldIdentifier> PhoneNumberFields;
         /// <summary>
-        /// The identifier of a field in the web request payload that contains customer data.
+        /// The name of the field in the request payload that contains your customer's username.
         /// 
-        /// This data type is used to specify fields in the `RequestInspection` and `RequestInspectionACFP` configurations, which are used in the managed rule group configurations `AWSManagedRulesATPRuleSet` and `AWSManagedRulesACFPRuleSet` , respectively.
+        /// How you specify this depends on the request inspection payload type.
+        /// 
+        /// - For JSON payloads, specify the field name in JSON pointer syntax. For information about the JSON Pointer syntax, see the Internet Engineering Task Force (IETF) documentation [JavaScript Object Notation (JSON) Pointer](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6901) .
+        /// 
+        /// For example, for the JSON payload `{ "form": { "username": "THE_USERNAME" } }` , the username field specification is `/form/username` .
+        /// - For form encoded payload types, use the HTML form names.
+        /// 
+        /// For example, for an HTML form with the input element named `username1` , the username field specification is `username1`
         /// </summary>
         public readonly Outputs.WebAclFieldIdentifier? UsernameField;
 

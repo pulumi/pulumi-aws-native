@@ -22,7 +22,7 @@ class MonitoringSubscriptionInitArgs:
         """
         The set of arguments for constructing a MonitoringSubscription resource.
         :param pulumi.Input[str] distribution_id: The ID of the distribution that you are enabling metrics for.
-        :param pulumi.Input['MonitoringSubscriptionArgs'] monitoring_subscription: A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+        :param pulumi.Input['MonitoringSubscriptionArgs'] monitoring_subscription: A subscription configuration for additional CloudWatch metrics.
         """
         pulumi.set(__self__, "distribution_id", distribution_id)
         pulumi.set(__self__, "monitoring_subscription", monitoring_subscription)
@@ -43,7 +43,7 @@ class MonitoringSubscriptionInitArgs:
     @pulumi.getter(name="monitoringSubscription")
     def monitoring_subscription(self) -> pulumi.Input['MonitoringSubscriptionArgs']:
         """
-        A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+        A subscription configuration for additional CloudWatch metrics.
         """
         return pulumi.get(self, "monitoring_subscription")
 
@@ -66,7 +66,7 @@ class MonitoringSubscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] distribution_id: The ID of the distribution that you are enabling metrics for.
-        :param pulumi.Input[pulumi.InputType['MonitoringSubscriptionArgs']] monitoring_subscription: A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+        :param pulumi.Input[pulumi.InputType['MonitoringSubscriptionArgs']] monitoring_subscription: A subscription configuration for additional CloudWatch metrics.
         """
         ...
     @overload
@@ -149,7 +149,7 @@ class MonitoringSubscription(pulumi.CustomResource):
     @pulumi.getter(name="monitoringSubscription")
     def monitoring_subscription(self) -> pulumi.Output['outputs.MonitoringSubscription']:
         """
-        A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+        A subscription configuration for additional CloudWatch metrics.
         """
         return pulumi.get(self, "monitoring_subscription")
 

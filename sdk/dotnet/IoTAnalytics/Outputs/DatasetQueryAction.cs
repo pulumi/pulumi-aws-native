@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.IoTAnalytics.Outputs
     public sealed class DatasetQueryAction
     {
         /// <summary>
-        /// Information which is used to filter message data, to segregate it according to the time frame in which it arrives.
+        /// Pre-filters applied to message data.
         /// </summary>
         public readonly ImmutableArray<Outputs.DatasetFilter> Filters;
         /// <summary>

@@ -16,13 +16,17 @@ namespace Pulumi.AwsNative.ResourceExplorer2
     public partial class View : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A search filter defines which resources can be part of a search query result set.
+        /// An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view. When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
+        /// 
+        /// For information about the supported syntax, see [Search query reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+        /// 
+        /// &gt; This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
         /// </summary>
         [Output("filters")]
         public Output<Outputs.ViewSearchFilter?> Filters { get; private set; } = null!;
 
         /// <summary>
-        /// Information about an additional property that describes a resource, that you can optionally include in a view.
+        /// A list of fields that provide additional information about the view.
         /// </summary>
         [Output("includedProperties")]
         public Output<ImmutableArray<Outputs.ViewIncludedProperty>> IncludedProperties { get; private set; } = null!;
@@ -104,7 +108,11 @@ namespace Pulumi.AwsNative.ResourceExplorer2
     public sealed class ViewArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A search filter defines which resources can be part of a search query result set.
+        /// An array of strings that include search keywords, prefixes, and operators that filter the results that are returned for queries made using this view. When you use this view in a [Search](https://docs.aws.amazon.com/resource-explorer/latest/apireference/API_Search.html) operation, the filter string is combined with the search's `QueryString` parameter using a logical `AND` operator.
+        /// 
+        /// For information about the supported syntax, see [Search query reference for Resource Explorer](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html) in the *AWS Resource Explorer User Guide* .
+        /// 
+        /// &gt; This query string in the context of this operation supports only [filter prefixes](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters) with optional [operators](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators) . It doesn't support free-form text. For example, the string `region:us* service:ec2 -tag:stage=prod` includes all Amazon EC2 resources in any AWS Region that begin with the letters `us` and are *not* tagged with a key `Stage` that has the value `prod` .
         /// </summary>
         [Input("filters")]
         public Input<Inputs.ViewSearchFilterArgs>? Filters { get; set; }
@@ -113,7 +121,7 @@ namespace Pulumi.AwsNative.ResourceExplorer2
         private InputList<Inputs.ViewIncludedPropertyArgs>? _includedProperties;
 
         /// <summary>
-        /// Information about an additional property that describes a resource, that you can optionally include in a view.
+        /// A list of fields that provide additional information about the view.
         /// </summary>
         public InputList<Inputs.ViewIncludedPropertyArgs> IncludedProperties
         {

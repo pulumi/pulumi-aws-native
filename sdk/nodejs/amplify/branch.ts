@@ -46,13 +46,13 @@ export class Branch extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Describes the backend associated with an Amplify `Branch` .
+     * The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
      *
-     * This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
+     * This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
      */
     public readonly backend!: pulumi.Output<outputs.amplify.BranchBackend | undefined>;
     /**
-     * Use the BasicAuthConfig property type to set password protection for a specific branch.
+     * The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
      */
     public readonly basicAuthConfig!: pulumi.Output<outputs.amplify.BranchBasicAuthConfig | undefined>;
     /**
@@ -86,7 +86,7 @@ export class Branch extends pulumi.CustomResource {
      */
     public readonly enablePullRequestPreview!: pulumi.Output<boolean | undefined>;
     /**
-     * The EnvironmentVariable property type sets environment variables for a specific branch. Environment variables are key-value pairs that are available at build time.
+     * The environment variables for the branch.
      */
     public readonly environmentVariables!: pulumi.Output<outputs.amplify.BranchEnvironmentVariable[] | undefined>;
     /**
@@ -108,7 +108,7 @@ export class Branch extends pulumi.CustomResource {
      */
     public readonly stage!: pulumi.Output<enums.amplify.BranchStage | undefined>;
     /**
-     * The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::Branch` resource.
+     * The tag for the branch.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -174,13 +174,13 @@ export interface BranchArgs {
      */
     appId: pulumi.Input<string>;
     /**
-     * Describes the backend associated with an Amplify `Branch` .
+     * The backend for a `Branch` of an Amplify app. Use for a backend created from an AWS CloudFormation stack.
      *
-     * This property is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
+     * This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
      */
     backend?: pulumi.Input<inputs.amplify.BranchBackendArgs>;
     /**
-     * Use the BasicAuthConfig property type to set password protection for a specific branch.
+     * The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
      */
     basicAuthConfig?: pulumi.Input<inputs.amplify.BranchBasicAuthConfigArgs>;
     /**
@@ -214,7 +214,7 @@ export interface BranchArgs {
      */
     enablePullRequestPreview?: pulumi.Input<boolean>;
     /**
-     * The EnvironmentVariable property type sets environment variables for a specific branch. Environment variables are key-value pairs that are available at build time.
+     * The environment variables for the branch.
      */
     environmentVariables?: pulumi.Input<pulumi.Input<inputs.amplify.BranchEnvironmentVariableArgs>[]>;
     /**
@@ -236,7 +236,7 @@ export interface BranchArgs {
      */
     stage?: pulumi.Input<enums.amplify.BranchStage>;
     /**
-     * The `Tag` property specifies a key-value pair for tagging an `AWS:Amplify::Branch` resource.
+     * The tag for the branch.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

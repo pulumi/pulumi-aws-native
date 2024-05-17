@@ -32,15 +32,17 @@ namespace Pulumi.AwsNative.Kendra
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// Provides the configuration information for altering document metadata and content during the document ingestion process.
-        /// 
-        /// For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
+        /// Configuration information for altering document metadata and content during the document ingestion process.
         /// </summary>
         [Output("customDocumentEnrichmentConfiguration")]
         public Output<Outputs.DataSourceCustomDocumentEnrichmentConfiguration?> CustomDocumentEnrichmentConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Provides the configuration information for an Amazon Kendra data source.
+        /// Configuration information for an Amazon Kendra data source. The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration.
+        /// 
+        /// You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM` .
+        /// 
+        /// The `Configuration` parameter is required for all other data sources.
         /// </summary>
         [Output("dataSourceConfiguration")]
         public Output<Outputs.DataSourceConfiguration?> DataSourceConfiguration { get; private set; } = null!;
@@ -147,15 +149,17 @@ namespace Pulumi.AwsNative.Kendra
     public sealed class DataSourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Provides the configuration information for altering document metadata and content during the document ingestion process.
-        /// 
-        /// For more information, see [Customizing document metadata during the ingestion process](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html) .
+        /// Configuration information for altering document metadata and content during the document ingestion process.
         /// </summary>
         [Input("customDocumentEnrichmentConfiguration")]
         public Input<Inputs.DataSourceCustomDocumentEnrichmentConfigurationArgs>? CustomDocumentEnrichmentConfiguration { get; set; }
 
         /// <summary>
-        /// Provides the configuration information for an Amazon Kendra data source.
+        /// Configuration information for an Amazon Kendra data source. The contents of the configuration depend on the type of data source. You can only specify one type of data source in the configuration.
+        /// 
+        /// You can't specify the `Configuration` parameter when the `Type` parameter is set to `CUSTOM` .
+        /// 
+        /// The `Configuration` parameter is required for all other data sources.
         /// </summary>
         [Input("dataSourceConfiguration")]
         public Input<Inputs.DataSourceConfigurationArgs>? DataSourceConfiguration { get; set; }

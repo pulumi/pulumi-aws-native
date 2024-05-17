@@ -25,7 +25,7 @@ class RecordingConfigurationDestinationConfigurationArgs:
                  s3: Optional[pulumi.Input['RecordingConfigurationS3DestinationConfigurationArgs']] = None):
         """
         Recording Destination Configuration.
-        :param pulumi.Input['RecordingConfigurationS3DestinationConfigurationArgs'] s3: The S3DestinationConfiguration property type describes an S3 location where recorded videos will be stored.
+        :param pulumi.Input['RecordingConfigurationS3DestinationConfigurationArgs'] s3: An S3 destination configuration where recorded videos will be stored. See the [S3DestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html) property type for more information.
         """
         if s3 is not None:
             pulumi.set(__self__, "s3", s3)
@@ -34,7 +34,7 @@ class RecordingConfigurationDestinationConfigurationArgs:
     @pulumi.getter
     def s3(self) -> Optional[pulumi.Input['RecordingConfigurationS3DestinationConfigurationArgs']]:
         """
-        The S3DestinationConfiguration property type describes an S3 location where recorded videos will be stored.
+        An S3 destination configuration where recorded videos will be stored. See the [S3DestinationConfiguration](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html) property type for more information.
         """
         return pulumi.get(self, "s3")
 

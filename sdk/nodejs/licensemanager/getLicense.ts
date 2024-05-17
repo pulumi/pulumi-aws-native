@@ -31,11 +31,11 @@ export interface GetLicenseResult {
      */
     readonly beneficiary?: string;
     /**
-     * Details about a consumption configuration.
+     * Configuration for consumption of the license.
      */
     readonly consumptionConfiguration?: outputs.licensemanager.LicenseConsumptionConfiguration;
     /**
-     * Describes a resource entitled for use with a license.
+     * License entitlements.
      */
     readonly entitlements?: outputs.licensemanager.LicenseEntitlement[];
     /**
@@ -43,7 +43,7 @@ export interface GetLicenseResult {
      */
     readonly homeRegion?: string;
     /**
-     * Details associated with the issuer of a license.
+     * License issuer.
      */
     readonly issuer?: outputs.licensemanager.LicenseIssuerData;
     /**
@@ -51,7 +51,7 @@ export interface GetLicenseResult {
      */
     readonly licenseArn?: string;
     /**
-     * Describes key/value pairs.
+     * License metadata.
      */
     readonly licenseMetadata?: outputs.licensemanager.LicenseMetadata[];
     /**

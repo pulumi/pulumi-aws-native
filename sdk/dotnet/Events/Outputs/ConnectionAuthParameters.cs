@@ -14,19 +14,19 @@ namespace Pulumi.AwsNative.Events.Outputs
     public sealed class ConnectionAuthParameters
     {
         /// <summary>
-        /// Contains the API key authorization parameters for the connection.
+        /// The API Key parameters to use for authorization.
         /// </summary>
         public readonly Outputs.ConnectionApiKeyAuthParameters? ApiKeyAuthParameters;
         /// <summary>
-        /// Contains the Basic authorization parameters for the connection.
+        /// The authorization parameters for Basic authorization.
         /// </summary>
         public readonly Outputs.ConnectionBasicAuthParameters? BasicAuthParameters;
         /// <summary>
-        /// Contains additional parameters for the connection.
+        /// Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
         /// </summary>
         public readonly Outputs.ConnectionHttpParameters? InvocationHttpParameters;
         /// <summary>
-        /// Contains the OAuth authorization parameters to use for the connection.
+        /// The OAuth parameters to use for authorization.
         /// </summary>
         public readonly Outputs.ConnectionOAuthParameters? OAuthParameters;
 

@@ -28,7 +28,7 @@ class FargateProfileArgs:
         The set of arguments for constructing a FargateProfile resource.
         :param pulumi.Input[str] cluster_name: Name of the Cluster
         :param pulumi.Input[str] pod_execution_role_arn: The IAM policy arn for pods
-        :param pulumi.Input[Sequence[pulumi.Input['FargateProfileSelectorArgs']]] selectors: An object representing an AWS Fargate profile selector.
+        :param pulumi.Input[Sequence[pulumi.Input['FargateProfileSelectorArgs']]] selectors: The selectors to match for a `Pod` to use this Fargate profile. Each selector must have an associated Kubernetes `namespace` . Optionally, you can also specify `labels` for a `namespace` . You may specify up to five selectors in a Fargate profile.
         :param pulumi.Input[str] fargate_profile_name: Name of FargateProfile
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The IDs of subnets to launch a `Pod` into. A `Pod` running on Fargate isn't assigned a public IP address, so only private subnets (with no direct route to an Internet Gateway) are accepted for this parameter.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -71,7 +71,7 @@ class FargateProfileArgs:
     @pulumi.getter
     def selectors(self) -> pulumi.Input[Sequence[pulumi.Input['FargateProfileSelectorArgs']]]:
         """
-        An object representing an AWS Fargate profile selector.
+        The selectors to match for a `Pod` to use this Fargate profile. Each selector must have an associated Kubernetes `namespace` . Optionally, you can also specify `labels` for a `namespace` . You may specify up to five selectors in a Fargate profile.
         """
         return pulumi.get(self, "selectors")
 
@@ -136,7 +136,7 @@ class FargateProfile(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_name: Name of the Cluster
         :param pulumi.Input[str] fargate_profile_name: Name of FargateProfile
         :param pulumi.Input[str] pod_execution_role_arn: The IAM policy arn for pods
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FargateProfileSelectorArgs']]]] selectors: An object representing an AWS Fargate profile selector.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FargateProfileSelectorArgs']]]] selectors: The selectors to match for a `Pod` to use this Fargate profile. Each selector must have an associated Kubernetes `namespace` . Optionally, you can also specify `labels` for a `namespace` . You may specify up to five selectors in a Fargate profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The IDs of subnets to launch a `Pod` into. A `Pod` running on Fargate isn't assigned a public IP address, so only private subnets (with no direct route to an Internet Gateway) are accepted for this parameter.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: An array of key-value pairs to apply to this resource.
         """
@@ -261,7 +261,7 @@ class FargateProfile(pulumi.CustomResource):
     @pulumi.getter
     def selectors(self) -> pulumi.Output[Sequence['outputs.FargateProfileSelector']]:
         """
-        An object representing an AWS Fargate profile selector.
+        The selectors to match for a `Pod` to use this Fargate profile. Each selector must have an associated Kubernetes `namespace` . Optionally, you can also specify `labels` for a `namespace` . You may specify up to five selectors in a Fargate profile.
         """
         return pulumi.get(self, "selectors")
 

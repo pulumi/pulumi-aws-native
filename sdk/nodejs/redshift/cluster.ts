@@ -134,7 +134,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly encrypted!: pulumi.Output<boolean | undefined>;
     /**
-     * Describes a connection endpoint.
+     * The connection endpoint.
      */
     public readonly endpoint!: pulumi.Output<outputs.redshift.ClusterEndpoint | undefined>;
     /**
@@ -509,7 +509,7 @@ export interface ClusterArgs {
      */
     encrypted?: pulumi.Input<boolean>;
     /**
-     * Describes a connection endpoint.
+     * The connection endpoint.
      */
     endpoint?: pulumi.Input<inputs.redshift.ClusterEndpointArgs>;
     /**

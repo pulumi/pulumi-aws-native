@@ -104,9 +104,7 @@ export class CapacityReservation extends pulumi.CustomResource {
      */
     public readonly placementGroupArn!: pulumi.Output<string | undefined>;
     /**
-     * An array of key-value pairs to apply to this resource.
-     *
-     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     * The tags to apply to the Capacity Reservation during launch.
      */
     public readonly tagSpecifications!: pulumi.Output<outputs.ec2.CapacityReservationTagSpecification[] | undefined>;
     /**
@@ -248,9 +246,7 @@ export interface CapacityReservationArgs {
      */
     placementGroupArn?: pulumi.Input<string>;
     /**
-     * An array of key-value pairs to apply to this resource.
-     *
-     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
+     * The tags to apply to the Capacity Reservation during launch.
      */
     tagSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.CapacityReservationTagSpecificationArgs>[]>;
     /**

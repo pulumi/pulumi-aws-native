@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly string Comment;
         /// <summary>
-        /// The key value store association.
+        /// The configuration for the key value store associations.
         /// </summary>
         public readonly ImmutableArray<Outputs.FunctionKeyValueStoreAssociation> KeyValueStoreAssociations;
         /// <summary>

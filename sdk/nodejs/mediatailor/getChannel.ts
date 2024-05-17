@@ -35,11 +35,11 @@ export interface GetChannelResult {
      */
     readonly audiences?: string[];
     /**
-     * Slate VOD source configuration.
+     * The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
      */
     readonly fillerSlate?: outputs.mediatailor.ChannelSlateSource;
     /**
-     * The log configuration for the channel.
+     * The log configuration.
      */
     readonly logConfiguration?: outputs.mediatailor.ChannelLogConfigurationForChannel;
     /**

@@ -35,7 +35,7 @@ type Profile struct {
 	RoleArns pulumi.StringArrayOutput `pulumi:"roleArns"`
 	// A session policy that will applied to the trust boundary of the vended session credentials.
 	SessionPolicy pulumi.StringPtrOutput `pulumi:"sessionPolicy"`
-	// A label that consists of a key and value you define.
+	// A list of Tags.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -96,7 +96,7 @@ type profileArgs struct {
 	RoleArns []string `pulumi:"roleArns"`
 	// A session policy that will applied to the trust boundary of the vended session credentials.
 	SessionPolicy *string `pulumi:"sessionPolicy"`
-	// A label that consists of a key and value you define.
+	// A list of Tags.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -116,7 +116,7 @@ type ProfileArgs struct {
 	RoleArns pulumi.StringArrayInput
 	// A session policy that will applied to the trust boundary of the vended session credentials.
 	SessionPolicy pulumi.StringPtrInput
-	// A label that consists of a key and value you define.
+	// A list of Tags.
 	Tags aws.TagArrayInput
 }
 
@@ -202,7 +202,7 @@ func (o ProfileOutput) SessionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Profile) pulumi.StringPtrOutput { return v.SessionPolicy }).(pulumi.StringPtrOutput)
 }
 
-// A label that consists of a key and value you define.
+// A list of Tags.
 func (o ProfileOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Profile) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

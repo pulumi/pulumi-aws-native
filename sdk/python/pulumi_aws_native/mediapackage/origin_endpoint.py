@@ -37,7 +37,7 @@ class OriginEndpointArgs:
         The set of arguments for constructing a OriginEndpoint resource.
         :param pulumi.Input[str] aws_id: The ID of the OriginEndpoint.
         :param pulumi.Input[str] channel_id: The ID of the Channel the OriginEndpoint is associated with.
-        :param pulumi.Input['OriginEndpointAuthorizationArgs'] authorization: Parameters for enabling CDN authorization on the endpoint.
+        :param pulumi.Input['OriginEndpointAuthorizationArgs'] authorization: Parameters for CDN authorization.
         :param pulumi.Input['OriginEndpointCmafPackageArgs'] cmaf_package: Parameters for Common Media Application Format (CMAF) packaging.
         :param pulumi.Input['OriginEndpointDashPackageArgs'] dash_package: Parameters for DASH packaging.
         :param pulumi.Input[str] description: A short text description of the OriginEndpoint.
@@ -105,7 +105,7 @@ class OriginEndpointArgs:
     @pulumi.getter
     def authorization(self) -> Optional[pulumi.Input['OriginEndpointAuthorizationArgs']]:
         """
-        Parameters for enabling CDN authorization on the endpoint.
+        Parameters for CDN authorization.
         """
         return pulumi.get(self, "authorization")
 
@@ -271,7 +271,7 @@ class OriginEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['OriginEndpointAuthorizationArgs']] authorization: Parameters for enabling CDN authorization on the endpoint.
+        :param pulumi.Input[pulumi.InputType['OriginEndpointAuthorizationArgs']] authorization: Parameters for CDN authorization.
         :param pulumi.Input[str] aws_id: The ID of the OriginEndpoint.
         :param pulumi.Input[str] channel_id: The ID of the Channel the OriginEndpoint is associated with.
         :param pulumi.Input[pulumi.InputType['OriginEndpointCmafPackageArgs']] cmaf_package: Parameters for Common Media Application Format (CMAF) packaging.
@@ -405,7 +405,7 @@ class OriginEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def authorization(self) -> pulumi.Output[Optional['outputs.OriginEndpointAuthorization']]:
         """
-        Parameters for enabling CDN authorization on the endpoint.
+        Parameters for CDN authorization.
         """
         return pulumi.get(self, "authorization")
 

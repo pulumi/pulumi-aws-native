@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.DashboardAxisDisplayDataDrivenRangeArgs>? DataDriven { get; set; }
 
         /// <summary>
-        /// The minimum and maximum setup for an axis display range.
+        /// The minimum and maximum setup of an axis display range.
         /// </summary>
         [Input("minMax")]
         public Input<Inputs.DashboardAxisDisplayMinMaxRangeArgs>? MinMax { get; set; }

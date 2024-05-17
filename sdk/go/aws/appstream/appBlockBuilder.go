@@ -17,7 +17,7 @@ import (
 type AppBlockBuilder struct {
 	pulumi.CustomResourceState
 
-	// Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+	// The access endpoints of the app block builder.
 	AccessEndpoints AppBlockBuilderAccessEndpointArrayOutput `pulumi:"accessEndpoints"`
 	// The ARN of the app block.
 	//
@@ -43,9 +43,9 @@ type AppBlockBuilder struct {
 	//
 	// *Allowed values* : `WINDOWS_SERVER_2019`
 	Platform pulumi.StringOutput `pulumi:"platform"`
-	// The tag of the app block builder.
+	// The tags of the app block builder.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// Describes VPC configuration information for fleets and image builders.
+	// The VPC configuration for the app block builder.
 	VpcConfig AppBlockBuilderVpcConfigOutput `pulumi:"vpcConfig"`
 }
 
@@ -102,7 +102,7 @@ func (AppBlockBuilderState) ElementType() reflect.Type {
 }
 
 type appBlockBuilderArgs struct {
-	// Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+	// The access endpoints of the app block builder.
 	AccessEndpoints []AppBlockBuilderAccessEndpoint `pulumi:"accessEndpoints"`
 	// The ARN of the app block.
 	//
@@ -124,15 +124,15 @@ type appBlockBuilderArgs struct {
 	//
 	// *Allowed values* : `WINDOWS_SERVER_2019`
 	Platform string `pulumi:"platform"`
-	// The tag of the app block builder.
+	// The tags of the app block builder.
 	Tags []aws.Tag `pulumi:"tags"`
-	// Describes VPC configuration information for fleets and image builders.
+	// The VPC configuration for the app block builder.
 	VpcConfig AppBlockBuilderVpcConfig `pulumi:"vpcConfig"`
 }
 
 // The set of arguments for constructing a AppBlockBuilder resource.
 type AppBlockBuilderArgs struct {
-	// Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+	// The access endpoints of the app block builder.
 	AccessEndpoints AppBlockBuilderAccessEndpointArrayInput
 	// The ARN of the app block.
 	//
@@ -154,9 +154,9 @@ type AppBlockBuilderArgs struct {
 	//
 	// *Allowed values* : `WINDOWS_SERVER_2019`
 	Platform pulumi.StringInput
-	// The tag of the app block builder.
+	// The tags of the app block builder.
 	Tags aws.TagArrayInput
-	// Describes VPC configuration information for fleets and image builders.
+	// The VPC configuration for the app block builder.
 	VpcConfig AppBlockBuilderVpcConfigInput
 }
 
@@ -197,7 +197,7 @@ func (o AppBlockBuilderOutput) ToAppBlockBuilderOutputWithContext(ctx context.Co
 	return o
 }
 
-// Describes an interface VPC endpoint (interface endpoint) that lets you create a private connection between the virtual private cloud (VPC) that you specify and AppStream 2.0. When you specify an interface endpoint for a stack, users of the stack can connect to AppStream 2.0 only through that endpoint. When you specify an interface endpoint for an image builder, administrators can connect to the image builder only through that endpoint.
+// The access endpoints of the app block builder.
 func (o AppBlockBuilderOutput) AccessEndpoints() AppBlockBuilderAccessEndpointArrayOutput {
 	return o.ApplyT(func(v *AppBlockBuilder) AppBlockBuilderAccessEndpointArrayOutput { return v.AccessEndpoints }).(AppBlockBuilderAccessEndpointArrayOutput)
 }
@@ -256,12 +256,12 @@ func (o AppBlockBuilderOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppBlockBuilder) pulumi.StringOutput { return v.Platform }).(pulumi.StringOutput)
 }
 
-// The tag of the app block builder.
+// The tags of the app block builder.
 func (o AppBlockBuilderOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *AppBlockBuilder) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// Describes VPC configuration information for fleets and image builders.
+// The VPC configuration for the app block builder.
 func (o AppBlockBuilderOutput) VpcConfig() AppBlockBuilderVpcConfigOutput {
 	return o.ApplyT(func(v *AppBlockBuilder) AppBlockBuilderVpcConfigOutput { return v.VpcConfig }).(AppBlockBuilderVpcConfigOutput)
 }

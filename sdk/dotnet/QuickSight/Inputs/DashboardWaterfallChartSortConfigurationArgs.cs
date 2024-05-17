@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardWaterfallChartSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of bar groups that are displayed.
         /// </summary>
         [Input("breakdownItemsLimit")]
         public Input<Inputs.DashboardItemsLimitConfigurationArgs>? BreakdownItemsLimit { get; set; }

@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.Ecs
         /// </summary>
         public readonly Outputs.TaskSetScale? Scale;
         /// <summary>
-        /// The metadata that you apply to a resource to help you categorize and organize them. Each tag consists of a key and an optional value. You define them.
+        /// The metadata that you apply to the task set to help you categorize and organize them. Each tag consists of a key and an optional value. You define both.
         /// 
         /// The following basic restrictions apply to tags:
         /// 

@@ -28,13 +28,13 @@ namespace Pulumi.AwsNative.AuditManager
         public Output<string> AssessmentId { get; private set; } = null!;
 
         /// <summary>
-        /// The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+        /// The destination that evidence reports are stored in for the assessment.
         /// </summary>
         [Output("assessmentReportsDestination")]
         public Output<Outputs.AssessmentReportsDestination?> AssessmentReportsDestination { get; private set; } = null!;
 
         /// <summary>
-        /// The `AWSAccount` property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
+        /// The AWS account that's associated with the assessment.
         /// </summary>
         [Output("awsAccount")]
         public Output<Outputs.AssessmentAwsAccount?> AwsAccount { get; private set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.AuditManager
         public Output<ImmutableArray<Outputs.AssessmentRole>> Roles { get; private set; } = null!;
 
         /// <summary>
-        /// The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+        /// The wrapper of AWS accounts and services that are in scope for the assessment.
         /// </summary>
         [Output("scope")]
         public Output<Outputs.AssessmentScope?> Scope { get; private set; } = null!;
@@ -148,13 +148,13 @@ namespace Pulumi.AwsNative.AuditManager
     public sealed class AssessmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The `AssessmentReportsDestination` property type specifies the location in which AWS Audit Manager saves assessment reports for the given assessment.
+        /// The destination that evidence reports are stored in for the assessment.
         /// </summary>
         [Input("assessmentReportsDestination")]
         public Input<Inputs.AssessmentReportsDestinationArgs>? AssessmentReportsDestination { get; set; }
 
         /// <summary>
-        /// The `AWSAccount` property type specifies the wrapper of the AWS account details, such as account ID, email address, and so on.
+        /// The AWS account that's associated with the assessment.
         /// </summary>
         [Input("awsAccount")]
         public Input<Inputs.AssessmentAwsAccountArgs>? AwsAccount { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.AwsNative.AuditManager
         }
 
         /// <summary>
-        /// The `Scope` property type specifies the wrapper that contains the AWS accounts and services that are in scope for the assessment.
+        /// The wrapper of AWS accounts and services that are in scope for the assessment.
         /// </summary>
         [Input("scope")]
         public Input<Inputs.AssessmentScopeArgs>? Scope { get; set; }

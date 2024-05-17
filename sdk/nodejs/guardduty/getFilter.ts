@@ -40,7 +40,7 @@ export interface GetFilterResult {
      */
     readonly description?: string;
     /**
-     * Represents a map of finding properties that match specified conditions and values when querying findings.
+     * Represents the criteria to be used in the filter for querying findings.
      */
     readonly findingCriteria?: outputs.guardduty.FilterFindingCriteria;
     /**

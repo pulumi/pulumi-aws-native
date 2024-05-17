@@ -89,7 +89,7 @@ type SecurityConfig struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The friendly name of the security config
 	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
+	// SAML options for the security configuration in the form of a key-value map.
 	SamlOptions SecurityConfigSamlConfigOptionsPtrOutput `pulumi:"samlOptions"`
 	// The type of security configuration. Currently the only option is `saml` .
 	Type SecurityConfigTypePtrOutput `pulumi:"type"`
@@ -144,7 +144,7 @@ type securityConfigArgs struct {
 	Description *string `pulumi:"description"`
 	// The friendly name of the security config
 	Name *string `pulumi:"name"`
-	// Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
+	// SAML options for the security configuration in the form of a key-value map.
 	SamlOptions *SecurityConfigSamlConfigOptions `pulumi:"samlOptions"`
 	// The type of security configuration. Currently the only option is `saml` .
 	Type *SecurityConfigType `pulumi:"type"`
@@ -156,7 +156,7 @@ type SecurityConfigArgs struct {
 	Description pulumi.StringPtrInput
 	// The friendly name of the security config
 	Name pulumi.StringPtrInput
-	// Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
+	// SAML options for the security configuration in the form of a key-value map.
 	SamlOptions SecurityConfigSamlConfigOptionsPtrInput
 	// The type of security configuration. Currently the only option is `saml` .
 	Type SecurityConfigTypePtrInput
@@ -214,7 +214,7 @@ func (o SecurityConfigOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityConfig) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Describes SAML options for an OpenSearch Serverless security configuration in the form of a key-value map.
+// SAML options for the security configuration in the form of a key-value map.
 func (o SecurityConfigOutput) SamlOptions() SecurityConfigSamlConfigOptionsPtrOutput {
 	return o.ApplyT(func(v *SecurityConfig) SecurityConfigSamlConfigOptionsPtrOutput { return v.SamlOptions }).(SecurityConfigSamlConfigOptionsPtrOutput)
 }

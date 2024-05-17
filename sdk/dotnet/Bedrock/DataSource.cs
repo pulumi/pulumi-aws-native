@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Bedrock
         public Output<Pulumi.AwsNative.Bedrock.DataSourceDataDeletionPolicy?> DataDeletionPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Contains details about how a data source is stored.
+        /// Contains details about how the data source is stored.
         /// </summary>
         [Output("dataSourceConfiguration")]
         public Output<Outputs.DataSourceConfiguration> DataSourceConfiguration { get; private set; } = null!;
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.Bedrock
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Contains the configuration for server-side encryption.
+        /// Contains details about the configuration of the server-side encryption.
         /// </summary>
         [Output("serverSideEncryptionConfiguration")]
         public Output<Outputs.DataSourceServerSideEncryptionConfiguration?> ServerSideEncryptionConfiguration { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.Bedrock
         public Output<string> UpdatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// Contains details about how to ingest the documents in a data source.
+        /// Contains details about how to ingest the documents in the data source.
         /// </summary>
         [Output("vectorIngestionConfiguration")]
         public Output<Outputs.DataSourceVectorIngestionConfiguration?> VectorIngestionConfiguration { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.AwsNative.Bedrock
         public Input<Pulumi.AwsNative.Bedrock.DataSourceDataDeletionPolicy>? DataDeletionPolicy { get; set; }
 
         /// <summary>
-        /// Contains details about how a data source is stored.
+        /// Contains details about how the data source is stored.
         /// </summary>
         [Input("dataSourceConfiguration", required: true)]
         public Input<Inputs.DataSourceConfigurationArgs> DataSourceConfiguration { get; set; } = null!;
@@ -171,13 +171,13 @@ namespace Pulumi.AwsNative.Bedrock
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Contains the configuration for server-side encryption.
+        /// Contains details about the configuration of the server-side encryption.
         /// </summary>
         [Input("serverSideEncryptionConfiguration")]
         public Input<Inputs.DataSourceServerSideEncryptionConfigurationArgs>? ServerSideEncryptionConfiguration { get; set; }
 
         /// <summary>
-        /// Contains details about how to ingest the documents in a data source.
+        /// Contains details about how to ingest the documents in the data source.
         /// </summary>
         [Input("vectorIngestionConfiguration")]
         public Input<Inputs.DataSourceVectorIngestionConfigurationArgs>? VectorIngestionConfiguration { get; set; }

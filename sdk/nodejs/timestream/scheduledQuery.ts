@@ -49,7 +49,7 @@ export class ScheduledQuery extends pulumi.CustomResource {
      */
     public readonly clientToken!: pulumi.Output<string | undefined>;
     /**
-     * Configuration required for error reporting.
+     * Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
      */
     public readonly errorReportConfiguration!: pulumi.Output<outputs.timestream.ScheduledQueryErrorReportConfiguration>;
     /**
@@ -59,7 +59,7 @@ export class ScheduledQuery extends pulumi.CustomResource {
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
     /**
-     * Notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated or when it is deleted.
+     * Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
      */
     public readonly notificationConfiguration!: pulumi.Output<outputs.timestream.ScheduledQueryNotificationConfiguration>;
     /**
@@ -69,7 +69,7 @@ export class ScheduledQuery extends pulumi.CustomResource {
      */
     public readonly queryString!: pulumi.Output<string>;
     /**
-     * Configuration of the schedule of the query.
+     * Schedule configuration.
      */
     public readonly scheduleConfiguration!: pulumi.Output<outputs.timestream.ScheduledQueryScheduleConfiguration>;
     /**
@@ -117,7 +117,7 @@ export class ScheduledQuery extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * Configuration used for writing the output of a query.
+     * Scheduled query target store configuration.
      */
     public readonly targetConfiguration!: pulumi.Output<outputs.timestream.ScheduledQueryTargetConfiguration | undefined>;
 
@@ -206,7 +206,7 @@ export interface ScheduledQueryArgs {
      */
     clientToken?: pulumi.Input<string>;
     /**
-     * Configuration required for error reporting.
+     * Configuration for error reporting. Error reports will be generated when a problem is encountered when writing the query results.
      */
     errorReportConfiguration: pulumi.Input<inputs.timestream.ScheduledQueryErrorReportConfigurationArgs>;
     /**
@@ -216,7 +216,7 @@ export interface ScheduledQueryArgs {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * Notification configuration for a scheduled query. A notification is sent by Timestream when a scheduled query is created, its state is updated or when it is deleted.
+     * Notification configuration for the scheduled query. A notification is sent by Timestream when a query run finishes, when the state is updated or when you delete it.
      */
     notificationConfiguration: pulumi.Input<inputs.timestream.ScheduledQueryNotificationConfigurationArgs>;
     /**
@@ -226,7 +226,7 @@ export interface ScheduledQueryArgs {
      */
     queryString: pulumi.Input<string>;
     /**
-     * Configuration of the schedule of the query.
+     * Schedule configuration.
      */
     scheduleConfiguration: pulumi.Input<inputs.timestream.ScheduledQueryScheduleConfigurationArgs>;
     /**
@@ -242,7 +242,7 @@ export interface ScheduledQueryArgs {
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
-     * Configuration used for writing the output of a query.
+     * Scheduled query target store configuration.
      */
     targetConfiguration?: pulumi.Input<inputs.timestream.ScheduledQueryTargetConfigurationArgs>;
 }

@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardBodySectionContent
     {
         /// <summary>
-        /// The layout configuration of a section.
+        /// The layout configuration of a body section.
         /// </summary>
         public readonly Outputs.DashboardSectionLayoutConfiguration? Layout;
 

@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.VpcLattice.Inputs
         public Input<bool>? CaseSensitive { get; set; }
 
         /// <summary>
-        /// Describes a path match type. Each rule can include only one of the following types of paths.
+        /// The type of path match.
         /// </summary>
         [Input("match", required: true)]
         public Input<Inputs.RulePathMatchTypeArgs> Match { get; set; } = null!;

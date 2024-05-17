@@ -42,7 +42,7 @@ class GetMitigationActionResult:
     @pulumi.getter(name="actionParams")
     def action_params(self) -> Optional['outputs.MitigationActionActionParams']:
         """
-        Defines the type of action and the parameters for that action.
+        The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.
         """
         return pulumi.get(self, "action_params")
 

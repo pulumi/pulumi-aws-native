@@ -19,7 +19,7 @@ type Application struct {
 
 	// The resource ID of the API Gateway for the proxy.
 	ApiGatewayId pulumi.StringOutput `pulumi:"apiGatewayId"`
-	// A wrapper object holding the Amazon API Gateway endpoint input.
+	// The endpoint URL of the Amazon API Gateway proxy.
 	ApiGatewayProxy ApplicationApiGatewayProxyInputPtrOutput `pulumi:"apiGatewayProxy"`
 	// The unique identifier of the application.
 	ApplicationIdentifier pulumi.StringOutput `pulumi:"applicationIdentifier"`
@@ -104,7 +104,7 @@ func (ApplicationState) ElementType() reflect.Type {
 }
 
 type applicationArgs struct {
-	// A wrapper object holding the Amazon API Gateway endpoint input.
+	// The endpoint URL of the Amazon API Gateway proxy.
 	ApiGatewayProxy *ApplicationApiGatewayProxyInput `pulumi:"apiGatewayProxy"`
 	// The unique identifier of the environment.
 	EnvironmentIdentifier string `pulumi:"environmentIdentifier"`
@@ -120,7 +120,7 @@ type applicationArgs struct {
 
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
-	// A wrapper object holding the Amazon API Gateway endpoint input.
+	// The endpoint URL of the Amazon API Gateway proxy.
 	ApiGatewayProxy ApplicationApiGatewayProxyInputPtrInput
 	// The unique identifier of the environment.
 	EnvironmentIdentifier pulumi.StringInput
@@ -176,7 +176,7 @@ func (o ApplicationOutput) ApiGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApiGatewayId }).(pulumi.StringOutput)
 }
 
-// A wrapper object holding the Amazon API Gateway endpoint input.
+// The endpoint URL of the Amazon API Gateway proxy.
 func (o ApplicationOutput) ApiGatewayProxy() ApplicationApiGatewayProxyInputPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationApiGatewayProxyInputPtrOutput { return v.ApiGatewayProxy }).(ApplicationApiGatewayProxyInputPtrOutput)
 }

@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// </summary>
         public readonly string? ListenerArn;
         /// <summary>
-        /// A complex type for a range of ports for a listener.
+        /// The list of port ranges for the connections from clients to the accelerator.
         /// </summary>
         public readonly ImmutableArray<Outputs.ListenerPortRange> PortRanges;
         /// <summary>

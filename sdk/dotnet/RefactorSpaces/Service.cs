@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public Output<string> EnvironmentIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The input for the AWS Lambda endpoint type.
+        /// A summary of the configuration for the AWS Lambda endpoint type.
         /// </summary>
         [Output("lambdaEndpoint")]
         public Output<Outputs.ServiceLambdaEndpointInput?> LambdaEndpoint { get; private set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration for the URL endpoint type.
+        /// The summary of the configuration for the URL endpoint type.
         /// </summary>
         [Output("urlEndpoint")]
         public Output<Outputs.ServiceUrlEndpointInput?> UrlEndpoint { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public Input<string> EnvironmentIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// The input for the AWS Lambda endpoint type.
+        /// A summary of the configuration for the AWS Lambda endpoint type.
         /// </summary>
         [Input("lambdaEndpoint")]
         public Input<Inputs.ServiceLambdaEndpointInputArgs>? LambdaEndpoint { get; set; }
@@ -186,7 +186,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         }
 
         /// <summary>
-        /// The configuration for the URL endpoint type.
+        /// The summary of the configuration for the URL endpoint type.
         /// </summary>
         [Input("urlEndpoint")]
         public Input<Inputs.ServiceUrlEndpointInputArgs>? UrlEndpoint { get; set; }

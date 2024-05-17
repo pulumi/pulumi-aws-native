@@ -13,17 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class AnalysisNumericAxisOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The range setup of a numeric axis display range.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The range setup of a numeric axis.
         /// </summary>
         [Input("range")]
         public Input<Inputs.AnalysisAxisDisplayRangeArgs>? Range { get; set; }
 
         /// <summary>
-        /// The scale setup options for a numeric axis display.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The scale setup of a numeric axis.
         /// </summary>
         [Input("scale")]
         public Input<Inputs.AnalysisAxisScaleArgs>? Scale { get; set; }

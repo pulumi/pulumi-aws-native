@@ -28,7 +28,7 @@ type Hypervisor struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The password for the hypervisor.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
-	// A key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ : /.
+	// The tags of the hypervisor configuration to import.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 	// The username for the hypervisor.
 	Username pulumi.StringPtrOutput `pulumi:"username"`
@@ -89,7 +89,7 @@ type hypervisorArgs struct {
 	Name *string `pulumi:"name"`
 	// The password for the hypervisor.
 	Password *string `pulumi:"password"`
-	// A key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ : /.
+	// The tags of the hypervisor configuration to import.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 	// The username for the hypervisor.
 	Username *string `pulumi:"username"`
@@ -107,7 +107,7 @@ type HypervisorArgs struct {
 	Name pulumi.StringPtrInput
 	// The password for the hypervisor.
 	Password pulumi.StringPtrInput
-	// A key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ : /.
+	// The tags of the hypervisor configuration to import.
 	Tags aws.CreateOnlyTagArrayInput
 	// The username for the hypervisor.
 	Username pulumi.StringPtrInput
@@ -180,7 +180,7 @@ func (o HypervisorOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Hypervisor) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// A key-value pair you can use to manage, filter, and search for your resources. Allowed characters include UTF-8 letters, numbers, spaces, and the following characters: + - = . _ : /.
+// The tags of the hypervisor configuration to import.
 func (o HypervisorOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *Hypervisor) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }

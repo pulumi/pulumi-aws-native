@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.KnowledgeBaseType Type;
         /// <summary>
-        /// Contains details about the model used to create vector embeddings for the knowledge base.
+        /// Contains details about the embeddings model that'sused to convert the data source.
         /// </summary>
         public readonly Outputs.KnowledgeBaseVectorKnowledgeBaseConfiguration VectorKnowledgeBaseConfiguration;
 

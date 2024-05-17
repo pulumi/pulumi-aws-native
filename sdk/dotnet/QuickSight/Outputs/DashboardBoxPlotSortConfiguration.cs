@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardFieldSortOptions> CategorySort;
         /// <summary>
-        /// The pagination configuration for a table visual or boxplot.
+        /// The pagination configuration of a table visual or box plot.
         /// </summary>
         public readonly Outputs.DashboardPaginationConfiguration? PaginationConfiguration;
 

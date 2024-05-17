@@ -136,7 +136,7 @@ export class RobotApplication extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
-     * Information about a robot software suite.
+     * The robot software suite used by the robot application.
      */
     public readonly robotSoftwareSuite!: pulumi.Output<outputs.robomaker.RobotApplicationRobotSoftwareSuite>;
     /**
@@ -202,7 +202,7 @@ export interface RobotApplicationArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Information about a robot software suite.
+     * The robot software suite used by the robot application.
      */
     robotSoftwareSuite: pulumi.Input<inputs.robomaker.RobotApplicationRobotSoftwareSuiteArgs>;
     /**

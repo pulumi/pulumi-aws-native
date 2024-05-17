@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.AppFlow.Outputs
         /// </summary>
         public readonly string? BucketPrefix;
         /// <summary>
-        /// The configuration that determines how Amazon AppFlow formats the flow output data when Upsolver is used as the destination.
+        /// The configuration that determines how data is formatted when Upsolver is used as the flow destination.
         /// </summary>
         public readonly Outputs.FlowUpsolverS3OutputFormatConfig S3OutputFormatConfig;
 

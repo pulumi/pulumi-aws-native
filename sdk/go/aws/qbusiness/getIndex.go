@@ -31,7 +31,7 @@ type LookupIndexArgs struct {
 }
 
 type LookupIndexResult struct {
-	// Provides information about index capacity configuration.
+	// The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
 	CapacityConfiguration *IndexCapacityConfiguration `pulumi:"capacityConfiguration"`
 	// The Unix timestamp when the index was created.
 	CreatedAt *string `pulumi:"createdAt"`
@@ -46,12 +46,11 @@ type LookupIndexResult struct {
 	// The Amazon Resource Name (ARN) of an Amazon Q Business index.
 	IndexArn *string `pulumi:"indexArn"`
 	// The identifier for the index.
-	IndexId *string `pulumi:"indexId"`
-	// Provides information about the number of documents in an index.
+	IndexId         *string          `pulumi:"indexId"`
 	IndexStatistics *IndexStatistics `pulumi:"indexStatistics"`
 	// The current status of the index. When the status is `ACTIVE` , the index is ready.
 	Status *IndexStatus `pulumi:"status"`
-	// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+	// A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The Unix timestamp when the index was last updated.
 	UpdatedAt *string `pulumi:"updatedAt"`
@@ -95,7 +94,7 @@ func (o LookupIndexResultOutput) ToLookupIndexResultOutputWithContext(ctx contex
 	return o
 }
 
-// Provides information about index capacity configuration.
+// The capacity units you want to provision for your index. You can add and remove capacity to fit your usage needs.
 func (o LookupIndexResultOutput) CapacityConfiguration() IndexCapacityConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *IndexCapacityConfiguration { return v.CapacityConfiguration }).(IndexCapacityConfigurationPtrOutput)
 }
@@ -134,7 +133,6 @@ func (o LookupIndexResultOutput) IndexId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *string { return v.IndexId }).(pulumi.StringPtrOutput)
 }
 
-// Provides information about the number of documents in an index.
 func (o LookupIndexResultOutput) IndexStatistics() IndexStatisticsPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *IndexStatistics { return v.IndexStatistics }).(IndexStatisticsPtrOutput)
 }
@@ -144,7 +142,7 @@ func (o LookupIndexResultOutput) Status() IndexStatusPtrOutput {
 	return o.ApplyT(func(v LookupIndexResult) *IndexStatus { return v.Status }).(IndexStatusPtrOutput)
 }
 
-// A list of key/value pairs that identify an index, FAQ, or data source. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
+// A list of key-value pairs that identify or categorize the index. You can also use tags to help control access to the index. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 func (o LookupIndexResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupIndexResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

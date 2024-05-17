@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Acmpca.Outputs
     public sealed class CertificateAuthorityCsrExtensions
     {
         /// <summary>
-        /// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+        /// Indicates the purpose of the certificate and of the key contained in the certificate.
         /// </summary>
         public readonly Outputs.CertificateAuthorityKeyUsage? KeyUsage;
         /// <summary>

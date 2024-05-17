@@ -74,7 +74,7 @@ namespace Pulumi.AwsNative.Deadline
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
-        /// The details of the file system location for the resource.
+        /// Operating system specific file system path to the storage location.
         /// </summary>
         public readonly ImmutableArray<Outputs.StorageProfileFileSystemLocation> FileSystemLocations;
         /// <summary>

@@ -308,7 +308,7 @@ class ConnectPeerConfiguration(dict):
                  peer_address: Optional[str] = None,
                  protocol: Optional[str] = None):
         """
-        :param Sequence['ConnectPeerBgpConfiguration'] bgp_configurations: Describes a core network BGP configuration.
+        :param Sequence['ConnectPeerBgpConfiguration'] bgp_configurations: The Connect peer BGP configurations.
         :param str core_network_address: The IP address of a core network.
         :param Sequence[str] inside_cidr_blocks: The inside IP addresses used for a Connect peer configuration.
         :param str peer_address: The IP address of the Connect peer.
@@ -329,7 +329,7 @@ class ConnectPeerConfiguration(dict):
     @pulumi.getter(name="bgpConfigurations")
     def bgp_configurations(self) -> Optional[Sequence['outputs.ConnectPeerBgpConfiguration']]:
         """
-        Describes a core network BGP configuration.
+        The Connect peer BGP configurations.
         """
         return pulumi.get(self, "bgp_configurations")
 

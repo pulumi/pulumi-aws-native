@@ -31,7 +31,7 @@ class FleetMetricArgs:
         """
         The set of arguments for constructing a FleetMetric resource.
         :param pulumi.Input[str] aggregation_field: The aggregation field to perform aggregation and metric emission
-        :param pulumi.Input['FleetMetricAggregationTypeArgs'] aggregation_type: The type of aggregation queries.
+        :param pulumi.Input['FleetMetricAggregationTypeArgs'] aggregation_type: The type of the aggregation query.
         :param pulumi.Input[str] description: The description of a fleet metric
         :param pulumi.Input[str] index_name: The index name of a fleet metric
         :param pulumi.Input[str] metric_name: The name of the fleet metric
@@ -78,7 +78,7 @@ class FleetMetricArgs:
     @pulumi.getter(name="aggregationType")
     def aggregation_type(self) -> Optional[pulumi.Input['FleetMetricAggregationTypeArgs']]:
         """
-        The type of aggregation queries.
+        The type of the aggregation query.
         """
         return pulumi.get(self, "aggregation_type")
 
@@ -205,7 +205,7 @@ class FleetMetric(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aggregation_field: The aggregation field to perform aggregation and metric emission
-        :param pulumi.Input[pulumi.InputType['FleetMetricAggregationTypeArgs']] aggregation_type: The type of aggregation queries.
+        :param pulumi.Input[pulumi.InputType['FleetMetricAggregationTypeArgs']] aggregation_type: The type of the aggregation query.
         :param pulumi.Input[str] description: The description of a fleet metric
         :param pulumi.Input[str] index_name: The index name of a fleet metric
         :param pulumi.Input[str] metric_name: The name of the fleet metric
@@ -324,7 +324,7 @@ class FleetMetric(pulumi.CustomResource):
     @pulumi.getter(name="aggregationType")
     def aggregation_type(self) -> pulumi.Output[Optional['outputs.FleetMetricAggregationType']]:
         """
-        The type of aggregation queries.
+        The type of the aggregation query.
         """
         return pulumi.get(self, "aggregation_type")
 

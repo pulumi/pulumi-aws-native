@@ -50,7 +50,7 @@ class GetUserPoolResourceServerResult:
     @pulumi.getter
     def scopes(self) -> Optional[Sequence['outputs.UserPoolResourceServerResourceServerScopeType']]:
         """
-        A resource server scope.
+        A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
         """
         return pulumi.get(self, "scopes")
 

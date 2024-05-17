@@ -31,7 +31,7 @@ class ApplicationArgs:
         """
         The set of arguments for constructing a Application resource.
         :param pulumi.Input[str] app_block_arn: The app block ARN with which the application should be associated.
-        :param pulumi.Input['ApplicationS3LocationArgs'] icon_s3_location: The S3 location of the application icon.
+        :param pulumi.Input['ApplicationS3LocationArgs'] icon_s3_location: The icon S3 location of the application.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_families: The instance families the application supports.
                
                *Allowed Values* : `GENERAL_PURPOSE` | `GRAPHICS_G4`
@@ -46,7 +46,7 @@ class ApplicationArgs:
         :param pulumi.Input[str] name: The name of the application. This name is visible to users when a name is not specified in the DisplayName property.
                
                *Pattern* : `^[a-zA-Z0-9][a-zA-Z0-9_.-]{0,100}$`
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag1PropertiesArgs']]]] tags: The tag of the application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag1PropertiesArgs']]]] tags: The tags of the application.
         :param pulumi.Input[str] working_directory: The working directory of the application.
         """
         pulumi.set(__self__, "app_block_arn", app_block_arn)
@@ -85,7 +85,7 @@ class ApplicationArgs:
     @pulumi.getter(name="iconS3Location")
     def icon_s3_location(self) -> pulumi.Input['ApplicationS3LocationArgs']:
         """
-        The S3 location of the application icon.
+        The icon S3 location of the application.
         """
         return pulumi.get(self, "icon_s3_location")
 
@@ -199,7 +199,7 @@ class ApplicationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationTag0PropertiesArgs', 'ApplicationTag1PropertiesArgs']]]]]:
         """
-        The tag of the application.
+        The tags of the application.
         """
         return pulumi.get(self, "tags")
 
@@ -247,7 +247,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] attributes_to_delete: A list of attributes to delete from an application.
         :param pulumi.Input[str] description: The description of the application.
         :param pulumi.Input[str] display_name: The display name of the application. This name is visible to users in the application catalog.
-        :param pulumi.Input[pulumi.InputType['ApplicationS3LocationArgs']] icon_s3_location: The S3 location of the application icon.
+        :param pulumi.Input[pulumi.InputType['ApplicationS3LocationArgs']] icon_s3_location: The icon S3 location of the application.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_families: The instance families the application supports.
                
                *Allowed Values* : `GENERAL_PURPOSE` | `GRAPHICS_G4`
@@ -259,7 +259,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] platforms: The platforms the application supports.
                
                *Allowed Values* : `WINDOWS_SERVER_2019` | `AMAZON_LINUX2`
-        :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['ApplicationTag0PropertiesArgs'], pulumi.InputType['ApplicationTag1PropertiesArgs']]]]] tags: The tag of the application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['ApplicationTag0PropertiesArgs'], pulumi.InputType['ApplicationTag1PropertiesArgs']]]]] tags: The tags of the application.
         :param pulumi.Input[str] working_directory: The working directory of the application.
         """
         ...
@@ -423,7 +423,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter(name="iconS3Location")
     def icon_s3_location(self) -> pulumi.Output['outputs.ApplicationS3Location']:
         """
-        The S3 location of the application icon.
+        The icon S3 location of the application.
         """
         return pulumi.get(self, "icon_s3_location")
 
@@ -477,7 +477,7 @@ class Application(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence[Any]]]:
         """
-        The tag of the application.
+        The tags of the application.
         """
         return pulumi.get(self, "tags")
 

@@ -53,7 +53,7 @@ class GetSchemaResult:
     @pulumi.getter(name="checkpointVersion")
     def checkpoint_version(self) -> Optional['outputs.SchemaVersion']:
         """
-        Specifies the version of a schema.
+        Specify the `VersionNumber` or the `IsLatest` for setting the checkpoint for the schema. This is only required for updating a checkpoint.
         """
         return pulumi.get(self, "checkpoint_version")
 

@@ -50,7 +50,9 @@ export class LocationNfs extends pulumi.CustomResource {
      */
     public readonly mountOptions!: pulumi.Output<outputs.datasync.LocationNfsMountOptions | undefined>;
     /**
-     * The AWS DataSync agents that are connecting to a Network File System (NFS) location.
+     * Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+     *
+     * You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
      */
     public readonly onPremConfig!: pulumi.Output<outputs.datasync.LocationNfsOnPremConfig>;
     /**
@@ -112,7 +114,9 @@ export interface LocationNfsArgs {
      */
     mountOptions?: pulumi.Input<inputs.datasync.LocationNfsMountOptionsArgs>;
     /**
-     * The AWS DataSync agents that are connecting to a Network File System (NFS) location.
+     * Specifies the Amazon Resource Name (ARN) of the DataSync agent that want to connect to your NFS file server.
+     *
+     * You can specify more than one agent. For more information, see [Using multiple agents for transfers](https://docs.aws.amazon.com/datasync/latest/userguide/multiple-agents.html) .
      */
     onPremConfig: pulumi.Input<inputs.datasync.LocationNfsOnPremConfigArgs>;
     /**

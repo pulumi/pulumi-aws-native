@@ -68,7 +68,7 @@ type LookupAgentResult struct {
 	KnowledgeBases []AgentKnowledgeBase `pulumi:"knowledgeBases"`
 	// Time Stamp.
 	PreparedAt *string `pulumi:"preparedAt"`
-	// Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+	// Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
 	PromptOverrideConfiguration *AgentPromptOverrideConfiguration `pulumi:"promptOverrideConfiguration"`
 	// The recommended actions users can take to resolve an error in failureReasons.
 	RecommendedActions []string `pulumi:"recommendedActions"`
@@ -210,7 +210,7 @@ func (o LookupAgentResultOutput) PreparedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAgentResult) *string { return v.PreparedAt }).(pulumi.StringPtrOutput)
 }
 
-// Contains configurations to override prompts in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
+// Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see [Advanced prompts](https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html) .
 func (o LookupAgentResultOutput) PromptOverrideConfiguration() AgentPromptOverrideConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupAgentResult) *AgentPromptOverrideConfiguration { return v.PromptOverrideConfiguration }).(AgentPromptOverrideConfigurationPtrOutput)
 }

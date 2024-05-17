@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.IoTWireless.Outputs
     public sealed class TaskDefinitionUpdateWirelessGatewayTaskCreate
     {
         /// <summary>
-        /// The signature used to verify the update firmware.
+        /// The properties that relate to the LoRaWAN wireless gateway.
         /// </summary>
         public readonly Outputs.TaskDefinitionLoRaWanUpdateGatewayTaskCreate? LoRaWan;
         /// <summary>

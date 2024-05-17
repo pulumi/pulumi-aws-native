@@ -13,19 +13,19 @@ namespace Pulumi.AwsNative.Kendra.Inputs
     public sealed class DataSourceDatabaseConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Provides information about the column that should be used for filtering the query response by groups.
+        /// Information about the database column that provides information for user context filtering.
         /// </summary>
         [Input("aclConfiguration")]
         public Input<Inputs.DataSourceAclConfigurationArgs>? AclConfiguration { get; set; }
 
         /// <summary>
-        /// Provides information about how Amazon Kendra should use the columns of a database in an index.
+        /// Information about where the index should get the document information from the database.
         /// </summary>
         [Input("columnConfiguration", required: true)]
         public Input<Inputs.DataSourceColumnConfigurationArgs> ColumnConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// Provides the configuration information that's required to connect to a database.
+        /// Configuration information that's required to connect to a database.
         /// </summary>
         [Input("connectionConfiguration", required: true)]
         public Input<Inputs.DataSourceConnectionConfigurationArgs> ConnectionConfiguration { get; set; } = null!;
@@ -37,13 +37,13 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         public Input<Pulumi.AwsNative.Kendra.DataSourceDatabaseEngineType> DatabaseEngineType { get; set; } = null!;
 
         /// <summary>
-        /// Provides information that configures Amazon Kendra to use a SQL database.
+        /// Provides information about how Amazon Kendra uses quote marks around SQL identifiers when querying a database data source.
         /// </summary>
         [Input("sqlConfiguration")]
         public Input<Inputs.DataSourceSqlConfigurationArgs>? SqlConfiguration { get; set; }
 
         /// <summary>
-        /// Provides the configuration information to connect to an Amazon VPC.
+        /// Provides information for connecting to an Amazon VPC.
         /// </summary>
         [Input("vpcConfiguration")]
         public Input<Inputs.DataSourceVpcConfigurationArgs>? VpcConfiguration { get; set; }

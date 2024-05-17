@@ -48,16 +48,13 @@ export interface GetTemplateResult {
      */
     readonly name?: string;
     /**
-     * Permission for the resource.
+     * A list of resource permissions to be set on the template.
      */
     readonly permissions?: outputs.quicksight.TemplateResourcePermission[];
     /**
      * Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
      */
     readonly tags?: outputs.Tag[];
-    /**
-     * A version of a template.
-     */
     readonly version?: outputs.quicksight.TemplateVersion;
 }
 /**

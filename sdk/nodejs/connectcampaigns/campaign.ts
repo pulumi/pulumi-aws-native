@@ -46,7 +46,7 @@ export class Campaign extends pulumi.CustomResource {
      */
     public readonly connectInstanceArn!: pulumi.Output<string>;
     /**
-     * Contains dialer configuration for an outbound campaign.
+     * Contains information about the dialer configuration.
      */
     public readonly dialerConfig!: pulumi.Output<outputs.connectcampaigns.CampaignDialerConfig>;
     /**
@@ -54,7 +54,7 @@ export class Campaign extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Contains outbound call configuration for an outbound campaign.
+     * Contains information about the outbound call configuration.
      */
     public readonly outboundCallConfig!: pulumi.Output<outputs.connectcampaigns.CampaignOutboundCallConfig>;
     /**
@@ -112,7 +112,7 @@ export interface CampaignArgs {
      */
     connectInstanceArn: pulumi.Input<string>;
     /**
-     * Contains dialer configuration for an outbound campaign.
+     * Contains information about the dialer configuration.
      */
     dialerConfig: pulumi.Input<inputs.connectcampaigns.CampaignDialerConfigArgs>;
     /**
@@ -120,7 +120,7 @@ export interface CampaignArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Contains outbound call configuration for an outbound campaign.
+     * Contains information about the outbound call configuration.
      */
     outboundCallConfig: pulumi.Input<inputs.connectcampaigns.CampaignOutboundCallConfigArgs>;
     /**

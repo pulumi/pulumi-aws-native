@@ -46,15 +46,15 @@ export class TrustAnchor extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Customizable notification settings that will be applied to notification events. IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge , and AWS Health Dashboard .
+     * A list of notification settings to be associated to the trust anchor.
      */
     public readonly notificationSettings!: pulumi.Output<outputs.rolesanywhere.TrustAnchorNotificationSetting[] | undefined>;
     /**
-     * Object representing the TrustAnchor type and its related certificate data.
+     * The trust anchor type and its related certificate data.
      */
     public readonly source!: pulumi.Output<outputs.rolesanywhere.TrustAnchorSource>;
     /**
-     * A label that consists of a key and value you define.
+     * The tags to attach to the trust anchor.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
@@ -114,15 +114,15 @@ export interface TrustAnchorArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Customizable notification settings that will be applied to notification events. IAM Roles Anywhere consumes these settings while notifying across multiple channels - CloudWatch metrics, EventBridge , and AWS Health Dashboard .
+     * A list of notification settings to be associated to the trust anchor.
      */
     notificationSettings?: pulumi.Input<pulumi.Input<inputs.rolesanywhere.TrustAnchorNotificationSettingArgs>[]>;
     /**
-     * Object representing the TrustAnchor type and its related certificate data.
+     * The trust anchor type and its related certificate data.
      */
     source: pulumi.Input<inputs.rolesanywhere.TrustAnchorSourceArgs>;
     /**
-     * A label that consists of a key and value you define.
+     * The tags to attach to the trust anchor.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

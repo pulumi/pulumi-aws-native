@@ -22,12 +22,6 @@ namespace Pulumi.AwsNative.Backup.Inputs
     {
         [Input("stringEquals")]
         private InputList<Inputs.BackupSelectionConditionParameterArgs>? _stringEquals;
-
-        /// <summary>
-        /// Includes information about tags you define to assign tagged resources to a backup plan.
-        /// 
-        /// Include the prefix `aws:ResourceTag` in your tags. For example, `"aws:ResourceTag/TagKey1": "Value1"` .
-        /// </summary>
         public InputList<Inputs.BackupSelectionConditionParameterArgs> StringEquals
         {
             get => _stringEquals ?? (_stringEquals = new InputList<Inputs.BackupSelectionConditionParameterArgs>());

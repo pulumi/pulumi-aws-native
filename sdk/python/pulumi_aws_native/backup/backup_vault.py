@@ -32,8 +32,8 @@ class BackupVaultArgs:
         :param pulumi.Input[str] encryption_key_arn: A server-side encryption key you can specify to encrypt your backups from services that support full AWS Backup management; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` . If you specify a key, you must specify its ARN, not its alias. If you do not specify a key, AWS Backup creates a KMS key for you by default.
                
                To learn which AWS Backup services support full AWS Backup management and how AWS Backup handles encryption for backups from services that do not yet support full AWS Backup , see [Encryption for backups in AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html)
-        :param pulumi.Input['BackupVaultLockConfigurationTypeArgs'] lock_configuration: The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
-        :param pulumi.Input['BackupVaultNotificationObjectTypeArgs'] notifications: Specifies an object containing SNS event notification properties for the target backup vault.
+        :param pulumi.Input['BackupVaultLockConfigurationTypeArgs'] lock_configuration: Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+        :param pulumi.Input['BackupVaultNotificationObjectTypeArgs'] notifications: The SNS event notifications for the specified backup vault.
         """
         if access_policy is not None:
             pulumi.set(__self__, "access_policy", access_policy)
@@ -104,7 +104,7 @@ class BackupVaultArgs:
     @pulumi.getter(name="lockConfiguration")
     def lock_configuration(self) -> Optional[pulumi.Input['BackupVaultLockConfigurationTypeArgs']]:
         """
-        The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+        Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
         """
         return pulumi.get(self, "lock_configuration")
 
@@ -116,7 +116,7 @@ class BackupVaultArgs:
     @pulumi.getter
     def notifications(self) -> Optional[pulumi.Input['BackupVaultNotificationObjectTypeArgs']]:
         """
-        Specifies an object containing SNS event notification properties for the target backup vault.
+        The SNS event notifications for the specified backup vault.
         """
         return pulumi.get(self, "notifications")
 
@@ -150,8 +150,8 @@ class BackupVault(pulumi.CustomResource):
         :param pulumi.Input[str] encryption_key_arn: A server-side encryption key you can specify to encrypt your backups from services that support full AWS Backup management; for example, `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab` . If you specify a key, you must specify its ARN, not its alias. If you do not specify a key, AWS Backup creates a KMS key for you by default.
                
                To learn which AWS Backup services support full AWS Backup management and how AWS Backup handles encryption for backups from services that do not yet support full AWS Backup , see [Encryption for backups in AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/encryption.html)
-        :param pulumi.Input[pulumi.InputType['BackupVaultLockConfigurationTypeArgs']] lock_configuration: The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
-        :param pulumi.Input[pulumi.InputType['BackupVaultNotificationObjectTypeArgs']] notifications: Specifies an object containing SNS event notification properties for the target backup vault.
+        :param pulumi.Input[pulumi.InputType['BackupVaultLockConfigurationTypeArgs']] lock_configuration: Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+        :param pulumi.Input[pulumi.InputType['BackupVaultNotificationObjectTypeArgs']] notifications: The SNS event notifications for the specified backup vault.
         """
         ...
     @overload
@@ -280,7 +280,7 @@ class BackupVault(pulumi.CustomResource):
     @pulumi.getter(name="lockConfiguration")
     def lock_configuration(self) -> pulumi.Output[Optional['outputs.BackupVaultLockConfigurationType']]:
         """
-        The `LockConfigurationType` property type specifies configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
+        Configuration for [AWS Backup Vault Lock](https://docs.aws.amazon.com/aws-backup/latest/devguide/vault-lock.html) .
         """
         return pulumi.get(self, "lock_configuration")
 
@@ -288,7 +288,7 @@ class BackupVault(pulumi.CustomResource):
     @pulumi.getter
     def notifications(self) -> pulumi.Output[Optional['outputs.BackupVaultNotificationObjectType']]:
         """
-        Specifies an object containing SNS event notification properties for the target backup vault.
+        The SNS event notifications for the specified backup vault.
         """
         return pulumi.get(self, "notifications")
 

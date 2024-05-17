@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.RedshiftServerless.Outputs
         /// </summary>
         public readonly int? Port;
         /// <summary>
-        /// The connection endpoint for connecting to Amazon Redshift Serverless through the proxy.
+        /// An array of `VpcEndpoint` objects.
         /// </summary>
         public readonly ImmutableArray<Outputs.WorkgroupVpcEndpoint> VpcEndpoints;
 

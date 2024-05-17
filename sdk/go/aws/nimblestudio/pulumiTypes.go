@@ -49,11 +49,11 @@ type LaunchProfileStreamConfiguration struct {
 	//                 <code>maxSessionLengthInMinutes</code> value, the session will automatically be
 	//             stopped (instead of terminated).</p>
 	MaxStoppedSessionLengthInMinutes *float64 `pulumi:"maxStoppedSessionLengthInMinutes"`
-	// Configures how streaming sessions are backed up when launched from this launch profile.
+	// Information about the streaming session backup.
 	SessionBackup *LaunchProfileStreamConfigurationSessionBackup `pulumi:"sessionBackup"`
 	// Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
 	SessionPersistenceMode *LaunchProfileSessionPersistenceMode `pulumi:"sessionPersistenceMode"`
-	// The configuration for a streaming session’s upload storage.
+	// The upload storage for a streaming session.
 	SessionStorage *LaunchProfileStreamConfigurationSessionStorage `pulumi:"sessionStorage"`
 	// <p>The streaming images that users can select from when launching a streaming session
 	//             with this launch profile.</p>
@@ -111,11 +111,11 @@ type LaunchProfileStreamConfigurationArgs struct {
 	//                 <code>maxSessionLengthInMinutes</code> value, the session will automatically be
 	//             stopped (instead of terminated).</p>
 	MaxStoppedSessionLengthInMinutes pulumi.Float64PtrInput `pulumi:"maxStoppedSessionLengthInMinutes"`
-	// Configures how streaming sessions are backed up when launched from this launch profile.
+	// Information about the streaming session backup.
 	SessionBackup LaunchProfileStreamConfigurationSessionBackupPtrInput `pulumi:"sessionBackup"`
 	// Determine if a streaming session created from this launch profile can configure persistent storage. This means that `volumeConfiguration` and `automaticTerminationMode` are configured.
 	SessionPersistenceMode LaunchProfileSessionPersistenceModePtrInput `pulumi:"sessionPersistenceMode"`
-	// The configuration for a streaming session’s upload storage.
+	// The upload storage for a streaming session.
 	SessionStorage LaunchProfileStreamConfigurationSessionStoragePtrInput `pulumi:"sessionStorage"`
 	// <p>The streaming images that users can select from when launching a streaming session
 	//             with this launch profile.</p>
@@ -209,7 +209,7 @@ func (o LaunchProfileStreamConfigurationOutput) MaxStoppedSessionLengthInMinutes
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *float64 { return v.MaxStoppedSessionLengthInMinutes }).(pulumi.Float64PtrOutput)
 }
 
-// Configures how streaming sessions are backed up when launched from this launch profile.
+// Information about the streaming session backup.
 func (o LaunchProfileStreamConfigurationOutput) SessionBackup() LaunchProfileStreamConfigurationSessionBackupPtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *LaunchProfileStreamConfigurationSessionBackup {
 		return v.SessionBackup
@@ -223,7 +223,7 @@ func (o LaunchProfileStreamConfigurationOutput) SessionPersistenceMode() LaunchP
 	}).(LaunchProfileSessionPersistenceModePtrOutput)
 }
 
-// The configuration for a streaming session’s upload storage.
+// The upload storage for a streaming session.
 func (o LaunchProfileStreamConfigurationOutput) SessionStorage() LaunchProfileStreamConfigurationSessionStoragePtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfiguration) *LaunchProfileStreamConfigurationSessionStorage {
 		return v.SessionStorage
@@ -347,7 +347,7 @@ func (o LaunchProfileStreamConfigurationPtrOutput) MaxStoppedSessionLengthInMinu
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Configures how streaming sessions are backed up when launched from this launch profile.
+// Information about the streaming session backup.
 func (o LaunchProfileStreamConfigurationPtrOutput) SessionBackup() LaunchProfileStreamConfigurationSessionBackupPtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *LaunchProfileStreamConfigurationSessionBackup {
 		if v == nil {
@@ -367,7 +367,7 @@ func (o LaunchProfileStreamConfigurationPtrOutput) SessionPersistenceMode() Laun
 	}).(LaunchProfileSessionPersistenceModePtrOutput)
 }
 
-// The configuration for a streaming session’s upload storage.
+// The upload storage for a streaming session.
 func (o LaunchProfileStreamConfigurationPtrOutput) SessionStorage() LaunchProfileStreamConfigurationSessionStoragePtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfiguration) *LaunchProfileStreamConfigurationSessionStorage {
 		if v == nil {
@@ -585,7 +585,7 @@ type LaunchProfileStreamConfigurationSessionStorage struct {
 	// <p>Allows artists to upload files to their workstations. The only valid option is
 	//                 <code>UPLOAD</code>.</p>
 	Mode []LaunchProfileStreamingSessionStorageMode `pulumi:"mode"`
-	// The upload storage root location (folder) on streaming workstations where files are uploaded.
+	// The configuration for the upload storage root of the streaming session.
 	Root *LaunchProfileStreamingSessionStorageRoot `pulumi:"root"`
 }
 
@@ -605,7 +605,7 @@ type LaunchProfileStreamConfigurationSessionStorageArgs struct {
 	// <p>Allows artists to upload files to their workstations. The only valid option is
 	//                 <code>UPLOAD</code>.</p>
 	Mode LaunchProfileStreamingSessionStorageModeArrayInput `pulumi:"mode"`
-	// The upload storage root location (folder) on streaming workstations where files are uploaded.
+	// The configuration for the upload storage root of the streaming session.
 	Root LaunchProfileStreamingSessionStorageRootPtrInput `pulumi:"root"`
 }
 
@@ -696,7 +696,7 @@ func (o LaunchProfileStreamConfigurationSessionStorageOutput) Mode() LaunchProfi
 	}).(LaunchProfileStreamingSessionStorageModeArrayOutput)
 }
 
-// The upload storage root location (folder) on streaming workstations where files are uploaded.
+// The configuration for the upload storage root of the streaming session.
 func (o LaunchProfileStreamConfigurationSessionStorageOutput) Root() LaunchProfileStreamingSessionStorageRootPtrOutput {
 	return o.ApplyT(func(v LaunchProfileStreamConfigurationSessionStorage) *LaunchProfileStreamingSessionStorageRoot {
 		return v.Root
@@ -739,7 +739,7 @@ func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) Mode() LaunchPr
 	}).(LaunchProfileStreamingSessionStorageModeArrayOutput)
 }
 
-// The upload storage root location (folder) on streaming workstations where files are uploaded.
+// The configuration for the upload storage root of the streaming session.
 func (o LaunchProfileStreamConfigurationSessionStoragePtrOutput) Root() LaunchProfileStreamingSessionStorageRootPtrOutput {
 	return o.ApplyT(func(v *LaunchProfileStreamConfigurationSessionStorage) *LaunchProfileStreamingSessionStorageRoot {
 		if v == nil {

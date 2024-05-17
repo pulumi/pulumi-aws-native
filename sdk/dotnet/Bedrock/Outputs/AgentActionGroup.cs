@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     public sealed class AgentActionGroup
     {
         /// <summary>
-        /// Contains details about the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.
+        /// The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.
         /// </summary>
         public readonly Union<Outputs.AgentActionGroupExecutor0Properties, Outputs.AgentActionGroupExecutor1Properties>? ActionGroupExecutor;
         /// <summary>
@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.AgentActionGroupState? ActionGroupState;
         /// <summary>
-        /// Contains details about the OpenAPI schema for the action group. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html) . You can either include the schema directly in the `payload` field or you can upload it to an S3 bucket and specify the S3 bucket location in the `s3` field.
+        /// Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html) .
         /// </summary>
         public readonly Union<Outputs.AgentApiSchema0Properties, Outputs.AgentApiSchema1Properties>? ApiSchema;
         /// <summary>
@@ -38,14 +38,6 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         public readonly string? Description;
         /// <summary>
         /// Defines functions that each define parameters that the agent needs to invoke from the user. Each function represents an action in an action group.
-        /// 
-        /// This data type is used in the following API operations:
-        /// 
-        /// - [CreateAgentActionGroup request](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_RequestSyntax)
-        /// - [CreateAgentActionGroup response](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_CreateAgentActionGroup.html#API_agent_CreateAgentActionGroup_ResponseSyntax)
-        /// - [UpdateAgentActionGroup request](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_RequestSyntax)
-        /// - [UpdateAgentActionGroup response](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_UpdateAgentActionGroup.html#API_agent_UpdateAgentActionGroup_ResponseSyntax)
-        /// - [GetAgentActionGroup response](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_GetAgentActionGroup.html#API_agent_GetAgentActionGroup_ResponseSyntax)
         /// </summary>
         public readonly Outputs.AgentFunctionSchema? FunctionSchema;
         /// <summary>

@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
     public sealed class DatasetPathParameter
     {
         /// <summary>
-        /// Represents a dataset paramater that defines type and conditions for a parameter in the Amazon S3 path of the dataset.
+        /// The path parameter definition.
         /// </summary>
         public readonly Outputs.DatasetParameter DatasetParameter;
         /// <summary>

@@ -26,7 +26,7 @@ class MapArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Map resource.
-        :param pulumi.Input['MapConfigurationArgs'] configuration: Specifies the map tile style selected from an available provider.
+        :param pulumi.Input['MapConfigurationArgs'] configuration: Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
         :param pulumi.Input[str] description: An optional description for the map resource.
         :param pulumi.Input[str] map_name: The name for the map resource.
                
@@ -54,7 +54,7 @@ class MapArgs:
     @pulumi.getter
     def configuration(self) -> pulumi.Input['MapConfigurationArgs']:
         """
-        Specifies the map tile style selected from an available provider.
+        Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
         """
         return pulumi.get(self, "configuration")
 
@@ -135,7 +135,7 @@ class Map(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['MapConfigurationArgs']] configuration: Specifies the map tile style selected from an available provider.
+        :param pulumi.Input[pulumi.InputType['MapConfigurationArgs']] configuration: Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
         :param pulumi.Input[str] description: An optional description for the map resource.
         :param pulumi.Input[str] map_name: The name for the map resource.
                
@@ -247,7 +247,7 @@ class Map(pulumi.CustomResource):
     @pulumi.getter
     def configuration(self) -> pulumi.Output['outputs.MapConfiguration']:
         """
-        Specifies the map tile style selected from an available provider.
+        Specifies the `MapConfiguration` , including the map style, for the map resource that you create. The map style defines the look of maps and the data provider for your map resource.
         """
         return pulumi.get(self, "configuration")
 

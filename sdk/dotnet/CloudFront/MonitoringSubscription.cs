@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.CloudFront
         public Output<string> DistributionId { get; private set; } = null!;
 
         /// <summary>
-        /// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+        /// A subscription configuration for additional CloudWatch metrics.
         /// </summary>
         [Output("monitoringSubscription")]
         public Output<Outputs.MonitoringSubscription> MonitoringSubscriptionValue { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.AwsNative.CloudFront
         public Input<string> DistributionId { get; set; } = null!;
 
         /// <summary>
-        /// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+        /// A subscription configuration for additional CloudWatch metrics.
         /// </summary>
         [Input("monitoringSubscription", required: true)]
         public Input<Inputs.MonitoringSubscriptionArgs> MonitoringSubscriptionValue { get; set; } = null!;

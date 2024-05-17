@@ -102,7 +102,7 @@ namespace Pulumi.AwsNative.FraudDetector
         /// </summary>
         public readonly Pulumi.AwsNative.FraudDetector.DetectorRuleExecutionMode? RuleExecutionMode;
         /// <summary>
-        /// A rule.
+        /// The rules to include in the detector version.
         /// </summary>
         public readonly ImmutableArray<Outputs.DetectorRule> Rules;
         /// <summary>

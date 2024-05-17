@@ -37,7 +37,7 @@ type LookupMissionProfileResult struct {
 	ContactPostPassDurationSeconds *int `pulumi:"contactPostPassDurationSeconds"`
 	// Pre-pass time needed before the contact.
 	ContactPrePassDurationSeconds *int `pulumi:"contactPrePassDurationSeconds"`
-	// A dataflow edge defines from where and to where data will flow during a contact.
+	// A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
 	DataflowEdges []MissionProfileDataflowEdge `pulumi:"dataflowEdges"`
 	// The ID of the mission profile, such as `9940bf3b-d2ba-427e-9906-842b5e5d2296` .
 	Id *string `pulumi:"id"`
@@ -110,7 +110,7 @@ func (o LookupMissionProfileResultOutput) ContactPrePassDurationSeconds() pulumi
 	return o.ApplyT(func(v LookupMissionProfileResult) *int { return v.ContactPrePassDurationSeconds }).(pulumi.IntPtrOutput)
 }
 
-// A dataflow edge defines from where and to where data will flow during a contact.
+// A list containing lists of config ARNs. Each list of config ARNs is an edge, with a "from" config and a "to" config.
 func (o LookupMissionProfileResultOutput) DataflowEdges() MissionProfileDataflowEdgeArrayOutput {
 	return o.ApplyT(func(v LookupMissionProfileResult) []MissionProfileDataflowEdge { return v.DataflowEdges }).(MissionProfileDataflowEdgeArrayOutput)
 }

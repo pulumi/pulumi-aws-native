@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.AppStream
         /// </summary>
         public readonly string? DisplayName;
         /// <summary>
-        /// The S3 location of the application icon.
+        /// The icon S3 location of the application.
         /// </summary>
         public readonly Outputs.ApplicationS3Location? IconS3Location;
         /// <summary>

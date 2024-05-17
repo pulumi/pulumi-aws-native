@@ -82,7 +82,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public readonly string? MonitoringScheduleArn;
         /// <summary>
-        /// Configures the monitoring schedule and defines the monitoring job.
+        /// The configuration object that specifies the monitoring schedule and defines the monitoring job.
         /// </summary>
         public readonly Outputs.MonitoringScheduleConfig? MonitoringScheduleConfig;
         /// <summary>

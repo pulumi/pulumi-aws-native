@@ -37,7 +37,7 @@ type UserSettings struct {
 	PasteAllowed UserSettingsEnabledTypeOutput `pulumi:"pasteAllowed"`
 	// Specifies whether the user can print to the local device.
 	PrintAllowed UserSettingsEnabledTypeOutput `pulumi:"printAllowed"`
-	// The tag.
+	// The tags to add to the user settings resource. A tag is a key-value pair.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Specifies whether the user can upload files from the local device to the streaming session.
 	UploadAllowed UserSettingsEnabledTypeOutput `pulumi:"uploadAllowed"`
@@ -123,7 +123,7 @@ type userSettingsArgs struct {
 	PasteAllowed UserSettingsEnabledType `pulumi:"pasteAllowed"`
 	// Specifies whether the user can print to the local device.
 	PrintAllowed UserSettingsEnabledType `pulumi:"printAllowed"`
-	// The tag.
+	// The tags to add to the user settings resource. A tag is a key-value pair.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Specifies whether the user can upload files from the local device to the streaming session.
 	UploadAllowed UserSettingsEnabledType `pulumi:"uploadAllowed"`
@@ -149,7 +149,7 @@ type UserSettingsArgs struct {
 	PasteAllowed UserSettingsEnabledTypeInput
 	// Specifies whether the user can print to the local device.
 	PrintAllowed UserSettingsEnabledTypeInput
-	// The tag.
+	// The tags to add to the user settings resource. A tag is a key-value pair.
 	Tags aws.TagArrayInput
 	// Specifies whether the user can upload files from the local device to the streaming session.
 	UploadAllowed UserSettingsEnabledTypeInput
@@ -244,7 +244,7 @@ func (o UserSettingsOutput) PrintAllowed() UserSettingsEnabledTypeOutput {
 	return o.ApplyT(func(v *UserSettings) UserSettingsEnabledTypeOutput { return v.PrintAllowed }).(UserSettingsEnabledTypeOutput)
 }
 
-// The tag.
+// The tags to add to the user settings resource. A tag is a key-value pair.
 func (o UserSettingsOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *UserSettings) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

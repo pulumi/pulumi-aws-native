@@ -41,7 +41,7 @@ type LookupDocumentClassifierResult struct {
 	//
 	// `'{"attribute": "value", "attribute": ["value"]}'`
 	ModelPolicy *string `pulumi:"modelPolicy"`
-	// A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+	// Tags to associate with the document classifier. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -99,7 +99,7 @@ func (o LookupDocumentClassifierResultOutput) ModelPolicy() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LookupDocumentClassifierResult) *string { return v.ModelPolicy }).(pulumi.StringPtrOutput)
 }
 
-// A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
+// Tags to associate with the document classifier. A tag is a key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.
 func (o LookupDocumentClassifierResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDocumentClassifierResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

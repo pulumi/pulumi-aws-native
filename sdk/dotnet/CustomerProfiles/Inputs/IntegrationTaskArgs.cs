@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         private InputList<Inputs.IntegrationTaskPropertiesMapArgs>? _taskProperties;
 
         /// <summary>
-        /// A map used to store task-related information. The execution service looks for particular information based on the `TaskType` .
+        /// A map used to store task-related information. The service looks for particular information based on the TaskType.
         /// </summary>
         public InputList<Inputs.IntegrationTaskPropertiesMapArgs> TaskProperties
         {

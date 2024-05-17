@@ -44,7 +44,7 @@ class ConfigAntennaDownlinkConfigArgs:
     def __init__(__self__, *,
                  spectrum_config: Optional[pulumi.Input['ConfigSpectrumConfigArgs']] = None):
         """
-        :param pulumi.Input['ConfigSpectrumConfigArgs'] spectrum_config: Defines a spectrum.
+        :param pulumi.Input['ConfigSpectrumConfigArgs'] spectrum_config: Defines the spectrum configuration.
         """
         if spectrum_config is not None:
             pulumi.set(__self__, "spectrum_config", spectrum_config)
@@ -53,7 +53,7 @@ class ConfigAntennaDownlinkConfigArgs:
     @pulumi.getter(name="spectrumConfig")
     def spectrum_config(self) -> Optional[pulumi.Input['ConfigSpectrumConfigArgs']]:
         """
-        Defines a spectrum.
+        Defines the spectrum configuration.
         """
         return pulumi.get(self, "spectrum_config")
 
@@ -69,9 +69,9 @@ class ConfigAntennaDownlinkDemodDecodeConfigArgs:
                  demodulation_config: Optional[pulumi.Input['ConfigDemodulationConfigArgs']] = None,
                  spectrum_config: Optional[pulumi.Input['ConfigSpectrumConfigArgs']] = None):
         """
-        :param pulumi.Input['ConfigDecodeConfigArgs'] decode_config: Defines decoding settings.
-        :param pulumi.Input['ConfigDemodulationConfigArgs'] demodulation_config: Defines demodulation settings.
-        :param pulumi.Input['ConfigSpectrumConfigArgs'] spectrum_config: Defines a spectrum.
+        :param pulumi.Input['ConfigDecodeConfigArgs'] decode_config: Defines how the RF signal will be decoded.
+        :param pulumi.Input['ConfigDemodulationConfigArgs'] demodulation_config: Defines how the RF signal will be demodulated.
+        :param pulumi.Input['ConfigSpectrumConfigArgs'] spectrum_config: Defines the spectrum configuration.
         """
         if decode_config is not None:
             pulumi.set(__self__, "decode_config", decode_config)
@@ -84,7 +84,7 @@ class ConfigAntennaDownlinkDemodDecodeConfigArgs:
     @pulumi.getter(name="decodeConfig")
     def decode_config(self) -> Optional[pulumi.Input['ConfigDecodeConfigArgs']]:
         """
-        Defines decoding settings.
+        Defines how the RF signal will be decoded.
         """
         return pulumi.get(self, "decode_config")
 
@@ -96,7 +96,7 @@ class ConfigAntennaDownlinkDemodDecodeConfigArgs:
     @pulumi.getter(name="demodulationConfig")
     def demodulation_config(self) -> Optional[pulumi.Input['ConfigDemodulationConfigArgs']]:
         """
-        Defines demodulation settings.
+        Defines how the RF signal will be demodulated.
         """
         return pulumi.get(self, "demodulation_config")
 
@@ -108,7 +108,7 @@ class ConfigAntennaDownlinkDemodDecodeConfigArgs:
     @pulumi.getter(name="spectrumConfig")
     def spectrum_config(self) -> Optional[pulumi.Input['ConfigSpectrumConfigArgs']]:
         """
-        Defines a spectrum.
+        Defines the spectrum configuration.
         """
         return pulumi.get(self, "spectrum_config")
 
@@ -124,8 +124,8 @@ class ConfigAntennaUplinkConfigArgs:
                  target_eirp: Optional[pulumi.Input['ConfigEirpArgs']] = None,
                  transmit_disabled: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input['ConfigUplinkSpectrumConfigArgs'] spectrum_config: Defines a uplink spectrum.
-        :param pulumi.Input['ConfigEirpArgs'] target_eirp: Defines an equivalent isotropically radiated power (EIRP).
+        :param pulumi.Input['ConfigUplinkSpectrumConfigArgs'] spectrum_config: Defines the spectrum configuration.
+        :param pulumi.Input['ConfigEirpArgs'] target_eirp: The equivalent isotropically radiated power (EIRP) to use for uplink transmissions. Valid values are between 20.0 to 50.0 dBW.
         :param pulumi.Input[bool] transmit_disabled: Whether or not uplink transmit is disabled.
         """
         if spectrum_config is not None:
@@ -139,7 +139,7 @@ class ConfigAntennaUplinkConfigArgs:
     @pulumi.getter(name="spectrumConfig")
     def spectrum_config(self) -> Optional[pulumi.Input['ConfigUplinkSpectrumConfigArgs']]:
         """
-        Defines a uplink spectrum.
+        Defines the spectrum configuration.
         """
         return pulumi.get(self, "spectrum_config")
 
@@ -151,7 +151,7 @@ class ConfigAntennaUplinkConfigArgs:
     @pulumi.getter(name="targetEirp")
     def target_eirp(self) -> Optional[pulumi.Input['ConfigEirpArgs']]:
         """
-        Defines an equivalent isotropically radiated power (EIRP).
+        The equivalent isotropically radiated power (EIRP) to use for uplink transmissions. Valid values are between 20.0 to 50.0 dBW.
         """
         return pulumi.get(self, "target_eirp")
 
@@ -222,13 +222,13 @@ class ConfigDataArgs:
                  tracking_config: Optional[pulumi.Input['ConfigTrackingConfigArgs']] = None,
                  uplink_echo_config: Optional[pulumi.Input['ConfigUplinkEchoConfigArgs']] = None):
         """
-        :param pulumi.Input['ConfigAntennaDownlinkConfigArgs'] antenna_downlink_config: Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink config in a mission profile to receive the downlink data in raw DigIF format.
-        :param pulumi.Input['ConfigAntennaDownlinkDemodDecodeConfigArgs'] antenna_downlink_demod_decode_config: Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink demod decode config in a mission profile to receive the downlink data that has been demodulated and decoded.
-        :param pulumi.Input['ConfigAntennaUplinkConfigArgs'] antenna_uplink_config: Provides information about how AWS Ground Station should configure an antenna for uplink during a contact.
-        :param pulumi.Input['ConfigDataflowEndpointConfigArgs'] dataflow_endpoint_config: Provides information to AWS Ground Station about which IP endpoints to use during a contact.
-        :param pulumi.Input['ConfigS3RecordingConfigArgs'] s3_recording_config: Provides information about how AWS Ground Station should save downlink data to S3.
-        :param pulumi.Input['ConfigTrackingConfigArgs'] tracking_config: Provides information about how AWS Ground Station should track the satellite through the sky during a contact.
-        :param pulumi.Input['ConfigUplinkEchoConfigArgs'] uplink_echo_config: Provides information about how AWS Ground Station should echo back uplink transmissions to a dataflow endpoint.
+        :param pulumi.Input['ConfigAntennaDownlinkConfigArgs'] antenna_downlink_config: Provides information for an antenna downlink config object. Antenna downlink config objects are used to provide parameters for downlinks where no demodulation or decoding is performed by Ground Station (RF over IP downlinks).
+        :param pulumi.Input['ConfigAntennaDownlinkDemodDecodeConfigArgs'] antenna_downlink_demod_decode_config: Provides information for a downlink demod decode config object. Downlink demod decode config objects are used to provide parameters for downlinks where the Ground Station service will demodulate and decode the downlinked data.
+        :param pulumi.Input['ConfigAntennaUplinkConfigArgs'] antenna_uplink_config: Provides information for an uplink config object. Uplink config objects are used to provide parameters for uplink contacts.
+        :param pulumi.Input['ConfigDataflowEndpointConfigArgs'] dataflow_endpoint_config: Provides information for a dataflow endpoint config object. Dataflow endpoint config objects are used to provide parameters about which IP endpoint(s) to use during a contact. Dataflow endpoints are where Ground Station sends data during a downlink contact and where Ground Station receives data to send to the satellite during an uplink contact.
+        :param pulumi.Input['ConfigS3RecordingConfigArgs'] s3_recording_config: Provides information for an S3 recording config object. S3 recording config objects are used to provide parameters for S3 recording during downlink contacts.
+        :param pulumi.Input['ConfigTrackingConfigArgs'] tracking_config: Provides information for a tracking config object. Tracking config objects are used to provide parameters about how to track the satellite through the sky during a contact.
+        :param pulumi.Input['ConfigUplinkEchoConfigArgs'] uplink_echo_config: Provides information for an uplink echo config object. Uplink echo config objects are used to provide parameters for uplink echo during uplink contacts.
         """
         if antenna_downlink_config is not None:
             pulumi.set(__self__, "antenna_downlink_config", antenna_downlink_config)
@@ -249,7 +249,7 @@ class ConfigDataArgs:
     @pulumi.getter(name="antennaDownlinkConfig")
     def antenna_downlink_config(self) -> Optional[pulumi.Input['ConfigAntennaDownlinkConfigArgs']]:
         """
-        Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink config in a mission profile to receive the downlink data in raw DigIF format.
+        Provides information for an antenna downlink config object. Antenna downlink config objects are used to provide parameters for downlinks where no demodulation or decoding is performed by Ground Station (RF over IP downlinks).
         """
         return pulumi.get(self, "antenna_downlink_config")
 
@@ -261,7 +261,7 @@ class ConfigDataArgs:
     @pulumi.getter(name="antennaDownlinkDemodDecodeConfig")
     def antenna_downlink_demod_decode_config(self) -> Optional[pulumi.Input['ConfigAntennaDownlinkDemodDecodeConfigArgs']]:
         """
-        Provides information about how AWS Ground Station should configure an antenna for downlink during a contact. Use an antenna downlink demod decode config in a mission profile to receive the downlink data that has been demodulated and decoded.
+        Provides information for a downlink demod decode config object. Downlink demod decode config objects are used to provide parameters for downlinks where the Ground Station service will demodulate and decode the downlinked data.
         """
         return pulumi.get(self, "antenna_downlink_demod_decode_config")
 
@@ -273,7 +273,7 @@ class ConfigDataArgs:
     @pulumi.getter(name="antennaUplinkConfig")
     def antenna_uplink_config(self) -> Optional[pulumi.Input['ConfigAntennaUplinkConfigArgs']]:
         """
-        Provides information about how AWS Ground Station should configure an antenna for uplink during a contact.
+        Provides information for an uplink config object. Uplink config objects are used to provide parameters for uplink contacts.
         """
         return pulumi.get(self, "antenna_uplink_config")
 
@@ -285,7 +285,7 @@ class ConfigDataArgs:
     @pulumi.getter(name="dataflowEndpointConfig")
     def dataflow_endpoint_config(self) -> Optional[pulumi.Input['ConfigDataflowEndpointConfigArgs']]:
         """
-        Provides information to AWS Ground Station about which IP endpoints to use during a contact.
+        Provides information for a dataflow endpoint config object. Dataflow endpoint config objects are used to provide parameters about which IP endpoint(s) to use during a contact. Dataflow endpoints are where Ground Station sends data during a downlink contact and where Ground Station receives data to send to the satellite during an uplink contact.
         """
         return pulumi.get(self, "dataflow_endpoint_config")
 
@@ -297,7 +297,7 @@ class ConfigDataArgs:
     @pulumi.getter(name="s3RecordingConfig")
     def s3_recording_config(self) -> Optional[pulumi.Input['ConfigS3RecordingConfigArgs']]:
         """
-        Provides information about how AWS Ground Station should save downlink data to S3.
+        Provides information for an S3 recording config object. S3 recording config objects are used to provide parameters for S3 recording during downlink contacts.
         """
         return pulumi.get(self, "s3_recording_config")
 
@@ -309,7 +309,7 @@ class ConfigDataArgs:
     @pulumi.getter(name="trackingConfig")
     def tracking_config(self) -> Optional[pulumi.Input['ConfigTrackingConfigArgs']]:
         """
-        Provides information about how AWS Ground Station should track the satellite through the sky during a contact.
+        Provides information for a tracking config object. Tracking config objects are used to provide parameters about how to track the satellite through the sky during a contact.
         """
         return pulumi.get(self, "tracking_config")
 
@@ -321,7 +321,7 @@ class ConfigDataArgs:
     @pulumi.getter(name="uplinkEchoConfig")
     def uplink_echo_config(self) -> Optional[pulumi.Input['ConfigUplinkEchoConfigArgs']]:
         """
-        Provides information about how AWS Ground Station should echo back uplink transmissions to a dataflow endpoint.
+        Provides information for an uplink echo config object. Uplink echo config objects are used to provide parameters for uplink echo during uplink contacts.
         """
         return pulumi.get(self, "uplink_echo_config")
 
@@ -555,8 +555,12 @@ class ConfigSpectrumConfigArgs:
                  center_frequency: Optional[pulumi.Input['ConfigFrequencyArgs']] = None,
                  polarization: Optional[pulumi.Input['ConfigPolarization']] = None):
         """
-        :param pulumi.Input['ConfigFrequencyBandwidthArgs'] bandwidth: Defines a bandwidth.
-        :param pulumi.Input['ConfigFrequencyArgs'] center_frequency: Defines a frequency.
+        :param pulumi.Input['ConfigFrequencyBandwidthArgs'] bandwidth: The bandwidth of the spectrum. AWS Ground Station currently has the following bandwidth limitations: 
+               
+               - For `AntennaDownlinkDemodDecodeconfig` , valid values are between 125 kHz to 650 MHz.
+               - For `AntennaDownlinkconfig` , valid values are between 10 kHz to 54 MHz.
+               - For `AntennaUplinkConfig` , valid values are between 10 kHz to 54 MHz.
+        :param pulumi.Input['ConfigFrequencyArgs'] center_frequency: The center frequency of the spectrum. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
         :param pulumi.Input['ConfigPolarization'] polarization: The polarization of the spectrum. Valid values are `"RIGHT_HAND"` and `"LEFT_HAND"` . Capturing both `"RIGHT_HAND"` and `"LEFT_HAND"` polarization requires two separate configs.
         """
         if bandwidth is not None:
@@ -570,7 +574,11 @@ class ConfigSpectrumConfigArgs:
     @pulumi.getter
     def bandwidth(self) -> Optional[pulumi.Input['ConfigFrequencyBandwidthArgs']]:
         """
-        Defines a bandwidth.
+        The bandwidth of the spectrum. AWS Ground Station currently has the following bandwidth limitations: 
+
+        - For `AntennaDownlinkDemodDecodeconfig` , valid values are between 125 kHz to 650 MHz.
+        - For `AntennaDownlinkconfig` , valid values are between 10 kHz to 54 MHz.
+        - For `AntennaUplinkConfig` , valid values are between 10 kHz to 54 MHz.
         """
         return pulumi.get(self, "bandwidth")
 
@@ -582,7 +590,7 @@ class ConfigSpectrumConfigArgs:
     @pulumi.getter(name="centerFrequency")
     def center_frequency(self) -> Optional[pulumi.Input['ConfigFrequencyArgs']]:
         """
-        Defines a frequency.
+        The center frequency of the spectrum. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
         """
         return pulumi.get(self, "center_frequency")
 
@@ -671,7 +679,7 @@ class ConfigUplinkSpectrumConfigArgs:
                  center_frequency: Optional[pulumi.Input['ConfigFrequencyArgs']] = None,
                  polarization: Optional[pulumi.Input['ConfigPolarization']] = None):
         """
-        :param pulumi.Input['ConfigFrequencyArgs'] center_frequency: Defines a frequency.
+        :param pulumi.Input['ConfigFrequencyArgs'] center_frequency: The center frequency of the spectrum. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
         :param pulumi.Input['ConfigPolarization'] polarization: The polarization of the spectrum. Valid values are `"RIGHT_HAND"` and `"LEFT_HAND"` .
         """
         if center_frequency is not None:
@@ -683,7 +691,7 @@ class ConfigUplinkSpectrumConfigArgs:
     @pulumi.getter(name="centerFrequency")
     def center_frequency(self) -> Optional[pulumi.Input['ConfigFrequencyArgs']]:
         """
-        Defines a frequency.
+        The center frequency of the spectrum. Valid values are between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to 2120 MHz for uplink.
         """
         return pulumi.get(self, "center_frequency")
 
@@ -780,7 +788,6 @@ class DataflowEndpointGroupConnectionDetailsArgs:
         """
         Egress address of AgentEndpoint with an optional mtu.
         :param pulumi.Input[int] mtu: Maximum transmission unit (MTU) size in bytes of a dataflow endpoint.
-        :param pulumi.Input['DataflowEndpointGroupSocketAddressArgs'] socket_address: The address of the endpoint, such as `192.168.1.1` .
         """
         if mtu is not None:
             pulumi.set(__self__, "mtu", mtu)
@@ -802,9 +809,6 @@ class DataflowEndpointGroupConnectionDetailsArgs:
     @property
     @pulumi.getter(name="socketAddress")
     def socket_address(self) -> Optional[pulumi.Input['DataflowEndpointGroupSocketAddressArgs']]:
-        """
-        The address of the endpoint, such as `192.168.1.1` .
-        """
         return pulumi.get(self, "socket_address")
 
     @socket_address.setter
@@ -819,7 +823,7 @@ class DataflowEndpointGroupDataflowEndpointArgs:
                  mtu: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['DataflowEndpointGroupSocketAddressArgs'] address: The address of the endpoint, such as `192.168.1.1` .
+        :param pulumi.Input['DataflowEndpointGroupSocketAddressArgs'] address: The address and port of an endpoint.
         :param pulumi.Input[str] name: The endpoint name.
                
                When listing available contacts for a satellite, Ground Station searches for a dataflow endpoint whose name matches the value specified by the dataflow endpoint config of the selected mission profile. If no matching dataflow endpoints are found then Ground Station will not display any available contacts for the satellite.
@@ -835,7 +839,7 @@ class DataflowEndpointGroupDataflowEndpointArgs:
     @pulumi.getter
     def address(self) -> Optional[pulumi.Input['DataflowEndpointGroupSocketAddressArgs']]:
         """
-        The address of the endpoint, such as `192.168.1.1` .
+        The address and port of an endpoint.
         """
         return pulumi.get(self, "address")
 
@@ -874,8 +878,8 @@ class DataflowEndpointGroupEndpointDetailsArgs:
                  endpoint: Optional[pulumi.Input['DataflowEndpointGroupDataflowEndpointArgs']] = None,
                  security_details: Optional[pulumi.Input['DataflowEndpointGroupSecurityDetailsArgs']] = None):
         """
-        :param pulumi.Input['DataflowEndpointGroupDataflowEndpointArgs'] endpoint: Contains information such as socket address and name that defines an endpoint.
-        :param pulumi.Input['DataflowEndpointGroupSecurityDetailsArgs'] security_details: Information about IAM roles, subnets, and security groups needed for this DataflowEndpointGroup.
+        :param pulumi.Input['DataflowEndpointGroupDataflowEndpointArgs'] endpoint: Information about the endpoint such as name and the endpoint address.
+        :param pulumi.Input['DataflowEndpointGroupSecurityDetailsArgs'] security_details: The role ARN, and IDs for security groups and subnets.
         """
         if aws_ground_station_agent_endpoint is not None:
             pulumi.set(__self__, "aws_ground_station_agent_endpoint", aws_ground_station_agent_endpoint)
@@ -897,7 +901,7 @@ class DataflowEndpointGroupEndpointDetailsArgs:
     @pulumi.getter
     def endpoint(self) -> Optional[pulumi.Input['DataflowEndpointGroupDataflowEndpointArgs']]:
         """
-        Contains information such as socket address and name that defines an endpoint.
+        Information about the endpoint such as name and the endpoint address.
         """
         return pulumi.get(self, "endpoint")
 
@@ -909,7 +913,7 @@ class DataflowEndpointGroupEndpointDetailsArgs:
     @pulumi.getter(name="securityDetails")
     def security_details(self) -> Optional[pulumi.Input['DataflowEndpointGroupSecurityDetailsArgs']]:
         """
-        Information about IAM roles, subnets, and security groups needed for this DataflowEndpointGroup.
+        The role ARN, and IDs for security groups and subnets.
         """
         return pulumi.get(self, "security_details")
 

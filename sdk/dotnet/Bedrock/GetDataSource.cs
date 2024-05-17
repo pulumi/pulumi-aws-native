@@ -78,7 +78,7 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.DataSourceDataDeletionPolicy? DataDeletionPolicy;
         /// <summary>
-        /// Contains details about how a data source is stored.
+        /// Contains details about how the data source is stored.
         /// </summary>
         public readonly Outputs.DataSourceConfiguration? DataSourceConfiguration;
         /// <summary>
@@ -105,7 +105,7 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Contains the configuration for server-side encryption.
+        /// Contains details about the configuration of the server-side encryption.
         /// </summary>
         public readonly Outputs.DataSourceServerSideEncryptionConfiguration? ServerSideEncryptionConfiguration;
         /// <summary>

@@ -62,7 +62,9 @@ namespace Pulumi.AwsNative.Lightsail
         /// </summary>
         public readonly ImmutableArray<Outputs.InstanceAddOn> AddOns;
         /// <summary>
-        /// `Hardware` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+        /// The hardware properties for the instance, such as the vCPU count, attached disks, and amount of RAM.
+        /// 
+        /// &gt; The instance restarts when performing an attach disk or detach disk request. This resets the public IP address of your instance if a static IP isn't attached to it.
         /// </summary>
         public readonly Outputs.InstanceHardware? Hardware;
         /// <summary>
@@ -78,11 +80,13 @@ namespace Pulumi.AwsNative.Lightsail
         /// </summary>
         public readonly string? KeyPairName;
         /// <summary>
-        /// `Location` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the location for an instance.
+        /// The location for the instance, such as the AWS Region and Availability Zone.
+        /// 
+        /// &gt; The `Location` property is read-only and should not be specified in a create instance or update instance request.
         /// </summary>
         public readonly Outputs.InstanceLocation? Location;
         /// <summary>
-        /// `Networking` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the public ports and the monthly amount of data transfer allocated for the instance.
+        /// The public ports and the monthly amount of data transfer allocated for the instance.
         /// </summary>
         public readonly Outputs.InstanceNetworking? Networking;
         /// <summary>
@@ -102,7 +106,9 @@ namespace Pulumi.AwsNative.Lightsail
         /// </summary>
         public readonly string? SshKeyName;
         /// <summary>
-        /// `State` is a property of the [AWS::Lightsail::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html) resource. It describes the status code and the state (for example, `running` ) of an instance.
+        /// The status code and the state (for example, `running` ) of the instance.
+        /// 
+        /// &gt; The `State` property is read-only and should not be specified in a create instance or update instance request.
         /// </summary>
         public readonly Outputs.InstanceState? State;
         /// <summary>

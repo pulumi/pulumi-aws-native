@@ -47,7 +47,7 @@ export interface GetInstanceResult {
      */
     readonly status?: enums.sso.InstanceStatus;
     /**
-     * A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+     * Specifies tags to be attached to the instance of IAM Identity Center.
      */
     readonly tags?: outputs.Tag[];
 }

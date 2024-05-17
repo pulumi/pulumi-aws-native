@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class AnalysisGeospatialMapFieldWellsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The aggregated field wells for a geospatial map.
+        /// The aggregated field well for a geospatial map.
         /// </summary>
         [Input("geospatialMapAggregatedFieldWells")]
         public Input<Inputs.AnalysisGeospatialMapAggregatedFieldWellsArgs>? GeospatialMapAggregatedFieldWells { get; set; }

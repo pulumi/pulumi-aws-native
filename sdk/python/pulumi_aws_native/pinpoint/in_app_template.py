@@ -25,7 +25,7 @@ class InAppTemplateArgs:
                  template_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a InAppTemplate resource.
-        :param pulumi.Input[Sequence[pulumi.Input['InAppTemplateInAppMessageContentArgs']]] content: Specifies the configuration of an in-app message, including its header, body, buttons, colors, and images.
+        :param pulumi.Input[Sequence[pulumi.Input['InAppTemplateInAppMessageContentArgs']]] content: An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
         :param Any custom_config: Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
@@ -62,7 +62,7 @@ class InAppTemplateArgs:
     @pulumi.getter
     def content(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InAppTemplateInAppMessageContentArgs']]]]:
         """
-        Specifies the configuration of an in-app message, including its header, body, buttons, colors, and images.
+        An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
         """
         return pulumi.get(self, "content")
 
@@ -161,7 +161,7 @@ class InAppTemplate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InAppTemplateInAppMessageContentArgs']]]] content: Specifies the configuration of an in-app message, including its header, body, buttons, colors, and images.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InAppTemplateInAppMessageContentArgs']]]] content: An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
         :param Any custom_config: Custom data, in the form of key-value pairs, that is included in an in-app messaging payload.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Pinpoint::InAppTemplate` for more information about the expected schema for this property.
@@ -272,7 +272,7 @@ class InAppTemplate(pulumi.CustomResource):
     @pulumi.getter
     def content(self) -> pulumi.Output[Optional[Sequence['outputs.InAppTemplateInAppMessageContent']]]:
         """
-        Specifies the configuration of an in-app message, including its header, body, buttons, colors, and images.
+        An object that contains information about the content of an in-app message, including its title and body text, text colors, background colors, images, buttons, and behaviors.
         """
         return pulumi.get(self, "content")
 

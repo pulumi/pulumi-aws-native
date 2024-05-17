@@ -20,7 +20,7 @@ type KeyAttributes struct {
 	KeyAlgorithm KeyAlgorithm `pulumi:"keyAlgorithm"`
 	// The type of AWS Payment Cryptography key to create, which determines the classiﬁcation of the cryptographic method and whether AWS Payment Cryptography key contains a symmetric key or an asymmetric key pair.
 	KeyClass KeyClass `pulumi:"keyClass"`
-	// The list of cryptographic operations that you can perform using the key. The modes of use are deﬁned in section A.5.3 of the TR-31 spec.
+	// The list of cryptographic operations that you can perform using the key.
 	KeyModesOfUse KeyModesOfUse `pulumi:"keyModesOfUse"`
 	// The cryptographic usage of an AWS Payment Cryptography key as deﬁned in section A.5.2 of the TR-31 spec.
 	KeyUsage KeyUsage `pulumi:"keyUsage"`
@@ -44,7 +44,7 @@ type KeyAttributesArgs struct {
 	KeyAlgorithm KeyAlgorithmInput `pulumi:"keyAlgorithm"`
 	// The type of AWS Payment Cryptography key to create, which determines the classiﬁcation of the cryptographic method and whether AWS Payment Cryptography key contains a symmetric key or an asymmetric key pair.
 	KeyClass KeyClassInput `pulumi:"keyClass"`
-	// The list of cryptographic operations that you can perform using the key. The modes of use are deﬁned in section A.5.3 of the TR-31 spec.
+	// The list of cryptographic operations that you can perform using the key.
 	KeyModesOfUse KeyModesOfUseInput `pulumi:"keyModesOfUse"`
 	// The cryptographic usage of an AWS Payment Cryptography key as deﬁned in section A.5.2 of the TR-31 spec.
 	KeyUsage KeyUsageInput `pulumi:"keyUsage"`
@@ -88,7 +88,7 @@ func (o KeyAttributesOutput) KeyClass() KeyClassOutput {
 	return o.ApplyT(func(v KeyAttributes) KeyClass { return v.KeyClass }).(KeyClassOutput)
 }
 
-// The list of cryptographic operations that you can perform using the key. The modes of use are deﬁned in section A.5.3 of the TR-31 spec.
+// The list of cryptographic operations that you can perform using the key.
 func (o KeyAttributesOutput) KeyModesOfUse() KeyModesOfUseOutput {
 	return o.ApplyT(func(v KeyAttributes) KeyModesOfUse { return v.KeyModesOfUse }).(KeyModesOfUseOutput)
 }
@@ -144,7 +144,7 @@ func (o KeyAttributesPtrOutput) KeyClass() KeyClassPtrOutput {
 	}).(KeyClassPtrOutput)
 }
 
-// The list of cryptographic operations that you can perform using the key. The modes of use are deﬁned in section A.5.3 of the TR-31 spec.
+// The list of cryptographic operations that you can perform using the key.
 func (o KeyAttributesPtrOutput) KeyModesOfUse() KeyModesOfUsePtrOutput {
 	return o.ApplyT(func(v *KeyAttributes) *KeyModesOfUse {
 		if v == nil {

@@ -66,11 +66,11 @@ namespace Pulumi.AwsNative.MediaTailor
         /// </summary>
         public readonly ImmutableArray<string> Audiences;
         /// <summary>
-        /// Slate VOD source configuration.
+        /// The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
         /// </summary>
         public readonly Outputs.ChannelSlateSource? FillerSlate;
         /// <summary>
-        /// The log configuration for the channel.
+        /// The log configuration.
         /// </summary>
         public readonly Outputs.ChannelLogConfigurationForChannel? LogConfiguration;
         /// <summary>

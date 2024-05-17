@@ -37,43 +37,43 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.AnalysisRadarChartAxesRangeScale>? AxesRangeScale { get; set; }
 
         /// <summary>
-        /// The series settings of a radar chart.
+        /// The base sreies settings of a radar chart.
         /// </summary>
         [Input("baseSeriesSettings")]
         public Input<Inputs.AnalysisRadarChartSeriesSettingsArgs>? BaseSeriesSettings { get; set; }
 
         /// <summary>
-        /// The display options for the axis label.
+        /// The category axis of a radar chart.
         /// </summary>
         [Input("categoryAxis")]
         public Input<Inputs.AnalysisAxisDisplayOptionsArgs>? CategoryAxis { get; set; }
 
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The category label options of a radar chart.
         /// </summary>
         [Input("categoryLabelOptions")]
         public Input<Inputs.AnalysisChartAxisLabelOptionsArgs>? CategoryLabelOptions { get; set; }
 
         /// <summary>
-        /// The display options for the axis label.
+        /// The color axis of a radar chart.
         /// </summary>
         [Input("colorAxis")]
         public Input<Inputs.AnalysisAxisDisplayOptionsArgs>? ColorAxis { get; set; }
 
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The color label options of a radar chart.
         /// </summary>
         [Input("colorLabelOptions")]
         public Input<Inputs.AnalysisChartAxisLabelOptionsArgs>? ColorLabelOptions { get; set; }
 
         /// <summary>
-        /// The field wells of a radar chart visual.
+        /// The field well configuration of a `RadarChartVisual` .
         /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.AnalysisRadarChartFieldWellsArgs>? FieldWells { get; set; }
 
         /// <summary>
-        /// The options for the legend setup of a visual.
+        /// The legend display setup of the visual.
         /// </summary>
         [Input("legend")]
         public Input<Inputs.AnalysisLegendOptionsArgs>? Legend { get; set; }
@@ -97,7 +97,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<double>? StartAngle { get; set; }
 
         /// <summary>
-        /// The visual display options for the visual palette.
+        /// The palette (chart color) display setup of the visual.
         /// </summary>
         [Input("visualPalette")]
         public Input<Inputs.AnalysisVisualPaletteArgs>? VisualPalette { get; set; }

@@ -43,13 +43,13 @@ type LookupMembershipResult struct {
 	//
 	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`
 	CollaborationCreatorAccountId *string `pulumi:"collaborationCreatorAccountId"`
-	// Contains configurations for protected query results.
+	// The default protected query result configuration as specified by the member who can receive results.
 	DefaultResultConfiguration *MembershipProtectedQueryResultConfiguration `pulumi:"defaultResultConfiguration"`
 	// Returns the unique identifier of the specified membership.
 	//
 	// Example: `a1b2c3d4-5678-90ab-cdef-EXAMPLE22222`
 	MembershipIdentifier *string `pulumi:"membershipIdentifier"`
-	// An object representing the payment responsibilities accepted by the collaboration member.
+	// The payment responsibilities accepted by the collaboration member.
 	PaymentConfiguration *MembershipPaymentConfiguration `pulumi:"paymentConfiguration"`
 	// An indicator as to whether query logging has been enabled or disabled for the membership.
 	QueryLogStatus *MembershipQueryLogStatus `pulumi:"queryLogStatus"`
@@ -116,7 +116,7 @@ func (o LookupMembershipResultOutput) CollaborationCreatorAccountId() pulumi.Str
 	return o.ApplyT(func(v LookupMembershipResult) *string { return v.CollaborationCreatorAccountId }).(pulumi.StringPtrOutput)
 }
 
-// Contains configurations for protected query results.
+// The default protected query result configuration as specified by the member who can receive results.
 func (o LookupMembershipResultOutput) DefaultResultConfiguration() MembershipProtectedQueryResultConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupMembershipResult) *MembershipProtectedQueryResultConfiguration {
 		return v.DefaultResultConfiguration
@@ -130,7 +130,7 @@ func (o LookupMembershipResultOutput) MembershipIdentifier() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupMembershipResult) *string { return v.MembershipIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// An object representing the payment responsibilities accepted by the collaboration member.
+// The payment responsibilities accepted by the collaboration member.
 func (o LookupMembershipResultOutput) PaymentConfiguration() MembershipPaymentConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupMembershipResult) *MembershipPaymentConfiguration { return v.PaymentConfiguration }).(MembershipPaymentConfigurationPtrOutput)
 }

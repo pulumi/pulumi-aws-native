@@ -18,7 +18,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TopicDisplayFormat? DisplayFormat;
         /// <summary>
-        /// A structure that represents additional options for display formatting.
+        /// The additional options for display formatting.
         /// </summary>
         public readonly Outputs.TopicDisplayFormatOptions? DisplayFormatOptions;
 

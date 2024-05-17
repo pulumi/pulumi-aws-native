@@ -31,7 +31,9 @@ class ActivityArgs:
                - control characters ( `U+0000-001F` , `U+007F-009F` )
                
                To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The `TagsEntry` property specifies *tags* to identify an activity.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The list of tags to add to a resource.
+               
+               Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -64,7 +66,9 @@ class ActivityArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        The `TagsEntry` property specifies *tags* to identify an activity.
+        The list of tags to add to a resource.
+
+        Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
         """
         return pulumi.get(self, "tags")
 
@@ -139,7 +143,9 @@ class Activity(pulumi.CustomResource):
                - control characters ( `U+0000-001F` , `U+007F-009F` )
                
                To enable logging with CloudWatch Logs, the name should only contain 0-9, A-Z, a-z, - and _.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The `TagsEntry` property specifies *tags* to identify an activity.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['_root_inputs.TagArgs']]]] tags: The list of tags to add to a resource.
+               
+               Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
         """
         ...
     @overload
@@ -280,7 +286,9 @@ class Activity(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        The `TagsEntry` property specifies *tags* to identify an activity.
+        The list of tags to add to a resource.
+
+        Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
         """
         return pulumi.get(self, "tags")
 

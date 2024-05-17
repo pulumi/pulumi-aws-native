@@ -38,7 +38,7 @@ export class PermissionSet extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
+     * Specifies the names and paths of the customer managed policies that you have attached to your permission set.
      */
     public readonly customerManagedPolicyReferences!: pulumi.Output<outputs.sso.PermissionSetCustomerManagedPolicyReference[] | undefined>;
     /**
@@ -82,7 +82,7 @@ export class PermissionSet extends pulumi.CustomResource {
      */
     public readonly sessionDuration!: pulumi.Output<string | undefined>;
     /**
-     * A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+     * The tags to attach to the new `PermissionSet` .
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -136,7 +136,7 @@ export class PermissionSet extends pulumi.CustomResource {
  */
 export interface PermissionSetArgs {
     /**
-     * Specifies the name and path of a customer managed policy. You must have an IAM policy that matches the name and path in each AWS account where you want to deploy your permission set.
+     * Specifies the names and paths of the customer managed policies that you have attached to your permission set.
      */
     customerManagedPolicyReferences?: pulumi.Input<pulumi.Input<inputs.sso.PermissionSetCustomerManagedPolicyReferenceArgs>[]>;
     /**
@@ -176,7 +176,7 @@ export interface PermissionSetArgs {
      */
     sessionDuration?: pulumi.Input<string>;
     /**
-     * A set of key-value pairs that are used to manage the resource. Tags can only be applied to permission sets and cannot be applied to corresponding roles that IAM Identity Center creates in AWS accounts.
+     * The tags to attach to the new `PermissionSet` .
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

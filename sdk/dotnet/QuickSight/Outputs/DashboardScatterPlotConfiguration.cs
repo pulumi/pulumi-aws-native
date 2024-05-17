@@ -14,41 +14,39 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardScatterPlotConfiguration
     {
         /// <summary>
-        /// The options that determine the presentation of the data labels.
+        /// The options that determine if visual data labels are displayed.
         /// </summary>
         public readonly Outputs.DashboardDataLabelOptions? DataLabels;
         /// <summary>
-        /// The field well configuration of a scatter plot.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// The field wells of the visual.
         /// </summary>
         public readonly Outputs.DashboardScatterPlotFieldWells? FieldWells;
         /// <summary>
-        /// The options for the legend setup of a visual.
+        /// The legend display setup of the visual.
         /// </summary>
         public readonly Outputs.DashboardLegendOptions? Legend;
         /// <summary>
-        /// The display options for the visual tooltip.
+        /// The legend display setup of the visual.
         /// </summary>
         public readonly Outputs.DashboardTooltipOptions? Tooltip;
         /// <summary>
-        /// The visual display options for the visual palette.
+        /// The palette (chart color) display setup of the visual.
         /// </summary>
         public readonly Outputs.DashboardVisualPalette? VisualPalette;
         /// <summary>
-        /// The display options for the axis label.
+        /// The label display options (grid line, range, scale, and axis step) of the scatter plot's x-axis.
         /// </summary>
         public readonly Outputs.DashboardAxisDisplayOptions? XAxisDisplayOptions;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility, and sort icon visibility) of the scatter plot's x-axis.
         /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? XAxisLabelOptions;
         /// <summary>
-        /// The display options for the axis label.
+        /// The label display options (grid line, range, scale, and axis step) of the scatter plot's y-axis.
         /// </summary>
         public readonly Outputs.DashboardAxisDisplayOptions? YAxisDisplayOptions;
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility, and sort icon visibility) of the scatter plot's y-axis.
         /// </summary>
         public readonly Outputs.DashboardChartAxisLabelOptions? YAxisLabelOptions;
 

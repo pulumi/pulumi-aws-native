@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<Pulumi.AwsNative.SageMaker.ModelPackageModelApprovalStatus?> ModelApprovalStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Contains metrics captured from a model.
+        /// Metrics for the model.
         /// </summary>
         [Output("modelMetrics")]
         public Output<Outputs.ModelPackageModelMetrics?> ModelMetrics { get; private set; } = null!;
@@ -336,7 +336,7 @@ namespace Pulumi.AwsNative.SageMaker
         public Input<Pulumi.AwsNative.SageMaker.ModelPackageModelApprovalStatus>? ModelApprovalStatus { get; set; }
 
         /// <summary>
-        /// Contains metrics captured from a model.
+        /// Metrics for the model.
         /// </summary>
         [Input("modelMetrics")]
         public Input<Inputs.ModelPackageModelMetricsArgs>? ModelMetrics { get; set; }

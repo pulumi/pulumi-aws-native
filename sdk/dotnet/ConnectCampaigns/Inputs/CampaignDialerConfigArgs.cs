@@ -16,19 +16,19 @@ namespace Pulumi.AwsNative.ConnectCampaigns.Inputs
     public sealed class CampaignDialerConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains agentless dialer configuration for an outbound campaign.
+        /// The configuration of the agentless dialer.
         /// </summary>
         [Input("agentlessDialerConfig")]
         public Input<Inputs.CampaignAgentlessDialerConfigArgs>? AgentlessDialerConfig { get; set; }
 
         /// <summary>
-        /// Contains predictive dialer configuration for an outbound campaign.
+        /// The configuration of the predictive dialer.
         /// </summary>
         [Input("predictiveDialerConfig")]
         public Input<Inputs.CampaignPredictiveDialerConfigArgs>? PredictiveDialerConfig { get; set; }
 
         /// <summary>
-        /// Contains progressive dialer configuration for an outbound campaign.
+        /// The configuration of the progressive dialer.
         /// </summary>
         [Input("progressiveDialerConfig")]
         public Input<Inputs.CampaignProgressiveDialerConfigArgs>? ProgressiveDialerConfig { get; set; }

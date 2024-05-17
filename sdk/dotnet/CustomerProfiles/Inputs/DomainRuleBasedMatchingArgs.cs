@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
     public sealed class DomainRuleBasedMatchingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configures information about the `AttributeTypesSelector` which rule-based identity resolution uses to match profiles.
+        /// Configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles.
         /// </summary>
         [Input("attributeTypesSelector")]
         public Input<Inputs.DomainAttributeTypesSelectorArgs>? AttributeTypesSelector { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// Configuration information for exporting Identity Resolution results, for example, to an S3 bucket.
+        /// The S3 location where Identity Resolution Jobs write result files.
         /// </summary>
         [Input("exportingConfig")]
         public Input<Inputs.DomainExportingConfigArgs>? ExportingConfig { get; set; }

@@ -22,7 +22,7 @@ type UserPoolResourceServer struct {
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
 	// A friendly name for the resource server.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A resource server scope.
+	// A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
 	Scopes UserPoolResourceServerResourceServerScopeTypeArrayOutput `pulumi:"scopes"`
 	// The user pool ID for the user pool.
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
@@ -83,7 +83,7 @@ type userPoolResourceServerArgs struct {
 	Identifier string `pulumi:"identifier"`
 	// A friendly name for the resource server.
 	Name *string `pulumi:"name"`
-	// A resource server scope.
+	// A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
 	Scopes []UserPoolResourceServerResourceServerScopeType `pulumi:"scopes"`
 	// The user pool ID for the user pool.
 	UserPoolId string `pulumi:"userPoolId"`
@@ -95,7 +95,7 @@ type UserPoolResourceServerArgs struct {
 	Identifier pulumi.StringInput
 	// A friendly name for the resource server.
 	Name pulumi.StringPtrInput
-	// A resource server scope.
+	// A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
 	Scopes UserPoolResourceServerResourceServerScopeTypeArrayInput
 	// The user pool ID for the user pool.
 	UserPoolId pulumi.StringInput
@@ -153,7 +153,7 @@ func (o UserPoolResourceServerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolResourceServer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A resource server scope.
+// A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
 func (o UserPoolResourceServerOutput) Scopes() UserPoolResourceServerResourceServerScopeTypeArrayOutput {
 	return o.ApplyT(func(v *UserPoolResourceServer) UserPoolResourceServerResourceServerScopeTypeArrayOutput {
 		return v.Scopes

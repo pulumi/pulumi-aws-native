@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
         public Output<string> ApiGatewayId { get; private set; } = null!;
 
         /// <summary>
-        /// A wrapper object holding the Amazon API Gateway endpoint input.
+        /// The endpoint URL of the Amazon API Gateway proxy.
         /// </summary>
         [Output("apiGatewayProxy")]
         public Output<Outputs.ApplicationApiGatewayProxyInput?> ApiGatewayProxy { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.AwsNative.RefactorSpaces
     public sealed class ApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A wrapper object holding the Amazon API Gateway endpoint input.
+        /// The endpoint URL of the Amazon API Gateway proxy.
         /// </summary>
         [Input("apiGatewayProxy")]
         public Input<Inputs.ApplicationApiGatewayProxyInputArgs>? ApiGatewayProxy { get; set; }

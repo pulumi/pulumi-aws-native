@@ -19,13 +19,13 @@ namespace Pulumi.AwsNative.Msk.Inputs
         public Input<Inputs.ClusterSaslArgs>? Sasl { get; set; }
 
         /// <summary>
-        /// Details for client authentication using TLS.
+        /// Details for ClientAuthentication using TLS. To turn on TLS access control, you must also turn on `EncryptionInTransit` by setting `inCluster` to true and `clientBroker` to `TLS` .
         /// </summary>
         [Input("tls")]
         public Input<Inputs.ClusterTlsArgs>? Tls { get; set; }
 
         /// <summary>
-        /// Details for allowing no client authentication.
+        /// Details for ClientAuthentication using no authentication.
         /// </summary>
         [Input("unauthenticated")]
         public Input<Inputs.ClusterUnauthenticatedArgs>? Unauthenticated { get; set; }

@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder.Inputs
         public Input<string>? Orientation { get; set; }
 
         /// <summary>
-        /// The `FieldPosition` property specifies the field position.
+        /// Specifies the position of the text in a field for a `Text` sectional element.
         /// </summary>
         [Input("position")]
         public object? Position { get; set; }

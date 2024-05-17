@@ -249,7 +249,7 @@ class FhirDatastoreSseConfiguration(dict):
                  kms_encryption_config: 'outputs.FhirDatastoreKmsEncryptionConfig'):
         """
         The server-side encryption key configuration for a customer provided encryption key.
-        :param 'FhirDatastoreKmsEncryptionConfig' kms_encryption_config: The customer-managed-key(CMK) used when creating a Data Store. If a customer owned key is not specified, an Amazon owned key will be used for encryption.
+        :param 'FhirDatastoreKmsEncryptionConfig' kms_encryption_config: The server-side encryption key configuration for a customer provided encryption key (CMK).
         """
         pulumi.set(__self__, "kms_encryption_config", kms_encryption_config)
 
@@ -257,7 +257,7 @@ class FhirDatastoreSseConfiguration(dict):
     @pulumi.getter(name="kmsEncryptionConfig")
     def kms_encryption_config(self) -> 'outputs.FhirDatastoreKmsEncryptionConfig':
         """
-        The customer-managed-key(CMK) used when creating a Data Store. If a customer owned key is not specified, an Amazon owned key will be used for encryption.
+        The server-side encryption key configuration for a customer provided encryption key (CMK).
         """
         return pulumi.get(self, "kms_encryption_config")
 

@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly string ProfileName;
         /// <summary>
-        /// Defines the input needed to run a transform job using the inference specification specified in the algorithm.
+        /// The `TransformJobDefinition` object that describes the transform job used for the validation of the model package.
         /// </summary>
         public readonly Outputs.ModelPackageTransformJobDefinition TransformJobDefinition;
 

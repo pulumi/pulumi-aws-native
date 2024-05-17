@@ -39,7 +39,7 @@ class GetSchedulingPolicyResult:
     @pulumi.getter(name="fairsharePolicy")
     def fairshare_policy(self) -> Optional['outputs.SchedulingPolicyFairsharePolicy']:
         """
-        The fair share policy for a scheduling policy.
+        The fair share policy of the scheduling policy.
         """
         return pulumi.get(self, "fairshare_policy")
 

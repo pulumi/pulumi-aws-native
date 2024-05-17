@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+        /// Describes the properties that can be overriden to customize a theme.
         /// </summary>
         public readonly ImmutableArray<Outputs.ThemeValues> Overrides;
         /// <summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The `ThemeValues` property specifies key-value pair that defines a property of a theme.
+        /// A list of key-value pairs that defines the properties of the theme.
         /// </summary>
         public readonly ImmutableArray<Outputs.ThemeValues> Values;
 

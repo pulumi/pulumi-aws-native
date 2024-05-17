@@ -24,7 +24,9 @@ type CrossAccountAttachment struct {
 	Principals pulumi.StringArrayOutput `pulumi:"principals"`
 	// Resources shared using the attachment.
 	Resources CrossAccountAttachmentResourceArrayOutput `pulumi:"resources"`
-	// A complex type that contains a `Tag` key and `Tag` value.
+	// Add tags for a cross-account attachment.
+	//
+	// For more information, see [Tagging in AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
@@ -74,7 +76,9 @@ type crossAccountAttachmentArgs struct {
 	Principals []string `pulumi:"principals"`
 	// Resources shared using the attachment.
 	Resources []CrossAccountAttachmentResource `pulumi:"resources"`
-	// A complex type that contains a `Tag` key and `Tag` value.
+	// Add tags for a cross-account attachment.
+	//
+	// For more information, see [Tagging in AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -86,7 +90,9 @@ type CrossAccountAttachmentArgs struct {
 	Principals pulumi.StringArrayInput
 	// Resources shared using the attachment.
 	Resources CrossAccountAttachmentResourceArrayInput
-	// A complex type that contains a `Tag` key and `Tag` value.
+	// Add tags for a cross-account attachment.
+	//
+	// For more information, see [Tagging in AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
 	Tags aws.TagArrayInput
 }
 
@@ -147,7 +153,9 @@ func (o CrossAccountAttachmentOutput) Resources() CrossAccountAttachmentResource
 	return o.ApplyT(func(v *CrossAccountAttachment) CrossAccountAttachmentResourceArrayOutput { return v.Resources }).(CrossAccountAttachmentResourceArrayOutput)
 }
 
-// A complex type that contains a `Tag` key and `Tag` value.
+// Add tags for a cross-account attachment.
+//
+// For more information, see [Tagging in AWS Global Accelerator](https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html) in the *AWS Global Accelerator Developer Guide* .
 func (o CrossAccountAttachmentOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *CrossAccountAttachment) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

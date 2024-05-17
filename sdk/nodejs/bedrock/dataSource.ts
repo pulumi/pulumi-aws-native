@@ -46,7 +46,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly dataDeletionPolicy!: pulumi.Output<enums.bedrock.DataSourceDataDeletionPolicy | undefined>;
     /**
-     * Contains details about how a data source is stored.
+     * Contains details about how the data source is stored.
      */
     public readonly dataSourceConfiguration!: pulumi.Output<outputs.bedrock.DataSourceConfiguration>;
     /**
@@ -77,7 +77,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Contains the configuration for server-side encryption.
+     * Contains details about the configuration of the server-side encryption.
      */
     public readonly serverSideEncryptionConfiguration!: pulumi.Output<outputs.bedrock.DataSourceServerSideEncryptionConfiguration | undefined>;
     /**
@@ -85,7 +85,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
     /**
-     * Contains details about how to ingest the documents in a data source.
+     * Contains details about how to ingest the documents in the data source.
      */
     public readonly vectorIngestionConfiguration!: pulumi.Output<outputs.bedrock.DataSourceVectorIngestionConfiguration | undefined>;
 
@@ -148,7 +148,7 @@ export interface DataSourceArgs {
      */
     dataDeletionPolicy?: pulumi.Input<enums.bedrock.DataSourceDataDeletionPolicy>;
     /**
-     * Contains details about how a data source is stored.
+     * Contains details about how the data source is stored.
      */
     dataSourceConfiguration: pulumi.Input<inputs.bedrock.DataSourceConfigurationArgs>;
     /**
@@ -164,11 +164,11 @@ export interface DataSourceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Contains the configuration for server-side encryption.
+     * Contains details about the configuration of the server-side encryption.
      */
     serverSideEncryptionConfiguration?: pulumi.Input<inputs.bedrock.DataSourceServerSideEncryptionConfigurationArgs>;
     /**
-     * Contains details about how to ingest the documents in a data source.
+     * Contains details about how to ingest the documents in the data source.
      */
     vectorIngestionConfiguration?: pulumi.Input<inputs.bedrock.DataSourceVectorIngestionConfigurationArgs>;
 }

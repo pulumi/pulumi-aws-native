@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<string>? FieldName { get; set; }
 
         /// <summary>
-        /// A structure that represents a metric.
+        /// The definition of a metric.
         /// </summary>
         [Input("metric")]
         public Input<Inputs.TopicNamedEntityDefinitionMetricArgs>? Metric { get; set; }

@@ -165,7 +165,7 @@ class ContactTargetsArgs:
                  contact_target_info: Optional[pulumi.Input['ContactTargetInfoArgs']] = None):
         """
         The contacts or contact methods that the escalation plan or engagement plan is engaging.
-        :param pulumi.Input['ContactChannelTargetInfoArgs'] channel_target_info: Information about the contact channel that Incident Manager uses to engage the contact.
+        :param pulumi.Input['ContactChannelTargetInfoArgs'] channel_target_info: Information about the contact channel that Incident Manager engages.
         :param pulumi.Input['ContactTargetInfoArgs'] contact_target_info: The contact that Incident Manager is engaging during an incident.
         """
         if channel_target_info is not None:
@@ -177,7 +177,7 @@ class ContactTargetsArgs:
     @pulumi.getter(name="channelTargetInfo")
     def channel_target_info(self) -> Optional[pulumi.Input['ContactChannelTargetInfoArgs']]:
         """
-        Information about the contact channel that Incident Manager uses to engage the contact.
+        Information about the contact channel that Incident Manager engages.
         """
         return pulumi.get(self, "channel_target_info")
 
@@ -320,8 +320,8 @@ class PlanTargetsArgs:
                  contact_target_info: Optional[pulumi.Input['PlanContactTargetInfoArgs']] = None):
         """
         The contacts or contact methods that the escalation plan or engagement plan is engaging.
-        :param pulumi.Input['PlanChannelTargetInfoArgs'] channel_target_info: Information about the contact channel that Incident Manager uses to engage the contact.
-        :param pulumi.Input['PlanContactTargetInfoArgs'] contact_target_info: The contact that Incident Manager is engaging during an incident.
+        :param pulumi.Input['PlanChannelTargetInfoArgs'] channel_target_info: Information about the contact channel that Incident Manager engages.
+        :param pulumi.Input['PlanContactTargetInfoArgs'] contact_target_info: Information about the contact that Incident Manager engages.
         """
         if channel_target_info is not None:
             pulumi.set(__self__, "channel_target_info", channel_target_info)
@@ -332,7 +332,7 @@ class PlanTargetsArgs:
     @pulumi.getter(name="channelTargetInfo")
     def channel_target_info(self) -> Optional[pulumi.Input['PlanChannelTargetInfoArgs']]:
         """
-        Information about the contact channel that Incident Manager uses to engage the contact.
+        Information about the contact channel that Incident Manager engages.
         """
         return pulumi.get(self, "channel_target_info")
 
@@ -344,7 +344,7 @@ class PlanTargetsArgs:
     @pulumi.getter(name="contactTargetInfo")
     def contact_target_info(self) -> Optional[pulumi.Input['PlanContactTargetInfoArgs']]:
         """
-        The contact that Incident Manager is engaging during an incident.
+        Information about the contact that Incident Manager engages.
         """
         return pulumi.get(self, "contact_target_info")
 

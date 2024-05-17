@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateLineChartSortConfiguration
     {
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of categories that are displayed in a line chart.
         /// </summary>
         public readonly Outputs.TemplateItemsLimitConfiguration? CategoryItemsLimitConfiguration;
         /// <summary>
@@ -22,11 +22,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateFieldSortOptions> CategorySort;
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of lines that are displayed in a line chart.
         /// </summary>
         public readonly Outputs.TemplateItemsLimitConfiguration? ColorItemsLimitConfiguration;
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of small multiples panels that are displayed.
         /// </summary>
         public readonly Outputs.TemplateItemsLimitConfiguration? SmallMultiplesLimitConfiguration;
         /// <summary>

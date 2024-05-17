@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Acmpca.Inputs
     public sealed class CertificateAuthorityCsrExtensionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines one or more purposes for which the key contained in the certificate can be used. Default value for each option is false.
+        /// Indicates the purpose of the certificate and of the key contained in the certificate.
         /// </summary>
         [Input("keyUsage")]
         public Input<Inputs.CertificateAuthorityKeyUsageArgs>? KeyUsage { get; set; }

@@ -28,9 +28,7 @@ namespace Pulumi.AwsNative.Backup
         public Output<ImmutableArray<string>> ProtectedResourceArns { get; private set; } = null!;
 
         /// <summary>
-        /// The conditions that you define for resources in your restore testing plan using tags.
-        /// 
-        /// For example, `"StringEquals": { "Key": "aws:ResourceTag/CreatedByCryo", "Value": "true" },` . Condition operators are case sensitive.
+        /// In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
         /// </summary>
         [Output("protectedResourceConditions")]
         public Output<Outputs.RestoreTestingSelectionProtectedResourceConditions?> ProtectedResourceConditions { get; private set; } = null!;
@@ -139,9 +137,7 @@ namespace Pulumi.AwsNative.Backup
         }
 
         /// <summary>
-        /// The conditions that you define for resources in your restore testing plan using tags.
-        /// 
-        /// For example, `"StringEquals": { "Key": "aws:ResourceTag/CreatedByCryo", "Value": "true" },` . Condition operators are case sensitive.
+        /// In a resource testing selection, this parameter filters by specific conditions such as `StringEquals` or `StringNotEquals` .
         /// </summary>
         [Input("protectedResourceConditions")]
         public Input<Inputs.RestoreTestingSelectionProtectedResourceConditionsArgs>? ProtectedResourceConditions { get; set; }

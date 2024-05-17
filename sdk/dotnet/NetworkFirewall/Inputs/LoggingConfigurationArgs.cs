@@ -16,9 +16,7 @@ namespace Pulumi.AwsNative.NetworkFirewall.Inputs
         private InputList<Inputs.LoggingConfigurationLogDestinationConfigArgs>? _logDestinationConfigs;
 
         /// <summary>
-        /// Defines where AWS Network Firewall sends logs for the firewall for one log type. This is used in `LoggingConfiguration` . You can send each type of log to an Amazon S3 bucket, a CloudWatch log group, or a Kinesis Data Firehose delivery stream.
-        /// 
-        /// Network Firewall generates logs for stateful rule groups. You can save alert and flow log types. The stateful rules engine records flow logs for all network traffic that it receives. It records alert logs for traffic that matches stateful rules that have the rule action set to `DROP` or `ALERT` .
+        /// Defines the logging destinations for the logs for a firewall. Network Firewall generates logs for stateful rule groups.
         /// </summary>
         public InputList<Inputs.LoggingConfigurationLogDestinationConfigArgs> LogDestinationConfigs
         {

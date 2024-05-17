@@ -46,7 +46,7 @@ type ApiKey struct {
 	KeyName pulumi.StringOutput `pulumi:"keyName"`
 	// Whether the API key should expire. Set to `true` to set the API key to have no expiration time.
 	NoExpiry pulumi.BoolPtrOutput `pulumi:"noExpiry"`
-	// API Restrictions on the allowed actions, resources, and referers for an API key resource.
+	// The API key restrictions for the API key resource.
 	Restrictions ApiKeyRestrictionsOutput `pulumi:"restrictions"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -124,7 +124,7 @@ type apiKeyArgs struct {
 	KeyName *string `pulumi:"keyName"`
 	// Whether the API key should expire. Set to `true` to set the API key to have no expiration time.
 	NoExpiry *bool `pulumi:"noExpiry"`
-	// API Restrictions on the allowed actions, resources, and referers for an API key resource.
+	// The API key restrictions for the API key resource.
 	Restrictions ApiKeyRestrictions `pulumi:"restrictions"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -155,7 +155,7 @@ type ApiKeyArgs struct {
 	KeyName pulumi.StringPtrInput
 	// Whether the API key should expire. Set to `true` to set the API key to have no expiration time.
 	NoExpiry pulumi.BoolPtrInput
-	// API Restrictions on the allowed actions, resources, and referers for an API key resource.
+	// The API key restrictions for the API key resource.
 	Restrictions ApiKeyRestrictionsInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
@@ -254,7 +254,7 @@ func (o ApiKeyOutput) NoExpiry() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApiKey) pulumi.BoolPtrOutput { return v.NoExpiry }).(pulumi.BoolPtrOutput)
 }
 
-// API Restrictions on the allowed actions, resources, and referers for an API key resource.
+// The API key restrictions for the API key resource.
 func (o ApiKeyOutput) Restrictions() ApiKeyRestrictionsOutput {
 	return o.ApplyT(func(v *ApiKey) ApiKeyRestrictionsOutput { return v.Restrictions }).(ApiKeyRestrictionsOutput)
 }

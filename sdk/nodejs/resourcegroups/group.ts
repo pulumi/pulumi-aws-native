@@ -56,7 +56,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The query used to dynamically define the members of a group. For more information about how to construct a query, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) .
+     * The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *AWS Resource Groups User Guide*
+     *
+     * > - You can include either a `ResourceQuery` or a `Configuration` , but not both.
+     * > - You can specify the group's membership either by using a `ResourceQuery` or by using a list of `Resources` , but not both.
      */
     public readonly resourceQuery!: pulumi.Output<outputs.resourcegroups.GroupResourceQuery | undefined>;
     /**
@@ -67,15 +70,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly resources!: pulumi.Output<string[] | undefined>;
     /**
-     * Adds tags to a resource group with the specified ARN. Existing tags on a resource group are not changed if they are not specified in the request parameters.
-     *
-     * > Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. We use tags to provide you with billing and administration services. Tags are not intended to be used for private or sensitive data. 
-     *
-     * *Minimum permissions*
-     *
-     * To run this command, you must have the following permissions:
-     *
-     * - `resource-groups:Tag`
+     * The tag key and value pairs that are attached to the resource group.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
@@ -132,7 +127,10 @@ export interface GroupArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The query used to dynamically define the members of a group. For more information about how to construct a query, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) .
+     * The resource query structure that is used to dynamically determine which AWS resources are members of the associated resource group. For more information about queries and how to construct them, see [Build queries and groups in AWS Resource Groups](https://docs.aws.amazon.com//ARG/latest/userguide/gettingstarted-query.html) in the *AWS Resource Groups User Guide*
+     *
+     * > - You can include either a `ResourceQuery` or a `Configuration` , but not both.
+     * > - You can specify the group's membership either by using a `ResourceQuery` or by using a list of `Resources` , but not both.
      */
     resourceQuery?: pulumi.Input<inputs.resourcegroups.GroupResourceQueryArgs>;
     /**
@@ -143,15 +141,7 @@ export interface GroupArgs {
      */
     resources?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Adds tags to a resource group with the specified ARN. Existing tags on a resource group are not changed if they are not specified in the request parameters.
-     *
-     * > Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. We use tags to provide you with billing and administration services. Tags are not intended to be used for private or sensitive data. 
-     *
-     * *Minimum permissions*
-     *
-     * To run this command, you must have the following permissions:
-     *
-     * - `resource-groups:Tag`
+     * The tag key and value pairs that are attached to the resource group.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     public sealed class ModelPackageDriftCheckExplainabilityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Contains details regarding the file source.
+        /// The explainability config file for the model.
         /// </summary>
         [Input("configFile")]
         public Input<Inputs.ModelPackageFileSourceArgs>? ConfigFile { get; set; }
 
         /// <summary>
-        /// Details about the metrics source.
+        /// The drift check explainability constraints.
         /// </summary>
         [Input("constraints")]
         public Input<Inputs.ModelPackageMetricsSourceArgs>? Constraints { get; set; }

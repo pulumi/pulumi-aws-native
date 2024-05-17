@@ -13,7 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class DashboardComboChartConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The options that determine the presentation of the data labels.
+        /// The options that determine if visual data labels are displayed.
+        /// 
+        /// The data label options for a bar in a combo chart.
         /// </summary>
         [Input("barDataLabels")]
         public Input<Inputs.DashboardDataLabelOptionsArgs>? BarDataLabels { get; set; }
@@ -29,51 +31,51 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Pulumi.AwsNative.QuickSight.DashboardBarsArrangement>? BarsArrangement { get; set; }
 
         /// <summary>
-        /// The display options for the axis label.
+        /// The category axis of a combo chart.
         /// </summary>
         [Input("categoryAxis")]
         public Input<Inputs.DashboardAxisDisplayOptionsArgs>? CategoryAxis { get; set; }
 
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility, and sort icon visibility) of a combo chart category (group/color) field well.
         /// </summary>
         [Input("categoryLabelOptions")]
         public Input<Inputs.DashboardChartAxisLabelOptionsArgs>? CategoryLabelOptions { get; set; }
 
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility, and sort icon visibility) of a combo chart's color field well.
         /// </summary>
         [Input("colorLabelOptions")]
         public Input<Inputs.DashboardChartAxisLabelOptionsArgs>? ColorLabelOptions { get; set; }
 
         /// <summary>
         /// The field wells of the visual.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
         /// </summary>
         [Input("fieldWells")]
         public Input<Inputs.DashboardComboChartFieldWellsArgs>? FieldWells { get; set; }
 
         /// <summary>
-        /// The options for the legend setup of a visual.
+        /// The legend display setup of the visual.
         /// </summary>
         [Input("legend")]
         public Input<Inputs.DashboardLegendOptionsArgs>? Legend { get; set; }
 
         /// <summary>
-        /// The options that determine the presentation of the data labels.
+        /// The options that determine if visual data labels are displayed.
+        /// 
+        /// The data label options for a line in a combo chart.
         /// </summary>
         [Input("lineDataLabels")]
         public Input<Inputs.DashboardDataLabelOptionsArgs>? LineDataLabels { get; set; }
 
         /// <summary>
-        /// The display options for the axis label.
+        /// The label display options (grid line, range, scale, and axis step) of a combo chart's primary y-axis (bar) field well.
         /// </summary>
         [Input("primaryYAxisDisplayOptions")]
         public Input<Inputs.DashboardAxisDisplayOptionsArgs>? PrimaryYAxisDisplayOptions { get; set; }
 
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility, and sort icon visibility) of a combo chart's primary y-axis (bar) field well.
         /// </summary>
         [Input("primaryYAxisLabelOptions")]
         public Input<Inputs.DashboardChartAxisLabelOptionsArgs>? PrimaryYAxisLabelOptions { get; set; }
@@ -91,13 +93,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         }
 
         /// <summary>
-        /// The display options for the axis label.
+        /// The label display options (grid line, range, scale, axis step) of a combo chart's secondary y-axis (line) field well.
         /// </summary>
         [Input("secondaryYAxisDisplayOptions")]
         public Input<Inputs.DashboardAxisDisplayOptionsArgs>? SecondaryYAxisDisplayOptions { get; set; }
 
         /// <summary>
-        /// The label options for an axis on a chart.
+        /// The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.
         /// </summary>
         [Input("secondaryYAxisLabelOptions")]
         public Input<Inputs.DashboardChartAxisLabelOptionsArgs>? SecondaryYAxisLabelOptions { get; set; }
@@ -109,13 +111,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         public Input<Inputs.DashboardComboChartSortConfigurationArgs>? SortConfiguration { get; set; }
 
         /// <summary>
-        /// The display options for the visual tooltip.
+        /// The legend display setup of the visual.
         /// </summary>
         [Input("tooltip")]
         public Input<Inputs.DashboardTooltipOptionsArgs>? Tooltip { get; set; }
 
         /// <summary>
-        /// The visual display options for the visual palette.
+        /// The palette (chart color) display setup of the visual.
         /// </summary>
         [Input("visualPalette")]
         public Input<Inputs.DashboardVisualPaletteArgs>? VisualPalette { get; set; }

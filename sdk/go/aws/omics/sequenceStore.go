@@ -27,7 +27,7 @@ type SequenceStore struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The store's ID.
 	SequenceStoreId pulumi.StringOutput `pulumi:"sequenceStoreId"`
-	// Server-side encryption (SSE) settings for a store.
+	// Server-side encryption (SSE) settings for the store.
 	SseConfig SequenceStoreSseConfigPtrOutput `pulumi:"sseConfig"`
 	// Tags for the store.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -87,7 +87,7 @@ type sequenceStoreArgs struct {
 	FallbackLocation *string `pulumi:"fallbackLocation"`
 	// A name for the store.
 	Name *string `pulumi:"name"`
-	// Server-side encryption (SSE) settings for a store.
+	// Server-side encryption (SSE) settings for the store.
 	SseConfig *SequenceStoreSseConfig `pulumi:"sseConfig"`
 	// Tags for the store.
 	Tags map[string]string `pulumi:"tags"`
@@ -101,7 +101,7 @@ type SequenceStoreArgs struct {
 	FallbackLocation pulumi.StringPtrInput
 	// A name for the store.
 	Name pulumi.StringPtrInput
-	// Server-side encryption (SSE) settings for a store.
+	// Server-side encryption (SSE) settings for the store.
 	SseConfig SequenceStoreSseConfigPtrInput
 	// Tags for the store.
 	Tags pulumi.StringMapInput
@@ -174,7 +174,7 @@ func (o SequenceStoreOutput) SequenceStoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SequenceStore) pulumi.StringOutput { return v.SequenceStoreId }).(pulumi.StringOutput)
 }
 
-// Server-side encryption (SSE) settings for a store.
+// Server-side encryption (SSE) settings for the store.
 func (o SequenceStoreOutput) SseConfig() SequenceStoreSseConfigPtrOutput {
 	return o.ApplyT(func(v *SequenceStore) SequenceStoreSseConfigPtrOutput { return v.SseConfig }).(SequenceStoreSseConfigPtrOutput)
 }

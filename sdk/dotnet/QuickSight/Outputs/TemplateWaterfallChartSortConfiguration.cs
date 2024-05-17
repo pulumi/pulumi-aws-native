@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateWaterfallChartSortConfiguration
     {
         /// <summary>
-        /// The limit configuration of the visual display for an axis.
+        /// The limit on the number of bar groups that are displayed.
         /// </summary>
         public readonly Outputs.TemplateItemsLimitConfiguration? BreakdownItemsLimit;
         /// <summary>

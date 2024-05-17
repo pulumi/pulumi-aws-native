@@ -22,11 +22,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.DashboardPivotTableConditionalFormattingScope? Scope;
         /// <summary>
-        /// The scope of the cell for conditional formatting.
+        /// A list of cell scopes for conditional formatting.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardPivotTableConditionalFormattingScope> Scopes;
         /// <summary>
-        /// The conditional formatting for the text.
+        /// The text format of the cell for conditional formatting.
         /// </summary>
         public readonly Outputs.DashboardTextConditionalFormat? TextFormat;
 

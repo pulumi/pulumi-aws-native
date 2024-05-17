@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     public sealed class TemplateForecastScenarioArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Provides the forecast to meet the target for a particular date.
+        /// The what-if analysis forecast setup with the target date.
         /// </summary>
         [Input("whatIfPointScenario")]
         public Input<Inputs.TemplateWhatIfPointScenarioArgs>? WhatIfPointScenario { get; set; }
 
         /// <summary>
-        /// Provides the forecast to meet the target for a particular date range.
+        /// The what-if analysis forecast setup with the date range.
         /// </summary>
         [Input("whatIfRangeScenario")]
         public Input<Inputs.TemplateWhatIfRangeScenarioArgs>? WhatIfRangeScenario { get; set; }

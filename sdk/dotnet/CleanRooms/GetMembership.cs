@@ -80,7 +80,7 @@ namespace Pulumi.AwsNative.CleanRooms
         /// </summary>
         public readonly string? CollaborationCreatorAccountId;
         /// <summary>
-        /// Contains configurations for protected query results.
+        /// The default protected query result configuration as specified by the member who can receive results.
         /// </summary>
         public readonly Outputs.MembershipProtectedQueryResultConfiguration? DefaultResultConfiguration;
         /// <summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.CleanRooms
         /// </summary>
         public readonly string? MembershipIdentifier;
         /// <summary>
-        /// An object representing the payment responsibilities accepted by the collaboration member.
+        /// The payment responsibilities accepted by the collaboration member.
         /// </summary>
         public readonly Outputs.MembershipPaymentConfiguration? PaymentConfiguration;
         /// <summary>

@@ -19,8 +19,6 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? CategoryLabelVisibility;
         /// <summary>
         /// The option that determines the data label type.
-        /// 
-        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
         /// </summary>
         public readonly ImmutableArray<Outputs.TemplateDataLabelType> DataLabelTypes;
         /// <summary>
@@ -32,7 +30,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateDataLabelContent? LabelContent;
         /// <summary>
-        /// Configures the display properties of the given text.
+        /// Determines the font configuration of the data labels.
         /// </summary>
         public readonly Outputs.TemplateFontConfiguration? LabelFontConfiguration;
         /// <summary>

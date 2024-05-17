@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class TemplateGaugeChartConfiguration
     {
         /// <summary>
-        /// The options that determine the presentation of the data labels.
+        /// The data label configuration of a `GaugeChartVisual` .
         /// </summary>
         public readonly Outputs.TemplateDataLabelOptions? DataLabels;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly Outputs.TemplateGaugeChartOptions? GaugeChartOptions;
         /// <summary>
-        /// The display options for the visual tooltip.
+        /// The tooltip configuration of a `GaugeChartVisual` .
         /// </summary>
         public readonly Outputs.TemplateTooltipOptions? TooltipOptions;
         /// <summary>
-        /// The visual display options for the visual palette.
+        /// The visual palette configuration of a `GaugeChartVisual` .
         /// </summary>
         public readonly Outputs.TemplateVisualPalette? VisualPalette;
 

@@ -85,9 +85,9 @@ type LocationS3 struct {
 	LocationUri pulumi.StringOutput `pulumi:"locationUri"`
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket.
 	S3BucketArn pulumi.StringPtrOutput `pulumi:"s3BucketArn"`
-	// Specifies the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.
+	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
 	//
-	// For more information, see [Accessing S3 buckets](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access) .
+	// For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
 	S3Config LocationS3s3ConfigOutput `pulumi:"s3Config"`
 	// The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
 	S3StorageClass LocationS3S3StorageClassPtrOutput `pulumi:"s3StorageClass"`
@@ -149,9 +149,9 @@ func (LocationS3State) ElementType() reflect.Type {
 type locationS3Args struct {
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket.
 	S3BucketArn *string `pulumi:"s3BucketArn"`
-	// Specifies the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.
+	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
 	//
-	// For more information, see [Accessing S3 buckets](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access) .
+	// For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
 	S3Config LocationS3s3Config `pulumi:"s3Config"`
 	// The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
 	S3StorageClass *LocationS3S3StorageClass `pulumi:"s3StorageClass"`
@@ -165,9 +165,9 @@ type locationS3Args struct {
 type LocationS3Args struct {
 	// The Amazon Resource Name (ARN) of the Amazon S3 bucket.
 	S3BucketArn pulumi.StringPtrInput
-	// Specifies the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.
+	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
 	//
-	// For more information, see [Accessing S3 buckets](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access) .
+	// For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
 	S3Config LocationS3s3ConfigInput
 	// The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
 	S3StorageClass LocationS3S3StorageClassPtrInput
@@ -229,9 +229,9 @@ func (o LocationS3Output) S3BucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationS3) pulumi.StringPtrOutput { return v.S3BucketArn }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.
+// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
 //
-// For more information, see [Accessing S3 buckets](https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access) .
+// For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
 func (o LocationS3Output) S3Config() LocationS3s3ConfigOutput {
 	return o.ApplyT(func(v *LocationS3) LocationS3s3ConfigOutput { return v.S3Config }).(LocationS3s3ConfigOutput)
 }

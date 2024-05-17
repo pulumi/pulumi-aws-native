@@ -29,11 +29,11 @@ type KnowledgeBase struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Information about how to render the content.
 	RenderingConfiguration KnowledgeBaseRenderingConfigurationPtrOutput `pulumi:"renderingConfiguration"`
-	// The configuration information for the customer managed key used for encryption.
+	// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
 	ServerSideEncryptionConfiguration KnowledgeBaseServerSideEncryptionConfigurationPtrOutput `pulumi:"serverSideEncryptionConfiguration"`
-	// Configuration information about the external data source.
+	// The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
 	SourceConfiguration KnowledgeBaseSourceConfigurationPtrOutput `pulumi:"sourceConfiguration"`
-	// Metadata to assign to the Wisdom knowledge base. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+	// The tags used to organize, track, or control access for this resource.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
@@ -97,11 +97,11 @@ type knowledgeBaseArgs struct {
 	Name *string `pulumi:"name"`
 	// Information about how to render the content.
 	RenderingConfiguration *KnowledgeBaseRenderingConfiguration `pulumi:"renderingConfiguration"`
-	// The configuration information for the customer managed key used for encryption.
+	// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
 	ServerSideEncryptionConfiguration *KnowledgeBaseServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
-	// Configuration information about the external data source.
+	// The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
 	SourceConfiguration *KnowledgeBaseSourceConfiguration `pulumi:"sourceConfiguration"`
-	// Metadata to assign to the Wisdom knowledge base. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+	// The tags used to organize, track, or control access for this resource.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
@@ -115,11 +115,11 @@ type KnowledgeBaseArgs struct {
 	Name pulumi.StringPtrInput
 	// Information about how to render the content.
 	RenderingConfiguration KnowledgeBaseRenderingConfigurationPtrInput
-	// The configuration information for the customer managed key used for encryption.
+	// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
 	ServerSideEncryptionConfiguration KnowledgeBaseServerSideEncryptionConfigurationPtrInput
-	// Configuration information about the external data source.
+	// The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
 	SourceConfiguration KnowledgeBaseSourceConfigurationPtrInput
-	// Metadata to assign to the Wisdom knowledge base. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+	// The tags used to organize, track, or control access for this resource.
 	Tags aws.CreateOnlyTagArrayInput
 }
 
@@ -190,19 +190,19 @@ func (o KnowledgeBaseOutput) RenderingConfiguration() KnowledgeBaseRenderingConf
 	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseRenderingConfigurationPtrOutput { return v.RenderingConfiguration }).(KnowledgeBaseRenderingConfigurationPtrOutput)
 }
 
-// The configuration information for the customer managed key used for encryption.
+// This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
 func (o KnowledgeBaseOutput) ServerSideEncryptionConfiguration() KnowledgeBaseServerSideEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseServerSideEncryptionConfigurationPtrOutput {
 		return v.ServerSideEncryptionConfiguration
 	}).(KnowledgeBaseServerSideEncryptionConfigurationPtrOutput)
 }
 
-// Configuration information about the external data source.
+// The source of the knowledge base content. Only set this argument for EXTERNAL knowledge bases.
 func (o KnowledgeBaseOutput) SourceConfiguration() KnowledgeBaseSourceConfigurationPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseSourceConfigurationPtrOutput { return v.SourceConfiguration }).(KnowledgeBaseSourceConfigurationPtrOutput)
 }
 
-// Metadata to assign to the Wisdom knowledge base. Tags help organize and categorize your Amazon Connect Wisdom resources. Each tag consists of a key and an optional value, both of which you define.
+// The tags used to organize, track, or control access for this resource.
 func (o KnowledgeBaseOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *KnowledgeBase) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }

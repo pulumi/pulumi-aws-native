@@ -33,7 +33,7 @@ type LookupOidcProviderResult struct {
 	Arn *string `pulumi:"arn"`
 	// A list of client IDs (also known as audiences) that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
 	ClientIdList []string `pulumi:"clientIdList"`
-	// A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+	// A list of tags that are attached to the specified IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
 	Tags []aws.Tag `pulumi:"tags"`
 	// A list of certificate thumbprints that are associated with the specified IAM OIDC provider resource object. For more information, see [CreateOpenIDConnectProvider](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html) .
 	ThumbprintList []string `pulumi:"thumbprintList"`
@@ -85,7 +85,7 @@ func (o LookupOidcProviderResultOutput) ClientIdList() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v LookupOidcProviderResult) []string { return v.ClientIdList }).(pulumi.StringArrayOutput)
 }
 
-// A structure that represents user-provided metadata that can be associated with an IAM resource. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
+// A list of tags that are attached to the specified IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide* .
 func (o LookupOidcProviderResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupOidcProviderResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

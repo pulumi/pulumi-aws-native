@@ -16,19 +16,19 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     public sealed class ModelPackageBiasArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Details about the metrics source.
+        /// The post-training bias report for a model.
         /// </summary>
         [Input("postTrainingReport")]
         public Input<Inputs.ModelPackageMetricsSourceArgs>? PostTrainingReport { get; set; }
 
         /// <summary>
-        /// Details about the metrics source.
+        /// The pre-training bias report for a model.
         /// </summary>
         [Input("preTrainingReport")]
         public Input<Inputs.ModelPackageMetricsSourceArgs>? PreTrainingReport { get; set; }
 
         /// <summary>
-        /// Details about the metrics source.
+        /// The bias report for a model
         /// </summary>
         [Input("report")]
         public Input<Inputs.ModelPackageMetricsSourceArgs>? Report { get; set; }

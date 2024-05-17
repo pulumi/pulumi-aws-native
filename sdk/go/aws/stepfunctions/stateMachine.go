@@ -181,7 +181,7 @@ type StateMachine struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Amazon States Language definition of the state machine. The state machine definition must be in JSON or YAML, and the format of the object must match the format of your CloudFormation template file. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
 	Definition StateMachineDefinitionPtrOutput `pulumi:"definition"`
-	// Defines the S3 bucket location where a state machine definition is stored. The state machine definition must be a JSON or YAML file.
+	// The name of the S3 bucket where the state machine definition is stored. The state machine definition must be a JSON or YAML file.
 	DefinitionS3Location StateMachineS3LocationPtrOutput `pulumi:"definitionS3Location"`
 	// The Amazon States Language definition of the state machine. The state machine definition must be in JSON. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
 	DefinitionString pulumi.StringPtrOutput `pulumi:"definitionString"`
@@ -190,8 +190,6 @@ type StateMachine struct {
 	// Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
 	DefinitionSubstitutions pulumi.MapOutput `pulumi:"definitionSubstitutions"`
 	// Defines what execution history events are logged and where they are logged.
-	//
-	// Step Functions provides the log levels — `OFF` , `ALL` , `ERROR` , and `FATAL` . No event types log when set to `OFF` and all event types do when set to `ALL` .
 	//
 	// > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
 	LoggingConfiguration StateMachineLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
@@ -227,9 +225,11 @@ type StateMachine struct {
 	StateMachineRevisionId pulumi.StringOutput `pulumi:"stateMachineRevisionId"`
 	// Determines whether a `STANDARD` or `EXPRESS` state machine is created. The default is `STANDARD` . You cannot update the `type` of a state machine once it has been created. For more information on `STANDARD` and `EXPRESS` workflows, see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
 	StateMachineType StateMachineTypePtrOutput `pulumi:"stateMachineType"`
-	// The `TagsEntry` property specifies *tags* to identify a state machine.
+	// The list of tags to add to a resource.
+	//
+	// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// Selects whether or not the state machine's AWS X-Ray tracing is enabled. To configure your state machine to send trace data to X-Ray, set `Enabled` to `true` .
+	// Selects whether or not the state machine's AWS X-Ray tracing is enabled.
 	TracingConfiguration StateMachineTracingConfigurationPtrOutput `pulumi:"tracingConfiguration"`
 }
 
@@ -283,7 +283,7 @@ func (StateMachineState) ElementType() reflect.Type {
 type stateMachineArgs struct {
 	// The Amazon States Language definition of the state machine. The state machine definition must be in JSON or YAML, and the format of the object must match the format of your CloudFormation template file. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
 	Definition *StateMachineDefinition `pulumi:"definition"`
-	// Defines the S3 bucket location where a state machine definition is stored. The state machine definition must be a JSON or YAML file.
+	// The name of the S3 bucket where the state machine definition is stored. The state machine definition must be a JSON or YAML file.
 	DefinitionS3Location *StateMachineS3Location `pulumi:"definitionS3Location"`
 	// The Amazon States Language definition of the state machine. The state machine definition must be in JSON. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
 	DefinitionString *string `pulumi:"definitionString"`
@@ -292,8 +292,6 @@ type stateMachineArgs struct {
 	// Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
 	DefinitionSubstitutions map[string]interface{} `pulumi:"definitionSubstitutions"`
 	// Defines what execution history events are logged and where they are logged.
-	//
-	// Step Functions provides the log levels — `OFF` , `ALL` , `ERROR` , and `FATAL` . No event types log when set to `OFF` and all event types do when set to `ALL` .
 	//
 	// > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
 	LoggingConfiguration *StateMachineLoggingConfiguration `pulumi:"loggingConfiguration"`
@@ -313,9 +311,11 @@ type stateMachineArgs struct {
 	StateMachineName *string `pulumi:"stateMachineName"`
 	// Determines whether a `STANDARD` or `EXPRESS` state machine is created. The default is `STANDARD` . You cannot update the `type` of a state machine once it has been created. For more information on `STANDARD` and `EXPRESS` workflows, see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
 	StateMachineType *StateMachineType `pulumi:"stateMachineType"`
-	// The `TagsEntry` property specifies *tags* to identify a state machine.
+	// The list of tags to add to a resource.
+	//
+	// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
 	Tags []aws.Tag `pulumi:"tags"`
-	// Selects whether or not the state machine's AWS X-Ray tracing is enabled. To configure your state machine to send trace data to X-Ray, set `Enabled` to `true` .
+	// Selects whether or not the state machine's AWS X-Ray tracing is enabled.
 	TracingConfiguration *StateMachineTracingConfiguration `pulumi:"tracingConfiguration"`
 }
 
@@ -323,7 +323,7 @@ type stateMachineArgs struct {
 type StateMachineArgs struct {
 	// The Amazon States Language definition of the state machine. The state machine definition must be in JSON or YAML, and the format of the object must match the format of your CloudFormation template file. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
 	Definition StateMachineDefinitionPtrInput
-	// Defines the S3 bucket location where a state machine definition is stored. The state machine definition must be a JSON or YAML file.
+	// The name of the S3 bucket where the state machine definition is stored. The state machine definition must be a JSON or YAML file.
 	DefinitionS3Location StateMachineS3LocationPtrInput
 	// The Amazon States Language definition of the state machine. The state machine definition must be in JSON. See [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) .
 	DefinitionString pulumi.StringPtrInput
@@ -332,8 +332,6 @@ type StateMachineArgs struct {
 	// Substitutions must follow the syntax: `${key_name}` or `${variable_1,variable_2,...}` .
 	DefinitionSubstitutions pulumi.MapInput
 	// Defines what execution history events are logged and where they are logged.
-	//
-	// Step Functions provides the log levels — `OFF` , `ALL` , `ERROR` , and `FATAL` . No event types log when set to `OFF` and all event types do when set to `ALL` .
 	//
 	// > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
 	LoggingConfiguration StateMachineLoggingConfigurationPtrInput
@@ -353,9 +351,11 @@ type StateMachineArgs struct {
 	StateMachineName pulumi.StringPtrInput
 	// Determines whether a `STANDARD` or `EXPRESS` state machine is created. The default is `STANDARD` . You cannot update the `type` of a state machine once it has been created. For more information on `STANDARD` and `EXPRESS` workflows, see [Standard Versus Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html) in the AWS Step Functions Developer Guide.
 	StateMachineType StateMachineTypePtrInput
-	// The `TagsEntry` property specifies *tags* to identify a state machine.
+	// The list of tags to add to a resource.
+	//
+	// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
 	Tags aws.TagArrayInput
-	// Selects whether or not the state machine's AWS X-Ray tracing is enabled. To configure your state machine to send trace data to X-Ray, set `Enabled` to `true` .
+	// Selects whether or not the state machine's AWS X-Ray tracing is enabled.
 	TracingConfiguration StateMachineTracingConfigurationPtrInput
 }
 
@@ -406,7 +406,7 @@ func (o StateMachineOutput) Definition() StateMachineDefinitionPtrOutput {
 	return o.ApplyT(func(v *StateMachine) StateMachineDefinitionPtrOutput { return v.Definition }).(StateMachineDefinitionPtrOutput)
 }
 
-// Defines the S3 bucket location where a state machine definition is stored. The state machine definition must be a JSON or YAML file.
+// The name of the S3 bucket where the state machine definition is stored. The state machine definition must be a JSON or YAML file.
 func (o StateMachineOutput) DefinitionS3Location() StateMachineS3LocationPtrOutput {
 	return o.ApplyT(func(v *StateMachine) StateMachineS3LocationPtrOutput { return v.DefinitionS3Location }).(StateMachineS3LocationPtrOutput)
 }
@@ -424,8 +424,6 @@ func (o StateMachineOutput) DefinitionSubstitutions() pulumi.MapOutput {
 }
 
 // Defines what execution history events are logged and where they are logged.
-//
-// Step Functions provides the log levels — `OFF` , `ALL` , `ERROR` , and `FATAL` . No event types log when set to `OFF` and all event types do when set to `ALL` .
 //
 // > By default, the `level` is set to `OFF` . For more information see [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
 func (o StateMachineOutput) LoggingConfiguration() StateMachineLoggingConfigurationPtrOutput {
@@ -479,12 +477,14 @@ func (o StateMachineOutput) StateMachineType() StateMachineTypePtrOutput {
 	return o.ApplyT(func(v *StateMachine) StateMachineTypePtrOutput { return v.StateMachineType }).(StateMachineTypePtrOutput)
 }
 
-// The `TagsEntry` property specifies *tags* to identify a state machine.
+// The list of tags to add to a resource.
+//
+// Tags may only contain Unicode letters, digits, white space, or these symbols: `_ . : / = + - @` .
 func (o StateMachineOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *StateMachine) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// Selects whether or not the state machine's AWS X-Ray tracing is enabled. To configure your state machine to send trace data to X-Ray, set `Enabled` to `true` .
+// Selects whether or not the state machine's AWS X-Ray tracing is enabled.
 func (o StateMachineOutput) TracingConfiguration() StateMachineTracingConfigurationPtrOutput {
 	return o.ApplyT(func(v *StateMachine) StateMachineTracingConfigurationPtrOutput { return v.TracingConfiguration }).(StateMachineTracingConfigurationPtrOutput)
 }

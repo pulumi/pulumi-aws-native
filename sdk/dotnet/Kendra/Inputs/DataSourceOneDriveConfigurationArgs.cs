@@ -59,7 +59,7 @@ namespace Pulumi.AwsNative.Kendra.Inputs
         }
 
         /// <summary>
-        /// User accounts whose documents should be indexed.
+        /// A list of user accounts whose documents should be indexed.
         /// </summary>
         [Input("oneDriveUsers", required: true)]
         public Input<Inputs.DataSourceOneDriveUsersArgs> OneDriveUsers { get; set; } = null!;

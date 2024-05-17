@@ -27,7 +27,7 @@ class FilterArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Filter resource.
-        :param pulumi.Input['FilterFindingCriteriaArgs'] finding_criteria: Represents a map of finding properties that match specified conditions and values when querying findings.
+        :param pulumi.Input['FilterFindingCriteriaArgs'] finding_criteria: Represents the criteria to be used in the filter for querying findings.
         :param pulumi.Input[str] action: Specifies the action that is to be applied to the findings that match the filter.
         :param pulumi.Input[str] description: The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
         :param pulumi.Input[str] detector_id: The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
@@ -57,7 +57,7 @@ class FilterArgs:
     @pulumi.getter(name="findingCriteria")
     def finding_criteria(self) -> pulumi.Input['FilterFindingCriteriaArgs']:
         """
-        Represents a map of finding properties that match specified conditions and values when querying findings.
+        Represents the criteria to be used in the filter for querying findings.
         """
         return pulumi.get(self, "finding_criteria")
 
@@ -163,7 +163,7 @@ class Filter(pulumi.CustomResource):
         :param pulumi.Input[str] action: Specifies the action that is to be applied to the findings that match the filter.
         :param pulumi.Input[str] description: The description of the filter. Valid characters include alphanumeric characters, and special characters such as hyphen, period, colon, underscore, parentheses ( `{ }` , `[ ]` , and `( )` ), forward slash, horizontal tab, vertical tab, newline, form feed, return, and whitespace.
         :param pulumi.Input[str] detector_id: The ID of the detector belonging to the GuardDuty account that you want to create a filter for.
-        :param pulumi.Input[pulumi.InputType['FilterFindingCriteriaArgs']] finding_criteria: Represents a map of finding properties that match specified conditions and values when querying findings.
+        :param pulumi.Input[pulumi.InputType['FilterFindingCriteriaArgs']] finding_criteria: Represents the criteria to be used in the filter for querying findings.
         :param pulumi.Input[str] name: The name of the filter. Valid characters include period (.), underscore (_), dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.
         :param pulumi.Input[int] rank: Specifies the position of the filter in the list of current filters. Also specifies the order in which this filter is applied to the findings. The minimum value for this property is 1 and the maximum is 100.
                
@@ -282,7 +282,7 @@ class Filter(pulumi.CustomResource):
     @pulumi.getter(name="findingCriteria")
     def finding_criteria(self) -> pulumi.Output['outputs.FilterFindingCriteria']:
         """
-        Represents a map of finding properties that match specified conditions and values when querying findings.
+        Represents the criteria to be used in the filter for querying findings.
         """
         return pulumi.get(self, "finding_criteria")
 

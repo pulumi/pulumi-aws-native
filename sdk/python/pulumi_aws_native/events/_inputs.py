@@ -95,10 +95,10 @@ class ConnectionAuthParametersArgs:
                  invocation_http_parameters: Optional[pulumi.Input['ConnectionHttpParametersArgs']] = None,
                  o_auth_parameters: Optional[pulumi.Input['ConnectionOAuthParametersArgs']] = None):
         """
-        :param pulumi.Input['ConnectionApiKeyAuthParametersArgs'] api_key_auth_parameters: Contains the API key authorization parameters for the connection.
-        :param pulumi.Input['ConnectionBasicAuthParametersArgs'] basic_auth_parameters: Contains the Basic authorization parameters for the connection.
-        :param pulumi.Input['ConnectionHttpParametersArgs'] invocation_http_parameters: Contains additional parameters for the connection.
-        :param pulumi.Input['ConnectionOAuthParametersArgs'] o_auth_parameters: Contains the OAuth authorization parameters to use for the connection.
+        :param pulumi.Input['ConnectionApiKeyAuthParametersArgs'] api_key_auth_parameters: The API Key parameters to use for authorization.
+        :param pulumi.Input['ConnectionBasicAuthParametersArgs'] basic_auth_parameters: The authorization parameters for Basic authorization.
+        :param pulumi.Input['ConnectionHttpParametersArgs'] invocation_http_parameters: Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
+        :param pulumi.Input['ConnectionOAuthParametersArgs'] o_auth_parameters: The OAuth parameters to use for authorization.
         """
         if api_key_auth_parameters is not None:
             pulumi.set(__self__, "api_key_auth_parameters", api_key_auth_parameters)
@@ -113,7 +113,7 @@ class ConnectionAuthParametersArgs:
     @pulumi.getter(name="apiKeyAuthParameters")
     def api_key_auth_parameters(self) -> Optional[pulumi.Input['ConnectionApiKeyAuthParametersArgs']]:
         """
-        Contains the API key authorization parameters for the connection.
+        The API Key parameters to use for authorization.
         """
         return pulumi.get(self, "api_key_auth_parameters")
 
@@ -125,7 +125,7 @@ class ConnectionAuthParametersArgs:
     @pulumi.getter(name="basicAuthParameters")
     def basic_auth_parameters(self) -> Optional[pulumi.Input['ConnectionBasicAuthParametersArgs']]:
         """
-        Contains the Basic authorization parameters for the connection.
+        The authorization parameters for Basic authorization.
         """
         return pulumi.get(self, "basic_auth_parameters")
 
@@ -137,7 +137,7 @@ class ConnectionAuthParametersArgs:
     @pulumi.getter(name="invocationHttpParameters")
     def invocation_http_parameters(self) -> Optional[pulumi.Input['ConnectionHttpParametersArgs']]:
         """
-        Contains additional parameters for the connection.
+        Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
         """
         return pulumi.get(self, "invocation_http_parameters")
 
@@ -149,7 +149,7 @@ class ConnectionAuthParametersArgs:
     @pulumi.getter(name="oAuthParameters")
     def o_auth_parameters(self) -> Optional[pulumi.Input['ConnectionOAuthParametersArgs']]:
         """
-        Contains the OAuth authorization parameters to use for the connection.
+        The OAuth parameters to use for authorization.
         """
         return pulumi.get(self, "o_auth_parameters")
 
@@ -239,7 +239,7 @@ class ConnectionHttpParametersArgs:
                  header_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgs']]]] = None,
                  query_string_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgs']]] body_parameters: Additional query string parameter for the connection. You can include up to 100 additional query string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB.
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgs']]] body_parameters: Contains additional body string parameters for the connection.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgs']]] header_parameters: Contains additional header parameters for the connection.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgs']]] query_string_parameters: Contains additional query string parameters for the connection.
         """
@@ -254,7 +254,7 @@ class ConnectionHttpParametersArgs:
     @pulumi.getter(name="bodyParameters")
     def body_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectionParameterArgs']]]]:
         """
-        Additional query string parameter for the connection. You can include up to 100 additional query string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB.
+        Contains additional body string parameters for the connection.
         """
         return pulumi.get(self, "body_parameters")
 
@@ -296,9 +296,9 @@ class ConnectionOAuthParametersArgs:
                  o_auth_http_parameters: Optional[pulumi.Input['ConnectionHttpParametersArgs']] = None):
         """
         :param pulumi.Input[str] authorization_endpoint: The URL to the authorization endpoint when OAuth is specified as the authorization type.
-        :param pulumi.Input['ConnectionClientParametersArgs'] client_parameters: Contains the OAuth authorization parameters to use for the connection.
+        :param pulumi.Input['ConnectionClientParametersArgs'] client_parameters: A `CreateConnectionOAuthClientRequestParameters` object that contains the client parameters for OAuth authorization.
         :param pulumi.Input['ConnectionOAuthParametersHttpMethod'] http_method: The method to use for the authorization request.
-        :param pulumi.Input['ConnectionHttpParametersArgs'] o_auth_http_parameters: Contains additional parameters for the connection.
+        :param pulumi.Input['ConnectionHttpParametersArgs'] o_auth_http_parameters: A `ConnectionHttpParameters` object that contains details about the additional parameters to use for the connection.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "client_parameters", client_parameters)
@@ -322,7 +322,7 @@ class ConnectionOAuthParametersArgs:
     @pulumi.getter(name="clientParameters")
     def client_parameters(self) -> pulumi.Input['ConnectionClientParametersArgs']:
         """
-        Contains the OAuth authorization parameters to use for the connection.
+        A `CreateConnectionOAuthClientRequestParameters` object that contains the client parameters for OAuth authorization.
         """
         return pulumi.get(self, "client_parameters")
 
@@ -346,7 +346,7 @@ class ConnectionOAuthParametersArgs:
     @pulumi.getter(name="oAuthHttpParameters")
     def o_auth_http_parameters(self) -> Optional[pulumi.Input['ConnectionHttpParametersArgs']]:
         """
-        Contains additional parameters for the connection.
+        A `ConnectionHttpParameters` object that contains details about the additional parameters to use for the connection.
         """
         return pulumi.get(self, "o_auth_http_parameters")
 
@@ -450,8 +450,8 @@ class EndpointFailoverConfigArgs:
                  primary: pulumi.Input['EndpointPrimaryArgs'],
                  secondary: pulumi.Input['EndpointSecondaryArgs']):
         """
-        :param pulumi.Input['EndpointPrimaryArgs'] primary: The primary Region of the endpoint.
-        :param pulumi.Input['EndpointSecondaryArgs'] secondary: The secondary Region that processes events when failover is triggered or replication is enabled.
+        :param pulumi.Input['EndpointPrimaryArgs'] primary: The main Region of the endpoint.
+        :param pulumi.Input['EndpointSecondaryArgs'] secondary: The Region that events are routed to when failover is triggered or event replication is enabled.
         """
         pulumi.set(__self__, "primary", primary)
         pulumi.set(__self__, "secondary", secondary)
@@ -460,7 +460,7 @@ class EndpointFailoverConfigArgs:
     @pulumi.getter
     def primary(self) -> pulumi.Input['EndpointPrimaryArgs']:
         """
-        The primary Region of the endpoint.
+        The main Region of the endpoint.
         """
         return pulumi.get(self, "primary")
 
@@ -472,7 +472,7 @@ class EndpointFailoverConfigArgs:
     @pulumi.getter
     def secondary(self) -> pulumi.Input['EndpointSecondaryArgs']:
         """
-        The secondary Region that processes events when failover is triggered or replication is enabled.
+        The Region that events are routed to when failover is triggered or event replication is enabled.
         """
         return pulumi.get(self, "secondary")
 
@@ -683,7 +683,7 @@ class RuleBatchParametersArgs:
         :param pulumi.Input[str] job_definition: The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
         :param pulumi.Input[str] job_name: The name to use for this execution of the job, if the target is an AWS Batch job.
         :param pulumi.Input['RuleBatchArrayPropertiesArgs'] array_properties: The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job.
-        :param pulumi.Input['RuleBatchRetryStrategyArgs'] retry_strategy: The retry strategy to use for failed jobs, if the target is an AWS Batch job. If you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
+        :param pulumi.Input['RuleBatchRetryStrategyArgs'] retry_strategy: The retry strategy to use for failed jobs, if the target is an AWS Batch job. The retry strategy is the number of times to retry the failed job execution. Valid values are 1–10. When you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
         """
         pulumi.set(__self__, "job_definition", job_definition)
         pulumi.set(__self__, "job_name", job_name)
@@ -732,7 +732,7 @@ class RuleBatchParametersArgs:
     @pulumi.getter(name="retryStrategy")
     def retry_strategy(self) -> Optional[pulumi.Input['RuleBatchRetryStrategyArgs']]:
         """
-        The retry strategy to use for failed jobs, if the target is an AWS Batch job. If you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
+        The retry strategy to use for failed jobs, if the target is an AWS Batch job. The retry strategy is the number of times to retry the failed job execution. Valid values are 1–10. When you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
         """
         return pulumi.get(self, "retry_strategy")
 
@@ -860,22 +860,24 @@ class RuleEcsParametersArgs:
                  task_count: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] task_definition_arn: The ARN of the task definition to use if the event target is an Amazon ECS task.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleCapacityProviderStrategyItemArgs']]] capacity_provider_strategy: The details of a capacity provider strategy. To learn more, see [CapacityProviderStrategyItem](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CapacityProviderStrategyItem.html) in the Amazon ECS API Reference.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleCapacityProviderStrategyItemArgs']]] capacity_provider_strategy: The capacity provider strategy to use for the task.
+               
+               If a `capacityProviderStrategy` is specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or launchType is specified, the `defaultCapacityProviderStrategy` for the cluster is used.
         :param pulumi.Input[bool] enable_ecs_managed_tags: Specifies whether to enable Amazon ECS managed tags for the task. For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the Amazon Elastic Container Service Developer Guide.
         :param pulumi.Input[bool] enable_execute_command: Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
         :param pulumi.Input[str] group: Specifies an ECS task group for the task. The maximum length is 255 characters.
         :param pulumi.Input[str] launch_type: Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The `FARGATE` value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. For more information, see [AWS Fargate on Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html) in the *Amazon Elastic Container Service Developer Guide* .
-        :param pulumi.Input['RuleNetworkConfigurationArgs'] network_configuration: This structure specifies the network configuration for an ECS task.
-        :param pulumi.Input[Sequence[pulumi.Input['RulePlacementConstraintArgs']]] placement_constraints: An object representing a constraint on task placement. To learn more, see [Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the Amazon Elastic Container Service Developer Guide.
-        :param pulumi.Input[Sequence[pulumi.Input['RulePlacementStrategyArgs']]] placement_strategies: The task placement strategy for a task or service. To learn more, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the Amazon Elastic Container Service Service Developer Guide.
+        :param pulumi.Input['RuleNetworkConfigurationArgs'] network_configuration: Use this structure if the Amazon ECS task uses the `awsvpc` network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if `LaunchType` is `FARGATE` because the `awsvpc` mode is required for Fargate tasks.
+               
+               If you specify `NetworkConfiguration` when the target ECS task does not use the `awsvpc` network mode, the task fails.
+        :param pulumi.Input[Sequence[pulumi.Input['RulePlacementConstraintArgs']]] placement_constraints: An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime).
+        :param pulumi.Input[Sequence[pulumi.Input['RulePlacementStrategyArgs']]] placement_strategies: The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
         :param pulumi.Input[str] platform_version: Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0` .
                
                This structure is used only if `LaunchType` is `FARGATE` . For more information about valid platform versions, see [AWS Fargate Platform Versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide* .
         :param pulumi.Input[str] propagate_tags: Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action.
         :param pulumi.Input[str] reference_id: The reference ID to use for the task.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleTagArgs']]] tag_list: A key-value pair associated with an ECS Target of an EventBridge rule. The tag will be propagated to ECS by EventBridge when starting an ECS task based on a matched event.
-               
-               > Currently, tags are only available when using ECS with EventBridge .
+        :param pulumi.Input[Sequence[pulumi.Input['RuleTagArgs']]] tag_list: The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-tags) in the Amazon ECS API Reference.
         :param pulumi.Input[int] task_count: The number of tasks to create based on `TaskDefinition` . The default is 1.
         """
         pulumi.set(__self__, "task_definition_arn", task_definition_arn)
@@ -922,7 +924,9 @@ class RuleEcsParametersArgs:
     @pulumi.getter(name="capacityProviderStrategy")
     def capacity_provider_strategy(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleCapacityProviderStrategyItemArgs']]]]:
         """
-        The details of a capacity provider strategy. To learn more, see [CapacityProviderStrategyItem](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CapacityProviderStrategyItem.html) in the Amazon ECS API Reference.
+        The capacity provider strategy to use for the task.
+
+        If a `capacityProviderStrategy` is specified, the `launchType` parameter must be omitted. If no `capacityProviderStrategy` or launchType is specified, the `defaultCapacityProviderStrategy` for the cluster is used.
         """
         return pulumi.get(self, "capacity_provider_strategy")
 
@@ -982,7 +986,9 @@ class RuleEcsParametersArgs:
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['RuleNetworkConfigurationArgs']]:
         """
-        This structure specifies the network configuration for an ECS task.
+        Use this structure if the Amazon ECS task uses the `awsvpc` network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if `LaunchType` is `FARGATE` because the `awsvpc` mode is required for Fargate tasks.
+
+        If you specify `NetworkConfiguration` when the target ECS task does not use the `awsvpc` network mode, the task fails.
         """
         return pulumi.get(self, "network_configuration")
 
@@ -994,7 +1000,7 @@ class RuleEcsParametersArgs:
     @pulumi.getter(name="placementConstraints")
     def placement_constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulePlacementConstraintArgs']]]]:
         """
-        An object representing a constraint on task placement. To learn more, see [Task Placement Constraints](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html) in the Amazon Elastic Container Service Developer Guide.
+        An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime).
         """
         return pulumi.get(self, "placement_constraints")
 
@@ -1006,7 +1012,7 @@ class RuleEcsParametersArgs:
     @pulumi.getter(name="placementStrategies")
     def placement_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulePlacementStrategyArgs']]]]:
         """
-        The task placement strategy for a task or service. To learn more, see [Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html) in the Amazon Elastic Container Service Service Developer Guide.
+        The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
         """
         return pulumi.get(self, "placement_strategies")
 
@@ -1056,9 +1062,7 @@ class RuleEcsParametersArgs:
     @pulumi.getter(name="tagList")
     def tag_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleTagArgs']]]]:
         """
-        A key-value pair associated with an ECS Target of an EventBridge rule. The tag will be propagated to ECS by EventBridge when starting an ECS task based on a matched event.
-
-        > Currently, tags are only available when using ECS with EventBridge .
+        The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define. To learn more, see [RunTask](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html#ECS-RunTask-request-tags) in the Amazon ECS API Reference.
         """
         return pulumi.get(self, "tag_list")
 
@@ -1287,7 +1291,7 @@ class RuleNetworkConfigurationArgs:
     def __init__(__self__, *,
                  aws_vpc_configuration: Optional[pulumi.Input['RuleAwsVpcConfigurationArgs']] = None):
         """
-        :param pulumi.Input['RuleAwsVpcConfigurationArgs'] aws_vpc_configuration: This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
+        :param pulumi.Input['RuleAwsVpcConfigurationArgs'] aws_vpc_configuration: Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
         """
         if aws_vpc_configuration is not None:
             pulumi.set(__self__, "aws_vpc_configuration", aws_vpc_configuration)
@@ -1296,7 +1300,7 @@ class RuleNetworkConfigurationArgs:
     @pulumi.getter(name="awsVpcConfiguration")
     def aws_vpc_configuration(self) -> Optional[pulumi.Input['RuleAwsVpcConfigurationArgs']]:
         """
-        This structure specifies the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
+        Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the `awsvpc` network mode.
         """
         return pulumi.get(self, "aws_vpc_configuration")
 
@@ -1545,7 +1549,7 @@ class RuleRunCommandParametersArgs:
     def __init__(__self__, *,
                  run_command_targets: pulumi.Input[Sequence[pulumi.Input['RuleRunCommandTargetArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['RuleRunCommandTargetArgs']]] run_command_targets: Information about the EC2 instances that are to be sent the command, specified as key-value pairs. Each `RunCommandTarget` block can include only one key, but this key may specify multiple values.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleRunCommandTargetArgs']]] run_command_targets: Currently, we support including only one RunCommandTarget block, which specifies either an array of InstanceIds or a tag.
         """
         pulumi.set(__self__, "run_command_targets", run_command_targets)
 
@@ -1553,7 +1557,7 @@ class RuleRunCommandParametersArgs:
     @pulumi.getter(name="runCommandTargets")
     def run_command_targets(self) -> pulumi.Input[Sequence[pulumi.Input['RuleRunCommandTargetArgs']]]:
         """
-        Information about the EC2 instances that are to be sent the command, specified as key-value pairs. Each `RunCommandTarget` block can include only one key, but this key may specify multiple values.
+        Currently, we support including only one RunCommandTarget block, which specifies either an array of InstanceIds or a tag.
         """
         return pulumi.get(self, "run_command_targets")
 
@@ -1604,7 +1608,7 @@ class RuleSageMakerPipelineParametersArgs:
     def __init__(__self__, *,
                  pipeline_parameter_list: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSageMakerPipelineParameterArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['RuleSageMakerPipelineParameterArgs']]] pipeline_parameter_list: Name/Value pair of a parameter to start execution of a SageMaker Model Building Pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleSageMakerPipelineParameterArgs']]] pipeline_parameter_list: List of Parameter names and values for SageMaker Model Building Pipeline execution.
         """
         if pipeline_parameter_list is not None:
             pulumi.set(__self__, "pipeline_parameter_list", pipeline_parameter_list)
@@ -1613,7 +1617,7 @@ class RuleSageMakerPipelineParametersArgs:
     @pulumi.getter(name="pipelineParameterList")
     def pipeline_parameter_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleSageMakerPipelineParameterArgs']]]]:
         """
-        Name/Value pair of a parameter to start execution of a SageMaker Model Building Pipeline.
+        List of Parameter names and values for SageMaker Model Building Pipeline execution.
         """
         return pulumi.get(self, "pipeline_parameter_list")
 
@@ -1744,22 +1748,28 @@ class RuleTargetArgs:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the target.
         :param pulumi.Input[str] id: The ID of the target within the specified rule. Use this ID to reference the target when updating the rule. We recommend using a memorable and unique string.
         :param pulumi.Input['RuleAppSyncParametersArgs'] app_sync_parameters: Contains the GraphQL operation to be parsed and executed, if the event target is an AWS AppSync API.
-        :param pulumi.Input['RuleBatchParametersArgs'] batch_parameters: The custom parameters to be used when the target is an AWS Batch job.
-        :param pulumi.Input['RuleDeadLetterConfigArgs'] dead_letter_config: Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ).
+        :param pulumi.Input['RuleBatchParametersArgs'] batch_parameters: If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For more information, see [Jobs](https://docs.aws.amazon.com/batch/latest/userguide/jobs.html) in the *AWS Batch User Guide* .
+        :param pulumi.Input['RuleDeadLetterConfigArgs'] dead_letter_config: The `DeadLetterConfig` that defines the target queue to send dead-letter queue events to.
+        :param pulumi.Input['RuleEcsParametersArgs'] ecs_parameters: Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see [Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon EC2 Container Service Developer Guide* .
+        :param pulumi.Input['RuleHttpParametersArgs'] http_parameters: Contains the HTTP parameters to use when the target is a API Gateway endpoint or EventBridge ApiDestination.
                
-               For more information, see [Event retry policy and using dead-letter queues](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-dlq.html) in the *EventBridge User Guide* .
-        :param pulumi.Input['RuleEcsParametersArgs'] ecs_parameters: The custom parameters to be used when the target is an Amazon ECS task.
-        :param pulumi.Input['RuleHttpParametersArgs'] http_parameters: These are custom parameter to be used when the target is an API Gateway APIs or EventBridge ApiDestinations. In the latter case, these are merged with any InvocationParameters specified on the Connection, with any values from the Connection taking precedence.
+               If you specify an API Gateway API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence.
         :param pulumi.Input[str] input: Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. For more information, see [The JavaScript Object Notation (JSON) Data Interchange Format](https://docs.aws.amazon.com/http://www.rfc-editor.org/rfc/rfc7159.txt) .
         :param pulumi.Input[str] input_path: The value of the JSONPath that is used for extracting part of the matched event when passing it to the target. You may use JSON dot notation or bracket notation. For more information about JSON paths, see [JSONPath](https://docs.aws.amazon.com/http://goessner.net/articles/JsonPath/) .
-        :param pulumi.Input['RuleInputTransformerArgs'] input_transformer: Contains the parameters needed for you to provide custom input to a target based on one or more pieces of data extracted from the event.
-        :param pulumi.Input['RuleKinesisParametersArgs'] kinesis_parameters: This object enables you to specify a JSON path to extract from the event and use as the partition key for the Amazon Kinesis data stream, so that you can control the shard to which the event goes. If you do not include this parameter, the default is to use the `eventId` as the partition key.
-        :param pulumi.Input['RuleRedshiftDataParametersArgs'] redshift_data_parameters: These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
-        :param pulumi.Input['RuleRetryPolicyArgs'] retry_policy: A `RetryPolicy` object that includes information about the retry policy settings.
+        :param pulumi.Input['RuleInputTransformerArgs'] input_transformer: Settings to enable you to provide custom input to a target based on certain event data. You can extract one or more key-value pairs from the event and then use that data to send customized input to the target.
+        :param pulumi.Input['RuleKinesisParametersArgs'] kinesis_parameters: The custom parameter you can use to control the shard assignment, when the target is a Kinesis data stream. If you do not include this parameter, the default is to use the `eventId` as the partition key.
+        :param pulumi.Input['RuleRedshiftDataParametersArgs'] redshift_data_parameters: Contains the Amazon Redshift Data API parameters to use when the target is a Amazon Redshift cluster.
+               
+               If you specify a Amazon Redshift Cluster as a Target, you can use this to specify parameters to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
+        :param pulumi.Input['RuleRetryPolicyArgs'] retry_policy: The `RetryPolicy` object that contains the retry policy configuration to use for the dead-letter queue.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target.
-        :param pulumi.Input['RuleRunCommandParametersArgs'] run_command_parameters: This parameter contains the criteria (either InstanceIds or a tag) used to specify which EC2 instances are to be sent the command.
-        :param pulumi.Input['RuleSageMakerPipelineParametersArgs'] sage_maker_pipeline_parameters: These are custom parameters to use when the target is a SageMaker Model Building Pipeline that starts based on EventBridge events.
-        :param pulumi.Input['RuleSqsParametersArgs'] sqs_parameters: This structure includes the custom parameter to be used when the target is an SQS FIFO queue.
+        :param pulumi.Input['RuleRunCommandParametersArgs'] run_command_parameters: Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
+        :param pulumi.Input['RuleSageMakerPipelineParametersArgs'] sage_maker_pipeline_parameters: Contains the SageMaker Model Building Pipeline parameters to start execution of a SageMaker Model Building Pipeline.
+               
+               If you specify a SageMaker Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
+        :param pulumi.Input['RuleSqsParametersArgs'] sqs_parameters: Contains the message group ID to use when the target is a FIFO queue.
+               
+               If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -1834,7 +1844,7 @@ class RuleTargetArgs:
     @pulumi.getter(name="batchParameters")
     def batch_parameters(self) -> Optional[pulumi.Input['RuleBatchParametersArgs']]:
         """
-        The custom parameters to be used when the target is an AWS Batch job.
+        If the event target is an AWS Batch job, this contains the job definition, job name, and other parameters. For more information, see [Jobs](https://docs.aws.amazon.com/batch/latest/userguide/jobs.html) in the *AWS Batch User Guide* .
         """
         return pulumi.get(self, "batch_parameters")
 
@@ -1846,9 +1856,7 @@ class RuleTargetArgs:
     @pulumi.getter(name="deadLetterConfig")
     def dead_letter_config(self) -> Optional[pulumi.Input['RuleDeadLetterConfigArgs']]:
         """
-        Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ).
-
-        For more information, see [Event retry policy and using dead-letter queues](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-dlq.html) in the *EventBridge User Guide* .
+        The `DeadLetterConfig` that defines the target queue to send dead-letter queue events to.
         """
         return pulumi.get(self, "dead_letter_config")
 
@@ -1860,7 +1868,7 @@ class RuleTargetArgs:
     @pulumi.getter(name="ecsParameters")
     def ecs_parameters(self) -> Optional[pulumi.Input['RuleEcsParametersArgs']]:
         """
-        The custom parameters to be used when the target is an Amazon ECS task.
+        Contains the Amazon ECS task definition and task count to be used, if the event target is an Amazon ECS task. For more information about Amazon ECS tasks, see [Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon EC2 Container Service Developer Guide* .
         """
         return pulumi.get(self, "ecs_parameters")
 
@@ -1872,7 +1880,9 @@ class RuleTargetArgs:
     @pulumi.getter(name="httpParameters")
     def http_parameters(self) -> Optional[pulumi.Input['RuleHttpParametersArgs']]:
         """
-        These are custom parameter to be used when the target is an API Gateway APIs or EventBridge ApiDestinations. In the latter case, these are merged with any InvocationParameters specified on the Connection, with any values from the Connection taking precedence.
+        Contains the HTTP parameters to use when the target is a API Gateway endpoint or EventBridge ApiDestination.
+
+        If you specify an API Gateway API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence.
         """
         return pulumi.get(self, "http_parameters")
 
@@ -1908,7 +1918,7 @@ class RuleTargetArgs:
     @pulumi.getter(name="inputTransformer")
     def input_transformer(self) -> Optional[pulumi.Input['RuleInputTransformerArgs']]:
         """
-        Contains the parameters needed for you to provide custom input to a target based on one or more pieces of data extracted from the event.
+        Settings to enable you to provide custom input to a target based on certain event data. You can extract one or more key-value pairs from the event and then use that data to send customized input to the target.
         """
         return pulumi.get(self, "input_transformer")
 
@@ -1920,7 +1930,7 @@ class RuleTargetArgs:
     @pulumi.getter(name="kinesisParameters")
     def kinesis_parameters(self) -> Optional[pulumi.Input['RuleKinesisParametersArgs']]:
         """
-        This object enables you to specify a JSON path to extract from the event and use as the partition key for the Amazon Kinesis data stream, so that you can control the shard to which the event goes. If you do not include this parameter, the default is to use the `eventId` as the partition key.
+        The custom parameter you can use to control the shard assignment, when the target is a Kinesis data stream. If you do not include this parameter, the default is to use the `eventId` as the partition key.
         """
         return pulumi.get(self, "kinesis_parameters")
 
@@ -1932,7 +1942,9 @@ class RuleTargetArgs:
     @pulumi.getter(name="redshiftDataParameters")
     def redshift_data_parameters(self) -> Optional[pulumi.Input['RuleRedshiftDataParametersArgs']]:
         """
-        These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
+        Contains the Amazon Redshift Data API parameters to use when the target is a Amazon Redshift cluster.
+
+        If you specify a Amazon Redshift Cluster as a Target, you can use this to specify parameters to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
         """
         return pulumi.get(self, "redshift_data_parameters")
 
@@ -1944,7 +1956,7 @@ class RuleTargetArgs:
     @pulumi.getter(name="retryPolicy")
     def retry_policy(self) -> Optional[pulumi.Input['RuleRetryPolicyArgs']]:
         """
-        A `RetryPolicy` object that includes information about the retry policy settings.
+        The `RetryPolicy` object that contains the retry policy configuration to use for the dead-letter queue.
         """
         return pulumi.get(self, "retry_policy")
 
@@ -1968,7 +1980,7 @@ class RuleTargetArgs:
     @pulumi.getter(name="runCommandParameters")
     def run_command_parameters(self) -> Optional[pulumi.Input['RuleRunCommandParametersArgs']]:
         """
-        This parameter contains the criteria (either InstanceIds or a tag) used to specify which EC2 instances are to be sent the command.
+        Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
         """
         return pulumi.get(self, "run_command_parameters")
 
@@ -1980,7 +1992,9 @@ class RuleTargetArgs:
     @pulumi.getter(name="sageMakerPipelineParameters")
     def sage_maker_pipeline_parameters(self) -> Optional[pulumi.Input['RuleSageMakerPipelineParametersArgs']]:
         """
-        These are custom parameters to use when the target is a SageMaker Model Building Pipeline that starts based on EventBridge events.
+        Contains the SageMaker Model Building Pipeline parameters to start execution of a SageMaker Model Building Pipeline.
+
+        If you specify a SageMaker Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
         """
         return pulumi.get(self, "sage_maker_pipeline_parameters")
 
@@ -1992,7 +2006,9 @@ class RuleTargetArgs:
     @pulumi.getter(name="sqsParameters")
     def sqs_parameters(self) -> Optional[pulumi.Input['RuleSqsParametersArgs']]:
         """
-        This structure includes the custom parameter to be used when the target is an SQS FIFO queue.
+        Contains the message group ID to use when the target is a FIFO queue.
+
+        If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
         """
         return pulumi.get(self, "sqs_parameters")
 

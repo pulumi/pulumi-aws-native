@@ -188,7 +188,7 @@ class GetStackResult:
     @pulumi.getter
     def outputs(self) -> Optional[Sequence['outputs.StackOutput']]:
         """
-        The Output data type.
+        A list of output structures.
         """
         return pulumi.get(self, "outputs")
 
@@ -274,7 +274,7 @@ class GetStackResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        The Tag type enables you to specify a key-value pair that can be used to store information about an AWS CloudFormation stack.
+        Key-value pairs to associate with this stack. AWS CloudFormation also propagates these tags to the resources created in the stack. A maximum number of 50 tags can be specified.
         """
         return pulumi.get(self, "tags")
 

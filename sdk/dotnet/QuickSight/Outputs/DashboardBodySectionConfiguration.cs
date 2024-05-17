@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// </summary>
         public readonly string SectionId;
         /// <summary>
-        /// The options that style a section.
+        /// The style options of a body section.
         /// </summary>
         public readonly Outputs.DashboardSectionStyle? Style;
 

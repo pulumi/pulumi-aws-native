@@ -26,7 +26,9 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Command;
         /// <summary>
-        /// An environment variable.
+        /// The environment variables to pass to a container.
+        /// 
+        /// &gt; Environment variables cannot start with " `AWS_BATCH` ". This naming convention is reserved for variables that AWS Batch sets.
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionEksContainerEnvironmentVariable> Env;
         /// <summary>
@@ -50,7 +52,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// </summary>
         public readonly Outputs.JobDefinitionEksContainerSecurityContext? SecurityContext;
         /// <summary>
-        /// The volume mounts for a container for an Amazon EKS job. For more information about volumes and volume mounts in Kubernetes, see [Volumes](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/) in the *Kubernetes documentation* .
+        /// The volume mounts for the container. AWS Batch supports `emptyDir` , `hostPath` , and `secret` volume types. For more information about volumes and volume mounts in Kubernetes, see [Volumes](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/storage/volumes/) in the *Kubernetes documentation* .
         /// </summary>
         public readonly ImmutableArray<Outputs.JobDefinitionEksContainerVolumeMount> VolumeMounts;
 

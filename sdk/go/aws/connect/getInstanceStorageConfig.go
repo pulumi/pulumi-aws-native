@@ -34,13 +34,13 @@ type LookupInstanceStorageConfigArgs struct {
 type LookupInstanceStorageConfigResult struct {
 	// The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
 	AssociationId *string `pulumi:"associationId"`
-	// Configuration information of a Kinesis Data Firehose delivery stream.
+	// The configuration of the Kinesis Firehose delivery stream.
 	KinesisFirehoseConfig *InstanceStorageConfigKinesisFirehoseConfig `pulumi:"kinesisFirehoseConfig"`
-	// Configuration information of a Kinesis data stream.
+	// The configuration of the Kinesis data stream.
 	KinesisStreamConfig *InstanceStorageConfigKinesisStreamConfig `pulumi:"kinesisStreamConfig"`
-	// Configuration information of a Kinesis video stream.
+	// The configuration of the Kinesis video stream.
 	KinesisVideoStreamConfig *InstanceStorageConfigKinesisVideoStreamConfig `pulumi:"kinesisVideoStreamConfig"`
-	// Information about the Amazon Simple Storage Service (Amazon S3) storage type.
+	// The S3 bucket configuration.
 	S3Config *InstanceStorageConfigS3Config `pulumi:"s3Config"`
 	// A valid storage type.
 	StorageType *InstanceStorageConfigStorageType `pulumi:"storageType"`
@@ -91,28 +91,28 @@ func (o LookupInstanceStorageConfigResultOutput) AssociationId() pulumi.StringPt
 	return o.ApplyT(func(v LookupInstanceStorageConfigResult) *string { return v.AssociationId }).(pulumi.StringPtrOutput)
 }
 
-// Configuration information of a Kinesis Data Firehose delivery stream.
+// The configuration of the Kinesis Firehose delivery stream.
 func (o LookupInstanceStorageConfigResultOutput) KinesisFirehoseConfig() InstanceStorageConfigKinesisFirehoseConfigPtrOutput {
 	return o.ApplyT(func(v LookupInstanceStorageConfigResult) *InstanceStorageConfigKinesisFirehoseConfig {
 		return v.KinesisFirehoseConfig
 	}).(InstanceStorageConfigKinesisFirehoseConfigPtrOutput)
 }
 
-// Configuration information of a Kinesis data stream.
+// The configuration of the Kinesis data stream.
 func (o LookupInstanceStorageConfigResultOutput) KinesisStreamConfig() InstanceStorageConfigKinesisStreamConfigPtrOutput {
 	return o.ApplyT(func(v LookupInstanceStorageConfigResult) *InstanceStorageConfigKinesisStreamConfig {
 		return v.KinesisStreamConfig
 	}).(InstanceStorageConfigKinesisStreamConfigPtrOutput)
 }
 
-// Configuration information of a Kinesis video stream.
+// The configuration of the Kinesis video stream.
 func (o LookupInstanceStorageConfigResultOutput) KinesisVideoStreamConfig() InstanceStorageConfigKinesisVideoStreamConfigPtrOutput {
 	return o.ApplyT(func(v LookupInstanceStorageConfigResult) *InstanceStorageConfigKinesisVideoStreamConfig {
 		return v.KinesisVideoStreamConfig
 	}).(InstanceStorageConfigKinesisVideoStreamConfigPtrOutput)
 }
 
-// Information about the Amazon Simple Storage Service (Amazon S3) storage type.
+// The S3 bucket configuration.
 func (o LookupInstanceStorageConfigResultOutput) S3Config() InstanceStorageConfigS3ConfigPtrOutput {
 	return o.ApplyT(func(v LookupInstanceStorageConfigResult) *InstanceStorageConfigS3Config { return v.S3Config }).(InstanceStorageConfigS3ConfigPtrOutput)
 }

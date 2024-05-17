@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
         /// </summary>
         public readonly string BucketPrefix;
         /// <summary>
-        /// The encryption configuration.
+        /// The Amazon S3 encryption configuration.
         /// </summary>
         public readonly Outputs.InstanceStorageConfigEncryptionConfig? EncryptionConfig;
 

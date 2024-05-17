@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.AppFlow.Inputs
         public Input<string>? LogonLanguage { get; set; }
 
         /// <summary>
-        /// The OAuth properties required for OAuth type authentication.
+        /// The SAPOData OAuth properties required for OAuth type authentication.
         /// </summary>
         [Input("oAuthProperties")]
         public Input<Inputs.ConnectorProfileOAuthPropertiesArgs>? OAuthProperties { get; set; }

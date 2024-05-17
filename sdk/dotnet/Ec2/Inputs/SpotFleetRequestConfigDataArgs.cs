@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         private InputList<Inputs.SpotFleetLaunchSpecificationArgs>? _launchSpecifications;
 
         /// <summary>
-        /// Specifies the launch specification for one or more Spot Instances. If you include On-Demand capacity in your fleet request, you can't use `SpotFleetLaunchSpecification` ; you must use [LaunchTemplateConfig](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-launchtemplateconfig.html) .
+        /// The launch specifications for the Spot Fleet request. If you specify `LaunchSpecifications` , you can't specify `LaunchTemplateConfigs` .
         /// </summary>
         public InputList<Inputs.SpotFleetLaunchSpecificationArgs> LaunchSpecifications
         {
@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         private InputList<Inputs.SpotFleetLaunchTemplateConfigArgs>? _launchTemplateConfigs;
 
         /// <summary>
-        /// Specifies a launch template and overrides.
+        /// The launch template and overrides. If you specify `LaunchTemplateConfigs` , you can't specify `LaunchSpecifications` .
         /// </summary>
         public InputList<Inputs.SpotFleetLaunchTemplateConfigArgs> LaunchTemplateConfigs
         {
@@ -86,7 +86,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         }
 
         /// <summary>
-        /// Specifies the Classic Load Balancers and target groups to attach to a Spot Fleet request.
+        /// One or more Classic Load Balancers and target groups to attach to the Spot Fleet request. Spot Fleet registers the running Spot Instances with the specified Classic Load Balancers and target groups.
+        /// 
+        /// With Network Load Balancers, Spot Fleet cannot register instances that have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1.
         /// </summary>
         [Input("loadBalancersConfig")]
         public Input<Inputs.SpotFleetLoadBalancersConfigArgs>? LoadBalancersConfig { get; set; }

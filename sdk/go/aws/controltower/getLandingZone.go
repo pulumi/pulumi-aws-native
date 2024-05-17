@@ -43,7 +43,7 @@ type LookupLandingZoneResult struct {
 	Manifest interface{} `pulumi:"manifest"`
 	// The landing zone deployment status. One of `ACTIVE` , `PROCESSING` , `FAILED` .
 	Status *LandingZoneStatus `pulumi:"status"`
-	// Tags applied to the landing zone.
+	// Tags to be applied to the landing zone.
 	Tags []aws.Tag `pulumi:"tags"`
 	// The landing zone's current deployed version.
 	Version *string `pulumi:"version"`
@@ -117,7 +117,7 @@ func (o LookupLandingZoneResultOutput) Status() LandingZoneStatusPtrOutput {
 	return o.ApplyT(func(v LookupLandingZoneResult) *LandingZoneStatus { return v.Status }).(LandingZoneStatusPtrOutput)
 }
 
-// Tags applied to the landing zone.
+// Tags to be applied to the landing zone.
 func (o LookupLandingZoneResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupLandingZoneResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
