@@ -38,7 +38,7 @@ update_submodules:: init_submodules
 	done
 
 docs::
-	$(WORKING_DIR)/bin/$(CODEGEN) discovery $(CFN_SCHEMA_DIR) ${VERSION_GENERIC} https://github.com/cdklabs/awscdk-service-spec/raw/main/sources/CloudFormationDocumentation/CloudFormationDocumentation.json
+	$(WORKING_DIR)/bin/$(CODEGEN) docs $(CFN_SCHEMA_DIR) ${VERSION_GENERIC} https://github.com/cdklabs/awscdk-service-spec/raw/main/sources/CloudFormationDocumentation/CloudFormationDocumentation.json
 
 discovery:: update_submodules codegen docs
 	$(WORKING_DIR)/bin/$(CODEGEN) discovery $(CFN_SCHEMA_DIR) ${VERSION_GENERIC} https://schema.cloudformation.us-east-1.amazonaws.com/CloudformationSchema.zip,https://schema.cloudformation.us-west-2.amazonaws.com/CloudformationSchema.zip
