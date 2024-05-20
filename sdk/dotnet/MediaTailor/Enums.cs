@@ -147,7 +147,38 @@ namespace Pulumi.AwsNative.MediaTailor
     }
 
     /// <summary>
-    /// Sets the ad suppression mode. By default, ad suppression is set to OFF and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window.
+    /// Defines the policy to apply to the avail suppression mode. BEHIND_LIVE_EDGE will always use the full avail suppression policy. AFTER_LIVE_EDGE mode can be used to invoke partial ad break fills when a session starts mid-break. Valid values are FULL_AVAIL_ONLY and PARTIAL_AVAIL
+    /// </summary>
+    [EnumType]
+    public readonly struct PlaybackConfigurationAvailSuppressionFillPolicy : IEquatable<PlaybackConfigurationAvailSuppressionFillPolicy>
+    {
+        private readonly string _value;
+
+        private PlaybackConfigurationAvailSuppressionFillPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PlaybackConfigurationAvailSuppressionFillPolicy PartialAvail { get; } = new PlaybackConfigurationAvailSuppressionFillPolicy("PARTIAL_AVAIL");
+        public static PlaybackConfigurationAvailSuppressionFillPolicy FullAvailOnly { get; } = new PlaybackConfigurationAvailSuppressionFillPolicy("FULL_AVAIL_ONLY");
+
+        public static bool operator ==(PlaybackConfigurationAvailSuppressionFillPolicy left, PlaybackConfigurationAvailSuppressionFillPolicy right) => left.Equals(right);
+        public static bool operator !=(PlaybackConfigurationAvailSuppressionFillPolicy left, PlaybackConfigurationAvailSuppressionFillPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(PlaybackConfigurationAvailSuppressionFillPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PlaybackConfigurationAvailSuppressionFillPolicy other && Equals(other);
+        public bool Equals(PlaybackConfigurationAvailSuppressionFillPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Sets the ad suppression mode. By default, ad suppression is off and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window. When Mode is set to AFTER_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks that are within the live edge plus the avail suppression value.
     /// </summary>
     [EnumType]
     public readonly struct PlaybackConfigurationAvailSuppressionMode : IEquatable<PlaybackConfigurationAvailSuppressionMode>
@@ -161,6 +192,7 @@ namespace Pulumi.AwsNative.MediaTailor
 
         public static PlaybackConfigurationAvailSuppressionMode Off { get; } = new PlaybackConfigurationAvailSuppressionMode("OFF");
         public static PlaybackConfigurationAvailSuppressionMode BehindLiveEdge { get; } = new PlaybackConfigurationAvailSuppressionMode("BEHIND_LIVE_EDGE");
+        public static PlaybackConfigurationAvailSuppressionMode AfterLiveEdge { get; } = new PlaybackConfigurationAvailSuppressionMode("AFTER_LIVE_EDGE");
 
         public static bool operator ==(PlaybackConfigurationAvailSuppressionMode left, PlaybackConfigurationAvailSuppressionMode right) => left.Equals(right);
         public static bool operator !=(PlaybackConfigurationAvailSuppressionMode left, PlaybackConfigurationAvailSuppressionMode right) => !left.Equals(right);

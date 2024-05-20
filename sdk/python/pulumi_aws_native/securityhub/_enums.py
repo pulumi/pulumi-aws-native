@@ -17,6 +17,7 @@ __all__ = [
     'InsightDateRangeUnit',
     'InsightMapFilterComparison',
     'InsightStringFilterComparison',
+    'SecurityControlParameterConfigurationValueType',
 ]
 
 
@@ -108,3 +109,8 @@ class InsightStringFilterComparison(str, Enum):
     PREFIX = "PREFIX"
     NOT_EQUALS = "NOT_EQUALS"
     PREFIX_NOT_EQUALS = "PREFIX_NOT_EQUALS"
+
+
+class SecurityControlParameterConfigurationValueType(str, Enum):
+    DEFAULT = "DEFAULT"
+    CUSTOM = "CUSTOM"

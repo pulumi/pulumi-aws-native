@@ -371,23 +371,39 @@ class PlaybackConfigurationAdMarkerPassthroughArgs:
 @pulumi.input_type
 class PlaybackConfigurationAvailSuppressionArgs:
     def __init__(__self__, *,
+                 fill_policy: Optional[pulumi.Input['PlaybackConfigurationAvailSuppressionFillPolicy']] = None,
                  mode: Optional[pulumi.Input['PlaybackConfigurationAvailSuppressionMode']] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
         The configuration for avail suppression, also known as ad suppression. For more information about ad suppression, see Ad Suppression (https://docs.aws.amazon.com/mediatailor/latest/ug/ad-behavior.html).
-        :param pulumi.Input['PlaybackConfigurationAvailSuppressionMode'] mode: Sets the ad suppression mode. By default, ad suppression is set to OFF and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window.
+        :param pulumi.Input['PlaybackConfigurationAvailSuppressionFillPolicy'] fill_policy: Defines the policy to apply to the avail suppression mode. BEHIND_LIVE_EDGE will always use the full avail suppression policy. AFTER_LIVE_EDGE mode can be used to invoke partial ad break fills when a session starts mid-break. Valid values are FULL_AVAIL_ONLY and PARTIAL_AVAIL
+        :param pulumi.Input['PlaybackConfigurationAvailSuppressionMode'] mode: Sets the ad suppression mode. By default, ad suppression is off and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window. When Mode is set to AFTER_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks that are within the live edge plus the avail suppression value.
         :param pulumi.Input[str] value: A live edge offset time in HH:MM:SS. MediaTailor won't fill ad breaks on or behind this time in the manifest lookback window. If Value is set to 00:00:00, it is in sync with the live edge, and MediaTailor won't fill any ad breaks on or behind the live edge. If you set a Value time, MediaTailor won't fill any ad breaks on or behind this time in the manifest lookback window. For example, if you set 00:45:00, then MediaTailor will fill ad breaks that occur within 45 minutes behind the live edge, but won't fill ad breaks on or behind 45 minutes behind the live edge.
         """
+        if fill_policy is not None:
+            pulumi.set(__self__, "fill_policy", fill_policy)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
     @property
+    @pulumi.getter(name="fillPolicy")
+    def fill_policy(self) -> Optional[pulumi.Input['PlaybackConfigurationAvailSuppressionFillPolicy']]:
+        """
+        Defines the policy to apply to the avail suppression mode. BEHIND_LIVE_EDGE will always use the full avail suppression policy. AFTER_LIVE_EDGE mode can be used to invoke partial ad break fills when a session starts mid-break. Valid values are FULL_AVAIL_ONLY and PARTIAL_AVAIL
+        """
+        return pulumi.get(self, "fill_policy")
+
+    @fill_policy.setter
+    def fill_policy(self, value: Optional[pulumi.Input['PlaybackConfigurationAvailSuppressionFillPolicy']]):
+        pulumi.set(self, "fill_policy", value)
+
+    @property
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input['PlaybackConfigurationAvailSuppressionMode']]:
         """
-        Sets the ad suppression mode. By default, ad suppression is set to OFF and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window.
+        Sets the ad suppression mode. By default, ad suppression is off and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window. When Mode is set to AFTER_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks that are within the live edge plus the avail suppression value.
         """
         return pulumi.get(self, "mode")
 

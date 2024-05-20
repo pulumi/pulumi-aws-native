@@ -40,6 +40,11 @@ export const getProductSubscription: typeof import("./getProductSubscription").g
 export const getProductSubscriptionOutput: typeof import("./getProductSubscription").getProductSubscriptionOutput = null as any;
 utilities.lazyLoad(exports, ["getProductSubscription","getProductSubscriptionOutput"], () => require("./getProductSubscription"));
 
+export { GetSecurityControlArgs, GetSecurityControlResult, GetSecurityControlOutputArgs } from "./getSecurityControl";
+export const getSecurityControl: typeof import("./getSecurityControl").getSecurityControl = null as any;
+export const getSecurityControlOutput: typeof import("./getSecurityControl").getSecurityControlOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityControl","getSecurityControlOutput"], () => require("./getSecurityControl"));
+
 export { GetStandardArgs, GetStandardResult, GetStandardOutputArgs } from "./getStandard";
 export const getStandard: typeof import("./getStandard").getStandard = null as any;
 export const getStandardOutput: typeof import("./getStandard").getStandardOutput = null as any;
@@ -59,6 +64,11 @@ export { ProductSubscriptionArgs } from "./productSubscription";
 export type ProductSubscription = import("./productSubscription").ProductSubscription;
 export const ProductSubscription: typeof import("./productSubscription").ProductSubscription = null as any;
 utilities.lazyLoad(exports, ["ProductSubscription"], () => require("./productSubscription"));
+
+export { SecurityControlArgs } from "./securityControl";
+export type SecurityControl = import("./securityControl").SecurityControl;
+export const SecurityControl: typeof import("./securityControl").SecurityControl = null as any;
+utilities.lazyLoad(exports, ["SecurityControl"], () => require("./securityControl"));
 
 export { StandardArgs } from "./standard";
 export type Standard = import("./standard").Standard;
@@ -83,6 +93,8 @@ const _module = {
                 return new Insight(name, <any>undefined, { urn })
             case "aws-native:securityhub:ProductSubscription":
                 return new ProductSubscription(name, <any>undefined, { urn })
+            case "aws-native:securityhub:SecurityControl":
+                return new SecurityControl(name, <any>undefined, { urn })
             case "aws-native:securityhub:Standard":
                 return new Standard(name, <any>undefined, { urn })
             default:

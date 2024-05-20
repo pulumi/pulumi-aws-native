@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     ///     var identitySource = new AwsNative.VerifiedPermissions.IdentitySource("identitySource", new()
     ///     {
     ///         PolicyStoreId = policyStoreId,
-    ///         Configuration = new AwsNative.VerifiedPermissions.Inputs.IdentitySourceConfigurationArgs
+    ///         Configuration = new AwsNative.VerifiedPermissions.Inputs.IdentitySourceConfigurationPropertiesArgs
     ///         {
     ///             CognitoUserPoolConfiguration = new AwsNative.VerifiedPermissions.Inputs.IdentitySourceCognitoUserPoolConfigurationArgs
     ///             {
@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     public partial class IdentitySource : global::Pulumi.CustomResource
     {
         [Output("configuration")]
-        public Output<Outputs.IdentitySourceConfiguration> Configuration { get; private set; } = null!;
+        public Output<Outputs.IdentitySourceConfigurationProperties> Configuration { get; private set; } = null!;
 
         [Output("details")]
         public Output<Outputs.IdentitySourceDetails> Details { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     public sealed class IdentitySourceArgs : global::Pulumi.ResourceArgs
     {
         [Input("configuration", required: true)]
-        public Input<Inputs.IdentitySourceConfigurationArgs> Configuration { get; set; } = null!;
+        public Input<Inputs.IdentitySourceConfigurationPropertiesArgs> Configuration { get; set; } = null!;
 
         [Input("policyStoreId", required: true)]
         public Input<string> PolicyStoreId { get; set; } = null!;

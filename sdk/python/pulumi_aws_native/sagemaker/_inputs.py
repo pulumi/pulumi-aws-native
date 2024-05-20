@@ -1692,23 +1692,38 @@ class DomainDefaultEbsStorageSettingsArgs:
 class DomainDefaultSpaceSettingsArgs:
     def __init__(__self__, *,
                  execution_role: pulumi.Input[str],
+                 custom_file_system_configs: Optional[pulumi.Input[Sequence[pulumi.Input['DomainCustomFileSystemConfigArgs']]]] = None,
+                 custom_posix_user_config: Optional[pulumi.Input['DomainCustomPosixUserConfigArgs']] = None,
+                 jupyter_lab_app_settings: Optional[pulumi.Input['DomainJupyterLabAppSettingsArgs']] = None,
                  jupyter_server_app_settings: Optional[pulumi.Input['DomainJupyterServerAppSettingsArgs']] = None,
                  kernel_gateway_app_settings: Optional[pulumi.Input['DomainKernelGatewayAppSettingsArgs']] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 space_storage_settings: Optional[pulumi.Input['DomainDefaultSpaceStorageSettingsArgs']] = None):
         """
         A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
         :param pulumi.Input[str] execution_role: The execution role for the space.
+        :param pulumi.Input['DomainCustomPosixUserConfigArgs'] custom_posix_user_config: The Jupyter lab's custom posix user configurations.
+        :param pulumi.Input['DomainJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The Jupyter lab's app settings.
         :param pulumi.Input['DomainJupyterServerAppSettingsArgs'] jupyter_server_app_settings: The Jupyter server's app settings.
         :param pulumi.Input['DomainKernelGatewayAppSettingsArgs'] kernel_gateway_app_settings: The kernel gateway app settings.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        :param pulumi.Input['DomainDefaultSpaceStorageSettingsArgs'] space_storage_settings: The Jupyter lab's space storage settings.
         """
         pulumi.set(__self__, "execution_role", execution_role)
+        if custom_file_system_configs is not None:
+            pulumi.set(__self__, "custom_file_system_configs", custom_file_system_configs)
+        if custom_posix_user_config is not None:
+            pulumi.set(__self__, "custom_posix_user_config", custom_posix_user_config)
+        if jupyter_lab_app_settings is not None:
+            pulumi.set(__self__, "jupyter_lab_app_settings", jupyter_lab_app_settings)
         if jupyter_server_app_settings is not None:
             pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
         if kernel_gateway_app_settings is not None:
             pulumi.set(__self__, "kernel_gateway_app_settings", kernel_gateway_app_settings)
         if security_groups is not None:
             pulumi.set(__self__, "security_groups", security_groups)
+        if space_storage_settings is not None:
+            pulumi.set(__self__, "space_storage_settings", space_storage_settings)
 
     @property
     @pulumi.getter(name="executionRole")
@@ -1721,6 +1736,39 @@ class DomainDefaultSpaceSettingsArgs:
     @execution_role.setter
     def execution_role(self, value: pulumi.Input[str]):
         pulumi.set(self, "execution_role", value)
+
+    @property
+    @pulumi.getter(name="customFileSystemConfigs")
+    def custom_file_system_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainCustomFileSystemConfigArgs']]]]:
+        return pulumi.get(self, "custom_file_system_configs")
+
+    @custom_file_system_configs.setter
+    def custom_file_system_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainCustomFileSystemConfigArgs']]]]):
+        pulumi.set(self, "custom_file_system_configs", value)
+
+    @property
+    @pulumi.getter(name="customPosixUserConfig")
+    def custom_posix_user_config(self) -> Optional[pulumi.Input['DomainCustomPosixUserConfigArgs']]:
+        """
+        The Jupyter lab's custom posix user configurations.
+        """
+        return pulumi.get(self, "custom_posix_user_config")
+
+    @custom_posix_user_config.setter
+    def custom_posix_user_config(self, value: Optional[pulumi.Input['DomainCustomPosixUserConfigArgs']]):
+        pulumi.set(self, "custom_posix_user_config", value)
+
+    @property
+    @pulumi.getter(name="jupyterLabAppSettings")
+    def jupyter_lab_app_settings(self) -> Optional[pulumi.Input['DomainJupyterLabAppSettingsArgs']]:
+        """
+        The Jupyter lab's app settings.
+        """
+        return pulumi.get(self, "jupyter_lab_app_settings")
+
+    @jupyter_lab_app_settings.setter
+    def jupyter_lab_app_settings(self, value: Optional[pulumi.Input['DomainJupyterLabAppSettingsArgs']]):
+        pulumi.set(self, "jupyter_lab_app_settings", value)
 
     @property
     @pulumi.getter(name="jupyterServerAppSettings")
@@ -1757,6 +1805,18 @@ class DomainDefaultSpaceSettingsArgs:
     @security_groups.setter
     def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "security_groups", value)
+
+    @property
+    @pulumi.getter(name="spaceStorageSettings")
+    def space_storage_settings(self) -> Optional[pulumi.Input['DomainDefaultSpaceStorageSettingsArgs']]:
+        """
+        The Jupyter lab's space storage settings.
+        """
+        return pulumi.get(self, "space_storage_settings")
+
+    @space_storage_settings.setter
+    def space_storage_settings(self, value: Optional[pulumi.Input['DomainDefaultSpaceStorageSettingsArgs']]):
+        pulumi.set(self, "space_storage_settings", value)
 
 
 @pulumi.input_type

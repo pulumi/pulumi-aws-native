@@ -33,6 +33,8 @@ type LookupInstanceResult struct {
 	AddOns      []InstanceAddOn   `pulumi:"addOns"`
 	Hardware    *InstanceHardware `pulumi:"hardware"`
 	InstanceArn *string           `pulumi:"instanceArn"`
+	// IPv6 addresses of the instance
+	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// Is the IP Address of the Instance is the static IP
 	IsStaticIp *bool `pulumi:"isStaticIp"`
 	// The name of your key pair.
@@ -103,6 +105,11 @@ func (o LookupInstanceResultOutput) Hardware() InstanceHardwarePtrOutput {
 
 func (o LookupInstanceResultOutput) InstanceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *string { return v.InstanceArn }).(pulumi.StringPtrOutput)
+}
+
+// IPv6 addresses of the instance
+func (o LookupInstanceResultOutput) Ipv6Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupInstanceResult) []string { return v.Ipv6Addresses }).(pulumi.StringArrayOutput)
 }
 
 // Is the IP Address of the Instance is the static IP

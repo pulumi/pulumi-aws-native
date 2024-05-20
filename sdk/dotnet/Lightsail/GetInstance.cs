@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.Lightsail
         public readonly Outputs.InstanceHardware? Hardware;
         public readonly string? InstanceArn;
         /// <summary>
+        /// IPv6 addresses of the instance
+        /// </summary>
+        public readonly ImmutableArray<string> Ipv6Addresses;
+        /// <summary>
         /// Is the IP Address of the Instance is the static IP
         /// </summary>
         public readonly bool? IsStaticIp;
@@ -111,6 +115,8 @@ namespace Pulumi.AwsNative.Lightsail
 
             string? instanceArn,
 
+            ImmutableArray<string> ipv6Addresses,
+
             bool? isStaticIp,
 
             string? keyPairName,
@@ -138,6 +144,7 @@ namespace Pulumi.AwsNative.Lightsail
             AddOns = addOns;
             Hardware = hardware;
             InstanceArn = instanceArn;
+            Ipv6Addresses = ipv6Addresses;
             IsStaticIp = isStaticIp;
             KeyPairName = keyPairName;
             Location = location;

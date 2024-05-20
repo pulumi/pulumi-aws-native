@@ -33,6 +33,10 @@ export interface GetInstanceResult {
     readonly hardware?: outputs.lightsail.InstanceHardware;
     readonly instanceArn?: string;
     /**
+     * IPv6 addresses of the instance
+     */
+    readonly ipv6Addresses?: string[];
+    /**
      * Is the IP Address of the Instance is the static IP
      */
     readonly isStaticIp?: boolean;

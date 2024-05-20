@@ -29757,7 +29757,11 @@ export namespace mediatailor {
      */
     export interface PlaybackConfigurationAvailSuppression {
         /**
-         * Sets the ad suppression mode. By default, ad suppression is set to OFF and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window.
+         * Defines the policy to apply to the avail suppression mode. BEHIND_LIVE_EDGE will always use the full avail suppression policy. AFTER_LIVE_EDGE mode can be used to invoke partial ad break fills when a session starts mid-break. Valid values are FULL_AVAIL_ONLY and PARTIAL_AVAIL
+         */
+        fillPolicy?: enums.mediatailor.PlaybackConfigurationAvailSuppressionFillPolicy;
+        /**
+         * Sets the ad suppression mode. By default, ad suppression is off and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window. When Mode is set to AFTER_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks that are within the live edge plus the avail suppression value.
          */
         mode?: enums.mediatailor.PlaybackConfigurationAvailSuppressionMode;
         /**
@@ -47425,10 +47429,19 @@ export namespace sagemaker {
      * A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
      */
     export interface DomainDefaultSpaceSettings {
+        customFileSystemConfigs?: outputs.sagemaker.DomainCustomFileSystemConfig[];
+        /**
+         * The Jupyter lab's custom posix user configurations.
+         */
+        customPosixUserConfig?: outputs.sagemaker.DomainCustomPosixUserConfig;
         /**
          * The execution role for the space.
          */
         executionRole: string;
+        /**
+         * The Jupyter lab's app settings.
+         */
+        jupyterLabAppSettings?: outputs.sagemaker.DomainJupyterLabAppSettings;
         /**
          * The Jupyter server's app settings.
          */
@@ -47441,6 +47454,10 @@ export namespace sagemaker {
          * The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
          */
         securityGroups?: string[];
+        /**
+         * The Jupyter lab's space storage settings.
+         */
+        spaceStorageSettings?: outputs.sagemaker.DomainDefaultSpaceStorageSettings;
     }
 
     /**
@@ -51170,6 +51187,46 @@ export namespace securityhub {
         value: string;
     }
 
+    export interface SecurityControlParameterConfiguration {
+        value?: outputs.securityhub.SecurityControlParameterValue;
+        valueType: enums.securityhub.SecurityControlParameterConfigurationValueType;
+    }
+
+    export interface SecurityControlParameterValue {
+        /**
+         * A control parameter that is a boolean.
+         */
+        boolean?: boolean;
+        /**
+         * A control parameter that is a double.
+         */
+        double?: number;
+        /**
+         * A control parameter that is a enum.
+         */
+        enum?: string;
+        /**
+         * A control parameter that is a list of enums.
+         */
+        enumList?: string[];
+        /**
+         * A control parameter that is a integer.
+         */
+        integer?: number;
+        /**
+         * A control parameter that is a list of integers.
+         */
+        integerList?: number[];
+        /**
+         * A control parameter that is a string.
+         */
+        string?: string;
+        /**
+         * A control parameter that is a list of strings.
+         */
+        stringList?: string[];
+    }
+
     /**
      * Provides details about an individual security control. For a list of ASH controls, see [controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) in the *User Guide*.
      */
@@ -52792,7 +52849,7 @@ export namespace verifiedpermissions {
         userPoolArn: string;
     }
 
-    export interface IdentitySourceConfiguration {
+    export interface IdentitySourceConfigurationProperties {
         cognitoUserPoolConfiguration: outputs.verifiedpermissions.IdentitySourceCognitoUserPoolConfiguration;
     }
 

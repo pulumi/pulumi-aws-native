@@ -292,6 +292,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_data"] = user_data
             __props__.__dict__["instance_arn"] = None
+            __props__.__dict__["ipv6_addresses"] = None
             __props__.__dict__["is_static_ip"] = None
             __props__.__dict__["private_ip_address"] = None
             __props__.__dict__["public_ip_address"] = None
@@ -330,6 +331,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["hardware"] = None
         __props__.__dict__["instance_arn"] = None
         __props__.__dict__["instance_name"] = None
+        __props__.__dict__["ipv6_addresses"] = None
         __props__.__dict__["is_static_ip"] = None
         __props__.__dict__["key_pair_name"] = None
         __props__.__dict__["location"] = None
@@ -394,6 +396,14 @@ class Instance(pulumi.CustomResource):
         The names to use for your new Lightsail instance.
         """
         return pulumi.get(self, "instance_name")
+
+    @property
+    @pulumi.getter(name="ipv6Addresses")
+    def ipv6_addresses(self) -> pulumi.Output[Sequence[str]]:
+        """
+        IPv6 addresses of the instance
+        """
+        return pulumi.get(self, "ipv6_addresses")
 
     @property
     @pulumi.getter(name="isStaticIp")

@@ -372,4 +372,32 @@ namespace Pulumi.AwsNative.SecurityHub
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct SecurityControlParameterConfigurationValueType : IEquatable<SecurityControlParameterConfigurationValueType>
+    {
+        private readonly string _value;
+
+        private SecurityControlParameterConfigurationValueType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityControlParameterConfigurationValueType Default { get; } = new SecurityControlParameterConfigurationValueType("DEFAULT");
+        public static SecurityControlParameterConfigurationValueType Custom { get; } = new SecurityControlParameterConfigurationValueType("CUSTOM");
+
+        public static bool operator ==(SecurityControlParameterConfigurationValueType left, SecurityControlParameterConfigurationValueType right) => left.Equals(right);
+        public static bool operator !=(SecurityControlParameterConfigurationValueType left, SecurityControlParameterConfigurationValueType right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityControlParameterConfigurationValueType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityControlParameterConfigurationValueType other && Equals(other);
+        public bool Equals(SecurityControlParameterConfigurationValueType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

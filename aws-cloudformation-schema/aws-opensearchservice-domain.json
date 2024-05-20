@@ -478,7 +478,7 @@
     },
     "update" : {
       "permissions" : [ "es:UpdateDomain", "es:UpgradeDomain", "es:DescribeDomain", "es:AddTags", "es:RemoveTags", "es:ListTags", "es:DescribeDomainChangeProgress" ],
-      "timeoutInMinutes" : 780
+      "timeoutInMinutes" : 2160
     },
     "delete" : {
       "permissions" : [ "es:DeleteDomain", "es:DescribeDomain" ]

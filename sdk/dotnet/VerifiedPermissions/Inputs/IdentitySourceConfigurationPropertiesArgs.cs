@@ -10,14 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.VerifiedPermissions.Inputs
 {
 
-    public sealed class IdentitySourceConfigurationArgs : global::Pulumi.ResourceArgs
+    public sealed class IdentitySourceConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("cognitoUserPoolConfiguration", required: true)]
         public Input<Inputs.IdentitySourceCognitoUserPoolConfigurationArgs> CognitoUserPoolConfiguration { get; set; } = null!;
 
-        public IdentitySourceConfigurationArgs()
+        public IdentitySourceConfigurationPropertiesArgs()
         {
         }
-        public static new IdentitySourceConfigurationArgs Empty => new IdentitySourceConfigurationArgs();
+        public static new IdentitySourceConfigurationPropertiesArgs Empty => new IdentitySourceConfigurationPropertiesArgs();
     }
 }

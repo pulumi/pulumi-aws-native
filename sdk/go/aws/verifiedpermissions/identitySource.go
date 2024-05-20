@@ -37,7 +37,7 @@ import (
 //			principalEntityType := cfg.Require("principalEntityType")
 //			identitySource, err := verifiedpermissions.NewIdentitySource(ctx, "identitySource", &verifiedpermissions.IdentitySourceArgs{
 //				PolicyStoreId: pulumi.String(policyStoreId),
-//				Configuration: &verifiedpermissions.IdentitySourceConfigurationArgs{
+//				Configuration: &verifiedpermissions.IdentitySourceConfigurationPropertiesArgs{
 //					CognitoUserPoolConfiguration: &verifiedpermissions.IdentitySourceCognitoUserPoolConfigurationArgs{
 //						UserPoolArn: pulumi.String(userPoolArn),
 //						ClientIds:   clientIds,
@@ -57,11 +57,11 @@ import (
 type IdentitySource struct {
 	pulumi.CustomResourceState
 
-	Configuration       IdentitySourceConfigurationOutput `pulumi:"configuration"`
-	Details             IdentitySourceDetailsOutput       `pulumi:"details"`
-	IdentitySourceId    pulumi.StringOutput               `pulumi:"identitySourceId"`
-	PolicyStoreId       pulumi.StringOutput               `pulumi:"policyStoreId"`
-	PrincipalEntityType pulumi.StringPtrOutput            `pulumi:"principalEntityType"`
+	Configuration       IdentitySourceConfigurationPropertiesOutput `pulumi:"configuration"`
+	Details             IdentitySourceDetailsOutput                 `pulumi:"details"`
+	IdentitySourceId    pulumi.StringOutput                         `pulumi:"identitySourceId"`
+	PolicyStoreId       pulumi.StringOutput                         `pulumi:"policyStoreId"`
+	PrincipalEntityType pulumi.StringPtrOutput                      `pulumi:"principalEntityType"`
 }
 
 // NewIdentitySource registers a new resource with the given unique name, arguments, and options.
@@ -114,14 +114,14 @@ func (IdentitySourceState) ElementType() reflect.Type {
 }
 
 type identitySourceArgs struct {
-	Configuration       IdentitySourceConfiguration `pulumi:"configuration"`
-	PolicyStoreId       string                      `pulumi:"policyStoreId"`
-	PrincipalEntityType *string                     `pulumi:"principalEntityType"`
+	Configuration       IdentitySourceConfigurationProperties `pulumi:"configuration"`
+	PolicyStoreId       string                                `pulumi:"policyStoreId"`
+	PrincipalEntityType *string                               `pulumi:"principalEntityType"`
 }
 
 // The set of arguments for constructing a IdentitySource resource.
 type IdentitySourceArgs struct {
-	Configuration       IdentitySourceConfigurationInput
+	Configuration       IdentitySourceConfigurationPropertiesInput
 	PolicyStoreId       pulumi.StringInput
 	PrincipalEntityType pulumi.StringPtrInput
 }
@@ -163,8 +163,8 @@ func (o IdentitySourceOutput) ToIdentitySourceOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o IdentitySourceOutput) Configuration() IdentitySourceConfigurationOutput {
-	return o.ApplyT(func(v *IdentitySource) IdentitySourceConfigurationOutput { return v.Configuration }).(IdentitySourceConfigurationOutput)
+func (o IdentitySourceOutput) Configuration() IdentitySourceConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *IdentitySource) IdentitySourceConfigurationPropertiesOutput { return v.Configuration }).(IdentitySourceConfigurationPropertiesOutput)
 }
 
 func (o IdentitySourceOutput) Details() IdentitySourceDetailsOutput {

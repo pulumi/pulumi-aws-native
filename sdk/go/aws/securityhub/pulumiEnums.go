@@ -1945,6 +1945,171 @@ func (in *insightStringFilterComparisonPtr) ToInsightStringFilterComparisonPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(InsightStringFilterComparisonPtrOutput)
 }
 
+type SecurityControlParameterConfigurationValueType string
+
+const (
+	SecurityControlParameterConfigurationValueTypeDefault = SecurityControlParameterConfigurationValueType("DEFAULT")
+	SecurityControlParameterConfigurationValueTypeCustom  = SecurityControlParameterConfigurationValueType("CUSTOM")
+)
+
+func (SecurityControlParameterConfigurationValueType) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityControlParameterConfigurationValueType)(nil)).Elem()
+}
+
+func (e SecurityControlParameterConfigurationValueType) ToSecurityControlParameterConfigurationValueTypeOutput() SecurityControlParameterConfigurationValueTypeOutput {
+	return pulumi.ToOutput(e).(SecurityControlParameterConfigurationValueTypeOutput)
+}
+
+func (e SecurityControlParameterConfigurationValueType) ToSecurityControlParameterConfigurationValueTypeOutputWithContext(ctx context.Context) SecurityControlParameterConfigurationValueTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(SecurityControlParameterConfigurationValueTypeOutput)
+}
+
+func (e SecurityControlParameterConfigurationValueType) ToSecurityControlParameterConfigurationValueTypePtrOutput() SecurityControlParameterConfigurationValueTypePtrOutput {
+	return e.ToSecurityControlParameterConfigurationValueTypePtrOutputWithContext(context.Background())
+}
+
+func (e SecurityControlParameterConfigurationValueType) ToSecurityControlParameterConfigurationValueTypePtrOutputWithContext(ctx context.Context) SecurityControlParameterConfigurationValueTypePtrOutput {
+	return SecurityControlParameterConfigurationValueType(e).ToSecurityControlParameterConfigurationValueTypeOutputWithContext(ctx).ToSecurityControlParameterConfigurationValueTypePtrOutputWithContext(ctx)
+}
+
+func (e SecurityControlParameterConfigurationValueType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityControlParameterConfigurationValueType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e SecurityControlParameterConfigurationValueType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e SecurityControlParameterConfigurationValueType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type SecurityControlParameterConfigurationValueTypeOutput struct{ *pulumi.OutputState }
+
+func (SecurityControlParameterConfigurationValueTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityControlParameterConfigurationValueType)(nil)).Elem()
+}
+
+func (o SecurityControlParameterConfigurationValueTypeOutput) ToSecurityControlParameterConfigurationValueTypeOutput() SecurityControlParameterConfigurationValueTypeOutput {
+	return o
+}
+
+func (o SecurityControlParameterConfigurationValueTypeOutput) ToSecurityControlParameterConfigurationValueTypeOutputWithContext(ctx context.Context) SecurityControlParameterConfigurationValueTypeOutput {
+	return o
+}
+
+func (o SecurityControlParameterConfigurationValueTypeOutput) ToSecurityControlParameterConfigurationValueTypePtrOutput() SecurityControlParameterConfigurationValueTypePtrOutput {
+	return o.ToSecurityControlParameterConfigurationValueTypePtrOutputWithContext(context.Background())
+}
+
+func (o SecurityControlParameterConfigurationValueTypeOutput) ToSecurityControlParameterConfigurationValueTypePtrOutputWithContext(ctx context.Context) SecurityControlParameterConfigurationValueTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityControlParameterConfigurationValueType) *SecurityControlParameterConfigurationValueType {
+		return &v
+	}).(SecurityControlParameterConfigurationValueTypePtrOutput)
+}
+
+func (o SecurityControlParameterConfigurationValueTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SecurityControlParameterConfigurationValueTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecurityControlParameterConfigurationValueType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SecurityControlParameterConfigurationValueTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityControlParameterConfigurationValueTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SecurityControlParameterConfigurationValueType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SecurityControlParameterConfigurationValueTypePtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityControlParameterConfigurationValueTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityControlParameterConfigurationValueType)(nil)).Elem()
+}
+
+func (o SecurityControlParameterConfigurationValueTypePtrOutput) ToSecurityControlParameterConfigurationValueTypePtrOutput() SecurityControlParameterConfigurationValueTypePtrOutput {
+	return o
+}
+
+func (o SecurityControlParameterConfigurationValueTypePtrOutput) ToSecurityControlParameterConfigurationValueTypePtrOutputWithContext(ctx context.Context) SecurityControlParameterConfigurationValueTypePtrOutput {
+	return o
+}
+
+func (o SecurityControlParameterConfigurationValueTypePtrOutput) Elem() SecurityControlParameterConfigurationValueTypeOutput {
+	return o.ApplyT(func(v *SecurityControlParameterConfigurationValueType) SecurityControlParameterConfigurationValueType {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityControlParameterConfigurationValueType
+		return ret
+	}).(SecurityControlParameterConfigurationValueTypeOutput)
+}
+
+func (o SecurityControlParameterConfigurationValueTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SecurityControlParameterConfigurationValueTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SecurityControlParameterConfigurationValueType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// SecurityControlParameterConfigurationValueTypeInput is an input type that accepts values of the SecurityControlParameterConfigurationValueType enum
+// A concrete instance of `SecurityControlParameterConfigurationValueTypeInput` can be one of the following:
+//
+//	SecurityControlParameterConfigurationValueTypeDefault
+//	SecurityControlParameterConfigurationValueTypeCustom
+type SecurityControlParameterConfigurationValueTypeInput interface {
+	pulumi.Input
+
+	ToSecurityControlParameterConfigurationValueTypeOutput() SecurityControlParameterConfigurationValueTypeOutput
+	ToSecurityControlParameterConfigurationValueTypeOutputWithContext(context.Context) SecurityControlParameterConfigurationValueTypeOutput
+}
+
+var securityControlParameterConfigurationValueTypePtrType = reflect.TypeOf((**SecurityControlParameterConfigurationValueType)(nil)).Elem()
+
+type SecurityControlParameterConfigurationValueTypePtrInput interface {
+	pulumi.Input
+
+	ToSecurityControlParameterConfigurationValueTypePtrOutput() SecurityControlParameterConfigurationValueTypePtrOutput
+	ToSecurityControlParameterConfigurationValueTypePtrOutputWithContext(context.Context) SecurityControlParameterConfigurationValueTypePtrOutput
+}
+
+type securityControlParameterConfigurationValueTypePtr string
+
+func SecurityControlParameterConfigurationValueTypePtr(v string) SecurityControlParameterConfigurationValueTypePtrInput {
+	return (*securityControlParameterConfigurationValueTypePtr)(&v)
+}
+
+func (*securityControlParameterConfigurationValueTypePtr) ElementType() reflect.Type {
+	return securityControlParameterConfigurationValueTypePtrType
+}
+
+func (in *securityControlParameterConfigurationValueTypePtr) ToSecurityControlParameterConfigurationValueTypePtrOutput() SecurityControlParameterConfigurationValueTypePtrOutput {
+	return pulumi.ToOutput(in).(SecurityControlParameterConfigurationValueTypePtrOutput)
+}
+
+func (in *securityControlParameterConfigurationValueTypePtr) ToSecurityControlParameterConfigurationValueTypePtrOutputWithContext(ctx context.Context) SecurityControlParameterConfigurationValueTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(SecurityControlParameterConfigurationValueTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleDateRangeUnitInput)(nil)).Elem(), AutomationRuleDateRangeUnit("DAYS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleDateRangeUnitPtrInput)(nil)).Elem(), AutomationRuleDateRangeUnit("DAYS"))
@@ -1968,6 +2133,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightMapFilterComparisonPtrInput)(nil)).Elem(), InsightMapFilterComparison("EQUALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightStringFilterComparisonInput)(nil)).Elem(), InsightStringFilterComparison("EQUALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightStringFilterComparisonPtrInput)(nil)).Elem(), InsightStringFilterComparison("EQUALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityControlParameterConfigurationValueTypeInput)(nil)).Elem(), SecurityControlParameterConfigurationValueType("DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityControlParameterConfigurationValueTypePtrInput)(nil)).Elem(), SecurityControlParameterConfigurationValueType("DEFAULT"))
 	pulumi.RegisterOutputType(AutomationRuleDateRangeUnitOutput{})
 	pulumi.RegisterOutputType(AutomationRuleDateRangeUnitPtrOutput{})
 	pulumi.RegisterOutputType(AutomationRuleMapFilterComparisonOutput{})
@@ -1992,4 +2159,6 @@ func init() {
 	pulumi.RegisterOutputType(InsightMapFilterComparisonPtrOutput{})
 	pulumi.RegisterOutputType(InsightStringFilterComparisonOutput{})
 	pulumi.RegisterOutputType(InsightStringFilterComparisonPtrOutput{})
+	pulumi.RegisterOutputType(SecurityControlParameterConfigurationValueTypeOutput{})
+	pulumi.RegisterOutputType(SecurityControlParameterConfigurationValueTypePtrOutput{})
 }

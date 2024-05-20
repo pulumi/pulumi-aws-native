@@ -244,7 +244,7 @@ type LookupDbInstanceResult struct {
 	Endpoint *DbInstanceEndpoint `pulumi:"endpoint"`
 	// The name of the database engine to use for this DB instance. Not every database engine is available in every AWS Region.
 	//  This property is required when creating a DB instance.
-	//   You can change the architecture of an Oracle database from the non-container database (CDB) architecture to the CDB architecture by updating the ``Engine`` value in your templates from ``oracle-ee`` or ``oracle-ee-cdb`` to ``oracle-se2-cdb``. Converting to the CDB architecture requires an interruption.
+	//   You can convert an Oracle database from the non-CDB architecture to the container database (CDB) architecture by updating the ``Engine`` value in your templates from ``oracle-ee`` to ``oracle-ee-cdb`` or from ``oracle-se2`` to ``oracle-se2-cdb``. Converting to the CDB architecture requires an interruption.
 	//   Valid Values:
 	//   +   ``aurora-mysql`` (for Aurora MySQL DB instances)
 	//   +   ``aurora-postgresql`` (for Aurora PostgreSQL DB instances)
@@ -759,7 +759,7 @@ func (o LookupDbInstanceResultOutput) Endpoint() DbInstanceEndpointPtrOutput {
 // The name of the database engine to use for this DB instance. Not every database engine is available in every AWS Region.
 //
 //	This property is required when creating a DB instance.
-//	 You can change the architecture of an Oracle database from the non-container database (CDB) architecture to the CDB architecture by updating the ``Engine`` value in your templates from ``oracle-ee`` or ``oracle-ee-cdb`` to ``oracle-se2-cdb``. Converting to the CDB architecture requires an interruption.
+//	 You can convert an Oracle database from the non-CDB architecture to the container database (CDB) architecture by updating the ``Engine`` value in your templates from ``oracle-ee`` to ``oracle-ee-cdb`` or from ``oracle-se2`` to ``oracle-se2-cdb``. Converting to the CDB architecture requires an interruption.
 //	 Valid Values:
 //	 +   ``aurora-mysql`` (for Aurora MySQL DB instances)
 //	 +   ``aurora-postgresql`` (for Aurora PostgreSQL DB instances)

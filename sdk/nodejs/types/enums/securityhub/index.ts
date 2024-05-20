@@ -115,3 +115,10 @@ export const InsightStringFilterComparison = {
  * The condition to apply to a string value when filtering Security Hub findings.
  */
 export type InsightStringFilterComparison = (typeof InsightStringFilterComparison)[keyof typeof InsightStringFilterComparison];
+
+export const SecurityControlParameterConfigurationValueType = {
+    Default: "DEFAULT",
+    Custom: "CUSTOM",
+} as const;
+
+export type SecurityControlParameterConfigurationValueType = (typeof SecurityControlParameterConfigurationValueType)[keyof typeof SecurityControlParameterConfigurationValueType];

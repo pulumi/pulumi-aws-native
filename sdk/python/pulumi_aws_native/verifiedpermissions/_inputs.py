@@ -13,7 +13,7 @@ from ._enums import *
 __all__ = [
     'IdentitySourceCognitoGroupConfigurationArgs',
     'IdentitySourceCognitoUserPoolConfigurationArgs',
-    'IdentitySourceConfigurationArgs',
+    'IdentitySourceConfigurationPropertiesArgs',
     'PolicyDefinition0PropertiesArgs',
     'PolicyDefinition1PropertiesArgs',
     'PolicyEntityIdentifierArgs',
@@ -80,7 +80,7 @@ class IdentitySourceCognitoUserPoolConfigurationArgs:
 
 
 @pulumi.input_type
-class IdentitySourceConfigurationArgs:
+class IdentitySourceConfigurationPropertiesArgs:
     def __init__(__self__, *,
                  cognito_user_pool_configuration: pulumi.Input['IdentitySourceCognitoUserPoolConfigurationArgs']):
         pulumi.set(__self__, "cognito_user_pool_configuration", cognito_user_pool_configuration)

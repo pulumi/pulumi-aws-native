@@ -161,6 +161,12 @@ namespace Pulumi.AwsNative.Kms
         [Output("pendingWindowInDays")]
         public Output<int?> PendingWindowInDays { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies a custom period of time between each rotation date. If no value is specified, the default value is 365 days.
+        ///  The rotation period defines the number of days after you enable automatic key rotation that KMS will rotate your key material, and the number of days between each automatic rotation thereafter.
+        ///  You can use the [kms:RotationPeriodInDays](https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-rotation-period-in-days) condition key to further constrain the values that principals can specify in the ``RotationPeriodInDays`` parameter.
+        ///  For more information about rotating KMS keys and automatic rotation, see [Rotating keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) in the *Developer Guide*.
+        /// </summary>
         [Output("rotationPeriodInDays")]
         public Output<int?> RotationPeriodInDays { get; private set; } = null!;
 
@@ -348,6 +354,12 @@ namespace Pulumi.AwsNative.Kms
         [Input("pendingWindowInDays")]
         public Input<int>? PendingWindowInDays { get; set; }
 
+        /// <summary>
+        /// Specifies a custom period of time between each rotation date. If no value is specified, the default value is 365 days.
+        ///  The rotation period defines the number of days after you enable automatic key rotation that KMS will rotate your key material, and the number of days between each automatic rotation thereafter.
+        ///  You can use the [kms:RotationPeriodInDays](https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-rotation-period-in-days) condition key to further constrain the values that principals can specify in the ``RotationPeriodInDays`` parameter.
+        ///  For more information about rotating KMS keys and automatic rotation, see [Rotating keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) in the *Developer Guide*.
+        /// </summary>
         [Input("rotationPeriodInDays")]
         public Input<int>? RotationPeriodInDays { get; set; }
 

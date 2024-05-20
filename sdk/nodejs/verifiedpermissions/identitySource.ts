@@ -63,7 +63,7 @@ export class IdentitySource extends pulumi.CustomResource {
         return obj['__pulumiType'] === IdentitySource.__pulumiType;
     }
 
-    public readonly configuration!: pulumi.Output<outputs.verifiedpermissions.IdentitySourceConfiguration>;
+    public readonly configuration!: pulumi.Output<outputs.verifiedpermissions.IdentitySourceConfigurationProperties>;
     public /*out*/ readonly details!: pulumi.Output<outputs.verifiedpermissions.IdentitySourceDetails>;
     public /*out*/ readonly identitySourceId!: pulumi.Output<string>;
     public readonly policyStoreId!: pulumi.Output<string>;
@@ -109,7 +109,7 @@ export class IdentitySource extends pulumi.CustomResource {
  * The set of arguments for constructing a IdentitySource resource.
  */
 export interface IdentitySourceArgs {
-    configuration: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationArgs>;
+    configuration: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationPropertiesArgs>;
     policyStoreId: pulumi.Input<string>;
     principalEntityType?: pulumi.Input<string>;
 }

@@ -14,7 +14,7 @@ from ._enums import *
 __all__ = [
     'IdentitySourceCognitoGroupConfiguration',
     'IdentitySourceCognitoUserPoolConfiguration',
-    'IdentitySourceConfiguration',
+    'IdentitySourceConfigurationProperties',
     'IdentitySourceDetails',
     'PolicyDefinition0Properties',
     'PolicyDefinition1Properties',
@@ -104,7 +104,7 @@ class IdentitySourceCognitoUserPoolConfiguration(dict):
 
 
 @pulumi.output_type
-class IdentitySourceConfiguration(dict):
+class IdentitySourceConfigurationProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -112,14 +112,14 @@ class IdentitySourceConfiguration(dict):
             suggest = "cognito_user_pool_configuration"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        IdentitySourceConfiguration.__key_warning(key)
+        IdentitySourceConfigurationProperties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        IdentitySourceConfiguration.__key_warning(key)
+        IdentitySourceConfigurationProperties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

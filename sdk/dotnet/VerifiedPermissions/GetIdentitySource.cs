@@ -57,14 +57,14 @@ namespace Pulumi.AwsNative.VerifiedPermissions
     [OutputType]
     public sealed class GetIdentitySourceResult
     {
-        public readonly Outputs.IdentitySourceConfiguration? Configuration;
+        public readonly Outputs.IdentitySourceConfigurationProperties? Configuration;
         public readonly Outputs.IdentitySourceDetails? Details;
         public readonly string? IdentitySourceId;
         public readonly string? PrincipalEntityType;
 
         [OutputConstructor]
         private GetIdentitySourceResult(
-            Outputs.IdentitySourceConfiguration? configuration,
+            Outputs.IdentitySourceConfigurationProperties? configuration,
 
             Outputs.IdentitySourceDetails? details,
 

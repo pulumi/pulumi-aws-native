@@ -28,10 +28,10 @@ type LookupIdentitySourceArgs struct {
 }
 
 type LookupIdentitySourceResult struct {
-	Configuration       *IdentitySourceConfiguration `pulumi:"configuration"`
-	Details             *IdentitySourceDetails       `pulumi:"details"`
-	IdentitySourceId    *string                      `pulumi:"identitySourceId"`
-	PrincipalEntityType *string                      `pulumi:"principalEntityType"`
+	Configuration       *IdentitySourceConfigurationProperties `pulumi:"configuration"`
+	Details             *IdentitySourceDetails                 `pulumi:"details"`
+	IdentitySourceId    *string                                `pulumi:"identitySourceId"`
+	PrincipalEntityType *string                                `pulumi:"principalEntityType"`
 }
 
 func LookupIdentitySourceOutput(ctx *pulumi.Context, args LookupIdentitySourceOutputArgs, opts ...pulumi.InvokeOption) LookupIdentitySourceResultOutput {
@@ -70,8 +70,8 @@ func (o LookupIdentitySourceResultOutput) ToLookupIdentitySourceResultOutputWith
 	return o
 }
 
-func (o LookupIdentitySourceResultOutput) Configuration() IdentitySourceConfigurationPtrOutput {
-	return o.ApplyT(func(v LookupIdentitySourceResult) *IdentitySourceConfiguration { return v.Configuration }).(IdentitySourceConfigurationPtrOutput)
+func (o LookupIdentitySourceResultOutput) Configuration() IdentitySourceConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupIdentitySourceResult) *IdentitySourceConfigurationProperties { return v.Configuration }).(IdentitySourceConfigurationPropertiesPtrOutput)
 }
 
 func (o LookupIdentitySourceResultOutput) Details() IdentitySourceDetailsPtrOutput {

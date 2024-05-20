@@ -920,6 +920,7 @@ AWS::SecurityHub::DelegatedAdmin
 AWS::SecurityHub::Hub
 AWS::SecurityHub::Insight
 AWS::SecurityHub::ProductSubscription
+AWS::SecurityHub::SecurityControl
 AWS::SecurityHub::Standard
 AWS::SecurityLake::AwsLogSource
 AWS::SecurityLake::DataLake

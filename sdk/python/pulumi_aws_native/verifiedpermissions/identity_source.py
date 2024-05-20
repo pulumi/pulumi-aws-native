@@ -17,7 +17,7 @@ __all__ = ['IdentitySourceArgs', 'IdentitySource']
 @pulumi.input_type
 class IdentitySourceArgs:
     def __init__(__self__, *,
-                 configuration: pulumi.Input['IdentitySourceConfigurationArgs'],
+                 configuration: pulumi.Input['IdentitySourceConfigurationPropertiesArgs'],
                  policy_store_id: pulumi.Input[str],
                  principal_entity_type: Optional[pulumi.Input[str]] = None):
         """
@@ -30,11 +30,11 @@ class IdentitySourceArgs:
 
     @property
     @pulumi.getter
-    def configuration(self) -> pulumi.Input['IdentitySourceConfigurationArgs']:
+    def configuration(self) -> pulumi.Input['IdentitySourceConfigurationPropertiesArgs']:
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: pulumi.Input['IdentitySourceConfigurationArgs']):
+    def configuration(self, value: pulumi.Input['IdentitySourceConfigurationPropertiesArgs']):
         pulumi.set(self, "configuration", value)
 
     @property
@@ -61,7 +61,7 @@ class IdentitySource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['IdentitySourceConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['IdentitySourceConfigurationPropertiesArgs']]] = None,
                  policy_store_id: Optional[pulumi.Input[str]] = None,
                  principal_entity_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -82,7 +82,7 @@ class IdentitySource(pulumi.CustomResource):
         principal_entity_type = config.require("principalEntityType")
         identity_source = aws_native.verifiedpermissions.IdentitySource("identitySource",
             policy_store_id=policy_store_id,
-            configuration=aws_native.verifiedpermissions.IdentitySourceConfigurationArgs(
+            configuration=aws_native.verifiedpermissions.IdentitySourceConfigurationPropertiesArgs(
                 cognito_user_pool_configuration=aws_native.verifiedpermissions.IdentitySourceCognitoUserPoolConfigurationArgs(
                     user_pool_arn=user_pool_arn,
                     client_ids=client_ids,
@@ -119,7 +119,7 @@ class IdentitySource(pulumi.CustomResource):
         principal_entity_type = config.require("principalEntityType")
         identity_source = aws_native.verifiedpermissions.IdentitySource("identitySource",
             policy_store_id=policy_store_id,
-            configuration=aws_native.verifiedpermissions.IdentitySourceConfigurationArgs(
+            configuration=aws_native.verifiedpermissions.IdentitySourceConfigurationPropertiesArgs(
                 cognito_user_pool_configuration=aws_native.verifiedpermissions.IdentitySourceCognitoUserPoolConfigurationArgs(
                     user_pool_arn=user_pool_arn,
                     client_ids=client_ids,
@@ -145,7 +145,7 @@ class IdentitySource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['IdentitySourceConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['IdentitySourceConfigurationPropertiesArgs']]] = None,
                  policy_store_id: Optional[pulumi.Input[str]] = None,
                  principal_entity_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -199,7 +199,7 @@ class IdentitySource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def configuration(self) -> pulumi.Output['outputs.IdentitySourceConfiguration']:
+    def configuration(self) -> pulumi.Output['outputs.IdentitySourceConfigurationProperties']:
         return pulumi.get(self, "configuration")
 
     @property

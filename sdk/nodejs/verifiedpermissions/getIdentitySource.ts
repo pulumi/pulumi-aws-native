@@ -25,7 +25,7 @@ export interface GetIdentitySourceArgs {
 }
 
 export interface GetIdentitySourceResult {
-    readonly configuration?: outputs.verifiedpermissions.IdentitySourceConfiguration;
+    readonly configuration?: outputs.verifiedpermissions.IdentitySourceConfigurationProperties;
     readonly details?: outputs.verifiedpermissions.IdentitySourceDetails;
     readonly identitySourceId?: string;
     readonly principalEntityType?: string;

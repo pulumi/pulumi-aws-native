@@ -33,6 +33,8 @@ __all__ = [
     'InsightMapFilter',
     'InsightNumberFilter',
     'InsightStringFilter',
+    'SecurityControlParameterConfiguration',
+    'SecurityControlParameterValue',
     'StandardsControl',
 ]
 
@@ -2533,6 +2535,167 @@ class InsightStringFilter(dict):
     @pulumi.getter
     def value(self) -> str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SecurityControlParameterConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueType":
+            suggest = "value_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityControlParameterConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityControlParameterConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityControlParameterConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 value_type: 'SecurityControlParameterConfigurationValueType',
+                 value: Optional['outputs.SecurityControlParameterValue'] = None):
+        pulumi.set(__self__, "value_type", value_type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> 'SecurityControlParameterConfigurationValueType':
+        return pulumi.get(self, "value_type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional['outputs.SecurityControlParameterValue']:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SecurityControlParameterValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enumList":
+            suggest = "enum_list"
+        elif key == "integerList":
+            suggest = "integer_list"
+        elif key == "stringList":
+            suggest = "string_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityControlParameterValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityControlParameterValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityControlParameterValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 boolean: Optional[bool] = None,
+                 double: Optional[float] = None,
+                 enum: Optional[str] = None,
+                 enum_list: Optional[Sequence[str]] = None,
+                 integer: Optional[int] = None,
+                 integer_list: Optional[Sequence[int]] = None,
+                 string: Optional[str] = None,
+                 string_list: Optional[Sequence[str]] = None):
+        """
+        :param bool boolean: A control parameter that is a boolean.
+        :param float double: A control parameter that is a double.
+        :param str enum: A control parameter that is a enum.
+        :param Sequence[str] enum_list: A control parameter that is a list of enums.
+        :param int integer: A control parameter that is a integer.
+        :param Sequence[int] integer_list: A control parameter that is a list of integers.
+        :param str string: A control parameter that is a string.
+        :param Sequence[str] string_list: A control parameter that is a list of strings.
+        """
+        if boolean is not None:
+            pulumi.set(__self__, "boolean", boolean)
+        if double is not None:
+            pulumi.set(__self__, "double", double)
+        if enum is not None:
+            pulumi.set(__self__, "enum", enum)
+        if enum_list is not None:
+            pulumi.set(__self__, "enum_list", enum_list)
+        if integer is not None:
+            pulumi.set(__self__, "integer", integer)
+        if integer_list is not None:
+            pulumi.set(__self__, "integer_list", integer_list)
+        if string is not None:
+            pulumi.set(__self__, "string", string)
+        if string_list is not None:
+            pulumi.set(__self__, "string_list", string_list)
+
+    @property
+    @pulumi.getter
+    def boolean(self) -> Optional[bool]:
+        """
+        A control parameter that is a boolean.
+        """
+        return pulumi.get(self, "boolean")
+
+    @property
+    @pulumi.getter
+    def double(self) -> Optional[float]:
+        """
+        A control parameter that is a double.
+        """
+        return pulumi.get(self, "double")
+
+    @property
+    @pulumi.getter
+    def enum(self) -> Optional[str]:
+        """
+        A control parameter that is a enum.
+        """
+        return pulumi.get(self, "enum")
+
+    @property
+    @pulumi.getter(name="enumList")
+    def enum_list(self) -> Optional[Sequence[str]]:
+        """
+        A control parameter that is a list of enums.
+        """
+        return pulumi.get(self, "enum_list")
+
+    @property
+    @pulumi.getter
+    def integer(self) -> Optional[int]:
+        """
+        A control parameter that is a integer.
+        """
+        return pulumi.get(self, "integer")
+
+    @property
+    @pulumi.getter(name="integerList")
+    def integer_list(self) -> Optional[Sequence[int]]:
+        """
+        A control parameter that is a list of integers.
+        """
+        return pulumi.get(self, "integer_list")
+
+    @property
+    @pulumi.getter
+    def string(self) -> Optional[str]:
+        """
+        A control parameter that is a string.
+        """
+        return pulumi.get(self, "string")
+
+    @property
+    @pulumi.getter(name="stringList")
+    def string_list(self) -> Optional[Sequence[str]]:
+        """
+        A control parameter that is a list of strings.
+        """
+        return pulumi.get(self, "string_list")
 
 
 @pulumi.output_type

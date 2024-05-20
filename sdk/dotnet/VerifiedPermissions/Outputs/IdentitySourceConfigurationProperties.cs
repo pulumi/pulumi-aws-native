@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.VerifiedPermissions.Outputs
 {
 
     [OutputType]
-    public sealed class IdentitySourceConfiguration
+    public sealed class IdentitySourceConfigurationProperties
     {
         public readonly Outputs.IdentitySourceCognitoUserPoolConfiguration CognitoUserPoolConfiguration;
 
         [OutputConstructor]
-        private IdentitySourceConfiguration(Outputs.IdentitySourceCognitoUserPoolConfiguration cognitoUserPoolConfiguration)
+        private IdentitySourceConfigurationProperties(Outputs.IdentitySourceCognitoUserPoolConfiguration cognitoUserPoolConfiguration)
         {
             CognitoUserPoolConfiguration = cognitoUserPoolConfiguration;
         }
