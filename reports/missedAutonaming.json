@@ -7228,7 +7228,8 @@
         "description": "Specifies the number of days in the waiting period before KMS deletes a KMS key that has been removed from a CloudFormation stack. Enter a value between 7 and 30 days. The default value is 30 days.\n When you remove a KMS key from a CloudFormation stack, KMS schedules the KMS key for deletion and starts the mandatory waiting period. The ``PendingWindowInDays`` property determines the length of waiting period. During the waiting period, the key state of KMS key is ``Pending Deletion`` or ``Pending Replica Deletion``, which prevents the KMS key from being used in cryptographic operations. When the waiting period expires, KMS permanently deletes the KMS key.\n  KMS will not delete a [multi-Region primary key](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html) that has replica keys. If you remove a multi-Region primary key from a CloudFormation stack, its key state changes to ``PendingReplicaDeletion`` so it cannot be replicated or used in cryptographic operations. This state can persist indefinitely. When the last of its replica keys is deleted, the key state of the primary key changes to ``PendingDeletion`` and the waiting period specified by ``PendingWindowInDays`` begins. When this waiting period expires, KMS deletes the primary key. For details, see [Deleting multi-Region keys](https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-delete.html) in the *Developer Guide*.\n You cannot use a CloudFormation template to cancel deletion of the KMS key after you remove it from the stack, regardless of the waiting period. If you specify a KMS key in your template, even one with the same name, CloudFormation creates a new KMS key. To cancel deletion of a KMS key, use the KMS console or the [CancelKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_CancelKeyDeletion.html) operation.\n For information about the ``Pending Deletion`` and ``Pending Replica Deletion`` key states, see [Key state: Effect on your KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html) in the *Developer Guide*. For more information about deleting KMS keys, see the [ScheduleKeyDeletion](https://docs.aws.amazon.com/kms/latest/APIReference/API_ScheduleKeyDeletion.html) operation in the *API Reference* and [Deleting KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/deleting-keys.html) in the *Developer Guide*."
       },
       "rotationPeriodInDays": {
-        "type": "integer"
+        "type": "integer",
+        "description": "Specifies a custom period of time between each rotation date. If no value is specified, the default value is 365 days.\n The rotation period defines the number of days after you enable automatic key rotation that KMS will rotate your key material, and the number of days between each automatic rotation thereafter.\n You can use the [kms:RotationPeriodInDays](https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-rotation-period-in-days) condition key to further constrain the values that principals can specify in the ``RotationPeriodInDays`` parameter.\n For more information about rotating KMS keys and automatic rotation, see [Rotating keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html) in the *Developer Guide*."
       },
       "tags": {
         "type": "array",
@@ -9402,7 +9403,8 @@
         "description": "A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically."
       },
       "automaticBackupReplicationKmsKeyId": {
-        "type": "string"
+        "type": "string",
+        "description": "The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS-Region, for example, ``arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE``."
       },
       "automaticBackupReplicationRegion": {
         "type": "string",
@@ -9539,7 +9541,7 @@
       },
       "engine": {
         "type": "string",
-        "description": "The name of the database engine to use for this DB instance. Not every database engine is available in every AWS Region.\n This property is required when creating a DB instance.\n  You can change the architecture of an Oracle database from the non-container database (CDB) architecture to the CDB architecture by updating the ``Engine`` value in your templates from ``oracle-ee`` or ``oracle-ee-cdb`` to ``oracle-se2-cdb``. Converting to the CDB architecture requires an interruption.\n  Valid Values:\n  +   ``aurora-mysql`` (for Aurora MySQL DB instances)\n  +   ``aurora-postgresql`` (for Aurora PostgreSQL DB instances)\n  +   ``custom-oracle-ee`` (for RDS Custom for Oracle DB instances)\n  +   ``custom-oracle-ee-cdb`` (for RDS Custom for Oracle DB instances)\n  +   ``custom-sqlserver-ee`` (for RDS Custom for SQL Server DB instances)\n  +   ``custom-sqlserver-se`` (for RDS Custom for SQL Server DB instances)\n  +   ``custom-sqlserver-web`` (for RDS Custom for SQL Server DB instances)\n  +   ``db2-ae`` \n  +   ``db2-se`` \n  +   ``mariadb`` \n  +   ``mysql`` \n  +   ``oracle-ee`` \n  +   ``oracle-ee-cdb`` \n  +   ``oracle-se2`` \n  +   ``oracle-se2-cdb`` \n  +   ``postgres`` \n  +   ``sqlserver-ee`` \n  +   ``sqlserver-se`` \n  +   ``sqlserver-ex`` \n  +   ``sqlserver-web``"
+        "description": "The name of the database engine to use for this DB instance. Not every database engine is available in every AWS Region.\n This property is required when creating a DB instance.\n  You can convert an Oracle database from the non-CDB architecture to the container database (CDB) architecture by updating the ``Engine`` value in your templates from ``oracle-ee`` to ``oracle-ee-cdb`` or from ``oracle-se2`` to ``oracle-se2-cdb``. Converting to the CDB architecture requires an interruption.\n  Valid Values:\n  +   ``aurora-mysql`` (for Aurora MySQL DB instances)\n  +   ``aurora-postgresql`` (for Aurora PostgreSQL DB instances)\n  +   ``custom-oracle-ee`` (for RDS Custom for Oracle DB instances)\n  +   ``custom-oracle-ee-cdb`` (for RDS Custom for Oracle DB instances)\n  +   ``custom-sqlserver-ee`` (for RDS Custom for SQL Server DB instances)\n  +   ``custom-sqlserver-se`` (for RDS Custom for SQL Server DB instances)\n  +   ``custom-sqlserver-web`` (for RDS Custom for SQL Server DB instances)\n  +   ``db2-ae`` \n  +   ``db2-se`` \n  +   ``mariadb`` \n  +   ``mysql`` \n  +   ``oracle-ee`` \n  +   ``oracle-ee-cdb`` \n  +   ``oracle-se2`` \n  +   ``oracle-se2-cdb`` \n  +   ``postgres`` \n  +   ``sqlserver-ee`` \n  +   ``sqlserver-se`` \n  +   ``sqlserver-ex`` \n  +   ``sqlserver-web``"
       },
       "engineVersion": {
         "type": "string",
@@ -9551,7 +9553,7 @@
       },
       "kmsKeyId": {
         "type": "string",
-        "description": "The ARN of the AWS KMS key that's used to encrypt the DB instance, such as ``arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef``. If you enable the StorageEncrypted property but don't specify this property, AWS CloudFormation uses the default KMS key. If you specify this property, you must set the StorageEncrypted property to true. \n If you specify the ``SourceDBInstanceIdentifier`` property, the value is inherited from the source DB instance if the read replica is created in the same region.\n If you create an encrypted read replica in a different AWS Region, then you must specify a KMS key for the destination AWS Region. KMS encryption keys are specific to the region that they're created in, and you can't use encryption keys from one region in another region.\n If you specify the ``SnapshotIdentifier`` property, the ``StorageEncrypted`` property value is inherited from the snapshot, and if the DB instance is encrypted, the specified ``KmsKeyId`` property is used.\n If you specify ``DBSecurityGroups``, AWS CloudFormation ignores this property. To specify both a security group and this property, you must use a VPC security group. For more information about Amazon RDS and VPC, see [Using Amazon RDS with Amazon VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*.\n  *Amazon Aurora* \n Not applicable. The KMS key identifier is managed by the DB cluster."
+        "description": "The ARN of the AWS KMS key that's used to encrypt the DB instance, such as ``arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef``. If you enable the StorageEncrypted property but don't specify this property, AWS CloudFormation uses the default KMS key. If you specify this property, you must set the StorageEncrypted property to true. \n If you specify the ``SourceDBInstanceIdentifier`` property, the value is inherited from the source DB instance if the read replica is created in the same region.\n If you create an encrypted read replica in a different AWS Region, then you must specify a KMS key for the destination AWS Region. KMS encryption keys are specific to the region that they're created in, and you can't use encryption keys from one region in another region.\n If you specify the ``DBSnapshotIdentifier`` property, don't specify this property. The ``StorageEncrypted`` property value is inherited from the snapshot. If the DB instance is encrypted, the specified ``KmsKeyId`` property is also inherited from the snapshot.\n If you specify ``DBSecurityGroups``, AWS CloudFormation ignores this property. To specify both a security group and this property, you must use a VPC security group. For more information about Amazon RDS and VPC, see [Using Amazon RDS with Amazon VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*.\n  *Amazon Aurora* \n Not applicable. The KMS key identifier is managed by the DB cluster."
       },
       "licenseModel": {
         "type": "string",
@@ -9666,7 +9668,7 @@
       },
       "storageEncrypted": {
         "type": "boolean",
-        "description": "A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.\n If you specify the ``KmsKeyId`` property, then you must enable encryption.\n If you specify the ``SourceDBInstanceIdentifier`` property, don't specify this property. The value is inherited from the source DB instance, and if the DB instance is encrypted, the specified ``KmsKeyId`` property is used.\n If you specify the ``DBSnapshotIdentifier`` and the specified snapshot is encrypted, don't specify this property. The value is inherited from the snapshot, and the specified ``KmsKeyId`` property is used.\n If you specify the ``DBSnapshotIdentifier`` and the specified snapshot isn't encrypted, you can use this property to specify that the restored DB instance is encrypted. Specify the ``KmsKeyId`` property for the KMS key to use for encryption. If you don't want the restored DB instance to be encrypted, then don't set this property or set it to ``false``.\n  *Amazon Aurora* \n Not applicable. The encryption for DB instances is managed by the DB cluster."
+        "description": "A value that indicates whether the DB instance is encrypted. By default, it isn't encrypted.\n If you specify the ``KmsKeyId`` property, then you must enable encryption.\n If you specify the ``SourceDBInstanceIdentifier`` property, don't specify this property. The value is inherited from the source DB instance, and if the DB instance is encrypted, the specified ``KmsKeyId`` property is used.\n If you specify ``DBSnapshotIdentifier`` property, don't specify this property. The value is inherited from the snapshot.\n  *Amazon Aurora* \n Not applicable. The encryption for DB instances is managed by the DB cluster."
       },
       "storageThroughput": {
         "type": "integer",
@@ -9691,7 +9693,7 @@
       },
       "timezone": {
         "type": "string",
-        "description": "The time zone of the DB instance. The time zone parameter is currently supported only by [Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)."
+        "description": "The time zone of the DB instance. The time zone parameter is currently supported only by [RDS for Db2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-time-zone) and [RDS for SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone)."
       },
       "useDefaultProcessorFeatures": {
         "type": "boolean",
@@ -10500,6 +10502,30 @@
       }
     }
   },
+  "aws-native:securityhub:SecurityControl": {
+    "cfTypeName": "AWS::SecurityHub::SecurityControl",
+    "properties": {
+      "lastUpdateReason": {
+        "type": "string",
+        "description": "The most recent reason for updating the customizable properties of a security control. This differs from the UpdateReason field of the BatchUpdateStandardsControlAssociations API, which tracks the reason for updating the enablement status of a control. This field accepts alphanumeric characters in addition to white spaces, dashes, and underscores."
+      },
+      "parameters": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/types/aws-native:securityhub:SecurityControlParameterConfiguration"
+        },
+        "description": "An object that identifies the name of a control parameter, its current value, and whether it has been customized."
+      },
+      "securityControlArn": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) for a security control across standards, such as `arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1`. This parameter doesn't mention a specific standard."
+      },
+      "securityControlId": {
+        "type": "string",
+        "description": "The unique identifier of a security control across standards. Values for this field typically consist of an AWS service name and a number, such as APIGateway.3."
+      }
+    }
+  },
   "aws-native:securityhub:Standard": {
     "cfTypeName": "AWS::SecurityHub::Standard",
     "properties": {
@@ -11297,7 +11323,7 @@
     "cfTypeName": "AWS::VerifiedPermissions::IdentitySource",
     "properties": {
       "configuration": {
-        "$ref": "#/types/aws-native:verifiedpermissions:IdentitySourceConfiguration"
+        "$ref": "#/types/aws-native:verifiedpermissions:IdentitySourceConfigurationProperties"
       },
       "policyStoreId": {
         "type": "string"
