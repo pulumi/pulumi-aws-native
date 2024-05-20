@@ -14,7 +14,6 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type IdentitySourceCognitoGroupConfiguration struct {
-	// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup` .
 	GroupEntityType string `pulumi:"groupEntityType"`
 }
 
@@ -30,7 +29,6 @@ type IdentitySourceCognitoGroupConfigurationInput interface {
 }
 
 type IdentitySourceCognitoGroupConfigurationArgs struct {
-	// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup` .
 	GroupEntityType pulumi.StringInput `pulumi:"groupEntityType"`
 }
 
@@ -111,7 +109,6 @@ func (o IdentitySourceCognitoGroupConfigurationOutput) ToIdentitySourceCognitoGr
 	}).(IdentitySourceCognitoGroupConfigurationPtrOutput)
 }
 
-// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup` .
 func (o IdentitySourceCognitoGroupConfigurationOutput) GroupEntityType() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentitySourceCognitoGroupConfiguration) string { return v.GroupEntityType }).(pulumi.StringOutput)
 }
@@ -140,7 +137,6 @@ func (o IdentitySourceCognitoGroupConfigurationPtrOutput) Elem() IdentitySourceC
 	}).(IdentitySourceCognitoGroupConfigurationOutput)
 }
 
-// The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup` .
 func (o IdentitySourceCognitoGroupConfigurationPtrOutput) GroupEntityType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceCognitoGroupConfiguration) *string {
 		if v == nil {
@@ -151,14 +147,9 @@ func (o IdentitySourceCognitoGroupConfigurationPtrOutput) GroupEntityType() pulu
 }
 
 type IdentitySourceCognitoUserPoolConfiguration struct {
-	// The unique application client IDs that are associated with the specified Amazon Cognito user pool.
-	//
-	// Example: `"ClientIds": ["&ExampleCogClientId;"]`
-	ClientIds []string `pulumi:"clientIds"`
-	// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source.
+	ClientIds          []string                                 `pulumi:"clientIds"`
 	GroupConfiguration *IdentitySourceCognitoGroupConfiguration `pulumi:"groupConfiguration"`
-	// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the Amazon Cognito user pool that contains the identities to be authorized.
-	UserPoolArn string `pulumi:"userPoolArn"`
+	UserPoolArn        string                                   `pulumi:"userPoolArn"`
 }
 
 // IdentitySourceCognitoUserPoolConfigurationInput is an input type that accepts IdentitySourceCognitoUserPoolConfigurationArgs and IdentitySourceCognitoUserPoolConfigurationOutput values.
@@ -173,14 +164,9 @@ type IdentitySourceCognitoUserPoolConfigurationInput interface {
 }
 
 type IdentitySourceCognitoUserPoolConfigurationArgs struct {
-	// The unique application client IDs that are associated with the specified Amazon Cognito user pool.
-	//
-	// Example: `"ClientIds": ["&ExampleCogClientId;"]`
-	ClientIds pulumi.StringArrayInput `pulumi:"clientIds"`
-	// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source.
+	ClientIds          pulumi.StringArrayInput                         `pulumi:"clientIds"`
 	GroupConfiguration IdentitySourceCognitoGroupConfigurationPtrInput `pulumi:"groupConfiguration"`
-	// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the Amazon Cognito user pool that contains the identities to be authorized.
-	UserPoolArn pulumi.StringInput `pulumi:"userPoolArn"`
+	UserPoolArn        pulumi.StringInput                              `pulumi:"userPoolArn"`
 }
 
 func (IdentitySourceCognitoUserPoolConfigurationArgs) ElementType() reflect.Type {
@@ -209,21 +195,16 @@ func (o IdentitySourceCognitoUserPoolConfigurationOutput) ToIdentitySourceCognit
 	return o
 }
 
-// The unique application client IDs that are associated with the specified Amazon Cognito user pool.
-//
-// Example: `"ClientIds": ["&ExampleCogClientId;"]`
 func (o IdentitySourceCognitoUserPoolConfigurationOutput) ClientIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IdentitySourceCognitoUserPoolConfiguration) []string { return v.ClientIds }).(pulumi.StringArrayOutput)
 }
 
-// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source.
 func (o IdentitySourceCognitoUserPoolConfigurationOutput) GroupConfiguration() IdentitySourceCognitoGroupConfigurationPtrOutput {
 	return o.ApplyT(func(v IdentitySourceCognitoUserPoolConfiguration) *IdentitySourceCognitoGroupConfiguration {
 		return v.GroupConfiguration
 	}).(IdentitySourceCognitoGroupConfigurationPtrOutput)
 }
 
-// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the Amazon Cognito user pool that contains the identities to be authorized.
 func (o IdentitySourceCognitoUserPoolConfigurationOutput) UserPoolArn() pulumi.StringOutput {
 	return o.ApplyT(func(v IdentitySourceCognitoUserPoolConfiguration) string { return v.UserPoolArn }).(pulumi.StringOutput)
 }
@@ -252,9 +233,6 @@ func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) Elem() IdentitySour
 	}).(IdentitySourceCognitoUserPoolConfigurationOutput)
 }
 
-// The unique application client IDs that are associated with the specified Amazon Cognito user pool.
-//
-// Example: `"ClientIds": ["&ExampleCogClientId;"]`
 func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) ClientIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IdentitySourceCognitoUserPoolConfiguration) []string {
 		if v == nil {
@@ -264,7 +242,6 @@ func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) ClientIds() pulumi.
 	}).(pulumi.StringArrayOutput)
 }
 
-// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source.
 func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) GroupConfiguration() IdentitySourceCognitoGroupConfigurationPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceCognitoUserPoolConfiguration) *IdentitySourceCognitoGroupConfiguration {
 		if v == nil {
@@ -274,7 +251,6 @@ func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) GroupConfiguration(
 	}).(IdentitySourceCognitoGroupConfigurationPtrOutput)
 }
 
-// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the Amazon Cognito user pool that contains the identities to be authorized.
 func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) UserPoolArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentitySourceCognitoUserPoolConfiguration) *string {
 		if v == nil {
@@ -284,87 +260,87 @@ func (o IdentitySourceCognitoUserPoolConfigurationPtrOutput) UserPoolArn() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-type IdentitySourceConfiguration struct {
-	// A structure that contains configuration information used when creating or updating an identity source that represents a connection to an Amazon Cognito user pool used as an identity provider for Verified Permissions .
+type IdentitySourceConfiguration0Properties struct {
 	CognitoUserPoolConfiguration IdentitySourceCognitoUserPoolConfiguration `pulumi:"cognitoUserPoolConfiguration"`
 }
 
-// IdentitySourceConfigurationInput is an input type that accepts IdentitySourceConfigurationArgs and IdentitySourceConfigurationOutput values.
-// You can construct a concrete instance of `IdentitySourceConfigurationInput` via:
-//
-//	IdentitySourceConfigurationArgs{...}
-type IdentitySourceConfigurationInput interface {
-	pulumi.Input
-
-	ToIdentitySourceConfigurationOutput() IdentitySourceConfigurationOutput
-	ToIdentitySourceConfigurationOutputWithContext(context.Context) IdentitySourceConfigurationOutput
+type IdentitySourceConfigurationProperties struct {
+	CognitoUserPoolConfiguration IdentitySourceCognitoUserPoolConfiguration `pulumi:"cognitoUserPoolConfiguration"`
 }
 
-type IdentitySourceConfigurationArgs struct {
-	// A structure that contains configuration information used when creating or updating an identity source that represents a connection to an Amazon Cognito user pool used as an identity provider for Verified Permissions .
+// IdentitySourceConfigurationPropertiesInput is an input type that accepts IdentitySourceConfigurationPropertiesArgs and IdentitySourceConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `IdentitySourceConfigurationPropertiesInput` via:
+//
+//	IdentitySourceConfigurationPropertiesArgs{...}
+type IdentitySourceConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToIdentitySourceConfigurationPropertiesOutput() IdentitySourceConfigurationPropertiesOutput
+	ToIdentitySourceConfigurationPropertiesOutputWithContext(context.Context) IdentitySourceConfigurationPropertiesOutput
+}
+
+type IdentitySourceConfigurationPropertiesArgs struct {
 	CognitoUserPoolConfiguration IdentitySourceCognitoUserPoolConfigurationInput `pulumi:"cognitoUserPoolConfiguration"`
 }
 
-func (IdentitySourceConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentitySourceConfiguration)(nil)).Elem()
+func (IdentitySourceConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceConfigurationProperties)(nil)).Elem()
 }
 
-func (i IdentitySourceConfigurationArgs) ToIdentitySourceConfigurationOutput() IdentitySourceConfigurationOutput {
-	return i.ToIdentitySourceConfigurationOutputWithContext(context.Background())
+func (i IdentitySourceConfigurationPropertiesArgs) ToIdentitySourceConfigurationPropertiesOutput() IdentitySourceConfigurationPropertiesOutput {
+	return i.ToIdentitySourceConfigurationPropertiesOutputWithContext(context.Background())
 }
 
-func (i IdentitySourceConfigurationArgs) ToIdentitySourceConfigurationOutputWithContext(ctx context.Context) IdentitySourceConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationOutput)
+func (i IdentitySourceConfigurationPropertiesArgs) ToIdentitySourceConfigurationPropertiesOutputWithContext(ctx context.Context) IdentitySourceConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentitySourceConfigurationPropertiesOutput)
 }
 
-type IdentitySourceConfigurationOutput struct{ *pulumi.OutputState }
+type IdentitySourceConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
-func (IdentitySourceConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentitySourceConfiguration)(nil)).Elem()
+func (IdentitySourceConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentitySourceConfigurationProperties)(nil)).Elem()
 }
 
-func (o IdentitySourceConfigurationOutput) ToIdentitySourceConfigurationOutput() IdentitySourceConfigurationOutput {
+func (o IdentitySourceConfigurationPropertiesOutput) ToIdentitySourceConfigurationPropertiesOutput() IdentitySourceConfigurationPropertiesOutput {
 	return o
 }
 
-func (o IdentitySourceConfigurationOutput) ToIdentitySourceConfigurationOutputWithContext(ctx context.Context) IdentitySourceConfigurationOutput {
+func (o IdentitySourceConfigurationPropertiesOutput) ToIdentitySourceConfigurationPropertiesOutputWithContext(ctx context.Context) IdentitySourceConfigurationPropertiesOutput {
 	return o
 }
 
-// A structure that contains configuration information used when creating or updating an identity source that represents a connection to an Amazon Cognito user pool used as an identity provider for Verified Permissions .
-func (o IdentitySourceConfigurationOutput) CognitoUserPoolConfiguration() IdentitySourceCognitoUserPoolConfigurationOutput {
-	return o.ApplyT(func(v IdentitySourceConfiguration) IdentitySourceCognitoUserPoolConfiguration {
+func (o IdentitySourceConfigurationPropertiesOutput) CognitoUserPoolConfiguration() IdentitySourceCognitoUserPoolConfigurationOutput {
+	return o.ApplyT(func(v IdentitySourceConfigurationProperties) IdentitySourceCognitoUserPoolConfiguration {
 		return v.CognitoUserPoolConfiguration
 	}).(IdentitySourceCognitoUserPoolConfigurationOutput)
 }
 
-type IdentitySourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+type IdentitySourceConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
 
-func (IdentitySourceConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentitySourceConfiguration)(nil)).Elem()
+func (IdentitySourceConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentitySourceConfigurationProperties)(nil)).Elem()
 }
 
-func (o IdentitySourceConfigurationPtrOutput) ToIdentitySourceConfigurationPtrOutput() IdentitySourceConfigurationPtrOutput {
+func (o IdentitySourceConfigurationPropertiesPtrOutput) ToIdentitySourceConfigurationPropertiesPtrOutput() IdentitySourceConfigurationPropertiesPtrOutput {
 	return o
 }
 
-func (o IdentitySourceConfigurationPtrOutput) ToIdentitySourceConfigurationPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationPtrOutput {
+func (o IdentitySourceConfigurationPropertiesPtrOutput) ToIdentitySourceConfigurationPropertiesPtrOutputWithContext(ctx context.Context) IdentitySourceConfigurationPropertiesPtrOutput {
 	return o
 }
 
-func (o IdentitySourceConfigurationPtrOutput) Elem() IdentitySourceConfigurationOutput {
-	return o.ApplyT(func(v *IdentitySourceConfiguration) IdentitySourceConfiguration {
+func (o IdentitySourceConfigurationPropertiesPtrOutput) Elem() IdentitySourceConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationProperties) IdentitySourceConfigurationProperties {
 		if v != nil {
 			return *v
 		}
-		var ret IdentitySourceConfiguration
+		var ret IdentitySourceConfigurationProperties
 		return ret
-	}).(IdentitySourceConfigurationOutput)
+	}).(IdentitySourceConfigurationPropertiesOutput)
 }
 
-// A structure that contains configuration information used when creating or updating an identity source that represents a connection to an Amazon Cognito user pool used as an identity provider for Verified Permissions .
-func (o IdentitySourceConfigurationPtrOutput) CognitoUserPoolConfiguration() IdentitySourceCognitoUserPoolConfigurationPtrOutput {
-	return o.ApplyT(func(v *IdentitySourceConfiguration) *IdentitySourceCognitoUserPoolConfiguration {
+func (o IdentitySourceConfigurationPropertiesPtrOutput) CognitoUserPoolConfiguration() IdentitySourceCognitoUserPoolConfigurationPtrOutput {
+	return o.ApplyT(func(v *IdentitySourceConfigurationProperties) *IdentitySourceCognitoUserPoolConfiguration {
 		if v == nil {
 			return nil
 		}
@@ -1245,7 +1221,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceCognitoGroupConfigurationInput)(nil)).Elem(), IdentitySourceCognitoGroupConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceCognitoGroupConfigurationPtrInput)(nil)).Elem(), IdentitySourceCognitoGroupConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceCognitoUserPoolConfigurationInput)(nil)).Elem(), IdentitySourceCognitoUserPoolConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfigurationInput)(nil)).Elem(), IdentitySourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentitySourceConfigurationPropertiesInput)(nil)).Elem(), IdentitySourceConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinition0PropertiesInput)(nil)).Elem(), PolicyDefinition0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyDefinition1PropertiesInput)(nil)).Elem(), PolicyDefinition1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyEntityIdentifierInput)(nil)).Elem(), PolicyEntityIdentifierArgs{})
@@ -1259,8 +1235,8 @@ func init() {
 	pulumi.RegisterOutputType(IdentitySourceCognitoGroupConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IdentitySourceCognitoUserPoolConfigurationOutput{})
 	pulumi.RegisterOutputType(IdentitySourceCognitoUserPoolConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(IdentitySourceConfigurationOutput{})
-	pulumi.RegisterOutputType(IdentitySourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IdentitySourceConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(IdentitySourceConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IdentitySourceDetailsOutput{})
 	pulumi.RegisterOutputType(IdentitySourceDetailsPtrOutput{})
 	pulumi.RegisterOutputType(PolicyDefinition0PropertiesOutput{})

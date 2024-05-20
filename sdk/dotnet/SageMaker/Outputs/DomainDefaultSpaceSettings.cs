@@ -16,10 +16,19 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class DomainDefaultSpaceSettings
     {
+        public readonly ImmutableArray<Outputs.DomainCustomFileSystemConfig> CustomFileSystemConfigs;
+        /// <summary>
+        /// The Jupyter lab's custom posix user configurations.
+        /// </summary>
+        public readonly Outputs.DomainCustomPosixUserConfig? CustomPosixUserConfig;
         /// <summary>
         /// The execution role for the space.
         /// </summary>
         public readonly string ExecutionRole;
+        /// <summary>
+        /// The Jupyter lab's app settings.
+        /// </summary>
+        public readonly Outputs.DomainJupyterLabAppSettings? JupyterLabAppSettings;
         /// <summary>
         /// The Jupyter server's app settings.
         /// </summary>
@@ -32,21 +41,37 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
+        /// <summary>
+        /// The Jupyter lab's space storage settings.
+        /// </summary>
+        public readonly Outputs.DomainDefaultSpaceStorageSettings? SpaceStorageSettings;
 
         [OutputConstructor]
         private DomainDefaultSpaceSettings(
+            ImmutableArray<Outputs.DomainCustomFileSystemConfig> customFileSystemConfigs,
+
+            Outputs.DomainCustomPosixUserConfig? customPosixUserConfig,
+
             string executionRole,
+
+            Outputs.DomainJupyterLabAppSettings? jupyterLabAppSettings,
 
             Outputs.DomainJupyterServerAppSettings? jupyterServerAppSettings,
 
             Outputs.DomainKernelGatewayAppSettings? kernelGatewayAppSettings,
 
-            ImmutableArray<string> securityGroups)
+            ImmutableArray<string> securityGroups,
+
+            Outputs.DomainDefaultSpaceStorageSettings? spaceStorageSettings)
         {
+            CustomFileSystemConfigs = customFileSystemConfigs;
+            CustomPosixUserConfig = customPosixUserConfig;
             ExecutionRole = executionRole;
+            JupyterLabAppSettings = jupyterLabAppSettings;
             JupyterServerAppSettings = jupyterServerAppSettings;
             KernelGatewayAppSettings = kernelGatewayAppSettings;
             SecurityGroups = securityGroups;
+            SpaceStorageSettings = spaceStorageSettings;
         }
     }
 }

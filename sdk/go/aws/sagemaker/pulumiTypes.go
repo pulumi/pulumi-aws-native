@@ -4728,14 +4728,21 @@ func (o DomainDefaultEbsStorageSettingsPtrOutput) MaximumEbsVolumeSizeInGb() pul
 
 // A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
 type DomainDefaultSpaceSettings struct {
+	CustomFileSystemConfigs []DomainCustomFileSystemConfig `pulumi:"customFileSystemConfigs"`
+	// The Jupyter lab's custom posix user configurations.
+	CustomPosixUserConfig *DomainCustomPosixUserConfig `pulumi:"customPosixUserConfig"`
 	// The execution role for the space.
 	ExecutionRole string `pulumi:"executionRole"`
+	// The Jupyter lab's app settings.
+	JupyterLabAppSettings *DomainJupyterLabAppSettings `pulumi:"jupyterLabAppSettings"`
 	// The Jupyter server's app settings.
 	JupyterServerAppSettings *DomainJupyterServerAppSettings `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
 	KernelGatewayAppSettings *DomainKernelGatewayAppSettings `pulumi:"kernelGatewayAppSettings"`
 	// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 	SecurityGroups []string `pulumi:"securityGroups"`
+	// The Jupyter lab's space storage settings.
+	SpaceStorageSettings *DomainDefaultSpaceStorageSettings `pulumi:"spaceStorageSettings"`
 }
 
 // DomainDefaultSpaceSettingsInput is an input type that accepts DomainDefaultSpaceSettingsArgs and DomainDefaultSpaceSettingsOutput values.
@@ -4751,14 +4758,21 @@ type DomainDefaultSpaceSettingsInput interface {
 
 // A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
 type DomainDefaultSpaceSettingsArgs struct {
+	CustomFileSystemConfigs DomainCustomFileSystemConfigArrayInput `pulumi:"customFileSystemConfigs"`
+	// The Jupyter lab's custom posix user configurations.
+	CustomPosixUserConfig DomainCustomPosixUserConfigPtrInput `pulumi:"customPosixUserConfig"`
 	// The execution role for the space.
 	ExecutionRole pulumi.StringInput `pulumi:"executionRole"`
+	// The Jupyter lab's app settings.
+	JupyterLabAppSettings DomainJupyterLabAppSettingsPtrInput `pulumi:"jupyterLabAppSettings"`
 	// The Jupyter server's app settings.
 	JupyterServerAppSettings DomainJupyterServerAppSettingsPtrInput `pulumi:"jupyterServerAppSettings"`
 	// The kernel gateway app settings.
 	KernelGatewayAppSettings DomainKernelGatewayAppSettingsPtrInput `pulumi:"kernelGatewayAppSettings"`
 	// The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// The Jupyter lab's space storage settings.
+	SpaceStorageSettings DomainDefaultSpaceStorageSettingsPtrInput `pulumi:"spaceStorageSettings"`
 }
 
 func (DomainDefaultSpaceSettingsArgs) ElementType() reflect.Type {
@@ -4839,9 +4853,23 @@ func (o DomainDefaultSpaceSettingsOutput) ToDomainDefaultSpaceSettingsPtrOutputW
 	}).(DomainDefaultSpaceSettingsPtrOutput)
 }
 
+func (o DomainDefaultSpaceSettingsOutput) CustomFileSystemConfigs() DomainCustomFileSystemConfigArrayOutput {
+	return o.ApplyT(func(v DomainDefaultSpaceSettings) []DomainCustomFileSystemConfig { return v.CustomFileSystemConfigs }).(DomainCustomFileSystemConfigArrayOutput)
+}
+
+// The Jupyter lab's custom posix user configurations.
+func (o DomainDefaultSpaceSettingsOutput) CustomPosixUserConfig() DomainCustomPosixUserConfigPtrOutput {
+	return o.ApplyT(func(v DomainDefaultSpaceSettings) *DomainCustomPosixUserConfig { return v.CustomPosixUserConfig }).(DomainCustomPosixUserConfigPtrOutput)
+}
+
 // The execution role for the space.
 func (o DomainDefaultSpaceSettingsOutput) ExecutionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettings) string { return v.ExecutionRole }).(pulumi.StringOutput)
+}
+
+// The Jupyter lab's app settings.
+func (o DomainDefaultSpaceSettingsOutput) JupyterLabAppSettings() DomainJupyterLabAppSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultSpaceSettings) *DomainJupyterLabAppSettings { return v.JupyterLabAppSettings }).(DomainJupyterLabAppSettingsPtrOutput)
 }
 
 // The Jupyter server's app settings.
@@ -4857,6 +4885,11 @@ func (o DomainDefaultSpaceSettingsOutput) KernelGatewayAppSettings() DomainKerne
 // The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
 func (o DomainDefaultSpaceSettingsOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettings) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// The Jupyter lab's space storage settings.
+func (o DomainDefaultSpaceSettingsOutput) SpaceStorageSettings() DomainDefaultSpaceStorageSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultSpaceSettings) *DomainDefaultSpaceStorageSettings { return v.SpaceStorageSettings }).(DomainDefaultSpaceStorageSettingsPtrOutput)
 }
 
 type DomainDefaultSpaceSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -4883,6 +4916,25 @@ func (o DomainDefaultSpaceSettingsPtrOutput) Elem() DomainDefaultSpaceSettingsOu
 	}).(DomainDefaultSpaceSettingsOutput)
 }
 
+func (o DomainDefaultSpaceSettingsPtrOutput) CustomFileSystemConfigs() DomainCustomFileSystemConfigArrayOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettings) []DomainCustomFileSystemConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CustomFileSystemConfigs
+	}).(DomainCustomFileSystemConfigArrayOutput)
+}
+
+// The Jupyter lab's custom posix user configurations.
+func (o DomainDefaultSpaceSettingsPtrOutput) CustomPosixUserConfig() DomainCustomPosixUserConfigPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettings) *DomainCustomPosixUserConfig {
+		if v == nil {
+			return nil
+		}
+		return v.CustomPosixUserConfig
+	}).(DomainCustomPosixUserConfigPtrOutput)
+}
+
 // The execution role for the space.
 func (o DomainDefaultSpaceSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettings) *string {
@@ -4891,6 +4943,16 @@ func (o DomainDefaultSpaceSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOut
 		}
 		return &v.ExecutionRole
 	}).(pulumi.StringPtrOutput)
+}
+
+// The Jupyter lab's app settings.
+func (o DomainDefaultSpaceSettingsPtrOutput) JupyterLabAppSettings() DomainJupyterLabAppSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettings) *DomainJupyterLabAppSettings {
+		if v == nil {
+			return nil
+		}
+		return v.JupyterLabAppSettings
+	}).(DomainJupyterLabAppSettingsPtrOutput)
 }
 
 // The Jupyter server's app settings.
@@ -4921,6 +4983,16 @@ func (o DomainDefaultSpaceSettingsPtrOutput) SecurityGroups() pulumi.StringArray
 		}
 		return v.SecurityGroups
 	}).(pulumi.StringArrayOutput)
+}
+
+// The Jupyter lab's space storage settings.
+func (o DomainDefaultSpaceSettingsPtrOutput) SpaceStorageSettings() DomainDefaultSpaceStorageSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultSpaceSettings) *DomainDefaultSpaceStorageSettings {
+		if v == nil {
+			return nil
+		}
+		return v.SpaceStorageSettings
+	}).(DomainDefaultSpaceStorageSettingsPtrOutput)
 }
 
 // Default storage settings for a space.

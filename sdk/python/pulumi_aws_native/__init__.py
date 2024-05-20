@@ -2839,6 +2839,7 @@ _utilities.register(
    "aws-native:securityhub:Hub": "Hub",
    "aws-native:securityhub:Insight": "Insight",
    "aws-native:securityhub:ProductSubscription": "ProductSubscription",
+   "aws-native:securityhub:SecurityControl": "SecurityControl",
    "aws-native:securityhub:Standard": "Standard"
   }
  },

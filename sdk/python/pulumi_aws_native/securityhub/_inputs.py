@@ -32,6 +32,8 @@ __all__ = [
     'InsightMapFilterArgs',
     'InsightNumberFilterArgs',
     'InsightStringFilterArgs',
+    'SecurityControlParameterConfigurationArgs',
+    'SecurityControlParameterValueArgs',
     'StandardsControlArgs',
 ]
 
@@ -3655,6 +3657,169 @@ class InsightStringFilterArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SecurityControlParameterConfigurationArgs:
+    def __init__(__self__, *,
+                 value_type: pulumi.Input['SecurityControlParameterConfigurationValueType'],
+                 value: Optional[pulumi.Input['SecurityControlParameterValueArgs']] = None):
+        pulumi.set(__self__, "value_type", value_type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> pulumi.Input['SecurityControlParameterConfigurationValueType']:
+        return pulumi.get(self, "value_type")
+
+    @value_type.setter
+    def value_type(self, value: pulumi.Input['SecurityControlParameterConfigurationValueType']):
+        pulumi.set(self, "value_type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input['SecurityControlParameterValueArgs']]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input['SecurityControlParameterValueArgs']]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SecurityControlParameterValueArgs:
+    def __init__(__self__, *,
+                 boolean: Optional[pulumi.Input[bool]] = None,
+                 double: Optional[pulumi.Input[float]] = None,
+                 enum: Optional[pulumi.Input[str]] = None,
+                 enum_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 integer: Optional[pulumi.Input[int]] = None,
+                 integer_list: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 string: Optional[pulumi.Input[str]] = None,
+                 string_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[bool] boolean: A control parameter that is a boolean.
+        :param pulumi.Input[float] double: A control parameter that is a double.
+        :param pulumi.Input[str] enum: A control parameter that is a enum.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enum_list: A control parameter that is a list of enums.
+        :param pulumi.Input[int] integer: A control parameter that is a integer.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] integer_list: A control parameter that is a list of integers.
+        :param pulumi.Input[str] string: A control parameter that is a string.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] string_list: A control parameter that is a list of strings.
+        """
+        if boolean is not None:
+            pulumi.set(__self__, "boolean", boolean)
+        if double is not None:
+            pulumi.set(__self__, "double", double)
+        if enum is not None:
+            pulumi.set(__self__, "enum", enum)
+        if enum_list is not None:
+            pulumi.set(__self__, "enum_list", enum_list)
+        if integer is not None:
+            pulumi.set(__self__, "integer", integer)
+        if integer_list is not None:
+            pulumi.set(__self__, "integer_list", integer_list)
+        if string is not None:
+            pulumi.set(__self__, "string", string)
+        if string_list is not None:
+            pulumi.set(__self__, "string_list", string_list)
+
+    @property
+    @pulumi.getter
+    def boolean(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A control parameter that is a boolean.
+        """
+        return pulumi.get(self, "boolean")
+
+    @boolean.setter
+    def boolean(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "boolean", value)
+
+    @property
+    @pulumi.getter
+    def double(self) -> Optional[pulumi.Input[float]]:
+        """
+        A control parameter that is a double.
+        """
+        return pulumi.get(self, "double")
+
+    @double.setter
+    def double(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "double", value)
+
+    @property
+    @pulumi.getter
+    def enum(self) -> Optional[pulumi.Input[str]]:
+        """
+        A control parameter that is a enum.
+        """
+        return pulumi.get(self, "enum")
+
+    @enum.setter
+    def enum(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enum", value)
+
+    @property
+    @pulumi.getter(name="enumList")
+    def enum_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A control parameter that is a list of enums.
+        """
+        return pulumi.get(self, "enum_list")
+
+    @enum_list.setter
+    def enum_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "enum_list", value)
+
+    @property
+    @pulumi.getter
+    def integer(self) -> Optional[pulumi.Input[int]]:
+        """
+        A control parameter that is a integer.
+        """
+        return pulumi.get(self, "integer")
+
+    @integer.setter
+    def integer(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "integer", value)
+
+    @property
+    @pulumi.getter(name="integerList")
+    def integer_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        A control parameter that is a list of integers.
+        """
+        return pulumi.get(self, "integer_list")
+
+    @integer_list.setter
+    def integer_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "integer_list", value)
+
+    @property
+    @pulumi.getter
+    def string(self) -> Optional[pulumi.Input[str]]:
+        """
+        A control parameter that is a string.
+        """
+        return pulumi.get(self, "string")
+
+    @string.setter
+    def string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "string", value)
+
+    @property
+    @pulumi.getter(name="stringList")
+    def string_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A control parameter that is a list of strings.
+        """
+        return pulumi.get(self, "string_list")
+
+    @string_list.setter
+    def string_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "string_list", value)
 
 
 @pulumi.input_type

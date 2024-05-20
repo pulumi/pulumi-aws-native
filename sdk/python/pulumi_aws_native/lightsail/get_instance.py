@@ -21,7 +21,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetInstanceResult:
-    def __init__(__self__, add_ons=None, hardware=None, instance_arn=None, is_static_ip=None, key_pair_name=None, location=None, networking=None, private_ip_address=None, public_ip_address=None, resource_type=None, ssh_key_name=None, state=None, support_code=None, tags=None, user_name=None):
+    def __init__(__self__, add_ons=None, hardware=None, instance_arn=None, ipv6_addresses=None, is_static_ip=None, key_pair_name=None, location=None, networking=None, private_ip_address=None, public_ip_address=None, resource_type=None, ssh_key_name=None, state=None, support_code=None, tags=None, user_name=None):
         if add_ons and not isinstance(add_ons, list):
             raise TypeError("Expected argument 'add_ons' to be a list")
         pulumi.set(__self__, "add_ons", add_ons)
@@ -31,6 +31,9 @@ class GetInstanceResult:
         if instance_arn and not isinstance(instance_arn, str):
             raise TypeError("Expected argument 'instance_arn' to be a str")
         pulumi.set(__self__, "instance_arn", instance_arn)
+        if ipv6_addresses and not isinstance(ipv6_addresses, list):
+            raise TypeError("Expected argument 'ipv6_addresses' to be a list")
+        pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
         if is_static_ip and not isinstance(is_static_ip, bool):
             raise TypeError("Expected argument 'is_static_ip' to be a bool")
         pulumi.set(__self__, "is_static_ip", is_static_ip)
@@ -93,6 +96,14 @@ class GetInstanceResult:
         The Amazon Resource Name (ARN) of the instance (for example, `arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
         """
         return pulumi.get(self, "instance_arn")
+
+    @property
+    @pulumi.getter(name="ipv6Addresses")
+    def ipv6_addresses(self) -> Optional[Sequence[str]]:
+        """
+        IPv6 addresses of the instance
+        """
+        return pulumi.get(self, "ipv6_addresses")
 
     @property
     @pulumi.getter(name="isStaticIp")
@@ -204,6 +215,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             add_ons=self.add_ons,
             hardware=self.hardware,
             instance_arn=self.instance_arn,
+            ipv6_addresses=self.ipv6_addresses,
             is_static_ip=self.is_static_ip,
             key_pair_name=self.key_pair_name,
             location=self.location,
@@ -235,6 +247,7 @@ def get_instance(instance_name: Optional[str] = None,
         add_ons=pulumi.get(__ret__, 'add_ons'),
         hardware=pulumi.get(__ret__, 'hardware'),
         instance_arn=pulumi.get(__ret__, 'instance_arn'),
+        ipv6_addresses=pulumi.get(__ret__, 'ipv6_addresses'),
         is_static_ip=pulumi.get(__ret__, 'is_static_ip'),
         key_pair_name=pulumi.get(__ret__, 'key_pair_name'),
         location=pulumi.get(__ret__, 'location'),

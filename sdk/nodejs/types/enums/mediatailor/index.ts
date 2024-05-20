@@ -36,13 +36,24 @@ export const LiveSourceType = {
 
 export type LiveSourceType = (typeof LiveSourceType)[keyof typeof LiveSourceType];
 
-export const PlaybackConfigurationAvailSuppressionMode = {
-    Off: "OFF",
-    BehindLiveEdge: "BEHIND_LIVE_EDGE",
+export const PlaybackConfigurationAvailSuppressionFillPolicy = {
+    PartialAvail: "PARTIAL_AVAIL",
+    FullAvailOnly: "FULL_AVAIL_ONLY",
 } as const;
 
 /**
- * Sets the ad suppression mode. By default, ad suppression is set to OFF and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window.
+ * Defines the policy to apply to the avail suppression mode. BEHIND_LIVE_EDGE will always use the full avail suppression policy. AFTER_LIVE_EDGE mode can be used to invoke partial ad break fills when a session starts mid-break. Valid values are FULL_AVAIL_ONLY and PARTIAL_AVAIL
+ */
+export type PlaybackConfigurationAvailSuppressionFillPolicy = (typeof PlaybackConfigurationAvailSuppressionFillPolicy)[keyof typeof PlaybackConfigurationAvailSuppressionFillPolicy];
+
+export const PlaybackConfigurationAvailSuppressionMode = {
+    Off: "OFF",
+    BehindLiveEdge: "BEHIND_LIVE_EDGE",
+    AfterLiveEdge: "AFTER_LIVE_EDGE",
+} as const;
+
+/**
+ * Sets the ad suppression mode. By default, ad suppression is off and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window. When Mode is set to AFTER_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks that are within the live edge plus the avail suppression value.
  */
 export type PlaybackConfigurationAvailSuppressionMode = (typeof PlaybackConfigurationAvailSuppressionMode)[keyof typeof PlaybackConfigurationAvailSuppressionMode];
 

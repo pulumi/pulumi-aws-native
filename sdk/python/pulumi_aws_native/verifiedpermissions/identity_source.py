@@ -17,12 +17,12 @@ __all__ = ['IdentitySourceArgs', 'IdentitySource']
 @pulumi.input_type
 class IdentitySourceArgs:
     def __init__(__self__, *,
-                 configuration: pulumi.Input['IdentitySourceConfigurationArgs'],
+                 configuration: pulumi.Input['IdentitySourceConfigurationPropertiesArgs'],
                  policy_store_id: pulumi.Input[str],
                  principal_entity_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a IdentitySource resource.
-        :param pulumi.Input['IdentitySourceConfigurationArgs'] configuration: Contains configuration information about an identity source.
+        :param pulumi.Input['IdentitySourceConfigurationPropertiesArgs'] configuration: Contains configuration information about an identity source.
         :param pulumi.Input[str] policy_store_id: Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
         :param pulumi.Input[str] principal_entity_type: Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
         """
@@ -33,14 +33,14 @@ class IdentitySourceArgs:
 
     @property
     @pulumi.getter
-    def configuration(self) -> pulumi.Input['IdentitySourceConfigurationArgs']:
+    def configuration(self) -> pulumi.Input['IdentitySourceConfigurationPropertiesArgs']:
         """
         Contains configuration information about an identity source.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: pulumi.Input['IdentitySourceConfigurationArgs']):
+    def configuration(self, value: pulumi.Input['IdentitySourceConfigurationPropertiesArgs']):
         pulumi.set(self, "configuration", value)
 
     @property
@@ -73,7 +73,7 @@ class IdentitySource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['IdentitySourceConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['IdentitySourceConfigurationPropertiesArgs']]] = None,
                  policy_store_id: Optional[pulumi.Input[str]] = None,
                  principal_entity_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -94,7 +94,7 @@ class IdentitySource(pulumi.CustomResource):
         principal_entity_type = config.require("principalEntityType")
         identity_source = aws_native.verifiedpermissions.IdentitySource("identitySource",
             policy_store_id=policy_store_id,
-            configuration=aws_native.verifiedpermissions.IdentitySourceConfigurationArgs(
+            configuration=aws_native.verifiedpermissions.IdentitySourceConfigurationPropertiesArgs(
                 cognito_user_pool_configuration=aws_native.verifiedpermissions.IdentitySourceCognitoUserPoolConfigurationArgs(
                     user_pool_arn=user_pool_arn,
                     client_ids=client_ids,
@@ -107,7 +107,7 @@ class IdentitySource(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['IdentitySourceConfigurationArgs']] configuration: Contains configuration information about an identity source.
+        :param pulumi.Input[pulumi.InputType['IdentitySourceConfigurationPropertiesArgs']] configuration: Contains configuration information about an identity source.
         :param pulumi.Input[str] policy_store_id: Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
         :param pulumi.Input[str] principal_entity_type: Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
         """
@@ -134,7 +134,7 @@ class IdentitySource(pulumi.CustomResource):
         principal_entity_type = config.require("principalEntityType")
         identity_source = aws_native.verifiedpermissions.IdentitySource("identitySource",
             policy_store_id=policy_store_id,
-            configuration=aws_native.verifiedpermissions.IdentitySourceConfigurationArgs(
+            configuration=aws_native.verifiedpermissions.IdentitySourceConfigurationPropertiesArgs(
                 cognito_user_pool_configuration=aws_native.verifiedpermissions.IdentitySourceCognitoUserPoolConfigurationArgs(
                     user_pool_arn=user_pool_arn,
                     client_ids=client_ids,
@@ -160,7 +160,7 @@ class IdentitySource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['IdentitySourceConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['IdentitySourceConfigurationPropertiesArgs']]] = None,
                  policy_store_id: Optional[pulumi.Input[str]] = None,
                  principal_entity_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -214,7 +214,7 @@ class IdentitySource(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def configuration(self) -> pulumi.Output['outputs.IdentitySourceConfiguration']:
+    def configuration(self) -> pulumi.Output['outputs.IdentitySourceConfigurationProperties']:
         """
         Contains configuration information about an identity source.
         """

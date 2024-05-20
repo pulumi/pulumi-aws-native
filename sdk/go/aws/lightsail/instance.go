@@ -33,6 +33,8 @@ type Instance struct {
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
 	// The names to use for your new Lightsail instance.
 	InstanceName pulumi.StringOutput `pulumi:"instanceName"`
+	// IPv6 addresses of the instance
+	Ipv6Addresses pulumi.StringArrayOutput `pulumi:"ipv6Addresses"`
 	// Is the IP Address of the Instance is the static IP
 	IsStaticIp pulumi.BoolOutput `pulumi:"isStaticIp"`
 	// The name of your key pair.
@@ -256,6 +258,11 @@ func (o InstanceOutput) InstanceArn() pulumi.StringOutput {
 // The names to use for your new Lightsail instance.
 func (o InstanceOutput) InstanceName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.InstanceName }).(pulumi.StringOutput)
+}
+
+// IPv6 addresses of the instance
+func (o InstanceOutput) Ipv6Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Instance) pulumi.StringArrayOutput { return v.Ipv6Addresses }).(pulumi.StringArrayOutput)
 }
 
 // Is the IP Address of the Instance is the static IP

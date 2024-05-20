@@ -14,7 +14,7 @@ from ._enums import *
 __all__ = [
     'IdentitySourceCognitoGroupConfiguration',
     'IdentitySourceCognitoUserPoolConfiguration',
-    'IdentitySourceConfiguration',
+    'IdentitySourceConfigurationProperties',
     'IdentitySourceDetails',
     'PolicyDefinition0Properties',
     'PolicyDefinition1Properties',
@@ -46,17 +46,11 @@ class IdentitySourceCognitoGroupConfiguration(dict):
 
     def __init__(__self__, *,
                  group_entity_type: str):
-        """
-        :param str group_entity_type: The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup` .
-        """
         pulumi.set(__self__, "group_entity_type", group_entity_type)
 
     @property
     @pulumi.getter(name="groupEntityType")
     def group_entity_type(self) -> str:
-        """
-        The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup` .
-        """
         return pulumi.get(self, "group_entity_type")
 
 
@@ -87,13 +81,6 @@ class IdentitySourceCognitoUserPoolConfiguration(dict):
                  user_pool_arn: str,
                  client_ids: Optional[Sequence[str]] = None,
                  group_configuration: Optional['outputs.IdentitySourceCognitoGroupConfiguration'] = None):
-        """
-        :param str user_pool_arn: The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the Amazon Cognito user pool that contains the identities to be authorized.
-        :param Sequence[str] client_ids: The unique application client IDs that are associated with the specified Amazon Cognito user pool.
-               
-               Example: `"ClientIds": ["&ExampleCogClientId;"]`
-        :param 'IdentitySourceCognitoGroupConfiguration' group_configuration: The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source.
-        """
         pulumi.set(__self__, "user_pool_arn", user_pool_arn)
         if client_ids is not None:
             pulumi.set(__self__, "client_ids", client_ids)
@@ -103,32 +90,21 @@ class IdentitySourceCognitoUserPoolConfiguration(dict):
     @property
     @pulumi.getter(name="userPoolArn")
     def user_pool_arn(self) -> str:
-        """
-        The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the Amazon Cognito user pool that contains the identities to be authorized.
-        """
         return pulumi.get(self, "user_pool_arn")
 
     @property
     @pulumi.getter(name="clientIds")
     def client_ids(self) -> Optional[Sequence[str]]:
-        """
-        The unique application client IDs that are associated with the specified Amazon Cognito user pool.
-
-        Example: `"ClientIds": ["&ExampleCogClientId;"]`
-        """
         return pulumi.get(self, "client_ids")
 
     @property
     @pulumi.getter(name="groupConfiguration")
     def group_configuration(self) -> Optional['outputs.IdentitySourceCognitoGroupConfiguration']:
-        """
-        The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source.
-        """
         return pulumi.get(self, "group_configuration")
 
 
 @pulumi.output_type
-class IdentitySourceConfiguration(dict):
+class IdentitySourceConfigurationProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -136,29 +112,23 @@ class IdentitySourceConfiguration(dict):
             suggest = "cognito_user_pool_configuration"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in IdentitySourceConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        IdentitySourceConfiguration.__key_warning(key)
+        IdentitySourceConfigurationProperties.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        IdentitySourceConfiguration.__key_warning(key)
+        IdentitySourceConfigurationProperties.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  cognito_user_pool_configuration: 'outputs.IdentitySourceCognitoUserPoolConfiguration'):
-        """
-        :param 'IdentitySourceCognitoUserPoolConfiguration' cognito_user_pool_configuration: A structure that contains configuration information used when creating or updating an identity source that represents a connection to an Amazon Cognito user pool used as an identity provider for Verified Permissions .
-        """
         pulumi.set(__self__, "cognito_user_pool_configuration", cognito_user_pool_configuration)
 
     @property
     @pulumi.getter(name="cognitoUserPoolConfiguration")
     def cognito_user_pool_configuration(self) -> 'outputs.IdentitySourceCognitoUserPoolConfiguration':
-        """
-        A structure that contains configuration information used when creating or updating an identity source that represents a connection to an Amazon Cognito user pool used as an identity provider for Verified Permissions .
-        """
         return pulumi.get(self, "cognito_user_pool_configuration")
 
 

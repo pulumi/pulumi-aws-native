@@ -15,11 +15,31 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class DomainDefaultSpaceSettingsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("customFileSystemConfigs")]
+        private InputList<Inputs.DomainCustomFileSystemConfigArgs>? _customFileSystemConfigs;
+        public InputList<Inputs.DomainCustomFileSystemConfigArgs> CustomFileSystemConfigs
+        {
+            get => _customFileSystemConfigs ?? (_customFileSystemConfigs = new InputList<Inputs.DomainCustomFileSystemConfigArgs>());
+            set => _customFileSystemConfigs = value;
+        }
+
+        /// <summary>
+        /// The Jupyter lab's custom posix user configurations.
+        /// </summary>
+        [Input("customPosixUserConfig")]
+        public Input<Inputs.DomainCustomPosixUserConfigArgs>? CustomPosixUserConfig { get; set; }
+
         /// <summary>
         /// The execution role for the space.
         /// </summary>
         [Input("executionRole", required: true)]
         public Input<string> ExecutionRole { get; set; } = null!;
+
+        /// <summary>
+        /// The Jupyter lab's app settings.
+        /// </summary>
+        [Input("jupyterLabAppSettings")]
+        public Input<Inputs.DomainJupyterLabAppSettingsArgs>? JupyterLabAppSettings { get; set; }
 
         /// <summary>
         /// The Jupyter server's app settings.
@@ -44,6 +64,12 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
             set => _securityGroups = value;
         }
+
+        /// <summary>
+        /// The Jupyter lab's space storage settings.
+        /// </summary>
+        [Input("spaceStorageSettings")]
+        public Input<Inputs.DomainDefaultSpaceStorageSettingsArgs>? SpaceStorageSettings { get; set; }
 
         public DomainDefaultSpaceSettingsArgs()
         {

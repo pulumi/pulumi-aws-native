@@ -10,6 +10,7 @@ __all__ = [
     'ChannelPlaybackMode',
     'ChannelTier',
     'LiveSourceType',
+    'PlaybackConfigurationAvailSuppressionFillPolicy',
     'PlaybackConfigurationAvailSuppressionMode',
     'PlaybackConfigurationDashConfigurationOriginManifestType',
     'SourceLocationAccessType',
@@ -41,12 +42,21 @@ class LiveSourceType(str, Enum):
     HLS = "HLS"
 
 
+class PlaybackConfigurationAvailSuppressionFillPolicy(str, Enum):
+    """
+    Defines the policy to apply to the avail suppression mode. BEHIND_LIVE_EDGE will always use the full avail suppression policy. AFTER_LIVE_EDGE mode can be used to invoke partial ad break fills when a session starts mid-break. Valid values are FULL_AVAIL_ONLY and PARTIAL_AVAIL
+    """
+    PARTIAL_AVAIL = "PARTIAL_AVAIL"
+    FULL_AVAIL_ONLY = "FULL_AVAIL_ONLY"
+
+
 class PlaybackConfigurationAvailSuppressionMode(str, Enum):
     """
-    Sets the ad suppression mode. By default, ad suppression is set to OFF and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window.
+    Sets the ad suppression mode. By default, ad suppression is off and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window. When Mode is set to AFTER_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks that are within the live edge plus the avail suppression value.
     """
     OFF = "OFF"
     BEHIND_LIVE_EDGE = "BEHIND_LIVE_EDGE"
+    AFTER_LIVE_EDGE = "AFTER_LIVE_EDGE"
 
 
 class PlaybackConfigurationDashConfigurationOriginManifestType(str, Enum):

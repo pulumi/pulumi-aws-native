@@ -68,6 +68,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly instanceName!: pulumi.Output<string>;
     /**
+     * IPv6 addresses of the instance
+     */
+    public /*out*/ readonly ipv6Addresses!: pulumi.Output<string[]>;
+    /**
      * Is the IP Address of the Instance is the static IP
      */
     public /*out*/ readonly isStaticIp!: pulumi.Output<boolean>;
@@ -154,6 +158,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userData"] = args ? args.userData : undefined;
             resourceInputs["instanceArn"] = undefined /*out*/;
+            resourceInputs["ipv6Addresses"] = undefined /*out*/;
             resourceInputs["isStaticIp"] = undefined /*out*/;
             resourceInputs["privateIpAddress"] = undefined /*out*/;
             resourceInputs["publicIpAddress"] = undefined /*out*/;
@@ -169,6 +174,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["hardware"] = undefined /*out*/;
             resourceInputs["instanceArn"] = undefined /*out*/;
             resourceInputs["instanceName"] = undefined /*out*/;
+            resourceInputs["ipv6Addresses"] = undefined /*out*/;
             resourceInputs["isStaticIp"] = undefined /*out*/;
             resourceInputs["keyPairName"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

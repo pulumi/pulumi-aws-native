@@ -72,7 +72,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         /// <summary>
         /// Contains configuration information about an identity source.
         /// </summary>
-        public readonly Outputs.IdentitySourceConfiguration? Configuration;
+        public readonly Outputs.IdentitySourceConfigurationProperties? Configuration;
         public readonly Outputs.IdentitySourceDetails? Details;
         /// <summary>
         /// The unique ID of the new or updated identity store.
@@ -85,7 +85,7 @@ namespace Pulumi.AwsNative.VerifiedPermissions
 
         [OutputConstructor]
         private GetIdentitySourceResult(
-            Outputs.IdentitySourceConfiguration? configuration,
+            Outputs.IdentitySourceConfigurationProperties? configuration,
 
             Outputs.IdentitySourceDetails? details,
 

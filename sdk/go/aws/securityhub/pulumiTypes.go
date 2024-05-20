@@ -6105,6 +6105,378 @@ func (o InsightStringFilterArrayOutput) Index(i pulumi.IntInput) InsightStringFi
 	}).(InsightStringFilterOutput)
 }
 
+type SecurityControlParameterConfiguration struct {
+	Value     *SecurityControlParameterValue                 `pulumi:"value"`
+	ValueType SecurityControlParameterConfigurationValueType `pulumi:"valueType"`
+}
+
+// SecurityControlParameterConfigurationInput is an input type that accepts SecurityControlParameterConfigurationArgs and SecurityControlParameterConfigurationOutput values.
+// You can construct a concrete instance of `SecurityControlParameterConfigurationInput` via:
+//
+//	SecurityControlParameterConfigurationArgs{...}
+type SecurityControlParameterConfigurationInput interface {
+	pulumi.Input
+
+	ToSecurityControlParameterConfigurationOutput() SecurityControlParameterConfigurationOutput
+	ToSecurityControlParameterConfigurationOutputWithContext(context.Context) SecurityControlParameterConfigurationOutput
+}
+
+type SecurityControlParameterConfigurationArgs struct {
+	Value     SecurityControlParameterValuePtrInput               `pulumi:"value"`
+	ValueType SecurityControlParameterConfigurationValueTypeInput `pulumi:"valueType"`
+}
+
+func (SecurityControlParameterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityControlParameterConfiguration)(nil)).Elem()
+}
+
+func (i SecurityControlParameterConfigurationArgs) ToSecurityControlParameterConfigurationOutput() SecurityControlParameterConfigurationOutput {
+	return i.ToSecurityControlParameterConfigurationOutputWithContext(context.Background())
+}
+
+func (i SecurityControlParameterConfigurationArgs) ToSecurityControlParameterConfigurationOutputWithContext(ctx context.Context) SecurityControlParameterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityControlParameterConfigurationOutput)
+}
+
+// SecurityControlParameterConfigurationMapInput is an input type that accepts SecurityControlParameterConfigurationMap and SecurityControlParameterConfigurationMapOutput values.
+// You can construct a concrete instance of `SecurityControlParameterConfigurationMapInput` via:
+//
+//	SecurityControlParameterConfigurationMap{ "key": SecurityControlParameterConfigurationArgs{...} }
+type SecurityControlParameterConfigurationMapInput interface {
+	pulumi.Input
+
+	ToSecurityControlParameterConfigurationMapOutput() SecurityControlParameterConfigurationMapOutput
+	ToSecurityControlParameterConfigurationMapOutputWithContext(context.Context) SecurityControlParameterConfigurationMapOutput
+}
+
+type SecurityControlParameterConfigurationMap map[string]SecurityControlParameterConfigurationInput
+
+func (SecurityControlParameterConfigurationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SecurityControlParameterConfiguration)(nil)).Elem()
+}
+
+func (i SecurityControlParameterConfigurationMap) ToSecurityControlParameterConfigurationMapOutput() SecurityControlParameterConfigurationMapOutput {
+	return i.ToSecurityControlParameterConfigurationMapOutputWithContext(context.Background())
+}
+
+func (i SecurityControlParameterConfigurationMap) ToSecurityControlParameterConfigurationMapOutputWithContext(ctx context.Context) SecurityControlParameterConfigurationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityControlParameterConfigurationMapOutput)
+}
+
+type SecurityControlParameterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (SecurityControlParameterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityControlParameterConfiguration)(nil)).Elem()
+}
+
+func (o SecurityControlParameterConfigurationOutput) ToSecurityControlParameterConfigurationOutput() SecurityControlParameterConfigurationOutput {
+	return o
+}
+
+func (o SecurityControlParameterConfigurationOutput) ToSecurityControlParameterConfigurationOutputWithContext(ctx context.Context) SecurityControlParameterConfigurationOutput {
+	return o
+}
+
+func (o SecurityControlParameterConfigurationOutput) Value() SecurityControlParameterValuePtrOutput {
+	return o.ApplyT(func(v SecurityControlParameterConfiguration) *SecurityControlParameterValue { return v.Value }).(SecurityControlParameterValuePtrOutput)
+}
+
+func (o SecurityControlParameterConfigurationOutput) ValueType() SecurityControlParameterConfigurationValueTypeOutput {
+	return o.ApplyT(func(v SecurityControlParameterConfiguration) SecurityControlParameterConfigurationValueType {
+		return v.ValueType
+	}).(SecurityControlParameterConfigurationValueTypeOutput)
+}
+
+type SecurityControlParameterConfigurationMapOutput struct{ *pulumi.OutputState }
+
+func (SecurityControlParameterConfigurationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SecurityControlParameterConfiguration)(nil)).Elem()
+}
+
+func (o SecurityControlParameterConfigurationMapOutput) ToSecurityControlParameterConfigurationMapOutput() SecurityControlParameterConfigurationMapOutput {
+	return o
+}
+
+func (o SecurityControlParameterConfigurationMapOutput) ToSecurityControlParameterConfigurationMapOutputWithContext(ctx context.Context) SecurityControlParameterConfigurationMapOutput {
+	return o
+}
+
+func (o SecurityControlParameterConfigurationMapOutput) MapIndex(k pulumi.StringInput) SecurityControlParameterConfigurationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SecurityControlParameterConfiguration {
+		return vs[0].(map[string]SecurityControlParameterConfiguration)[vs[1].(string)]
+	}).(SecurityControlParameterConfigurationOutput)
+}
+
+type SecurityControlParameterValue struct {
+	// A control parameter that is a boolean.
+	Boolean *bool `pulumi:"boolean"`
+	// A control parameter that is a double.
+	Double *float64 `pulumi:"double"`
+	// A control parameter that is a enum.
+	Enum *string `pulumi:"enum"`
+	// A control parameter that is a list of enums.
+	EnumList []string `pulumi:"enumList"`
+	// A control parameter that is a integer.
+	Integer *int `pulumi:"integer"`
+	// A control parameter that is a list of integers.
+	IntegerList []int `pulumi:"integerList"`
+	// A control parameter that is a string.
+	String *string `pulumi:"string"`
+	// A control parameter that is a list of strings.
+	StringList []string `pulumi:"stringList"`
+}
+
+// SecurityControlParameterValueInput is an input type that accepts SecurityControlParameterValueArgs and SecurityControlParameterValueOutput values.
+// You can construct a concrete instance of `SecurityControlParameterValueInput` via:
+//
+//	SecurityControlParameterValueArgs{...}
+type SecurityControlParameterValueInput interface {
+	pulumi.Input
+
+	ToSecurityControlParameterValueOutput() SecurityControlParameterValueOutput
+	ToSecurityControlParameterValueOutputWithContext(context.Context) SecurityControlParameterValueOutput
+}
+
+type SecurityControlParameterValueArgs struct {
+	// A control parameter that is a boolean.
+	Boolean pulumi.BoolPtrInput `pulumi:"boolean"`
+	// A control parameter that is a double.
+	Double pulumi.Float64PtrInput `pulumi:"double"`
+	// A control parameter that is a enum.
+	Enum pulumi.StringPtrInput `pulumi:"enum"`
+	// A control parameter that is a list of enums.
+	EnumList pulumi.StringArrayInput `pulumi:"enumList"`
+	// A control parameter that is a integer.
+	Integer pulumi.IntPtrInput `pulumi:"integer"`
+	// A control parameter that is a list of integers.
+	IntegerList pulumi.IntArrayInput `pulumi:"integerList"`
+	// A control parameter that is a string.
+	String pulumi.StringPtrInput `pulumi:"string"`
+	// A control parameter that is a list of strings.
+	StringList pulumi.StringArrayInput `pulumi:"stringList"`
+}
+
+func (SecurityControlParameterValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityControlParameterValue)(nil)).Elem()
+}
+
+func (i SecurityControlParameterValueArgs) ToSecurityControlParameterValueOutput() SecurityControlParameterValueOutput {
+	return i.ToSecurityControlParameterValueOutputWithContext(context.Background())
+}
+
+func (i SecurityControlParameterValueArgs) ToSecurityControlParameterValueOutputWithContext(ctx context.Context) SecurityControlParameterValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityControlParameterValueOutput)
+}
+
+func (i SecurityControlParameterValueArgs) ToSecurityControlParameterValuePtrOutput() SecurityControlParameterValuePtrOutput {
+	return i.ToSecurityControlParameterValuePtrOutputWithContext(context.Background())
+}
+
+func (i SecurityControlParameterValueArgs) ToSecurityControlParameterValuePtrOutputWithContext(ctx context.Context) SecurityControlParameterValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityControlParameterValueOutput).ToSecurityControlParameterValuePtrOutputWithContext(ctx)
+}
+
+// SecurityControlParameterValuePtrInput is an input type that accepts SecurityControlParameterValueArgs, SecurityControlParameterValuePtr and SecurityControlParameterValuePtrOutput values.
+// You can construct a concrete instance of `SecurityControlParameterValuePtrInput` via:
+//
+//	        SecurityControlParameterValueArgs{...}
+//
+//	or:
+//
+//	        nil
+type SecurityControlParameterValuePtrInput interface {
+	pulumi.Input
+
+	ToSecurityControlParameterValuePtrOutput() SecurityControlParameterValuePtrOutput
+	ToSecurityControlParameterValuePtrOutputWithContext(context.Context) SecurityControlParameterValuePtrOutput
+}
+
+type securityControlParameterValuePtrType SecurityControlParameterValueArgs
+
+func SecurityControlParameterValuePtr(v *SecurityControlParameterValueArgs) SecurityControlParameterValuePtrInput {
+	return (*securityControlParameterValuePtrType)(v)
+}
+
+func (*securityControlParameterValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityControlParameterValue)(nil)).Elem()
+}
+
+func (i *securityControlParameterValuePtrType) ToSecurityControlParameterValuePtrOutput() SecurityControlParameterValuePtrOutput {
+	return i.ToSecurityControlParameterValuePtrOutputWithContext(context.Background())
+}
+
+func (i *securityControlParameterValuePtrType) ToSecurityControlParameterValuePtrOutputWithContext(ctx context.Context) SecurityControlParameterValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityControlParameterValuePtrOutput)
+}
+
+type SecurityControlParameterValueOutput struct{ *pulumi.OutputState }
+
+func (SecurityControlParameterValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityControlParameterValue)(nil)).Elem()
+}
+
+func (o SecurityControlParameterValueOutput) ToSecurityControlParameterValueOutput() SecurityControlParameterValueOutput {
+	return o
+}
+
+func (o SecurityControlParameterValueOutput) ToSecurityControlParameterValueOutputWithContext(ctx context.Context) SecurityControlParameterValueOutput {
+	return o
+}
+
+func (o SecurityControlParameterValueOutput) ToSecurityControlParameterValuePtrOutput() SecurityControlParameterValuePtrOutput {
+	return o.ToSecurityControlParameterValuePtrOutputWithContext(context.Background())
+}
+
+func (o SecurityControlParameterValueOutput) ToSecurityControlParameterValuePtrOutputWithContext(ctx context.Context) SecurityControlParameterValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityControlParameterValue) *SecurityControlParameterValue {
+		return &v
+	}).(SecurityControlParameterValuePtrOutput)
+}
+
+// A control parameter that is a boolean.
+func (o SecurityControlParameterValueOutput) Boolean() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecurityControlParameterValue) *bool { return v.Boolean }).(pulumi.BoolPtrOutput)
+}
+
+// A control parameter that is a double.
+func (o SecurityControlParameterValueOutput) Double() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SecurityControlParameterValue) *float64 { return v.Double }).(pulumi.Float64PtrOutput)
+}
+
+// A control parameter that is a enum.
+func (o SecurityControlParameterValueOutput) Enum() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityControlParameterValue) *string { return v.Enum }).(pulumi.StringPtrOutput)
+}
+
+// A control parameter that is a list of enums.
+func (o SecurityControlParameterValueOutput) EnumList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityControlParameterValue) []string { return v.EnumList }).(pulumi.StringArrayOutput)
+}
+
+// A control parameter that is a integer.
+func (o SecurityControlParameterValueOutput) Integer() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SecurityControlParameterValue) *int { return v.Integer }).(pulumi.IntPtrOutput)
+}
+
+// A control parameter that is a list of integers.
+func (o SecurityControlParameterValueOutput) IntegerList() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v SecurityControlParameterValue) []int { return v.IntegerList }).(pulumi.IntArrayOutput)
+}
+
+// A control parameter that is a string.
+func (o SecurityControlParameterValueOutput) String() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityControlParameterValue) *string { return v.String }).(pulumi.StringPtrOutput)
+}
+
+// A control parameter that is a list of strings.
+func (o SecurityControlParameterValueOutput) StringList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityControlParameterValue) []string { return v.StringList }).(pulumi.StringArrayOutput)
+}
+
+type SecurityControlParameterValuePtrOutput struct{ *pulumi.OutputState }
+
+func (SecurityControlParameterValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecurityControlParameterValue)(nil)).Elem()
+}
+
+func (o SecurityControlParameterValuePtrOutput) ToSecurityControlParameterValuePtrOutput() SecurityControlParameterValuePtrOutput {
+	return o
+}
+
+func (o SecurityControlParameterValuePtrOutput) ToSecurityControlParameterValuePtrOutputWithContext(ctx context.Context) SecurityControlParameterValuePtrOutput {
+	return o
+}
+
+func (o SecurityControlParameterValuePtrOutput) Elem() SecurityControlParameterValueOutput {
+	return o.ApplyT(func(v *SecurityControlParameterValue) SecurityControlParameterValue {
+		if v != nil {
+			return *v
+		}
+		var ret SecurityControlParameterValue
+		return ret
+	}).(SecurityControlParameterValueOutput)
+}
+
+// A control parameter that is a boolean.
+func (o SecurityControlParameterValuePtrOutput) Boolean() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecurityControlParameterValue) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Boolean
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A control parameter that is a double.
+func (o SecurityControlParameterValuePtrOutput) Double() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SecurityControlParameterValue) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Double
+	}).(pulumi.Float64PtrOutput)
+}
+
+// A control parameter that is a enum.
+func (o SecurityControlParameterValuePtrOutput) Enum() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityControlParameterValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Enum
+	}).(pulumi.StringPtrOutput)
+}
+
+// A control parameter that is a list of enums.
+func (o SecurityControlParameterValuePtrOutput) EnumList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityControlParameterValue) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EnumList
+	}).(pulumi.StringArrayOutput)
+}
+
+// A control parameter that is a integer.
+func (o SecurityControlParameterValuePtrOutput) Integer() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SecurityControlParameterValue) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Integer
+	}).(pulumi.IntPtrOutput)
+}
+
+// A control parameter that is a list of integers.
+func (o SecurityControlParameterValuePtrOutput) IntegerList() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *SecurityControlParameterValue) []int {
+		if v == nil {
+			return nil
+		}
+		return v.IntegerList
+	}).(pulumi.IntArrayOutput)
+}
+
+// A control parameter that is a string.
+func (o SecurityControlParameterValuePtrOutput) String() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SecurityControlParameterValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.String
+	}).(pulumi.StringPtrOutput)
+}
+
+// A control parameter that is a list of strings.
+func (o SecurityControlParameterValuePtrOutput) StringList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SecurityControlParameterValue) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StringList
+	}).(pulumi.StringArrayOutput)
+}
+
 // Provides details about an individual security control. For a list of ASH controls, see [controls reference](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-controls-reference.html) in the *User Guide*.
 type StandardsControl struct {
 	// A user-defined reason for changing a control's enablement status in a specified standard. If you are disabling a control, then this property is required.
@@ -6255,6 +6627,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightNumberFilterArrayInput)(nil)).Elem(), InsightNumberFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightStringFilterInput)(nil)).Elem(), InsightStringFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightStringFilterArrayInput)(nil)).Elem(), InsightStringFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityControlParameterConfigurationInput)(nil)).Elem(), SecurityControlParameterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityControlParameterConfigurationMapInput)(nil)).Elem(), SecurityControlParameterConfigurationMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityControlParameterValueInput)(nil)).Elem(), SecurityControlParameterValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityControlParameterValuePtrInput)(nil)).Elem(), SecurityControlParameterValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StandardsControlInput)(nil)).Elem(), StandardsControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StandardsControlArrayInput)(nil)).Elem(), StandardsControlArray{})
 	pulumi.RegisterOutputType(AutomationRuleDateFilterOutput{})
@@ -6298,6 +6674,10 @@ func init() {
 	pulumi.RegisterOutputType(InsightNumberFilterArrayOutput{})
 	pulumi.RegisterOutputType(InsightStringFilterOutput{})
 	pulumi.RegisterOutputType(InsightStringFilterArrayOutput{})
+	pulumi.RegisterOutputType(SecurityControlParameterConfigurationOutput{})
+	pulumi.RegisterOutputType(SecurityControlParameterConfigurationMapOutput{})
+	pulumi.RegisterOutputType(SecurityControlParameterValueOutput{})
+	pulumi.RegisterOutputType(SecurityControlParameterValuePtrOutput{})
 	pulumi.RegisterOutputType(StandardsControlOutput{})
 	pulumi.RegisterOutputType(StandardsControlArrayOutput{})
 }

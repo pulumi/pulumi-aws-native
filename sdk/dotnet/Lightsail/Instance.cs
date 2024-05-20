@@ -60,6 +60,12 @@ namespace Pulumi.AwsNative.Lightsail
         public Output<string> InstanceName { get; private set; } = null!;
 
         /// <summary>
+        /// IPv6 addresses of the instance
+        /// </summary>
+        [Output("ipv6Addresses")]
+        public Output<ImmutableArray<string>> Ipv6Addresses { get; private set; } = null!;
+
+        /// <summary>
         /// Is the IP Address of the Instance is the static IP
         /// </summary>
         [Output("isStaticIp")]

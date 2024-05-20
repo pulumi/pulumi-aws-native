@@ -13,19 +13,8 @@ namespace Pulumi.AwsNative.VerifiedPermissions.Outputs
     [OutputType]
     public sealed class IdentitySourceCognitoUserPoolConfiguration
     {
-        /// <summary>
-        /// The unique application client IDs that are associated with the specified Amazon Cognito user pool.
-        /// 
-        /// Example: `"ClientIds": ["&amp;ExampleCogClientId;"]`
-        /// </summary>
         public readonly ImmutableArray<string> ClientIds;
-        /// <summary>
-        /// The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source.
-        /// </summary>
         public readonly Outputs.IdentitySourceCognitoGroupConfiguration? GroupConfiguration;
-        /// <summary>
-        /// The [Amazon Resource Name (ARN)](https://docs.aws.amazon.com//general/latest/gr/aws-arns-and-namespaces.html) of the Amazon Cognito user pool that contains the identities to be authorized.
-        /// </summary>
         public readonly string UserPoolArn;
 
         [OutputConstructor]

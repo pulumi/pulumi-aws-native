@@ -923,12 +923,179 @@ func (in *liveSourceTypePtr) ToLiveSourceTypePtrOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, in).(LiveSourceTypePtrOutput)
 }
 
-// Sets the ad suppression mode. By default, ad suppression is set to OFF and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window.
+// Defines the policy to apply to the avail suppression mode. BEHIND_LIVE_EDGE will always use the full avail suppression policy. AFTER_LIVE_EDGE mode can be used to invoke partial ad break fills when a session starts mid-break. Valid values are FULL_AVAIL_ONLY and PARTIAL_AVAIL
+type PlaybackConfigurationAvailSuppressionFillPolicy string
+
+const (
+	PlaybackConfigurationAvailSuppressionFillPolicyPartialAvail  = PlaybackConfigurationAvailSuppressionFillPolicy("PARTIAL_AVAIL")
+	PlaybackConfigurationAvailSuppressionFillPolicyFullAvailOnly = PlaybackConfigurationAvailSuppressionFillPolicy("FULL_AVAIL_ONLY")
+)
+
+func (PlaybackConfigurationAvailSuppressionFillPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationAvailSuppressionFillPolicy)(nil)).Elem()
+}
+
+func (e PlaybackConfigurationAvailSuppressionFillPolicy) ToPlaybackConfigurationAvailSuppressionFillPolicyOutput() PlaybackConfigurationAvailSuppressionFillPolicyOutput {
+	return pulumi.ToOutput(e).(PlaybackConfigurationAvailSuppressionFillPolicyOutput)
+}
+
+func (e PlaybackConfigurationAvailSuppressionFillPolicy) ToPlaybackConfigurationAvailSuppressionFillPolicyOutputWithContext(ctx context.Context) PlaybackConfigurationAvailSuppressionFillPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PlaybackConfigurationAvailSuppressionFillPolicyOutput)
+}
+
+func (e PlaybackConfigurationAvailSuppressionFillPolicy) ToPlaybackConfigurationAvailSuppressionFillPolicyPtrOutput() PlaybackConfigurationAvailSuppressionFillPolicyPtrOutput {
+	return e.ToPlaybackConfigurationAvailSuppressionFillPolicyPtrOutputWithContext(context.Background())
+}
+
+func (e PlaybackConfigurationAvailSuppressionFillPolicy) ToPlaybackConfigurationAvailSuppressionFillPolicyPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAvailSuppressionFillPolicyPtrOutput {
+	return PlaybackConfigurationAvailSuppressionFillPolicy(e).ToPlaybackConfigurationAvailSuppressionFillPolicyOutputWithContext(ctx).ToPlaybackConfigurationAvailSuppressionFillPolicyPtrOutputWithContext(ctx)
+}
+
+func (e PlaybackConfigurationAvailSuppressionFillPolicy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlaybackConfigurationAvailSuppressionFillPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlaybackConfigurationAvailSuppressionFillPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PlaybackConfigurationAvailSuppressionFillPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PlaybackConfigurationAvailSuppressionFillPolicyOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationAvailSuppressionFillPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationAvailSuppressionFillPolicy)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationAvailSuppressionFillPolicyOutput) ToPlaybackConfigurationAvailSuppressionFillPolicyOutput() PlaybackConfigurationAvailSuppressionFillPolicyOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAvailSuppressionFillPolicyOutput) ToPlaybackConfigurationAvailSuppressionFillPolicyOutputWithContext(ctx context.Context) PlaybackConfigurationAvailSuppressionFillPolicyOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAvailSuppressionFillPolicyOutput) ToPlaybackConfigurationAvailSuppressionFillPolicyPtrOutput() PlaybackConfigurationAvailSuppressionFillPolicyPtrOutput {
+	return o.ToPlaybackConfigurationAvailSuppressionFillPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationAvailSuppressionFillPolicyOutput) ToPlaybackConfigurationAvailSuppressionFillPolicyPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAvailSuppressionFillPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationAvailSuppressionFillPolicy) *PlaybackConfigurationAvailSuppressionFillPolicy {
+		return &v
+	}).(PlaybackConfigurationAvailSuppressionFillPolicyPtrOutput)
+}
+
+func (o PlaybackConfigurationAvailSuppressionFillPolicyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationAvailSuppressionFillPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlaybackConfigurationAvailSuppressionFillPolicy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PlaybackConfigurationAvailSuppressionFillPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationAvailSuppressionFillPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlaybackConfigurationAvailSuppressionFillPolicy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PlaybackConfigurationAvailSuppressionFillPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationAvailSuppressionFillPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationAvailSuppressionFillPolicy)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationAvailSuppressionFillPolicyPtrOutput) ToPlaybackConfigurationAvailSuppressionFillPolicyPtrOutput() PlaybackConfigurationAvailSuppressionFillPolicyPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAvailSuppressionFillPolicyPtrOutput) ToPlaybackConfigurationAvailSuppressionFillPolicyPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAvailSuppressionFillPolicyPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationAvailSuppressionFillPolicyPtrOutput) Elem() PlaybackConfigurationAvailSuppressionFillPolicyOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationAvailSuppressionFillPolicy) PlaybackConfigurationAvailSuppressionFillPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret PlaybackConfigurationAvailSuppressionFillPolicy
+		return ret
+	}).(PlaybackConfigurationAvailSuppressionFillPolicyOutput)
+}
+
+func (o PlaybackConfigurationAvailSuppressionFillPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationAvailSuppressionFillPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PlaybackConfigurationAvailSuppressionFillPolicy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PlaybackConfigurationAvailSuppressionFillPolicyInput is an input type that accepts values of the PlaybackConfigurationAvailSuppressionFillPolicy enum
+// A concrete instance of `PlaybackConfigurationAvailSuppressionFillPolicyInput` can be one of the following:
+//
+//	PlaybackConfigurationAvailSuppressionFillPolicyPartialAvail
+//	PlaybackConfigurationAvailSuppressionFillPolicyFullAvailOnly
+type PlaybackConfigurationAvailSuppressionFillPolicyInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationAvailSuppressionFillPolicyOutput() PlaybackConfigurationAvailSuppressionFillPolicyOutput
+	ToPlaybackConfigurationAvailSuppressionFillPolicyOutputWithContext(context.Context) PlaybackConfigurationAvailSuppressionFillPolicyOutput
+}
+
+var playbackConfigurationAvailSuppressionFillPolicyPtrType = reflect.TypeOf((**PlaybackConfigurationAvailSuppressionFillPolicy)(nil)).Elem()
+
+type PlaybackConfigurationAvailSuppressionFillPolicyPtrInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationAvailSuppressionFillPolicyPtrOutput() PlaybackConfigurationAvailSuppressionFillPolicyPtrOutput
+	ToPlaybackConfigurationAvailSuppressionFillPolicyPtrOutputWithContext(context.Context) PlaybackConfigurationAvailSuppressionFillPolicyPtrOutput
+}
+
+type playbackConfigurationAvailSuppressionFillPolicyPtr string
+
+func PlaybackConfigurationAvailSuppressionFillPolicyPtr(v string) PlaybackConfigurationAvailSuppressionFillPolicyPtrInput {
+	return (*playbackConfigurationAvailSuppressionFillPolicyPtr)(&v)
+}
+
+func (*playbackConfigurationAvailSuppressionFillPolicyPtr) ElementType() reflect.Type {
+	return playbackConfigurationAvailSuppressionFillPolicyPtrType
+}
+
+func (in *playbackConfigurationAvailSuppressionFillPolicyPtr) ToPlaybackConfigurationAvailSuppressionFillPolicyPtrOutput() PlaybackConfigurationAvailSuppressionFillPolicyPtrOutput {
+	return pulumi.ToOutput(in).(PlaybackConfigurationAvailSuppressionFillPolicyPtrOutput)
+}
+
+func (in *playbackConfigurationAvailSuppressionFillPolicyPtr) ToPlaybackConfigurationAvailSuppressionFillPolicyPtrOutputWithContext(ctx context.Context) PlaybackConfigurationAvailSuppressionFillPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PlaybackConfigurationAvailSuppressionFillPolicyPtrOutput)
+}
+
+// Sets the ad suppression mode. By default, ad suppression is off and all ad breaks are filled with ads or slate. When Mode is set to BEHIND_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window. When Mode is set to AFTER_LIVE_EDGE, ad suppression is active and MediaTailor won't fill ad breaks that are within the live edge plus the avail suppression value.
 type PlaybackConfigurationAvailSuppressionMode string
 
 const (
 	PlaybackConfigurationAvailSuppressionModeOff            = PlaybackConfigurationAvailSuppressionMode("OFF")
 	PlaybackConfigurationAvailSuppressionModeBehindLiveEdge = PlaybackConfigurationAvailSuppressionMode("BEHIND_LIVE_EDGE")
+	PlaybackConfigurationAvailSuppressionModeAfterLiveEdge  = PlaybackConfigurationAvailSuppressionMode("AFTER_LIVE_EDGE")
 )
 
 func (PlaybackConfigurationAvailSuppressionMode) ElementType() reflect.Type {
@@ -1055,6 +1222,7 @@ func (o PlaybackConfigurationAvailSuppressionModePtrOutput) ToStringPtrOutputWit
 //
 //	PlaybackConfigurationAvailSuppressionModeOff
 //	PlaybackConfigurationAvailSuppressionModeBehindLiveEdge
+//	PlaybackConfigurationAvailSuppressionModeAfterLiveEdge
 type PlaybackConfigurationAvailSuppressionModeInput interface {
 	pulumi.Input
 
@@ -1600,6 +1768,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTierPtrInput)(nil)).Elem(), ChannelTier("BASIC"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceTypeInput)(nil)).Elem(), LiveSourceType("DASH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*LiveSourceTypePtrInput)(nil)).Elem(), LiveSourceType("DASH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionFillPolicyInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionFillPolicy("PARTIAL_AVAIL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionFillPolicyPtrInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionFillPolicy("PARTIAL_AVAIL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionModeInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionMode("OFF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationAvailSuppressionModePtrInput)(nil)).Elem(), PlaybackConfigurationAvailSuppressionMode("OFF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationDashConfigurationOriginManifestTypeInput)(nil)).Elem(), PlaybackConfigurationDashConfigurationOriginManifestType("SINGLE_PERIOD"))
@@ -1620,6 +1790,8 @@ func init() {
 	pulumi.RegisterOutputType(ChannelTierPtrOutput{})
 	pulumi.RegisterOutputType(LiveSourceTypeOutput{})
 	pulumi.RegisterOutputType(LiveSourceTypePtrOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionFillPolicyOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionFillPolicyPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionModeOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationAvailSuppressionModePtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationDashConfigurationOriginManifestTypeOutput{})

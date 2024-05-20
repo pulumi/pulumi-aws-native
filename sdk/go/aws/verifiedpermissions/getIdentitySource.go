@@ -31,8 +31,8 @@ type LookupIdentitySourceArgs struct {
 
 type LookupIdentitySourceResult struct {
 	// Contains configuration information about an identity source.
-	Configuration *IdentitySourceConfiguration `pulumi:"configuration"`
-	Details       *IdentitySourceDetails       `pulumi:"details"`
+	Configuration *IdentitySourceConfigurationProperties `pulumi:"configuration"`
+	Details       *IdentitySourceDetails                 `pulumi:"details"`
 	// The unique ID of the new or updated identity store.
 	IdentitySourceId *string `pulumi:"identitySourceId"`
 	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
@@ -78,8 +78,8 @@ func (o LookupIdentitySourceResultOutput) ToLookupIdentitySourceResultOutputWith
 }
 
 // Contains configuration information about an identity source.
-func (o LookupIdentitySourceResultOutput) Configuration() IdentitySourceConfigurationPtrOutput {
-	return o.ApplyT(func(v LookupIdentitySourceResult) *IdentitySourceConfiguration { return v.Configuration }).(IdentitySourceConfigurationPtrOutput)
+func (o LookupIdentitySourceResultOutput) Configuration() IdentitySourceConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v LookupIdentitySourceResult) *IdentitySourceConfigurationProperties { return v.Configuration }).(IdentitySourceConfigurationPropertiesPtrOutput)
 }
 
 func (o LookupIdentitySourceResultOutput) Details() IdentitySourceDetailsPtrOutput {

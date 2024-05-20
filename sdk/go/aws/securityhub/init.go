@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Insight{}
 	case "aws-native:securityhub:ProductSubscription":
 		r = &ProductSubscription{}
+	case "aws-native:securityhub:SecurityControl":
+		r = &SecurityControl{}
 	case "aws-native:securityhub:Standard":
 		r = &Standard{}
 	default:

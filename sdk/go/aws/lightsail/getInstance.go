@@ -37,6 +37,8 @@ type LookupInstanceResult struct {
 	Hardware *InstanceHardware `pulumi:"hardware"`
 	// The Amazon Resource Name (ARN) of the instance (for example, `arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
 	InstanceArn *string `pulumi:"instanceArn"`
+	// IPv6 addresses of the instance
+	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// Is the IP Address of the Instance is the static IP
 	IsStaticIp *bool `pulumi:"isStaticIp"`
 	// The name of your key pair.
@@ -118,6 +120,11 @@ func (o LookupInstanceResultOutput) Hardware() InstanceHardwarePtrOutput {
 // The Amazon Resource Name (ARN) of the instance (for example, `arn:aws:lightsail:us-east-2:123456789101:Instance/244ad76f-8aad-4741-809f-12345EXAMPLE` ).
 func (o LookupInstanceResultOutput) InstanceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInstanceResult) *string { return v.InstanceArn }).(pulumi.StringPtrOutput)
+}
+
+// IPv6 addresses of the instance
+func (o LookupInstanceResultOutput) Ipv6Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupInstanceResult) []string { return v.Ipv6Addresses }).(pulumi.StringArrayOutput)
 }
 
 // Is the IP Address of the Instance is the static IP

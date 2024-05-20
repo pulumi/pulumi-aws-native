@@ -34,7 +34,7 @@ export interface GetIdentitySourceResult {
     /**
      * Contains configuration information about an identity source.
      */
-    readonly configuration?: outputs.verifiedpermissions.IdentitySourceConfiguration;
+    readonly configuration?: outputs.verifiedpermissions.IdentitySourceConfigurationProperties;
     readonly details?: outputs.verifiedpermissions.IdentitySourceDetails;
     /**
      * The unique ID of the new or updated identity store.

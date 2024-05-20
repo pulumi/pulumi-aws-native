@@ -66,7 +66,7 @@ export class IdentitySource extends pulumi.CustomResource {
     /**
      * Contains configuration information about an identity source.
      */
-    public readonly configuration!: pulumi.Output<outputs.verifiedpermissions.IdentitySourceConfiguration>;
+    public readonly configuration!: pulumi.Output<outputs.verifiedpermissions.IdentitySourceConfigurationProperties>;
     public /*out*/ readonly details!: pulumi.Output<outputs.verifiedpermissions.IdentitySourceDetails>;
     /**
      * The unique ID of the new or updated identity store.
@@ -124,7 +124,7 @@ export interface IdentitySourceArgs {
     /**
      * Contains configuration information about an identity source.
      */
-    configuration: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationArgs>;
+    configuration: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfigurationPropertiesArgs>;
     /**
      * Specifies the ID of the policy store in which you want to store this identity source. Only policies and requests made using this policy store can reference identities from the identity provider configured in the new identity source.
      */
